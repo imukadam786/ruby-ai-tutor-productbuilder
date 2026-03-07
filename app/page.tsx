@@ -8,6 +8,7 @@ import ProgressTracker from "@/components/ProgressTracker";
 import DiagnosticSession from "@/components/ruby/DiagnosticSession";
 import SkillTreeView from "@/components/ruby/SkillTreeView";
 import StudentDashboard from "@/components/ruby/StudentDashboard";
+import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import { ActiveView } from "@/types";
 import { getProgress, incrementSession } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
@@ -23,6 +24,7 @@ const viewLabels: Record<ActiveView, string> = {
 };
 
 export default function Home() {
+  const [onboardingDone, setOnboardingDone] = useState<boolean | null>(null);
   const [activeView, setActiveView] = useState<ActiveView>("chat");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [stats, setStats] = useState({
@@ -31,6 +33,11 @@ export default function Home() {
     topicsCount: 0,
   });
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
+
+  useEffect(() => {
+    const done = localStorage.getItem("onboardingComplete") === "true";
+    setOnboardingDone(done);
+  }, []);
 
   const refreshStats = useCallback(() => {
     const progress = getProgress();
@@ -43,9 +50,15 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    incrementSession();
-    refreshStats();
-  }, [refreshStats]);
+    if (onboardingDone) {
+      incrementSession();
+      refreshStats();
+    }
+  }, [onboardingDone, refreshStats]);
+
+  const handleOnboardingComplete = (_data: OnboardingData) => {
+    setOnboardingDone(true);
+  };
 
   const handleViewChange = (view: ActiveView) => {
     setActiveView(view);
@@ -53,6 +66,14 @@ export default function Home() {
       setRubyProfile(getStudentProfile());
     }
   };
+
+  // Waiting for localStorage check
+  if (onboardingDone === null) return null;
+
+  // Show onboarding if not completed
+  if (!onboardingDone) {
+    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+  }
 
   return (
     <div className="flex h-full bg-gray-100">
