@@ -9,23 +9,26 @@ import DiagnosticSession from "@/components/ruby/DiagnosticSession";
 import SkillTreeView from "@/components/ruby/SkillTreeView";
 import StudentDashboard from "@/components/ruby/StudentDashboard";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
+import HomeScreen from "@/components/HomeScreen";
 import { ActiveView } from "@/types";
 import { getProgress, incrementSession } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
 import { StudentProfile } from "@/types/ruby";
 
 const viewLabels: Record<ActiveView, string> = {
-  chat: "Chat Tutor",
-  lessons: "Lessons",
+  home: "Home",
+  chat: "Chat",
+  lessons: "Homework",
   progress: "Progress",
-  ruby: "Ruby Math",
+  ruby: "Study Room",
   "skill-tree": "Skill Tree",
-  "student-dashboard": "Student Profile",
+  "student-dashboard": "Account",
+  watch: "Watch",
 };
 
 export default function Home() {
   const [onboardingDone, setOnboardingDone] = useState<boolean | null>(null);
-  const [activeView, setActiveView] = useState<ActiveView>("chat");
+  const [activeView, setActiveView] = useState<ActiveView>("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [stats, setStats] = useState({
     totalMessages: 0,
@@ -107,12 +110,18 @@ export default function Home() {
       />
 
       <main className="flex-1 overflow-hidden pt-14 md:pt-0">
+        {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
         {activeView === "chat" && <ChatInterface onMessageSent={refreshStats} />}
         {activeView === "lessons" && <LessonPlan onLessonCompleted={refreshStats} />}
         {activeView === "progress" && <ProgressTracker />}
         {activeView === "ruby" && <DiagnosticSession />}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
+        {activeView === "watch" && (
+          <div className="flex items-center justify-center h-full text-gray-400 text-sm">
+            Coming soon
+          </div>
+        )}
       </main>
     </div>
   );
