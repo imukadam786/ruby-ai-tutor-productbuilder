@@ -38,6 +38,12 @@ export default function Home() {
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("reset") !== null) {
+      localStorage.removeItem("onboardingComplete");
+      localStorage.removeItem("onboardingData");
+      window.history.replaceState({}, "", window.location.pathname);
+    }
     const done = localStorage.getItem("onboardingComplete") === "true";
     setOnboardingDone(done);
   }, []);
