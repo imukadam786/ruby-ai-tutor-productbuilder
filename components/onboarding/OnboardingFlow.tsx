@@ -124,17 +124,16 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
   return (
     <div className="min-h-screen bg-[#eef1f7] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        {/* Card */}
+        {/* Steps 1–6: single card with progress bar */}
+        {step <= 6 && (
         <div className="bg-white rounded-3xl shadow-sm overflow-hidden">
           {/* Progress bar */}
-          {showProgressBar && (
-            <div className="h-1.5 bg-gray-200">
-              <div
-                className="h-full bg-red-600 transition-all duration-500 ease-out"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-          )}
+          <div className="h-1.5 bg-gray-200">
+            <div
+              className="h-full bg-red-600 transition-all duration-500 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
 
           <div className="p-6">
             {/* ── Step 1: Language ── */}
@@ -356,6 +355,7 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
             )}
           </div>
         </div>
+        )}
 
         {/* ── Step 7: Create Account (outside card style) ── */}
         {step === 7 && (
