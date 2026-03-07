@@ -1,0 +1,98 @@
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import Sidebar from "@/components/Sidebar";
+import ChatInterface from "@/components/ChatInterface";
+import LessonPlan from "@/components/LessonPlan";
+import ProgressTracker from "@/components/ProgressTracker";
+import DiagnosticSession from "@/components/ruby/DiagnosticSession";
+import SkillTreeView from "@/components/ruby/SkillTreeView";
+import StudentDashboard from "@/components/ruby/StudentDashboard";
+import { ActiveView } from "@/types";
+import { getProgress, incrementSession } from "@/lib/storage";
+import { getStudentProfile } from "@/lib/student-model";
+import { StudentProfile } from "@/types/ruby";
+
+const viewLabels: Record<ActiveView, string> = {
+  chat: "Chat Tutor",
+  lessons: "Lessons",
+  progress: "Progress",
+  ruby: "Ruby Math",
+  "skill-tree": "Skill Tree",
+  "student-dashboard": "Student Profile",
+};
+
+export default function Home() {
+  const [activeView, setActiveView] = useState<ActiveView>("chat");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [stats, setStats] = useState({
+    totalMessages: 0,
+    lessonsCompleted: 0,
+    topicsCount: 0,
+  });
+  const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
+
+  const refreshStats = useCallback(() => {
+    const progress = getProgress();
+    setStats({
+      totalMessages: progress.totalMessages,
+      lessonsCompleted: progress.lessonsCompleted,
+      topicsCount: progress.topicsStudied.length,
+    });
+    setRubyProfile(getStudentProfile());
+  }, []);
+
+  useEffect(() => {
+    incrementSession();
+    refreshStats();
+  }, [refreshStats]);
+
+  const handleViewChange = (view: ActiveView) => {
+    setActiveView(view);
+    if (view === "skill-tree" || view === "student-dashboard") {
+      setRubyProfile(getStudentProfile());
+    }
+  };
+
+  return (
+    <div className="flex h-full bg-gray-100">
+      {/* Mobile top bar */}
+      <header className="md:hidden fixed top-0 left-0 right-0 z-30 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm">
+        <button
+          onClick={() => setSidebarOpen(true)}
+          className="p-2 -ml-1 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+          aria-label="Open menu"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white text-sm font-bold">
+            R
+          </div>
+          <span className="font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
+        </div>
+      </header>
+
+      <Sidebar
+        activeView={activeView}
+        onViewChange={handleViewChange}
+        totalMessages={stats.totalMessages}
+        lessonsCompleted={stats.lessonsCompleted}
+        topicsCount={stats.topicsCount}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
+
+      <main className="flex-1 overflow-hidden pt-14 md:pt-0">
+        {activeView === "chat" && <ChatInterface onMessageSent={refreshStats} />}
+        {activeView === "lessons" && <LessonPlan onLessonCompleted={refreshStats} />}
+        {activeView === "progress" && <ProgressTracker />}
+        {activeView === "ruby" && <DiagnosticSession />}
+        {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
+        {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
+      </main>
+    </div>
+  );
+}
