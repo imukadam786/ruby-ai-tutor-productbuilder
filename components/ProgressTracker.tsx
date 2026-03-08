@@ -7,7 +7,7 @@ import { getStudentProfile, getSkillById, getLevelById } from "@/lib/student-mod
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 function TrophyIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <svg className={className} fill="#D97706" viewBox="0 0 24 24">
       <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.99 5.99 0 0011 17v2H7v2h10v-2h-4v-2a5.99 5.99 0 003.61-4.06C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
     </svg>
   );
