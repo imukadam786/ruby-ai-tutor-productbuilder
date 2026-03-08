@@ -70,9 +70,9 @@ export default function Sidebar({
   onLogout,
 }: SidebarProps) {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
-    general: true,
-    maths: true,
-    reading: true,
+    general: false,
+    maths: false,
+    reading: false,
   });
 
   const toggleSection = (key: string) =>
