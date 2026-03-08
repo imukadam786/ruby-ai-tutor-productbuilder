@@ -33,4 +33,4 @@ export interface ProgressData {
   subjectBreakdown: Record<string, number>;
 }
 
-export type ActiveView = "home" | "chat" | "lessons" | "progress" | "ruby" | "skill-tree" | "student-dashboard" | "watch";
+export type ActiveView = "home" | "chat" | "lessons" | "progress" | "ruby" | "skill-tree" | "student-dashboard" | "watch" | "reading" | "reading-skill-tree";

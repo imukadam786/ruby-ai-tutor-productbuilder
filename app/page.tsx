@@ -17,13 +17,15 @@ import { StudentProfile } from "@/types/ruby";
 
 const viewLabels: Record<ActiveView, string> = {
   home: "Home",
-  chat: "Chat",
-  lessons: "Homework",
+  chat: "Homework",
+  lessons: "Lesson Plans",
   progress: "Progress",
-  ruby: "Study Room",
+  ruby: "Maths",
   "skill-tree": "Skill Tree",
   "student-dashboard": "Account",
   watch: "Watch",
+  reading: "Reading",
+  "reading-skill-tree": "Reading Skill Tree",
 };
 
 export default function Home() {
@@ -71,7 +73,7 @@ export default function Home() {
 
   const handleViewChange = (view: ActiveView) => {
     setActiveView(view);
-    if (view === "skill-tree" || view === "student-dashboard") {
+    if (view === "skill-tree" || view === "reading-skill-tree" || view === "student-dashboard") {
       setRubyProfile(getStudentProfile());
     }
   };
@@ -123,7 +125,7 @@ export default function Home() {
         {activeView === "ruby" && <DiagnosticSession />}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
-        {activeView === "watch" && (
+        {(activeView === "watch" || activeView === "reading" || activeView === "reading-skill-tree") && (
           <div className="flex items-center justify-center h-full text-gray-400 text-sm">
             Coming soon
           </div>
