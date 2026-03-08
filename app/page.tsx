@@ -123,6 +123,12 @@ export default function Home() {
         topicsCount={stats.topicsCount}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        onSettings={() => alert("Settings coming soon")}
+        onLogout={() => {
+          localStorage.removeItem("onboardingComplete");
+          localStorage.removeItem("onboardingData");
+          window.location.reload();
+        }}
       />
 
       <main className="flex-1 overflow-hidden pt-14 md:pt-0 h-full">
