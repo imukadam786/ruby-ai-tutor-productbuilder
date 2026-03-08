@@ -16,19 +16,60 @@ const WELCOME_MSG =
 
 function RubyAvatar({ size = "w-8 h-8" }: { size?: string }) {
   return (
-    <div className={`${size} rounded-full flex-shrink-0 overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800`}>
+    <div className={`${size} rounded-full flex-shrink-0 overflow-hidden`}>
+      {/* Check for custom image first, fallback to built-in SVG character */}
       <img
         src="/ruby-avatar.png"
         alt="Ruby"
         className="w-full h-full object-cover"
         onError={(e) => {
-          // Fallback to initials if image not found
-          const el = e.currentTarget;
-          el.style.display = "none";
-          el.parentElement!.innerHTML =
-            `<span class="w-full h-full flex items-center justify-center text-white text-sm font-bold">R</span>`;
+          e.currentTarget.style.display = "none";
+          (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = "block";
         }}
       />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        className="w-full h-full hidden"
+        style={{ display: "none" }}
+      >
+        {/* Circle background */}
+        <circle cx="50" cy="50" r="50" fill="#f3f0ff" />
+        {/* Body / cape */}
+        <ellipse cx="50" cy="82" rx="28" ry="22" fill="#e02020" />
+        <ellipse cx="50" cy="78" rx="18" ry="16" fill="#ff4444" />
+        {/* Ruby symbol on chest */}
+        <polygon points="50,62 44,68 50,74 56,68" fill="#fff" opacity="0.9" />
+        {/* Neck */}
+        <rect x="44" y="52" width="12" height="10" rx="4" fill="#f9c9a0" />
+        {/* Head */}
+        <ellipse cx="50" cy="44" rx="18" ry="18" fill="#f9c9a0" />
+        {/* Hair — top */}
+        <ellipse cx="50" cy="28" rx="18" ry="10" fill="#cc1a1a" />
+        {/* Hair — sides */}
+        <ellipse cx="34" cy="42" rx="7" ry="12" fill="#cc1a1a" />
+        <ellipse cx="66" cy="42" rx="7" ry="12" fill="#cc1a1a" />
+        {/* Hair curls */}
+        <ellipse cx="36" cy="56" rx="5" ry="7" fill="#cc1a1a" />
+        <ellipse cx="64" cy="56" rx="5" ry="7" fill="#cc1a1a" />
+        {/* Hat brim */}
+        <ellipse cx="50" cy="28" rx="22" ry="5" fill="#aa0000" />
+        {/* Hat top */}
+        <ellipse cx="50" cy="20" rx="14" ry="12" fill="#cc1a1a" />
+        {/* Hat band */}
+        <rect x="36" y="24" width="28" height="5" rx="2" fill="#aa0000" />
+        {/* Eyes */}
+        <ellipse cx="44" cy="44" rx="3.5" ry="4" fill="#2d1a0e" />
+        <ellipse cx="56" cy="44" rx="3.5" ry="4" fill="#2d1a0e" />
+        {/* Eye shine */}
+        <circle cx="45.5" cy="42.5" r="1.2" fill="white" />
+        <circle cx="57.5" cy="42.5" r="1.2" fill="white" />
+        {/* Blush */}
+        <ellipse cx="40" cy="50" rx="4" ry="2.5" fill="#ffaaaa" opacity="0.6" />
+        <ellipse cx="60" cy="50" rx="4" ry="2.5" fill="#ffaaaa" opacity="0.6" />
+        {/* Smile */}
+        <path d="M44 53 Q50 58 56 53" stroke="#c0776a" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </svg>
     </div>
   );
 }
