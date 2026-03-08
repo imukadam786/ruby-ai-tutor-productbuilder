@@ -89,6 +89,7 @@ export function updateProgress(updates: Partial<ProgressData>): void {
 export function incrementMessageCount(): void {
   const progress = getProgress();
   updateProgress({ totalMessages: progress.totalMessages + 1 });
+  recordDailyActivity();
 }
 
 export function addTopicStudied(topic: string): void {
@@ -104,4 +105,67 @@ export function incrementSession(): void {
     sessionCount: progress.sessionCount + 1,
     lastSession: new Date().toISOString(),
   });
+}
+
+// ── Streak & daily activity ───────────────────────────────────────────────────
+
+const STREAK_KEY = "ruby_streak";
+
+export interface StreakData {
+  currentStreak: number;
+  bestStreak: number;
+  lastActiveDate: string; // "YYYY-MM-DD"
+  dailyActivity: Record<string, number>; // "YYYY-MM-DD" → count
+}
+
+function toDateStr(d: Date): string {
+  return d.toISOString().split("T")[0];
+}
+
+const EMPTY_STREAK: StreakData = {
+  currentStreak: 0,
+  bestStreak: 0,
+  lastActiveDate: "",
+  dailyActivity: {},
+};
+
+export function getStreakData(): StreakData {
+  if (typeof window === "undefined") return { ...EMPTY_STREAK };
+  try {
+    const raw = localStorage.getItem(STREAK_KEY);
+    return raw ? JSON.parse(raw) : { ...EMPTY_STREAK };
+  } catch {
+    return { ...EMPTY_STREAK };
+  }
+}
+
+export function recordDailyActivity(): void {
+  if (typeof window === "undefined") return;
+  const data = getStreakData();
+  const today = toDateStr(new Date());
+
+  const updatedActivity = {
+    ...data.dailyActivity,
+    [today]: (data.dailyActivity[today] || 0) + 1,
+  };
+
+  let { currentStreak, bestStreak } = data;
+
+  if (data.lastActiveDate === today) {
+    // Same day — just bump activity count, streak unchanged
+  } else {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    if (data.lastActiveDate === toDateStr(yesterday)) {
+      currentStreak += 1; // consecutive day
+    } else {
+      currentStreak = 1; // streak broken (or first day)
+    }
+    bestStreak = Math.max(bestStreak, currentStreak);
+  }
+
+  localStorage.setItem(
+    STREAK_KEY,
+    JSON.stringify({ currentStreak, bestStreak, lastActiveDate: today, dailyActivity: updatedActivity })
+  );
 }
