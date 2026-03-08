@@ -11,7 +11,6 @@ import {
 import {
   getReadingProfile,
   createReadingProfile,
-  saveReadingProfile,
   getReadingSkillById,
   getNextReadingSkillId,
   advanceToReadingSkill,
@@ -474,29 +473,109 @@ function ReadingQuestionCard({
   const [hintVisible, setHintVisible] = useState(false);
   const [usedHint, setUsedHint] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [speaking, setSpeaking] = useState(false);
+  const [listening, setListening] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const recognitionRef = useState<any>(null);
 
   const config = templateConfig[question.template] || templateConfig.oral;
 
+  // ── TTS: play / stop question text ───────────────────────────────────────────
+  const handlePlayText = (text: string) => {
+    if (speaking) {
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      return;
+    }
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.rate = 0.9;
+    utt.onend = () => setSpeaking(false);
+    utt.onerror = () => setSpeaking(false);
+    setSpeaking(true);
+    window.speechSynthesis.speak(utt);
+  };
+
+  // ── STT: microphone → answer box ─────────────────────────────────────────────
+  const handleMic = () => {
+    if (listening) {
+      recognitionRef[0]?.stop();
+      setListening(false);
+      return;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const SR = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
+    if (!SR) {
+      alert("Speech recognition is not supported in this browser. Please use Chrome.");
+      return;
+    }
+    const rec = new SR();
+    rec.continuous = false;
+    rec.interimResults = true;
+    rec.lang = "en-US";
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    rec.onresult = (e: any) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const transcript = Array.from(e.results as any[])
+        .map((r: any) => r[0].transcript)
+        .join("");
+      setAnswer(transcript);
+    };
+    rec.onend = () => setListening(false);
+    rec.onerror = () => setListening(false);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (recognitionRef as any)[0] = rec;
+    rec.start();
+    setListening(true);
+  };
+
   const handleSubmit = async () => {
     if (!answer.trim() || submitting) return;
+    window.speechSynthesis.cancel();
+    setSpeaking(false);
     setSubmitting(true);
-    await onSubmit(answer, "", usedHint);
+    onSubmit(answer, "", usedHint);
     setSubmitting(false);
   };
 
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+      {/* Template badge */}
       <div className={`px-5 py-3 flex items-center gap-2 border-b border-gray-100 ${config.colorClass}`}>
         <span>{config.icon}</span>
         <span className="text-sm font-medium">{config.label}</span>
       </div>
 
+      {/* Question + play button */}
       <div className="px-6 py-6">
-        <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap">
-          {question.question}
-        </p>
+        <div className="flex items-start gap-3">
+          <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap flex-1">
+            {question.question}
+          </p>
+          <button
+            onClick={() => handlePlayText(question.question)}
+            title={speaking ? "Stop" : "Play question aloud"}
+            className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+              speaking
+                ? "bg-purple-600 text-white shadow-md"
+                : "bg-purple-100 text-purple-600 hover:bg-purple-200"
+            }`}
+          >
+            {speaking ? (
+              /* Stop icon */
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <rect x="6" y="6" width="12" height="12" rx="2" />
+              </svg>
+            ) : (
+              /* Play icon */
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
+      {/* Hint */}
       {question.hint && (
         <div className="px-6 pb-4">
           {!hintVisible ? (
@@ -511,26 +590,76 @@ function ReadingQuestionCard({
             </button>
           ) : (
             <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3">
-              <p className="text-yellow-800 text-sm">
-                <span className="font-medium">Hint: </span>{question.hint}
-              </p>
+              <div className="flex items-start gap-2">
+                <p className="text-yellow-800 text-sm flex-1">
+                  <span className="font-medium">Hint: </span>{question.hint}
+                </p>
+                <button
+                  onClick={() => handlePlayText(question.hint!)}
+                  title={speaking ? "Stop" : "Play hint aloud"}
+                  className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
+                    speaking ? "bg-yellow-500 text-white" : "bg-yellow-200 text-yellow-700 hover:bg-yellow-300"
+                  }`}
+                >
+                  {speaking ? (
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" /></svg>
+                  ) : (
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                  )}
+                </button>
+              </div>
             </div>
           )}
         </div>
       )}
 
+      {/* Mic answer input */}
       <div className="px-6 pb-6 space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1.5">Your Answer</label>
-          <textarea
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
-            placeholder="Write your answer here..."
-            rows={3}
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400 resize-none"
-            disabled={submitting}
-          />
+          <div className="relative">
+            <div
+              className={`w-full min-h-[72px] border rounded-xl px-4 py-3 text-sm leading-relaxed transition-all ${
+                answer ? "text-gray-800" : "text-gray-400"
+              } ${
+                listening
+                  ? "border-red-400 bg-red-50 ring-2 ring-red-300"
+                  : "border-gray-200 bg-gray-50"
+              }`}
+            >
+              {answer || "Your answer will display here"}
+            </div>
+            {/* Mic button overlay */}
+            <button
+              onClick={handleMic}
+              title={listening ? "Stop recording" : "Tap to speak your answer"}
+              className={`absolute right-3 bottom-3 w-9 h-9 rounded-full flex items-center justify-center transition-all shadow ${
+                listening
+                  ? "bg-red-500 text-white animate-pulse"
+                  : "bg-purple-500 text-white hover:bg-purple-600"
+              }`}
+            >
+              {listening ? (
+                /* Recording — stop icon */
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <rect x="6" y="6" width="12" height="12" rx="2" />
+                </svg>
+              ) : (
+                /* Mic icon */
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1 1.93c-3.95-.49-7-3.85-7-7.93H6c0 3.31 2.69 6 6 6s6-2.69 6-6h2c0 4.08-3.05 7.44-7 7.93V21h-2v-5.07z" />
+                </svg>
+              )}
+            </button>
+          </div>
+          {listening && (
+            <p className="text-xs text-red-500 mt-1.5 flex items-center gap-1">
+              <span className="w-2 h-2 bg-red-500 rounded-full inline-block animate-pulse" />
+              Listening... speak your answer
+            </p>
+          )}
         </div>
+
         <button
           onClick={handleSubmit}
           disabled={!answer.trim() || submitting}
