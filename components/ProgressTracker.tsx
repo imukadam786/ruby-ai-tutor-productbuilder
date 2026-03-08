@@ -1,179 +1,168 @@
 "use client";
 
-import { getProgress, getLessons } from "@/lib/storage";
 import { useMemo } from "react";
+import { getProgress } from "@/lib/storage";
+import { getStudentProfile, getSkillById, getLevelById } from "@/lib/student-model";
 
 export default function ProgressTracker() {
   const progress = useMemo(() => getProgress(), []);
-  const lessons = useMemo(() => getLessons(), []);
+  const profile = useMemo(() => getStudentProfile(), []);
 
-  const completedLessons = lessons.filter((l) => l.completed);
-  const inProgressLessons = lessons.filter((l) => !l.completed);
+  const mastery = profile?.skill_mastery ?? {};
+  const masteredEntries = Object.entries(mastery).filter(([, m]) => m.status === "mastered");
+  const inProgressEntries = Object.entries(mastery).filter(([, m]) => m.status === "in_progress");
 
-  const lastSessionDate = progress.lastSession
-    ? new Date(progress.lastSession).toLocaleDateString("en-US", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : "No sessions yet";
+  const accuracy =
+    profile && profile.total_attempts > 0
+      ? Math.round((profile.total_correct / profile.total_attempts) * 100)
+      : null;
 
-  const topSubjects = Object.entries(progress.subjectBreakdown)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 5);
+  const currentLevel = profile ? getLevelById(profile.current_level) : null;
+  const currentSkill = profile ? getSkillById(profile.current_skill_id) : null;
 
-  const maxCount = Math.max(...topSubjects.map(([, c]) => c), 1);
+  // Skills mastered in current level
+  const levelMastered = currentLevel
+    ? currentLevel.tiers.flatMap((t) => t.atomic_skills).filter((s) => mastery[s.id]?.status === "mastered").length
+    : 0;
+  const levelTotal = currentLevel
+    ? currentLevel.tiers.flatMap((t) => t.atomic_skills).length
+    : 1;
+
+  const isEmpty = !profile && progress.sessionCount === 0;
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-6 py-4">
-        <h2 className="text-gray-900 font-semibold text-lg">Your Progress</h2>
-        <p className="text-gray-500 text-sm">Track your learning journey</p>
+      <div className="bg-white border-b border-gray-100 px-6 py-4">
+        <h2 className="text-gray-900 font-semibold text-lg">Progress</h2>
+        <p className="text-gray-500 text-sm">Your skill tree journey</p>
       </div>
 
       <div className="flex-1 overflow-y-auto p-6">
-        <div className="max-w-2xl mx-auto space-y-5">
-          {/* Key stats */}
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="max-w-3xl mx-auto space-y-5">
+
+          {/* ── Overview stats ─────────────────────────────────────────── */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
+              { label: "Skills Mastered", value: masteredEntries.length, color: "text-blue-600",   bg: "bg-blue-50" },
+              { label: "In Progress",     value: inProgressEntries.length, color: "text-amber-500", bg: "bg-amber-50" },
+              { label: "Study Sessions",  value: progress.sessionCount,   color: "text-purple-600", bg: "bg-purple-50" },
               {
-                label: "Messages Sent",
-                value: progress.totalMessages,
-                icon: "💬",
-                color: "blue",
+                label: "Accuracy",
+                value: accuracy !== null ? `${accuracy}%` : "—",
+                color: "text-green-600",
+                bg: "bg-green-50",
               },
-              {
-                label: "Topics Studied",
-                value: progress.topicsStudied.length,
-                icon: "🧠",
-                color: "purple",
-              },
-              {
-                label: "Lessons Done",
-                value: progress.lessonsCompleted,
-                icon: "✅",
-                color: "green",
-              },
-              {
-                label: "Study Sessions",
-                value: progress.sessionCount,
-                icon: "🎯",
-                color: "orange",
-              },
-            ].map(({ label, value, icon, color }) => (
-              <div
-                key={label}
-                className="bg-white border border-gray-200 rounded-2xl p-5 text-center shadow-sm"
-              >
-                <div className="text-3xl mb-2">{icon}</div>
-                <div
-                  className={`text-2xl font-bold text-${color}-600`}
-                >
-                  {value}
-                </div>
-                <div className="text-gray-500 text-xs mt-1">{label}</div>
+            ].map(({ label, value, color, bg }) => (
+              <div key={label} className={`${bg} rounded-2xl px-4 py-4 flex flex-col gap-1`}>
+                <span className={`text-2xl font-bold ${color}`}>{value}</span>
+                <span className="text-xs text-gray-500 leading-tight">{label}</span>
               </div>
             ))}
           </div>
 
-          {/* Last session */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-            <h3 className="font-semibold text-gray-800 mb-1">Last Session</h3>
-            <p className="text-gray-500 text-sm">{lastSessionDate}</p>
-          </div>
+          {/* ── Current focus ──────────────────────────────────────────── */}
+          {profile && currentLevel && (
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm space-y-3">
+              <h3 className="font-semibold text-gray-800 text-sm">Current Focus</h3>
 
-          {/* Subject breakdown */}
-          {topSubjects.length > 0 && (
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-800 mb-4">Subject Breakdown</h3>
-              <div className="space-y-3">
-                {topSubjects.map(([subject, count]) => (
-                  <div key={subject}>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-gray-700 font-medium">{subject}</span>
-                      <span className="text-gray-400">
-                        {count} lesson{count !== 1 ? "s" : ""}
-                      </span>
-                    </div>
-                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-blue-500 rounded-full transition-all"
-                        style={{ width: `${(count / maxCount) * 100}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+              {/* Level badge + name */}
+              <div className="flex items-center gap-3">
+                <span className="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                  Level {profile.current_level}
+                </span>
+                <span className="text-gray-700 text-sm font-medium">{currentLevel.title}</span>
+              </div>
+
+              {/* Current skill */}
+              {currentSkill && (
+                <div className="bg-gray-50 rounded-xl px-4 py-3">
+                  <p className="text-xs text-gray-400 mb-0.5">Active skill</p>
+                  <p className="text-gray-800 text-sm font-medium">{currentSkill.title}</p>
+                  {currentSkill.description && (
+                    <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{currentSkill.description}</p>
+                  )}
+                </div>
+              )}
+
+              {/* Level progress bar */}
+              <div>
+                <div className="flex justify-between text-xs text-gray-500 mb-1.5">
+                  <span>Level progress</span>
+                  <span>{levelMastered} / {levelTotal} skills</span>
+                </div>
+                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                    style={{ width: `${Math.round((levelMastered / levelTotal) * 100)}%` }}
+                  />
+                </div>
               </div>
             </div>
           )}
 
-          {/* Topics list */}
-          {progress.topicsStudied.length > 0 && (
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-800 mb-3">Topics Studied</h3>
+          {/* ── Mastered skills ────────────────────────────────────────── */}
+          {masteredEntries.length > 0 && (
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+              <h3 className="font-semibold text-gray-800 text-sm mb-3">
+                Mastered Skills
+                <span className="ml-2 bg-blue-100 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded-full">
+                  {masteredEntries.length}
+                </span>
+              </h3>
               <div className="flex flex-wrap gap-2">
-                {progress.topicsStudied.map((topic) => (
-                  <span
-                    key={topic}
-                    className="bg-blue-50 text-blue-700 text-xs px-3 py-1.5 rounded-full font-medium"
-                  >
-                    {topic}
-                  </span>
-                ))}
+                {masteredEntries.map(([skillId]) => {
+                  const skill = getSkillById(skillId);
+                  return (
+                    <span
+                      key={skillId}
+                      className="bg-blue-50 text-blue-700 text-xs px-3 py-1.5 rounded-full font-medium"
+                      title={skillId}
+                    >
+                      {skill?.title ?? skillId}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           )}
 
-          {/* Lessons status */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                <span className="text-green-500">✅</span> Completed Lessons
+          {/* ── In Progress skills ─────────────────────────────────────── */}
+          {inProgressEntries.length > 0 && (
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+              <h3 className="font-semibold text-gray-800 text-sm mb-3">
+                In Progress
+                <span className="ml-2 bg-amber-100 text-amber-600 text-xs font-semibold px-2 py-0.5 rounded-full">
+                  {inProgressEntries.length}
+                </span>
               </h3>
-              {completedLessons.length === 0 ? (
-                <p className="text-gray-400 text-sm">No completed lessons yet</p>
-              ) : (
-                <ul className="space-y-2">
-                  {completedLessons.map((l) => (
-                    <li key={l.id} className="text-sm text-gray-700">
-                      <span className="font-medium">{l.topic}</span>
-                      <span className="text-gray-400 text-xs ml-1">({l.subject})</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <div className="flex flex-wrap gap-2">
+                {inProgressEntries.map(([skillId]) => {
+                  const skill = getSkillById(skillId);
+                  return (
+                    <span
+                      key={skillId}
+                      className="bg-amber-50 text-amber-700 text-xs px-3 py-1.5 rounded-full font-medium"
+                    >
+                      {skill?.title ?? skillId}
+                    </span>
+                  );
+                })}
+              </div>
             </div>
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                <span className="text-blue-500">📖</span> In Progress
-              </h3>
-              {inProgressLessons.length === 0 ? (
-                <p className="text-gray-400 text-sm">No lessons in progress</p>
-              ) : (
-                <ul className="space-y-2">
-                  {inProgressLessons.map((l) => (
-                    <li key={l.id} className="text-sm text-gray-700">
-                      <span className="font-medium">{l.topic}</span>
-                      <span className="text-gray-400 text-xs ml-1">({l.subject})</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
+          )}
 
-          {/* Empty state */}
-          {progress.totalMessages === 0 && progress.topicsStudied.length === 0 && (
-            <div className="text-center py-8 text-gray-400">
-              <p className="text-5xl mb-3">🌱</p>
+          {/* ── Empty state ────────────────────────────────────────────── */}
+          {isEmpty && (
+            <div className="text-center py-12 text-gray-400">
+              <div className="text-5xl mb-3">🌱</div>
               <p className="font-medium text-gray-600">Your learning journey starts here!</p>
               <p className="text-sm mt-1">
-                Start chatting with Rub or generate a lesson plan to track your progress.
+                Head to Maths to start your first skill and track your progress here.
               </p>
             </div>
           )}
+
         </div>
       </div>
     </div>
