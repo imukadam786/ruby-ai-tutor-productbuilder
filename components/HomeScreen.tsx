@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
+import { getProgress } from "@/lib/storage";
+import { getStudentProfile } from "@/lib/student-model";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
@@ -30,6 +32,33 @@ function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   );
 }
 
+interface Stats {
+  skillsMastered: number;
+  inProgress: number;
+  lessonsDone: number;
+  studySessions: number;
+}
+
+function loadStats(): Stats {
+  const progress = getProgress();
+  const profile = getStudentProfile();
+  const mastery = profile?.skill_mastery ?? {};
+  const values = Object.values(mastery);
+  return {
+    skillsMastered: values.filter((m) => m.status === "mastered").length,
+    inProgress: values.filter((m) => m.status === "in_progress").length,
+    lessonsDone: progress.lessonsCompleted,
+    studySessions: progress.sessionCount,
+  };
+}
+
+const statDefs = [
+  { key: "skillsMastered" as const, label: "Skills Mastered", color: "text-blue-600" },
+  { key: "inProgress" as const,     label: "In Progress",     color: "text-amber-500" },
+  { key: "lessonsDone" as const,    label: "Lessons Done",    color: "text-green-600" },
+  { key: "studySessions" as const,  label: "Study Sessions",  color: "text-purple-600" },
+];
+
 const quickActions = [
   {
     id: "continue",
@@ -37,7 +66,7 @@ const quickActions = [
     subtitle: "Pick up where you left off",
     view: "chat" as ActiveView,
     bg: "bg-blue-600",
-    hoverBg: "hover:bg-blue-700",
+    hover: "hover:bg-blue-700",
     icon: (
       <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
         <path d="M8 5v14l11-7z" />
@@ -50,7 +79,7 @@ const quickActions = [
     subtitle: "Answer a question, earn 5 rubies",
     view: "ruby" as ActiveView,
     bg: "bg-orange-500",
-    hoverBg: "hover:bg-orange-600",
+    hover: "hover:bg-orange-600",
     icon: (
       <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
         <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
@@ -112,56 +141,61 @@ const learningModes = [
 
 export default function HomeScreen({ onNavigate }: HomeScreenProps) {
   const [firstName, setFirstName] = useState("there");
+  const [stats, setStats] = useState<Stats>({
+    skillsMastered: 0,
+    inProgress: 0,
+    lessonsDone: 0,
+    studySessions: 0,
+  });
 
   useEffect(() => {
+    // Load name
     try {
       const raw = localStorage.getItem("onboardingData");
       if (raw) {
         const parsed = JSON.parse(raw);
-        const full: string = parsed.name || "";
-        const first = full.trim().split(/\s+/)[0];
+        const first = (parsed.name as string | undefined)?.trim().split(/\s+/)[0];
         if (first) setFirstName(first);
       }
-    } catch {
-      // ignore
-    }
+    } catch { /* ignore */ }
+
+    // Load stats
+    setStats(loadStats());
   }, []);
 
   return (
     <div className="h-full overflow-y-auto bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 py-8 sm:px-6 sm:py-10">
+      {/* Wider container: max-w-4xl ≈ 896px, generous side padding */}
+      <div className="max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
 
-        {/* ── Hero ───────────────────────────────────────────────── */}
-        <div className="flex items-center gap-4 mb-8">
+        {/* ── Hero ─────────────────────────────────────────────────────── */}
+        <div className="flex items-center gap-4 mb-6">
           <RubyAvatar size="w-14 h-14" />
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">
-              Hi {firstName} 👋
-            </h1>
+            <h1 className="text-2xl font-bold text-gray-900">Hi {firstName} 👋</h1>
             <p className="text-gray-500 text-sm mt-0.5">Ready to keep learning?</p>
           </div>
         </div>
 
-        {/* Primary CTA */}
-        <button
-          onClick={() => onNavigate("chat")}
-          className="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-base rounded-2xl py-4 px-6 flex items-center justify-between transition-colors shadow-md shadow-blue-200 mb-8"
-        >
-          <span>Continue Learning</span>
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
-        </button>
+        {/* ── Progress Stats ────────────────────────────────────────────── */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+          {statDefs.map((s) => (
+            <div key={s.key} className="bg-white rounded-2xl border border-gray-100 px-4 py-4 flex flex-col gap-1 shadow-sm">
+              <span className={`text-2xl font-bold ${s.color}`}>{stats[s.key]}</span>
+              <span className="text-xs text-gray-500 leading-tight">{s.label}</span>
+            </div>
+          ))}
+        </div>
 
-        {/* ── Quick Actions ───────────────────────────────────────── */}
+        {/* ── Quick Actions ─────────────────────────────────────────────── */}
         <section className="mb-8">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Quick Actions</h2>
+          <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Quick Actions</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {quickActions.map((action) => (
               <button
                 key={action.id}
                 onClick={() => onNavigate(action.view)}
-                className={`${action.bg} ${action.hoverBg} rounded-2xl p-5 flex items-center gap-4 text-left transition-colors active:scale-[0.98]`}
+                className={`${action.bg} ${action.hover} rounded-2xl p-5 flex items-center gap-4 text-left transition-colors active:scale-[0.98]`}
               >
                 <div className="w-11 h-11 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
                   {action.icon}
@@ -175,9 +209,9 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
           </div>
         </section>
 
-        {/* ── Learning Modes ──────────────────────────────────────── */}
+        {/* ── Learning Modes ────────────────────────────────────────────── */}
         <section>
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Learning Modes</h2>
+          <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Learning Modes</h2>
           <div className="grid grid-cols-2 gap-3">
             {learningModes.map((mode) => (
               <button
