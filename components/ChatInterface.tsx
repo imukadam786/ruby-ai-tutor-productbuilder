@@ -75,7 +75,6 @@ function RubyAvatar({ size = "w-16 h-16" }: { size?: string }) {
 // ── Natural voice engine ──────────────────────────────────────────────────────
 function prepareForSpeech(raw: string): string {
   return raw
-    // Strip markdown
     .replace(/#{1,6}\s+/g, "")
     .replace(/\*\*(.+?)\*\*/g, "$1")
     .replace(/\*(.+?)\*/g, "$1")
@@ -83,80 +82,93 @@ function prepareForSpeech(raw: string): string {
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/^\s*[-*+]\s/gm, "")
     .replace(/^\s*\d+\.\s/gm, "")
-    // Math: turn $...$ into readable form
     .replace(/\$\$([^$]+)\$\$/g, (_, eq) => `the equation: ${eq}`)
     .replace(/\$([^$]+)\$/g, (_, eq) => eq)
-    // Clean up excess whitespace
     .replace(/\n{2,}/g, ". ")
     .replace(/\n/g, " ")
     .replace(/\s{2,}/g, " ")
     .trim();
 }
 
+function pickVoice(): SpeechSynthesisVoice | null {
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = [
+    "Samantha", "Karen", "Moira",
+    "Google UK English Female", "Microsoft Zira",
+    "Microsoft Susan", "Google US English",
+  ];
+  for (const name of preferred) {
+    const v = voices.find((v) => v.name.includes(name));
+    if (v) return v;
+  }
+  return voices.find((v) => v.lang.startsWith("en")) ?? null;
+}
+
+// Returns a cancel() function — calling it stops all queued sentences immediately
 function speakNaturally(
   text: string,
   onStart: () => void,
   onEnd: () => void
-) {
-  if (!("speechSynthesis" in window)) { onEnd(); return; }
+): () => void {
+  let cancelled = false;
+  let timer: ReturnType<typeof setTimeout> | null = null;
+
+  const cancel = () => {
+    cancelled = true;
+    if (timer !== null) { clearTimeout(timer); timer = null; }
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    onEnd();
+  };
+
+  if (!("speechSynthesis" in window)) { onEnd(); return cancel; }
   window.speechSynthesis.cancel();
 
   const cleaned = prepareForSpeech(text);
-  // Split on sentence-ending punctuation
   const sentences = cleaned
     .split(/(?<=[.!?])\s+/)
     .map((s) => s.trim())
     .filter((s) => s.length > 0);
 
-  if (sentences.length === 0) { onEnd(); return; }
-
-  // Pick the best available English voice
-  const pickVoice = () => {
-    const voices = window.speechSynthesis.getVoices();
-    const preferred = [
-      "Samantha", "Karen", "Moira",
-      "Google UK English Female", "Microsoft Zira",
-      "Microsoft Susan", "Google US English",
-    ];
-    for (const name of preferred) {
-      const v = voices.find((v) => v.name.includes(name));
-      if (v) return v;
-    }
-    return voices.find((v) => v.lang.startsWith("en")) ?? null;
-  };
+  if (sentences.length === 0) { onEnd(); return cancel; }
 
   let idx = 0;
   onStart();
 
   const speakNext = () => {
+    if (cancelled) return;
     if (idx >= sentences.length) { onEnd(); return; }
+
     const sentence = sentences[idx++];
     const utt = new SpeechSynthesisUtterance(sentence);
-
-    utt.rate = 0.92;          // natural human pace
-    utt.pitch = 1.12;         // friendly, warm tone
+    utt.rate = 0.92;
+    utt.pitch = 1.12;
     utt.volume = 1;
-
     const voice = pickVoice();
     if (voice) utt.voice = voice;
 
-    // Longer pause after questions, shorter after statements
     const isQuestion = sentence.trim().endsWith("?");
     const hasNumber = /\d/.test(sentence);
     const pauseMs = isQuestion ? 650 : hasNumber ? 450 : 320;
 
-    utt.onend = () => setTimeout(speakNext, pauseMs);
-    utt.onerror = () => setTimeout(speakNext, pauseMs);
+    utt.onend = () => {
+      if (cancelled) return;
+      timer = setTimeout(speakNext, pauseMs);
+    };
+    utt.onerror = () => {
+      if (cancelled) return;
+      timer = setTimeout(speakNext, pauseMs);
+    };
 
     window.speechSynthesis.speak(utt);
   };
 
-  // Voices may not be loaded yet on first call
   if (window.speechSynthesis.getVoices().length === 0) {
     window.speechSynthesis.addEventListener("voiceschanged", speakNext, { once: true });
   } else {
     speakNext();
   }
+
+  return cancel;
 }
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -165,12 +177,12 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [playingMsgId, setPlayingMsgId] = useState<string | null>(null);
   const [attachedFile, setAttachedFile] = useState<File | null>(null);
   const [attachedPreview, setAttachedPreview] = useState<string | null>(null);
   const [showUploadMenu, setShowUploadMenu] = useState(false);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const cancelSpeechRef = useRef<(() => void) | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recognitionRef = useRef<any>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -313,13 +325,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         incrementMessageCount();
         onMessageSent();
 
-        if (fullText) {
-          speakNaturally(
-            fullText.slice(0, 800),
-            () => setIsSpeaking(true),
-            () => setIsSpeaking(false)
-          );
-        }
+        // No auto-play — user can press play button on each message
 
         // Clean up preview URL after sending
         if (previewUrl) URL.revokeObjectURL(previewUrl);
@@ -372,9 +378,22 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   };
 
   const stopVoice = () => { recognitionRef.current?.stop(); setIsListening(false); };
+
   const stopSpeaking = () => {
-    window.speechSynthesis.cancel();
-    setIsSpeaking(false);
+    if (cancelSpeechRef.current) { cancelSpeechRef.current(); cancelSpeechRef.current = null; }
+    setPlayingMsgId(null);
+  };
+
+  const togglePlay = (msgId: string, text: string) => {
+    // If this message is already playing, stop it
+    if (playingMsgId === msgId) { stopSpeaking(); return; }
+    // Stop any other playing message first
+    stopSpeaking();
+    cancelSpeechRef.current = speakNaturally(
+      text.slice(0, 1200),
+      () => setPlayingMsgId(msgId),
+      () => { setPlayingMsgId(null); cancelSpeechRef.current = null; }
+    );
   };
 
   const clearChat = () => {
@@ -398,11 +417,6 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          {isSpeaking && (
-            <button onClick={stopSpeaking} className="flex items-center gap-1.5 px-2.5 py-1.5 bg-orange-100 text-orange-600 rounded-lg text-xs sm:text-sm font-medium hover:bg-orange-200 transition-colors">
-              <span className="animate-pulse">🔊</span> Stop
-            </button>
-          )}
           <button onClick={clearChat} className="px-2.5 py-1.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg text-xs sm:text-sm transition-colors">
             Clear
           </button>
@@ -434,9 +448,33 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
               ) : (
                 <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
               )}
-              <p className={`text-xs mt-2 ${msg.role === "user" ? "text-blue-200" : "text-gray-400"}`}>
-                {new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-              </p>
+              <div className={`flex items-center mt-2 ${msg.role === "user" ? "justify-start" : "justify-between"}`}>
+                <p className={`text-xs ${msg.role === "user" ? "text-blue-200" : "text-gray-400"}`}>
+                  {new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                </p>
+                {msg.role === "assistant" && msg.content && !msg.content.includes("▌") && (
+                  <button
+                    onClick={() => togglePlay(msg.id, msg.content)}
+                    className={`ml-3 w-7 h-7 rounded-full flex items-center justify-center transition-all flex-shrink-0 ${
+                      playingMsgId === msg.id
+                        ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
+                        : "bg-blue-50 text-blue-500 hover:bg-blue-100"
+                    }`}
+                    title={playingMsgId === msg.id ? "Stop" : "Play"}
+                  >
+                    {playingMsgId === msg.id ? (
+                      <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                        <rect x="6" y="4" width="4" height="16" rx="1" />
+                        <rect x="14" y="4" width="4" height="16" rx="1" />
+                      </svg>
+                    ) : (
+                      <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    )}
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         ))}
@@ -452,7 +490,6 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             </div>
           </div>
         )}
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Input area */}
