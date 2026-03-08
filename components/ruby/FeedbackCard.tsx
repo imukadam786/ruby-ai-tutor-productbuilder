@@ -1,11 +1,12 @@
 "use client";
 
+import { useRef } from "react";
 import { DiagnosticResult, ErrorType } from "@/types/ruby";
 
 interface FeedbackCardProps {
   result: DiagnosticResult;
   onNext: () => void;
-  nextLabel: string;
+  nextLabel?: string;
 }
 
 const errorLabels: Record<ErrorType, { label: string; color: string; icon: string }> = {
@@ -16,9 +17,10 @@ const errorLabels: Record<ErrorType, { label: string; color: string; icon: strin
   execution_slip: { label: "Execution Slip", color: "yellow", icon: "✏️" },
 };
 
-export default function FeedbackCard({ result, onNext, nextLabel }: FeedbackCardProps) {
+export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
   const errorInfo = errorLabels[result.error_type];
   const isCorrect = result.is_correct;
+  const touchStartY = useRef(0);
 
   return (
     <div className={`rounded-2xl border-2 overflow-hidden ${
@@ -75,18 +77,21 @@ export default function FeedbackCard({ result, onNext, nextLabel }: FeedbackCard
         )}
       </div>
 
-      {/* Next button */}
-      <div className="px-6 pb-6">
-        <button
-          onClick={onNext}
-          className={`w-full py-3 rounded-xl font-medium transition-all ${
-            isCorrect
-              ? "bg-green-500 hover:bg-green-600 text-white shadow-md shadow-green-500/20"
-              : "bg-blue-500 hover:bg-blue-600 text-white shadow-md shadow-blue-500/20"
-          }`}
-        >
-          {nextLabel}
-        </button>
+      {/* Swipe up for next */}
+      <div
+        className="px-6 pb-6 pt-2 flex flex-col items-center gap-1 cursor-pointer select-none"
+        onClick={onNext}
+        onTouchStart={(e) => { touchStartY.current = e.touches[0].clientY; }}
+        onTouchEnd={(e) => {
+          if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
+        }}
+      >
+        <p className="text-xs text-gray-400">Swipe up for next question</p>
+        <div className={`animate-bounce ${isCorrect ? "text-green-500" : "text-blue-500"}`}>
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+          </svg>
+        </div>
       </div>
     </div>
   );

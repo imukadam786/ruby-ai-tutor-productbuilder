@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ActiveView } from "@/types";
 
 interface SidebarProps {
@@ -74,6 +74,12 @@ export default function Sidebar({
     maths: false,
     reading: false,
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      setOpenSections({ general: false, maths: false, reading: false });
+    }
+  }, [isOpen]);
 
   const toggleSection = (key: string) =>
     setOpenSections((prev) => ({ ...prev, [key]: !prev[key] }));

@@ -419,7 +419,8 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
       </div>
 
       {/* Messages */}
-      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-4 sm:px-8 py-6 space-y-6">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto py-6">
+        <div className="max-w-3xl mx-auto px-4 sm:px-8 space-y-6">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
             {msg.role === "user" ? (
@@ -486,10 +487,12 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             </div>
           </div>
         )}
+        </div>
       </div>
 
       {/* Input area */}
       <div className="px-4 pb-4 pt-2 sm:px-8 sm:pb-6 bg-white">
+        <div className="max-w-3xl mx-auto">
 
         {/* Attachment preview */}
         {attachedFile && (
@@ -613,6 +616,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         </div>
 
         <p className="text-center text-xs text-gray-400 mt-2">Ruby can make mistakes. Double-check important info.</p>
+        </div>
       </div>
     </div>
   );

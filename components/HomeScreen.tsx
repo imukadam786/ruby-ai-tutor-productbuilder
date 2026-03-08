@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
-import { getProgress } from "@/lib/storage";
+import { getProgress, getStreakData } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
 
 interface HomeScreenProps {
@@ -159,6 +159,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
     lessonsDone: 0,
     studySessions: 0,
   });
+  const [streak, setStreak] = useState({ currentStreak: 0, bestStreak: 0 });
 
   useEffect(() => {
     // Load name
@@ -173,6 +174,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
 
     // Load stats
     setStats(loadStats());
+    setStreak(getStreakData());
   }, []);
 
   return (
@@ -190,7 +192,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
         </div>
 
         {/* ── Progress Stats ────────────────────────────────────────────── */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           {statDefs.map((s) => (
             <div key={s.key} className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
@@ -200,6 +202,24 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
               <span className={`text-2xl font-bold ${s.color}`}>{stats[s.key]}</span>
             </div>
           ))}
+        </div>
+
+        {/* ── Current Streak ────────────────────────────────────────────── */}
+        <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm mb-8">
+          <div className="flex items-center gap-3">
+            <span className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0 text-xl">🔥</span>
+            <div>
+              <p className="text-xs text-orange-600 font-medium">Current Streak</p>
+              <div className="flex items-baseline gap-1.5 mt-0.5">
+                <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
+                <span className="text-sm text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
+              </div>
+            </div>
+          </div>
+          <div className="text-right">
+            <p className="text-xs text-orange-400">Best</p>
+            <p className="text-lg font-bold text-orange-500">{streak.bestStreak} days</p>
+          </div>
         </div>
 
         {/* ── Quick Actions ─────────────────────────────────────────────── */}

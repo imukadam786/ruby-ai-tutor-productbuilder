@@ -765,12 +765,12 @@ function ReadingQuestionCard({
 function ReadingFeedbackCard({
   result,
   onNext,
-  nextLabel,
 }: {
   result: ReadingDiagnosticResult;
   onNext: () => void;
-  nextLabel: string;
+  nextLabel?: string;
 }) {
+  const touchStartY = useRef(0);
   return (
     <div className={`bg-white rounded-2xl border-2 shadow-sm p-6 space-y-4 ${
       result.is_correct ? "border-green-200" : "border-red-200"
@@ -801,12 +801,22 @@ function ReadingFeedbackCard({
         </div>
       )}
 
-      <button
+      {/* Swipe up for next */}
+      <div
+        className="flex flex-col items-center gap-1 pt-2 cursor-pointer select-none"
         onClick={onNext}
-        className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-xl font-medium transition-all mt-2"
+        onTouchStart={(e) => { touchStartY.current = e.touches[0].clientY; }}
+        onTouchEnd={(e) => {
+          if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
+        }}
       >
-        {nextLabel} →
-      </button>
+        <p className="text-xs text-gray-400">Swipe up for next question</p>
+        <div className="animate-bounce text-purple-500">
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+          </svg>
+        </div>
+      </div>
     </div>
   );
 }
