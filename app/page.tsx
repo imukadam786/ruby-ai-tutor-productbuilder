@@ -85,7 +85,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex h-full bg-gray-100">
+    <div className="flex h-full overflow-hidden bg-gray-100">
       {/* Mobile top bar */}
       <header className="md:hidden fixed top-0 left-0 right-0 z-30 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm">
         <button
@@ -115,7 +115,7 @@ export default function Home() {
         onClose={() => setSidebarOpen(false)}
       />
 
-      <main className="flex-1 overflow-hidden pt-14 md:pt-0">
+      <main className="flex-1 overflow-hidden pt-14 md:pt-0 h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
         {activeView === "chat" && <ChatInterface onMessageSent={refreshStats} />}
         {activeView === "lessons" && <LessonPlan onLessonCompleted={refreshStats} />}

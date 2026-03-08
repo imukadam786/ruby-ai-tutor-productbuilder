@@ -72,6 +72,94 @@ function RubyAvatar({ size = "w-16 h-16" }: { size?: string }) {
   );
 }
 
+// ── Natural voice engine ──────────────────────────────────────────────────────
+function prepareForSpeech(raw: string): string {
+  return raw
+    // Strip markdown
+    .replace(/#{1,6}\s+/g, "")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
+    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/^\s*[-*+]\s/gm, "")
+    .replace(/^\s*\d+\.\s/gm, "")
+    // Math: turn $...$ into readable form
+    .replace(/\$\$([^$]+)\$\$/g, (_, eq) => `the equation: ${eq}`)
+    .replace(/\$([^$]+)\$/g, (_, eq) => eq)
+    // Clean up excess whitespace
+    .replace(/\n{2,}/g, ". ")
+    .replace(/\n/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+function speakNaturally(
+  text: string,
+  onStart: () => void,
+  onEnd: () => void
+) {
+  if (!("speechSynthesis" in window)) { onEnd(); return; }
+  window.speechSynthesis.cancel();
+
+  const cleaned = prepareForSpeech(text);
+  // Split on sentence-ending punctuation
+  const sentences = cleaned
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+
+  if (sentences.length === 0) { onEnd(); return; }
+
+  // Pick the best available English voice
+  const pickVoice = () => {
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = [
+      "Samantha", "Karen", "Moira",
+      "Google UK English Female", "Microsoft Zira",
+      "Microsoft Susan", "Google US English",
+    ];
+    for (const name of preferred) {
+      const v = voices.find((v) => v.name.includes(name));
+      if (v) return v;
+    }
+    return voices.find((v) => v.lang.startsWith("en")) ?? null;
+  };
+
+  let idx = 0;
+  onStart();
+
+  const speakNext = () => {
+    if (idx >= sentences.length) { onEnd(); return; }
+    const sentence = sentences[idx++];
+    const utt = new SpeechSynthesisUtterance(sentence);
+
+    utt.rate = 0.92;          // natural human pace
+    utt.pitch = 1.12;         // friendly, warm tone
+    utt.volume = 1;
+
+    const voice = pickVoice();
+    if (voice) utt.voice = voice;
+
+    // Longer pause after questions, shorter after statements
+    const isQuestion = sentence.trim().endsWith("?");
+    const hasNumber = /\d/.test(sentence);
+    const pauseMs = isQuestion ? 650 : hasNumber ? 450 : 320;
+
+    utt.onend = () => setTimeout(speakNext, pauseMs);
+    utt.onerror = () => setTimeout(speakNext, pauseMs);
+
+    window.speechSynthesis.speak(utt);
+  };
+
+  // Voices may not be loaded yet on first call
+  if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.addEventListener("voiceschanged", speakNext, { once: true });
+  } else {
+    speakNext();
+  }
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -81,6 +169,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   const [attachedFile, setAttachedFile] = useState<File | null>(null);
   const [attachedPreview, setAttachedPreview] = useState<string | null>(null);
   const [showUploadMenu, setShowUploadMenu] = useState(false);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recognitionRef = useRef<any>(null);
@@ -103,8 +192,12 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     }
   }, []);
 
+  // Scroll messages container without affecting page scroll (fixes mobile push-up)
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.scrollTop = container.scrollHeight;
+    }
   }, [messages]);
 
   // Close upload menu when clicking outside
@@ -220,12 +313,12 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         incrementMessageCount();
         onMessageSent();
 
-        if (fullText && "speechSynthesis" in window) {
-          const plain = fullText.replace(/[#*`_\[\]()]/g, "").replace(/\n+/g, " ");
-          const utt = new SpeechSynthesisUtterance(plain.slice(0, 500));
-          utt.onstart = () => setIsSpeaking(true);
-          utt.onend = () => setIsSpeaking(false);
-          window.speechSynthesis.speak(utt);
+        if (fullText) {
+          speakNaturally(
+            fullText.slice(0, 800),
+            () => setIsSpeaking(true),
+            () => setIsSpeaking(false)
+          );
         }
 
         // Clean up preview URL after sending
@@ -279,7 +372,10 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   };
 
   const stopVoice = () => { recognitionRef.current?.stop(); setIsListening(false); };
-  const stopSpeaking = () => { window.speechSynthesis.cancel(); setIsSpeaking(false); };
+  const stopSpeaking = () => {
+    window.speechSynthesis.cancel();
+    setIsSpeaking(false);
+  };
 
   const clearChat = () => {
     const welcome: Message = {
@@ -313,8 +409,8 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         </div>
       </div>
 
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-3 py-4 sm:px-6 sm:py-6 space-y-4 sm:space-y-6">
+      {/* Messages — scrolls internally, never pushes the page */}
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-3 py-4 sm:px-6 sm:py-6 space-y-4 sm:space-y-6">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
             {msg.role === "assistant" ? (
