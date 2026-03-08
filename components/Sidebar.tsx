@@ -41,7 +41,7 @@ const collapsibleSections = [
   },
   {
     key: "maths",
-    label: "Maths Learning Engine",
+    label: "Maths Engine",
     emoji: "🧮",
     items: [
       { id: "ruby" as ActiveView,       emoji: "🎯", label: "Maths",      desc: "Adaptive math tutor" },
@@ -50,7 +50,7 @@ const collapsibleSections = [
   },
   {
     key: "reading",
-    label: "Reading Learning Engine",
+    label: "Reading Engine",
     emoji: "📖",
     items: [
       { id: "reading" as ActiveView,            emoji: "✏️", label: "Reading",    desc: "Reading & comprehension" },
