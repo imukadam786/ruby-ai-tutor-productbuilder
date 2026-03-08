@@ -105,9 +105,7 @@ export default function ProgressTracker() {
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs text-gray-500">Skills Mastered</span>
-                <span className="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <TrophyIcon className="w-4 h-4 text-blue-600" />
-                </span>
+                <TrophyIcon className="w-5 h-5 text-blue-600 flex-shrink-0" />
               </div>
               <span className="text-2xl font-bold text-blue-600">{masteredEntries.length}</span>
             </div>
@@ -116,9 +114,7 @@ export default function ProgressTracker() {
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs text-gray-500">In Progress</span>
-                <span className="w-7 h-7 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <ChartIcon className="w-4 h-4 text-amber-500" />
-                </span>
+                <ChartIcon className="w-5 h-5 text-amber-500 flex-shrink-0" />
               </div>
               <span className="text-2xl font-bold text-amber-500">{inProgressEntries.length}</span>
             </div>
@@ -127,9 +123,7 @@ export default function ProgressTracker() {
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs text-gray-500">Study Sessions</span>
-                <span className="w-7 h-7 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <CalendarIcon className="w-4 h-4 text-purple-600" />
-                </span>
+                <CalendarIcon className="w-5 h-5 text-purple-600 flex-shrink-0" />
               </div>
               <span className="text-2xl font-bold text-purple-600">{progress.sessionCount}</span>
             </div>
@@ -138,9 +132,7 @@ export default function ProgressTracker() {
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs text-gray-500">Accuracy</span>
-                <span className="w-7 h-7 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <TargetIcon className="w-4 h-4 text-green-600" />
-                </span>
+                <TargetIcon className="w-5 h-5 text-green-600 flex-shrink-0" />
               </div>
               <span className="text-2xl font-bold text-green-600">{accuracy !== null ? `${accuracy}%` : "—"}</span>
             </div>
