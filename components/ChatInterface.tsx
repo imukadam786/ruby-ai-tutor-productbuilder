@@ -406,101 +406,97 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   };
 
   return (
-    <div className="flex flex-col h-full bg-gray-50">
+    <div className="flex flex-col h-full bg-white">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between">
+      <div className="border-b border-gray-100 px-4 py-3 sm:px-8 sm:py-4 flex items-center justify-between bg-white">
         <div className="flex items-center gap-3">
-          <RubyAvatar size="w-16 h-16" />
-          <div>
-            <h2 className="text-gray-900 font-semibold text-base sm:text-lg">Chat with Ruby</h2>
-            <p className="text-gray-500 text-xs sm:text-sm hidden sm:block">Ask any question — I&apos;m here to help you learn</p>
-          </div>
+          <RubyAvatar size="w-10 h-10" />
+          <h2 className="text-gray-900 font-semibold text-base">Chat with Ruby</h2>
         </div>
-        <div className="flex items-center gap-2">
-          <button onClick={clearChat} className="px-2.5 py-1.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg text-xs sm:text-sm transition-colors">
-            Clear
-          </button>
-        </div>
+        <button onClick={clearChat} className="px-3 py-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg text-xs transition-colors">
+          Clear
+        </button>
       </div>
 
-      {/* Messages — scrolls internally, never pushes the page */}
-      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-3 py-4 sm:px-6 sm:py-6 space-y-4 sm:space-y-6">
+      {/* Messages */}
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-4 sm:px-8 py-6 space-y-6">
         {messages.map((msg) => (
-          <div key={msg.id} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
-            {msg.role === "assistant" ? (
-              <RubyAvatar />
-            ) : (
-              <div className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center text-lg font-bold bg-blue-500 text-white">
-                Y
+          <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+            {msg.role === "user" ? (
+              /* User bubble */
+              <div className="max-w-[80%] sm:max-w-[65%]">
+                <div className="bg-blue-500 text-white rounded-2xl rounded-tr-sm px-4 py-3">
+                  <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
+                </div>
+                <p className="text-xs text-gray-400 mt-1 text-right">
+                  {new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                </p>
               </div>
-            )}
-            <div className={`max-w-[85%] sm:max-w-[72%] rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 ${
-              msg.role === "user"
-                ? "bg-blue-500 text-white rounded-tr-sm"
-                : "bg-white border border-gray-200 text-gray-800 rounded-tl-sm shadow-sm"
-            }`}>
-              {msg.role === "assistant" ? (
-                <div className="prose prose-sm max-w-none prose-headings:text-gray-800 prose-p:text-gray-700 prose-strong:text-gray-900 prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded">
+            ) : (
+              /* Ruby response — clean text, no card */
+              <div className="max-w-[90%] sm:max-w-[75%]">
+                <div className="prose prose-sm max-w-none prose-headings:text-gray-800 prose-headings:font-semibold prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-900 prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700">
                   <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
                     {msg.content || "▌"}
                   </ReactMarkdown>
                 </div>
-              ) : (
-                <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
-              )}
-              <div className={`flex items-center mt-2 ${msg.role === "user" ? "justify-start" : "justify-between"}`}>
-                <p className={`text-xs ${msg.role === "user" ? "text-blue-200" : "text-gray-400"}`}>
-                  {new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-                </p>
-                {msg.role === "assistant" && msg.content && !msg.content.includes("▌") && (
-                  <button
-                    onClick={() => togglePlay(msg.id, msg.content)}
-                    className={`ml-3 w-7 h-7 rounded-full flex items-center justify-center transition-all flex-shrink-0 ${
-                      playingMsgId === msg.id
-                        ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
-                        : "bg-blue-50 text-blue-500 hover:bg-blue-100"
-                    }`}
-                    title={playingMsgId === msg.id ? "Stop" : "Play"}
-                  >
-                    {playingMsgId === msg.id ? (
-                      <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                        <rect x="6" y="4" width="4" height="16" rx="1" />
-                        <rect x="14" y="4" width="4" height="16" rx="1" />
-                      </svg>
-                    ) : (
-                      <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    )}
-                  </button>
-                )}
+                <div className="flex items-center gap-3 mt-2">
+                  <p className="text-xs text-gray-400">
+                    {new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                  </p>
+                  {msg.content && !msg.content.includes("▌") && (
+                    <button
+                      onClick={() => togglePlay(msg.id, msg.content)}
+                      className={`flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all ${
+                        playingMsgId === msg.id
+                          ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
+                          : "text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+                      }`}
+                      title={playingMsgId === msg.id ? "Stop" : "Play"}
+                    >
+                      {playingMsgId === msg.id ? (
+                        <>
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                            <rect x="6" y="4" width="4" height="16" rx="1" />
+                            <rect x="14" y="4" width="4" height="16" rx="1" />
+                          </svg>
+                          Stop
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                          Play
+                        </>
+                      )}
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         ))}
         {isLoading && messages[messages.length - 1]?.content === "" && (
-          <div className="flex gap-3">
-            <RubyAvatar />
-            <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-5 py-3.5 shadow-sm">
-              <div className="flex gap-1.5 items-center h-5">
-                <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce [animation-delay:0ms]" />
-                <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce [animation-delay:150ms]" />
-                <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce [animation-delay:300ms]" />
-              </div>
+          <div className="flex justify-start">
+            <div className="flex gap-1.5 items-center h-6 px-1">
+              <span className="w-2 h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:0ms]" />
+              <span className="w-2 h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:150ms]" />
+              <span className="w-2 h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:300ms]" />
             </div>
           </div>
         )}
       </div>
 
       {/* Input area */}
-      <div className="bg-white border-t border-gray-200 px-3 py-3 sm:px-6 sm:py-4">
+      <div className="px-4 pb-4 pt-2 sm:px-8 sm:pb-6 bg-white">
 
         {/* Attachment preview */}
         {attachedFile && (
           <div className="flex items-center gap-2 mb-2 px-1">
             {attachedPreview ? (
               <div className="relative inline-flex">
-                <img src={attachedPreview} alt="preview" className="h-16 w-16 object-cover rounded-xl border border-gray-200" />
+                <img src={attachedPreview} alt="preview" className="h-14 w-14 object-cover rounded-xl border border-gray-200" />
                 <button
                   onClick={removeAttachment}
                   className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-gray-700 text-white rounded-full text-xs flex items-center justify-center leading-none"
@@ -515,23 +511,24 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
           </div>
         )}
 
-        <div className="flex items-end gap-2 sm:gap-3">
+        {/* GPT-style input container */}
+        <div className="relative flex items-end gap-2 bg-gray-50 border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all shadow-sm">
 
-          {/* Upload button with popover */}
-          <div className="relative flex-shrink-0" ref={uploadMenuRef}>
+          {/* Upload button (inside container, left) */}
+          <div className="relative flex-shrink-0 self-end pb-0.5" ref={uploadMenuRef}>
             <button
               onClick={() => setShowUploadMenu((v) => !v)}
-              className="w-11 h-11 flex items-center justify-center rounded-xl bg-gray-100 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-              title="Upload file or take photo"
+              className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 hover:text-blue-500 hover:bg-white transition-colors"
+              title="Attach file or photo"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
 
             {/* Popover menu */}
             {showUploadMenu && (
-              <div className="absolute bottom-14 left-0 bg-white rounded-2xl shadow-xl border border-gray-100 p-2 w-44 z-50">
+              <div className="absolute bottom-12 left-0 bg-white rounded-2xl shadow-xl border border-gray-100 p-2 w-44 z-50">
                 <button
                   onClick={() => { setShowUploadMenu(false); fileInputRef.current?.click(); }}
                   className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 text-gray-700 text-sm font-medium transition-colors"
@@ -560,61 +557,62 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
           </div>
 
           {/* Hidden file inputs */}
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/png,image/jpeg,image/jpg,application/pdf"
-            className="hidden"
-            onChange={handleFileChange}
-          />
-          <input
-            ref={cameraInputRef}
-            type="file"
-            accept="image/*"
-            capture="environment"
-            className="hidden"
-            onChange={handleFileChange}
+          <input ref={fileInputRef} type="file" accept="image/png,image/jpeg,image/jpg,application/pdf" className="hidden" onChange={handleFileChange} />
+          <input ref={cameraInputRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleFileChange} />
+
+          {/* Textarea */}
+          <textarea
+            ref={textareaRef}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Ask anything..."
+            rows={1}
+            className="flex-1 bg-transparent py-1.5 text-gray-800 placeholder-gray-400 text-sm resize-none outline-none max-h-36 overflow-y-auto leading-relaxed"
+            style={{ height: "auto" }}
+            onInput={(e) => {
+              const t = e.target as HTMLTextAreaElement;
+              t.style.height = "auto";
+              t.style.height = `${t.scrollHeight}px`;
+            }}
+            disabled={isLoading}
           />
 
-          <div className="flex-1 bg-gray-50 border border-gray-200 rounded-2xl focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
-            <textarea
-              ref={textareaRef}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Ask anything..."
-              rows={1}
-              className="w-full bg-transparent px-4 py-3 text-gray-800 placeholder-gray-400 text-sm resize-none outline-none max-h-40 overflow-y-auto"
-              style={{ height: "auto" }}
-              onInput={(e) => {
-                const t = e.target as HTMLTextAreaElement;
-                t.style.height = "auto";
-                t.style.height = `${t.scrollHeight}px`;
-              }}
-              disabled={isLoading}
-            />
+          {/* Right buttons */}
+          <div className="flex items-end gap-1 flex-shrink-0 self-end pb-0.5">
+            {/* Mic */}
+            <button
+              onClick={isListening ? stopVoice : startVoice}
+              className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
+                isListening ? "bg-red-100 text-red-500" : "text-gray-400 hover:text-gray-600 hover:bg-white"
+              }`}
+              title={isListening ? "Stop listening" : "Voice input"}
+            >
+              {isListening ? (
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <rect x="6" y="6" width="12" height="12" rx="1" />
+                </svg>
+              ) : (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
+                </svg>
+              )}
+            </button>
+
+            {/* Send */}
+            <button
+              onClick={() => sendMessage(input)}
+              disabled={(!input.trim() && !attachedFile) || isLoading}
+              className="w-8 h-8 bg-gray-900 hover:bg-gray-700 disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+              </svg>
+            </button>
           </div>
-
-          <button
-            onClick={isListening ? stopVoice : startVoice}
-            className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all flex-shrink-0 ${
-              isListening ? "bg-red-500 text-white animate-pulse shadow-lg shadow-red-500/30" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-            }`}
-            title={isListening ? "Stop listening" : "Voice input"}
-          >
-            {isListening ? "⏹" : "🎤"}
-          </button>
-
-          <button
-            onClick={() => sendMessage(input)}
-            disabled={(!input.trim() && !attachedFile) || isLoading}
-            className="w-11 h-11 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-xl flex items-center justify-center transition-all shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 flex-shrink-0"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-            </svg>
-          </button>
         </div>
+
+        <p className="text-center text-xs text-gray-400 mt-2">Ruby can make mistakes. Double-check important info.</p>
       </div>
     </div>
   );
