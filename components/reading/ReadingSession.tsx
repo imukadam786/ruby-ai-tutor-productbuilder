@@ -1,6 +1,94 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+
+// ── Natural voice engine (mirrors ChatInterface) ──────────────────────────────
+function prepareForSpeech(raw: string): string {
+  return raw
+    .replace(/#{1,6}\s+/g, "")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
+    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/^\s*[-*+]\s/gm, "")
+    .replace(/^\s*\d+\.\s/gm, "")
+    .replace(/\n{2,}/g, ". ")
+    .replace(/\n/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+function pickVoice(): SpeechSynthesisVoice | null {
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = [
+    "Samantha", "Karen", "Moira",
+    "Google UK English Female", "Microsoft Zira",
+    "Microsoft Susan", "Google US English",
+  ];
+  for (const name of preferred) {
+    const v = voices.find((v) => v.name.includes(name));
+    if (v) return v;
+  }
+  return voices.find((v) => v.lang.startsWith("en")) ?? null;
+}
+
+function speakNaturally(
+  text: string,
+  onStart: () => void,
+  onEnd: () => void
+): () => void {
+  let cancelled = false;
+  let timer: ReturnType<typeof setTimeout> | null = null;
+
+  const cancel = () => {
+    cancelled = true;
+    if (timer !== null) { clearTimeout(timer); timer = null; }
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    onEnd();
+  };
+
+  if (!("speechSynthesis" in window)) { onEnd(); return cancel; }
+  window.speechSynthesis.cancel();
+
+  const cleaned = prepareForSpeech(text);
+  const sentences = cleaned
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+
+  if (sentences.length === 0) { onEnd(); return cancel; }
+
+  let idx = 0;
+  onStart();
+
+  const speakNext = () => {
+    if (cancelled) return;
+    if (idx >= sentences.length) { onEnd(); return; }
+    const sentence = sentences[idx++];
+    const utt = new SpeechSynthesisUtterance(sentence);
+    utt.rate = 0.92;
+    utt.pitch = 1.12;
+    utt.volume = 1;
+    const voice = pickVoice();
+    if (voice) utt.voice = voice;
+    const isQuestion = sentence.trim().endsWith("?");
+    const hasNumber = /\d/.test(sentence);
+    const pauseMs = isQuestion ? 650 : hasNumber ? 450 : 320;
+    utt.onend = () => { if (cancelled) return; timer = setTimeout(speakNext, pauseMs); };
+    utt.onerror = () => { if (cancelled) return; timer = setTimeout(speakNext, pauseMs); };
+    window.speechSynthesis.speak(utt);
+  };
+
+  if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.addEventListener("voiceschanged", speakNext, { once: true });
+  } else {
+    speakNext();
+  }
+
+  return cancel;
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 import {
   ReadingStudentProfile,
   ReadingGeneratedQuestion,
@@ -473,65 +561,62 @@ function ReadingQuestionCard({
   const [hintVisible, setHintVisible] = useState(false);
   const [usedHint, setUsedHint] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [speaking, setSpeaking] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const [listening, setListening] = useState(false);
+  const cancelSpeechRef = useRef<(() => void) | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const recognitionRef = useState<any>(null);
+  const recognitionRef = useRef<any>(null);
 
   const config = templateConfig[question.template] || templateConfig.oral;
 
-  // ── TTS: play / stop question text ───────────────────────────────────────────
-  const handlePlayText = (text: string) => {
-    if (speaking) {
-      window.speechSynthesis.cancel();
-      setSpeaking(false);
+  // ── TTS: same speakNaturally engine as ChatInterface ─────────────────────────
+  const togglePlay = (text: string) => {
+    if (playing) {
+      cancelSpeechRef.current?.();
+      cancelSpeechRef.current = null;
+      setPlaying(false);
       return;
     }
-    const utt = new SpeechSynthesisUtterance(text);
-    utt.rate = 0.9;
-    utt.onend = () => setSpeaking(false);
-    utt.onerror = () => setSpeaking(false);
-    setSpeaking(true);
-    window.speechSynthesis.speak(utt);
+    cancelSpeechRef.current = speakNaturally(
+      text,
+      () => setPlaying(true),
+      () => { setPlaying(false); cancelSpeechRef.current = null; }
+    );
   };
 
-  // ── STT: microphone → answer box ─────────────────────────────────────────────
-  const handleMic = () => {
-    if (listening) {
-      recognitionRef[0]?.stop();
-      setListening(false);
+  // ── STT: same pattern as ChatInterface ───────────────────────────────────────
+  const startVoice = () => {
+    if (!("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) {
+      alert("Voice input is not supported in your browser. Try Chrome.");
       return;
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const SR = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
-    if (!SR) {
-      alert("Speech recognition is not supported in this browser. Please use Chrome.");
-      return;
-    }
+    const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     const rec = new SR();
     rec.continuous = false;
     rec.interimResults = true;
     rec.lang = "en-US";
+    rec.onstart = () => setListening(true);
+    rec.onend = () => setListening(false);
+    rec.onerror = () => setListening(false);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    rec.onresult = (e: any) => {
+    rec.onresult = (event: any) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const transcript = Array.from(e.results as any[])
+      const transcript = Array.from(event.results as any[])
         .map((r: any) => r[0].transcript)
         .join("");
       setAnswer(transcript);
     };
-    rec.onend = () => setListening(false);
-    rec.onerror = () => setListening(false);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (recognitionRef as any)[0] = rec;
+    recognitionRef.current = rec;
     rec.start();
-    setListening(true);
   };
 
-  const handleSubmit = async () => {
+  const stopVoice = () => { recognitionRef.current?.stop(); setListening(false); };
+
+  const handleSubmit = () => {
     if (!answer.trim() || submitting) return;
-    window.speechSynthesis.cancel();
-    setSpeaking(false);
+    cancelSpeechRef.current?.();
+    setPlaying(false);
     setSubmitting(true);
     onSubmit(answer, "", usedHint);
     setSubmitting(false);
@@ -545,31 +630,37 @@ function ReadingQuestionCard({
         <span className="text-sm font-medium">{config.label}</span>
       </div>
 
-      {/* Question + play button */}
+      {/* Question text */}
       <div className="px-6 py-6">
-        <div className="flex items-start gap-3">
-          <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap flex-1">
-            {question.question}
-          </p>
+        <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap">
+          {question.question}
+        </p>
+        {/* Play/Stop pill — same style as ChatInterface message buttons */}
+        <div className="flex items-center gap-3 mt-3">
           <button
-            onClick={() => handlePlayText(question.question)}
-            title={speaking ? "Stop" : "Play question aloud"}
-            className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all ${
-              speaking
-                ? "bg-purple-600 text-white shadow-md"
-                : "bg-purple-100 text-purple-600 hover:bg-purple-200"
+            onClick={() => togglePlay(question.question)}
+            className={`flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all ${
+              playing
+                ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
+                : "text-gray-400 hover:text-gray-600 hover:bg-gray-100"
             }`}
+            title={playing ? "Stop" : "Play"}
           >
-            {speaking ? (
-              /* Stop icon */
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <rect x="6" y="6" width="12" height="12" rx="2" />
-              </svg>
+            {playing ? (
+              <>
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                  <rect x="6" y="4" width="4" height="16" rx="1" />
+                  <rect x="14" y="4" width="4" height="16" rx="1" />
+                </svg>
+                Stop
+              </>
             ) : (
-              /* Play icon */
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+              <>
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                Play
+              </>
             )}
           </button>
         </div>
@@ -590,64 +681,56 @@ function ReadingQuestionCard({
             </button>
           ) : (
             <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3">
-              <div className="flex items-start gap-2">
-                <p className="text-yellow-800 text-sm flex-1">
-                  <span className="font-medium">Hint: </span>{question.hint}
-                </p>
-                <button
-                  onClick={() => handlePlayText(question.hint!)}
-                  title={speaking ? "Stop" : "Play hint aloud"}
-                  className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
-                    speaking ? "bg-yellow-500 text-white" : "bg-yellow-200 text-yellow-700 hover:bg-yellow-300"
-                  }`}
-                >
-                  {speaking ? (
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" /></svg>
-                  ) : (
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                  )}
-                </button>
-              </div>
+              <p className="text-yellow-800 text-sm">
+                <span className="font-medium">Hint: </span>{question.hint}
+              </p>
+              <button
+                onClick={() => togglePlay(question.hint!)}
+                className={`flex items-center gap-1.5 text-xs px-2 py-1 rounded-full mt-2 transition-all ${
+                  playing
+                    ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
+                    : "text-yellow-600 hover:text-yellow-800 hover:bg-yellow-100"
+                }`}
+              >
+                {playing ? (
+                  <><svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1" /><rect x="14" y="4" width="4" height="16" rx="1" /></svg>Stop</>
+                ) : (
+                  <><svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>Play hint</>
+                )}
+              </button>
             </div>
           )}
         </div>
       )}
 
-      {/* Mic answer input */}
+      {/* Answer input — mic inside container, same as ChatInterface input bar */}
       <div className="px-6 pb-6 space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1.5">Your Answer</label>
-          <div className="relative">
-            <div
-              className={`w-full min-h-[72px] border rounded-xl px-4 py-3 text-sm leading-relaxed transition-all ${
-                answer ? "text-gray-800" : "text-gray-400"
-              } ${
-                listening
-                  ? "border-red-400 bg-red-50 ring-2 ring-red-300"
-                  : "border-gray-200 bg-gray-50"
-              }`}
-            >
+          <div className={`relative flex items-end gap-2 border rounded-2xl px-3 py-2 transition-all ${
+            listening
+              ? "border-red-400 bg-red-50 ring-2 ring-red-100"
+              : "bg-gray-50 border-gray-200 focus-within:border-purple-400 focus-within:ring-2 focus-within:ring-purple-100"
+          }`}>
+            {/* Answer display area */}
+            <div className={`flex-1 py-1.5 text-sm leading-relaxed min-h-[28px] ${answer ? "text-gray-800" : "text-gray-400"}`}>
               {answer || "Your answer will display here"}
             </div>
-            {/* Mic button overlay */}
+            {/* Mic button — same style as ChatInterface */}
             <button
-              onClick={handleMic}
-              title={listening ? "Stop recording" : "Tap to speak your answer"}
-              className={`absolute right-3 bottom-3 w-9 h-9 rounded-full flex items-center justify-center transition-all shadow ${
-                listening
-                  ? "bg-red-500 text-white animate-pulse"
-                  : "bg-purple-500 text-white hover:bg-purple-600"
+              onClick={listening ? stopVoice : startVoice}
+              className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${
+                listening ? "bg-red-100 text-red-500" : "text-gray-400 hover:text-gray-600 hover:bg-white"
               }`}
+              title={listening ? "Stop listening" : "Voice input"}
             >
               {listening ? (
-                /* Recording — stop icon */
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <rect x="6" y="6" width="12" height="12" rx="2" />
+                  <rect x="6" y="6" width="12" height="12" rx="1" />
                 </svg>
               ) : (
-                /* Mic icon */
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1 1.93c-3.95-.49-7-3.85-7-7.93H6c0 3.31 2.69 6 6 6s6-2.69 6-6h2c0 4.08-3.05 7.44-7 7.93V21h-2v-5.07z" />
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
                 </svg>
               )}
             </button>
