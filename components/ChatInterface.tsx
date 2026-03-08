@@ -11,16 +11,40 @@ interface ChatInterfaceProps {
   onMessageSent: () => void;
 }
 
+const WELCOME_MSG =
+  "I'm here to help you when something doesn't make sense. What are you stuck on?";
+
+function RubyAvatar({ size = "w-8 h-8" }: { size?: string }) {
+  return (
+    <div className={`${size} rounded-full flex-shrink-0 overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800`}>
+      <img
+        src="/ruby-avatar.png"
+        alt="Ruby"
+        className="w-full h-full object-cover"
+        onError={(e) => {
+          // Fallback to initials if image not found
+          const el = e.currentTarget;
+          el.style.display = "none";
+          el.parentElement!.innerHTML =
+            `<span class="w-full h-full flex items-center justify-center text-white text-sm font-bold">R</span>`;
+        }}
+      />
+    </div>
+  );
+}
+
 export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [attachedFile, setAttachedFile] = useState<File | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recognitionRef = useRef<any>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const saved = getMessages();
@@ -30,8 +54,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
       const welcome: Message = {
         id: "welcome",
         role: "assistant",
-        content:
-          "Hello! I'm **Rub**, your personal AI tutor. I can help you learn **any subject** — from math and science to history, programming, languages, and more.\n\nWhat would you like to learn today?",
+        content: WELCOME_MSG,
         timestamp: new Date().toISOString(),
       };
       setMessages([welcome]);
@@ -44,18 +67,23 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
 
   const sendMessage = useCallback(
     async (text: string) => {
-      if (!text.trim() || isLoading) return;
+      const messageText = attachedFile
+        ? `${text.trim()}${text.trim() ? "\n" : ""}[Attached: ${attachedFile.name}]`
+        : text.trim();
+
+      if (!messageText || isLoading) return;
 
       const userMessage: Message = {
         id: `user_${Date.now()}`,
         role: "user",
-        content: text.trim(),
+        content: messageText,
         timestamp: new Date().toISOString(),
       };
 
       const updatedMessages = [...messages, userMessage];
       setMessages(updatedMessages);
       setInput("");
+      setAttachedFile(null);
       setIsLoading(true);
       incrementMessageCount();
       onMessageSent();
@@ -101,7 +129,6 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         incrementMessageCount();
         onMessageSent();
 
-        // Speak the response
         if (fullText && "speechSynthesis" in window) {
           const plainText = fullText.replace(/[#*`_\[\]()]/g, "").replace(/\n+/g, " ");
           const utterance = new SpeechSynthesisUtterance(plainText.slice(0, 500));
@@ -115,10 +142,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         setMessages((prev) =>
           prev.map((m) =>
             m.id === assistantMessage.id
-              ? {
-                  ...m,
-                  content: "Sorry, something went wrong. Please try again.",
-                }
+              ? { ...m, content: "Sorry, something went wrong. Please try again." }
               : m
           )
         );
@@ -126,7 +150,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         setIsLoading(false);
       }
     },
-    [messages, isLoading, onMessageSent]
+    [messages, isLoading, onMessageSent, attachedFile]
   );
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -136,23 +160,27 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     }
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) setAttachedFile(file);
+    // Reset so same file can be re-selected
+    e.target.value = "";
+  };
+
   const startVoice = () => {
     if (!("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) {
       alert("Voice input is not supported in your browser. Try Chrome.");
       return;
     }
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     const recognition = new SR();
     recognition.continuous = false;
     recognition.interimResults = true;
     recognition.lang = "en-US";
-
     recognition.onstart = () => setIsListening(true);
     recognition.onend = () => setIsListening(false);
     recognition.onerror = () => setIsListening(false);
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     recognition.onresult = (event: any) => {
       const transcript = Array.from(event.results)
@@ -164,7 +192,6 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         sendMessage(transcript);
       }
     };
-
     recognitionRef.current = recognition;
     recognition.start();
   };
@@ -183,8 +210,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     const welcome: Message = {
       id: "welcome",
       role: "assistant",
-      content:
-        "Hello! I'm **Rub**, your personal AI tutor. What would you like to learn today?",
+      content: WELCOME_MSG,
       timestamp: new Date().toISOString(),
     };
     setMessages([welcome]);
@@ -195,9 +221,12 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     <div className="flex flex-col h-full bg-gray-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between">
-        <div>
-          <h2 className="text-gray-900 font-semibold text-base sm:text-lg">Chat with Rub</h2>
-          <p className="text-gray-500 text-xs sm:text-sm hidden sm:block">Ask any question — I&apos;m here to help you learn</p>
+        <div className="flex items-center gap-3">
+          <RubyAvatar size="w-9 h-9" />
+          <div>
+            <h2 className="text-gray-900 font-semibold text-base sm:text-lg">Chat with Ruby</h2>
+            <p className="text-gray-500 text-xs sm:text-sm hidden sm:block">Ask any question — I&apos;m here to help you learn</p>
+          </div>
         </div>
         <div className="flex items-center gap-2">
           {isSpeaking && (
@@ -224,15 +253,13 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             key={msg.id}
             className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}
           >
-            <div
-              className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-sm font-bold ${
-                msg.role === "user"
-                  ? "bg-blue-500 text-white"
-                  : "bg-gradient-to-br from-blue-600 to-blue-800 text-white"
-              }`}
-            >
-              {msg.role === "user" ? "Y" : "R"}
-            </div>
+            {msg.role === "assistant" ? (
+              <RubyAvatar />
+            ) : (
+              <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-sm font-bold bg-blue-500 text-white">
+                Y
+              </div>
+            )}
             <div
               className={`max-w-[88%] sm:max-w-[75%] rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 ${
                 msg.role === "user"
@@ -250,26 +277,17 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
                   </ReactMarkdown>
                 </div>
               ) : (
-                <p className="text-sm leading-relaxed">{msg.content}</p>
+                <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
               )}
-              <p
-                className={`text-xs mt-2 ${
-                  msg.role === "user" ? "text-blue-200" : "text-gray-400"
-                }`}
-              >
-                {new Date(msg.timestamp).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
+              <p className={`text-xs mt-2 ${msg.role === "user" ? "text-blue-200" : "text-gray-400"}`}>
+                {new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
               </p>
             </div>
           </div>
         ))}
         {isLoading && messages[messages.length - 1]?.content === "" && (
           <div className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white flex items-center justify-center text-sm font-bold">
-              R
-            </div>
+            <RubyAvatar />
             <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-5 py-3.5 shadow-sm">
               <div className="flex gap-1.5 items-center h-5">
                 <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce [animation-delay:0ms]" />
@@ -284,7 +302,38 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
 
       {/* Input */}
       <div className="bg-white border-t border-gray-200 px-3 py-3 sm:px-6 sm:py-4">
+        {/* Attached file indicator */}
+        {attachedFile && (
+          <div className="flex items-center gap-2 mb-2 px-1">
+            <span className="text-xs text-blue-600 bg-blue-50 border border-blue-200 rounded-full px-3 py-1 flex items-center gap-1.5">
+              📎 {attachedFile.name}
+              <button onClick={() => setAttachedFile(null)} className="ml-1 text-blue-400 hover:text-blue-600 font-bold leading-none">×</button>
+            </span>
+          </div>
+        )}
+
         <div className="flex items-end gap-2 sm:gap-3">
+          {/* Upload button (left of textarea) */}
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-xl bg-gray-100 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+            title="Upload image or PDF"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+            </svg>
+          </button>
+
+          {/* Hidden file input */}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/png,image/jpeg,image/jpg,application/pdf"
+            capture="environment"
+            className="hidden"
+            onChange={handleFileChange}
+          />
+
           <div className="flex-1 bg-gray-50 border border-gray-200 rounded-2xl focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
             <textarea
               ref={textareaRef}
@@ -303,6 +352,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
               disabled={isLoading}
             />
           </div>
+
           <button
             onClick={isListening ? stopVoice : startVoice}
             className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all ${
@@ -314,9 +364,10 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
           >
             {isListening ? "⏹" : "🎤"}
           </button>
+
           <button
             onClick={() => sendMessage(input)}
-            disabled={!input.trim() || isLoading}
+            disabled={(!input.trim() && !attachedFile) || isLoading}
             className="w-11 h-11 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-xl flex items-center justify-center transition-all shadow-md shadow-blue-500/20 hover:shadow-blue-500/40"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

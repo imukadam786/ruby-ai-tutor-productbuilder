@@ -22,8 +22,8 @@ const sections = [
   {
     label: "General Tutor",
     items: [
-      { id: "chat" as ActiveView, icon: "💬", label: "Chat Tutor", desc: "Ask anything" },
-      { id: "lessons" as ActiveView, icon: "📚", label: "Homework", desc: "Structured learning" },
+      { id: "chat" as ActiveView, icon: "💬", label: "Homework", desc: "Ask Ruby anything" },
+      { id: "lessons" as ActiveView, icon: "📚", label: "Lesson Plans", desc: "Structured learning" },
       { id: "progress" as ActiveView, icon: "📊", label: "Progress", desc: "Track your growth" },
       { id: "watch" as ActiveView, icon: "▶️", label: "Watch", desc: "Video learning" },
     ],
