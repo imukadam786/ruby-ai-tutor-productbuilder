@@ -8,12 +8,16 @@ import ProgressTracker from "@/components/ProgressTracker";
 import DiagnosticSession from "@/components/ruby/DiagnosticSession";
 import SkillTreeView from "@/components/ruby/SkillTreeView";
 import StudentDashboard from "@/components/ruby/StudentDashboard";
+import ReadingSession from "@/components/reading/ReadingSession";
+import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeScreen from "@/components/HomeScreen";
 import { ActiveView } from "@/types";
 import { getProgress, incrementSession } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
+import { getReadingProfile } from "@/lib/reading-student-model";
 import { StudentProfile } from "@/types/ruby";
+import { ReadingStudentProfile } from "@/types/reading";
 
 const viewLabels: Record<ActiveView, string> = {
   home: "Home",
@@ -38,6 +42,7 @@ export default function Home() {
     topicsCount: 0,
   });
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
+  const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -73,8 +78,11 @@ export default function Home() {
 
   const handleViewChange = (view: ActiveView) => {
     setActiveView(view);
-    if (view === "skill-tree" || view === "reading-skill-tree" || view === "student-dashboard") {
+    if (view === "skill-tree" || view === "student-dashboard") {
       setRubyProfile(getStudentProfile());
+    }
+    if (view === "reading-skill-tree") {
+      setReadingProfile(getReadingProfile());
     }
   };
 
@@ -125,7 +133,9 @@ export default function Home() {
         {activeView === "ruby" && <DiagnosticSession />}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
-        {(activeView === "watch" || activeView === "reading" || activeView === "reading-skill-tree") && (
+        {activeView === "reading" && <ReadingSession />}
+        {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
+        {activeView === "watch" && (
           <div className="flex items-center justify-center h-full text-gray-400 text-sm">
             Coming soon
           </div>

@@ -1,0 +1,1028 @@
+{
+  "version": "1.0",
+  "levels": [
+    {
+      "id": 1,
+      "title": "Oral Language & Phonological Foundation",
+      "description": "Builds listening, speaking, and sound-awareness skills that make reading possible. The learner never sees print. Everything is spoken and heard. Grade R-1, voice only, entry level.",
+      "tiers": [
+        {
+          "id": "R1.T1",
+          "title": "Listening & Vocabulary",
+          "atomic_skills": [
+            {
+              "id": "R1.T1.A1",
+              "title": "Multi-Step Instruction Following",
+              "description": "The learner hears a 2-3 step instruction and carries it out in the correct order, without asking for the instruction to be repeated. Passing requires >=90% step accuracy, >=85% correct sequence, across 5 trials, 2 different contexts, 2 sessions.",
+              "prerequisites": [],
+              "templates": ["oral", "listening"],
+              "error_signatures": [
+                {
+                  "type": "omission",
+                  "description": "A step was skipped entirely",
+                  "example": "Learner completes steps 1 and 3 but omits step 2"
+                },
+                {
+                  "type": "sequence_error",
+                  "description": "Steps completed but done out of order",
+                  "example": "Learner does step 3 before step 1"
+                },
+                {
+                  "type": "prompt_dependence",
+                  "description": "Learner needed the instruction repeated before responding",
+                  "example": "Learner asks 'Can you say that again?' before attempting"
+                }
+              ],
+              "recovery_strategy": "OMISSION: rebuild from 1-step instructions. SEQUENCE_ERROR: add visual order cues. PROMPT_DEPENDENCE: shorten instruction length.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R1.T1.A2",
+              "title": "Story Retell with Sequenced Events",
+              "description": "The learner hears a story or event and retells it with at least 3 events in the right order, using their own words. Requires >=3 ordered events, >=80% sequence match, across 2 story stimuli, 2 sessions.",
+              "prerequisites": ["R1.T1.A1"],
+              "templates": ["oral", "listening"],
+              "error_signatures": [
+                {
+                  "type": "low_event_count",
+                  "description": "Fewer than 3 events recalled in the retell",
+                  "example": "Learner only mentions one thing that happened in the story"
+                },
+                {
+                  "type": "sequence_inversion",
+                  "description": "Events recalled but placed out of order",
+                  "example": "Learner describes the ending before the beginning"
+                },
+                {
+                  "type": "copy_fail",
+                  "description": "Learner cannot recall events from the source story without prompting",
+                  "example": "Learner says 'I don't remember' or gives unrelated content"
+                }
+              ],
+              "recovery_strategy": "LOW_EVENT_COUNT: scaffold with 'What happened next?' prompts. SEQUENCE_INVERSION: model using physical props. COPY_FAIL: model using physical props.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R1.T1.A3",
+              "title": "Grammatically Complete Spoken Sentences",
+              "description": "The learner produces unprompted responses that are grammatically complete sentences (subject + verb), not fragments or single words. Requires >=85% complete sentences across any 10-utterance sample, stable across 2 contexts.",
+              "prerequisites": ["R1.T1.A1"],
+              "templates": ["oral"],
+              "error_signatures": [
+                {
+                  "type": "fragment",
+                  "description": "Response is missing a subject or verb",
+                  "example": "Learner says 'Running fast' instead of 'The dog is running fast'"
+                },
+                {
+                  "type": "one_word",
+                  "description": "Only a single word produced as the full response",
+                  "example": "Learner says 'Dog' when asked to describe the picture"
+                },
+                {
+                  "type": "echo",
+                  "description": "Learner repeats the prompt verbatim instead of constructing a response",
+                  "example": "Prompt: 'What did you do today?' Response: 'What did you do today?'"
+                }
+              ],
+              "recovery_strategy": "FRAGMENT: provide sentence frame scaffolds. ONE_WORD: expand and recast. ECHO: switch to open-ended questions only.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R1.T2",
+          "title": "Expressive Structure",
+          "atomic_skills": [
+            {
+              "id": "R1.T2.A1",
+              "title": "Rhyme Generation and Identification",
+              "description": "The learner generates a rhyming word for a given word AND correctly identifies whether two spoken words rhyme. Requires >=80% rhyme generation accuracy, >=85% identification accuracy, across 10 items, 2 word sets.",
+              "prerequisites": ["R1.T1.A1"],
+              "templates": ["oral", "listening"],
+              "error_signatures": [
+                {
+                  "type": "non_rhyme_gen",
+                  "description": "A non-rhyming word is produced in response to a rhyme prompt",
+                  "example": "Given 'cat', learner says 'dog' instead of 'hat'"
+                },
+                {
+                  "type": "association_error",
+                  "description": "Learner gives a word linked by meaning rather than sound",
+                  "example": "Given 'cat', learner says 'kitten' (related meaning, not rhyme)"
+                },
+                {
+                  "type": "false_positive",
+                  "description": "Learner incorrectly identifies a non-rhyming pair as a rhyme",
+                  "example": "Learner says 'cat' and 'can' rhyme"
+                }
+              ],
+              "recovery_strategy": "NON_RHYME_GEN: run rhyme discrimination drills first. ASSOCIATION_ERROR: explicitly teach 'sounds like, not means like'.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R1.T2.A2",
+              "title": "Syllable Segmentation and Blending",
+              "description": "The learner taps the correct number of syllables in a spoken word AND blends syllable segments back into the full word. Requires syllable count >=85% accurate across 10 words (1-4 syllables), blending >=80%, across 2 word sets.",
+              "prerequisites": ["R1.T1.A1"],
+              "templates": ["oral", "listening"],
+              "error_signatures": [
+                {
+                  "type": "over_segmentation",
+                  "description": "Too many taps — more syllables counted than exist",
+                  "example": "Learner taps 3 times for 'rain-bow' (2 syllables)"
+                },
+                {
+                  "type": "under_segmentation",
+                  "description": "Two syllables collapsed into one tap",
+                  "example": "Learner taps once for 'cup-board' (2 syllables)"
+                },
+                {
+                  "type": "blend_fail",
+                  "description": "Learner cannot merge the syllable segments back into the full word",
+                  "example": "Given 'rain' + 'bow', learner cannot produce 'rainbow'"
+                }
+              ],
+              "recovery_strategy": "OVER_SEG: model with learner's own name. UNDER_SEG: exaggerate each syllable. BLEND_FAIL: reduce to 2-syllable words.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R1.T3",
+          "title": "Phonological Manipulation",
+          "atomic_skills": [
+            {
+              "id": "R1.T3.A1",
+              "title": "Phoneme Isolation — Onset and Coda",
+              "description": "When given a spoken word, the learner identifies the first sound (onset) and the last sound (coda). Requires >=80% onset accuracy, >=75% coda accuracy, across 10 words, 2 sessions. No print used.",
+              "prerequisites": ["R1.T2.A2"],
+              "templates": ["oral", "listening"],
+              "error_signatures": [
+                {
+                  "type": "onset_error",
+                  "description": "Wrong first sound identified",
+                  "example": "For 'sun', learner says /z/ instead of /s/"
+                },
+                {
+                  "type": "coda_error",
+                  "description": "Wrong last sound identified",
+                  "example": "For 'cat', learner says /k/ instead of /t/"
+                },
+                {
+                  "type": "name_substitution",
+                  "description": "Learner says the letter name instead of the phoneme sound",
+                  "example": "For 'bat', learner says 'bee' instead of /b/"
+                }
+              ],
+              "recovery_strategy": "ONSET_ERROR: drill with alliterative word sets. CODA_ERROR: use CVC words with a clapped final tap. NAME_SUB: explicitly teach 'the sound, not the name'.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R1.T3.A2",
+              "title": "Full Phoneme Segmentation and Blending",
+              "description": "The learner fully breaks a 3-5 phoneme spoken word into its individual sounds AND blends a phoneme sequence back into the target word. Requires segmentation >=80%, blending >=80%, across 10 words (CVC, CCVC, CVCC), 2 sessions.",
+              "prerequisites": ["R1.T3.A1"],
+              "templates": ["oral", "listening"],
+              "error_signatures": [
+                {
+                  "type": "phoneme_omit",
+                  "description": "A phoneme is missing from the segmented output",
+                  "example": "For 'cat', learner says /k/ /t/ omitting the vowel /a/"
+                },
+                {
+                  "type": "phoneme_add",
+                  "description": "An extra phoneme inserted into the segmented output",
+                  "example": "For 'cat', learner says /k/ /a/ /t/ /s/"
+                },
+                {
+                  "type": "sequence_error",
+                  "description": "Phonemes produced in wrong order",
+                  "example": "For 'cat', learner says /t/ /a/ /k/"
+                },
+                {
+                  "type": "blend_fail",
+                  "description": "Blended output doesn't match the target word",
+                  "example": "Given /k/ /a/ /t/, learner produces 'cut' instead of 'cat'"
+                }
+              ],
+              "recovery_strategy": "PHONEME_OMIT: Elkonin box drill (a box for each sound). SEQ_ERROR: use a left-to-right physical counter. BLEND_FAIL: reduce to 2-phoneme sequences.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R1.T3.A3",
+              "title": "Phoneme Manipulation — Deletion and Substitution",
+              "description": "The learner hears a phoneme manipulation task (e.g., 'Say bat without /b/') and produces the correct resulting word. Requires >=75% accuracy across 10 tasks (5 deletion, 5 substitution), latency <=5 seconds, across 2 sessions.",
+              "prerequisites": ["R1.T3.A2"],
+              "templates": ["oral", "listening"],
+              "error_signatures": [
+                {
+                  "type": "wrong_phoneme_removed",
+                  "description": "Incorrect phoneme was deleted from the word",
+                  "example": "Asked to say 'bat' without /b/, learner says 'ba' removing the final /t/"
+                },
+                {
+                  "type": "wrong_substitution",
+                  "description": "Wrong phoneme was swapped in during substitution task",
+                  "example": "Asked to change /b/ in 'bat' to /s/, learner produces 'tab'"
+                },
+                {
+                  "type": "high_latency",
+                  "description": "Response took longer than 5 seconds",
+                  "example": "Learner pauses more than 5 seconds before responding"
+                }
+              ],
+              "recovery_strategy": "WRONG_PHONEME_REMOVED: segment the word before deleting. HIGH_LATENCY: reduce to onset deletion only and rebuild automaticity.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Alphabetic Code Construction",
+      "description": "Teaches letter-sound relationships. The learner must learn to retrieve the correct sound for any letter, digraph, blend, or vowel team — quickly and automatically. Slow retrieval (>2.5 seconds) is treated as a failure even if the answer is correct. Grade 1, hybrid voice and text, locked until L1 mastered.",
+      "tiers": [
+        {
+          "id": "R2.T1",
+          "title": "Letter-Sound Correspondence",
+          "atomic_skills": [
+            {
+              "id": "R2.T1.A1",
+              "title": "Letter-to-Sound Retrieval (Flashcard)",
+              "description": "When the system briefly shows a letter on screen, the learner says the SOUND of the letter — not its name. Requires >=95% accuracy, <=2.5 second latency per item, across 52 letters (uppercase and lowercase), 2 sessions with 2 randomised item sets.",
+              "prerequisites": ["R1.T3.A1"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "name_instead_of_sound",
+                  "description": "Learner says the letter name instead of the phoneme sound",
+                  "example": "Sees 'b', says 'bee' instead of /b/"
+                },
+                {
+                  "type": "wrong_phoneme",
+                  "description": "Incorrect sound produced for the letter shown",
+                  "example": "Sees 's', produces /z/ sound"
+                },
+                {
+                  "type": "high_latency",
+                  "description": "Response time exceeds 2.5 seconds",
+                  "example": "Learner pauses 3 seconds before producing the sound"
+                },
+                {
+                  "type": "visual_confusion",
+                  "description": "Learner confuses visually similar letters such as b/d, p/q, or m/w",
+                  "example": "Sees 'b', produces /d/ sound"
+                }
+              ],
+              "recovery_strategy": "NAME_HABIT: run 'sound only' drill mode. HIGH_LATENCY: timed flashcard mode. VISUAL_CONF: dedicated anchor drill before returning to full set.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R2.T1.A2",
+              "title": "Bidirectional Letter-Sound Mapping",
+              "description": "The learner connects each letter to its primary sound in both directions: letter to sound AND sound to letter. Requires >=90% accuracy in each direction, across the 26-letter set, 2 sessions.",
+              "prerequisites": ["R2.T1.A1"],
+              "templates": ["oral", "reading", "written"],
+              "error_signatures": [
+                {
+                  "type": "unidirectional_only",
+                  "description": "Passes forward (letter to sound) but fails backward (sound to letter)",
+                  "example": "Can say /b/ for 'b' but cannot select 'b' when hearing /b/"
+                },
+                {
+                  "type": "phoneme_conflation",
+                  "description": "Two different letters mapped to the same phoneme",
+                  "example": "Both 'b' and 'd' mapped to the same /b/ sound"
+                },
+                {
+                  "type": "random_response",
+                  "description": "No discernible letter-to-sound mapping — responses appear random",
+                  "example": "Learner selects random letters when hearing phonemes"
+                }
+              ],
+              "recovery_strategy": "UNIDIRECTIONAL_ONLY: backward mapping drills. CONFLATION: isolate the confused pair and drill the contrast. RANDOM: regress to L1.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R2.T1.A3",
+              "title": "Visually Confusable Letter Discrimination (b/d, p/q, m/w)",
+              "description": "The learner correctly identifies which letter is shown when b/d, p/q, and m/w pairs are shown individually. Requires zero confusion errors across 10 presentations of each pair (30 trials total), 2 sessions.",
+              "prerequisites": ["R2.T1.A1"],
+              "templates": ["reading", "oral"],
+              "error_signatures": [
+                {
+                  "type": "bd_confusion",
+                  "description": "b and d swapped",
+                  "example": "Learner reads 'b' as 'd' or vice versa"
+                },
+                {
+                  "type": "pq_confusion",
+                  "description": "p and q swapped",
+                  "example": "Learner reads 'p' as 'q' or vice versa"
+                },
+                {
+                  "type": "mw_confusion",
+                  "description": "m and w swapped",
+                  "example": "Learner reads 'm' as 'w' or vice versa"
+                },
+                {
+                  "type": "inconsistent",
+                  "description": "Correct in some orientations but not others",
+                  "example": "Correctly identifies 'b' in isolation but not in flashcard context"
+                }
+              ],
+              "recovery_strategy": "Any pair failure: specific anchor drill for that pair. Do not advance Tier 1 until zero errors on all three pairs.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R2.T2",
+          "title": "Digraph & Blend Integration",
+          "atomic_skills": [
+            {
+              "id": "R2.T2.A1",
+              "title": "Digraph Phoneme Retrieval",
+              "description": "The system briefly shows or says one of the 6 target digraphs (sh, ch, th, wh, ck, ng). The learner produces the correct single phoneme — not the two individual letter sounds. Requires 100% accuracy across all 6 digraphs, <=2.5 seconds per item, across 2 sessions.",
+              "prerequisites": ["R2.T1.A2"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "component_phonemes",
+                  "description": "Learner produces two separate letter sounds instead of one digraph phoneme",
+                  "example": "For 'sh', learner says /s/ then /h/ separately instead of /sh/"
+                },
+                {
+                  "type": "wrong_sound",
+                  "description": "Incorrect phoneme produced for the digraph",
+                  "example": "For 'ch', learner says /k/ instead of /ch/"
+                },
+                {
+                  "type": "slow",
+                  "description": "Response time exceeds 2.5 seconds",
+                  "example": "Learner takes 3 seconds to retrieve digraph sound"
+                }
+              ],
+              "recovery_strategy": "COMPONENT_PHONEMES: model the digraph as a single unit. WRONG_SOUND: return to individual letter sounds. SLOW: timed drill mode.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R2.T2.A2",
+              "title": "Consonant Blend Production",
+              "description": "When shown a consonant blend (e.g., 'st'), the learner produces both phonemes in the correct sequence within 2.5 seconds. Requires >=85% accuracy across 10 blend types, <=2.5 seconds per item, across 2 sessions.",
+              "prerequisites": ["R2.T2.A1"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "order_reversal",
+                  "description": "Second phoneme of the blend produced before the first",
+                  "example": "For 'st', learner produces /t/ /s/ instead of /s/ /t/"
+                },
+                {
+                  "type": "blend_reduction",
+                  "description": "Only one phoneme of the blend produced",
+                  "example": "For 'st', learner only says /s/"
+                },
+                {
+                  "type": "intrusive_vowel",
+                  "description": "A vowel sound inserted between the consonants of the blend",
+                  "example": "For 'st', learner says /s/ /uh/ /t/"
+                }
+              ],
+              "recovery_strategy": "ORDER_REVERSAL: left-to-right physical cue. INTRUSIVE_VOWEL: exaggerate the blend inside a word with no pause; model until eliminated.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R2.T3",
+          "title": "Phonogram Stability & Automaticity",
+          "atomic_skills": [
+            {
+              "id": "R2.T3.A1",
+              "title": "Vowel Team Phoneme Retrieval",
+              "description": "When shown a vowel team pattern (ai, ee, oa, oo), the learner produces the correct phoneme — not the two individual vowel sounds. Requires >=85% accuracy across 6 vowel teams, <=2.5 seconds per item, across 2 sessions.",
+              "prerequisites": ["R2.T2.A1"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "split_vowel",
+                  "description": "Learner produces two individual vowel sounds instead of the team phoneme",
+                  "example": "For 'ai', learner says /a/ then /i/ instead of the long /a/ sound"
+                },
+                {
+                  "type": "wrong_long_vowel",
+                  "description": "Long vowel of the wrong letter produced",
+                  "example": "For 'oa', learner produces the long /a/ sound instead of long /o/"
+                },
+                {
+                  "type": "high_latency",
+                  "description": "Response time exceeds 2.5 seconds",
+                  "example": "Learner pauses more than 2.5 seconds before responding"
+                }
+              ],
+              "recovery_strategy": "SPLIT_VOWEL: present vowel team inside a known word first (e.g., 'rain' contains 'ai'). WRONG_LONG_VOWEL: contrast drill between the confused teams.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R2.T3.A2",
+              "title": "Randomised 40-Item Phonogram Retrieval",
+              "description": "From a randomised 40-item set, the learner retrieves the correct phoneme for any phonogram (letter, digraph, blend, or vowel team) within 2.5 seconds. Requires >=95% accuracy, mean latency <=2.5 seconds, no single item >4.0 seconds, across 2 sessions with different item orders.",
+              "prerequisites": ["R2.T3.A1", "R2.T2.A2"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "latency_outlier",
+                  "description": "Any single item exceeds 4.0 seconds latency",
+                  "example": "Learner takes 5 seconds to retrieve the sound for 'ng'"
+                },
+                {
+                  "type": "accuracy_low",
+                  "description": "Total accuracy falls below 95%",
+                  "example": "Learner gets 3 or more items wrong in a 40-item set"
+                },
+                {
+                  "type": "cluster_fail",
+                  "description": "Multiple failures within the same phonogram type (e.g., all digraph errors)",
+                  "example": "Learner fails 'sh', 'ch', and 'th' but passes all single letters"
+                }
+              ],
+              "recovery_strategy": "LATENCY_OUTLIER: target failed items in isolation. CLUSTER_FAIL: drill that phonogram cluster type; return to full set only after cluster passes.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R2.T3.A3",
+              "title": "Phoneme Sequence Blending into Words",
+              "description": "The system delivers individual phonemes in sequence (e.g., /k/ /ae/ /t/). The learner blends them together and produces the target word. Requires >=85% correct constructions across 10 words (5 CVC, 5 CCVC), across 2 sessions.",
+              "prerequisites": ["R2.T3.A2"],
+              "templates": ["oral", "listening"],
+              "error_signatures": [
+                {
+                  "type": "partial_blend",
+                  "description": "Only 1-2 phonemes produced instead of the full blended word",
+                  "example": "Given /k/ /ae/ /t/, learner only says /k/ /ae/"
+                },
+                {
+                  "type": "order_error",
+                  "description": "Correct phonemes blended but in wrong order",
+                  "example": "Given /k/ /ae/ /t/, learner produces 'tack'"
+                },
+                {
+                  "type": "target_miss",
+                  "description": "Output phonemically unrelated to the target word",
+                  "example": "Given /k/ /ae/ /t/, learner produces 'big'"
+                }
+              ],
+              "recovery_strategy": "PARTIAL_BLEND: reduce to 2-phoneme blends. TARGET_MISS: return to L1.C2 blending task.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Encoding Consolidation — HARD GATE 1",
+      "description": "HARD GATE 1: The learner must encode unfamiliar real words AND nonsense words with >=80% plausible phoneme-to-grapheme mapping, confirmed across 3 sessions. The system blocks access to L4 until this gate is passed. No manual override. Nonsense words are mandatory. Grade 2, primarily text input.",
+      "tiers": [
+        {
+          "id": "R3.T1",
+          "title": "CVC & Simple Encoding",
+          "atomic_skills": [
+            {
+              "id": "R3.T1.A1",
+              "title": "CVC Word Encoding — Real and Nonsense",
+              "description": "The system dictates an unfamiliar CVC word (including nonsense CVC words) and the learner types a plausible encoding — one grapheme for each phoneme. Requires >=85% CORRECT or PLAUSIBLE, zero IMPLAUSIBLE responses, across 10 CVC items (5 real, 5 nonsense), across 3 sessions.",
+              "prerequisites": ["R2.T3.A2"],
+              "templates": ["written"],
+              "error_signatures": [
+                {
+                  "type": "vowel_omit",
+                  "description": "Vowel phoneme has no grapheme in the typed output",
+                  "example": "For 'cat', learner types 'ct'"
+                },
+                {
+                  "type": "phoneme_omit",
+                  "description": "Any phoneme is left unrepresented in the typed output",
+                  "example": "For 'sun', learner types 'sn'"
+                },
+                {
+                  "type": "visual_guess",
+                  "description": "Output shares only 1 or fewer phonemes with the target — suggests visual guessing",
+                  "example": "For 'blof', learner types 'blow' — a real word with no phonetic match"
+                },
+                {
+                  "type": "sequence_error",
+                  "description": "Phonemes encoded but in wrong left-to-right order",
+                  "example": "For 'cat', learner types 'tac'"
+                }
+              ],
+              "recovery_strategy": "VOWEL_OMIT: Elkonin box drill with explicit vowel slot. VISUAL_GUESS: nonsense-only words. SEQ_ERROR: left-to-right tap before writing.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R3.T1.A2",
+              "title": "Blend and Complex Pattern Encoding (CCVC, CVCC)",
+              "description": "The learner types a plausible encoding of CCVC, CVCC, and blend-containing words — including nonsense words with blends. Requires >=80% CORRECT or PLAUSIBLE, blend completeness >=90%, across 10 blend words, across 3 sessions.",
+              "prerequisites": ["R3.T1.A1"],
+              "templates": ["written"],
+              "error_signatures": [
+                {
+                  "type": "blend_partial",
+                  "description": "One phoneme of a blend omitted in the encoding",
+                  "example": "For 'stop', learner types 'sop' omitting the /t/"
+                },
+                {
+                  "type": "blend_reversal",
+                  "description": "Blend phonemes encoded in wrong order",
+                  "example": "For 'stop', learner types 'tsop'"
+                },
+                {
+                  "type": "digraph_split",
+                  "description": "A digraph encoded as two separate letters rather than as a unit",
+                  "example": "For 'ship', learner types 'shipp' treating sh as two sounds"
+                }
+              ],
+              "recovery_strategy": "BLEND_PARTIAL: isolate blend in speech, tap each phoneme, then encode one at a time. DIGRAPH_SPLIT: model digraph as a single unit.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R3.T1.A3",
+              "title": "Unfamiliar Real Word Encoding via Phonological Analysis",
+              "description": "The learner encodes an unfamiliar real word (not shown in prior sessions) using phonological analysis — not visual recall. Requires >=80% plausible, across 10 unfamiliar real words, zero memorisation-flag instances, across 3 sessions.",
+              "prerequisites": ["R3.T1.A2"],
+              "templates": ["written"],
+              "error_signatures": [
+                {
+                  "type": "memorisation_flag",
+                  "description": "Output matches a common word without phonetic logic — suggests visual memorisation",
+                  "example": "For an unfamiliar word, learner writes a known high-frequency word that doesn't match phonetically"
+                },
+                {
+                  "type": "phoneme_guessing",
+                  "description": "Inconsistent phoneme-grapheme mapping for the same phoneme across different words",
+                  "example": "The /sh/ sound spelled 'sh' in one word but 's' in another with no pattern"
+                }
+              ],
+              "recovery_strategy": "MEMORISATION_FLAG: switch to nonsense words immediately. PHONEME_GUESSING: return to L2 phonogram drill for the failing phoneme type.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R3.T1.A4",
+              "title": "Nonsense Word Encoding — Code Proof",
+              "description": "The learner encodes nonsense words (e.g., 'blof', 'spund', 'crait') with plausible phoneme-to-grapheme mapping, proving code use over memorisation. Requires >=80% PLAUSIBLE, across 10 nonsense words (CVC, CCVC, CVCC mix), across 3 sessions. Gate 1 cannot pass without this score.",
+              "prerequisites": ["R3.T1.A3"],
+              "templates": ["written"],
+              "error_signatures": [
+                {
+                  "type": "real_word_substitution",
+                  "description": "Learner writes a real word instead of encoding the nonsense word — automatic fail",
+                  "example": "For 'blof', learner writes 'blow'"
+                },
+                {
+                  "type": "phoneme_omit",
+                  "description": "A phoneme from the nonsense word is missing in the encoding",
+                  "example": "For 'spund', learner writes 'spud' omitting /n/"
+                },
+                {
+                  "type": "implausible_grapheme",
+                  "description": "A grapheme used that has no phoneme correspondence to the target",
+                  "example": "For 'crait', learner writes 'xqzt' — no phonetic relationship"
+                }
+              ],
+              "recovery_strategy": "REAL_WORD_SUB: explicit instruction 'write what you hear, not a real word'. Return to CVC nonsense words only.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R3.T2",
+          "title": "Independent Encoding Stability",
+          "atomic_skills": [
+            {
+              "id": "R3.T2.A1",
+              "title": "Complete Left-to-Right Grapheme Sequence",
+              "description": "The learner's typed output contains a grapheme for every phoneme in the spoken target — in correct left-to-right sequence. Requires zero omissions and zero transpositions across >=8 out of 10 words, across 3 sessions.",
+              "prerequisites": ["R3.T1.A4"],
+              "templates": ["written"],
+              "error_signatures": [
+                {
+                  "type": "omission_pattern",
+                  "description": "The same position in words is omitted repeatedly",
+                  "example": "Learner consistently omits the final consonant across multiple words"
+                },
+                {
+                  "type": "transposition",
+                  "description": "Phonemes swapped in the encoded output",
+                  "example": "For 'was', learner types 'saw'"
+                },
+                {
+                  "type": "insertion",
+                  "description": "Extra phoneme represented in the encoding",
+                  "example": "For 'cat', learner types 'catt'"
+                }
+              ],
+              "recovery_strategy": "OMISSION_PATTERN: identify the position; drill targeting that slot. TRANSPOSITION: left-to-right sweep cue before encoding.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R3.T2.A2",
+              "title": "Phonetic Self-Correction of Implausible Encodings",
+              "description": "When the learner produces an implausible encoding, they self-correct to a plausible encoding using phonological reasoning — not trial and error. Requires phonetic self-correction rate >=60% of all revisions, detected across at least 2 sessions.",
+              "prerequisites": ["R3.T2.A1"],
+              "templates": ["written"],
+              "error_signatures": [
+                {
+                  "type": "random_revision",
+                  "description": "The change shows no phonetic improvement — revision is random",
+                  "example": "Learner changes 'xqzt' to 'xqzp' — neither has phonetic logic"
+                },
+                {
+                  "type": "no_self_correction",
+                  "description": "Learner never revises even when output is implausible",
+                  "example": "Learner submits 'xqzt' for 'cat' without any attempt to self-check"
+                },
+                {
+                  "type": "overcorrection",
+                  "description": "Revision is more complex but less plausible than the original",
+                  "example": "Learner changes a plausible 'kat' to an implausible 'cqat'"
+                }
+              ],
+              "recovery_strategy": "RANDOM_REVISION: teach the check strategy 'say it slowly, tap each sound, match letters'. NO_SELF_CORRECTION: prompt 'Check: does every sound have a letter?'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Decoding & Fluency Construction",
+      "description": "Teaches the learner to read aloud fluently. The learner must decode unfamiliar words accurately, stop sounding out letter by letter, and read in phrases at a natural pace. Voice input is critical — the system measures WPM, hesitation count, phrase boundary detection, and prosody score. Locked until Hard Gate 1 passed. Grade 2-3, voice required for all reading tasks.",
+      "tiers": [
+        {
+          "id": "R4.T1",
+          "title": "Controlled Decoding",
+          "atomic_skills": [
+            {
+              "id": "R4.T1.A1",
+              "title": "Accurate Phonetic Word Decoding",
+              "description": "The system shows an unfamiliar phonetic word on screen. The learner reads it aloud with each phoneme correct and in sequence. Requires >=85% phoneme accuracy per word, >=80% words correct across a 20-item set, latency <=5 seconds, across 2 sessions.",
+              "prerequisites": ["R3.T2.A2"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "phoneme_substitution",
+                  "description": "A phoneme replaced by a different phoneme",
+                  "example": "For 'pin', learner reads 'pan'"
+                },
+                {
+                  "type": "phoneme_omit",
+                  "description": "A phoneme absent from the spoken output",
+                  "example": "For 'step', learner reads 'sep'"
+                },
+                {
+                  "type": "whole_word_guess",
+                  "description": "Output phonemically unrelated to target — visual guessing detected",
+                  "example": "For 'drip', learner says 'drop' — visually similar but phonemically wrong"
+                },
+                {
+                  "type": "high_latency",
+                  "description": "Response time exceeds 5 seconds",
+                  "example": "Learner stares at the word for 6 seconds before attempting"
+                }
+              ],
+              "recovery_strategy": "PHONEME_SUB: identify substitution pattern (onset/coda/vowel?) and drill that phonogram. WHOLE_WORD_GUESS: return to L3 encoding.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R4.T1.A2",
+              "title": "Nonsense Word Oral Decoding",
+              "description": "The system shows a nonsense word on screen. The learner reads it aloud with plausible phonological output. Requires >=80% PLAUSIBLE, across 10 nonsense words, zero memorisation flags, across 2 sessions. A real-word output for a nonsense target is an automatic fail.",
+              "prerequisites": ["R4.T1.A1"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "real_word_substitution",
+                  "description": "Reads a real word instead of decoding the nonsense word",
+                  "example": "For 'blof', learner reads 'blow'"
+                },
+                {
+                  "type": "low_plausibility",
+                  "description": "Phoneme accuracy below 70% — output not recognisably related to target",
+                  "example": "For 'spund', learner produces a string that shares no sounds with the target"
+                },
+                {
+                  "type": "refusal",
+                  "description": "Learner refuses to attempt the nonsense word",
+                  "example": "Learner says 'That's not a real word, I can't read it'"
+                }
+              ],
+              "recovery_strategy": "REAL_WORD_SUB: explicit instruction 'read what you see'. REFUSAL: explain the purpose 'we're practising the code, not the word'.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R4.T2",
+          "title": "Automatic Pattern Recognition",
+          "atomic_skills": [
+            {
+              "id": "R4.T2.A1",
+              "title": "Left-to-Right Text Tracking",
+              "description": "The learner's reading recording shows left-to-right text tracking: reading words in printed order without skipping or repeating lines. Requires zero line-skip events, backward-jump rate <=1 per 50 words, across 3 connected-text passages.",
+              "prerequisites": ["R4.T1.A1"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "line_skip",
+                  "description": "Learner reads from the wrong line",
+                  "example": "Learner jumps from line 2 to line 4, skipping line 3"
+                },
+                {
+                  "type": "backward_jump",
+                  "description": "Learner reads an earlier word out of sequence",
+                  "example": "Learner re-reads a word from the beginning of the line mid-passage"
+                },
+                {
+                  "type": "repetition_non_corrective",
+                  "description": "Repeats a word without intending to self-correct",
+                  "example": "Learner reads 'the the cat sat' without self-correcting the repeated 'the'"
+                }
+              ],
+              "recovery_strategy": "LINE_SKIP: text with explicit line guides; reduce column width. BACKWARD_JUMP: return to single-sentence texts.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R4.T2.A2",
+              "title": "Elimination of Letter-by-Letter Sounding",
+              "description": "The learner reads words without audible letter-by-letter sounding — no subvocalised letter sequences before producing the word. Requires letter-by-letter events <=2 per 50 words, across 3 passages, 2 sessions.",
+              "prerequisites": ["R4.T2.A1"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "letter_by_letter",
+                  "description": "Explicit subvocalised sounding of individual letters detected before the word is produced",
+                  "example": "Learner says /k/... /a/... /t/... then 'cat'"
+                },
+                {
+                  "type": "partial_sounding",
+                  "description": "First 1-2 letters sounded then word completed",
+                  "example": "Learner says /s/... /t/... then 'stop'"
+                },
+                {
+                  "type": "silent_stall",
+                  "description": "More than 3-second pause without any output",
+                  "example": "Learner stares at word for 4+ seconds in silence"
+                }
+              ],
+              "recovery_strategy": "LETTER_BY_LETTER: whole-word pattern flash drills; timed repeated reading. SILENT_STALL: return to single-word decoding.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R4.T3",
+          "title": "Fluent Phrased Reading",
+          "atomic_skills": [
+            {
+              "id": "R4.T3.A1",
+              "title": "Phrased Reading with Prosody",
+              "description": "The learner reads connected text in phrases of at least 2 words, pausing at punctuation boundaries rather than after every word. Requires prosody >=70%, WPM >=60 for grade-level text, across 3 passages, 2 sessions.",
+              "prerequisites": ["R4.T2.A2"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "low_prosody",
+                  "description": "Prosody score falls below 60%",
+                  "example": "Learner pauses randomly throughout sentences rather than at punctuation"
+                },
+                {
+                  "type": "word_by_word",
+                  "description": "Pause detected after every single word",
+                  "example": "Learner reads 'The... cat... sat... on... the... mat'"
+                },
+                {
+                  "type": "wpm_low",
+                  "description": "Fluent phrasing present but reading rate below 40 WPM",
+                  "example": "Learner groups words correctly but reads very slowly"
+                }
+              ],
+              "recovery_strategy": "LOW_PROSODY: echo reading — system models a phrase, learner echoes. WORD_BY_WORD: mark phrase boundaries before reading; teach punctuation cues.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R4.T3.A2",
+              "title": "Self-Monitoring for Meaning During Reading",
+              "description": "The learner detects when a read word or phrase does not make sense in context, and self-corrects by re-reading. Requires self-monitor rate >=50% across 3 passages.",
+              "prerequisites": ["R4.T3.A1"],
+              "templates": ["oral", "reading"],
+              "error_signatures": [
+                {
+                  "type": "no_monitor",
+                  "description": "Zero self-corrections despite meaning violations occurring",
+                  "example": "Learner reads 'The horse sat on the house' without correcting 'horse' for 'mouse'"
+                },
+                {
+                  "type": "over_correction",
+                  "description": "Re-reads correct segments unnecessarily",
+                  "example": "Learner re-reads correctly decoded words multiple times without error"
+                },
+                {
+                  "type": "decoding_substitution",
+                  "description": "Visually similar but semantically wrong word used and not corrected",
+                  "example": "Reads 'horse' for 'house' — visually similar, semantically wrong"
+                }
+              ],
+              "recovery_strategy": "NO_MONITOR: post-passage check 'Did everything make sense?'. DECODING_SUB: return to L4.A1 phoneme accuracy drills.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Comprehension & Language Expansion",
+      "description": "Teaches the learner to understand and respond to what they read — literally and inferentially. The learner must locate evidence in text, draw logical conclusions, write structured responses, and use vocabulary correctly. Both narrative text (stories) and informational text (articles or descriptions) are required. Grade 3, voice and text, locked until L4 mastered.",
+      "tiers": [
+        {
+          "id": "R5.T1",
+          "title": "Literal & Inferential Comprehension",
+          "atomic_skills": [
+            {
+              "id": "R5.T1.A1",
+              "title": "Literal Comprehension with Text Evidence",
+              "description": "After reading or hearing a passage, the learner correctly answers literal comprehension questions (facts stated explicitly in the text) AND uses words from the text in their answer. Requires literal accuracy >=80%, text reference present in >=70% of answers, across 2 text types (narrative + informational), 2 sessions.",
+              "prerequisites": ["R4.T3.A2"],
+              "templates": ["oral", "written", "reading"],
+              "error_signatures": [
+                {
+                  "type": "no_text_reference",
+                  "description": "Answer is factually correct but no text evidence used",
+                  "example": "Learner gives correct answer but uses only their own words with no reference to the text"
+                },
+                {
+                  "type": "paraphrase_fail",
+                  "description": "Answer expressed in own words but the meaning has changed",
+                  "example": "Learner paraphrases a sentence but alters the meaning in the process"
+                },
+                {
+                  "type": "recall_error",
+                  "description": "Factually wrong answer given",
+                  "example": "Learner states something that contradicts what the text says"
+                }
+              ],
+              "recovery_strategy": "NO_TEXT_REF: text-reference habit drill — system highlights the relevant sentence; learner must locate and reference it before answering.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R5.T1.A2",
+              "title": "Inferential Comprehension with Connector and Evidence",
+              "description": "The learner answers inferential questions — conclusions that are logical but NOT directly stated in the text — using evidence from the text and a reasoning connective. Both text reference AND connector required. Requires inferential accuracy >=75%, across 2 text types, 2 sessions.",
+              "prerequisites": ["R5.T1.A1"],
+              "templates": ["oral", "written", "reading"],
+              "error_signatures": [
+                {
+                  "type": "inference_unsupported",
+                  "description": "Conclusion not supported by evidence in the text",
+                  "example": "Learner draws a conclusion that contradicts or has no basis in the text"
+                },
+                {
+                  "type": "no_connector",
+                  "description": "Conclusion stated without any linking language",
+                  "example": "Learner states conclusion but omits 'because', 'therefore', or similar connective"
+                },
+                {
+                  "type": "literal_response",
+                  "description": "Restates a fact from the text without drawing any conclusion",
+                  "example": "Instead of inferring, learner just quotes a sentence from the passage"
+                }
+              ],
+              "recovery_strategy": "NO_CONNECTOR: model inference think-aloud 'This shows ___ because ___ in the text says ___.' Learner attempts with the scaffolded connector.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R5.T1.A3",
+              "title": "Oral or Written Retell with Main Idea and Supporting Details",
+              "description": "The learner produces an oral or written retell or summary of a passage that includes the main idea AND at least 2 supporting details, in a logical order. Requires >=80% completeness score, across 2 text types, 2 sessions.",
+              "prerequisites": ["R5.T1.A2"],
+              "templates": ["oral", "written", "reading"],
+              "error_signatures": [
+                {
+                  "type": "no_main_idea",
+                  "description": "Only details listed with no overarching main point",
+                  "example": "Learner lists three events but never states what the passage was about overall"
+                },
+                {
+                  "type": "copy_text",
+                  "description": "n-gram similarity to source text exceeds 70% — output is a near-copy",
+                  "example": "Learner reproduces sentences verbatim from the passage"
+                },
+                {
+                  "type": "no_structure",
+                  "description": "Disconnected list without logical connectors between ideas",
+                  "example": "Learner lists facts with no 'first', 'then', 'because', or other connectors"
+                }
+              ],
+              "recovery_strategy": "NO_STRUCTURE: graphic organiser — 3-box structure (Main idea / Detail 1 / Detail 2). Learner fills verbally or in text before writing. Scaffold removed when organiser-independent summaries reach 80%.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R5.T2",
+          "title": "Extended Language Production",
+          "atomic_skills": [
+            {
+              "id": "R5.T2.A1",
+              "title": "Reasoning Connective Use — Linking Evidence to Conclusions",
+              "description": "The learner explains their reasoning using connective words (e.g., 'because', 'however', 'therefore', 'this means that') that correctly link evidence to a conclusion. Requires correct connective use >=75% of responses, across 2 text types, 2 sessions.",
+              "prerequisites": ["R5.T1.A2"],
+              "templates": ["oral", "written"],
+              "error_signatures": [
+                {
+                  "type": "connector_absent",
+                  "description": "Conclusion stated with no linking language at all",
+                  "example": "Learner states 'The character was scared. He ran away.' — no connector"
+                },
+                {
+                  "type": "connector_misused",
+                  "description": "Connective present but linking the wrong ideas together",
+                  "example": "Learner uses 'because' but connects unrelated clauses incorrectly"
+                },
+                {
+                  "type": "connector_only",
+                  "description": "Connective used but no text evidence provided to support it",
+                  "example": "Learner says 'He was scared because...' but provides no evidence from the text"
+                }
+              ],
+              "recovery_strategy": "CONNECTOR_ABSENT: sentence frame 'I know this because the text says ___.' CONNECTOR_MISUSED: explicit modelling of the logical relationship.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R5.T2.A2",
+              "title": "Contextually Accurate Vocabulary Use",
+              "description": "The learner uses newly taught vocabulary words in their own sentences, correctly — with the right meaning and in a plausible context. Requires semantic plausibility >=0.4 per word, at least 5 vocabulary words tested, across 2 sessions.",
+              "prerequisites": ["R5.T1.A1"],
+              "templates": ["oral", "written"],
+              "error_signatures": [
+                {
+                  "type": "vocab_misuse",
+                  "description": "Word used with semantic plausibility score below 0.4 — meaning is wrong in context",
+                  "example": "Learner uses 'enormous' to describe something very small"
+                },
+                {
+                  "type": "definition_recall",
+                  "description": "Learner provides a definition of the word but does not actually use it in a sentence",
+                  "example": "Learner says 'enormous means very big' instead of using it in a sentence"
+                },
+                {
+                  "type": "substitution",
+                  "description": "Learner uses a different word instead of the target vocabulary word",
+                  "example": "Asked to use 'enormous', learner uses 'big' instead"
+                }
+              ],
+              "recovery_strategy": "VOCAB_MISUSE: system presents 3 more example sentences. Learner attempts again. Second failure: demote from active vocabulary list; re-present in next session.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R5.T3",
+          "title": "Written Structured Response",
+          "atomic_skills": [
+            {
+              "id": "R5.T3.A1",
+              "title": "Structured Written Response with Topic Sentence and Connectives",
+              "description": "The learner writes a structured response with: a clear topic sentence, at least 2 supporting details, complete sentences throughout, and correct use of connective language. Requires written response completeness >=80%, complete sentence rate >=85%, across 2 text types (narrative + informational), 2 sessions.",
+              "prerequisites": ["R5.T2.A1", "R5.T2.A2"],
+              "templates": ["written"],
+              "error_signatures": [
+                {
+                  "type": "execution_slip",
+                  "description": "Complete sentence rate below 60% in a 5-sentence response — fragments throughout",
+                  "example": "Learner writes 'Cat. Running fast. No stop.' instead of full sentences"
+                },
+                {
+                  "type": "no_structure",
+                  "description": "n-gram similarity to source text above 70% AND no connector words — copied text with no structure",
+                  "example": "Learner reproduces large portions of the source text with no original organisation"
+                },
+                {
+                  "type": "no_text_reference",
+                  "description": "Keyword overlap with source text below 1 term in more than 60% of answers",
+                  "example": "Written response makes no reference to anything in the passage"
+                }
+              ],
+              "recovery_strategy": "ERR_FRAGMENTS: reduce to 1-sentence minimum. Oral rehearsal — learner speaks the sentence before writing. Sentence frames active until complete sentence rate reaches 85%.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
