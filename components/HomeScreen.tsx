@@ -53,10 +53,22 @@ function loadStats(): Stats {
 }
 
 const statDefs = [
-  { key: "skillsMastered" as const, label: "Skills Mastered", color: "text-blue-600" },
-  { key: "inProgress" as const,     label: "In Progress",     color: "text-amber-500" },
-  { key: "lessonsDone" as const,    label: "Lessons Done",    color: "text-green-600" },
-  { key: "studySessions" as const,  label: "Study Sessions",  color: "text-purple-600" },
+  {
+    key: "skillsMastered" as const, label: "Skills Mastered", color: "text-blue-600", iconBg: "bg-blue-100",
+    icon: <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.99 5.99 0 0011 17v2H7v2h10v-2h-4v-2a5.99 5.99 0 003.61-4.06C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" /></svg>,
+  },
+  {
+    key: "inProgress" as const, label: "In Progress", color: "text-amber-500", iconBg: "bg-amber-100",
+    icon: <svg className="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>,
+  },
+  {
+    key: "lessonsDone" as const, label: "Lessons Done", color: "text-green-600", iconBg: "bg-green-100",
+    icon: <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+  },
+  {
+    key: "studySessions" as const, label: "Study Sessions", color: "text-purple-600", iconBg: "bg-purple-100",
+    icon: <svg className="w-4 h-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>,
+  },
 ];
 
 const quickActions = [
@@ -180,9 +192,14 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
         {/* ── Progress Stats ────────────────────────────────────────────── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
           {statDefs.map((s) => (
-            <div key={s.key} className="bg-white rounded-2xl border border-gray-100 px-4 py-4 flex flex-col gap-1 shadow-sm">
+            <div key={s.key} className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs text-gray-500">{s.label}</span>
+                <span className={`w-7 h-7 ${s.iconBg} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                  {s.icon}
+                </span>
+              </div>
               <span className={`text-2xl font-bold ${s.color}`}>{stats[s.key]}</span>
-              <span className="text-xs text-gray-500 leading-tight">{s.label}</span>
             </div>
           ))}
         </div>
