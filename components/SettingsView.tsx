@@ -129,9 +129,10 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean
         checked ? "bg-blue-500" : "bg-gray-200"
       }`}
     >
-      <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform duration-200 mt-0.5 ${
-        checked ? "translate-x-5.5" : "translate-x-0.5"
-      }`} />
+      <span
+        className="inline-block h-5 w-5 rounded-full bg-white shadow transition-transform duration-200 mt-0.5"
+        style={{ transform: checked ? "translateX(22px)" : "translateX(2px)" }}
+      />
     </button>
   );
 }
@@ -194,7 +195,49 @@ const PLAN_INFO: Record<string, { label: string; color: string; features: string
   },
 };
 
-const LANGUAGES = ["English", "Afrikaans", "Zulu", "Xhosa", "Sotho", "Tswana"];
+const CONTINENTS: {
+  key: string;
+  label: string;
+  color: string;
+  textColor: string;
+  languages: string[];
+}[] = [
+  {
+    key: "africa",
+    label: "Africa",
+    color: "#C9A62B",
+    textColor: "#fff",
+    languages: ["Afrikaans","Arabic","English","French","Portuguese","Somali","Swahili","Xhosa","Yoruba","Zulu"],
+  },
+  {
+    key: "asia",
+    label: "Asia",
+    color: "#7B68EE",
+    textColor: "#fff",
+    languages: ["Arabic","Armenian","Azerbaijani","Bengali","Chinese (Mandarin)","Georgian","Hebrew","Hindi","Indonesian","Japanese","Javanese","Kazakh","Korean","Kurdish","Lao","Malay","Malayalam","Marathi","Mongolian","Nepali","Pashto","Persian (Farsi)","Punjabi","Sinhala","Tamil","Thai","Turkish","Urdu","Uzbek","Vietnamese"],
+  },
+  {
+    key: "europe",
+    label: "Europe",
+    color: "#8B8B4A",
+    textColor: "#fff",
+    languages: ["Catalan","Croatian","Dutch","English","French","German","Greek","Italian","Norwegian","Polish","Portuguese","Romanian","Russian","Serbian","Slovak","Slovenian","Spanish","Swedish","Ukrainian"],
+  },
+  {
+    key: "north-america",
+    label: "North America",
+    color: "#C0392B",
+    textColor: "#fff",
+    languages: ["English","French","Spanish"],
+  },
+  {
+    key: "south-america",
+    label: "South America",
+    color: "#27AE60",
+    textColor: "#fff",
+    languages: ["English","French","Portuguese","Spanish"],
+  },
+];
 
 // ── Main component ────────────────────────────────────────────────────────────
 
@@ -211,6 +254,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
 
   // Active modal
   const [modal, setModal] = useState<string | null>(null);
+  const [selectedContinent, setSelectedContinent] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -299,7 +343,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
               <Card>
                 <Row
                   icon={icons.book}
-                  label="Preferred learning language"
+                  label="Preferred System Language"
                   value={learnLang}
                   onClick={() => setModal("learnLang")}
                 />
@@ -403,10 +447,10 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
 
       {modal === "accountLang" && (
         <Modal title="Account language" onClose={close}>
-          <div className="space-y-2">
-            {LANGUAGES.map((l) => (
+          <div className="space-y-1.5">
+            {Array.from(new Set(CONTINENTS.flatMap(c => c.languages))).sort().map((l) => (
               <button key={l} onClick={() => { setAccountLang(l); saveProfile(); close(); }}
-                className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   accountLang === l ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                 }`}>
                 {l}
@@ -417,17 +461,49 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
       )}
 
       {modal === "learnLang" && (
-        <Modal title="Preferred learning language" onClose={close}>
-          <div className="space-y-2">
-            {LANGUAGES.map((l) => (
-              <button key={l} onClick={() => { setLearnLang(l); close(); }}
-                className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                  learnLang === l ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-                }`}>
-                {l}
+        <Modal
+          title={selectedContinent ? CONTINENTS.find(c => c.key === selectedContinent)!.label : "Preferred System Language"}
+          onClose={() => { setSelectedContinent(null); close(); }}
+        >
+          {!selectedContinent ? (
+            /* Step 1: pick continent */
+            <div className="grid grid-cols-2 gap-3">
+              {CONTINENTS.map((c) => (
+                <button
+                  key={c.key}
+                  onClick={() => setSelectedContinent(c.key)}
+                  className="flex flex-col items-center gap-2 p-4 rounded-2xl transition-all hover:scale-[1.03] active:scale-[0.98]"
+                  style={{ backgroundColor: c.color }}
+                >
+                  <span className="text-3xl">
+                    {c.key === "africa" ? "🌍" : c.key === "asia" ? "🌏" : c.key === "europe" ? "🌍" : "🌎"}
+                  </span>
+                  <span className="text-xs font-bold text-white text-center leading-tight">{c.label}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            /* Step 2: pick language */
+            <div className="space-y-1.5">
+              <button
+                onClick={() => setSelectedContinent(null)}
+                className="flex items-center gap-1.5 text-xs text-blue-500 mb-3 font-medium"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to continents
               </button>
-            ))}
-          </div>
+              {CONTINENTS.find(c => c.key === selectedContinent)!.languages.map((l) => (
+                <button key={l} onClick={() => { setLearnLang(l); setSelectedContinent(null); close(); }}
+                  className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    learnLang === l ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                  }`}>
+                  {l}
+                </button>
+              ))}
+            </div>
+          )}
         </Modal>
       )}
 
