@@ -130,7 +130,7 @@ export default function LanguagePickerModal({ onClose }: Props) {
       {/* Translation loading overlay */}
       {isTranslating && (
         <div className="fixed inset-0 z-[60] bg-black/60 flex flex-col items-center justify-center gap-4">
-          <div className="text-6xl animate-spin" style={{ animationDuration: "1.2s" }}>🌍</div>
+          <div className="text-6xl animate-spin" style={{ animationDuration: "1.2s", animationDirection: "reverse" }}>🌍</div>
           <p className="text-white text-sm font-medium">Translating platform...</p>
         </div>
       )}
