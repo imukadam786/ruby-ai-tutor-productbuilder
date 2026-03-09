@@ -224,8 +224,15 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
         setLearnLang(d.language || "English");
         setPlan(d.plan || "free");
       }
+      setDarkMode(localStorage.getItem("darkMode") === "true");
     } catch { /* ignore */ }
   }, []);
+
+  const applyDarkMode = (enabled: boolean) => {
+    setDarkMode(enabled);
+    localStorage.setItem("darkMode", String(enabled));
+    document.documentElement.classList.toggle("dark", enabled);
+  };
 
   const saveProfile = () => {
     try {
@@ -302,11 +309,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                   rightEl={
                     <Toggle
                       checked={darkMode}
-                      onChange={(v) => {
-                        setDarkMode(v);
-                        // Basic class toggle — extend with a proper theme provider as needed
-                        document.documentElement.classList.toggle("dark", v);
-                      }}
+                      onChange={applyDarkMode}
                     />
                   }
                 />
