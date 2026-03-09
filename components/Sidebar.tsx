@@ -151,10 +151,10 @@ export default function Sidebar({
           {/* Globe — language picker, always visible */}
           <button
             onClick={onOpenLangPicker}
-            className="flex items-center justify-center transition-opacity hover:opacity-80 rounded-full overflow-hidden"
+            className="p-1 rounded-lg transition-opacity hover:opacity-80"
             aria-label="Change language"
           >
-            <img src="/world-icon.svg" alt="Language" className="w-11 h-11" />
+            <span className="text-2xl leading-none">🌍</span>
           </button>
           <button
             onClick={onClose}

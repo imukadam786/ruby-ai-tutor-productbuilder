@@ -122,10 +122,10 @@ export default function Home() {
         {/* Globe / language picker */}
         <button
           onClick={() => setShowLangPicker(true)}
-          className="flex items-center justify-center transition-opacity hover:opacity-80 rounded-full overflow-hidden"
+          className="p-1 rounded-lg transition-opacity hover:opacity-80"
           aria-label="Change language"
         >
-          <img src="/world-icon.svg" alt="Language" className="w-12 h-12" />
+          <span className="text-2xl leading-none">🌍</span>
         </button>
       </header>
 
