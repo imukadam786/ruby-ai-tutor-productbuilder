@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useT } from "@/lib/i18n";
+import SpinningGlobe from "@/components/SpinningGlobe";
 
 interface SettingsViewProps {
   onBack: () => void;
@@ -681,7 +682,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
 
       {isTranslating && (
         <div className="fixed inset-0 z-[60] bg-black/60 flex flex-col items-center justify-center gap-4">
-          <div className="text-6xl animate-spin" style={{ animationDuration: "1.2s", animationDirection: "reverse" }}>🌍</div>
+          <SpinningGlobe />
           <p className="text-white text-sm font-medium">Translating platform...</p>
         </div>
       )}
