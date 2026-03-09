@@ -6,6 +6,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { Message } from "@/types";
 import { getMessages, saveMessages, incrementMessageCount } from "@/lib/storage";
+import { useT } from "@/lib/i18n";
 
 interface ChatInterfaceProps {
   onMessageSent: () => void;

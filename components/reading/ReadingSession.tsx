@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { useT } from "@/lib/i18n";
 
 // ── Natural voice engine (mirrors ChatInterface) ──────────────────────────────
 function prepareForSpeech(raw: string): string {

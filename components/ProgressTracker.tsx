@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { getProgress, getStreakData } from "@/lib/storage";
 import { getStudentProfile, getSkillById, getLevelById } from "@/lib/student-model";
+import { useT } from "@/lib/i18n";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 function TrophyIcon({ className }: { className?: string }) {

@@ -14,6 +14,7 @@ import OnboardingFlow, { OnboardingData } from "@/components/onboarding/Onboardi
 import HomeScreen from "@/components/HomeScreen";
 import SettingsView from "@/components/SettingsView";
 import { ActiveView } from "@/types";
+import { LanguageProvider } from "@/lib/i18n";
 import { getProgress, incrementSession } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
 import { getReadingProfile } from "@/lib/reading-student-model";
@@ -97,6 +98,7 @@ export default function Home() {
   }
 
   return (
+    <LanguageProvider>
     <div className="flex h-full overflow-hidden bg-gray-100">
       {/* Mobile top bar */}
       <header className="md:hidden fixed top-0 left-0 right-0 z-30 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm">
@@ -151,5 +153,6 @@ export default function Home() {
         )}
       </main>
     </div>
+    </LanguageProvider>
   );
 }

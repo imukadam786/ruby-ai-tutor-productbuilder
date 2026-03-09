@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useT } from "@/lib/i18n";
 
 interface SettingsViewProps {
   onBack: () => void;
@@ -242,6 +243,8 @@ const CONTINENTS: {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function SettingsView({ onBack }: SettingsViewProps) {
+  const { t, setLanguage, isTranslating } = useT();
+
   // Profile state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -311,7 +314,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <h1 className="text-gray-900 font-semibold text-lg">Settings</h1>
+          <h1 className="text-gray-900 font-semibold text-lg">{t("settings.title")}</h1>
         </div>
 
         {/* Scrollable content */}
@@ -321,35 +324,35 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
             {/* ── Profile ──────────────────────────────────────────────── */}
             <section>
               <SectionHeader
-                title="Profile"
-                subtitle="Manage your account identity and contact details."
+                title={t("settings.profile")}
+                subtitle={t("settings.profile_desc")}
               />
               <Card>
-                <Row icon={icons.user}    label="Full name"         value={name || "Not set"}    onClick={() => setModal("name")} />
-                <Row icon={icons.email}   label="Email address"     value={email || "Not set"}   onClick={() => setModal("email")} />
-                <Row icon={icons.phone}   label="Phone number"      value={phone || "Not set"}   onClick={() => setModal("phone")} />
-                <Row icon={icons.globe}   label="Account language"  value={accountLang}          onClick={() => setModal("accountLang")} />
-                <Row icon={icons.lock}    label="Change password"                                onClick={() => setModal("password")} />
-                <Row icon={icons.trash}   label="Delete account"    danger                       onClick={() => setModal("deleteAccount")} />
+                <Row icon={icons.user}    label={t("settings.full_name")}        value={name || "Not set"}    onClick={() => setModal("name")} />
+                <Row icon={icons.email}   label={t("settings.email")}            value={email || "Not set"}   onClick={() => setModal("email")} />
+                <Row icon={icons.phone}   label={t("settings.phone")}            value={phone || "Not set"}   onClick={() => setModal("phone")} />
+                <Row icon={icons.globe}   label={t("settings.account_lang")}     value={accountLang}          onClick={() => setModal("accountLang")} />
+                <Row icon={icons.lock}    label={t("settings.change_password")}                               onClick={() => setModal("password")} />
+                <Row icon={icons.trash}   label={t("settings.delete_account")}   danger                       onClick={() => setModal("deleteAccount")} />
               </Card>
             </section>
 
             {/* ── Learning Settings ─────────────────────────────────────── */}
             <section>
               <SectionHeader
-                title="Learning Settings"
-                subtitle="Control how Ruby teaches and interacts with the learner."
+                title={t("settings.learning")}
+                subtitle={t("settings.learning_desc")}
               />
               <Card>
                 <Row
                   icon={icons.book}
-                  label="Preferred System Language"
+                  label={t("settings.preferred_lang")}
                   value={learnLang}
                   onClick={() => setModal("learnLang")}
                 />
                 <Row
                   icon={icons.moon}
-                  label="Dark mode"
+                  label={t("settings.dark_mode")}
                   rightEl={
                     <Toggle
                       checked={darkMode}
@@ -357,20 +360,20 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                     />
                   }
                 />
-                <Row icon={icons.download} label="Download progress report (PDF)" onClick={() => setModal("downloadPDF")} />
+                <Row icon={icons.download} label={t("settings.download_report")} onClick={() => setModal("downloadPDF")} />
               </Card>
             </section>
 
             {/* ── Subscription ──────────────────────────────────────────── */}
             <section>
               <SectionHeader
-                title="Subscription"
-                subtitle="Manage billing and plan details."
+                title={t("settings.subscription")}
+                subtitle={t("settings.subscription_desc")}
               />
               <Card>
                 <Row
                   icon={icons.star}
-                  label="Current plan"
+                  label={t("settings.current_plan")}
                   value={planInfo.label}
                   rightEl={
                     <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${planInfo.color}`}>
@@ -378,27 +381,27 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                     </span>
                   }
                 />
-                <Row icon={icons.star}       label="Plan features"            onClick={() => setModal("planFeatures")} />
-                <Row icon={icons.receipt}    label="Billing cycle"            value="Monthly"       onClick={() => setModal("billing")} />
-                <Row icon={icons.creditCard} label="Payment method"           value="•••• 4242"    onClick={() => setModal("payment")} />
-                <Row icon={icons.creditCard} label="Update payment details"                         onClick={() => setModal("payment")} />
-                <Row icon={icons.receipt}    label="Billing history & invoices"                     onClick={() => setModal("invoices")} />
-                <Row icon={icons.xCircle}    label="Cancel subscription"      danger                onClick={() => setModal("cancelSub")} />
+                <Row icon={icons.star}       label={t("settings.plan_features")}      onClick={() => setModal("planFeatures")} />
+                <Row icon={icons.receipt}    label={t("settings.billing_cycle")}       value="Monthly"       onClick={() => setModal("billing")} />
+                <Row icon={icons.creditCard} label={t("settings.payment_method")}      value="•••• 4242"    onClick={() => setModal("payment")} />
+                <Row icon={icons.creditCard} label={t("settings.update_payment")}                            onClick={() => setModal("payment")} />
+                <Row icon={icons.receipt}    label={t("settings.billing_history")}                           onClick={() => setModal("invoices")} />
+                <Row icon={icons.xCircle}    label={t("settings.cancel_sub")}          danger                onClick={() => setModal("cancelSub")} />
               </Card>
             </section>
 
             {/* ── Support ───────────────────────────────────────────────── */}
             <section>
               <SectionHeader
-                title="Support"
-                subtitle="Get help and contact the Ruby team."
+                title={t("settings.support")}
+                subtitle={t("settings.support_desc")}
               />
               <Card>
-                <Row icon={icons.question}  label="Frequently asked questions" onClick={() => setModal("faq")} />
-                <Row icon={icons.chat}      label="Contact support"             onClick={() => setModal("contact")} />
-                <Row icon={icons.chat}      label="Provide feedback"            onClick={() => setModal("feedback")} />
-                <Row icon={icons.flag}      label="Report a bug"                onClick={() => setModal("bug")} />
-                <Row icon={icons.lightbulb} label="Suggest a feature"           onClick={() => setModal("feature")} />
+                <Row icon={icons.question}  label={t("settings.faq")}         onClick={() => setModal("faq")} />
+                <Row icon={icons.chat}      label={t("settings.contact")}      onClick={() => setModal("contact")} />
+                <Row icon={icons.chat}      label={t("settings.feedback")}     onClick={() => setModal("feedback")} />
+                <Row icon={icons.flag}      label={t("settings.report_bug")}   onClick={() => setModal("bug")} />
+                <Row icon={icons.lightbulb} label={t("settings.suggest")}      onClick={() => setModal("feature")} />
               </Card>
             </section>
 
@@ -415,7 +418,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
             <EditField label="Full name" value={name} onChange={setName} placeholder="Your name" />
             <button onClick={() => { saveProfile(); close(); }}
               className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Save
+              {t("settings.save")}
             </button>
           </div>
         </Modal>
@@ -427,7 +430,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
             <EditField label="Email" value={email} onChange={setEmail} type="email" placeholder="you@example.com" />
             <button onClick={() => { saveProfile(); close(); }}
               className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Save
+              {t("settings.save")}
             </button>
           </div>
         </Modal>
@@ -439,7 +442,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
             <EditField label="Phone" value={phone} onChange={setPhone} type="tel" placeholder="+27 000 000 0000" />
             <button onClick={() => { saveProfile(); close(); }}
               className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Save
+              {t("settings.save")}
             </button>
           </div>
         </Modal>
@@ -495,7 +498,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                 Back to continents
               </button>
               {CONTINENTS.find(c => c.key === selectedContinent)!.languages.map((l) => (
-                <button key={l} onClick={() => { setLearnLang(l); setSelectedContinent(null); close(); }}
+                <button key={l} onClick={() => { setLearnLang(l); setSelectedContinent(null); close(); setLanguage(l); }}
                   className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     learnLang === l ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                   }`}>
@@ -675,6 +678,13 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
       {saved && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs font-medium px-4 py-2.5 rounded-full shadow-lg z-50">
           ✓ Saved
+        </div>
+      )}
+
+      {isTranslating && (
+        <div className="fixed inset-0 z-[60] bg-black/60 flex flex-col items-center justify-center gap-4">
+          <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin" />
+          <p className="text-white text-sm font-medium">Translating platform...</p>
         </div>
       )}
     </>

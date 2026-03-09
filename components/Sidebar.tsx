@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ActiveView } from "@/types";
+import { useT } from "@/lib/i18n";
 
 interface SidebarProps {
   activeView: ActiveView;
@@ -26,41 +27,6 @@ function ChevronIcon({ open }: { open: boolean }) {
   );
 }
 
-const topItems: { id: ActiveView; emoji: string; label: string; desc: string }[] = [
-  { id: "home",     emoji: "🏠", label: "Home",     desc: "Dashboard" },
-  { id: "progress", emoji: "📊", label: "Progress", desc: "Your journey" },
-];
-
-const collapsibleSections = [
-  {
-    key: "general",
-    label: "General Tutor",
-    emoji: "💬",
-    items: [
-      { id: "chat" as ActiveView,  emoji: "📚", label: "Homework", desc: "Ask Ruby anything" },
-      { id: "watch" as ActiveView, emoji: "▶️",  label: "Watch",    desc: "Video learning" },
-    ],
-  },
-  {
-    key: "maths",
-    label: "Maths Engine",
-    emoji: "🧮",
-    items: [
-      { id: "ruby" as ActiveView,       emoji: "🎯", label: "Maths",      desc: "Adaptive math tutor" },
-      { id: "skill-tree" as ActiveView, emoji: "🌳", label: "Skill Tree", desc: "72 atomic skills" },
-    ],
-  },
-  {
-    key: "reading",
-    label: "Reading Engine",
-    emoji: "📖",
-    items: [
-      { id: "reading" as ActiveView,            emoji: "✏️", label: "Reading",    desc: "Reading & comprehension" },
-      { id: "reading-skill-tree" as ActiveView, emoji: "🌳", label: "Skill Tree", desc: "Reading skills" },
-    ],
-  },
-];
-
 export default function Sidebar({
   activeView,
   onViewChange,
@@ -69,6 +35,43 @@ export default function Sidebar({
   onSettings,
   onLogout,
 }: SidebarProps) {
+  const { t } = useT();
+
+  const topItems: { id: ActiveView; emoji: string; label: string; desc: string }[] = [
+    { id: "home",     emoji: "🏠", label: t("sidebar.home"),     desc: t("sidebar.home_desc") },
+    { id: "progress", emoji: "📊", label: t("sidebar.progress"), desc: t("sidebar.progress_desc") },
+  ];
+
+  const collapsibleSections = [
+    {
+      key: "general",
+      label: t("sidebar.general_tutor"),
+      emoji: "💬",
+      items: [
+        { id: "chat" as ActiveView,  emoji: "📚", label: t("sidebar.homework"), desc: t("sidebar.homework_desc") },
+        { id: "watch" as ActiveView, emoji: "▶️",  label: t("sidebar.watch"),    desc: t("sidebar.watch_desc") },
+      ],
+    },
+    {
+      key: "maths",
+      label: t("sidebar.maths_engine"),
+      emoji: "🧮",
+      items: [
+        { id: "ruby" as ActiveView,       emoji: "🎯", label: t("sidebar.maths"),      desc: t("sidebar.maths_desc") },
+        { id: "skill-tree" as ActiveView, emoji: "🌳", label: t("sidebar.skill_tree"), desc: t("sidebar.skill_tree_desc") },
+      ],
+    },
+    {
+      key: "reading",
+      label: t("sidebar.reading_engine"),
+      emoji: "📖",
+      items: [
+        { id: "reading" as ActiveView,            emoji: "✏️", label: t("sidebar.reading"),    desc: t("sidebar.reading_desc") },
+        { id: "reading-skill-tree" as ActiveView, emoji: "🌳", label: t("sidebar.skill_tree"), desc: t("sidebar.reading_skill_tree_desc") },
+      ],
+    },
+  ];
+
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     general: false,
     maths: false,
@@ -218,8 +221,8 @@ export default function Sidebar({
           >
             <span className="text-lg flex-shrink-0">⚙️</span>
             <div className="min-w-0">
-              <div className="font-medium text-sm">Settings</div>
-              <div className="text-xs truncate text-blue-400">Preferences</div>
+              <div className="font-medium text-sm">{t("sidebar.settings")}</div>
+              <div className="text-xs truncate text-blue-400">{t("sidebar.settings_desc")}</div>
             </div>
           </button>
 
@@ -229,12 +232,12 @@ export default function Sidebar({
           >
             <span className="text-lg flex-shrink-0">🚪</span>
             <div className="min-w-0">
-              <div className="font-medium text-sm">Logout</div>
-              <div className="text-xs truncate text-blue-400">Sign out</div>
+              <div className="font-medium text-sm">{t("sidebar.logout")}</div>
+              <div className="text-xs truncate text-blue-400">{t("sidebar.logout_desc")}</div>
             </div>
           </button>
 
-          <p className="text-blue-500 text-xs text-center pt-2">Powered by Groq</p>
+          <p className="text-blue-500 text-xs text-center pt-2">{t("sidebar.powered_by")}</p>
         </div>
       </aside>
     </>

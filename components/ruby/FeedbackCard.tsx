@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { DiagnosticResult, ErrorType } from "@/types/ruby";
+import { useT } from "@/lib/i18n";
 
 interface FeedbackCardProps {
   result: DiagnosticResult;
