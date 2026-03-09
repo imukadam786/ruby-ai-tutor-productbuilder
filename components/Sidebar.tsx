@@ -14,6 +14,7 @@ interface SidebarProps {
   onClose: () => void;
   onSettings?: () => void;
   onLogout?: () => void;
+  onOpenLangPicker?: () => void;
 }
 
 function ChevronIcon({ open }: { open: boolean }) {
@@ -34,6 +35,7 @@ export default function Sidebar({
   onClose,
   onSettings,
   onLogout,
+  onOpenLangPicker,
 }: SidebarProps) {
   const { t } = useT();
 
@@ -145,6 +147,17 @@ export default function Sidebar({
               <p className="text-blue-300 text-xs mt-0.5">AI Tutor</p>
             </div>
           </div>
+          <div className="flex items-center gap-1">
+          {/* Globe — language picker, always visible */}
+          <button
+            onClick={onOpenLangPicker}
+            className="text-blue-300 hover:text-white p-1.5 rounded-lg transition-colors"
+            aria-label="Change language"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </button>
           <button
             onClick={onClose}
             className="md:hidden text-blue-300 hover:text-white p-1.5 rounded-lg transition-colors"
@@ -154,6 +167,7 @@ export default function Sidebar({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
+          </div>
         </div>
 
         {/* Navigation */}

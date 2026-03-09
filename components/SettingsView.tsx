@@ -56,9 +56,6 @@ function Row({
   );
 }
 
-function Divider() {
-  return <div className="h-px bg-gray-100 mx-4" />;
-}
 
 function Card({ children }: { children: React.ReactNode }) {
   return (
@@ -348,7 +345,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                   icon={icons.book}
                   label={t("settings.preferred_lang")}
                   value={learnLang}
-                  onClick={() => setModal("learnLang")}
+                  onClick={() => { setSelectedContinent(null); setModal("learnLang"); }}
                 />
                 <Row
                   icon={icons.moon}
@@ -487,24 +484,26 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
             </div>
           ) : (
             /* Step 2: pick language */
-            <div className="space-y-1.5">
+            <div className="flex flex-col">
               <button
                 onClick={() => setSelectedContinent(null)}
-                className="flex items-center gap-1.5 text-xs text-blue-500 mb-3 font-medium"
+                className="flex items-center gap-1.5 text-xs text-blue-500 mb-3 font-medium flex-shrink-0"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
                 Back to continents
               </button>
-              {CONTINENTS.find(c => c.key === selectedContinent)!.languages.map((l) => (
-                <button key={l} onClick={() => { setLearnLang(l); setSelectedContinent(null); close(); setLanguage(l); }}
-                  className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                    learnLang === l ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-                  }`}>
-                  {l}
-                </button>
-              ))}
+              <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
+                {CONTINENTS.find(c => c.key === selectedContinent)!.languages.map((l) => (
+                  <button key={l} onClick={() => { setLearnLang(l); setSelectedContinent(null); close(); setLanguage(l); }}
+                    className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                      learnLang === l ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                    }`}>
+                    {l}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
         </Modal>

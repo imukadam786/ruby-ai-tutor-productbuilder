@@ -13,6 +13,7 @@ import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeScreen from "@/components/HomeScreen";
 import SettingsView from "@/components/SettingsView";
+import LanguagePickerModal from "@/components/LanguagePickerModal";
 import { ActiveView } from "@/types";
 import { LanguageProvider } from "@/lib/i18n";
 import { getProgress, incrementSession } from "@/lib/storage";
@@ -46,6 +47,7 @@ export default function Home() {
   });
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
+  const [showLangPicker, setShowLangPicker] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -111,12 +113,22 @@ export default function Home() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-1">
           <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white text-sm font-bold">
             R
           </div>
           <span className="font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
         </div>
+        {/* Globe / language picker */}
+        <button
+          onClick={() => setShowLangPicker(true)}
+          className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors"
+          aria-label="Change language"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </button>
       </header>
 
       <Sidebar
@@ -128,12 +140,15 @@ export default function Home() {
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
         onSettings={() => handleViewChange("settings")}
+        onOpenLangPicker={() => setShowLangPicker(true)}
         onLogout={() => {
           localStorage.removeItem("onboardingComplete");
           localStorage.removeItem("onboardingData");
           window.location.reload();
         }}
       />
+
+      {showLangPicker && <LanguagePickerModal onClose={() => setShowLangPicker(false)} />}
 
       <main className="flex-1 overflow-hidden pt-14 md:pt-0 h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
