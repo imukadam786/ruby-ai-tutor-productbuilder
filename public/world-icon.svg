@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="gc">
+      <circle cx="100" cy="100" r="100"/>
+    </clipPath>
+  </defs>
+
+  <!-- Ocean -->
+  <circle cx="100" cy="100" r="100" fill="#4AABDF"/>
+
+  <g clip-path="url(#gc)" fill="#3EC94F" stroke="#111111" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- Africa (centered, large) -->
+    <path d="
+      M83,28 L92,24 L102,23 L112,26 L119,33
+      L124,43 L128,55 L131,67 L133,80
+      L134,92 L131,105 L126,118
+      L118,130 L110,143 L103,158 L99,162
+      L93,155 L85,141 L78,128 L72,115
+      L67,102 L64,89 L63,76 L65,63
+      L69,51 L75,40 Z
+    "/>
+
+    <!-- West Africa bump (Gulf of Guinea) -->
+    <path d="M63,76 L58,82 L56,92 L60,100 L67,102 L64,89 Z"/>
+
+    <!-- Europe (upper left) -->
+    <path d="
+      M22,18 L34,12 L48,10 L60,14 L68,20
+      L72,28 L70,38 L64,44 L56,46
+      L46,44 L36,40 L26,32 L18,25 Z
+    "/>
+    <!-- Iberian peninsula detail -->
+    <path d="M22,30 L32,28 L38,34 L34,44 L24,42 L18,36 Z"/>
+    <!-- Italy -->
+    <path d="M74,32 L78,38 L80,50 L76,62 L72,60 L72,46 Z"/>
+
+    <!-- Arabian peninsula -->
+    <path d="
+      M122,34 L134,30 L146,36 L152,48
+      L148,62 L140,72 L133,80 L131,67
+      L128,55 L124,43 Z
+    "/>
+
+    <!-- Horn of Africa -->
+    <path d="M134,92 L142,86 L150,90 L148,100 L140,106 L131,105 Z"/>
+
+    <!-- South America (left edge) -->
+    <path d="
+      M0,72 L10,66 L18,72 L20,88 L16,106
+      L10,118 L2,120 L0,106 Z
+    "/>
+
+    <!-- Greenland (top) -->
+    <path d="M28,0 L52,0 L58,10 L50,18 L34,16 L22,8 Z"/>
+
+  </g>
+</svg>
