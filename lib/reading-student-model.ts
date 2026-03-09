@@ -6,6 +6,8 @@ import {
   ReadingAtomicSkill,
   ReadingMasteryStatus,
   ReadingTemplate,
+  ReadingDecision,
+  DiagnosticPlacementResult,
 } from "@/types/reading";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
 
@@ -46,15 +48,24 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
     created_at: new Date().toISOString(),
     last_active: new Date().toISOString(),
     error_history: {
-      omission: 0,
-      sequence_error: 0,
-      recall_error: 0,
-      phoneme_error: 0,
-      fluency_error: 0,
-      comprehension_gap: 0,
-      encoding_error: 0,
+      ERR_PHONEME_CONF: 0,
+      ERR_SOUND_RECALL: 0,
+      ERR_BLEND_FAIL: 0,
+      ERR_SOUND_OMIT: 0,
+      ERR_SOUND_INSERT: 0,
+      ERR_VOWEL_CONF: 0,
+      ERR_ORTHO_GUESS: 0,
+      ERR_SIGHT_MISS: 0,
+      ERR_MULTI_BREAK: 0,
+      ERR_FLUENCY_HES: 0,
+      ERR_MEANING_BLIND: 0,
+      ERR_SELF_MON: 0,
       correct: 0,
     },
+    placementCompleted: false,
+    placement: null,
+    errorPatterns: {},
+    sessionHistory: {},
   };
   saveReadingProfile(profile);
   return profile;
@@ -159,6 +170,23 @@ export function updateReadingSkillMastery(
   };
 }
 
+export function updateSessionHistory(
+  profile: ReadingStudentProfile,
+  skillId: string,
+  passed: boolean
+): ReadingStudentProfile {
+  const existing = profile.sessionHistory[skillId] || [];
+  const updated: ReadingStudentProfile = {
+    ...profile,
+    sessionHistory: {
+      ...profile.sessionHistory,
+      [skillId]: [...existing, passed],
+    },
+  };
+  saveReadingProfile(updated);
+  return updated;
+}
+
 // ─── Skill Tree Helpers ───────────────────────────────────────────────────────
 
 type SkillTreeData = {
@@ -257,6 +285,136 @@ export function determineNextReadingAction(
     if (lastThree.every((a) => !a.is_correct)) return "review_prerequisite";
   }
   return "continue_skill";
+}
+
+// ─── Decision Engine (Section 10 + Section 11) ────────────────────────────────
+
+export function determineReadingDecision(
+  skillId: string,
+  profile: ReadingStudentProfile,
+  latestResult: { is_correct: boolean; error_type: ReadingErrorType }
+): ReadingDecision {
+  const mastery = profile.skill_mastery[skillId];
+  const skill = getReadingSkillById(skillId);
+
+  // Get recent attempts (last 5)
+  const attempts = mastery?.attempts ?? [];
+  const last5 = attempts.slice(-5);
+  const recentAccuracy = last5.length > 0
+    ? last5.filter((a) => a.is_correct).length / last5.length
+    : 0;
+
+  // Session history for stability check
+  const sessions = profile.sessionHistory[skillId] ?? [];
+  const passedSessions = sessions.reduce<number[]>((acc, passed, i) => {
+    if (passed) acc.push(i);
+    return acc;
+  }, []);
+  // Session stability: passed in 2+ non-consecutive sessions
+  const isSessionStable = passedSessions.length >= 2 && (passedSessions[passedSessions.length - 1] - passedSessions[0]) >= 2;
+
+  // Error pattern tracking
+  const errorPattern = profile.errorPatterns[skillId];
+  const errorType = latestResult.error_type;
+  const retaughtCount = errorPattern?.retaughtCount ?? 0;
+  const errorCount = errorPattern?.count ?? 0;
+
+  // ACCELERATE: >90% accuracy in last 5 + 2+ formats + no errors
+  if (last5.length >= 5 && recentAccuracy > 0.9 && latestResult.is_correct) {
+    const formatsUsed = new Set(last5.map((a) => a.template));
+    if (formatsUsed.size >= 2) {
+      return "ACCELERATE";
+    }
+  }
+
+  // ADVANCE: mastered + session stable
+  const correctRequired = skill?.mastery_criteria.correct_required ?? 3;
+  const isMastered = (mastery?.correct_count ?? 0) >= correctRequired;
+  if (isMastered && isSessionStable && latestResult.is_correct) {
+    return "ADVANCE";
+  }
+
+  // Apply Section 11 error routing table
+  if (errorType !== "correct") {
+    // BACKTRACK conditions per error type
+    if (errorType === "ERR_PHONEME_CONF" && retaughtCount >= 3) return "BACKTRACK";
+    if (errorType === "ERR_SOUND_RECALL" && errorCount >= 2) return "BACKTRACK";
+    if (errorType === "ERR_BLEND_FAIL" && retaughtCount >= 1 && recentAccuracy < 0.5) return "BACKTRACK";
+    if (errorType === "ERR_SOUND_OMIT" && errorCount >= 3) return "BACKTRACK";
+    if (errorType === "ERR_SOUND_INSERT" && retaughtCount >= 2) return "BACKTRACK";
+    if (errorType === "ERR_VOWEL_CONF" && errorCount >= 2) return "BACKTRACK";
+    if (errorType === "ERR_ORTHO_GUESS" && retaughtCount >= 1 && recentAccuracy < 0.6) return "BACKTRACK";
+    if (errorType === "ERR_MULTI_BREAK" && retaughtCount >= 1 && recentAccuracy < 0.5) return "BACKTRACK";
+    if (errorType === "ERR_MEANING_BLIND" && errorCount >= 2) return "BACKTRACK";
+    if (errorType === "ERR_SELF_MON" && recentAccuracy < 0.3 && errorCount >= 3) return "BACKTRACK";
+
+    // BACKTRACK for accuracy < 60% despite reteach
+    if (recentAccuracy < 0.6 && retaughtCount >= 2) return "BACKTRACK";
+
+    // PRACTICE conditions (first occurrence for these types)
+    if (errorType === "ERR_SIGHT_MISS" && errorCount <= 1) return "PRACTICE";
+    if (errorType === "ERR_FLUENCY_HES" && errorCount <= 1) return "PRACTICE";
+
+    // Sight word miss > 30% after 3 PRACTICE → RETEACH
+    if (errorType === "ERR_SIGHT_MISS" && errorCount > 3 && recentAccuracy < 0.7) return "RETEACH";
+    // Fluency: no improvement after 3 → RETEACH
+    if (errorType === "ERR_FLUENCY_HES" && errorCount > 3) return "RETEACH";
+
+    // Default: RETEACH for consistent errors
+    if (errorCount >= 2) return "RETEACH";
+
+    // First occurrence of most errors → RETEACH
+    return "RETEACH";
+  }
+
+  // No errors — check accuracy thresholds
+  if (recentAccuracy >= 0.75 && !isMastered) return "PRACTICE";
+  if (recentAccuracy >= 0.75 && isMastered && !isSessionStable) return "PRACTICE";
+  if (recentAccuracy < 0.75 && last5.length >= 2) return "RETEACH";
+
+  return "PRACTICE";
+}
+
+// ─── Diagnostic Placement ─────────────────────────────────────────────────────
+
+export function completeDiagnosticPlacement(
+  profile: ReadingStudentProfile,
+  result: DiagnosticPlacementResult
+): ReadingStudentProfile {
+  // Mark all auto-completed skills as mastered
+  const updatedMastery = { ...profile.skill_mastery };
+  for (const skillId of result.autoCompletedSkillIds) {
+    const skill = getReadingSkillById(skillId);
+    updatedMastery[skillId] = {
+      skill_id: skillId,
+      status: "mastered",
+      correct_count: skill?.mastery_criteria.correct_required ?? 3,
+      attempt_count: skill?.mastery_criteria.correct_required ?? 3,
+      formats_used: ["oral"],
+      scaffolded_attempts: 0,
+      last_attempted: new Date().toISOString(),
+      mastered_at: new Date().toISOString(),
+      attempts: [],
+    };
+  }
+
+  // Derive level/tier from entry skill id
+  const parts = result.entrySkillId.split(".");
+  const levelId = parseInt(parts[0].replace("R", ""));
+  const tierId = `${parts[0]}.${parts[1]}`;
+
+  const updated: ReadingStudentProfile = {
+    ...profile,
+    placementCompleted: true,
+    placement: result,
+    skill_mastery: updatedMastery,
+    current_skill_id: result.entrySkillId,
+    current_tier_id: tierId,
+    current_level: levelId,
+    last_active: new Date().toISOString(),
+  };
+  saveReadingProfile(updated);
+  return updated;
 }
 
 export function getReadingLevelProgress(

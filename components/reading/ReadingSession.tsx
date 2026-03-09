@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { useT } from "@/lib/i18n";
 
 // ── Natural voice engine (mirrors ChatInterface) ──────────────────────────────
 function prepareForSpeech(raw: string): string {
@@ -96,6 +95,7 @@ import {
   ReadingDiagnosticResult,
   ReadingSkillAttempt,
   ReadingTemplate,
+  DiagnosticPlacementResult,
 } from "@/types/reading";
 import {
   getReadingProfile,
@@ -107,7 +107,10 @@ import {
   updateReadingSkillMastery,
   initReadingSkillMastery,
   determineNextReadingAction,
+  completeDiagnosticPlacement,
+  determineReadingDecision,
 } from "@/lib/reading-student-model";
+import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
 
 const TEMPLATES: ReadingTemplate[] = ["oral", "listening", "written", "reading"];
 
@@ -167,11 +170,21 @@ export default function ReadingSession() {
     }
   }, [phase, profile, templateIndex, skillAttemptCount, loadQuestion]);
 
+  const handlePlacementComplete = useCallback(
+    (result: DiagnosticPlacementResult) => {
+      if (!profile) return;
+      const updated = completeDiagnosticPlacement(profile, result);
+      setProfile(updated);
+      setPhase("loading_question");
+    },
+    [profile]
+  );
+
   const handleSetup = () => {
     if (!setupName.trim()) return;
     const newProfile = createReadingProfile(setupName.trim(), setupGrade);
     setProfile(newProfile);
-    setPhase("loading_question");
+    // Profile starts with placementCompleted: false — component will show placement flow
   };
 
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
@@ -215,6 +228,17 @@ export default function ReadingSession() {
 
       const nextAction = determineNextReadingAction(updatedMastery, updatedMastery.attempts);
       result.next_action = nextAction;
+
+      // Section 10/11 decision engine
+      const decision = determineReadingDecision(currentQuestion.skill_id, profile, {
+        is_correct: result.is_correct,
+        error_type: result.error_type,
+      });
+      result.decision = decision;
+
+      // Map decision back to next_action when appropriate
+      if (decision === "ADVANCE" || decision === "ACCELERATE") result.next_action = "advance_skill";
+      if (decision === "BACKTRACK") result.next_action = "review_prerequisite";
 
       const updatedProfile = recordReadingAttempt(profile, attempt, updatedMastery);
       setProfile(updatedProfile);
@@ -277,6 +301,17 @@ export default function ReadingSession() {
     setSessionCorrect(0);
     setSessionAttempts(0);
   };
+
+  // ─── Placement Gate ───────────────────────────────────────────────────────────
+
+  if (profile && !profile.placementCompleted) {
+    return (
+      <ReadingDiagnosticPlacement
+        studentName={profile.name}
+        onComplete={handlePlacementComplete}
+      />
+    );
+  }
 
   // ─── Setup ────────────────────────────────────────────────────────────────────
 

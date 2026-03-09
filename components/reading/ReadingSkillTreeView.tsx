@@ -10,10 +10,12 @@ interface ReadingSkillTreeViewProps {
 }
 
 const statusConfig = {
-  locked:      { bg: "bg-gray-100",    text: "text-gray-400",    border: "border-gray-200",    icon: "🔒", label: "Locked" },
-  available:   { bg: "bg-purple-50",   text: "text-purple-700",  border: "border-purple-200",  icon: "📖", label: "Available" },
-  in_progress: { bg: "bg-orange-50",   text: "text-orange-700",  border: "border-orange-200",  icon: "⚡", label: "In Progress" },
-  mastered:    { bg: "bg-green-50",    text: "text-green-700",   border: "border-green-200",   icon: "✅", label: "Mastered" },
+  locked:        { bg: "bg-gray-100",    text: "text-gray-400",    border: "border-gray-200",    icon: "🔒", label: "Locked" },
+  available:     { bg: "bg-purple-50",   text: "text-purple-700",  border: "border-purple-200",  icon: "📖", label: "Available" },
+  in_progress:   { bg: "bg-orange-50",   text: "text-orange-700",  border: "border-orange-200",  icon: "⚡", label: "In Progress" },
+  mastered:      { bg: "bg-green-50",    text: "text-green-700",   border: "border-green-200",   icon: "✅", label: "Mastered" },
+  auto_complete: { bg: "bg-green-50",    text: "text-green-600",   border: "border-green-200",   icon: "⚡", label: "Auto-completed" },
+  entry_point:   { bg: "bg-blue-50",     text: "text-blue-700",    border: "border-blue-300",    icon: "🎯", label: "Entry Point" },
 };
 
 type TreeData = {
@@ -42,6 +44,19 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
     return result;
   }, [profile]);
 
+  const autoCompletedIds = useMemo(
+    () => new Set(profile?.placement?.autoCompletedSkillIds ?? []),
+    [profile]
+  );
+  const entrySkillId = profile?.placement?.entrySkillId ?? null;
+  const hardGatePassed = profile?.placement?.hardGatePassed ?? true;
+
+  function getExtendedStatus(skillId: string) {
+    if (skillId === entrySkillId) return "entry_point";
+    if (autoCompletedIds.has(skillId)) return "auto_complete";
+    return getReadingSkillStatus(skillId, profile!);
+  }
+
   return (
     <div className="flex flex-col h-full bg-gray-50">
       <div className="bg-white border-b border-gray-200 px-6 py-4">
@@ -57,9 +72,27 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
           </div>
         ) : (
           <div className="max-w-2xl mx-auto space-y-4">
+            {/* Placement summary banner */}
+            {profile.placementCompleted && profile.placement && (
+              <div className="bg-blue-50 border border-blue-200 rounded-2xl px-5 py-3 flex items-center gap-3">
+                <span className="text-2xl">🎯</span>
+                <div>
+                  <p className="text-blue-800 font-semibold text-sm">Placement complete</p>
+                  <p className="text-blue-600 text-xs">
+                    {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
+                    {" · "}Entry: <span className="font-mono">{entrySkillId}</span>
+                    {!hardGatePassed && " · "}
+                    {!hardGatePassed && <span className="text-amber-600 font-medium">🔑 Hard Gate active</span>}
+                  </p>
+                </div>
+              </div>
+            )}
+
             {treeData.levels.map((level) => {
               const progress = levelProgress[level.id] || 0;
               const isCurrent = level.id === profile.current_level;
+              // Level 3 hard gate indicator
+              const isHardGateLevel = level.id === 3;
 
               return (
                 <div
@@ -68,6 +101,22 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                     isCurrent ? "border-purple-300 shadow-md shadow-purple-500/10" : "border-gray-200"
                   }`}
                 >
+                  {/* Hard gate banner for Level 3 */}
+                  {isHardGateLevel && !hardGatePassed && (
+                    <div className="bg-amber-50 border-b border-amber-200 px-5 py-2 flex items-center gap-2">
+                      <span className="text-amber-500">🔑</span>
+                      <p className="text-amber-700 text-xs font-medium">
+                        Hard Gate — encoding mastery required before advancing
+                      </p>
+                    </div>
+                  )}
+                  {isHardGateLevel && hardGatePassed && profile.placementCompleted && (
+                    <div className="bg-green-50 border-b border-green-100 px-5 py-2 flex items-center gap-2">
+                      <span className="text-green-500">✅</span>
+                      <p className="text-green-700 text-xs font-medium">Hard Gate passed</p>
+                    </div>
+                  )}
+
                   {/* Level header */}
                   <div className={`px-5 py-4 ${isCurrent ? "bg-purple-50" : ""}`}>
                     <div className="flex items-center justify-between mb-2">
@@ -117,20 +166,28 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                           </p>
                           <div className="flex flex-wrap gap-2">
                             {tier.atomic_skills.map((skill) => {
-                              const status = profile ? getReadingSkillStatus(skill.id, profile) : "locked";
-                              const config = statusConfig[status];
-                              const isCurrentSkill = profile?.current_skill_id === skill.id;
+                              const extStatus = getExtendedStatus(skill.id);
+                              const config = statusConfig[extStatus as keyof typeof statusConfig] ?? statusConfig.locked;
+                              const isCurrentSkill = profile.current_skill_id === skill.id;
+                              const isAutoComplete = autoCompletedIds.has(skill.id);
+                              const isEntry = skill.id === entrySkillId;
 
                               return (
                                 <div
                                   key={skill.id}
                                   className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${config.bg} ${config.text} ${config.border} ${
                                     isCurrentSkill ? "ring-2 ring-purple-400" : ""
-                                  }`}
+                                  } ${isEntry ? "ring-2 ring-blue-400 ring-offset-1" : ""}`}
                                   title={`${skill.title} — ${config.label}`}
                                 >
                                   <span className="mr-1">{config.icon}</span>
                                   {skill.title}
+                                  {isAutoComplete && (
+                                    <span className="ml-1.5 text-green-500 text-xs" title="Auto-completed via placement">✦</span>
+                                  )}
+                                  {isEntry && (
+                                    <span className="ml-1.5 text-blue-500 text-xs" title="Placement entry point">★</span>
+                                  )}
                                 </div>
                               );
                             })}

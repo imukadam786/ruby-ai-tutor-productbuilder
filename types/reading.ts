@@ -3,14 +3,36 @@
 export type ReadingTemplate = "oral" | "listening" | "written" | "reading";
 
 export type ReadingErrorType =
-  | "omission"
-  | "sequence_error"
-  | "recall_error"
-  | "phoneme_error"
-  | "fluency_error"
-  | "comprehension_gap"
-  | "encoding_error"
+  | "ERR_PHONEME_CONF"
+  | "ERR_SOUND_RECALL"
+  | "ERR_BLEND_FAIL"
+  | "ERR_SOUND_OMIT"
+  | "ERR_SOUND_INSERT"
+  | "ERR_VOWEL_CONF"
+  | "ERR_ORTHO_GUESS"
+  | "ERR_SIGHT_MISS"
+  | "ERR_MULTI_BREAK"
+  | "ERR_FLUENCY_HES"
+  | "ERR_MEANING_BLIND"
+  | "ERR_SELF_MON"
   | "correct";
+
+export type ReadingDecision = "ADVANCE" | "PRACTICE" | "RETEACH" | "BACKTRACK" | "ACCELERATE";
+
+export interface DiagnosticTaskResult {
+  taskId: string;
+  correct: boolean;
+  score: number;
+  response: string;
+}
+
+export interface DiagnosticPlacementResult {
+  completedAt: number;
+  tasks: DiagnosticTaskResult[];
+  entrySkillId: string;
+  autoCompletedSkillIds: string[];
+  hardGatePassed: boolean;
+}
 
 export interface ReadingErrorSignature {
   type: ReadingErrorType;
@@ -91,6 +113,10 @@ export interface ReadingStudentProfile {
   created_at: string;
   last_active: string;
   error_history: Record<ReadingErrorType, number>;
+  placementCompleted: boolean;
+  placement: DiagnosticPlacementResult | null;
+  errorPatterns: Record<string, { type: ReadingErrorType; count: number; retaughtCount: number }>;
+  sessionHistory: Record<string, boolean[]>;
 }
 
 // ─── Session ──────────────────────────────────────────────────────────────────
@@ -130,4 +156,5 @@ export interface ReadingDiagnosticResult {
     formats_used: ReadingTemplate[];
   };
   next_action: "continue_skill" | "advance_skill" | "advance_tier" | "advance_level" | "review_prerequisite";
+  decision?: ReadingDecision;
 }
