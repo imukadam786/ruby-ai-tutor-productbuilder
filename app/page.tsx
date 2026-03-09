@@ -12,6 +12,7 @@ import ReadingSession from "@/components/reading/ReadingSession";
 import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeScreen from "@/components/HomeScreen";
+import SettingsView from "@/components/SettingsView";
 import { ActiveView } from "@/types";
 import { getProgress, incrementSession } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
@@ -30,6 +31,7 @@ const viewLabels: Record<ActiveView, string> = {
   watch: "Watch",
   reading: "Reading",
   "reading-skill-tree": "Reading Skill Tree",
+  settings: "Settings",
 };
 
 export default function Home() {
@@ -123,7 +125,7 @@ export default function Home() {
         topicsCount={stats.topicsCount}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
-        onSettings={() => alert("Settings coming soon")}
+        onSettings={() => handleViewChange("settings")}
         onLogout={() => {
           localStorage.removeItem("onboardingComplete");
           localStorage.removeItem("onboardingData");
@@ -141,6 +143,7 @@ export default function Home() {
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
         {activeView === "reading" && <ReadingSession />}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
+        {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} />}
         {activeView === "watch" && (
           <div className="flex items-center justify-center h-full text-gray-400 text-sm">
             Coming soon
