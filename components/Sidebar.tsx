@@ -213,7 +213,7 @@ export default function Sidebar({
         {/* Footer */}
         <div className="px-4 pb-5 flex-shrink-0 space-y-1">
           <button
-            onClick={onSettings}
+            onClick={() => { onSettings?.(); onClose(); }}
             className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-blue-200 hover:bg-blue-800/60 hover:text-white"
           >
             <span className="text-lg flex-shrink-0">⚙️</span>
