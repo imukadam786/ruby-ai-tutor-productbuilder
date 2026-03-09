@@ -42,8 +42,8 @@ export default function LanguagePickerModal({ onClose }: Props) {
   const continent = CONTINENTS.find(c => c.key === selectedContinent);
 
   const handleSelect = async (lang: string) => {
-    onClose();
     await setLanguage(lang);
+    onClose();
   };
 
   return (
@@ -130,7 +130,7 @@ export default function LanguagePickerModal({ onClose }: Props) {
       {/* Translation loading overlay */}
       {isTranslating && (
         <div className="fixed inset-0 z-[60] bg-black/60 flex flex-col items-center justify-center gap-4">
-          <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin" />
+          <div className="text-6xl animate-spin" style={{ animationDuration: "1.2s" }}>🌍</div>
           <p className="text-white text-sm font-medium">Translating platform...</p>
         </div>
       )}

@@ -148,10 +148,10 @@ export default function Sidebar({
             </div>
           </div>
           <div className="flex items-center gap-1">
-          {/* Globe — language picker, always visible */}
+          {/* Globe — language picker, desktop only (mobile has it in top bar) */}
           <button
             onClick={onOpenLangPicker}
-            className="p-1 rounded-lg transition-opacity hover:opacity-80"
+            className="hidden md:block p-1 rounded-lg transition-opacity hover:opacity-80"
             aria-label="Change language"
           >
             <span className="text-2xl leading-none">🌍</span>

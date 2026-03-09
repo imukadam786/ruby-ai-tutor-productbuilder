@@ -328,7 +328,6 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                 <Row icon={icons.user}    label={t("settings.full_name")}        value={name || "Not set"}    onClick={() => setModal("name")} />
                 <Row icon={icons.email}   label={t("settings.email")}            value={email || "Not set"}   onClick={() => setModal("email")} />
                 <Row icon={icons.phone}   label={t("settings.phone")}            value={phone || "Not set"}   onClick={() => setModal("phone")} />
-                <Row icon={icons.globe}   label={t("settings.account_lang")}     value={accountLang}          onClick={() => setModal("accountLang")} />
                 <Row icon={icons.lock}    label={t("settings.change_password")}                               onClick={() => setModal("password")} />
                 <Row icon={icons.trash}   label={t("settings.delete_account")}   danger                       onClick={() => setModal("deleteAccount")} />
               </Card>
@@ -496,7 +495,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
               </button>
               <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
                 {CONTINENTS.find(c => c.key === selectedContinent)!.languages.map((l) => (
-                  <button key={l} onClick={() => { setLearnLang(l); setSelectedContinent(null); close(); setLanguage(l); }}
+                  <button key={l} onClick={async () => { setLearnLang(l); setSelectedContinent(null); await setLanguage(l); close(); }}
                     className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                       learnLang === l ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                     }`}>
@@ -682,7 +681,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
 
       {isTranslating && (
         <div className="fixed inset-0 z-[60] bg-black/60 flex flex-col items-center justify-center gap-4">
-          <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin" />
+          <div className="text-6xl animate-spin" style={{ animationDuration: "1.2s" }}>🌍</div>
           <p className="text-white text-sm font-medium">Translating platform...</p>
         </div>
       )}
