@@ -124,7 +124,7 @@ export default function Sidebar({
         {/* Logo */}
         <div className="px-6 py-5 border-b border-blue-800 flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 overflow-hidden rounded-xl shadow-lg flex-shrink-0">
+            <div className="w-10 h-10 overflow-hidden rounded-full bg-white shadow-lg flex-shrink-0">
               <img
                 src="/ruby-avatar.png"
                 alt="Ruby"
