@@ -32,7 +32,7 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
-      <div className="bg-white border-b border-gray-200 px-6 py-4">
+      <div className="hidden md:block bg-white border-b border-gray-200 px-6 py-4">
         <h2 className="text-gray-900 font-semibold text-lg">Skill Tree</h2>
         <p className="text-gray-500 text-sm">17 levels · 51 tiers · 72 atomic skills</p>
       </div>

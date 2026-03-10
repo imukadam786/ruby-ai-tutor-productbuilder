@@ -92,7 +92,7 @@ export default function ProgressTracker() {
   return (
     <div className="flex flex-col h-full bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b border-gray-100 px-6 py-4">
+      <div className="hidden md:block bg-white border-b border-gray-100 px-6 py-4">
         <h2 className="text-gray-900 font-semibold text-lg">Progress</h2>
         <p className="text-gray-500 text-sm">Your skill tree journey</p>
       </div>

@@ -409,7 +409,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   return (
     <div className="flex flex-col h-full bg-white">
       {/* Header */}
-      <div className="border-b border-gray-100 px-4 py-3 sm:px-8 sm:py-4 flex items-center justify-between bg-white">
+      <div className="hidden md:flex border-b border-gray-100 px-4 py-3 sm:px-8 sm:py-4 items-center justify-between bg-white">
         <div className="flex items-center gap-3">
           <RubyAvatar size="w-10 h-10" />
           <h2 className="text-gray-900 font-semibold text-base">Chat with Ruby</h2>

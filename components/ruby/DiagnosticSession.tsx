@@ -211,7 +211,7 @@ export default function DiagnosticSession() {
   if (phase === "setup") {
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="hidden md:block bg-white border-b border-gray-200 px-6 py-4">
           <h2 className="text-gray-900 font-semibold text-lg">Ruby Math Tutor</h2>
           <p className="text-gray-500 text-sm">Adaptive diagnostic learning engine</p>
         </div>
@@ -309,7 +309,7 @@ export default function DiagnosticSession() {
             {skill && (
               <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
                 <div className="flex-1">
-                  <p className="text-xs text-gray-400 uppercase tracking-wide">Current Skill</p>
+                  <p className="text-xs text-gray-400 uppercase tracking-wide">{profile ? `L${profile.current_level} - CURRENT SKILL` : "Current Skill"}</p>
                   <p className="text-gray-800 font-medium text-sm">{skill.title}</p>
                 </div>
                 <MasteryDots
@@ -423,7 +423,7 @@ function SessionHeader({
   const accuracy = sessionAttempts > 0 ? Math.round((sessionCorrect / sessionAttempts) * 100) : 0;
 
   return (
-    <div className="bg-white border-b border-gray-200 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between gap-3">
+    <div className="hidden md:flex bg-white border-b border-gray-200 px-4 py-3 sm:px-6 sm:py-4 items-center justify-between gap-3">
       <div className="min-w-0">
         <h2 className="text-gray-900 font-semibold text-sm sm:text-lg truncate">
           Ruby
