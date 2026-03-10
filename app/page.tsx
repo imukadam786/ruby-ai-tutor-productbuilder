@@ -28,7 +28,7 @@ const viewLabels: Record<ActiveView, string> = {
   lessons: "Lesson Plans",
   progress: "Progress",
   ruby: "Maths",
-  "skill-tree": "Skill Tree",
+  "skill-tree": "Maths Skill Tree",
   "student-dashboard": "Account",
   watch: "Watch",
   reading: "Reading",
@@ -113,12 +113,7 @@ export default function Home() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <div className="flex items-center gap-2 flex-1">
-          <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white text-sm font-bold">
-            R
-          </div>
-          <span className="font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
-        </div>
+        <span className="flex-1 font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
         {/* Globe / language picker */}
         <button
           onClick={() => setShowLangPicker(true)}
