@@ -172,72 +172,80 @@ export default function ProgressTracker() {
           </div>
 
           {/* ── Maths Skill Tree ───────────────────────────────────────── */}
-          {profile && currentLevel && (
-            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 shadow-sm space-y-3">
-              <h3 className="font-semibold text-blue-700 text-sm">Maths Skill Tree</h3>
-              <div className="flex items-center gap-3">
-                <span className="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
-                  L{profile.current_level}
-                </span>
-                <span className="text-gray-700 text-sm font-medium">{currentLevel.title}</span>
-              </div>
-              {currentSkill && (
-                <div className="bg-white rounded-xl px-4 py-3">
-                  <p className="text-xs text-blue-400 mb-0.5">Active skill</p>
-                  <p className="text-gray-800 text-sm font-medium">{currentSkill.title}</p>
-                  {currentSkill.description && (
-                    <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{currentSkill.description}</p>
-                  )}
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 shadow-sm space-y-3">
+            <h3 className="font-semibold text-blue-700 text-sm">Maths Skill Tree</h3>
+            {profile && currentLevel ? (
+              <>
+                <div className="flex items-center gap-3">
+                  <span className="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
+                    L{profile.current_level}
+                  </span>
+                  <span className="text-gray-700 text-sm font-medium">{currentLevel.title}</span>
                 </div>
-              )}
-              <div>
-                <div className="flex justify-between text-xs text-blue-500 mb-1.5">
-                  <span>Level progress</span>
-                  <span>{levelMastered} / {levelTotal} skills</span>
+                {currentSkill && (
+                  <div className="bg-white rounded-xl px-4 py-3">
+                    <p className="text-xs text-blue-400 mb-0.5">Active skill</p>
+                    <p className="text-gray-800 text-sm font-medium">{currentSkill.title}</p>
+                    {currentSkill.description && (
+                      <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{currentSkill.description}</p>
+                    )}
+                  </div>
+                )}
+                <div>
+                  <div className="flex justify-between text-xs text-blue-500 mb-1.5">
+                    <span>Level progress</span>
+                    <span>{levelMastered} / {levelTotal} skills</span>
+                  </div>
+                  <div className="h-2 bg-blue-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                      style={{ width: `${Math.round((levelMastered / levelTotal) * 100)}%` }}
+                    />
+                  </div>
                 </div>
-                <div className="h-2 bg-blue-100 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-blue-500 rounded-full transition-all duration-500"
-                    style={{ width: `${Math.round((levelMastered / levelTotal) * 100)}%` }}
-                  />
-                </div>
-              </div>
-            </div>
-          )}
+              </>
+            ) : (
+              <p className="text-blue-400 text-xs">Start a Maths session to track your progress here.</p>
+            )}
+          </div>
 
           {/* ── Reading Skill Tree ─────────────────────────────────────── */}
-          {readingProfile && readingCurrentLevel && (
-            <div className="bg-purple-50 border border-purple-200 rounded-2xl p-5 shadow-sm space-y-3">
-              <h3 className="font-semibold text-purple-700 text-sm">Reading Skill Tree</h3>
-              <div className="flex items-center gap-3">
-                <span className="bg-purple-600 text-white text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
-                  L{readingProfile.current_level}
-                </span>
-                <span className="text-gray-700 text-sm font-medium">{readingCurrentLevel.title}</span>
-              </div>
-              {readingCurrentSkill && (
-                <div className="bg-white rounded-xl px-4 py-3">
-                  <p className="text-xs text-purple-400 mb-0.5">Active skill</p>
-                  <p className="text-gray-800 text-sm font-medium">{readingCurrentSkill.title}</p>
-                  {readingCurrentSkill.description && (
-                    <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{readingCurrentSkill.description}</p>
-                  )}
+          <div className="bg-purple-50 border border-purple-200 rounded-2xl p-5 shadow-sm space-y-3">
+            <h3 className="font-semibold text-purple-700 text-sm">Reading Skill Tree</h3>
+            {readingProfile && readingCurrentLevel ? (
+              <>
+                <div className="flex items-center gap-3">
+                  <span className="bg-purple-600 text-white text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
+                    L{readingProfile.current_level}
+                  </span>
+                  <span className="text-gray-700 text-sm font-medium">{readingCurrentLevel.title}</span>
                 </div>
-              )}
-              <div>
-                <div className="flex justify-between text-xs text-purple-500 mb-1.5">
-                  <span>Level progress</span>
-                  <span>{readingLevelMastered} / {readingLevelTotal} skills</span>
+                {readingCurrentSkill && (
+                  <div className="bg-white rounded-xl px-4 py-3">
+                    <p className="text-xs text-purple-400 mb-0.5">Active skill</p>
+                    <p className="text-gray-800 text-sm font-medium">{readingCurrentSkill.title}</p>
+                    {readingCurrentSkill.description && (
+                      <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{readingCurrentSkill.description}</p>
+                    )}
+                  </div>
+                )}
+                <div>
+                  <div className="flex justify-between text-xs text-purple-500 mb-1.5">
+                    <span>Level progress</span>
+                    <span>{readingLevelMastered} / {readingLevelTotal} skills</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-purple-500 rounded-full transition-all duration-500"
+                      style={{ width: `${Math.round((readingLevelMastered / readingLevelTotal) * 100)}%` }}
+                    />
+                  </div>
                 </div>
-                <div className="h-2 bg-purple-100 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-purple-500 rounded-full transition-all duration-500"
-                    style={{ width: `${Math.round((readingLevelMastered / readingLevelTotal) * 100)}%` }}
-                  />
-                </div>
-              </div>
-            </div>
-          )}
+              </>
+            ) : (
+              <p className="text-purple-400 text-xs">Start a Reading session to track your progress here.</p>
+            )}
+          </div>
 
           {/* ── Mastered Skills ────────────────────────────────────────── */}
           {masteredEntries.length > 0 && (
