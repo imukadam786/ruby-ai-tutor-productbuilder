@@ -128,7 +128,7 @@ export default function Sidebar({
               <img
                 src="/ruby-avatar.png"
                 alt="Ruby"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-fill"
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
                   const fb = e.currentTarget.nextElementSibling as HTMLElement | null;

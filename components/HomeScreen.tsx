@@ -16,7 +16,7 @@ function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
       <img
         src="/ruby-avatar.png"
         alt="Ruby"
-        className="w-full h-full object-cover"
+        className="w-full h-full object-fill"
         onError={(e) => {
           e.currentTarget.style.display = "none";
           const fb = e.currentTarget.nextElementSibling as HTMLElement | null;
@@ -186,7 +186,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
       <div className="max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
 
         {/* ── Hero ─────────────────────────────────────────────────────── */}
-        <div className="flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left gap-4 mb-6">
+        <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
           <RubyAvatar size="w-14 h-14" />
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Hi {firstName} 👋</h1>
