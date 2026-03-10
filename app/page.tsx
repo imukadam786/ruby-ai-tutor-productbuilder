@@ -15,29 +15,17 @@ import HomeScreen from "@/components/HomeScreen";
 import SettingsView from "@/components/SettingsView";
 import LanguagePickerModal from "@/components/LanguagePickerModal";
 import { ActiveView } from "@/types";
-import { LanguageProvider } from "@/lib/i18n";
+import { LanguageProvider, useT } from "@/lib/i18n";
 import { getProgress, incrementSession } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
 import { getReadingProfile } from "@/lib/reading-student-model";
 import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
 
-const viewLabels: Record<ActiveView, string> = {
-  home: "Home",
-  chat: "Homework",
-  lessons: "Lesson Plans",
-  progress: "Progress",
-  ruby: "Maths",
-  "skill-tree": "Maths Skill Tree",
-  "student-dashboard": "Account",
-  watch: "Watch",
-  reading: "Reading",
-  "reading-skill-tree": "Reading Skill Tree",
-  settings: "Settings",
-};
+// ── Inner app — must live inside LanguageProvider to access useT ──────────────
+function AppContent() {
+  const { t } = useT();
 
-export default function Home() {
-  const [onboardingDone, setOnboardingDone] = useState<boolean | null>(null);
   const [activeView, setActiveView] = useState<ActiveView>("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [stats, setStats] = useState({
@@ -49,16 +37,19 @@ export default function Home() {
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [showLangPicker, setShowLangPicker] = useState(false);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("reset") !== null) {
-      localStorage.removeItem("onboardingComplete");
-      localStorage.removeItem("onboardingData");
-      window.history.replaceState({}, "", window.location.pathname);
-    }
-    const done = localStorage.getItem("onboardingComplete") === "true";
-    setOnboardingDone(done);
-  }, []);
+  const viewLabels: Record<ActiveView, string> = {
+    home: t("sidebar.home"),
+    chat: t("sidebar.homework"),
+    lessons: t("nav.lesson_plans"),
+    progress: t("sidebar.progress"),
+    ruby: t("sidebar.maths"),
+    "skill-tree": t("nav.maths_skill_tree"),
+    "student-dashboard": t("nav.account"),
+    watch: t("sidebar.watch"),
+    reading: t("sidebar.reading"),
+    "reading-skill-tree": t("nav.reading_skill_tree"),
+    settings: t("sidebar.settings"),
+  };
 
   const refreshStats = useCallback(() => {
     const progress = getProgress();
@@ -71,15 +62,9 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (onboardingDone) {
-      incrementSession();
-      refreshStats();
-    }
-  }, [onboardingDone, refreshStats]);
-
-  const handleOnboardingComplete = (_data: OnboardingData) => {
-    setOnboardingDone(true);
-  };
+    incrementSession();
+    refreshStats();
+  }, [refreshStats]);
 
   const handleViewChange = (view: ActiveView) => {
     setActiveView(view);
@@ -91,16 +76,7 @@ export default function Home() {
     }
   };
 
-  // Waiting for localStorage check
-  if (onboardingDone === null) return null;
-
-  // Show onboarding if not completed
-  if (!onboardingDone) {
-    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
-  }
-
   return (
-    <LanguageProvider>
     <div className="flex h-full overflow-hidden bg-gray-100">
       {/* Mobile top bar */}
       <header className="md:hidden fixed top-0 left-0 right-0 z-30 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm">
@@ -156,11 +132,42 @@ export default function Home() {
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} />}
         {activeView === "watch" && (
           <div className="flex items-center justify-center h-full text-gray-400 text-sm">
-            Coming soon
+            {t("common.coming_soon")}
           </div>
         )}
       </main>
     </div>
+  );
+}
+
+// ── Onboarding gate — wraps AppContent in LanguageProvider ───────────────────
+export default function Home() {
+  const [onboardingDone, setOnboardingDone] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("reset") !== null) {
+      localStorage.removeItem("onboardingComplete");
+      localStorage.removeItem("onboardingData");
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+    const done = localStorage.getItem("onboardingComplete") === "true";
+    setOnboardingDone(done);
+  }, []);
+
+  const handleOnboardingComplete = (_data: OnboardingData) => {
+    setOnboardingDone(true);
+  };
+
+  if (onboardingDone === null) return null;
+
+  if (!onboardingDone) {
+    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+  }
+
+  return (
+    <LanguageProvider>
+      <AppContent />
     </LanguageProvider>
   );
 }

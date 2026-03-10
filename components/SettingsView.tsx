@@ -303,7 +303,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
     <>
       <div className="flex flex-col h-full bg-gray-50">
         {/* Header */}
-        <div className="bg-white border-b border-gray-100 px-5 py-4 flex items-center gap-3 flex-shrink-0">
+        <div className="hidden md:flex bg-white border-b border-gray-100 px-5 py-4 items-center gap-3 flex-shrink-0">
           <button
             onClick={onBack}
             className="p-2 -ml-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"

@@ -132,6 +132,11 @@ export const UI_STRINGS: Record<string, string> = {
   "settings.suggest": "Suggest a feature",
   "settings.save": "Save",
   "settings.preferences": "Preferences",
+  // Nav bar labels
+  "nav.maths_skill_tree": "Maths Skill Tree",
+  "nav.reading_skill_tree": "Reading Skill Tree",
+  "nav.account": "Account",
+  "nav.lesson_plans": "Lesson Plans",
   // Common
   "common.coming_soon": "Coming soon",
   "common.ai_tutor": "AI Tutor",
