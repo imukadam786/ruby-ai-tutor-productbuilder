@@ -59,9 +59,9 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
-      <div className="hidden md:block bg-white border-b border-gray-200 px-6 py-4">
-        <h2 className="text-gray-900 font-semibold text-lg">Reading Skill Tree</h2>
-        <p className="text-gray-500 text-sm">5 levels · 14 tiers · 34 atomic skills</p>
+      <div className="hidden md:block bg-purple-50 border-b border-purple-200 px-6 py-4">
+        <h2 className="font-semibold text-purple-700 text-lg">Reading Skill Tree</h2>
+        <p className="text-purple-400 text-sm">5 levels · 14 tiers · 34 atomic skills</p>
       </div>
 
       <div className="flex-1 overflow-y-auto p-6">
@@ -121,7 +121,7 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                   <div className={`px-5 py-4 ${isCurrent ? "bg-purple-50" : ""}`}>
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold ${
+                        <div className={`min-w-[2.25rem] h-8 px-1.5 rounded-lg flex items-center justify-center text-sm font-bold ${
                           progress === 100
                             ? "bg-green-500 text-white"
                             : isCurrent
@@ -130,7 +130,7 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                             ? "bg-orange-500 text-white"
                             : "bg-gray-200 text-gray-500"
                         }`}>
-                          {level.id}
+                          L{level.id}
                         </div>
                         <div>
                           <p className="font-semibold text-gray-900 text-sm">{level.title}</p>
