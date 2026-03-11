@@ -4,7 +4,7 @@
     {
       "id": 1,
       "title": "Oral Language & Phonological Foundation",
-      "description": "Builds listening, speaking, and sound-awareness skills that make reading possible. The learner never sees print. Everything is spoken and heard. Grade R-1, voice only, entry level.",
+      "description": "Listen, speak, and play with sounds in words. Grade R–1, voice only, entry level. All 8 skills must be shown correctly at least 3 times each, across 2 different sessions at least 24 hours apart, with no help or hints.",
       "tiers": [
         {
           "id": "R1.T1",
@@ -13,7 +13,7 @@
             {
               "id": "R1.T1.A1",
               "title": "Multi-Step Instruction Following",
-              "description": "The learner hears a 2-3 step instruction and carries it out in the correct order, without asking for the instruction to be repeated. Passing requires >=90% step accuracy, >=85% correct sequence, across 5 trials, 2 different contexts, 2 sessions.",
+              "description": "Follow spoken instructions with 2–3 steps, in the right order. The learner hears the instruction once and carries out each step correctly — no repeating, no hints.",
               "prerequisites": [],
               "templates": ["oral", "listening"],
               "error_signatures": [
@@ -39,7 +39,7 @@
             {
               "id": "R1.T1.A2",
               "title": "Story Retell with Sequenced Events",
-              "description": "The learner hears a story or event and retells it with at least 3 events in the right order, using their own words. Requires >=3 ordered events, >=80% sequence match, across 2 story stimuli, 2 sessions.",
+              "description": "Retell a story they heard, with at least 3 events in the correct sequence. The learner uses their own words to describe what happened, in order.",
               "prerequisites": ["R1.T1.A1"],
               "templates": ["oral", "listening"],
               "error_signatures": [
@@ -65,7 +65,7 @@
             {
               "id": "R1.T1.A3",
               "title": "Grammatically Complete Spoken Sentences",
-              "description": "The learner produces unprompted responses that are grammatically complete sentences (subject + verb), not fragments or single words. Requires >=85% complete sentences across any 10-utterance sample, stable across 2 contexts.",
+              "description": "Speak in full sentences — not just single words or fragments. Every response should have a subject and a verb, without needing prompting.",
               "prerequisites": ["R1.T1.A1"],
               "templates": ["oral"],
               "error_signatures": [
@@ -97,7 +97,7 @@
             {
               "id": "R1.T2.A1",
               "title": "Rhyme Generation and Identification",
-              "description": "The learner generates a rhyming word for a given word AND correctly identifies whether two spoken words rhyme. Requires >=80% rhyme generation accuracy, >=85% identification accuracy, across 10 items, 2 word sets.",
+              "description": "Identify words that rhyme, and make up their own rhyming words. The learner hears a word and says a word that sounds the same at the end — and can tell when two words rhyme or don't.",
               "prerequisites": ["R1.T1.A1"],
               "templates": ["oral", "listening"],
               "error_signatures": [
@@ -123,7 +123,7 @@
             {
               "id": "R1.T2.A2",
               "title": "Syllable Segmentation and Blending",
-              "description": "The learner taps the correct number of syllables in a spoken word AND blends syllable segments back into the full word. Requires syllable count >=85% accurate across 10 words (1-4 syllables), blending >=80%, across 2 word sets.",
+              "description": "Clap out the syllables in a spoken word, and blend syllables back together. The learner taps once for each part of a word, and can merge syllable chunks back into the whole word.",
               "prerequisites": ["R1.T1.A1"],
               "templates": ["oral", "listening"],
               "error_signatures": [
@@ -155,7 +155,7 @@
             {
               "id": "R1.T3.A1",
               "title": "Phoneme Isolation — Onset and Coda",
-              "description": "When given a spoken word, the learner identifies the first sound (onset) and the last sound (coda). Requires >=80% onset accuracy, >=75% coda accuracy, across 10 words, 2 sessions. No print used.",
+              "description": "Pick out the first and last sound in a word. The learner hears a spoken word and says the very first sound, then the very last sound — with no letters or print involved.",
               "prerequisites": ["R1.T2.A2"],
               "templates": ["oral", "listening"],
               "error_signatures": [
@@ -181,7 +181,7 @@
             {
               "id": "R1.T3.A2",
               "title": "Full Phoneme Segmentation and Blending",
-              "description": "The learner fully breaks a 3-5 phoneme spoken word into its individual sounds AND blends a phoneme sequence back into the target word. Requires segmentation >=80%, blending >=80%, across 10 words (CVC, CCVC, CVCC), 2 sessions.",
+              "description": "Break a word into its individual sounds, and blend sounds back into a word. The learner says each separate sound in a spoken word one by one, and can put a list of sounds back together into the right word.",
               "prerequisites": ["R1.T3.A1"],
               "templates": ["oral", "listening"],
               "error_signatures": [
@@ -212,7 +212,7 @@
             {
               "id": "R1.T3.A3",
               "title": "Phoneme Manipulation — Deletion and Substitution",
-              "description": "The learner hears a phoneme manipulation task (e.g., 'Say bat without /b/') and produces the correct resulting word. Requires >=75% accuracy across 10 tasks (5 deletion, 5 substitution), latency <=5 seconds, across 2 sessions.",
+              "description": "Swap or remove a sound in a word to make a new word. For example: say 'bat' without the /b/, or change the /b/ in 'bat' to /s/ to make 'sat'. The learner manipulates sounds in their head — no print involved.",
               "prerequisites": ["R1.T3.A2"],
               "templates": ["oral", "listening"],
               "error_signatures": [
@@ -242,7 +242,7 @@
     {
       "id": 2,
       "title": "Alphabetic Code Construction",
-      "description": "Teaches letter-sound relationships. The learner must learn to retrieve the correct sound for any letter, digraph, blend, or vowel team — quickly and automatically. Slow retrieval (>2.5 seconds) is treated as a failure even if the answer is correct. Grade 1, hybrid voice and text, locked until L1 mastered.",
+      "description": "Learn the sound each letter makes, quickly and automatically. Grade 1, voice + text. Unlocks after Level 1. At least 95% accuracy with mean response time of 2.5 seconds or less, confirmed across 2 separate sessions. Speed matters as much as accuracy — average response time over 4 seconds sends the learner back to Level 1 drills.",
       "tiers": [
         {
           "id": "R2.T1",
@@ -251,7 +251,7 @@
             {
               "id": "R2.T1.A1",
               "title": "Letter-to-Sound Retrieval (Flashcard)",
-              "description": "When the system briefly shows a letter on screen, the learner says the SOUND of the letter — not its name. Requires >=95% accuracy, <=2.5 second latency per item, across 52 letters (uppercase and lowercase), 2 sessions with 2 randomised item sets.",
+              "description": "Say the sound (not the name) of every letter — uppercase and lowercase — within 2.5 seconds. When shown a letter, the learner says the phoneme it makes, not what it's called.",
               "prerequisites": ["R1.T3.A1"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -282,7 +282,7 @@
             {
               "id": "R2.T1.A2",
               "title": "Bidirectional Letter-Sound Mapping",
-              "description": "The learner connects each letter to its primary sound in both directions: letter to sound AND sound to letter. Requires >=90% accuracy in each direction, across the 26-letter set, 2 sessions.",
+              "description": "Connect letters to sounds in both directions: letter → sound, and sound → letter. The learner can go from a letter to its sound AND pick the right letter when they hear a sound.",
               "prerequisites": ["R2.T1.A1"],
               "templates": ["oral", "reading", "written"],
               "error_signatures": [
@@ -308,7 +308,7 @@
             {
               "id": "R2.T1.A3",
               "title": "Visually Confusable Letter Discrimination (b/d, p/q, m/w)",
-              "description": "The learner correctly identifies which letter is shown when b/d, p/q, and m/w pairs are shown individually. Requires zero confusion errors across 10 presentations of each pair (30 trials total), 2 sessions.",
+              "description": "Correctly tell apart look-alike letters: b/d, p/q, and m/w. The learner can look at each letter and say exactly which one it is — no mix-ups allowed.",
               "prerequisites": ["R2.T1.A1"],
               "templates": ["reading", "oral"],
               "error_signatures": [
@@ -345,7 +345,7 @@
             {
               "id": "R2.T2.A1",
               "title": "Digraph Phoneme Retrieval",
-              "description": "The system briefly shows or says one of the 6 target digraphs (sh, ch, th, wh, ck, ng). The learner produces the correct single phoneme — not the two individual letter sounds. Requires 100% accuracy across all 6 digraphs, <=2.5 seconds per item, across 2 sessions.",
+              "description": "Produce the correct single sound for digraphs like sh, ch, th, wh, ck, and ng. Two letters make one sound — the learner says that one sound, not two separate letter sounds.",
               "prerequisites": ["R2.T1.A2"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -371,7 +371,7 @@
             {
               "id": "R2.T2.A2",
               "title": "Consonant Blend Production",
-              "description": "When shown a consonant blend (e.g., 'st'), the learner produces both phonemes in the correct sequence within 2.5 seconds. Requires >=85% accuracy across 10 blend types, <=2.5 seconds per item, across 2 sessions.",
+              "description": "Say both sounds in a consonant blend (e.g. 'st', 'bl') in the right order. The learner sees a blend and says each of its two sounds correctly, one after the other — no vowel sneaking in between.",
               "prerequisites": ["R2.T2.A1"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -403,7 +403,7 @@
             {
               "id": "R2.T3.A1",
               "title": "Vowel Team Phoneme Retrieval",
-              "description": "When shown a vowel team pattern (ai, ee, oa, oo), the learner produces the correct phoneme — not the two individual vowel sounds. Requires >=85% accuracy across 6 vowel teams, <=2.5 seconds per item, across 2 sessions.",
+              "description": "Say the correct sound for vowel teams like ai, ee, oa, and oo — as one sound, not two. The learner sees a vowel team and produces a single fused phoneme, not two separate vowel sounds.",
               "prerequisites": ["R2.T2.A1"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -429,7 +429,7 @@
             {
               "id": "R2.T3.A2",
               "title": "Randomised 40-Item Phonogram Retrieval",
-              "description": "From a randomised 40-item set, the learner retrieves the correct phoneme for any phonogram (letter, digraph, blend, or vowel team) within 2.5 seconds. Requires >=95% accuracy, mean latency <=2.5 seconds, no single item >4.0 seconds, across 2 sessions with different item orders.",
+              "description": "Retrieve the correct sound for any letter, digraph, blend, or vowel team from a mixed 40-item set in under 2.5 seconds. Tests whether sound knowledge is fully automatic across all phonogram types — not just one category at a time.",
               "prerequisites": ["R2.T3.A1", "R2.T2.A2"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -455,7 +455,7 @@
             {
               "id": "R2.T3.A3",
               "title": "Phoneme Sequence Blending into Words",
-              "description": "The system delivers individual phonemes in sequence (e.g., /k/ /ae/ /t/). The learner blends them together and produces the target word. Requires >=85% correct constructions across 10 words (5 CVC, 5 CCVC), across 2 sessions.",
+              "description": "Blend a sequence of individual sounds spoken one at a time into the full word. The learner hears each sound in isolation and combines them smoothly to produce the complete word — the opposite direction to encoding.",
               "prerequisites": ["R2.T3.A2"],
               "templates": ["oral", "listening"],
               "error_signatures": [
@@ -485,7 +485,7 @@
     {
       "id": 3,
       "title": "Encoding Consolidation — HARD GATE 1",
-      "description": "HARD GATE 1: The learner must encode unfamiliar real words AND nonsense words with >=80% plausible phoneme-to-grapheme mapping, confirmed across 3 sessions. The system blocks access to L4 until this gate is passed. No manual override. Nonsense words are mandatory. Grade 2, primarily text input.",
+      "description": "Spell words by matching sounds to letters. Grade 2, mainly text input. HARD GATE 1: Level 4 is completely locked until this level is passed — no exceptions, no overrides. At least 80% of encoded words must be plausible (every sound has a letter, in the right order), including made-up words, confirmed across 3 separate sessions.",
       "tiers": [
         {
           "id": "R3.T1",
@@ -494,7 +494,7 @@
             {
               "id": "R3.T1.A1",
               "title": "CVC Word Encoding — Real and Nonsense",
-              "description": "The system dictates an unfamiliar CVC word (including nonsense CVC words) and the learner types a plausible encoding — one grapheme for each phoneme. Requires >=85% CORRECT or PLAUSIBLE, zero IMPLAUSIBLE responses, across 10 CVC items (5 real, 5 nonsense), across 3 sessions.",
+              "description": "Type a plausible spelling for short CVC words (including made-up ones like 'zolp') — one letter per sound. The learner hears a word and types each sound as a letter, in the correct order, without help.",
               "prerequisites": ["R2.T3.A2"],
               "templates": ["written"],
               "error_signatures": [
@@ -525,7 +525,7 @@
             {
               "id": "R3.T1.A2",
               "title": "Blend and Complex Pattern Encoding (CCVC, CVCC)",
-              "description": "The learner types a plausible encoding of CCVC, CVCC, and blend-containing words — including nonsense words with blends. Requires >=80% CORRECT or PLAUSIBLE, blend completeness >=90%, across 10 blend words, across 3 sessions.",
+              "description": "Type plausible spellings for longer words with blends and digraphs (e.g. 'stomp', 'chin'). The learner must capture every sound in the word — including blends — in the right order, without dropping letters.",
               "prerequisites": ["R3.T1.A1"],
               "templates": ["written"],
               "error_signatures": [
@@ -551,7 +551,7 @@
             {
               "id": "R3.T1.A3",
               "title": "Unfamiliar Real Word Encoding via Phonological Analysis",
-              "description": "The learner encodes an unfamiliar real word (not shown in prior sessions) using phonological analysis — not visual recall. Requires >=80% plausible, across 10 unfamiliar real words, zero memorisation-flag instances, across 3 sessions.",
+              "description": "Encode unfamiliar real words using sound logic — not from memory. The learner must break each new word into sounds and find a letter for each one, proving they are using the phonics code rather than remembering what words look like.",
               "prerequisites": ["R3.T1.A2"],
               "templates": ["written"],
               "error_signatures": [
@@ -572,7 +572,7 @@
             {
               "id": "R3.T1.A4",
               "title": "Nonsense Word Encoding — Code Proof",
-              "description": "The learner encodes nonsense words (e.g., 'blof', 'spund', 'crait') with plausible phoneme-to-grapheme mapping, proving code use over memorisation. Requires >=80% PLAUSIBLE, across 10 nonsense words (CVC, CCVC, CVCC mix), across 3 sessions. Gate 1 cannot pass without this score.",
+              "description": "Encode made-up words with plausible phoneme-to-letter matches — this is mandatory for passing Hard Gate 1. Because the word doesn't exist in memory, the only way to spell it correctly is to use the phonics code. This skill proves the learner is a coder, not a memoriser.",
               "prerequisites": ["R3.T1.A3"],
               "templates": ["written"],
               "error_signatures": [
@@ -604,7 +604,7 @@
             {
               "id": "R3.T2.A1",
               "title": "Complete Left-to-Right Grapheme Sequence",
-              "description": "The learner's typed output contains a grapheme for every phoneme in the spoken target — in correct left-to-right sequence. Requires zero omissions and zero transpositions across >=8 out of 10 words, across 3 sessions.",
+              "description": "Write every sound in a spoken word, in the correct left-to-right order — no sounds missing. The learner must account for every phoneme from the first sound to the last, with nothing skipped and nothing out of order.",
               "prerequisites": ["R3.T1.A4"],
               "templates": ["written"],
               "error_signatures": [
@@ -630,7 +630,7 @@
             {
               "id": "R3.T2.A2",
               "title": "Phonetic Self-Correction of Implausible Encodings",
-              "description": "When the learner produces an implausible encoding, they self-correct to a plausible encoding using phonological reasoning — not trial and error. Requires phonetic self-correction rate >=60% of all revisions, detected across at least 2 sessions.",
+              "description": "When a spelling attempt is wrong, go back and fix it using sound reasoning — not guessing. The learner notices that their spelling doesn't match the sounds in the word and makes a targeted correction, not a random one.",
               "prerequisites": ["R3.T2.A1"],
               "templates": ["written"],
               "error_signatures": [
@@ -660,7 +660,7 @@
     {
       "id": 4,
       "title": "Decoding & Fluency Construction",
-      "description": "Teaches the learner to read aloud fluently. The learner must decode unfamiliar words accurately, stop sounding out letter by letter, and read in phrases at a natural pace. Voice input is critical — the system measures WPM, hesitation count, phrase boundary detection, and prosody score. Locked until Hard Gate 1 passed. Grade 2-3, voice required for all reading tasks.",
+      "description": "Read aloud smoothly, in phrases, at a natural pace. Grade 2–3, voice required. Unlocks after Hard Gate 1. Read at 60 or more words per minute, with a prosody (phrasing) score of 70% or above, and a self-correction rate of 50% or above — confirmed across 2 separate sessions by voice.",
       "tiers": [
         {
           "id": "R4.T1",
@@ -669,7 +669,7 @@
             {
               "id": "R4.T1.A1",
               "title": "Accurate Phonetic Word Decoding",
-              "description": "The system shows an unfamiliar phonetic word on screen. The learner reads it aloud with each phoneme correct and in sequence. Requires >=85% phoneme accuracy per word, >=80% words correct across a 20-item set, latency <=5 seconds, across 2 sessions.",
+              "description": "Read unfamiliar phonetic words aloud, producing each sound correctly. The learner sees a word they haven't memorised and reads it by applying their phonics knowledge — each sound in the right order, nothing skipped.",
               "prerequisites": ["R3.T2.A2"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -700,7 +700,7 @@
             {
               "id": "R4.T1.A2",
               "title": "Nonsense Word Oral Decoding",
-              "description": "The system shows a nonsense word on screen. The learner reads it aloud with plausible phonological output. Requires >=80% PLAUSIBLE, across 10 nonsense words, zero memorisation flags, across 2 sessions. A real-word output for a nonsense target is an automatic fail.",
+              "description": "Read made-up words aloud using the phonics code — not guessing from memory. Because the word has never been seen before, the only way to read it is to decode it sound by sound. Producing a real word instead is an automatic fail.",
               "prerequisites": ["R4.T1.A1"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -732,7 +732,7 @@
             {
               "id": "R4.T2.A1",
               "title": "Left-to-Right Text Tracking",
-              "description": "The learner's reading recording shows left-to-right text tracking: reading words in printed order without skipping or repeating lines. Requires zero line-skip events, backward-jump rate <=1 per 50 words, across 3 connected-text passages.",
+              "description": "Read words in the correct printed order from left to right, without skipping or repeating lines. The learner tracks each line consistently — no jumping ahead, no going back to a previous line, no missing words.",
               "prerequisites": ["R4.T1.A1"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -758,7 +758,7 @@
             {
               "id": "R4.T2.A2",
               "title": "Elimination of Letter-by-Letter Sounding",
-              "description": "The learner reads words without audible letter-by-letter sounding — no subvocalised letter sequences before producing the word. Requires letter-by-letter events <=2 per 50 words, across 3 passages, 2 sessions.",
+              "description": "Stop sounding out letter-by-letter — read words as whole units. The learner recognises the full word pattern at once rather than sounding each letter individually. This is the shift from decoding to automatic word recognition.",
               "prerequisites": ["R4.T2.A1"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -790,7 +790,7 @@
             {
               "id": "R4.T3.A1",
               "title": "Phrased Reading with Prosody",
-              "description": "The learner reads connected text in phrases of at least 2 words, pausing at punctuation boundaries rather than after every word. Requires prosody >=70%, WPM >=60 for grade-level text, across 3 passages, 2 sessions.",
+              "description": "Read connected text in phrases of at least 2 words, pausing at punctuation rather than after every single word. Reading sounds natural and grouped — not robotic and word-by-word. Punctuation marks shape the phrasing.",
               "prerequisites": ["R4.T2.A2"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -816,7 +816,7 @@
             {
               "id": "R4.T3.A2",
               "title": "Self-Monitoring for Meaning During Reading",
-              "description": "The learner detects when a read word or phrase does not make sense in context, and self-corrects by re-reading. Requires self-monitor rate >=50% across 3 passages.",
+              "description": "Notice when a word doesn't make sense in context, and re-read to fix it. The learner catches their own errors by listening to whether the sentence makes sense — then goes back and reads the problem word correctly.",
               "prerequisites": ["R4.T3.A1"],
               "templates": ["oral", "reading"],
               "error_signatures": [
@@ -846,7 +846,7 @@
     {
       "id": 5,
       "title": "Comprehension & Language Expansion",
-      "description": "Teaches the learner to understand and respond to what they read — literally and inferentially. The learner must locate evidence in text, draw logical conclusions, write structured responses, and use vocabulary correctly. Both narrative text (stories) and informational text (articles or descriptions) are required. Grade 3, voice and text, locked until L4 mastered.",
+      "description": "Understand what you read and explain your thinking. Grade 3, voice + text. Unlocks after Level 4. Literal comprehension at 80% or above, inferential comprehension at 75% or above, and written response completeness at 80% or above — across 2 separate sessions.",
       "tiers": [
         {
           "id": "R5.T1",
@@ -855,7 +855,7 @@
             {
               "id": "R5.T1.A1",
               "title": "Literal Comprehension with Text Evidence",
-              "description": "After reading or hearing a passage, the learner correctly answers literal comprehension questions (facts stated explicitly in the text) AND uses words from the text in their answer. Requires literal accuracy >=80%, text reference present in >=70% of answers, across 2 text types (narrative + informational), 2 sessions.",
+              "description": "Answer questions about facts stated directly in the text, and point to the words that support their answer. The learner finds the evidence in the passage itself — not from general knowledge or guessing.",
               "prerequisites": ["R4.T3.A2"],
               "templates": ["oral", "written", "reading"],
               "error_signatures": [
@@ -881,7 +881,7 @@
             {
               "id": "R5.T1.A2",
               "title": "Inferential Comprehension with Connector and Evidence",
-              "description": "The learner answers inferential questions — conclusions that are logical but NOT directly stated in the text — using evidence from the text and a reasoning connective. Both text reference AND connector required. Requires inferential accuracy >=75%, across 2 text types, 2 sessions.",
+              "description": "Draw conclusions that aren't directly stated — and explain the reasoning using words like 'because' or 'this shows that'. The learner reads between the lines and justifies their thinking with evidence from the text.",
               "prerequisites": ["R5.T1.A1"],
               "templates": ["oral", "written", "reading"],
               "error_signatures": [
@@ -907,7 +907,7 @@
             {
               "id": "R5.T1.A3",
               "title": "Oral or Written Retell with Main Idea and Supporting Details",
-              "description": "The learner produces an oral or written retell or summary of a passage that includes the main idea AND at least 2 supporting details, in a logical order. Requires >=80% completeness score, across 2 text types, 2 sessions.",
+              "description": "Retell or summarise a passage including the main idea and at least 2 supporting details. The learner captures what the passage was mostly about, plus the key details that back it up — in a logical order.",
               "prerequisites": ["R5.T1.A2"],
               "templates": ["oral", "written", "reading"],
               "error_signatures": [
@@ -939,7 +939,7 @@
             {
               "id": "R5.T2.A1",
               "title": "Reasoning Connective Use — Linking Evidence to Conclusions",
-              "description": "The learner explains their reasoning using connective words (e.g., 'because', 'however', 'therefore', 'this means that') that correctly link evidence to a conclusion. Requires correct connective use >=75% of responses, across 2 text types, 2 sessions.",
+              "description": "Use connecting words (because, however, therefore, this means that) to link evidence to conclusions. The learner doesn't just state what they think — they use language that shows the logical connection between the evidence and the point they're making.",
               "prerequisites": ["R5.T1.A2"],
               "templates": ["oral", "written"],
               "error_signatures": [
@@ -965,7 +965,7 @@
             {
               "id": "R5.T2.A2",
               "title": "Contextually Accurate Vocabulary Use",
-              "description": "The learner uses newly taught vocabulary words in their own sentences, correctly — with the right meaning and in a plausible context. Requires semantic plausibility >=0.4 per word, at least 5 vocabulary words tested, across 2 sessions.",
+              "description": "Use newly taught vocabulary words correctly in their own sentences. The learner demonstrates that they understand what a word means by using it in a sentence where it makes sense — not just repeating it back.",
               "prerequisites": ["R5.T1.A1"],
               "templates": ["oral", "written"],
               "error_signatures": [
@@ -997,7 +997,7 @@
             {
               "id": "R5.T3.A1",
               "title": "Structured Written Response with Topic Sentence and Connectives",
-              "description": "The learner writes a structured response with: a clear topic sentence, at least 2 supporting details, complete sentences throughout, and correct use of connective language. Requires written response completeness >=80%, complete sentence rate >=85%, across 2 text types (narrative + informational), 2 sessions.",
+              "description": "Write a structured response with a clear topic sentence, supporting details, complete sentences, and connective language. The learner organises their writing so that the main point comes first, the evidence follows, and the language holds it all together.",
               "prerequisites": ["R5.T2.A1", "R5.T2.A2"],
               "templates": ["written"],
               "error_signatures": [
