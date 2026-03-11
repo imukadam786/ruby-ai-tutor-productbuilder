@@ -5,10 +5,9 @@ import { getTranslations } from "@/lib/onboarding-translations";
 
 export type OnboardingData = {
   language: string;
-  subject: string;
   grade: string;
   averageScore: string;
-  goal: string;
+  curriculum: string;
   name: string;
   email: string;
   plan: string;
@@ -21,13 +20,6 @@ const LANGUAGES = [
   "Tshivenda", "isiNdebele",
 ];
 
-const SUBJECTS = [
-  "Afrikaans", "English", "Economics",
-  "Geography", "History", "Maths",
-  "Maths Lit", "Natural Science", "Physical Science",
-  "Tourism", "isiXhosa", "isiZulu",
-];
-
 const GRADES = [
   { grade: "3", emoji: "😊" }, { grade: "4", emoji: "😊" },
   { grade: "5", emoji: "😊" }, { grade: "6", emoji: "😊" },
@@ -37,6 +29,16 @@ const GRADES = [
 ];
 
 const SCORES = ["30 – 40", "40 – 50", "50 – 60", "60 – 70", "70 – 80", "80+"];
+
+const CURRICULA = [
+  "CAPS",
+  "IEB",
+  "CAPS-SID",
+  "LSEN",
+  "Cambridge International",
+  "American Curriculum",
+  "British Curriculum",
+];
 
 const PLANS = [
   {
@@ -79,10 +81,9 @@ const PLANS = [
   },
 ];
 
-// Steps: 1=language, 2=subject, 3=grade, 4=score, 5=goal, 6=plan_ready, 7=create_account, 8=choose_plan
-const TOTAL_STEPS = 8;
+// Steps: 1=language, 2=grade, 3=score, 4=curriculum, 5=create_account, 6=choose_plan
+const TOTAL_STEPS = 6;
 
-// Consistent card content height matching the Create Account screen
 const CARD_CONTENT_CLASS = "p-6 flex flex-col min-h-[600px]";
 
 function BackButton({ onClick }: { onClick: () => void }) {
@@ -100,7 +101,7 @@ function ContinueBtn({ label, onClick, disabled }: { label: string; onClick: () 
     <button
       onClick={onClick}
       disabled={disabled}
-      className="w-full py-4 rounded-full bg-blue-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-blue-700 transition-colors mt-auto pt-6"
+      className="w-full py-4 rounded-full bg-blue-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-blue-700 transition-colors mt-auto"
     >
       {label}
     </button>
@@ -129,10 +130,9 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
   const handleSelectPlan = (planId: string) => {
     const final: OnboardingData = {
       language: data.language || "English",
-      subject: data.subject || "",
       grade: data.grade || "",
       averageScore: data.averageScore || "",
-      goal: data.goal || "",
+      curriculum: data.curriculum || "",
       name,
       email,
       plan: planId,
@@ -142,20 +142,16 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
     onComplete(final);
   };
 
-  const GOALS = [
-    { emoji: "📚", text: t.goal1 },
-    { emoji: "📈", text: t.goal2 },
-    { emoji: "🏆", text: t.goal3 },
-    { emoji: "🤔", text: t.goal4 },
-  ];
+  // Wider container only on the plan step so both cards fit on desktop
+  const outerMaxW = step === 6 ? "max-w-md md:max-w-2xl" : "max-w-md";
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-blue-950 overflow-y-auto py-8 px-4">
-      <div className="w-full max-w-md mx-auto">
+      <div className={`w-full ${outerMaxW} mx-auto`}>
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
 
-          {/* Progress bar — hidden on step 7 */}
-          {step !== 7 && (
+          {/* Progress bar — hidden on create account step */}
+          {step !== 5 && (
             <div className="h-1.5 bg-blue-100">
               <div
                 className="h-full bg-blue-500 transition-all duration-500 ease-out"
@@ -187,32 +183,8 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
             </div>
           )}
 
-          {/* ── Step 2: Subject ── */}
+          {/* ── Step 2: Grade ── */}
           {step === 2 && (
-            <div className={CARD_CONTENT_CLASS}>
-              <BackButton onClick={back} />
-              <h1 className="text-2xl font-bold text-[#1a2744] mb-6 leading-snug">{t.step2Title}</h1>
-              <div className="grid grid-cols-3 gap-3">
-                {SUBJECTS.map((subj) => (
-                  <button
-                    key={subj}
-                    onClick={() => select("subject", subj)}
-                    className={`py-4 px-2 rounded-2xl text-sm font-medium border-2 transition-all ${
-                      data.subject === subj
-                        ? "border-blue-500 bg-blue-50 text-blue-600"
-                        : "border-gray-200 text-gray-700 hover:border-gray-300"
-                    }`}
-                  >
-                    {subj}
-                  </button>
-                ))}
-              </div>
-              <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.subject} />
-            </div>
-          )}
-
-          {/* ── Step 3: Grade ── */}
-          {step === 3 && (
             <div className={CARD_CONTENT_CLASS}>
               <BackButton onClick={back} />
               <h1 className="text-2xl font-bold text-[#1a2744] mb-6 leading-snug">{t.step3Title}</h1>
@@ -221,7 +193,7 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
                   <button
                     key={grade}
                     onClick={() => select("grade", grade)}
-                    className={`flex items-center gap-3 py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
+                    className={`flex items-center justify-center gap-3 py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
                       data.grade === grade
                         ? "border-blue-500 bg-blue-50 text-blue-600"
                         : "border-gray-200 text-gray-700 hover:border-gray-300"
@@ -236,8 +208,8 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
             </div>
           )}
 
-          {/* ── Step 4: Average Score ── */}
-          {step === 4 && (
+          {/* ── Step 3: Average Score ── */}
+          {step === 3 && (
             <div className={CARD_CONTENT_CLASS}>
               <BackButton onClick={back} />
               <h1 className="text-2xl font-bold text-[#1a2744] mb-2 leading-snug">{t.step4Title}</h1>
@@ -261,66 +233,33 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
             </div>
           )}
 
-          {/* ── Step 5: Goal ── */}
-          {step === 5 && (
+          {/* ── Step 4: Curriculum ── */}
+          {step === 4 && (
             <div className={CARD_CONTENT_CLASS}>
               <BackButton onClick={back} />
-              <h1 className="text-2xl font-bold text-[#1a2744] mb-6 leading-snug">{t.step5Title}</h1>
+              <h1 className="text-2xl font-bold text-[#1a2744] mb-2 leading-snug">Which curriculum do you follow?</h1>
+              <p className="text-gray-400 text-sm mb-6">Select your school's curriculum</p>
               <div className="flex flex-col gap-3">
-                {GOALS.map(({ emoji, text }) => (
+                {CURRICULA.map((curriculum) => (
                   <button
-                    key={text}
-                    onClick={() => select("goal", text)}
-                    className={`flex items-center gap-4 py-4 px-5 rounded-full border-2 text-left text-base font-medium transition-all ${
-                      data.goal === text
+                    key={curriculum}
+                    onClick={() => select("curriculum", curriculum)}
+                    className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all text-center ${
+                      data.curriculum === curriculum
                         ? "border-blue-500 bg-blue-50 text-blue-600"
                         : "border-gray-200 text-gray-700 hover:border-gray-300"
                     }`}
                   >
-                    <span className="text-2xl flex-shrink-0">{emoji}</span>
-                    <span>{text}</span>
+                    {curriculum}
                   </button>
                 ))}
               </div>
-              <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.goal} />
+              <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.curriculum} />
             </div>
           )}
 
-          {/* ── Step 6: Plan Ready ── */}
-          {step === 6 && (
-            <div className={CARD_CONTENT_CLASS}>
-              <BackButton onClick={back} />
-              <h1 className="text-2xl font-bold text-[#1a2744] mb-3 leading-snug">{t.step6Title}</h1>
-              <p className="text-gray-400 text-sm mb-6">{t.step6Sub}</p>
-              <div className="bg-gray-50 rounded-2xl divide-y divide-gray-200">
-                <div className="flex items-center gap-4 p-4">
-                  <div className="w-11 h-11 rounded-full bg-yellow-400 flex items-center justify-center text-white text-lg font-bold flex-shrink-0">✦</div>
-                  <div>
-                    <p className="text-blue-600 text-xl font-bold">10,000+</p>
-                    <p className="text-gray-500 text-sm">{t.questionsAnswers}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 p-4">
-                  <div className="w-11 h-11 rounded-full bg-purple-400 flex items-center justify-center text-white text-lg font-bold flex-shrink-0">✦</div>
-                  <div>
-                    <p className="text-blue-600 text-xl font-bold">80</p>
-                    <p className="text-gray-500 text-sm">{t.videos}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 p-4">
-                  <div className="w-11 h-11 rounded-full bg-green-400 flex items-center justify-center text-white text-lg font-bold flex-shrink-0">✦</div>
-                  <div>
-                    <p className="text-blue-600 text-xl font-bold">6</p>
-                    <p className="text-gray-500 text-sm">{t.characters}</p>
-                  </div>
-                </div>
-              </div>
-              <ContinueBtn label={t.continueBtn} onClick={next} />
-            </div>
-          )}
-
-          {/* ── Step 7: Create Account ── */}
-          {step === 7 && (
+          {/* ── Step 5: Create Account ── */}
+          {step === 5 && (
             <div className={CARD_CONTENT_CLASS}>
               <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-6">{t.step7Title}</h1>
 
@@ -398,19 +337,51 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
             </div>
           )}
 
-          {/* ── Step 8: Choose Plan ── */}
-          {step === 8 && (
+          {/* ── Step 6: Choose Plan ── */}
+          {step === 6 && (
             <div className={CARD_CONTENT_CLASS}>
               <BackButton onClick={back} />
               <h1 className="text-2xl font-bold text-[#1a2744] mb-1">{t.step8Title}</h1>
               <p className="text-gray-400 text-sm mb-6">{t.step8Sub}</p>
 
-              {/* Horizontal scroll plan cards */}
-              <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 -mx-6 px-6 flex-1">
+              {/* Mobile: one card at a time, scroll to see the next */}
+              <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory pb-3 -mx-6 px-6 flex-1 gap-4 scrollbar-hide">
                 {PLANS.map((plan) => (
                   <div
                     key={plan.id}
-                    className={`flex-shrink-0 w-72 snap-center border-2 ${plan.borderClass} rounded-2xl p-5 flex flex-col`}
+                    className={`flex-shrink-0 w-full snap-center border-2 ${plan.borderClass} rounded-2xl p-5 flex flex-col`}
+                  >
+                    <p className="font-bold text-[#1a2744] text-base mb-1">{plan.name}</p>
+                    <p className={`text-3xl font-bold ${plan.priceClass} mb-4`}>
+                      <span className="text-lg font-semibold">R</span> {plan.price}
+                      <span className="text-sm font-normal text-gray-400"> {t.perMonth}</span>
+                    </p>
+                    <ul className="flex flex-col gap-2 mb-5 flex-1">
+                      {plan.features.map((f) => (
+                        <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
+                          <svg className="w-4 h-4 flex-shrink-0" style={{ color: plan.accentColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <button
+                      onClick={() => handleSelectPlan(plan.id)}
+                      className={`w-full py-3.5 rounded-full text-white font-semibold text-base transition-colors ${plan.btnClass}`}
+                    >
+                      {t.selectPlan}
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop: both plans side by side */}
+              <div className="hidden md:grid grid-cols-2 gap-4 flex-1">
+                {PLANS.map((plan) => (
+                  <div
+                    key={plan.id}
+                    className={`border-2 ${plan.borderClass} rounded-2xl p-5 flex flex-col`}
                   >
                     <p className="font-bold text-[#1a2744] text-base mb-1">{plan.name}</p>
                     <p className={`text-3xl font-bold ${plan.priceClass} mb-4`}>
