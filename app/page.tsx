@@ -11,6 +11,7 @@ import StudentDashboard from "@/components/ruby/StudentDashboard";
 import ReadingSession from "@/components/reading/ReadingSession";
 import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
+import TutorialOverlay from "@/components/tutorial/TutorialOverlay";
 import HomeScreen from "@/components/HomeScreen";
 import SettingsView from "@/components/SettingsView";
 import LanguagePickerModal from "@/components/LanguagePickerModal";
@@ -28,6 +29,7 @@ function AppContent() {
 
   const [activeView, setActiveView] = useState<ActiveView>("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(false);
   const [stats, setStats] = useState({
     totalMessages: 0,
     lessonsCompleted: 0,
@@ -64,6 +66,9 @@ function AppContent() {
   useEffect(() => {
     incrementSession();
     refreshStats();
+    if (!localStorage.getItem("tutorialComplete")) {
+      setShowTutorial(true);
+    }
   }, [refreshStats]);
 
   const handleViewChange = (view: ActiveView) => {
@@ -84,6 +89,7 @@ function AppContent() {
           onClick={() => setSidebarOpen(true)}
           className="p-2 -ml-1 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
           aria-label="Open menu"
+          data-tutorial="hamburger"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -148,6 +154,17 @@ function AppContent() {
           </div>
         )}
       </main>
+
+      {showTutorial && (
+        <TutorialOverlay
+          onViewChange={handleViewChange}
+          onComplete={() => {
+            localStorage.setItem("tutorialComplete", "true");
+            setShowTutorial(false);
+            handleViewChange("home");
+          }}
+        />
+      )}
     </div>
   );
 }
