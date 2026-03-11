@@ -27,13 +27,24 @@ import FeedbackCard from "./FeedbackCard";
 
 const TEMPLATES: QuestionTemplate[] = ["concrete", "story", "symbolic"];
 
-type SessionPhase = "setup" | "loading_question" | "question" | "feedback" | "mastered" | "complete";
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
+
+function readOnboarding(): { name: string; grade: number } {
+  try {
+    const raw = localStorage.getItem("onboardingData");
+    if (!raw) return { name: "Student", grade: 7 };
+    const data = JSON.parse(raw);
+    const name = ((data.name as string) || "Student").split(" ")[0];
+    const grade = parseInt(data.grade as string) || 7;
+    return { name, grade };
+  } catch {
+    return { name: "Student", grade: 7 };
+  }
+}
 
 export default function DiagnosticSession() {
   const [profile, setProfile] = useState<StudentProfile | null>(null);
-  const [phase, setPhase] = useState<SessionPhase>("setup");
-  const [setupName, setSetupName] = useState("");
-  const [setupGrade, setSetupGrade] = useState(5);
+  const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<GeneratedQuestion | null>(null);
   const [currentResult, setCurrentResult] = useState<DiagnosticResult | null>(null);
   const [templateIndex, setTemplateIndex] = useState(0);
@@ -47,6 +58,12 @@ export default function DiagnosticSession() {
     if (saved) {
       setProfile(saved);
       setPhase("loading_question");
+    } else {
+      // Auto-create profile from onboarding data — no setup screen needed
+      const { name, grade } = readOnboarding();
+      const newProfile = createStudentProfile(name, grade);
+      setProfile(newProfile);
+      // phase stays at loading_question; placement gate will intercept
     }
   }, []);
 
@@ -94,13 +111,6 @@ export default function DiagnosticSession() {
       loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, profile);
     }
   }, [phase, profile, templateIndex, skillAttemptCount, loadQuestion]);
-
-  const handleSetup = () => {
-    if (!setupName.trim()) return;
-    const newProfile = createStudentProfile(setupName.trim(), setupGrade);
-    setProfile(newProfile);
-    setPhase("loading_question");
-  };
 
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
     if (!currentQuestion || !profile) return;
@@ -223,8 +233,11 @@ export default function DiagnosticSession() {
 
   const resetProfile = () => {
     localStorage.removeItem("ruby_student_profile");
-    setProfile(null);
-    setPhase("setup");
+    // Re-create profile from onboarding so placement runs again
+    const { name, grade } = readOnboarding();
+    const freshProfile = createStudentProfile(name, grade);
+    setProfile(freshProfile);
+    setPhase("loading_question");
     setSkillAttemptCount(0);
     setTemplateIndex(0);
     setSessionCorrect(0);
@@ -238,85 +251,9 @@ export default function DiagnosticSession() {
     return (
       <MathsDiagnosticPlacement
         studentName={profile.name}
+        grade={profile.grade}
         onComplete={handlePlacementComplete}
       />
-    );
-  }
-
-  if (phase === "setup") {
-    return (
-      <div className="flex flex-col h-full bg-gray-50">
-        <div className="hidden md:block bg-white border-b border-gray-200 px-6 py-4">
-          <h2 className="text-gray-900 font-semibold text-lg">Ruby Math Tutor</h2>
-          <p className="text-gray-500 text-sm">Adaptive diagnostic learning engine</p>
-        </div>
-        <div className="flex-1 flex items-center justify-center p-6">
-          <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full space-y-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                R
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">Welcome to Ruby</h3>
-              <p className="text-gray-500 text-sm mt-1">
-                Your personalised math diagnostic tutor
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Your name
-                </label>
-                <input
-                  type="text"
-                  value={setupName}
-                  onChange={(e) => setSetupName(e.target.value)}
-                  placeholder="Enter your name"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  onKeyDown={(e) => e.key === "Enter" && handleSetup()}
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Year / Grade
-                </label>
-                <select
-                  value={setupGrade}
-                  onChange={(e) => setSetupGrade(parseInt(e.target.value))}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
-                >
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((g) => (
-                    <option key={g} value={g}>
-                      Year {g} / Grade {g}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <button
-              onClick={handleSetup}
-              disabled={!setupName.trim()}
-              className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white py-3 rounded-xl font-medium transition-all shadow-md"
-            >
-              Start Learning
-            </button>
-
-            <div className="grid grid-cols-3 gap-3 pt-2">
-              {[
-                { icon: "🧠", label: "Diagnoses errors" },
-                { icon: "📈", label: "Tracks mastery" },
-                { icon: "🎯", label: "Adapts to you" },
-              ].map(({ icon, label }) => (
-                <div key={label} className="text-center">
-                  <div className="text-2xl mb-1">{icon}</div>
-                  <p className="text-xs text-gray-500">{label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
     );
   }
 

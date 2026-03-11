@@ -114,13 +114,24 @@ import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPl
 
 const TEMPLATES: ReadingTemplate[] = ["oral", "listening", "written", "reading"];
 
-type SessionPhase = "setup" | "loading_question" | "question" | "feedback" | "mastered" | "complete";
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
+
+function readOnboarding(): { name: string; grade: number } {
+  try {
+    const raw = localStorage.getItem("onboardingData");
+    if (!raw) return { name: "Student", grade: 3 };
+    const data = JSON.parse(raw);
+    const name = ((data.name as string) || "Student").split(" ")[0];
+    const grade = parseInt(data.grade as string) || 3;
+    return { name, grade };
+  } catch {
+    return { name: "Student", grade: 3 };
+  }
+}
 
 export default function ReadingSession() {
   const [profile, setProfile] = useState<ReadingStudentProfile | null>(null);
-  const [phase, setPhase] = useState<SessionPhase>("setup");
-  const [setupName, setSetupName] = useState("");
-  const [setupGrade, setSetupGrade] = useState(1);
+  const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<ReadingGeneratedQuestion | null>(null);
   const [currentResult, setCurrentResult] = useState<ReadingDiagnosticResult | null>(null);
   const [templateIndex, setTemplateIndex] = useState(0);
@@ -134,6 +145,12 @@ export default function ReadingSession() {
     if (saved) {
       setProfile(saved);
       setPhase("loading_question");
+    } else {
+      // Auto-create from onboarding — no setup screen needed
+      const { name, grade } = readOnboarding();
+      const newProfile = createReadingProfile(name, grade);
+      setProfile(newProfile);
+      // placement gate will intercept before loading_question fires
     }
   }, []);
 
@@ -179,13 +196,6 @@ export default function ReadingSession() {
     },
     [profile]
   );
-
-  const handleSetup = () => {
-    if (!setupName.trim()) return;
-    const newProfile = createReadingProfile(setupName.trim(), setupGrade);
-    setProfile(newProfile);
-    // Profile starts with placementCompleted: false — component will show placement flow
-  };
 
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
     if (!currentQuestion || !profile) return;
@@ -294,8 +304,11 @@ export default function ReadingSession() {
 
   const resetProfile = () => {
     localStorage.removeItem("ruby_reading_profile");
-    setProfile(null);
-    setPhase("setup");
+    // Re-create from onboarding so placement runs again
+    const { name, grade } = readOnboarding();
+    const freshProfile = createReadingProfile(name, grade);
+    setProfile(freshProfile);
+    setPhase("loading_question");
     setSkillAttemptCount(0);
     setTemplateIndex(0);
     setSessionCorrect(0);
@@ -310,79 +323,6 @@ export default function ReadingSession() {
         studentName={profile.name}
         onComplete={handlePlacementComplete}
       />
-    );
-  }
-
-  // ─── Setup ────────────────────────────────────────────────────────────────────
-
-  if (phase === "setup") {
-    return (
-      <div className="flex flex-col h-full bg-gray-50">
-        <div className="hidden md:block bg-white border-b border-gray-200 px-6 py-4">
-          <h2 className="text-gray-900 font-semibold text-lg">Ruby Reading Tutor</h2>
-          <p className="text-gray-500 text-sm">Adaptive literacy learning engine</p>
-        </div>
-        <div className="flex-1 flex items-center justify-center p-6">
-          <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full space-y-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                📖
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">Welcome to Reading</h3>
-              <p className="text-gray-500 text-sm mt-1">
-                Your personalised literacy diagnostic tutor
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">Your name</label>
-                <input
-                  type="text"
-                  value={setupName}
-                  onChange={(e) => setSetupName(e.target.value)}
-                  placeholder="Enter your name"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  onKeyDown={(e) => e.key === "Enter" && handleSetup()}
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">Year / Grade</label>
-                <select
-                  value={setupGrade}
-                  onChange={(e) => setSetupGrade(parseInt(e.target.value))}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white"
-                >
-                  {[1, 2, 3, 4, 5, 6, 7].map((g) => (
-                    <option key={g} value={g}>Year {g} / Grade {g}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <button
-              onClick={handleSetup}
-              disabled={!setupName.trim()}
-              className="w-full bg-purple-500 hover:bg-purple-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white py-3 rounded-xl font-medium transition-all shadow-md"
-            >
-              Start Reading
-            </button>
-
-            <div className="grid grid-cols-3 gap-3 pt-2">
-              {[
-                { icon: "🔤", label: "Phonics & sounds" },
-                { icon: "📈", label: "Tracks mastery" },
-                { icon: "🎯", label: "Adapts to you" },
-              ].map(({ icon, label }) => (
-                <div key={label} className="text-center">
-                  <div className="text-2xl mb-1">{icon}</div>
-                  <p className="text-xs text-gray-500">{label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
     );
   }
 
