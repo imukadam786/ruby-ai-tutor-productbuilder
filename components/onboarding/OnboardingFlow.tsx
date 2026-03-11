@@ -35,8 +35,8 @@ const CURRICULA = [
   "IEB",
   "CAPS-SID",
   "LSEN",
-  "Cambridge International",
   "American Curriculum",
+  "Cambridge International",
   "British Curriculum",
 ];
 
@@ -148,7 +148,7 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-blue-950 overflow-y-auto py-8 px-4">
       <div className={`w-full ${outerMaxW} mx-auto`}>
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+        <div className="bg-white rounded-3xl shadow-xl">
 
           {/* Progress bar — hidden on create account step */}
           {step !== 5 && (
@@ -235,7 +235,7 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
 
           {/* ── Step 4: Curriculum ── */}
           {step === 4 && (
-            <div className={CARD_CONTENT_CLASS}>
+            <div className="p-6 flex flex-col">
               <BackButton onClick={back} />
               <h1 className="text-2xl font-bold text-[#1a2744] mb-2 leading-snug">Which curriculum do you follow?</h1>
               <p className="text-gray-400 text-sm mb-6">Select your school's curriculum</p>
@@ -254,7 +254,9 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
                   </button>
                 ))}
               </div>
-              <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.curriculum} />
+              <div className="mt-6">
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.curriculum} />
+              </div>
             </div>
           )}
 
