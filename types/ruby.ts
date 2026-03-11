@@ -79,6 +79,21 @@ export interface SkillMastery {
   attempts: SkillAttempt[];
 }
 
+export interface MathsPlacementTaskResult {
+  domain: string;        // e.g. "M001"
+  score: number;         // 0 or 1
+  response: string;
+}
+
+export interface MathsPlacementResult {
+  completedAt: number;
+  tasks: MathsPlacementTaskResult[];
+  entrySkillId: string;
+  entryLevel: number;
+  autoCompletedSkillIds: string[];
+  hardGatePassed: boolean;
+}
+
 export interface StudentProfile {
   id: string;
   name: string;
@@ -95,8 +110,9 @@ export interface StudentProfile {
   error_history: Record<ErrorType, number>;
   // Question bank tracking: maps domain (M001-M018) to array of used question refs
   used_questions: Record<string, string[]>;
-  // Maps skill_id to domain (e.g. "L1.T1.A1" -> "M001")
-  skill_domain_map?: Record<string, string>;
+  // Diagnostic placement
+  placementCompleted: boolean;
+  placement?: MathsPlacementResult;
 }
 
 // ─── Session ──────────────────────────────────────────────────────────────────

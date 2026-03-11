@@ -16,7 +16,10 @@ import {
   getNextSkillId,
   advanceToSkill,
   recordAttempt,
+  completeMathsPlacement,
 } from "@/lib/student-model";
+import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
+import { MathsPlacementResult } from "@/types/ruby";
 import { updateSkillMastery, initSkillMastery, determineNextAction } from "@/lib/mastery-engine";
 import { getDomainForSkill, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
 import QuestionCard from "./QuestionCard";
@@ -48,7 +51,7 @@ export default function DiagnosticSession() {
   }, []);
 
   const loadQuestion = useCallback(
-    async (skillId: string, template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile) => {
+    async (skillId: string, _template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile) => {
       setPhase("loading_question");
       setStatusMessage("Loading your question...");
       try {
@@ -140,7 +143,6 @@ export default function DiagnosticSession() {
       };
 
       // Determine next action
-      const tier = skill ? null : null;
       const nextAction = determineNextAction(
         updatedMastery,
         updatedMastery.attempts,
@@ -209,6 +211,16 @@ export default function DiagnosticSession() {
     }
   };
 
+  const handlePlacementComplete = useCallback(
+    (result: MathsPlacementResult) => {
+      if (!profile) return;
+      const updatedProfile = completeMathsPlacement(profile, result);
+      setProfile(updatedProfile);
+      setPhase("loading_question");
+    },
+    [profile]
+  );
+
   const resetProfile = () => {
     localStorage.removeItem("ruby_student_profile");
     setProfile(null);
@@ -220,6 +232,16 @@ export default function DiagnosticSession() {
   };
 
   // ─── Render ─────────────────────────────────────────────────────────────────
+
+  // Placement gate — show discovery activity before regular learning begins
+  if (profile && !profile.placementCompleted) {
+    return (
+      <MathsDiagnosticPlacement
+        studentName={profile.name}
+        onComplete={handlePlacementComplete}
+      />
+    );
+  }
 
   if (phase === "setup") {
     return (

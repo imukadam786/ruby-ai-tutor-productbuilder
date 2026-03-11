@@ -1,4 +1,4 @@
-import { StudentProfile, SkillMastery, SkillAttempt, ErrorType, AtomicSkill } from "@/types/ruby";
+import { StudentProfile, SkillMastery, SkillAttempt, ErrorType, AtomicSkill, MathsPlacementResult } from "@/types/ruby";
 import skillTreeData from "@/data/skill-tree.json";
 
 const STUDENT_KEY = "ruby_student_profile";
@@ -45,6 +45,7 @@ export function createStudentProfile(name: string, grade: number): StudentProfil
       execution_slip: 0,
     },
     used_questions: {},
+    placementCompleted: false,
   };
   saveStudentProfile(profile);
   return profile;
@@ -195,4 +196,55 @@ export function getAllSkillIds(): string[] {
     }
   }
   return ids;
+}
+
+export function getSkillIdsForLevels(belowLevel: number): string[] {
+  const ids: string[] = [];
+  for (const level of skillTreeData.levels) {
+    if (level.id >= belowLevel) break;
+    for (const tier of level.tiers) {
+      for (const skill of tier.atomic_skills) {
+        ids.push(skill.id);
+      }
+    }
+  }
+  return ids;
+}
+
+// ─── Maths Placement ──────────────────────────────────────────────────────────
+
+export function completeMathsPlacement(
+  profile: StudentProfile,
+  result: MathsPlacementResult
+): StudentProfile {
+  const updatedMastery = { ...profile.skill_mastery };
+  for (const skillId of result.autoCompletedSkillIds) {
+    const skill = getSkillById(skillId);
+    updatedMastery[skillId] = {
+      skill_id: skillId,
+      status: "mastered",
+      correct_count: skill?.mastery_criteria.correct_required ?? 3,
+      attempt_count: skill?.mastery_criteria.correct_required ?? 3,
+      formats_used: ["symbolic"],
+      scaffolded_attempts: 0,
+      last_attempted: new Date().toISOString(),
+      mastered_at: new Date().toISOString(),
+      attempts: [],
+    };
+  }
+  const parts = result.entrySkillId.split(".");
+  const levelId = parseInt(parts[0].replace("L", ""));
+  const tierId = `${parts[0]}.${parts[1]}`;
+  const updated: StudentProfile = {
+    ...profile,
+    placementCompleted: true,
+    placement: result,
+    skill_mastery: updatedMastery,
+    current_skill_id: result.entrySkillId,
+    current_tier_id: tierId,
+    current_level: levelId,
+    last_active: new Date().toISOString(),
+  };
+  saveStudentProfile(updated);
+  return updated;
 }
