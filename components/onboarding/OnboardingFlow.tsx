@@ -146,7 +146,7 @@ export default function OnboardingFlow({ onComplete }: { onComplete: (data: Onbo
   const outerMaxW = step === 6 ? "max-w-md md:max-w-2xl" : "max-w-md";
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-blue-950 overflow-y-auto py-8 px-4">
+    <div className="h-screen overflow-y-auto bg-gradient-to-b from-blue-900 to-blue-950 py-8 px-4">
       <div className={`w-full ${outerMaxW} mx-auto`}>
         <div className="bg-white rounded-3xl shadow-xl">
 
