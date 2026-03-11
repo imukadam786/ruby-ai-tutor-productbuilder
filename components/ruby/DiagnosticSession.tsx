@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
   StudentProfile,
   GeneratedQuestion,
@@ -231,9 +231,9 @@ export default function DiagnosticSession() {
     [profile]
   );
 
-  const resetProfile = () => {
+  // Full reset — wipes everything, reruns placement with shuffled questions
+  const resetToPlacement = () => {
     localStorage.removeItem("ruby_student_profile");
-    // Re-create profile from onboarding so placement runs again
     const { name, grade } = readOnboarding();
     const freshProfile = createStudentProfile(name, grade);
     setProfile(freshProfile);
@@ -244,16 +244,69 @@ export default function DiagnosticSession() {
     setSessionAttempts(0);
   };
 
+  // Skill-tree-only reset — keeps placement result, returns to entry point with fresh questions
+  const resetSkillTree = () => {
+    const p = profile;
+    if (!p?.placement) return;
+    const pl = p.placement;
+    // Rebuild mastery: only the auto-completed skills awarded by placement
+    const restoredMastery: StudentProfile["skill_mastery"] = {};
+    for (const skillId of pl.autoCompletedSkillIds) {
+      const skill = getSkillById(skillId);
+      restoredMastery[skillId] = {
+        skill_id: skillId,
+        status: "mastered",
+        correct_count: skill?.mastery_criteria.correct_required ?? 3,
+        attempt_count: skill?.mastery_criteria.correct_required ?? 3,
+        formats_used: ["symbolic"],
+        scaffolded_attempts: 0,
+        last_attempted: new Date().toISOString(),
+        mastered_at: new Date().toISOString(),
+        attempts: [],
+      };
+    }
+    const parts = pl.entrySkillId.split(".");
+    const updated: StudentProfile = {
+      ...p,
+      skill_mastery: restoredMastery,
+      current_skill_id: pl.entrySkillId,
+      current_tier_id: `${parts[0]}.${parts[1]}`,
+      current_level: parseInt(parts[0].replace("L", "")),
+      used_questions: {}, // Clear so AI generates fresh questions
+    };
+    saveStudentProfile(updated);
+    setProfile(updated);
+    setPhase("loading_question");
+    setSkillAttemptCount(0);
+    setTemplateIndex(0);
+    setSessionCorrect(0);
+    setSessionAttempts(0);
+  };
+
+  // Refs always point to latest profile + functions — fixes stale closure in event handler
+  const profileRef = useRef<StudentProfile | null>(null);
+  profileRef.current = profile;
+  const actionsRef = useRef({ resetToPlacement, resetSkillTree });
+  actionsRef.current = { resetToPlacement, resetSkillTree };
+
   // Mobile pencil icon → dispatches this event
   useEffect(() => {
     const handler = () => {
-      if (window.confirm("Restart from scratch? This will clear your progress and run the placement again.")) {
-        resetProfile();
+      const p = profileRef.current;
+      if (!p) return;
+      if (!p.placementCompleted) {
+        if (window.confirm("Restart the discovery activity? You'll get a fresh set of questions in a different order.")) {
+          actionsRef.current.resetToPlacement();
+        }
+      } else {
+        if (window.confirm("Restart maths questions? Your placement result stays — you'll return to your starting level with fresh questions.")) {
+          actionsRef.current.resetSkillTree();
+        }
       }
     };
     document.addEventListener("ruby-action", handler);
     return () => document.removeEventListener("ruby-action", handler);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   // ─── Render ─────────────────────────────────────────────────────────────────
 
@@ -271,7 +324,7 @@ export default function DiagnosticSession() {
   if (phase === "loading_question") {
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <SessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
@@ -286,7 +339,7 @@ export default function DiagnosticSession() {
     const skill = getSkillById(currentQuestion.skill_id);
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <SessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
             {skill && (
@@ -322,7 +375,7 @@ export default function DiagnosticSession() {
     };
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <SessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto">
             <FeedbackCard
@@ -340,7 +393,7 @@ export default function DiagnosticSession() {
     const skill = profile ? getSkillById(profile.current_skill_id) : null;
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <SessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
             <div className="text-5xl mb-2">🏆</div>
@@ -366,7 +419,7 @@ export default function DiagnosticSession() {
   if (phase === "complete") {
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <SessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
             <div className="text-5xl mb-2">🎓</div>
@@ -375,7 +428,7 @@ export default function DiagnosticSession() {
               You&apos;ve completed the entire Ruby Math Skill Tree. That&apos;s a remarkable achievement!
             </p>
             <button
-              onClick={resetProfile}
+              onClick={resetToPlacement}
               className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium mt-2"
             >
               Start Again
@@ -431,7 +484,7 @@ function SessionHeader({
         )}
         <button
           onClick={() => {
-            if (window.confirm("Restart from scratch? This will clear your progress and run the placement again.")) {
+            if (window.confirm("Restart maths questions? Your placement result stays — you'll return to your starting level with fresh questions.")) {
               onReset();
             }
           }}

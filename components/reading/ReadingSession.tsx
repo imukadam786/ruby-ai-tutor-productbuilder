@@ -109,6 +109,7 @@ import {
   determineNextReadingAction,
   completeDiagnosticPlacement,
   determineReadingDecision,
+  saveReadingProfile,
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
 
@@ -302,9 +303,9 @@ export default function ReadingSession() {
     }
   };
 
-  const resetProfile = () => {
+  // Full reset — wipes everything, reruns placement with fresh questions
+  const resetToPlacement = () => {
     localStorage.removeItem("ruby_reading_profile");
-    // Re-create from onboarding so placement runs again
     const { name, grade } = readOnboarding();
     const freshProfile = createReadingProfile(name, grade);
     setProfile(freshProfile);
@@ -315,16 +316,69 @@ export default function ReadingSession() {
     setSessionAttempts(0);
   };
 
+  // Skill-tree-only reset — keeps placement result, returns to entry point with fresh questions
+  const resetSkillTree = () => {
+    const p = profile;
+    if (!p?.placement) return;
+    const pl = p.placement;
+    // Rebuild mastery: only the auto-completed skills awarded by placement
+    const restoredMastery: ReadingStudentProfile["skill_mastery"] = {};
+    for (const skillId of pl.autoCompletedSkillIds) {
+      const skill = getReadingSkillById(skillId);
+      restoredMastery[skillId] = {
+        skill_id: skillId,
+        status: "mastered",
+        correct_count: skill?.mastery_criteria.correct_required ?? 3,
+        attempt_count: skill?.mastery_criteria.correct_required ?? 3,
+        formats_used: ["oral"],
+        scaffolded_attempts: 0,
+        last_attempted: new Date().toISOString(),
+        mastered_at: new Date().toISOString(),
+        attempts: [],
+      };
+    }
+    const parts = pl.entrySkillId.split(".");
+    const updated: ReadingStudentProfile = {
+      ...p,
+      skill_mastery: restoredMastery,
+      current_skill_id: pl.entrySkillId,
+      current_tier_id: `${parts[0]}.${parts[1]}`,
+      current_level: parseInt(parts[0].replace("R", "")),
+      sessionHistory: {}, // Clear so fresh questions are generated
+    };
+    saveReadingProfile(updated);
+    setProfile(updated);
+    setPhase("loading_question");
+    setSkillAttemptCount(0);
+    setTemplateIndex(0);
+    setSessionCorrect(0);
+    setSessionAttempts(0);
+  };
+
+  // Refs always point to latest profile + functions — fixes stale closure in event handler
+  const profileRef = useRef<ReadingStudentProfile | null>(null);
+  profileRef.current = profile;
+  const actionsRef = useRef({ resetToPlacement, resetSkillTree });
+  actionsRef.current = { resetToPlacement, resetSkillTree };
+
   // Mobile pencil icon → dispatches this event
   useEffect(() => {
     const handler = () => {
-      if (window.confirm("Restart from scratch? This will clear your reading progress and run the placement again.")) {
-        resetProfile();
+      const p = profileRef.current;
+      if (!p) return;
+      if (!p.placementCompleted) {
+        if (window.confirm("Restart the discovery activity? You'll get a fresh set of questions.")) {
+          actionsRef.current.resetToPlacement();
+        }
+      } else {
+        if (window.confirm("Restart reading questions? Your placement result stays — you'll return to your starting level with fresh questions.")) {
+          actionsRef.current.resetSkillTree();
+        }
       }
     };
     document.addEventListener("ruby-action", handler);
     return () => document.removeEventListener("ruby-action", handler);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   // ─── Placement Gate ───────────────────────────────────────────────────────────
 
@@ -342,7 +396,7 @@ export default function ReadingSession() {
   if (phase === "loading_question") {
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <ReadingSessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
@@ -360,7 +414,7 @@ export default function ReadingSession() {
     const mastery = profile?.skill_mastery[currentQuestion.skill_id];
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <ReadingSessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
             {skill && (
@@ -397,7 +451,7 @@ export default function ReadingSession() {
     };
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <ReadingSessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto">
             <ReadingFeedbackCard
@@ -417,7 +471,7 @@ export default function ReadingSession() {
     const skill = profile ? getReadingSkillById(profile.current_skill_id) : null;
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <ReadingSessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
             <div className="text-5xl mb-2">🏆</div>
@@ -445,7 +499,7 @@ export default function ReadingSession() {
   if (phase === "complete") {
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <ReadingSessionHeader profile={profile} onReset={resetProfile} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
             <div className="text-5xl mb-2">🎓</div>
@@ -454,7 +508,7 @@ export default function ReadingSession() {
               You&apos;ve completed the entire Ruby Reading Skill Tree. What an incredible achievement!
             </p>
             <button
-              onClick={resetProfile}
+              onClick={resetToPlacement}
               className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-xl font-medium mt-2"
             >
               Start Again
@@ -508,7 +562,7 @@ function ReadingSessionHeader({
         )}
         <button
           onClick={() => {
-            if (window.confirm("Restart from scratch? This will clear your reading progress and run the placement again.")) {
+            if (window.confirm("Restart reading questions? Your placement result stays — you'll return to your starting level with fresh questions.")) {
               onReset();
             }
           }}

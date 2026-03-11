@@ -268,7 +268,11 @@ export default function MathsDiagnosticPlacement({
   grade: number;
   onComplete: (result: MathsPlacementResult) => void;
 }) {
-  const tasks = useMemo(() => getTasksForGrade(grade), [grade]);
+  const tasks = useMemo(() => {
+    const filtered = getTasksForGrade(grade);
+    // Shuffle on every mount so restarts never repeat the same order
+    return [...filtered].sort(() => Math.random() - 0.5);
+  }, [grade]);
 
   const [phase, setPhase] = useState<Phase>("welcome");
   const [taskIndex, setTaskIndex] = useState(0);
