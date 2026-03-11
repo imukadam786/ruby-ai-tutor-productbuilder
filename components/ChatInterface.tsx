@@ -406,10 +406,17 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     saveMessages([welcome]);
   };
 
+  // Mobile pencil icon → dispatches this event
+  useEffect(() => {
+    const handler = () => clearChat();
+    document.addEventListener("ruby-action", handler);
+    return () => document.removeEventListener("ruby-action", handler);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="flex flex-col h-full bg-white">
       {/* Header */}
-      <div className="flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white">
+      <div className="hidden md:flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white">
         <div className="flex items-center gap-2.5">
           <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
           <h2 className="text-gray-900 font-semibold text-sm sm:text-base">Chat with Ruby</h2>

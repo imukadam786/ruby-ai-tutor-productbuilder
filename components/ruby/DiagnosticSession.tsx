@@ -244,6 +244,17 @@ export default function DiagnosticSession() {
     setSessionAttempts(0);
   };
 
+  // Mobile pencil icon → dispatches this event
+  useEffect(() => {
+    const handler = () => {
+      if (window.confirm("Restart from scratch? This will clear your progress and run the placement again.")) {
+        resetProfile();
+      }
+    };
+    document.addEventListener("ruby-action", handler);
+    return () => document.removeEventListener("ruby-action", handler);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   // ─── Render ─────────────────────────────────────────────────────────────────
 
   // Placement gate — show discovery activity before regular learning begins
@@ -394,14 +405,8 @@ function SessionHeader({
   const skill = profile ? getSkillById(profile.current_skill_id) : null;
   const accuracy = sessionAttempts > 0 ? Math.round((sessionCorrect / sessionAttempts) * 100) : 0;
 
-  const handleReset = () => {
-    if (window.confirm("Restart from scratch? This will clear your progress and run the placement again.")) {
-      onReset();
-    }
-  };
-
   return (
-    <div className="flex bg-white border-b border-gray-200 px-4 py-2 sm:px-6 sm:py-3 items-center justify-between gap-3">
+    <div className="hidden md:flex bg-white border-b border-gray-200 px-4 py-2 sm:px-6 sm:py-3 items-center justify-between gap-3">
       <div className="min-w-0">
         <h2 className="text-gray-900 font-semibold text-sm sm:text-base truncate">
           Ruby Maths
@@ -425,7 +430,11 @@ function SessionHeader({
           </div>
         )}
         <button
-          onClick={handleReset}
+          onClick={() => {
+            if (window.confirm("Restart from scratch? This will clear your progress and run the placement again.")) {
+              onReset();
+            }
+          }}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-500 hover:text-red-600 hover:bg-red-50 border border-gray-200 hover:border-red-200 transition-all whitespace-nowrap"
           title="Restart from scratch"
         >
