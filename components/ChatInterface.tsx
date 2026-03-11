@@ -409,12 +409,19 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   return (
     <div className="flex flex-col h-full bg-white">
       {/* Header */}
-      <div className="hidden md:flex border-b border-gray-100 px-4 py-3 sm:px-8 sm:py-4 items-center justify-between bg-white">
-        <div className="flex items-center gap-3">
-          <RubyAvatar size="w-10 h-10" />
-          <h2 className="text-gray-900 font-semibold text-base">Chat with Ruby</h2>
+      <div className="flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white">
+        <div className="flex items-center gap-2.5">
+          <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
+          <h2 className="text-gray-900 font-semibold text-sm sm:text-base">Chat with Ruby</h2>
         </div>
-        <button onClick={clearChat} className="px-3 py-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg text-xs transition-colors">
+        <button
+          onClick={clearChat}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-500 hover:text-red-600 hover:bg-red-50 border border-gray-200 hover:border-red-200 transition-all"
+          title="Clear conversation"
+        >
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
           Clear
         </button>
       </div>

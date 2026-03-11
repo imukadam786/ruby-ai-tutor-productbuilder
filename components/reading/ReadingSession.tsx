@@ -473,33 +473,43 @@ function ReadingSessionHeader({
   const skill = profile ? getReadingSkillById(profile.current_skill_id) : null;
   const accuracy = sessionAttempts > 0 ? Math.round((sessionCorrect / sessionAttempts) * 100) : 0;
 
+  const handleReset = () => {
+    if (window.confirm("Restart from scratch? This will clear your progress and run the placement again.")) {
+      onReset();
+    }
+  };
+
   return (
-    <div className="hidden md:flex bg-white border-b border-gray-200 px-4 py-3 sm:px-6 sm:py-4 items-center justify-between gap-3">
+    <div className="flex bg-white border-b border-gray-200 px-4 py-2 sm:px-6 sm:py-3 items-center justify-between gap-3">
       <div className="min-w-0">
-        <h2 className="text-gray-900 font-semibold text-sm sm:text-lg truncate">
+        <h2 className="text-gray-900 font-semibold text-sm sm:text-base truncate">
           Ruby Reading
-          {profile && <span className="text-gray-400 font-normal"> — {profile.name}</span>}
+          {profile && <span className="text-gray-400 font-normal"> · {profile.name}</span>}
         </h2>
         {skill && (
-          <p className="text-gray-500 text-xs sm:text-sm truncate">
-            L{profile?.current_level} · {skill.title}
+          <p className="text-gray-500 text-xs truncate">
+            Level {profile?.current_level} · {skill.title}
           </p>
         )}
       </div>
-      <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+      <div className="flex items-center gap-3 flex-shrink-0">
         {sessionAttempts > 0 && (
           <div className="text-right">
-            <p className="text-xs text-gray-400 hidden sm:block">Session accuracy</p>
-            <p className={`text-sm font-semibold ${accuracy >= 70 ? "text-green-600" : "text-orange-600"}`}>
+            <p className={`text-sm font-semibold ${accuracy >= 70 ? "text-green-600" : "text-orange-500"}`}>
               {accuracy}%
             </p>
+            <p className="text-xs text-gray-400 leading-none">accuracy</p>
           </div>
         )}
         <button
-          onClick={onReset}
-          className="text-gray-400 hover:text-gray-600 text-xs sm:text-sm transition-colors whitespace-nowrap"
+          onClick={handleReset}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-500 hover:text-red-600 hover:bg-red-50 border border-gray-200 hover:border-red-200 transition-all whitespace-nowrap"
+          title="Restart from scratch"
         >
-          ✕ Reset
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          Restart
         </button>
       </div>
     </div>
