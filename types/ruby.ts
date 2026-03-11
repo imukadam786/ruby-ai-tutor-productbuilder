@@ -93,6 +93,10 @@ export interface StudentProfile {
   created_at: string;
   last_active: string;
   error_history: Record<ErrorType, number>;
+  // Question bank tracking: maps domain (M001-M018) to array of used question refs
+  used_questions: Record<string, string[]>;
+  // Maps skill_id to domain (e.g. "L1.T1.A1" -> "M001")
+  skill_domain_map?: Record<string, string>;
 }
 
 // ─── Session ──────────────────────────────────────────────────────────────────
@@ -109,11 +113,14 @@ export interface DiagnosticSession {
 export interface GeneratedQuestion {
   id: string;
   skill_id: string;
+  domain_id?: string;
+  question_ref?: string;
   template: QuestionTemplate;
   question: string;
   hint?: string;
   expected_answer: string;
   scaffolding_notes: string;
+  bank_question?: Record<string, unknown>;
 }
 
 export interface AnswerSubmission {

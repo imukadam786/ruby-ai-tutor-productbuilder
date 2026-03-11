@@ -44,6 +44,7 @@ export function createStudentProfile(name: string, grade: number): StudentProfil
       representation_confusion: 0,
       execution_slip: 0,
     },
+    used_questions: {},
   };
   saveStudentProfile(profile);
   return profile;

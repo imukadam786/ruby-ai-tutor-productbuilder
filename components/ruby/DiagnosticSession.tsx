@@ -18,6 +18,7 @@ import {
   recordAttempt,
 } from "@/lib/student-model";
 import { updateSkillMastery, initSkillMastery, determineNextAction } from "@/lib/mastery-engine";
+import { getDomainForSkill, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
 
@@ -47,26 +48,38 @@ export default function DiagnosticSession() {
   }, []);
 
   const loadQuestion = useCallback(
-    async (skillId: string, template: QuestionTemplate, attemptNum: number) => {
+    async (skillId: string, template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile) => {
       setPhase("loading_question");
-      setStatusMessage("Generating your question...");
+      setStatusMessage("Loading your question...");
       try {
+        // Get used refs so server can exclude already-seen questions
+        const domainId = getDomainForSkill(skillId);
+        const usedRefs = domainId ? getUsedRefs(currentProfile, domainId) : [];
+
         const res = await fetch("/api/ruby/generate-question", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             skill_id: skillId,
-            template,
             attempt_number: attemptNum,
             include_hint: attemptNum > 1,
+            used_refs: usedRefs,
           }),
         });
-        if (!res.ok) throw new Error("Failed to generate question");
+        if (!res.ok) throw new Error("Failed to load question");
         const q: GeneratedQuestion = await res.json();
+
+        // Mark question as used in student profile immediately
+        if (q.domain_id && q.question_ref) {
+          const updatedProfile = markQuestionUsed(currentProfile, q.domain_id, q.question_ref);
+          saveStudentProfile(updatedProfile);
+          setProfile(updatedProfile);
+        }
+
         setCurrentQuestion(q);
         setPhase("question");
       } catch {
-        setStatusMessage("Failed to load question. Check your API key and refresh.");
+        setStatusMessage("Failed to load question. Please refresh or check your connection.");
       }
     },
     []
@@ -75,7 +88,7 @@ export default function DiagnosticSession() {
   useEffect(() => {
     if (phase === "loading_question" && profile) {
       const template = TEMPLATES[templateIndex % TEMPLATES.length];
-      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1);
+      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, profile);
     }
   }, [phase, profile, templateIndex, skillAttemptCount, loadQuestion]);
 
