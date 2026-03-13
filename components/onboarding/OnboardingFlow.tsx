@@ -82,8 +82,8 @@ const PLANS = [
   },
 ];
 
-// Steps: 1=language, 2=grade, 3=score, 4=curriculum, 5=create_account, 6=choose_plan
-const TOTAL_STEPS = 6;
+// Steps: 1=language, 2=grade, 3=score, 4=curriculum, 5=create_account
+const TOTAL_STEPS = 5;
 
 function BackButton({ onClick }: { onClick: () => void }) {
   return (
@@ -163,7 +163,18 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           language: data.language || "English",
         });
       }
-      next();
+      const final: OnboardingData = {
+        language: data.language || "English",
+        grade: data.grade || "",
+        averageScore: data.averageScore || "",
+        curriculum: data.curriculum || "",
+        name,
+        email,
+        plan: "free",
+      };
+      localStorage.setItem("onboardingComplete", "true");
+      localStorage.setItem("onboardingData", JSON.stringify(final));
+      onComplete(final);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
       setAuthError(msg);

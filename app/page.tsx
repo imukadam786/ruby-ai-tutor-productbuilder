@@ -11,7 +11,6 @@ import StudentDashboard from "@/components/ruby/StudentDashboard";
 import ReadingSession from "@/components/reading/ReadingSession";
 import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
-import TutorialOverlay from "@/components/tutorial/TutorialOverlay";
 import HomeScreen from "@/components/HomeScreen";
 import SettingsView from "@/components/SettingsView";
 import LanguagePickerModal from "@/components/LanguagePickerModal";
@@ -33,7 +32,6 @@ function AppContent() {
 
   const [activeView, setActiveView] = useState<ActiveView>("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [showTutorial, setShowTutorial] = useState(false);
   const [stats, setStats] = useState({
     totalMessages: 0,
     lessonsCompleted: 0,
@@ -74,9 +72,6 @@ function AppContent() {
   useEffect(() => {
     incrementSession();
     refreshStats();
-    if (!localStorage.getItem("tutorialComplete")) {
-      setShowTutorial(true);
-    }
 
     // Maths + reading: trigger survey every 3rd question answered
     const onQuestionAnswered = (e: Event) => {
@@ -187,17 +182,6 @@ function AppContent() {
           </div>
         )}
       </main>
-
-      {showTutorial && (
-        <TutorialOverlay
-          onViewChange={handleViewChange}
-          onComplete={() => {
-            localStorage.setItem("tutorialComplete", "true");
-            setShowTutorial(false);
-            handleViewChange("home");
-          }}
-        />
-      )}
 
       </div>{/* end inner row */}
 
