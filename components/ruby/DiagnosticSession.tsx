@@ -115,6 +115,9 @@ export default function DiagnosticSession() {
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
     if (!currentQuestion || !profile) return;
 
+    // Notify page-level survey tracker that a maths question was answered
+    document.dispatchEvent(new CustomEvent("ruby-question-answered", { detail: { type: "maths" } }));
+
     try {
       const res = await fetch("/api/ruby/submit-answer", {
         method: "POST",

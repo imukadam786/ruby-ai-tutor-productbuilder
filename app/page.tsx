@@ -15,7 +15,6 @@ import TutorialOverlay from "@/components/tutorial/TutorialOverlay";
 import HomeScreen from "@/components/HomeScreen";
 import SettingsView from "@/components/SettingsView";
 import LanguagePickerModal from "@/components/LanguagePickerModal";
-import FloatingFeedback from "@/components/beta/FloatingFeedback";
 import PostSessionSurvey from "@/components/beta/PostSessionSurvey";
 import BetaBanner from "@/components/beta/BetaBanner";
 import { ActiveView } from "@/types";
@@ -67,29 +66,39 @@ function AppContent() {
     setRubyProfile(getStudentProfile());
   }, []);
 
+  // Track chat engagement (at least one message sent this session)
+  const [chatEngaged, setChatEngaged] = useState(false);
+
   useEffect(() => {
     incrementSession();
     refreshStats();
     if (!localStorage.getItem("tutorialComplete")) {
       setShowTutorial(true);
     }
-    // FloatingFeedback listens for "open-feedback" internally
+
+    // Maths + reading: trigger survey every 3rd question answered
+    const onQuestionAnswered = (e: Event) => {
+      const type = (e as CustomEvent).detail?.type as "maths" | "reading";
+      if (!type) return;
+      const key = `survey_count_${type}`;
+      const count = parseInt(localStorage.getItem(key) || "0", 10) + 1;
+      localStorage.setItem(key, String(count));
+      if (count % 3 === 0) setSurvey({ type });
+    };
+    document.addEventListener("ruby-question-answered", onQuestionAnswered);
+    return () => document.removeEventListener("ruby-question-answered", onQuestionAnswered);
   }, [refreshStats]);
 
-  // Trigger post-session survey every 3rd completed session per type
-  const triggerSurvey = useCallback((type: "maths" | "reading" | "chat") => {
-    const key = `survey_count_${type}`;
-    const count = parseInt(localStorage.getItem(key) || "0", 10) + 1;
-    localStorage.setItem(key, String(count));
-    if (count % 3 === 0) setSurvey({ type });
-  }, []);
-
   const handleViewChange = (view: ActiveView) => {
-    // Trigger post-session survey when leaving a session view
     setActiveView((prev) => {
-      if (prev === "ruby")    triggerSurvey("maths");
-      if (prev === "reading") triggerSurvey("reading");
-      if (prev === "chat")    triggerSurvey("chat");
+      // Chat: trigger survey when navigating away after engagement
+      if (prev === "chat" && chatEngaged) {
+        const key = "survey_count_chat";
+        const count = parseInt(localStorage.getItem(key) || "0", 10) + 1;
+        localStorage.setItem(key, String(count));
+        if (count % 3 === 0) setSurvey({ type: "chat" });
+        setChatEngaged(false);
+      }
       return view;
     });
     if (view === "skill-tree" || view === "student-dashboard") {
@@ -104,11 +113,8 @@ function AppContent() {
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
       <BetaBanner />
 
-      {/* Inner row: sidebar + main content side by side */}
-      <div className="flex flex-1 overflow-hidden min-h-0">
-
-      {/* Mobile top bar */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-30 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm">
+      {/* Mobile top bar — in normal flow so banner shows above it */}
+      <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm z-30">
         <button
           onClick={() => setSidebarOpen(true)}
           className="p-2 -ml-1 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
@@ -120,7 +126,6 @@ function AppContent() {
           </svg>
         </button>
         <span className="flex-1 font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
-        {/* Pencil (restart/clear) on action views, globe elsewhere */}
         {["chat", "ruby", "reading"].includes(activeView) ? (
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("ruby-action"))}
@@ -142,6 +147,9 @@ function AppContent() {
         )}
       </header>
 
+      {/* Inner row: sidebar + main content side by side */}
+      <div className="flex flex-1 overflow-hidden min-h-0">
+
       <Sidebar
         activeView={activeView}
         onViewChange={handleViewChange}
@@ -161,9 +169,9 @@ function AppContent() {
 
       {showLangPicker && <LanguagePickerModal onClose={() => setShowLangPicker(false)} />}
 
-      <main className="flex-1 overflow-hidden pt-14 md:pt-0 h-full">
+      <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
-        {activeView === "chat" && <ChatInterface onMessageSent={refreshStats} />}
+        {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
         {activeView === "lessons" && <LessonPlan onLessonCompleted={refreshStats} />}
         {activeView === "progress" && <ProgressTracker />}
         {activeView === "ruby" && <DiagnosticSession />}
@@ -191,8 +199,6 @@ function AppContent() {
       )}
 
       </div>{/* end inner row */}
-
-      <FloatingFeedback />
 
       {survey && (
         <PostSessionSurvey

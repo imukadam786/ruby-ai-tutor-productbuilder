@@ -201,6 +201,9 @@ export default function ReadingSession() {
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
     if (!currentQuestion || !profile) return;
 
+    // Notify page-level survey tracker that a reading question was answered
+    document.dispatchEvent(new CustomEvent("ruby-question-answered", { detail: { type: "reading" } }));
+
     try {
       const res = await fetch("/api/reading/submit-answer", {
         method: "POST",

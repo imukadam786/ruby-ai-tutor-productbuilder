@@ -69,22 +69,24 @@ export default function PostSessionSurvey({ sessionType, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
       style={{ opacity: visible ? 1 : 0, transition: "opacity 0.3s ease" }}
     >
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/30" onClick={dismiss} />
 
-      {/* Sheet */}
+      {/* Sheet — bottom on mobile, centered card on desktop */}
       <div
-        className="relative w-full max-w-sm bg-white rounded-t-3xl shadow-2xl px-6 pb-8 pt-5"
+        className="relative w-full sm:w-[420px] sm:max-w-sm bg-white sm:rounded-2xl rounded-t-3xl shadow-2xl px-6 pb-8 pt-5"
         style={{
-          transform: visible ? "translateY(0)" : "translateY(100%)",
+          transform: visible
+            ? "translateY(0) scale(1)"
+            : "translateY(100%) scale(1)",
           transition: "transform 0.35s cubic-bezier(0.34,1.56,0.64,1)",
         }}
       >
-        {/* Drag handle */}
-        <div className="flex justify-center mb-4">
+        {/* Drag handle — mobile only */}
+        <div className="flex justify-center mb-4 sm:hidden">
           <div className="w-10 h-1 rounded-full bg-gray-200" />
         </div>
 
