@@ -38,7 +38,9 @@ const SCORES: { label: string; bars: number[] }[] = [
   { label: "80+",     bars: [13, 16, 14] },
 ];
 
-function ScoreChart({ bars, active }: { bars: number[]; active: boolean }) {
+const BAR_COLOURS = ["#f59e0b", "#3b82f6", "#10b981"];
+
+function ScoreChart({ bars }: { bars: number[] }) {
   return (
     <svg width="22" height="16" viewBox="0 0 22 16" fill="none" className="flex-shrink-0">
       {bars.map((h, i) => (
@@ -49,7 +51,7 @@ function ScoreChart({ bars, active }: { bars: number[]; active: boolean }) {
           width="5"
           height={h}
           rx="1"
-          fill={active ? "#3b82f6" : "#9ca3af"}
+          fill={BAR_COLOURS[i]}
         />
       ))}
     </svg>
@@ -57,13 +59,13 @@ function ScoreChart({ bars, active }: { bars: number[]; active: boolean }) {
 }
 
 const CURRICULA: { label: string; flag: string }[] = [
-  { label: "CAPS",                  flag: "🇿🇦" },
-  { label: "IEB",                   flag: "🇿🇦" },
-  { label: "CAPS-SID",              flag: "🇿🇦" },
-  { label: "LSEN",                  flag: "🇿🇦" },
-  { label: "American Curriculum",   flag: "🇺🇸" },
-  { label: "Cambridge International", flag: "🇬🇧" },
-  { label: "British Curriculum",    flag: "🇬🇧" },
+  { label: "CAPS",                    flag: "za" },
+  { label: "IEB",                     flag: "za" },
+  { label: "CAPS-SID",                flag: "za" },
+  { label: "LSEN",                    flag: "za" },
+  { label: "American Curriculum",     flag: "us" },
+  { label: "Cambridge International", flag: "gb" },
+  { label: "British Curriculum",      flag: "gb" },
 ];
 
 const PLANS = [
@@ -368,7 +370,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      <ScoreChart bars={bars} active={data.averageScore === label} />
+                      <ScoreChart bars={bars} />
                       {label}
                     </button>
                   ))}
@@ -398,7 +400,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      <span className="text-xl leading-none">{flag}</span>
+                      <img src={`https://flagcdn.com/w20/${flag}.png`} width={20} height={15} alt={flag} className="flex-shrink-0 rounded-sm" />
                       {label}
                     </button>
                   ))}
@@ -502,7 +504,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                   </svg>
                 )}
-                {loginMode ? "Log in" : t.startBtn}
+                {loginMode ? "Log in" : "Start Free Beta"}
               </button>
 
               <p className="text-center text-sm text-gray-500">
