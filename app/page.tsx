@@ -90,17 +90,16 @@ function AppContent() {
   }, [refreshStats]);
 
   const handleViewChange = (view: ActiveView) => {
-    setActiveView((prev) => {
-      // Chat: trigger survey when navigating away after engagement
-      if (prev === "chat" && chatEngaged) {
-        const key = "survey_count_chat";
-        const count = parseInt(localStorage.getItem(key) || "0", 10) + 1;
-        localStorage.setItem(key, String(count));
-        if (count % 3 === 0) setSurvey({ type: "chat" });
-        setChatEngaged(false);
-      }
-      return view;
-    });
+    // Chat: trigger survey when leaving chat after sending at least one message
+    if (activeView === "chat" && chatEngaged) {
+      const key = "survey_count_chat";
+      const count = parseInt(localStorage.getItem(key) || "0", 10) + 1;
+      localStorage.setItem(key, String(count));
+      // Fire on 1st exit and every 3rd after (1, 3, 6, 9...)
+      if (count === 1 || count % 3 === 0) setSurvey({ type: "chat" });
+      setChatEngaged(false);
+    }
+    setActiveView(view);
     if (view === "skill-tree" || view === "student-dashboard") {
       setRubyProfile(getStudentProfile());
     }
