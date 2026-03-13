@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { getTranslations } from "@/lib/onboarding-translations";
 import { supabase } from "@/lib/supabase";
+import Flag from "react-world-flags";
 
 export type OnboardingData = {
   language: string;
@@ -59,13 +60,13 @@ function ScoreChart({ bars }: { bars: number[] }) {
 }
 
 const CURRICULA: { label: string; flag: string }[] = [
-  { label: "CAPS",                    flag: "za" },
-  { label: "IEB",                     flag: "za" },
-  { label: "CAPS-SID",                flag: "za" },
-  { label: "LSEN",                    flag: "za" },
-  { label: "American Curriculum",     flag: "us" },
-  { label: "Cambridge International", flag: "gb" },
-  { label: "British Curriculum",      flag: "gb" },
+  { label: "CAPS",                    flag: "ZA" },
+  { label: "IEB",                     flag: "ZA" },
+  { label: "CAPS-SID",                flag: "ZA" },
+  { label: "LSEN",                    flag: "ZA" },
+  { label: "American Curriculum",     flag: "US" },
+  { label: "Cambridge International", flag: "GB" },
+  { label: "British Curriculum",      flag: "GB" },
 ];
 
 const PLANS = [
@@ -400,7 +401,9 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      <img src={`https://flagcdn.com/w20/${flag}.png`} width={20} height={15} alt={flag} className="flex-shrink-0 rounded-sm" />
+                      <span className="flex-shrink-0 rounded overflow-hidden shadow-sm" style={{ width: 28, height: 20, display: "inline-flex", alignItems: "center" }}>
+                        <Flag code={flag} style={{ width: 28, height: 20, objectFit: "cover", borderRadius: 3 }} />
+                      </span>
                       {label}
                     </button>
                   ))}
