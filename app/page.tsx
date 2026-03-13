@@ -18,6 +18,7 @@ import LanguagePickerModal from "@/components/LanguagePickerModal";
 import PostSessionSurvey from "@/components/beta/PostSessionSurvey";
 import BetaBanner from "@/components/beta/BetaBanner";
 import FloatingFeedback from "@/components/beta/FloatingFeedback";
+import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
 import { getProgress, incrementSession } from "@/lib/storage";
@@ -214,6 +215,8 @@ function AppContent() {
 // ── Onboarding gate — wraps AppContent in LanguageProvider ───────────────────
 export default function Home() {
   const [onboardingDone, setOnboardingDone] = useState<boolean | null>(null);
+  const [resumeStep, setResumeStep] = useState<number | undefined>(undefined);
+  const [resumeData, setResumeData] = useState<Partial<OnboardingData> | undefined>(undefined);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -222,8 +225,37 @@ export default function Home() {
       localStorage.removeItem("onboardingData");
       window.history.replaceState({}, "", window.location.pathname);
     }
-    const done = localStorage.getItem("onboardingComplete") === "true";
-    setOnboardingDone(done);
+
+    // Handle Google OAuth return — resume at plan step with saved data
+    const pending = localStorage.getItem("pendingOnboarding");
+    if (pending) {
+      supabase.auth.getSession().then(async ({ data: { session } }) => {
+        if (session) {
+          const pd = JSON.parse(pending);
+          localStorage.removeItem("pendingOnboarding");
+          // Save profile to Supabase
+          await supabase.from("users").upsert({
+            id: session.user.id,
+            email: session.user.email!,
+            full_name: session.user.user_metadata?.full_name || "",
+            grade: pd.grade || null,
+            curriculum: pd.curriculum || null,
+            language: pd.language || "English",
+          });
+          setResumeStep(6);
+          setResumeData({
+            ...pd,
+            name: session.user.user_metadata?.full_name || "",
+            email: session.user.email || "",
+          });
+          setOnboardingDone(false);
+        } else {
+          setOnboardingDone(localStorage.getItem("onboardingComplete") === "true");
+        }
+      });
+    } else {
+      setOnboardingDone(localStorage.getItem("onboardingComplete") === "true");
+    }
   }, []);
 
   const handleOnboardingComplete = (_data: OnboardingData) => {
@@ -233,7 +265,7 @@ export default function Home() {
   if (onboardingDone === null) return null;
 
   if (!onboardingDone) {
-    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+    return <OnboardingFlow onComplete={handleOnboardingComplete} initialStep={resumeStep} initialData={resumeData} />;
   }
 
   return (
