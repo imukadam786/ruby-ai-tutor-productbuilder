@@ -15,6 +15,9 @@ import TutorialOverlay from "@/components/tutorial/TutorialOverlay";
 import HomeScreen from "@/components/HomeScreen";
 import SettingsView from "@/components/SettingsView";
 import LanguagePickerModal from "@/components/LanguagePickerModal";
+import FloatingFeedback from "@/components/beta/FloatingFeedback";
+import PostSessionSurvey from "@/components/beta/PostSessionSurvey";
+import BetaBanner from "@/components/beta/BetaBanner";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
 import { getProgress, incrementSession } from "@/lib/storage";
@@ -38,6 +41,7 @@ function AppContent() {
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [showLangPicker, setShowLangPicker] = useState(false);
+  const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
 
   const viewLabels: Record<ActiveView, string> = {
     home: t("sidebar.home"),
@@ -69,10 +73,25 @@ function AppContent() {
     if (!localStorage.getItem("tutorialComplete")) {
       setShowTutorial(true);
     }
+    // FloatingFeedback listens for "open-feedback" internally
   }, [refreshStats]);
 
+  // Trigger post-session survey every 3rd completed session per type
+  const triggerSurvey = useCallback((type: "maths" | "reading" | "chat") => {
+    const key = `survey_count_${type}`;
+    const count = parseInt(localStorage.getItem(key) || "0", 10) + 1;
+    localStorage.setItem(key, String(count));
+    if (count % 3 === 0) setSurvey({ type });
+  }, []);
+
   const handleViewChange = (view: ActiveView) => {
-    setActiveView(view);
+    // Trigger post-session survey when leaving a session view
+    setActiveView((prev) => {
+      if (prev === "ruby")    triggerSurvey("maths");
+      if (prev === "reading") triggerSurvey("reading");
+      if (prev === "chat")    triggerSurvey("chat");
+      return view;
+    });
     if (view === "skill-tree" || view === "student-dashboard") {
       setRubyProfile(getStudentProfile());
     }
@@ -82,7 +101,8 @@ function AppContent() {
   };
 
   return (
-    <div className="flex h-full overflow-hidden bg-gray-100">
+    <div className="flex flex-col h-full overflow-hidden bg-gray-100">
+      <BetaBanner />
       {/* Mobile top bar */}
       <header className="md:hidden fixed top-0 left-0 right-0 z-30 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm">
         <button
@@ -163,6 +183,15 @@ function AppContent() {
             setShowTutorial(false);
             handleViewChange("home");
           }}
+        />
+      )}
+
+      <FloatingFeedback />
+
+      {survey && (
+        <PostSessionSurvey
+          sessionType={survey.type}
+          onClose={() => setSurvey(null)}
         />
       )}
     </div>
