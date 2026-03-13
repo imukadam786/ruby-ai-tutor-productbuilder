@@ -103,6 +103,10 @@ function AppContent() {
   return (
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
       <BetaBanner />
+
+      {/* Inner row: sidebar + main content side by side */}
+      <div className="flex flex-1 overflow-hidden min-h-0">
+
       {/* Mobile top bar */}
       <header className="md:hidden fixed top-0 left-0 right-0 z-30 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm">
         <button
@@ -185,6 +189,8 @@ function AppContent() {
           }}
         />
       )}
+
+      </div>{/* end inner row */}
 
       <FloatingFeedback />
 
