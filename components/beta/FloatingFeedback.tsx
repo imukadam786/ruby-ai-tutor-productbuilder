@@ -28,7 +28,6 @@ export default function FloatingFeedback() {
     return () => document.removeEventListener("open-feedback", handler);
   }, []);
 
-  const open = () => setStep("category");
   const close = () => {
     setStep("button");
     setCategory(null);
@@ -64,21 +63,8 @@ export default function FloatingFeedback() {
 
   const selectedCat = CATEGORIES.find((c) => c.id === category);
 
-  // ── Button only ──────────────────────────────────────────────────────────
-  if (step === "button") {
-    return (
-      <button
-        onClick={open}
-        className="fixed bottom-6 right-4 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-blue-600 text-white text-sm font-semibold shadow-lg hover:bg-blue-700 active:scale-95 transition-all"
-        aria-label="Give feedback"
-      >
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h6m-6 4h4M3 6a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H7l-4 4V6z" />
-        </svg>
-        Feedback
-      </button>
-    );
-  }
+  // ── Button hidden — opened only via BetaBanner "Share feedback" event ───────
+  if (step === "button") return null;
 
   // ── Modal backdrop ────────────────────────────────────────────────────────
   return (

@@ -17,6 +17,7 @@ import SettingsView from "@/components/SettingsView";
 import LanguagePickerModal from "@/components/LanguagePickerModal";
 import PostSessionSurvey from "@/components/beta/PostSessionSurvey";
 import BetaBanner from "@/components/beta/BetaBanner";
+import FloatingFeedback from "@/components/beta/FloatingFeedback";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
 import { getProgress, incrementSession } from "@/lib/storage";
@@ -205,6 +206,7 @@ function AppContent() {
           onClose={() => setSurvey(null)}
         />
       )}
+      <FloatingFeedback />
     </div>
   );
 }
