@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
 
 type FeedbackCategory = "bug" | "feature" | "content" | "general";
 
@@ -43,17 +44,20 @@ export default function FloatingFeedback() {
   const submit = async () => {
     if (!text.trim()) return;
     setSubmitting(true);
-    // Store locally for now — will wire to Supabase when DB is set up
-    const existing = JSON.parse(localStorage.getItem("beta_feedback") || "[]");
-    existing.push({
-      id: Date.now(),
-      category,
-      text: text.trim(),
-      url: window.location.href,
-      ts: new Date().toISOString(),
-    });
-    localStorage.setItem("beta_feedback", JSON.stringify(existing));
-    await new Promise((r) => setTimeout(r, 600));
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      await supabase.from("feedback").insert({
+        user_id: user?.id ?? null,
+        category,
+        text: text.trim(),
+        url: window.location.href,
+      });
+    } catch {
+      // Fallback to localStorage if DB unavailable
+      const existing = JSON.parse(localStorage.getItem("beta_feedback") || "[]");
+      existing.push({ category, text: text.trim(), url: window.location.href, ts: new Date().toISOString() });
+      localStorage.setItem("beta_feedback", JSON.stringify(existing));
+    }
     setSubmitting(false);
     setStep("done");
   };

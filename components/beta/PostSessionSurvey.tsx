@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
 
 interface Props {
   sessionType: "maths" | "reading" | "chat";
@@ -50,16 +51,21 @@ export default function PostSessionSurvey({ sessionType, onClose }: Props) {
     }
   };
 
-  const save = (rating: number, text: string) => {
-    const existing = JSON.parse(localStorage.getItem("beta_session_surveys") || "[]");
-    existing.push({
-      id: Date.now(),
-      sessionType,
-      rating,
-      comment: text.trim(),
-      ts: new Date().toISOString(),
-    });
-    localStorage.setItem("beta_session_surveys", JSON.stringify(existing));
+  const save = async (rating: number, text: string) => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      await supabase.from("session_surveys").insert({
+        user_id: user?.id ?? null,
+        session_type: sessionType,
+        rating,
+        comment: text.trim() || null,
+      });
+    } catch {
+      // Fallback to localStorage
+      const existing = JSON.parse(localStorage.getItem("beta_session_surveys") || "[]");
+      existing.push({ sessionType, rating, comment: text.trim(), ts: new Date().toISOString() });
+      localStorage.setItem("beta_session_surveys", JSON.stringify(existing));
+    }
   };
 
   const submitComment = () => {
