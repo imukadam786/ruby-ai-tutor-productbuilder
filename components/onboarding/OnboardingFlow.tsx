@@ -15,10 +15,10 @@ export type OnboardingData = {
 };
 
 const LANGUAGES = [
-  "English", "isiZulu", "isiXhosa",
-  "Afrikaans", "Sepedi", "Setswana",
-  "Sesotho", "Xitsonga", "siSwati",
-  "Tshivenda", "isiNdebele",
+  "English",
+  "Afrikaans", "isiNdebele", "isiXhosa", "isiZulu",
+  "Sepedi", "Sesotho", "Setswana", "siSwati",
+  "Tshivenda", "Xitsonga",
 ];
 
 const GRADES = [
@@ -29,16 +29,41 @@ const GRADES = [
   { grade: "11", emoji: "🎓" }, { grade: "12", emoji: "🎓" },
 ];
 
-const SCORES = ["30 – 40", "40 – 50", "50 – 60", "60 – 70", "70 – 80", "80+"];
+const SCORES: { label: string; bars: number[] }[] = [
+  { label: "30 – 40", bars: [4, 5, 4] },
+  { label: "40 – 50", bars: [5, 7, 6] },
+  { label: "50 – 60", bars: [7, 9, 8] },
+  { label: "60 – 70", bars: [9, 11, 10] },
+  { label: "70 – 80", bars: [11, 13, 12] },
+  { label: "80+",     bars: [13, 16, 14] },
+];
 
-const CURRICULA = [
-  "CAPS",
-  "IEB",
-  "CAPS-SID",
-  "LSEN",
-  "American Curriculum",
-  "Cambridge International",
-  "British Curriculum",
+function ScoreChart({ bars, active }: { bars: number[]; active: boolean }) {
+  return (
+    <svg width="22" height="16" viewBox="0 0 22 16" fill="none" className="flex-shrink-0">
+      {bars.map((h, i) => (
+        <rect
+          key={i}
+          x={i * 7}
+          y={16 - h}
+          width="5"
+          height={h}
+          rx="1"
+          fill={active ? "#3b82f6" : "#9ca3af"}
+        />
+      ))}
+    </svg>
+  );
+}
+
+const CURRICULA: { label: string; flag: string }[] = [
+  { label: "CAPS",                  flag: "🇿🇦" },
+  { label: "IEB",                   flag: "🇿🇦" },
+  { label: "CAPS-SID",              flag: "🇿🇦" },
+  { label: "LSEN",                  flag: "🇿🇦" },
+  { label: "American Curriculum",   flag: "🇺🇸" },
+  { label: "Cambridge International", flag: "🇬🇧" },
+  { label: "British Curriculum",    flag: "🇬🇧" },
 ];
 
 const PLANS = [
@@ -333,17 +358,18 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               <p className="text-gray-400 text-sm mb-6 flex-shrink-0">{t.step4Sub}</p>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
                 <div className="grid grid-cols-2 gap-3">
-                  {SCORES.map((score) => (
+                  {SCORES.map(({ label, bars }) => (
                     <button
-                      key={score}
-                      onClick={() => select("averageScore", score)}
-                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
-                        data.averageScore === score
+                      key={label}
+                      onClick={() => select("averageScore", label)}
+                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
+                        data.averageScore === label
                           ? "border-blue-500 bg-blue-50 text-blue-600"
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      {score}
+                      <ScoreChart bars={bars} active={data.averageScore === label} />
+                      {label}
                     </button>
                   ))}
                 </div>
@@ -362,17 +388,18 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               <p className="text-gray-400 text-sm mb-6 flex-shrink-0">Select your school's curriculum</p>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
                 <div className="flex flex-col gap-3">
-                  {CURRICULA.map((curriculum) => (
+                  {CURRICULA.map(({ label, flag }) => (
                     <button
-                      key={curriculum}
-                      onClick={() => select("curriculum", curriculum)}
-                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all text-center ${
-                        data.curriculum === curriculum
+                      key={label}
+                      onClick={() => select("curriculum", label)}
+                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
+                        data.curriculum === label
                           ? "border-blue-500 bg-blue-50 text-blue-600"
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      {curriculum}
+                      <span className="text-xl leading-none">{flag}</span>
+                      {label}
                     </button>
                   ))}
                 </div>
