@@ -63,6 +63,12 @@ export async function POST(req: NextRequest) {
             const text = chunk.choices[0]?.delta?.content ?? "";
             if (text) {
               controller.enqueue(encoder.encode(text));
+              // Pause at natural breaks so content feels paced, not dumped
+              if (text.includes("\n\n")) {
+                await new Promise((r) => setTimeout(r, 200));
+              } else if (text.includes("\n")) {
+                await new Promise((r) => setTimeout(r, 80));
+              }
             }
           }
           controller.close();
