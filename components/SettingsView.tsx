@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useT } from "@/lib/i18n";
 import SpinningGlobe from "@/components/SpinningGlobe";
+import EduBackground from "@/components/EduBackground";
 
 interface SettingsViewProps {
   onBack: () => void;
@@ -238,6 +239,292 @@ const CONTINENTS: {
   },
 ];
 
+// ── Bug Report Flow ───────────────────────────────────────────────────────────
+
+type BugCategory = {
+  id: string;
+  emoji: string;
+  label: string;
+  accent: string;        // Tailwind bg class for card
+  borderActive: string;  // Tailwind border class when selected
+  issues: string[];
+};
+
+const BUG_CATEGORIES: BugCategory[] = [
+  {
+    id: "payments",
+    emoji: "💳",
+    label: "Payments & Billing",
+    accent: "bg-green-50 hover:bg-green-100",
+    borderActive: "border-green-400",
+    issues: [
+      "Subscription not activating",
+      "Wrong amount charged",
+      "Last billing cycle not showing",
+      "Payment method not saving",
+      "Cancellation not processing",
+      "Invoice / receipt missing",
+    ],
+  },
+  {
+    id: "language",
+    emoji: "🌍",
+    label: "Language",
+    accent: "bg-blue-50 hover:bg-blue-100",
+    borderActive: "border-blue-400",
+    issues: [
+      "Language not changing",
+      "Translation is incorrect",
+      "Missing translations on a page",
+      "Wrong language set by default",
+    ],
+  },
+  {
+    id: "maths",
+    emoji: "🎯",
+    label: "Maths Engine",
+    accent: "bg-purple-50 hover:bg-purple-100",
+    borderActive: "border-purple-400",
+    issues: [
+      "Questions not loading",
+      "Correct answer marked wrong",
+      "Placement test not working",
+      "Skill tree not advancing",
+      "Same questions repeating",
+      "Progress not saving",
+    ],
+  },
+  {
+    id: "reading",
+    emoji: "✏️",
+    label: "Reading Engine",
+    accent: "bg-amber-50 hover:bg-amber-100",
+    borderActive: "border-amber-400",
+    issues: [
+      "Questions not loading",
+      "Reading passage not showing",
+      "Correct answer marked wrong",
+      "Skill level not advancing",
+      "Progress not saving",
+    ],
+  },
+  {
+    id: "homework",
+    emoji: "📚",
+    label: "Homework Chat",
+    accent: "bg-teal-50 hover:bg-teal-100",
+    borderActive: "border-teal-400",
+    issues: [
+      "Ruby not responding",
+      "Incorrect answers given",
+      "Image upload not working",
+      "Voice input not working",
+      "Chat history lost",
+    ],
+  },
+  {
+    id: "progress",
+    emoji: "📊",
+    label: "Progress Tracker",
+    accent: "bg-orange-50 hover:bg-orange-100",
+    borderActive: "border-orange-400",
+    issues: [
+      "Stats not updating after a session",
+      "Incorrect data showing",
+      "Session history missing",
+      "Skills not displayed correctly",
+    ],
+  },
+  {
+    id: "account",
+    emoji: "👤",
+    label: "Account & Profile",
+    accent: "bg-indigo-50 hover:bg-indigo-100",
+    borderActive: "border-indigo-400",
+    issues: [
+      "Can't update my name or email",
+      "Password reset not working",
+      "Profile not saving",
+      "Can't log in",
+      "Wrong plan showing on my account",
+    ],
+  },
+  {
+    id: "performance",
+    emoji: "⚡",
+    label: "App Performance",
+    accent: "bg-red-50 hover:bg-red-100",
+    borderActive: "border-red-400",
+    issues: [
+      "App loading very slowly",
+      "App freezing or crashing",
+      "Not working on my device",
+      "Pages not loading / blank screen",
+    ],
+  },
+  {
+    id: "other",
+    emoji: "💬",
+    label: "Something else",
+    accent: "bg-gray-50 hover:bg-gray-100",
+    borderActive: "border-gray-400",
+    issues: ["Other issue not listed above"],
+  },
+];
+
+function BugReportFlow({ onClose }: { onClose: () => void }) {
+  const [step, setStep] = useState<"category" | "issue" | "describe" | "done">("category");
+  const [category, setCategory] = useState<BugCategory | null>(null);
+  const [issue, setIssue] = useState<string | null>(null);
+  const [description, setDescription] = useState("");
+  const [replyEmail, setReplyEmail] = useState("");
+
+  const pickCategory = (c: BugCategory) => { setCategory(c); setIssue(null); setStep("issue"); };
+  const pickIssue = (i: string) => { setIssue(i); setStep("describe"); };
+  const submit = () => setStep("done");
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+      <div className="bg-white rounded-2xl w-full max-w-md shadow-xl overflow-hidden">
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+          <div className="flex items-center gap-2">
+            {step !== "category" && step !== "done" && (
+              <button
+                onClick={() => setStep(step === "describe" ? "issue" : "category")}
+                className="text-gray-400 hover:text-gray-600 p-1 -ml-1 rounded-lg transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            )}
+            <h3 className="font-semibold text-gray-900 text-base">
+              {step === "category" && "Report an Error"}
+              {step === "issue" && category?.label}
+              {step === "describe" && "Describe the Error"}
+              {step === "done" && "Report Sent"}
+            </h3>
+          </div>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 p-1 rounded-lg transition-colors">
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="px-5 py-4">
+
+          {/* Step 1 — Category grid */}
+          {step === "category" && (
+            <div>
+              <p className="text-xs text-gray-400 mb-4">What area is the issue in?</p>
+              <div className="grid grid-cols-3 gap-2.5">
+                {BUG_CATEGORIES.map((c) => (
+                  <button
+                    key={c.id}
+                    onClick={() => pickCategory(c)}
+                    className={`flex flex-col items-center gap-1.5 p-3 rounded-2xl border-2 border-transparent transition-all active:scale-95 ${c.accent}`}
+                  >
+                    <span className="text-2xl">{c.emoji}</span>
+                    <span className="text-xs font-medium text-gray-700 text-center leading-tight">{c.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 2 — Specific issue */}
+          {step === "issue" && category && (
+            <div>
+              {/* Breadcrumb */}
+              <div className="flex items-center gap-1.5 mb-4">
+                <span className="text-lg">{category.emoji}</span>
+                <span className="text-xs text-gray-400 font-medium">{category.label}</span>
+              </div>
+              <p className="text-xs text-gray-400 mb-3">What specifically went wrong?</p>
+              <div className="flex flex-col gap-2 max-h-64 overflow-y-auto pr-0.5">
+                {category.issues.map((iss) => (
+                  <button
+                    key={iss}
+                    onClick={() => pickIssue(iss)}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-gray-50 hover:bg-gray-100 text-sm text-gray-700 font-medium text-left transition-colors active:scale-[0.99]"
+                  >
+                    {iss}
+                    <svg className="w-4 h-4 text-gray-300 flex-shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 3 — Describe */}
+          {step === "describe" && category && issue && (
+            <div className="space-y-4">
+              {/* Breadcrumb */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-base">{category.emoji}</span>
+                <span className="text-xs text-gray-400">{category.label}</span>
+                <svg className="w-3 h-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span className="text-xs text-gray-600 font-medium">{issue}</span>
+              </div>
+              <textarea
+                rows={4}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Tell us more so we can fix it quickly — e.g. what you were doing when it happened, what device you're using..."
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-50 placeholder-gray-300"
+              />
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-gray-400">Reply email (optional)</label>
+                <input
+                  type="email"
+                  value={replyEmail}
+                  onChange={(e) => setReplyEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-50 placeholder-gray-300"
+                />
+              </div>
+              <button
+                onClick={submit}
+                disabled={!description.trim()}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-40 text-white py-3 rounded-xl text-sm font-semibold transition-colors"
+              >
+                Send Report
+              </button>
+            </div>
+          )}
+
+          {/* Step 4 — Done */}
+          {step === "done" && (
+            <div className="flex flex-col items-center py-6 gap-4 text-center">
+              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-3xl">✓</div>
+              <div>
+                <p className="font-semibold text-gray-900 text-base mb-1">Report sent!</p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  Thank you — our team will look into <span className="font-medium text-gray-700">{issue}</span> and fix it as quickly as possible.
+                  {replyEmail && " We'll reply to you by email."}
+                </p>
+              </div>
+              <button
+                onClick={onClose}
+                className="mt-2 px-6 py-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function SettingsView({ onBack }: SettingsViewProps) {
@@ -301,9 +588,10 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
 
   return (
     <>
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="flex flex-col h-full bg-[#F4F4F5] relative">
+        <EduBackground />
         {/* Header */}
-        <div className="hidden md:flex bg-white border-b border-gray-100 px-5 py-4 items-center gap-3 flex-shrink-0">
+        <div className="relative hidden md:flex bg-white border-b border-gray-100 px-5 py-4 items-center gap-3 flex-shrink-0">
           <button
             onClick={onBack}
             className="p-2 -ml-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
@@ -316,7 +604,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
         </div>
 
         {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="relative flex-1 overflow-y-auto">
           <div className="max-w-2xl mx-auto px-4 py-6 space-y-7">
 
             {/* ── Profile ──────────────────────────────────────────────── */}

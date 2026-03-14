@@ -5,6 +5,7 @@ import { getProgress, getStreakData } from "@/lib/storage";
 import { getStudentProfile, getSkillById, getLevelById } from "@/lib/student-model";
 import { getReadingProfile, getReadingSkillById, getReadingLevelById } from "@/lib/reading-student-model";
 import { useT } from "@/lib/i18n";
+import EduBackground from "@/components/EduBackground";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 function TrophyIcon({ className }: { className?: string }) {
@@ -102,14 +103,16 @@ export default function ProgressTracker() {
   const isEmpty = !profile && progress.sessionCount === 0;
 
   return (
-    <div className="flex flex-col h-full bg-gray-50">
+    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
+      <EduBackground />
+      {/* Content sits above pattern */}
       {/* Header */}
-      <div className="hidden md:block bg-white border-b border-gray-100 px-6 py-4">
+      <div className="relative hidden md:block bg-white border-b border-gray-100 px-6 py-4">
         <h2 className="text-gray-900 font-semibold text-lg">Progress</h2>
         <p className="text-gray-500 text-sm">Your skill tree journey</p>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className="relative flex-1 overflow-y-auto p-6">
         <div className="max-w-3xl mx-auto space-y-5">
 
           {/* ── 4 Stat Cards ──────────────────────────────────────────── */}
