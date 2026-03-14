@@ -1,8 +1,6 @@
 "use client";
 
 import EduBackground from "@/components/EduBackground";
-import { supabase } from "@/lib/supabase";
-import { useState } from "react";
 
 const FEATURES = [
   {
@@ -26,28 +24,6 @@ const FEATURES = [
 ];
 
 export default function WatchComingSoon() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleJoin = async () => {
-    setSubmitting(true);
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
-      await supabase.from("watch_waitlist").insert({
-        user_id: user?.id ?? null,
-        email: user?.email ?? null,
-      });
-      setSubmitted(true);
-    } catch {
-      const existing = JSON.parse(localStorage.getItem("watch_waitlist") || "[]");
-      existing.push({ ts: new Date().toISOString() });
-      localStorage.setItem("watch_waitlist", JSON.stringify(existing));
-      setSubmitted(true);
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
@@ -93,30 +69,6 @@ export default function WatchComingSoon() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* ── Waitlist CTA ──────────────────────────────────────────────────── */}
-        <div className="flex flex-col items-center gap-2">
-          {submitted ? (
-            <div className="inline-flex items-center gap-3 bg-green-50 border border-green-200 rounded-2xl px-6 py-4">
-              <span className="text-2xl">🎉</span>
-              <div className="text-left">
-                <p className="font-semibold text-green-800 text-base">You&apos;re on the list!</p>
-                <p className="text-green-600 text-sm">We&apos;ll notify you the moment Watch launches.</p>
-              </div>
-            </div>
-          ) : (
-            <>
-              <button
-                onClick={handleJoin}
-                disabled={submitting}
-                className="bg-[#BE1832] hover:bg-[#a31529] text-white font-semibold text-base px-8 py-3.5 rounded-xl transition-colors shadow-sm disabled:opacity-60"
-              >
-                {submitting ? "Joining…" : "Join the Waitlist"}
-              </button>
-              <p className="text-gray-400 text-sm">Be the first to know when this launches.</p>
-            </>
-          )}
         </div>
 
       </div>
