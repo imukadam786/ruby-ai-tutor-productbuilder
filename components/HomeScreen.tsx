@@ -24,7 +24,7 @@ function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
         }}
       />
       <div
-        className="w-full h-full bg-blue-600 rounded-full items-center justify-center text-white font-bold text-lg"
+        className="w-full h-full bg-rose-600 rounded-full items-center justify-center text-white font-bold text-lg"
         style={{ display: "none" }}
       >
         R
@@ -81,8 +81,8 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
       title: t("home.continue_learning"),
       subtitle: t("home.continue_desc"),
       view: "chat" as ActiveView,
-      bg: "bg-blue-600",
-      hover: "hover:bg-blue-700",
+      bg: "bg-rose-600",
+      hover: "hover:bg-rose-700",
       icon: (
         <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M8 5v14l11-7z" />
@@ -181,9 +181,42 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
   }, []);
 
   return (
-    <div className="h-full overflow-y-auto bg-gray-50">
+    <div className="h-full overflow-y-auto bg-[#FFF5F6] relative">
+      {/* Education symbol background pattern */}
+      <svg
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        style={{ opacity: 0.055 }}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern id="edu-bg" x="0" y="0" width="220" height="220" patternUnits="userSpaceOnUse">
+            <text x="10" y="30" fill="#C41930" fontSize="22" fontFamily="Nunito,sans-serif" fontWeight="800" transform="rotate(-12,10,30)">2</text>
+            <text x="58" y="16" fill="#C41930" fontSize="16" fontFamily="Nunito,sans-serif" transform="rotate(8,58,16)">+</text>
+            <text x="105" y="38" fill="#C41930" fontSize="18" fontFamily="Nunito,sans-serif" fontStyle="italic" transform="rotate(-5,105,38)">x</text>
+            <text x="155" y="22" fill="#C41930" fontSize="20" fontFamily="Nunito,sans-serif" fontWeight="700" transform="rotate(14,155,22)">3</text>
+            <text x="18" y="72" fill="#C41930" fontSize="15" fontFamily="Nunito,sans-serif" transform="rotate(20,18,72)">×</text>
+            <text x="70" y="85" fill="#C41930" fontSize="17" fontFamily="Nunito,sans-serif" fontWeight="700" transform="rotate(-8,70,85)">A</text>
+            <text x="120" y="62" fill="#C41930" fontSize="19" fontFamily="Nunito,sans-serif" transform="rotate(5,120,62)">√</text>
+            <text x="170" y="78" fill="#C41930" fontSize="22" fontFamily="Nunito,sans-serif" fontWeight="800" transform="rotate(-10,170,78)">7</text>
+            <text x="8"  y="118" fill="#C41930" fontSize="15" fontFamily="Nunito,sans-serif" transform="rotate(-15,8,118)">=</text>
+            <text x="55" y="105" fill="#C41930" fontSize="18" fontFamily="Nunito,sans-serif" transform="rotate(12,55,105)">π</text>
+            <text x="115" y="128" fill="#C41930" fontSize="21" fontFamily="Nunito,sans-serif" fontWeight="800" transform="rotate(-3,115,128)">5</text>
+            <text x="165" y="112" fill="#C41930" fontSize="15" fontFamily="Nunito,sans-serif" transform="rotate(18,165,112)">÷</text>
+            <text x="28" y="158" fill="#C41930" fontSize="16" fontFamily="Nunito,sans-serif" fontStyle="italic" transform="rotate(-8,28,158)">y</text>
+            <text x="82" y="172" fill="#C41930" fontSize="15" fontFamily="Nunito,sans-serif" fontWeight="700" transform="rotate(10,82,172)">B</text>
+            <text x="138" y="152" fill="#C41930" fontSize="16" fontFamily="Nunito,sans-serif" transform="rotate(-12,138,152)">∑</text>
+            <text x="183" y="165" fill="#C41930" fontSize="13" fontFamily="Nunito,sans-serif" transform="rotate(5,183,165)">²</text>
+            <text x="14" y="198" fill="#C41930" fontSize="14" fontFamily="Nunito,sans-serif" transform="rotate(15,14,198)">α</text>
+            <text x="68" y="210" fill="#C41930" fontSize="20" fontFamily="Nunito,sans-serif" fontWeight="800" transform="rotate(-5,68,210)">9</text>
+            <text x="125" y="200" fill="#C41930" fontSize="16" fontFamily="Nunito,sans-serif" transform="rotate(8,125,200)">−</text>
+            <text x="172" y="192" fill="#C41930" fontSize="14" fontFamily="Nunito,sans-serif" transform="rotate(-10,172,192)">∞</text>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#edu-bg)" />
+      </svg>
       {/* Wider container: max-w-4xl ≈ 896px, generous side padding */}
-      <div className="max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
+      <div className="relative max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
 
         {/* ── Hero ─────────────────────────────────────────────────────── */}
         <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">

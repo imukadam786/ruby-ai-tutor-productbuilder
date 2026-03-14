@@ -97,8 +97,8 @@ export default function Sidebar({
   const navItemClass = (active: boolean) =>
     `w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left ${
       active
-        ? "bg-orange-500 text-white shadow-lg shadow-orange-500/30"
-        : "text-purple-200 hover:bg-purple-800/60 hover:text-white"
+        ? "bg-rose-500 text-white shadow-lg shadow-rose-500/30"
+        : "text-rose-200 hover:bg-rose-900/60 hover:text-white"
     }`;
 
   return (
@@ -115,14 +115,14 @@ export default function Sidebar({
         className={`
           fixed inset-y-0 left-0 z-50 w-64
           md:static md:z-auto md:translate-x-0
-          bg-gradient-to-b from-violet-800 to-purple-950
+          bg-gradient-to-b from-[#3A0710] to-[#6B1020]
           flex flex-col h-full shadow-xl
           transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
       >
         {/* Logo */}
-        <div className="px-6 py-5 border-b border-purple-800 flex items-center justify-between flex-shrink-0">
+        <div className="px-6 py-5 border-b border-rose-900 flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 overflow-hidden rounded-full bg-white shadow-lg flex-shrink-0">
               <img
@@ -136,7 +136,7 @@ export default function Sidebar({
                 }}
               />
               <div
-                className="w-full h-full bg-orange-400 items-center justify-center text-xl font-bold text-orange-900"
+                className="w-full h-full bg-rose-400 items-center justify-center text-xl font-bold text-rose-900"
                 style={{ display: "none" }}
               >
                 R
@@ -144,7 +144,7 @@ export default function Sidebar({
             </div>
             <div>
               <h1 className="text-white font-bold text-lg leading-none">Ruby</h1>
-              <p className="text-purple-300 text-xs mt-0.5">AI Tutor</p>
+              <p className="text-rose-300 text-xs mt-0.5">AI Tutor</p>
             </div>
           </div>
           <div className="flex items-center gap-1">
@@ -158,7 +158,7 @@ export default function Sidebar({
           </button>
           <button
             onClick={onClose}
-            className="md:hidden text-purple-300 hover:text-white p-1.5 rounded-lg transition-colors"
+            className="md:hidden text-rose-300 hover:text-white p-1.5 rounded-lg transition-colors"
             aria-label="Close menu"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -181,7 +181,7 @@ export default function Sidebar({
               <span className="text-lg flex-shrink-0">{emoji}</span>
               <div className="min-w-0">
                 <div className="font-medium text-sm">{label}</div>
-                <div className={`text-xs truncate ${activeView === id ? "text-purple-100" : "text-purple-400"}`}>{desc}</div>
+                <div className={`text-xs truncate ${activeView === id ? "text-rose-100" : "text-rose-300"}`}>{desc}</div>
               </div>
             </button>
           ))}
@@ -194,7 +194,7 @@ export default function Sidebar({
               {/* Section heading */}
               <button
                 onClick={() => toggleSection(section.key)}
-                className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-purple-400 hover:text-purple-200 hover:bg-purple-800/40 transition-colors"
+                className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-rose-300 hover:text-rose-100 hover:bg-rose-900/40 transition-colors"
               >
                 <div className="flex items-center gap-2 min-w-0 mr-1">
                   <span className="text-base flex-shrink-0">{section.emoji}</span>
@@ -215,7 +215,7 @@ export default function Sidebar({
                       <span className="text-lg flex-shrink-0">{emoji}</span>
                       <div className="min-w-0">
                         <div className="font-medium text-sm">{label}</div>
-                        <div className={`text-xs truncate ${activeView === id ? "text-purple-100" : "text-purple-400"}`}>{desc}</div>
+                        <div className={`text-xs truncate ${activeView === id ? "text-rose-100" : "text-rose-300"}`}>{desc}</div>
                       </div>
                     </button>
                   ))}
@@ -229,27 +229,27 @@ export default function Sidebar({
         <div className="px-4 pb-5 flex-shrink-0 space-y-1">
           <button
             onClick={() => { onSettings?.(); onClose(); }}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-purple-200 hover:bg-purple-800/60 hover:text-white"
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-rose-200 hover:bg-rose-900/60 hover:text-white"
           >
             <span className="text-lg flex-shrink-0">⚙️</span>
             <div className="min-w-0">
               <div className="font-medium text-sm">{t("sidebar.settings")}</div>
-              <div className="text-xs truncate text-purple-400">{t("sidebar.settings_desc")}</div>
+              <div className="text-xs truncate text-rose-300">{t("sidebar.settings_desc")}</div>
             </div>
           </button>
 
           <button
             onClick={onLogout}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-purple-200 hover:bg-purple-800/60 hover:text-white"
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-rose-200 hover:bg-rose-900/60 hover:text-white"
           >
             <span className="text-lg flex-shrink-0">🚪</span>
             <div className="min-w-0">
               <div className="font-medium text-sm">{t("sidebar.logout")}</div>
-              <div className="text-xs truncate text-purple-400">{t("sidebar.logout_desc")}</div>
+              <div className="text-xs truncate text-rose-300">{t("sidebar.logout_desc")}</div>
             </div>
           </button>
 
-          <p className="text-purple-400 text-xs text-center pt-2">{t("sidebar.powered_by")}</p>
+          <p className="text-rose-400 text-xs text-center pt-2">{t("sidebar.powered_by")}</p>
         </div>
       </aside>
     </>
