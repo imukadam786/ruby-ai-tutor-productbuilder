@@ -13,6 +13,7 @@ import OnboardingFlow, { OnboardingData } from "@/components/onboarding/Onboardi
 import HomeScreen from "@/components/HomeScreen";
 import SettingsView from "@/components/SettingsView";
 import MatricComingSoon from "@/components/MatricComingSoon";
+import WatchComingSoon from "@/components/WatchComingSoon";
 import LanguagePickerModal from "@/components/LanguagePickerModal";
 import PostSessionSurvey from "@/components/beta/PostSessionSurvey";
 import BetaBanner from "@/components/beta/BetaBanner";
@@ -166,11 +167,7 @@ function AppContent() {
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} />}
         {activeView === "matric" && <MatricComingSoon />}
-        {activeView === "watch" && (
-          <div className="flex items-center justify-center h-full text-gray-400 text-sm">
-            {t("common.coming_soon")}
-          </div>
-        )}
+        {activeView === "watch" && <WatchComingSoon />}
       </main>
 
       </div>{/* end inner row */}
