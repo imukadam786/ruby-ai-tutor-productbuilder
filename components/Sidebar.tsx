@@ -39,6 +39,7 @@ export default function Sidebar({
   const topItems: { id: ActiveView; emoji: string; label: string; desc: string }[] = [
     { id: "home",     emoji: "🏠", label: t("sidebar.home"),     desc: t("sidebar.home_desc") },
     { id: "progress", emoji: "📊", label: t("sidebar.progress"), desc: t("sidebar.progress_desc") },
+    { id: "matric",   emoji: "🎓", label: "Matric Prep",         desc: "Past papers · Exam guidance" },
   ];
 
   const collapsibleSections = [
@@ -69,26 +70,17 @@ export default function Sidebar({
         { id: "reading-skill-tree" as ActiveView, emoji: "🌳", label: t("sidebar.skill_tree"), desc: t("sidebar.reading_skill_tree_desc") },
       ],
     },
-    {
-      key: "matric",
-      label: "Matric Prep",
-      emoji: "🎓",
-      items: [
-        { id: "matric" as ActiveView, emoji: "📝", label: "Matric Preparation", desc: "Past papers · Step-by-step guidance" },
-      ],
-    },
   ];
 
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     general: false,
     maths: false,
     reading: false,
-    matric: false,
   });
 
   useEffect(() => {
     if (isOpen) {
-      setOpenSections({ general: false, maths: false, reading: false, matric: false });
+      setOpenSections({ general: false, maths: false, reading: false });
     }
   }, [isOpen]);
 
