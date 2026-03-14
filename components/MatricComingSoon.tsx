@@ -94,31 +94,6 @@ export default function MatricComingSoon() {
               Ruby will soon help matric students work through real past exam papers with step-by-step guidance designed to strengthen understanding and build exam confidence.
             </p>
           </div>
-
-          {/* CTA */}
-          <div className="flex flex-col items-center gap-2 pt-2">
-            {submitted ? (
-              <div className="inline-flex items-center gap-3 bg-green-50 border border-green-200 rounded-2xl px-6 py-4">
-                <span className="text-2xl">🎉</span>
-                <div className="text-left">
-                  <p className="font-semibold text-green-800 text-base">You're on the list!</p>
-                  <p className="text-green-600 text-sm">We'll notify you the moment Matric Prep launches.</p>
-                </div>
-              </div>
-            ) : (
-              <>
-                <button
-                  onClick={handleJoin}
-                  disabled={submitting}
-                  className="bg-[#BE1832] hover:bg-[#a31529] text-white font-semibold text-base px-8 py-3.5 rounded-xl transition-colors shadow-sm disabled:opacity-60"
-                >
-                  {submitting ? "Joining…" : "Join the Waitlist"}
-                </button>
-                {error && <p className="text-red-500 text-sm">{error}</p>}
-                <p className="text-gray-400 text-sm">Be the first to know when this launches.</p>
-              </>
-            )}
-          </div>
         </div>
 
         {/* ── Feature cards ─────────────────────────────────────────────────── */}
@@ -140,6 +115,31 @@ export default function MatricComingSoon() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* ── Waitlist CTA ──────────────────────────────────────────────────── */}
+        <div className="flex flex-col items-center gap-2">
+          {submitted ? (
+            <div className="inline-flex items-center gap-3 bg-green-50 border border-green-200 rounded-2xl px-6 py-4">
+              <span className="text-2xl">🎉</span>
+              <div className="text-left">
+                <p className="font-semibold text-green-800 text-base">You're on the list!</p>
+                <p className="text-green-600 text-sm">We'll notify you the moment Matric Prep launches.</p>
+              </div>
+            </div>
+          ) : (
+            <>
+              <button
+                onClick={handleJoin}
+                disabled={submitting}
+                className="bg-[#BE1832] hover:bg-[#a31529] text-white font-semibold text-base px-8 py-3.5 rounded-xl transition-colors shadow-sm disabled:opacity-60"
+              >
+                {submitting ? "Joining…" : "Join the Waitlist"}
+              </button>
+              {error && <p className="text-red-500 text-sm">{error}</p>}
+              <p className="text-gray-400 text-sm">Be the first to know when this launches.</p>
+            </>
+          )}
         </div>
 
       </div>

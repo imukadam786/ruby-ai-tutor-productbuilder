@@ -488,14 +488,6 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 <p className="text-red-500 text-sm text-center mb-3 px-2">{authError}</p>
               )}
 
-              {!loginMode && (
-                <p className="text-sm text-gray-500 mb-3 text-center">
-                  {t.termsText}{" "}
-                  <span className="text-rose-500 cursor-pointer">{t.termsLink}</span> and{" "}
-                  <span className="text-rose-500 cursor-pointer">{t.privacyLink}</span>.
-                </p>
-              )}
-
               <button
                 onClick={loginMode ? handleLogin : handleSignUp}
                 disabled={loginMode ? (!email || !password || authLoading) : (!name || !email || !password || authLoading)}
