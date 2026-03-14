@@ -3,6 +3,67 @@ import { groq, GROQ_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import { ReadingTemplate, ReadingGeneratedQuestion } from "@/types/reading";
 
+const ERROR_RECOVERY_INSTRUCTIONS: Record<string, string> = {
+  ERR_PHONEME_CONF:
+    "Generate a question that isolates the two confused phonemes in a minimal pair. " +
+    "Do not present both phonemes in the same word. Force the student to discriminate.",
+  ERR_SOUND_RECALL:
+    "Generate a question using only the letter whose sound failed. " +
+    "Present it in isolation first, then inside a simple CVC word. " +
+    "Do not introduce any other letters that were recently confused.",
+  ERR_BLEND_FAIL:
+    "Generate a question with a 2-phoneme blend only (CV or VC). " +
+    "Do not use CCVC or CVCC words. The student cannot yet merge longer sequences.",
+  ERR_SOUND_OMIT:
+    "Generate a question that makes the omitted phoneme highly salient. " +
+    "If the medial vowel is being omitted, use words where the vowel is long and stressed. " +
+    "Avoid words where the omitted phoneme is in a weak position.",
+  ERR_SOUND_INSERT:
+    "Generate a question using words with clean consonant clusters — no schwa-inducing " +
+    "environments. Avoid words where an inserted vowel would sound natural.",
+  ERR_VOWEL_CONF:
+    "Generate a minimal pair contrast question for the specific confused vowel pair. " +
+    "E.g. if short/long confusion: use a CVC vs CVCe pair with the same consonants.",
+  ERR_ORTHO_GUESS:
+    "Generate a nonsense word question. The student must decode phonemically — " +
+    "there is no visual word memory to rely on. Do not use real words in this question.",
+  ERR_SIGHT_MISS:
+    "Generate a rapid recognition question for the missed sight word only. " +
+    "Present the word in 3 different sentence contexts. Flag it as irregular.",
+  ERR_MULTI_BREAK:
+    "Generate a 2-syllable word question only. The student cannot yet blend 3+ syllables. " +
+    "Use closed syllable words first (VC/CVC structure in each syllable).",
+  ERR_FLUENCY_HES:
+    "Generate a question using a passage the student has already seen this session. " +
+    "Repeated reading of familiar text builds automaticity. Keep the passage short: " +
+    "no more than 2 sentences.",
+  ERR_MEANING_BLIND:
+    "Generate a literal comprehension question only. Ask what happened, not why. " +
+    "The student must locate the answer explicitly in the text before inferring anything.",
+  ERR_SELF_MON:
+    "Generate a question that contains a deliberate meaning-violation sentence. " +
+    "Ask the student if everything made sense. The goal is to trigger self-correction.",
+};
+
+const DECISION_INSTRUCTIONS: Record<string, string> = {
+  reteach:
+    "This is a RETEACH question. Use a simpler context, shorter words, and stronger " +
+    "scaffolding cues than the previous question. Change the approach — do not repeat " +
+    "the same question format that just failed.",
+  practice:
+    "This is a PRACTICE question. Same skill, new example. Maintain the same difficulty " +
+    "level as the previous question. No scaffolding needed.",
+  advance:
+    "The student has mastered this skill. Generate the first question for the next skill " +
+    "in the sequence. Do not reference the previous skill.",
+  accelerate:
+    "The student is fast-tracking. Generate a question at the next skill level immediately. " +
+    "Do not generate consolidation questions for the current skill.",
+  backtrack:
+    "The student is returning to a prerequisite skill. Generate the first question for " +
+    "that prerequisite skill. Use simple, foundational examples.",
+};
+
 export async function POST(req: NextRequest) {
   try {
     const {
@@ -10,11 +71,15 @@ export async function POST(req: NextRequest) {
       template,
       attempt_number = 1,
       include_hint = false,
+      decision = "practice",
+      error_type = null,
     }: {
       skill_id: string;
       template: ReadingTemplate;
       attempt_number?: number;
       include_hint?: boolean;
+      decision?: string;
+      error_type?: string | null;
     } = await req.json();
 
     const skill = getReadingSkillById(skill_id);
@@ -34,6 +99,17 @@ export async function POST(req: NextRequest) {
         ? `This is attempt ${attempt_number}. Make the question a different context from the previous one.`
         : "";
 
+    const errorContext = error_type && ERROR_RECOVERY_INSTRUCTIONS[error_type]
+      ? `
+The student's most recent error was classified as: ${error_type}
+${ERROR_RECOVERY_INSTRUCTIONS[error_type]}
+
+The decision engine has determined: ${decision.toUpperCase()}
+${DECISION_INSTRUCTIONS[decision.toLowerCase()] ?? ""}`
+      : `
+No error on the previous attempt. Decision: ${decision.toUpperCase()}.
+${DECISION_INSTRUCTIONS[decision.toLowerCase()] ?? "Generate a question that continues consolidating this skill."}`;
+
     const prompt = `You are Ruby, a literacy question generator for the Ruby AI Tutor reading engine.
 
 Generate ONE question for this reading/literacy skill:
@@ -46,6 +122,8 @@ QUESTION FORMAT: ${template}
 Format description: ${templateDescriptions[template]}
 
 ${levelHint}
+
+${errorContext}
 
 ${include_hint ? "Include a scaffolding hint that guides the student without giving away the answer." : "Do not include a hint."}
 

@@ -157,7 +157,7 @@ export default function ReadingSession() {
   }, []);
 
   const loadQuestion = useCallback(
-    async (skillId: string, template: ReadingTemplate, attemptNum: number) => {
+    async (skillId: string, template: ReadingTemplate, attemptNum: number, decision = "practice", errorType: string | null = null) => {
       setPhase("loading_question");
       setStatusMessage("Generating your question...");
       try {
@@ -169,6 +169,8 @@ export default function ReadingSession() {
             template,
             attempt_number: attemptNum,
             include_hint: attemptNum > 1,
+            decision,
+            error_type: errorType,
           }),
         });
         if (!res.ok) throw new Error("Failed to generate question");
@@ -185,9 +187,14 @@ export default function ReadingSession() {
   useEffect(() => {
     if (phase === "loading_question" && profile) {
       const template = TEMPLATES[templateIndex % TEMPLATES.length];
-      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1);
+      const decision = currentResult?.decision?.toLowerCase() ?? "practice";
+      const errorType =
+        currentResult && !currentResult.is_correct && currentResult.error_type !== "correct"
+          ? currentResult.error_type
+          : null;
+      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, decision, errorType);
     }
-  }, [phase, profile, templateIndex, skillAttemptCount, loadQuestion]);
+  }, [phase, profile, templateIndex, skillAttemptCount, currentResult, loadQuestion]);
 
   const handlePlacementComplete = useCallback(
     (result: DiagnosticPlacementResult) => {
