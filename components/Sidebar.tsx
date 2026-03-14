@@ -170,17 +170,14 @@ export default function Sidebar({
         <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
 
           {/* Top-level items */}
-          {topItems.map(({ id, emoji, label, desc }) => (
+          {topItems.map(({ id, emoji, label }) => (
             <button
               key={id}
               onClick={() => handleNav(id)}
               className={navItemClass(activeView === id)}
             >
               <span className="text-lg flex-shrink-0">{emoji}</span>
-              <div className="min-w-0">
-                <div className="font-medium text-base">{label}</div>
-                <div className={`text-sm truncate ${activeView === id ? "text-white/90" : "text-white/55"}`}>{desc}</div>
-              </div>
+              <div className="font-medium text-base">{label}</div>
             </button>
           ))}
 
@@ -230,10 +227,7 @@ export default function Sidebar({
             className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-white/75 hover:bg-white/15 hover:text-white"
           >
             <span className="text-lg flex-shrink-0">⚙️</span>
-            <div className="min-w-0">
-              <div className="font-medium text-base">{t("sidebar.settings")}</div>
-              <div className="text-sm truncate text-white/70">{t("sidebar.settings_desc")}</div>
-            </div>
+            <div className="font-medium text-base">{t("sidebar.settings")}</div>
           </button>
 
           <button
@@ -241,10 +235,7 @@ export default function Sidebar({
             className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-white/75 hover:bg-white/15 hover:text-white"
           >
             <span className="text-lg flex-shrink-0">🚪</span>
-            <div className="min-w-0">
-              <div className="font-medium text-base">{t("sidebar.logout")}</div>
-              <div className="text-sm truncate text-white/70">{t("sidebar.logout_desc")}</div>
-            </div>
+            <div className="font-medium text-base">{t("sidebar.logout")}</div>
           </button>
 
           <p className="text-white/50 text-sm text-center pt-2">{t("sidebar.powered_by")}</p>
