@@ -108,8 +108,8 @@ export default function ProgressTracker() {
       {/* Content sits above pattern */}
       {/* Header */}
       <div className="relative hidden md:block bg-white border-b border-gray-100 px-6 py-4">
-        <h2 className="text-gray-900 font-semibold text-lg">Progress</h2>
-        <p className="text-gray-500 text-sm">Your skill tree journey</p>
+        <h2 className="text-gray-900 font-semibold text-xl">Progress</h2>
+        <p className="text-gray-500 text-base">Your skill tree journey</p>
       </div>
 
       <div className="relative flex-1 overflow-y-auto p-6">
@@ -120,7 +120,7 @@ export default function ProgressTracker() {
             {/* Skills Mastered */}
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-gray-500">Skills Mastered</span>
+                <span className="text-sm text-gray-500">Skills Mastered</span>
                 <TrophyIcon className="w-5 h-5 text-blue-600 flex-shrink-0" />
               </div>
               <span className="text-2xl font-bold text-blue-600">{masteredEntries.length}</span>
@@ -129,7 +129,7 @@ export default function ProgressTracker() {
             {/* In Progress */}
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-gray-500">In Progress</span>
+                <span className="text-sm text-gray-500">In Progress</span>
                 <ChartIcon className="w-5 h-5 text-amber-500 flex-shrink-0" />
               </div>
               <span className="text-2xl font-bold text-amber-500">{inProgressEntries.length}</span>
@@ -138,7 +138,7 @@ export default function ProgressTracker() {
             {/* Study Sessions */}
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-gray-500">Study Sessions</span>
+                <span className="text-sm text-gray-500">Study Sessions</span>
                 <CalendarIcon className="w-5 h-5 text-purple-600 flex-shrink-0" />
               </div>
               <span className="text-2xl font-bold text-purple-600">{progress.sessionCount}</span>
@@ -147,7 +147,7 @@ export default function ProgressTracker() {
             {/* Accuracy */}
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-gray-500">Accuracy</span>
+                <span className="text-sm text-gray-500">Accuracy</span>
                 <TargetIcon className="w-5 h-5 text-green-600 flex-shrink-0" />
               </div>
               <span className="text-2xl font-bold text-green-600">{accuracy !== null ? `${accuracy}%` : "—"}</span>
@@ -161,41 +161,41 @@ export default function ProgressTracker() {
                 <FlameIcon className="w-5 h-5 text-orange-500" />
               </span>
               <div>
-                <p className="text-xs text-orange-600 font-medium">Current Streak</p>
+                <p className="text-sm text-orange-600 font-medium">Current Streak</p>
                 <div className="flex items-baseline gap-1.5 mt-0.5">
                   <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
-                  <span className="text-sm text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
+                  <span className="text-base text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
                 </div>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-xs text-orange-400">Best</p>
-              <p className="text-lg font-bold text-orange-500">{streak.bestStreak} days</p>
+              <p className="text-sm text-orange-400">Best</p>
+              <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
             </div>
           </div>
 
           {/* ── Maths Skill Tree ───────────────────────────────────────── */}
           <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 shadow-sm space-y-3">
-            <h3 className="font-semibold text-blue-700 text-sm">Maths Skill Tree</h3>
+            <h3 className="font-semibold text-blue-700 text-base">Maths Skill Tree</h3>
             {profile && currentLevel ? (
               <>
                 <div className="flex items-center gap-3">
-                  <span className="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
+                  <span className="bg-blue-600 text-white text-sm font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
                     L{profile.current_level}
                   </span>
-                  <span className="text-gray-700 text-sm font-medium">{currentLevel.title}</span>
+                  <span className="text-gray-700 text-base font-medium">{currentLevel.title}</span>
                 </div>
                 {currentSkill && (
                   <div className="bg-white rounded-xl px-4 py-3">
-                    <p className="text-xs text-blue-400 mb-0.5">Active skill</p>
-                    <p className="text-gray-800 text-sm font-medium">{currentSkill.title}</p>
+                    <p className="text-sm text-blue-400 mb-0.5">Active skill</p>
+                    <p className="text-gray-800 text-base font-medium">{currentSkill.title}</p>
                     {currentSkill.description && (
-                      <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{currentSkill.description}</p>
+                      <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{currentSkill.description}</p>
                     )}
                   </div>
                 )}
                 <div>
-                  <div className="flex justify-between text-xs text-blue-500 mb-1.5">
+                  <div className="flex justify-between text-sm text-blue-500 mb-1.5">
                     <span>Level progress</span>
                     <span>{levelMastered} / {levelTotal} skills</span>
                   </div>
@@ -208,32 +208,32 @@ export default function ProgressTracker() {
                 </div>
               </>
             ) : (
-              <p className="text-blue-400 text-xs">Start a Maths session to track your progress here.</p>
+              <p className="text-blue-400 text-sm">Start a Maths session to track your progress here.</p>
             )}
           </div>
 
           {/* ── Reading Skill Tree ─────────────────────────────────────── */}
           <div className="bg-purple-50 border border-purple-200 rounded-2xl p-5 shadow-sm space-y-3">
-            <h3 className="font-semibold text-purple-700 text-sm">Reading Skill Tree</h3>
+            <h3 className="font-semibold text-purple-700 text-base">Reading Skill Tree</h3>
             {readingProfile && readingCurrentLevel ? (
               <>
                 <div className="flex items-center gap-3">
-                  <span className="bg-purple-600 text-white text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
+                  <span className="bg-purple-600 text-white text-sm font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
                     L{readingProfile.current_level}
                   </span>
-                  <span className="text-gray-700 text-sm font-medium">{readingCurrentLevel.title}</span>
+                  <span className="text-gray-700 text-base font-medium">{readingCurrentLevel.title}</span>
                 </div>
                 {readingCurrentSkill && (
                   <div className="bg-white rounded-xl px-4 py-3">
-                    <p className="text-xs text-purple-400 mb-0.5">Active skill</p>
-                    <p className="text-gray-800 text-sm font-medium">{readingCurrentSkill.title}</p>
+                    <p className="text-sm text-purple-400 mb-0.5">Active skill</p>
+                    <p className="text-gray-800 text-base font-medium">{readingCurrentSkill.title}</p>
                     {readingCurrentSkill.description && (
-                      <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{readingCurrentSkill.description}</p>
+                      <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{readingCurrentSkill.description}</p>
                     )}
                   </div>
                 )}
                 <div>
-                  <div className="flex justify-between text-xs text-purple-500 mb-1.5">
+                  <div className="flex justify-between text-sm text-purple-500 mb-1.5">
                     <span>Level progress</span>
                     <span>{readingLevelMastered} / {readingLevelTotal} skills</span>
                   </div>
@@ -246,16 +246,16 @@ export default function ProgressTracker() {
                 </div>
               </>
             ) : (
-              <p className="text-purple-400 text-xs">Start a Reading session to track your progress here.</p>
+              <p className="text-purple-400 text-sm">Start a Reading session to track your progress here.</p>
             )}
           </div>
 
           {/* ── Mastered Skills ────────────────────────────────────────── */}
           {masteredEntries.length > 0 && (
             <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-800 text-sm mb-3">
+              <h3 className="font-semibold text-gray-800 text-base mb-3">
                 Mastered Skills
-                <span className="ml-2 bg-blue-100 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded-full">
+                <span className="ml-2 bg-blue-100 text-blue-600 text-sm font-semibold px-2 py-0.5 rounded-full">
                   {masteredEntries.length}
                 </span>
               </h3>
@@ -263,7 +263,7 @@ export default function ProgressTracker() {
                 {masteredEntries.map(([skillId]) => {
                   const skill = getSkillById(skillId);
                   return (
-                    <span key={skillId} className="bg-blue-50 text-blue-700 text-xs px-3 py-1.5 rounded-full font-medium">
+                    <span key={skillId} className="bg-blue-50 text-blue-700 text-sm px-3 py-1.5 rounded-full font-medium">
                       {skill?.title ?? skillId}
                     </span>
                   );
@@ -274,7 +274,7 @@ export default function ProgressTracker() {
 
           {/* ── Weekly Study Activity ──────────────────────────────────── */}
           <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-            <h3 className="font-semibold text-gray-800 text-sm mb-4">Weekly Study Activity</h3>
+            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
             <div className="flex items-end justify-between gap-1.5 h-24">
               {weekDays.map(({ date, label, isToday }) => {
                 const count = streak.dailyActivity[date] || 0;
@@ -292,7 +292,7 @@ export default function ProgressTracker() {
                         <div className="w-full rounded-t-lg bg-gray-100" style={{ height: "6px" }} />
                       )}
                     </div>
-                    <span className={`text-xs font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
+                    <span className={`text-sm font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
                       {label}
                     </span>
                   </div>
@@ -304,9 +304,9 @@ export default function ProgressTracker() {
           {/* ── In Progress Skills ─────────────────────────────────────── */}
           {inProgressEntries.length > 0 && (
             <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-800 text-sm mb-3">
+              <h3 className="font-semibold text-gray-800 text-base mb-3">
                 In Progress
-                <span className="ml-2 bg-amber-100 text-amber-600 text-xs font-semibold px-2 py-0.5 rounded-full">
+                <span className="ml-2 bg-amber-100 text-amber-600 text-sm font-semibold px-2 py-0.5 rounded-full">
                   {inProgressEntries.length}
                 </span>
               </h3>
@@ -314,7 +314,7 @@ export default function ProgressTracker() {
                 {inProgressEntries.map(([skillId]) => {
                   const skill = getSkillById(skillId);
                   return (
-                    <span key={skillId} className="bg-amber-50 text-amber-700 text-xs px-3 py-1.5 rounded-full font-medium">
+                    <span key={skillId} className="bg-amber-50 text-amber-700 text-sm px-3 py-1.5 rounded-full font-medium">
                       {skill?.title ?? skillId}
                     </span>
                   );
@@ -328,7 +328,7 @@ export default function ProgressTracker() {
             <div className="text-center py-12 text-gray-400">
               <div className="text-5xl mb-3">🌱</div>
               <p className="font-medium text-gray-600">Your learning journey starts here!</p>
-              <p className="text-sm mt-1">Head to Maths to start your first skill and track your progress here.</p>
+              <p className="text-base mt-1">Head to Maths to start your first skill and track your progress here.</p>
             </div>
           )}
 

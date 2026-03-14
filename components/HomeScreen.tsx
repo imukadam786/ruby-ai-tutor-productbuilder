@@ -25,7 +25,7 @@ function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
         }}
       />
       <div
-        className="w-full h-full bg-rose-600 rounded-full items-center justify-center text-white font-bold text-lg"
+        className="w-full h-full bg-rose-600 rounded-full items-center justify-center text-white font-bold text-xl"
         style={{ display: "none" }}
       >
         R
@@ -191,8 +191,8 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
         <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
           <RubyAvatar size="w-14 h-14" />
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Hi {firstName} 👋</h1>
-            <p className="text-gray-500 text-sm mt-0.5">Ready to keep learning?</p>
+            <h1 className="text-3xl font-bold text-gray-900">Hi {firstName} 👋</h1>
+            <p className="text-gray-500 text-base mt-0.5">Ready to keep learning?</p>
           </div>
         </div>
 
@@ -201,7 +201,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
           {statDefs.map((s) => (
             <div key={s.key} className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-gray-500">{s.label}</span>
+                <span className="text-sm text-gray-500">{s.label}</span>
                 {s.icon}
               </div>
               <span className={`text-2xl font-bold ${s.color}`}>{stats[s.key]}</span>
@@ -214,22 +214,22 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
           <div className="flex items-center gap-3">
             <span className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0 text-xl">🔥</span>
             <div>
-              <p className="text-xs text-orange-600 font-medium">Current Streak</p>
+              <p className="text-sm text-orange-600 font-medium">Current Streak</p>
               <div className="flex items-baseline gap-1.5 mt-0.5">
                 <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
-                <span className="text-sm text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
+                <span className="text-base text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
               </div>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-xs text-orange-400">Best</p>
-            <p className="text-lg font-bold text-orange-500">{streak.bestStreak} days</p>
+            <p className="text-sm text-orange-400">Best</p>
+            <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
           </div>
         </div>
 
         {/* ── Quick Actions ─────────────────────────────────────────────── */}
         <section className="mb-8">
-          <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Quick Actions</h2>
+          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Quick Actions</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {quickActions.map((action) => (
               <button
@@ -241,8 +241,8 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
                   {action.icon}
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm">{action.title}</p>
-                  <p className="text-white/75 text-xs mt-0.5">{action.subtitle}</p>
+                  <p className="text-white font-semibold text-base">{action.title}</p>
+                  <p className="text-white/75 text-sm mt-0.5">{action.subtitle}</p>
                 </div>
               </button>
             ))}
@@ -251,7 +251,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
 
         {/* ── Learning Modes ────────────────────────────────────────────── */}
         <section>
-          <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Learning Modes</h2>
+          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Learning Modes</h2>
           <div className="grid grid-cols-2 gap-3">
             {learningModes.map((mode) => (
               <button
@@ -263,8 +263,8 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
                   {mode.icon}
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-800 text-sm">{mode.title}</p>
-                  <p className="text-gray-400 text-xs mt-0.5 leading-relaxed">{mode.subtitle}</p>
+                  <p className="font-semibold text-gray-800 text-base">{mode.title}</p>
+                  <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{mode.subtitle}</p>
                 </div>
               </button>
             ))}

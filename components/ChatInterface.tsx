@@ -419,7 +419,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
       <div className="hidden md:flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white">
         <div className="flex items-center gap-2.5">
           <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
-          <h2 className="text-gray-900 font-semibold text-sm sm:text-base">Chat with Ruby</h2>
+          <h2 className="text-gray-900 font-semibold text-base sm:text-lg">Chat with Ruby</h2>
         </div>
         <button
           onClick={clearChat}
@@ -441,7 +441,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
               /* User bubble */
               <div className="max-w-[80%] sm:max-w-[65%]">
                 <div className="bg-blue-500 text-white rounded-2xl rounded-tr-sm px-4 py-3">
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
+                  <p className="text-base leading-relaxed whitespace-pre-wrap">{msg.content}</p>
                 </div>
                 <p className="text-xs text-gray-400 mt-1 text-right">
                   {new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
@@ -450,7 +450,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             ) : (
               /* Ruby response — clean text, no card */
               <div className="max-w-[90%] sm:max-w-[75%]">
-                <div className="prose prose-sm max-w-none prose-headings:text-gray-800 prose-headings:font-semibold prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-900 prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700">
+                <div className="prose prose-base max-w-none leading-relaxed prose-headings:text-gray-800 prose-headings:font-semibold prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-900 prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700">
                   <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
                     {msg.content || "▌"}
                   </ReactMarkdown>
@@ -585,7 +585,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             onKeyDown={handleKeyDown}
             placeholder="Ask anything..."
             rows={1}
-            className="flex-1 bg-transparent py-1.5 text-gray-800 placeholder-gray-400 text-sm resize-none outline-none max-h-36 overflow-y-auto leading-relaxed"
+            className="flex-1 bg-transparent py-1.5 text-gray-800 placeholder-gray-400 text-base resize-none outline-none max-h-36 overflow-y-auto leading-relaxed"
             style={{ height: "auto" }}
             onInput={(e) => {
               const t = e.target as HTMLTextAreaElement;
@@ -629,7 +629,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
           </div>
         </div>
 
-        <p className="text-center text-xs text-gray-400 mt-2">Ruby can make mistakes. Double-check important info.</p>
+        <p className="text-center text-sm text-gray-400 mt-2">Ruby can make mistakes. Double-check important info.</p>
         </div>
       </div>
     </div>

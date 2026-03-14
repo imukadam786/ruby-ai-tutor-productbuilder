@@ -143,8 +143,8 @@ export default function Sidebar({
               </div>
             </div>
             <div>
-              <h1 className="text-white font-bold text-lg leading-none">Ruby</h1>
-              <p className="text-white/70 text-xs mt-0.5">AI Tutor</p>
+              <h1 className="text-white font-bold text-xl leading-none">Ruby</h1>
+              <p className="text-white/70 text-sm mt-0.5">AI Tutor</p>
             </div>
           </div>
           <div className="flex items-center gap-1">
@@ -180,8 +180,8 @@ export default function Sidebar({
             >
               <span className="text-lg flex-shrink-0">{emoji}</span>
               <div className="min-w-0">
-                <div className="font-medium text-sm">{label}</div>
-                <div className={`text-xs truncate ${activeView === id ? "text-white/90" : "text-white/55"}`}>{desc}</div>
+                <div className="font-medium text-base">{label}</div>
+                <div className={`text-sm truncate ${activeView === id ? "text-white/90" : "text-white/55"}`}>{desc}</div>
               </div>
             </button>
           ))}
@@ -198,7 +198,7 @@ export default function Sidebar({
               >
                 <div className="flex items-center gap-2 min-w-0 mr-1">
                   <span className="text-base flex-shrink-0">{section.emoji}</span>
-                  <span className="text-xs font-semibold uppercase tracking-normal leading-tight">{section.label}</span>
+                  <span className="text-sm font-semibold uppercase tracking-normal leading-tight">{section.label}</span>
                 </div>
                 <ChevronIcon open={openSections[section.key]} />
               </button>
@@ -214,8 +214,8 @@ export default function Sidebar({
                     >
                       <span className="text-lg flex-shrink-0">{emoji}</span>
                       <div className="min-w-0">
-                        <div className="font-medium text-sm">{label}</div>
-                        <div className={`text-xs truncate ${activeView === id ? "text-white/90" : "text-white/55"}`}>{desc}</div>
+                        <div className="font-medium text-base">{label}</div>
+                        <div className={`text-sm truncate ${activeView === id ? "text-white/90" : "text-white/55"}`}>{desc}</div>
                       </div>
                     </button>
                   ))}
@@ -233,8 +233,8 @@ export default function Sidebar({
           >
             <span className="text-lg flex-shrink-0">⚙️</span>
             <div className="min-w-0">
-              <div className="font-medium text-sm">{t("sidebar.settings")}</div>
-              <div className="text-xs truncate text-white/70">{t("sidebar.settings_desc")}</div>
+              <div className="font-medium text-base">{t("sidebar.settings")}</div>
+              <div className="text-sm truncate text-white/70">{t("sidebar.settings_desc")}</div>
             </div>
           </button>
 
@@ -244,12 +244,12 @@ export default function Sidebar({
           >
             <span className="text-lg flex-shrink-0">🚪</span>
             <div className="min-w-0">
-              <div className="font-medium text-sm">{t("sidebar.logout")}</div>
-              <div className="text-xs truncate text-white/70">{t("sidebar.logout_desc")}</div>
+              <div className="font-medium text-base">{t("sidebar.logout")}</div>
+              <div className="text-sm truncate text-white/70">{t("sidebar.logout_desc")}</div>
             </div>
           </button>
 
-          <p className="text-white/50 text-xs text-center pt-2">{t("sidebar.powered_by")}</p>
+          <p className="text-white/50 text-sm text-center pt-2">{t("sidebar.powered_by")}</p>
         </div>
       </aside>
     </>

@@ -403,7 +403,7 @@ export default function ReadingSession() {
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-gray-600 font-medium">{statusMessage || "Loading..."}</p>
+            <p className="text-gray-600 font-medium text-base">{statusMessage || "Loading..."}</p>
           </div>
         </div>
       </div>
@@ -423,8 +423,8 @@ export default function ReadingSession() {
             {skill && (
               <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
                 <div className="flex-1">
-                  <p className="text-xs text-gray-400 uppercase tracking-wide">{profile ? `L${profile.current_level} - CURRENT SKILL` : "Current Skill"}</p>
-                  <p className="text-gray-800 font-medium text-sm">{skill.title}</p>
+                  <p className="text-sm text-gray-400 uppercase tracking-wide">{profile ? `L${profile.current_level} - CURRENT SKILL` : "Current Skill"}</p>
+                  <p className="text-gray-800 font-medium text-base">{skill.title}</p>
                 </div>
                 <ReadingMasteryDots
                   correctCount={mastery?.correct_count || 0}
@@ -483,7 +483,7 @@ export default function ReadingSession() {
               You&apos;ve mastered <strong>{skill?.title || "this skill"}</strong>!
             </p>
             {currentResult && (
-              <p className="text-gray-600 text-sm">{currentResult.feedback}</p>
+              <p className="text-gray-600 text-base">{currentResult.feedback}</p>
             )}
             <button
               onClick={handleNextAfterMastered}
@@ -544,12 +544,12 @@ function ReadingSessionHeader({
   return (
     <div className="hidden md:flex bg-white border-b border-gray-200 px-4 py-2 sm:px-6 sm:py-3 items-center justify-between gap-3">
       <div className="min-w-0">
-        <h2 className="text-gray-900 font-semibold text-sm sm:text-base truncate">
+        <h2 className="text-gray-900 font-semibold text-base sm:text-lg truncate">
           Ruby Reading
           {profile && <span className="text-gray-400 font-normal"> · {profile.name}</span>}
         </h2>
         {skill && (
-          <p className="text-gray-500 text-xs truncate">
+          <p className="text-gray-500 text-sm truncate">
             Level {profile?.current_level} · {skill.title}
           </p>
         )}
@@ -557,10 +557,10 @@ function ReadingSessionHeader({
       <div className="flex items-center gap-3 flex-shrink-0">
         {sessionAttempts > 0 && (
           <div className="text-right">
-            <p className={`text-sm font-semibold ${accuracy >= 70 ? "text-green-600" : "text-orange-500"}`}>
+            <p className={`text-base font-semibold ${accuracy >= 70 ? "text-green-600" : "text-orange-500"}`}>
               {accuracy}%
             </p>
-            <p className="text-xs text-gray-400 leading-none">accuracy</p>
+            <p className="text-sm text-gray-400 leading-none">accuracy</p>
           </div>
         )}
         <button
@@ -678,7 +678,7 @@ function ReadingQuestionCard({
       {/* Template badge */}
       <div className={`px-5 py-3 flex items-center gap-2 border-b border-gray-100 ${config.colorClass}`}>
         <span>{config.icon}</span>
-        <span className="text-sm font-medium">{config.label}</span>
+        <span className="text-base font-medium">{config.label}</span>
       </div>
 
       {/* Question text */}
@@ -732,7 +732,7 @@ function ReadingQuestionCard({
             </button>
           ) : (
             <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3">
-              <p className="text-yellow-800 text-sm">
+              <p className="text-yellow-800 text-base">
                 <span className="font-medium">Hint: </span>{question.hint}
               </p>
               <button
@@ -757,14 +757,14 @@ function ReadingQuestionCard({
       {/* Answer input — mic inside container, same as ChatInterface input bar */}
       <div className="px-6 pb-6 space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1.5">Your Answer</label>
+          <label className="block text-base font-medium text-gray-700 mb-1.5">Your Answer</label>
           <div className={`relative flex items-end gap-2 border rounded-2xl px-3 py-2 transition-all ${
             listening
               ? "border-red-400 bg-red-50 ring-2 ring-red-100"
               : "bg-gray-50 border-gray-200 focus-within:border-purple-400 focus-within:ring-2 focus-within:ring-purple-100"
           }`}>
             {/* Answer display area */}
-            <div className={`flex-1 py-1.5 text-sm leading-relaxed min-h-[28px] ${answer ? "text-gray-800" : "text-gray-400"}`}>
+            <div className={`flex-1 py-1.5 text-base leading-relaxed min-h-[28px] ${answer ? "text-gray-800" : "text-gray-400"}`}>
               {answer || "Your answer will display here"}
             </div>
             {/* Mic button — same style as ChatInterface */}
@@ -787,7 +787,7 @@ function ReadingQuestionCard({
             </button>
           </div>
           {listening && (
-            <p className="text-xs text-red-500 mt-1.5 flex items-center gap-1">
+            <p className="text-sm text-red-500 mt-1.5 flex items-center gap-1">
               <span className="w-2 h-2 bg-red-500 rounded-full inline-block animate-pulse" />
               Listening... speak your answer
             </p>
@@ -836,17 +836,17 @@ function ReadingFeedbackCard({
           <p className={`font-semibold ${result.is_correct ? "text-green-800" : "text-red-800"}`}>
             {result.is_correct ? "Correct!" : "Not quite right"}
           </p>
-          <p className={`text-sm ${result.is_correct ? "text-green-600" : "text-red-600"}`}>
+          <p className={`text-base ${result.is_correct ? "text-green-600" : "text-red-600"}`}>
             {result.error_type !== "correct" && result.error_type.replace(/_/g, " ")}
           </p>
         </div>
       </div>
 
-      <p className="text-gray-700 text-sm leading-relaxed">{result.feedback}</p>
+      <p className="text-gray-700 text-base leading-relaxed">{result.feedback}</p>
 
       {!result.is_correct && result.recovery_explanation && (
         <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-          <p className="text-blue-800 text-sm leading-relaxed">
+          <p className="text-blue-800 text-base leading-relaxed">
             <span className="font-medium">Tip: </span>{result.recovery_explanation}
           </p>
         </div>
@@ -861,7 +861,7 @@ function ReadingFeedbackCard({
           if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
         }}
       >
-        <p className="text-xs text-gray-400">Swipe up for next question</p>
+        <p className="text-sm text-gray-400">Swipe up for next question</p>
         <div className="animate-bounce text-purple-500">
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />

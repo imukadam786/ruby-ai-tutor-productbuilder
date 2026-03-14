@@ -128,7 +128,7 @@ function ContinueBtn({ label, onClick, disabled, loading }: { label: string; onC
     <button
       onClick={onClick}
       disabled={disabled || loading}
-      className="w-full py-4 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors flex-shrink-0 flex items-center justify-center gap-2"
+      className="w-full py-4 rounded-full bg-rose-600 text-white font-semibold text-lg disabled:opacity-40 hover:bg-rose-700 transition-colors flex-shrink-0 flex items-center justify-center gap-2"
     >
       {loading && (
         <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -302,14 +302,14 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           {/* ── Step 1: Language ── */}
           {step === 1 && (
             <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <h1 className="text-2xl font-bold text-[#1a2744] mb-6 leading-snug flex-shrink-0">{t.step1Title}</h1>
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-6 leading-snug flex-shrink-0">{t.step1Title}</h1>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
                 <div className="grid grid-cols-3 gap-3">
                   {LANGUAGES.map((language) => (
                     <button
                       key={language}
                       onClick={() => select("language", language)}
-                      className={`py-4 px-2 rounded-2xl text-sm font-medium border-2 transition-all ${
+                      className={`py-4 px-2 rounded-2xl text-base font-medium border-2 transition-all ${
                         data.language === language
                           ? "border-rose-500 bg-rose-50 text-rose-600"
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
@@ -330,7 +330,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           {step === 2 && (
             <div className="flex-1 flex flex-col p-6">
               <BackButton onClick={back} />
-              <h1 className="text-2xl font-bold text-[#1a2744] mb-4 leading-snug">{t.step3Title}</h1>
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-4 leading-snug">{t.step3Title}</h1>
               <div className="flex-1 grid grid-cols-2 gap-2.5 content-start">
                 {GRADES.map(({ grade, emoji }) => (
                   <button
@@ -357,8 +357,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           {step === 3 && (
             <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
               <BackButton onClick={back} />
-              <h1 className="text-2xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">{t.step4Title}</h1>
-              <p className="text-gray-400 text-sm mb-6 flex-shrink-0">{t.step4Sub}</p>
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">{t.step4Title}</h1>
+              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step4Sub}</p>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
                 <div className="grid grid-cols-2 gap-3">
                   {SCORES.map(({ label, bars }) => (
@@ -387,8 +387,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           {step === 4 && (
             <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
               <BackButton onClick={back} />
-              <h1 className="text-2xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which curriculum do you follow?</h1>
-              <p className="text-gray-400 text-sm mb-6 flex-shrink-0">Select your school's curriculum</p>
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which curriculum do you follow?</h1>
+              <p className="text-gray-400 text-base mb-6 flex-shrink-0">Select your school's curriculum</p>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
                 <div className="flex flex-col gap-3">
                   {CURRICULA.map(({ label, flag }) => (
@@ -418,7 +418,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           {/* ── Step 5: Create Account / Login ── */}
           {step === 5 && (
             <div className="flex-1 flex flex-col p-5 justify-between">
-              <h1 className="text-xl font-bold text-[#1a2744] text-center mb-4">
+              <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-4">
                 {loginMode ? "Welcome back" : t.step7Title}
               </h1>
 
@@ -426,7 +426,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               <button
                 onClick={handleGoogleAuth}
                 disabled={authLoading}
-                className="w-full flex items-center justify-center gap-3 py-3 rounded-full border-2 border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors mb-3 disabled:opacity-40"
+                className="w-full flex items-center justify-center gap-3 py-3 rounded-full border-2 border-gray-200 text-gray-700 font-medium text-base hover:bg-gray-50 transition-colors mb-3 disabled:opacity-40"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -439,7 +439,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
               <div className="flex items-center gap-3 mb-3">
                 <div className="flex-1 h-px bg-gray-200" />
-                <span className="text-xs text-gray-400 font-medium tracking-widest">{t.orEmail}</span>
+                <span className="text-sm text-gray-400 font-medium tracking-widest">{t.orEmail}</span>
                 <div className="flex-1 h-px bg-gray-200" />
               </div>
 
@@ -447,31 +447,31 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 {/* Name — hidden in login mode */}
                 {!loginMode && (
                   <div>
-                    <label className="block text-xs font-semibold text-gray-800 mb-1">{t.nameLabel}</label>
+                    <label className="block text-sm font-semibold text-gray-800 mb-1">{t.nameLabel}</label>
                     <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
                       <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
-                      <input type="text" placeholder="John Doe" value={name} onChange={(e) => setName(e.target.value)} className="flex-1 outline-none text-gray-700 text-sm bg-transparent" />
+                      <input type="text" placeholder="John Doe" value={name} onChange={(e) => setName(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
                     </div>
                   </div>
                 )}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-800 mb-1">{t.emailLabel}</label>
+                  <label className="block text-sm font-semibold text-gray-800 mb-1">{t.emailLabel}</label>
                   <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
                     <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 outline-none text-gray-700 text-sm bg-transparent" />
+                    <input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-800 mb-1">{t.passwordLabel}</label>
+                  <label className="block text-sm font-semibold text-gray-800 mb-1">{t.passwordLabel}</label>
                   <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
                     <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
-                    <input type={showPassword ? "text" : "password"} placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} className="flex-1 outline-none text-gray-700 text-sm bg-transparent" />
+                    <input type={showPassword ? "text" : "password"} placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
                     <button onClick={() => setShowPassword(!showPassword)} className="text-gray-400 hover:text-gray-600">
                       {showPassword ? (
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 4.411m0 0L21 21" /></svg>
@@ -485,11 +485,11 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
               {/* Error message */}
               {authError && (
-                <p className="text-red-500 text-xs text-center mb-3 px-2">{authError}</p>
+                <p className="text-red-500 text-sm text-center mb-3 px-2">{authError}</p>
               )}
 
               {!loginMode && (
-                <p className="text-xs text-gray-500 mb-3 text-center">
+                <p className="text-sm text-gray-500 mb-3 text-center">
                   {t.termsText}{" "}
                   <span className="text-rose-500 cursor-pointer">{t.termsLink}</span> and{" "}
                   <span className="text-rose-500 cursor-pointer">{t.privacyLink}</span>.
@@ -510,7 +510,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 {loginMode ? "Log in" : "Start Free Beta"}
               </button>
 
-              <p className="text-center text-sm text-gray-500">
+              <p className="text-center text-base text-gray-500">
                 {loginMode ? "Don't have an account? " : t.loginPrompt + " "}
                 <button
                   onClick={() => { setLoginMode(!loginMode); setAuthError(""); }}
@@ -526,8 +526,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           {step === 6 && (
             <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
               <BackButton onClick={back} />
-              <h1 className="text-2xl font-bold text-[#1a2744] mb-1 flex-shrink-0">{t.step8Title}</h1>
-              <p className="text-gray-400 text-sm mb-6 flex-shrink-0">{t.step8Sub}</p>
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-1 flex-shrink-0">{t.step8Title}</h1>
+              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step8Sub}</p>
 
               {/* Mobile: one card at a time, snap scroll horizontally — no vertical scroll inside */}
               <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory flex-1 min-h-0 gap-4 -mx-6 px-6 pb-2 scrollbar-hide">
@@ -539,11 +539,11 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     <p className="font-bold text-[#1a2744] text-base mb-0.5">{plan.name}</p>
                     <p className={`text-2xl font-bold ${plan.priceClass} mb-3`}>
                       <span className="text-base font-semibold">R</span> {plan.price}
-                      <span className="text-xs font-normal text-gray-400"> {t.perMonth}</span>
+                      <span className="text-sm font-normal text-gray-400"> {t.perMonth}</span>
                     </p>
                     <ul className="flex flex-col gap-1.5 mb-4 flex-1">
                       {plan.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-xs text-gray-600">
+                        <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
                           <svg className="w-3.5 h-3.5 flex-shrink-0" style={{ color: plan.accentColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
@@ -575,7 +575,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     </p>
                     <ul className="flex flex-col gap-2 mb-5 flex-1">
                       {plan.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
+                        <li key={f} className="flex items-center gap-2 text-base text-gray-600">
                           <svg className="w-4 h-4 flex-shrink-0" style={{ color: plan.accentColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
