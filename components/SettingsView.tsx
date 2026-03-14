@@ -537,7 +537,6 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
   const [accountLang, setAccountLang] = useState("English");
   const [learnLang, setLearnLang] = useState("English");
   const [plan, setPlan] = useState("free");
-  const [darkMode, setDarkMode] = useState(false);
   const [saved, setSaved] = useState(false);
 
   // Active modal
@@ -556,15 +555,9 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
         setLearnLang(d.language || "English");
         setPlan(d.plan || "free");
       }
-      setDarkMode(localStorage.getItem("darkMode") === "true");
     } catch { /* ignore */ }
   }, []);
 
-  const applyDarkMode = (enabled: boolean) => {
-    setDarkMode(enabled);
-    localStorage.setItem("darkMode", String(enabled));
-    document.documentElement.classList.toggle("dark", enabled);
-  };
 
   const saveProfile = () => {
     try {
@@ -634,16 +627,6 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                   label={t("settings.preferred_lang")}
                   value={learnLang}
                   onClick={() => { setSelectedContinent(null); setModal("learnLang"); }}
-                />
-                <Row
-                  icon={icons.moon}
-                  label={t("settings.dark_mode")}
-                  rightEl={
-                    <Toggle
-                      checked={darkMode}
-                      onChange={applyDarkMode}
-                    />
-                  }
                 />
                 <Row icon={icons.download} label={t("settings.download_report")} onClick={() => setModal("downloadPDF")} />
               </Card>

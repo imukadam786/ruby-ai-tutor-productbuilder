@@ -21,14 +21,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full overflow-hidden">
-      <head>
-        {/* Apply dark class before first paint to prevent flash */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(localStorage.getItem('darkMode')==='true'){document.documentElement.classList.add('dark');}}catch(e){}})();`,
-          }}
-        />
-      </head>
       <body className="h-full overflow-hidden antialiased">{children}</body>
     </html>
   );
