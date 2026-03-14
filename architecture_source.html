@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ruby AI Tutor — Architecture</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  /* ─── GLOBAL ─── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #ffffff;
+    color: #1e293b;
+    font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ─── PAGE BREAKS ─── */
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    padding: 16mm 18mm 14mm;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: avoid; }
+
+  /* ─── COVER ─── */
+  .cover {
+    background: linear-gradient(145deg, #0f1117 0%, #1a1d2e 50%, #0f1117 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 210mm;
+    padding: 24mm;
+  }
+  .cover .logo-ring {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #a78bfa);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 42px;
+    margin-bottom: 24px;
+    box-shadow: 0 0 60px #6366f155;
+  }
+  .cover h1 {
+    font-size: 42px; font-weight: 800;
+    background: linear-gradient(135deg, #818cf8, #a78bfa, #38bdf8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+  }
+  .cover .tagline {
+    font-size: 16px; color: #94a3b8; margin-bottom: 32px;
+  }
+  .cover .meta-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px; max-width: 640px; width: 100%;
+    margin-bottom: 36px;
+  }
+  .meta-card {
+    background: #ffffff11;
+    border: 1px solid #ffffff22;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .meta-card .val { font-size: 22px; font-weight: 700; color: #a78bfa; }
+  .meta-card .lbl { font-size: 10px; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+  .cover .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid #22c55e55;
+    color: #86efac; font-size: 12px;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 12px;
+  }
+  .cover .dot-live { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse 1.4s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .cover .date { color: #475569; font-size: 11px; margin-top: 24px; }
+
+  /* ─── PAGE HEADER ─── */
+  .page-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px; padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .page-header .page-title {
+    font-size: 18px; font-weight: 800; color: #1e293b;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .page-header .page-title .accent-bar {
+    width: 4px; height: 22px; background: #6366f1; border-radius: 2px;
+  }
+  .page-header .page-num { font-size: 11px; color: #94a3b8; }
+  .page-header .logo-sm { font-size: 11px; color: #6366f1; font-weight: 700; }
+
+  /* ─── LEGEND ─── */
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 8px 14px; margin-bottom: 14px;
+  }
+  .leg { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #64748b; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .leg-dot.built { background: #6366f1; }
+  .leg-dot.ext   { background: #22c55e; }
+  .leg-dot.grey  { background: #94a3b8; border: 1px dashed #64748b; }
+  .leg-dot.warn  { background: #f59e0b; }
+
+  /* ─── LANDSCAPE DIAGRAM ─── */
+  .diagram-wrap {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px;
+    overflow: hidden;
+  }
+  .diagram-wrap .mermaid {
+    display: flex; justify-content: center;
+  }
+  .diagram-wrap svg { max-width: 100%; height: auto; }
+
+  /* ─── LAYER ARCHITECTURE (Page 3) ─── */
+  .arch-layer {
+    border-radius: 8px;
+    border: 1.5px solid;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .arch-layer.fe    { border-color: #818cf855; background: #f5f3ff; }
+  .arch-layer.api   { border-color: #38bdf855; background: #f0f9ff; }
+  .arch-layer.eng   { border-color: #a78bfa55; background: #faf5ff; }
+  .arch-layer.ext   { border-color: #22c55e55; background: #f0fdf4; }
+  .arch-layer.store { border-color: #f59e0b55; background: #fffbeb; }
+  .arch-layer.miss  { border-color: #94a3b888; background: #f8fafc; border-style: dashed; }
+
+  .layer-tag {
+    display: inline-block;
+    font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 2px 8px; border-radius: 10px; margin-bottom: 7px; color: #fff;
+  }
+  .layer-tag.fe    { background: #6366f1; }
+  .layer-tag.api   { background: #0284c7; }
+  .layer-tag.eng   { background: #7c3aed; }
+  .layer-tag.ext   { background: #16a34a; }
+  .layer-tag.store { background: #d97706; }
+  .layer-tag.miss  { background: #64748b; }
+
+  .comp-grid {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .comp-chip {
+    border-radius: 5px; padding: 4px 9px;
+    font-size: 10px; font-weight: 600; border: 1px solid;
+    white-space: nowrap;
+  }
+  .comp-chip.fe    { background: #ede9fe; border-color: #818cf8; color: #4338ca; }
+  .comp-chip.api   { background: #e0f2fe; border-color: #38bdf8; color: #0369a1; }
+  .comp-chip.eng   { background: #f3e8ff; border-color: #a78bfa; color: #6d28d9; }
+  .comp-chip.ext   { background: #dcfce7; border-color: #22c55e; color: #166534; }
+  .comp-chip.store { background: #fef3c7; border-color: #f59e0b; color: #92400e; }
+  .comp-chip.miss  { background: #f1f5f9; border-color: #94a3b8; color: #64748b; border-style: dashed; }
+
+  .sub-label {
+    font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: #94a3b8; margin: 6px 0 4px;
+  }
+
+  .arrow-down-sm {
+    text-align: center; font-size: 11px; color: #94a3b8;
+    margin: 4px 0; display: flex; align-items: center; justify-content: center;
+    gap: 8px;
+  }
+  .arrow-line-sm { flex: 1; max-width: 60px; height: 1px; background: #e2e8f0; }
+
+  /* ─── TWO-COL ENGINES ─── */
+  .engine-two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px;
+  }
+  .engine-box {
+    border-radius: 7px; border: 1px solid; padding: 10px 12px;
+  }
+  .engine-box.math    { border-color: #38bdf8; background: #f0f9ff; }
+  .engine-box.reading { border-color: #a78bfa; background: #faf5ff; }
+  .engine-box h4 { font-size: 11px; font-weight: 700; margin-bottom: 6px; }
+  .engine-box.math h4    { color: #0284c7; }
+  .engine-box.reading h4 { color: #7c3aed; }
+  .engine-box ul { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+  .engine-box li { font-size: 10px; color: #475569; display: flex; gap: 5px; }
+  .engine-box li::before { content: '›'; color: #6366f1; flex-shrink: 0; }
+
+  /* ─── SEQUENCE PAGES ─── */
+  .seq-title {
+    font-size: 13px; font-weight: 700; color: #1e293b;
+    margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .seq-num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: #6366f1; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+  }
+
+  /* ─── ROADMAP PAGE ─── */
+  .roadmap-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
+    margin-top: 14px;
+  }
+  .road-phase {
+    border-radius: 8px; border: 1.5px solid; padding: 14px;
+  }
+  .road-phase.p1 { border-color: #22c55e88; background: #f0fdf4; }
+  .road-phase.p2 { border-color: #f59e0b88; background: #fffbeb; }
+  .road-phase.p3 { border-color: #6366f188; background: #f5f3ff; }
+  .road-phase .ph-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.07em; color: #94a3b8; margin-bottom: 4px; }
+  .road-phase h3 { font-size: 13px; font-weight: 800; margin-bottom: 10px; }
+  .road-phase.p1 h3 { color: #16a34a; }
+  .road-phase.p2 h3 { color: #d97706; }
+  .road-phase.p3 h3 { color: #4338ca; }
+  .road-phase ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .road-phase li { font-size: 10px; color: #475569; display: flex; gap: 7px; align-items: flex-start; }
+  .road-num {
+    width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700;
+  }
+  .p1 .road-num { background: #dcfce7; color: #166534; }
+  .p2 .road-num { background: #fef3c7; color: #92400e; }
+  .p3 .road-num { background: #ede9fe; color: #4338ca; }
+
+  .missing-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin-top: 12px;
+  }
+  .miss-card {
+    background: #f8fafc; border: 1.5px dashed #94a3b8;
+    border-radius: 7px; padding: 10px 12px;
+  }
+  .miss-card h5 { font-size: 10px; font-weight: 700; color: #64748b; margin-bottom: 3px; }
+  .miss-card p  { font-size: 9px; color: #94a3b8; }
+
+  /* ─── PRINT BUTTON ─── */
+  .print-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    background: linear-gradient(135deg, #6366f1, #a78bfa);
+    color: #fff; border: none; border-radius: 40px;
+    padding: 12px 24px; font-size: 14px; font-weight: 700;
+    cursor: pointer; box-shadow: 0 4px 24px #6366f166;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .print-btn:hover { opacity: 0.9; }
+
+  @media print {
+    .print-btn { display: none !important; }
+    @page { size: A3 landscape; margin: 0; }
+    body { background: #fff; }
+    .page { width: 420mm; min-height: 297mm; padding: 14mm 18mm; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1 — COVER
+══════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="logo-ring">🧠</div>
+  <h1>Ruby AI Tutor</h1>
+  <div class="tagline">System Architecture &amp; Technical Design Document</div>
+
+  <div class="pill"><div class="dot-live"></div>Live on Vercel · Production</div>
+
+  <div class="meta-grid">
+    <div class="meta-card"><div class="val">2</div><div class="lbl">AI Engines</div></div>
+    <div class="meta-card"><div class="val">106</div><div class="lbl">Adaptive Skills</div></div>
+    <div class="meta-card"><div class="val">11</div><div class="lbl">API Routes</div></div>
+    <div class="meta-card"><div class="val">34</div><div class="lbl">Reading Skills</div></div>
+    <div class="meta-card"><div class="val">72</div><div class="lbl">Maths Skills</div></div>
+    <div class="meta-card"><div class="val">18</div><div class="lbl">Diagnostic Tasks</div></div>
+  </div>
+
+  <div style="color:#475569;font-size:13px;max-width:500px;line-height:1.7;">
+    Next.js 15 · React 18 · TypeScript · Tailwind CSS<br/>
+    Groq LLaMA 3.3 70B · Vercel Edge · Web Speech API
+  </div>
+
+  <div class="date">Prepared for Lead Developer Review · March 2026</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2 — HIGH-LEVEL LANDSCAPE DIAGRAM
+══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-title"><div class="accent-bar"></div>High-Level System Landscape</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div class="logo-sm">Ruby AI Tutor</div>
+      <div class="page-num">Page 2 of 7</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="leg"><div class="leg-dot built"></div>Built &amp; Live</div>
+    <div class="leg"><div class="leg-dot ext"></div>External Service (Live)</div>
+    <div class="leg"><div class="leg-dot grey"></div>Not Yet Built (Planned)</div>
+    <div class="leg"><div class="leg-dot warn"></div>Data / Storage</div>
+    <div class="leg" style="margin-left:auto;font-style:italic;color:#94a3b8;font-size:9px;">Dashed borders = missing blocks</div>
+  </div>
+
+  <div class="diagram-wrap">
+    <div class="mermaid">
+flowchart LR
+    classDef live fill:#ede9fe,stroke:#6366f1,color:#3730a3,font-weight:bold
+    classDef liveG fill:#dcfce7,stroke:#22c55e,color:#166534,font-weight:bold
+    classDef liveB fill:#e0f2fe,stroke:#38bdf8,color:#0369a1,font-weight:bold
+    classDef liveP fill:#faf5ff,stroke:#a78bfa,color:#6d28d9,font-weight:bold
+    classDef store fill:#fef3c7,stroke:#f59e0b,color:#92400e,font-weight:bold
+    classDef missing fill:#f8fafc,stroke:#94a3b8,color:#64748b,stroke-dasharray:5 4
+
+    subgraph STUDENT["👤  Student  (Browser / Mobile)"]
+        direction TB
+        UI["Next.js 15 Frontend\nReact 18 · TypeScript\nTailwind CSS"]:::live
+        SPEECH["Web Speech API\n(STT — voice tasks)"]:::liveG
+    end
+
+    subgraph FRONTEND["🖥️  Frontend Components (Live)"]
+        direction TB
+        CHAT["ChatInterface\n(Homework Help)"]:::live
+        MATH["Maths Engine\n(DiagnosticSession\nSkillTreeView)"]:::liveB
+        READ["Reading Engine\n(DiagnosticPlacement\nReadingSession)"]:::liveP
+        LESSON["LessonPlan\nGenerator"]:::live
+        PROG["ProgressTracker\nStreaks · Stats"]:::live
+        I18N["LanguageProvider\ni18n · 140+ strings"]:::live
+    end
+
+    subgraph API["⚡  Next.js API Layer (Serverless)"]
+        direction TB
+        ACHAT["/api/chat\n(stream)"]:::liveB
+        AMATH["/api/ruby/*\n(3 routes)"]:::liveB
+        AREAD["/api/reading/*\n(5 routes)"]:::liveP
+        ATRANS["/api/translate"]:::live
+        ALESSON["/api/lesson"]:::live
+    end
+
+    subgraph ENGINES["🧠  Adaptive Decision Engines"]
+        direction TB
+        ME["Maths Engine\n6 levels · 72 skills\n5 error types\n4-way decision"]:::liveB
+        RE["Reading Engine\n5 levels · 34 skills\n12 error types\n5-way decision\n18-task placement"]:::liveP
+    end
+
+    subgraph LLM["☁️  Groq AI (External · Live)"]
+        direction TB
+        LT["LLaMA 3.3 70B\nText Reasoning\nQ Generation · Eval"]:::liveG
+        LV["LLaMA 4 Scout\n17B Vision\nImage Analysis"]:::liveG
+    end
+
+    subgraph STORAGE["💾  Data Storage"]
+        direction TB
+        LS["localStorage\n(Client-side only)"]:::store
+        JSON["Skill Tree JSON\n(Static files\nshipped with app)"]:::store
+        DB[("PostgreSQL DB\nSupabase\n— NOT BUILT —")]:::missing
+        REDIS[("Redis Cache\n— NOT BUILT —")]:::missing
+        S3["Object Storage S3\n— NOT BUILT —"]:::missing
+    end
+
+    subgraph MISSING["🔴  Missing Systems (Planned)"]
+        direction TB
+        AUTH["🔐 Auth Provider\nSupabase Auth / Clerk\n— NOT BUILT —"]:::missing
+        STRIPE["💳 Payment Gateway\nStripe Subscriptions\n— NOT BUILT —"]:::missing
+        EMAIL["📧 Email Service\nResend / SendGrid\n— NOT BUILT —"]:::missing
+        SENTRY["🚨 Monitoring\nSentry · Posthog\n— NOT BUILT —"]:::missing
+        VIDEO["📹 Video CDN\nMux / Cloudflare\n— NOT BUILT —"]:::missing
+        TEACHER["👩‍🏫 Teacher Dashboard\n— NOT BUILT —"]:::missing
+    end
+
+    STUDENT --> FRONTEND
+    SPEECH --> READ
+    FRONTEND --> API
+    API --> ENGINES
+    API --> LLM
+    ENGINES --> LLM
+    LLM --> API
+    API --> STORAGE
+    FRONTEND --> STORAGE
+
+    MISSING -.->|"future integration"| API
+    MISSING -.->|"future integration"| STORAGE
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 3 — DETAILED ARCHITECTURE (Layered)
+══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-title"><div class="accent-bar"></div>Detailed Layer Architecture</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div class="logo-sm">Ruby AI Tutor</div>
+      <div class="page-num">Page 3 of 7</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="leg"><div class="leg-dot built"></div>Built &amp; Live</div>
+    <div class="leg"><div class="leg-dot grey"></div>Not Yet Built</div>
+  </div>
+
+  <!-- LAYER: Frontend -->
+  <div class="arch-layer fe">
+    <div class="layer-tag fe">Layer 1 — Client / Frontend · Next.js 15 · React 18 · TypeScript · Tailwind CSS · Deployed on Vercel</div>
+    <div class="comp-grid">
+      <span class="comp-chip fe">HomeScreen</span>
+      <span class="comp-chip fe">ChatInterface (image upload)</span>
+      <span class="comp-chip fe">LessonPlan</span>
+      <span class="comp-chip fe">ProgressTracker + Streaks</span>
+      <span class="comp-chip fe">SettingsView</span>
+      <span class="comp-chip fe">OnboardingFlow</span>
+      <span class="comp-chip fe">Sidebar / TopBar</span>
+      <span class="comp-chip fe">LanguageProvider (i18n)</span>
+      <span class="comp-chip fe">SpinningGlobe (translation UI)</span>
+    </div>
+    <div class="sub-label">Maths Engine Components</div>
+    <div class="comp-grid">
+      <span class="comp-chip api">DiagnosticSession</span>
+      <span class="comp-chip api">QuestionCard</span>
+      <span class="comp-chip api">FeedbackCard</span>
+      <span class="comp-chip api">SkillTreeView (6 levels · 11 tiers · 72 skills)</span>
+      <span class="comp-chip api">StudentDashboard</span>
+    </div>
+    <div class="sub-label">Reading Engine Components</div>
+    <div class="comp-grid">
+      <span class="comp-chip eng">ReadingSession</span>
+      <span class="comp-chip eng">ReadingDiagnosticPlacement (D01–D18)</span>
+      <span class="comp-chip eng">ReadingSkillTreeView (5 levels · 14 tiers · 34 skills)</span>
+    </div>
+    <div class="sub-label">Not Yet Built</div>
+    <div class="comp-grid">
+      <span class="comp-chip miss">Video Learning ("Watch" mode)</span>
+      <span class="comp-chip miss">Teacher Dashboard</span>
+      <span class="comp-chip miss">Parent Portal</span>
+      <span class="comp-chip miss">PDF Report Download</span>
+      <span class="comp-chip miss">ServiceWorker / PWA Offline</span>
+    </div>
+  </div>
+
+  <div class="arrow-down-sm"><div class="arrow-line-sm"></div>HTTPS / REST / Server-Sent Events (streaming)<div class="arrow-line-sm"></div></div>
+
+  <!-- LAYER: API -->
+  <div class="arch-layer api">
+    <div class="layer-tag api">Layer 2 — Backend API · Next.js App Router Serverless Routes · Vercel Edge Functions</div>
+    <div class="comp-grid">
+      <span class="comp-chip api">POST /api/chat</span>
+      <span class="comp-chip api">POST /api/lesson</span>
+      <span class="comp-chip api">POST /api/translate</span>
+      <span class="comp-chip api">POST /api/ruby/generate-question</span>
+      <span class="comp-chip api">POST /api/ruby/submit-answer</span>
+      <span class="comp-chip api">POST /api/ruby/student-profile</span>
+      <span class="comp-chip eng">POST /api/reading/diagnostic</span>
+      <span class="comp-chip eng">POST /api/reading/diagnostic/evaluate</span>
+      <span class="comp-chip eng">POST /api/reading/diagnostic/placement</span>
+      <span class="comp-chip eng">POST /api/reading/generate-question</span>
+      <span class="comp-chip eng">POST /api/reading/submit-answer</span>
+    </div>
+    <div class="sub-label">Not Yet Built</div>
+    <div class="comp-grid">
+      <span class="comp-chip miss">/api/auth/*</span>
+      <span class="comp-chip miss">/api/user/*</span>
+      <span class="comp-chip miss">/api/billing/*</span>
+      <span class="comp-chip miss">/api/reports/*</span>
+      <span class="comp-chip miss">/api/teacher/*</span>
+      <span class="comp-chip miss">/api/webhooks/stripe</span>
+    </div>
+  </div>
+
+  <div class="arrow-down-sm"><div class="arrow-line-sm"></div>SDK calls / JSON<div class="arrow-line-sm"></div></div>
+
+  <!-- LAYER: Engines -->
+  <div class="arch-layer eng">
+    <div class="layer-tag eng">Layer 3 — Adaptive Diagnostic Engines (Client-side Logic · lib/)</div>
+    <div class="engine-two-col">
+      <div class="engine-box math">
+        <h4>Maths Engine (lib/student-model.ts · data/skill-tree.json)</h4>
+        <ul>
+          <li>6 levels · 11+ tiers · 72 atomic skills</li>
+          <li>3 question templates: concrete / story / symbolic</li>
+          <li>5 error types: conceptual gap · strategy gap · representation confusion · execution slip · correct</li>
+          <li>Mastery gate: 3 correct in 2+ question formats</li>
+          <li>4-way decision: ADVANCE · PRACTICE · RETEACH · BACKTRACK</li>
+        </ul>
+      </div>
+      <div class="engine-box reading">
+        <h4>Reading Engine (lib/reading-student-model.ts · data/reading-skill-tree.json)</h4>
+        <ul>
+          <li>5 levels · 14 tiers · 34 atomic skills</li>
+          <li>18-task diagnostic placement (D01–D18)</li>
+          <li>Hard Gate 1: CVC encoding &lt;0.8 → Level 3 block</li>
+          <li>12 error types: ERR_PHONEME_CONF · ERR_BLEND_FAIL · ERR_VOWEL_CONF · ERR_SIGHT_MISS…</li>
+          <li>5-way decision: ADVANCE · PRACTICE · RETEACH · BACKTRACK · ACCELERATE</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-down-sm"><div class="arrow-line-sm"></div>Groq SDK · HTTPS<div class="arrow-line-sm"></div></div>
+
+  <!-- LAYER: External -->
+  <div class="arch-layer ext">
+    <div class="layer-tag ext">Layer 4 — External Services</div>
+    <div class="comp-grid">
+      <span class="comp-chip ext">Groq API — LLaMA 3.3 70B (text)</span>
+      <span class="comp-chip ext">Groq API — LLaMA 4 Scout 17B (vision)</span>
+      <span class="comp-chip ext">Vercel (hosting · CDN · CI/CD)</span>
+      <span class="comp-chip ext">GitHub (source control · auto-deploy)</span>
+      <span class="comp-chip ext">Web Speech API (browser STT)</span>
+    </div>
+    <div class="sub-label">Not Yet Built</div>
+    <div class="comp-grid">
+      <span class="comp-chip miss">Supabase Auth / Clerk (authentication)</span>
+      <span class="comp-chip miss">Stripe (payments)</span>
+      <span class="comp-chip miss">Resend / SendGrid (email)</span>
+      <span class="comp-chip miss">Sentry (error monitoring)</span>
+      <span class="comp-chip miss">Posthog (analytics)</span>
+      <span class="comp-chip miss">Mux / Cloudflare Stream (video)</span>
+    </div>
+  </div>
+
+  <div class="arrow-down-sm"><div class="arrow-line-sm"></div>Read / Write<div class="arrow-line-sm"></div></div>
+
+  <!-- LAYER: Storage -->
+  <div class="arch-layer store">
+    <div class="layer-tag store">Layer 5 — Data Persistence</div>
+    <div class="comp-grid">
+      <span class="comp-chip store">localStorage — student profiles · chat history · mastery · streaks · language · dark mode</span>
+      <span class="comp-chip store">Static JSON — skill-tree.json · reading-skill-tree.json</span>
+    </div>
+    <div class="sub-label">Not Yet Built</div>
+    <div class="comp-grid">
+      <span class="comp-chip miss">PostgreSQL (Supabase) — persistent user data across devices</span>
+      <span class="comp-chip miss">Redis — session cache · rate limiting</span>
+      <span class="comp-chip miss">S3 / Object Storage — images · PDFs · audio</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 4 — SEQUENCE: ONBOARDING + DIAGNOSTIC
+══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-title"><div class="accent-bar"></div>Sequence Diagrams — Part 1</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div class="logo-sm">Ruby AI Tutor</div>
+      <div class="page-num">Page 4 of 7</div>
+    </div>
+  </div>
+
+  <div class="seq-title"><div class="seq-num">1</div>Student Onboarding → Reading Diagnostic Placement (D01–D18)</div>
+  <div class="diagram-wrap">
+    <div class="mermaid">
+sequenceDiagram
+    actor S as Student
+    participant OB as OnboardingFlow
+    participant RS as ReadingSession
+    participant RD as DiagnosticPlacement
+    participant API as /api/reading/diagnostic/placement
+    participant LLM as Groq LLaMA 3.3 70B
+    participant SM as ReadingStudentModel
+    participant LS as localStorage
+
+    S->>OB: Enter name + grade
+    OB->>LS: save onboardingComplete=true
+    OB->>RS: render ReadingSession
+
+    RS->>LS: load ruby_reading_profile
+    alt placementCompleted = false
+        RS->>RD: render DiagnosticPlacement
+        loop 18 Tasks D01 → D18
+            alt Choice Task (D01-D04, D06, D07, D11, D15)
+                RD->>S: show question + answer buttons
+                S->>RD: tap answer
+                RD->>RD: local score (exact match)
+            else Voice Task (D05, D08-D10, D12-D14, D16-D18)
+                RD->>S: show big mic button
+                S->>RD: speak answer (Web Speech API STT)
+                RD->>RD: local score (normalize + compare)
+            end
+            Note over RD: D11: flash "where" 1500ms then hide → choices appear
+            RD->>S: progress bar advances
+        end
+        RD->>API: POST taskResults[18]
+        API->>LLM: evaluate edge cases
+        LLM-->>API: scores + error types
+        API->>API: find first failure domain (score lt 0.6)
+        API->>API: D06 Hard Gate (CVC lt 0.8 → Level 3 block)
+        API-->>RD: entrySkillId + autoCompleted[] + decision
+        RD->>SM: completeDiagnosticPlacement()
+        SM->>LS: persist ruby_reading_profile
+        RD->>S: result screen — entry skill + mini skill map
+    end
+    RS->>S: render reading practice at entrySkill
+    </div>
+  </div>
+
+  <div style="height:16px;"></div>
+
+  <div class="seq-title"><div class="seq-num">2</div>Adaptive Maths Session (Ruby Engine)</div>
+  <div class="diagram-wrap">
+    <div class="mermaid">
+sequenceDiagram
+    actor S as Student
+    participant DS as DiagnosticSession
+    participant GQ as /api/ruby/generate-question
+    participant SA as /api/ruby/submit-answer
+    participant LLM as Groq LLaMA 3.3 70B
+    participant SM as StudentModel
+    participant LS as localStorage
+
+    S->>DS: open Maths Engine
+    DS->>LS: load ruby_student_profile
+    DS->>GQ: POST skillId + template + grade
+    GQ->>LLM: skill-aware prompt
+    LLM-->>GQ: question + answer + hints
+    GQ-->>DS: question object
+    DS->>S: render QuestionCard
+
+    S->>DS: submit answer
+    DS->>SA: POST skillId + question + studentAnswer
+    SA->>SA: numeric normalise + tolerance check
+    SA->>LLM: full diagnostic prompt
+    LLM-->>SA: correct + errorType + feedback
+    SA-->>DS: evaluation result
+
+    DS->>SM: recordAttempt(skillId, result)
+    SM->>SM: check mastery gate (3 correct in 2+ formats)
+    alt Mastered
+        SM->>SM: unlock next skill
+        DS->>S: advance to next skill
+    else Not mastered
+        SM->>SM: determineDecision()
+        DS->>S: FeedbackCard + repeat or reteach
+    end
+    SM->>LS: persist ruby_student_profile
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 5 — SEQUENCE: CHAT + i18n
+══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-title"><div class="accent-bar"></div>Sequence Diagrams — Part 2</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div class="logo-sm">Ruby AI Tutor</div>
+      <div class="page-num">Page 5 of 7</div>
+    </div>
+  </div>
+
+  <div class="seq-title"><div class="seq-num">3</div>Homework Chat with Image Upload (Streaming)</div>
+  <div class="diagram-wrap">
+    <div class="mermaid">
+sequenceDiagram
+    actor S as Student
+    participant CI as ChatInterface
+    participant API as /api/chat
+    participant LT as Groq LLaMA 3.3 70B (text)
+    participant LV as Groq LLaMA 4 Scout (vision)
+    participant LS as localStorage
+
+    S->>CI: type question + optional image attach
+    CI->>CI: base64 encode image (if present)
+    CI->>API: POST messages[] + imageBase64
+
+    alt Image attached
+        API->>LV: vision model — image + question
+        LV-->>API: streaming analysis tokens
+    else Text only
+        API->>LT: Ruby system prompt + conversation history
+        LT-->>API: streaming response tokens
+    end
+
+    API-->>CI: ReadableStream (Server-Sent Events)
+    CI->>CI: render markdown + LaTeX token by token
+    CI->>S: streamed response with math notation
+    CI->>LS: persist ai_tutor_messages
+    </div>
+  </div>
+
+  <div style="height:16px;"></div>
+
+  <div class="seq-title"><div class="seq-num">4</div>Platform Language Switch — i18n Translation Flow</div>
+  <div class="diagram-wrap">
+    <div class="mermaid">
+sequenceDiagram
+    actor U as User
+    participant LP as LanguagePicker
+    participant CTX as LanguageProvider
+    participant API as /api/translate
+    participant LLM as Groq LLaMA 3.3 70B
+    participant LS as localStorage
+
+    U->>LP: tap globe icon → select language
+    LP->>CTX: setLanguage(lang)
+    CTX->>LS: check ruby_translations_[lang]
+
+    alt Cache hit
+        LS-->>CTX: cached translations
+        CTX->>CTX: apply instantly
+        CTX->>U: re-render in new language
+    else Cache miss
+        CTX->>CTX: isTranslating = true
+        CTX->>LP: show SpinningGlobe overlay
+        CTX->>API: POST UI_STRINGS[140+] + targetLang
+        API->>LLM: batch translate (preserve placeholders)
+        LLM-->>API: translated string map
+        API-->>CTX: translations object
+        CTX->>LS: cache ruby_translations_[lang]
+        CTX->>CTX: isTranslating = false
+        LP->>LP: onClose()
+        CTX->>U: re-render all components in new language
+    end
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 6 — MISSING BLOCKS DETAIL
+══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-title"><div class="accent-bar"></div>Missing Blocks — Planned Architecture</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div class="logo-sm">Ruby AI Tutor</div>
+      <div class="page-num">Page 6 of 7</div>
+    </div>
+  </div>
+
+  <div style="font-size:11px;color:#64748b;margin-bottom:12px;">
+    The blocks below are designed in the UI (settings billing page, video placeholder, download report button) but have no backend implementation yet.
+    All grey dashed = not built.
+  </div>
+
+  <div class="missing-grid">
+    <div class="miss-card">
+      <h5>🔐 Authentication System</h5>
+      <p>No login, no user accounts. Students identified only by localStorage. Loses progress on device switch. Recommended: Supabase Auth or Clerk for email + Google OAuth.</p>
+    </div>
+    <div class="miss-card">
+      <h5>🗄️ Backend Database</h5>
+      <p>All profile, mastery, and session data stored in browser localStorage. Resets on clear. Target: Supabase PostgreSQL with tables for users, skill_mastery, sessions, error_history.</p>
+    </div>
+    <div class="miss-card">
+      <h5>💳 Payment Gateway</h5>
+      <p>Billing UI exists in Settings but no integration. No subscription plans enforced. Target: Stripe Checkout + Customer Portal + webhook handlers for plan gating.</p>
+    </div>
+    <div class="miss-card">
+      <h5>📹 Video Learning</h5>
+      <p>"Watch" mode in sidebar shows "Coming soon" placeholder. Target: Mux or Cloudflare Stream for low-latency adaptive video. Curriculum-aligned videos per skill tier.</p>
+    </div>
+    <div class="miss-card">
+      <h5>📊 Analytics Platform</h5>
+      <p>No behavioural tracking beyond local streak data. No funnel analysis, no drop-off detection. Target: Posthog (open-source) for user behaviour + learning analytics dashboard.</p>
+    </div>
+    <div class="miss-card">
+      <h5>🚨 Error Monitoring</h5>
+      <p>No production crash reporting. API errors silently swallowed. Target: Sentry for real-time error tracking, performance monitoring, and API failure alerts.</p>
+    </div>
+    <div class="miss-card">
+      <h5>📧 Email Service</h5>
+      <p>No transactional email. No welcome email, weekly progress summary, or subscription receipts. Target: Resend (modern API) for automated parent/student emails.</p>
+    </div>
+    <div class="miss-card">
+      <h5>📄 PDF Progress Reports</h5>
+      <p>Download button in Settings does nothing. Target: React PDF or Puppeteer-based report generation covering skill mastery, error patterns, and weekly progress.</p>
+    </div>
+    <div class="miss-card">
+      <h5>👩‍🏫 Teacher Dashboard</h5>
+      <p>Single-student app only. No class management, no multi-student view, no teacher login. Required for school licensing. Target: separate teacher role + class overview UI.</p>
+    </div>
+  </div>
+
+  <div style="height:16px;"></div>
+
+  <div style="font-size:12px;font-weight:700;color:#1e293b;margin-bottom:10px;">Architecture Gap: Current vs Target</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div style="background:#f0fdf4;border:1.5px solid #22c55e55;border-radius:8px;padding:14px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:#94a3b8;margin-bottom:6px;">Current State</div>
+      <div style="font-size:12px;font-weight:700;color:#166534;margin-bottom:8px;">MVP — Single Device, No Auth</div>
+      <div style="font-size:10px;color:#475569;line-height:1.8;">
+        Browser → Next.js frontend → Serverless API routes → Groq LLM<br/>
+        Data: localStorage (browser only)<br/>
+        Auth: none<br/>
+        Billing: none<br/>
+        Scale: single user per browser
+      </div>
+    </div>
+    <div style="background:#faf5ff;border:1.5px solid #a78bfa55;border-radius:8px;padding:14px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:#94a3b8;margin-bottom:6px;">Target State</div>
+      <div style="font-size:12px;font-weight:700;color:#6d28d9;margin-bottom:8px;">Production SaaS — Multi-tenant Platform</div>
+      <div style="font-size:10px;color:#475569;line-height:1.8;">
+        Browser/App → Next.js → API → Groq LLM + Supabase DB<br/>
+        Auth: Supabase Auth (student · parent · teacher roles)<br/>
+        Billing: Stripe (Free · Pro · School plans)<br/>
+        Scale: thousands of concurrent students<br/>
+        Monitoring: Sentry · Posthog · Resend
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 7 — TRANSITION ROADMAP
+══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-title"><div class="accent-bar"></div>Architecture Transition Roadmap</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div class="logo-sm">Ruby AI Tutor</div>
+      <div class="page-num">Page 7 of 7</div>
+    </div>
+  </div>
+
+  <div class="roadmap-grid">
+    <div class="road-phase p1">
+      <div class="ph-label">Phase 1 · Foundation</div>
+      <h3>Auth + Database</h3>
+      <ul>
+        <li><div class="road-num">1</div>Set up Supabase project + PostgreSQL schema (users, sessions, skill_mastery, error_history)</li>
+        <li><div class="road-num">2</div>Migrate localStorage reads/writes to Supabase client in lib/student-model.ts + lib/reading-student-model.ts</li>
+        <li><div class="road-num">3</div>Add Supabase Auth — email/password + Google OAuth, student/parent roles</li>
+        <li><div class="road-num">4</div>Protect all API routes with JWT middleware (supabase.auth.getUser)</li>
+        <li><div class="road-num">5</div>Add Sentry SDK — capture API errors + client crashes in production</li>
+        <li><div class="road-num">6</div>Deploy updated schema to Vercel with Supabase env vars</li>
+      </ul>
+    </div>
+    <div class="road-phase p2">
+      <div class="ph-label">Phase 2 · Monetisation</div>
+      <h3>Billing + Reports</h3>
+      <ul>
+        <li><div class="road-num">1</div>Stripe integration — Free (3 skills/day) · Pro (unlimited) · School (class management) plans</li>
+        <li><div class="road-num">2</div>Stripe Customer Portal + /api/webhooks/stripe for subscription lifecycle</li>
+        <li><div class="road-num">3</div>Wire Settings billing page to real Stripe checkout session</li>
+        <li><div class="road-num">4</div>PDF progress report generation (React PDF library) — weekly summary, skill map, error analysis</li>
+        <li><div class="road-num">5</div>Resend email — welcome, weekly digest, subscription receipts</li>
+        <li><div class="road-num">6</div>Posthog analytics — funnel tracking, skill drop-off, session length</li>
+      </ul>
+    </div>
+    <div class="road-phase p3">
+      <div class="ph-label">Phase 3 · School Platform</div>
+      <h3>Scale + Video</h3>
+      <ul>
+        <li><div class="road-num">1</div>Teacher Dashboard — class management, per-student skill view, assignment setting</li>
+        <li><div class="road-num">2</div>Parent portal — weekly progress summaries, streak notifications</li>
+        <li><div class="road-num">3</div>Video Learning module — Mux streaming, curriculum-aligned per skill tier</li>
+        <li><div class="road-num">4</div>Offline PWA — service worker + IndexedDB for offline skill practice + sync on reconnect</li>
+        <li><div class="road-num">5</div>S3 object storage — homework photo uploads, audio session recordings, PDF archive</li>
+        <li><div class="road-num">6</div>Redis cache — session tokens, rate limiting, frequent student profile reads</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tech stack table -->
+  <div style="margin-top:20px;">
+    <div style="font-size:11px;font-weight:700;color:#1e293b;margin-bottom:10px;">Recommended Tech Stack — Full Target Architecture</div>
+    <table style="width:100%;border-collapse:collapse;font-size:10px;">
+      <thead>
+        <tr style="background:#f1f5f9;">
+          <th style="padding:6px 10px;text-align:left;border-bottom:1.5px solid #e2e8f0;color:#64748b;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Layer</th>
+          <th style="padding:6px 10px;text-align:left;border-bottom:1.5px solid #e2e8f0;color:#64748b;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Current (MVP)</th>
+          <th style="padding:6px 10px;text-align:left;border-bottom:1.5px solid #e2e8f0;color:#64748b;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Target (Production)</th>
+          <th style="padding:6px 10px;text-align:left;border-bottom:1.5px solid #e2e8f0;color:#64748b;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #f1f5f9;">
+          <td style="padding:6px 10px;font-weight:600;color:#475569;">Frontend</td>
+          <td style="padding:6px 10px;color:#64748b;">Next.js 15 + React 18 + Tailwind</td>
+          <td style="padding:6px 10px;color:#64748b;">Same (add PWA service worker)</td>
+          <td style="padding:6px 10px;"><span style="background:#dcfce7;color:#166534;padding:2px 8px;border-radius:10px;font-weight:600;">✓ Live</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+          <td style="padding:6px 10px;font-weight:600;color:#475569;">AI Model</td>
+          <td style="padding:6px 10px;color:#64748b;">Groq LLaMA 3.3 70B + Vision</td>
+          <td style="padding:6px 10px;color:#64748b;">Same (add fine-tuning pipeline)</td>
+          <td style="padding:6px 10px;"><span style="background:#dcfce7;color:#166534;padding:2px 8px;border-radius:10px;font-weight:600;">✓ Live</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid #f1f5f9;">
+          <td style="padding:6px 10px;font-weight:600;color:#475569;">Database</td>
+          <td style="padding:6px 10px;color:#64748b;">localStorage (browser only)</td>
+          <td style="padding:6px 10px;color:#64748b;">Supabase PostgreSQL</td>
+          <td style="padding:6px 10px;"><span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-weight:600;">⚠ Phase 1</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+          <td style="padding:6px 10px;font-weight:600;color:#475569;">Authentication</td>
+          <td style="padding:6px 10px;color:#64748b;">None</td>
+          <td style="padding:6px 10px;color:#64748b;">Supabase Auth / Clerk</td>
+          <td style="padding:6px 10px;"><span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-weight:600;">⚠ Phase 1</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid #f1f5f9;">
+          <td style="padding:6px 10px;font-weight:600;color:#475569;">Payments</td>
+          <td style="padding:6px 10px;color:#64748b;">None (UI stub only)</td>
+          <td style="padding:6px 10px;color:#64748b;">Stripe Subscriptions</td>
+          <td style="padding:6px 10px;"><span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:10px;font-weight:600;">✗ Phase 2</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+          <td style="padding:6px 10px;font-weight:600;color:#475569;">Video</td>
+          <td style="padding:6px 10px;color:#64748b;">Placeholder "coming soon"</td>
+          <td style="padding:6px 10px;color:#64748b;">Mux / Cloudflare Stream</td>
+          <td style="padding:6px 10px;"><span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:10px;font-weight:600;">✗ Phase 3</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid #f1f5f9;">
+          <td style="padding:6px 10px;font-weight:600;color:#475569;">Monitoring</td>
+          <td style="padding:6px 10px;color:#64748b;">None</td>
+          <td style="padding:6px 10px;color:#64748b;">Sentry + Posthog</td>
+          <td style="padding:6px 10px;"><span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-weight:600;">⚠ Phase 1</span></td>
+        </tr>
+        <tr style="background:#fafafa;">
+          <td style="padding:6px 10px;font-weight:600;color:#475569;">Email</td>
+          <td style="padding:6px 10px;color:#64748b;">None</td>
+          <td style="padding:6px 10px;color:#64748b;">Resend</td>
+          <td style="padding:6px 10px;"><span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:10px;font-weight:600;">✗ Phase 2</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ─── PRINT BUTTON ─── -->
+<button class="print-btn" onclick="window.print()">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+  Save as PDF
+</button>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'default',
+  themeVariables: {
+    primaryColor: '#ede9fe',
+    primaryTextColor: '#3730a3',
+    primaryBorderColor: '#6366f1',
+    lineColor: '#94a3b8',
+    secondaryColor: '#f0f9ff',
+    tertiaryColor: '#f8fafc',
+    background: '#ffffff',
+    mainBkg: '#f8fafc',
+    nodeBorder: '#6366f1',
+    clusterBkg: '#f1f5f9',
+    titleColor: '#1e293b',
+    edgeLabelBackground: '#f8fafc',
+    actorBkg: '#f8fafc',
+    actorBorder: '#6366f1',
+    actorTextColor: '#1e293b',
+    actorLineColor: '#94a3b8',
+    signalColor: '#6366f1',
+    signalTextColor: '#1e293b',
+    labelBoxBkgColor: '#f1f5f9',
+    labelBoxBorderColor: '#6366f1',
+    labelTextColor: '#1e293b',
+    loopTextColor: '#64748b',
+    noteBorderColor: '#f59e0b',
+    noteBkgColor: '#fef3c7',
+    noteTextColor: '#92400e',
+    activationBorderColor: '#38bdf8',
+    activationBkgColor: '#e0f2fe',
+  },
+  sequence: {
+    actorMargin: 50,
+    width: 140,
+    height: 40,
+    boxMargin: 8,
+    messageMargin: 28,
+    mirrorActors: false,
+    useMaxWidth: true,
+    fontSize: 11,
+  },
+  flowchart: {
+    useMaxWidth: true,
+    htmlLabels: true,
+    curve: 'basis',
+    rankSpacing: 60,
+    nodeSpacing: 30,
+    padding: 12,
+  }
+});
+</script>
+</body>
+</html>

@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import Sidebar from "@/components/Sidebar";
 import ChatInterface from "@/components/ChatInterface";
-import LessonPlan from "@/components/LessonPlan";
 import ProgressTracker from "@/components/ProgressTracker";
 import DiagnosticSession from "@/components/ruby/DiagnosticSession";
 import SkillTreeView from "@/components/ruby/SkillTreeView";
@@ -32,11 +31,7 @@ function AppContent() {
 
   const [activeView, setActiveView] = useState<ActiveView>("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [stats, setStats] = useState({
-    totalMessages: 0,
-    lessonsCompleted: 0,
-    topicsCount: 0,
-  });
+  const [stats, setStats] = useState({ lessonsCompleted: 0 });
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [showLangPicker, setShowLangPicker] = useState(false);
@@ -45,7 +40,6 @@ function AppContent() {
   const viewLabels: Record<ActiveView, string> = {
     home: t("sidebar.home"),
     chat: t("sidebar.homework"),
-    lessons: t("nav.lesson_plans"),
     progress: t("sidebar.progress"),
     ruby: t("sidebar.maths"),
     "skill-tree": t("nav.maths_skill_tree"),
@@ -58,11 +52,7 @@ function AppContent() {
 
   const refreshStats = useCallback(() => {
     const progress = getProgress();
-    setStats({
-      totalMessages: progress.totalMessages,
-      lessonsCompleted: progress.lessonsCompleted,
-      topicsCount: progress.topicsStudied.length,
-    });
+    setStats({ lessonsCompleted: progress.lessonsCompleted });
     setRubyProfile(getStudentProfile());
   }, []);
 
@@ -149,9 +139,7 @@ function AppContent() {
       <Sidebar
         activeView={activeView}
         onViewChange={handleViewChange}
-        totalMessages={stats.totalMessages}
-        lessonsCompleted={stats.lessonsCompleted}
-        topicsCount={stats.topicsCount}
+  
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
         onSettings={() => handleViewChange("settings")}
@@ -168,7 +156,6 @@ function AppContent() {
       <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
-        {activeView === "lessons" && <LessonPlan onLessonCompleted={refreshStats} />}
         {activeView === "progress" && <ProgressTracker />}
         {activeView === "ruby" && <DiagnosticSession />}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}

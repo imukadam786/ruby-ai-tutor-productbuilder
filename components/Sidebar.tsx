@@ -7,9 +7,6 @@ import { useT } from "@/lib/i18n";
 interface SidebarProps {
   activeView: ActiveView;
   onViewChange: (view: ActiveView) => void;
-  totalMessages: number;
-  lessonsCompleted: number;
-  topicsCount: number;
   isOpen: boolean;
   onClose: () => void;
   onSettings?: () => void;

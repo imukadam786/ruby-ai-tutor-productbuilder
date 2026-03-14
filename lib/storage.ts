@@ -1,7 +1,6 @@
-import { Message, LessonPlan, ProgressData } from "@/types";
+import { Message, ProgressData } from "@/types";
 
 const MESSAGES_KEY = "ai_tutor_messages";
-const LESSONS_KEY = "ai_tutor_lessons";
 const PROGRESS_KEY = "ai_tutor_progress";
 
 export function getMessages(): Message[] {
@@ -17,28 +16,6 @@ export function getMessages(): Message[] {
 export function saveMessages(messages: Message[]): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages));
-}
-
-export function getLessons(): LessonPlan[] {
-  if (typeof window === "undefined") return [];
-  try {
-    const raw = localStorage.getItem(LESSONS_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
-}
-
-export function saveLesson(lesson: LessonPlan): void {
-  if (typeof window === "undefined") return;
-  const lessons = getLessons();
-  const idx = lessons.findIndex((l) => l.id === lesson.id);
-  if (idx >= 0) {
-    lessons[idx] = lesson;
-  } else {
-    lessons.unshift(lesson);
-  }
-  localStorage.setItem(LESSONS_KEY, JSON.stringify(lessons));
 }
 
 export function getProgress(): ProgressData {

@@ -5,24 +5,6 @@ export interface Message {
   timestamp: string;
 }
 
-export interface LessonSection {
-  title: string;
-  content: string;
-  examples?: string[];
-  practice?: string;
-}
-
-export interface LessonPlan {
-  id: string;
-  topic: string;
-  subject: string;
-  level: string;
-  sections: LessonSection[];
-  summary: string;
-  createdAt: string;
-  completed: boolean;
-}
-
 export interface ProgressData {
   totalMessages: number;
   topicsStudied: string[];
@@ -33,4 +15,4 @@ export interface ProgressData {
   subjectBreakdown: Record<string, number>;
 }
 
-export type ActiveView = "home" | "chat" | "lessons" | "progress" | "ruby" | "skill-tree" | "student-dashboard" | "watch" | "reading" | "reading-skill-tree" | "settings";
+export type ActiveView = "home" | "chat" | "progress" | "ruby" | "skill-tree" | "student-dashboard" | "watch" | "reading" | "reading-skill-tree" | "settings";

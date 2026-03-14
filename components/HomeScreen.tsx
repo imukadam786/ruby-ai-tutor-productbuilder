@@ -107,7 +107,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
 
   const learningModes = [
     {
-      id: "lessons" as ActiveView,
+      id: "chat" as ActiveView,
       title: t("home.homework_title"),
       subtitle: t("home.homework_mode_desc"),
       iconBg: "bg-purple-100",
@@ -131,7 +131,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
       ),
     },
     {
-      id: "chat" as ActiveView,
+      id: "reading" as ActiveView,
       title: t("home.reading_title"),
       subtitle: t("home.reading_mode_desc"),
       iconBg: "bg-amber-100",
