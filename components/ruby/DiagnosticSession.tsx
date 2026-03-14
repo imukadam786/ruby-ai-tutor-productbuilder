@@ -27,6 +27,13 @@ import FeedbackCard from "./FeedbackCard";
 
 const TEMPLATES: QuestionTemplate[] = ["concrete", "story", "symbolic"];
 
+const RETEACH_TEMPLATES: Record<string, QuestionTemplate> = {
+  execution_slip:            "story",
+  strategy_gap:              "concrete",
+  representation_confusion:  "concrete",
+  conceptual_gap:            "symbolic",
+};
+
 type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
 
 function readOnboarding(): { name: string; grade: number } {
@@ -51,6 +58,7 @@ export default function DiagnosticSession() {
   const [skillAttemptCount, setSkillAttemptCount] = useState(0);
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
+  const [reteachCount, setReteachCount] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
 
   useEffect(() => {
@@ -155,6 +163,10 @@ export default function DiagnosticSession() {
         formats_used: updatedMastery.formats_used,
       };
 
+      // Compute post-attempt session totals for the decision engine
+      const newSessionAttempts = sessionAttempts + 1;
+      const newSessionCorrect = sessionCorrect + (result.is_correct ? 1 : 0);
+
       // Determine next action
       const nextAction = determineNextAction(
         updatedMastery,
@@ -164,23 +176,43 @@ export default function DiagnosticSession() {
           (m) => m.skill_id.startsWith(profile.current_tier_id) && m.status === "mastered"
         ).length,
         3,
-        3
+        3,
+        newSessionCorrect,
+        newSessionAttempts,
+        reteachCount
       );
       result.next_action = nextAction;
 
-      // Record attempt in profile
+      setSessionAttempts(newSessionAttempts);
+      setSessionCorrect(newSessionCorrect);
+      setSkillAttemptCount((n) => n + 1);
+
+      // ACCELERATE — force mastery and go straight to mastered screen
+      if (nextAction === "accelerate") {
+        const masteredMastery = {
+          ...updatedMastery,
+          status: "mastered" as const,
+          mastered_at: new Date().toISOString(),
+        };
+        const acceleratedProfile = recordAttempt(profile, attempt, masteredMastery);
+        setProfile(acceleratedProfile);
+        result.next_action = "advance_skill";
+        setCurrentResult(result);
+        setPhase("mastered");
+        return;
+      }
+
+      // Record attempt in profile (non-accelerate path)
       const updatedProfile = recordAttempt(profile, attempt, updatedMastery);
       setProfile(updatedProfile);
-
-      setSessionAttempts((n) => n + 1);
-      if (result.is_correct) setSessionCorrect((n) => n + 1);
-      setSkillAttemptCount((n) => n + 1);
 
       if (updatedMastery.status === "mastered") {
         result.next_action = "advance_skill";
         setCurrentResult(result);
         setPhase("mastered");
       } else {
+        // Increment reteachCount when engine decides RETEACH
+        if (nextAction === "reteach") setReteachCount((n) => n + 1);
         setCurrentResult(result);
         setPhase("feedback");
       }
@@ -200,12 +232,24 @@ export default function DiagnosticSession() {
         setProfile(updated);
         setSkillAttemptCount(0);
         setTemplateIndex(0);
+        setReteachCount(0);
         setPhase("loading_question");
         return;
       }
     }
 
-    // Continue with next template for this skill
+    // RETEACH — select template by error type, reset template cycling
+    if (currentResult.next_action === "reteach") {
+      const errorType = currentResult.error_type ?? "";
+      const reteachTemplate = RETEACH_TEMPLATES[errorType] ?? TEMPLATES[templateIndex % TEMPLATES.length];
+      const reteachIndex = TEMPLATES.indexOf(reteachTemplate);
+      setTemplateIndex(reteachIndex >= 0 ? reteachIndex : templateIndex + 1);
+      setPhase("loading_question");
+      return;
+    }
+
+    // PRACTICE — same as continue_skill: advance template, same skill
+    // continue_skill also falls through here for backward compatibility
     setTemplateIndex((i) => i + 1);
     setPhase("loading_question");
   };
@@ -218,6 +262,7 @@ export default function DiagnosticSession() {
       setProfile(updated);
       setSkillAttemptCount(0);
       setTemplateIndex(0);
+      setReteachCount(0);
       setPhase("loading_question");
     } else {
       setPhase("complete");
@@ -245,6 +290,7 @@ export default function DiagnosticSession() {
     setTemplateIndex(0);
     setSessionCorrect(0);
     setSessionAttempts(0);
+    setReteachCount(0);
   };
 
   // Skill-tree-only reset — keeps placement result, returns to entry point with fresh questions
@@ -284,6 +330,7 @@ export default function DiagnosticSession() {
     setTemplateIndex(0);
     setSessionCorrect(0);
     setSessionAttempts(0);
+    setReteachCount(0);
   };
 
   // Refs always point to latest profile + functions — fixes stale closure in event handler
@@ -371,6 +418,8 @@ export default function DiagnosticSession() {
   if (phase === "feedback" && currentResult) {
     const nextLabels: Record<string, string> = {
       continue_skill: "Try another question",
+      practice: "Next question",
+      reteach: "Try a different approach",
       review_prerequisite: "Review prerequisite skill",
       advance_skill: "Next skill",
       advance_tier: "Next topic",
