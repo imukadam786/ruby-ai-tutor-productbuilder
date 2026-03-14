@@ -464,7 +464,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
                       className={`flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all ${
                         playingMsgId === msg.id
                           ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
-                          : "text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+                          : "text-green-700 hover:text-green-800 hover:bg-green-50"
                       }`}
                       title={playingMsgId === msg.id ? "Stop" : "Play"}
                     >
