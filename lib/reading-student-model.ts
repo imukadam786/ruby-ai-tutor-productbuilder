@@ -76,9 +76,11 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
 export function recordReadingAttempt(
   profile: ReadingStudentProfile,
   attempt: ReadingSkillAttempt,
-  updatedMastery: ReadingSkillMastery
+  updatedMastery: ReadingSkillMastery,
+  decision?: string
 ): ReadingStudentProfile {
   const errorKey = attempt.error_type as ReadingErrorType;
+  const existing = profile.errorPatterns[attempt.skill_id];
   const updated: ReadingStudentProfile = {
     ...profile,
     total_attempts: profile.total_attempts + 1,
@@ -91,6 +93,16 @@ export function recordReadingAttempt(
     error_history: {
       ...profile.error_history,
       [errorKey]: (profile.error_history[errorKey] || 0) + 1,
+    },
+    errorPatterns: attempt.is_correct ? profile.errorPatterns : {
+      ...profile.errorPatterns,
+      [attempt.skill_id]: {
+        type: errorKey,
+        count: (existing?.count ?? 0) + 1,
+        retaughtCount: decision === "RETEACH"
+          ? (existing?.retaughtCount ?? 0) + 1
+          : (existing?.retaughtCount ?? 0),
+      },
     },
   };
   saveReadingProfile(updated);

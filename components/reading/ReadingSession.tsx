@@ -104,6 +104,7 @@ import {
   getNextReadingSkillId,
   advanceToReadingSkill,
   recordReadingAttempt,
+  updateSessionHistory,
   updateReadingSkillMastery,
   initReadingSkillMastery,
   determineNextReadingAction,
@@ -254,7 +255,8 @@ export default function ReadingSession() {
       if (decision === "ADVANCE" || decision === "ACCELERATE") result.next_action = "advance_skill";
       if (decision === "BACKTRACK") result.next_action = "review_prerequisite";
 
-      const updatedProfile = recordReadingAttempt(profile, attempt, updatedMastery);
+      const profileAfterAttempt = recordReadingAttempt(profile, attempt, updatedMastery, decision);
+      const updatedProfile = updateSessionHistory(profileAfterAttempt, currentQuestion.skill_id, result.is_correct);
       setProfile(updatedProfile);
 
       setSessionAttempts((n) => n + 1);

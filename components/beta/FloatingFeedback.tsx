@@ -45,8 +45,18 @@ export default function FloatingFeedback() {
     setSubmitting(true);
     try {
       const { data: { user } } = await supabase.auth.getUser();
+      // Try to get name from onboarding data first, fall back to auth metadata
+      let fullName: string | null = null;
+      try {
+        const raw = localStorage.getItem("onboardingData");
+        if (raw) fullName = JSON.parse(raw).name ?? null;
+      } catch { /* ignore */ }
+      if (!fullName) fullName = user?.user_metadata?.full_name ?? null;
+
       await supabase.from("feedback").insert({
         user_id: user?.id ?? null,
+        email: user?.email ?? null,
+        name: fullName,
         category,
         text: text.trim(),
         url: window.location.href,

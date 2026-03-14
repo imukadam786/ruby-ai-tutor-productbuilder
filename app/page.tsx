@@ -200,36 +200,7 @@ export default function Home() {
       window.history.replaceState({}, "", window.location.pathname);
     }
 
-    // Handle Google OAuth return — resume at plan step with saved data
-    const pending = localStorage.getItem("pendingOnboarding");
-    if (pending) {
-      supabase.auth.getSession().then(async ({ data: { session } }) => {
-        if (session) {
-          const pd = JSON.parse(pending);
-          localStorage.removeItem("pendingOnboarding");
-          // Save profile to Supabase
-          await supabase.from("users").upsert({
-            id: session.user.id,
-            email: session.user.email!,
-            full_name: session.user.user_metadata?.full_name || "",
-            grade: pd.grade || null,
-            curriculum: pd.curriculum || null,
-            language: pd.language || "English",
-          });
-          setResumeStep(6);
-          setResumeData({
-            ...pd,
-            name: session.user.user_metadata?.full_name || "",
-            email: session.user.email || "",
-          });
-          setOnboardingDone(false);
-        } else {
-          setOnboardingDone(localStorage.getItem("onboardingComplete") === "true");
-        }
-      });
-    } else {
-      setOnboardingDone(localStorage.getItem("onboardingComplete") === "true");
-    }
+    setOnboardingDone(localStorage.getItem("onboardingComplete") === "true");
   }, []);
 
   const handleOnboardingComplete = (_data: OnboardingData) => {
