@@ -12,6 +12,7 @@ import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeScreen from "@/components/HomeScreen";
 import SettingsView from "@/components/SettingsView";
+import MatricComingSoon from "@/components/MatricComingSoon";
 import LanguagePickerModal from "@/components/LanguagePickerModal";
 import PostSessionSurvey from "@/components/beta/PostSessionSurvey";
 import BetaBanner from "@/components/beta/BetaBanner";
@@ -48,6 +49,7 @@ function AppContent() {
     reading: t("sidebar.reading"),
     "reading-skill-tree": t("nav.reading_skill_tree"),
     settings: t("sidebar.settings"),
+    matric: "Matric Preparation",
   };
 
   const refreshStats = useCallback(() => {
@@ -163,6 +165,7 @@ function AppContent() {
         {activeView === "reading" && <ReadingSession />}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} />}
+        {activeView === "matric" && <MatricComingSoon />}
         {activeView === "watch" && (
           <div className="flex items-center justify-center h-full text-gray-400 text-sm">
             {t("common.coming_soon")}

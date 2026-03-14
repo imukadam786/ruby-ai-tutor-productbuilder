@@ -15,4 +15,4 @@ export interface ProgressData {
   subjectBreakdown: Record<string, number>;
 }
 
-export type ActiveView = "home" | "chat" | "progress" | "ruby" | "skill-tree" | "student-dashboard" | "watch" | "reading" | "reading-skill-tree" | "settings";
+export type ActiveView = "home" | "chat" | "progress" | "ruby" | "skill-tree" | "student-dashboard" | "watch" | "reading" | "reading-skill-tree" | "settings" | "matric";
