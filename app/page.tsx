@@ -82,8 +82,8 @@ function AppContent() {
       const key = "survey_count_chat";
       const count = parseInt(localStorage.getItem(key) || "0", 10) + 1;
       localStorage.setItem(key, String(count));
-      // Fire on 1st exit and every 3rd after (1, 3, 6, 9...)
-      if (count === 1 || count % 3 === 0) setSurvey({ type: "chat" });
+      // Fire every 3rd chat exit where a message was sent
+      if (count % 3 === 0) setSurvey({ type: "chat" });
       setChatEngaged(false);
     }
     setActiveView(view);

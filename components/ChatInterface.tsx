@@ -278,7 +278,6 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
       removeAttachment();
       setIsLoading(true);
       incrementMessageCount();
-      onMessageSent();
 
       const assistantMessage: Message = {
         id: `asst_${Date.now()}`,

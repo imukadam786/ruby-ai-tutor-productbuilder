@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { supabase } from "@/lib/supabase";
 
 interface Props {
@@ -73,9 +74,9 @@ export default function PostSessionSurvey({ sessionType, onClose }: Props) {
     setStep("done");
   };
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+      className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center"
       style={{ opacity: visible ? 1 : 0, transition: "opacity 0.3s ease" }}
     >
       {/* Backdrop */}
@@ -183,6 +184,7 @@ export default function PostSessionSurvey({ sessionType, onClose }: Props) {
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
