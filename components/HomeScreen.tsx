@@ -13,11 +13,11 @@ interface HomeScreenProps {
 
 function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   return (
-    <div className={`${size} rounded-full overflow-hidden flex-shrink-0`}>
+    <div className={`${size} flex-shrink-0`}>
       <img
         src="/ruby-avatar.png"
         alt="Ruby"
-        className="w-full h-full object-fill"
+        className="w-full h-full object-contain"
         onError={(e) => {
           e.currentTarget.style.display = "none";
           const fb = e.currentTarget.nextElementSibling as HTMLElement | null;

@@ -122,11 +122,11 @@ export default function Sidebar({
         {/* Logo */}
         <div className="px-6 py-5 border-b border-white/20 flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 overflow-hidden rounded-full bg-white shadow-lg flex-shrink-0">
+            <div className="w-10 h-10 flex-shrink-0">
               <img
                 src="/ruby-avatar.png"
                 alt="Ruby"
-                className="w-full h-full object-fill"
+                className="w-full h-full object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
                   const fb = e.currentTarget.nextElementSibling as HTMLElement | null;
