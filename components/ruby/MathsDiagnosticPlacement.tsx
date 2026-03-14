@@ -466,7 +466,7 @@ export default function MathsDiagnosticPlacement({
             {task.subText && <p className="text-gray-400 text-sm">{task.subText}</p>}
             {task.displayExpr && (
               <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 text-center">
-                <p className="text-3xl sm:text-4xl font-bold text-teal-700 tracking-wide font-mono">
+                <p className="text-3xl sm:text-4xl font-bold text-teal-700 tracking-wide">
                   {task.displayExpr}
                 </p>
               </div>

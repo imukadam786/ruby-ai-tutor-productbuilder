@@ -602,7 +602,7 @@ export default function ReadingDiagnosticPlacement({
             {/* ── Large word display ── */}
             {task.displayWord && !isFlashTask && (
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 text-center">
-                <p className="text-5xl sm:text-6xl font-bold text-blue-700 tracking-wider font-mono">
+                <p className="text-5xl sm:text-6xl font-bold text-blue-700 tracking-wider">
                   {task.displayWord}
                 </p>
               </div>
@@ -619,7 +619,7 @@ export default function ReadingDiagnosticPlacement({
             {isFlashTask && (
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 text-center min-h-[100px] flex items-center justify-center">
                 {flashVisible ? (
-                  <p className="text-5xl font-bold text-blue-700 font-mono animate-pulse">{task.flashWord}</p>
+                  <p className="text-5xl font-bold text-blue-700 animate-pulse">{task.flashWord}</p>
                 ) : flashDone ? (
                   <p className="text-gray-400 text-sm">The word has disappeared — now choose below!</p>
                 ) : (

@@ -80,7 +80,7 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                   <p className="text-blue-800 font-semibold text-sm">Placement complete</p>
                   <p className="text-blue-600 text-xs">
                     {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
-                    {" · "}Entry: <span className="font-mono">{entrySkillId}</span>
+                    {" · "}Entry: <span className="font-semibold">{entrySkillId}</span>
                     {!hardGatePassed && " · "}
                     {!hardGatePassed && <span className="text-amber-600 font-medium">🔑 Hard Gate active</span>}
                   </p>
