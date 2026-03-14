@@ -163,6 +163,6 @@ export interface DiagnosticResult {
     attempt_count: number;
     formats_used: QuestionTemplate[];
   };
-  next_action: "continue_skill" | "advance_skill" | "advance_tier" | "advance_level" | "review_prerequisite";
+  next_action: "continue_skill" | "advance_skill" | "advance_tier" | "advance_level" | "review_prerequisite" | "practice" | "reteach" | "accelerate";
   next_skill_id?: string;
 }

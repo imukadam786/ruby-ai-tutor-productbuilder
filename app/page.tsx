@@ -93,7 +93,7 @@ function AppContent() {
     if (view === "skill-tree" || view === "student-dashboard") {
       setRubyProfile(getStudentProfile());
     }
-    if (view === "reading-skill-tree") {
+    if (view === "reading" || view === "reading-skill-tree") {
       setReadingProfile(getReadingProfile());
     }
   };
