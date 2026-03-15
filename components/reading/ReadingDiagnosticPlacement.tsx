@@ -34,7 +34,7 @@ interface Task {
 async function loadRandomQuestionPaper(): Promise<Task[]> {
     const randomNumber = Math.floor(Math.random() * 50) + 1; // 1–50
     const paper = await import(
-        `@/components/data/question-banks/${randomNumber}.json`
+        `@/data/question-banks/${randomNumber}.json`
     );
     return paper.default as Task[];
 }
