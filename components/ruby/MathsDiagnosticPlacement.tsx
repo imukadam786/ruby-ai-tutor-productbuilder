@@ -398,10 +398,12 @@ export default function MathsDiagnosticPlacement({
   studentName,
   grade,
   onComplete,
+  onViewReport,
 }: {
   studentName: string;
   grade: number;
   onComplete: (result: MathsPlacementResult) => void;
+  onViewReport?: (result: MathsPlacementResult) => void;
 }) {
   // 18 primary tasks derived from grade — no shuffle (order matters for blocks)
   const primaryTasks = useMemo(() => buildMathsDiagnosticTasks(grade), [grade]);
@@ -644,10 +646,10 @@ export default function MathsDiagnosticPlacement({
           </div>
 
           <button
-            onClick={() => onComplete(placementResult)}
-            className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-5 rounded-3xl font-bold text-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-100"
+            onClick={() => onViewReport ? onViewReport(placementResult) : onComplete(placementResult)}
+            className="w-full bg-[#B7182E] text-white py-5 rounded-3xl font-bold text-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-100"
           >
-            Start Learning! 🚀
+            View Report 📋
           </button>
         </div>
       </div>

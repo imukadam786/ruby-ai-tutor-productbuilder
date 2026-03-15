@@ -27,6 +27,19 @@ import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
 import { selectMathsTemplate } from "@/lib/template-selector";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
+import DiagnosticReportView from "@/components/DiagnosticReportView";
+import {
+  identifyStudent,
+  trackQuestionAnswered,
+  trackSkillMastered,
+  trackSkillAdvanced,
+  trackReteach,
+  trackBacktrack,
+  trackAccelerate,
+  trackSessionStarted,
+  trackSessionEnded,
+  trackPlacementCompleted,
+} from "@/lib/analytics";
 
 type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
 
@@ -116,6 +129,10 @@ export default function DiagnosticSession() {
   const [statusMessage, setStatusMessage] = useState("");
 
   // Review queue — skills mastered 7+ days ago, checked before new skill work
+  // Report state — shown after placement before learning begins
+  const [pendingPlacementResult, setPendingPlacementResult] = useState<MathsPlacementResult | null>(null);
+  const [showReport, setShowReport] = useState(false);
+
   const [reviewQueue, setReviewQueue] = useState<string[]>([]);
   const [reviewSkillIndex, setReviewSkillIndex] = useState(0);
   const [reviewCorrect, setReviewCorrect] = useState(0);
@@ -133,6 +150,14 @@ export default function DiagnosticSession() {
   useEffect(() => {
     const saved = getStudentProfile();
     if (saved) {
+      identifyStudent({ id: saved.id, name: saved.name, grade: saved.grade });
+      if (saved.placementCompleted) {
+        trackSessionStarted({
+          subject: "maths",
+          current_skill_id: saved.current_skill_id,
+          current_level: saved.current_level,
+        });
+      }
       const queue = buildReviewQueue(saved);
       if (queue.length > 0) {
         // Park the real active skill, load first review skill instead
@@ -147,6 +172,7 @@ export default function DiagnosticSession() {
       // Auto-create profile from onboarding data — no setup screen needed
       const { name, grade } = readOnboarding();
       const newProfile = createStudentProfile(name, grade);
+      identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
       setProfile(newProfile);
       // phase stays at loading_question; placement gate will intercept
     }
@@ -266,8 +292,20 @@ export default function DiagnosticSession() {
       setSessionCorrect(newSessionCorrect);
       setSkillAttemptCount((n) => n + 1);
 
+      // Track every question answer
+      trackQuestionAnswered({
+        subject: "maths",
+        skill_id: currentQuestion.skill_id,
+        template: currentQuestion.template,
+        is_correct: result.is_correct,
+        used_hint: usedHint,
+        attempt_number: skillAttemptCount + 1,
+        decision: nextAction,
+      });
+
       // ACCELERATE — force mastery and go straight to mastered screen
       if (nextAction === "accelerate") {
+        trackAccelerate({ subject: "maths", skill_id: currentQuestion.skill_id });
         const masteredMastery = {
           ...updatedMastery,
           status: "mastered" as const,
@@ -343,12 +381,27 @@ export default function DiagnosticSession() {
       // ── End review mode ────────────────────────────────────────────────────
 
       if (updatedMastery.status === "mastered") {
+        trackSkillMastered({
+          subject: "maths",
+          skill_id: currentQuestion.skill_id,
+          level: profile.current_level,
+          session_attempt_count: newSessionAttempts,
+          session_correct: newSessionCorrect,
+        });
         result.next_action = "advance_skill";
         setCurrentResult(result);
         setPhase("mastered");
       } else {
         // Increment reteachCount when engine decides RETEACH
-        if (nextAction === "reteach") setReteachCount((n) => n + 1);
+        if (nextAction === "reteach") {
+          setReteachCount((n) => n + 1);
+          trackReteach({
+            subject: "maths",
+            skill_id: currentQuestion.skill_id,
+            error_type: result.error_type ?? "unknown",
+            reteach_count: reteachCount + 1,
+          });
+        }
         setCurrentResult(result);
         setPhase("feedback");
       }
@@ -364,6 +417,7 @@ export default function DiagnosticSession() {
       const skill = getSkillById(profile.current_skill_id);
       if (skill && skill.prerequisites.length > 0) {
         const prereqId = skill.prerequisites[skill.prerequisites.length - 1];
+        trackBacktrack({ subject: "maths", from_skill_id: profile.current_skill_id, to_prereq_id: prereqId });
         // Record session as not passed — student is backtracking off this skill
         let latestProfile = profile;
         if (!hasRecordedSession.current) {
@@ -423,6 +477,7 @@ export default function DiagnosticSession() {
     }
     const nextSkillId = getNextSkillId(latestProfile.current_skill_id);
     if (nextSkillId) {
+      trackSkillAdvanced({ subject: "maths", from_skill_id: latestProfile.current_skill_id, to_skill_id: nextSkillId });
       const updated = advanceToSkill(latestProfile, nextSkillId);
       setProfile(updated);
       setSkillAttemptCount(0);
@@ -435,12 +490,38 @@ export default function DiagnosticSession() {
     }
   };
 
+  const handleViewReport = useCallback(
+    (result: MathsPlacementResult) => {
+      setPendingPlacementResult(result);
+      setShowReport(true);
+    },
+    []
+  );
+
   const handlePlacementComplete = useCallback(
     (result: MathsPlacementResult) => {
       if (!profile) return;
       const updatedProfile = completeMathsPlacement(profile, result);
       setProfile(updatedProfile);
       setPhase("loading_question");
+
+      // Track placement completion
+      trackPlacementCompleted({
+        subject: "maths",
+        grade: profile.grade,
+        entry_level: result.entryLevel,
+        grade_gap: profile.grade - result.entryLevel,
+        hard_gate_passed: result.hardGatePassed,
+        questions_analysed: result.tasks.length,
+        skills_auto_completed: result.autoCompletedSkillIds.length,
+        placement_block: result.placementBlock ?? null,
+        early_exit_reason: result.earlyExitReason ?? null,
+      });
+      trackSessionStarted({
+        subject: "maths",
+        current_skill_id: updatedProfile.current_skill_id,
+        current_level: updatedProfile.current_level,
+      });
 
       // Fire-and-forget report generation — failure must never block the student
       try {
@@ -528,10 +609,29 @@ export default function DiagnosticSession() {
     recentTemplatesRef.current = [];
   }
 
+  // Refs for session totals — accessible in unmount cleanup without stale closure
+  const sessionAttemptsRef = useRef(0);
+  const sessionCorrectRef = useRef(0);
+  sessionAttemptsRef.current = sessionAttempts;
+  sessionCorrectRef.current = sessionCorrect;
+
   // On unmount — write a session record if not already written for this skill
   useEffect(() => {
     return () => {
       const p = profileRef.current;
+      const attempts = sessionAttemptsRef.current;
+      const correct = sessionCorrectRef.current;
+
+      // Emit session_ended analytics
+      if (p?.placementCompleted && attempts > 0) {
+        trackSessionEnded({
+          subject: "maths",
+          questions_answered: attempts,
+          correct,
+          accuracy: Math.round((correct / attempts) * 100),
+        });
+      }
+
       if (!p || hasRecordedSession.current) return;
       hasRecordedSession.current = true;
       const mastery = p.skill_mastery[p.current_skill_id];
@@ -574,11 +674,30 @@ export default function DiagnosticSession() {
 
   // Placement gate — show discovery activity before regular learning begins
   if (profile && !profile.placementCompleted) {
+    // Report view — shown after placement, before learning begins
+    if (showReport && pendingPlacementResult) {
+      const reportInput = buildMathsReportInput({
+        ...profile,
+        placement: { ...pendingPlacementResult, completedAt: Date.now(), placementCompletedAt: Date.now() },
+        placementCompleted: true,
+      });
+      return (
+        <DiagnosticReportView
+          input={reportInput}
+          onStartLearning={() => {
+            setShowReport(false);
+            handlePlacementComplete(pendingPlacementResult);
+          }}
+        />
+      );
+    }
+
     return (
       <MathsDiagnosticPlacement
         studentName={profile.name}
         grade={profile.grade}
         onComplete={handlePlacementComplete}
+        onViewReport={handleViewReport}
       />
     );
   }

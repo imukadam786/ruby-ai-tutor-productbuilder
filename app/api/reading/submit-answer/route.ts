@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { groq, GROQ_MODEL } from "@/lib/anthropic";
+import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import {
   ReadingAnswerSubmission,
@@ -15,13 +15,65 @@ const VALID_ERROR_TYPES: ReadingErrorType[] = [
   "correct",
 ];
 
-function checkAnswerCorrectness(studentAnswer: string, expectedAnswer: string): boolean {
+// Phoneme patterns extracted from a target word — used for word-based phoneme tasks.
+// Returns the key sound cluster(s) to look for in the student's spoken word.
+const PHONEME_CLUSTERS: Record<string, string[]> = {
+  th: ["th"], sh: ["sh"], ch: ["ch"], ph: ["ph", "f"], wh: ["wh", "w"],
+  ng: ["ng"], ck: ["ck", "k"], qu: ["qu", "kw"],
+  bl: ["bl"], br: ["br"], cl: ["cl"], cr: ["cr"], dr: ["dr"], fl: ["fl"],
+  fr: ["fr"], gl: ["gl"], gr: ["gr"], pl: ["pl"], pr: ["pr"], sc: ["sc"],
+  sk: ["sk"], sl: ["sl"], sm: ["sm"], sn: ["sn"], sp: ["sp"], st: ["st"],
+  sw: ["sw"], tr: ["tr"], tw: ["tw"],
+};
+
+function extractTargetPhoneme(question: string): string | null {
+  // Look for quoted sound patterns like 'th', "sh", or /ch/ in the question
+  const quoted = question.match(/['"/]([a-z]{1,3})['"/]/i);
+  if (quoted) return quoted[1].toLowerCase();
+  // Look for "the X sound" or "X sound"
+  const soundMatch = question.match(/\b([a-z]{1,3})\s+sound/i);
+  if (soundMatch) return soundMatch[1].toLowerCase();
+  return null;
+}
+
+function checkPhonemeWordMatch(studentWord: string, expectedWord: string, question: string): boolean {
+  const student = studentWord.toLowerCase().replace(/[^a-z]/g, "");
+  if (!student) return false;
+
+  // Try to identify the target phoneme from the question first
+  const targetPhoneme = extractTargetPhoneme(question);
+  if (targetPhoneme) {
+    const variants = PHONEME_CLUSTERS[targetPhoneme] ?? [targetPhoneme];
+    return variants.some((v) => student.includes(v));
+  }
+
+  // Fallback: extract the phoneme from the expected word (first 1-2 chars usually)
+  const expected = expectedWord.toLowerCase().replace(/[^a-z]/g, "");
+  if (expected.length >= 2) {
+    const cluster = expected.slice(0, 2);
+    if (PHONEME_CLUSTERS[cluster]) {
+      const variants = PHONEME_CLUSTERS[cluster] ?? [cluster];
+      return variants.some((v) => student.includes(v));
+    }
+  }
+  // Single consonant/vowel match
+  return student.includes(expected.slice(0, 1));
+}
+
+function checkAnswerCorrectness(studentAnswer: string, expectedAnswer: string, question = ""): boolean {
   const normalise = (s: string) =>
     s.toLowerCase().trim().replace(/[.,!?'"]/g, "").replace(/\s+/g, " ");
   const student = normalise(studentAnswer);
   const expected = normalise(expectedAnswer);
   if (student === expected) return true;
   if (expected.length > 3 && student.includes(expected)) return true;
+
+  // Phoneme-word task: question asks to "say a word with the X sound"
+  // Accept any word containing the target phoneme
+  if (/say a word|tell me a word|think of a word|word that (has|starts|contains)/i.test(question)) {
+    return checkPhonemeWordMatch(student, expected, question);
+  }
+
   return false;
 }
 
@@ -58,13 +110,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Skill not found" }, { status: 404 });
     }
 
-    const isCorrect = checkAnswerCorrectness(submission.student_answer, submission.expected_answer);
+    const isCorrect = checkAnswerCorrectness(submission.student_answer, submission.expected_answer, submission.question);
     const preClassified = preClassifyError(
       isCorrect,
       submission.student_answer,
       submission.expected_answer,
       submission.used_hint
     );
+
+    // Detect phoneme-word tasks so the AI grader applies the right rule
+    const isPhonemeWordTask = /say a word|tell me a word|think of a word|word that (has|starts|contains)/i.test(
+      submission.question
+    );
+    const phonemeWordNote = isPhonemeWordTask
+      ? `\nNOTE: This question asked the student to say any word containing a target sound — NOT an exact word. Mark as correct if the student's word genuinely contains the target phoneme, even if it differs from the expected answer.`
+      : "";
 
     const prompt = `You are Ruby, a literacy diagnostic tutor for primary school students (Grade R–3).
 
@@ -77,6 +137,7 @@ QUESTION: ${submission.question}
 EXPECTED ANSWER: ${submission.expected_answer}
 STUDENT'S ANSWER: ${submission.student_answer}
 USED HINT: ${submission.used_hint}
+${phonemeWordNote}
 
 Analyse the student's response and provide diagnostic feedback.
 
@@ -105,8 +166,8 @@ Respond in this exact JSON format (no markdown, raw JSON only):
 
 Keep language simple, warm, and age-appropriate for a primary school child.`;
 
-    const aiResponse = await groq.chat.completions.create({
-      model: GROQ_MODEL,
+    const aiResponse = await getOpenAI().chat.completions.create({
+      model: OPENAI_MODEL,
       max_tokens: 512,
       messages: [{ role: "user", content: prompt }],
     });

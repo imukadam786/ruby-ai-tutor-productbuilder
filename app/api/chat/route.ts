@@ -1,13 +1,10 @@
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
 import { Message } from "@/types";
-import { TUTOR_SYSTEM_PROMPT } from "@/lib/prompts";
-
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY!,
-});
+import { TUTOR_SYSTEM_PROMPT } from "@/lib/anthropic";
 
 export async function POST(req: NextRequest) {
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
     try {
         const {
             messages,
