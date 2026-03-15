@@ -20,7 +20,7 @@ import {
 } from "@/lib/student-model";
 import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
-import { updateSkillMastery, initSkillMastery, determineNextAction } from "@/lib/mastery-engine";
+import { updateSkillMastery, initSkillMastery, determineNextAction, buildReviewQueue } from "@/lib/mastery-engine";
 import { getDomainForSkill, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
@@ -61,10 +61,26 @@ export default function DiagnosticSession() {
   const [reteachCount, setReteachCount] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
 
+  // Review queue — skills mastered 7+ days ago, checked before new skill work
+  const [reviewQueue, setReviewQueue] = useState<string[]>([]);
+  const [reviewSkillIndex, setReviewSkillIndex] = useState(0);
+  const [reviewCorrect, setReviewCorrect] = useState(0);
+  const [reviewAttempts, setReviewAttempts] = useState(0);
+  // activeSkillId holds the student's real current skill while reviewing
+  const [activeSkillId, setActiveSkillId] = useState<string | null>(null);
+
   useEffect(() => {
     const saved = getStudentProfile();
     if (saved) {
-      setProfile(saved);
+      const queue = buildReviewQueue(saved);
+      if (queue.length > 0) {
+        // Park the real active skill, load first review skill instead
+        setActiveSkillId(saved.current_skill_id);
+        setReviewQueue(queue);
+        setProfile({ ...saved, current_skill_id: queue[0] });
+      } else {
+        setProfile(saved);
+      }
       setPhase("loading_question");
     } else {
       // Auto-create profile from onboarding data — no setup screen needed
@@ -205,6 +221,63 @@ export default function DiagnosticSession() {
       // Record attempt in profile (non-accelerate path)
       const updatedProfile = recordAttempt(profile, attempt, updatedMastery);
       setProfile(updatedProfile);
+
+      // ── Review mode: 2–3 question retention check ──────────────────────────
+      const inReview = reviewQueue.length > 0 && reviewSkillIndex < reviewQueue.length;
+      if (inReview) {
+        const newReviewAttempts = reviewAttempts + 1;
+        const newReviewCorrect = reviewCorrect + (result.is_correct ? 1 : 0);
+        setReviewAttempts(newReviewAttempts);
+        setReviewCorrect(newReviewCorrect);
+
+        if (newReviewAttempts >= 2) {
+          const passed = newReviewCorrect / newReviewAttempts >= 0.75;
+          const reviewedSkillId = reviewQueue[reviewSkillIndex];
+          const now = new Date().toISOString();
+
+          // Write last_reviewed_at regardless of pass/fail — prevents re-queuing for 7 days
+          const reviewedMastery = {
+            ...updatedProfile.skill_mastery[reviewedSkillId],
+            last_reviewed_at: now,
+            needs_reinforcement: passed ? false : true,
+          };
+          const profileAfterReview = {
+            ...updatedProfile,
+            skill_mastery: { ...updatedProfile.skill_mastery, [reviewedSkillId]: reviewedMastery },
+          };
+
+          if (!passed) {
+            console.log(`[SpacedRep] Skill ${reviewedSkillId} failed review — flagged for reinforcement`);
+          }
+
+          const nextReviewIndex = reviewSkillIndex + 1;
+          setReviewSkillIndex(nextReviewIndex);
+          setReviewCorrect(0);
+          setReviewAttempts(0);
+
+          if (nextReviewIndex < reviewQueue.length) {
+            // Move to next review skill
+            const nextReviewSkillId = reviewQueue[nextReviewIndex];
+            setProfile({ ...profileAfterReview, current_skill_id: nextReviewSkillId });
+          } else {
+            // All reviews done — restore the active skill
+            const resumeSkillId = activeSkillId ?? updatedProfile.current_skill_id;
+            setProfile({ ...profileAfterReview, current_skill_id: resumeSkillId });
+            setActiveSkillId(null);
+            setReviewQueue([]);
+          }
+          setSkillAttemptCount(0);
+          setTemplateIndex(0);
+          setPhase("loading_question");
+          return;
+        }
+
+        // Still within the 2–3 question window — next question on same review skill
+        setCurrentResult(result);
+        setPhase("feedback");
+        return;
+      }
+      // ── End review mode ────────────────────────────────────────────────────
 
       if (updatedMastery.status === "mastered") {
         result.next_action = "advance_skill";
@@ -392,6 +465,11 @@ export default function DiagnosticSession() {
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
+            {reviewQueue.length > 0 && reviewSkillIndex < reviewQueue.length && (
+              <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-2 text-sm text-amber-800">
+                Quick check — you mastered this before. Let&apos;s make sure it&apos;s still solid.
+              </div>
+            )}
             {skill && (
               <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
                 <div className="flex-1">

@@ -76,6 +76,8 @@ export interface SkillMastery {
   scaffolded_attempts: number;
   last_attempted: string;
   mastered_at?: string;
+  last_reviewed_at?: string;
+  needs_reinforcement?: boolean;
   attempts: SkillAttempt[];
 }
 

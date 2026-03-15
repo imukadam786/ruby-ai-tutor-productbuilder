@@ -4,6 +4,7 @@ import {
   SkillAttempt,
   QuestionTemplate,
   AtomicSkill,
+  StudentProfile,
 } from "@/types/ruby";
 
 // ─── Mastery Determination ────────────────────────────────────────────────────
@@ -170,6 +171,27 @@ export function needsReview(mastery: SkillMastery): boolean {
     (1000 * 60 * 60 * 24);
 
   return daysSinceMastery > 7;
+}
+
+// ─── Spaced Repetition Queue ──────────────────────────────────────────────────
+// Builds a list of mastered skills due for review, sorted most-overdue first.
+// Uses last_reviewed_at if set, otherwise falls back to mastered_at.
+// Capped at 3 per session so reviews never crowd out new skill work.
+
+export function buildReviewQueue(profile: StudentProfile): string[] {
+  const due = Object.entries(profile.skill_mastery)
+    .filter(([, mastery]) => needsReview(mastery))
+    .map(([skillId]) => skillId);
+
+  due.sort((a, b) => {
+    const ma = profile.skill_mastery[a];
+    const mb = profile.skill_mastery[b];
+    const tsA = new Date(ma.last_reviewed_at ?? ma.mastered_at ?? 0).getTime();
+    const tsB = new Date(mb.last_reviewed_at ?? mb.mastered_at ?? 0).getTime();
+    return tsA - tsB; // ascending — oldest first
+  });
+
+  return due.slice(0, 3);
 }
 
 // ─── Progress Percentage ──────────────────────────────────────────────────────
