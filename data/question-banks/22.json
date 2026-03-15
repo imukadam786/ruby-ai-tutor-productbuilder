@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "clock • sock",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'pot'? Say just the sound, not the letter name.",
+    "displayWord": "pot",
+    "answerMode": "voice",
+    "expectedAnswer": "/p/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "b",
+    "answerMode": "voice",
+    "expectedAnswer": "/b/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "e",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɛ/ (short e as in egg)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BES",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "bes"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'bes'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/b/ / /e/ / /s/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters WH make in this word?",
+    "displayWord": "WHEN",
+    "answerMode": "voice",
+    "expectedAnswer": "/w/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BLIN",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "blin"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "MINE",
+    "answerMode": "voice",
+    "expectedAnswer": "mine",
+    "vowelPattern": "long i"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "LEAN",
+    "answerMode": "voice",
+    "expectedAnswer": "lean",
+    "vowelTeam": "ea",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "HERE",
+    "answerMode": "voice",
+    "expectedAnswer": "here",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "HERD",
+    "answerMode": "voice",
+    "expectedAnswer": "herd",
+    "rControlledPattern": "er"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PADDLE",
+    "answerMode": "voice",
+    "expectedAnswer": "paddle",
+    "syllableBreak": "pad·dle"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "PERMISSION",
+    "answerMode": "voice",
+    "expectedAnswer": "permission",
+    "syllableBreak": "per·mis·sion"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "HELPING",
+    "answerMode": "voice",
+    "expectedAnswer": "ing",
+    "affixType": "suffix",
+    "targetAffix": "ing"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "A frog sat on a lily pad in the middle of the pond. It was very still. A dragonfly landed nearby. Quick as a blink, the frog shot out its long tongue. But it missed. The dragonfly zoomed away and the frog sat and waited again.",
+    "passageId": "16.22",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did the frog try to catch with its tongue?",
+    "displayWord": "",
+    "passageRef": "16.22",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "A dragonfly"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does this passage tell you about hunting for food?",
+    "displayWord": "",
+    "passageRef": "16.22",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "It requires patience and speed — not every attempt succeeds"
+  }
+]

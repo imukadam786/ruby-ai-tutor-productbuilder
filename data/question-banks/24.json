@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "chest • nest",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'den'? Say just the sound, not the letter name.",
+    "displayWord": "den",
+    "answerMode": "voice",
+    "expectedAnswer": "/d/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "d",
+    "answerMode": "voice",
+    "expectedAnswer": "/d/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "o",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɒ/ (short o as in odd)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "CAV",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "cav"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'cav'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/c/ / /a/ / /v/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters NG make in this word?",
+    "displayWord": "RING",
+    "answerMode": "voice",
+    "expectedAnswer": "/ŋ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "CRUD",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "crud"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "DUNE",
+    "answerMode": "voice",
+    "expectedAnswer": "dune",
+    "vowelPattern": "long u"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BOOM",
+    "answerMode": "voice",
+    "expectedAnswer": "boom",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "WHICH",
+    "answerMode": "voice",
+    "expectedAnswer": "which",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "CORD",
+    "answerMode": "voice",
+    "expectedAnswer": "cord",
+    "rControlledPattern": "or"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MIDDLE",
+    "answerMode": "voice",
+    "expectedAnswer": "middle",
+    "syllableBreak": "mid·dle"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "BEGINNING",
+    "answerMode": "voice",
+    "expectedAnswer": "beginning",
+    "syllableBreak": "be·gin·ning"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "TEACHER",
+    "answerMode": "voice",
+    "expectedAnswer": "er",
+    "affixType": "suffix",
+    "targetAffix": "er"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "Anna planted sunflower seeds in a pot on the windowsill. She watered them every day and turned the pot so each side got the sun. After two weeks, small green shoots appeared. By summer, the plant was so tall it touched the top of the window frame.",
+    "passageId": "16.24",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "How did Anna make sure the plant grew evenly?",
+    "displayWord": "",
+    "passageRef": "16.24",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "She turned the pot so each side got the sun"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does Anna's routine of turning the pot tell you about her?",
+    "displayWord": "",
+    "passageRef": "16.24",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "She was careful and observant — most people would not think to do this"
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "blue • clue",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'job'? Say just the sound, not the letter name.",
+    "displayWord": "job",
+    "answerMode": "voice",
+    "expectedAnswer": "/dʒ/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "Q",
+    "answerMode": "voice",
+    "expectedAnswer": "/kw/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "I",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɪ/ (short i as in itch)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "JEP",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "jep"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'jep'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/j/ / /e/ / /p/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "sh",
+    "answerMode": "voice",
+    "expectedAnswer": "/ʃ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "STEK",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "stek"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "CAME",
+    "answerMode": "voice",
+    "expectedAnswer": "came",
+    "vowelPattern": "long a"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "WAIT",
+    "answerMode": "voice",
+    "expectedAnswer": "wait",
+    "vowelTeam": "ai",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "ARE",
+    "answerMode": "voice",
+    "expectedAnswer": "are",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "DIRT",
+    "answerMode": "voice",
+    "expectedAnswer": "dirt",
+    "rControlledPattern": "ir"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "GOBLIN",
+    "answerMode": "voice",
+    "expectedAnswer": "goblin",
+    "syllableBreak": "gob·lin"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "BEAUTIFUL",
+    "answerMode": "voice",
+    "expectedAnswer": "beautiful",
+    "syllableBreak": "beau·ti·ful"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "UNCLEAR",
+    "answerMode": "voice",
+    "expectedAnswer": "un",
+    "affixType": "prefix",
+    "targetAffix": "un"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "It had been raining for three days. The stream was full and running fast. Two ducks swam on it, bobbing up and down on the little waves. A log floated past them. The ducks paddled out of the way and then went on swimming in circles.",
+    "passageId": "16.13",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What were the two ducks doing in the stream?",
+    "displayWord": "",
+    "passageRef": "16.13",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Swimming and bobbing up and down on the waves"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why do you think the ducks looked confused on the frozen stream?",
+    "displayWord": "",
+    "passageRef": "16.13",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "They could not swim — the water they lived on had turned solid"
+  }
+]

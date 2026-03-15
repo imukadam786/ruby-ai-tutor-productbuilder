@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "big • pig",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'big'? Say just the sound, not the letter name.",
+    "displayWord": "big",
+    "answerMode": "voice",
+    "expectedAnswer": "/b/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "F",
+    "answerMode": "voice",
+    "expectedAnswer": "/f/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "o",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɒ/ (short o as in odd)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "WEP",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "wep"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'wep'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/w/ / /e/ / /p/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "wh",
+    "answerMode": "voice",
+    "expectedAnswer": "/w/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "CRON",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "cron"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "CUTE",
+    "answerMode": "voice",
+    "expectedAnswer": "cute",
+    "vowelPattern": "long u"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MOON",
+    "answerMode": "voice",
+    "expectedAnswer": "moon",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "TO",
+    "answerMode": "voice",
+    "expectedAnswer": "to",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "CORN",
+    "answerMode": "voice",
+    "expectedAnswer": "corn",
+    "rControlledPattern": "or"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MITTEN",
+    "answerMode": "voice",
+    "expectedAnswer": "mitten",
+    "syllableBreak": "mit·ten"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "TOMORROW",
+    "answerMode": "voice",
+    "expectedAnswer": "tomorrow",
+    "syllableBreak": "to·mor·row"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "UNHAPPY",
+    "answerMode": "voice",
+    "expectedAnswer": "un",
+    "affixType": "prefix",
+    "targetAffix": "un"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "A fish swam in the deep blue pond. It hid under a big flat rock. A boy came to the pond with a rod and a worm. He sat still on the bank and waited. The fish swam past the worm but did not bite. The boy went home with no fish.",
+    "passageId": "16.4",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did the boy bring to the pond?",
+    "displayWord": "",
+    "passageRef": "16.4",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "A rod and a worm"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why do you think the fish did not bite the worm?",
+    "displayWord": "",
+    "passageRef": "16.4",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "The fish was not hungry or sensed danger — it swam past without biting"
+  }
+]

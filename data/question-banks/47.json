@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "frog • flag",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'rot'? Say just the sound, not the letter name.",
+    "displayWord": "rot",
+    "answerMode": "voice",
+    "expectedAnswer": "/r/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "G",
+    "answerMode": "voice",
+    "expectedAnswer": "/g/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "E",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɛ/ (short e as in egg)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "JAB",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "jab"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'pom'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/p/ / /o/ / /m/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters CK make in this word?",
+    "displayWord": "BACK",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PRESS",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "press"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "SAPE",
+    "answerMode": "voice",
+    "expectedAnswer": "sape",
+    "vowelPattern": "long a"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MOAP",
+    "answerMode": "voice",
+    "expectedAnswer": "moap",
+    "vowelTeam": "oa",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "LITTLE",
+    "answerMode": "voice",
+    "expectedAnswer": "little",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BERS",
+    "answerMode": "voice",
+    "expectedAnswer": "bers",
+    "rControlledPattern": "er"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "REBSOP",
+    "answerMode": "voice",
+    "expectedAnswer": "rebsop",
+    "syllableBreak": "reb·sop"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "FIPSOMSUD",
+    "answerMode": "voice",
+    "expectedAnswer": "fipsomsud",
+    "syllableBreak": "fip·som·sud"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "REUSE",
+    "answerMode": "voice",
+    "expectedAnswer": "re",
+    "affixType": "prefix",
+    "targetAffix": "re"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The market garden had long rows of strawberry plants covered with white netting to keep the birds off. In June the berries were ripe and sweet. Pickers moved along the rows with baskets. By midday the baskets were full and the van came to take them away.",
+    "passageId": "16.47",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What covered the strawberry plants?",
+    "displayWord": "",
+    "passageRef": "16.47",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "White netting"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why was the van coming to collect the baskets by midday important?",
+    "displayWord": "",
+    "passageRef": "16.47",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "The berries needed to stay fresh — they had to be transported quickly after picking"
+  }
+]

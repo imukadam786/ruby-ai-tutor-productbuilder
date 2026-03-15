@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "ship • shop",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'bun'? Say just the sound, not the letter name.",
+    "displayWord": "bun",
+    "answerMode": "voice",
+    "expectedAnswer": "/b/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "B",
+    "answerMode": "voice",
+    "expectedAnswer": "/b/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "I",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɪ/ (short i as in itch)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "DIN",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "din"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'nim'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/n/ / /i/ / /m/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters SH make in this word?",
+    "displayWord": "SHIP",
+    "answerMode": "voice",
+    "expectedAnswer": "/ʃ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "STOP",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "stop"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "CATE",
+    "answerMode": "voice",
+    "expectedAnswer": "cate",
+    "vowelPattern": "long a"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "HOAB",
+    "answerMode": "voice",
+    "expectedAnswer": "hoab",
+    "vowelTeam": "oa",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "DO",
+    "answerMode": "voice",
+    "expectedAnswer": "do",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BIRL",
+    "answerMode": "voice",
+    "expectedAnswer": "birl",
+    "rControlledPattern": "ir"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ZOTBIM",
+    "answerMode": "voice",
+    "expectedAnswer": "zotbim",
+    "syllableBreak": "zot·bim"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "BORSIPZEL",
+    "answerMode": "voice",
+    "expectedAnswer": "borsipzel",
+    "syllableBreak": "bor·sip·zel"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "SAFELY",
+    "answerMode": "voice",
+    "expectedAnswer": "ly",
+    "affixType": "suffix",
+    "targetAffix": "ly"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The post came late that day. There was a brown parcel on the mat with her name on it. She did not recognise the handwriting. Inside was a small carved wooden bird with a note that said: From an old friend who found this and thought of you.",
+    "passageId": "16.43",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What was inside the brown parcel?",
+    "displayWord": "",
+    "passageRef": "16.43",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "A small carved wooden bird"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does the note with the parcel suggest about the sender?",
+    "displayWord": "",
+    "passageRef": "16.43",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "They were thinking of her — it was a kind and thoughtful gesture"
+  }
+]

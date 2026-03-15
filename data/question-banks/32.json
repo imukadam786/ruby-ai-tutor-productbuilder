@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "man • mud",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'gem'? Say just the sound, not the letter name.",
+    "displayWord": "gem",
+    "answerMode": "voice",
+    "expectedAnswer": "/dʒ/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "n",
+    "answerMode": "voice",
+    "expectedAnswer": "/n/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "e",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɛ/ (short e as in egg)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PUN",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "pun"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'ged'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/g/ / /e/ / /d/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters CH make in this word?",
+    "displayWord": "CHIP",
+    "answerMode": "voice",
+    "expectedAnswer": "/tʃ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BLACK",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "black"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "FIME",
+    "answerMode": "voice",
+    "expectedAnswer": "fime",
+    "vowelPattern": "long i"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "POOD",
+    "answerMode": "voice",
+    "expectedAnswer": "pood",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "COULD",
+    "answerMode": "voice",
+    "expectedAnswer": "could",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "DERT",
+    "answerMode": "voice",
+    "expectedAnswer": "dert",
+    "rControlledPattern": "er"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ROPKEL",
+    "answerMode": "voice",
+    "expectedAnswer": "ropkel",
+    "syllableBreak": "rop·kel"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "GAFPIDNUB",
+    "answerMode": "voice",
+    "expectedAnswer": "gafpidnub",
+    "syllableBreak": "gaf·pid·nub"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "LANDED",
+    "answerMode": "voice",
+    "expectedAnswer": "ed",
+    "affixType": "suffix",
+    "targetAffix": "ed"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "Zara found a snail on the path and put it on her hand. It moved slowly, leaving a silver trail on her skin. Its eye stalks turned towards her face. She set it down gently on a leaf and watched it slide under the edge of a stone.",
+    "passageId": "16.32",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What trail did the snail leave on Zara's hand?",
+    "displayWord": "",
+    "passageRef": "16.32",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "A silver trail"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does the way Zara handled the snail tell you about her?",
+    "displayWord": "",
+    "passageRef": "16.32",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "She was gentle and curious — she cared about small creatures"
+  }
+]

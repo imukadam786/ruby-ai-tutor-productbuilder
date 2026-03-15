@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "man • pan",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'run'? Say just the sound, not the letter name.",
+    "displayWord": "run",
+    "answerMode": "voice",
+    "expectedAnswer": "/r/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "K",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "i",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɪ/ (short i as in itch)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "DUX",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "dux"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'dux'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/d/ / /u/ / /x/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters CH make in this word?",
+    "displayWord": "CHIP",
+    "answerMode": "voice",
+    "expectedAnswer": "/tʃ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SLUP",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "slup"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "TUNE",
+    "answerMode": "voice",
+    "expectedAnswer": "tune",
+    "vowelPattern": "long u"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "FOOD",
+    "answerMode": "voice",
+    "expectedAnswer": "food",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "IT",
+    "answerMode": "voice",
+    "expectedAnswer": "it",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "GIRL",
+    "answerMode": "voice",
+    "expectedAnswer": "girl",
+    "rControlledPattern": "ir"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PICNIC",
+    "answerMode": "voice",
+    "expectedAnswer": "picnic",
+    "syllableBreak": "pic·nic"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "HOWEVER",
+    "answerMode": "voice",
+    "expectedAnswer": "however",
+    "syllableBreak": "how·ev·er"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "REPLAY",
+    "answerMode": "voice",
+    "expectedAnswer": "re",
+    "affixType": "prefix",
+    "targetAffix": "re"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The cat crept along the top of the wall. It spotted a bird sitting on the branch of the oak tree. The cat froze and watched the bird hop from branch to branch. Then the bird flew off and the cat sat down and began to wash its face.",
+    "passageId": "16.8",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did the cat do after the bird flew away?",
+    "displayWord": "",
+    "passageRef": "16.8",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Sat down and began to wash its face"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does the cat washing its face tell you about how it felt?",
+    "displayWord": "",
+    "passageRef": "16.8",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "Unbothered and calm — cats wash when they are relaxed"
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "ring • sing",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'wet'? Say just the sound, not the letter name.",
+    "displayWord": "wet",
+    "answerMode": "voice",
+    "expectedAnswer": "/w/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "P",
+    "answerMode": "voice",
+    "expectedAnswer": "/p/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "e",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɛ/ (short e as in egg)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "VOS",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "vos"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'vos'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/v/ / /o/ / /s/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters NG make in this word?",
+    "displayWord": "RING",
+    "answerMode": "voice",
+    "expectedAnswer": "/ŋ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BLUF",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "bluf"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "CUBE",
+    "answerMode": "voice",
+    "expectedAnswer": "cube",
+    "vowelPattern": "long u"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "POOL",
+    "answerMode": "voice",
+    "expectedAnswer": "pool",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "DOES",
+    "answerMode": "voice",
+    "expectedAnswer": "does",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "VERB",
+    "answerMode": "voice",
+    "expectedAnswer": "verb",
+    "rControlledPattern": "er"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MUFFIN",
+    "answerMode": "voice",
+    "expectedAnswer": "muffin",
+    "syllableBreak": "muf·fin"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "ELEPHANT",
+    "answerMode": "voice",
+    "expectedAnswer": "elephant",
+    "syllableBreak": "el·e·phant"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "PREPARE",
+    "answerMode": "voice",
+    "expectedAnswer": "pre",
+    "affixType": "prefix",
+    "targetAffix": "pre"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The spider sat in the middle of her web and waited. A fly buzzed past and landed near the edge of the web. The web trembled. The spider moved fast along one of the silk threads. But the fly felt the web shake and flew away in time.",
+    "passageId": "16.12",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did the fly do when the web trembled?",
+    "displayWord": "",
+    "passageRef": "16.12",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Flew away"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does this passage tell you about flies and spiders?",
+    "displayWord": "",
+    "passageRef": "16.12",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "Flies are hard to catch — a spider must be very fast because flies can sense the web shaking"
+  }
+]

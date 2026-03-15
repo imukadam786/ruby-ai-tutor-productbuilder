@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "sit • set",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'vat'? Say just the sound, not the letter name.",
+    "displayWord": "vat",
+    "answerMode": "voice",
+    "expectedAnswer": "/v/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "p",
+    "answerMode": "voice",
+    "expectedAnswer": "/p/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "I",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɪ/ (short i as in itch)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SOB",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "sob"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'nuf'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/n/ / /u/ / /f/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters TH make in this word?",
+    "displayWord": "THIN",
+    "answerMode": "voice",
+    "expectedAnswer": "/θ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "STEP",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "step"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "JOTE",
+    "answerMode": "voice",
+    "expectedAnswer": "jote",
+    "vowelPattern": "long o"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "VAIF",
+    "answerMode": "voice",
+    "expectedAnswer": "vaif",
+    "vowelTeam": "ai",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "WOULD",
+    "answerMode": "voice",
+    "expectedAnswer": "would",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MIRP",
+    "answerMode": "voice",
+    "expectedAnswer": "mirp",
+    "rControlledPattern": "ir"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "GAFPID",
+    "answerMode": "voice",
+    "expectedAnswer": "gafpid",
+    "syllableBreak": "gaf·pid"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "NUMTAGBOR",
+    "answerMode": "voice",
+    "expectedAnswer": "numtagbor",
+    "syllableBreak": "num·tag·bor"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "SWIMMER",
+    "answerMode": "voice",
+    "expectedAnswer": "er",
+    "affixType": "suffix",
+    "targetAffix": "er"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The river had frozen over in the cold snap. Ducks stood on the ice looking confused. A fox trotted across the far bank and paused to sniff the air. Above, two crows circled and cawed. The cold was so sharp it made your breath come out in clouds.",
+    "passageId": "16.33",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What were the ducks doing on the frozen river?",
+    "displayWord": "",
+    "passageRef": "16.33",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Standing on the ice looking confused"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why were the ducks standing on the ice instead of swimming?",
+    "displayWord": "",
+    "passageRef": "16.33",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "The river had frozen solid so they had nowhere to swim"
+  }
+]

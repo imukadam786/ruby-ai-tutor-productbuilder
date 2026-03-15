@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "frog • blog",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'red'? Say just the sound, not the letter name.",
+    "displayWord": "red",
+    "answerMode": "voice",
+    "expectedAnswer": "/r/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "c",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "I",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɪ/ (short i as in itch)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "WID",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "wid"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'wid'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/w/ / /i/ / /d/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters CK make in this word?",
+    "displayWord": "BACK",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "STOB",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "stob"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "BONE",
+    "answerMode": "voice",
+    "expectedAnswer": "bone",
+    "vowelPattern": "long o"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "COAT",
+    "answerMode": "voice",
+    "expectedAnswer": "coat",
+    "vowelTeam": "oa",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "WHEN",
+    "answerMode": "voice",
+    "expectedAnswer": "when",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SHIRT",
+    "answerMode": "voice",
+    "expectedAnswer": "shirt",
+    "rControlledPattern": "ir"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "RATTLE",
+    "answerMode": "voice",
+    "expectedAnswer": "rattle",
+    "syllableBreak": "rat·tle"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "APPOINTMENT",
+    "answerMode": "voice",
+    "expectedAnswer": "appointment",
+    "syllableBreak": "ap·point·ment"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "WALKED",
+    "answerMode": "voice",
+    "expectedAnswer": "ed",
+    "affixType": "suffix",
+    "targetAffix": "ed"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The old clock on the wall made a loud tick with every second. At the top of each hour it struck the time with a deep bell sound. The children had grown so used to it that they did not hear it anymore. But visitors always looked up.",
+    "passageId": "16.23",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "When did the clock strike?",
+    "displayWord": "",
+    "passageRef": "16.23",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "At the top of each hour"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why did visitors always look up at the clock?",
+    "displayWord": "",
+    "passageRef": "16.23",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "It was new to them — unlike the children who had grown used to it and no longer noticed"
+  }
+]

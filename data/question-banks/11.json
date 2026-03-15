@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "ball • tall",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'cup'? Say just the sound, not the letter name.",
+    "displayWord": "cup",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "N",
+    "answerMode": "voice",
+    "expectedAnswer": "/n/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "A",
+    "answerMode": "voice",
+    "expectedAnswer": "/æ/ (short a as in apple)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "TIG",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "tig"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'tig'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/t/ / /i/ / /g/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters CK make in this word?",
+    "displayWord": "BACK",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "TRAB",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "trab"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "MOLE",
+    "answerMode": "voice",
+    "expectedAnswer": "mole",
+    "vowelPattern": "long o"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "COAL",
+    "answerMode": "voice",
+    "expectedAnswer": "coal",
+    "vowelTeam": "oa",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "SAID",
+    "answerMode": "voice",
+    "expectedAnswer": "said",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "FARM",
+    "answerMode": "voice",
+    "expectedAnswer": "farm",
+    "rControlledPattern": "ar"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SUDDEN",
+    "answerMode": "voice",
+    "expectedAnswer": "sudden",
+    "syllableBreak": "sud·den"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "EXAMPLE",
+    "answerMode": "voice",
+    "expectedAnswer": "example",
+    "syllableBreak": "ex·am·ple"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "RETURN",
+    "answerMode": "voice",
+    "expectedAnswer": "re",
+    "affixType": "prefix",
+    "targetAffix": "re"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "Max put on his boots and went to the farm. The mud was thick and his boots made loud sucking sounds as he walked. He fed the pigs and then helped fill the water troughs for the cows. By noon he was wet but happy.",
+    "passageId": "16.11",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What were Max's boots doing in the mud?",
+    "displayWord": "",
+    "passageRef": "16.11",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Making loud sucking sounds"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "How do you think Max felt at the end of his day at the farm?",
+    "displayWord": "",
+    "passageRef": "16.11",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "Satisfied and happy despite being wet — the text says 'wet but happy'"
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "tree • bee",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'yes'? Say just the sound, not the letter name.",
+    "displayWord": "yes",
+    "answerMode": "voice",
+    "expectedAnswer": "/j/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "W",
+    "answerMode": "voice",
+    "expectedAnswer": "/w/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "i",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɪ/ (short i as in itch)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "GAT",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "gat"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'gat'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/g/ / /a/ / /t/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "ng",
+    "answerMode": "voice",
+    "expectedAnswer": "/ŋ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SLOV",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "slov"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "HIDE",
+    "answerMode": "voice",
+    "expectedAnswer": "hide",
+    "vowelPattern": "long i"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MEAL",
+    "answerMode": "voice",
+    "expectedAnswer": "meal",
+    "vowelTeam": "ea",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "WHERE",
+    "answerMode": "voice",
+    "expectedAnswer": "where",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "FIRM",
+    "answerMode": "voice",
+    "expectedAnswer": "firm",
+    "rControlledPattern": "ir"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "CACTUS",
+    "answerMode": "voice",
+    "expectedAnswer": "cactus",
+    "syllableBreak": "cac·tus"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "FANTASTIC",
+    "answerMode": "voice",
+    "expectedAnswer": "fantastic",
+    "syllableBreak": "fan·tas·tic"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "PRECOOK",
+    "answerMode": "voice",
+    "expectedAnswer": "pre",
+    "affixType": "prefix",
+    "targetAffix": "pre"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The old man sat on the bench by the pond and threw bits of bread to the ducks. They came splashing and quacking towards him. He laughed at the way they fought over each crust. When the bread was gone, they swam away and the pond went quiet.",
+    "passageId": "16.18",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did the old man throw to the ducks?",
+    "displayWord": "",
+    "passageRef": "16.18",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Bits of bread"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does the old man's laughter tell you about him?",
+    "displayWord": "",
+    "passageRef": "16.18",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "He was kind and cheerful — he enjoyed simple pleasures"
+  }
+]

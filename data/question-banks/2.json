@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "dog • log",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'man'? Say just the sound, not the letter name.",
+    "displayWord": "man",
+    "answerMode": "voice",
+    "expectedAnswer": "/m/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "C",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "e",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɛ/ (short e as in egg)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BIM",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "bim"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'bim'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/b/ / /i/ / /m/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "ch",
+    "answerMode": "voice",
+    "expectedAnswer": "/tʃ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BLAG",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "blag"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "TIME",
+    "answerMode": "voice",
+    "expectedAnswer": "time",
+    "vowelPattern": "long i"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BEAM",
+    "answerMode": "voice",
+    "expectedAnswer": "beam",
+    "vowelTeam": "ea",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "IS",
+    "answerMode": "voice",
+    "expectedAnswer": "is",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "FERN",
+    "answerMode": "voice",
+    "expectedAnswer": "fern",
+    "rControlledPattern": "er"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SUNSET",
+    "answerMode": "voice",
+    "expectedAnswer": "sunset",
+    "syllableBreak": "sun·set"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "UMBRELLA",
+    "answerMode": "voice",
+    "expectedAnswer": "umbrella",
+    "syllableBreak": "um·brel·la"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "REDO",
+    "answerMode": "voice",
+    "expectedAnswer": "re",
+    "affixType": "prefix",
+    "targetAffix": "re"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "Ben had a red kite. He ran up the hill to fly it. The wind picked it up and sent it high into the blue sky. Ben let out more string and the kite went even higher. His dog sat and watched the kite spin and dip in the wind.",
+    "passageId": "16.2",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What was the colour of Ben's kite?",
+    "displayWord": "",
+    "passageRef": "16.2",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Red"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "How do you think Ben felt when his kite went very high?",
+    "displayWord": "",
+    "passageRef": "16.2",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "Excited or happy — he let out more string showing he wanted it to go higher"
+  }
+]

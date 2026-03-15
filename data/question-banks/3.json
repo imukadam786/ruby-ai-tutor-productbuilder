@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "sun • run",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'top'? Say just the sound, not the letter name.",
+    "displayWord": "top",
+    "answerMode": "voice",
+    "expectedAnswer": "/t/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "D",
+    "answerMode": "voice",
+    "expectedAnswer": "/d/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "I",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɪ/ (short i as in itch)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "FUG",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "fug"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'fug'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/f/ / /u/ / /g/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "th",
+    "answerMode": "voice",
+    "expectedAnswer": "/θ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "STIM",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "stim"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "NOTE",
+    "answerMode": "voice",
+    "expectedAnswer": "note",
+    "vowelPattern": "long o"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BOAT",
+    "answerMode": "voice",
+    "expectedAnswer": "boat",
+    "vowelTeam": "oa",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "AND",
+    "answerMode": "voice",
+    "expectedAnswer": "and",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BIRD",
+    "answerMode": "voice",
+    "expectedAnswer": "bird",
+    "rControlledPattern": "ir"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "RABBIT",
+    "answerMode": "voice",
+    "expectedAnswer": "rabbit",
+    "syllableBreak": "rab·bit"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "REMEMBER",
+    "answerMode": "voice",
+    "expectedAnswer": "remember",
+    "syllableBreak": "re·mem·ber"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "PREHEAT",
+    "answerMode": "voice",
+    "expectedAnswer": "pre",
+    "affixType": "prefix",
+    "targetAffix": "pre"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The hen sat in the nest on top of six eggs. She kept them warm all day and all night. One morning, the eggs began to crack. Six small chicks came out and called for food. The hen clucked and led her chicks into the sun.",
+    "passageId": "16.3",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "How many eggs did the hen sit on?",
+    "displayWord": "",
+    "passageRef": "16.3",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Six"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why did the mother hen lead her chicks into the sun?",
+    "displayWord": "",
+    "passageRef": "16.3",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "To keep them warm — logical for newly hatched chicks"
+  }
+]

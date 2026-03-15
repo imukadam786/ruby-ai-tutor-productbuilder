@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "clock • clap",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'led'? Say just the sound, not the letter name.",
+    "displayWord": "led",
+    "answerMode": "voice",
+    "expectedAnswer": "/l/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "F",
+    "answerMode": "voice",
+    "expectedAnswer": "/f/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "a",
+    "answerMode": "voice",
+    "expectedAnswer": "/æ/ (short a as in apple)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "WOK",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "wok"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'jif'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/j/ / /i/ / /f/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters WH make in this word?",
+    "displayWord": "WHEN",
+    "answerMode": "voice",
+    "expectedAnswer": "/w/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PLAN",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "plan"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "LUME",
+    "answerMode": "voice",
+    "expectedAnswer": "lume",
+    "vowelPattern": "long u"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "FEAN",
+    "answerMode": "voice",
+    "expectedAnswer": "fean",
+    "vowelTeam": "ea",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "KNOW",
+    "answerMode": "voice",
+    "expectedAnswer": "know",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "NAR",
+    "answerMode": "voice",
+    "expectedAnswer": "nar",
+    "rControlledPattern": "ar"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "GABFOT",
+    "answerMode": "voice",
+    "expectedAnswer": "gabfot",
+    "syllableBreak": "gab·fot"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "ROPKELNUM",
+    "answerMode": "voice",
+    "expectedAnswer": "ropkelnum",
+    "syllableBreak": "rop·kel·num"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "UNPACK",
+    "answerMode": "voice",
+    "expectedAnswer": "un",
+    "affixType": "prefix",
+    "targetAffix": "un"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The old library smelled of dust and wood and something sweet. The shelves went all the way to the ceiling. There was a ladder on a rail that you could slide along to reach the high shelves. The librarian could slide right across the room in one push.",
+    "passageId": "16.46",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What could you do with the ladder in the library?",
+    "displayWord": "",
+    "passageRef": "16.46",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Slide it along a rail to reach the high shelves"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does the librarian being able to slide across the room tell you?",
+    "displayWord": "",
+    "passageRef": "16.46",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "The library was large and the shelf system was designed for efficient access"
+  }
+]

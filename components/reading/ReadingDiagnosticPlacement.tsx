@@ -30,187 +30,215 @@ interface Task {
   passage?: string;           // D16 full passage
 }
 
-const TASKS: Task[] = [
-  {
-    id: "D01", domain: "Phonological Awareness",
-    question: "Do these two words rhyme?",
-    subText: "Rhyming words sound the same at the end.",
-    displayWord: "cat   •   hat",
-    answerMode: "choice",
-    choices: [
-      { label: "Yes — they rhyme! 🎵", value: "yes", correct: true },
-      { label: "No — they don't rhyme", value: "no", correct: false },
-    ],
-  },
-  {
-    id: "D02", domain: "Phoneme Isolation",
-    question: "What is the very FIRST sound you hear in the word…",
-    displayWord: "sun",
-    answerMode: "choice",
-    choices: [
-      { label: "/s/  as in sock", value: "/s/", correct: true },
-      { label: "/u/  as in up", value: "/u/", correct: false },
-      { label: "/n/  as in net", value: "/n/", correct: false },
-      { label: "/m/  as in mat", value: "/m/", correct: false },
-    ],
-  },
-  {
-    id: "D03", domain: "Letter Sound — Consonant",
-    question: "What sound does this letter make?",
-    subText: "Say the sound, not the name.",
-    displayWord: "M",
-    answerMode: "choice",
-    choices: [
-      { label: "/m/  mmmm", value: "/m/", correct: true },
-      { label: "/n/  nnnn", value: "/n/", correct: false },
-      { label: "/b/  bbbb", value: "/b/", correct: false },
-      { label: "/p/  pppp", value: "/p/", correct: false },
-    ],
-  },
-  {
-    id: "D04", domain: "Letter Sound — Vowel",
-    question: "What SHORT sound does this letter make?",
-    subText: "Think of the sound in a short word.",
-    displayWord: "A",
-    answerMode: "choice",
-    choices: [
-      { label: "/a/  like apple 🍎", value: "/a/", correct: true },
-      { label: "/ay/ like cake 🎂", value: "/ay/", correct: false },
-      { label: "/e/  like bed 🛏️", value: "/e/", correct: false },
-      { label: "/o/  like hot 🔥", value: "/o/", correct: false },
-    ],
-  },
-  {
-    id: "D05", domain: "CVC Decoding",
-    question: "Read this word out loud for me.",
-    displayWord: "nop",
-    answerMode: "voice",
-    expectedAnswer: "nop",
-    voiceHint: "Tap the mic and say the word you see",
-  },
-  {
-    id: "D06", domain: "CVC Encoding",
-    question: "How many sounds are in this word?",
-    subText: "Say the sounds quietly to yourself first.",
-    displayWord: "bim",
-    answerMode: "choice",
-    choices: [
-      { label: "2 sounds", value: "2", correct: false },
-      { label: "3 sounds — b · i · m", value: "3", correct: true },
-      { label: "4 sounds", value: "4", correct: false },
-      { label: "5 sounds", value: "5", correct: false },
-    ],
-  },
-  {
-    id: "D07", domain: "Digraph Recognition",
-    question: "What ONE sound do these two letters make together?",
-    displayWord: "sh",
-    answerMode: "choice",
-    choices: [
-      { label: "/sh/  like ship 🚢", value: "/sh/", correct: true },
-      { label: "/s/ + /h/ — two separate sounds", value: "s+h", correct: false },
-      { label: "/ch/  like chin", value: "/ch/", correct: false },
-      { label: "/th/  like this", value: "/th/", correct: false },
-    ],
-  },
-  {
-    id: "D08", domain: "Consonant Blend Decoding",
-    question: "Read this word out loud for me.",
-    displayWord: "trup",
-    answerMode: "voice",
-    expectedAnswer: "trup",
-    voiceHint: "Tap the mic and say the word you see",
-  },
-  {
-    id: "D09", domain: "Long Vowel / Silent E",
-    question: "Read this word out loud for me.",
-    displayWord: "bake",
-    answerMode: "voice",
-    expectedAnswer: "bake",
-    voiceHint: "Tap the mic and say the word you see",
-  },
-  {
-    id: "D10", domain: "Vowel Teams",
-    question: "Read this word out loud for me.",
-    displayWord: "rain",
-    answerMode: "voice",
-    expectedAnswer: "rain",
-    voiceHint: "Tap the mic and say the word you see",
-  },
-  {
-    id: "D11", domain: "Sight Words",
-    question: "A word will flash on screen — remember it!",
-    subText: "Then choose the word you saw.",
-    flashWord: "where",
-    flashMs: 1500,
-    answerMode: "flash_choice",
-    choices: [
-      { label: "where", value: "where", correct: true },
-      { label: "were", value: "were", correct: false },
-      { label: "here", value: "here", correct: false },
-      { label: "there", value: "there", correct: false },
-    ],
-  },
-  {
-    id: "D12", domain: "R-Controlled Vowels",
-    question: "Read this word out loud for me.",
-    displayWord: "fern",
-    answerMode: "voice",
-    expectedAnswer: "fern",
-    voiceHint: "Tap the mic and say the word you see",
-  },
-  {
-    id: "D13", domain: "Two-Syllable Decoding",
-    question: "Read this word out loud for me.",
-    displayWord: "napkin",
-    answerMode: "voice",
-    expectedAnswer: "napkin",
-    voiceHint: "Tap the mic and say the word you see",
-  },
-  {
-    id: "D14", domain: "Multisyllabic Decoding",
-    question: "Read this word out loud for me.",
-    displayWord: "fantastic",
-    answerMode: "voice",
-    expectedAnswer: "fantastic",
-    voiceHint: "Tap the mic and say the word you see",
-  },
-  {
-    id: "D15", domain: "Prefix / Suffix Recognition",
-    question: "Which part at the beginning changes the meaning of this word?",
-    displayWord: "unkind",
-    answerMode: "choice",
-    choices: [
-      { label: "un —", value: "un", correct: true },
-      { label: "kind", value: "kind", correct: false },
-      { label: "unk —", value: "unk", correct: false },
-      { label: "— ind", value: "ind", correct: false },
-    ],
-  },
-  {
-    id: "D16", domain: "Fluency Passage",
-    question: "Read this passage out loud, as smoothly as you can.",
-    passage: FLUENCY_PASSAGE,
-    answerMode: "voice",
-    expectedAnswer: FLUENCY_PASSAGE,
-    voiceHint: "Tap the mic and read the whole passage",
-  },
-  {
-    id: "D17", domain: "Literal Comprehension",
-    question: "From the story you just read — where did Sam go?",
-    subText: "Use what the story told you.",
-    answerMode: "voice",
-    expectedAnswer: "barn",
-    voiceHint: "Tap the mic and answer out loud",
-  },
-  {
-    id: "D18", domain: "Inferential Comprehension",
-    question: "The story didn't tell us — why do you think Max licked Sam's hand?",
-    subText: "Think about what you know about dogs.",
-    answerMode: "voice",
-    voiceHint: "Tap the mic and share your thinking",
-  },
-];
+// ── Dynamic task loader ───────────────────────────────────────────────────────
+async function loadRandomQuestionPaper(): Promise<Task[]> {
+    const randomNumber = Math.floor(Math.random() * 50) + 1; // 1–50
+    const paper = await import(
+        `@/components/data/question-banks/${randomNumber}.json`
+    );
+    return paper.default as Task[];
+}
+
+// ── State to hold loaded tasks ───────────────────────────────────────────────
+const [TASKS, setTASKS] = useState<Task[]>([]);
+
+useEffect(() => {
+    let cancelled = false;
+
+    const fetchTasks = async () => {
+        let tasks: Task[] = [];
+        while (!cancelled && tasks.length === 0) {
+            tasks = await loadRandomQuestionPaper();
+        }
+        if (!cancelled) setTASKS(tasks);
+    };
+
+    fetchTasks();
+
+    return () => { cancelled = true; };
+}, []);
+
+//const TASKS: Task[] = [
+//  {
+//    id: "D01", domain: "Phonological Awareness",
+//    question: "Do these two words rhyme?",
+//    subText: "Rhyming words sound the same at the end.",
+//    displayWord: "cat   •   hat",
+//    answerMode: "choice",
+//    choices: [
+//      { label: "Yes — they rhyme! 🎵", value: "yes", correct: true },
+//      { label: "No — they don't rhyme", value: "no", correct: false },
+//    ],
+//  },
+//  {
+//    id: "D02", domain: "Phoneme Isolation",
+//    question: "What is the very FIRST sound you hear in the word…",
+//    displayWord: "sun",
+//    answerMode: "choice",
+//    choices: [
+//      { label: "/s/  as in sock", value: "/s/", correct: true },
+//      { label: "/u/  as in up", value: "/u/", correct: false },
+//      { label: "/n/  as in net", value: "/n/", correct: false },
+//      { label: "/m/  as in mat", value: "/m/", correct: false },
+//    ],
+//  },
+//  {
+//    id: "D03", domain: "Letter Sound — Consonant",
+//    question: "What sound does this letter make?",
+//    subText: "Say the sound, not the name.",
+//    displayWord: "M",
+//    answerMode: "choice",
+//    choices: [
+//      { label: "/m/  mmmm", value: "/m/", correct: true },
+//      { label: "/n/  nnnn", value: "/n/", correct: false },
+//      { label: "/b/  bbbb", value: "/b/", correct: false },
+//      { label: "/p/  pppp", value: "/p/", correct: false },
+//    ],
+//  },
+//  {
+//    id: "D04", domain: "Letter Sound — Vowel",
+//    question: "What SHORT sound does this letter make?",
+//    subText: "Think of the sound in a short word.",
+//    displayWord: "A",
+//    answerMode: "choice",
+//    choices: [
+//      { label: "/a/  like apple 🍎", value: "/a/", correct: true },
+//      { label: "/ay/ like cake 🎂", value: "/ay/", correct: false },
+//      { label: "/e/  like bed 🛏️", value: "/e/", correct: false },
+//      { label: "/o/  like hot 🔥", value: "/o/", correct: false },
+//    ],
+//  },
+//  {
+//    id: "D05", domain: "CVC Decoding",
+//    question: "Read this word out loud for me.",
+//    displayWord: "nop",
+//    answerMode: "voice",
+//    expectedAnswer: "nop",
+//    voiceHint: "Tap the mic and say the word you see",
+//  },
+//  {
+//    id: "D06", domain: "CVC Encoding",
+//    question: "How many sounds are in this word?",
+//    subText: "Say the sounds quietly to yourself first.",
+//    displayWord: "bim",
+//    answerMode: "choice",
+//    choices: [
+//      { label: "2 sounds", value: "2", correct: false },
+//      { label: "3 sounds — b · i · m", value: "3", correct: true },
+//      { label: "4 sounds", value: "4", correct: false },
+//      { label: "5 sounds", value: "5", correct: false },
+//    ],
+//  },
+//  {
+//    id: "D07", domain: "Digraph Recognition",
+//    question: "What ONE sound do these two letters make together?",
+//    displayWord: "sh",
+//    answerMode: "choice",
+//    choices: [
+//      { label: "/sh/  like ship 🚢", value: "/sh/", correct: true },
+//      { label: "/s/ + /h/ — two separate sounds", value: "s+h", correct: false },
+//      { label: "/ch/  like chin", value: "/ch/", correct: false },
+//      { label: "/th/  like this", value: "/th/", correct: false },
+//    ],
+//  },
+//  {
+//    id: "D08", domain: "Consonant Blend Decoding",
+//    question: "Read this word out loud for me.",
+//    displayWord: "trup",
+//    answerMode: "voice",
+//    expectedAnswer: "trup",
+//    voiceHint: "Tap the mic and say the word you see",
+//  },
+//  {
+//    id: "D09", domain: "Long Vowel / Silent E",
+//    question: "Read this word out loud for me.",
+//    displayWord: "bake",
+//    answerMode: "voice",
+//    expectedAnswer: "bake",
+//    voiceHint: "Tap the mic and say the word you see",
+//  },
+//  {
+//    id: "D10", domain: "Vowel Teams",
+//    question: "Read this word out loud for me.",
+//    displayWord: "rain",
+//    answerMode: "voice",
+//    expectedAnswer: "rain",
+//    voiceHint: "Tap the mic and say the word you see",
+//  },
+//  {
+//    id: "D11", domain: "Sight Words",
+//    question: "A word will flash on screen — remember it!",
+//    subText: "Then choose the word you saw.",
+//    flashWord: "where",
+//    flashMs: 1500,
+//    answerMode: "flash_choice",
+//    choices: [
+//      { label: "where", value: "where", correct: true },
+//      { label: "were", value: "were", correct: false },
+//      { label: "here", value: "here", correct: false },
+//      { label: "there", value: "there", correct: false },
+//    ],
+//  },
+//  {
+//    id: "D12", domain: "R-Controlled Vowels",
+//    question: "Read this word out loud for me.",
+//    displayWord: "fern",
+//    answerMode: "voice",
+//    expectedAnswer: "fern",
+//    voiceHint: "Tap the mic and say the word you see",
+//  },
+//  {
+//    id: "D13", domain: "Two-Syllable Decoding",
+//    question: "Read this word out loud for me.",
+//    displayWord: "napkin",
+//    answerMode: "voice",
+//    expectedAnswer: "napkin",
+//    voiceHint: "Tap the mic and say the word you see",
+//  },
+//  {
+//    id: "D14", domain: "Multisyllabic Decoding",
+//    question: "Read this word out loud for me.",
+//    displayWord: "fantastic",
+//    answerMode: "voice",
+//    expectedAnswer: "fantastic",
+//    voiceHint: "Tap the mic and say the word you see",
+//  },
+//  {
+//    id: "D15", domain: "Prefix / Suffix Recognition",
+//    question: "Which part at the beginning changes the meaning of this word?",
+//    displayWord: "unkind",
+//    answerMode: "choice",
+//    choices: [
+//      { label: "un —", value: "un", correct: true },
+//      { label: "kind", value: "kind", correct: false },
+//      { label: "unk —", value: "unk", correct: false },
+//      { label: "— ind", value: "ind", correct: false },
+//    ],
+//  },
+//  {
+//    id: "D16", domain: "Fluency Passage",
+//    question: "Read this passage out loud, as smoothly as you can.",
+//    passage: FLUENCY_PASSAGE,
+//    answerMode: "voice",
+//    expectedAnswer: FLUENCY_PASSAGE,
+//    voiceHint: "Tap the mic and read the whole passage",
+//  },
+//  {
+//    id: "D17", domain: "Literal Comprehension",
+//    question: "From the story you just read — where did Sam go?",
+//    subText: "Use what the story told you.",
+//    answerMode: "voice",
+//    expectedAnswer: "barn",
+//    voiceHint: "Tap the mic and answer out loud",
+//  },
+//  {
+//    id: "D18", domain: "Inferential Comprehension",
+//    question: "The story didn't tell us — why do you think Max licked Sam's hand?",
+//    subText: "Think about what you know about dogs.",
+//    answerMode: "voice",
+//    voiceHint: "Tap the mic and share your thinking",
+//  },
+//];
 
 // ── Skill name map ─────────────────────────────────────────────────────────────
 

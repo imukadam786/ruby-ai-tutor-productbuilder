@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "rain • train",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'zip'? Say just the sound, not the letter name.",
+    "displayWord": "zip",
+    "answerMode": "voice",
+    "expectedAnswer": "/z/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "T",
+    "answerMode": "voice",
+    "expectedAnswer": "/t/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "a",
+    "answerMode": "voice",
+    "expectedAnswer": "/æ/ (short a as in apple)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SIB",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "sib"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'sib'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/s/ / /i/ / /b/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "wh",
+    "answerMode": "voice",
+    "expectedAnswer": "/w/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PLEM",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "plem"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "MULE",
+    "answerMode": "voice",
+    "expectedAnswer": "mule",
+    "vowelPattern": "long u"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ROOF",
+    "answerMode": "voice",
+    "expectedAnswer": "roof",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "SOME",
+    "answerMode": "voice",
+    "expectedAnswer": "some",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "STAR",
+    "answerMode": "voice",
+    "expectedAnswer": "star",
+    "rControlledPattern": "ar"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ROCKET",
+    "answerMode": "voice",
+    "expectedAnswer": "rocket",
+    "syllableBreak": "rock·et"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "CONFUSION",
+    "answerMode": "voice",
+    "expectedAnswer": "confusion",
+    "syllableBreak": "con·fu·sion"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "UNZIP",
+    "answerMode": "voice",
+    "expectedAnswer": "un",
+    "affixType": "prefix",
+    "targetAffix": "un"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "Finn woke up early and looked out. Snow had fallen in the night. The garden was white and still. He pulled on his boots and coat and ran outside. He made a big snowball and rolled it across the lawn until it was too heavy to push.",
+    "passageId": "16.16",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did Finn do with the snowball?",
+    "displayWord": "",
+    "passageRef": "16.16",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Rolled it across the lawn until it was too heavy to push"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why did Finn stop rolling the snowball?",
+    "displayWord": "",
+    "passageRef": "16.16",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "It became too heavy to push any further"
+  }
+]

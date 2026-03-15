@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "star • step",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'dip'? Say just the sound, not the letter name.",
+    "displayWord": "dip",
+    "answerMode": "voice",
+    "expectedAnswer": "/d/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "C",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "o",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɒ/ (short o as in odd)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "FEN",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "fen"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'dak'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/d/ / /a/ / /k/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters CH make in this word?",
+    "displayWord": "CHIP",
+    "answerMode": "voice",
+    "expectedAnswer": "/tʃ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "CRAB",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "crab"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "VIKE",
+    "answerMode": "voice",
+    "expectedAnswer": "vike",
+    "vowelPattern": "long i"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "TOOF",
+    "answerMode": "voice",
+    "expectedAnswer": "toof",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "HOW",
+    "answerMode": "voice",
+    "expectedAnswer": "how",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "TORM",
+    "answerMode": "voice",
+    "expectedAnswer": "torm",
+    "rControlledPattern": "or"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MEFNOP",
+    "answerMode": "voice",
+    "expectedAnswer": "mefnop",
+    "syllableBreak": "mef·nop"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "HOBPIGVOM",
+    "answerMode": "voice",
+    "expectedAnswer": "hobpigvom",
+    "syllableBreak": "hob·pig·vom"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "CHEERFUL",
+    "answerMode": "voice",
+    "expectedAnswer": "ful",
+    "affixType": "suffix",
+    "targetAffix": "ful"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The dam held back a wide lake of still water. Fish jumped near the edges in the early morning. A heron stood on a flat stone at the far end and waited. A man came along the path with a bag and a rod and sat down nearby.",
+    "passageId": "16.44",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What was the heron doing at the dam?",
+    "displayWord": "",
+    "passageRef": "16.44",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Standing on a flat stone, waiting"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why do you think the heron was standing still on the stone?",
+    "displayWord": "",
+    "passageRef": "16.44",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "It was fishing — herons hunt by standing motionless near water waiting for fish"
+  }
+]
