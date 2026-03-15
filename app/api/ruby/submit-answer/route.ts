@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { groq, GROQ_MODEL } from "@/lib/anthropic";
+import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getSkillById } from "@/lib/student-model";
 import {
   checkAnswerCorrectness,
@@ -39,8 +39,8 @@ export async function POST(req: NextRequest) {
       preClassifiedError
     );
 
-    const aiResponse = await groq.chat.completions.create({
-      model: GROQ_MODEL,
+    const aiResponse = await getOpenAI().chat.completions.create({
+      model: OPENAI_MODEL,
       max_tokens: 1024,
       messages: [{ role: "user", content: diagnosticPrompt }],
     });

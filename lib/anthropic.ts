@@ -1,9 +1,17 @@
 import Groq from "groq-sdk";
+import OpenAI from "openai";
 
+// Groq kept for backwards compatibility but all routes now use OpenAI
 export const groq = new Groq({ apiKey: process.env.GROQ_API_KEY ?? "placeholder" });
-
 export const GROQ_MODEL = "llama-3.3-70b-versatile";
 export const GROQ_VISION_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct";
+
+// OpenAI — primary model for all question generation and answer evaluation
+export function getOpenAI() {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
+}
+export const OPENAI_MODEL = "gpt-4o-mini";
+export const OPENAI_SMART_MODEL = "gpt-4o";
 
 export const TUTOR_SYSTEM_PROMPT = `You are Ruby, an AI learning tutor designed to help students understand concepts, develop reasoning skills, and complete schoolwork independently. You support learners from early primary through secondary school by identifying the smallest skill a student is missing and rebuilding understanding step by step.
 

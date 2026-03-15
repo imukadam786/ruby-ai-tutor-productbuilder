@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { groq, GROQ_MODEL } from "@/lib/anthropic";
+import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import { ReadingTemplate, ReadingGeneratedQuestion } from "@/types/reading";
 
@@ -165,8 +165,8 @@ Important:
 - expected_answer must be precise
 - Match difficulty exactly to the skill level`;
 
-    const response = await groq.chat.completions.create({
-      model: GROQ_MODEL,
+    const response = await getOpenAI().chat.completions.create({
+      model: OPENAI_MODEL,
       max_tokens: 1024,
       messages: [{ role: "user", content: prompt }],
     });

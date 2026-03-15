@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { groq, GROQ_MODEL } from "@/lib/anthropic";
+import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import {
   ReadingAnswerSubmission,
@@ -166,8 +166,8 @@ Respond in this exact JSON format (no markdown, raw JSON only):
 
 Keep language simple, warm, and age-appropriate for a primary school child.`;
 
-    const aiResponse = await groq.chat.completions.create({
-      model: GROQ_MODEL,
+    const aiResponse = await getOpenAI().chat.completions.create({
+      model: OPENAI_MODEL,
       max_tokens: 512,
       messages: [{ role: "user", content: prompt }],
     });
