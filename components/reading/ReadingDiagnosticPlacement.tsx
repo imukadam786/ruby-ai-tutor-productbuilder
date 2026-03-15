@@ -370,7 +370,7 @@ export default function ReadingDiagnosticPlacement({
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!SR) { alert("Voice input not supported in this browser. Please use Chrome."); return; }
     const rec = new SR();
-    rec.continuous = false;
+    rec.continuous = true;
     rec.interimResults = true;
     rec.lang = "en-US";
     rec.onstart = () => setListening(true);
@@ -384,8 +384,6 @@ export default function ReadingDiagnosticPlacement({
     };
     srRef.current = rec;
     rec.start();
-    // Auto-stop after 10s
-    timerRef.current = setTimeout(() => rec.stop(), 10000);
   }, []);
 
   const stopVoice = useCallback(() => {
@@ -732,16 +730,16 @@ export default function ReadingDiagnosticPlacement({
                   </div>
                 )}
 
-                {/* Submit voice */}
+                {/* Submit voice — always shown; enabled once transcript exists or mic is active */}
                 {canSubmitVoice && (
                   <button
                     onClick={handleVoiceSubmit}
-                    disabled={!transcript || submitting}
+                    disabled={(!transcript && !listening) || submitting}
                     className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                   >
                     {submitting ? (
                       <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Saving…</>
-                    ) : "Continue →"}
+                    ) : listening ? "Stop & Submit →" : "Submit →"}
                   </button>
                 )}
               </div>

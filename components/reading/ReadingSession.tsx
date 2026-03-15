@@ -843,7 +843,7 @@ function ReadingQuestionCard({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     const rec = new SR();
-    rec.continuous = false;
+    rec.continuous = true;
     rec.interimResults = true;
     rec.lang = "en-US";
     rec.onstart = () => setListening(true);
@@ -864,7 +864,8 @@ function ReadingQuestionCard({
   const stopVoice = () => { recognitionRef.current?.stop(); setListening(false); };
 
   const handleSubmit = () => {
-    if (!answer.trim() || submitting) return;
+    if ((!answer.trim() && !listening) || submitting) return;
+    if (listening) stopVoice();
     cancelSpeechRef.current?.();
     setPlaying(false);
     setSubmitting(true);
@@ -995,7 +996,7 @@ function ReadingQuestionCard({
 
         <button
           onClick={handleSubmit}
-          disabled={!answer.trim() || submitting}
+          disabled={(!answer.trim() && !listening) || submitting}
           className="w-full bg-purple-500 hover:bg-purple-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white py-3 rounded-xl font-medium transition-all shadow-md flex items-center justify-center gap-2"
         >
           {submitting ? (
@@ -1003,6 +1004,8 @@ function ReadingQuestionCard({
               <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
               Checking...
             </>
+          ) : listening ? (
+            "Stop & Submit"
           ) : (
             "Submit Answer"
           )}
