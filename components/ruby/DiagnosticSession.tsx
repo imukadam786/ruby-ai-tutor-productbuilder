@@ -22,12 +22,73 @@ import {
 import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
 import { updateSkillMastery, initSkillMastery, determineNextAction, buildReviewQueue, recordMathsSession } from "@/lib/mastery-engine";
-import { getDomainForSkill, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
+import { getDomainForSkill, getDomain, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
 import { selectMathsTemplate } from "@/lib/template-selector";
+import type { DiagnosticReportInput } from "@/lib/report-generator";
 
 type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
+
+// ─── Report input builder ─────────────────────────────────────────────────────
+// Constructs DiagnosticReportInput from the completed student profile.
+// Called after placement completes; runs client-side since profile is in localStorage.
+
+function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
+  const placement = profile.placement!;
+
+  // Group tasks by domain — count score and collect error types
+  const domainMap: Record<string, { scores: number[]; errors: string[] }> = {};
+  for (const task of placement.tasks) {
+    if (!domainMap[task.domain]) domainMap[task.domain] = { scores: [], errors: [] };
+    domainMap[task.domain].scores.push(task.correct ? 1 : task.score ?? 0);
+    if (task.error_type && task.error_type !== "correct") {
+      domainMap[task.domain].errors.push(task.error_type);
+    }
+  }
+
+  // Build per-domain score objects
+  const domainScores = Object.entries(domainMap).map(([domainId, data]) => {
+    const avg = data.scores.reduce((a, b) => a + b, 0) / data.scores.length;
+    const score = Math.round(avg * 100);
+    const label: "strong" | "building" | "practice" =
+      avg >= 0.8 ? "strong" : avg >= 0.6 ? "building" : "practice";
+    const primaryError = data.errors.length > 0 ? data.errors[0] : null;
+    // Get human-readable domain title from question bank
+    const domainTitle = getDomain(domainId)?.title ?? domainId;
+    return { domain: domainTitle, score, label, errorNote: primaryError };
+  });
+
+  // Derive dominant errors (top 3 by frequency across all tasks)
+  const errorCounts: Record<string, number> = {};
+  placement.tasks.forEach((t) => {
+    if (t.error_type && t.error_type !== "correct") {
+      errorCounts[t.error_type] = (errorCounts[t.error_type] ?? 0) + 1;
+    }
+  });
+  const dominantErrors = Object.entries(errorCounts)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 3)
+    .map(([code]) => code);
+
+  // Entry skill plain name
+  const entrySkill = getSkillById(placement.entrySkillId);
+  const placementSkill = entrySkill?.title ?? placement.entrySkillId;
+
+  return {
+    subject: "maths",
+    studentName: profile.name.split(" ")[0],
+    studentGrade: profile.grade,
+    workingLevel: `Grade ${placement.entryLevel}`,
+    gradeLevelGap: profile.grade - placement.entryLevel,
+    questionsAnalysed: placement.tasks.length,
+    domainScores,
+    dominantErrors,
+    placementSkill,
+    hardGateBlocked: !placement.hardGatePassed,
+    skillsCompleted: placement.autoCompletedSkillIds.length,
+  };
+}
 
 function readOnboarding(): { name: string; grade: number } {
   try {
@@ -380,6 +441,20 @@ export default function DiagnosticSession() {
       const updatedProfile = completeMathsPlacement(profile, result);
       setProfile(updatedProfile);
       setPhase("loading_question");
+
+      // Fire-and-forget report generation — failure must never block the student
+      try {
+        const input = buildMathsReportInput(updatedProfile);
+        fetch("/api/reports/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ input }),
+        }).catch((err) =>
+          console.error("[DiagnosticComplete] Report generation failed silently:", err)
+        );
+      } catch (err) {
+        console.error("[DiagnosticComplete] Report input build failed:", err);
+      }
     },
     [profile]
   );
