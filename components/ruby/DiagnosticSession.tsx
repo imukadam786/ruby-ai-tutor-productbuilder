@@ -7,6 +7,7 @@ import {
   DiagnosticResult,
   SkillAttempt,
   QuestionTemplate,
+  MathsSessionRecord,
 } from "@/types/ruby";
 import {
   getStudentProfile,
@@ -20,7 +21,7 @@ import {
 } from "@/lib/student-model";
 import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
-import { updateSkillMastery, initSkillMastery, determineNextAction, buildReviewQueue } from "@/lib/mastery-engine";
+import { updateSkillMastery, initSkillMastery, determineNextAction, buildReviewQueue, recordMathsSession } from "@/lib/mastery-engine";
 import { getDomainForSkill, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
@@ -68,6 +69,10 @@ export default function DiagnosticSession() {
   const [reviewAttempts, setReviewAttempts] = useState(0);
   // activeSkillId holds the student's real current skill while reviewing
   const [activeSkillId, setActiveSkillId] = useState<string | null>(null);
+
+  // Cross-session stability — one session record per skill per session
+  const hasRecordedSession = useRef(false);
+  const sessionIdRef = useRef<string>(crypto.randomUUID());
 
   useEffect(() => {
     const saved = getStudentProfile();
@@ -301,7 +306,23 @@ export default function DiagnosticSession() {
       const skill = getSkillById(profile.current_skill_id);
       if (skill && skill.prerequisites.length > 0) {
         const prereqId = skill.prerequisites[skill.prerequisites.length - 1];
-        const updated = advanceToSkill(profile, prereqId);
+        // Record session as not passed — student is backtracking off this skill
+        let latestProfile = profile;
+        if (!hasRecordedSession.current) {
+          hasRecordedSession.current = true;
+          const mastery = profile.skill_mastery[profile.current_skill_id];
+          if (mastery) {
+            const record: MathsSessionRecord = {
+              sessionId: sessionIdRef.current,
+              timestamp: Date.now(),
+              accuracy: sessionAttempts > 0 ? sessionCorrect / sessionAttempts : 0,
+              passed: false,
+            };
+            const updatedMastery = recordMathsSession(mastery, record);
+            latestProfile = { ...profile, skill_mastery: { ...profile.skill_mastery, [profile.current_skill_id]: updatedMastery } };
+          }
+        }
+        const updated = advanceToSkill(latestProfile, prereqId);
         setProfile(updated);
         setSkillAttemptCount(0);
         setTemplateIndex(0);
@@ -329,9 +350,25 @@ export default function DiagnosticSession() {
 
   const handleNextAfterMastered = () => {
     if (!profile) return;
-    const nextSkillId = getNextSkillId(profile.current_skill_id);
+    // Record session as passed — student has met stability and is advancing
+    let latestProfile = profile;
+    if (!hasRecordedSession.current) {
+      hasRecordedSession.current = true;
+      const mastery = profile.skill_mastery[profile.current_skill_id];
+      if (mastery) {
+        const record: MathsSessionRecord = {
+          sessionId: sessionIdRef.current,
+          timestamp: Date.now(),
+          accuracy: sessionAttempts > 0 ? sessionCorrect / sessionAttempts : 1,
+          passed: true,
+        };
+        const updatedMastery = recordMathsSession(mastery, record);
+        latestProfile = { ...profile, skill_mastery: { ...profile.skill_mastery, [profile.current_skill_id]: updatedMastery } };
+      }
+    }
+    const nextSkillId = getNextSkillId(latestProfile.current_skill_id);
     if (nextSkillId) {
-      const updated = advanceToSkill(profile, nextSkillId);
+      const updated = advanceToSkill(latestProfile, nextSkillId);
       setProfile(updated);
       setSkillAttemptCount(0);
       setTemplateIndex(0);
@@ -411,6 +448,37 @@ export default function DiagnosticSession() {
   profileRef.current = profile;
   const actionsRef = useRef({ resetToPlacement, resetSkillTree });
   actionsRef.current = { resetToPlacement, resetSkillTree };
+
+  // Reset session-record flag when the student moves to a new skill
+  const prevSkillRef = useRef<string | null>(null);
+  if (profile && profile.current_skill_id !== prevSkillRef.current) {
+    prevSkillRef.current = profile.current_skill_id;
+    hasRecordedSession.current = false;
+    sessionIdRef.current = crypto.randomUUID();
+  }
+
+  // On unmount — write a session record if not already written for this skill
+  useEffect(() => {
+    return () => {
+      const p = profileRef.current;
+      if (!p || hasRecordedSession.current) return;
+      hasRecordedSession.current = true;
+      const mastery = p.skill_mastery[p.current_skill_id];
+      if (!mastery) return;
+      const record: MathsSessionRecord = {
+        sessionId: sessionIdRef.current,
+        timestamp: Date.now(),
+        accuracy: 0,
+        passed: mastery.status === "mastered",
+      };
+      const updatedMastery = recordMathsSession(mastery, record);
+      const updatedProfile = { ...p, skill_mastery: { ...p.skill_mastery, [p.current_skill_id]: updatedMastery } };
+      // saveStudentProfile is called inside student-model — import inline to avoid circular dep
+      if (typeof window !== "undefined") {
+        localStorage.setItem("ruby_student_profile", JSON.stringify(updatedProfile));
+      }
+    };
+  }, []);
 
   // Mobile pencil icon → dispatches this event
   useEffect(() => {

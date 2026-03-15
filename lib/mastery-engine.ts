@@ -1,5 +1,6 @@
 import {
   SkillMastery,
+  MathsSessionRecord,
   MasteryStatus,
   SkillAttempt,
   QuestionTemplate,
@@ -52,6 +53,7 @@ export function initSkillMastery(skillId: string): SkillMastery {
     formats_used: [],
     scaffolded_attempts: 0,
     last_attempted: new Date().toISOString(),
+    session_history: [],
     attempts: [],
   };
 }
@@ -125,8 +127,9 @@ export function determineNextAction(
     }
   }
 
-  // 2. ADVANCE — existing mastery threshold (unchanged)
+  // 2. ADVANCE — mastery threshold met AND cross-session stability confirmed
   if (mastery.status === "mastered") {
+    if (!isMathsSessionStable(mastery)) return "practice"; // threshold met, not yet stable — keep practising
     if (masteredTiersInLevel >= totalTiersInLevel) return "advance_level";
     if (masteredSkillsInTier >= totalSkillsInTier) return "advance_tier";
     return "advance_skill";
@@ -157,6 +160,35 @@ export function determineNextAction(
 
   // 5. PRACTICE — default consolidation path
   return "practice";
+}
+
+// ─── Cross-Session Mastery Stability ─────────────────────────────────────────
+// ADVANCE requires passing on 2+ non-consecutive sessions with a 24h+ gap.
+// recordMathsSession() writes one entry per session; returns updated mastery.
+// isMathsSessionStable() checks the 2-session / 24h condition.
+
+export function recordMathsSession(
+  mastery: SkillMastery,
+  sessionRecord: MathsSessionRecord
+): SkillMastery {
+  const history = mastery.session_history ?? [];
+  // Prevent double-writing the same session
+  if (history.some((s) => s.sessionId === sessionRecord.sessionId)) return mastery;
+  return { ...mastery, session_history: [...history, sessionRecord] };
+}
+
+export function isMathsSessionStable(mastery: SkillMastery): boolean {
+  const passed = (mastery.session_history ?? [])
+    .filter((s) => s.passed)
+    .sort((a, b) => a.timestamp - b.timestamp);
+
+  if (passed.length < 2) return false;
+
+  const latest   = passed[passed.length - 1];
+  const previous = passed[passed.length - 2];
+  const hours24  = 24 * 60 * 60 * 1000;
+
+  return (latest.timestamp - previous.timestamp) >= hours24;
 }
 
 // ─── Spaced Repetition Check ──────────────────────────────────────────────────

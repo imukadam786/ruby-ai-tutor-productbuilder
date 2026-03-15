@@ -67,6 +67,13 @@ export interface SkillAttempt {
   timestamp: string;
 }
 
+export interface MathsSessionRecord {
+  sessionId: string;
+  timestamp: number;
+  accuracy:  number;   // correct / total for this session on this skill
+  passed:    boolean;  // met correct_required + formats_required
+}
+
 export interface SkillMastery {
   skill_id: string;
   status: MasteryStatus;
@@ -78,6 +85,7 @@ export interface SkillMastery {
   mastered_at?: string;
   last_reviewed_at?: string;
   needs_reinforcement?: boolean;
+  session_history?: MathsSessionRecord[];
   attempts: SkillAttempt[];
 }
 
