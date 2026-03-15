@@ -25,15 +25,7 @@ import { updateSkillMastery, initSkillMastery, determineNextAction, buildReviewQ
 import { getDomainForSkill, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
-
-const TEMPLATES: QuestionTemplate[] = ["concrete", "story", "symbolic"];
-
-const RETEACH_TEMPLATES: Record<string, QuestionTemplate> = {
-  execution_slip:            "story",
-  strategy_gap:              "concrete",
-  representation_confusion:  "concrete",
-  conceptual_gap:            "symbolic",
-};
+import { selectMathsTemplate } from "@/lib/template-selector";
 
 type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
 
@@ -55,7 +47,6 @@ export default function DiagnosticSession() {
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<GeneratedQuestion | null>(null);
   const [currentResult, setCurrentResult] = useState<DiagnosticResult | null>(null);
-  const [templateIndex, setTemplateIndex] = useState(0);
   const [skillAttemptCount, setSkillAttemptCount] = useState(0);
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
@@ -70,6 +61,9 @@ export default function DiagnosticSession() {
   const [reviewAttempts, setReviewAttempts] = useState(0);
   // activeSkillId holds the student's real current skill while reviewing
   const [activeSkillId, setActiveSkillId] = useState<string | null>(null);
+
+  // Recent templates — used by selectMathsTemplate for anti-repetition; last 3 kept
+  const recentTemplatesRef = useRef<QuestionTemplate[]>([]);
 
   // Cross-session stability — one session record per skill per session
   const hasRecordedSession = useRef(false);
@@ -137,10 +131,12 @@ export default function DiagnosticSession() {
 
   useEffect(() => {
     if (phase === "loading_question" && profile) {
-      const template = TEMPLATES[templateIndex % TEMPLATES.length];
+      const errorType = (currentResult && !currentResult.is_correct) ? (currentResult.error_type ?? null) : null;
+      const template = selectMathsTemplate(lastDecision, errorType, recentTemplatesRef.current);
+      recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
       loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, profile, lastDecision === "reteach");
     }
-  }, [phase, profile, templateIndex, skillAttemptCount, loadQuestion, lastDecision]);
+  }, [phase, profile, skillAttemptCount, loadQuestion, lastDecision]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
     if (!currentQuestion || !profile) return;
@@ -273,7 +269,7 @@ export default function DiagnosticSession() {
             setReviewQueue([]);
           }
           setSkillAttemptCount(0);
-          setTemplateIndex(0);
+          recentTemplatesRef.current = [];
           setPhase("loading_question");
           return;
         }
@@ -326,7 +322,7 @@ export default function DiagnosticSession() {
         const updated = advanceToSkill(latestProfile, prereqId);
         setProfile(updated);
         setSkillAttemptCount(0);
-        setTemplateIndex(0);
+        recentTemplatesRef.current = [];
         setReteachCount(0);
         setLastDecision("practice");
         setPhase("loading_question");
@@ -334,21 +330,15 @@ export default function DiagnosticSession() {
       }
     }
 
-    // RETEACH — changed strategy: different template + proactive hint + framing
+    // RETEACH — changed strategy: selectMathsTemplate picks template by error type
     if (currentResult.next_action === "reteach") {
-      const errorType = currentResult.error_type ?? "";
-      const reteachTemplate = RETEACH_TEMPLATES[errorType] ?? TEMPLATES[templateIndex % TEMPLATES.length];
-      const reteachIndex = TEMPLATES.indexOf(reteachTemplate);
       setLastDecision("reteach");
-      setTemplateIndex(reteachIndex >= 0 ? reteachIndex : templateIndex + 1);
       setPhase("loading_question");
       return;
     }
 
-    // PRACTICE — same as continue_skill: advance template, same skill
-    // continue_skill also falls through here for backward compatibility
+    // PRACTICE — selectMathsTemplate rotates, avoiding consecutive repetition
     setLastDecision("practice");
-    setTemplateIndex((i) => i + 1);
     setPhase("loading_question");
   };
 
@@ -375,7 +365,7 @@ export default function DiagnosticSession() {
       const updated = advanceToSkill(latestProfile, nextSkillId);
       setProfile(updated);
       setSkillAttemptCount(0);
-      setTemplateIndex(0);
+      recentTemplatesRef.current = [];
       setReteachCount(0);
       setLastDecision("practice");
       setPhase("loading_question");
@@ -402,7 +392,7 @@ export default function DiagnosticSession() {
     setProfile(freshProfile);
     setPhase("loading_question");
     setSkillAttemptCount(0);
-    setTemplateIndex(0);
+    recentTemplatesRef.current = [];
     setSessionCorrect(0);
     setSessionAttempts(0);
     setReteachCount(0);
@@ -442,7 +432,7 @@ export default function DiagnosticSession() {
     setProfile(updated);
     setPhase("loading_question");
     setSkillAttemptCount(0);
-    setTemplateIndex(0);
+    recentTemplatesRef.current = [];
     setSessionCorrect(0);
     setSessionAttempts(0);
     setReteachCount(0);
@@ -460,6 +450,7 @@ export default function DiagnosticSession() {
     prevSkillRef.current = profile.current_skill_id;
     hasRecordedSession.current = false;
     sessionIdRef.current = crypto.randomUUID();
+    recentTemplatesRef.current = [];
   }
 
   // On unmount — write a session record if not already written for this skill

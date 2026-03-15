@@ -113,8 +113,7 @@ import {
   saveReadingProfile,
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
-
-const TEMPLATES: ReadingTemplate[] = ["oral", "listening", "written", "reading"];
+import { selectReadingTemplate } from "@/lib/template-selector";
 
 type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
 
@@ -136,11 +135,13 @@ export default function ReadingSession() {
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<ReadingGeneratedQuestion | null>(null);
   const [currentResult, setCurrentResult] = useState<ReadingDiagnosticResult | null>(null);
-  const [templateIndex, setTemplateIndex] = useState(0);
   const [skillAttemptCount, setSkillAttemptCount] = useState(0);
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
+
+  // Recent templates — used by selectReadingTemplate for anti-repetition; last 3 kept
+  const recentTemplatesRef = useRef<ReadingTemplate[]>([]);
 
   // Prevents double-writing sessionHistory for the same skill session
   const hasRecordedSession = useRef(false);
@@ -189,15 +190,16 @@ export default function ReadingSession() {
 
   useEffect(() => {
     if (phase === "loading_question" && profile) {
-      const template = TEMPLATES[templateIndex % TEMPLATES.length];
       const decision = currentResult?.decision?.toLowerCase() ?? "practice";
       const errorType =
         currentResult && !currentResult.is_correct && currentResult.error_type !== "correct"
           ? currentResult.error_type
           : null;
+      const template = selectReadingTemplate(decision, errorType, null, recentTemplatesRef.current);
+      recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
       loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, decision, errorType);
     }
-  }, [phase, profile, templateIndex, skillAttemptCount, currentResult, loadQuestion]);
+  }, [phase, profile, skillAttemptCount, currentResult, loadQuestion]);
 
   const handlePlacementComplete = useCallback(
     (result: DiagnosticPlacementResult) => {
@@ -299,12 +301,11 @@ export default function ReadingSession() {
         const updated = advanceToReadingSkill(profile, prereqId);
         setProfile(updated);
         setSkillAttemptCount(0);
-        setTemplateIndex(0);
+        recentTemplatesRef.current = [];
         setPhase("loading_question");
         return;
       }
     }
-    setTemplateIndex((i) => i + 1);
     setPhase("loading_question");
   };
 
@@ -320,7 +321,7 @@ export default function ReadingSession() {
       const updated = advanceToReadingSkill(profile, nextSkillId);
       setProfile(updated);
       setSkillAttemptCount(0);
-      setTemplateIndex(0);
+      recentTemplatesRef.current = [];
       setPhase("loading_question");
     } else {
       setPhase("complete");
@@ -335,7 +336,7 @@ export default function ReadingSession() {
     setProfile(freshProfile);
     setPhase("loading_question");
     setSkillAttemptCount(0);
-    setTemplateIndex(0);
+    recentTemplatesRef.current = [];
     setSessionCorrect(0);
     setSessionAttempts(0);
   };
@@ -374,7 +375,7 @@ export default function ReadingSession() {
     setProfile(updated);
     setPhase("loading_question");
     setSkillAttemptCount(0);
-    setTemplateIndex(0);
+    recentTemplatesRef.current = [];
     setSessionCorrect(0);
     setSessionAttempts(0);
   };
@@ -388,6 +389,7 @@ export default function ReadingSession() {
   if (profile && profile.current_skill_id !== prevSkillRef.current) {
     prevSkillRef.current = profile.current_skill_id;
     hasRecordedSession.current = false;
+    recentTemplatesRef.current = [];
   }
 
   // Write one session entry on unmount (student navigates away mid-skill)
