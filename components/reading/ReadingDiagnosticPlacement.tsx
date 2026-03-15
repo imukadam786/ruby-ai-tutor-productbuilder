@@ -39,24 +39,6 @@ async function loadRandomQuestionPaper(): Promise<Task[]> {
     return paper.default as Task[];
 }
 
-// ── State to hold loaded tasks ───────────────────────────────────────────────
-const [TASKS, setTASKS] = useState<Task[]>([]);
-
-useEffect(() => {
-    let cancelled = false;
-
-    const fetchTasks = async () => {
-        let tasks: Task[] = [];
-        while (!cancelled && tasks.length === 0) {
-            tasks = await loadRandomQuestionPaper();
-        }
-        if (!cancelled) setTASKS(tasks);
-    };
-
-    fetchTasks();
-
-    return () => { cancelled = true; };
-}, []);
 
 //const TASKS: Task[] = [
 //  {
@@ -308,6 +290,7 @@ export default function ReadingDiagnosticPlacement({
   onComplete: (result: DiagnosticPlacementResult) => void;
   onViewReport?: (result: DiagnosticPlacementResult) => void;
 }) {
+  const [TASKS, setTASKS] = useState<Task[]>([]);
   const [phase, setPhase] = useState<Phase>("welcome");
   const [taskIndex, setTaskIndex] = useState(0);
   const [speaking, setSpeaking] = useState(false);
@@ -320,6 +303,19 @@ export default function ReadingDiagnosticPlacement({
   const [placementResult, setPlacementResult] = useState<DiagnosticPlacementResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showEncouragement, setShowEncouragement] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    const fetchTasks = async () => {
+      let tasks: Task[] = [];
+      while (!cancelled && tasks.length === 0) {
+        tasks = await loadRandomQuestionPaper();
+      }
+      if (!cancelled) setTASKS(tasks);
+    };
+    fetchTasks();
+    return () => { cancelled = true; };
+  }, []);
 
   const cancelSpeech = useRef<(() => void) | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
