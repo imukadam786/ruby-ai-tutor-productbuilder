@@ -312,8 +312,6 @@ export default function ReadingSession() {
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
     if (!currentQuestion || !profile) return;
 
-    // Notify page-level survey tracker that a reading question was answered
-    document.dispatchEvent(new CustomEvent("ruby-question-answered", { detail: { type: "reading" } }));
 
     try {
       const res = await fetch("/api/reading/submit-answer", {
@@ -395,6 +393,7 @@ export default function ReadingSession() {
         });
         result.next_action = "advance_skill";
         setCurrentResult(result);
+        document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "reading" } }));
         setPhase("mastered");
       } else {
         if (decision === "RETEACH") {

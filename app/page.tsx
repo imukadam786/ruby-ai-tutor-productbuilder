@@ -66,17 +66,14 @@ function AppContent() {
     incrementSession();
     refreshStats();
 
-    // Maths + reading: trigger survey every 3rd question answered
-    const onQuestionAnswered = (e: Event) => {
+    // Maths + reading: trigger survey after each micro skill is mastered
+    const onSkillMastered = (e: Event) => {
       const type = (e as CustomEvent).detail?.type as "maths" | "reading";
       if (!type) return;
-      const key = `survey_count_${type}`;
-      const count = parseInt(localStorage.getItem(key) || "0", 10) + 1;
-      localStorage.setItem(key, String(count));
-      if (count % 3 === 0) setSurvey({ type });
+      setSurvey({ type });
     };
-    document.addEventListener("ruby-question-answered", onQuestionAnswered);
-    return () => document.removeEventListener("ruby-question-answered", onQuestionAnswered);
+    document.addEventListener("ruby-skill-mastered", onSkillMastered);
+    return () => document.removeEventListener("ruby-skill-mastered", onSkillMastered);
   }, [refreshStats]);
 
   const handleViewChange = (view: ActiveView) => {

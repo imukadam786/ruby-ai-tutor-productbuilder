@@ -228,8 +228,6 @@ export default function DiagnosticSession() {
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
     if (!currentQuestion || !profile) return;
 
-    // Notify page-level survey tracker that a maths question was answered
-    document.dispatchEvent(new CustomEvent("ruby-question-answered", { detail: { type: "maths" } }));
 
     try {
       const res = await fetch("/api/ruby/submit-answer", {
@@ -315,6 +313,7 @@ export default function DiagnosticSession() {
         setProfile(acceleratedProfile);
         result.next_action = "advance_skill";
         setCurrentResult(result);
+        document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "maths" } }));
         setPhase("mastered");
         return;
       }
@@ -390,6 +389,7 @@ export default function DiagnosticSession() {
         });
         result.next_action = "advance_skill";
         setCurrentResult(result);
+        document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "maths" } }));
         setPhase("mastered");
       } else {
         // Increment reteachCount when engine decides RETEACH

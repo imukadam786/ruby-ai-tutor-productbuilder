@@ -13,8 +13,6 @@ const USER_DATA_KEYS = [
   "ruby_reading_profile",
   "onboardingComplete",
   "onboardingData",
-  "survey_count_maths",
-  "survey_count_reading",
   "survey_count_chat",
   "beta_session_surveys",
   "beta_feedback",
