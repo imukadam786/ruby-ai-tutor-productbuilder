@@ -114,6 +114,17 @@ import {
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
 import { selectReadingTemplate } from "@/lib/template-selector";
+import {
+  identifyStudent,
+  trackQuestionAnswered,
+  trackSkillMastered,
+  trackSkillAdvanced,
+  trackReteach,
+  trackBacktrack,
+  trackSessionStarted,
+  trackSessionEnded,
+  trackPlacementCompleted,
+} from "@/lib/analytics";
 
 type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
 
@@ -149,12 +160,21 @@ export default function ReadingSession() {
   useEffect(() => {
     const saved = getReadingProfile();
     if (saved) {
+      identifyStudent({ id: saved.id, name: saved.name, grade: saved.grade });
+      if (saved.placementCompleted) {
+        trackSessionStarted({
+          subject: "reading",
+          current_skill_id: saved.current_skill_id,
+          current_level: saved.current_level,
+        });
+      }
       setProfile(saved);
       setPhase("loading_question");
     } else {
       // Auto-create from onboarding — no setup screen needed
       const { name, grade } = readOnboarding();
       const newProfile = createReadingProfile(name, grade);
+      identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
       setProfile(newProfile);
       // placement gate will intercept before loading_question fires
     }
@@ -207,6 +227,23 @@ export default function ReadingSession() {
       const updated = completeDiagnosticPlacement(profile, result);
       setProfile(updated);
       setPhase("loading_question");
+
+      trackPlacementCompleted({
+        subject: "reading",
+        grade: profile.grade,
+        entry_level: updated.current_level,
+        grade_gap: profile.grade - updated.current_level,
+        hard_gate_passed: result.hardGatePassed,
+        questions_analysed: result.tasks.length,
+        skills_auto_completed: result.autoCompletedSkillIds.length,
+        placement_block: null,
+        early_exit_reason: null,
+      });
+      trackSessionStarted({
+        subject: "reading",
+        current_skill_id: updated.current_skill_id,
+        current_level: updated.current_level,
+      });
     },
     [profile]
   );
@@ -270,15 +307,43 @@ export default function ReadingSession() {
       const profileAfterAttempt = recordReadingAttempt(profile, attempt, updatedMastery, decision);
       setProfile(profileAfterAttempt);
 
+      const newSessionAttempts = sessionAttempts + 1;
+      const newSessionCorrect = sessionCorrect + (result.is_correct ? 1 : 0);
       setSessionAttempts((n) => n + 1);
       if (result.is_correct) setSessionCorrect((n) => n + 1);
       setSkillAttemptCount((n) => n + 1);
 
+      // Track every answer
+      trackQuestionAnswered({
+        subject: "reading",
+        skill_id: currentQuestion.skill_id,
+        template: currentQuestion.template,
+        is_correct: result.is_correct,
+        used_hint: usedHint,
+        attempt_number: skillAttemptCount + 1,
+        decision,
+      });
+
       if (updatedMastery.status === "mastered") {
+        trackSkillMastered({
+          subject: "reading",
+          skill_id: currentQuestion.skill_id,
+          level: profile.current_level,
+          session_attempt_count: newSessionAttempts,
+          session_correct: newSessionCorrect,
+        });
         result.next_action = "advance_skill";
         setCurrentResult(result);
         setPhase("mastered");
       } else {
+        if (decision === "RETEACH") {
+          trackReteach({
+            subject: "reading",
+            skill_id: currentQuestion.skill_id,
+            error_type: result.error_type ?? "unknown",
+            reteach_count: 1,
+          });
+        }
         setCurrentResult(result);
         setPhase("feedback");
       }
@@ -293,6 +358,7 @@ export default function ReadingSession() {
       const skill = getReadingSkillById(profile.current_skill_id);
       if (skill && skill.prerequisites.length > 0) {
         const prereqId = skill.prerequisites[skill.prerequisites.length - 1];
+        trackBacktrack({ subject: "reading", from_skill_id: profile.current_skill_id, to_prereq_id: prereqId });
         // Record session as not passed — student is backtracking off this skill
         if (!hasRecordedSession.current) {
           hasRecordedSession.current = true;
@@ -318,6 +384,7 @@ export default function ReadingSession() {
     }
     const nextSkillId = getNextReadingSkillId(profile.current_skill_id);
     if (nextSkillId) {
+      trackSkillAdvanced({ subject: "reading", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
       const updated = advanceToReadingSkill(profile, nextSkillId);
       setProfile(updated);
       setSkillAttemptCount(0);
@@ -383,6 +450,10 @@ export default function ReadingSession() {
   // Refs always point to latest profile + functions — fixes stale closure in event handler
   const profileRef = useRef<ReadingStudentProfile | null>(null);
   profileRef.current = profile;
+  const sessionAttemptsRef = useRef(0);
+  const sessionCorrectRef = useRef(0);
+  sessionAttemptsRef.current = sessionAttempts;
+  sessionCorrectRef.current = sessionCorrect;
 
   // Reset session-record flag whenever the student moves to a new skill
   const prevSkillRef = useRef<string | null>(null);
@@ -396,6 +467,18 @@ export default function ReadingSession() {
   useEffect(() => {
     return () => {
       const p = profileRef.current;
+      const attempts = sessionAttemptsRef.current;
+      const correct = sessionCorrectRef.current;
+
+      if (p?.placementCompleted && attempts > 0) {
+        trackSessionEnded({
+          subject: "reading",
+          questions_answered: attempts,
+          correct,
+          accuracy: Math.round((correct / attempts) * 100),
+        });
+      }
+
       if (!p || hasRecordedSession.current) return;
       hasRecordedSession.current = true;
       const mastery = p.skill_mastery[p.current_skill_id];
