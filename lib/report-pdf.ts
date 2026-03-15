@@ -10,19 +10,8 @@
 
 import type { DiagnosticReportInput, ReportContent } from "./report-generator";
 
-// pdfmake server-side (Node.js PdfPrinter)
-/* eslint-disable @typescript-eslint/no-require-imports */
-const PdfPrinter = require("pdfmake");
-const vfsFonts = require("pdfmake/build/vfs_fonts");
-
-const FONTS = {
-  Roboto: {
-    normal:      Buffer.from(vfsFonts.pdfMake.vfs["Roboto-Regular.ttf"],      "base64"),
-    bold:        Buffer.from(vfsFonts.pdfMake.vfs["Roboto-Medium.ttf"],       "base64"),
-    italics:     Buffer.from(vfsFonts.pdfMake.vfs["Roboto-Italic.ttf"],       "base64"),
-    bolditalics: Buffer.from(vfsFonts.pdfMake.vfs["Roboto-MediumItalic.ttf"], "base64"),
-  },
-};
+// pdfmake is required lazily inside buildReportPDF to avoid module-level
+// initialisation errors during Next.js build (no env vars available at build time).
 
 // ─── Brand colours ────────────────────────────────────────────────────────────
 
@@ -176,6 +165,17 @@ export async function buildReportPDF(
   input: DiagnosticReportInput,
   content: ReportContent
 ): Promise<Buffer> {
+  /* eslint-disable @typescript-eslint/no-require-imports */
+  const PdfPrinter = require("pdfmake");
+  const vfsFonts = require("pdfmake/build/vfs_fonts");
+  const FONTS = {
+    Roboto: {
+      normal:      Buffer.from(vfsFonts.pdfMake.vfs["Roboto-Regular.ttf"],      "base64"),
+      bold:        Buffer.from(vfsFonts.pdfMake.vfs["Roboto-Medium.ttf"],       "base64"),
+      italics:     Buffer.from(vfsFonts.pdfMake.vfs["Roboto-Italic.ttf"],       "base64"),
+      bolditalics: Buffer.from(vfsFonts.pdfMake.vfs["Roboto-MediumItalic.ttf"], "base64"),
+    },
+  };
   const printer = new PdfPrinter(FONTS);
   const docDef = buildDocDefinition(input, content);
 
