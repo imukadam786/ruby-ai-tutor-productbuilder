@@ -110,6 +110,30 @@ ${DECISION_INSTRUCTIONS[decision.toLowerCase()] ?? ""}`
 No error on the previous attempt. Decision: ${decision.toUpperCase()}.
 ${DECISION_INSTRUCTIONS[decision.toLowerCase()] ?? "Generate a question that continues consolidating this skill."}`;
 
+    // Detect phoneme-production skills — these need word-based oral tasks
+    const isPhonemeSkill = /phonem|letter.?sound|digraph|blend|vowel.?sound|consonant.?sound/i.test(
+      skill.title + " " + skill.description
+    );
+
+    const phonemeVoiceRule =
+      template === "oral" && isPhonemeSkill
+        ? `
+CRITICAL — BROWSER SPEECH RECOGNITION CONSTRAINT:
+This app uses the browser's built-in speech recogniser, which only detects full words — it CANNOT detect isolated phoneme sounds like /th/, /sh/, /ch/, /m/, etc.
+
+For this phoneme/sound skill with the oral template, you MUST:
+- NEVER ask the student to say an isolated sound (e.g. "Say the /th/ sound", "What sound does sh make?")
+- INSTEAD ask the student to say a WORD that contains the target sound.
+  Examples:
+    • "Say a word that has the 'th' sound in it" → expected_answer: "thumb" (or "three", "this", "that")
+    • "Tell me a word that starts with the 'sh' sound" → expected_answer: "ship"
+    • "Can you think of a word with the 'ch' sound?" → expected_answer: "chip"
+    • "Say a word where you can hear the short /a/ sound" → expected_answer: "cat"
+- Set expected_answer to ONE common valid word that contains the target phoneme.
+- The grader will accept ANY word containing the target phoneme as correct — not just the exact word.
+`
+        : "";
+
     const prompt = `You are Ruby, a literacy question generator for the Ruby AI Tutor reading engine.
 
 Generate ONE question for this reading/literacy skill:
@@ -124,7 +148,7 @@ Format description: ${templateDescriptions[template]}
 ${levelHint}
 
 ${errorContext}
-
+${phonemeVoiceRule}
 ${include_hint ? "Include a scaffolding hint that guides the student without giving away the answer." : "Do not include a hint."}
 
 Respond in this exact JSON format (no markdown, raw JSON only):
