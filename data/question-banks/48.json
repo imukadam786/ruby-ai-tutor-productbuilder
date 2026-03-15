@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "chest • chip",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'kit'? Say just the sound, not the letter name.",
+    "displayWord": "kit",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "H",
+    "answerMode": "voice",
+    "expectedAnswer": "/h/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "i",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɪ/ (short i as in itch)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "POD",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "pod"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'rek'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/r/ / /e/ / /k/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters NG make in this word?",
+    "displayWord": "RING",
+    "answerMode": "voice",
+    "expectedAnswer": "/ŋ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SLED",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "sled"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "ZIDE",
+    "answerMode": "voice",
+    "expectedAnswer": "zide",
+    "vowelPattern": "long i"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ROOD",
+    "answerMode": "voice",
+    "expectedAnswer": "rood",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "VERY",
+    "answerMode": "voice",
+    "expectedAnswer": "very",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "WIRP",
+    "answerMode": "voice",
+    "expectedAnswer": "wirp",
+    "rControlledPattern": "ir"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "NIDTOM",
+    "answerMode": "voice",
+    "expectedAnswer": "nidtom",
+    "syllableBreak": "nid·tom"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "ZELBITWOV",
+    "answerMode": "voice",
+    "expectedAnswer": "zelbitwov",
+    "syllableBreak": "zel·bit·wov"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "PREFIX",
+    "answerMode": "voice",
+    "expectedAnswer": "pre",
+    "affixType": "prefix",
+    "targetAffix": "pre"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The two cats sat on the wall and stared at each other for a long time. Neither moved. Then one of them looked away and began washing its ear as if the other one was not there at all. The other one jumped down and trotted off.",
+    "passageId": "16.48",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did one of the cats do after looking away?",
+    "displayWord": "",
+    "passageRef": "16.48",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Began washing its ear as if the other was not there"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does looking away and washing its ear tell you about the first cat?",
+    "displayWord": "",
+    "passageRef": "16.48",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "It was ending the staring contest without admitting defeat — a face-saving behaviour"
+  }
+]

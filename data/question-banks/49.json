@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "block • blank",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'pet'? Say just the sound, not the letter name.",
+    "displayWord": "pet",
+    "answerMode": "voice",
+    "expectedAnswer": "/p/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "J",
+    "answerMode": "voice",
+    "expectedAnswer": "/dʒ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "O",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɒ/ (short o as in odd)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "RUG",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "rug"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'cud'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/c/ / /u/ / /d/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "sh",
+    "answerMode": "voice",
+    "expectedAnswer": "/ʃ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SMACK",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "smack"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "BOKE",
+    "answerMode": "voice",
+    "expectedAnswer": "boke",
+    "vowelPattern": "long o"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "POOD",
+    "answerMode": "voice",
+    "expectedAnswer": "pood",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "ALL",
+    "answerMode": "voice",
+    "expectedAnswer": "all",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "DORF",
+    "answerMode": "voice",
+    "expectedAnswer": "dorf",
+    "rControlledPattern": "or"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "FOZGIP",
+    "answerMode": "voice",
+    "expectedAnswer": "fozgip",
+    "syllableBreak": "foz·gip"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "TIGFOMGAB",
+    "answerMode": "voice",
+    "expectedAnswer": "tigfomgab",
+    "syllableBreak": "tig·fom·gab"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "JUMPING",
+    "answerMode": "voice",
+    "expectedAnswer": "ing",
+    "affixType": "suffix",
+    "targetAffix": "ing"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The bread had gone stale but she made it into crumbs and put them out on the bird table. First came the sparrows, then a robin, then two starlings who drove the others away. She watched from the kitchen window with her hands wrapped round a mug of tea.",
+    "passageId": "16.49",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "Who drove the sparrows and robin away from the bird table?",
+    "displayWord": "",
+    "passageRef": "16.49",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Two starlings"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why do you think the starlings drove the smaller birds away?",
+    "displayWord": "",
+    "passageRef": "16.49",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "They were bigger and more aggressive and wanted the food for themselves"
+  }
+]

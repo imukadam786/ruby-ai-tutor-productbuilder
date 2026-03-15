@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "sit • bit",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'hat'? Say just the sound, not the letter name.",
+    "displayWord": "hat",
+    "answerMode": "voice",
+    "expectedAnswer": "/h/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "L",
+    "answerMode": "voice",
+    "expectedAnswer": "/l/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "O",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɒ/ (short o as in odd)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MEF",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "mef"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'mef'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/m/ / /e/ / /f/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters TH make in this word?",
+    "displayWord": "THIN",
+    "answerMode": "voice",
+    "expectedAnswer": "/θ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SMOT",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "smot"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "FAME",
+    "answerMode": "voice",
+    "expectedAnswer": "fame",
+    "vowelPattern": "long a"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MAIL",
+    "answerMode": "voice",
+    "expectedAnswer": "mail",
+    "vowelTeam": "ai",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "OF",
+    "answerMode": "voice",
+    "expectedAnswer": "of",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "FORT",
+    "answerMode": "voice",
+    "expectedAnswer": "fort",
+    "rControlledPattern": "or"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BASKET",
+    "answerMode": "voice",
+    "expectedAnswer": "basket",
+    "syllableBreak": "bas·ket"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "ANOTHER",
+    "answerMode": "voice",
+    "expectedAnswer": "another",
+    "syllableBreak": "an·oth·er"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "PREVENT",
+    "answerMode": "voice",
+    "expectedAnswer": "pre",
+    "affixType": "prefix",
+    "targetAffix": "pre"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "Dad had a plot in the garden for growing things. He planted seeds in long rows and watered them each morning. Green shoots came up after a week. By the end of the month, there were beans and carrots and fat red tomatoes in the plot.",
+    "passageId": "16.9",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What grew in Dad's garden plot?",
+    "displayWord": "",
+    "passageRef": "16.9",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "Beans, carrots, and tomatoes"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What can you tell about Dad from reading about his garden?",
+    "displayWord": "",
+    "passageRef": "16.9",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "He was patient and hardworking — he planted, watered, and waited through to harvest"
+  }
+]

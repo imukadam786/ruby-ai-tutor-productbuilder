@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "cup • pup",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'fan'? Say just the sound, not the letter name.",
+    "displayWord": "fan",
+    "answerMode": "voice",
+    "expectedAnswer": "/f/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "H",
+    "answerMode": "voice",
+    "expectedAnswer": "/h/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "a",
+    "answerMode": "voice",
+    "expectedAnswer": "/æ/ (short a as in apple)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ZOT",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "zot"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'zot'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/z/ / /o/ / /t/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "ng",
+    "answerMode": "voice",
+    "expectedAnswer": "/ŋ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PLOB",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "plob"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "BIKE",
+    "answerMode": "voice",
+    "expectedAnswer": "bike",
+    "vowelPattern": "long i"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "HEAT",
+    "answerMode": "voice",
+    "expectedAnswer": "heat",
+    "vowelTeam": "ea",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "A",
+    "answerMode": "voice",
+    "expectedAnswer": "a",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BAR",
+    "answerMode": "voice",
+    "expectedAnswer": "bar",
+    "rControlledPattern": "ar"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "HIDDEN",
+    "answerMode": "voice",
+    "expectedAnswer": "hidden",
+    "syllableBreak": "hid·den"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "ADVENTURE",
+    "answerMode": "voice",
+    "expectedAnswer": "adventure",
+    "syllableBreak": "ad·ven·ture"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "PREVIEW",
+    "answerMode": "voice",
+    "expectedAnswer": "pre",
+    "affixType": "prefix",
+    "targetAffix": "pre"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The sun set behind the hills and the sky went pink and gold. Tom sat on the step and watched the last birds fly home. A bat came out and flipped and dipped in the dark air. Tom went in when the stars began to come out.",
+    "passageId": "16.6",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What came out when the stars began to appear?",
+    "displayWord": "",
+    "passageRef": "16.6",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "A bat"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "How do you think Tom felt watching the bat fly in the dark?",
+    "displayWord": "",
+    "passageRef": "16.6",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "Curious or amazed — he waited and watched willingly"
+  }
+]

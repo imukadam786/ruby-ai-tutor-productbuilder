@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "ring • rang",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'cob'? Say just the sound, not the letter name.",
+    "displayWord": "cob",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "s",
+    "answerMode": "voice",
+    "expectedAnswer": "/s/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "a",
+    "answerMode": "voice",
+    "expectedAnswer": "/æ/ (short a as in apple)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MOP",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "mop"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'zib'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/z/ / /i/ / /b/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters NG make in this word?",
+    "displayWord": "RING",
+    "answerMode": "voice",
+    "expectedAnswer": "/ŋ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PLUG",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "plug"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "BIPE",
+    "answerMode": "voice",
+    "expectedAnswer": "bipe",
+    "vowelPattern": "long i"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MOOL",
+    "answerMode": "voice",
+    "expectedAnswer": "mool",
+    "vowelTeam": "oo",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "ANY",
+    "answerMode": "voice",
+    "expectedAnswer": "any",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "TARG",
+    "answerMode": "voice",
+    "expectedAnswer": "targ",
+    "rControlledPattern": "ar"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "TIGFOM",
+    "answerMode": "voice",
+    "expectedAnswer": "tigfom",
+    "syllableBreak": "tig·fom"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "DOTKELZOT",
+    "answerMode": "voice",
+    "expectedAnswer": "dotkelzot",
+    "syllableBreak": "dot·kel·zot"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "KINDLY",
+    "answerMode": "voice",
+    "expectedAnswer": "ly",
+    "affixType": "suffix",
+    "targetAffix": "ly"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The stray cat appeared at the back door one cold evening. It sat and looked up at the family with yellow eyes. They gave it a bowl of milk. It drank quickly and looked up for more. By bedtime it was asleep on a folded towel in the hall.",
+    "passageId": "16.36",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "Where did the stray cat sleep by bedtime?",
+    "displayWord": "",
+    "passageRef": "16.36",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "On a folded towel in the hall"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What made the family decide to keep feeding the stray cat?",
+    "displayWord": "",
+    "passageRef": "16.36",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "It was hungry and cold and looked up for more — showing it trusted them"
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "dog • dig",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'nut'? Say just the sound, not the letter name.",
+    "displayWord": "nut",
+    "answerMode": "voice",
+    "expectedAnswer": "/n/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "h",
+    "answerMode": "voice",
+    "expectedAnswer": "/h/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "E",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɛ/ (short e as in egg)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "VEX",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "vex"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'pob'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/p/ / /o/ / /b/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "th",
+    "answerMode": "voice",
+    "expectedAnswer": "/θ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PREG",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "preg"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "ROPE",
+    "answerMode": "voice",
+    "expectedAnswer": "rope",
+    "vowelPattern": "long o"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "TOAD",
+    "answerMode": "voice",
+    "expectedAnswer": "toad",
+    "vowelTeam": "oa",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "SHE",
+    "answerMode": "voice",
+    "expectedAnswer": "she",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PERK",
+    "answerMode": "voice",
+    "expectedAnswer": "perk",
+    "rControlledPattern": "er"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ROPFEG",
+    "answerMode": "voice",
+    "expectedAnswer": "ropfeg",
+    "syllableBreak": "rop·feg"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "ROPNIDSUD",
+    "answerMode": "voice",
+    "expectedAnswer": "ropnidsud",
+    "syllableBreak": "rop·nid·sud"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "RUNNER",
+    "answerMode": "voice",
+    "expectedAnswer": "er",
+    "affixType": "suffix",
+    "targetAffix": "er"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "Tom and his dad built a birdbox from old wood. They cut and nailed and sanded it smooth. Then they fixed it to the apple tree in the garden. That spring, a pair of blue tits moved in. Every morning Tom watched them fly in and out.",
+    "passageId": "16.27",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What moved into the birdbox that spring?",
+    "displayWord": "",
+    "passageRef": "16.27",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "A pair of blue tits"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does Tom watching the birds every morning tell you about him?",
+    "displayWord": "",
+    "passageRef": "16.27",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "He cared about the birds and was proud of the birdbox he and his dad built together"
+  }
+]

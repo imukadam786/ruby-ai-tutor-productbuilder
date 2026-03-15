@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "goat • get",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'hop'? Say just the sound, not the letter name.",
+    "displayWord": "hop",
+    "answerMode": "voice",
+    "expectedAnswer": "/h/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "y",
+    "answerMode": "voice",
+    "expectedAnswer": "/j/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "A",
+    "answerMode": "voice",
+    "expectedAnswer": "/æ/ (short a as in apple)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "CUB",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "cub"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'bov'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/b/ / /o/ / /v/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "ck",
+    "answerMode": "voice",
+    "expectedAnswer": "/k/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "TRUCK",
+    "answerMode": "voice",
+    "wordType": "real",
+    "expectedAnswer": "truck"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "POBE",
+    "answerMode": "voice",
+    "expectedAnswer": "pobe",
+    "vowelPattern": "long o"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "LAIP",
+    "answerMode": "voice",
+    "expectedAnswer": "laip",
+    "vowelTeam": "ai",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "INTO",
+    "answerMode": "voice",
+    "expectedAnswer": "into",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ZAR",
+    "answerMode": "voice",
+    "expectedAnswer": "zar",
+    "rControlledPattern": "ar"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "DOTKEL",
+    "answerMode": "voice",
+    "expectedAnswer": "dotkel",
+    "syllableBreak": "dot·kel"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "MEFNOPTUB",
+    "answerMode": "voice",
+    "expectedAnswer": "mefnoptub",
+    "syllableBreak": "mef·nop·tub"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the end. Say just that part out loud.",
+    "displayWord": "BRIGHTLY",
+    "answerMode": "voice",
+    "expectedAnswer": "ly",
+    "affixType": "suffix",
+    "targetAffix": "ly"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "Nadia painted her room yellow. She started on Saturday morning and finished by noon on Sunday. When it dried it was brighter than she expected. She stood in the doorway and looked at it. Her cat came in, looked at the walls, and walked out again.",
+    "passageId": "16.41",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "When did Nadia finish painting?",
+    "displayWord": "",
+    "passageRef": "16.41",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "By noon on Sunday"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why do you think the cat walked out of Nadia's room?",
+    "displayWord": "",
+    "passageRef": "16.41",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "The bright yellow may have bothered it — cats are sensitive to changes in their environment"
+  }
+]

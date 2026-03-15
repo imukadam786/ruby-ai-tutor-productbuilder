@@ -1,0 +1,218 @@
+[
+  {
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do these two words rhyme?",
+    "displayWord": "hot • pot",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'lip'? Say just the sound, not the letter name.",
+    "displayWord": "lip",
+    "answerMode": "voice",
+    "expectedAnswer": "/l/"
+  },
+  {
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "J",
+    "answerMode": "voice",
+    "expectedAnswer": "/dʒ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "E",
+    "answerMode": "voice",
+    "expectedAnswer": "/ɛ/ (short e as in egg)",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "HAV",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "hav"
+  },
+  {
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'hav'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/h/ / /a/ / /v/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters SH make in this word?",
+    "displayWord": "SHIP",
+    "answerMode": "voice",
+    "expectedAnswer": "/ʃ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "PRID",
+    "answerMode": "voice",
+    "wordType": "nonsense",
+    "expectedAnswer": "prid"
+  },
+  {
+    "id": "Q9",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "HOLE",
+    "answerMode": "voice",
+    "expectedAnswer": "hole",
+    "vowelPattern": "long o"
+  },
+  {
+    "id": "Q10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ROAD",
+    "answerMode": "voice",
+    "expectedAnswer": "road",
+    "vowelTeam": "oa",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "IN",
+    "answerMode": "voice",
+    "expectedAnswer": "in",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "HER",
+    "answerMode": "voice",
+    "expectedAnswer": "her",
+    "rControlledPattern": "er"
+  },
+  {
+    "id": "Q13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "KIDNAP",
+    "answerMode": "voice",
+    "expectedAnswer": "kidnap",
+    "syllableBreak": "kid·nap"
+  },
+  {
+    "id": "Q14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "IMPORTANT",
+    "answerMode": "voice",
+    "expectedAnswer": "important",
+    "syllableBreak": "im·por·tant"
+  },
+  {
+    "id": "Q15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "displayWord": "UNLOCK",
+    "answerMode": "voice",
+    "expectedAnswer": "un",
+    "affixType": "prefix",
+    "targetAffix": "un"
+  },
+  {
+    "id": "Q16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "Kim filled her bag with books and set off for school. The wind blew cold and she pulled her coat shut. At the gate, her friend Sam was waiting with a big grin. They ran to class and sat down just as the bell began to ring.",
+    "passageId": "16.7",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "Q17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did Sam have on his face when Kim arrived?",
+    "displayWord": "",
+    "passageRef": "16.7",
+    "comprehensionType": "literal",
+    "answerMode": "voice",
+    "expectedAnswer": "A big grin"
+  },
+  {
+    "id": "Q18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "Why did Kim and Sam run to class?",
+    "displayWord": "",
+    "passageRef": "16.7",
+    "comprehensionType": "inferential",
+    "answerMode": "voice",
+    "expectedAnswer": "They were nearly late — the bell was about to ring"
+  }
+]
