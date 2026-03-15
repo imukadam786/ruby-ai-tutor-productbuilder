@@ -114,6 +114,8 @@ import {
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
 import { selectReadingTemplate } from "@/lib/template-selector";
+import DiagnosticReportView from "@/components/DiagnosticReportView";
+import type { DiagnosticReportInput } from "@/lib/report-generator";
 import {
   identifyStudent,
   trackQuestionAnswered,
@@ -127,6 +129,53 @@ import {
 } from "@/lib/analytics";
 
 type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
+
+// ─── Reading report input builder ─────────────────────────────────────────────
+
+function buildReadingReportInput(
+  profile: ReadingStudentProfile,
+  result: import("@/types/reading").DiagnosticPlacementResult
+): DiagnosticReportInput {
+  // Map tasks to reading area groups
+  const total = result.tasks.length;
+  const correct = result.tasks.filter((t) => t.correct).length;
+  const overallScore = total > 0 ? Math.round((correct / total) * 100) : 50;
+
+  // Split tasks into approximate thirds for domain breakdown
+  const third = Math.ceil(total / 3);
+  const groups = [
+    { name: "Phonological Awareness", tasks: result.tasks.slice(0, third) },
+    { name: "Letter–Sound Knowledge", tasks: result.tasks.slice(third, third * 2) },
+    { name: "Decoding & Fluency",     tasks: result.tasks.slice(third * 2) },
+  ];
+
+  const domainScores: DiagnosticReportInput["domainScores"] = groups
+    .filter((g) => g.tasks.length > 0)
+    .map((g) => {
+      const groupCorrect = g.tasks.filter((t) => t.correct).length;
+      const score = Math.round((groupCorrect / g.tasks.length) * 100);
+      const label: "strong" | "building" | "practice" =
+        score >= 75 ? "strong" : score >= 50 ? "building" : "practice";
+      return { domain: g.name, score, label, errorNote: null };
+    });
+
+  const entryLevel = result.autoCompletedSkillIds.length > 6 ? 3
+    : result.autoCompletedSkillIds.length > 2 ? 2 : 1;
+
+  return {
+    subject: "reading",
+    studentName: profile.name.split(" ")[0],
+    studentGrade: profile.grade,
+    workingLevel: `Reading Level ${entryLevel}`,
+    gradeLevelGap: Math.max(0, profile.grade - entryLevel - 1),
+    questionsAnalysed: total,
+    domainScores,
+    dominantErrors: overallScore < 50 ? ["ERR_BLEND_FAIL"] : overallScore < 70 ? ["ERR_SOUND_RECALL"] : [],
+    placementSkill: result.entrySkillId,
+    hardGateBlocked: !result.hardGatePassed,
+    skillsCompleted: result.autoCompletedSkillIds.length,
+  };
+}
 
 function readOnboarding(): { name: string; grade: number } {
   try {
@@ -150,6 +199,10 @@ export default function ReadingSession() {
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
+
+  // Report state — shown after placement, before learning begins
+  const [pendingPlacementResult, setPendingPlacementResult] = useState<import("@/types/reading").DiagnosticPlacementResult | null>(null);
+  const [showReport, setShowReport] = useState(false);
 
   // Recent templates — used by selectReadingTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<ReadingTemplate[]>([]);
@@ -220,6 +273,14 @@ export default function ReadingSession() {
       loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, decision, errorType);
     }
   }, [phase, profile, skillAttemptCount, currentResult, loadQuestion]);
+
+  const handleViewReport = useCallback(
+    (result: DiagnosticPlacementResult) => {
+      setPendingPlacementResult(result);
+      setShowReport(true);
+    },
+    []
+  );
 
   const handlePlacementComplete = useCallback(
     (result: DiagnosticPlacementResult) => {
@@ -511,10 +572,24 @@ export default function ReadingSession() {
   // ─── Placement Gate ───────────────────────────────────────────────────────────
 
   if (profile && !profile.placementCompleted) {
+    if (showReport && pendingPlacementResult) {
+      const reportInput = buildReadingReportInput(profile, pendingPlacementResult);
+      return (
+        <DiagnosticReportView
+          input={reportInput}
+          onStartLearning={() => {
+            setShowReport(false);
+            handlePlacementComplete(pendingPlacementResult);
+          }}
+        />
+      );
+    }
+
     return (
       <ReadingDiagnosticPlacement
         studentName={profile.name}
         onComplete={handlePlacementComplete}
+        onViewReport={handleViewReport}
       />
     );
   }

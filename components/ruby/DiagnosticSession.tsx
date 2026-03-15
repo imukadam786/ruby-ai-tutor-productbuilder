@@ -27,6 +27,7 @@ import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
 import { selectMathsTemplate } from "@/lib/template-selector";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
+import DiagnosticReportView from "@/components/DiagnosticReportView";
 import {
   identifyStudent,
   trackQuestionAnswered,
@@ -128,6 +129,10 @@ export default function DiagnosticSession() {
   const [statusMessage, setStatusMessage] = useState("");
 
   // Review queue — skills mastered 7+ days ago, checked before new skill work
+  // Report state — shown after placement before learning begins
+  const [pendingPlacementResult, setPendingPlacementResult] = useState<MathsPlacementResult | null>(null);
+  const [showReport, setShowReport] = useState(false);
+
   const [reviewQueue, setReviewQueue] = useState<string[]>([]);
   const [reviewSkillIndex, setReviewSkillIndex] = useState(0);
   const [reviewCorrect, setReviewCorrect] = useState(0);
@@ -485,6 +490,14 @@ export default function DiagnosticSession() {
     }
   };
 
+  const handleViewReport = useCallback(
+    (result: MathsPlacementResult) => {
+      setPendingPlacementResult(result);
+      setShowReport(true);
+    },
+    []
+  );
+
   const handlePlacementComplete = useCallback(
     (result: MathsPlacementResult) => {
       if (!profile) return;
@@ -661,11 +674,30 @@ export default function DiagnosticSession() {
 
   // Placement gate — show discovery activity before regular learning begins
   if (profile && !profile.placementCompleted) {
+    // Report view — shown after placement, before learning begins
+    if (showReport && pendingPlacementResult) {
+      const reportInput = buildMathsReportInput({
+        ...profile,
+        placement: { ...pendingPlacementResult, completedAt: Date.now(), placementCompletedAt: Date.now() },
+        placementCompleted: true,
+      });
+      return (
+        <DiagnosticReportView
+          input={reportInput}
+          onStartLearning={() => {
+            setShowReport(false);
+            handlePlacementComplete(pendingPlacementResult);
+          }}
+        />
+      );
+    }
+
     return (
       <MathsDiagnosticPlacement
         studentName={profile.name}
         grade={profile.grade}
         onComplete={handlePlacementComplete}
+        onViewReport={handleViewReport}
       />
     );
   }
