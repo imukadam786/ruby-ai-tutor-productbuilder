@@ -21,7 +21,7 @@ import FloatingFeedback from "@/components/beta/FloatingFeedback";
 import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
-import { getProgress, incrementSession } from "@/lib/storage";
+import { getProgress, incrementSession, clearAllUserData } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
 import { getReadingProfile } from "@/lib/reading-student-model";
 import { StudentProfile } from "@/types/ruby";
@@ -148,8 +148,7 @@ function AppContent() {
         onSettings={() => handleViewChange("settings")}
         onOpenLangPicker={() => setShowLangPicker(true)}
         onLogout={() => {
-          localStorage.removeItem("onboardingComplete");
-          localStorage.removeItem("onboardingData");
+          clearAllUserData();
           window.location.reload();
         }}
       />
@@ -192,8 +191,7 @@ export default function Home() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("reset") !== null) {
-      localStorage.removeItem("onboardingComplete");
-      localStorage.removeItem("onboardingData");
+      clearAllUserData();
       window.history.replaceState({}, "", window.location.pathname);
     }
 
@@ -201,6 +199,7 @@ export default function Home() {
   }, []);
 
   const handleOnboardingComplete = (_data: OnboardingData) => {
+    clearAllUserData();
     setOnboardingDone(true);
   };
 

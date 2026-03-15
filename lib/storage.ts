@@ -3,6 +3,29 @@ import { Message, ProgressData } from "@/types";
 const MESSAGES_KEY = "ai_tutor_messages";
 const PROGRESS_KEY = "ai_tutor_progress";
 
+// All localStorage keys that belong to a single user session.
+// Must be cleared on logout and when a new account is created.
+const USER_DATA_KEYS = [
+  MESSAGES_KEY,
+  PROGRESS_KEY,
+  "ruby_streak",
+  "ruby_student_profile",
+  "ruby_reading_profile",
+  "onboardingComplete",
+  "onboardingData",
+  "survey_count_maths",
+  "survey_count_reading",
+  "survey_count_chat",
+  "beta_session_surveys",
+  "beta_feedback",
+  "matric_waitlist",
+];
+
+export function clearAllUserData(): void {
+  if (typeof window === "undefined") return;
+  USER_DATA_KEYS.forEach((key) => localStorage.removeItem(key));
+}
+
 export function getMessages(): Message[] {
   if (typeof window === "undefined") return [];
   try {
