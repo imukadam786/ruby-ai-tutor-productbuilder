@@ -142,6 +142,9 @@ export default function ReadingSession() {
   const [sessionAttempts, setSessionAttempts] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
 
+  // Prevents double-writing sessionHistory for the same skill session
+  const hasRecordedSession = useRef(false);
+
   useEffect(() => {
     const saved = getReadingProfile();
     if (saved) {
@@ -263,8 +266,7 @@ export default function ReadingSession() {
       if (decision === "BACKTRACK") result.next_action = "review_prerequisite";
 
       const profileAfterAttempt = recordReadingAttempt(profile, attempt, updatedMastery, decision);
-      const updatedProfile = updateSessionHistory(profileAfterAttempt, currentQuestion.skill_id, result.is_correct);
-      setProfile(updatedProfile);
+      setProfile(profileAfterAttempt);
 
       setSessionAttempts((n) => n + 1);
       if (result.is_correct) setSessionCorrect((n) => n + 1);
@@ -289,6 +291,11 @@ export default function ReadingSession() {
       const skill = getReadingSkillById(profile.current_skill_id);
       if (skill && skill.prerequisites.length > 0) {
         const prereqId = skill.prerequisites[skill.prerequisites.length - 1];
+        // Record session as not passed — student is backtracking off this skill
+        if (!hasRecordedSession.current) {
+          hasRecordedSession.current = true;
+          updateSessionHistory(profile, profile.current_skill_id, false);
+        }
         const updated = advanceToReadingSkill(profile, prereqId);
         setProfile(updated);
         setSkillAttemptCount(0);
@@ -303,6 +310,11 @@ export default function ReadingSession() {
 
   const handleNextAfterMastered = () => {
     if (!profile) return;
+    // Record session as passed — student mastered this skill
+    if (!hasRecordedSession.current) {
+      hasRecordedSession.current = true;
+      updateSessionHistory(profile, profile.current_skill_id, true);
+    }
     const nextSkillId = getNextReadingSkillId(profile.current_skill_id);
     if (nextSkillId) {
       const updated = advanceToReadingSkill(profile, nextSkillId);
@@ -370,6 +382,25 @@ export default function ReadingSession() {
   // Refs always point to latest profile + functions — fixes stale closure in event handler
   const profileRef = useRef<ReadingStudentProfile | null>(null);
   profileRef.current = profile;
+
+  // Reset session-record flag whenever the student moves to a new skill
+  const prevSkillRef = useRef<string | null>(null);
+  if (profile && profile.current_skill_id !== prevSkillRef.current) {
+    prevSkillRef.current = profile.current_skill_id;
+    hasRecordedSession.current = false;
+  }
+
+  // Write one session entry on unmount (student navigates away mid-skill)
+  useEffect(() => {
+    return () => {
+      const p = profileRef.current;
+      if (!p || hasRecordedSession.current) return;
+      hasRecordedSession.current = true;
+      const mastery = p.skill_mastery[p.current_skill_id];
+      const passed = mastery?.status === "mastered";
+      updateSessionHistory(p, p.current_skill_id, passed);
+    };
+  }, []);
   const actionsRef = useRef({ resetToPlacement, resetSkillTree });
   actionsRef.current = { resetToPlacement, resetSkillTree };
 
