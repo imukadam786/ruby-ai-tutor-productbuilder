@@ -7,6 +7,7 @@ interface QuestionCardProps {
   question: GeneratedQuestion;
   onSubmit: (answer: string, steps: string, usedHint: boolean) => void;
   isSubmitting: boolean;
+  forceHint?: boolean; // proactive reteach hint — shown automatically, does not count as student-requested
 }
 
 const templateLabels: Record<QuestionTemplate, { label: string; icon: string; color: string }> = {
@@ -15,11 +16,11 @@ const templateLabels: Record<QuestionTemplate, { label: string; icon: string; co
   symbolic: { label: "Symbolic", icon: "🔢", color: "orange" },
 };
 
-export default function QuestionCard({ question, onSubmit, isSubmitting }: QuestionCardProps) {
+export default function QuestionCard({ question, onSubmit, isSubmitting, forceHint = false }: QuestionCardProps) {
   const [answer, setAnswer] = useState("");
   const [steps, setSteps] = useState("");
-  const [hintVisible, setHintVisible] = useState(false);
-  const [usedHint, setUsedHint] = useState(false);
+  const [hintVisible, setHintVisible] = useState(forceHint); // true on reteach — proactive
+  const [usedHint, setUsedHint] = useState(false); // only true when student explicitly requests hint
 
   const templateInfo = templateLabels[question.template];
 

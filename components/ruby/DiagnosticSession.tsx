@@ -60,6 +60,7 @@ export default function DiagnosticSession() {
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
   const [reteachCount, setReteachCount] = useState(0);
+  const [lastDecision, setLastDecision] = useState<string>("practice");
   const [statusMessage, setStatusMessage] = useState("");
 
   // Review queue — skills mastered 7+ days ago, checked before new skill work
@@ -97,7 +98,7 @@ export default function DiagnosticSession() {
   }, []);
 
   const loadQuestion = useCallback(
-    async (skillId: string, _template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile) => {
+    async (skillId: string, _template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile, forceHint = false) => {
       setPhase("loading_question");
       setStatusMessage("Loading your question...");
       try {
@@ -111,7 +112,7 @@ export default function DiagnosticSession() {
           body: JSON.stringify({
             skill_id: skillId,
             attempt_number: attemptNum,
-            include_hint: attemptNum > 1,
+            include_hint: forceHint || attemptNum > 1, // always include hint on reteach
             used_refs: usedRefs,
           }),
         });
@@ -137,9 +138,9 @@ export default function DiagnosticSession() {
   useEffect(() => {
     if (phase === "loading_question" && profile) {
       const template = TEMPLATES[templateIndex % TEMPLATES.length];
-      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, profile);
+      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, profile, lastDecision === "reteach");
     }
-  }, [phase, profile, templateIndex, skillAttemptCount, loadQuestion]);
+  }, [phase, profile, templateIndex, skillAttemptCount, loadQuestion, lastDecision]);
 
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
     if (!currentQuestion || !profile) return;
@@ -327,16 +328,18 @@ export default function DiagnosticSession() {
         setSkillAttemptCount(0);
         setTemplateIndex(0);
         setReteachCount(0);
+        setLastDecision("practice");
         setPhase("loading_question");
         return;
       }
     }
 
-    // RETEACH — select template by error type, reset template cycling
+    // RETEACH — changed strategy: different template + proactive hint + framing
     if (currentResult.next_action === "reteach") {
       const errorType = currentResult.error_type ?? "";
       const reteachTemplate = RETEACH_TEMPLATES[errorType] ?? TEMPLATES[templateIndex % TEMPLATES.length];
       const reteachIndex = TEMPLATES.indexOf(reteachTemplate);
+      setLastDecision("reteach");
       setTemplateIndex(reteachIndex >= 0 ? reteachIndex : templateIndex + 1);
       setPhase("loading_question");
       return;
@@ -344,6 +347,7 @@ export default function DiagnosticSession() {
 
     // PRACTICE — same as continue_skill: advance template, same skill
     // continue_skill also falls through here for backward compatibility
+    setLastDecision("practice");
     setTemplateIndex((i) => i + 1);
     setPhase("loading_question");
   };
@@ -373,6 +377,7 @@ export default function DiagnosticSession() {
       setSkillAttemptCount(0);
       setTemplateIndex(0);
       setReteachCount(0);
+      setLastDecision("practice");
       setPhase("loading_question");
     } else {
       setPhase("complete");
@@ -538,6 +543,13 @@ export default function DiagnosticSession() {
                 Quick check — you mastered this before. Let&apos;s make sure it&apos;s still solid.
               </div>
             )}
+            {lastDecision === "reteach" && (
+              <div className="bg-orange-50 border border-orange-200 rounded-xl px-4 py-2 text-sm text-orange-800">
+                {reteachCount >= 2
+                  ? "One more go — slightly different approach."
+                  : "Let's try this a different way."}
+              </div>
+            )}
             {skill && (
               <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
                 <div className="flex-1">
@@ -554,6 +566,7 @@ export default function DiagnosticSession() {
               question={currentQuestion}
               onSubmit={handleSubmitAnswer}
               isSubmitting={false}
+              forceHint={lastDecision === "reteach"}
             />
           </div>
         </div>
