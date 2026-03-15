@@ -107,7 +107,8 @@ export function getDomain(domainId: string): DomainInfo | null {
 // ─── Select a random unused question for a domain ─────────────────────────────
 export function selectQuestion(
   domainId: string,
-  usedRefs: string[]
+  usedRefs: string[],
+  isReteach = false
 ): BankQuestion | null {
   const domain = bank.domains[domainId];
   if (!domain) return null;
@@ -121,6 +122,13 @@ export function selectQuestion(
   // If pool exhausted, reset (give full pool again)
   if (available.length === 0) {
     available = [...pool];
+  }
+
+  // M001 (counting dots): on reteach, prefer small quantities (≤ 8) so
+  // struggling students consolidate with manageable numbers before scaling up.
+  if (domainId === "M001" && isReteach) {
+    const small = available.filter((q) => parseInt(q.expected, 10) <= 8);
+    if (small.length > 0) available = small;
   }
 
   // Pick random question
