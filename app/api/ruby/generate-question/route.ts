@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Select a random unused question (excluding already-used refs)
-    const bankQ = selectQuestion(domainId, used_refs, attempt_number > 1);
+    const bankQ = selectQuestion(domainId, used_refs, attempt_number > 1, skill_id);
     if (!bankQ) {
       return NextResponse.json(
         { error: "No questions available for this domain" },

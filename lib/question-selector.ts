@@ -108,7 +108,8 @@ export function getDomain(domainId: string): DomainInfo | null {
 export function selectQuestion(
   domainId: string,
   usedRefs: string[],
-  isReteach = false
+  isReteach = false,
+  skillId = ""
 ): BankQuestion | null {
   const domain = bank.domains[domainId];
   if (!domain) return null;
@@ -124,8 +125,15 @@ export function selectQuestion(
     available = [...pool];
   }
 
-  // M001 (counting dots): on reteach, prefer small quantities (≤ 8) so
-  // struggling students consolidate with manageable numbers before scaling up.
+  // M001 skill-level dot cap:
+  //   L1.T1.A1 = "Count objects to 10" → only serve ≤ 10 dots
+  //   L1.T1.A2 = "Count objects to 20" → full pool (up to 20)
+  if (domainId === "M001" && skillId === "L1.T1.A1") {
+    const capped = available.filter((q) => parseInt(q.expected, 10) <= 10);
+    if (capped.length > 0) available = capped;
+  }
+
+  // On reteach, prefer small quantities (≤ 8) to rebuild confidence
   if (domainId === "M001" && isReteach) {
     const small = available.filter((q) => parseInt(q.expected, 10) <= 8);
     if (small.length > 0) available = small;

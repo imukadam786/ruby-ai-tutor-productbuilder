@@ -9,39 +9,30 @@ import {
 } from "@/types/ruby";
 
 // ─── Mastery Determination ────────────────────────────────────────────────────
-// Mastery requires:
-//   - correct_required correct answers (default 3)
-//   - formats_required different question templates used (default 2)
-//   - allow_scaffolding: false means unaided answers only count
+// Mastery threshold: 80% accuracy over a minimum of 3 attempts.
+// Format diversity is not required — single-format question banks can still
+// produce mastery. Cross-session stability gate is removed for accessibility.
+
+const MASTERY_MIN_ATTEMPTS = 3;
+const MASTERY_ACCURACY_THRESHOLD = 0.8;
 
 export function evaluateMastery(
   attempts: SkillAttempt[],
   skill: AtomicSkill
 ): MasteryStatus {
-  const { correct_required, formats_required, allow_scaffolding } =
-    skill.mastery_criteria;
+  const { allow_scaffolding } = skill.mastery_criteria;
 
   const validAttempts = allow_scaffolding
     ? attempts
     : attempts.filter((a) => !a.scaffolded);
 
-  const correctAttempts = validAttempts.filter((a) => a.is_correct);
-  const correctCount = correctAttempts.length;
+  if (validAttempts.length === 0) return "locked";
+  if (validAttempts.length < MASTERY_MIN_ATTEMPTS) return "in_progress";
 
-  const formatsUsed = new Set<QuestionTemplate>(
-    correctAttempts.map((a) => a.template)
-  );
-  const formatCount = formatsUsed.size;
+  const correctCount = validAttempts.filter((a) => a.is_correct).length;
+  const accuracy = correctCount / validAttempts.length;
 
-  if (correctCount >= correct_required && formatCount >= formats_required) {
-    return "mastered";
-  }
-
-  if (attempts.length > 0) {
-    return "in_progress";
-  }
-
-  return "locked";
+  return accuracy >= MASTERY_ACCURACY_THRESHOLD ? "mastered" : "in_progress";
 }
 
 export function initSkillMastery(skillId: string): SkillMastery {
@@ -127,9 +118,8 @@ export function determineNextAction(
     }
   }
 
-  // 2. ADVANCE — mastery threshold met AND cross-session stability confirmed
+  // 2. ADVANCE — mastery threshold met (80% accuracy over 3+ attempts)
   if (mastery.status === "mastered") {
-    if (!isMathsSessionStable(mastery)) return "practice"; // threshold met, not yet stable — keep practising
     if (masteredTiersInLevel >= totalTiersInLevel) return "advance_level";
     if (masteredSkillsInTier >= totalSkillsInTier) return "advance_tier";
     return "advance_skill";
