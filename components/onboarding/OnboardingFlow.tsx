@@ -407,12 +407,12 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 {loginMode ? "Welcome back" : t.step7Title}
               </h1>
 
-              {/* Ruby superhero character — only on sign-up */}
+              {/* Ruby superheroes — only on sign-up */}
               {!loginMode && (
                 <div className="flex justify-center mb-1">
                   <img
-                    src="/ruby-hero.png"
-                    alt="Ruby the maths superhero"
+                    src="/ruby-heroes.png"
+                    alt="Ruby superheroes"
                     className="h-36 w-auto object-contain"
                   />
                 </div>
@@ -458,6 +458,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 </div>
               </div>
 
+              {/* Buttons pushed toward center-bottom on desktop */}
+              <div className="md:mt-auto md:pt-4">
               {/* Error message */}
               {authError && (
                 <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
@@ -493,6 +495,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                   Log In
                 </button>
               )}
+              </div>
             </div>
           )}
 
