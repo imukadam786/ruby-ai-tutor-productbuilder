@@ -242,6 +242,43 @@ const LEVEL_LABEL: Record<number, string> = {
 
 type Phase = "welcome" | "loading" | "task" | "result";
 
+// ── Stimulus renderer ─────────────────────────────────────────────────────────
+
+function parseDotArray(stimulus: string): number | null {
+  const m = stimulus.match(/^Dot array:\s*(\d+)\s*dots/i);
+  return m ? parseInt(m[1], 10) : null;
+}
+
+function DotArray({ count }: { count: number }) {
+  // Stable pseudo-random positions seeded by count
+  const dots = Array.from({ length: count }, (_, i) => i);
+  return (
+    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 flex flex-wrap gap-3 justify-center items-center min-h-[100px]">
+      {dots.map((i) => (
+        <div
+          key={i}
+          className="w-8 h-8 rounded-full bg-teal-600 shadow-sm flex-shrink-0"
+        />
+      ))}
+    </div>
+  );
+}
+
+function StimulusDisplay({ stimulus }: { stimulus: string }) {
+  const dotCount = parseDotArray(stimulus);
+  if (dotCount !== null) {
+    return <DotArray count={dotCount} />;
+  }
+  // Default: render as text
+  return (
+    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 text-center">
+      <p className="text-3xl sm:text-4xl font-bold text-teal-700 tracking-wide whitespace-pre-line">
+        {stimulus}
+      </p>
+    </div>
+  );
+}
+
 // ── Main component ─────────────────────────────────────────────────────────────
 
 export default function MathsDiagnosticPlacement({
@@ -615,13 +652,7 @@ export default function MathsDiagnosticPlacement({
           {/* Question card */}
           <div className="bg-white rounded-3xl shadow-md p-6 space-y-4">
             <p className="text-gray-800 text-lg font-semibold leading-snug">{task.question}</p>
-            {task.stimulus && (
-              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 text-center">
-                <p className="text-3xl sm:text-4xl font-bold text-teal-700 tracking-wide whitespace-pre-line">
-                  {task.stimulus}
-                </p>
-              </div>
-            )}
+            {task.stimulus && <StimulusDisplay stimulus={task.stimulus} />}
           </div>
 
           {/* Answer card */}
