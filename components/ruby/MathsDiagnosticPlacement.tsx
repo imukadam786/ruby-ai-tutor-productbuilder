@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useCallback, useMemo } from "react";
-import { MathsPlacementResult, MathsPlacementTaskResult } from "@/types/ruby";
+import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
+import { evaluateEarlyExit } from "@/lib/diagnostic-engine";
 
 // ── Task definitions ──────────────────────────────────────────────────────────
 
@@ -12,15 +13,20 @@ interface Task {
   id: string;
   domain: string;
   gate: "A" | "B" | "C" | "D" | "E" | "F";
+  block: DiagnosticBlock;
   question: string;
   subText?: string;
   displayExpr?: string;
   choices: Choice[];
+  isHardGate?: boolean;
+  isProbe?: boolean;
+  probeFor?: string; // error type this probe targets
 }
 
 const ALL_TASKS: Task[] = [
+  // ── Block 1 — Gates A + B (entry levels 1–5) ──────────────────────────────
   {
-    id: "M001", domain: "Counting & Number Sense", gate: "A",
+    id: "M001", domain: "Counting & Number Sense", gate: "A", block: 1,
     question: "Count the dots carefully. How many are there?",
     displayExpr: "●  ●  ●  ●  ●  ●  ●",
     choices: [
@@ -31,7 +37,28 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M004", domain: "Addition — Mental Strategy", gate: "A",
+    id: "M002", domain: "Number Patterns", gate: "A", block: 1,
+    question: "What comes next in the pattern?",
+    displayExpr: "5,  10,  15,  20,  ?",
+    choices: [
+      { label: "22", value: "22", correct: false },
+      { label: "24", value: "24", correct: false },
+      { label: "25", value: "25", correct: true },
+      { label: "30", value: "30", correct: false },
+    ],
+  },
+  {
+    id: "M003", domain: "Place Value", gate: "A", block: 1,
+    question: "What is the value of the digit 4 in the number 342?",
+    choices: [
+      { label: "4", value: "4", correct: false },
+      { label: "40", value: "40", correct: true },
+      { label: "400", value: "400", correct: false },
+      { label: "14", value: "14", correct: false },
+    ],
+  },
+  {
+    id: "M004", domain: "Addition — Mental Strategy", gate: "A", block: 1,
     question: "Work this out in your head.",
     displayExpr: "47 + 38 = ?",
     choices: [
@@ -42,7 +69,7 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M005", domain: "Subtraction — Mental Strategy", gate: "B",
+    id: "M005", domain: "Subtraction — Mental Strategy", gate: "B", block: 1,
     question: "Work this out in your head.",
     displayExpr: "63 − 27 = ?",
     choices: [
@@ -53,9 +80,10 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M006", domain: "Multiplication — Equal Groups", gate: "B",
+    id: "M006", domain: "Multiplication — Equal Groups", gate: "B", block: 1,
     question: "There are 6 bags with 8 apples in each bag. How many apples altogether?",
     subText: "This is an important question — take your time!",
+    isHardGate: true,
     choices: [
       { label: "42", value: "42", correct: false },
       { label: "48", value: "48", correct: true },
@@ -63,8 +91,9 @@ const ALL_TASKS: Task[] = [
       { label: "40", value: "40", correct: false },
     ],
   },
+  // ── Block 2 — Gates C + D (entry levels 8–10) ─────────────────────────────
   {
-    id: "M007", domain: "Flexible Decomposition", gate: "C",
+    id: "M007", domain: "Flexible Decomposition", gate: "C", block: 2,
     question: "Which shows 253 broken into parts correctly?",
     choices: [
       { label: "200 + 50 + 3", value: "200+50+3", correct: true },
@@ -74,7 +103,7 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M008", domain: "Fractions — Unit Interpretation", gate: "C",
+    id: "M008", domain: "Fractions — Unit Interpretation", gate: "C", block: 2,
     question: "A pizza is cut into 4 equal slices. Ruby eats 3 slices. What fraction did she eat?",
     choices: [
       { label: "3/4", value: "3/4", correct: true },
@@ -84,7 +113,17 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M009", domain: "Ratio & Proportion", gate: "D",
+    id: "M015", domain: "Division — Equal Sharing", gate: "C", block: 2,
+    question: "56 chocolates are shared equally among 8 friends. How many does each friend get?",
+    choices: [
+      { label: "6", value: "6", correct: false },
+      { label: "7", value: "7", correct: true },
+      { label: "8", value: "8", correct: false },
+      { label: "9", value: "9", correct: false },
+    ],
+  },
+  {
+    id: "M009", domain: "Ratio & Proportion", gate: "D", block: 2,
     question: "A recipe uses 2 cups of flour for every 3 cups of milk. For 6 cups of milk, how many cups of flour are needed?",
     choices: [
       { label: "4 cups", value: "4", correct: true },
@@ -94,7 +133,7 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M010", domain: "Integer Operations & BODMAS", gate: "D",
+    id: "M010", domain: "Integer Operations & BODMAS", gate: "D", block: 2,
     question: "Calculate (remember the order of operations):",
     displayExpr: "3 + 4 × 2 = ?",
     choices: [
@@ -105,7 +144,18 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M011", domain: "Algebraic Expressions", gate: "E",
+    id: "M016", domain: "Percentages", gate: "D", block: 2,
+    question: "What is 20% of 150?",
+    choices: [
+      { label: "20", value: "20", correct: false },
+      { label: "25", value: "25", correct: false },
+      { label: "30", value: "30", correct: true },
+      { label: "15", value: "15", correct: false },
+    ],
+  },
+  // ── Block 3 — Gates E + F (entry levels 14–16) ────────────────────────────
+  {
+    id: "M011", domain: "Algebraic Expressions", gate: "E", block: 3,
     question: "Simplify by collecting like terms:",
     displayExpr: "3x + 5 + 2x − 3",
     choices: [
@@ -116,7 +166,7 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M012", domain: "Linear Equations", gate: "E",
+    id: "M012", domain: "Linear Equations", gate: "E", block: 3,
     question: "Solve for x:",
     displayExpr: "2x + 3 = 11",
     choices: [
@@ -127,7 +177,17 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M013", domain: "Quadratic Factorisation", gate: "F",
+    id: "M017", domain: "Simultaneous Equations", gate: "E", block: 3,
+    question: "If x + y = 10 and x − y = 4, what is the value of x?",
+    choices: [
+      { label: "x = 3", value: "3", correct: false },
+      { label: "x = 6", value: "6", correct: false },
+      { label: "x = 7", value: "7", correct: true },
+      { label: "x = 5", value: "5", correct: false },
+    ],
+  },
+  {
+    id: "M013", domain: "Quadratic Factorisation", gate: "F", block: 3,
     question: "Factorise:",
     displayExpr: "x² + 7x + 12",
     choices: [
@@ -138,7 +198,7 @@ const ALL_TASKS: Task[] = [
     ],
   },
   {
-    id: "M014", domain: "Functions — Key Features", gate: "F",
+    id: "M014", domain: "Functions — Key Features", gate: "F", block: 3,
     question: "For the function y = 3x − 5, what is the y-intercept?",
     choices: [
       { label: "−5", value: "-5", correct: true },
@@ -147,7 +207,65 @@ const ALL_TASKS: Task[] = [
       { label: "−3", value: "-3", correct: false },
     ],
   },
+  {
+    id: "M018", domain: "Multi-Step Problems", gate: "F", block: 3,
+    question: "A store sells pens for R12 each and rulers for R8 each. Sam buys 3 pens and 2 rulers. How much does he spend in total?",
+    choices: [
+      { label: "R50", value: "50", correct: false },
+      { label: "R52", value: "52", correct: true },
+      { label: "R56", value: "56", correct: false },
+      { label: "R48", value: "48", correct: false },
+    ],
+  },
 ];
+
+// ── Probe tasks (do not count toward 18-task cap) ─────────────────────────────
+
+const MATHS_PROBE_TASKS: Record<string, Task> = {
+  place_value_probe_1: {
+    id: "PROBE_PV1", domain: "Place Value — Probe", gate: "C", block: 2,
+    question: "What is the tens digit in the number 473?",
+    isProbe: true, probeFor: "ERR_PLACE_VALUE",
+    choices: [
+      { label: "4", value: "4", correct: false },
+      { label: "7", value: "7", correct: true },
+      { label: "3", value: "3", correct: false },
+      { label: "40", value: "40", correct: false },
+    ],
+  },
+  count_sequence_probe_1: {
+    id: "PROBE_CS1", domain: "Counting Sequence — Probe", gate: "A", block: 1,
+    question: "Count on from 13. What is the next number?",
+    displayExpr: "13, __, __",
+    isProbe: true, probeFor: "ERR_COUNT_SKIP",
+    choices: [
+      { label: "14", value: "14", correct: true },
+      { label: "15", value: "15", correct: false },
+      { label: "12", value: "12", correct: false },
+      { label: "16", value: "16", correct: false },
+    ],
+  },
+  fraction_form_probe_1: {
+    id: "PROBE_FF1", domain: "Fraction Form — Probe", gate: "C", block: 3,
+    question: "Which of these shows one half?",
+    isProbe: true, probeFor: "ERR_FRACTION_FORM",
+    choices: [
+      { label: "2/1", value: "2/1", correct: false },
+      { label: "1/2", value: "1/2", correct: true },
+      { label: "2/2", value: "2/2", correct: false },
+      { label: "1/4", value: "1/4", correct: false },
+    ],
+  },
+};
+
+// ── Probe trigger logic ────────────────────────────────────────────────────────
+
+function getFollowUpProbe(errorType: string, block: DiagnosticBlock, _domain: string): Task | null {
+  if (errorType === "ERR_PLACE_VALUE" && block === 2) return MATHS_PROBE_TASKS.place_value_probe_1;
+  if (errorType === "ERR_COUNT_SKIP" && block === 1) return MATHS_PROBE_TASKS.count_sequence_probe_1;
+  if (errorType === "ERR_FRACTION_FORM" && block === 3) return MATHS_PROBE_TASKS.fraction_form_probe_1;
+  return null;
+}
 
 // ── Grade → task selection ────────────────────────────────────────────────────
 // Each gate has a grade threshold at which that domain is grade-appropriate.
@@ -163,14 +281,20 @@ const GATE_GRADE_THRESHOLD: Record<Task["gate"], number> = {
   F: 11, // Quadratics/Functions — Grades 11–12
 };
 
+function getGradeStartDifficulty(grade: number): number {
+  if (grade <= 2) return 1;
+  if (grade === 3) return 3;
+  return 5; // grade 4+
+}
+
+function buildMathsDiagnosticTasks(grade: number): Task[] {
+  const startIndex = getGradeStartDifficulty(grade) - 1; // convert 1-based to 0-based
+  return ALL_TASKS.slice(startIndex, startIndex + 18);
+}
+
+// Preserved for any existing callers outside this component
 function getTasksForGrade(grade: number): Task[] {
-  // Show two gates below expected grade through two gates above
-  // Always include at least Gates A+B for context
-  if (grade <= 4) return ALL_TASKS.filter((t) => ["A", "B"].includes(t.gate));
-  if (grade <= 6) return ALL_TASKS.filter((t) => ["A", "B", "C"].includes(t.gate));
-  if (grade <= 7) return ALL_TASKS.filter((t) => ["B", "C", "D"].includes(t.gate));
-  if (grade <= 9) return ALL_TASKS.filter((t) => ["C", "D", "E"].includes(t.gate));
-  return ALL_TASKS.filter((t) => ["D", "E", "F"].includes(t.gate));
+  return buildMathsDiagnosticTasks(grade);
 }
 
 // Minimum entry level enforced by grade (even if all tasks failed)
@@ -188,11 +312,14 @@ function getGradeFloor(grade: number): number {
 
 // ── Gate → entry level mapping ─────────────────────────────────────────────────
 
-function computePlacement(results: MathsPlacementTaskResult[], grade: number): {
+function computePlacement(results: MathsPlacementTaskResult[], grade: number, earlyExitReason?: string | null, probesRun?: number): {
   entryLevel: number;
   entrySkillId: string;
   hardGatePassed: boolean;
   autoCompletedSkillIds: string[];
+  earlyExitReason: string | null;
+  probesRun: number;
+  placementBlock: DiagnosticBlock;
 } {
   const scoreMap: Record<string, boolean> = {};
   for (const r of results) {
@@ -230,7 +357,15 @@ function computePlacement(results: MathsPlacementTaskResult[], grade: number): {
 
   const autoCompletedSkillIds = entryLevel > 1 ? getSkillIdsForLevels(entryLevel) : [];
 
-  return { entryLevel, entrySkillId, hardGatePassed, autoCompletedSkillIds };
+  // Determine which block determined placement
+  const placementBlock: DiagnosticBlock = gateF || gateE ? 3 : gateD || gateC ? 2 : 1;
+
+  return {
+    entryLevel, entrySkillId, hardGatePassed, autoCompletedSkillIds,
+    earlyExitReason: earlyExitReason ?? null,
+    probesRun: probesRun ?? 0,
+    placementBlock,
+  };
 }
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -268,64 +403,150 @@ export default function MathsDiagnosticPlacement({
   grade: number;
   onComplete: (result: MathsPlacementResult) => void;
 }) {
-  const tasks = useMemo(() => {
-    const filtered = getTasksForGrade(grade);
-    // Shuffle on every mount so restarts never repeat the same order
-    return [...filtered].sort(() => Math.random() - 0.5);
-  }, [grade]);
+  // 18 primary tasks derived from grade — no shuffle (order matters for blocks)
+  const primaryTasks = useMemo(() => buildMathsDiagnosticTasks(grade), [grade]);
 
   const [phase, setPhase] = useState<Phase>("welcome");
-  const [taskIndex, setTaskIndex] = useState(0);
+  const [primaryTaskIndex, setPrimaryTaskIndex] = useState(0);
+  const [probeQueue, setProbeQueue] = useState<Task[]>([]);
+  const [probesFiredThisBlock, setProbesFiredThisBlock] = useState(0);
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [completedTasks, setCompletedTasks] = useState<MathsPlacementTaskResult[]>([]);
+  const [errorHistory, setErrorHistory] = useState<{ taskId: string; errorType: string }[]>([]);
+  const [earlyExitReason, setEarlyExitReason] = useState<string | null>(null);
+  const [probesRun, setProbesRun] = useState(0);
   const [placementResult, setPlacementResult] = useState<MathsPlacementResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showEncouragement, setShowEncouragement] = useState(false);
 
-  const task = tasks[taskIndex];
-  const progress = (taskIndex / tasks.length) * 100;
+  // Current task: drain probe queue before advancing primary tasks
+  const task: Task | undefined = probeQueue.length > 0 ? probeQueue[0] : primaryTasks[primaryTaskIndex];
+  // Progress shows primary task count only (probes are invisible to student)
+  const primaryTasksCompleted = completedTasks.filter((t) => !t.is_probe).length;
+  const progress = (primaryTasksCompleted / primaryTasks.length) * 100;
+
+  const finishDiagnostic = useCallback((completed: MathsPlacementTaskResult[], exitReason: string | null, probeCount: number) => {
+    const { entryLevel, entrySkillId, hardGatePassed, autoCompletedSkillIds, placementBlock, earlyExitReason: er, probesRun: pr } =
+      computePlacement(completed, grade, exitReason, probeCount);
+    const placement: MathsPlacementResult = {
+      completedAt: Date.now(),
+      placementCompletedAt: Date.now(),
+      tasks: completed,
+      entrySkillId,
+      entryLevel,
+      autoCompletedSkillIds,
+      hardGatePassed,
+      placementBlock,
+      earlyExitReason: er,
+      probesRun: pr,
+    };
+    setPlacementResult(placement);
+    setPhase("result");
+  }, [grade]);
 
   const advanceTask = useCallback(async (result: MathsPlacementTaskResult) => {
     setSubmitting(true);
     const newCompleted = [...completedTasks, result];
     setCompletedTasks(newCompleted);
 
+    // Update error history for incorrect primary tasks
+    const newErrorHistory = [...errorHistory];
+    if (!result.correct && !result.is_probe && result.error_type) {
+      newErrorHistory.push({ taskId: result.domain, errorType: result.error_type });
+      setErrorHistory(newErrorHistory);
+    }
+
     setShowEncouragement(true);
     await new Promise((r) => setTimeout(r, 600));
 
-    if (taskIndex + 1 >= tasks.length) {
-      const { entryLevel, entrySkillId, hardGatePassed, autoCompletedSkillIds } =
-        computePlacement(newCompleted, grade);
-      const placement: MathsPlacementResult = {
-        completedAt: Date.now(),
-        tasks: newCompleted,
-        entrySkillId,
-        entryLevel,
-        autoCompletedSkillIds,
-        hardGatePassed,
-      };
-      setPlacementResult(placement);
-      setPhase("result");
+    // ── Probe path ──────────────────────────────────────────────────────────
+    if (result.is_probe) {
+      setProbesRun((n) => n + 1);
+      setProbeQueue((q) => q.slice(1)); // drain probe
+      setSelectedChoice(null);
+      setShowEncouragement(false);
+      setSubmitting(false);
+      return;
+    }
+
+    // ── Primary task path ───────────────────────────────────────────────────
+    const currentTask = primaryTasks[primaryTaskIndex];
+    const nextPrimaryIndex = primaryTaskIndex + 1;
+
+    // Check for probe trigger (max 2 per block)
+    if (!result.correct && result.error_type && probesFiredThisBlock < 2) {
+      const probe = getFollowUpProbe(result.error_type, currentTask.block, currentTask.domain);
+      if (probe) {
+        setProbeQueue((q) => [...q, probe]);
+        setProbesFiredThisBlock((n) => n + 1);
+      }
+    }
+
+    // Check for block boundary early exit
+    const blockSize = 6;
+    const tasksInCurrentBlock = newCompleted.filter((t) => !t.is_probe && t.block === currentTask.block).length;
+    if (tasksInCurrentBlock >= blockSize) {
+      const exitResult = evaluateEarlyExit(newCompleted, currentTask.block, newErrorHistory);
+      if ("exit" in exitResult && exitResult.exit) {
+        setEarlyExitReason(exitResult.reason);
+        setShowEncouragement(false);
+        finishDiagnostic(newCompleted, exitResult.reason, probesRun + (probeQueue.length > 0 ? 1 : 0));
+        setSubmitting(false);
+        return;
+      }
+      // Skip Block 2 if all Block 1+2 correct
+      if (!exitResult.exit && exitResult.skipToBlock3 && currentTask.block === 2) {
+        const block3Start = primaryTasks.findIndex((t) => t.block === 3);
+        if (block3Start >= 0) {
+          setPrimaryTaskIndex(block3Start);
+          setProbesFiredThisBlock(0);
+          setSelectedChoice(null);
+          setShowEncouragement(false);
+          setSubmitting(false);
+          return;
+        }
+      }
+      // Reset probe counter at block boundary
+      setProbesFiredThisBlock(0);
+    }
+
+    if (nextPrimaryIndex >= primaryTasks.length) {
+      setShowEncouragement(false);
+      finishDiagnostic(newCompleted, null, probesRun);
     } else {
       setSelectedChoice(null);
       setShowEncouragement(false);
-      setTaskIndex((i) => i + 1);
+      setPrimaryTaskIndex(nextPrimaryIndex);
     }
     setSubmitting(false);
-  }, [completedTasks, taskIndex, tasks.length, grade]);
+  }, [completedTasks, errorHistory, primaryTaskIndex, primaryTasks, probesFiredThisBlock, probeQueue, probesRun, finishDiagnostic]);
 
   const handleChoice = useCallback((choice: Choice) => {
-    if (submitting || selectedChoice) return;
+    if (submitting || selectedChoice || !task) return;
     setSelectedChoice(choice.value);
+    const isProbe = !!task.isProbe;
+    // Simple error type heuristic for diagnostic: wrong = conceptual_gap unless it's a probe
+    const errorType = choice.correct ? undefined : (task.isProbe ? undefined : "conceptual_gap");
     setTimeout(() => {
-      advanceTask({ domain: task.id, score: choice.correct ? 1 : 0, response: choice.value });
+      advanceTask({
+        domain: task.id,
+        score: choice.correct ? 1 : 0,
+        response: choice.value,
+        block: task.block,
+        correct: choice.correct,
+        error_type: errorType,
+        is_probe: isProbe,
+      });
     }, 450);
-  }, [submitting, selectedChoice, task?.id, advanceTask]);
+  }, [submitting, selectedChoice, task, advanceTask]);
 
   const handleSkip = useCallback(() => {
-    if (submitting) return;
-    advanceTask({ domain: task.id, score: 0, response: "(skipped)" });
-  }, [submitting, task?.id, advanceTask]);
+    if (submitting || !task) return;
+    advanceTask({
+      domain: task.id, score: 0, response: "(skipped)",
+      block: task.block, correct: false, is_probe: !!task.isProbe,
+    });
+  }, [submitting, task, advanceTask]);
 
   // ── Welcome ───────────────────────────────────────────────────────────────
   if (phase === "welcome") {
@@ -344,7 +565,7 @@ export default function MathsDiagnosticPlacement({
           </div>
           <div className="grid grid-cols-3 gap-2 text-sm text-gray-600">
             {[
-              { icon: "🎯", text: `${tasks.length} questions` },
+              { icon: "🎯", text: `${primaryTasks.length} questions` },
               { icon: "⏱️", text: "5–8 min" },
               { icon: "🏆", text: "Find your level" },
             ].map(({ icon, text }) => (
@@ -378,7 +599,7 @@ export default function MathsDiagnosticPlacement({
             <div className="text-5xl">🎉</div>
             <h2 className="text-3xl font-bold text-gray-900">Great work, {studentName}!</h2>
             <p className="text-gray-500 text-base">
-              You answered {correctCount} of {tasks.length} questions correctly.
+              You answered {correctCount} of {primaryTasks.length} questions correctly.
               I&apos;ve found your perfect starting point!
             </p>
             {autoCount > 0 && (
@@ -440,7 +661,7 @@ export default function MathsDiagnosticPlacement({
       <div className="bg-white border-b border-gray-100 px-5 py-3 flex-shrink-0">
         <div className="flex justify-between items-center mb-1.5 text-sm text-gray-400">
           <span className="font-medium">Discovery Activity</span>
-          <span>{taskIndex + 1} of {tasks.length}</span>
+          <span>{Math.min(primaryTasksCompleted + 1, primaryTasks.length)} of {primaryTasks.length}</span>
         </div>
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
           <div
@@ -496,7 +717,7 @@ export default function MathsDiagnosticPlacement({
             {showEncouragement && (
               <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-3 text-center">
                 <p className="text-emerald-700 font-semibold text-base">
-                  {["Keep going! 💪", "Brilliant! ⭐", "You've got this! 🎯", "Fantastic! 🌟", "Amazing! 🏆"][taskIndex % 5]}
+                  {["Keep going! 💪", "Brilliant! ⭐", "You've got this! 🎯", "Fantastic! 🌟", "Amazing! 🏆"][primaryTaskIndex % 5]}
                 </p>
               </div>
             )}

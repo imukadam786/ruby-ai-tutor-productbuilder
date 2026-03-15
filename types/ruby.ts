@@ -89,10 +89,16 @@ export interface SkillMastery {
   attempts: SkillAttempt[];
 }
 
+export type DiagnosticBlock = 1 | 2 | 3;
+
 export interface MathsPlacementTaskResult {
   domain: string;        // e.g. "M001"
   score: number;         // 0 or 1
   response: string;
+  block?: DiagnosticBlock;
+  correct?: boolean;
+  error_type?: string;
+  is_probe?: boolean;
 }
 
 export interface MathsPlacementResult {
@@ -102,6 +108,10 @@ export interface MathsPlacementResult {
   entryLevel: number;
   autoCompletedSkillIds: string[];
   hardGatePassed: boolean;
+  placementBlock?: DiagnosticBlock;
+  earlyExitReason?: string | null;
+  probesRun?: number;
+  placementCompletedAt?: number;
 }
 
 export interface StudentProfile {
