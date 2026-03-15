@@ -193,10 +193,21 @@ export function bankQuestionToGenerated(
   };
 }
 
+function buildDotDisplay(context: string): string {
+  const m = context.match(/(\d+)\s*dots/i);
+  if (!m) return context;
+  const count = parseInt(m[1], 10);
+  const rows: string[] = [];
+  for (let i = 0; i < count; i += 5) {
+    rows.push(Array.from({ length: Math.min(5, count - i) }, () => "●").join("  "));
+  }
+  return rows.join("\n");
+}
+
 function buildQuestionText(q: BankQuestion, domainId: string): string {
   switch (domainId) {
     case "M001":
-      return `${q.context}\n\n${q.ruby_prompt}`;
+      return `${buildDotDisplay(q.context ?? "")}\n\n${q.ruby_prompt}`;
     case "M002":
       return `Sequence: ${q.context}\n\n${q.ruby_prompt}`;
     case "M003":
