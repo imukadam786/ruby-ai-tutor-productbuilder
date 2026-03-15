@@ -402,12 +402,23 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
           {/* ── Step 5: Create Account / Login ── */}
           {step === 5 && (
-            <div className="flex-1 flex flex-col p-5 justify-between">
-              <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-4">
+            <div className="flex-1 flex flex-col p-5">
+              <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-1">
                 {loginMode ? "Welcome back" : t.step7Title}
               </h1>
 
-              <div className="flex flex-col gap-3 mb-3">
+              {/* Ruby superhero character — only on sign-up */}
+              {!loginMode && (
+                <div className="flex justify-center mb-1">
+                  <img
+                    src="/ruby-hero.png"
+                    alt="Ruby the maths superhero"
+                    className="h-36 w-auto object-contain"
+                  />
+                </div>
+              )}
+
+              <div className="flex flex-col gap-2.5 mb-2.5">
                 {/* Name — hidden in login mode */}
                 {!loginMode && (
                   <div>
@@ -449,13 +460,13 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
               {/* Error message */}
               {authError && (
-                <p className="text-red-500 text-sm text-center mb-3 px-2">{authError}</p>
+                <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
               )}
 
               <button
                 onClick={loginMode ? handleLogin : handleSignUp}
                 disabled={loginMode ? (!email || !password || authLoading) : (!name || !email || !password || authLoading)}
-                className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors mb-3 flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors mb-2.5 flex items-center justify-center gap-2"
               >
                 {authLoading && (
                   <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -466,15 +477,22 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 {loginMode ? "Log in" : "Start Free Beta"}
               </button>
 
-              <p className="text-center text-base text-gray-500">
-                {loginMode ? "Don't have an account? " : t.loginPrompt + " "}
+              {/* Toggle between sign-up and login */}
+              {loginMode ? (
                 <button
-                  onClick={() => { setLoginMode(!loginMode); setAuthError(""); }}
-                  className="text-rose-500 font-medium"
+                  onClick={() => { setLoginMode(false); setAuthError(""); }}
+                  className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors"
                 >
-                  {loginMode ? "Sign up" : t.loginLink}
+                  Create Account
                 </button>
-              </p>
+              ) : (
+                <button
+                  onClick={() => { setLoginMode(true); setAuthError(""); }}
+                  className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors"
+                >
+                  Log In
+                </button>
+              )}
             </div>
           )}
 
