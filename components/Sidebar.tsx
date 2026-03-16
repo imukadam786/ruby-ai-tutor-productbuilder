@@ -238,7 +238,7 @@ export default function Sidebar({
             <div className="font-medium text-base">{t("sidebar.logout")}</div>
           </button>
 
-          <p className="text-white/50 text-sm text-center pt-2">{t("sidebar.powered_by")}</p>
+          <p className="text-white/50 text-sm text-center pt-2">Powered by Hula</p>
         </div>
       </aside>
     </>
