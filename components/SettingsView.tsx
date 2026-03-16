@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useT } from "@/lib/i18n";
 import SpinningGlobe from "@/components/SpinningGlobe";
 import EduBackground from "@/components/EduBackground";
+import { supabase } from "@/lib/supabase";
 
 interface SettingsViewProps {
   onBack: () => void;
@@ -544,18 +545,34 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
   const [selectedContinent, setSelectedContinent] = useState<string | null>(null);
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem("onboardingData");
-      if (raw) {
-        const d = JSON.parse(raw);
-        setName(d.name || "");
-        setEmail(d.email || "");
-        setPhone(d.phone || "");
-        setAccountLang(d.language || "English");
-        setLearnLang(d.language || "English");
-        setPlan(d.plan || "free");
+    const loadProfile = async () => {
+      let savedName = "";
+      let savedEmail = "";
+      try {
+        const raw = localStorage.getItem("onboardingData");
+        if (raw) {
+          const d = JSON.parse(raw);
+          savedName = d.name || "";
+          savedEmail = d.email || "";
+          setPhone(d.phone || "");
+          setAccountLang(d.language || "English");
+          setLearnLang(d.language || "English");
+          setPlan(d.plan || "free");
+        }
+      } catch { /* ignore */ }
+
+      // Fill in name/email from Supabase session if not in localStorage
+      if (!savedName || !savedEmail) {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          if (!savedName) savedName = (user.user_metadata?.full_name as string | undefined) || "";
+          if (!savedEmail) savedEmail = user.email || "";
+        }
       }
-    } catch { /* ignore */ }
+      setName(savedName);
+      setEmail(savedEmail);
+    };
+    loadProfile();
   }, []);
 
 

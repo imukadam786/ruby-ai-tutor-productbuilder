@@ -110,7 +110,7 @@ const PLANS = [
   },
 ];
 
-// Steps: 1=language, 2=grade, 3=score, 4=curriculum, 5=create_account
+// Steps: 1=create_account, 2=language, 3=grade, 4=score, 5=curriculum
 const TOTAL_STEPS = 5;
 
 function BackButton({ onClick }: { onClick: () => void }) {
@@ -207,18 +207,19 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     setAuthLoading(true);
     setAuthError("");
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
+      // Fetch the user's saved name from Supabase metadata
+      const fullName = (authData.user?.user_metadata?.full_name as string | undefined) || "";
       const final: OnboardingData = {
         language: data.language || "English",
         grade: data.grade || "",
         averageScore: data.averageScore || "",
         curriculum: data.curriculum || "",
-        name,
-        email,
+        name: fullName,
+        email: authData.user?.email || email,
         plan: "existing",
       };
-      localStorage.setItem("onboardingComplete", "true");
       localStorage.setItem("onboardingData", JSON.stringify(final));
       onComplete(final);
     } catch (err: unknown) {
@@ -229,8 +230,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     }
   };
 
-  // ── Save plan + complete ───────────────────────────────────────────────────
-  const handleSelectPlan = async (planId: string) => {
+  // ── Complete onboarding (no plan step) ────────────────────────────────────
+  const handleComplete = () => {
     const final: OnboardingData = {
       language: data.language || "English",
       grade: data.grade || "",
@@ -238,25 +239,13 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       curriculum: data.curriculum || "",
       name,
       email,
-      plan: planId,
+      plan: "standard",
     };
-    // Record plan in Supabase if authenticated
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        await supabase.from("users").update({
-          plan: planId === "grade12" ? "pro" : "free",
-        }).eq("id", user.id);
-      }
-    } catch { /* silent — plan saved locally either way */ }
-
-    localStorage.setItem("onboardingComplete", "true");
     localStorage.setItem("onboardingData", JSON.stringify(final));
     onComplete(final);
   };
 
-  // Wider container only on the plan step so both cards fit on desktop
-  const outerMaxW = step === 6 ? "max-w-md md:max-w-2xl" : "max-w-md";
+  const outerMaxW = "max-w-md";
   // Progress bar counts steps 2–6 (step 1 is account creation, no bar)
 
   return (
@@ -473,80 +462,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 </div>
               </div>
               <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.curriculum} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 6: Choose Plan ── */}
-          {step === 6 && (
-            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-1 flex-shrink-0">{t.step8Title}</h1>
-              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step8Sub}</p>
-
-              {/* Mobile: one card at a time, snap scroll horizontally — no vertical scroll inside */}
-              <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory flex-1 min-h-0 gap-4 -mx-6 px-6 pb-2 scrollbar-hide">
-                {PLANS.map((plan) => (
-                  <div
-                    key={plan.id}
-                    className={`flex-shrink-0 w-full snap-center border-2 ${plan.borderClass} rounded-2xl p-4 flex flex-col`}
-                  >
-                    <p className="font-bold text-[#1a2744] text-base mb-0.5">{plan.name}</p>
-                    <p className={`text-2xl font-bold ${plan.priceClass} mb-3`}>
-                      <span className="text-base font-semibold">R</span> {plan.price}
-                      <span className="text-sm font-normal text-gray-400"> {t.perMonth}</span>
-                    </p>
-                    <ul className="flex flex-col gap-1.5 mb-4 flex-1">
-                      {plan.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
-                          <svg className="w-3.5 h-3.5 flex-shrink-0" style={{ color: plan.accentColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <button
-                      onClick={() => handleSelectPlan(plan.id)}
-                      className={`w-full py-3 rounded-full text-white font-semibold text-sm transition-colors flex-shrink-0 ${plan.btnClass}`}
-                    >
-                      {t.selectPlan}
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-              {/* Desktop: both plans side by side */}
-              <div className="hidden md:grid grid-cols-2 gap-4 flex-1 min-h-0 overflow-y-auto">
-                {PLANS.map((plan) => (
-                  <div
-                    key={plan.id}
-                    className={`border-2 ${plan.borderClass} rounded-2xl p-5 flex flex-col`}
-                  >
-                    <p className="font-bold text-[#1a2744] text-base mb-1">{plan.name}</p>
-                    <p className={`text-3xl font-bold ${plan.priceClass} mb-4`}>
-                      <span className="text-lg font-semibold">R</span> {plan.price}
-                      <span className="text-sm font-normal text-gray-400"> {t.perMonth}</span>
-                    </p>
-                    <ul className="flex flex-col gap-2 mb-5 flex-1">
-                      {plan.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-base text-gray-600">
-                          <svg className="w-4 h-4 flex-shrink-0" style={{ color: plan.accentColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <button
-                      onClick={() => handleSelectPlan(plan.id)}
-                      className={`w-full py-3.5 rounded-full text-white font-semibold text-base transition-colors ${plan.btnClass}`}
-                    >
-                      {t.selectPlan}
-                    </button>
-                  </div>
-                ))}
+                <ContinueBtn label={t.continueBtn} onClick={handleComplete} disabled={!data.curriculum} />
               </div>
             </div>
           )}
