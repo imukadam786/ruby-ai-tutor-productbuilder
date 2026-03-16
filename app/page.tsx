@@ -180,30 +180,91 @@ function AppContent() {
 }
 
 // ── Onboarding gate — wraps AppContent in LanguageProvider ───────────────────
+// ── Account-created welcome screen ────────────────────────────────────────────
+function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearning: () => void }) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+      <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
+        <h1 className="text-2xl font-bold text-[#1a2744]">
+          Welcome, {name}! 🎉
+        </h1>
+        <p className="text-gray-500 text-base">Your account has been created and you&apos;re all set to start your learning journey.</p>
+
+        {/* Hero characters */}
+        <div className="flex justify-center">
+          <img
+            src="/ruby-heroes.png"
+            alt="Ruby superheroes"
+            className="h-44 w-auto object-contain"
+          />
+        </div>
+
+        <button
+          onClick={onStartLearning}
+          className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg transition-colors shadow-md"
+        >
+          Start Learning 🚀
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [onboardingDone, setOnboardingDone] = useState<boolean | null>(null);
-  const [resumeStep, setResumeStep] = useState<number | undefined>(undefined);
-  const [resumeData, setResumeData] = useState<Partial<OnboardingData> | undefined>(undefined);
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "app">("loading");
+  const [welcomeName, setWelcomeName] = useState("");
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("reset") !== null) {
       clearAllUserData();
+      supabase.auth.signOut();
       window.history.replaceState({}, "", window.location.pathname);
     }
 
-    setOnboardingDone(localStorage.getItem("onboardingComplete") === "true");
+    // Primary gate: active Supabase session → skip onboarding entirely
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        setAppState("app");
+      } else {
+        setAppState("onboarding");
+      }
+    });
+
+    // Also handle session changes (e.g. token expiry, logout from another tab)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session) setAppState("onboarding");
+    });
+    return () => subscription.unsubscribe();
   }, []);
 
-  const handleOnboardingComplete = (_data: OnboardingData) => {
-    clearAllUserData();
-    setOnboardingDone(true);
+  const handleOnboardingComplete = (data: OnboardingData) => {
+    if (data.plan === "existing") {
+      // Returning user logged in — go straight to app, clear previous user's data
+      clearAllUserData();
+      setAppState("app");
+    } else {
+      // New signup — clear any leftover data then show welcome screen
+      clearAllUserData();
+      setWelcomeName(data.name || "");
+      setAppState("welcome");
+    }
   };
 
-  if (onboardingDone === null) return null;
+  if (appState === "loading") return null;
 
-  if (!onboardingDone) {
-    return <OnboardingFlow onComplete={handleOnboardingComplete} initialStep={resumeStep} initialData={resumeData} />;
+  if (appState === "onboarding") {
+    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+  }
+
+  if (appState === "welcome") {
+    return (
+      <WelcomeScreen
+        name={welcomeName}
+        onStartLearning={() => setAppState("app")}
+      />
+    );
   }
 
   return (
