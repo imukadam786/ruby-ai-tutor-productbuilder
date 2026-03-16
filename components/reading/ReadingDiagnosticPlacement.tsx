@@ -322,11 +322,12 @@ export default function ReadingDiagnosticPlacement({
   const srRef = useRef<any>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const task = TASKS[taskIndex];
-  const progress = ((taskIndex) / TASKS.length) * 100;
+  const task = TASKS[taskIndex] ?? null;
+  const progress = TASKS.length > 0 ? (taskIndex / TASKS.length) * 100 : 0;
 
   // Speak the question when a new task loads
   useEffect(() => {
+    if (!task) return;
     if (phase !== "task" && phase !== "flash_showing" && phase !== "flash_hidden") return;
     setTranscript("");
     setSelectedChoice(null);
@@ -341,11 +342,11 @@ export default function ReadingDiagnosticPlacement({
     }, 300);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [taskIndex, phase]);
+  }, [taskIndex, phase, task]);
 
   // Flash mechanic for D11
   useEffect(() => {
-    if (task.answerMode !== "flash_choice" || phase !== "task") return;
+    if (!task || task.answerMode !== "flash_choice" || phase !== "task") return;
     // Show flash word after a 1.5s delay
     const t1 = setTimeout(() => {
       setFlashVisible(true);
@@ -358,7 +359,7 @@ export default function ReadingDiagnosticPlacement({
     timerRef.current = t1;
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [taskIndex, phase]);
+  }, [taskIndex, phase, task]);
 
   // STT
   const startVoice = useCallback(() => {
@@ -423,16 +424,16 @@ export default function ReadingDiagnosticPlacement({
 
   // Handle choice selection
   const handleChoice = useCallback((choice: Choice) => {
-    if (submitting) return;
+    if (submitting || !task) return;
     setSelectedChoice(choice.value);
     setTimeout(() => {
       advanceTask({ taskId: task.id, correct: choice.correct, score: choice.correct ? 1 : 0, response: choice.value });
     }, 400);
-  }, [submitting, task.id, advanceTask]);
+  }, [submitting, task, advanceTask]);
 
   // Handle voice submit
   const handleVoiceSubmit = useCallback(() => {
-    if (submitting) return;
+    if (submitting || !task) return;
     stopVoice();
     const { correct, score } = scoreVoiceResponse(transcript, task.expectedAnswer ?? "", task.id);
     advanceTask({ taskId: task.id, correct, score, response: transcript || "(no response)" });
@@ -440,10 +441,20 @@ export default function ReadingDiagnosticPlacement({
 
   // Skip task
   const handleSkip = useCallback(() => {
-    if (submitting) return;
+    if (submitting || !task) return;
     stopVoice();
     advanceTask({ taskId: task.id, correct: false, score: 0, response: "(skipped)" });
   }, [submitting, task, stopVoice, advanceTask]);
+
+  // ── Loading (tasks not yet fetched) ──────────────────────────────────────────
+  if (TASKS.length === 0) {
+    return (
+      <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-indigo-100 items-center justify-center">
+        <div className="text-5xl animate-bounce mb-4">📚</div>
+        <p className="text-gray-600 text-base font-medium">Loading your activities…</p>
+      </div>
+    );
+  }
 
   // ── Welcome ──────────────────────────────────────────────────────────────────
   if (phase === "welcome") {
