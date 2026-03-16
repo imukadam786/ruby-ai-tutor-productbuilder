@@ -103,7 +103,7 @@ export default function DiagnosticReportView({
   return (
     <div className="flex flex-col h-full bg-gray-50 overflow-hidden">
       {/* ── Scrollable body ── */}
-      <div className="flex-1 overflow-y-auto pb-28">
+      <div className="flex-1 overflow-y-auto pb-4">
 
         {/* ── Header ── */}
         <div className="bg-[#B7182E] px-5 py-6 print:py-8">
@@ -238,11 +238,11 @@ export default function DiagnosticReportView({
         </div>
       </div>
 
-      {/* ── Sticky bottom bar ── */}
-      <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 shadow-lg">
+      {/* ── Bottom bar — stays inside the report panel ── */}
+      <div className="bg-white border-t border-gray-200 px-4 py-3 shadow-lg flex-shrink-0">
         <button
           onClick={onStartLearning}
-          className="w-full bg-[#B7182E] text-white py-4 rounded-xl font-bold text-base transition-all hover:bg-[#9e1526] shadow-md"
+          className="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-base transition-all hover:bg-green-700 shadow-md"
         >
           Start Learning 🚀
         </button>
