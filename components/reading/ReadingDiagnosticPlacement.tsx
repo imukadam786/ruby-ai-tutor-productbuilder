@@ -420,7 +420,7 @@ export default function ReadingDiagnosticPlacement({
       setTaskIndex(i => i + 1);
     }
     setSubmitting(false);
-  }, [completedTasks, taskIndex]);
+  }, [completedTasks, taskIndex, TASKS.length]);
 
   // Handle choice selection
   const handleChoice = useCallback((choice: Choice) => {
