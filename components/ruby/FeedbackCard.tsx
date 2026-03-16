@@ -1,8 +1,40 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useCallback } from "react";
 import { DiagnosticResult, ErrorType } from "@/types/ruby";
 import { useT } from "@/lib/i18n";
+
+// Map language name → BCP-47 code for speechSynthesis
+const LANG_CODE: Record<string, string> = {
+  English: "en-ZA", Afrikaans: "af-ZA", isiZulu: "zu-ZA", isiXhosa: "xh-ZA",
+  Sepedi: "nso-ZA", Setswana: "tn-ZA", Sesotho: "st-ZA", Xitsonga: "ts-ZA",
+  siSwati: "ss-ZA", Tshivenda: "ve-ZA", isiNdebele: "nr-ZA",
+};
+
+function useTTS(langName: string) {
+  const [playing, setPlaying] = useState(false);
+  const utterRef = useRef<SpeechSynthesisUtterance | null>(null);
+
+  const speak = useCallback((text: string) => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.lang = LANG_CODE[langName] ?? "en-ZA";
+    utt.rate = 0.92;
+    utt.onstart = () => setPlaying(true);
+    utt.onend = () => setPlaying(false);
+    utt.onerror = () => setPlaying(false);
+    utterRef.current = utt;
+    window.speechSynthesis.speak(utt);
+  }, [langName]);
+
+  const stop = useCallback(() => {
+    window.speechSynthesis?.cancel();
+    setPlaying(false);
+  }, []);
+
+  return { playing, speak, stop };
+}
 
 interface FeedbackCardProps {
   result: DiagnosticResult;
@@ -19,9 +51,12 @@ const errorLabels: Record<ErrorType, { label: string; color: string; icon: strin
 };
 
 export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
+  const { language } = useT();
   const errorInfo = errorLabels[result.error_type];
   const isCorrect = result.is_correct;
   const touchStartY = useRef(0);
+  const feedbackText = [result.feedback, result.recovery_explanation].filter(Boolean).join(". ");
+  const { playing, speak, stop } = useTTS(language);
 
   return (
     <div className={`rounded-2xl border-2 overflow-hidden ${
@@ -58,7 +93,28 @@ export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
       {/* Feedback */}
       <div className="px-6 py-5 space-y-4">
         <div>
-          <p className="text-sm font-medium text-gray-600 mb-1">Feedback</p>
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-sm font-medium text-gray-600">Feedback</p>
+            {!isCorrect && (
+              <button
+                onClick={() => playing ? stop() : speak(feedbackText)}
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 hover:bg-orange-200 text-orange-700 text-xs font-medium transition-colors"
+                aria-label={playing ? "Stop audio" : "Play explanation"}
+              >
+                {playing ? (
+                  <>
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    Stop
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                  </>
+                )}
+              </button>
+            )}
+          </div>
           <p className="text-gray-800 leading-relaxed">{result.feedback}</p>
         </div>
 

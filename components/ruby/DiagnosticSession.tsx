@@ -28,6 +28,7 @@ import FeedbackCard from "./FeedbackCard";
 import { selectMathsTemplate } from "@/lib/template-selector";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
+import { useT } from "@/lib/i18n";
 import {
   identifyStudent,
   trackQuestionAnswered,
@@ -117,6 +118,7 @@ function readOnboarding(): { name: string; grade: number } {
 }
 
 export default function DiagnosticSession() {
+  const { language } = useT();
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<GeneratedQuestion | null>(null);
@@ -243,6 +245,7 @@ export default function DiagnosticSession() {
           student_steps: steps,
           expected_answer: currentQuestion.expected_answer,
           used_hint: usedHint,
+          language,
         }),
       });
 

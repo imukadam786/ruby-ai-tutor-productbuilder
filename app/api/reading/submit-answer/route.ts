@@ -126,7 +126,11 @@ export async function POST(req: NextRequest) {
       ? `\nNOTE: This question asked the student to say any word containing a target sound — NOT an exact word. Mark as correct if the student's word genuinely contains the target phoneme, even if it differs from the expected answer.`
       : "";
 
-    const prompt = `You are Ruby, a literacy diagnostic tutor for primary school students (Grade R–3).
+    const langInstruction = submission.language && submission.language !== "English"
+      ? `\nIMPORTANT: Write your "feedback" and "recovery_explanation" values in ${submission.language}. All other JSON fields remain in English.\n`
+      : "";
+
+    const prompt = `You are Ruby, a literacy diagnostic tutor for primary school students (Grade R–3).${langInstruction}
 
 A student is working on this reading/literacy skill:
 SKILL: ${skill.title}

@@ -169,6 +169,7 @@ export interface AnswerSubmission {
   student_steps: string;
   expected_answer: string;
   used_hint: boolean;
+  language?: string;
 }
 
 export interface DiagnosticResult {

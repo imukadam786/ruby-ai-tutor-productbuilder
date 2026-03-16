@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { useT } from "@/lib/i18n";
 
 // ── Natural voice engine (mirrors ChatInterface) ──────────────────────────────
 function prepareForSpeech(raw: string): string {
@@ -191,6 +192,7 @@ function readOnboarding(): { name: string; grade: number } {
 }
 
 export default function ReadingSession() {
+  const { language } = useT();
   const [profile, setProfile] = useState<ReadingStudentProfile | null>(null);
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<ReadingGeneratedQuestion | null>(null);
@@ -327,6 +329,7 @@ export default function ReadingSession() {
           student_steps: steps,
           expected_answer: currentQuestion.expected_answer,
           used_hint: usedHint,
+          language,
         }),
       });
 
@@ -660,6 +663,7 @@ export default function ReadingSession() {
               result={currentResult}
               onNext={handleNextAfterFeedback}
               nextLabel={nextLabels[currentResult.next_action] || "Continue"}
+              language={language}
             />
           </div>
         </div>
@@ -1015,15 +1019,40 @@ function ReadingQuestionCard({
   );
 }
 
+// Map language name → BCP-47 for speechSynthesis
+const READING_LANG_CODE: Record<string, string> = {
+  English: "en-ZA", Afrikaans: "af-ZA", isiZulu: "zu-ZA", isiXhosa: "xh-ZA",
+  Sepedi: "nso-ZA", Setswana: "tn-ZA", Sesotho: "st-ZA", Xitsonga: "ts-ZA",
+  siSwati: "ss-ZA", Tshivenda: "ve-ZA", isiNdebele: "nr-ZA",
+};
+
 function ReadingFeedbackCard({
   result,
   onNext,
+  language = "English",
 }: {
   result: ReadingDiagnosticResult;
   onNext: () => void;
   nextLabel?: string;
+  language?: string;
 }) {
   const touchStartY = useRef(0);
+  const [ttsPlaying, setTtsPlaying] = useState(false);
+  const feedbackText = [result.feedback, result.recovery_explanation].filter(Boolean).join(". ");
+
+  const handlePlay = () => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    if (ttsPlaying) { window.speechSynthesis.cancel(); setTtsPlaying(false); return; }
+    window.speechSynthesis.cancel();
+    const utt = new SpeechSynthesisUtterance(feedbackText);
+    utt.lang = READING_LANG_CODE[language] ?? "en-ZA";
+    utt.rate = 0.92;
+    utt.onstart = () => setTtsPlaying(true);
+    utt.onend = () => setTtsPlaying(false);
+    utt.onerror = () => setTtsPlaying(false);
+    window.speechSynthesis.speak(utt);
+  };
+
   return (
     <div className={`bg-white rounded-2xl border-2 shadow-sm p-6 space-y-4 ${
       result.is_correct ? "border-green-200" : "border-red-200"
@@ -1044,7 +1073,22 @@ function ReadingFeedbackCard({
         </div>
       </div>
 
-      <p className="text-gray-700 text-base leading-relaxed">{result.feedback}</p>
+      <div className="flex items-start justify-between gap-3">
+        <p className="text-gray-700 text-base leading-relaxed flex-1">{result.feedback}</p>
+        {!result.is_correct && (
+          <button
+            onClick={handlePlay}
+            className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 hover:bg-red-100 text-red-600 text-xs font-medium transition-colors mt-0.5"
+            aria-label={ttsPlaying ? "Stop audio" : "Play explanation"}
+          >
+            {ttsPlaying ? (
+              <><svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>Stop</>
+            ) : (
+              <><svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play</>
+            )}
+          </button>
+        )}
+      </div>
 
       {!result.is_correct && result.recovery_explanation && (
         <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">

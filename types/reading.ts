@@ -141,6 +141,7 @@ export interface ReadingAnswerSubmission {
   student_steps: string;
   expected_answer: string;
   used_hint: boolean;
+  language?: string;
 }
 
 export interface ReadingDiagnosticResult {

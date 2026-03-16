@@ -108,7 +108,11 @@ export function buildDiagnosticPrompt(
     .map(e => `- ${e.type}: ${e.description} (e.g. ${e.example})`)
     .join("\n");
 
-  return `You are Ruby, a precise and empathetic math diagnostic tutor.
+  const langInstruction = submission.language && submission.language !== "English"
+    ? `\nIMPORTANT: Write your "feedback" and "recovery_explanation" values in ${submission.language}. All other JSON fields (is_correct, error_type, confidence) remain in English.\n`
+    : "";
+
+  return `You are Ruby, a precise and empathetic math diagnostic tutor.${langInstruction}
 
 A student answered a question. Analyse their response and provide targeted feedback.
 
