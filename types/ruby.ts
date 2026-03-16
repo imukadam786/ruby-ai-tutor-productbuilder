@@ -170,6 +170,7 @@ export interface AnswerSubmission {
   expected_answer: string;
   used_hint: boolean;
   language?: string;
+  working_image?: string; // base64 data URL of handwritten working photo
 }
 
 export interface DiagnosticResult {

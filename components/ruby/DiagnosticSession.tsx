@@ -234,9 +234,8 @@ export default function DiagnosticSession() {
     }
   }, [phase, profile, skillAttemptCount, loadQuestion, lastDecision]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
+  const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean, workingImage?: string) => {
     if (!currentQuestion || !profile) return;
-
 
     try {
       const res = await fetch("/api/ruby/submit-answer", {
@@ -253,6 +252,7 @@ export default function DiagnosticSession() {
           expected_answer: currentQuestion.expected_answer,
           used_hint: usedHint,
           language,
+          working_image: workingImage,
         }),
       });
 

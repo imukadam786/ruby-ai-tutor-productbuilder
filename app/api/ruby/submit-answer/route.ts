@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
+import { getOpenAI, OPENAI_MODEL, OPENAI_SMART_MODEL } from "@/lib/anthropic";
 import { getSkillById } from "@/lib/student-model";
 import {
   checkAnswerCorrectness,
@@ -32,20 +32,51 @@ export async function POST(req: NextRequest) {
       attemptNumber: 1,
     });
 
-    // Get AI diagnostic
     const diagnosticPrompt = buildDiagnosticPrompt(
       submission,
       skill,
       preClassifiedError
     );
 
-    const aiResponse = await getOpenAI().chat.completions.create({
-      model: OPENAI_MODEL,
-      max_tokens: 1024,
-      messages: [{ role: "user", content: diagnosticPrompt }],
-    });
+    const openai = getOpenAI();
 
-    const aiText = aiResponse.choices[0]?.message?.content ?? "";
+    let aiText = "";
+
+    if (submission.working_image) {
+      // Vision request — analyse the handwritten working photo alongside the text prompt
+      const visionResponse = await openai.chat.completions.create({
+        model: OPENAI_SMART_MODEL, // gpt-4o supports vision
+        max_tokens: 1024,
+        messages: [
+          {
+            role: "user",
+            content: [
+              { type: "text", text: diagnosticPrompt },
+              {
+                type: "image_url",
+                image_url: {
+                  url: submission.working_image,
+                  detail: "high",
+                },
+              },
+              {
+                type: "text",
+                text: "The image above is a photo of the student's handwritten working from their book. Use it to inform your diagnosis — look for the steps they attempted, any errors in their method, and whether their process matches their final answer.",
+              },
+            ],
+          },
+        ],
+      });
+      aiText = visionResponse.choices[0]?.message?.content ?? "";
+    } else {
+      // Standard text-only request
+      const aiResponse = await openai.chat.completions.create({
+        model: OPENAI_MODEL,
+        max_tokens: 1024,
+        messages: [{ role: "user", content: diagnosticPrompt }],
+      });
+      aiText = aiResponse.choices[0]?.message?.content ?? "";
+    }
 
     let aiDiagnosis: {
       is_correct: boolean;
@@ -58,7 +89,6 @@ export async function POST(req: NextRequest) {
       const jsonMatch = aiText.match(/\{[\s\S]*\}/);
       aiDiagnosis = JSON.parse(jsonMatch ? jsonMatch[0] : aiText);
     } catch {
-      // Fallback if AI response is not valid JSON
       aiDiagnosis = {
         is_correct: isCorrect,
         error_type: preClassifiedError,
@@ -69,7 +99,6 @@ export async function POST(req: NextRequest) {
       };
     }
 
-    // Build the attempt record
     const attempt: SkillAttempt = {
       id: `attempt_${Date.now()}`,
       skill_id: submission.skill_id,
