@@ -3,9 +3,8 @@
 // and returns a DiagnosticPlacementResult with entrySkillId + autoCompletedSkillIds.
 //
 // Rules (in evaluation order):
-//   RULE 1 — Hard Gate:    D06 < 80% → hardGatePassed = false, entry at pre-gate fail
-//   RULE 2 — Foundation:   D01 or D02 < 80% → entry at R1.T1.A1, no auto-completes
-//   RULE 3/4 — First fail: scan D01–D18 in order, first failure's mapsToSkill = entry
+//   RULE 1 — Foundation:   D01 or D02 < 80% → entry at R1.T1.A1, no auto-completes
+//   RULE 2 — First fail:   scan D01–D18 in order, first failure's mapsToSkill = entry
 //   FALLBACK — All pass:   advanced reader, place at R5.T1.A1
 
 import { DIAGNOSTIC_TASKS } from "./reading-diagnostic-tasks";
@@ -39,8 +38,8 @@ function skillsBefore(entrySkillId: string): string[] {
 
 // ─── Diagnostic task scan order ───────────────────────────────────────────────
 const TASK_SCAN_ORDER = [
-  "D01", "D02", "D03", "D04", "D06",
-  "D07", "D08", "D09", "D10", "D11", "D12",
+  "D01", "D02", "D03", "D04",
+  "D09", "D10", "D11", "D12",
   "D13", "D14", "D15", "D16", "D17", "D18",
 ];
 
@@ -63,31 +62,7 @@ export function calculateReadingPlacement(
     return result.score >= task.passThreshold;
   };
 
-  // ── RULE 1: Hard Gate ────────────────────────────────────────────────────
-  // D06 CVC Encoding is a hard prerequisite for all Phase 2+ phonics skills.
-  // If it fails the student is blocked regardless of other scores.
-  if (!taskPassed("D06")) {
-    // Find the earliest pre-gate failure (D01–D05) to pick the entry point.
-    // If all pre-gate tasks passed the failure is isolated to encoding itself,
-    // so we start from the beginning of the phonics tier (R2.T1.A1).
-    const PRE_GATE = ["D01", "D02", "D03", "D04"];
-    let entrySkillId = "R2.T1.A1";
-    for (const tid of PRE_GATE) {
-      if (!taskPassed(tid)) {
-        entrySkillId = DIAGNOSTIC_TASKS.find((t) => t.id === tid)!.mapsToSkill;
-        break;
-      }
-    }
-    return {
-      completedAt: Date.now(),
-      tasks: taskResults,
-      entrySkillId,
-      autoCompletedSkillIds: skillsBefore(entrySkillId),
-      hardGatePassed: false,
-    };
-  }
-
-  // ── RULE 2: Foundation failure ───────────────────────────────────────────
+  // ── RULE 1: Foundation failure ───────────────────────────────────────────
   // Phonological awareness (D01 rhyme/syllable, D02 phoneme isolation) underpins
   // all decoding. If either fails the student starts at the very first skill.
   if (!taskPassed("D01") || !taskPassed("D02")) {
@@ -100,7 +75,7 @@ export function calculateReadingPlacement(
     };
   }
 
-  // ── RULES 3 + 4: First-failure scan ─────────────────────────────────────
+  // ── RULE 2: First-failure scan ───────────────────────────────────────────
   // Walk tasks in diagnostic order. The first failing task's mapsToSkill
   // becomes the entry point. Everything before it is auto-completed.
   let firstFailTaskId: string | null = null;
@@ -111,7 +86,7 @@ export function calculateReadingPlacement(
     }
   }
 
-  // Fallback: all 17 tasks passed — advanced reader, start at top-level comprehension.
+  // Fallback: all 14 tasks passed — advanced reader, start at top-level comprehension.
   if (!firstFailTaskId) {
     return {
       completedAt: Date.now(),

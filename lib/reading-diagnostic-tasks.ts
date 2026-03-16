@@ -1,5 +1,5 @@
 // ─── Reading Diagnostic Task Bank ─────────────────────────────────────────────
-// 17 tasks administered once per student to determine reading placement.
+// 14 tasks administered once per student to determine reading placement.
 // Full test always administered — no early exit.
 
 export type DiagnosticTaskMode = "voice" | "text" | "tap" | "voice-timed";
@@ -93,52 +93,6 @@ export const DIAGNOSTIC_TASKS: DiagnosticTask[] = [
       { id: "D04-03", prompt: 'What is the short sound of "i", like in "sit"?', expected: "i" },
       { id: "D04-04", prompt: 'What is the short sound of "o", like in "hot"?', expected: "o" },
       { id: "D04-05", prompt: 'What is the short sound of "u", like in "cup"?', expected: "u" },
-    ],
-  },
-  {
-    id: "D06",
-    domain: "CVC Encoding",
-    mode: "text",
-    description: "CVC sound-to-spelling encoding — Hard Gate",
-    instruction: "Listen to the sounds and type the word they make.",
-    passThreshold: 0.8,
-    mapsToSkill: "R2.T1.A1",
-    isHardGateSignal: true,
-    items: [
-      { id: "D06-01", prompt: 'Type the word made by these sounds: /b/ /i/ /g/', expected: "big" },
-      { id: "D06-02", prompt: 'Type the word made by these sounds: /s/ /u/ /n/', expected: "sun" },
-      { id: "D06-03", prompt: 'Type the word made by these sounds: /m/ /e/ /p/', expected: "mep" },
-    ],
-  },
-  {
-    id: "D07",
-    domain: "Digraph Recognition",
-    mode: "voice",
-    description: "Common digraph decoding (sh, ch, th, ck)",
-    instruction: "Read each word out loud.",
-    passThreshold: 0.8,
-    mapsToSkill: "R2.T2.A1",
-    items: [
-      { id: "D07-01", prompt: 'Read this word: "shop"', expected: "shop" },
-      { id: "D07-02", prompt: 'Read this word: "chip"', expected: "chip" },
-      { id: "D07-03", prompt: 'Read this word: "that"', expected: "that" },
-      { id: "D07-04", prompt: 'Read this word: "back"', expected: "back" },
-    ],
-  },
-  {
-    id: "D08",
-    domain: "Consonant Blend Decoding",
-    mode: "voice",
-    description: "CCVC and CVCC blend word decoding",
-    instruction: "Read each word out loud.",
-    passThreshold: 0.8,
-    mapsToSkill: "R2.T2.A1",
-    items: [
-      { id: "D08-01", prompt: 'Read this word: "frog"', expected: "frog" },
-      { id: "D08-02", prompt: 'Read this word: "slim"', expected: "slim" },
-      { id: "D08-03", prompt: 'Read this word: "blot"', expected: "blot" },
-      { id: "D08-04", prompt: 'Read this word: "lamp"', expected: "lamp" },
-      { id: "D08-05", prompt: 'Read this word: "mist"', expected: "mist" },
     ],
   },
   {

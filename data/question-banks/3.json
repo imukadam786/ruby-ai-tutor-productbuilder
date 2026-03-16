@@ -54,38 +54,6 @@
   },
   {
     "id": "Q5",
-    "domain": "CVC Encoding — Voice Segmentation",
-    "domainCode": "D006",
-    "gate": "B",
-    "question": "Say this word back to me sound by sound: 'fug'",
-    "displayWord": "",
-    "answerMode": "voice",
-    "expectedAnswer": "/f/ / /u/ / /g/"
-  },
-  {
-    "id": "Q6",
-    "domain": "Digraph Recognition",
-    "domainCode": "D007",
-    "gate": "B",
-    "question": "What one sound do these two letters make together?",
-    "displayWord": "th",
-    "answerMode": "voice",
-    "expectedAnswer": "/θ/",
-    "maxResponseMs": 2500
-  },
-  {
-    "id": "Q7",
-    "domain": "Consonant Blend Decoding",
-    "domainCode": "D008",
-    "gate": "B",
-    "question": "Read this word out loud for me.",
-    "displayWord": "STIM",
-    "answerMode": "voice",
-    "wordType": "nonsense",
-    "expectedAnswer": "stim"
-  },
-  {
-    "id": "Q8",
     "domain": "Long Vowel / Silent E",
     "domainCode": "D009",
     "gate": "C",
@@ -96,7 +64,7 @@
     "vowelPattern": "long o"
   },
   {
-    "id": "Q9",
+    "id": "Q6",
     "domain": "Vowel Teams",
     "domainCode": "D010",
     "gate": "C",
@@ -108,7 +76,7 @@
     "maxResponseMs": 4000
   },
   {
-    "id": "Q10",
+    "id": "Q7",
     "domain": "Sight Words — Automaticity",
     "domainCode": "D011",
     "gate": "C",
@@ -120,7 +88,7 @@
     "maxResponseMs": 2500
   },
   {
-    "id": "Q11",
+    "id": "Q8",
     "domain": "R-Controlled Vowels",
     "domainCode": "D012",
     "gate": "C",
@@ -131,7 +99,7 @@
     "rControlledPattern": "ir"
   },
   {
-    "id": "Q12",
+    "id": "Q9",
     "domain": "Two-Syllable Decoding",
     "domainCode": "D013",
     "gate": "C",
@@ -142,7 +110,7 @@
     "syllableBreak": "rab·bit"
   },
   {
-    "id": "Q13",
+    "id": "Q10",
     "domain": "Multisyllabic Decoding",
     "domainCode": "D014",
     "gate": "C",
@@ -153,7 +121,7 @@
     "syllableBreak": "re·mem·ber"
   },
   {
-    "id": "Q14",
+    "id": "Q11",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
@@ -165,7 +133,7 @@
     "targetAffix": "pre"
   },
   {
-    "id": "Q15",
+    "id": "Q12",
     "domain": "Fluency Passage",
     "domainCode": "D016",
     "gate": "D",
@@ -181,7 +149,7 @@
     }
   },
   {
-    "id": "Q16",
+    "id": "Q13",
     "domain": "Literal Comprehension",
     "domainCode": "D017",
     "gate": "D",
@@ -193,7 +161,7 @@
     "expectedAnswer": "Six"
   },
   {
-    "id": "Q17",
+    "id": "Q14",
     "domain": "Inferential Comprehension",
     "domainCode": "D018",
     "gate": "D",
