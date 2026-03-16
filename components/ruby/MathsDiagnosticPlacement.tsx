@@ -413,24 +413,26 @@ export default function MathsDiagnosticPlacement({
         }
       }
 
+      // ── Early exit check — runs after every primary task ─────────────────────
+      const exitResult = evaluateEarlyExit(newCompleted, currentTask.block, newErrorHistory);
+      if ("exit" in exitResult && exitResult.exit) {
+        setEarlyExitReason(exitResult.reason);
+        setShowEncouragement(false);
+        finishDiagnostic(
+          newCompleted,
+          exitResult.reason,
+          probesRun + (probeQueue.length > 0 ? 1 : 0)
+        );
+        setSubmitting(false);
+        return;
+      }
+
       const blockSize = 6;
       const tasksInCurrentBlock = newCompleted.filter(
         (t) => !t.is_probe && t.block === currentTask.block
       ).length;
 
       if (tasksInCurrentBlock >= blockSize) {
-        const exitResult = evaluateEarlyExit(newCompleted, currentTask.block, newErrorHistory);
-        if ("exit" in exitResult && exitResult.exit) {
-          setEarlyExitReason(exitResult.reason);
-          setShowEncouragement(false);
-          finishDiagnostic(
-            newCompleted,
-            exitResult.reason,
-            probesRun + (probeQueue.length > 0 ? 1 : 0)
-          );
-          setSubmitting(false);
-          return;
-        }
         if (!exitResult.exit && exitResult.skipToBlock3 && currentTask.block === 2) {
           const block3Start = primaryTasks.findIndex((t) => t.block === 3);
           if (block3Start >= 0) {

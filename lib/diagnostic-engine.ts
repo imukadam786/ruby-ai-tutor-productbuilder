@@ -190,5 +190,18 @@ export function evaluateEarlyExit(
     }
   }
 
+  // Condition 4 — 3 primary questions in a row incorrect → exit immediately
+  const primaryOnly = completedTasks.filter((t) => !t.is_probe);
+  if (primaryOnly.length >= 3) {
+    const lastThree = primaryOnly.slice(-3);
+    if (lastThree.every((t) => !t.correct)) {
+      return {
+        exit: true,
+        placementLevel: 1,
+        reason: "Three consecutive incorrect answers — stopping early to avoid frustration",
+      };
+    }
+  }
+
   return { exit: false };
 }
