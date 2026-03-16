@@ -958,61 +958,53 @@ function ReadingQuestionCard({
         </div>
       )}
 
-      {/* Answer input — mic inside container, same as ChatInterface input bar */}
+      {/* Answer input */}
       <div className="px-6 pb-6 space-y-4">
-        <div>
-          <label className="block text-base font-medium text-gray-700 mb-1.5">Your Answer</label>
-          <div className={`relative flex items-end gap-2 border rounded-2xl px-3 py-2 transition-all ${
-            listening
-              ? "border-red-400 bg-red-50 ring-2 ring-red-100"
-              : "bg-gray-50 border-gray-200 focus-within:border-purple-400 focus-within:ring-2 focus-within:ring-purple-100"
-          }`}>
-            {/* Answer display area */}
-            <div className={`flex-1 py-1.5 text-base leading-relaxed min-h-[28px] ${answer ? "text-gray-800" : "text-gray-400"}`}>
-              {answer || "Your answer will display here"}
-            </div>
-            {/* Mic button — same style as ChatInterface */}
-            <button
-              onClick={listening ? stopVoice : startVoice}
-              className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${
-                listening ? "bg-red-100 text-red-500" : "text-gray-400 hover:text-gray-600 hover:bg-white"
-              }`}
-              title={listening ? "Stop listening" : "Voice input"}
-            >
-              {listening ? (
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <rect x="6" y="6" width="12" height="12" rx="1" />
-                </svg>
-              ) : (
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
-                </svg>
-              )}
-            </button>
-          </div>
-          {listening && (
-            <p className="text-sm text-red-500 mt-1.5 flex items-center gap-1">
-              <span className="w-2 h-2 bg-red-500 rounded-full inline-block animate-pulse" />
-              Listening... speak your answer
-            </p>
-          )}
+        {/* Big centred mic button — matches diagnostic placement experience */}
+        <div className="flex flex-col items-center gap-3">
+          <button
+            onClick={listening ? stopVoice : startVoice}
+            disabled={submitting}
+            className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 ${
+              listening
+                ? "bg-red-500 text-white animate-pulse shadow-red-200 shadow-xl"
+                : "bg-purple-500 text-white hover:bg-purple-600"
+            }`}
+          >
+            {listening ? (
+              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <rect x="6" y="6" width="12" height="12" rx="2" />
+              </svg>
+            ) : (
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
+              </svg>
+            )}
+          </button>
+          <p className="text-sm text-gray-400 font-medium">
+            {listening ? "🔴 Listening… tap to stop" : "Tap the mic to speak"}
+          </p>
         </div>
+
+        {/* Live transcript */}
+        {answer && (
+          <div className="bg-purple-50 border border-purple-200 rounded-2xl px-4 py-3 text-center">
+            <p className="text-sm text-purple-500 font-medium mb-1">I heard:</p>
+            <p className="text-purple-800 font-semibold">"{answer}"</p>
+          </div>
+        )}
 
         <button
           onClick={handleSubmit}
           disabled={(!answer.trim() && !listening) || submitting}
-          className="w-full bg-purple-500 hover:bg-purple-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white py-3 rounded-xl font-medium transition-all shadow-md flex items-center justify-center gap-2"
+          className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
         >
           {submitting ? (
             <>
-              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               Checking...
             </>
-          ) : listening ? (
-            "Stop & Submit"
-          ) : (
-            "Submit Answer"
-          )}
+          ) : listening ? "Stop & Submit →" : "Submit Answer →"}
         </button>
       </div>
     </div>
