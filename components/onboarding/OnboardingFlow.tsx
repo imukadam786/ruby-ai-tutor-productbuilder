@@ -181,6 +181,11 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         options: { data: { full_name: name } },
       });
       if (error) throw error;
+      // Supabase returns identities:[] when the email already exists (security feature)
+      if (!authData.session && authData.user?.identities?.length === 0) {
+        setAuthError("An account with this email already exists. Please use Log In instead.");
+        return;
+      }
       if (authData.user) {
         await supabase.from("users").upsert({
           id: authData.user.id,
@@ -225,7 +230,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     } catch (err: unknown) {
       const raw = err instanceof Error ? err.message : "";
       const msg = raw.toLowerCase().includes("invalid login credentials") || raw.toLowerCase().includes("invalid")
-        ? "Incorrect email or password. If you just signed up, please check your email for a confirmation link."
+        ? "Incorrect email or password. Please check and try again."
         : raw || "Login failed. Please try again.";
       setAuthError(msg);
     } finally {
