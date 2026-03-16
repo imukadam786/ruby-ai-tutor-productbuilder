@@ -13,6 +13,7 @@ export type OnboardingData = {
   name: string;
   email: string;
   plan: string;
+  userId?: string;
 };
 
 const LANGUAGES = [
@@ -157,6 +158,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState("");
   const [loginMode, setLoginMode] = useState(false);
+  const [signedUpUserId, setSignedUpUserId] = useState<string | undefined>(undefined);
 
   const lang = data.language || "English";
   const t = getTranslations(lang);
@@ -187,6 +189,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         return;
       }
       if (authData.user) {
+        setSignedUpUserId(authData.user.id);
         await supabase.from("users").upsert({
           id: authData.user.id,
           email,
@@ -224,6 +227,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         name: fullName,
         email: authData.user?.email || email,
         plan: "existing",
+        userId: authData.user?.id,
       };
       localStorage.setItem("onboardingData", JSON.stringify(final));
       onComplete(final);
@@ -248,6 +252,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       name,
       email,
       plan: "standard",
+      userId: signedUpUserId,
     };
     localStorage.setItem("onboardingData", JSON.stringify(final));
     onComplete(final);

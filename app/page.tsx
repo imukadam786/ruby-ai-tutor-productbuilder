@@ -235,12 +235,17 @@ export default function Home() {
 
   const handleOnboardingComplete = (data: OnboardingData) => {
     if (data.plan === "existing") {
-      // Returning user logged in — go straight to app, clear previous user's data
-      clearAllUserData();
+      // Returning user logged in — only wipe data if it's a different user on this device
+      const storedUserId = localStorage.getItem("current_user_id");
+      if (data.userId && storedUserId && storedUserId !== data.userId) {
+        clearAllUserData();
+      }
+      if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setAppState("app");
     } else {
-      // New signup — clear any leftover data then show welcome screen
+      // New signup — always clear any leftover data then show welcome screen
       clearAllUserData();
+      if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setWelcomeName(data.name || "");
       setAppState("welcome");
     }
