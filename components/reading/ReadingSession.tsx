@@ -1098,29 +1098,21 @@ function ReadingFeedbackCard({
         </div>
       )}
 
-      {/* Next — button on desktop, swipe hint on mobile */}
+      {/* Click / swipe for next */}
       <div
-        className="flex flex-col items-center gap-1 pt-2 select-none"
+        className="flex flex-col items-center gap-1 pt-2 cursor-pointer select-none"
+        onClick={onNext}
         onTouchStart={(e) => { touchStartY.current = e.touches[0].clientY; }}
         onTouchEnd={(e) => {
           if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
         }}
       >
-        {/* Desktop: explicit button */}
-        <button
-          onClick={onNext}
-          className="hidden md:flex items-center gap-2 px-6 py-3 rounded-xl bg-purple-500 hover:bg-purple-600 text-white font-semibold text-base transition-colors shadow-md"
-        >
-          Next Question →
-        </button>
-        {/* Mobile: swipe hint */}
-        <div className="md:hidden flex flex-col items-center gap-1 cursor-pointer" onClick={onNext}>
-          <p className="text-sm text-gray-400">Swipe up for next question</p>
-          <div className="animate-bounce text-purple-500">
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-            </svg>
-          </div>
+        <p className="text-sm text-gray-400 md:hidden">Swipe up for next question</p>
+        <p className="text-sm text-gray-400 hidden md:block">Click for next question</p>
+        <div className="animate-bounce text-purple-500">
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+          </svg>
         </div>
       </div>
     </div>

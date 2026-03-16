@@ -134,29 +134,21 @@ export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
         )}
       </div>
 
-      {/* Next — button on desktop, swipe hint on mobile */}
+      {/* Click / swipe for next */}
       <div
-        className="px-6 pb-6 pt-2 flex flex-col items-center gap-1 select-none"
+        className="px-6 pb-6 pt-2 flex flex-col items-center gap-1 cursor-pointer select-none"
+        onClick={onNext}
         onTouchStart={(e) => { touchStartY.current = e.touches[0].clientY; }}
         onTouchEnd={(e) => {
           if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
         }}
       >
-        {/* Desktop: explicit button */}
-        <button
-          onClick={onNext}
-          className={`hidden md:flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-base transition-colors shadow-md ${isCorrect ? "bg-green-500 hover:bg-green-600" : "bg-blue-500 hover:bg-blue-600"}`}
-        >
-          Next Question →
-        </button>
-        {/* Mobile: swipe hint */}
-        <div className="md:hidden flex flex-col items-center gap-1 cursor-pointer" onClick={onNext}>
-          <p className="text-xs text-gray-400">Swipe up for next question</p>
-          <div className={`animate-bounce ${isCorrect ? "text-green-500" : "text-blue-500"}`}>
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-            </svg>
-          </div>
+        <p className="text-xs text-gray-400 md:hidden">Swipe up for next question</p>
+        <p className="text-xs text-gray-400 hidden md:block">Click for next question</p>
+        <div className={`animate-bounce ${isCorrect ? "text-green-500" : "text-blue-500"}`}>
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+          </svg>
         </div>
       </div>
     </div>
