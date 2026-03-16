@@ -291,8 +291,11 @@ export default function ReadingDiagnosticPlacement({
   onViewReport?: (result: DiagnosticPlacementResult) => void;
 }) {
   const [TASKS, setTASKS] = useState<Task[]>([]);
+  // Ref always holds the latest TASKS — avoids stale closures in callbacks
+  const TASKSRef = useRef<Task[]>([]);
   const [phase, setPhase] = useState<Phase>("welcome");
   const [taskIndex, setTaskIndex] = useState(0);
+  const taskIndexRef = useRef(0);
   const [speaking, setSpeaking] = useState(false);
   const [listening, setListening] = useState(false);
   const [transcript, setTranscript] = useState("");
@@ -300,6 +303,7 @@ export default function ReadingDiagnosticPlacement({
   const [flashDone, setFlashDone] = useState(false);
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [completedTasks, setCompletedTasks] = useState<DiagnosticTaskResult[]>([]);
+  const completedTasksRef = useRef<DiagnosticTaskResult[]>([]);
   const [placementResult, setPlacementResult] = useState<DiagnosticPlacementResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showEncouragement, setShowEncouragement] = useState(false);
@@ -311,7 +315,10 @@ export default function ReadingDiagnosticPlacement({
       while (!cancelled && tasks.length === 0) {
         tasks = await loadRandomQuestionPaper();
       }
-      if (!cancelled) setTASKS(tasks);
+      if (!cancelled) {
+        TASKSRef.current = tasks;
+        setTASKS(tasks);
+      }
     };
     fetchTasks();
     return () => { cancelled = true; };
@@ -389,16 +396,25 @@ export default function ReadingDiagnosticPlacement({
     if (timerRef.current) { clearTimeout(timerRef.current); timerRef.current = null; }
   }, []);
 
-  // Advance to next task
+  // Keep refs in sync so advanceTask always reads current values
+  taskIndexRef.current = taskIndex;
+  completedTasksRef.current = completedTasks;
+
+  // Advance to next task — uses refs to avoid stale closure issues
   const advanceTask = useCallback(async (result: DiagnosticTaskResult) => {
     setSubmitting(true);
-    const newCompleted = [...completedTasks, result];
+    const currentIndex = taskIndexRef.current;
+    const currentCompleted = completedTasksRef.current;
+    const totalTasks = TASKSRef.current.length;
+
+    const newCompleted = [...currentCompleted, result];
     setCompletedTasks(newCompleted);
+    completedTasksRef.current = newCompleted;
 
     setShowEncouragement(true);
     await new Promise(r => setTimeout(r, 800));
 
-    if (taskIndex + 1 >= TASKS.length) {
+    if (currentIndex + 1 >= totalTasks) {
       setPhase("calculating");
       try {
         const res = await fetch("/api/reading/diagnostic/placement", {
@@ -417,10 +433,12 @@ export default function ReadingDiagnosticPlacement({
         setPhase("result");
       }
     } else {
-      setTaskIndex(i => i + 1);
+      const next = currentIndex + 1;
+      taskIndexRef.current = next;
+      setTaskIndex(next);
     }
     setSubmitting(false);
-  }, [completedTasks, taskIndex, TASKS.length]);
+  }, []);
 
   // Handle choice selection
   const handleChoice = useCallback((choice: Choice) => {
