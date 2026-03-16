@@ -23,6 +23,8 @@ import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
 import { updateSkillMastery, initSkillMastery, determineNextAction, buildReviewQueue, recordMathsSession } from "@/lib/mastery-engine";
 import { getDomainForSkill, getDomain, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
+import { simplifyQuestion } from "@/lib/question-simplifier";
+import { getReadingProfile } from "@/lib/reading-student-model";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
 import { selectMathsTemplate } from "@/lib/template-selector";
@@ -200,7 +202,12 @@ export default function DiagnosticSession() {
           }),
         });
         if (!res.ok) throw new Error("Failed to load question");
-        const q: GeneratedQuestion = await res.json();
+        let q: GeneratedQuestion = await res.json();
+
+        // Apply plain-English simplification if student's reading level is low
+        const readingProfile = getReadingProfile();
+        const readingLevel = readingProfile?.current_level ?? 5;
+        q = simplifyQuestion(q, readingLevel);
 
         // Mark question as used in student profile immediately
         if (q.domain_id && q.question_ref) {

@@ -4,6 +4,8 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
 import { evaluateEarlyExit } from "@/lib/diagnostic-engine";
+import { simplifyText } from "@/lib/question-simplifier";
+import { getReadingProfile } from "@/lib/reading-student-model";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -324,7 +326,11 @@ export default function MathsDiagnosticPlacement({
     import(`@/data/maths-question-banks/${n}.json`)
       .then((mod) => {
         const raw = (mod.default ?? mod) as RawBankTask[];
-        const tasks = raw.map((t, i) => adaptBankTask(t, i));
+        const readingLevel = getReadingProfile()?.current_level ?? 5;
+        const tasks = raw.map((t, i) => {
+          const task = adaptBankTask(t, i);
+          return { ...task, question: simplifyText(task.question, readingLevel) };
+        });
         const titleMap: Record<string, string> = {};
         tasks.forEach((t) => { titleMap[t.domain] = t.domainTitle; });
         setPrimaryTasks(tasks);
