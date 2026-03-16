@@ -1,5 +1,5 @@
 // ─── Reading Diagnostic Task Bank ─────────────────────────────────────────────
-// 18 tasks administered once per student to determine reading placement.
+// 17 tasks administered once per student to determine reading placement.
 // Full test always administered — no early exit.
 
 export type DiagnosticTaskMode = "voice" | "text" | "tap" | "voice-timed";
@@ -93,22 +93,6 @@ export const DIAGNOSTIC_TASKS: DiagnosticTask[] = [
       { id: "D04-03", prompt: 'What is the short sound of "i", like in "sit"?', expected: "i" },
       { id: "D04-04", prompt: 'What is the short sound of "o", like in "hot"?', expected: "o" },
       { id: "D04-05", prompt: 'What is the short sound of "u", like in "cup"?', expected: "u" },
-    ],
-  },
-  {
-    id: "D05",
-    domain: "CVC Decoding",
-    mode: "voice",
-    description: "Unfamiliar CVC word decoding",
-    instruction: "Read each made-up word out loud.",
-    passThreshold: 0.8,
-    mapsToSkill: "R2.T1.A1",
-    items: [
-      { id: "D05-01", prompt: 'Read this made-up word: "zib"', expected: "zib" },
-      { id: "D05-02", prompt: 'Read this made-up word: "fot"', expected: "fot" },
-      { id: "D05-03", prompt: 'Read this made-up word: "vem"', expected: "vem" },
-      { id: "D05-04", prompt: 'Read this made-up word: "dak"', expected: "dak" },
-      { id: "D05-05", prompt: 'Read this made-up word: "wup"', expected: "wup" },
     ],
   },
   {

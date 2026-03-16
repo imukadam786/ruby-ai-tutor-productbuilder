@@ -39,7 +39,7 @@ function skillsBefore(entrySkillId: string): string[] {
 
 // ─── Diagnostic task scan order ───────────────────────────────────────────────
 const TASK_SCAN_ORDER = [
-  "D01", "D02", "D03", "D04", "D05", "D06",
+  "D01", "D02", "D03", "D04", "D06",
   "D07", "D08", "D09", "D10", "D11", "D12",
   "D13", "D14", "D15", "D16", "D17", "D18",
 ];
@@ -70,7 +70,7 @@ export function calculateReadingPlacement(
     // Find the earliest pre-gate failure (D01–D05) to pick the entry point.
     // If all pre-gate tasks passed the failure is isolated to encoding itself,
     // so we start from the beginning of the phonics tier (R2.T1.A1).
-    const PRE_GATE = ["D01", "D02", "D03", "D04", "D05"];
+    const PRE_GATE = ["D01", "D02", "D03", "D04"];
     let entrySkillId = "R2.T1.A1";
     for (const tid of PRE_GATE) {
       if (!taskPassed(tid)) {
@@ -111,7 +111,7 @@ export function calculateReadingPlacement(
     }
   }
 
-  // Fallback: all 18 tasks passed — advanced reader, start at top-level comprehension.
+  // Fallback: all 17 tasks passed — advanced reader, start at top-level comprehension.
   if (!firstFailTaskId) {
     return {
       completedAt: Date.now(),

@@ -54,17 +54,6 @@
   },
   {
     "id": "Q5",
-    "domain": "CVC Decoding",
-    "domainCode": "D005",
-    "gate": "B",
-    "question": "Read this word out loud for me.",
-    "displayWord": "RUG",
-    "answerMode": "voice",
-    "wordType": "real",
-    "expectedAnswer": "rug"
-  },
-  {
-    "id": "Q6",
     "domain": "CVC Encoding — Voice Segmentation",
     "domainCode": "D006",
     "gate": "B",
@@ -74,7 +63,7 @@
     "expectedAnswer": "/c/ / /u/ / /d/"
   },
   {
-    "id": "Q7",
+    "id": "Q6",
     "domain": "Digraph Recognition",
     "domainCode": "D007",
     "gate": "B",
@@ -85,7 +74,7 @@
     "maxResponseMs": 2500
   },
   {
-    "id": "Q8",
+    "id": "Q7",
     "domain": "Consonant Blend Decoding",
     "domainCode": "D008",
     "gate": "B",
@@ -96,7 +85,7 @@
     "expectedAnswer": "smack"
   },
   {
-    "id": "Q9",
+    "id": "Q8",
     "domain": "Long Vowel / Silent E",
     "domainCode": "D009",
     "gate": "C",
@@ -107,7 +96,7 @@
     "vowelPattern": "long o"
   },
   {
-    "id": "Q10",
+    "id": "Q9",
     "domain": "Vowel Teams",
     "domainCode": "D010",
     "gate": "C",
@@ -119,7 +108,7 @@
     "maxResponseMs": 4000
   },
   {
-    "id": "Q11",
+    "id": "Q10",
     "domain": "Sight Words — Automaticity",
     "domainCode": "D011",
     "gate": "C",
@@ -131,7 +120,7 @@
     "maxResponseMs": 2500
   },
   {
-    "id": "Q12",
+    "id": "Q11",
     "domain": "R-Controlled Vowels",
     "domainCode": "D012",
     "gate": "C",
@@ -142,7 +131,7 @@
     "rControlledPattern": "or"
   },
   {
-    "id": "Q13",
+    "id": "Q12",
     "domain": "Two-Syllable Decoding",
     "domainCode": "D013",
     "gate": "C",
@@ -153,7 +142,7 @@
     "syllableBreak": "foz·gip"
   },
   {
-    "id": "Q14",
+    "id": "Q13",
     "domain": "Multisyllabic Decoding",
     "domainCode": "D014",
     "gate": "C",
@@ -164,7 +153,7 @@
     "syllableBreak": "tig·fom·gab"
   },
   {
-    "id": "Q15",
+    "id": "Q14",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
@@ -176,7 +165,7 @@
     "targetAffix": "ing"
   },
   {
-    "id": "Q16",
+    "id": "Q15",
     "domain": "Fluency Passage",
     "domainCode": "D016",
     "gate": "D",
@@ -192,7 +181,7 @@
     }
   },
   {
-    "id": "Q17",
+    "id": "Q16",
     "domain": "Literal Comprehension",
     "domainCode": "D017",
     "gate": "D",
@@ -204,7 +193,7 @@
     "expectedAnswer": "Two starlings"
   },
   {
-    "id": "Q18",
+    "id": "Q17",
     "domain": "Inferential Comprehension",
     "domainCode": "D018",
     "gate": "D",
