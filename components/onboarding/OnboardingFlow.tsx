@@ -223,7 +223,10 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       localStorage.setItem("onboardingData", JSON.stringify(final));
       onComplete(final);
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Login failed. Check your email and password.";
+      const raw = err instanceof Error ? err.message : "";
+      const msg = raw.toLowerCase().includes("invalid login credentials") || raw.toLowerCase().includes("invalid")
+        ? "Incorrect email or password. If you just signed up, please check your email for a confirmation link."
+        : raw || "Login failed. Please try again.";
       setAuthError(msg);
     } finally {
       setAuthLoading(false);
