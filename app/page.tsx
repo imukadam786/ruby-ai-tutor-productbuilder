@@ -223,16 +223,10 @@ export default function Home() {
       window.history.replaceState({}, "", window.location.pathname);
     }
 
-    // Primary gate: active Supabase session → skip onboarding entirely
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        setAppState("app");
-      } else {
-        setAppState("onboarding");
-      }
-    });
+    // Always show Create Account / Login first — everyone must authenticate
+    setAppState("onboarding");
 
-    // Also handle session changes (e.g. token expiry, logout from another tab)
+    // Handle session loss (e.g. token expiry, logout from another tab)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       if (!session) setAppState("onboarding");
     });

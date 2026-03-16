@@ -191,18 +191,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           language: data.language || "English",
         });
       }
-      const final: OnboardingData = {
-        language: data.language || "English",
-        grade: data.grade || "",
-        averageScore: data.averageScore || "",
-        curriculum: data.curriculum || "",
-        name,
-        email,
-        plan: "free",
-      };
-      localStorage.setItem("onboardingComplete", "true");
-      localStorage.setItem("onboardingData", JSON.stringify(final));
-      onComplete(final);
+      // Account created — continue through onboarding questions
+      next();
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
       setAuthError(msg);
@@ -267,6 +257,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
   // Wider container only on the plan step so both cards fit on desktop
   const outerMaxW = step === 6 ? "max-w-md md:max-w-2xl" : "max-w-md";
+  // Progress bar counts steps 2–6 (step 1 is account creation, no bar)
 
   return (
     // Fills the full locked viewport (html+body are h-full overflow-hidden)
@@ -274,8 +265,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       <div className={`w-full ${outerMaxW} mx-auto flex-1 flex flex-col min-h-0`}>
         <div className="bg-white rounded-3xl shadow-xl flex-1 flex flex-col overflow-hidden min-h-0">
 
-          {/* Progress bar — hidden on create account step */}
-          {step !== 5 && (
+          {/* Progress bar — hidden on create account step (step 1) */}
+          {step !== 1 && (
             <div className="h-1.5 bg-rose-100 flex-shrink-0">
               <div
                 className="h-full bg-rose-500 transition-all duration-500 ease-out"
@@ -284,124 +275,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
             </div>
           )}
 
-          {/* ── Step 1: Language ── */}
+          {/* ── Step 1: Create Account / Login ── */}
           {step === 1 && (
-            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-6 leading-snug flex-shrink-0">{t.step1Title}</h1>
-              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
-                <div className="grid grid-cols-3 gap-3">
-                  {LANGUAGES.map((language) => (
-                    <button
-                      key={language}
-                      onClick={() => select("language", language)}
-                      className={`py-4 px-2 rounded-2xl text-base font-medium border-2 transition-all ${
-                        data.language === language
-                          ? "border-rose-500 bg-rose-50 text-rose-600"
-                          : "border-gray-200 text-gray-700 hover:border-gray-300"
-                      }`}
-                    >
-                      {language}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.language} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 2: Grade ── */}
-          {step === 2 && (
-            <div className="flex-1 flex flex-col p-6">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-4 leading-snug">{t.step3Title}</h1>
-              <div className="flex-1 grid grid-cols-2 gap-2.5 content-start">
-                {GRADES.map(({ grade, emoji }) => (
-                  <button
-                    key={grade}
-                    onClick={() => select("grade", grade)}
-                    className={`flex items-center justify-center gap-3 py-2.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
-                      data.grade === grade
-                        ? "border-rose-500 bg-rose-50 text-rose-600"
-                        : "border-gray-200 text-gray-700 hover:border-gray-300"
-                    }`}
-                  >
-                    <span className="text-xl">{emoji}</span>
-                    <span>{grade}</span>
-                  </button>
-                ))}
-              </div>
-              <div className="pt-4">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.grade} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 3: Average Score ── */}
-          {step === 3 && (
-            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">{t.step4Title}</h1>
-              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step4Sub}</p>
-              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
-                <div className="grid grid-cols-2 gap-3">
-                  {SCORES.map(({ label, bars }) => (
-                    <button
-                      key={label}
-                      onClick={() => select("averageScore", label)}
-                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
-                        data.averageScore === label
-                          ? "border-rose-500 bg-rose-50 text-rose-600"
-                          : "border-gray-200 text-gray-700 hover:border-gray-300"
-                      }`}
-                    >
-                      <ScoreChart bars={bars} />
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.averageScore} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 4: Curriculum ── */}
-          {step === 4 && (
-            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which curriculum do you follow?</h1>
-              <p className="text-gray-400 text-base mb-6 flex-shrink-0">Select your school's curriculum</p>
-              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
-                <div className="flex flex-col gap-3">
-                  {CURRICULA.map(({ label, flag }) => (
-                    <button
-                      key={label}
-                      onClick={() => select("curriculum", label)}
-                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
-                        data.curriculum === label
-                          ? "border-rose-500 bg-rose-50 text-rose-600"
-                          : "border-gray-200 text-gray-700 hover:border-gray-300"
-                      }`}
-                    >
-                      <span className="flex-shrink-0 rounded overflow-hidden shadow-sm" style={{ width: 28, height: 20, display: "inline-flex", alignItems: "center" }}>
-                        <Flag code={flag} style={{ width: 28, height: 20, objectFit: "cover", borderRadius: 3 }} />
-                      </span>
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.curriculum} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 5: Create Account / Login ── */}
-          {step === 5 && (
             <div className="flex-1 flex flex-col p-5">
               <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-1">
                 {loginMode ? "Welcome back" : t.step7Title}
@@ -419,7 +294,6 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               )}
 
               <div className="flex flex-col gap-2.5 mb-2.5">
-                {/* Name — hidden in login mode */}
                 {!loginMode && (
                   <div>
                     <label className="block text-sm font-semibold text-gray-800 mb-1">{t.nameLabel}</label>
@@ -458,43 +332,148 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 </div>
               </div>
 
-              {/* Buttons pushed toward center-bottom on desktop */}
               <div className="md:mt-auto md:pt-4">
-              {/* Error message */}
-              {authError && (
-                <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
-              )}
-
-              <button
-                onClick={loginMode ? handleLogin : handleSignUp}
-                disabled={loginMode ? (!email || !password || authLoading) : (!name || !email || !password || authLoading)}
-                className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors mb-2.5 flex items-center justify-center gap-2"
-              >
-                {authLoading && (
-                  <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                  </svg>
+                {authError && (
+                  <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
                 )}
-                {loginMode ? "Log in" : "Start Free Beta"}
-              </button>
+                <button
+                  onClick={loginMode ? handleLogin : handleSignUp}
+                  disabled={loginMode ? (!email || !password || authLoading) : (!name || !email || !password || authLoading)}
+                  className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors mb-2.5 flex items-center justify-center gap-2"
+                >
+                  {authLoading && (
+                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                    </svg>
+                  )}
+                  {loginMode ? "Log in" : "Start Free Beta"}
+                </button>
+                {loginMode ? (
+                  <button onClick={() => { setLoginMode(false); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
+                    Create Account
+                  </button>
+                ) : (
+                  <button onClick={() => { setLoginMode(true); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
+                    Log In
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
 
-              {/* Toggle between sign-up and login */}
-              {loginMode ? (
-                <button
-                  onClick={() => { setLoginMode(false); setAuthError(""); }}
-                  className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors"
-                >
-                  Create Account
-                </button>
-              ) : (
-                <button
-                  onClick={() => { setLoginMode(true); setAuthError(""); }}
-                  className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors"
-                >
-                  Log In
-                </button>
-              )}
+          {/* ── Step 2: Language ── */}
+          {step === 2 && (
+            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-6 leading-snug flex-shrink-0">{t.step1Title}</h1>
+              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
+                <div className="grid grid-cols-3 gap-3">
+                  {LANGUAGES.map((language) => (
+                    <button
+                      key={language}
+                      onClick={() => select("language", language)}
+                      className={`py-4 px-2 rounded-2xl text-base font-medium border-2 transition-all ${
+                        data.language === language
+                          ? "border-rose-500 bg-rose-50 text-rose-600"
+                          : "border-gray-200 text-gray-700 hover:border-gray-300"
+                      }`}
+                    >
+                      {language}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="pt-4 flex-shrink-0">
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.language} />
+              </div>
+            </div>
+          )}
+
+          {/* ── Step 3: Grade ── */}
+          {step === 3 && (
+            <div className="flex-1 flex flex-col p-6">
+              <BackButton onClick={back} />
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-4 leading-snug">{t.step3Title}</h1>
+              <div className="flex-1 grid grid-cols-2 gap-2.5 content-start">
+                {GRADES.map(({ grade, emoji }) => (
+                  <button
+                    key={grade}
+                    onClick={() => select("grade", grade)}
+                    className={`flex items-center justify-center gap-3 py-2.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
+                      data.grade === grade
+                        ? "border-rose-500 bg-rose-50 text-rose-600"
+                        : "border-gray-200 text-gray-700 hover:border-gray-300"
+                    }`}
+                  >
+                    <span className="text-xl">{emoji}</span>
+                    <span>{grade}</span>
+                  </button>
+                ))}
+              </div>
+              <div className="pt-4">
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.grade} />
+              </div>
+            </div>
+          )}
+
+          {/* ── Step 4: Average Score ── */}
+          {step === 4 && (
+            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
+              <BackButton onClick={back} />
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">{t.step4Title}</h1>
+              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step4Sub}</p>
+              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
+                <div className="grid grid-cols-2 gap-3">
+                  {SCORES.map(({ label, bars }) => (
+                    <button
+                      key={label}
+                      onClick={() => select("averageScore", label)}
+                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
+                        data.averageScore === label
+                          ? "border-rose-500 bg-rose-50 text-rose-600"
+                          : "border-gray-200 text-gray-700 hover:border-gray-300"
+                      }`}
+                    >
+                      <ScoreChart bars={bars} />
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="pt-4 flex-shrink-0">
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.averageScore} />
+              </div>
+            </div>
+          )}
+
+          {/* ── Step 5: Curriculum ── */}
+          {step === 5 && (
+            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
+              <BackButton onClick={back} />
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which curriculum do you follow?</h1>
+              <p className="text-gray-400 text-base mb-6 flex-shrink-0">Select your school's curriculum</p>
+              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
+                <div className="flex flex-col gap-3">
+                  {CURRICULA.map(({ label, flag }) => (
+                    <button
+                      key={label}
+                      onClick={() => select("curriculum", label)}
+                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
+                        data.curriculum === label
+                          ? "border-rose-500 bg-rose-50 text-rose-600"
+                          : "border-gray-200 text-gray-700 hover:border-gray-300"
+                      }`}
+                    >
+                      <span className="flex-shrink-0 rounded overflow-hidden shadow-sm" style={{ width: 28, height: 20, display: "inline-flex", alignItems: "center" }}>
+                        <Flag code={flag} style={{ width: 28, height: 20, objectFit: "cover", borderRadius: 3 }} />
+                      </span>
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="pt-4 flex-shrink-0">
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.curriculum} />
               </div>
             </div>
           )}
