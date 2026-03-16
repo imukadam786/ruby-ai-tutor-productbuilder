@@ -673,7 +673,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
               </Card>
             </section>
 
-            <p className="text-center text-xs text-gray-300 pb-6">Ruby AI Tutor · Powered by Groq</p>
+            <p className="text-center text-xs text-gray-300 pb-6">Ruby AI Tutor · Powered by Hula</p>
           </div>
         </div>
       </div>

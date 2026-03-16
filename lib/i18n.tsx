@@ -27,7 +27,7 @@ export const UI_STRINGS: Record<string, string> = {
   "sidebar.settings_desc": "Preferences",
   "sidebar.logout": "Logout",
   "sidebar.logout_desc": "Sign out",
-  "sidebar.powered_by": "Powered by Groq",
+  "sidebar.powered_by": "Powered by Hula",
   // Home
   "home.ready": "Ready to keep learning?",
   "home.skills_mastered": "Skills Mastered",
