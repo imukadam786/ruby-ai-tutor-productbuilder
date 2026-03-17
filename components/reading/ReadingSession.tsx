@@ -76,8 +76,20 @@ function buildReadingReportInput(
       const score = Math.round((groupCorrect / g.tasks.length) * 100);
       const label: "strong" | "building" | "practice" =
         score >= 75 ? "strong" : score >= 50 ? "building" : "practice";
+      // DiagnosticTaskResult has no error_type field — errorNote unavailable at placement stage
       return { domain: g.name, score, label, errorNote: null };
     });
+
+  // Derive dominant errors from profile.error_history (accumulated across all reading activity)
+  // Falls back to score-based heuristic if no history exists yet
+  const historyEntries = Object.entries(profile.error_history ?? {})
+    .filter(([code, count]) => code !== "correct" && (count as number) > 0)
+    .sort(([, a], [, b]) => (b as number) - (a as number))
+    .slice(0, 3)
+    .map(([code]) => code);
+  const dominantErrors = historyEntries.length > 0
+    ? historyEntries
+    : overallScore < 50 ? ["ERR_BLEND_FAIL"] : overallScore < 70 ? ["ERR_SOUND_RECALL"] : [];
 
   const entryLevel = result.autoCompletedSkillIds.length > 6 ? 3
     : result.autoCompletedSkillIds.length > 2 ? 2 : 1;
@@ -90,7 +102,7 @@ function buildReadingReportInput(
     gradeLevelGap: Math.max(0, profile.grade - entryLevel - 1),
     questionsAnalysed: total,
     domainScores,
-    dominantErrors: overallScore < 50 ? ["ERR_BLEND_FAIL"] : overallScore < 70 ? ["ERR_SOUND_RECALL"] : [],
+    dominantErrors,
     placementSkill: result.entrySkillId,
     hardGateBlocked: !result.hardGatePassed,
     skillsCompleted: result.autoCompletedSkillIds.length,
