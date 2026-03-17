@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GeneratedQuestion, QuestionTemplate } from "@/types/ruby";
 
 interface QuestionCardProps {
@@ -22,6 +22,13 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
   const [usedHint, setUsedHint] = useState(false);
   const [workingImage, setWorkingImage] = useState<string | undefined>(undefined);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const answerInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(pointer: fine)").matches) {
+      answerInputRef.current?.focus();
+    }
+  }, [question.id]);
 
   const templateInfo = templateLabels[question.template];
 
@@ -90,6 +97,7 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
             Your Answer
           </label>
           <input
+            ref={answerInputRef}
             type="text"
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}

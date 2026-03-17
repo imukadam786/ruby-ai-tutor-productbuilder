@@ -436,11 +436,17 @@ export default function MathsDiagnosticPlacement({
       ? "Finding your level"
       : "Almost done";
 
-  // Reset answer state whenever the task changes
+  const answerInputRef = useRef<HTMLInputElement>(null);
+
+  // Reset answer state and focus input (desktop only) whenever the task changes
   useEffect(() => {
     if (task) {
       setAnswers(task.fields ? task.fields.map(() => "") : [""]);
       setSelectedChoice(null);
+      if (window.matchMedia("(pointer: fine)").matches) {
+        // Defer one tick so the input is rendered before focusing
+        setTimeout(() => answerInputRef.current?.focus(), 0);
+      }
     }
   }, [task?.id]);
 
@@ -854,10 +860,10 @@ export default function MathsDiagnosticPlacement({
                   value={answers[0] ?? ""}
                   onChange={(e) => setAnswers([e.target.value])}
                   onKeyDown={(e) => { if (e.key === "Enter" && hasAnswers && !submitting) handleSubmit(); }}
+                  ref={answerInputRef}
                   disabled={submitting}
                   placeholder={task.answerMode === "numeric" ? "Type your answer…" : "Write your answer…"}
                   className="w-full border-2 border-gray-200 rounded-2xl px-4 py-4 text-xl text-gray-800 font-semibold focus:outline-none focus:border-teal-400 transition-colors placeholder:text-gray-300 text-center"
-                  autoFocus
                 />
                 <button
                   onClick={handleSubmit}
@@ -888,10 +894,10 @@ export default function MathsDiagnosticPlacement({
                           handleSubmit();
                         }
                       }}
+                      ref={i === 0 ? answerInputRef : undefined}
                       disabled={submitting}
                       placeholder={field.hint ?? field.exampleAnswer ?? "Your answer…"}
                       className="w-full border-2 border-gray-200 rounded-2xl px-4 py-3 text-base text-gray-800 font-medium focus:outline-none focus:border-teal-400 transition-colors placeholder:text-gray-300"
-                      autoFocus={i === 0}
                     />
                   </div>
                 ))}
