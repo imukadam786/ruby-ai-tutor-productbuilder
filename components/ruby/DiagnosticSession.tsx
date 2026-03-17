@@ -29,6 +29,7 @@ import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
 import { selectMathsTemplate } from "@/lib/template-selector";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
+import { describeError } from "@/lib/report-generator";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import { useT } from "@/lib/i18n";
 import {
@@ -72,7 +73,8 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
     const primaryError = data.errors.length > 0 ? data.errors[0] : null;
     // Get human-readable domain title from question bank
     const domainTitle = getDomain(domainId)?.title ?? domainId;
-    return { domain: domainTitle, score, label, errorNote: primaryError };
+    const errorNote = primaryError ? (describeError(primaryError, "maths") ?? null) : null;
+    return { domain: domainTitle, score, label, errorNote };
   });
 
   // Derive dominant errors (top 3 by frequency across all tasks)
