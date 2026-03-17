@@ -99,7 +99,7 @@ function buildReadingReportInput(
     studentName: profile.name.split(" ")[0],
     studentGrade: profile.grade,
     workingLevel: `Reading Level ${entryLevel}`,
-    gradeLevelGap: Math.max(0, profile.grade - entryLevel - 1),
+    gradeLevelGap: profile.grade - entryLevel - 1,
     questionsAnalysed: total,
     domainScores,
     dominantErrors,

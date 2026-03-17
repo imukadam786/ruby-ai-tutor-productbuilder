@@ -121,7 +121,11 @@ export default function DiagnosticReportView({
               <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Working Level</p>
               <p className="text-white font-bold text-base">{input.workingLevel}</p>
               <p className="text-[#FDA4AF] text-xs">
-                {input.gradeLevelGap <= 0 ? "At grade level" : `~${input.gradeLevelGap} yr${input.gradeLevelGap !== 1 ? "s" : ""} below grade`}
+                {input.gradeLevelGap < 0
+                  ? `~${Math.abs(input.gradeLevelGap)} yr${Math.abs(input.gradeLevelGap) !== 1 ? "s" : ""} above grade level`
+                  : input.gradeLevelGap === 0
+                  ? "At grade level"
+                  : `~${input.gradeLevelGap} yr${input.gradeLevelGap !== 1 ? "s" : ""} below grade level`}
               </p>
             </div>
             <div>
