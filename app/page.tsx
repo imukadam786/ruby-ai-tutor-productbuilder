@@ -21,7 +21,7 @@ import FloatingFeedback from "@/components/beta/FloatingFeedback";
 import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
-import { getProgress, incrementSession, clearAllUserData, PLACEMENT_PROFILE_KEYS } from "@/lib/storage";
+import { getProgress, incrementSession, clearAllUserData, PERSISTENT_USER_KEYS } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
 import { getReadingProfile } from "@/lib/reading-student-model";
 import { StudentProfile } from "@/types/ruby";
@@ -145,9 +145,8 @@ function AppContent() {
         onSettings={() => handleViewChange("settings")}
         onOpenLangPicker={() => setShowLangPicker(true)}
         onLogout={() => {
-          // Clear session data but preserve placement profiles so the discovery
-          // activity is never repeated when the same user logs back in.
-          clearAllUserData();
+          // Do NOT wipe localStorage on logout — data belongs to this user and
+          // must still be visible when they log back in on the same device.
           supabase.auth.signOut();
           window.location.reload();
         }}
@@ -241,17 +240,17 @@ export default function Home() {
     const isDifferentUser = data.userId && storedUserId && storedUserId !== data.userId;
 
     if (data.plan === "existing") {
-      // Returning user — only wipe data if a different user is logging in on this device
+      // Returning user — only wipe data if a DIFFERENT user is logging in on this device
       if (isDifferentUser) {
-        clearAllUserData();
-        PLACEMENT_PROFILE_KEYS.forEach((k) => localStorage.removeItem(k));
+        PERSISTENT_USER_KEYS.forEach((k) => localStorage.removeItem(k));
+        localStorage.removeItem("current_user_id");
       }
       if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setAppState("app");
     } else {
-      // New signup — clear everything including any prior user's placement profiles
-      clearAllUserData();
-      PLACEMENT_PROFILE_KEYS.forEach((k) => localStorage.removeItem(k));
+      // New signup — always wipe any previous user's data
+      PERSISTENT_USER_KEYS.forEach((k) => localStorage.removeItem(k));
+      localStorage.removeItem("current_user_id");
       if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setWelcomeName(data.name || "");
       setAppState("welcome");

@@ -3,24 +3,24 @@ import { Message, ProgressData } from "@/types";
 const MESSAGES_KEY = "ai_tutor_messages";
 const PROGRESS_KEY = "ai_tutor_progress";
 
-// Keys cleared on logout / new signup. Does NOT include skill-tree profiles —
-// those persist across logout so placement is never repeated for the same user.
-const USER_DATA_KEYS = [
+// Keys that are wiped only when a DIFFERENT user logs in on this device.
+// Never cleared on logout — same user must see their data when they log back in.
+export const PERSISTENT_USER_KEYS = [
   MESSAGES_KEY,
   PROGRESS_KEY,
   "ruby_streak",
+  "ruby_student_profile",
+  "ruby_reading_profile",
+  "onboardingData",
   "survey_count_chat",
   "beta_session_surveys",
   "beta_feedback",
   "matric_waitlist",
 ];
 
-// Placement profiles — only wiped when a DIFFERENT user logs in on this device.
-export const PLACEMENT_PROFILE_KEYS = ["ruby_student_profile", "ruby_reading_profile"];
-
 export function clearAllUserData(): void {
   if (typeof window === "undefined") return;
-  USER_DATA_KEYS.forEach((key) => localStorage.removeItem(key));
+  PERSISTENT_USER_KEYS.forEach((key) => localStorage.removeItem(key));
 }
 
 export function getMessages(): Message[] {
