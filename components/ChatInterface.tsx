@@ -345,7 +345,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             {msg.role === "user" ? (
               /* User bubble */
               <div className="max-w-[80%] sm:max-w-[65%]">
-                <div className="bg-blue-500 text-white rounded-2xl rounded-tr-sm px-4 py-3">
+                <div className="bg-[#B7182E] text-white rounded-2xl rounded-tr-sm px-4 py-3">
                   <p className="text-base leading-relaxed whitespace-pre-wrap">{msg.content}</p>
                 </div>
                 <p className="text-xs text-gray-400 mt-1 text-right">
