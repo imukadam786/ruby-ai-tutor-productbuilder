@@ -433,16 +433,6 @@ export default function MathsDiagnosticPlacement({
       ).length;
 
       if (tasksInCurrentBlock >= blockSize) {
-        if (!exitResult.exit && exitResult.skipToBlock3 && currentTask.block === 2) {
-          const block3Start = primaryTasks.findIndex((t) => t.block === 3);
-          if (block3Start >= 0) {
-            setPrimaryTaskIndex(block3Start);
-            setProbesFiredThisBlock(0);
-            setShowEncouragement(false);
-            setSubmitting(false);
-            return;
-          }
-        }
         setProbesFiredThisBlock(0);
       }
 
