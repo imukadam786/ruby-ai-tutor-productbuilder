@@ -121,11 +121,19 @@ export interface ReadingStudentProfile {
 
 // ─── Session ──────────────────────────────────────────────────────────────────
 
+export interface AudioTapChoice {
+  label: string;   // displayed on button, e.g. "/b/"
+  speech: string;  // spoken by TTS when tapped, e.g. "B, as in bat"
+  correct: boolean;
+}
+
 export interface ReadingGeneratedQuestion {
   id: string;
   skill_id: string;
   template: ReadingTemplate;
   question: string;
+  displayWord?: string;         // large card display for audio-tap (e.g. "B", "sh")
+  audioChoices?: AudioTapChoice[];
   hint?: string;
   expected_answer: string;
   scaffolding_notes: string;

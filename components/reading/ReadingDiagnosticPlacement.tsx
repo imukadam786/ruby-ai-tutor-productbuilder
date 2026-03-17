@@ -12,9 +12,9 @@ const FLUENCY_PASSAGE =
 
 // ── Task definitions (hardcoded — no API calls for generation) ────────────────
 
-type AnswerMode = "choice" | "voice" | "flash_choice";
+type AnswerMode = "choice" | "voice" | "flash_choice" | "audio-tap";
 
-interface Choice { label: string; value: string; correct: boolean }
+interface Choice { label: string; value: string; correct: boolean; speech?: string }
 
 interface Task {
   id: string;
@@ -312,6 +312,8 @@ export default function ReadingDiagnosticPlacement({
   }, []);
 
   const cancelSpeech = useRef<(() => void) | null>(null);
+  const [playingChoiceValue, setPlayingChoiceValue] = useState<string | null>(null);
+  const cancelChoiceAudio = useRef<(() => void) | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const srRef = useRef<any>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -328,6 +330,9 @@ export default function ReadingDiagnosticPlacement({
     setFlashDone(false);
     setFlashVisible(false);
     setShowEncouragement(false);
+    cancelChoiceAudio.current?.();
+    cancelChoiceAudio.current = null;
+    setPlayingChoiceValue(null);
 
     // Small delay then speak
     const t = setTimeout(() => {
@@ -448,8 +453,31 @@ export default function ReadingDiagnosticPlacement({
   const handleSkip = useCallback(() => {
     if (submitting || !task) return;
     stopVoice();
+    cancelChoiceAudio.current?.();
     advanceTask({ taskId: task.id, correct: false, score: 0, response: "(skipped)" });
   }, [submitting, task, stopVoice, advanceTask]);
+
+  // Audio-tap: tap a choice button → play its speech + mark as selected
+  const handleAudioTapPlay = useCallback((choice: Choice) => {
+    if (submitting) return;
+    cancelChoiceAudio.current?.();
+    setPlayingChoiceValue(choice.value);
+    setSelectedChoice(choice.value);
+    cancelChoiceAudio.current = speakText(
+      choice.speech ?? choice.label,
+      () => setPlayingChoiceValue(null)
+    );
+  }, [submitting]);
+
+  // Audio-tap: submit the selected choice
+  const handleAudioTapSubmit = useCallback(() => {
+    if (!task || !selectedChoice || submitting) return;
+    const chosen = task.choices?.find((c) => c.value === selectedChoice);
+    if (!chosen) return;
+    cancelChoiceAudio.current?.();
+    setPlayingChoiceValue(null);
+    advanceTask({ taskId: task.id, correct: chosen.correct, score: chosen.correct ? 1 : 0, response: selectedChoice });
+  }, [task, selectedChoice, submitting, advanceTask]);
 
   // ── Loading (tasks not yet fetched) ──────────────────────────────────────────
   if (TASKS.length === 0) {
@@ -752,6 +780,53 @@ export default function ReadingDiagnosticPlacement({
                     {submitting ? (
                       <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Saving…</>
                     ) : listening ? "Stop & Submit →" : "Submit →"}
+                  </button>
+                )}
+              </div>
+            )}
+
+            {/* AUDIO-TAP */}
+            {task.answerMode === "audio-tap" && task.choices && (
+              <div className="space-y-3">
+                <p className="text-sm text-center text-gray-400 font-medium">
+                  Tap each button to hear the sound, then choose the right one
+                </p>
+                <div className="grid grid-cols-3 gap-3">
+                  {task.choices.map((c) => (
+                    <button
+                      key={c.value}
+                      onClick={() => handleAudioTapPlay(c)}
+                      disabled={submitting}
+                      className={`flex flex-col items-center justify-center gap-2 py-5 rounded-2xl border-2 font-bold transition-all active:scale-95 ${
+                        selectedChoice === c.value
+                          ? "bg-blue-500 border-blue-500 text-white shadow-lg scale-105"
+                          : playingChoiceValue === c.value
+                          ? "bg-blue-50 border-blue-400 text-blue-700"
+                          : "border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50"
+                      }`}
+                    >
+                      {playingChoiceValue === c.value ? (
+                        <svg className="w-5 h-5 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                          <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+                        </svg>
+                      ) : (
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      )}
+                      <span className="font-mono text-lg">{c.label}</span>
+                    </button>
+                  ))}
+                </div>
+                {selectedChoice && (
+                  <button
+                    onClick={handleAudioTapSubmit}
+                    disabled={submitting}
+                    className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                  >
+                    {submitting ? (
+                      <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Saving…</>
+                    ) : "That's my answer →"}
                   </button>
                 )}
               </div>

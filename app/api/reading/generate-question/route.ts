@@ -1,7 +1,169 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
-import { ReadingTemplate, ReadingGeneratedQuestion } from "@/types/reading";
+import { ReadingTemplate, ReadingGeneratedQuestion, AudioTapChoice } from "@/types/reading";
+
+// ── Audio-tap question builder for phoneme-production skills ──────────────────
+// These skills (R2.T1, R2.T2) require isolated phoneme production which STT
+// cannot reliably detect. We generate deterministic multiple-choice questions.
+
+const LETTER_DATA: Record<string, { label: string; speech: string }> = {
+  a: { label: "/a/",  speech: "short A, as in apple" },
+  b: { label: "/b/",  speech: "B, as in bat"         },
+  c: { label: "/k/",  speech: "K, as in cat"         },
+  d: { label: "/d/",  speech: "D, as in dog"         },
+  e: { label: "/e/",  speech: "short E, as in bed"   },
+  f: { label: "/f/",  speech: "F, as in fish"        },
+  g: { label: "/g/",  speech: "G, as in got"         },
+  h: { label: "/h/",  speech: "H, as in hat"         },
+  i: { label: "/i/",  speech: "short I, as in sit"   },
+  j: { label: "/j/",  speech: "J, as in jump"        },
+  k: { label: "/k/",  speech: "K, as in kite"        },
+  l: { label: "/l/",  speech: "L, as in leg"         },
+  m: { label: "/m/",  speech: "M, as in mat"         },
+  n: { label: "/n/",  speech: "N, as in net"         },
+  o: { label: "/o/",  speech: "short O, as in hot"   },
+  p: { label: "/p/",  speech: "P, as in pin"         },
+  r: { label: "/r/",  speech: "R, as in red"         },
+  s: { label: "/s/",  speech: "S, as in sun"         },
+  t: { label: "/t/",  speech: "T, as in top"         },
+  u: { label: "/u/",  speech: "short U, as in cup"   },
+  v: { label: "/v/",  speech: "V, as in van"         },
+  w: { label: "/w/",  speech: "W, as in wet"         },
+  y: { label: "/y/",  speech: "Y, as in yes"         },
+  z: { label: "/z/",  speech: "Z, as in zip"         },
+};
+
+const CONSONANT_DISTRACTORS: Record<string, string[]> = {
+  b:["d","p"], c:["k","s"], d:["b","g"], f:["v","p"], g:["k","d"],
+  h:["m","n"], j:["y","g"], k:["g","t"], l:["r","n"], m:["n","b"],
+  n:["m","l"], p:["b","t"], r:["l","w"], s:["z","f"], t:["d","p"],
+  v:["f","b"], w:["v","r"], y:["j","w"], z:["s","v"],
+};
+const VOWEL_DISTRACTORS: Record<string, string[]> = {
+  a:["e","o"], e:["i","a"], i:["e","u"], o:["u","a"], u:["o","i"],
+};
+const VOWELS = new Set(["a","e","i","o","u"]);
+
+const CONSONANT_POOL = ["b","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"];
+const VOWEL_POOL = ["a","e","i","o","u"];
+
+// Digraphs with fixed plausible distractor sets
+const DIGRAPH_CHOICES: Record<string, AudioTapChoice[]> = {
+  sh: [{label:"/sh/",speech:"sh, as in ship",correct:true},{label:"/s/",speech:"S, as in sun",correct:false},{label:"/ch/",speech:"ch, as in chip",correct:false}],
+  ch: [{label:"/ch/",speech:"ch, as in chip",correct:true},{label:"/sh/",speech:"sh, as in ship",correct:false},{label:"/k/",speech:"K, as in cat",correct:false}],
+  th: [{label:"/th/",speech:"th, as in this",correct:true},{label:"/t/",speech:"T, as in top",correct:false},{label:"/d/",speech:"D, as in dog",correct:false}],
+  wh: [{label:"/wh/",speech:"wh, as in when",correct:true},{label:"/w/",speech:"W, as in wet",correct:false},{label:"/h/",speech:"H, as in hat",correct:false}],
+  ck: [{label:"/k/",speech:"K, as in kick (one sound)",correct:true},{label:"/ch/",speech:"ch, as in chip",correct:false},{label:"/k/+/k/",speech:"two separate K sounds",correct:false}],
+  ng: [{label:"/ng/",speech:"ng, as in ring",correct:true},{label:"/n/",speech:"N, as in net",correct:false},{label:"/g/",speech:"G, as in got",correct:false}],
+  ph: [{label:"/f/",speech:"F, as in fish (ph makes the F sound)",correct:true},{label:"/p/",speech:"P, as in pin",correct:false},{label:"/ph/",speech:"two sounds, p then h",correct:false}],
+};
+
+// Blends with fixed plausible distractor sets
+const BLEND_CHOICES: Record<string, AudioTapChoice[]> = {
+  bl: [{label:"/b/ then /l/",speech:"b then l, as in blue",correct:true},{label:"/l/ then /b/",speech:"l then b — wrong order",correct:false},{label:"/bl/ one sound",speech:"bl as one single sound",correct:false}],
+  cl: [{label:"/k/ then /l/",speech:"k then l, as in clap",correct:true},{label:"/l/ then /k/",speech:"l then k — wrong order",correct:false},{label:"/kl/ one sound",speech:"cl as one single sound",correct:false}],
+  fl: [{label:"/f/ then /l/",speech:"f then l, as in flag",correct:true},{label:"/l/ then /f/",speech:"l then f — wrong order",correct:false},{label:"/fl/ one sound",speech:"fl as one single sound",correct:false}],
+  pl: [{label:"/p/ then /l/",speech:"p then l, as in play",correct:true},{label:"/l/ then /p/",speech:"l then p — wrong order",correct:false},{label:"/pl/ one sound",speech:"pl as one single sound",correct:false}],
+  br: [{label:"/b/ then /r/",speech:"b then r, as in bring",correct:true},{label:"/r/ then /b/",speech:"r then b — wrong order",correct:false},{label:"/br/ one sound",speech:"br as one single sound",correct:false}],
+  cr: [{label:"/k/ then /r/",speech:"k then r, as in crab",correct:true},{label:"/r/ then /k/",speech:"r then k — wrong order",correct:false},{label:"/kr/ one sound",speech:"cr as one single sound",correct:false}],
+  dr: [{label:"/d/ then /r/",speech:"d then r, as in drip",correct:true},{label:"/r/ then /d/",speech:"r then d — wrong order",correct:false},{label:"/dr/ one sound",speech:"dr as one single sound",correct:false}],
+  fr: [{label:"/f/ then /r/",speech:"f then r, as in frog",correct:true},{label:"/r/ then /f/",speech:"r then f — wrong order",correct:false},{label:"/fr/ one sound",speech:"fr as one single sound",correct:false}],
+  gr: [{label:"/g/ then /r/",speech:"g then r, as in grab",correct:true},{label:"/r/ then /g/",speech:"r then g — wrong order",correct:false},{label:"/gr/ one sound",speech:"gr as one single sound",correct:false}],
+  pr: [{label:"/p/ then /r/",speech:"p then r, as in press",correct:true},{label:"/r/ then /p/",speech:"r then p — wrong order",correct:false},{label:"/pr/ one sound",speech:"pr as one single sound",correct:false}],
+  st: [{label:"/s/ then /t/",speech:"s then t, as in stop",correct:true},{label:"/t/ then /s/",speech:"t then s — wrong order",correct:false},{label:"/st/ one sound",speech:"st as one single sound",correct:false}],
+  sp: [{label:"/s/ then /p/",speech:"s then p, as in spin",correct:true},{label:"/p/ then /s/",speech:"p then s — wrong order",correct:false},{label:"/sp/ one sound",speech:"sp as one single sound",correct:false}],
+  sn: [{label:"/s/ then /n/",speech:"s then n, as in snap",correct:true},{label:"/n/ then /s/",speech:"n then s — wrong order",correct:false},{label:"/sn/ one sound",speech:"sn as one single sound",correct:false}],
+  sk: [{label:"/s/ then /k/",speech:"s then k, as in skip",correct:true},{label:"/k/ then /s/",speech:"k then s — wrong order",correct:false},{label:"/sk/ one sound",speech:"sk as one single sound",correct:false}],
+  tr: [{label:"/t/ then /r/",speech:"t then r, as in trap",correct:true},{label:"/r/ then /t/",speech:"r then t — wrong order",correct:false},{label:"/tr/ one sound",speech:"tr as one single sound",correct:false}],
+  sl: [{label:"/s/ then /l/",speech:"s then l, as in slip",correct:true},{label:"/l/ then /s/",speech:"l then s — wrong order",correct:false},{label:"/sl/ one sound",speech:"sl as one single sound",correct:false}],
+  sw: [{label:"/s/ then /w/",speech:"s then w, as in swim",correct:true},{label:"/w/ then /s/",speech:"w then s — wrong order",correct:false},{label:"/sw/ one sound",speech:"sw as one single sound",correct:false}],
+};
+
+const DIGRAPH_POOL = Object.keys(DIGRAPH_CHOICES);
+const BLEND_POOL = Object.keys(BLEND_CHOICES);
+
+function pickRandom<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function shuffle<T>(arr: T[]): T[] {
+  const out = [...arr];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
+function buildLetterChoices(letter: string): AudioTapChoice[] {
+  const info = LETTER_DATA[letter];
+  if (!info) return [];
+  const distractorLetters = VOWELS.has(letter)
+    ? (VOWEL_DISTRACTORS[letter] ?? ["e","o"])
+    : (CONSONANT_DISTRACTORS[letter] ?? ["m","n"]);
+  const choices: AudioTapChoice[] = [
+    { label: info.label, speech: info.speech, correct: true },
+    ...distractorLetters.slice(0, 2).map((l) => {
+      const d = LETTER_DATA[l];
+      return d ? { label: d.label, speech: d.speech, correct: false } : null;
+    }).filter((c): c is AudioTapChoice => c !== null),
+  ];
+  return shuffle(choices);
+}
+
+/** Returns a deterministic audio-tap question for letter-sound or digraph skills,
+ *  or null if the skill should still use LLM-based generation. */
+function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "id"> | null {
+  // R2.T1 — Letter-Sound Correspondence
+  if (skill_id.startsWith("R2.T1")) {
+    const pool = skill_id === "R2.T1.A1" ? CONSONANT_POOL : [...CONSONANT_POOL, ...VOWEL_POOL];
+    const letter = pickRandom(pool);
+    const choices = buildLetterChoices(letter);
+    if (choices.length < 3) return null;
+    return {
+      skill_id,
+      template: "oral" as ReadingTemplate,
+      question: `What sound does this letter make?`,
+      displayWord: letter.toUpperCase(),
+      audioChoices: choices,
+      expected_answer: choices.find((c) => c.correct)?.label ?? "",
+      scaffolding_notes: "Audio-tap: student selects the correct phoneme from 3 choices.",
+    };
+  }
+
+  // R2.T2.A1 — Digraph Phoneme Retrieval
+  if (skill_id === "R2.T2.A1") {
+    const digraph = pickRandom(DIGRAPH_POOL);
+    const choices = shuffle(DIGRAPH_CHOICES[digraph]);
+    return {
+      skill_id,
+      template: "oral" as ReadingTemplate,
+      question: `What ONE sound do these two letters make together?`,
+      displayWord: digraph,
+      audioChoices: choices,
+      expected_answer: choices.find((c) => c.correct)?.label ?? "",
+      scaffolding_notes: "Audio-tap: student identifies the single digraph phoneme.",
+    };
+  }
+
+  // R2.T2.A2 — Consonant Blend Production
+  if (skill_id === "R2.T2.A2") {
+    const blend = pickRandom(BLEND_POOL);
+    const choices = shuffle(BLEND_CHOICES[blend]);
+    return {
+      skill_id,
+      template: "oral" as ReadingTemplate,
+      question: `These two letters make two sounds close together. Which button shows the correct way to say both sounds in this blend?`,
+      displayWord: blend,
+      audioChoices: choices,
+      expected_answer: choices.find((c) => c.correct)?.label ?? "",
+      scaffolding_notes: "Audio-tap: student identifies correct blend order.",
+    };
+  }
+
+  return null;
+}
 
 const ERROR_RECOVERY_INSTRUCTIONS: Record<string, string> = {
   ERR_PHONEME_CONF:
@@ -85,6 +247,15 @@ export async function POST(req: NextRequest) {
     const skill = getReadingSkillById(skill_id);
     if (!skill) {
       return NextResponse.json({ error: "Skill not found" }, { status: 404 });
+    }
+
+    // For letter-sound and digraph skills, return a deterministic audio-tap question
+    // (no LLM needed — isolated phoneme production cannot be captured by STT)
+    if (template === "oral") {
+      const tapQuestion = buildAudioTapQuestion(skill_id);
+      if (tapQuestion) {
+        return NextResponse.json({ ...tapQuestion, id: `rq_${Date.now()}` });
+      }
     }
 
     const templateDescriptions: Record<ReadingTemplate, string> = {

@@ -736,9 +736,14 @@ function ReadingQuestionCard({
   const [submitting, setSubmitting] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [listening, setListening] = useState(false);
+  const [selectedAudioChoice, setSelectedAudioChoice] = useState<string | null>(null);
+  const [playingChoiceValue, setPlayingChoiceValue] = useState<string | null>(null);
   const cancelSpeechRef = useRef<(() => void) | null>(null);
+  const cancelChoiceAudioRef = useRef<(() => void) | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recognitionRef = useRef<any>(null);
+
+  const isAudioTap = !!(question.audioChoices && question.audioChoices.length > 0);
 
   const config = templateConfig[question.template] || templateConfig.oral;
 
@@ -793,6 +798,26 @@ function ReadingQuestionCard({
     setPlaying(false);
     setSubmitting(true);
     onSubmit(answer, "", usedHint);
+    setSubmitting(false);
+  };
+
+  const handleAudioChoiceTap = (choice: { label: string; speech: string; correct: boolean }) => {
+    cancelChoiceAudioRef.current?.();
+    setSelectedAudioChoice(choice.label);
+    setPlayingChoiceValue(choice.label);
+    cancelChoiceAudioRef.current = speakNaturally(
+      choice.speech,
+      () => {},
+      () => setPlayingChoiceValue(null)
+    );
+  };
+
+  const handleAudioChoiceSubmit = () => {
+    if (!selectedAudioChoice || submitting) return;
+    cancelChoiceAudioRef.current?.();
+    setPlayingChoiceValue(null);
+    setSubmitting(true);
+    onSubmit(selectedAudioChoice, "", usedHint);
     setSubmitting(false);
   };
 
@@ -879,52 +904,112 @@ function ReadingQuestionCard({
 
       {/* Answer input */}
       <div className="px-6 pb-6 space-y-4">
-        {/* Big centred mic button — matches diagnostic placement experience */}
-        <div className="flex flex-col items-center gap-3">
-          <button
-            onClick={listening ? stopVoice : startVoice}
-            disabled={submitting}
-            className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 ${
-              listening
-                ? "bg-red-500 text-white animate-pulse shadow-red-200 shadow-xl"
-                : "bg-purple-500 text-white hover:bg-purple-600"
-            }`}
-          >
-            {listening ? (
-              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <rect x="6" y="6" width="12" height="12" rx="2" />
-              </svg>
-            ) : (
-              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
-              </svg>
+
+        {/* ── AUDIO-TAP mode (letter-sound / digraph / blend skills) ── */}
+        {isAudioTap ? (
+          <>
+            {/* Large display word (letter, digraph, blend) */}
+            {question.displayWord && (
+              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 text-center">
+                <p className="text-6xl font-bold text-purple-700 tracking-widest">
+                  {question.displayWord}
+                </p>
+              </div>
             )}
-          </button>
-          <p className="text-sm text-gray-400 font-medium">
-            {listening ? "🔴 Listening… tap to stop" : "Tap the mic to speak"}
-          </p>
-        </div>
 
-        {/* Live transcript */}
-        {answer && (
-          <div className="bg-purple-50 border border-purple-200 rounded-2xl px-4 py-3 text-center">
-            <p className="text-sm text-purple-500 font-medium mb-1">I heard:</p>
-            <p className="text-purple-800 font-semibold">"{answer}"</p>
-          </div>
+            <p className="text-sm text-center text-gray-400 font-medium">
+              Tap each button to hear the sound, then choose the right one
+            </p>
+
+            <div className="grid grid-cols-3 gap-3">
+              {question.audioChoices!.map((c) => (
+                <button
+                  key={c.label}
+                  onClick={() => handleAudioChoiceTap(c)}
+                  disabled={submitting}
+                  className={`flex flex-col items-center justify-center gap-2 py-5 rounded-2xl border-2 font-bold transition-all active:scale-95 ${
+                    selectedAudioChoice === c.label
+                      ? "bg-purple-500 border-purple-500 text-white shadow-lg scale-105"
+                      : playingChoiceValue === c.label
+                      ? "bg-purple-50 border-purple-400 text-purple-700"
+                      : "border-gray-200 text-gray-700 hover:border-purple-300 hover:bg-purple-50"
+                  }`}
+                >
+                  {playingChoiceValue === c.label ? (
+                    <svg className="w-5 h-5 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                      <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  )}
+                  <span className="font-mono text-sm text-center leading-tight">{c.label}</span>
+                </button>
+              ))}
+            </div>
+
+            {selectedAudioChoice && (
+              <button
+                onClick={handleAudioChoiceSubmit}
+                disabled={submitting}
+                className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+              >
+                {submitting ? (
+                  <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Checking...</>
+                ) : "That's my answer →"}
+              </button>
+            )}
+          </>
+        ) : (
+          <>
+            {/* ── VOICE mode (oral template, non-phoneme-production skills) ── */}
+            <div className="flex flex-col items-center gap-3">
+              <button
+                onClick={listening ? stopVoice : startVoice}
+                disabled={submitting}
+                className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 ${
+                  listening
+                    ? "bg-red-500 text-white animate-pulse shadow-red-200 shadow-xl"
+                    : "bg-purple-500 text-white hover:bg-purple-600"
+                }`}
+              >
+                {listening ? (
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <rect x="6" y="6" width="12" height="12" rx="2" />
+                  </svg>
+                ) : (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
+                  </svg>
+                )}
+              </button>
+              <p className="text-sm text-gray-400 font-medium">
+                {listening ? "🔴 Listening… tap to stop" : "Tap the mic to speak"}
+              </p>
+            </div>
+
+            {answer && (
+              <div className="bg-purple-50 border border-purple-200 rounded-2xl px-4 py-3 text-center">
+                <p className="text-sm text-purple-500 font-medium mb-1">I heard:</p>
+                <p className="text-purple-800 font-semibold">"{answer}"</p>
+              </div>
+            )}
+
+            <button
+              onClick={handleSubmit}
+              disabled={(!answer.trim() && !listening) || submitting}
+              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+            >
+              {submitting ? (
+                <>
+                  <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  Checking...
+                </>
+              ) : listening ? "Stop & Submit →" : "Submit Answer →"}
+            </button>
+          </>
         )}
-
-        <button
-          onClick={handleSubmit}
-          disabled={(!answer.trim() && !listening) || submitting}
-          className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
-        >
-          {submitting ? (
-            <>
-              <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              Checking...
-            </>
-          ) : listening ? "Stop & Submit →" : "Submit Answer →"}
-        </button>
       </div>
     </div>
   );

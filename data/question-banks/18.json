@@ -27,8 +27,27 @@
     "gate": "A",
     "question": "What is the very first sound in 'yes'? Say just the sound, not the letter name.",
     "displayWord": "yes",
-    "answerMode": "voice",
-    "expectedAnswer": "/j/"
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "/e/",
+        "value": "/e/",
+        "speech": "short E, as in bed",
+        "correct": false
+      },
+      {
+        "label": "/s/",
+        "value": "/s/",
+        "speech": "S, as in sun",
+        "correct": false
+      },
+      {
+        "label": "/y/",
+        "value": "/y/",
+        "speech": "Y, as in yes",
+        "correct": true
+      }
+    ]
   },
   {
     "id": "Q3",
@@ -37,9 +56,27 @@
     "gate": "A",
     "question": "What sound does this letter make?",
     "displayWord": "W",
-    "answerMode": "voice",
-    "expectedAnswer": "/w/",
-    "maxResponseMs": 2500
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "/v/",
+        "value": "/v/",
+        "speech": "V, as in van",
+        "correct": false
+      },
+      {
+        "label": "/w/",
+        "value": "/w/",
+        "speech": "W, as in wet",
+        "correct": true
+      },
+      {
+        "label": "/r/",
+        "value": "/r/",
+        "speech": "R, as in red",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q4",
@@ -48,9 +85,27 @@
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
     "displayWord": "i",
-    "answerMode": "voice",
-    "expectedAnswer": "/ɪ/ (short i as in itch)",
-    "maxResponseMs": 2500
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "/e/",
+        "value": "/e/",
+        "speech": "short E, as in bed",
+        "correct": false
+      },
+      {
+        "label": "/i/",
+        "value": "/i/",
+        "speech": "short I, as in sit",
+        "correct": true
+      },
+      {
+        "label": "/u/",
+        "value": "/u/",
+        "speech": "short U, as in cup",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q5",
