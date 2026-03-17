@@ -152,19 +152,22 @@ const GATE_GRADE_THRESHOLD: Record<"A" | "B" | "C" | "D", number> = {
   A: 4,   // Basic counting/ops — expected by Grade 4
   B: 7,   // Decomposition/Fractions/Ratio — Grade 7
   C: 10,  // Algebra/Equations — Grade 10
-  D: 12,  // Advanced (logs, trig, calc) — Grade 12
+  D: 13,  // Advanced (logs, trig, calc, differentiation) — Grade 13+
 };
 
 function getGradeFloor(grade: number): number {
-  if (grade <= 4) return 1;
-  if (grade <= 5) return 3;
-  if (grade <= 6) return 4;
-  if (grade <= 7) return 5;
-  if (grade <= 8) return 7;
-  if (grade <= 9) return 8;
-  if (grade <= 10) return 9;
-  if (grade <= 11) return 12;
-  return 14;
+  if (grade <= 2) return 1;   // Grade R–2:  Counting and Early Number Sense
+  if (grade <= 3) return 2;   // Grade 3:    Addition Concepts
+  if (grade <= 4) return 3;   // Grade 4:    Subtraction Concepts
+  if (grade <= 5) return 4;   // Grade 5:    Addition & Subtraction Fluency
+  if (grade <= 6) return 5;   // Grade 6:    Multiplication Concepts
+  if (grade <= 7) return 6;   // Grade 7:    Multiplicative Reasoning
+  if (grade <= 8) return 7;   // Grade 8:    Division Concepts
+  if (grade <= 9) return 9;   // Grade 9:    Fraction Operations
+  if (grade <= 10) return 11; // Grade 10:   Ratio and Proportion
+  if (grade <= 11) return 13; // Grade 11:   Algebra
+  if (grade <= 12) return 15; // Grade 12:   Geometry
+  return 17;                  // Post-school: Advanced Problem Solving
 }
 
 function computePlacement(
@@ -186,6 +189,8 @@ function computePlacement(
     domain in scoreMap ? scoreMap[domain] : grade >= GATE_GRADE_THRESHOLD[gate];
 
   const hardGatePassed = passed("M006", "A");
+
+  // Primary gates (pairs of domains)
   const gateA = passed("M001", "A") && passed("M004", "A");
   const gateB = passed("M005", "A") && hardGatePassed;
   const gateC = passed("M007", "B") && passed("M008", "B");
@@ -193,13 +198,29 @@ function computePlacement(
   const gateE = passed("M011", "C") && passed("M012", "C");
   const gateF = passed("M013", "C") && passed("M014", "C");
 
+  // Intermediate gates — single domain passes that fill the gaps between primary gates
+  const passM004 = passed("M004", "A");   // Addition alone        → L2
+  const passM006 = passed("M006", "A");   // Multiplication        → L6
+  const passM008 = passed("M008", "B");   // Fractions alone       → L10 (if division not yet proven)
+  const passM009 = passed("M009", "B");   // Ratio alone           → L11
+  const passM011 = passed("M011", "C");   // Algebra alone         → L13
+  const passM013 = passed("M013", "C");   // Quadratics alone      → L15
+  const passM015 = passed("M015", "D") || passed("M016", "D") || passed("M017", "D"); // Advanced → L17
+
   let computedLevel = 1;
-  if (gateF) computedLevel = 16;
-  else if (gateE) computedLevel = 14;
-  else if (gateD) computedLevel = 10;
-  else if (gateC) computedLevel = 8;
-  else if (gateB) computedLevel = 5;
-  else if (gateA) computedLevel = 3;
+  if (gateF && passM015)      computedLevel = 17; // L17 Advanced Problem Solving
+  else if (gateF)             computedLevel = 16; // L16 Statistics and Data
+  else if (gateE && passM013) computedLevel = 15; // L15 Geometry — Shape and Space
+  else if (gateE)             computedLevel = 14; // L14 Linear Equations
+  else if (gateD && passM011) computedLevel = 13; // L13 Algebra — Patterns and Variables
+  else if (gateD)             computedLevel = 12; // L12 Negative Numbers and Integers
+  else if (gateC && passM009) computedLevel = 11; // L11 Ratio and Proportion
+  else if (gateC)             computedLevel = 8;  // L8  Fractions — Introduction
+  else if (passM008)          computedLevel = 10; // L10 Decimals (fractions proven, division not yet)
+  else if (gateB && passM006) computedLevel = 6;  // L6  Multiplicative Reasoning
+  else if (gateB)             computedLevel = 5;  // L5  Multiplication Concepts
+  else if (gateA)             computedLevel = 3;  // L3  Subtraction Concepts
+  else if (passM004)          computedLevel = 2;  // L2  Addition Concepts
 
   const entryLevel = Math.max(computedLevel, getGradeFloor(grade));
 
