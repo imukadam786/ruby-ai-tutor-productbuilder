@@ -57,25 +57,26 @@ const bank = questionBankData as {
 };
 
 // ─── Level → Domain mapping ───────────────────────────────────────────────────
-// Maps skill tree level numbers to diagnostic domains (Ruby Maths Platform Spec v1).
+// Maps skill tree level numbers to question bank domains.
+// Derived from question-bank.json skill_ids assignments.
 const LEVEL_TO_DOMAIN: Record<number, string> = {
-  1:  "M001", // Counting and Cardinality / Early Number Sense
-  2:  "M004", // Addition – Mental Strategy
-  3:  "M005", // Subtraction – Mental Strategy
-  4:  "M006", // Multiplication – Equal Groups (Hard Gate)
-  5:  "M007", // Flexible Decomposition
-  6:  "M007", // Multiplicative Reasoning (same domain)
-  7:  "M008", // Fraction – Unit Interpretation
-  8:  "M009", // Ratio and Proportion
-  9:  "M010", // Integer Operations and BODMAS
-  10: "M011", // Algebraic Expression
-  11: "M009", // Extended Ratio
-  12: "M010", // Extended Integers
-  13: "M011", // Extended Algebra
-  14: "M012", // Linear Equation
-  15: "M013", // Quadratic Factorisation
-  16: "M014", // Function – Key Features
-  17: "M018", // Multi-Step Problem – Plan and Solve
+  1:  "M001",  // Counting and Early Number Sense
+  2:  "M004",  // Addition Concepts
+  3:  "M005",  // Subtraction Concepts
+  4:  "M006",  // Addition & Subtraction Fluency / Multiplication Equal Groups
+  5:  "M007",  // Multiplication Concepts / Flexible Decomposition
+  6:  "M007",  // Multiplicative Reasoning
+  7:  "M008",  // Division Concepts / Fraction Unit Interpretation
+  8:  "M009",  // Fractions Introduction
+  9:  "M010",  // Fraction Operations / Integer Operations
+  10: "M_DEC", // Decimals
+  11: "M009",  // Ratio and Proportion
+  12: "M010",  // Negative Numbers and Integers
+  13: "M011",  // Algebra — Patterns and Variables
+  14: "M012",  // Linear Equations
+  15: "M013",  // Quadratic Factorisation
+  16: "M014",  // Functions
+  17: "M018",  // Multi-Step Problem
 };
 
 // Build explicit skill_id → domain map from question bank data
@@ -237,6 +238,7 @@ function buildQuestionText(q: BankQuestion, domainId: string): string {
       return `${q.ruby_prompt}\n\nNumber: ${q.display}\n\nExample: ${q.expected_a} AND ${q.expected_b} (any valid decomposition accepted)`;
     case "M008":
       return `Fraction: ${q.fraction}\n\n${q.ruby_prompt}`;
+    case "M_DEC":
     case "M009":
     case "M010":
     case "M011":
@@ -264,6 +266,7 @@ function buildHint(q: BankQuestion, domainId: string): string {
     M007: "You can split hundreds, tens, and ones in many ways. E.g. 345 = 300+40+5 or 300+45.",
     M008: "The denominator (bottom number) tells you how many equal parts the whole is divided into.",
     M009: "Find the scale factor first: what number do you multiply one side by to get the other?",
+    M_DEC: "Line up the decimal points before adding or subtracting. When multiplying by 10, 100 or 1000, move each digit that many places to the left.",
     M010: "Remember BODMAS: Brackets, Orders, Division, Multiplication, Addition, Subtraction.",
     M011: "Collect the x terms together, then collect the number terms together.",
     M012: "Inverse operations: subtract the constant from both sides first, then divide.",

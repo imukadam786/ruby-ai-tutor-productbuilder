@@ -7289,8 +7289,7 @@
       "title": "Algebraic Expression",
       "gate": "C",
       "skill_ids": [
-        "L9.T2.A1",
-        "L10.T1.A1"
+        "L9.T2.A1"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -11780,6 +11779,200 @@
             "ERR_CALC_ERROR"
           ],
           "ruby_prompt": "Read this problem carefully. Plan your solution step by step, then give your final answer."
+        }
+      ]
+    },
+    "M_DEC": {
+      "title": "Decimals",
+      "gate": "B",
+      "skill_ids": [
+        "L10.T1.A1",
+        "L10.T2.A1",
+        "L10.T2.A2",
+        "L10.T3.A1"
+      ],
+      "pass_threshold": 0.8,
+      "questions_for_mastery": 3,
+      "questions": [
+        {
+          "ref": "dec.1",
+          "question": "Which is larger: 0.6 or 0.52?",
+          "expected": "0.6",
+          "input_type": "text",
+          "context": "decimal comparison",
+          "error_signals": ["ERR_DECIMAL_COMPARE", "ERR_WHOLE_DIGIT"],
+          "ruby_prompt": "Compare these two decimal numbers and write the larger one."
+        },
+        {
+          "ref": "dec.2",
+          "question": "Write 0.7 as a fraction.",
+          "expected": "7/10",
+          "input_type": "text",
+          "context": "fraction-decimal connection",
+          "error_signals": ["ERR_DECIMAL_FRAC", "ERR_PLACE_VALUE"],
+          "ruby_prompt": "Write this decimal as a fraction."
+        },
+        {
+          "ref": "dec.3",
+          "question": "What is the value of the digit 4 in 3.4?",
+          "expected": "4 tenths",
+          "input_type": "text",
+          "context": "decimal place value",
+          "error_signals": ["ERR_PLACE_VALUE", "ERR_WHOLE_DIGIT"],
+          "ruby_prompt": "What is the place value of the digit 4?"
+        },
+        {
+          "ref": "dec.4",
+          "question": "Which is larger: 0.45 or 0.5?",
+          "expected": "0.5",
+          "input_type": "text",
+          "context": "decimal comparison",
+          "error_signals": ["ERR_DECIMAL_COMPARE", "ERR_WHOLE_DIGIT"],
+          "ruby_prompt": "Compare these two decimal numbers and write the larger one."
+        },
+        {
+          "ref": "dec.5",
+          "question": "Write 3/10 as a decimal.",
+          "expected": "0.3",
+          "input_type": "text",
+          "context": "fraction-decimal connection",
+          "error_signals": ["ERR_DECIMAL_FRAC", "ERR_PLACE_VALUE"],
+          "ruby_prompt": "Write this fraction as a decimal."
+        },
+        {
+          "ref": "dec.6",
+          "question": "What is 2.3 + 1.4?",
+          "expected": "3.7",
+          "input_type": "text",
+          "context": "decimal addition",
+          "error_signals": ["ERR_DECIMAL_ALIGN", "ERR_PLACE_VALUE"],
+          "ruby_prompt": "Add these two decimal numbers."
+        },
+        {
+          "ref": "dec.7",
+          "question": "What is 5.8 - 2.3?",
+          "expected": "3.5",
+          "input_type": "text",
+          "context": "decimal subtraction",
+          "error_signals": ["ERR_DECIMAL_ALIGN", "ERR_PLACE_VALUE"],
+          "ruby_prompt": "Subtract these two decimal numbers."
+        },
+        {
+          "ref": "dec.8",
+          "question": "What is 4.25 + 1.3?",
+          "expected": "5.55",
+          "input_type": "text",
+          "context": "decimal addition",
+          "error_signals": ["ERR_DECIMAL_ALIGN", "ERR_PLACEHOLDER"],
+          "ruby_prompt": "Add these two decimal numbers. Line up the decimal points."
+        },
+        {
+          "ref": "dec.9",
+          "question": "What is 3.6 - 1.25?",
+          "expected": "2.35",
+          "input_type": "text",
+          "context": "decimal subtraction",
+          "error_signals": ["ERR_DECIMAL_ALIGN", "ERR_PLACEHOLDER"],
+          "ruby_prompt": "Subtract these decimal numbers. Use a zero placeholder if needed."
+        },
+        {
+          "ref": "dec.10",
+          "question": "What is 2.4 × 10?",
+          "expected": "24",
+          "input_type": "text",
+          "context": "multiply by power of 10",
+          "error_signals": ["ERR_DECIMAL_MOVE", "ERR_ZEROS_ADD"],
+          "ruby_prompt": "Multiply this decimal by 10."
+        },
+        {
+          "ref": "dec.11",
+          "question": "What is 0.35 × 100?",
+          "expected": "35",
+          "input_type": "text",
+          "context": "multiply by power of 10",
+          "error_signals": ["ERR_DECIMAL_MOVE", "ERR_ZEROS_ADD"],
+          "ruby_prompt": "Multiply this decimal by 100."
+        },
+        {
+          "ref": "dec.12",
+          "question": "What is 460 ÷ 100?",
+          "expected": "4.6",
+          "input_type": "text",
+          "context": "divide by power of 10",
+          "error_signals": ["ERR_DECIMAL_MOVE", "ERR_ZEROS_ADD"],
+          "ruby_prompt": "Divide this number by 100."
+        },
+        {
+          "ref": "dec.13",
+          "question": "What is 0.7 × 1000?",
+          "expected": "700",
+          "input_type": "text",
+          "context": "multiply by power of 10",
+          "error_signals": ["ERR_DECIMAL_MOVE", "ERR_ZEROS_ADD"],
+          "ruby_prompt": "Multiply this decimal by 1000."
+        },
+        {
+          "ref": "dec.14",
+          "question": "Round 3.47 to the nearest whole number.",
+          "expected": "3",
+          "input_type": "text",
+          "context": "rounding",
+          "error_signals": ["ERR_ROUND_DIR", "ERR_ROUND_DIGIT"],
+          "ruby_prompt": "Round this decimal to the nearest whole number."
+        },
+        {
+          "ref": "dec.15",
+          "question": "Round 2.65 to one decimal place.",
+          "expected": "2.7",
+          "input_type": "text",
+          "context": "rounding",
+          "error_signals": ["ERR_ROUND_DIR", "ERR_ROUND_DIGIT"],
+          "ruby_prompt": "Round this decimal to one decimal place."
+        },
+        {
+          "ref": "dec.16",
+          "question": "Round 8.73 to one decimal place.",
+          "expected": "8.7",
+          "input_type": "text",
+          "context": "rounding",
+          "error_signals": ["ERR_ROUND_DIR", "ERR_ROUND_DIGIT"],
+          "ruby_prompt": "Round this decimal to one decimal place."
+        },
+        {
+          "ref": "dec.17",
+          "question": "Order from smallest to largest: 0.3, 0.25, 0.8",
+          "expected": "0.25, 0.3, 0.8",
+          "input_type": "text",
+          "context": "ordering decimals",
+          "error_signals": ["ERR_DECIMAL_COMPARE", "ERR_WHOLE_DIGIT"],
+          "ruby_prompt": "Write these decimals in order from smallest to largest, separated by commas."
+        },
+        {
+          "ref": "dec.18",
+          "question": "Write 17/100 as a decimal.",
+          "expected": "0.17",
+          "input_type": "text",
+          "context": "fraction-decimal connection",
+          "error_signals": ["ERR_DECIMAL_FRAC", "ERR_PLACE_VALUE"],
+          "ruby_prompt": "Write this fraction as a decimal."
+        },
+        {
+          "ref": "dec.19",
+          "question": "What is 7.5 - 3.8?",
+          "expected": "3.7",
+          "input_type": "text",
+          "context": "decimal subtraction",
+          "error_signals": ["ERR_DECIMAL_ALIGN", "ERR_BORROW"],
+          "ruby_prompt": "Subtract these decimal numbers."
+        },
+        {
+          "ref": "dec.20",
+          "question": "What is 12.6 ÷ 10?",
+          "expected": "1.26",
+          "input_type": "text",
+          "context": "divide by power of 10",
+          "error_signals": ["ERR_DECIMAL_MOVE", "ERR_ZEROS_ADD"],
+          "ruby_prompt": "Divide this number by 10."
         }
       ]
     }
