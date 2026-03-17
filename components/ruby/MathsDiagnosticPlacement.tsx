@@ -3,7 +3,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
-import { evaluateEarlyExit } from "@/lib/diagnostic-engine";
 import { simplifyText } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 
@@ -31,7 +30,7 @@ interface Task {
   answerMode: AnswerMode;
   expectedAnswer?: number | string;
   fields?: TaskField[];
-  choices?: Choice[];       // probe tasks only
+  choices?: Choice[];
   errorSignals?: string[];
   isProbe?: boolean;
   probeFor?: string;
@@ -52,13 +51,39 @@ interface RawBankTask {
   errorSignals?: string[];
 }
 
-function adaptBankTask(raw: RawBankTask, index: number): Task {
-  // Assign block based on position: 0-5 → 1, 6-11 → 2, 12-17 → 3
-  const block: DiagnosticBlock = index < 6 ? 1 : index < 12 ? 2 : 3;
+function adaptBankTask(raw: RawBankTask, block: DiagnosticBlock): Task {
   return { ...raw, block };
 }
 
-// ── Probe tasks (choice-based, do not count toward 18-task cap) ───────────────
+// ── Binary-search gate definitions ────────────────────────────────────────────
+// Gates A–F each map to two bank domains.
+// Grade-banded anchor: 1–3→A(0), 4–6→B(1), 7–9→C(2), 10+→D(3)
+// Search windows:      1–3→[A,B], 4–6→[A,C], 7–9→[B,D], 10+→[C,F]
+
+const SEARCH_GATES: Array<{ name: string; domains: [string, string] }> = [
+  { name: "A", domains: ["M001", "M004"] },
+  { name: "B", domains: ["M005", "M006"] },
+  { name: "C", domains: ["M007", "M008"] },
+  { name: "D", domains: ["M009", "M010"] },
+  { name: "E", domains: ["M011", "M012"] },
+  { name: "F", domains: ["M013", "M014"] },
+];
+
+function getAnchorGateIndex(grade: number): number {
+  if (grade <= 3) return 0;
+  if (grade <= 6) return 1;
+  if (grade <= 9) return 2;
+  return 3;
+}
+
+function getSearchWindow(grade: number): [number, number] {
+  if (grade <= 3) return [0, 1];
+  if (grade <= 6) return [0, 2];
+  if (grade <= 9) return [1, 3];
+  return [2, 5];
+}
+
+// ── Probe tasks (choice-based, do not count toward 9-task cap) ────────────────
 
 const MATHS_PROBE_TASKS: Record<string, Task> = {
   place_value_probe_1: {
@@ -130,7 +155,6 @@ function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; 
   if (task.answerMode === "multiField" && task.fields) {
     const gradedFields = task.fields.filter((f) => f.expectedAnswer !== undefined);
     if (gradedFields.length === 0) {
-      // Open-ended validation — pass if all fields are non-empty
       const correct = task.fields.every((_, i) => (answers[i] ?? "").trim().length > 0);
       return { correct, errorType: correct ? undefined : errorType };
     }
@@ -156,24 +180,23 @@ const GATE_GRADE_THRESHOLD: Record<"A" | "B" | "C" | "D", number> = {
 };
 
 function getGradeFloor(grade: number): number {
-  if (grade <= 2) return 1;   // Grade R–2:  Counting and Early Number Sense
-  if (grade <= 3) return 2;   // Grade 3:    Addition Concepts
-  if (grade <= 4) return 3;   // Grade 4:    Subtraction Concepts
-  if (grade <= 5) return 4;   // Grade 5:    Addition & Subtraction Fluency
-  if (grade <= 6) return 5;   // Grade 6:    Multiplication Concepts
-  if (grade <= 7) return 6;   // Grade 7:    Multiplicative Reasoning
-  if (grade <= 8) return 7;   // Grade 8:    Division Concepts
-  if (grade <= 9) return 9;   // Grade 9:    Fraction Operations
-  if (grade <= 10) return 11; // Grade 10:   Ratio and Proportion
-  if (grade <= 11) return 13; // Grade 11:   Algebra
-  if (grade <= 12) return 15; // Grade 12:   Geometry
-  return 17;                  // Post-school: Advanced Problem Solving
+  if (grade <= 2) return 1;
+  if (grade <= 3) return 2;
+  if (grade <= 4) return 3;
+  if (grade <= 5) return 4;
+  if (grade <= 6) return 5;
+  if (grade <= 7) return 6;
+  if (grade <= 8) return 7;
+  if (grade <= 9) return 9;
+  if (grade <= 10) return 11;
+  if (grade <= 11) return 13;
+  if (grade <= 12) return 15;
+  return 17;
 }
 
 function computePlacement(
   results: MathsPlacementTaskResult[],
   grade: number,
-  earlyExitReason?: string | null,
   probesRun?: number
 ): {
   entryLevel: number; entrySkillId: string; hardGatePassed: boolean;
@@ -190,7 +213,6 @@ function computePlacement(
 
   const hardGatePassed = passed("M006", "A");
 
-  // Primary gates (pairs of domains)
   const gateA = passed("M001", "A") && passed("M004", "A");
   const gateB = passed("M005", "A") && hardGatePassed;
   const gateC = passed("M007", "B") && passed("M008", "B");
@@ -198,29 +220,28 @@ function computePlacement(
   const gateE = passed("M011", "C") && passed("M012", "C");
   const gateF = passed("M013", "C") && passed("M014", "C");
 
-  // Intermediate gates — single domain passes that fill the gaps between primary gates
-  const passM004 = passed("M004", "A");   // Addition alone        → L2
-  const passM006 = passed("M006", "A");   // Multiplication        → L6
-  const passM008 = passed("M008", "B");   // Fractions alone       → L10 (if division not yet proven)
-  const passM009 = passed("M009", "B");   // Ratio alone           → L11
-  const passM011 = passed("M011", "C");   // Algebra alone         → L13
-  const passM013 = passed("M013", "C");   // Quadratics alone      → L15
-  const passM015 = passed("M015", "D") || passed("M016", "D") || passed("M017", "D"); // Advanced → L17
+  const passM004 = passed("M004", "A");
+  const passM006 = passed("M006", "A");
+  const passM008 = passed("M008", "B");
+  const passM009 = passed("M009", "B");
+  const passM011 = passed("M011", "C");
+  const passM013 = passed("M013", "C");
+  const passM015 = passed("M015", "D") || passed("M016", "D") || passed("M017", "D");
 
   let computedLevel = 1;
-  if (gateF && passM015)      computedLevel = 17; // L17 Advanced Problem Solving
-  else if (gateF)             computedLevel = 16; // L16 Statistics and Data
-  else if (gateE && passM013) computedLevel = 15; // L15 Geometry — Shape and Space
-  else if (gateE)             computedLevel = 14; // L14 Linear Equations
-  else if (gateD && passM011) computedLevel = 13; // L13 Algebra — Patterns and Variables
-  else if (gateD)             computedLevel = 12; // L12 Negative Numbers and Integers
-  else if (gateC && passM009) computedLevel = 11; // L11 Ratio and Proportion
-  else if (gateC)             computedLevel = 8;  // L8  Fractions — Introduction
-  else if (passM008)          computedLevel = 10; // L10 Decimals (fractions proven, division not yet)
-  else if (gateB && passM006) computedLevel = 6;  // L6  Multiplicative Reasoning
-  else if (gateB)             computedLevel = 5;  // L5  Multiplication Concepts
-  else if (gateA)             computedLevel = 3;  // L3  Subtraction Concepts
-  else if (passM004)          computedLevel = 2;  // L2  Addition Concepts
+  if (gateF && passM015)      computedLevel = 17;
+  else if (gateF)             computedLevel = 16;
+  else if (gateE && passM013) computedLevel = 15;
+  else if (gateE)             computedLevel = 14;
+  else if (gateD && passM011) computedLevel = 13;
+  else if (gateD)             computedLevel = 12;
+  else if (gateC && passM009) computedLevel = 11;
+  else if (gateC)             computedLevel = 8;
+  else if (passM008)          computedLevel = 10;
+  else if (gateB && passM006) computedLevel = 6;
+  else if (gateB)             computedLevel = 5;
+  else if (gateA)             computedLevel = 3;
+  else if (passM004)          computedLevel = 2;
 
   const entryLevel = Math.max(computedLevel, getGradeFloor(grade));
 
@@ -235,7 +256,7 @@ function computePlacement(
 
   return {
     entryLevel, entrySkillId, hardGatePassed, autoCompletedSkillIds,
-    earlyExitReason: earlyExitReason ?? null,
+    earlyExitReason: null,
     probesRun: probesRun ?? 0,
     placementBlock,
   };
@@ -265,6 +286,18 @@ const LEVEL_LABEL: Record<number, string> = {
 
 type Phase = "welcome" | "loading" | "task" | "result";
 
+// ── Binary search state (ref avoids stale-closure issues in advanceTask) ──────
+
+interface BsState {
+  diagPhase: "anchor" | "search1" | "search2" | "confirm";
+  anchorGateIdx: number;
+  searchLo: number;
+  searchHi: number;
+  search1GateIdx: number;
+  search2GateIdx: number;
+  lastPassedGateIdx: number;   // -1 = none passed yet
+}
+
 // ── Stimulus renderer ─────────────────────────────────────────────────────────
 
 function parseDotArray(stimulus: string): number | null {
@@ -273,15 +306,11 @@ function parseDotArray(stimulus: string): number | null {
 }
 
 function DotArray({ count }: { count: number }) {
-  // Stable pseudo-random positions seeded by count
   const dots = Array.from({ length: count }, (_, i) => i);
   return (
     <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 flex flex-wrap gap-3 justify-center items-center min-h-[100px]">
       {dots.map((i) => (
-        <div
-          key={i}
-          className="w-8 h-8 rounded-full bg-teal-600 shadow-sm flex-shrink-0"
-        />
+        <div key={i} className="w-8 h-8 rounded-full bg-teal-600 shadow-sm flex-shrink-0" />
       ))}
     </div>
   );
@@ -289,10 +318,7 @@ function DotArray({ count }: { count: number }) {
 
 function StimulusDisplay({ stimulus }: { stimulus: string }) {
   const dotCount = parseDotArray(stimulus);
-  if (dotCount !== null) {
-    return <DotArray count={dotCount} />;
-  }
-  // Default: render as text
+  if (dotCount !== null) return <DotArray count={dotCount} />;
   return (
     <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 text-center">
       <p className="text-3xl sm:text-4xl font-bold text-teal-700 tracking-wide whitespace-pre-line">
@@ -316,28 +342,38 @@ export default function MathsDiagnosticPlacement({
   onViewReport?: (result: MathsPlacementResult) => void;
 }) {
   const [phase, setPhase] = useState<Phase>("welcome");
-  const [primaryTasks, setPrimaryTasks] = useState<Task[]>([]);
   const [domainTitleMap, setDomainTitleMap] = useState<Record<string, string>>({});
 
-  const [primaryTaskIndex, setPrimaryTaskIndex] = useState(0);
-  const [probeQueue, setProbeQueue] = useState<Task[]>([]);
-  const [probesFiredThisBlock, setProbesFiredThisBlock] = useState(0);
+  // Dynamic task queue — rebuilt phase by phase
+  const [allBankTasks, setAllBankTasks] = useState<Task[]>([]);
+  const [phaseQueue, setPhaseQueue] = useState<Task[]>([]);
+  const [phaseIndex, setPhaseIndex] = useState(0);
+  const bsRef = useRef<BsState>({
+    diagPhase: "anchor",
+    anchorGateIdx: 0,
+    searchLo: 0,
+    searchHi: 0,
+    search1GateIdx: -1,
+    search2GateIdx: -1,
+    lastPassedGateIdx: -1,
+  });
 
-  // Open-ended answer state
+  const [probeQueue, setProbeQueue] = useState<Task[]>([]);
+  const [probesFiredThisPhase, setProbesFiredThisPhase] = useState(0);
+
   const [answers, setAnswers] = useState<string[]>([]);
-  // Choice-based answer state (probes)
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
 
   const [completedTasks, setCompletedTasks] = useState<MathsPlacementTaskResult[]>([]);
   const [errorHistory, setErrorHistory] = useState<{ taskId: string; errorType: string }[]>([]);
-  const [earlyExitReason, setEarlyExitReason] = useState<string | null>(null);
   const [probesRun, setProbesRun] = useState(0);
   const [placementResult, setPlacementResult] = useState<MathsPlacementResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showEncouragement, setShowEncouragement] = useState(false);
 
-  // Load random bank when user starts
   const bankLoadedRef = useRef(false);
+
+  // ── Load random bank and build anchor queue ────────────────────────────────
 
   const loadBank = useCallback(() => {
     if (bankLoadedRef.current) return;
@@ -348,26 +384,57 @@ export default function MathsDiagnosticPlacement({
       .then((mod) => {
         const raw = (mod.default ?? mod) as RawBankTask[];
         const readingLevel = getReadingProfile()?.current_level ?? 5;
-        const tasks = raw.map((t, i) => {
-          const task = adaptBankTask(t, i);
+        const tasks: Task[] = raw.map((t) => {
+          const task = adaptBankTask(t, 1);
           return { ...task, question: simplifyText(task.question, readingLevel) };
         });
         const titleMap: Record<string, string> = {};
         tasks.forEach((t) => { titleMap[t.domain] = t.domainTitle; });
-        setPrimaryTasks(tasks);
+
+        // Initialise binary search state
+        const anchorGateIdx = getAnchorGateIndex(grade);
+        const [winLo, winHi] = getSearchWindow(grade);
+        bsRef.current = {
+          diagPhase: "anchor",
+          anchorGateIdx,
+          searchLo: winLo,
+          searchHi: winHi,
+          search1GateIdx: -1,
+          search2GateIdx: -1,
+          lastPassedGateIdx: -1,
+        };
+
+        // Phase 1: anchor — 2 tasks from anchor gate
+        const anchorGate = SEARCH_GATES[anchorGateIdx];
+        const anchorQueue: Task[] = anchorGate.domains
+          .map((d) => tasks.find((t) => t.domain === d))
+          .filter(Boolean)
+          .map((t) => ({ ...t!, block: 1 as DiagnosticBlock }));
+
+        setAllBankTasks(tasks);
         setDomainTitleMap(titleMap);
+        setPhaseQueue(anchorQueue);
+        setPhaseIndex(0);
         setPhase("task");
       })
-      .catch(() => {
-        // Shouldn't happen — fall back to empty and let result screen handle it
-        setPhase("task");
-      });
-  }, []);
+      .catch(() => setPhase("task"));
+  }, [grade]);
 
-  // Current task: drain probe queue before advancing primary tasks
-  const task: Task | undefined = probeQueue.length > 0 ? probeQueue[0] : primaryTasks[primaryTaskIndex];
-  const primaryTasksCompleted = completedTasks.filter((t) => !t.is_probe).length;
-  const progress = primaryTasks.length > 0 ? (primaryTasksCompleted / primaryTasks.length) * 100 : 0;
+  // ── Current task: drain probe queue before advancing phase queue ──────────
+
+  const task: Task | undefined =
+    probeQueue.length > 0 ? probeQueue[0] : phaseQueue[phaseIndex];
+
+  // Progress: 9 primary questions total (2 anchor + 4 search + 3 confirm)
+  const TOTAL_QUESTIONS = 9;
+  const primaryCompleted = completedTasks.filter((t) => !t.is_probe).length;
+  const progress = (primaryCompleted / TOTAL_QUESTIONS) * 100;
+  const phaseLabel =
+    primaryCompleted < 2
+      ? "Getting started"
+      : primaryCompleted < 6
+      ? "Finding your level"
+      : "Almost done";
 
   // Reset answer state whenever the task changes
   useEffect(() => {
@@ -378,8 +445,8 @@ export default function MathsDiagnosticPlacement({
   }, [task?.id]);
 
   const finishDiagnostic = useCallback(
-    (completed: MathsPlacementTaskResult[], exitReason: string | null, probeCount: number) => {
-      const result = computePlacement(completed, grade, exitReason, probeCount);
+    (completed: MathsPlacementTaskResult[], pCount: number) => {
+      const result = computePlacement(completed, grade, pCount);
       const placement: MathsPlacementResult = {
         completedAt: Date.now(),
         placementCompletedAt: Date.now(),
@@ -413,7 +480,7 @@ export default function MathsDiagnosticPlacement({
       setShowEncouragement(true);
       await new Promise((r) => setTimeout(r, 600));
 
-      // ── Probe path ───────────────────────────────────────────────────────────
+      // ── Probe path ─────────────────────────────────────────────────────────
       if (result.is_probe) {
         setProbesRun((n) => n + 1);
         setProbeQueue((q) => q.slice(1));
@@ -422,53 +489,134 @@ export default function MathsDiagnosticPlacement({
         return;
       }
 
-      // ── Primary task path ────────────────────────────────────────────────────
-      const currentTask = primaryTasks[primaryTaskIndex];
-      const nextPrimaryIndex = primaryTaskIndex + 1;
-
-      if (!result.correct && result.error_type && probesFiredThisBlock < 2) {
-        const probe = getFollowUpProbe(result.error_type, currentTask.block);
+      // ── Primary task: maybe trigger follow-up probe ────────────────────────
+      const currentTask = phaseQueue[phaseIndex];
+      if (!result.correct && result.error_type && probesFiredThisPhase < 2) {
+        const probe = getFollowUpProbe(result.error_type, currentTask?.block ?? 1);
         if (probe) {
           setProbeQueue((q) => [...q, probe]);
-          setProbesFiredThisBlock((n) => n + 1);
+          setProbesFiredThisPhase((n) => n + 1);
         }
       }
 
-      // ── Early exit check — runs after every primary task ─────────────────────
-      const exitResult = evaluateEarlyExit(newCompleted, currentTask.block, newErrorHistory);
-      if ("exit" in exitResult && exitResult.exit) {
-        setEarlyExitReason(exitResult.reason);
+      // ── Phase advancement ──────────────────────────────────────────────────
+      const nextPhaseIndex = phaseIndex + 1;
+
+      if (nextPhaseIndex < phaseQueue.length) {
+        // More tasks remain in current phase queue
+        setPhaseIndex(nextPhaseIndex);
         setShowEncouragement(false);
-        finishDiagnostic(
-          newCompleted,
-          exitResult.reason,
-          probesRun + (probeQueue.length > 0 ? 1 : 0)
-        );
         setSubmitting(false);
         return;
       }
 
-      const blockSize = 6;
-      const tasksInCurrentBlock = newCompleted.filter(
-        (t) => !t.is_probe && t.block === currentTask.block
-      ).length;
+      // Current phase exhausted — transition to next
+      const bs = bsRef.current;
+      const primary = newCompleted.filter((t) => !t.is_probe);
+      // Passes for the tasks in the phase just completed (by domain)
+      const phaseDomains = new Set(phaseQueue.map((t) => t.domain));
+      const phaseResults = primary.filter((t) => phaseDomains.has(t.domain));
+      const phasePasses = phaseResults.filter((t) => t.correct).length;
 
-      if (tasksInCurrentBlock >= blockSize) {
-        setProbesFiredThisBlock(0);
+      setProbesFiredThisPhase(0);
+
+      // ── anchor → search1 ──────────────────────────────────────────────────
+      if (bs.diagPhase === "anchor") {
+        if (phasePasses === 2) {
+          bs.lastPassedGateIdx = bs.anchorGateIdx;
+          bs.searchLo = Math.min(bs.anchorGateIdx + 1, bs.searchHi);
+        } else {
+          bs.searchHi = Math.max(bs.anchorGateIdx - 1, bs.searchLo);
+        }
+
+        bs.diagPhase = "search1";
+        const mid1 = bs.searchLo <= bs.searchHi
+          ? Math.floor((bs.searchLo + bs.searchHi) / 2)
+          : bs.anchorGateIdx; // fallback: reuse anchor gate area
+        const clamped1 = Math.max(0, Math.min(mid1, SEARCH_GATES.length - 1));
+        bs.search1GateIdx = clamped1;
+
+        const s1Gate = SEARCH_GATES[clamped1];
+        const s1Queue: Task[] = s1Gate.domains
+          .map((d) => allBankTasks.find((t) => t.domain === d))
+          .filter(Boolean)
+          .map((t) => ({ ...t!, block: 2 as DiagnosticBlock }));
+
+        setPhaseQueue(s1Queue);
+        setPhaseIndex(0);
+
+      // ── search1 → search2 ─────────────────────────────────────────────────
+      } else if (bs.diagPhase === "search1") {
+        if (phasePasses === 2) {
+          bs.lastPassedGateIdx = Math.max(bs.lastPassedGateIdx, bs.search1GateIdx);
+          bs.searchLo = bs.search1GateIdx + 1;
+        } else {
+          bs.searchHi = bs.search1GateIdx - 1;
+        }
+
+        bs.diagPhase = "search2";
+        let mid2: number;
+        if (bs.searchLo <= bs.searchHi) {
+          mid2 = Math.floor((bs.searchLo + bs.searchHi) / 2);
+        } else {
+          // Search converged — pick a gate adjacent to last passed (or anchor)
+          const ref = bs.lastPassedGateIdx >= 0 ? bs.lastPassedGateIdx : bs.anchorGateIdx;
+          mid2 = phasePasses === 2
+            ? Math.min(ref + 1, SEARCH_GATES.length - 1)
+            : Math.max(ref - 1, 0);
+        }
+        mid2 = Math.max(0, Math.min(mid2, SEARCH_GATES.length - 1));
+        bs.search2GateIdx = mid2;
+
+        const s2Gate = SEARCH_GATES[mid2];
+        const s2Queue: Task[] = s2Gate.domains
+          .map((d) => allBankTasks.find((t) => t.domain === d))
+          .filter(Boolean)
+          .map((t) => ({ ...t!, block: 2 as DiagnosticBlock }));
+
+        setPhaseQueue(s2Queue);
+        setPhaseIndex(0);
+
+      // ── search2 → confirm ─────────────────────────────────────────────────
+      } else if (bs.diagPhase === "search2") {
+        if (phasePasses === 2) {
+          bs.lastPassedGateIdx = Math.max(bs.lastPassedGateIdx, bs.search2GateIdx);
+        }
+
+        bs.diagPhase = "confirm";
+
+        // 3 confirm questions: one from each of (confirmGate−1, confirmGate, confirmGate+1)
+        // Clamp so all three indices are valid.
+        const cg = Math.max(0, Math.min(
+          bs.lastPassedGateIdx >= 0 ? bs.lastPassedGateIdx : 0,
+          SEARCH_GATES.length - 3
+        ));
+        const confirmQueue: Task[] = [cg, cg + 1, cg + 2]
+          .map((gi) => {
+            const gate = SEARCH_GATES[gi];
+            if (!gate) return null;
+            const t = allBankTasks.find((t) => t.domain === gate.domains[0]);
+            return t ? { ...t, block: 3 as DiagnosticBlock } : null;
+          })
+          .filter(Boolean) as Task[];
+
+        setPhaseQueue(confirmQueue);
+        setPhaseIndex(0);
+
+      // ── confirm → done ────────────────────────────────────────────────────
+      } else if (bs.diagPhase === "confirm") {
+        setShowEncouragement(false);
+        finishDiagnostic(newCompleted, probesRun);
+        setSubmitting(false);
+        return;
       }
 
-      if (nextPrimaryIndex >= primaryTasks.length) {
-        setShowEncouragement(false);
-        finishDiagnostic(newCompleted, null, probesRun);
-      } else {
-        setShowEncouragement(false);
-        setPrimaryTaskIndex(nextPrimaryIndex);
-      }
+      setShowEncouragement(false);
       setSubmitting(false);
     },
     [
-      completedTasks, errorHistory, primaryTaskIndex, primaryTasks,
-      probesFiredThisBlock, probeQueue, probesRun, finishDiagnostic,
+      completedTasks, errorHistory, phaseIndex, phaseQueue, allBankTasks,
+      probesFiredThisPhase, probeQueue, probesRun, finishDiagnostic,
     ]
   );
 
@@ -533,8 +681,8 @@ export default function MathsDiagnosticPlacement({
           </div>
           <div className="grid grid-cols-3 gap-2 text-sm text-gray-600">
             {[
-              { icon: "🎯", text: "18 questions" },
-              { icon: "⏱️", text: "5–8 min" },
+              { icon: "🎯", text: "9 questions" },
+              { icon: "⏱️", text: "~5 min" },
               { icon: "🏆", text: "Find your level" },
             ].map(({ icon, text }) => (
               <div key={text} className="bg-emerald-50 rounded-xl p-2">
@@ -640,13 +788,15 @@ export default function MathsDiagnosticPlacement({
     ? !!selectedChoice
     : answers.every((a) => a.trim().length > 0);
 
+  const encouragements = ["Keep going! 💪", "Brilliant! ⭐", "You've got this! 🎯", "Fantastic! 🌟", "Amazing! 🏆"];
+
   return (
     <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100">
       {/* Progress bar */}
       <div className="bg-white border-b border-gray-100 px-5 py-3 flex-shrink-0">
         <div className="flex justify-between items-center mb-1.5 text-sm text-gray-400">
-          <span className="font-medium">Discovery Activity</span>
-          <span>{Math.min(primaryTasksCompleted + 1, primaryTasks.length)} of {primaryTasks.length}</span>
+          <span className="font-semibold text-teal-600">{phaseLabel}</span>
+          <span>Q {Math.min(primaryCompleted + 1, TOTAL_QUESTIONS)} of {TOTAL_QUESTIONS}</span>
         </div>
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
           <div
@@ -662,9 +812,6 @@ export default function MathsDiagnosticPlacement({
           <div className="flex items-center gap-2">
             <span className="bg-teal-100 text-teal-700 text-sm font-semibold px-3 py-1 rounded-full">
               {task.domainTitle}
-            </span>
-            <span className="bg-gray-100 text-gray-500 text-sm px-2 py-1 rounded-full">
-              Gate {task.gate}
             </span>
           </div>
 
@@ -761,7 +908,7 @@ export default function MathsDiagnosticPlacement({
             {showEncouragement && (
               <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-3 text-center">
                 <p className="text-emerald-700 font-semibold text-base">
-                  {["Keep going! 💪", "Brilliant! ⭐", "You've got this! 🎯", "Fantastic! 🌟", "Amazing! 🏆"][primaryTaskIndex % 5]}
+                  {encouragements[primaryCompleted % encouragements.length]}
                 </p>
               </div>
             )}
