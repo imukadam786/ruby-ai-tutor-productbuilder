@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { DiagnosticPlacementResult, DiagnosticTaskResult } from "@/types/reading";
+import { speakViaAPI } from "@/lib/tts";
 
 // ── Passage used for D16, D17, D18 ───────────────────────────────────────────
 const FLUENCY_PASSAGE =
@@ -241,21 +242,7 @@ const SKILL_NAME_MAP: Record<string, string> = {
 // ── TTS helper ────────────────────────────────────────────────────────────────
 
 function speakText(text: string, onEnd?: () => void): () => void {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) { onEnd?.(); return () => {}; }
-  window.speechSynthesis.cancel();
-  const utt = new SpeechSynthesisUtterance(text);
-  utt.rate = 0.88; utt.pitch = 1.05; utt.volume = 1;
-  const voices = window.speechSynthesis.getVoices();
-  const preferred = voices.find((v) =>
-    ["Samantha", "Karen", "Google UK English Female", "Microsoft Zira"].some((n) => v.name.includes(n))
-  ) ?? voices.find((v) => v.lang.startsWith("en")) ?? null;
-  if (preferred) utt.voice = preferred;
-  utt.onend = () => onEnd?.();
-  utt.onerror = () => onEnd?.();
-  const speak = () => window.speechSynthesis.speak(utt);
-  if (voices.length === 0) window.speechSynthesis.addEventListener("voiceschanged", speak, { once: true });
-  else speak();
-  return () => window.speechSynthesis.cancel();
+  return speakViaAPI(text, () => {}, onEnd ?? (() => {}));
 }
 
 // ── Scoring helpers ───────────────────────────────────────────────────────────

@@ -3,38 +3,7 @@
 import { useRef, useState, useCallback } from "react";
 import { DiagnosticResult, ErrorType } from "@/types/ruby";
 import { useT } from "@/lib/i18n";
-
-// Map language name → BCP-47 code for speechSynthesis
-const LANG_CODE: Record<string, string> = {
-  English: "en-ZA", Afrikaans: "af-ZA", isiZulu: "zu-ZA", isiXhosa: "xh-ZA",
-  Sepedi: "nso-ZA", Setswana: "tn-ZA", Sesotho: "st-ZA", Xitsonga: "ts-ZA",
-  siSwati: "ss-ZA", Tshivenda: "ve-ZA", isiNdebele: "nr-ZA",
-};
-
-function useTTS(langName: string) {
-  const [playing, setPlaying] = useState(false);
-  const utterRef = useRef<SpeechSynthesisUtterance | null>(null);
-
-  const speak = useCallback((text: string) => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const utt = new SpeechSynthesisUtterance(text);
-    utt.lang = LANG_CODE[langName] ?? "en-ZA";
-    utt.rate = 0.92;
-    utt.onstart = () => setPlaying(true);
-    utt.onend = () => setPlaying(false);
-    utt.onerror = () => setPlaying(false);
-    utterRef.current = utt;
-    window.speechSynthesis.speak(utt);
-  }, [langName]);
-
-  const stop = useCallback(() => {
-    window.speechSynthesis?.cancel();
-    setPlaying(false);
-  }, []);
-
-  return { playing, speak, stop };
-}
+import { useTTS } from "@/lib/tts";
 
 interface FeedbackCardProps {
   result: DiagnosticResult;
@@ -56,7 +25,7 @@ export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
   const isCorrect = result.is_correct;
   const touchStartY = useRef(0);
   const feedbackText = [result.feedback, result.recovery_explanation].filter(Boolean).join(". ");
-  const { playing, speak, stop } = useTTS(language);
+  const { playing, speak, stop } = useTTS();
 
   return (
     <div className={`rounded-2xl border-2 overflow-hidden ${

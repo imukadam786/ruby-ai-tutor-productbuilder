@@ -3,91 +3,10 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useT } from "@/lib/i18n";
 
-// ── Natural voice engine (mirrors ChatInterface) ──────────────────────────────
-function prepareForSpeech(raw: string): string {
-  return raw
-    .replace(/#{1,6}\s+/g, "")
-    .replace(/\*\*(.+?)\*\*/g, "$1")
-    .replace(/\*(.+?)\*/g, "$1")
-    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .replace(/^\s*[-*+]\s/gm, "")
-    .replace(/^\s*\d+\.\s/gm, "")
-    .replace(/\n{2,}/g, ". ")
-    .replace(/\n/g, " ")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-}
+import { speakViaAPI } from "@/lib/tts";
 
-function pickVoice(): SpeechSynthesisVoice | null {
-  const voices = window.speechSynthesis.getVoices();
-  const preferred = [
-    "Samantha", "Karen", "Moira",
-    "Google UK English Female", "Microsoft Zira",
-    "Microsoft Susan", "Google US English",
-  ];
-  for (const name of preferred) {
-    const v = voices.find((v) => v.name.includes(name));
-    if (v) return v;
-  }
-  return voices.find((v) => v.lang.startsWith("en")) ?? null;
-}
-
-function speakNaturally(
-  text: string,
-  onStart: () => void,
-  onEnd: () => void
-): () => void {
-  let cancelled = false;
-  let timer: ReturnType<typeof setTimeout> | null = null;
-
-  const cancel = () => {
-    cancelled = true;
-    if (timer !== null) { clearTimeout(timer); timer = null; }
-    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-    onEnd();
-  };
-
-  if (!("speechSynthesis" in window)) { onEnd(); return cancel; }
-  window.speechSynthesis.cancel();
-
-  const cleaned = prepareForSpeech(text);
-  const sentences = cleaned
-    .split(/(?<=[.!?])\s+/)
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0);
-
-  if (sentences.length === 0) { onEnd(); return cancel; }
-
-  let idx = 0;
-  onStart();
-
-  const speakNext = () => {
-    if (cancelled) return;
-    if (idx >= sentences.length) { onEnd(); return; }
-    const sentence = sentences[idx++];
-    const utt = new SpeechSynthesisUtterance(sentence);
-    utt.rate = 0.92;
-    utt.pitch = 1.12;
-    utt.volume = 1;
-    const voice = pickVoice();
-    if (voice) utt.voice = voice;
-    const isQuestion = sentence.trim().endsWith("?");
-    const hasNumber = /\d/.test(sentence);
-    const pauseMs = isQuestion ? 650 : hasNumber ? 450 : 320;
-    utt.onend = () => { if (cancelled) return; timer = setTimeout(speakNext, pauseMs); };
-    utt.onerror = () => { if (cancelled) return; timer = setTimeout(speakNext, pauseMs); };
-    window.speechSynthesis.speak(utt);
-  };
-
-  if (window.speechSynthesis.getVoices().length === 0) {
-    window.speechSynthesis.addEventListener("voiceschanged", speakNext, { once: true });
-  } else {
-    speakNext();
-  }
-
-  return cancel;
-}
+// Alias so all call sites remain unchanged
+const speakNaturally = speakViaAPI;
 // ─────────────────────────────────────────────────────────────────────────────
 
 import {
