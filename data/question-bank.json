@@ -2293,7 +2293,7 @@
       "skill_ids": [
         "L2.T1.A1",
         "L2.T1.A2",
-        "L2.T2.A1"
+        "L4.T1.A1"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -2954,9 +2954,8 @@
       "title": "Subtraction – Mental Strategy",
       "gate": "A",
       "skill_ids": [
-        "L2.T2.A1",
-        "L2.T2.A2",
-        "L2.T3.A1"
+        "L3.T1.A1",
+        "L3.T1.A2"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -3567,9 +3566,9 @@
       "title": "Multiplication – Equal Groups",
       "gate": "A",
       "skill_ids": [
-        "L4.T1.A1",
-        "L4.T1.A2",
-        "L4.T2.A1"
+        "L5.T1.A1",
+        "L5.T1.A2",
+        "L6.T1.A1"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -3941,8 +3940,8 @@
       "title": "Flexible Decomposition",
       "gate": "B",
       "skill_ids": [
-        "L5.T1.A1",
-        "L5.T1.A2"
+        "L7.T1.A1",
+        "L7.T1.A2"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -4953,8 +4952,9 @@
       "title": "Fraction – Unit Interpretation",
       "gate": "B",
       "skill_ids": [
-        "L7.T1.A1",
-        "L7.T1.A2"
+        "L8.T1.A1",
+        "L8.T1.A2",
+        "L9.T1.A1"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -5915,8 +5915,8 @@
       "title": "Ratio and Proportion",
       "gate": "B",
       "skill_ids": [
-        "L8.T1.A1",
-        "L8.T1.A2"
+        "L11.T1.A1",
+        "L11.T1.A2"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -6577,8 +6577,8 @@
       "title": "Integer Operations and BODMAS",
       "gate": "B",
       "skill_ids": [
-        "L9.T1.A1",
-        "L9.T1.A2"
+        "L12.T1.A1",
+        "L12.T3.A1"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -7289,7 +7289,8 @@
       "title": "Algebraic Expression",
       "gate": "C",
       "skill_ids": [
-        "L9.T2.A1"
+        "L13.T2.A1",
+        "L13.T2.A2"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -8000,8 +8001,8 @@
       "title": "Linear Equation",
       "gate": "C",
       "skill_ids": [
-        "L11.T1.A1",
-        "L11.T1.A2"
+        "L14.T1.A1",
+        "L14.T1.A2"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -8912,8 +8913,7 @@
       "title": "Quadratic Factorisation",
       "gate": "C",
       "skill_ids": [
-        "L12.T1.A1",
-        "L12.T1.A2"
+        "L15.T1.A1"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -9471,8 +9471,7 @@
       "title": "Function – Key Features",
       "gate": "C",
       "skill_ids": [
-        "L13.T1.A1",
-        "L13.T1.A2"
+        "L16.T1.A1"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -10243,10 +10242,7 @@
     "M015": {
       "title": "Exponential and Log Conversion",
       "gate": "D",
-      "skill_ids": [
-        "L14.T1.A1",
-        "L14.T1.A2"
-      ],
+      "skill_ids": [],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
       "authored_pool": 28,
@@ -10592,10 +10588,7 @@
     "M016": {
       "title": "Trigonometric Ratios",
       "gate": "D",
-      "skill_ids": [
-        "L15.T1.A1",
-        "L15.T1.A2"
-      ],
+      "skill_ids": [],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
       "authored_pool": 22,
@@ -11005,10 +10998,7 @@
     "M017": {
       "title": "Differentiation – Power Rule",
       "gate": "D",
-      "skill_ids": [
-        "L16.T1.A1",
-        "L16.T1.A2"
-      ],
+      "skill_ids": [],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
       "questions": [

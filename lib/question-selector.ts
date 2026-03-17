@@ -63,20 +63,20 @@ const LEVEL_TO_DOMAIN: Record<number, string> = {
   1:  "M001",  // Counting and Early Number Sense
   2:  "M004",  // Addition Concepts
   3:  "M005",  // Subtraction Concepts
-  4:  "M006",  // Addition & Subtraction Fluency / Multiplication Equal Groups
-  5:  "M007",  // Multiplication Concepts / Flexible Decomposition
-  6:  "M007",  // Multiplicative Reasoning
-  7:  "M008",  // Division Concepts / Fraction Unit Interpretation
-  8:  "M009",  // Fractions Introduction
-  9:  "M010",  // Fraction Operations / Integer Operations
+  4:  "M004",  // Addition and Subtraction Fluency
+  5:  "M006",  // Multiplication Concepts
+  6:  "M006",  // Multiplicative Reasoning
+  7:  "M007",  // Division Concepts
+  8:  "M008",  // Fractions — Introduction
+  9:  "M008",  // Fraction Operations
   10: "M_DEC", // Decimals
   11: "M009",  // Ratio and Proportion
   12: "M010",  // Negative Numbers and Integers
   13: "M011",  // Algebra — Patterns and Variables
   14: "M012",  // Linear Equations
-  15: "M013",  // Quadratic Factorisation
-  16: "M014",  // Functions
-  17: "M018",  // Multi-Step Problem
+  15: "M013",  // Geometry — Shape and Space (stopgap: Quadratic domain)
+  16: "M014",  // Statistics and Data (stopgap: Function domain)
+  17: "M018",  // Advanced Problem Solving
 };
 
 // Build explicit skill_id → domain map from question bank data
