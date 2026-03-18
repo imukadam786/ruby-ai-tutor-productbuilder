@@ -10,6 +10,12 @@ import {
   DiagnosticPlacementResult,
 } from "@/types/reading";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
+import {
+  initBKT,
+  updateBKT,
+  isMastered as bktIsMastered,
+  DEFAULT_BKT_PARAMS,
+} from "@/lib/bkt";
 
 const READING_STUDENT_KEY = "ruby_reading_profile";
 const DEFAULT_STARTING_SKILL = "R1.T1.A1";
@@ -66,6 +72,7 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
     placement: null,
     errorPatterns: {},
     sessionHistory: {},
+    warmupSkillsCompleted: [],
   };
   saveReadingProfile(profile);
   return profile;
@@ -139,13 +146,23 @@ export function initReadingSkillMastery(skillId: string): ReadingSkillMastery {
     scaffolded_attempts: 0,
     last_attempted: new Date().toISOString(),
     attempts: [],
+    p_learned: initBKT(DEFAULT_BKT_PARAMS),
   };
 }
 
 export function evaluateReadingMastery(
   attempts: ReadingSkillAttempt[],
-  skill: ReadingAtomicSkill
+  skill: ReadingAtomicSkill,
+  p_learned?: number
 ): ReadingMasteryStatus {
+  // ── BKT path: use continuous probability when available ──────────────────
+  if (p_learned !== undefined) {
+    if (attempts.length === 0) return "locked";
+    if (bktIsMastered(p_learned)) return "mastered";
+    return "in_progress";
+  }
+
+  // ── Legacy threshold path (backward compat for existing profiles) ─────────
   const { correct_required, formats_required, allow_scaffolding } = skill.mastery_criteria;
   const valid = allow_scaffolding ? attempts : attempts.filter((a) => !a.scaffolded);
   const correct = valid.filter((a) => a.is_correct);
@@ -161,7 +178,12 @@ export function updateReadingSkillMastery(
   skill: ReadingAtomicSkill
 ): ReadingSkillMastery {
   const updatedAttempts = [...existing.attempts, attempt];
-  const newStatus = evaluateReadingMastery(updatedAttempts, skill);
+
+  // ── BKT update ────────────────────────────────────────────────────────────
+  const currentP = existing.p_learned ?? initBKT(DEFAULT_BKT_PARAMS);
+  const updatedP = updateBKT(currentP, attempt.is_correct, DEFAULT_BKT_PARAMS);
+
+  const newStatus = evaluateReadingMastery(updatedAttempts, skill, updatedP);
   const formatsUsed = Array.from(
     new Set([...existing.formats_used, attempt.template])
   ) as ReadingTemplate[];
@@ -175,6 +197,7 @@ export function updateReadingSkillMastery(
     formats_used: formatsUsed,
     last_attempted: attempt.timestamp,
     status: newStatus,
+    p_learned: updatedP,
     mastered_at:
       newStatus === "mastered" && existing.status !== "mastered"
         ? new Date().toISOString()

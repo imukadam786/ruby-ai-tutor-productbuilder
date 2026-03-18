@@ -7,6 +7,12 @@ import {
   AtomicSkill,
   StudentProfile,
 } from "@/types/ruby";
+import {
+  initBKT,
+  updateBKT,
+  isMastered as bktIsMastered,
+  DEFAULT_BKT_PARAMS,
+} from "@/lib/bkt";
 
 // ─── Mastery Determination ────────────────────────────────────────────────────
 // Mastery threshold: 80% accuracy over a minimum of 3 attempts.
@@ -18,8 +24,17 @@ const MASTERY_ACCURACY_THRESHOLD = 0.8;
 
 export function evaluateMastery(
   attempts: SkillAttempt[],
-  skill: AtomicSkill
+  skill: AtomicSkill,
+  p_learned?: number
 ): MasteryStatus {
+  // ── BKT path: use continuous probability when available ──────────────────
+  if (p_learned !== undefined) {
+    if (attempts.length === 0) return "locked";
+    if (bktIsMastered(p_learned)) return "mastered";
+    return "in_progress";
+  }
+
+  // ── Legacy threshold path (backward compat for existing profiles) ─────────
   const { allow_scaffolding } = skill.mastery_criteria;
 
   const validAttempts = allow_scaffolding
@@ -46,6 +61,7 @@ export function initSkillMastery(skillId: string): SkillMastery {
     last_attempted: new Date().toISOString(),
     session_history: [],
     attempts: [],
+    p_learned: initBKT(DEFAULT_BKT_PARAMS),
   };
 }
 
@@ -56,7 +72,11 @@ export function updateSkillMastery(
 ): SkillMastery {
   const updatedAttempts = [...existing.attempts, attempt];
 
-  const newStatus = evaluateMastery(updatedAttempts, skill);
+  // ── BKT update ────────────────────────────────────────────────────────────
+  const currentP = existing.p_learned ?? initBKT(DEFAULT_BKT_PARAMS);
+  const updatedP = updateBKT(currentP, attempt.is_correct, DEFAULT_BKT_PARAMS);
+
+  const newStatus = evaluateMastery(updatedAttempts, skill, updatedP);
 
   const formatsUsed = Array.from(
     new Set([...existing.formats_used, attempt.template])
@@ -75,6 +95,7 @@ export function updateSkillMastery(
     formats_used: formatsUsed,
     last_attempted: attempt.timestamp,
     status: newStatus,
+    p_learned: updatedP,
     mastered_at:
       newStatus === "mastered" && existing.status !== "mastered"
         ? new Date().toISOString()

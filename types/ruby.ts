@@ -87,6 +87,8 @@ export interface SkillMastery {
   needs_reinforcement?: boolean;
   session_history?: MathsSessionRecord[];
   attempts: SkillAttempt[];
+  /** BKT: continuous probability estimate that student has learned this skill (0–1) */
+  p_learned?: number;
 }
 
 export type DiagnosticBlock = 1 | 2 | 3;
@@ -157,6 +159,8 @@ export interface GeneratedQuestion {
   expected_answer: string;
   scaffolding_notes: string;
   bank_question?: Record<string, unknown>;
+  /** Difficulty level 1–5 assigned by tagging script; used for ability-matched selection */
+  difficulty?: number;
 }
 
 export interface AnswerSubmission {

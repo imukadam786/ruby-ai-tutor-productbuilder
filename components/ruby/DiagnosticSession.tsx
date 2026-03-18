@@ -23,6 +23,8 @@ import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
 import { updateSkillMastery, initSkillMastery, determineNextAction, buildReviewQueue, recordMathsSession } from "@/lib/mastery-engine";
 import { getDomainForSkill, getDomain, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
+import { applyMathsTransfers } from "@/lib/knowledge-graph-engine";
+import { abilityLevel } from "@/lib/bkt";
 import { simplifyQuestion } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 import QuestionCard from "./QuestionCard";
@@ -123,6 +125,7 @@ function readOnboarding(): { name: string; grade: number } {
 
 export default function DiagnosticSession() {
   const { language } = useT();
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<GeneratedQuestion | null>(null);
@@ -192,6 +195,7 @@ export default function DiagnosticSession() {
         // Get used refs so server can exclude already-seen questions
         const domainId = getDomainForSkill(skillId);
         const usedRefs = domainId ? getUsedRefs(currentProfile, domainId) : [];
+        const skillPLearned = currentProfile.skill_mastery[skillId]?.p_learned;
 
         const res = await fetch("/api/ruby/generate-question", {
           method: "POST",
@@ -199,8 +203,9 @@ export default function DiagnosticSession() {
           body: JSON.stringify({
             skill_id: skillId,
             attempt_number: attemptNum,
-            include_hint: forceHint || attemptNum > 1, // always include hint on reteach
+            include_hint: forceHint || attemptNum > 1,
             used_refs: usedRefs,
+            p_learned: skillPLearned,
           }),
         });
         if (!res.ok) throw new Error("Failed to load question");
@@ -226,6 +231,10 @@ export default function DiagnosticSession() {
     },
     []
   );
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0 });
+  }, [phase, currentQuestion?.id]);
 
   useEffect(() => {
     if (phase === "loading_question" && profile) {
@@ -321,8 +330,12 @@ export default function DiagnosticSession() {
           status: "mastered" as const,
           mastered_at: new Date().toISOString(),
         };
-        const acceleratedProfile = recordAttempt(profile, attempt, masteredMastery);
+        const acceleratedProfile = applyMathsTransfers(
+          recordAttempt(profile, attempt, masteredMastery),
+          currentQuestion.skill_id
+        );
         setProfile(acceleratedProfile);
+        saveStudentProfile(acceleratedProfile);
         result.next_action = "advance_skill";
         setCurrentResult(result);
         document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "maths" } }));
@@ -392,6 +405,10 @@ export default function DiagnosticSession() {
       // ── End review mode ────────────────────────────────────────────────────
 
       if (updatedMastery.status === "mastered") {
+        // Apply knowledge-graph transfer credit to connected skills
+        const profileWithTransfers = applyMathsTransfers(updatedProfile, currentQuestion.skill_id);
+        setProfile(profileWithTransfers);
+        saveStudentProfile(profileWithTransfers);
         trackSkillMastered({
           subject: "maths",
           skill_id: currentQuestion.skill_id,
@@ -733,7 +750,7 @@ export default function DiagnosticSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
             {reviewQueue.length > 0 && reviewSkillIndex < reviewQueue.length && (
               <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-2 text-sm text-amber-800">
@@ -784,7 +801,7 @@ export default function DiagnosticSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto">
             <FeedbackCard
               result={currentResult}

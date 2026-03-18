@@ -20,6 +20,8 @@ export interface BankQuestion {
   labels?: string[];
   ruby_prompt: string;
   error_signals: string[];
+  /** Difficulty level 1–5 assigned by tag-difficulty script. Used for ability-matched selection. */
+  difficulty?: number;
   // Type-specific fields
   display?: string;
   expression?: string;
@@ -105,12 +107,24 @@ export function getDomain(domainId: string): DomainInfo | null {
   return bank.domains[domainId] || null;
 }
 
-// ─── Select a random unused question for a domain ─────────────────────────────
+// ─── Select a difficulty-matched unused question for a domain ─────────────────
+/**
+ * Selects a question from the pool, preferring questions that match the
+ * student's current ability level (derived from BKT p_learned).
+ *
+ * @param domainId      question bank domain (e.g. "M004")
+ * @param usedRefs      refs already shown to this student
+ * @param isReteach     if true, prefer easier questions to rebuild confidence
+ * @param skillId       specific skill override (e.g. to cap M001 dots)
+ * @param abilityLevel  student ability 1–5 from bkt.abilityLevel(p_learned).
+ *                      When undefined, falls back to random selection (legacy).
+ */
 export function selectQuestion(
   domainId: string,
   usedRefs: string[],
   isReteach = false,
-  skillId = ""
+  skillId = "",
+  abilityLevel?: number
 ): BankQuestion | null {
   const domain = bank.domains[domainId];
   if (!domain) return null;
@@ -140,7 +154,34 @@ export function selectQuestion(
     if (small.length > 0) available = small;
   }
 
-  // Pick random question
+  // ── Difficulty-matched selection ────────────────────────────────────────────
+  // When abilityLevel is provided and questions have difficulty tags, prefer
+  // questions in the student's ZPD: ability or ability+1 (slightly challenging).
+  if (abilityLevel !== undefined) {
+    const target = isReteach
+      ? Math.max(1, abilityLevel - 1)   // reteach: one step easier
+      : abilityLevel;                   // normal: match current ability
+
+    // Try exact match first, then widen ±1
+    const exact = available.filter(
+      (q) => q.difficulty !== undefined && q.difficulty === target
+    );
+    if (exact.length > 0) {
+      return exact[Math.floor(Math.random() * exact.length)];
+    }
+
+    const near = available.filter(
+      (q) =>
+        q.difficulty !== undefined &&
+        Math.abs(q.difficulty - target) <= 1
+    );
+    if (near.length > 0) {
+      return near[Math.floor(Math.random() * near.length)];
+    }
+    // Fall through to random if no tagged questions found
+  }
+
+  // Pick random question (fallback / legacy path)
   const idx = Math.floor(Math.random() * available.length);
   return available[idx];
 }

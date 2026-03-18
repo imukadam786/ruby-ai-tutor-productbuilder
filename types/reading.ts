@@ -97,6 +97,8 @@ export interface ReadingSkillMastery {
   last_attempted: string;
   mastered_at?: string;
   attempts: ReadingSkillAttempt[];
+  /** BKT: continuous probability estimate that student has learned this skill (0–1) */
+  p_learned?: number;
 }
 
 export interface ReadingStudentProfile {
@@ -117,6 +119,7 @@ export interface ReadingStudentProfile {
   placement: DiagnosticPlacementResult | null;
   errorPatterns: Record<string, { type: ReadingErrorType; count: number; retaughtCount: number }>;
   sessionHistory: Record<string, boolean[]>;
+  warmupSkillsCompleted: string[];
 }
 
 // ─── Session ──────────────────────────────────────────────────────────────────
