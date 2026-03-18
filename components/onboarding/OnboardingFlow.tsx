@@ -243,7 +243,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   };
 
   // ── Complete onboarding (no plan step) ────────────────────────────────────
-  const handleComplete = () => {
+  const handleComplete = async () => {
     const final: OnboardingData = {
       language: data.language || "English",
       grade: data.grade || "",
@@ -254,6 +254,17 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       plan: "standard",
       userId: signedUpUserId,
     };
+    // Update Supabase with grade, curriculum and language now that user has selected them
+    if (signedUpUserId) {
+      await supabase.from("users").upsert({
+        id: signedUpUserId,
+        email,
+        full_name: name,
+        grade: final.grade || null,
+        curriculum: final.curriculum || null,
+        language: final.language,
+      });
+    }
     localStorage.setItem("onboardingData", JSON.stringify(final));
     onComplete(final);
   };
