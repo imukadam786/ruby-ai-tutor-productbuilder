@@ -23,6 +23,7 @@ interface Choice { label: string; value: string; correct: boolean; speech?: stri
 interface Task {
   id: string;
   domain: string;
+  gate?: string;              // "A" | "C" | "D" — undefined means ungated (Q15–Q25)
   displayWord?: string;       // Large display in card centre
   flashWord?: string;         // D11 flash-then-hide word
   flashMs?: number;
@@ -37,11 +38,11 @@ interface Task {
 
 // ── Dynamic task loader ───────────────────────────────────────────────────────
 async function loadRandomQuestionPaper(): Promise<Task[]> {
-    const randomNumber = Math.floor(Math.random() * 50) + 1; // 1–50
-    const paper = await import(
-        `@/data/question-banks/${randomNumber}.json`
-    );
-    return paper.default as Task[];
+  const randomNumber = Math.floor(Math.random() * 50) + 1; // 1–50
+  const paper = await import(`@/data/question-banks/${randomNumber}.json`);
+  const all = paper.default as Task[];
+  // Only include tasks that have a gate (A/C/D). Q15–Q25 are ungated and excluded.
+  return all.filter((t) => !!t.gate);
 }
 
 

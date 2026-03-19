@@ -2,7 +2,7 @@
 // 14 tasks administered once per student to determine reading placement.
 // Full test always administered — no early exit.
 
-export type DiagnosticTaskMode = "voice" | "text" | "tap" | "voice-timed";
+export type DiagnosticTaskMode = "voice" | "text" | "tap" | "audio-tap" | "voice-timed";
 
 export interface DiagnosticItem {
   id: string;
@@ -97,19 +97,13 @@ export const DIAGNOSTIC_TASKS: DiagnosticTask[] = [
   },
   {
     id: "D05",
-    domain: "Digraph Recognition",
-    mode: "voice",
+    domain: "Digraph Recognition — Two-Letter Sounds",
+    mode: "audio-tap",
     description: "Identify the single sound made by common digraphs",
-    instruction: "Tell me the one sound these two letters make together.",
+    instruction: "Tap each sound to hear it, then choose the right one.",
     passThreshold: 0.8,
     mapsToSkill: "R2.T2.A1",
-    items: [
-      { id: "D05-01", prompt: 'What one sound do "sh" make together, like in "ship"?', expected: "sh" },
-      { id: "D05-02", prompt: 'What one sound do "ch" make together, like in "chip"?', expected: "ch" },
-      { id: "D05-03", prompt: 'What one sound do "th" make together, like in "this"?', expected: "th" },
-      { id: "D05-04", prompt: 'What one sound do "wh" make together, like in "when"?', expected: "wh" },
-      { id: "D05-05", prompt: 'What one sound do "ck" make together, like in "duck"?', expected: "k" },
-    ],
+    items: [{ id: "D05-01", prompt: "What sound do these two letters make together?", expected: "correct" }],
   },
   {
     id: "D06",

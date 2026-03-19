@@ -1,6 +1,6 @@
 [
   {
-    "id": "Q1",
+    "id": "D01",
     "domain": "Phonological Awareness — Rhyme",
     "domainCode": "D001",
     "gate": "A",
@@ -21,7 +21,7 @@
     ]
   },
   {
-    "id": "Q2",
+    "id": "D02",
     "domain": "Phoneme Isolation — First Sound",
     "domainCode": "D002",
     "gate": "A",
@@ -50,7 +50,7 @@
     ]
   },
   {
-    "id": "Q3",
+    "id": "D03",
     "domain": "Letter Sound — Consonants",
     "domainCode": "D003",
     "gate": "A",
@@ -79,7 +79,7 @@
     ]
   },
   {
-    "id": "Q4",
+    "id": "D04",
     "domain": "Letter Sound — Vowels",
     "domainCode": "D004",
     "gate": "A",
@@ -108,7 +108,43 @@
     ]
   },
   {
-    "id": "Q5",
+    "id": "D05",
+    "domain": "Digraph Recognition",
+    "answerMode": "audio-tap",
+    "gate": "A",
+    "question": "What sound do these two letters make together?",
+    "subText": "Tap each sound to hear it, then choose the right one.",
+    "displayWord": "sh",
+    "choices": [
+      {
+        "label": "/sh/",
+        "speech": "sh, as in ship",
+        "correct": true
+      },
+      {
+        "label": "/s/",
+        "speech": "S, as in sun",
+        "correct": false
+      },
+      {
+        "label": "/ch/",
+        "speech": "ch, as in chip",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D06",
+    "domain": "Consonant Blend Decoding",
+    "answerMode": "voice",
+    "gate": "A",
+    "question": "Read this word out loud for me.",
+    "displayWord": "bland",
+    "expectedAnswer": "bland",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D09",
     "domain": "Long Vowel / Silent E",
     "domainCode": "D009",
     "gate": "C",
@@ -119,7 +155,7 @@
     "vowelPattern": "long a"
   },
   {
-    "id": "Q6",
+    "id": "D10",
     "domain": "Vowel Teams",
     "domainCode": "D010",
     "gate": "C",
@@ -131,7 +167,7 @@
     "maxResponseMs": 4000
   },
   {
-    "id": "Q7",
+    "id": "D11",
     "domain": "Sight Words — Automaticity",
     "domainCode": "D011",
     "gate": "C",
@@ -143,7 +179,7 @@
     "maxResponseMs": 2500
   },
   {
-    "id": "Q8",
+    "id": "D12",
     "domain": "R-Controlled Vowels",
     "domainCode": "D012",
     "gate": "C",
@@ -154,7 +190,7 @@
     "rControlledPattern": "ir"
   },
   {
-    "id": "Q9",
+    "id": "D13",
     "domain": "Two-Syllable Decoding",
     "domainCode": "D013",
     "gate": "C",
@@ -165,7 +201,7 @@
     "syllableBreak": "zot·bim"
   },
   {
-    "id": "Q10",
+    "id": "D14",
     "domain": "Multisyllabic Decoding",
     "domainCode": "D014",
     "gate": "C",
@@ -176,7 +212,7 @@
     "syllableBreak": "bor·sip·zel"
   },
   {
-    "id": "Q11",
+    "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
@@ -188,7 +224,7 @@
     "targetAffix": "ly"
   },
   {
-    "id": "Q12",
+    "id": "D16",
     "domain": "Fluency Passage",
     "domainCode": "D016",
     "gate": "D",
@@ -204,7 +240,7 @@
     }
   },
   {
-    "id": "Q13",
+    "id": "D17",
     "domain": "Literal Comprehension",
     "domainCode": "D017",
     "gate": "D",
@@ -216,7 +252,7 @@
     "expectedAnswer": "A small carved wooden bird"
   },
   {
-    "id": "Q14",
+    "id": "D18",
     "domain": "Inferential Comprehension",
     "domainCode": "D018",
     "gate": "D",
