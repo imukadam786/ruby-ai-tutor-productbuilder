@@ -585,7 +585,7 @@ export default function ReadingDiagnosticPlacement({
             <p className="text-blue-600 font-medium mt-2 text-base">No pressure — just do your best 😊</p>
           </div>
           <div className="grid grid-cols-3 gap-2 text-sm text-gray-600">
-            {[{ icon: "🎯", text: "18 activities" }, { icon: "⏱️", text: "10–15 min" }, { icon: "🏆", text: "Find your level" }].map(({ icon, text }) => (
+            {[{ icon: "🎯", text: `${TASKS.length} activities` }, { icon: "⏱️", text: "10–15 min" }, { icon: "🏆", text: "Find your level" }].map(({ icon, text }) => (
               <div key={text} className="bg-blue-50 rounded-xl p-2">
                 <div className="text-xl mb-0.5">{icon}</div>
                 <p className="font-medium">{text}</p>
