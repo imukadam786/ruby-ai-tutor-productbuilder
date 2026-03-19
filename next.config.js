@@ -19,7 +19,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
       },
       {
         urlPattern: /\/data\/.*\.json$/i,
-        handler: "CacheFirst",
+        handler: "StaleWhileRevalidate",
         options: {
           cacheName: "lesson-data",
           expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 7 },
