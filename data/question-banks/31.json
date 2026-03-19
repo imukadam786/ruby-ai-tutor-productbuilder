@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "The circus was a rare and exciting event that people travelled far to see"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 2 syllables?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "pen",
+        "value": "pen",
+        "correct": false
+      },
+      {
+        "label": "computer",
+        "value": "computer",
+        "correct": false
+      },
+      {
+        "label": "monkey",
+        "value": "monkey",
+        "correct": true
+      },
+      {
+        "label": "watermelon",
+        "value": "watermelon",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'blob' without the /l/ sound. What word do you get?",
+    "displayWord": "blob",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "bob",
+        "value": "bob",
+        "correct": true
+      },
+      {
+        "label": "cob",
+        "value": "cob",
+        "correct": false
+      },
+      {
+        "label": "rob",
+        "value": "rob",
+        "correct": false
+      },
+      {
+        "label": "sob",
+        "value": "sob",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'top'?",
+    "displayWord": "top",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Dad washed the car. He used a sponge and soap. He rinsed it with a hose. Then he dried it with a cloth.",
+    "question": "What did Dad use FIRST?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A sponge and soap",
+        "value": "A sponge and soap",
+        "correct": true
+      },
+      {
+        "label": "A hose",
+        "value": "A hose",
+        "correct": false
+      },
+      {
+        "label": "A cloth",
+        "value": "A cloth",
+        "correct": false
+      },
+      {
+        "label": "A bucket",
+        "value": "A bucket",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The path through the forest was **winding** — it turned left and right constantly.",
+    "question": "What does the word 'winding' mean in this sentence?",
+    "displayWord": "winding",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Straight",
+        "value": "Straight",
+        "correct": false
+      },
+      {
+        "label": "Steep",
+        "value": "Steep",
+        "correct": false
+      },
+      {
+        "label": "Twisting and turning",
+        "value": "Twisting and turning",
+        "correct": true
+      },
+      {
+        "label": "Short",
+        "value": "Short",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "To change a lightbulb: switch off the power, let it cool, unscrew the old bulb, screw in the new one.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": true
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "An explanation",
+        "value": "An explanation",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "Her plants died because she had been on holiday for three weeks.",
+    "question": "Why did her plants die?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "She forgot to buy plant food",
+        "value": "She forgot to buy plant food",
+        "correct": false
+      },
+      {
+        "label": "She was away for three weeks",
+        "value": "She was away for three weeks",
+        "correct": true
+      },
+      {
+        "label": "The pots were too small",
+        "value": "The pots were too small",
+        "correct": false
+      },
+      {
+        "label": "They got too much sun",
+        "value": "They got too much sun",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The council must **mitigate** the effects of the flooding on local residents.",
+    "question": "What does the word 'mitigate' mean in this context?",
+    "displayWord": "mitigate",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Ignore",
+        "value": "Ignore",
+        "correct": false
+      },
+      {
+        "label": "Prevent entirely",
+        "value": "Prevent entirely",
+        "correct": false
+      },
+      {
+        "label": "Reduce or lessen",
+        "value": "Reduce or lessen",
+        "correct": true
+      },
+      {
+        "label": "Study",
+        "value": "Study",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Air pollution kills 7 million people a year. We cannot breathe our way to a healthy future. Industry must change now.",
+    "question": "What is the author's main purpose?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To describe pollution statistics",
+        "value": "To describe pollution statistics",
+        "correct": false
+      },
+      {
+        "label": "To demand action on air pollution",
+        "value": "To demand action on air pollution",
+        "correct": true
+      },
+      {
+        "label": "To explain how pollution forms",
+        "value": "To explain how pollution forms",
+        "correct": false
+      },
+      {
+        "label": "To persuade individuals to change habits",
+        "value": "To persuade individuals to change habits",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /f/-/i/-/t/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "fat",
+        "value": "fat",
+        "correct": false
+      },
+      {
+        "label": "fet",
+        "value": "fet",
+        "correct": false
+      },
+      {
+        "label": "fut",
+        "value": "fut",
+        "correct": false
+      },
+      {
+        "label": "fit",
+        "value": "fit",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SCRIPT",
+    "answerMode": "voice",
+    "expectedAnswer": "script"
   }
 ]

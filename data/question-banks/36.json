@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "It was hungry and cold and looked up for more — showing it trusted them"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "I'll say the parts of a word. What word is it?",
+    "displayWord": "but — ter",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "butter",
+        "value": "butter",
+        "correct": true
+      },
+      {
+        "label": "better",
+        "value": "better",
+        "correct": false
+      },
+      {
+        "label": "bitter",
+        "value": "bitter",
+        "correct": false
+      },
+      {
+        "label": "button",
+        "value": "button",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'plink' without the /l/ sound. What word do you get?",
+    "displayWord": "plink",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "pink",
+        "value": "pink",
+        "correct": true
+      },
+      {
+        "label": "sink",
+        "value": "sink",
+        "correct": false
+      },
+      {
+        "label": "link",
+        "value": "link",
+        "correct": false
+      },
+      {
+        "label": "rink",
+        "value": "rink",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'dog'?",
+    "displayWord": "dog",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Ravi opened his lunchbox. He ate his sandwich first. Then he had his apple. He drank his water last.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Healthy food",
+        "value": "Healthy food",
+        "correct": false
+      },
+      {
+        "label": "Ravi eating his lunch",
+        "value": "Ravi eating his lunch",
+        "correct": true
+      },
+      {
+        "label": "Types of sandwiches",
+        "value": "Types of sandwiches",
+        "correct": false
+      },
+      {
+        "label": "School canteens",
+        "value": "School canteens",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The building was **dilapidated** — the windows were broken and paint peeled off.",
+    "question": "What does the word 'dilapidated' mean in this sentence?",
+    "displayWord": "dilapidated",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Old and in bad condition",
+        "value": "Old and in bad condition",
+        "correct": true
+      },
+      {
+        "label": "Newly built",
+        "value": "Newly built",
+        "correct": false
+      },
+      {
+        "label": "Very tall",
+        "value": "Very tall",
+        "correct": false
+      },
+      {
+        "label": "Colourful",
+        "value": "Colourful",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "To wash hands correctly: wet hands, apply soap, scrub for 20 seconds, rinse, and dry.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "An explanation",
+        "value": "An explanation",
+        "correct": false
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": true
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "He apologised because he had accidentally broken his friend's toy.",
+    "question": "Why did he apologise?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He was late",
+        "value": "He was late",
+        "correct": false
+      },
+      {
+        "label": "He broke his friend's toy",
+        "value": "He broke his friend's toy",
+        "correct": true
+      },
+      {
+        "label": "He forgot to meet his friend",
+        "value": "He forgot to meet his friend",
+        "correct": false
+      },
+      {
+        "label": "He was unkind",
+        "value": "He was unkind",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The plan was **abandoned** after the council withdrew its funding.",
+    "question": "What does the word 'abandoned' mean in this context?",
+    "displayWord": "abandoned",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Modified",
+        "value": "Modified",
+        "correct": false
+      },
+      {
+        "label": "Approved",
+        "value": "Approved",
+        "correct": false
+      },
+      {
+        "label": "Given up on",
+        "value": "Given up on",
+        "correct": true
+      },
+      {
+        "label": "Published",
+        "value": "Published",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Martin Luther King Jr. delivered his 'I Have a Dream' speech in Washington D.C. in 1963.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To explain the civil rights movement",
+        "value": "To explain the civil rights movement",
+        "correct": false
+      },
+      {
+        "label": "To provide a historical fact",
+        "value": "To provide a historical fact",
+        "correct": true
+      },
+      {
+        "label": "To celebrate King's legacy",
+        "value": "To celebrate King's legacy",
+        "correct": false
+      },
+      {
+        "label": "To compare historical speeches",
+        "value": "To compare historical speeches",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /l/-/o/-/g/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "lag",
+        "value": "lag",
+        "correct": false
+      },
+      {
+        "label": "leg",
+        "value": "leg",
+        "correct": false
+      },
+      {
+        "label": "lug",
+        "value": "lug",
+        "correct": false
+      },
+      {
+        "label": "log",
+        "value": "log",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SHROUD",
+    "answerMode": "voice",
+    "expectedAnswer": "shroud"
   }
 ]

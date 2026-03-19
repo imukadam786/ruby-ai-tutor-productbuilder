@@ -5,7 +5,8 @@
 //   input          — placement data (built client-side from student profile)
 //   onStartLearning — called when student taps "Start Learning"
 
-import { buildDeterministicReportContent } from "@/lib/report-content-builder";
+import { buildDeterministicReportContent, } from "@/lib/report-content-builder";
+import { describeError } from "@/lib/report-generator";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 
 // ─── Colour helpers ───────────────────────────────────────────────────────────
@@ -155,6 +156,27 @@ export default function DiagnosticReportView({
               ))}
             </div>
           </div>
+
+          {/* ── Error patterns ── */}
+          {input.dominantErrors.length > 0 && (() => {
+            const patterns = input.dominantErrors
+              .map((code) => describeError(code, input.subject))
+              .filter(Boolean);
+            if (!patterns.length) return null;
+            return (
+              <Section>
+                <SectionLabel>Patterns found</SectionLabel>
+                <div className="space-y-2">
+                  {patterns.map((desc, i) => (
+                    <div key={i} className="flex gap-2 items-start">
+                      <span className="text-amber-500 font-bold mt-0.5 text-base leading-none">▸</span>
+                      <span className="text-gray-700 text-sm leading-relaxed">{desc}</span>
+                    </div>
+                  ))}
+                </div>
+              </Section>
+            );
+          })()}
 
           {/* ── Strengths ── */}
           <div className="rounded-2xl bg-green-50 border border-green-200 p-5">

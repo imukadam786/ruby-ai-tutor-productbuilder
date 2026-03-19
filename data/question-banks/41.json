@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "The bright yellow may have bothered it — cats are sensitive to changes in their environment"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "I'll say the parts of a word. What word is it?",
+    "displayWord": "gar — den",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "garden",
+        "value": "garden",
+        "correct": true
+      },
+      {
+        "label": "golden",
+        "value": "golden",
+        "correct": false
+      },
+      {
+        "label": "Gordon",
+        "value": "Gordon",
+        "correct": false
+      },
+      {
+        "label": "pardon",
+        "value": "pardon",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'frond' without the /r/ sound. What word do you get?",
+    "displayWord": "frond",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "fond",
+        "value": "fond",
+        "correct": true
+      },
+      {
+        "label": "bond",
+        "value": "bond",
+        "correct": false
+      },
+      {
+        "label": "pond",
+        "value": "pond",
+        "correct": false
+      },
+      {
+        "label": "wand",
+        "value": "wand",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'jump'?",
+    "displayWord": "jump",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": true
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      },
+      {
+        "label": "6",
+        "value": "6",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The kitten climbed up the curtain. It got stuck at the top. It meowed loudly. Dad came and helped it down.",
+    "question": "What did the kitten do FIRST?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Climbed the curtain",
+        "value": "Climbed the curtain",
+        "correct": true
+      },
+      {
+        "label": "Got stuck",
+        "value": "Got stuck",
+        "correct": false
+      },
+      {
+        "label": "Meowed loudly",
+        "value": "Meowed loudly",
+        "correct": false
+      },
+      {
+        "label": "Was helped down",
+        "value": "Was helped down",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The rescue team **navigated** through the thick forest using only a compass.",
+    "question": "What does the word 'navigated' mean in this sentence?",
+    "displayWord": "navigated",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Got lost",
+        "value": "Got lost",
+        "correct": false
+      },
+      {
+        "label": "Found their way",
+        "value": "Found their way",
+        "correct": true
+      },
+      {
+        "label": "Ran fast",
+        "value": "Ran fast",
+        "correct": false
+      },
+      {
+        "label": "Camped",
+        "value": "Camped",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "To make your bed: straighten the sheet, pull up the duvet, and arrange the pillows neatly.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": true
+      },
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "A letter",
+        "value": "A letter",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The puddle froze overnight because the temperature dropped below zero.",
+    "question": "What caused the puddle to freeze?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The wind was strong",
+        "value": "The wind was strong",
+        "correct": false
+      },
+      {
+        "label": "Temperature dropped below zero",
+        "value": "Temperature dropped below zero",
+        "correct": true
+      },
+      {
+        "label": "There was no sun",
+        "value": "There was no sun",
+        "correct": false
+      },
+      {
+        "label": "Snow fell on it",
+        "value": "Snow fell on it",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The climate summit produced a **landmark** agreement on carbon reduction.",
+    "question": "What does the word 'landmark' mean in this context?",
+    "displayWord": "landmark",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Minor",
+        "value": "Minor",
+        "correct": false
+      },
+      {
+        "label": "Historic and very important",
+        "value": "Historic and very important",
+        "correct": true
+      },
+      {
+        "label": "Temporary",
+        "value": "Temporary",
+        "correct": false
+      },
+      {
+        "label": "Controversial",
+        "value": "Controversial",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "We are addicted to our phones. We check them 96 times a day on average. It is time to put them down.",
+    "question": "What does the author want readers to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Buy a different phone",
+        "value": "Buy a different phone",
+        "correct": false
+      },
+      {
+        "label": "Use their phones less",
+        "value": "Use their phones less",
+        "correct": true
+      },
+      {
+        "label": "Delete social media",
+        "value": "Delete social media",
+        "correct": false
+      },
+      {
+        "label": "Learn about phone addiction",
+        "value": "Learn about phone addiction",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /b/-/o/-/x/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "bax",
+        "value": "bax",
+        "correct": false
+      },
+      {
+        "label": "bex",
+        "value": "bex",
+        "correct": false
+      },
+      {
+        "label": "bux",
+        "value": "bux",
+        "correct": false
+      },
+      {
+        "label": "box",
+        "value": "box",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "STRAY",
+    "answerMode": "voice",
+    "expectedAnswer": "stray"
   }
 ]

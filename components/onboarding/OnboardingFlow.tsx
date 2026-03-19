@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { getTranslations } from "@/lib/onboarding-translations";
 import { supabase } from "@/lib/supabase";
-import Flag from "react-world-flags";
 
 export type OnboardingData = {
   language: string;
@@ -16,14 +15,26 @@ export type OnboardingData = {
   userId?: string;
 };
 
-const LANGUAGES = [
-  "English",
-  "Afrikaans", "isiNdebele", "isiXhosa", "isiZulu",
-  "Sepedi", "Sesotho", "Setswana", "siSwati",
-  "Tshivenda", "Xitsonga",
+const LANGUAGES: { value: string; label: string }[] = [
+  { value: "English",    label: "English" },
+  { value: "Afrikaans",  label: "Afrikaans" },
+  { value: "Arabic",     label: "Arabic" },
+  { value: "French",     label: "French" },
+  { value: "German",     label: "German" },
+  { value: "isiNdebele", label: "isiNdebele (Ndebele)" },
+  { value: "isiXhosa",   label: "isiXhosa (Xhosa)" },
+  { value: "isiZulu",    label: "isiZulu (Zulu)" },
+  { value: "Sepedi",     label: "Sepedi (Northern Sotho)" },
+  { value: "Sesotho",    label: "Sesotho (Southern Sotho)" },
+  { value: "Setswana",   label: "Setswana (Tswana)" },
+  { value: "siSwati",    label: "siSwati (Swati)" },
+  { value: "Spanish",    label: "Spanish" },
+  { value: "Tshivenda",  label: "Tshivenda (Venda)" },
+  { value: "Xitsonga",   label: "Xitsonga (Tsonga)" },
 ];
 
 const GRADES = [
+  { grade: "1", emoji: "⭐" }, { grade: "2", emoji: "⭐" },
   { grade: "3", emoji: "😊" }, { grade: "4", emoji: "😊" },
   { grade: "5", emoji: "😊" }, { grade: "6", emoji: "😊" },
   { grade: "7", emoji: "😎" }, { grade: "8", emoji: "😎" },
@@ -61,13 +72,13 @@ function ScoreChart({ bars }: { bars: number[] }) {
 }
 
 const CURRICULA: { label: string; flag: string }[] = [
-  { label: "CAPS",                    flag: "ZA" },
-  { label: "IEB",                     flag: "ZA" },
-  { label: "CAPS-SID",                flag: "ZA" },
-  { label: "LSEN",                    flag: "ZA" },
-  { label: "American Curriculum",     flag: "US" },
-  { label: "Cambridge International", flag: "GB" },
-  { label: "British Curriculum",      flag: "GB" },
+  { label: "CAPS",                    flag: "🇿🇦" },
+  { label: "IEB",                     flag: "🇿🇦" },
+  { label: "CAPS-SID",                flag: "🇿🇦" },
+  { label: "LSEN",                    flag: "🇿🇦" },
+  { label: "American Curriculum",     flag: "🇺🇸" },
+  { label: "Cambridge International", flag: "🇬🇧" },
+  { label: "British Curriculum",      flag: "🇬🇧" },
 ];
 
 const PLANS = [
@@ -381,17 +392,17 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               <h1 className="text-3xl font-bold text-[#1a2744] mb-6 leading-snug flex-shrink-0">{t.step1Title}</h1>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
                 <div className="grid grid-cols-3 gap-3">
-                  {LANGUAGES.map((language) => (
+                  {LANGUAGES.map(({ value, label }) => (
                     <button
-                      key={language}
-                      onClick={() => select("language", language)}
-                      className={`py-4 px-2 rounded-2xl text-base font-medium border-2 transition-all ${
-                        data.language === language
+                      key={value}
+                      onClick={() => select("language", value)}
+                      className={`py-4 px-2 rounded-2xl text-sm font-medium border-2 transition-all ${
+                        data.language === value
                           ? "border-rose-500 bg-rose-50 text-rose-600"
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      {language}
+                      {label}
                     </button>
                   ))}
                 </div>
@@ -477,9 +488,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      <span className="flex-shrink-0 rounded overflow-hidden shadow-sm" style={{ width: 28, height: 20, display: "inline-flex", alignItems: "center" }}>
-                        <Flag code={flag} style={{ width: 28, height: 20, objectFit: "cover", borderRadius: 3 }} />
-                      </span>
+                      <span className="flex-shrink-0 text-xl leading-none">{flag}</span>
                       {label}
                     </button>
                   ))}

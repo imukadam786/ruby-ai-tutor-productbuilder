@@ -250,28 +250,6 @@ export default function ProgressTracker() {
             )}
           </div>
 
-          {/* ── Mastered Skills ────────────────────────────────────────── */}
-          {masteredEntries.length > 0 && (
-            <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-800 text-base mb-3">
-                Mastered Skills
-                <span className="ml-2 bg-blue-100 text-blue-600 text-sm font-semibold px-2 py-0.5 rounded-full">
-                  {masteredEntries.length}
-                </span>
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {masteredEntries.map(([skillId]) => {
-                  const skill = getSkillById(skillId);
-                  return (
-                    <span key={skillId} className="bg-blue-50 text-blue-700 text-sm px-3 py-1.5 rounded-full font-medium">
-                      {skill?.title ?? skillId}
-                    </span>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
           {/* ── Weekly Study Activity ──────────────────────────────────── */}
           <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
             <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>

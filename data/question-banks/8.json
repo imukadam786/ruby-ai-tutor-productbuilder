@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "Unbothered and calm — cats wash when they are relaxed"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'computer' have?",
+    "displayWord": "computer",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'skip' without the /k/ sound. What word do you get?",
+    "displayWord": "skip",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sip",
+        "value": "sip",
+        "correct": true
+      },
+      {
+        "label": "zip",
+        "value": "zip",
+        "correct": false
+      },
+      {
+        "label": "lip",
+        "value": "lip",
+        "correct": false
+      },
+      {
+        "label": "nip",
+        "value": "nip",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'whale'?",
+    "displayWord": "whale",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/w/",
+        "value": "/w/",
+        "correct": true
+      },
+      {
+        "label": "/h/",
+        "value": "/h/",
+        "correct": false
+      },
+      {
+        "label": "/a/",
+        "value": "/a/",
+        "correct": false
+      },
+      {
+        "label": "/l/",
+        "value": "/l/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Lily mixed flour and eggs in a bowl. She poured the batter into a tin. She put it in the oven. An hour later, she had a cake.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Lily's kitchen",
+        "value": "Lily's kitchen",
+        "correct": false
+      },
+      {
+        "label": "Types of cakes",
+        "value": "Types of cakes",
+        "correct": false
+      },
+      {
+        "label": "How Lily made a cake",
+        "value": "How Lily made a cake",
+        "correct": true
+      },
+      {
+        "label": "Buying ingredients",
+        "value": "Buying ingredients",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The wound was **severe** and required immediate medical attention.",
+    "question": "What does the word 'severe' mean in this sentence?",
+    "displayWord": "severe",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Very small",
+        "value": "Very small",
+        "correct": false
+      },
+      {
+        "label": "Very painful",
+        "value": "Very painful",
+        "correct": false
+      },
+      {
+        "label": "Very serious",
+        "value": "Very serious",
+        "correct": true
+      },
+      {
+        "label": "Very common",
+        "value": "Very common",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Volcanoes erupt when magma pushes up through cracks in the Earth's crust. The pressure builds until it explodes.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To tell a story",
+        "value": "To tell a story",
+        "correct": false
+      },
+      {
+        "label": "To explain how something works",
+        "value": "To explain how something works",
+        "correct": true
+      },
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": false
+      },
+      {
+        "label": "To give instructions",
+        "value": "To give instructions",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "She wore her coat because it was cold outside.",
+    "question": "Why did she wear her coat?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was raining",
+        "value": "It was raining",
+        "correct": false
+      },
+      {
+        "label": "It was cold outside",
+        "value": "It was cold outside",
+        "correct": true
+      },
+      {
+        "label": "She liked her coat",
+        "value": "She liked her coat",
+        "correct": false
+      },
+      {
+        "label": "She had lost her jumper",
+        "value": "She had lost her jumper",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The investment will **stimulate** growth in the local economy.",
+    "question": "What does the word 'stimulate' mean in this context?",
+    "displayWord": "stimulate",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Reduce",
+        "value": "Reduce",
+        "correct": false
+      },
+      {
+        "label": "Encourage and increase",
+        "value": "Encourage and increase",
+        "correct": true
+      },
+      {
+        "label": "Measure",
+        "value": "Measure",
+        "correct": false
+      },
+      {
+        "label": "Control",
+        "value": "Control",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Florence Nightingale transformed nursing in the 19th century. Her work saved thousands of lives during the Crimean War.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To persuade you to become a nurse",
+        "value": "To persuade you to become a nurse",
+        "correct": false
+      },
+      {
+        "label": "To tell a fictional story",
+        "value": "To tell a fictional story",
+        "correct": false
+      },
+      {
+        "label": "To inform about an important historical figure",
+        "value": "To inform about an important historical figure",
+        "correct": true
+      },
+      {
+        "label": "To describe hospital conditions",
+        "value": "To describe hospital conditions",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /s/-/u/-/n/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "son",
+        "value": "son",
+        "correct": false
+      },
+      {
+        "label": "sin",
+        "value": "sin",
+        "correct": false
+      },
+      {
+        "label": "san",
+        "value": "san",
+        "correct": false
+      },
+      {
+        "label": "sun",
+        "value": "sun",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SHRINK",
+    "answerMode": "voice",
+    "expectedAnswer": "shrink"
   }
 ]

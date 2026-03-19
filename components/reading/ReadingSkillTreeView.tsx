@@ -17,7 +17,7 @@ const statusConfig = {
   auto_complete: { bg: "bg-green-50",    text: "text-green-600",   border: "border-green-200",   icon: "✦",  label: "Auto-completed" },
   entry_point:   { bg: "bg-blue-50",     text: "text-blue-700",    border: "border-blue-300",    icon: "🎯", label: "Entry Point" },
   active:        { bg: "bg-purple-100",  text: "text-purple-800",  border: "border-purple-400",  icon: "▶",  label: "Active" },
-  hard_gate:     { bg: "bg-amber-50",    text: "text-amber-600",   border: "border-amber-300",   icon: "🔑", label: "Hard Gate" },
+  hard_gate:     { bg: "bg-amber-50",    text: "text-amber-600",   border: "border-amber-300",   icon: "🔒", label: "Hard Gate" },
 };
 
 type TreeData = {
@@ -91,7 +91,7 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                     {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
                     {" · "}Entry: <span className="font-semibold">{entrySkillId}</span>
                     {!hardGatePassed && " · "}
-                    {!hardGatePassed && <span className="text-amber-600 font-medium">🔑 Hard Gate active</span>}
+                    {!hardGatePassed && <span className="text-amber-600 font-medium">🔒 Hard Gate active</span>}
                   </p>
                 </div>
               </div>
@@ -111,7 +111,7 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                   <div className="flex items-center gap-3 my-2 px-1">
                     <div className="flex-1 h-px bg-amber-300" />
                     <div className="bg-amber-100 border border-amber-300 rounded-xl px-3 py-1.5 flex items-center gap-2 text-amber-700 text-xs font-semibold">
-                      <span>🔑</span>
+                      <span>🔒</span>
                       <span>Hard Gate — master encoding skills to unlock advanced phonics</span>
                     </div>
                     <div className="flex-1 h-px bg-amber-300" />
@@ -125,7 +125,7 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                   {/* Hard gate banner for Level 3 */}
                   {isHardGateLevel && !hardGatePassed && (
                     <div className="bg-amber-50 border-b border-amber-200 px-5 py-2 flex items-center gap-2">
-                      <span className="text-amber-500">🔑</span>
+                      <span className="text-amber-500">🔒</span>
                       <p className="text-amber-700 text-xs font-medium">
                         Hard Gate — encoding mastery required before advancing
                       </p>
@@ -133,8 +133,8 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                   )}
                   {isHardGateLevel && hardGatePassed && profile.placementCompleted && (
                     <div className="bg-green-50 border-b border-green-100 px-5 py-2 flex items-center gap-2">
-                      <span className="text-green-500">✅</span>
-                      <p className="text-green-700 text-xs font-medium">Hard Gate passed</p>
+                      <span>🔑</span>
+                      <p className="text-green-700 text-xs font-medium">Hard Gate opened</p>
                     </div>
                   )}
 

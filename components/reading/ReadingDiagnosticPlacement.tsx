@@ -3,6 +3,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { DiagnosticPlacementResult, DiagnosticTaskResult } from "@/types/reading";
 import { speakViaAPI } from "@/lib/tts";
+import DiagnosticReportView from "@/components/DiagnosticReportView";
+import { describeError } from "@/lib/report-generator";
+import type { DiagnosticReportInput } from "@/lib/report-generator";
+import { DIAGNOSTIC_TASKS } from "@/lib/reading-diagnostic-tasks";
 
 // ── Passage used for D16, D17, D18 ───────────────────────────────────────────
 const FLUENCY_PASSAGE =
@@ -223,6 +227,26 @@ async function loadRandomQuestionPaper(): Promise<Task[]> {
 //  },
 //];
 
+// ── Default error type per task (used when a task is failed or skipped) ──────
+const TASK_ERROR_MAP: Record<string, string> = {
+  D01: "ERR_PHONEME_CONF",
+  D02: "ERR_PHONEME_CONF",
+  D03: "ERR_SOUND_RECALL",
+  D04: "ERR_VOWEL_CONF",
+  D05: "ERR_SOUND_RECALL",
+  D06: "ERR_BLEND_FAIL",
+  D09: "ERR_VOWEL_CONF",
+  D10: "ERR_VOWEL_CONF",
+  D11: "ERR_SIGHT_MISS",
+  D12: "ERR_VOWEL_CONF",
+  D13: "ERR_MULTI_BREAK",
+  D14: "ERR_MULTI_BREAK",
+  D15: "ERR_SOUND_RECALL",
+  D16: "ERR_FLUENCY_HES",
+  D17: "ERR_MEANING_BLIND",
+  D18: "ERR_MEANING_BLIND",
+};
+
 // ── Skill name map ─────────────────────────────────────────────────────────────
 
 const SKILL_NAME_MAP: Record<string, string> = {
@@ -262,24 +286,77 @@ function scoreVoiceResponse(transcript: string, expected: string, taskId: string
   return { correct: overlap >= 0.75, score: overlap };
 }
 
+// ── Reading level label map ───────────────────────────────────────────────────
+const ENTRY_LEVEL_LABELS: Record<number, string> = {
+  1: "Foundation Reading",
+  2: "Reading Level 1–2",
+  3: "Reading Level 2–3",
+  4: "Reading Level 3–4",
+  5: "Reading Level 4+",
+};
+
+// ── Build DiagnosticReportInput from placement result ────────────────────────
+function buildReadingReportInput(
+  studentName: string,
+  studentGrade: number,
+  placement: DiagnosticPlacementResult,
+  completedTasks: DiagnosticTaskResult[]
+): DiagnosticReportInput {
+  const domainScores = DIAGNOSTIC_TASKS
+    .filter((t) => completedTasks.some((r) => r.taskId === t.id))
+    .map((task) => {
+      const result = completedTasks.find((r) => r.taskId === task.id)!;
+      const passed = result.score >= task.passThreshold;
+      const score = Math.round(result.score * 100);
+      const label: "strong" | "practice" | "building" =
+        score >= 80 ? "strong" : score >= 50 ? "building" : "practice";
+      const errorNote =
+        !passed && result.errorType && result.errorType !== "correct"
+          ? (describeError(result.errorType, "reading") ?? null)
+          : null;
+      return { domain: task.domain, score, label, errorNote };
+    });
+
+  const level = parseInt(placement.entrySkillId.charAt(1)) || 1;
+  const workingLevel = ENTRY_LEVEL_LABELS[level] ?? "Foundation Reading";
+  const gradeLevelGap = studentGrade - level;
+
+  return {
+    subject: "reading",
+    studentName,
+    studentGrade,
+    workingLevel,
+    gradeLevelGap,
+    questionsAnalysed: completedTasks.length,
+    domainScores,
+    dominantErrors: placement.dominantErrors ?? [],
+    placementSkill: SKILL_NAME_MAP[placement.entrySkillId] ?? placement.entrySkillId,
+    hardGateBlocked: !placement.hardGatePassed,
+    skillsCompleted: placement.autoCompletedSkillIds.length,
+  };
+}
+
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-type Phase = "welcome" | "task" | "flash_showing" | "flash_hidden" | "calculating" | "result";
+type Phase = "welcome" | "task" | "flash_showing" | "flash_hidden" | "calculating" | "result" | "report";
 
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function ReadingDiagnosticPlacement({
   studentName,
+  studentGrade = 1,
   onComplete,
   onViewReport,
 }: {
   studentName: string;
+  studentGrade?: number;
   onComplete: (result: DiagnosticPlacementResult) => void;
   onViewReport?: (result: DiagnosticPlacementResult) => void;
 }) {
   const [TASKS, setTASKS] = useState<Task[]>([]);
   // Ref always holds the latest TASKS — avoids stale closures in callbacks
   const TASKSRef = useRef<Task[]>([]);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<Phase>("welcome");
   const [taskIndex, setTaskIndex] = useState(0);
   const taskIndexRef = useRef(0);
@@ -294,6 +371,11 @@ export default function ReadingDiagnosticPlacement({
   const [placementResult, setPlacementResult] = useState<DiagnosticPlacementResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showEncouragement, setShowEncouragement] = useState(false);
+  const [reportInput, setReportInput] = useState<DiagnosticReportInput | null>(null);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0 });
+  }, [taskIndex, phase]);
 
   useEffect(() => {
     let cancelled = false;
@@ -416,12 +498,12 @@ export default function ReadingDiagnosticPlacement({
         });
         const placement: DiagnosticPlacementResult = res.ok ? await res.json() : {
           completedAt: Date.now(), tasks: newCompleted,
-          entrySkillId: "R1.T2.A1", autoCompletedSkillIds: [], hardGatePassed: false,
+          entrySkillId: "R1.T2.A1", autoCompletedSkillIds: [], hardGatePassed: false, dominantErrors: [],
         };
         setPlacementResult(placement);
         setPhase("result");
       } catch {
-        setPlacementResult({ completedAt: Date.now(), tasks: newCompleted, entrySkillId: "R1.T2.A1", autoCompletedSkillIds: [], hardGatePassed: false });
+        setPlacementResult({ completedAt: Date.now(), tasks: newCompleted, entrySkillId: "R1.T2.A1", autoCompletedSkillIds: [], hardGatePassed: false, dominantErrors: [] });
         setPhase("result");
       }
     } else {
@@ -437,7 +519,7 @@ export default function ReadingDiagnosticPlacement({
     if (submitting || !task) return;
     setSelectedChoice(choice.value);
     setTimeout(() => {
-      advanceTask({ taskId: task.id, correct: choice.correct, score: choice.correct ? 1 : 0, response: choice.value });
+      advanceTask({ taskId: task.id, correct: choice.correct, score: choice.correct ? 1 : 0, response: choice.value, errorType: choice.correct ? "correct" : TASK_ERROR_MAP[task.id] });
     }, 400);
   }, [submitting, task, advanceTask]);
 
@@ -446,7 +528,7 @@ export default function ReadingDiagnosticPlacement({
     if (submitting || !task) return;
     stopVoice();
     const { correct, score } = scoreVoiceResponse(transcript, task.expectedAnswer ?? "", task.id);
-    advanceTask({ taskId: task.id, correct, score, response: transcript || "(no response)" });
+    advanceTask({ taskId: task.id, correct, score, response: transcript || "(no response)", errorType: correct ? "correct" : TASK_ERROR_MAP[task.id] });
   }, [submitting, transcript, task, stopVoice, advanceTask]);
 
   // Skip task
@@ -454,7 +536,7 @@ export default function ReadingDiagnosticPlacement({
     if (submitting || !task) return;
     stopVoice();
     cancelChoiceAudio.current?.();
-    advanceTask({ taskId: task.id, correct: false, score: 0, response: "(skipped)" });
+    advanceTask({ taskId: task.id, correct: false, score: 0, response: "(skipped)", errorType: TASK_ERROR_MAP[task.id] });
   }, [submitting, task, stopVoice, advanceTask]);
 
   // Audio-tap: tap a choice button → play its speech + mark as selected
@@ -476,7 +558,7 @@ export default function ReadingDiagnosticPlacement({
     if (!chosen) return;
     cancelChoiceAudio.current?.();
     setPlayingChoiceValue(null);
-    advanceTask({ taskId: task.id, correct: chosen.correct, score: chosen.correct ? 1 : 0, response: selectedChoice });
+    advanceTask({ taskId: task.id, correct: chosen.correct, score: chosen.correct ? 1 : 0, response: selectedChoice, errorType: chosen.correct ? "correct" : TASK_ERROR_MAP[task.id] });
   }, [task, selectedChoice, submitting, advanceTask]);
 
   // ── Loading (tasks not yet fetched) ──────────────────────────────────────────
@@ -612,13 +694,31 @@ export default function ReadingDiagnosticPlacement({
           </div>
 
           <button
-            onClick={() => onViewReport ? onViewReport(placementResult) : onComplete(placementResult)}
+            onClick={() => {
+              const input = buildReadingReportInput(studentName, studentGrade, placementResult, completedTasks);
+              if (onViewReport) {
+                onViewReport(placementResult);
+              } else {
+                setReportInput(input);
+                setPhase("report");
+              }
+            }}
             className="w-full bg-[#B7182E] text-white py-5 rounded-3xl font-bold text-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-100"
           >
             View Report 📋
           </button>
         </div>
       </div>
+    );
+  }
+
+  // ── Report ────────────────────────────────────────────────────────────────────
+  if (phase === "report" && reportInput && placementResult) {
+    return (
+      <DiagnosticReportView
+        input={reportInput}
+        onStartLearning={() => onComplete(placementResult)}
+      />
     );
   }
 
@@ -639,7 +739,7 @@ export default function ReadingDiagnosticPlacement({
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 sm:p-5">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 sm:p-5">
         <div className="max-w-md mx-auto space-y-4">
 
           {/* Domain badge */}

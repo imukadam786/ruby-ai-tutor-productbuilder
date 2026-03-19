@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "They could smell it drifting down the street — the smell was the signal"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'adventure' have?",
+    "displayWord": "adventure",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'drip' without the /r/ sound. What word do you get?",
+    "displayWord": "drip",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "dip",
+        "value": "dip",
+        "correct": true
+      },
+      {
+        "label": "tip",
+        "value": "tip",
+        "correct": false
+      },
+      {
+        "label": "lip",
+        "value": "lip",
+        "correct": false
+      },
+      {
+        "label": "hip",
+        "value": "hip",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'string'?",
+    "displayWord": "string",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/s/",
+        "value": "/s/",
+        "correct": true
+      },
+      {
+        "label": "/t/",
+        "value": "/t/",
+        "correct": false
+      },
+      {
+        "label": "/r/",
+        "value": "/r/",
+        "correct": false
+      },
+      {
+        "label": "/str/",
+        "value": "/str/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Ben filled a bucket with water. He carried it to the garden. He poured it on the plants. They looked much better.",
+    "question": "What did Ben do LAST?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Filled the bucket",
+        "value": "Filled the bucket",
+        "correct": false
+      },
+      {
+        "label": "Carried the water",
+        "value": "Carried the water",
+        "correct": false
+      },
+      {
+        "label": "Poured it on the plants",
+        "value": "Poured it on the plants",
+        "correct": false
+      },
+      {
+        "label": "The plants looked better",
+        "value": "The plants looked better",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The chef used only **fresh** ingredients — nothing from tins or packets.",
+    "question": "What does the word 'fresh' mean in this sentence?",
+    "displayWord": "fresh",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Expensive",
+        "value": "Expensive",
+        "correct": false
+      },
+      {
+        "label": "Newly made or picked",
+        "value": "Newly made or picked",
+        "correct": true
+      },
+      {
+        "label": "Frozen",
+        "value": "Frozen",
+        "correct": false
+      },
+      {
+        "label": "Colourful",
+        "value": "Colourful",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Earthquakes happen when two tectonic plates suddenly slip past each other, releasing huge amounts of energy.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To warn",
+        "value": "To warn",
+        "correct": false
+      },
+      {
+        "label": "To explain how something works",
+        "value": "To explain how something works",
+        "correct": true
+      },
+      {
+        "label": "To entertain",
+        "value": "To entertain",
+        "correct": false
+      },
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The cake fell flat because she used the wrong amount of flour.",
+    "question": "Why did the cake fall flat?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The oven was too hot",
+        "value": "The oven was too hot",
+        "correct": false
+      },
+      {
+        "label": "Wrong amount of flour",
+        "value": "Wrong amount of flour",
+        "correct": true
+      },
+      {
+        "label": "The butter was cold",
+        "value": "The butter was cold",
+        "correct": false
+      },
+      {
+        "label": "She forgot the sugar",
+        "value": "She forgot the sugar",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The evidence was **inconclusive** — it could support either argument.",
+    "question": "What does the word 'inconclusive' mean in this context?",
+    "displayWord": "inconclusive",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Very clear",
+        "value": "Very clear",
+        "correct": false
+      },
+      {
+        "label": "Not leading to a clear answer",
+        "value": "Not leading to a clear answer",
+        "correct": true
+      },
+      {
+        "label": "Misleading",
+        "value": "Misleading",
+        "correct": false
+      },
+      {
+        "label": "False",
+        "value": "False",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Social media creates unrealistic expectations. Young people compare themselves to edited images and feel inadequate. Platforms must do more to protect users.",
+    "question": "What does the author want social media companies to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Shut down their platforms",
+        "value": "Shut down their platforms",
+        "correct": false
+      },
+      {
+        "label": "Share more content",
+        "value": "Share more content",
+        "correct": false
+      },
+      {
+        "label": "Better protect young users",
+        "value": "Better protect young users",
+        "correct": true
+      },
+      {
+        "label": "Publish research on social media",
+        "value": "Publish research on social media",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /k/-/u/-/p/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "cap",
+        "value": "cap",
+        "correct": false
+      },
+      {
+        "label": "cop",
+        "value": "cop",
+        "correct": false
+      },
+      {
+        "label": "cip",
+        "value": "cip",
+        "correct": false
+      },
+      {
+        "label": "cup",
+        "value": "cup",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SQUIRM",
+    "answerMode": "voice",
+    "expectedAnswer": "squirm"
   }
 ]

@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "Above the clouds it is always sunny even when it is raining below"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "I'll say the parts of a word. What word is it?",
+    "displayWord": "win — dow",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "winter",
+        "value": "winter",
+        "correct": false
+      },
+      {
+        "label": "window",
+        "value": "window",
+        "correct": true
+      },
+      {
+        "label": "winner",
+        "value": "winner",
+        "correct": false
+      },
+      {
+        "label": "wide",
+        "value": "wide",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'blend' without the /b/ sound. What word do you get?",
+    "displayWord": "blend",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "lend",
+        "value": "lend",
+        "correct": true
+      },
+      {
+        "label": "bend",
+        "value": "bend",
+        "correct": false
+      },
+      {
+        "label": "fend",
+        "value": "fend",
+        "correct": false
+      },
+      {
+        "label": "mend",
+        "value": "mend",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'it'?",
+    "displayWord": "it",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Ravi opened his lunchbox. He ate his sandwich first. Then he had his apple. He drank his water last.",
+    "question": "What did Ravi eat FIRST?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "His sandwich",
+        "value": "His sandwich",
+        "correct": true
+      },
+      {
+        "label": "His apple",
+        "value": "His apple",
+        "correct": false
+      },
+      {
+        "label": "He drank water",
+        "value": "He drank water",
+        "correct": false
+      },
+      {
+        "label": "He opened his box",
+        "value": "He opened his box",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The stream **babbled** over smooth stones as it wound through the valley.",
+    "question": "What does the word 'babbled' mean in this sentence?",
+    "displayWord": "babbled",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Rushed fast",
+        "value": "Rushed fast",
+        "correct": false
+      },
+      {
+        "label": "Made a gentle flowing sound",
+        "value": "Made a gentle flowing sound",
+        "correct": true
+      },
+      {
+        "label": "Was silent",
+        "value": "Was silent",
+        "correct": false
+      },
+      {
+        "label": "Flooded",
+        "value": "Flooded",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "He opened the envelope slowly. His name was at the top — he had been chosen.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": true
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "An argument",
+        "value": "An argument",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The computer crashed because too many programmes were open at once.",
+    "question": "Why did the computer crash?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The battery ran out",
+        "value": "The battery ran out",
+        "correct": false
+      },
+      {
+        "label": "Too many programmes were open",
+        "value": "Too many programmes were open",
+        "correct": true
+      },
+      {
+        "label": "There was a virus",
+        "value": "There was a virus",
+        "correct": false
+      },
+      {
+        "label": "Someone spilled water on it",
+        "value": "Someone spilled water on it",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The museum aims to **cultivate** an appreciation of art in young people.",
+    "question": "What does the word 'cultivate' mean in this context?",
+    "displayWord": "cultivate",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Measure",
+        "value": "Measure",
+        "correct": false
+      },
+      {
+        "label": "Develop and encourage",
+        "value": "Develop and encourage",
+        "correct": true
+      },
+      {
+        "label": "Assess",
+        "value": "Assess",
+        "correct": false
+      },
+      {
+        "label": "Publicise",
+        "value": "Publicise",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Children who grow up with pets have higher empathy, lower anxiety, and better social skills. Consider adopting — a pet could change your child's life.",
+    "question": "What does the author want readers to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Visit a pet shop",
+        "value": "Visit a pet shop",
+        "correct": false
+      },
+      {
+        "label": "Consider adopting a pet",
+        "value": "Consider adopting a pet",
+        "correct": true
+      },
+      {
+        "label": "Research pet ownership",
+        "value": "Research pet ownership",
+        "correct": false
+      },
+      {
+        "label": "Teach children to care for animals",
+        "value": "Teach children to care for animals",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /n/-/u/-/t/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "nat",
+        "value": "nat",
+        "correct": false
+      },
+      {
+        "label": "net",
+        "value": "net",
+        "correct": false
+      },
+      {
+        "label": "nit",
+        "value": "nit",
+        "correct": false
+      },
+      {
+        "label": "nut",
+        "value": "nut",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "STRAP",
+    "answerMode": "voice",
+    "expectedAnswer": "strap"
   }
 ]

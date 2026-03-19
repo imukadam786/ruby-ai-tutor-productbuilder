@@ -24,6 +24,7 @@ export interface DiagnosticTaskResult {
   correct: boolean;
   score: number;
   response: string;
+  errorType?: string;
 }
 
 export interface DiagnosticPlacementResult {
@@ -32,6 +33,7 @@ export interface DiagnosticPlacementResult {
   entrySkillId: string;
   autoCompletedSkillIds: string[];
   hardGatePassed: boolean;
+  dominantErrors: string[];
 }
 
 export interface ReadingErrorSignature {

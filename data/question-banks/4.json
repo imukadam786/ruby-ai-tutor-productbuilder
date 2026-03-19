@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "The fish was not hungry or sensed danger — it swam past without biting"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'happy' have?",
+    "displayWord": "happy",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'flat' without the /l/ sound. What word do you get?",
+    "displayWord": "flat",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "fat",
+        "value": "fat",
+        "correct": true
+      },
+      {
+        "label": "bat",
+        "value": "bat",
+        "correct": false
+      },
+      {
+        "label": "hat",
+        "value": "hat",
+        "correct": false
+      },
+      {
+        "label": "mat",
+        "value": "mat",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'phone'?",
+    "displayWord": "phone",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/p/",
+        "value": "/p/",
+        "correct": false
+      },
+      {
+        "label": "/f/",
+        "value": "/f/",
+        "correct": true
+      },
+      {
+        "label": "/o/",
+        "value": "/o/",
+        "correct": false
+      },
+      {
+        "label": "/n/",
+        "value": "/n/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Maya planted a seed. She watered it every day. After two weeks, a small green shoot appeared.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Buying seeds",
+        "value": "Buying seeds",
+        "correct": false
+      },
+      {
+        "label": "How Maya grew a plant",
+        "value": "How Maya grew a plant",
+        "correct": true
+      },
+      {
+        "label": "Watering gardens",
+        "value": "Watering gardens",
+        "correct": false
+      },
+      {
+        "label": "Types of flowers",
+        "value": "Types of flowers",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The dog was **timid** and hid behind the sofa when strangers arrived.",
+    "question": "What does the word 'timid' mean in this sentence?",
+    "displayWord": "timid",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Shy",
+        "value": "Shy",
+        "correct": true
+      },
+      {
+        "label": "Angry",
+        "value": "Angry",
+        "correct": false
+      },
+      {
+        "label": "Excited",
+        "value": "Excited",
+        "correct": false
+      },
+      {
+        "label": "Playful",
+        "value": "Playful",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Dear Mayor, I am writing to ask you to build more parks in our town. Children need green spaces to play.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To inform",
+        "value": "To inform",
+        "correct": false
+      },
+      {
+        "label": "To entertain",
+        "value": "To entertain",
+        "correct": false
+      },
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": true
+      },
+      {
+        "label": "To describe",
+        "value": "To describe",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The dog barked loudly, which woke up the neighbours.",
+    "question": "What caused the neighbours to wake up?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The dog barked",
+        "value": "The dog barked",
+        "correct": true
+      },
+      {
+        "label": "The alarm went off",
+        "value": "The alarm went off",
+        "correct": false
+      },
+      {
+        "label": "A car backfired",
+        "value": "A car backfired",
+        "correct": false
+      },
+      {
+        "label": "A storm arrived",
+        "value": "A storm arrived",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The report **highlighted** the urgent need for clean water in rural areas.",
+    "question": "What does the word 'highlighted' mean in this context?",
+    "displayWord": "highlighted",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Ignored",
+        "value": "Ignored",
+        "correct": false
+      },
+      {
+        "label": "Drew attention to",
+        "value": "Drew attention to",
+        "correct": true
+      },
+      {
+        "label": "Solved",
+        "value": "Solved",
+        "correct": false
+      },
+      {
+        "label": "Described",
+        "value": "Described",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Cheetahs are the fastest land animals, reaching speeds of up to 120 km/h. They use this speed to hunt prey on the African plains.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To give information about cheetahs",
+        "value": "To give information about cheetahs",
+        "correct": true
+      },
+      {
+        "label": "To persuade readers to protect cheetahs",
+        "value": "To persuade readers to protect cheetahs",
+        "correct": false
+      },
+      {
+        "label": "To tell a story about a hunt",
+        "value": "To tell a story about a hunt",
+        "correct": false
+      },
+      {
+        "label": "To describe African wildlife generally",
+        "value": "To describe African wildlife generally",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /k/-/a/-/t/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "cot",
+        "value": "cot",
+        "correct": false
+      },
+      {
+        "label": "cut",
+        "value": "cut",
+        "correct": false
+      },
+      {
+        "label": "cat",
+        "value": "cat",
+        "correct": true
+      },
+      {
+        "label": "cet",
+        "value": "cet",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "THROB",
+    "answerMode": "voice",
+    "expectedAnswer": "throb"
   }
 ]

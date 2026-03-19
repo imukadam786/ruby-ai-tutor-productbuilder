@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "He did not want Jill to take it — dogs hide things they want to keep"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'umbrella' have?",
+    "displayWord": "umbrella",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'slip' without the /l/ sound. What word do you get?",
+    "displayWord": "slip",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sip",
+        "value": "sip",
+        "correct": true
+      },
+      {
+        "label": "lip",
+        "value": "lip",
+        "correct": false
+      },
+      {
+        "label": "tip",
+        "value": "tip",
+        "correct": false
+      },
+      {
+        "label": "dip",
+        "value": "dip",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'wren'?",
+    "displayWord": "wren",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/w/",
+        "value": "/w/",
+        "correct": false
+      },
+      {
+        "label": "/r/",
+        "value": "/r/",
+        "correct": true
+      },
+      {
+        "label": "/e/",
+        "value": "/e/",
+        "correct": false
+      },
+      {
+        "label": "/n/",
+        "value": "/n/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Tom put on his coat. He picked up his bag. Then he said goodbye to his mum. He ran to the bus stop.",
+    "question": "What did Tom do AFTER picking up his bag?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Put on his coat",
+        "value": "Put on his coat",
+        "correct": false
+      },
+      {
+        "label": "Said goodbye to his mum",
+        "value": "Said goodbye to his mum",
+        "correct": true
+      },
+      {
+        "label": "Ran to the bus stop",
+        "value": "Ran to the bus stop",
+        "correct": false
+      },
+      {
+        "label": "Made breakfast",
+        "value": "Made breakfast",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The children were **jubilant** when their team won the match.",
+    "question": "What does the word 'jubilant' mean in this sentence?",
+    "displayWord": "jubilant",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Disappointed",
+        "value": "Disappointed",
+        "correct": false
+      },
+      {
+        "label": "Confused",
+        "value": "Confused",
+        "correct": false
+      },
+      {
+        "label": "Very happy",
+        "value": "Very happy",
+        "correct": true
+      },
+      {
+        "label": "Nervous",
+        "value": "Nervous",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "The Amazon rainforest produces 20% of the world's oxygen. It is home to over 10% of all species on Earth.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": true
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A letter",
+        "value": "A letter",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "She left her ice cream in the sun, and it melted.",
+    "question": "Why did the ice cream melt?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was old",
+        "value": "It was old",
+        "correct": false
+      },
+      {
+        "label": "It was left in the sun",
+        "value": "It was left in the sun",
+        "correct": true
+      },
+      {
+        "label": "The freezer broke",
+        "value": "The freezer broke",
+        "correct": false
+      },
+      {
+        "label": "She ate it too slowly",
+        "value": "She ate it too slowly",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The new policy will **mandate** that all buildings include solar panels.",
+    "question": "What does the word 'mandate' mean in this context?",
+    "displayWord": "mandate",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Encourage",
+        "value": "Encourage",
+        "correct": false
+      },
+      {
+        "label": "Require by law",
+        "value": "Require by law",
+        "correct": true
+      },
+      {
+        "label": "Suggest",
+        "value": "Suggest",
+        "correct": false
+      },
+      {
+        "label": "Prevent",
+        "value": "Prevent",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Screen time is harming our children. Studies show that more than two hours a day damages attention spans and sleep. Parents must act now.",
+    "question": "What does the author want readers to think?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "That screens are useful tools",
+        "value": "That screens are useful tools",
+        "correct": false
+      },
+      {
+        "label": "That parents should buy better devices",
+        "value": "That parents should buy better devices",
+        "correct": false
+      },
+      {
+        "label": "That screen time is harmful and must be limited",
+        "value": "That screen time is harmful and must be limited",
+        "correct": true
+      },
+      {
+        "label": "That children need more entertainment",
+        "value": "That children need more entertainment",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /d/-/o/-/g/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "dig",
+        "value": "dig",
+        "correct": false
+      },
+      {
+        "label": "dag",
+        "value": "dag",
+        "correct": false
+      },
+      {
+        "label": "dug",
+        "value": "dug",
+        "correct": false
+      },
+      {
+        "label": "dog",
+        "value": "dog",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SPRAWL",
+    "answerMode": "voice",
+    "expectedAnswer": "sprawl"
   }
 ]

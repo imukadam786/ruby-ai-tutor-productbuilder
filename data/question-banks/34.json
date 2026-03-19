@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "They liked having him there — he made the den feel more cosy"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 3 syllables?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sun",
+        "value": "sun",
+        "correct": false
+      },
+      {
+        "label": "yellow",
+        "value": "yellow",
+        "correct": false
+      },
+      {
+        "label": "beautiful",
+        "value": "beautiful",
+        "correct": true
+      },
+      {
+        "label": "rain",
+        "value": "rain",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'snag' without the /n/ sound. What word do you get?",
+    "displayWord": "snag",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sag",
+        "value": "sag",
+        "correct": true
+      },
+      {
+        "label": "bag",
+        "value": "bag",
+        "correct": false
+      },
+      {
+        "label": "tag",
+        "value": "tag",
+        "correct": false
+      },
+      {
+        "label": "rag",
+        "value": "rag",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'at'?",
+    "displayWord": "at",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The tide came in slowly. It covered the rocks. The crabs hid in the pools. The beach looked very different.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Crab habitats",
+        "value": "Crab habitats",
+        "correct": false
+      },
+      {
+        "label": "The tide changing the beach",
+        "value": "The tide changing the beach",
+        "correct": true
+      },
+      {
+        "label": "Types of rocks",
+        "value": "Types of rocks",
+        "correct": false
+      },
+      {
+        "label": "Sea creatures",
+        "value": "Sea creatures",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The runner was **determined** to finish the race, even when her legs ached.",
+    "question": "What does the word 'determined' mean in this sentence?",
+    "displayWord": "determined",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Tired",
+        "value": "Tired",
+        "correct": false
+      },
+      {
+        "label": "Scared",
+        "value": "Scared",
+        "correct": false
+      },
+      {
+        "label": "Decided and not giving up",
+        "value": "Decided and not giving up",
+        "correct": true
+      },
+      {
+        "label": "Proud",
+        "value": "Proud",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Dolphins are highly intelligent marine mammals. They communicate using clicks and whistles.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": true
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A letter",
+        "value": "A letter",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "She wore sunglasses because the sun was very bright.",
+    "question": "Why did she wear sunglasses?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "She thought they looked cool",
+        "value": "She thought they looked cool",
+        "correct": false
+      },
+      {
+        "label": "The sun was very bright",
+        "value": "The sun was very bright",
+        "correct": true
+      },
+      {
+        "label": "She had sore eyes",
+        "value": "She had sore eyes",
+        "correct": false
+      },
+      {
+        "label": "It was windy",
+        "value": "It was windy",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The results **indicate** a strong correlation between diet and health outcomes.",
+    "question": "What does the word 'indicate' mean in this context?",
+    "displayWord": "indicate",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Prove without doubt",
+        "value": "Prove without doubt",
+        "correct": false
+      },
+      {
+        "label": "Show or suggest",
+        "value": "Show or suggest",
+        "correct": true
+      },
+      {
+        "label": "Ignore",
+        "value": "Ignore",
+        "correct": false
+      },
+      {
+        "label": "Contradict",
+        "value": "Contradict",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "The Titanic sank on 15 April 1912 after hitting an iceberg. Over 1,500 people lost their lives.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To warn about icebergs",
+        "value": "To warn about icebergs",
+        "correct": false
+      },
+      {
+        "label": "To record a historical event",
+        "value": "To record a historical event",
+        "correct": true
+      },
+      {
+        "label": "To describe life at sea",
+        "value": "To describe life at sea",
+        "correct": false
+      },
+      {
+        "label": "To explain why ships sink",
+        "value": "To explain why ships sink",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /d/-/e/-/n/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "dan",
+        "value": "dan",
+        "correct": false
+      },
+      {
+        "label": "din",
+        "value": "din",
+        "correct": false
+      },
+      {
+        "label": "don",
+        "value": "don",
+        "correct": false
+      },
+      {
+        "label": "den",
+        "value": "den",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SQUIRT",
+    "answerMode": "voice",
+    "expectedAnswer": "squirt"
   }
 ]

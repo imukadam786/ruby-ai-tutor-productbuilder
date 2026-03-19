@@ -43,6 +43,21 @@ const TASK_SCAN_ORDER = [
   "D13", "D14", "D15", "D16", "D17", "D18",
 ];
 
+// ─── Dominant error collector ─────────────────────────────────────────────────
+/** Returns up to 3 most frequent error types from failed task results. */
+function collectDominantErrors(taskResults: DiagnosticTaskResult[]): string[] {
+  const counts: Record<string, number> = {};
+  for (const r of taskResults) {
+    if (r.errorType && r.errorType !== "correct") {
+      counts[r.errorType] = (counts[r.errorType] ?? 0) + 1;
+    }
+  }
+  return Object.entries(counts)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 3)
+    .map(([code]) => code);
+}
+
 // ─── Main export ──────────────────────────────────────────────────────────────
 
 export function calculateReadingPlacement(
@@ -62,9 +77,9 @@ export function calculateReadingPlacement(
     return result.score >= task.passThreshold;
   };
 
+  const dominantErrors = collectDominantErrors(taskResults);
+
   // ── RULE 1: Foundation failure ───────────────────────────────────────────
-  // Phonological awareness (D01 rhyme/syllable, D02 phoneme isolation) underpins
-  // all decoding. If either fails the student starts at the very first skill.
   if (!taskPassed("D01") || !taskPassed("D02")) {
     return {
       completedAt: Date.now(),
@@ -72,12 +87,11 @@ export function calculateReadingPlacement(
       entrySkillId: "R1.T1.A1",
       autoCompletedSkillIds: [],
       hardGatePassed: true,
+      dominantErrors,
     };
   }
 
   // ── RULE 2: First-failure scan ───────────────────────────────────────────
-  // Walk tasks in diagnostic order. The first failing task's mapsToSkill
-  // becomes the entry point. Everything before it is auto-completed.
   let firstFailTaskId: string | null = null;
   for (const tid of TASK_SCAN_ORDER) {
     if (!taskPassed(tid)) {
@@ -86,7 +100,7 @@ export function calculateReadingPlacement(
     }
   }
 
-  // Fallback: all 14 tasks passed — advanced reader, start at top-level comprehension.
+  // Fallback: all tasks passed — advanced reader.
   if (!firstFailTaskId) {
     return {
       completedAt: Date.now(),
@@ -94,6 +108,7 @@ export function calculateReadingPlacement(
       entrySkillId: "R5.T1.A1",
       autoCompletedSkillIds: skillsBefore("R5.T1.A1"),
       hardGatePassed: true,
+      dominantErrors,
     };
   }
 
@@ -106,5 +121,6 @@ export function calculateReadingPlacement(
     entrySkillId,
     autoCompletedSkillIds: skillsBefore(entrySkillId),
     hardGatePassed: true,
+    dominantErrors,
   };
 }

@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "Fresh bread has a strong smell and she had been baking since before sunrise"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 1 syllable?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "tiger",
+        "value": "tiger",
+        "correct": false
+      },
+      {
+        "label": "garden",
+        "value": "garden",
+        "correct": false
+      },
+      {
+        "label": "book",
+        "value": "book",
+        "correct": true
+      },
+      {
+        "label": "important",
+        "value": "important",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'twin' without the /w/ sound. What word do you get?",
+    "displayWord": "twin",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "tin",
+        "value": "tin",
+        "correct": true
+      },
+      {
+        "label": "bin",
+        "value": "bin",
+        "correct": false
+      },
+      {
+        "label": "fin",
+        "value": "fin",
+        "correct": false
+      },
+      {
+        "label": "pin",
+        "value": "pin",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'cat'?",
+    "displayWord": "cat",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Leo found a caterpillar. He put it in a jar with leaves. After a week, it made a cocoon. Later it became a butterfly.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Leo's jar",
+        "value": "Leo's jar",
+        "correct": false
+      },
+      {
+        "label": "A caterpillar turning into a butterfly",
+        "value": "A caterpillar turning into a butterfly",
+        "correct": true
+      },
+      {
+        "label": "How to keep insects",
+        "value": "How to keep insects",
+        "correct": false
+      },
+      {
+        "label": "Types of butterflies",
+        "value": "Types of butterflies",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The hikers found **shelter** beneath a large rock when the rain began.",
+    "question": "What does the word 'shelter' mean in this sentence?",
+    "displayWord": "shelter",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A cave",
+        "value": "A cave",
+        "correct": false
+      },
+      {
+        "label": "A place that gives protection",
+        "value": "A place that gives protection",
+        "correct": true
+      },
+      {
+        "label": "A path",
+        "value": "A path",
+        "correct": false
+      },
+      {
+        "label": "A town",
+        "value": "A town",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "To tie a shoelace: cross the laces, make a loop, wrap the other lace around and pull through.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": true
+      },
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "An explanation",
+        "value": "An explanation",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The match was abandoned because of a thunderstorm.",
+    "question": "Why was the match abandoned?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It got dark",
+        "value": "It got dark",
+        "correct": false
+      },
+      {
+        "label": "A thunderstorm",
+        "value": "A thunderstorm",
+        "correct": true
+      },
+      {
+        "label": "A player was injured",
+        "value": "A player was injured",
+        "correct": false
+      },
+      {
+        "label": "The pitch was flooded",
+        "value": "The pitch was flooded",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The documentary **scrutinises** the methods used by large food corporations.",
+    "question": "What does the word 'scrutinises' mean in this context?",
+    "displayWord": "scrutinises",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Praises",
+        "value": "Praises",
+        "correct": false
+      },
+      {
+        "label": "Ignores",
+        "value": "Ignores",
+        "correct": false
+      },
+      {
+        "label": "Examines closely and critically",
+        "value": "Examines closely and critically",
+        "correct": true
+      },
+      {
+        "label": "Promotes",
+        "value": "Promotes",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Einstein published his theory of relativity in 1905. It revolutionised our understanding of space, time, and gravity.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To celebrate Einstein's birthday",
+        "value": "To celebrate Einstein's birthday",
+        "correct": false
+      },
+      {
+        "label": "To describe a key scientific development",
+        "value": "To describe a key scientific development",
+        "correct": true
+      },
+      {
+        "label": "To persuade you to study physics",
+        "value": "To persuade you to study physics",
+        "correct": false
+      },
+      {
+        "label": "To explain relativity in detail",
+        "value": "To explain relativity in detail",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /m/-/u/-/d/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "mad",
+        "value": "mad",
+        "correct": false
+      },
+      {
+        "label": "mid",
+        "value": "mid",
+        "correct": false
+      },
+      {
+        "label": "mod",
+        "value": "mod",
+        "correct": false
+      },
+      {
+        "label": "mud",
+        "value": "mud",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SCREW",
+    "answerMode": "voice",
+    "expectedAnswer": "screw"
   }
 ]

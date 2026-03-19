@@ -16,7 +16,7 @@ const statusConfig = {
   in_progress:   { bg: "bg-orange-50", text: "text-orange-700", border: "border-orange-200",icon: "⚡",  label: "In Progress" },
   mastered:      { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200", icon: "✅", label: "Mastered" },
   active:        { bg: "bg-blue-100",  text: "text-blue-800",   border: "border-blue-400",  icon: "▶",  label: "Active" },
-  hard_gate:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-300", icon: "🔑", label: "Hard Gate" },
+  hard_gate:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-300", icon: "🔒", label: "Hard Gate" },
   auto_complete: { bg: "bg-green-50",  text: "text-green-600",  border: "border-green-200", icon: "✦",  label: "Auto-completed" },
   entry_point:   { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-300",  icon: "🎯", label: "Entry Point" },
 };
@@ -79,7 +79,7 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
                   <p className="text-blue-600 text-xs">
                     {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
                     {" · "}Entry: <span className="font-semibold">{entrySkillId}</span>
-                    {!hardGatePassed && <span className="text-amber-600 font-medium"> · 🔑 Hard Gate active</span>}
+                    {!hardGatePassed && <span className="text-amber-600 font-medium"> · 🔒 Hard Gate active</span>}
                   </p>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
                     <div className="flex items-center gap-3 my-2 px-1">
                       <div className="flex-1 h-px bg-amber-300" />
                       <div className="bg-amber-100 border border-amber-300 rounded-xl px-3 py-1.5 flex items-center gap-2 text-amber-700 text-xs font-semibold">
-                        <span>🔑</span>
+                        <span>🔒</span>
                         <span>Hard Gate — master multiplication to unlock advanced maths</span>
                       </div>
                       <div className="flex-1 h-px bg-amber-300" />
@@ -112,7 +112,7 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
                     {/* Hard gate banner inside Level 5 card */}
                     {isHardGateLevel && !hardGatePassed && (
                       <div className="bg-amber-50 border-b border-amber-200 px-5 py-2 flex items-center gap-2">
-                        <span className="text-amber-500">🔑</span>
+                        <span className="text-amber-500">🔒</span>
                         <p className="text-amber-700 text-xs font-medium">
                           Hard Gate — multiplication mastery required before advancing
                         </p>
@@ -120,8 +120,8 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
                     )}
                     {isHardGateLevel && hardGatePassed && profile.placementCompleted && (
                       <div className="bg-green-50 border-b border-green-100 px-5 py-2 flex items-center gap-2">
-                        <span className="text-green-500">✅</span>
-                        <p className="text-green-700 text-xs font-medium">Hard Gate passed</p>
+                        <span>🔑</span>
+                        <p className="text-green-700 text-xs font-medium">Hard Gate opened</p>
                       </div>
                     )}
 

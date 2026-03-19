@@ -151,9 +151,58 @@ const MATHS_ERROR_PLAIN: Record<string, string> = {
   strategy_gap: "Does not know which method to choose for a problem type",
   representation_confusion: "Understands a concept in one format but fails when it looks different",
   conceptual_gap: "Has a gap in the underlying understanding of what the operation means",
-  // Specific codes
+  // Counting & place value
+  ERR_COUNT_OFF_BY_ONE: "Miscounts by one — often caused by including the starting number in the count",
   ERR_COUNT_SKIP: "Skips numbers when counting — affects foundations of addition and multiplication",
-  ERR_SIGN_ERROR: "Applies the wrong operation (e.g. subtracts when the sign says add)",
+  ERR_DIGIT_SWAP: "Reverses the order of digits — for example, writes 32 instead of 23",
+  ERR_FACE_VALUE: "Reads each digit by its face value rather than its place value — treats 47 as '4 and 7' instead of '40 and 7'",
+  // Addition & subtraction
+  ERR_ADD_NEAR_MISS: "Gets addition answers that are close but slightly off — usually a counting or carrying slip",
+  ERR_SUB_ADD: "Mixes up addition and subtraction — uses the wrong operation for the situation",
+  ERR_MULT_ADD: "Uses repeated addition where multiplication is needed — works but becomes unmanageable for larger numbers",
+  ERR_OFF_BY_ONE: "Consistently lands one step away from the correct answer — a systematic counting error",
+  ERR_SIGN_ERROR: "Applies the wrong operation sign (e.g. subtracts when the problem says add)",
+  ERR_SIGN_DROP: "Drops a negative sign mid-calculation — turns a negative result into a positive one",
+  ERR_INTEGER_SIGN: "Struggles with negative numbers — especially when adding or subtracting across zero",
+  // Decomposition & strategy
+  ERR_RIGID: "Relies on only one way to break numbers apart — cannot adapt the strategy to suit the numbers",
+  ERR_PART_WHOLE: "Cannot decompose numbers into parts or understand that parts sum to a whole",
+  ERR_WRONG_SUM: "Finds the wrong total when decomposing — the parts do not add back to the original number",
+  // Fractions
+  ERR_INVERT: "Flips a fraction the wrong way round — writes 2/1 when the answer is 1/2",
+  ERR_FIELD_SWAP: "Swaps the numerator and denominator — confuses which number goes on top",
+  ERR_FRACTION_FORM: "Knows fractions in one format (e.g. shaded shapes) but fails when the same idea looks different",
+  // Ratio & proportion
+  ERR_RATIO_ADD: "Adds the parts of a ratio together instead of working with them as a rate or scale",
+  ERR_RATIO_INVERT: "Inverts the ratio — writes it the wrong way around",
+  ERR_RATIO_PARTIAL: "Only simplifies part of the ratio — leaves one side unsimplified",
+  // Order of operations
+  ERR_BODMAS_ORDER: "Works through calculations from left to right instead of following the correct order of operations",
+  ERR_BRACKET_IGNORE: "Ignores brackets in an expression — calculates as if they are not there",
+  // Algebra
+  ERR_LIKE_TERMS: "Adds or subtracts terms that are not alike — for example, combines x and x²",
+  ERR_WRONG_OP: "Uses the wrong operation for the type of problem",
+  ERR_OP_ERROR: "Makes a general operation error — the method is partly right but a key step goes wrong",
+  ERR_REVERSAL: "Reverses the direction of a calculation or the order of terms in an expression",
+  ERR_SEQ_RULE: "Identifies the wrong rule for a number sequence — adds when it should multiply, or vice versa",
+  ERR_SEQ_DIR: "Applies the sequence rule in the wrong direction — goes up instead of down, or vice versa",
+  ERR_PLAN_SKIP: "Jumps straight to calculating without planning the steps — misses part of what the problem is asking",
+  ERR_CONTEXT_IGNORE: "Gives a mathematically correct answer that does not fit the context of the question",
+  // Factorisation
+  ERR_FACTOR_SIGN: "Gets the right numbers when factorising but uses the wrong plus or minus sign",
+  ERR_FACTOR_WRONG: "Identifies incorrect factors — the numbers chosen do not multiply back to the original expression",
+  ERR_FEATURE_SWAP: "Mixes up the key features of a graph — for example, swaps the x-intercept and the vertex",
+  // Advanced
+  ERR_FLUENCY_SLOW: "Arrives at correct answers but takes significantly longer than expected — fluency needs building",
+  ERR_SUBST_ARITH: "Makes an arithmetic slip when substituting a value into an expression",
+  ERR_POWER_RULE: "Applies the power rule incorrectly when differentiating — for example, forgets to multiply by the original exponent",
+  ERR_COEFF_SLIP: "Makes an error handling the coefficient when differentiating",
+  ERR_CONST_DIFF: "Tries to differentiate a constant as if it were a variable — the derivative of a constant is zero",
+  ERR_LOG_BASE: "Uses the wrong base in a logarithm calculation",
+  ERR_LOG_INVERT: "Writes the logarithm in the wrong form — inverts the relationship between the base and the argument",
+  ERR_TRIG_SWAP: "Mixes up sine, cosine and tangent — uses the wrong ratio for the triangle",
+  ERR_TRIG_INVERT: "Inverts a trigonometric ratio — uses the reciprocal instead of the required function",
+  // Pre-existing specific codes
   ERR_CALC_SLIP: "Makes arithmetic fact errors mid-calculation (e.g. 7+8=16) despite knowing the method",
   ERR_STEP_SKIP: "Omits a required step in a procedure (e.g. forgets to carry in column addition)",
   ERR_NO_STRATEGY: "Attempts problems with no identifiable method — trial and error only",
@@ -163,11 +212,9 @@ const MATHS_ERROR_PLAIN: Record<string, string> = {
   ERR_SYMBOLIC_ONLY: "Can calculate with numbers but fails when the same problem appears as a word or diagram",
   ERR_CONCRETE_ONLY: "Understands problems with objects but cannot work with written number sentences",
   ERR_GRAPH_MISREAD: "Cannot read values correctly from charts, tables, or number lines",
-  ERR_FRACTION_FORM: "Knows fractions in one format (e.g. shaded shapes) but fails in others (e.g. number line)",
   ERR_OP_MEANING: "No mental model of what the operation does — knows procedures by rote only",
   ERR_ZERO_IDENTITY: "Misapplies zero rules (e.g. believes n×0=n)",
   ERR_EQUALITY_MISREAD: "Treats the equals sign as 'write the answer here' rather than as a balance",
-  ERR_PART_WHOLE: "Cannot decompose numbers into parts or understand that parts sum to a whole",
 };
 
 const READING_ERROR_PLAIN: Record<string, string> = {

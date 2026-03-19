@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "Satisfied and happy despite being wet — the text says 'wet but happy'"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'watermelon' have?",
+    "displayWord": "watermelon",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": true
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'crop' without the /r/ sound. What word do you get?",
+    "displayWord": "crop",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "cop",
+        "value": "cop",
+        "correct": true
+      },
+      {
+        "label": "cot",
+        "value": "cot",
+        "correct": false
+      },
+      {
+        "label": "cod",
+        "value": "cod",
+        "correct": false
+      },
+      {
+        "label": "cob",
+        "value": "cob",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'blue'?",
+    "displayWord": "blue",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/b/",
+        "value": "/b/",
+        "correct": true
+      },
+      {
+        "label": "/l/",
+        "value": "/l/",
+        "correct": false
+      },
+      {
+        "label": "/oo/",
+        "value": "/oo/",
+        "correct": false
+      },
+      {
+        "label": "/bl/",
+        "value": "/bl/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Jack opened the box. Inside he found a letter. He read it carefully. Then he smiled.",
+    "question": "What did Jack do AFTER finding the letter?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He opened the box",
+        "value": "He opened the box",
+        "correct": false
+      },
+      {
+        "label": "He smiled",
+        "value": "He smiled",
+        "correct": false
+      },
+      {
+        "label": "He read it",
+        "value": "He read it",
+        "correct": true
+      },
+      {
+        "label": "He wrote a reply",
+        "value": "He wrote a reply",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The puppy was **mischievous** and kept stealing socks from the laundry.",
+    "question": "What does the word 'mischievous' mean in this sentence?",
+    "displayWord": "mischievous",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Naughty",
+        "value": "Naughty",
+        "correct": true
+      },
+      {
+        "label": "Sleepy",
+        "value": "Sleepy",
+        "correct": false
+      },
+      {
+        "label": "Frightened",
+        "value": "Frightened",
+        "correct": false
+      },
+      {
+        "label": "Lonely",
+        "value": "Lonely",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "The forest was silent. Snow had settled on the branches. A lone fox trotted across the clearing.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": true
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "An argument",
+        "value": "An argument",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The lights went out because a fuse had blown.",
+    "question": "Why did the lights go out?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A storm hit",
+        "value": "A storm hit",
+        "correct": false
+      },
+      {
+        "label": "A fuse had blown",
+        "value": "A fuse had blown",
+        "correct": true
+      },
+      {
+        "label": "They forgot to pay the bill",
+        "value": "They forgot to pay the bill",
+        "correct": false
+      },
+      {
+        "label": "Someone turned them off",
+        "value": "Someone turned them off",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The expansion of the hospital will **accommodate** a growing population.",
+    "question": "What does the word 'accommodate' mean in this context?",
+    "displayWord": "accommodate",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Ignore",
+        "value": "Ignore",
+        "correct": false
+      },
+      {
+        "label": "Provide for",
+        "value": "Provide for",
+        "correct": true
+      },
+      {
+        "label": "Reduce",
+        "value": "Reduce",
+        "correct": false
+      },
+      {
+        "label": "Limit",
+        "value": "Limit",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Reading every day builds vocabulary, improves focus, and develops empathy. Encourage your child to read for just 20 minutes a day.",
+    "question": "What does the author want parents to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Buy more books",
+        "value": "Buy more books",
+        "correct": false
+      },
+      {
+        "label": "Encourage their children to read daily",
+        "value": "Encourage their children to read daily",
+        "correct": true
+      },
+      {
+        "label": "Reduce screen time",
+        "value": "Reduce screen time",
+        "correct": false
+      },
+      {
+        "label": "Improve schools",
+        "value": "Improve schools",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /b/-/e/-/d/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "bad",
+        "value": "bad",
+        "correct": false
+      },
+      {
+        "label": "bid",
+        "value": "bid",
+        "correct": false
+      },
+      {
+        "label": "bud",
+        "value": "bud",
+        "correct": false
+      },
+      {
+        "label": "bed",
+        "value": "bed",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SQUASH",
+    "answerMode": "voice",
+    "expectedAnswer": "squash"
   }
 ]

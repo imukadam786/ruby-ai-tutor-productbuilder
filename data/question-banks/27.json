@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "He cared about the birds and was proud of the birdbox he and his dad built together"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 3 syllables?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "dog",
+        "value": "dog",
+        "correct": false
+      },
+      {
+        "label": "yellow",
+        "value": "yellow",
+        "correct": false
+      },
+      {
+        "label": "tomorrow",
+        "value": "tomorrow",
+        "correct": true
+      },
+      {
+        "label": "pen",
+        "value": "pen",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'bled' without the /l/ sound. What word do you get?",
+    "displayWord": "bled",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "bed",
+        "value": "bed",
+        "correct": true
+      },
+      {
+        "label": "red",
+        "value": "red",
+        "correct": false
+      },
+      {
+        "label": "fed",
+        "value": "fed",
+        "correct": false
+      },
+      {
+        "label": "led",
+        "value": "led",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'ship'?",
+    "displayWord": "ship",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The snow fell all night. By morning, the ground was white. Children ran outside. They built a big snowman.",
+    "question": "What did the children do LAST?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Snow fell",
+        "value": "Snow fell",
+        "correct": false
+      },
+      {
+        "label": "Ground was white",
+        "value": "Ground was white",
+        "correct": false
+      },
+      {
+        "label": "Children ran out",
+        "value": "Children ran out",
+        "correct": false
+      },
+      {
+        "label": "Built a snowman",
+        "value": "Built a snowman",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "She felt **anxious** before her performance, her hands shaking slightly.",
+    "question": "What does the word 'anxious' mean in this sentence?",
+    "displayWord": "anxious",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Excited",
+        "value": "Excited",
+        "correct": false
+      },
+      {
+        "label": "Nervous",
+        "value": "Nervous",
+        "correct": true
+      },
+      {
+        "label": "Confident",
+        "value": "Confident",
+        "correct": false
+      },
+      {
+        "label": "Angry",
+        "value": "Angry",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "When water is heated to 100°C, it turns to steam. This is called evaporation.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To instruct",
+        "value": "To instruct",
+        "correct": false
+      },
+      {
+        "label": "To explain how something works",
+        "value": "To explain how something works",
+        "correct": true
+      },
+      {
+        "label": "To entertain",
+        "value": "To entertain",
+        "correct": false
+      },
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "She screamed because she saw a spider on the wall.",
+    "question": "Why did she scream?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "She fell over",
+        "value": "She fell over",
+        "correct": false
+      },
+      {
+        "label": "She saw a spider",
+        "value": "She saw a spider",
+        "correct": true
+      },
+      {
+        "label": "She was surprised by a friend",
+        "value": "She was surprised by a friend",
+        "correct": false
+      },
+      {
+        "label": "The light went out",
+        "value": "The light went out",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The lack of funding will **constrain** the research team's progress.",
+    "question": "What does the word 'constrain' mean in this context?",
+    "displayWord": "constrain",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Speed up",
+        "value": "Speed up",
+        "correct": false
+      },
+      {
+        "label": "Limit",
+        "value": "Limit",
+        "correct": true
+      },
+      {
+        "label": "End",
+        "value": "End",
+        "correct": false
+      },
+      {
+        "label": "Support",
+        "value": "Support",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Billions of people lack access to clean water. This kills thousands every day. Donating even £5 can help provide filters to families in need.",
+    "question": "What does the author want readers to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Learn about clean water",
+        "value": "Learn about clean water",
+        "correct": false
+      },
+      {
+        "label": "Volunteer abroad",
+        "value": "Volunteer abroad",
+        "correct": false
+      },
+      {
+        "label": "Donate money",
+        "value": "Donate money",
+        "correct": true
+      },
+      {
+        "label": "Study the water crisis",
+        "value": "Study the water crisis",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /s/-/a/-/d/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sad",
+        "value": "sad",
+        "correct": true
+      },
+      {
+        "label": "sed",
+        "value": "sed",
+        "correct": false
+      },
+      {
+        "label": "sid",
+        "value": "sid",
+        "correct": false
+      },
+      {
+        "label": "sod",
+        "value": "sod",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SPRAY",
+    "answerMode": "voice",
+    "expectedAnswer": "spray"
   }
 ]

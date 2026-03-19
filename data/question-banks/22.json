@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "It requires patience and speed — not every attempt succeeds"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 4 syllables?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "dog",
+        "value": "dog",
+        "correct": false
+      },
+      {
+        "label": "happy",
+        "value": "happy",
+        "correct": false
+      },
+      {
+        "label": "umbrella",
+        "value": "umbrella",
+        "correct": false
+      },
+      {
+        "label": "television",
+        "value": "television",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'print' without the /r/ sound. What word do you get?",
+    "displayWord": "print",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "pint",
+        "value": "pint",
+        "correct": true
+      },
+      {
+        "label": "hint",
+        "value": "hint",
+        "correct": false
+      },
+      {
+        "label": "mint",
+        "value": "mint",
+        "correct": false
+      },
+      {
+        "label": "tint",
+        "value": "tint",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'graph'?",
+    "displayWord": "graph",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/g/",
+        "value": "/g/",
+        "correct": true
+      },
+      {
+        "label": "/r/",
+        "value": "/r/",
+        "correct": false
+      },
+      {
+        "label": "/a/",
+        "value": "/a/",
+        "correct": false
+      },
+      {
+        "label": "/f/",
+        "value": "/f/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The puppy heard a sound. It ran to the door. It sniffed the mat. Then it barked.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Puppy training",
+        "value": "Puppy training",
+        "correct": false
+      },
+      {
+        "label": "A puppy reacting to a sound",
+        "value": "A puppy reacting to a sound",
+        "correct": true
+      },
+      {
+        "label": "Types of dogs",
+        "value": "Types of dogs",
+        "correct": false
+      },
+      {
+        "label": "How dogs smell things",
+        "value": "How dogs smell things",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The ancient vase was **fragile** — we were told not to touch it.",
+    "question": "What does the word 'fragile' mean in this sentence?",
+    "displayWord": "fragile",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Valuable",
+        "value": "Valuable",
+        "correct": false
+      },
+      {
+        "label": "Easily broken",
+        "value": "Easily broken",
+        "correct": true
+      },
+      {
+        "label": "Very heavy",
+        "value": "Very heavy",
+        "correct": false
+      },
+      {
+        "label": "Colourful",
+        "value": "Colourful",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Bees pollinate plants by carrying pollen on their bodies from flower to flower, helping plants to reproduce.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": false
+      },
+      {
+        "label": "To explain how something works",
+        "value": "To explain how something works",
+        "correct": true
+      },
+      {
+        "label": "To tell a story",
+        "value": "To tell a story",
+        "correct": false
+      },
+      {
+        "label": "To instruct",
+        "value": "To instruct",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The volcano erupted, covering the village in ash.",
+    "question": "What caused the village to be covered in ash?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A dust storm",
+        "value": "A dust storm",
+        "correct": false
+      },
+      {
+        "label": "The volcano erupted",
+        "value": "The volcano erupted",
+        "correct": true
+      },
+      {
+        "label": "A fire broke out",
+        "value": "A fire broke out",
+        "correct": false
+      },
+      {
+        "label": "Strong winds",
+        "value": "Strong winds",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The charity works to **preserve** traditional crafts that are dying out.",
+    "question": "What does the word 'preserve' mean in this context?",
+    "displayWord": "preserve",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Study",
+        "value": "Study",
+        "correct": false
+      },
+      {
+        "label": "Sell",
+        "value": "Sell",
+        "correct": false
+      },
+      {
+        "label": "Keep and protect",
+        "value": "Keep and protect",
+        "correct": true
+      },
+      {
+        "label": "Replace",
+        "value": "Replace",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "The Sistine Chapel ceiling was painted by Michelangelo between 1508 and 1512. It is considered one of the greatest artistic achievements in history.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To persuade you to visit Italy",
+        "value": "To persuade you to visit Italy",
+        "correct": false
+      },
+      {
+        "label": "To provide information about a famous artwork",
+        "value": "To provide information about a famous artwork",
+        "correct": true
+      },
+      {
+        "label": "To describe painting techniques",
+        "value": "To describe painting techniques",
+        "correct": false
+      },
+      {
+        "label": "To compare artists",
+        "value": "To compare artists",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /b/-/u/-/s/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "bas",
+        "value": "bas",
+        "correct": false
+      },
+      {
+        "label": "bis",
+        "value": "bis",
+        "correct": false
+      },
+      {
+        "label": "bos",
+        "value": "bos",
+        "correct": false
+      },
+      {
+        "label": "bus",
+        "value": "bus",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SQUELCH",
+    "answerMode": "voice",
+    "expectedAnswer": "squelch"
   }
 ]

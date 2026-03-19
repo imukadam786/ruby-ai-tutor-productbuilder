@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "The second shoe was also hidden somewhere — the same problem was going to happen again"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "I'll say the parts of a word. What word is it?",
+    "displayWord": "win — ter",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "winter",
+        "value": "winter",
+        "correct": true
+      },
+      {
+        "label": "winner",
+        "value": "winner",
+        "correct": false
+      },
+      {
+        "label": "window",
+        "value": "window",
+        "correct": false
+      },
+      {
+        "label": "winder",
+        "value": "winder",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'blaze' without the /b/ sound. What word do you get?",
+    "displayWord": "blaze",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "laze",
+        "value": "laze",
+        "correct": true
+      },
+      {
+        "label": "maze",
+        "value": "maze",
+        "correct": false
+      },
+      {
+        "label": "gaze",
+        "value": "gaze",
+        "correct": false
+      },
+      {
+        "label": "daze",
+        "value": "daze",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'trip'?",
+    "displayWord": "trip",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": true
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      },
+      {
+        "label": "6",
+        "value": "6",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The ice melted in the sun. The puddle grew bigger. A sparrow came to splash in it. Then it flew away.",
+    "question": "What happened AFTER the puddle grew bigger?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Ice melted",
+        "value": "Ice melted",
+        "correct": false
+      },
+      {
+        "label": "Puddle grew",
+        "value": "Puddle grew",
+        "correct": false
+      },
+      {
+        "label": "A sparrow came to splash",
+        "value": "A sparrow came to splash",
+        "correct": true
+      },
+      {
+        "label": "The sparrow flew away",
+        "value": "The sparrow flew away",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The journalist **verified** each fact before publishing the article.",
+    "question": "What does the word 'verified' mean in this sentence?",
+    "displayWord": "verified",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Changed",
+        "value": "Changed",
+        "correct": false
+      },
+      {
+        "label": "Guessed",
+        "value": "Guessed",
+        "correct": false
+      },
+      {
+        "label": "Checked to make sure it was true",
+        "value": "Checked to make sure it was true",
+        "correct": true
+      },
+      {
+        "label": "Wrote",
+        "value": "Wrote",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "The ship disappeared into the fog. By morning, no one could say where it had gone.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": true
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "A description",
+        "value": "A description",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The sandcastle washed away because the tide came in.",
+    "question": "What happened to the sandcastle?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Children knocked it down",
+        "value": "Children knocked it down",
+        "correct": false
+      },
+      {
+        "label": "The tide washed it away",
+        "value": "The tide washed it away",
+        "correct": true
+      },
+      {
+        "label": "It fell over in the wind",
+        "value": "It fell over in the wind",
+        "correct": false
+      },
+      {
+        "label": "Someone sat on it",
+        "value": "Someone sat on it",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The author **concedes** that there are valid arguments on both sides.",
+    "question": "What does the word 'concedes' mean in this context?",
+    "displayWord": "concedes",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Denies",
+        "value": "Denies",
+        "correct": false
+      },
+      {
+        "label": "Ignores",
+        "value": "Ignores",
+        "correct": false
+      },
+      {
+        "label": "Admits",
+        "value": "Admits",
+        "correct": true
+      },
+      {
+        "label": "Celebrates",
+        "value": "Celebrates",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Mental health problems affect one in four people. Yet stigma stops many from seeking help. Talk openly. Break the silence.",
+    "question": "What does the author most want readers to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Seek professional help",
+        "value": "Seek professional help",
+        "correct": false
+      },
+      {
+        "label": "Fund mental health services",
+        "value": "Fund mental health services",
+        "correct": false
+      },
+      {
+        "label": "Talk openly about mental health",
+        "value": "Talk openly about mental health",
+        "correct": true
+      },
+      {
+        "label": "Learn the signs of mental illness",
+        "value": "Learn the signs of mental illness",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /b/-/u/-/d/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "bad",
+        "value": "bad",
+        "correct": false
+      },
+      {
+        "label": "bed",
+        "value": "bed",
+        "correct": false
+      },
+      {
+        "label": "bid",
+        "value": "bid",
+        "correct": false
+      },
+      {
+        "label": "bud",
+        "value": "bud",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SQUAT",
+    "answerMode": "voice",
+    "expectedAnswer": "squat"
   }
 ]

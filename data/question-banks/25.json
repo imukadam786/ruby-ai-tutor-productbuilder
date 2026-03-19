@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "It was curious or checking if he was a threat before continuing"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 2 syllables?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sun",
+        "value": "sun",
+        "correct": false
+      },
+      {
+        "label": "elephant",
+        "value": "elephant",
+        "correct": false
+      },
+      {
+        "label": "pencil",
+        "value": "pencil",
+        "correct": true
+      },
+      {
+        "label": "watermelon",
+        "value": "watermelon",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'prop' without the /r/ sound. What word do you get?",
+    "displayWord": "prop",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "pop",
+        "value": "pop",
+        "correct": true
+      },
+      {
+        "label": "cop",
+        "value": "cop",
+        "correct": false
+      },
+      {
+        "label": "hop",
+        "value": "hop",
+        "correct": false
+      },
+      {
+        "label": "top",
+        "value": "top",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'quit'?",
+    "displayWord": "quit",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/k/",
+        "value": "/k/",
+        "correct": false
+      },
+      {
+        "label": "/w/",
+        "value": "/w/",
+        "correct": false
+      },
+      {
+        "label": "/kw/",
+        "value": "/kw/",
+        "correct": true
+      },
+      {
+        "label": "/i/",
+        "value": "/i/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Leo found a caterpillar. He put it in a jar with leaves. After a week, it made a cocoon. Later it became a butterfly.",
+    "question": "What happened AFTER the caterpillar made a cocoon?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Leo found it",
+        "value": "Leo found it",
+        "correct": false
+      },
+      {
+        "label": "It was put in a jar",
+        "value": "It was put in a jar",
+        "correct": false
+      },
+      {
+        "label": "It made a cocoon",
+        "value": "It made a cocoon",
+        "correct": false
+      },
+      {
+        "label": "It became a butterfly",
+        "value": "It became a butterfly",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The town was **deserted** during the festival — everyone had gone to the park.",
+    "question": "What does the word 'deserted' mean in this sentence?",
+    "displayWord": "deserted",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Crowded",
+        "value": "Crowded",
+        "correct": false
+      },
+      {
+        "label": "Noisy",
+        "value": "Noisy",
+        "correct": false
+      },
+      {
+        "label": "Empty",
+        "value": "Empty",
+        "correct": true
+      },
+      {
+        "label": "Beautiful",
+        "value": "Beautiful",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "She crept downstairs in the dark. The clock showed 2am. Something had woken her, but she didn't know what.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": true
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "An argument",
+        "value": "An argument",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The picnic was ruined because ants got into all the food.",
+    "question": "What ruined the picnic?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It started raining",
+        "value": "It started raining",
+        "correct": false
+      },
+      {
+        "label": "Ants got into the food",
+        "value": "Ants got into the food",
+        "correct": true
+      },
+      {
+        "label": "They forgot to bring drinks",
+        "value": "They forgot to bring drinks",
+        "correct": false
+      },
+      {
+        "label": "They lost the blanket",
+        "value": "They lost the blanket",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The leaders agreed to **implement** the new safety regulations immediately.",
+    "question": "What does the word 'implement' mean in this context?",
+    "displayWord": "implement",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Discuss further",
+        "value": "Discuss further",
+        "correct": false
+      },
+      {
+        "label": "Put into action",
+        "value": "Put into action",
+        "correct": true
+      },
+      {
+        "label": "Review",
+        "value": "Review",
+        "correct": false
+      },
+      {
+        "label": "Cancel",
+        "value": "Cancel",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "The oceans are warming. Coral reefs are dying. Species are disappearing. We are running out of time to act on climate change.",
+    "question": "What emotion does the author want readers to feel?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Curiosity",
+        "value": "Curiosity",
+        "correct": false
+      },
+      {
+        "label": "Calm",
+        "value": "Calm",
+        "correct": false
+      },
+      {
+        "label": "Urgency",
+        "value": "Urgency",
+        "correct": true
+      },
+      {
+        "label": "Admiration",
+        "value": "Admiration",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /g/-/o/-/t/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "gut",
+        "value": "gut",
+        "correct": false
+      },
+      {
+        "label": "git",
+        "value": "git",
+        "correct": false
+      },
+      {
+        "label": "gat",
+        "value": "gat",
+        "correct": false
+      },
+      {
+        "label": "got",
+        "value": "got",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "THUMP",
+    "answerMode": "voice",
+    "expectedAnswer": "thump"
   }
 ]

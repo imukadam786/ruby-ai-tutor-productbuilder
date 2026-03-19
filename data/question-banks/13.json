@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "They could not swim — the water they lived on had turned solid"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'pen' have?",
+    "displayWord": "pen",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": true
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'skit' without the /k/ sound. What word do you get?",
+    "displayWord": "skit",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sit",
+        "value": "sit",
+        "correct": true
+      },
+      {
+        "label": "bit",
+        "value": "bit",
+        "correct": false
+      },
+      {
+        "label": "hit",
+        "value": "hit",
+        "correct": false
+      },
+      {
+        "label": "fit",
+        "value": "fit",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'glue'?",
+    "displayWord": "glue",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/g/",
+        "value": "/g/",
+        "correct": true
+      },
+      {
+        "label": "/l/",
+        "value": "/l/",
+        "correct": false
+      },
+      {
+        "label": "/oo/",
+        "value": "/oo/",
+        "correct": false
+      },
+      {
+        "label": "/gl/",
+        "value": "/gl/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Ava put on her helmet. She got on her bike. She rode down the hill. At the bottom, she stopped.",
+    "question": "What did Ava do FIRST?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Put on her helmet",
+        "value": "Put on her helmet",
+        "correct": true
+      },
+      {
+        "label": "Got on her bike",
+        "value": "Got on her bike",
+        "correct": false
+      },
+      {
+        "label": "Rode down the hill",
+        "value": "Rode down the hill",
+        "correct": false
+      },
+      {
+        "label": "Stopped at the bottom",
+        "value": "Stopped at the bottom",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The teacher used a **vivid** description that helped us picture the scene.",
+    "question": "What does the word 'vivid' mean in this sentence?",
+    "displayWord": "vivid",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Boring",
+        "value": "Boring",
+        "correct": false
+      },
+      {
+        "label": "Very clear and colourful",
+        "value": "Very clear and colourful",
+        "correct": true
+      },
+      {
+        "label": "Confusing",
+        "value": "Confusing",
+        "correct": false
+      },
+      {
+        "label": "Very long",
+        "value": "Very long",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "To plant seeds: dig a small hole, drop in the seed, cover with soil, and water gently.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": true
+      },
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "An argument",
+        "value": "An argument",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The bread burnt because he forgot to set the timer.",
+    "question": "Why did the bread burn?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The oven was broken",
+        "value": "The oven was broken",
+        "correct": false
+      },
+      {
+        "label": "He forgot the timer",
+        "value": "He forgot the timer",
+        "correct": true
+      },
+      {
+        "label": "The bread was too thick",
+        "value": "The bread was too thick",
+        "correct": false
+      },
+      {
+        "label": "It was in for too long by accident",
+        "value": "It was in for too long by accident",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The new evidence will **undermine** the defence's case in court.",
+    "question": "What does the word 'undermine' mean in this context?",
+    "displayWord": "undermine",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Support",
+        "value": "Support",
+        "correct": false
+      },
+      {
+        "label": "Prove",
+        "value": "Prove",
+        "correct": false
+      },
+      {
+        "label": "Weaken",
+        "value": "Weaken",
+        "correct": true
+      },
+      {
+        "label": "Change",
+        "value": "Change",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Fast fashion is destroying the planet. Cheap clothes create mountains of waste. Choose quality over quantity.",
+    "question": "What does the author want readers to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Avoid shopping altogether",
+        "value": "Avoid shopping altogether",
+        "correct": false
+      },
+      {
+        "label": "Buy clothes from certain brands",
+        "value": "Buy clothes from certain brands",
+        "correct": false
+      },
+      {
+        "label": "Buy fewer, better-quality clothes",
+        "value": "Buy fewer, better-quality clothes",
+        "correct": true
+      },
+      {
+        "label": "Learn how clothes are made",
+        "value": "Learn how clothes are made",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /j/-/a/-/m/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "gem",
+        "value": "gem",
+        "correct": false
+      },
+      {
+        "label": "jim",
+        "value": "jim",
+        "correct": false
+      },
+      {
+        "label": "jam",
+        "value": "jam",
+        "correct": true
+      },
+      {
+        "label": "jum",
+        "value": "jum",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "STRICTLY",
+    "answerMode": "voice",
+    "expectedAnswer": "strictly"
   }
 ]

@@ -33,6 +33,12 @@ import {
   saveReadingProfile,
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
+import SessionWarmup from "@/components/reading/SessionWarmup";
+import {
+  hasWarmupTasksRemaining,
+  selectSessionWarmupSkills,
+  WarmupResult,
+} from "@/lib/reading-warmup";
 import { selectReadingTemplate } from "@/lib/template-selector";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
@@ -48,7 +54,7 @@ import {
   trackPlacementCompleted,
 } from "@/lib/analytics";
 
-type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
+type SessionPhase = "warmup" | "loading_question" | "question" | "feedback" | "mastered" | "complete";
 
 // ─── Reading report input builder ─────────────────────────────────────────────
 
@@ -124,6 +130,7 @@ function readOnboarding(): { name: string; grade: number } {
 
 export default function ReadingSession() {
   const { language } = useT();
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<ReadingStudentProfile | null>(null);
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<ReadingGeneratedQuestion | null>(null);
@@ -137,11 +144,68 @@ export default function ReadingSession() {
   const [pendingPlacementResult, setPendingPlacementResult] = useState<import("@/types/reading").DiagnosticPlacementResult | null>(null);
   const [showReport, setShowReport] = useState(false);
 
+  // Phase 2 warmup
+  const [warmupBankIndex] = useState(() => Math.floor(Math.random() * 50) + 1);
+  const [warmupSkillIds, setWarmupSkillIds] = useState<string[]>([]);
+
+  const handleWarmupComplete = useCallback(
+    (results: WarmupResult[]) => {
+      if (!profile) return;
+      // Mark warmup skills as completed in the profile
+      const completed = [...(profile.warmupSkillsCompleted ?? [])];
+      const updatedMastery = { ...profile.skill_mastery };
+
+      for (const r of results) {
+        if (!completed.includes(r.skillId)) completed.push(r.skillId);
+        // Record a lightweight mastery entry — does not override real lesson mastery
+        if (!updatedMastery[r.skillId]) {
+          updatedMastery[r.skillId] = {
+            skill_id: r.skillId,
+            status: r.correct ? "mastered" : "in_progress",
+            correct_count: r.correct ? 1 : 0,
+            attempt_count: 1,
+            formats_used: ["oral"],
+            scaffolded_attempts: 0,
+            last_attempted: new Date().toISOString(),
+            attempts: [],
+          };
+        }
+      }
+
+      const updated = {
+        ...profile,
+        warmupSkillsCompleted: completed,
+        skill_mastery: updatedMastery,
+        last_active: new Date().toISOString(),
+      };
+
+      // Fire-and-forget to server route for analytics
+      fetch("/api/reading/warmup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ results }),
+      }).catch(() => {});
+
+      setProfile(updated);
+      // saveReadingProfile is called by setProfile → not available directly; use the lib helper
+      import("@/lib/reading-student-model").then(({ saveReadingProfile }) => {
+        saveReadingProfile(updated);
+      });
+
+      setPhase("loading_question");
+    },
+    [profile]
+  );
+
   // Recent templates — used by selectReadingTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<ReadingTemplate[]>([]);
 
   // Prevents double-writing sessionHistory for the same skill session
   const hasRecordedSession = useRef(false);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0 });
+  }, [phase, currentQuestion?.id]);
 
   useEffect(() => {
     const saved = getReadingProfile();
@@ -155,7 +219,14 @@ export default function ReadingSession() {
         });
       }
       setProfile(saved);
-      setPhase("loading_question");
+      // Show warmup if placement is done and warmup tasks remain
+      if (saved.placementCompleted && hasWarmupTasksRemaining(saved)) {
+        const skills = selectSessionWarmupSkills(saved);
+        setWarmupSkillIds(skills);
+        setPhase("warmup");
+      } else {
+        setPhase("loading_question");
+      }
     } else {
       // Auto-create from onboarding — no setup screen needed
       const { name, grade } = readOnboarding();
@@ -220,7 +291,14 @@ export default function ReadingSession() {
       if (!profile) return;
       const updated = completeDiagnosticPlacement(profile, result);
       setProfile(updated);
-      setPhase("loading_question");
+      // Show warmup immediately after placement if tasks remain
+      if (hasWarmupTasksRemaining(updated)) {
+        const skills = selectSessionWarmupSkills(updated);
+        setWarmupSkillIds(skills);
+        setPhase("warmup");
+      } else {
+        setPhase("loading_question");
+      }
 
       trackPlacementCompleted({
         subject: "reading",
@@ -527,6 +605,19 @@ export default function ReadingSession() {
     );
   }
 
+  // ─── Warmup ───────────────────────────────────────────────────────────────────
+
+  if (phase === "warmup" && profile) {
+    return (
+      <SessionWarmup
+        skillIds={warmupSkillIds}
+        bankIndex={warmupBankIndex}
+        studentName={profile.name}
+        onComplete={handleWarmupComplete}
+      />
+    );
+  }
+
   // ─── Loading ──────────────────────────────────────────────────────────────────
 
   if (phase === "loading_question") {
@@ -551,7 +642,7 @@ export default function ReadingSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
             {skill && (
               <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
@@ -588,7 +679,7 @@ export default function ReadingSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto">
             <ReadingFeedbackCard
               result={currentResult}

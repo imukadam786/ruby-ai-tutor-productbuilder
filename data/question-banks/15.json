@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "The race — they ran to watch the sticks come out the other side of the bridge"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'important' have?",
+    "displayWord": "important",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'grab' without the /r/ sound. What word do you get?",
+    "displayWord": "grab",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "gab",
+        "value": "gab",
+        "correct": true
+      },
+      {
+        "label": "tab",
+        "value": "tab",
+        "correct": false
+      },
+      {
+        "label": "jab",
+        "value": "jab",
+        "correct": false
+      },
+      {
+        "label": "cab",
+        "value": "cab",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'through'?",
+    "displayWord": "through",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/t/",
+        "value": "/t/",
+        "correct": false
+      },
+      {
+        "label": "/r/",
+        "value": "/r/",
+        "correct": false
+      },
+      {
+        "label": "/th/",
+        "value": "/th/",
+        "correct": true
+      },
+      {
+        "label": "/oo/",
+        "value": "/oo/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The bird found a twig. It flew back to the tree. It added the twig to its nest. Soon the nest was big enough.",
+    "question": "What did the bird do BEFORE flying back to the tree?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Found a twig",
+        "value": "Found a twig",
+        "correct": true
+      },
+      {
+        "label": "Added the twig",
+        "value": "Added the twig",
+        "correct": false
+      },
+      {
+        "label": "Made the nest big",
+        "value": "Made the nest big",
+        "correct": false
+      },
+      {
+        "label": "Laid an egg",
+        "value": "Laid an egg",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "She had to **endure** three hours of rain before the concert finally started.",
+    "question": "What does the word 'endure' mean in this sentence?",
+    "displayWord": "endure",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Enjoy",
+        "value": "Enjoy",
+        "correct": false
+      },
+      {
+        "label": "Put up with",
+        "value": "Put up with",
+        "correct": true
+      },
+      {
+        "label": "Avoid",
+        "value": "Avoid",
+        "correct": false
+      },
+      {
+        "label": "Celebrate",
+        "value": "Celebrate",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Mount Everest is the world's highest mountain at 8,849 metres. It sits on the border of Nepal and Tibet.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": true
+      },
+      {
+        "label": "A letter",
+        "value": "A letter",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The window broke because a ball hit it.",
+    "question": "What caused the window to break?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A ball hit it",
+        "value": "A ball hit it",
+        "correct": true
+      },
+      {
+        "label": "The wind was too strong",
+        "value": "The wind was too strong",
+        "correct": false
+      },
+      {
+        "label": "It was very old",
+        "value": "It was very old",
+        "correct": false
+      },
+      {
+        "label": "Someone opened it too hard",
+        "value": "Someone opened it too hard",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The programme seeks to **empower** young people to become leaders.",
+    "question": "What does the word 'empower' mean in this context?",
+    "displayWord": "empower",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Give confidence and ability to act",
+        "value": "Give confidence and ability to act",
+        "correct": true
+      },
+      {
+        "label": "Train professionally",
+        "value": "Train professionally",
+        "correct": false
+      },
+      {
+        "label": "Select carefully",
+        "value": "Select carefully",
+        "correct": false
+      },
+      {
+        "label": "Fund financially",
+        "value": "Fund financially",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Every year, 8 million tonnes of plastic enter our oceans. Fish mistake it for food. The problem will only get worse unless we change our habits.",
+    "question": "What does the author most want readers to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Learn about ocean life",
+        "value": "Learn about ocean life",
+        "correct": false
+      },
+      {
+        "label": "Change their habits to reduce plastic pollution",
+        "value": "Change their habits to reduce plastic pollution",
+        "correct": true
+      },
+      {
+        "label": "Study pollution data",
+        "value": "Study pollution data",
+        "correct": false
+      },
+      {
+        "label": "Feel sad about the environment",
+        "value": "Feel sad about the environment",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /w/-/e/-/b/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "wab",
+        "value": "wab",
+        "correct": false
+      },
+      {
+        "label": "wib",
+        "value": "wib",
+        "correct": false
+      },
+      {
+        "label": "wub",
+        "value": "wub",
+        "correct": false
+      },
+      {
+        "label": "web",
+        "value": "web",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "THRASH",
+    "answerMode": "voice",
+    "expectedAnswer": "thrash"
   }
 ]

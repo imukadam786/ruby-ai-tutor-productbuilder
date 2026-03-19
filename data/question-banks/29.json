@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "He found the test difficult or was unsure of his answers — a sign of nerves"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 1 syllable?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "happy",
+        "value": "happy",
+        "correct": false
+      },
+      {
+        "label": "umbrella",
+        "value": "umbrella",
+        "correct": false
+      },
+      {
+        "label": "rain",
+        "value": "rain",
+        "correct": true
+      },
+      {
+        "label": "adventure",
+        "value": "adventure",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'swing' without the /w/ sound. What word do you get?",
+    "displayWord": "swing",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sing",
+        "value": "sing",
+        "correct": true
+      },
+      {
+        "label": "ring",
+        "value": "ring",
+        "correct": false
+      },
+      {
+        "label": "king",
+        "value": "king",
+        "correct": false
+      },
+      {
+        "label": "wing",
+        "value": "wing",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'fox'?",
+    "displayWord": "fox",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Grace tied her laces. She picked up her tennis racket. She walked to the court. She began to play.",
+    "question": "What did Grace do FIRST?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Tied her laces",
+        "value": "Tied her laces",
+        "correct": true
+      },
+      {
+        "label": "Picked up her racket",
+        "value": "Picked up her racket",
+        "correct": false
+      },
+      {
+        "label": "Walked to the court",
+        "value": "Walked to the court",
+        "correct": false
+      },
+      {
+        "label": "Began to play",
+        "value": "Began to play",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The speaker's voice was **monotonous** — every sentence the same flat tone.",
+    "question": "What does the word 'monotonous' mean in this sentence?",
+    "displayWord": "monotonous",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Loud",
+        "value": "Loud",
+        "correct": false
+      },
+      {
+        "label": "Exciting",
+        "value": "Exciting",
+        "correct": false
+      },
+      {
+        "label": "Boring and unchanging",
+        "value": "Boring and unchanging",
+        "correct": true
+      },
+      {
+        "label": "High-pitched",
+        "value": "High-pitched",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "The Great Wall of China stretches over 21,000 kilometres. It was built over many centuries to protect China.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": true
+      },
+      {
+        "label": "An argument",
+        "value": "An argument",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The jar was too tight to open, so she used a cloth for grip.",
+    "question": "Why did she use a cloth?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Her hands were wet",
+        "value": "Her hands were wet",
+        "correct": false
+      },
+      {
+        "label": "The jar was too tight to open",
+        "value": "The jar was too tight to open",
+        "correct": true
+      },
+      {
+        "label": "The lid was broken",
+        "value": "The lid was broken",
+        "correct": false
+      },
+      {
+        "label": "She wanted to protect her hands",
+        "value": "She wanted to protect her hands",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The new law **prohibits** the sale of single-use plastics.",
+    "question": "What does the word 'prohibits' mean in this context?",
+    "displayWord": "prohibits",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Allows",
+        "value": "Allows",
+        "correct": false
+      },
+      {
+        "label": "Encourages",
+        "value": "Encourages",
+        "correct": false
+      },
+      {
+        "label": "Bans",
+        "value": "Bans",
+        "correct": true
+      },
+      {
+        "label": "Regulates",
+        "value": "Regulates",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Teenagers need at least nine hours of sleep a night. Without it, concentration drops, mood suffers, and health declines. Let teenagers sleep later.",
+    "question": "What does the author want to change?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Homework deadlines",
+        "value": "Homework deadlines",
+        "correct": false
+      },
+      {
+        "label": "School start times",
+        "value": "School start times",
+        "correct": true
+      },
+      {
+        "label": "Teenagers' habits",
+        "value": "Teenagers' habits",
+        "correct": false
+      },
+      {
+        "label": "Bedroom environments",
+        "value": "Bedroom environments",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /h/-/a/-/t/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "hot",
+        "value": "hot",
+        "correct": false
+      },
+      {
+        "label": "hit",
+        "value": "hit",
+        "correct": false
+      },
+      {
+        "label": "hut",
+        "value": "hut",
+        "correct": false
+      },
+      {
+        "label": "hat",
+        "value": "hat",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SQUEAK",
+    "answerMode": "voice",
+    "expectedAnswer": "squeak"
   }
 ]

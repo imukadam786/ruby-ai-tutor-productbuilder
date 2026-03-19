@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "To warn other ships of their position and avoid collisions in low visibility"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "I'll say the parts of a word. What word is it?",
+    "displayWord": "pock — et",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "pocket",
+        "value": "pocket",
+        "correct": true
+      },
+      {
+        "label": "picket",
+        "value": "picket",
+        "correct": false
+      },
+      {
+        "label": "packet",
+        "value": "packet",
+        "correct": false
+      },
+      {
+        "label": "rocket",
+        "value": "rocket",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'brag' without the /r/ sound. What word do you get?",
+    "displayWord": "brag",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "bag",
+        "value": "bag",
+        "correct": true
+      },
+      {
+        "label": "tag",
+        "value": "tag",
+        "correct": false
+      },
+      {
+        "label": "lag",
+        "value": "lag",
+        "correct": false
+      },
+      {
+        "label": "wag",
+        "value": "wag",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'last'?",
+    "displayWord": "last",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": true
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      },
+      {
+        "label": "6",
+        "value": "6",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The fire alarm sounded. Everyone stood up calmly. The teacher led the class outside. They waited on the field.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Fire safety rules",
+        "value": "Fire safety rules",
+        "correct": false
+      },
+      {
+        "label": "The class doing a fire drill",
+        "value": "The class doing a fire drill",
+        "correct": true
+      },
+      {
+        "label": "Types of alarms",
+        "value": "Types of alarms",
+        "correct": false
+      },
+      {
+        "label": "School playgrounds",
+        "value": "School playgrounds",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The audience was **captivated** by the performance and sat in complete silence.",
+    "question": "What does the word 'captivated' mean in this sentence?",
+    "displayWord": "captivated",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Bored",
+        "value": "Bored",
+        "correct": false
+      },
+      {
+        "label": "Completely absorbed",
+        "value": "Completely absorbed",
+        "correct": true
+      },
+      {
+        "label": "Confused",
+        "value": "Confused",
+        "correct": false
+      },
+      {
+        "label": "Noisy",
+        "value": "Noisy",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "He stood at the edge of the platform. The train was late. Again.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": true
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "An argument",
+        "value": "An argument",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The alarm woke everyone up because someone had burnt the toast.",
+    "question": "What set off the alarm?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A fire started",
+        "value": "A fire started",
+        "correct": false
+      },
+      {
+        "label": "Burnt toast",
+        "value": "Burnt toast",
+        "correct": true
+      },
+      {
+        "label": "Someone tested it",
+        "value": "Someone tested it",
+        "correct": false
+      },
+      {
+        "label": "The electricity flickered",
+        "value": "The electricity flickered",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The project **exemplifies** best practice in community-led conservation.",
+    "question": "What does the word 'exemplifies' mean in this context?",
+    "displayWord": "exemplifies",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Criticises",
+        "value": "Criticises",
+        "correct": false
+      },
+      {
+        "label": "Is a perfect example of",
+        "value": "Is a perfect example of",
+        "correct": true
+      },
+      {
+        "label": "Fails to show",
+        "value": "Fails to show",
+        "correct": false
+      },
+      {
+        "label": "Describes",
+        "value": "Describes",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Marie Curie was the first woman to win a Nobel Prize — and the only person to win it in two different sciences.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To persuade you to study science",
+        "value": "To persuade you to study science",
+        "correct": false
+      },
+      {
+        "label": "To compare scientists",
+        "value": "To compare scientists",
+        "correct": false
+      },
+      {
+        "label": "To share an impressive historical achievement",
+        "value": "To share an impressive historical achievement",
+        "correct": true
+      },
+      {
+        "label": "To describe Curie's experiments",
+        "value": "To describe Curie's experiments",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /s/-/o/-/b/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sab",
+        "value": "sab",
+        "correct": false
+      },
+      {
+        "label": "sib",
+        "value": "sib",
+        "correct": false
+      },
+      {
+        "label": "sub",
+        "value": "sub",
+        "correct": false
+      },
+      {
+        "label": "sob",
+        "value": "sob",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SPRINKLE",
+    "answerMode": "voice",
+    "expectedAnswer": "sprinkle"
   }
 ]

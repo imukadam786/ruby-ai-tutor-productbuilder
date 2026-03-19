@@ -343,6 +343,7 @@ export default function MathsDiagnosticPlacement({
 }) {
   const [phase, setPhase] = useState<Phase>("welcome");
   const [domainTitleMap, setDomainTitleMap] = useState<Record<string, string>>({});
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   // Dynamic task queue — rebuilt phase by phase
   const [allBankTasks, setAllBankTasks] = useState<Task[]>([]);
@@ -439,6 +440,10 @@ export default function MathsDiagnosticPlacement({
   const answerInputRef = useRef<HTMLInputElement>(null);
 
   // Reset answer state and focus input (desktop only) whenever the task changes
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0 });
+  }, [task?.id, phaseIndex]);
+
   useEffect(() => {
     if (task) {
       setAnswers(task.fields ? task.fields.map(() => "") : [""]);
@@ -812,7 +817,7 @@ export default function MathsDiagnosticPlacement({
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 sm:p-5">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 sm:p-5">
         <div className="max-w-md mx-auto space-y-4">
           {/* Domain badge */}
           <div className="flex items-center gap-2">

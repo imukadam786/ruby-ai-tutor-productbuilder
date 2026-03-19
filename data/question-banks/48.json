@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "It was ending the staring contest without admitting defeat — a face-saving behaviour"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "I'll say the parts of a word. What word is it?",
+    "displayWord": "but — ton",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "button",
+        "value": "button",
+        "correct": true
+      },
+      {
+        "label": "butter",
+        "value": "butter",
+        "correct": false
+      },
+      {
+        "label": "bottom",
+        "value": "bottom",
+        "correct": false
+      },
+      {
+        "label": "burden",
+        "value": "burden",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'graze' without the /r/ sound. What word do you get?",
+    "displayWord": "graze",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "gaze",
+        "value": "gaze",
+        "correct": true
+      },
+      {
+        "label": "haze",
+        "value": "haze",
+        "correct": false
+      },
+      {
+        "label": "maze",
+        "value": "maze",
+        "correct": false
+      },
+      {
+        "label": "daze",
+        "value": "daze",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'stomp'?",
+    "displayWord": "stomp",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": true
+      },
+      {
+        "label": "6",
+        "value": "6",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Chloe chose a book from the shelf. She found a quiet spot. She curled up and started reading. She did not want to stop.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Library rules",
+        "value": "Library rules",
+        "correct": false
+      },
+      {
+        "label": "Chloe settling down to read",
+        "value": "Chloe settling down to read",
+        "correct": true
+      },
+      {
+        "label": "Choosing books",
+        "value": "Choosing books",
+        "correct": false
+      },
+      {
+        "label": "Types of stories",
+        "value": "Types of stories",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The team's **collaboration** made the project a success — everyone contributed.",
+    "question": "What does the word 'collaboration' mean in this sentence?",
+    "displayWord": "collaboration",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Working alone",
+        "value": "Working alone",
+        "correct": false
+      },
+      {
+        "label": "Hard work",
+        "value": "Hard work",
+        "correct": false
+      },
+      {
+        "label": "Working together",
+        "value": "Working together",
+        "correct": true
+      },
+      {
+        "label": "Competition",
+        "value": "Competition",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "All schools should have a garden. Growing food teaches children where it comes from and helps the environment.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To describe",
+        "value": "To describe",
+        "correct": false
+      },
+      {
+        "label": "To explain",
+        "value": "To explain",
+        "correct": false
+      },
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": true
+      },
+      {
+        "label": "To instruct",
+        "value": "To instruct",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The race was postponed because one of the runners was unwell.",
+    "question": "Why was the race postponed?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Bad weather",
+        "value": "Bad weather",
+        "correct": false
+      },
+      {
+        "label": "A runner was unwell",
+        "value": "A runner was unwell",
+        "correct": true
+      },
+      {
+        "label": "The track was wet",
+        "value": "The track was wet",
+        "correct": false
+      },
+      {
+        "label": "Equipment was missing",
+        "value": "Equipment was missing",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The council **allocated** funds to improve public transport in rural areas.",
+    "question": "What does the word 'allocated' mean in this context?",
+    "displayWord": "allocated",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Removed",
+        "value": "Removed",
+        "correct": false
+      },
+      {
+        "label": "Set aside and gave",
+        "value": "Set aside and gave",
+        "correct": true
+      },
+      {
+        "label": "Borrowed",
+        "value": "Borrowed",
+        "correct": false
+      },
+      {
+        "label": "Reduced",
+        "value": "Reduced",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Isaac Newton first described gravity after observing a falling apple in 1666.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To explain gravity in detail",
+        "value": "To explain gravity in detail",
+        "correct": false
+      },
+      {
+        "label": "To share a famous historical anecdote",
+        "value": "To share a famous historical anecdote",
+        "correct": true
+      },
+      {
+        "label": "To describe Newton's other discoveries",
+        "value": "To describe Newton's other discoveries",
+        "correct": false
+      },
+      {
+        "label": "To celebrate physics",
+        "value": "To celebrate physics",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /c/-/u/-/b/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "cab",
+        "value": "cab",
+        "correct": false
+      },
+      {
+        "label": "cob",
+        "value": "cob",
+        "correct": false
+      },
+      {
+        "label": "ceb",
+        "value": "ceb",
+        "correct": false
+      },
+      {
+        "label": "cub",
+        "value": "cub",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SQUABBLE",
+    "answerMode": "voice",
+    "expectedAnswer": "squabble"
   }
 ]

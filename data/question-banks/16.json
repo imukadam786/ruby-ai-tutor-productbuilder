@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "It became too heavy to push any further"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'rain' have?",
+    "displayWord": "rain",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": true
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'clap' without the /l/ sound. What word do you get?",
+    "displayWord": "clap",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "cap",
+        "value": "cap",
+        "correct": true
+      },
+      {
+        "label": "map",
+        "value": "map",
+        "correct": false
+      },
+      {
+        "label": "tap",
+        "value": "tap",
+        "correct": false
+      },
+      {
+        "label": "nap",
+        "value": "nap",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'spray'?",
+    "displayWord": "spray",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/s/",
+        "value": "/s/",
+        "correct": true
+      },
+      {
+        "label": "/p/",
+        "value": "/p/",
+        "correct": false
+      },
+      {
+        "label": "/r/",
+        "value": "/r/",
+        "correct": false
+      },
+      {
+        "label": "/ay/",
+        "value": "/ay/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The bird found a twig. It flew back to the tree. It added the twig to its nest. Soon the nest was big enough.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Birds that fly",
+        "value": "Birds that fly",
+        "correct": false
+      },
+      {
+        "label": "A bird building its nest",
+        "value": "A bird building its nest",
+        "correct": true
+      },
+      {
+        "label": "Types of trees",
+        "value": "Types of trees",
+        "correct": false
+      },
+      {
+        "label": "Collecting twigs",
+        "value": "Collecting twigs",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The baby elephant **wobbled** as it took its first steps.",
+    "question": "What does the word 'wobbled' mean in this sentence?",
+    "displayWord": "wobbled",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Moved fast",
+        "value": "Moved fast",
+        "correct": false
+      },
+      {
+        "label": "Jumped high",
+        "value": "Jumped high",
+        "correct": false
+      },
+      {
+        "label": "Moved unsteadily",
+        "value": "Moved unsteadily",
+        "correct": true
+      },
+      {
+        "label": "Fell over",
+        "value": "Fell over",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "The princess climbed to the top of the tower and peered through the tiny window. Below, the village was asleep.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": true
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A description",
+        "value": "A description",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "She was cold because she had forgotten her jumper.",
+    "question": "Why was she cold?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "She forgot her jumper",
+        "value": "She forgot her jumper",
+        "correct": true
+      },
+      {
+        "label": "The heating was off",
+        "value": "The heating was off",
+        "correct": false
+      },
+      {
+        "label": "She was standing outside too long",
+        "value": "She was standing outside too long",
+        "correct": false
+      },
+      {
+        "label": "The wind was strong",
+        "value": "The wind was strong",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The government must **address** the growing housing crisis.",
+    "question": "What does the word 'address' mean in this context?",
+    "displayWord": "address",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Ignore",
+        "value": "Ignore",
+        "correct": false
+      },
+      {
+        "label": "Discuss publicly",
+        "value": "Discuss publicly",
+        "correct": false
+      },
+      {
+        "label": "Deal with",
+        "value": "Deal with",
+        "correct": true
+      },
+      {
+        "label": "Study",
+        "value": "Study",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Shakespeare was born in Stratford-upon-Avon in 1564. He wrote 37 plays and 154 sonnets.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To persuade you to read Shakespeare",
+        "value": "To persuade you to read Shakespeare",
+        "correct": false
+      },
+      {
+        "label": "To provide biographical information",
+        "value": "To provide biographical information",
+        "correct": true
+      },
+      {
+        "label": "To compare poets",
+        "value": "To compare poets",
+        "correct": false
+      },
+      {
+        "label": "To describe 16th-century England",
+        "value": "To describe 16th-century England",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /t/-/o/-/p/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "tap",
+        "value": "tap",
+        "correct": false
+      },
+      {
+        "label": "tip",
+        "value": "tip",
+        "correct": false
+      },
+      {
+        "label": "tup",
+        "value": "tup",
+        "correct": false
+      },
+      {
+        "label": "top",
+        "value": "top",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SPLINT",
+    "answerMode": "voice",
+    "expectedAnswer": "splint"
   }
 ]

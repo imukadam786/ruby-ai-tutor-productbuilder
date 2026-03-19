@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "It was her favourite — the text calls it 'the best one'"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'tiger' have?",
+    "displayWord": "tiger",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'plug' without the /l/ sound. What word do you get?",
+    "displayWord": "plug",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "pug",
+        "value": "pug",
+        "correct": true
+      },
+      {
+        "label": "bug",
+        "value": "bug",
+        "correct": false
+      },
+      {
+        "label": "mug",
+        "value": "mug",
+        "correct": false
+      },
+      {
+        "label": "tug",
+        "value": "tug",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'prize'?",
+    "displayWord": "prize",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/p/",
+        "value": "/p/",
+        "correct": true
+      },
+      {
+        "label": "/r/",
+        "value": "/r/",
+        "correct": false
+      },
+      {
+        "label": "/i/",
+        "value": "/i/",
+        "correct": false
+      },
+      {
+        "label": "/z/",
+        "value": "/z/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Ava put on her helmet. She got on her bike. She rode down the hill. At the bottom, she stopped.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Ava's helmet",
+        "value": "Ava's helmet",
+        "correct": false
+      },
+      {
+        "label": "Bike safety",
+        "value": "Bike safety",
+        "correct": false
+      },
+      {
+        "label": "Ava going for a bike ride",
+        "value": "Ava going for a bike ride",
+        "correct": true
+      },
+      {
+        "label": "Hills and valleys",
+        "value": "Hills and valleys",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The crowd was **baffled** by the magician's trick — no one could explain it.",
+    "question": "What does the word 'baffled' mean in this sentence?",
+    "displayWord": "baffled",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Amazed",
+        "value": "Amazed",
+        "correct": false
+      },
+      {
+        "label": "Angry",
+        "value": "Angry",
+        "correct": false
+      },
+      {
+        "label": "Bored",
+        "value": "Bored",
+        "correct": false
+      },
+      {
+        "label": "Confused",
+        "value": "Confused",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "We should all eat less plastic-wrapped food. The packaging ends up in landfill and harms wildlife.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To describe",
+        "value": "To describe",
+        "correct": false
+      },
+      {
+        "label": "To inform",
+        "value": "To inform",
+        "correct": false
+      },
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": true
+      },
+      {
+        "label": "To instruct",
+        "value": "To instruct",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The team won the trophy because they trained every day.",
+    "question": "What helped the team win the trophy?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "They had new kit",
+        "value": "They had new kit",
+        "correct": false
+      },
+      {
+        "label": "They trained every day",
+        "value": "They trained every day",
+        "correct": true
+      },
+      {
+        "label": "The other team was weak",
+        "value": "The other team was weak",
+        "correct": false
+      },
+      {
+        "label": "They had a good coach",
+        "value": "They had a good coach",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The species is **vulnerable** to extinction due to habitat loss.",
+    "question": "What does the word 'vulnerable' mean in this context?",
+    "displayWord": "vulnerable",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Adapting well",
+        "value": "Adapting well",
+        "correct": false
+      },
+      {
+        "label": "At risk",
+        "value": "At risk",
+        "correct": true
+      },
+      {
+        "label": "Protected",
+        "value": "Protected",
+        "correct": false
+      },
+      {
+        "label": "Thriving",
+        "value": "Thriving",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "The human brain uses approximately 20% of the body's total energy despite making up just 2% of body weight.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To persuade you to be healthier",
+        "value": "To persuade you to be healthier",
+        "correct": false
+      },
+      {
+        "label": "To share a surprising fact about the brain",
+        "value": "To share a surprising fact about the brain",
+        "correct": true
+      },
+      {
+        "label": "To explain how to improve memory",
+        "value": "To explain how to improve memory",
+        "correct": false
+      },
+      {
+        "label": "To describe medical research",
+        "value": "To describe medical research",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /n/-/e/-/t/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "nat",
+        "value": "nat",
+        "correct": false
+      },
+      {
+        "label": "nit",
+        "value": "nit",
+        "correct": false
+      },
+      {
+        "label": "nut",
+        "value": "nut",
+        "correct": false
+      },
+      {
+        "label": "net",
+        "value": "net",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SHRIMP",
+    "answerMode": "voice",
+    "expectedAnswer": "shrimp"
   }
 ]

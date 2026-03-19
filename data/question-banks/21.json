@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "It warned them about the rocks — without it they could sail into danger at night"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 2 syllables?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "pen",
+        "value": "pen",
+        "correct": false
+      },
+      {
+        "label": "computer",
+        "value": "computer",
+        "correct": false
+      },
+      {
+        "label": "garden",
+        "value": "garden",
+        "correct": true
+      },
+      {
+        "label": "watermelon",
+        "value": "watermelon",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'trap' without the /r/ sound. What word do you get?",
+    "displayWord": "trap",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "tap",
+        "value": "tap",
+        "correct": true
+      },
+      {
+        "label": "map",
+        "value": "map",
+        "correct": false
+      },
+      {
+        "label": "nap",
+        "value": "nap",
+        "correct": false
+      },
+      {
+        "label": "lap",
+        "value": "lap",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'what'?",
+    "displayWord": "what",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/w/",
+        "value": "/w/",
+        "correct": true
+      },
+      {
+        "label": "/h/",
+        "value": "/h/",
+        "correct": false
+      },
+      {
+        "label": "/a/",
+        "value": "/a/",
+        "correct": false
+      },
+      {
+        "label": "/t/",
+        "value": "/t/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The puppy heard a sound. It ran to the door. It sniffed the mat. Then it barked.",
+    "question": "What did the puppy do FIRST?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Heard a sound",
+        "value": "Heard a sound",
+        "correct": true
+      },
+      {
+        "label": "Ran to the door",
+        "value": "Ran to the door",
+        "correct": false
+      },
+      {
+        "label": "Sniffed the mat",
+        "value": "Sniffed the mat",
+        "correct": false
+      },
+      {
+        "label": "Barked",
+        "value": "Barked",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "She was **meticulous** about her homework, checking every answer twice.",
+    "question": "What does the word 'meticulous' mean in this sentence?",
+    "displayWord": "meticulous",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Lazy",
+        "value": "Lazy",
+        "correct": false
+      },
+      {
+        "label": "Rushed",
+        "value": "Rushed",
+        "correct": false
+      },
+      {
+        "label": "Very careful and thorough",
+        "value": "Very careful and thorough",
+        "correct": true
+      },
+      {
+        "label": "Creative",
+        "value": "Creative",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "To make lemonade: squeeze the lemons, mix the juice with sugar and water, and chill before serving.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": true
+      },
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "An explanation",
+        "value": "An explanation",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "She was disqualified because she started the race early.",
+    "question": "Why was she disqualified?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "She cheated",
+        "value": "She cheated",
+        "correct": false
+      },
+      {
+        "label": "She started too early",
+        "value": "She started too early",
+        "correct": true
+      },
+      {
+        "label": "She ran out of the lane",
+        "value": "She ran out of the lane",
+        "correct": false
+      },
+      {
+        "label": "She pushed someone",
+        "value": "She pushed someone",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The report **advocates** for stricter environmental laws.",
+    "question": "What does the word 'advocates' mean in this context?",
+    "displayWord": "advocates",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Questions",
+        "value": "Questions",
+        "correct": false
+      },
+      {
+        "label": "Publicly supports",
+        "value": "Publicly supports",
+        "correct": true
+      },
+      {
+        "label": "Criticises",
+        "value": "Criticises",
+        "correct": false
+      },
+      {
+        "label": "Describes",
+        "value": "Describes",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Eating ultra-processed food regularly has been linked to depression, obesity, and heart disease. Your health is worth more than convenience.",
+    "question": "What is the author's main purpose?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To explain how food is processed",
+        "value": "To explain how food is processed",
+        "correct": false
+      },
+      {
+        "label": "To share a recipe",
+        "value": "To share a recipe",
+        "correct": false
+      },
+      {
+        "label": "To persuade readers to eat less processed food",
+        "value": "To persuade readers to eat less processed food",
+        "correct": true
+      },
+      {
+        "label": "To describe health statistics",
+        "value": "To describe health statistics",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /r/-/e/-/d/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "rod",
+        "value": "rod",
+        "correct": false
+      },
+      {
+        "label": "rid",
+        "value": "rid",
+        "correct": false
+      },
+      {
+        "label": "rud",
+        "value": "rud",
+        "correct": false
+      },
+      {
+        "label": "red",
+        "value": "red",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "THREAD",
+    "answerMode": "voice",
+    "expectedAnswer": "thread"
   }
 ]

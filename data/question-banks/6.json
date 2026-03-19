@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "Curious or amazed — he waited and watched willingly"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'sun' have?",
+    "displayWord": "sun",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": true
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'snap' without the /n/ sound. What word do you get?",
+    "displayWord": "snap",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sap",
+        "value": "sap",
+        "correct": true
+      },
+      {
+        "label": "map",
+        "value": "map",
+        "correct": false
+      },
+      {
+        "label": "tap",
+        "value": "tap",
+        "correct": false
+      },
+      {
+        "label": "nap",
+        "value": "nap",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'knit'?",
+    "displayWord": "knit",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/k/",
+        "value": "/k/",
+        "correct": false
+      },
+      {
+        "label": "/n/",
+        "value": "/n/",
+        "correct": true
+      },
+      {
+        "label": "/i/",
+        "value": "/i/",
+        "correct": false
+      },
+      {
+        "label": "/t/",
+        "value": "/t/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Tom put on his coat. He picked up his bag. Then he said goodbye to his mum. He ran to the bus stop.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Tom's coat",
+        "value": "Tom's coat",
+        "correct": false
+      },
+      {
+        "label": "Tom's mum",
+        "value": "Tom's mum",
+        "correct": false
+      },
+      {
+        "label": "Tom getting ready to leave",
+        "value": "Tom getting ready to leave",
+        "correct": true
+      },
+      {
+        "label": "Missing the bus",
+        "value": "Missing the bus",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The explorer crossed the **vast** desert — it seemed to go on forever.",
+    "question": "What does the word 'vast' mean in this sentence?",
+    "displayWord": "vast",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Very hot",
+        "value": "Very hot",
+        "correct": false
+      },
+      {
+        "label": "Very large",
+        "value": "Very large",
+        "correct": true
+      },
+      {
+        "label": "Very cold",
+        "value": "Very cold",
+        "correct": false
+      },
+      {
+        "label": "Very quiet",
+        "value": "Very quiet",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Once upon a time, a young girl found a door at the bottom of her garden. Behind it was another world.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": true
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": false
+      },
+      {
+        "label": "An argument",
+        "value": "An argument",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "Because he stayed up too late, he was tired all day at school.",
+    "question": "Why was he tired at school?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He missed breakfast",
+        "value": "He missed breakfast",
+        "correct": false
+      },
+      {
+        "label": "He stayed up too late",
+        "value": "He stayed up too late",
+        "correct": true
+      },
+      {
+        "label": "His bed was uncomfortable",
+        "value": "His bed was uncomfortable",
+        "correct": false
+      },
+      {
+        "label": "School was boring",
+        "value": "School was boring",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The study **demonstrated** a clear link between exercise and mental health.",
+    "question": "What does the word 'demonstrated' mean in this context?",
+    "displayWord": "demonstrated",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Guessed",
+        "value": "Guessed",
+        "correct": false
+      },
+      {
+        "label": "Showed clearly",
+        "value": "Showed clearly",
+        "correct": true
+      },
+      {
+        "label": "Questioned",
+        "value": "Questioned",
+        "correct": false
+      },
+      {
+        "label": "Ignored",
+        "value": "Ignored",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "The Great Barrier Reef stretches over 2,300 kilometres along Australia's coast. It is the world's largest coral reef system.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To warn about climate change",
+        "value": "To warn about climate change",
+        "correct": false
+      },
+      {
+        "label": "To give information about the reef",
+        "value": "To give information about the reef",
+        "correct": true
+      },
+      {
+        "label": "To persuade readers to visit Australia",
+        "value": "To persuade readers to visit Australia",
+        "correct": false
+      },
+      {
+        "label": "To tell a story set underwater",
+        "value": "To tell a story set underwater",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /p/-/e/-/n/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "pan",
+        "value": "pan",
+        "correct": false
+      },
+      {
+        "label": "pin",
+        "value": "pin",
+        "correct": false
+      },
+      {
+        "label": "pen",
+        "value": "pen",
+        "correct": true
+      },
+      {
+        "label": "pun",
+        "value": "pun",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "STRETCH",
+    "answerMode": "voice",
+    "expectedAnswer": "stretch"
   }
 ]

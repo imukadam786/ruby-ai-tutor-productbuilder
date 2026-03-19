@@ -1,23 +1,27 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import dynamic from "next/dynamic";
+// ── Always-needed (static imports) ──────────────────────────────────────────
 import Sidebar from "@/components/Sidebar";
-import ChatInterface from "@/components/ChatInterface";
-import ProgressTracker from "@/components/ProgressTracker";
-import DiagnosticSession from "@/components/ruby/DiagnosticSession";
-import SkillTreeView from "@/components/ruby/SkillTreeView";
-import StudentDashboard from "@/components/ruby/StudentDashboard";
-import ReadingSession from "@/components/reading/ReadingSession";
-import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
-import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeScreen from "@/components/HomeScreen";
-import SettingsView from "@/components/SettingsView";
-import MatricComingSoon from "@/components/MatricComingSoon";
-import WatchComingSoon from "@/components/WatchComingSoon";
-import LanguagePickerModal from "@/components/LanguagePickerModal";
-import PostSessionSurvey from "@/components/beta/PostSessionSurvey";
+import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import BetaBanner from "@/components/beta/BetaBanner";
-import FloatingFeedback from "@/components/beta/FloatingFeedback";
+
+// ── Loaded on demand (dynamic imports) ──────────────────────────────────────
+const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
+const ProgressTracker      = dynamic(() => import("@/components/ProgressTracker"),                     { ssr: false });
+const DiagnosticSession    = dynamic(() => import("@/components/ruby/DiagnosticSession"),               { ssr: false });
+const SkillTreeView        = dynamic(() => import("@/components/ruby/SkillTreeView"),                   { ssr: false });
+const StudentDashboard     = dynamic(() => import("@/components/ruby/StudentDashboard"),                { ssr: false });
+const ReadingSession       = dynamic(() => import("@/components/reading/ReadingSession"),               { ssr: false });
+const ReadingSkillTreeView = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),         { ssr: false });
+const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
+const MatricComingSoon     = dynamic(() => import("@/components/MatricComingSoon"),                     { ssr: false });
+const WatchComingSoon      = dynamic(() => import("@/components/WatchComingSoon"),                      { ssr: false });
+const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerModal"),                  { ssr: false });
+const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
+const FloatingFeedback     = dynamic(() => import("@/components/beta/FloatingFeedback"),                { ssr: false });
 import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
@@ -125,10 +129,12 @@ function AppContent() {
         ) : (
           <button
             onClick={() => setShowLangPicker(true)}
-            className="p-1 rounded-lg transition-opacity hover:opacity-80"
+            className="p-1.5 rounded-lg transition-opacity hover:opacity-80"
             aria-label="Change language"
           >
-            <span className="text-2xl leading-none">🌍</span>
+            <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+            </svg>
           </button>
         )}
       </header>
@@ -144,10 +150,10 @@ function AppContent() {
         onClose={() => setSidebarOpen(false)}
         onSettings={() => handleViewChange("settings")}
         onOpenLangPicker={() => setShowLangPicker(true)}
-        onLogout={() => {
+        onLogout={async () => {
           // Do NOT wipe localStorage on logout — data belongs to this user and
           // must still be visible when they log back in on the same device.
-          supabase.auth.signOut();
+          await supabase.auth.signOut();
           window.location.reload();
         }}
       />
@@ -183,7 +189,15 @@ function AppContent() {
 
 // ── Onboarding gate — wraps AppContent in LanguageProvider ───────────────────
 // ── Account-created welcome screen ────────────────────────────────────────────
+const InstallPrompt = dynamic(() => import("@/components/InstallPrompt"), { ssr: false });
+
 function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearning: () => void }) {
+  const [showInstall, setShowInstall] = useState(false);
+
+  const handleStartLearning = () => {
+    setShowInstall(true);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
@@ -202,12 +216,16 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
         </div>
 
         <button
-          onClick={onStartLearning}
+          onClick={handleStartLearning}
           className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg transition-colors shadow-md"
         >
           Start Learning 🚀
         </button>
       </div>
+
+      {showInstall && (
+        <InstallPrompt onDismiss={onStartLearning} />
+      )}
     </div>
   );
 }
@@ -223,10 +241,19 @@ export default function Home() {
       clearAllUserData();
       supabase.auth.signOut();
       window.history.replaceState({}, "", window.location.pathname);
+      setAppState("onboarding");
+      return;
     }
 
-    // Always show Create Account / Login first — everyone must authenticate
-    setAppState("onboarding");
+    // Check for an existing valid session — if found, skip login entirely
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        if (session.user.id) localStorage.setItem("current_user_id", session.user.id);
+        setAppState("app");
+      } else {
+        setAppState("onboarding");
+      }
+    });
 
     // Handle session loss (e.g. token expiry, logout from another tab)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {

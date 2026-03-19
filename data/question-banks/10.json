@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "Three chicks all needed feeding — one worm was not enough for all of them"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'garden' have?",
+    "displayWord": "garden",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'spin' without the /p/ sound. What word do you get?",
+    "displayWord": "spin",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sin",
+        "value": "sin",
+        "correct": true
+      },
+      {
+        "label": "tin",
+        "value": "tin",
+        "correct": false
+      },
+      {
+        "label": "bin",
+        "value": "bin",
+        "correct": false
+      },
+      {
+        "label": "pin",
+        "value": "pin",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'frog'?",
+    "displayWord": "frog",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/f/",
+        "value": "/f/",
+        "correct": true
+      },
+      {
+        "label": "/r/",
+        "value": "/r/",
+        "correct": false
+      },
+      {
+        "label": "/o/",
+        "value": "/o/",
+        "correct": false
+      },
+      {
+        "label": "/g/",
+        "value": "/g/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The sun set slowly. The sky turned orange, then pink. Finally, it went dark. The stars came out.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Daytime weather",
+        "value": "Daytime weather",
+        "correct": false
+      },
+      {
+        "label": "The sky changing at sunset",
+        "value": "The sky changing at sunset",
+        "correct": true
+      },
+      {
+        "label": "Different types of stars",
+        "value": "Different types of stars",
+        "correct": false
+      },
+      {
+        "label": "Why the sun sets",
+        "value": "Why the sun sets",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The mountain path was **treacherous** with loose rocks and steep drops.",
+    "question": "What does the word 'treacherous' mean in this sentence?",
+    "displayWord": "treacherous",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Beautiful",
+        "value": "Beautiful",
+        "correct": false
+      },
+      {
+        "label": "Easy",
+        "value": "Easy",
+        "correct": false
+      },
+      {
+        "label": "Dangerous",
+        "value": "Dangerous",
+        "correct": true
+      },
+      {
+        "label": "Narrow",
+        "value": "Narrow",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "The Eiffel Tower was built in 1889. It stands 330 metres tall and attracts millions of visitors each year.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": true
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "A letter",
+        "value": "A letter",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "Tom missed the bus because he left home late.",
+    "question": "Why did Tom miss the bus?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He left home late",
+        "value": "He left home late",
+        "correct": true
+      },
+      {
+        "label": "The bus was early",
+        "value": "The bus was early",
+        "correct": false
+      },
+      {
+        "label": "He got lost",
+        "value": "He got lost",
+        "correct": false
+      },
+      {
+        "label": "The bus was full",
+        "value": "The bus was full",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The author uses **metaphor** to **convey** the character's loneliness.",
+    "question": "What does the word 'convey' mean in this context?",
+    "displayWord": "convey",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Express and communicate",
+        "value": "Express and communicate",
+        "correct": true
+      },
+      {
+        "label": "Hide",
+        "value": "Hide",
+        "correct": false
+      },
+      {
+        "label": "Ignore",
+        "value": "Ignore",
+        "correct": false
+      },
+      {
+        "label": "Describe physically",
+        "value": "Describe physically",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Monarch butterflies migrate over 4,500 kilometres every year, travelling from Canada to Mexico.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To tell a story",
+        "value": "To tell a story",
+        "correct": false
+      },
+      {
+        "label": "To persuade you to protect butterflies",
+        "value": "To persuade you to protect butterflies",
+        "correct": false
+      },
+      {
+        "label": "To share an interesting fact",
+        "value": "To share an interesting fact",
+        "correct": true
+      },
+      {
+        "label": "To explain how migration works",
+        "value": "To explain how migration works",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /m/-/a/-/p/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "mop",
+        "value": "mop",
+        "correct": false
+      },
+      {
+        "label": "map",
+        "value": "map",
+        "correct": true
+      },
+      {
+        "label": "mip",
+        "value": "mip",
+        "correct": false
+      },
+      {
+        "label": "mup",
+        "value": "mup",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SCRAWL",
+    "answerMode": "voice",
+    "expectedAnswer": "scrawl"
   }
 ]

@@ -33,7 +33,7 @@ function RubyAvatar({ size = "w-16 h-16" }: { size?: string }) {
   return (
     <div className={`${size} rounded-full flex-shrink-0 overflow-hidden`}>
       <img
-        src="/ruby-avatar.png"
+        src="/icons/icon-192.png"
         alt="Ruby"
         className="w-full h-full object-cover"
         onError={(e) => {
@@ -448,7 +448,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         )}
 
         {/* GPT-style input container */}
-        <div className="relative flex items-end gap-2 bg-gray-50 border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all shadow-sm">
+        <div className="relative flex items-end gap-2 bg-gray-50 border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-[#B7182E] focus-within:ring-2 focus-within:ring-[#B7182E]/15 transition-all shadow-sm">
 
           {/* Upload button (inside container, left) */}
           <div className="relative flex-shrink-0 self-end pb-0.5" ref={uploadMenuRef}>
@@ -539,7 +539,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             <button
               onClick={() => sendMessage(input)}
               disabled={(!input.trim() && !attachedFile) || isLoading}
-              className="w-8 h-8 bg-gray-900 hover:bg-gray-700 disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
+              className="w-8 h-8 bg-[#B7182E] hover:bg-[#9e1427] disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />

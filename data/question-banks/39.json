@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "She had said it before — the collection had grown too large and she was frustrated"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "I'll say the parts of a word. What word is it?",
+    "displayWord": "pen — cil",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "pencil",
+        "value": "pencil",
+        "correct": true
+      },
+      {
+        "label": "pension",
+        "value": "pension",
+        "correct": false
+      },
+      {
+        "label": "panel",
+        "value": "panel",
+        "correct": false
+      },
+      {
+        "label": "pebble",
+        "value": "pebble",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'grown' without the /r/ sound. What word do you get?",
+    "displayWord": "grown",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "gown",
+        "value": "gown",
+        "correct": true
+      },
+      {
+        "label": "down",
+        "value": "down",
+        "correct": false
+      },
+      {
+        "label": "town",
+        "value": "town",
+        "correct": false
+      },
+      {
+        "label": "own",
+        "value": "own",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'sock'?",
+    "displayWord": "sock",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Finn caught the ball. He passed it to his friend. His friend kicked it hard. It went straight into the net.",
+    "question": "What happened LAST?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Finn caught the ball",
+        "value": "Finn caught the ball",
+        "correct": false
+      },
+      {
+        "label": "He passed it",
+        "value": "He passed it",
+        "correct": false
+      },
+      {
+        "label": "His friend kicked it",
+        "value": "His friend kicked it",
+        "correct": false
+      },
+      {
+        "label": "It went into the net",
+        "value": "It went into the net",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "The crowd **dispersed** after the show ended, heading in all directions.",
+    "question": "What does the word 'dispersed' mean in this sentence?",
+    "displayWord": "dispersed",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Arrived",
+        "value": "Arrived",
+        "correct": false
+      },
+      {
+        "label": "Cheered",
+        "value": "Cheered",
+        "correct": false
+      },
+      {
+        "label": "Spread out and left",
+        "value": "Spread out and left",
+        "correct": true
+      },
+      {
+        "label": "Grew bigger",
+        "value": "Grew bigger",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "The Sahara Desert covers about 9 million square kilometres. It is the largest hot desert in the world.",
+    "question": "What type of text is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A story",
+        "value": "A story",
+        "correct": false
+      },
+      {
+        "label": "A report",
+        "value": "A report",
+        "correct": true
+      },
+      {
+        "label": "Instructions",
+        "value": "Instructions",
+        "correct": false
+      },
+      {
+        "label": "An argument",
+        "value": "An argument",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The car wouldn't start because the battery was flat.",
+    "question": "Why wouldn't the car start?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The car was out of fuel",
+        "value": "The car was out of fuel",
+        "correct": false
+      },
+      {
+        "label": "The battery was flat",
+        "value": "The battery was flat",
+        "correct": true
+      },
+      {
+        "label": "The engine was wet",
+        "value": "The engine was wet",
+        "correct": false
+      },
+      {
+        "label": "The key was broken",
+        "value": "The key was broken",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The findings have been **disseminated** widely through scientific journals.",
+    "question": "What does the word 'disseminated' mean in this context?",
+    "displayWord": "disseminated",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Hidden",
+        "value": "Hidden",
+        "correct": false
+      },
+      {
+        "label": "Spread and shared",
+        "value": "Spread and shared",
+        "correct": true
+      },
+      {
+        "label": "Challenged",
+        "value": "Challenged",
+        "correct": false
+      },
+      {
+        "label": "Corrected",
+        "value": "Corrected",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Students who volunteer gain real-world skills, improve their wellbeing, and strengthen their university applications. Get involved — volunteer today.",
+    "question": "What is the author's main purpose?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To explain volunteering schemes",
+        "value": "To explain volunteering schemes",
+        "correct": false
+      },
+      {
+        "label": "To encourage students to volunteer",
+        "value": "To encourage students to volunteer",
+        "correct": true
+      },
+      {
+        "label": "To describe university requirements",
+        "value": "To describe university requirements",
+        "correct": false
+      },
+      {
+        "label": "To share statistics about volunteering",
+        "value": "To share statistics about volunteering",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /z/-/i/-/p/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "zap",
+        "value": "zap",
+        "correct": false
+      },
+      {
+        "label": "zep",
+        "value": "zep",
+        "correct": false
+      },
+      {
+        "label": "zop",
+        "value": "zop",
+        "correct": false
+      },
+      {
+        "label": "zip",
+        "value": "zip",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "THRUST",
+    "answerMode": "voice",
+    "expectedAnswer": "thrust"
   }
 ]

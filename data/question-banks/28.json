@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "The tide was rising fast — she could be cut off by the water"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 2 syllables?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sun",
+        "value": "sun",
+        "correct": false
+      },
+      {
+        "label": "butterfly",
+        "value": "butterfly",
+        "correct": false
+      },
+      {
+        "label": "rocket",
+        "value": "rocket",
+        "correct": true
+      },
+      {
+        "label": "elephant",
+        "value": "elephant",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'flab' without the /l/ sound. What word do you get?",
+    "displayWord": "flab",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "fab",
+        "value": "fab",
+        "correct": true
+      },
+      {
+        "label": "jab",
+        "value": "jab",
+        "correct": false
+      },
+      {
+        "label": "cab",
+        "value": "cab",
+        "correct": false
+      },
+      {
+        "label": "dab",
+        "value": "dab",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'chat'?",
+    "displayWord": "chat",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The snow fell all night. By morning, the ground was white. Children ran outside. They built a big snowman.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Weather forecasts",
+        "value": "Weather forecasts",
+        "correct": false
+      },
+      {
+        "label": "Snowman building tips",
+        "value": "Snowman building tips",
+        "correct": false
+      },
+      {
+        "label": "Children playing in the snow",
+        "value": "Children playing in the snow",
+        "correct": true
+      },
+      {
+        "label": "Winter clothing",
+        "value": "Winter clothing",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "He made a **swift** decision and left before anyone could stop him.",
+    "question": "What does the word 'swift' mean in this sentence?",
+    "displayWord": "swift",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Slow",
+        "value": "Slow",
+        "correct": false
+      },
+      {
+        "label": "Careful",
+        "value": "Careful",
+        "correct": false
+      },
+      {
+        "label": "Fast",
+        "value": "Fast",
+        "correct": true
+      },
+      {
+        "label": "Difficult",
+        "value": "Difficult",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "We should cycle more and drive less. Fewer cars means cleaner air and healthier communities.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To explain",
+        "value": "To explain",
+        "correct": false
+      },
+      {
+        "label": "To describe",
+        "value": "To describe",
+        "correct": false
+      },
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": true
+      },
+      {
+        "label": "To inform",
+        "value": "To inform",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "He was exhausted because he had run five kilometres.",
+    "question": "Why was he exhausted?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He had run five kilometres",
+        "value": "He had run five kilometres",
+        "correct": true
+      },
+      {
+        "label": "He hadn't slept well",
+        "value": "He hadn't slept well",
+        "correct": false
+      },
+      {
+        "label": "He was unwell",
+        "value": "He was unwell",
+        "correct": false
+      },
+      {
+        "label": "It was very hot",
+        "value": "It was very hot",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "A wide range of **stakeholders** were consulted before the plan was finalised.",
+    "question": "What does the word 'stakeholders' mean in this context?",
+    "displayWord": "stakeholders",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Experts only",
+        "value": "Experts only",
+        "correct": false
+      },
+      {
+        "label": "The public",
+        "value": "The public",
+        "correct": false
+      },
+      {
+        "label": "People with an interest in the outcome",
+        "value": "People with an interest in the outcome",
+        "correct": true
+      },
+      {
+        "label": "Government officials",
+        "value": "Government officials",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "The first photograph was taken in 1826 by Joseph Niépce. It required an eight-hour exposure time.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To teach you photography",
+        "value": "To teach you photography",
+        "correct": false
+      },
+      {
+        "label": "To promote cameras",
+        "value": "To promote cameras",
+        "correct": false
+      },
+      {
+        "label": "To share historical information about photography",
+        "value": "To share historical information about photography",
+        "correct": true
+      },
+      {
+        "label": "To compare old and modern cameras",
+        "value": "To compare old and modern cameras",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /k/-/o/-/t/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "cat",
+        "value": "cat",
+        "correct": false
+      },
+      {
+        "label": "cut",
+        "value": "cut",
+        "correct": false
+      },
+      {
+        "label": "cit",
+        "value": "cit",
+        "correct": false
+      },
+      {
+        "label": "cot",
+        "value": "cot",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "THROB",
+    "answerMode": "voice",
+    "expectedAnswer": "throb"
   }
 ]

@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "Flies are hard to catch — a spider must be very fast because flies can sense the web shaking"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "How many syllables does the word 'yellow' have?",
+    "displayWord": "yellow",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'flan' without the /l/ sound. What word do you get?",
+    "displayWord": "flan",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "fan",
+        "value": "fan",
+        "correct": true
+      },
+      {
+        "label": "can",
+        "value": "can",
+        "correct": false
+      },
+      {
+        "label": "man",
+        "value": "man",
+        "correct": false
+      },
+      {
+        "label": "ran",
+        "value": "ran",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'snap'?",
+    "displayWord": "snap",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/s/",
+        "value": "/s/",
+        "correct": true
+      },
+      {
+        "label": "/n/",
+        "value": "/n/",
+        "correct": false
+      },
+      {
+        "label": "/a/",
+        "value": "/a/",
+        "correct": false
+      },
+      {
+        "label": "/p/",
+        "value": "/p/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Jack opened the box. Inside he found a letter. He read it carefully. Then he smiled.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Jack's box",
+        "value": "Jack's box",
+        "correct": false
+      },
+      {
+        "label": "A letter in a box",
+        "value": "A letter in a box",
+        "correct": true
+      },
+      {
+        "label": "Jack's friend",
+        "value": "Jack's friend",
+        "correct": false
+      },
+      {
+        "label": "Writing letters",
+        "value": "Writing letters",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "After the storm, the garden was in **chaos** — plants everywhere.",
+    "question": "What does the word 'chaos' mean in this sentence?",
+    "displayWord": "chaos",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A mess",
+        "value": "A mess",
+        "correct": true
+      },
+      {
+        "label": "Good shape",
+        "value": "Good shape",
+        "correct": false
+      },
+      {
+        "label": "Perfect order",
+        "value": "Perfect order",
+        "correct": false
+      },
+      {
+        "label": "Silence",
+        "value": "Silence",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Plants make their own food using sunlight, water, and carbon dioxide — a process called photosynthesis.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To tell a story",
+        "value": "To tell a story",
+        "correct": false
+      },
+      {
+        "label": "To explain how something works",
+        "value": "To explain how something works",
+        "correct": true
+      },
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": false
+      },
+      {
+        "label": "To instruct",
+        "value": "To instruct",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "She felt better after she drank some water and rested.",
+    "question": "What helped her feel better?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Taking medicine",
+        "value": "Taking medicine",
+        "correct": false
+      },
+      {
+        "label": "Water and rest",
+        "value": "Water and rest",
+        "correct": true
+      },
+      {
+        "label": "Fresh air",
+        "value": "Fresh air",
+        "correct": false
+      },
+      {
+        "label": "A warm bath",
+        "value": "A warm bath",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The **fundamental** cause of the conflict was a dispute over land.",
+    "question": "What does the word 'fundamental' mean in this context?",
+    "displayWord": "fundamental",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Least important",
+        "value": "Least important",
+        "correct": false
+      },
+      {
+        "label": "Most basic and important",
+        "value": "Most basic and important",
+        "correct": true
+      },
+      {
+        "label": "Hidden",
+        "value": "Hidden",
+        "correct": false
+      },
+      {
+        "label": "Complex",
+        "value": "Complex",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "World War Two ended in 1945. Over 70 million people died during the conflict — one of the deadliest in human history.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To persuade you to learn about war",
+        "value": "To persuade you to learn about war",
+        "correct": false
+      },
+      {
+        "label": "To record a historical fact",
+        "value": "To record a historical fact",
+        "correct": true
+      },
+      {
+        "label": "To express sadness about the war",
+        "value": "To express sadness about the war",
+        "correct": false
+      },
+      {
+        "label": "To compare different wars",
+        "value": "To compare different wars",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /l/-/e/-/g/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "lag",
+        "value": "lag",
+        "correct": false
+      },
+      {
+        "label": "log",
+        "value": "log",
+        "correct": false
+      },
+      {
+        "label": "lug",
+        "value": "lug",
+        "correct": false
+      },
+      {
+        "label": "leg",
+        "value": "leg",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SPREAD",
+    "answerMode": "voice",
+    "expectedAnswer": "spread"
   }
 ]

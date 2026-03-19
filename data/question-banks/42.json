@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "The fire made it warm and comfortable inside — going out in the cold was less appealing"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "I'll say the parts of a word. What word is it?",
+    "displayWord": "tun — nel",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "tunnel",
+        "value": "tunnel",
+        "correct": true
+      },
+      {
+        "label": "total",
+        "value": "total",
+        "correct": false
+      },
+      {
+        "label": "tinsel",
+        "value": "tinsel",
+        "correct": false
+      },
+      {
+        "label": "tangle",
+        "value": "tangle",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'scale' without the /k/ sound. What word do you get?",
+    "displayWord": "scale",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sale",
+        "value": "sale",
+        "correct": true
+      },
+      {
+        "label": "tale",
+        "value": "tale",
+        "correct": false
+      },
+      {
+        "label": "male",
+        "value": "male",
+        "correct": false
+      },
+      {
+        "label": "pale",
+        "value": "pale",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'hand'?",
+    "displayWord": "hand",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": true
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      },
+      {
+        "label": "6",
+        "value": "6",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The kitten climbed up the curtain. It got stuck at the top. It meowed loudly. Dad came and helped it down.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Kitten training",
+        "value": "Kitten training",
+        "correct": false
+      },
+      {
+        "label": "Types of curtains",
+        "value": "Types of curtains",
+        "correct": false
+      },
+      {
+        "label": "A kitten getting stuck and being rescued",
+        "value": "A kitten getting stuck and being rescued",
+        "correct": true
+      },
+      {
+        "label": "Dad helping animals",
+        "value": "Dad helping animals",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "His excuse was **implausible** — nobody believed a bear had eaten his homework.",
+    "question": "What does the word 'implausible' mean in this sentence?",
+    "displayWord": "implausible",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Hard to believe",
+        "value": "Hard to believe",
+        "correct": true
+      },
+      {
+        "label": "Very funny",
+        "value": "Very funny",
+        "correct": false
+      },
+      {
+        "label": "Perfectly true",
+        "value": "Perfectly true",
+        "correct": false
+      },
+      {
+        "label": "Unexpected",
+        "value": "Unexpected",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Digestion begins in the mouth. Saliva starts breaking down food before it travels to the stomach.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": false
+      },
+      {
+        "label": "To explain how something works",
+        "value": "To explain how something works",
+        "correct": true
+      },
+      {
+        "label": "To entertain",
+        "value": "To entertain",
+        "correct": false
+      },
+      {
+        "label": "To instruct",
+        "value": "To instruct",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "He sprained his ankle because he landed badly after jumping.",
+    "question": "What caused the sprained ankle?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He was running too fast",
+        "value": "He was running too fast",
+        "correct": false
+      },
+      {
+        "label": "He landed badly",
+        "value": "He landed badly",
+        "correct": true
+      },
+      {
+        "label": "His shoes were worn out",
+        "value": "His shoes were worn out",
+        "correct": false
+      },
+      {
+        "label": "The ground was slippery",
+        "value": "The ground was slippery",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The article **refutes** the claim that sugar does not cause tooth decay.",
+    "question": "What does the word 'refutes' mean in this context?",
+    "displayWord": "refutes",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Supports",
+        "value": "Supports",
+        "correct": false
+      },
+      {
+        "label": "Questions",
+        "value": "Questions",
+        "correct": false
+      },
+      {
+        "label": "Disproves",
+        "value": "Disproves",
+        "correct": true
+      },
+      {
+        "label": "Ignores",
+        "value": "Ignores",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "The Olympics began in Ancient Greece in 776 BC. They were revived in their modern form in Athens in 1896.",
+    "question": "Why did the author write this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To celebrate sport",
+        "value": "To celebrate sport",
+        "correct": false
+      },
+      {
+        "label": "To give background information on the Olympics",
+        "value": "To give background information on the Olympics",
+        "correct": true
+      },
+      {
+        "label": "To compare ancient and modern sport",
+        "value": "To compare ancient and modern sport",
+        "correct": false
+      },
+      {
+        "label": "To persuade you to watch the Olympics",
+        "value": "To persuade you to watch the Olympics",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /f/-/o/-/g/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "fag",
+        "value": "fag",
+        "correct": false
+      },
+      {
+        "label": "feg",
+        "value": "feg",
+        "correct": false
+      },
+      {
+        "label": "fug",
+        "value": "fug",
+        "correct": false
+      },
+      {
+        "label": "fog",
+        "value": "fog",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SHRILL",
+    "answerMode": "voice",
+    "expectedAnswer": "shrill"
   }
 ]

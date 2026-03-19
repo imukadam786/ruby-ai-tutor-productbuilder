@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "He was kind and cheerful — he enjoyed simple pleasures"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "Which word has 2 syllables?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "cat",
+        "value": "cat",
+        "correct": false
+      },
+      {
+        "label": "rainbow",
+        "value": "rainbow",
+        "correct": true
+      },
+      {
+        "label": "elephant",
+        "value": "elephant",
+        "correct": false
+      },
+      {
+        "label": "sun",
+        "value": "sun",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'fled' without the /l/ sound. What word do you get?",
+    "displayWord": "fled",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "fed",
+        "value": "fed",
+        "correct": true
+      },
+      {
+        "label": "bed",
+        "value": "bed",
+        "correct": false
+      },
+      {
+        "label": "led",
+        "value": "led",
+        "correct": false
+      },
+      {
+        "label": "red",
+        "value": "red",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "What is the FIRST sound in 'shrink'?",
+    "displayWord": "shrink",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "/s/",
+        "value": "/s/",
+        "correct": false
+      },
+      {
+        "label": "/sh/",
+        "value": "/sh/",
+        "correct": true
+      },
+      {
+        "label": "/r/",
+        "value": "/r/",
+        "correct": false
+      },
+      {
+        "label": "/h/",
+        "value": "/h/",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "Ben filled a bucket with water. He carried it to the garden. He poured it on the plants. They looked much better.",
+    "question": "What is this passage mostly about?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Types of plants",
+        "value": "Types of plants",
+        "correct": false
+      },
+      {
+        "label": "Ben watering his garden",
+        "value": "Ben watering his garden",
+        "correct": true
+      },
+      {
+        "label": "How to fill a bucket",
+        "value": "How to fill a bucket",
+        "correct": false
+      },
+      {
+        "label": "Gardens in summer",
+        "value": "Gardens in summer",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "His voice was **hoarse** after cheering at the match all afternoon.",
+    "question": "What does the word 'hoarse' mean in this sentence?",
+    "displayWord": "hoarse",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Loud",
+        "value": "Loud",
+        "correct": false
+      },
+      {
+        "label": "Rough and scratchy",
+        "value": "Rough and scratchy",
+        "correct": true
+      },
+      {
+        "label": "Clear",
+        "value": "Clear",
+        "correct": false
+      },
+      {
+        "label": "Quiet",
+        "value": "Quiet",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Please recycle. By putting paper, glass, and plastic in the right bins, you help reduce waste in our streets.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To inform",
+        "value": "To inform",
+        "correct": false
+      },
+      {
+        "label": "To entertain",
+        "value": "To entertain",
+        "correct": false
+      },
+      {
+        "label": "To persuade",
+        "value": "To persuade",
+        "correct": true
+      },
+      {
+        "label": "To describe",
+        "value": "To describe",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "He tripped over because his shoelaces were undone.",
+    "question": "Why did he trip?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "His shoelaces were undone",
+        "value": "His shoelaces were undone",
+        "correct": true
+      },
+      {
+        "label": "The floor was wet",
+        "value": "The floor was wet",
+        "correct": false
+      },
+      {
+        "label": "He was running too fast",
+        "value": "He was running too fast",
+        "correct": false
+      },
+      {
+        "label": "He wasn't looking",
+        "value": "He wasn't looking",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The organisation is **committed** to reducing carbon emissions by 2030.",
+    "question": "What does the word 'committed' mean in this context?",
+    "displayWord": "committed",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Hoping",
+        "value": "Hoping",
+        "correct": false
+      },
+      {
+        "label": "Firmly dedicated",
+        "value": "Firmly dedicated",
+        "correct": true
+      },
+      {
+        "label": "Trying",
+        "value": "Trying",
+        "correct": false
+      },
+      {
+        "label": "Considering",
+        "value": "Considering",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "The International Space Station orbits Earth at a speed of 28,000 km/h, completing one orbit every 90 minutes.",
+    "question": "What is the author's purpose?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To encourage space exploration",
+        "value": "To encourage space exploration",
+        "correct": false
+      },
+      {
+        "label": "To share factual information",
+        "value": "To share factual information",
+        "correct": true
+      },
+      {
+        "label": "To explain how to become an astronaut",
+        "value": "To explain how to become an astronaut",
+        "correct": false
+      },
+      {
+        "label": "To describe a journey to the ISS",
+        "value": "To describe a journey to the ISS",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /s/-/i/-/t/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "sat",
+        "value": "sat",
+        "correct": false
+      },
+      {
+        "label": "set",
+        "value": "set",
+        "correct": false
+      },
+      {
+        "label": "sot",
+        "value": "sot",
+        "correct": false
+      },
+      {
+        "label": "sit",
+        "value": "sit",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SCRATCH",
+    "answerMode": "voice",
+    "expectedAnswer": "scratch"
   }
 ]

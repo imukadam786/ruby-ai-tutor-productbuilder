@@ -226,5 +226,342 @@
     "comprehensionType": "inferential",
     "answerMode": "voice",
     "expectedAnswer": "It was a tradition with special meaning — a shared ritual that lasted the journey home"
+  },
+  {
+    "id": "Q15",
+    "domain": "Syllable Segmentation",
+    "domainCode": "WU001",
+    "phase": 2,
+    "skillId": "R1.T2.A2",
+    "question": "I'll say the parts of a word. What word is it?",
+    "displayWord": "el — e — phant",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "elephant",
+        "value": "elephant",
+        "correct": true
+      },
+      {
+        "label": "elegant",
+        "value": "elegant",
+        "correct": false
+      },
+      {
+        "label": "eleven",
+        "value": "eleven",
+        "correct": false
+      },
+      {
+        "label": "elevator",
+        "value": "elevator",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "domain": "Phoneme Deletion",
+    "domainCode": "WU002",
+    "phase": 2,
+    "skillId": "R1.T3.A2",
+    "question": "Say 'clot' without the /l/ sound. What word do you get?",
+    "displayWord": "clot",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "cot",
+        "value": "cot",
+        "correct": true
+      },
+      {
+        "label": "dot",
+        "value": "dot",
+        "correct": false
+      },
+      {
+        "label": "got",
+        "value": "got",
+        "correct": false
+      },
+      {
+        "label": "hot",
+        "value": "hot",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "domain": "Phoneme Sequencing",
+    "domainCode": "WU003",
+    "phase": 2,
+    "skillId": "R1.T3.A3",
+    "question": "How many sounds are in 'thin'?",
+    "displayWord": "thin",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "domain": "Sequencing & Main Idea",
+    "domainCode": "WU004",
+    "phase": 2,
+    "skillId": "R4.T1.A2",
+    "passage": "The lamp flickered once. Then it went off. The room went dark. Sara found a torch.",
+    "question": "What did Sara do AFTER the room went dark?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The lamp flickered",
+        "value": "The lamp flickered",
+        "correct": false
+      },
+      {
+        "label": "Went off",
+        "value": "Went off",
+        "correct": false
+      },
+      {
+        "label": "Room went dark",
+        "value": "Room went dark",
+        "correct": false
+      },
+      {
+        "label": "Found a torch",
+        "value": "Found a torch",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "domain": "Context Clues",
+    "domainCode": "WU005",
+    "phase": 2,
+    "skillId": "R4.T2.A2",
+    "sentence": "She was **reluctant** to share her last biscuit but did it anyway.",
+    "question": "What does the word 'reluctant' mean in this sentence?",
+    "displayWord": "reluctant",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Happy",
+        "value": "Happy",
+        "correct": false
+      },
+      {
+        "label": "Not wanting to",
+        "value": "Not wanting to",
+        "correct": true
+      },
+      {
+        "label": "Forgetting",
+        "value": "Forgetting",
+        "correct": false
+      },
+      {
+        "label": "Excited",
+        "value": "Excited",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "domain": "Text Structure Recognition",
+    "domainCode": "WU006",
+    "phase": 2,
+    "skillId": "R4.T3.A1",
+    "text": "Tides are caused by the gravitational pull of the Moon on Earth's oceans.",
+    "question": "What is the purpose of this text?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To warn",
+        "value": "To warn",
+        "correct": false
+      },
+      {
+        "label": "To explain how something works",
+        "value": "To explain how something works",
+        "correct": true
+      },
+      {
+        "label": "To entertain",
+        "value": "To entertain",
+        "correct": false
+      },
+      {
+        "label": "To instruct",
+        "value": "To instruct",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "domain": "Cause & Effect",
+    "domainCode": "WU007",
+    "phase": 2,
+    "skillId": "R4.T3.A2",
+    "sentence": "The kitten hid under the bed because it was frightened by a loud noise.",
+    "question": "Why did the kitten hide?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was hungry",
+        "value": "It was hungry",
+        "correct": false
+      },
+      {
+        "label": "It was tired",
+        "value": "It was tired",
+        "correct": false
+      },
+      {
+        "label": "A loud noise frightened it",
+        "value": "A loud noise frightened it",
+        "correct": true
+      },
+      {
+        "label": "It wanted to play",
+        "value": "It wanted to play",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q22",
+    "domain": "Vocabulary in Context (Academic)",
+    "domainCode": "WU008",
+    "phase": 2,
+    "skillId": "R5.T2.A1",
+    "sentence": "The author's tone in the final chapter is **contemplative**, full of quiet reflection.",
+    "question": "What does the word 'contemplative' mean in this context?",
+    "displayWord": "contemplative",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Angry",
+        "value": "Angry",
+        "correct": false
+      },
+      {
+        "label": "Cheerful",
+        "value": "Cheerful",
+        "correct": false
+      },
+      {
+        "label": "Thoughtful and reflective",
+        "value": "Thoughtful and reflective",
+        "correct": true
+      },
+      {
+        "label": "Confused",
+        "value": "Confused",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "domain": "Author Intent",
+    "domainCode": "WU009",
+    "phase": 2,
+    "skillId": "R5.T1.A2",
+    "passage": "Junk food advertising targets children. It shapes unhealthy eating habits from a young age. The government must ban these adverts.",
+    "question": "What does the author want the government to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Tax junk food",
+        "value": "Tax junk food",
+        "correct": false
+      },
+      {
+        "label": "Teach nutrition in schools",
+        "value": "Teach nutrition in schools",
+        "correct": false
+      },
+      {
+        "label": "Ban junk food adverts aimed at children",
+        "value": "Ban junk food adverts aimed at children",
+        "correct": true
+      },
+      {
+        "label": "Improve food labelling",
+        "value": "Improve food labelling",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "domain": "CVC Encoding",
+    "domainCode": "WU010",
+    "phase": 2,
+    "skillId": "R2.T1.A3",
+    "question": "Which spelling is correct for /h/-/u/-/g/?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "hag",
+        "value": "hag",
+        "correct": false
+      },
+      {
+        "label": "heg",
+        "value": "heg",
+        "correct": false
+      },
+      {
+        "label": "hog",
+        "value": "hog",
+        "correct": false
+      },
+      {
+        "label": "hug",
+        "value": "hug",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "domain": "Complex Consonant Clusters",
+    "domainCode": "WU011",
+    "phase": 2,
+    "skillId": "R2.T3.A2",
+    "question": "Read this word out loud.",
+    "displayWord": "SCREAM",
+    "answerMode": "voice",
+    "expectedAnswer": "scream"
   }
 ]
