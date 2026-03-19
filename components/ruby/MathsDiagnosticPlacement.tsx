@@ -547,14 +547,35 @@ export default function MathsDiagnosticPlacement({
         const clamped1 = Math.max(0, Math.min(mid1, SEARCH_GATES.length - 1));
         bs.search1GateIdx = clamped1;
 
-        const s1Gate = SEARCH_GATES[clamped1];
-        const s1Queue: Task[] = s1Gate.domains
-          .map((d) => allBankTasks.find((t) => t.domain === d))
-          .filter(Boolean)
-          .map((t) => ({ ...t!, block: 2 as DiagnosticBlock }));
-
-        setPhaseQueue(s1Queue);
-        setPhaseIndex(0);
+        // Fix 2: search converged to the anchor gate — no new info, skip to confirm
+        if (clamped1 === bs.anchorGateIdx) {
+          bs.diagPhase = "confirm";
+          const [, winHi] = getSearchWindow(grade);
+          const maxConfirmGate = Math.min(winHi, SEARCH_GATES.length - 1);
+          const cg = Math.max(0, Math.min(
+            bs.lastPassedGateIdx >= 0 ? bs.lastPassedGateIdx : 0,
+            maxConfirmGate,
+          ));
+          const confirmQueue: Task[] = [cg, cg + 1, cg + 2]
+            .filter((gi) => gi <= maxConfirmGate)
+            .map((gi) => {
+              const gate = SEARCH_GATES[gi];
+              if (!gate) return null;
+              const t = allBankTasks.find((t) => t.domain === gate.domains[0]);
+              return t ? { ...t, block: 3 as DiagnosticBlock } : null;
+            })
+            .filter(Boolean) as Task[];
+          setPhaseQueue(confirmQueue);
+          setPhaseIndex(0);
+        } else {
+          const s1Gate = SEARCH_GATES[clamped1];
+          const s1Queue: Task[] = s1Gate.domains
+            .map((d) => allBankTasks.find((t) => t.domain === d))
+            .filter(Boolean)
+            .map((t) => ({ ...t!, block: 2 as DiagnosticBlock }));
+          setPhaseQueue(s1Queue);
+          setPhaseIndex(0);
+        }
 
       // ── search1 → search2 ─────────────────────────────────────────────────
       } else if (bs.diagPhase === "search1") {
@@ -576,17 +597,41 @@ export default function MathsDiagnosticPlacement({
             ? Math.min(ref + 1, SEARCH_GATES.length - 1)
             : Math.max(ref - 1, 0);
         }
-        mid2 = Math.max(0, Math.min(mid2, SEARCH_GATES.length - 1));
+
+        // Clamp search2 to the grade's search window so students never get
+        // out-of-grade questions (e.g. fractions for a grade 1 student).
+        const [winLo2, winHi2] = getSearchWindow(grade);
+        mid2 = Math.max(winLo2, Math.min(mid2, winHi2));
         bs.search2GateIdx = mid2;
 
-        const s2Gate = SEARCH_GATES[mid2];
-        const s2Queue: Task[] = s2Gate.domains
-          .map((d) => allBankTasks.find((t) => t.domain === d))
-          .filter(Boolean)
-          .map((t) => ({ ...t!, block: 2 as DiagnosticBlock }));
-
-        setPhaseQueue(s2Queue);
-        setPhaseIndex(0);
+        // If search2 would repeat a gate already tested, skip straight to confirm.
+        if (mid2 === bs.anchorGateIdx || mid2 === bs.search1GateIdx) {
+          bs.diagPhase = "confirm";
+          const maxConfirmGate2 = Math.min(winHi2, SEARCH_GATES.length - 1);
+          const cg2 = Math.max(0, Math.min(
+            bs.lastPassedGateIdx >= 0 ? bs.lastPassedGateIdx : 0,
+            maxConfirmGate2,
+          ));
+          const earlyConfirmQueue: Task[] = [cg2, cg2 + 1, cg2 + 2]
+            .filter((gi) => gi <= maxConfirmGate2)
+            .map((gi) => {
+              const gate = SEARCH_GATES[gi];
+              if (!gate) return null;
+              const t = allBankTasks.find((t) => t.domain === gate.domains[0]);
+              return t ? { ...t, block: 3 as DiagnosticBlock } : null;
+            })
+            .filter(Boolean) as Task[];
+          setPhaseQueue(earlyConfirmQueue);
+          setPhaseIndex(0);
+        } else {
+          const s2Gate = SEARCH_GATES[mid2];
+          const s2Queue: Task[] = s2Gate.domains
+            .map((d) => allBankTasks.find((t) => t.domain === d))
+            .filter(Boolean)
+            .map((t) => ({ ...t!, block: 2 as DiagnosticBlock }));
+          setPhaseQueue(s2Queue);
+          setPhaseIndex(0);
+        }
 
       // ── search2 → confirm ─────────────────────────────────────────────────
       } else if (bs.diagPhase === "search2") {
@@ -596,13 +641,16 @@ export default function MathsDiagnosticPlacement({
 
         bs.diagPhase = "confirm";
 
-        // 3 confirm questions: one from each of (confirmGate−1, confirmGate, confirmGate+1)
-        // Clamp so all three indices are valid.
+        // Fix 3: clamp confirm gates to grade's search window so grade 1 students
+        // never receive fraction/ratio/algebra questions from higher gates.
+        const [, winHi] = getSearchWindow(grade);
+        const maxConfirmGate = Math.min(winHi, SEARCH_GATES.length - 1);
         const cg = Math.max(0, Math.min(
           bs.lastPassedGateIdx >= 0 ? bs.lastPassedGateIdx : 0,
-          SEARCH_GATES.length - 3
+          maxConfirmGate,
         ));
         const confirmQueue: Task[] = [cg, cg + 1, cg + 2]
+          .filter((gi) => gi <= maxConfirmGate)
           .map((gi) => {
             const gate = SEARCH_GATES[gi];
             if (!gate) return null;
@@ -753,13 +801,6 @@ export default function MathsDiagnosticPlacement({
               </p>
               <p className="text-emerald-800 font-bold text-xl">{entryLabel}</p>
             </div>
-            {!placementResult.hardGatePassed && grade >= 5 && (
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 text-left">
-                <p className="text-amber-700 text-base">
-                  🔑 We&apos;ll build your multiplication foundations first — it&apos;s the key to all advanced maths!
-                </p>
-              </div>
-            )}
           </div>
 
           <div className="bg-white rounded-3xl shadow-md p-5">
@@ -901,7 +942,7 @@ export default function MathsDiagnosticPlacement({
                       }}
                       ref={i === 0 ? answerInputRef : undefined}
                       disabled={submitting}
-                      placeholder={field.hint ?? field.exampleAnswer ?? "Your answer…"}
+                      placeholder={field.hint ?? "Your answer…"}
                       className="w-full border-2 border-gray-200 rounded-2xl px-4 py-3 text-base text-gray-800 font-medium focus:outline-none focus:border-teal-400 transition-colors placeholder:text-gray-300"
                     />
                   </div>

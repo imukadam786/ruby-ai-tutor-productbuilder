@@ -16,7 +16,6 @@ const statusConfig = {
   in_progress:   { bg: "bg-orange-50", text: "text-orange-700", border: "border-orange-200",icon: "⚡",  label: "In Progress" },
   mastered:      { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200", icon: "✅", label: "Mastered" },
   active:        { bg: "bg-blue-100",  text: "text-blue-800",   border: "border-blue-400",  icon: "▶",  label: "Active" },
-  hard_gate:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-300", icon: "🔒", label: "Hard Gate" },
   auto_complete: { bg: "bg-green-50",  text: "text-green-600",  border: "border-green-200", icon: "✦",  label: "Auto-completed" },
   entry_point:   { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-300",  icon: "🎯", label: "Entry Point" },
 };
@@ -39,20 +38,13 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
     [profile]
   );
   const entrySkillId = profile?.placement?.entrySkillId ?? null;
-  const hardGatePassed = profile?.placement?.hardGatePassed ?? true;
 
   function getExtendedStatus(skillId: string) {
     if (!profile) return "locked" as const;
     if (skillId === profile.current_skill_id) return "active" as const;
     if (skillId === entrySkillId && !autoCompletedIds.has(skillId)) return "entry_point" as const;
     if (autoCompletedIds.has(skillId)) return "auto_complete" as const;
-    const base = getSkillStatus(skillId, profile);
-    // Hard gate: locked skills at Level 5+ when gate has not been cleared
-    if (!hardGatePassed && base === "locked") {
-      const level = parseInt(skillId.split(".")[0].replace("L", ""));
-      if (level >= 5) return "hard_gate" as const;
-    }
-    return base;
+    return getSkillStatus(skillId, profile);
   }
 
   return (
@@ -79,7 +71,6 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
                   <p className="text-blue-600 text-xs">
                     {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
                     {" · "}Entry: <span className="font-semibold">{entrySkillId}</span>
-                    {!hardGatePassed && <span className="text-amber-600 font-medium"> · 🔒 Hard Gate active</span>}
                   </p>
                 </div>
               </div>
@@ -88,42 +79,14 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
             {skillTreeData.levels.map((level) => {
               const progress = levelProgress[level.id] || 0;
               const isCurrent = level.id === profile.current_level;
-              const isHardGateLevel = level.id === 5;
-              const showHardGateBarrier = level.id === 5 && !hardGatePassed && profile.placementCompleted;
 
               return (
                 <div key={level.id}>
-                  {/* Hard Gate barrier before Level 5 */}
-                  {showHardGateBarrier && (
-                    <div className="flex items-center gap-3 my-2 px-1">
-                      <div className="flex-1 h-px bg-amber-300" />
-                      <div className="bg-amber-100 border border-amber-300 rounded-xl px-3 py-1.5 flex items-center gap-2 text-amber-700 text-xs font-semibold">
-                        <span>🔒</span>
-                        <span>Hard Gate — master multiplication to unlock advanced maths</span>
-                      </div>
-                      <div className="flex-1 h-px bg-amber-300" />
-                    </div>
-                  )}
                   <div
                     className={`bg-white border rounded-2xl overflow-hidden transition-all ${
                       isCurrent ? "border-blue-300 shadow-md shadow-blue-500/10" : "border-gray-200"
                     }`}
                   >
-                    {/* Hard gate banner inside Level 5 card */}
-                    {isHardGateLevel && !hardGatePassed && (
-                      <div className="bg-amber-50 border-b border-amber-200 px-5 py-2 flex items-center gap-2">
-                        <span className="text-amber-500">🔒</span>
-                        <p className="text-amber-700 text-xs font-medium">
-                          Hard Gate — multiplication mastery required before advancing
-                        </p>
-                      </div>
-                    )}
-                    {isHardGateLevel && hardGatePassed && profile.placementCompleted && (
-                      <div className="bg-green-50 border-b border-green-100 px-5 py-2 flex items-center gap-2">
-                        <span>🔑</span>
-                        <p className="text-green-700 text-xs font-medium">Hard Gate opened</p>
-                      </div>
-                    )}
 
                     {/* Level header */}
                     <div className={`px-5 py-4 ${isCurrent ? "bg-blue-50" : ""}`}>
@@ -180,7 +143,6 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
                                 const extStatus = getExtendedStatus(skill.id);
                                 const config = statusConfig[extStatus as keyof typeof statusConfig] ?? statusConfig.locked;
                                 const isActive = extStatus === "active";
-                                const isHardGateSkill = extStatus === "hard_gate";
 
                                 return (
                                   <div
@@ -188,15 +150,10 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
                                     className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${config.bg} ${config.text} ${config.border} ${
                                       isActive ? "ring-2 ring-blue-500 ring-offset-1 animate-pulse shadow-sm shadow-blue-300" : ""
                                     }`}
-                                    title={`${skill.title} — ${config.label}${isActive ? " (current)" : ""}${isHardGateSkill ? " — complete multiplication gate first" : ""}`}
+                                    title={`${skill.title} — ${config.label}${isActive ? " (current)" : ""}`}
                                   >
                                     <span className="mr-1">{config.icon}</span>
                                     {skill.title}
-                                    {isHardGateSkill && (
-                                      <span className="block text-amber-600 text-[10px] leading-tight mt-0.5">
-                                        Complete this challenge to unlock
-                                      </span>
-                                    )}
                                   </div>
                                 );
                               })}

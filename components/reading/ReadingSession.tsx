@@ -111,22 +111,37 @@ function buildReadingReportInput(
     domainScores,
     dominantErrors,
     placementSkill: result.entrySkillId,
-    hardGateBlocked: !result.hardGatePassed,
     skillsCompleted: result.autoCompletedSkillIds.length,
   };
 }
 
-function readOnboarding(): { name: string; grade: number } {
+async function readOnboardingWithFallback(): Promise<{ name: string; grade: number }> {
   try {
     const raw = localStorage.getItem("onboardingData");
-    if (!raw) return { name: "Student", grade: 3 };
-    const data = JSON.parse(raw);
-    const name = ((data.name as string) || "Student").split(" ")[0];
-    const grade = parseInt(data.grade as string) || 3;
-    return { name, grade };
-  } catch {
-    return { name: "Student", grade: 3 };
-  }
+    if (raw) {
+      const data = JSON.parse(raw);
+      const name = ((data.name as string) || "").split(" ")[0];
+      const grade = parseInt(data.grade as string) || 3;
+      if (name) return { name, grade };
+    }
+  } catch { /* fall through */ }
+
+  // Supabase fallback for returning users who skipped onboarding
+  try {
+    const { createClientComponentClient } = await import("@supabase/auth-helpers-nextjs");
+    const supabase = createClientComponentClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { data } = await supabase.from("users").select("name, grade").eq("id", user.id).single();
+      if (data?.name) {
+        const name = (data.name as string).split(" ")[0];
+        const grade = parseInt(data.grade as string) || 3;
+        return { name, grade };
+      }
+    }
+  } catch { /* fall through */ }
+
+  return { name: "Student", grade: 3 };
 }
 
 export default function ReadingSession() {
@@ -148,61 +163,62 @@ export default function ReadingSession() {
   // Phase 2 warmup
   const [warmupBankIndex] = useState(() => Math.floor(Math.random() * 50) + 1);
   const [warmupSkillIds, setWarmupSkillIds] = useState<string[]>([]);
+  // Ref keeps handleWarmupComplete from closing over a stale profile
+  const profileRef = useRef<ReadingStudentProfile | null>(null);
 
-  const handleWarmupComplete = useCallback(
-    (results: WarmupResult[]) => {
-      if (!profile) return;
-      // Mark warmup skills as completed in the profile
-      const completed = [...(profile.warmupSkillsCompleted ?? [])];
-      const updatedMastery = { ...profile.skill_mastery };
-
-      for (const r of results) {
-        if (!completed.includes(r.skillId)) completed.push(r.skillId);
-        // Record a lightweight mastery entry — does not override real lesson mastery
-        if (!updatedMastery[r.skillId]) {
-          updatedMastery[r.skillId] = {
-            skill_id: r.skillId,
-            status: r.correct ? "mastered" : "in_progress",
-            correct_count: r.correct ? 1 : 0,
-            attempt_count: 1,
-            formats_used: ["oral"],
-            scaffolded_attempts: 0,
-            last_attempted: new Date().toISOString(),
-            attempts: [],
-          };
-        }
-      }
-
-      const updated = {
-        ...profile,
-        warmupSkillsCompleted: completed,
-        skill_mastery: updatedMastery,
-        last_active: new Date().toISOString(),
-      };
-
-      // Fire-and-forget to server route for analytics
-      fetch("/api/reading/warmup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ results }),
-      }).catch(() => {});
-
-      setProfile(updated);
-      // saveReadingProfile is called by setProfile → not available directly; use the lib helper
-      import("@/lib/reading-student-model").then(({ saveReadingProfile }) => {
-        saveReadingProfile(updated);
-      });
-
+  const handleWarmupComplete = useCallback((results: WarmupResult[]) => {
+    // Use ref so this never closes over a stale profile value
+    const current = profileRef.current;
+    if (!current) {
       setPhase("loading_question");
-    },
-    [profile]
-  );
+      return;
+    }
+
+    const completed = [...(current.warmupSkillsCompleted ?? [])];
+    const updatedMastery = { ...current.skill_mastery };
+
+    for (const r of results) {
+      if (!completed.includes(r.skillId)) completed.push(r.skillId);
+      if (!updatedMastery[r.skillId]) {
+        updatedMastery[r.skillId] = {
+          skill_id: r.skillId,
+          status: r.correct ? "mastered" : "in_progress",
+          correct_count: r.correct ? 1 : 0,
+          attempt_count: 1,
+          formats_used: ["oral"],
+          scaffolded_attempts: 0,
+          last_attempted: new Date().toISOString(),
+          attempts: [],
+        };
+      }
+    }
+
+    const updated = {
+      ...current,
+      warmupSkillsCompleted: completed,
+      skill_mastery: updatedMastery,
+      last_active: new Date().toISOString(),
+    };
+
+    fetch("/api/reading/warmup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ results }),
+    }).catch(() => {});
+
+    saveReadingProfile(updated);
+    setProfile(updated);
+    setPhase("loading_question");
+  }, []);
 
   // Recent templates — used by selectReadingTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<ReadingTemplate[]>([]);
 
   // Prevents double-writing sessionHistory for the same skill session
   const hasRecordedSession = useRef(false);
+
+  // Keep profileRef in sync so callbacks never close over a stale profile
+  useEffect(() => { profileRef.current = profile; }, [profile]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
@@ -230,11 +246,12 @@ export default function ReadingSession() {
       }
     } else {
       // Auto-create from onboarding — no setup screen needed
-      const { name, grade } = readOnboarding();
-      const newProfile = createReadingProfile(name, grade);
-      identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
-      setProfile(newProfile);
-      // placement gate will intercept before loading_question fires
+      readOnboardingWithFallback().then(({ name, grade }) => {
+        const newProfile = createReadingProfile(name, grade);
+        identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
+        setProfile(newProfile);
+        // placement gate will intercept before loading_question fires
+      });
     }
   }, []);
 

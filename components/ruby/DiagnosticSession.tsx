@@ -106,7 +106,6 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
     domainScores,
     dominantErrors,
     placementSkill,
-    hardGateBlocked: !placement.hardGatePassed,
     skillsCompleted: placement.autoCompletedSkillIds.length,
   };
 }

@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       model: "tts-1",
       voice: "fable",   // Natural British-ish accent, warm tutor quality
       input: text.slice(0, 4096),
-      speed: 0.95,
+      speed: 1.1,
     });
 
     const buffer = Buffer.from(await response.arrayBuffer());

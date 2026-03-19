@@ -274,17 +274,36 @@ function speakText(text: string, onEnd?: () => void): () => void {
 
 function normalize(s: string) { return s.toLowerCase().trim().replace(/[^a-z0-9]/g, ""); }
 
+/** Edit distance — avoids "coal" ≈ "call" false positives from character overlap */
+function levenshtein(a: string, b: string): number {
+  const m = a.length, n = b.length;
+  const prev = Array.from({ length: n + 1 }, (_, i) => i);
+  const curr = new Array<number>(n + 1);
+  for (let i = 1; i <= m; i++) {
+    curr[0] = i;
+    for (let j = 1; j <= n; j++) {
+      curr[j] = a[i - 1] === b[j - 1]
+        ? prev[j - 1]
+        : 1 + Math.min(prev[j], curr[j - 1], prev[j - 1]);
+    }
+    prev.splice(0, n + 1, ...curr);
+  }
+  return prev[n];
+}
+
 function scoreVoiceResponse(transcript: string, expected: string, taskId: string): { correct: boolean; score: number } {
   const t = normalize(transcript);
   const e = normalize(expected);
   if (!t) return { correct: false, score: 0 };
-  // Exact or contains match
+  // Comprehension tasks: any non-empty response counts (evaluated by context, not exact match)
+  if (taskId === "D17" || taskId === "D18") return { correct: true, score: 1 };
+  // Exact or substring match
   if (t === e || t.includes(e) || e.includes(t)) return { correct: true, score: 1 };
-  // Simple character overlap for short words
-  const overlap = [...e].filter(c => t.includes(c)).length / e.length;
-  // For comprehension tasks, any non-empty response passes (evaluated by AI later)
-  if (taskId === "D17" || taskId === "D18") return { correct: overlap > 0.1, score: overlap };
-  return { correct: overlap >= 0.75, score: overlap };
+  // Levenshtein similarity — requires ≥ 0.8 to prevent "coal" → "call" false positives
+  const dist = levenshtein(t, e);
+  const maxLen = Math.max(t.length, e.length);
+  const similarity = maxLen > 0 ? 1 - dist / maxLen : 1;
+  return { correct: similarity >= 0.8, score: similarity };
 }
 
 // ── Reading level label map ───────────────────────────────────────────────────
@@ -333,7 +352,6 @@ function buildReadingReportInput(
     domainScores,
     dominantErrors: placement.dominantErrors ?? [],
     placementSkill: SKILL_NAME_MAP[placement.entrySkillId] ?? placement.entrySkillId,
-    hardGateBlocked: !placement.hardGatePassed,
     skillsCompleted: placement.autoCompletedSkillIds.length,
   };
 }
@@ -374,6 +392,15 @@ export default function ReadingDiagnosticPlacement({
   const [submitting, setSubmitting] = useState(false);
   const [showEncouragement, setShowEncouragement] = useState(false);
   const [reportInput, setReportInput] = useState<DiagnosticReportInput | null>(null);
+  // Mic gating: only allow mic after TTS has finished + 500 ms buffer
+  const [micEnabled, setMicEnabled] = useState(false);
+  // Prevents tap-through from audio-tap choice button to "That's my answer"
+  const [submitReady, setSubmitReady] = useState(false);
+  // Refs for stable access inside STT callbacks
+  const transcriptRef = useRef("");
+  const listeningRef = useRef(false);
+  const ttsHasPlayedRef = useRef(false);
+  const micTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
@@ -417,10 +444,19 @@ export default function ReadingDiagnosticPlacement({
     cancelChoiceAudio.current?.();
     cancelChoiceAudio.current = null;
     setPlayingChoiceValue(null);
+    // Reset mic gating for each new task
+    setMicEnabled(false);
+    setSubmitReady(false);
+    transcriptRef.current = "";
+    ttsHasPlayedRef.current = false;
+    if (micTimerRef.current) { clearTimeout(micTimerRef.current); micTimerRef.current = null; }
 
     // Small delay then speak
     const t = setTimeout(() => {
-      cancelSpeech.current = speakText(task.question, () => setSpeaking(false));
+      cancelSpeech.current = speakText(task.question, () => {
+        ttsHasPlayedRef.current = true;
+        setSpeaking(false);
+      });
       setSpeaking(true);
     }, 300);
     return () => clearTimeout(t);
@@ -444,29 +480,62 @@ export default function ReadingDiagnosticPlacement({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskIndex, phase, task]);
 
-  // STT
+  // Enable mic 500 ms after TTS finishes (once TTS has played at least once per task)
+  useEffect(() => {
+    if (!ttsHasPlayedRef.current) return;
+    if (speaking) { setMicEnabled(false); return; }
+    if (micTimerRef.current) clearTimeout(micTimerRef.current);
+    micTimerRef.current = setTimeout(() => setMicEnabled(true), 500);
+    return () => { if (micTimerRef.current) clearTimeout(micTimerRef.current); };
+  }, [speaking]);
+
+  // Prevent tap-through: "That's my answer" becomes active 350 ms after selection
+  useEffect(() => {
+    if (!selectedChoice) { setSubmitReady(false); return; }
+    const t = setTimeout(() => setSubmitReady(true), 350);
+    return () => clearTimeout(t);
+  }, [selectedChoice]);
+
+  // STT — continuous:false with auto-restart until user stops or transcript captured
   const startVoice = useCallback(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!SR) { alert("Voice input not supported in this browser. Please use Chrome."); return; }
     const rec = new SR();
-    rec.continuous = true;
+    rec.continuous = false;
     rec.interimResults = true;
     rec.lang = "en-US";
     rec.onstart = () => setListening(true);
-    rec.onend = () => setListening(false);
-    rec.onerror = () => setListening(false);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     rec.onresult = (e: any) => {
       const t = Array.from(e.results as ArrayLike<SpeechRecognitionResult>)
         .map((r) => r[0].transcript).join("");
+      transcriptRef.current = t;
       setTranscript(t);
     };
+    rec.onend = () => {
+      // Restart if user is still listening but nothing was captured yet
+      if (listeningRef.current && !transcriptRef.current.trim() && srRef.current === rec) {
+        try { rec.start(); return; } catch { /* fall through to stop */ }
+      }
+      listeningRef.current = false;
+      setListening(false);
+    };
+    rec.onerror = () => {
+      // On no-speech error, restart if still listening
+      if (listeningRef.current && !transcriptRef.current.trim() && srRef.current === rec) {
+        try { setTimeout(() => rec.start(), 150); return; } catch { /* fall through */ }
+      }
+      listeningRef.current = false;
+      setListening(false);
+    };
     srRef.current = rec;
+    listeningRef.current = true;
     rec.start();
   }, []);
 
   const stopVoice = useCallback(() => {
+    listeningRef.current = false;
     srRef.current?.stop();
     setListening(false);
     if (timerRef.current) { clearTimeout(timerRef.current); timerRef.current = null; }
@@ -529,8 +598,14 @@ export default function ReadingDiagnosticPlacement({
   const handleVoiceSubmit = useCallback(() => {
     if (submitting || !task) return;
     stopVoice();
-    const { correct, score } = scoreVoiceResponse(transcript, task.expectedAnswer ?? "", task.id);
-    advanceTask({ taskId: task.id, correct, score, response: transcript || "(no response)", errorType: correct ? "correct" : TASK_ERROR_MAP[task.id] });
+    const t = transcript.trim();
+    // No speech captured — skip rather than score as wrong
+    if (!t) {
+      advanceTask({ taskId: task.id, correct: false, score: 0, response: "(no response)", errorType: TASK_ERROR_MAP[task.id] });
+      return;
+    }
+    const { correct, score } = scoreVoiceResponse(t, task.expectedAnswer ?? "", task.id);
+    advanceTask({ taskId: task.id, correct, score, response: t, errorType: correct ? "correct" : TASK_ERROR_MAP[task.id] });
   }, [submitting, transcript, task, stopVoice, advanceTask]);
 
   // Skip task
@@ -654,11 +729,6 @@ export default function ReadingDiagnosticPlacement({
               <p className="text-blue-400 text-sm font-semibold uppercase tracking-wide mb-1">You&apos;re starting at</p>
               <p className="text-blue-800 font-bold text-xl">{entryName}</p>
             </div>
-            {!placementResult.hardGatePassed && (
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 text-left">
-                <p className="text-amber-700 text-base">🔑 We&apos;ll build your spelling foundations first — it&apos;s the key to great reading!</p>
-              </div>
-            )}
           </div>
 
           <div className="bg-white rounded-3xl shadow-md p-5">
@@ -810,12 +880,12 @@ export default function ReadingDiagnosticPlacement({
                     key={c.value}
                     onClick={() => handleChoice(c)}
                     disabled={submitting || !!selectedChoice}
-                    className={`px-4 py-4 rounded-2xl border-2 text-base font-semibold text-left transition-all active:scale-95 ${
+                    className={`px-4 py-4 rounded-2xl border-2 text-base font-semibold text-left transition-all select-none ${
                       selectedChoice === c.value
                         ? "bg-blue-500 border-blue-500 text-white shadow-lg scale-105"
                         : selectedChoice
-                        ? "opacity-50 border-gray-200 text-gray-400 cursor-not-allowed"
-                        : "border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50"
+                        ? "opacity-40 border-gray-200 text-gray-400 cursor-not-allowed pointer-events-none"
+                        : "border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50 active:scale-95"
                     }`}
                   >
                     {c.label}
@@ -844,10 +914,12 @@ export default function ReadingDiagnosticPlacement({
                 <div className="flex flex-col items-center gap-3">
                   <button
                     onClick={listening ? stopVoice : startVoice}
-                    disabled={submitting}
+                    disabled={submitting || speaking || !micEnabled}
                     className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 ${
                       listening
                         ? "bg-red-500 text-white animate-pulse shadow-red-200 shadow-xl"
+                        : (speaking || !micEnabled)
+                        ? "bg-gray-300 text-gray-400 cursor-not-allowed"
                         : "bg-blue-500 text-white hover:bg-blue-600"
                     }`}
                   >
@@ -860,7 +932,7 @@ export default function ReadingDiagnosticPlacement({
                     )}
                   </button>
                   <p className="text-sm text-gray-400 font-medium">
-                    {listening ? "🔴 Listening… tap to stop" : "Tap the mic to speak"}
+                    {speaking ? "⏳ Listen to the question first…" : listening ? "🔴 Listening… tap to stop" : !micEnabled ? "⏳ Getting ready…" : "Tap the mic to speak"}
                   </p>
                 </div>
 
@@ -908,22 +980,21 @@ export default function ReadingDiagnosticPlacement({
                       }`}
                     >
                       {playingChoiceValue === c.value ? (
-                        <svg className="w-5 h-5 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-7 h-7 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
                           <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
                         </svg>
                       ) : (
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z"/>
                         </svg>
                       )}
-                      <span className="font-mono text-lg">{c.label}</span>
                     </button>
                   ))}
                 </div>
                 {selectedChoice && (
                   <button
                     onClick={handleAudioTapSubmit}
-                    disabled={submitting}
+                    disabled={submitting || !submitReady}
                     className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                   >
                     {submitting ? (

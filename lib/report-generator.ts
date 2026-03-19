@@ -21,7 +21,6 @@ export type DiagnosticReportInput = {
   }[];
   dominantErrors: string[];   // top 1–3 error codes
   placementSkill: string;     // plain name of entry skill
-  hardGateBlocked: boolean;
   skillsCompleted: number;    // auto-completed skills count
 };
 
@@ -124,7 +123,7 @@ SUBJECT: ${input.subject === "maths" ? "Maths" : "Reading"}
 WORKING LEVEL: ${input.workingLevel} (${gapText})
 SKILLS ALREADY KNOWN: ${input.skillsCompleted} skills auto-completed by the diagnostic
 STARTING SKILL ON RUBY: ${input.placementSkill}
-${input.hardGateBlocked ? "HARD GATE: Student must complete encoding foundation before reading skills unlock." : ""}
+
 
 DOMAIN PERFORMANCE:
 ${domainSummary}
