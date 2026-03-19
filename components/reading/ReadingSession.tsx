@@ -128,8 +128,7 @@ async function readOnboardingWithFallback(): Promise<{ name: string; grade: numb
 
   // Supabase fallback for returning users who skipped onboarding
   try {
-    const { createClientComponentClient } = await import("@supabase/auth-helpers-nextjs");
-    const supabase = createClientComponentClient();
+    const { supabase } = await import("@/lib/supabase");
     const { data: { user } } = await supabase.auth.getUser();
     if (user) {
       const { data } = await supabase.from("users").select("name, grade").eq("id", user.id).single();
@@ -163,11 +162,9 @@ export default function ReadingSession() {
   // Phase 2 warmup
   const [warmupBankIndex] = useState(() => Math.floor(Math.random() * 50) + 1);
   const [warmupSkillIds, setWarmupSkillIds] = useState<string[]>([]);
-  // Ref keeps handleWarmupComplete from closing over a stale profile
-  const profileRef = useRef<ReadingStudentProfile | null>(null);
 
   const handleWarmupComplete = useCallback((results: WarmupResult[]) => {
-    // Use ref so this never closes over a stale profile value
+    // Use profileRef (declared below) so this never closes over a stale profile value
     const current = profileRef.current;
     if (!current) {
       setPhase("loading_question");
@@ -488,7 +485,11 @@ export default function ReadingSession() {
   // Full reset — wipes everything, reruns placement with fresh questions
   const resetToPlacement = () => {
     localStorage.removeItem("ruby_reading_profile");
-    const { name, grade } = readOnboarding();
+    let name = "Student", grade = 3;
+    try {
+      const raw = localStorage.getItem("onboardingData");
+      if (raw) { const d = JSON.parse(raw); name = ((d.name as string) || "").split(" ")[0] || "Student"; grade = parseInt(d.grade as string) || 3; }
+    } catch { /* ignore */ }
     const freshProfile = createReadingProfile(name, grade);
     setProfile(freshProfile);
     setPhase("loading_question");
