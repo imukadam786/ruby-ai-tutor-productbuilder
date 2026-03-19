@@ -249,6 +249,22 @@ export default function Home() {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         if (session.user.id) localStorage.setItem("current_user_id", session.user.id);
+        // Ensure onboardingData has the user's name — may be absent on a fresh device
+        try {
+          const raw = localStorage.getItem("onboardingData");
+          const existing = raw ? JSON.parse(raw) : {};
+          if (!existing.name) {
+            const fullName =
+              (session.user.user_metadata?.full_name as string | undefined) ||
+              (session.user.email?.split("@")[0] ?? "");
+            if (fullName) {
+              localStorage.setItem(
+                "onboardingData",
+                JSON.stringify({ ...existing, name: fullName })
+              );
+            }
+          }
+        } catch { /* ignore */ }
         setAppState("app");
       } else {
         setAppState("onboarding");
