@@ -107,6 +107,7 @@ function buildReadingReportInput(
     workingLevel: `Reading Level ${entryLevel}`,
     gradeLevelGap: profile.grade - entryLevel - 1,
     questionsAnalysed: total,
+    correctCount: result.tasks.filter((t) => t.correct).length,
     domainScores,
     dominantErrors,
     placementSkill: result.entrySkillId,
