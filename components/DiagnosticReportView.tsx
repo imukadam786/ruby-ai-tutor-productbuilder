@@ -130,8 +130,8 @@ export default function DiagnosticReportView({
               </p>
             </div>
             <div>
-              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Questions</p>
-              <p className="text-white font-bold text-base">{input.questionsAnalysed}</p>
+              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Score</p>
+              <p className="text-white font-bold text-base">{input.correctCount}/{input.questionsAnalysed}</p>
               <p className="text-[#FDA4AF] text-xs">Placement reliable</p>
             </div>
           </div>

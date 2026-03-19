@@ -102,6 +102,7 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
     workingLevel: `Grade ${placement.entryLevel}`,
     gradeLevelGap: profile.grade - placement.entryLevel,
     questionsAnalysed: placement.tasks.filter((t) => !t.is_probe).length,
+    correctCount: placement.tasks.filter((t) => !t.is_probe && t.correct).length,
     domainScores,
     dominantErrors,
     placementSkill,

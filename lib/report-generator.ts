@@ -12,6 +12,7 @@ export type DiagnosticReportInput = {
   workingLevel: string;       // e.g. "Grade 4"
   gradeLevelGap: number;      // school grade minus working level (0 = on grade)
   questionsAnalysed: number;  // actual count from placement.tasks.length
+  correctCount: number;       // number of primary questions answered correctly
   domainScores: {
     domain: string;           // human-readable domain title
     score: number;            // 0–100

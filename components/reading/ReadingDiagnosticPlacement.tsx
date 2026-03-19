@@ -328,6 +328,7 @@ function buildReadingReportInput(
     workingLevel,
     gradeLevelGap,
     questionsAnalysed: completedTasks.length,
+    correctCount: completedTasks.filter((t) => t.correct).length,
     domainScores,
     dominantErrors: placement.dominantErrors ?? [],
     placementSkill: SKILL_NAME_MAP[placement.entrySkillId] ?? placement.entrySkillId,
