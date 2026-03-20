@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import { getProgress, getStreakData } from "@/lib/storage";
 import { getStudentProfile, getSkillById, getLevelById } from "@/lib/student-model";
 import { getReadingProfile, getReadingSkillById, getReadingLevelById } from "@/lib/reading-student-model";
-import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
@@ -68,7 +67,7 @@ export default function ProgressTracker() {
   const streak = useMemo(() => getStreakData(), []);
 
   const mastery = profile?.skill_mastery ?? {};
-  const masteredEntries = Object.entries(mastery).filter(([, m]) => m.status === "mastered");
+  const masteredEntries = Object.entries(mastery).filter(([, m]) => m.status === "mastered" || m.status === "assumed");
   const inProgressEntries = Object.entries(mastery).filter(([, m]) => m.status === "in_progress");
 
   const accuracy =
@@ -80,7 +79,7 @@ export default function ProgressTracker() {
   const currentSkill = profile ? getSkillById(profile.current_skill_id) : null;
 
   const levelMastered = currentLevel
-    ? currentLevel.tiers.flatMap((t) => t.atomic_skills).filter((s) => mastery[s.id]?.status === "mastered").length
+    ? currentLevel.tiers.flatMap((t) => t.atomic_skills).filter((s) => mastery[s.id]?.status === "mastered" || mastery[s.id]?.status === "assumed").length
     : 0;
   const levelTotal = currentLevel
     ? currentLevel.tiers.flatMap((t) => t.atomic_skills).length
@@ -91,7 +90,7 @@ export default function ProgressTracker() {
   const readingCurrentLevel = readingProfile ? getReadingLevelById(readingProfile.current_level) : null;
   const readingCurrentSkill = readingProfile ? getReadingSkillById(readingProfile.current_skill_id) : null;
   const readingLevelMastered = readingCurrentLevel
-    ? readingCurrentLevel.tiers.flatMap((t) => t.atomic_skills).filter((s) => readingMastery[s.id]?.status === "mastered").length
+    ? readingCurrentLevel.tiers.flatMap((t) => t.atomic_skills).filter((s) => readingMastery[s.id]?.status === "mastered" || readingMastery[s.id]?.status === "assumed").length
     : 0;
   const readingLevelTotal = readingCurrentLevel
     ? readingCurrentLevel.tiers.flatMap((t) => t.atomic_skills).length

@@ -48,7 +48,7 @@ function loadStats(): Stats {
   const mastery = profile?.skill_mastery ?? {};
   const values = Object.values(mastery);
   return {
-    skillsMastered: values.filter((m) => m.status === "mastered").length,
+    skillsMastered: values.filter((m) => m.status === "mastered" || m.status === "assumed").length,
     inProgress: values.filter((m) => m.status === "in_progress").length,
     lessonsDone: progress.lessonsCompleted,
     studySessions: progress.sessionCount,

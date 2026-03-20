@@ -22,7 +22,7 @@ export default function StudentDashboard({ profile }: StudentDashboardProps) {
     if (!profile) return null;
 
     const masteredSkills = Object.values(profile.skill_mastery).filter(
-      (m) => m.status === "mastered"
+      (m) => m.status === "mastered" || m.status === "assumed"
     ).length;
     const inProgressSkills = Object.values(profile.skill_mastery).filter(
       (m) => m.status === "in_progress"

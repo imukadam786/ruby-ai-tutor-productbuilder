@@ -72,7 +72,7 @@ export interface ReadingLevel {
 
 // ─── Student Model ────────────────────────────────────────────────────────────
 
-export type ReadingMasteryStatus = "locked" | "in_progress" | "mastered" | "needs_review";
+export type ReadingMasteryStatus = "locked" | "in_progress" | "mastered" | "needs_review" | "assumed";
 
 export interface ReadingSkillAttempt {
   id: string;

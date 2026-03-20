@@ -1,5 +1,6 @@
 import { StudentProfile, SkillMastery, SkillAttempt, ErrorType, AtomicSkill, MathsPlacementResult } from "@/types/ruby";
 import skillTreeData from "@/data/skill-tree.json";
+import { supabase } from "@/lib/supabase";
 
 const STUDENT_KEY = "ruby_student_profile";
 const DEFAULT_STARTING_SKILL = "L1.T1.A1";
@@ -21,6 +22,15 @@ export function getStudentProfile(): StudentProfile | null {
 export function saveStudentProfile(profile: StudentProfile): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(STUDENT_KEY, JSON.stringify(profile));
+  // Fire-and-forget Supabase sync — localStorage is source of truth
+  void supabase.from("student_profiles").upsert({
+    id: profile.id,
+    subject: "maths",
+    name: profile.name,
+    grade: profile.grade,
+    profile_data: profile as unknown as Record<string, unknown>,
+    updated_at: new Date().toISOString(),
+  }, { onConflict: "id" });
 }
 
 export function createStudentProfile(name: string, grade: number): StudentProfile {
@@ -76,6 +86,17 @@ export function recordAttempt(
     },
   };
   saveStudentProfile(updated);
+  // Fire-and-forget attempt record
+  void supabase.from("skill_attempts").insert({
+    student_id: profile.id,
+    subject: "maths",
+    skill_id: attempt.skill_id,
+    is_correct: attempt.is_correct,
+    error_type: attempt.error_type ?? null,
+    template: attempt.template ?? null,
+    scaffolded: attempt.scaffolded ?? false,
+    p_learned: updatedMastery.p_learned ?? null,
+  });
   return updated;
 }
 

@@ -10,6 +10,7 @@ import {
   DiagnosticPlacementResult,
 } from "@/types/reading";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
+import { supabase } from "@/lib/supabase";
 import {
   initBKT,
   updateBKT,
@@ -37,6 +38,15 @@ export function getReadingProfile(): ReadingStudentProfile | null {
 export function saveReadingProfile(profile: ReadingStudentProfile): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(READING_STUDENT_KEY, JSON.stringify(profile));
+  // Fire-and-forget Supabase sync — localStorage is source of truth
+  void supabase.from("student_profiles").upsert({
+    id: profile.id,
+    subject: "reading",
+    name: profile.name,
+    grade: profile.grade,
+    profile_data: profile as unknown as Record<string, unknown>,
+    updated_at: new Date().toISOString(),
+  }, { onConflict: "id" });
 }
 
 export function createReadingProfile(name: string, grade: number): ReadingStudentProfile {
@@ -113,6 +123,17 @@ export function recordReadingAttempt(
     },
   };
   saveReadingProfile(updated);
+  // Fire-and-forget attempt record
+  void supabase.from("skill_attempts").insert({
+    student_id: profile.id,
+    subject: "reading",
+    skill_id: attempt.skill_id,
+    is_correct: attempt.is_correct,
+    error_type: attempt.error_type ?? null,
+    template: attempt.template ?? null,
+    scaffolded: attempt.scaffolded ?? false,
+    p_learned: updatedMastery.p_learned ?? null,
+  });
   return updated;
 }
 
@@ -305,7 +326,7 @@ export function getReadingSkillStatus(
   if (!skill) return "locked";
   if (skill.prerequisites.length === 0) return "available";
   const allMet = skill.prerequisites.every(
-    (p) => profile.skill_mastery[p]?.status === "mastered"
+    (p) => profile.skill_mastery[p]?.status === "mastered" || profile.skill_mastery[p]?.status === "assumed"
   );
   return allMet ? "available" : "locked";
 }
@@ -416,20 +437,19 @@ export function completeDiagnosticPlacement(
   profile: ReadingStudentProfile,
   result: DiagnosticPlacementResult
 ): ReadingStudentProfile {
-  // Mark all auto-completed skills as mastered
+  // Mark all auto-completed skills as assumed — inferred from diagnostic, not demonstrated
   const updatedMastery = { ...profile.skill_mastery };
   for (const skillId of result.autoCompletedSkillIds) {
-    const skill = getReadingSkillById(skillId);
     updatedMastery[skillId] = {
       skill_id: skillId,
-      status: "mastered",
-      correct_count: skill?.mastery_criteria.correct_required ?? 3,
-      attempt_count: skill?.mastery_criteria.correct_required ?? 3,
-      formats_used: ["oral"],
+      status: "assumed",
+      correct_count: 0,
+      attempt_count: 0,
+      formats_used: [],
       scaffolded_attempts: 0,
       last_attempted: new Date().toISOString(),
-      mastered_at: new Date().toISOString(),
       attempts: [],
+      p_learned: 0.70,
     };
   }
 
@@ -449,6 +469,17 @@ export function completeDiagnosticPlacement(
     last_active: new Date().toISOString(),
   };
   saveReadingProfile(updated);
+  // Fire-and-forget diagnostic result record
+  void supabase.from("diagnostic_results").insert({
+    student_id: profile.id,
+    subject: "reading",
+    entry_skill_id: result.entrySkillId,
+    entry_level: levelId,
+    auto_completed_skill_ids: result.autoCompletedSkillIds,
+    dominant_errors: result.dominantErrors ?? [],
+    hard_gate_passed: result.hardGatePassed ?? true,
+    completed_at: new Date(result.completedAt).toISOString(),
+  });
   return updated;
 }
 
@@ -457,6 +488,6 @@ export function getReadingLevelProgress(
   masteryMap: Record<string, ReadingSkillMastery>
 ): number {
   if (skillIds.length === 0) return 0;
-  const mastered = skillIds.filter((id) => masteryMap[id]?.status === "mastered").length;
+  const mastered = skillIds.filter((id) => masteryMap[id]?.status === "mastered" || masteryMap[id]?.status === "assumed").length;
   return Math.round((mastered / skillIds.length) * 100);
 }
