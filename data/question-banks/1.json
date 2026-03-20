@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.1",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "By the log near the pond — where the frog was sitting"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "By the log near the pond",
+        "value": "By the log near the pond",
+        "correct": true
+      },
+      {
+        "label": "At the top of the path",
+        "value": "At the top of the path",
+        "correct": false
+      },
+      {
+        "label": "Near the shed at home",
+        "value": "Near the shed at home",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.1",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The dog was surprised or decided the frog was not interesting — done exploring"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The frog jumped away and there was nothing left to do",
+        "value": "The frog jumped away and there was nothing left to do",
+        "correct": true
+      },
+      {
+        "label": "It was frightened of the water",
+        "value": "It was frightened of the water",
+        "correct": false
+      },
+      {
+        "label": "It heard its owner calling",
+        "value": "It heard its owner calling",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

@@ -23,8 +23,6 @@ import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
 import { updateSkillMastery, initSkillMastery, determineNextAction, buildReviewQueue, recordMathsSession } from "@/lib/mastery-engine";
 import { getDomainForSkill, getDomain, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
-import { applyMathsTransfers } from "@/lib/knowledge-graph-engine";
-import { abilityLevel } from "@/lib/bkt";
 import { simplifyQuestion } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 import QuestionCard from "./QuestionCard";
@@ -330,10 +328,7 @@ export default function DiagnosticSession() {
           status: "mastered" as const,
           mastered_at: new Date().toISOString(),
         };
-        const acceleratedProfile = applyMathsTransfers(
-          recordAttempt(profile, attempt, masteredMastery),
-          currentQuestion.skill_id
-        );
+        const acceleratedProfile = recordAttempt(profile, attempt, masteredMastery);
         setProfile(acceleratedProfile);
         saveStudentProfile(acceleratedProfile);
         result.next_action = "advance_skill";
@@ -405,10 +400,8 @@ export default function DiagnosticSession() {
       // ── End review mode ────────────────────────────────────────────────────
 
       if (updatedMastery.status === "mastered") {
-        // Apply knowledge-graph transfer credit to connected skills
-        const profileWithTransfers = applyMathsTransfers(updatedProfile, currentQuestion.skill_id);
-        setProfile(profileWithTransfers);
-        saveStudentProfile(profileWithTransfers);
+        setProfile(updatedProfile);
+        saveStudentProfile(updatedProfile);
         trackSkillMastered({
           subject: "maths",
           skill_id: currentQuestion.skill_id,

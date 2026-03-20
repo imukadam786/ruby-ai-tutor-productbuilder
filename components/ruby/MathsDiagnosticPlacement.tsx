@@ -240,10 +240,10 @@ function computePlacement(
   else if (passM008)          computedLevel = 10;
   else if (gateB && passM006) computedLevel = 6;
   else if (gateB)             computedLevel = 5;
-  else if (gateA)             computedLevel = 3;
+  else if (gateA)             computedLevel = 2;
   else if (passM004)          computedLevel = 2;
 
-  const entryLevel = Math.max(computedLevel, getGradeFloor(grade));
+  const entryLevel = computedLevel;
 
   const level = getLevelById(entryLevel);
   let entrySkillId = `L${entryLevel}.T1.A1`;

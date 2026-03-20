@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.28",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Shells"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Shells",
+        "value": "Shells",
+        "correct": true
+      },
+      {
+        "label": "Crabs",
+        "value": "Crabs",
+        "correct": false
+      },
+      {
+        "label": "Pebbles and driftwood",
+        "value": "Pebbles and driftwood",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.28",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The tide was rising fast — she could be cut off by the water"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The tide was rising fast and she could be trapped by the water",
+        "value": "The tide was rising fast and she could be trapped by the water",
+        "correct": true
+      },
+      {
+        "label": "The girl had been standing in the sun too long",
+        "value": "The girl had been standing in the sun too long",
+        "correct": false
+      },
+      {
+        "label": "The crabs were starting to come out of the pools",
+        "value": "The crabs were starting to come out of the pools",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.43",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A small carved wooden bird"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A small carved wooden bird",
+        "value": "A small carved wooden bird",
+        "correct": true
+      },
+      {
+        "label": "A book with a handwritten note inside",
+        "value": "A book with a handwritten note inside",
+        "correct": false
+      },
+      {
+        "label": "A piece of jewellery wrapped in tissue",
+        "value": "A piece of jewellery wrapped in tissue",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.43",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "They were thinking of her — it was a kind and thoughtful gesture"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "They were thinking of her and it was a kind and thoughtful gesture",
+        "value": "They were thinking of her and it was a kind and thoughtful gesture",
+        "correct": true
+      },
+      {
+        "label": "They were clearing out old things and sent ones they did not want",
+        "value": "They were clearing out old things and sent ones they did not want",
+        "correct": false
+      },
+      {
+        "label": "They wanted her to try to guess who sent it",
+        "value": "They wanted her to try to guess who sent it",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

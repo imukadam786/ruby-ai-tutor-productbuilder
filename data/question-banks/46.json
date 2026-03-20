@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.46",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Slide it along a rail to reach the high shelves"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Slide it along a rail to reach the high shelves",
+        "value": "Slide it along a rail to reach the high shelves",
+        "correct": true
+      },
+      {
+        "label": "Climb it to dust the ceiling lights",
+        "value": "Climb it to dust the ceiling lights",
+        "correct": false
+      },
+      {
+        "label": "Move it between rooms on a set of wheels",
+        "value": "Move it between rooms on a set of wheels",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.46",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The library was large and the shelf system was designed for efficient access"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The library was large and the shelf system was designed for easy access",
+        "value": "The library was large and the shelf system was designed for easy access",
+        "correct": true
+      },
+      {
+        "label": "The librarian liked to show visitors the trick she could do",
+        "value": "The librarian liked to show visitors the trick she could do",
+        "correct": false
+      },
+      {
+        "label": "The floor was very smooth and slippery",
+        "value": "The floor was very smooth and slippery",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

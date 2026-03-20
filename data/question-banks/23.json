@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.23",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "At the top of each hour"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "At the top of each hour",
+        "value": "At the top of each hour",
+        "correct": true
+      },
+      {
+        "label": "Every half hour",
+        "value": "Every half hour",
+        "correct": false
+      },
+      {
+        "label": "Only at midnight",
+        "value": "Only at midnight",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.23",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It was new to them — unlike the children who had grown used to it and no longer noticed"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was unfamiliar to them and the sound surprised them",
+        "value": "It was unfamiliar to them and the sound surprised them",
+        "correct": true
+      },
+      {
+        "label": "Visitors liked old clocks more than children did",
+        "value": "Visitors liked old clocks more than children did",
+        "correct": false
+      },
+      {
+        "label": "The clock was placed too high for children to see",
+        "value": "The clock was placed too high for children to see",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

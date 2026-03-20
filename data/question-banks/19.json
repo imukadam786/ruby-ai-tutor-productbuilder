@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.19",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Bats"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Bats",
+        "value": "Bats",
+        "correct": true
+      },
+      {
+        "label": "Rock formations called stalactites",
+        "value": "Rock formations called stalactites",
+        "correct": false
+      },
+      {
+        "label": "Birds",
+        "value": "Birds",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.19",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The cave was dark and cool with dripping water — underground spaces stay cold"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The cave was dark and cool with dripping water",
+        "value": "The cave was dark and cool with dripping water",
+        "correct": true
+      },
+      {
+        "label": "The cave had no windows or openings",
+        "value": "The cave had no windows or openings",
+        "correct": false
+      },
+      {
+        "label": "The wind blew cold air in from outside",
+        "value": "The wind blew cold air in from outside",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

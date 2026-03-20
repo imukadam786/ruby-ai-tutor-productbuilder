@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.41",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "By noon on Sunday"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "By noon on Sunday",
+        "value": "By noon on Sunday",
+        "correct": true
+      },
+      {
+        "label": "By Saturday evening",
+        "value": "By Saturday evening",
+        "correct": false
+      },
+      {
+        "label": "On Monday morning",
+        "value": "On Monday morning",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.41",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The bright yellow may have bothered it — cats are sensitive to changes in their environment"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The bright yellow colour may have bothered it as cats are sensitive to changes",
+        "value": "The bright yellow colour may have bothered it as cats are sensitive to changes",
+        "correct": true
+      },
+      {
+        "label": "It smelled the paint and wanted fresh air",
+        "value": "It smelled the paint and wanted fresh air",
+        "correct": false
+      },
+      {
+        "label": "It saw its own reflection in the wet paint",
+        "value": "It saw its own reflection in the wet paint",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

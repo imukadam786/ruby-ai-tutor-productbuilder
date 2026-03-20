@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.36",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "On a folded towel in the hall"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "On a folded towel in the hall",
+        "value": "On a folded towel in the hall",
+        "correct": true
+      },
+      {
+        "label": "On the doorstep outside",
+        "value": "On the doorstep outside",
+        "correct": false
+      },
+      {
+        "label": "In the kitchen near the stove",
+        "value": "In the kitchen near the stove",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.36",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It was hungry and cold and looked up for more — showing it trusted them"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was cold and hungry and looked up for more, showing it trusted them",
+        "value": "It was cold and hungry and looked up for more, showing it trusted them",
+        "correct": true
+      },
+      {
+        "label": "It looked expensive so they thought it was lost",
+        "value": "It looked expensive so they thought it was lost",
+        "correct": false
+      },
+      {
+        "label": "It sat down and simply refused to leave",
+        "value": "It sat down and simply refused to leave",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

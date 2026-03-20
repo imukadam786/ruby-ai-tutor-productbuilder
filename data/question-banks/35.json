@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.35",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Blue — the sun was bright and sharp"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Blue sky with bright sharp sun",
+        "value": "Blue sky with bright sharp sun",
+        "correct": true
+      },
+      {
+        "label": "More thick grey cloud",
+        "value": "More thick grey cloud",
+        "correct": false
+      },
+      {
+        "label": "A dark stormy sky",
+        "value": "A dark stormy sky",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.35",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Above the clouds it is always sunny even when it is raining below"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Above the clouds it is always sunny even when it rains below",
+        "value": "Above the clouds it is always sunny even when it rains below",
+        "correct": true
+      },
+      {
+        "label": "Planes fly so high there is never any rain at all",
+        "value": "Planes fly so high there is never any rain at all",
+        "correct": false
+      },
+      {
+        "label": "Clouds always have clear sky directly above them",
+        "value": "Clouds always have clear sky directly above them",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

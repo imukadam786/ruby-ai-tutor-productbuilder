@@ -108,21 +108,3 @@ export function abilityLevel(p_learned: number): number {
   return 5;
 }
 
-/**
- * Apply transfer credit from a mastered prerequisite skill.
- * When a student masters skill A which transfers to skill B,
- * B's p_learned is boosted by (transfer_weight × p_learned_A).
- *
- * @param current_p  target skill's current p_learned
- * @param source_p   source skill's p_learned (should be near 0.95)
- * @param weight     transfer weight from knowledge graph (0–1)
- * @returns          updated p_learned for target skill
- */
-export function applyTransfer(
-  current_p: number,
-  source_p: number,
-  weight: number
-): number {
-  const transferred = source_p * weight;
-  return Math.max(current_p, transferred);
-}

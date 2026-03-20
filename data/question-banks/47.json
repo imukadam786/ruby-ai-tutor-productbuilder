@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.47",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "White netting"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "White netting",
+        "value": "White netting",
+        "correct": true
+      },
+      {
+        "label": "Wire fencing",
+        "value": "Wire fencing",
+        "correct": false
+      },
+      {
+        "label": "Clear plastic sheeting",
+        "value": "Clear plastic sheeting",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.47",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The berries needed to stay fresh — they had to be transported quickly after picking"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The berries needed to stay fresh and had to be transported quickly",
+        "value": "The berries needed to stay fresh and had to be transported quickly",
+        "correct": true
+      },
+      {
+        "label": "The van driver had a fixed lunchtime schedule",
+        "value": "The van driver had a fixed lunchtime schedule",
+        "correct": false
+      },
+      {
+        "label": "The workers had to leave the garden by midday each day",
+        "value": "The workers had to leave the garden by midday each day",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

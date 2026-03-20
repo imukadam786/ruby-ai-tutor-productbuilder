@@ -248,20 +248,52 @@
     "displayWord": "",
     "passageRef": "16.13",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Swimming and bobbing up and down on the waves"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Swimming and bobbing up and down on the waves",
+        "value": "Swimming and bobbing up and down on the waves",
+        "correct": true
+      },
+      {
+        "label": "Sitting on a log by the bank",
+        "value": "Sitting on a log by the bank",
+        "correct": false
+      },
+      {
+        "label": "Hiding from the fast current",
+        "value": "Hiding from the fast current",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
     "domain": "Inferential Comprehension",
     "domainCode": "D018",
     "gate": "D",
-    "question": "Why do you think the ducks looked confused on the frozen stream?",
+    "question": "Why did the ducks paddle out of the way when the log floated past?",
     "displayWord": "",
     "passageRef": "16.13",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "They could not swim — the water they lived on had turned solid"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To avoid being hit by the floating log",
+        "value": "To avoid being hit by the floating log",
+        "correct": true
+      },
+      {
+        "label": "They were afraid of large objects in the water",
+        "value": "They were afraid of large objects in the water",
+        "correct": false
+      },
+      {
+        "label": "They wanted to rest on the bank",
+        "value": "They wanted to rest on the bank",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

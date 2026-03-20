@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.50",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "It lifted and the bay was bright and clear"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It lifted and the bay was bright and clear",
+        "value": "It lifted and the bay was bright and clear",
+        "correct": true
+      },
+      {
+        "label": "It got thicker and covered the whole town",
+        "value": "It got thicker and covered the whole town",
+        "correct": false
+      },
+      {
+        "label": "The wind blew it further out to sea",
+        "value": "The wind blew it further out to sea",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.50",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "To warn other ships of their position and avoid collisions in low visibility"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To warn other ships of their position and avoid collisions in low visibility",
+        "value": "To warn other ships of their position and avoid collisions in low visibility",
+        "correct": true
+      },
+      {
+        "label": "To call for help if they were in trouble",
+        "value": "To call for help if they were in trouble",
+        "correct": false
+      },
+      {
+        "label": "To let people on shore know they were safe",
+        "value": "To let people on shore know they were safe",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

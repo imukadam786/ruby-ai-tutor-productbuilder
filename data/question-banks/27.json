@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.27",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A pair of blue tits"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A pair of blue tits",
+        "value": "A pair of blue tits",
+        "correct": true
+      },
+      {
+        "label": "A robin and its mate",
+        "value": "A robin and its mate",
+        "correct": false
+      },
+      {
+        "label": "A family of sparrows",
+        "value": "A family of sparrows",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.27",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "He cared about the birds and was proud of the birdbox he and his dad built together"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He was proud of the box and cared about the birds",
+        "value": "He was proud of the box and cared about the birds",
+        "correct": true
+      },
+      {
+        "label": "He was checking it was still fixed securely to the tree",
+        "value": "He was checking it was still fixed securely to the tree",
+        "correct": false
+      },
+      {
+        "label": "He was waiting for the birds to leave",
+        "value": "He was waiting for the birds to leave",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

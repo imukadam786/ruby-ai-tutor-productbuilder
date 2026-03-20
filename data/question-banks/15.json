@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.15",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Sticks"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Sticks",
+        "value": "Sticks",
+        "correct": true
+      },
+      {
+        "label": "Pebbles",
+        "value": "Pebbles",
+        "correct": false
+      },
+      {
+        "label": "Leaves",
+        "value": "Leaves",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.15",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The race — they ran to watch the sticks come out the other side of the bridge"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Watching the sticks race under the bridge and come out the other side",
+        "value": "Watching the sticks race under the bridge and come out the other side",
+        "correct": true
+      },
+      {
+        "label": "Throwing the sticks as far as they could",
+        "value": "Throwing the sticks as far as they could",
+        "correct": false
+      },
+      {
+        "label": "Counting the arches on the bridge",
+        "value": "Counting the arches on the bridge",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

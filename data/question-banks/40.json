@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.40",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "The oars dipping in the water"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The oars dipping in the water",
+        "value": "The oars dipping in the water",
+        "correct": true
+      },
+      {
+        "label": "The wind moving through the trees",
+        "value": "The wind moving through the trees",
+        "correct": false
+      },
+      {
+        "label": "An owl hooting from the far bank",
+        "value": "An owl hooting from the far bank",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.40",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Peaceful and calm — the scene describes quiet water, stars, and a single owl call"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Peaceful and calm",
+        "value": "Peaceful and calm",
+        "correct": true
+      },
+      {
+        "label": "Worried and tense",
+        "value": "Worried and tense",
+        "correct": false
+      },
+      {
+        "label": "Bored and wanting to go home",
+        "value": "Bored and wanting to go home",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

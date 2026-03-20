@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.17",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Hot bread"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Hot bread",
+        "value": "Hot bread",
+        "correct": true
+      },
+      {
+        "label": "Fresh fruit",
+        "value": "Fresh fruit",
+        "correct": false
+      },
+      {
+        "label": "Hot pies",
+        "value": "Hot pies",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.17",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "They could smell it drifting down the street — the smell was the signal"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "They could smell it drifting down the street",
+        "value": "They could smell it drifting down the street",
+        "correct": true
+      },
+      {
+        "label": "They heard him calling out about it",
+        "value": "They heard him calling out about it",
+        "correct": false
+      },
+      {
+        "label": "They saw his large basket from a distance",
+        "value": "They saw his large basket from a distance",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

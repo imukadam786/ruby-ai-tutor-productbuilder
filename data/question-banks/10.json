@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.10",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "To find more food for her hungry chicks"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To find more food for her chicks",
+        "value": "To find more food for her chicks",
+        "correct": true
+      },
+      {
+        "label": "To rest in a nearby tree",
+        "value": "To rest in a nearby tree",
+        "correct": false
+      },
+      {
+        "label": "To warn other birds away",
+        "value": "To warn other birds away",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.10",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Three chicks all needed feeding — one worm was not enough for all of them"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Three hungry chicks needed more than one worm",
+        "value": "Three hungry chicks needed more than one worm",
+        "correct": true
+      },
+      {
+        "label": "She was teaching her chicks to find food",
+        "value": "She was teaching her chicks to find food",
+        "correct": false
+      },
+      {
+        "label": "She did not like staying in the nest",
+        "value": "She did not like staying in the nest",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

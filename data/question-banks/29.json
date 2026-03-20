@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.29",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Swapped them to mark"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Swapped them to mark each other's work",
+        "value": "Swapped them to mark each other's work",
+        "correct": true
+      },
+      {
+        "label": "Put them on the teacher's desk",
+        "value": "Put them on the teacher's desk",
+        "correct": false
+      },
+      {
+        "label": "Put them away in their bags",
+        "value": "Put them away in their bags",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.29",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "He found the test difficult or was unsure of his answers — a sign of nerves"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He found the test difficult and was nervous",
+        "value": "He found the test difficult and was nervous",
+        "correct": true
+      },
+      {
+        "label": "He had already finished and was bored",
+        "value": "He had already finished and was bored",
+        "correct": false
+      },
+      {
+        "label": "He was cold and warming his hands",
+        "value": "He was cold and warming his hands",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

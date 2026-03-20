@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.25",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A squirrel"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A squirrel",
+        "value": "A squirrel",
+        "correct": true
+      },
+      {
+        "label": "A rabbit",
+        "value": "A rabbit",
+        "correct": false
+      },
+      {
+        "label": "A fox",
+        "value": "A fox",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.25",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It was curious or checking if he was a threat before continuing"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was checking if the boy was a threat before moving on",
+        "value": "It was checking if the boy was a threat before moving on",
+        "correct": true
+      },
+      {
+        "label": "It was hoping he had food to share",
+        "value": "It was hoping he had food to share",
+        "correct": false
+      },
+      {
+        "label": "It was lost and looking for help",
+        "value": "It was lost and looking for help",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

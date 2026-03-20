@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.16",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Rolled it across the lawn until it was too heavy to push"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Rolled it across the lawn until it was too heavy to push",
+        "value": "Rolled it across the lawn until it was too heavy to push",
+        "correct": true
+      },
+      {
+        "label": "Threw it at the garden wall",
+        "value": "Threw it at the garden wall",
+        "correct": false
+      },
+      {
+        "label": "Shaped it into a snowman",
+        "value": "Shaped it into a snowman",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.16",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It became too heavy to push any further"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It had grown too heavy to push any further",
+        "value": "It had grown too heavy to push any further",
+        "correct": true
+      },
+      {
+        "label": "The snow around it ran out",
+        "value": "The snow around it ran out",
+        "correct": false
+      },
+      {
+        "label": "His hands got too cold to push",
+        "value": "His hands got too cold to push",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

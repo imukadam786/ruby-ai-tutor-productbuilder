@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.9",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Beans, carrots, and tomatoes"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Beans, carrots, and tomatoes",
+        "value": "Beans, carrots, and tomatoes",
+        "correct": true
+      },
+      {
+        "label": "Potatoes and peas",
+        "value": "Potatoes and peas",
+        "correct": false
+      },
+      {
+        "label": "Flowers and herbs",
+        "value": "Flowers and herbs",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.9",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "He was patient and hardworking — he planted, watered, and waited through to harvest"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Patient and hardworking",
+        "value": "Patient and hardworking",
+        "correct": true
+      },
+      {
+        "label": "Lazy and forgetful",
+        "value": "Lazy and forgetful",
+        "correct": false
+      },
+      {
+        "label": "Fast and impatient",
+        "value": "Fast and impatient",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

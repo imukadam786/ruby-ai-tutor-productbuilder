@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.2",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Red"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Red",
+        "value": "Red",
+        "correct": true
+      },
+      {
+        "label": "Blue",
+        "value": "Blue",
+        "correct": false
+      },
+      {
+        "label": "Yellow",
+        "value": "Yellow",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.2",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Excited or happy — he let out more string showing he wanted it to go higher"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Excited and happy",
+        "value": "Excited and happy",
+        "correct": true
+      },
+      {
+        "label": "Worried it would fall",
+        "value": "Worried it would fall",
+        "correct": false
+      },
+      {
+        "label": "Bored and tired",
+        "value": "Bored and tired",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

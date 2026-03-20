@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.6",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A bat"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A bat",
+        "value": "A bat",
+        "correct": true
+      },
+      {
+        "label": "An owl",
+        "value": "An owl",
+        "correct": false
+      },
+      {
+        "label": "The moon",
+        "value": "The moon",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.6",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Curious or amazed — he waited and watched willingly"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Curious and amazed",
+        "value": "Curious and amazed",
+        "correct": true
+      },
+      {
+        "label": "Scared and nervous",
+        "value": "Scared and nervous",
+        "correct": false
+      },
+      {
+        "label": "Bored and ready for bed",
+        "value": "Bored and ready for bed",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

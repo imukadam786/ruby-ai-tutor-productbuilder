@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.31",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Spun plates on long sticks"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Spun plates on long sticks",
+        "value": "Spun plates on long sticks",
+        "correct": true
+      },
+      {
+        "label": "Walked a tightrope",
+        "value": "Walked a tightrope",
+        "correct": false
+      },
+      {
+        "label": "Juggled coloured balls",
+        "value": "Juggled coloured balls",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.31",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The circus was a rare and exciting event that people travelled far to see"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was a rare and exciting event that people travelled far to see",
+        "value": "It was a rare and exciting event that people travelled far to see",
+        "correct": true
+      },
+      {
+        "label": "The circus sent free tickets to every village",
+        "value": "The circus sent free tickets to every village",
+        "correct": false
+      },
+      {
+        "label": "The big field near the station was the only space available",
+        "value": "The big field near the station was the only space available",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

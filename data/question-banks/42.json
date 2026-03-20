@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.42",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Moved closer and stretched out with a long sigh"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Moved closer and stretched out with a long sigh",
+        "value": "Moved closer and stretched out with a long sigh",
+        "correct": true
+      },
+      {
+        "label": "Barked at the sparks flying up the chimney",
+        "value": "Barked at the sparks flying up the chimney",
+        "correct": false
+      },
+      {
+        "label": "Ran in from outside when it heard the crackling",
+        "value": "Ran in from outside when it heard the crackling",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.42",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The fire made it warm and comfortable inside — going out in the cold was less appealing"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The fire made it warm and comfortable inside",
+        "value": "The fire made it warm and comfortable inside",
+        "correct": true
+      },
+      {
+        "label": "It was too late at night to go out safely",
+        "value": "It was too late at night to go out safely",
+        "correct": false
+      },
+      {
+        "label": "The logs were blocking the door",
+        "value": "The logs were blocking the door",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

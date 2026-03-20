@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.4",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A rod and a worm"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A rod and a worm",
+        "value": "A rod and a worm",
+        "correct": true
+      },
+      {
+        "label": "A net and a bucket",
+        "value": "A net and a bucket",
+        "correct": false
+      },
+      {
+        "label": "Some bread and a jar",
+        "value": "Some bread and a jar",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.4",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The fish was not hungry or sensed danger — it swam past without biting"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was not hungry or sensed danger",
+        "value": "It was not hungry or sensed danger",
+        "correct": true
+      },
+      {
+        "label": "It was hiding and did not see the worm",
+        "value": "It was hiding and did not see the worm",
+        "correct": false
+      },
+      {
+        "label": "It only ate other fish",
+        "value": "It only ate other fish",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

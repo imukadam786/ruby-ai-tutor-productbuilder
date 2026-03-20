@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.37",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Yellow and round"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yellow and round",
+        "value": "Yellow and round",
+        "correct": true
+      },
+      {
+        "label": "Red and long",
+        "value": "Red and long",
+        "correct": false
+      },
+      {
+        "label": "Green and square",
+        "value": "Green and square",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.37",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It was a tradition with special meaning — a shared ritual that lasted the journey home"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was a tradition with special meaning that she kept the same",
+        "value": "It was a tradition with special meaning that she kept the same",
+        "correct": true
+      },
+      {
+        "label": "That was all the shop ever sold",
+        "value": "That was all the shop ever sold",
+        "correct": false
+      },
+      {
+        "label": "She kept forgetting to buy different ones",
+        "value": "She kept forgetting to buy different ones",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

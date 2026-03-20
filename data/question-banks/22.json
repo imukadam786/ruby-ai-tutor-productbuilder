@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.22",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A dragonfly"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A dragonfly",
+        "value": "A dragonfly",
+        "correct": true
+      },
+      {
+        "label": "A moth",
+        "value": "A moth",
+        "correct": false
+      },
+      {
+        "label": "A small fish",
+        "value": "A small fish",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.22",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It requires patience and speed — not every attempt succeeds"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Hunting requires patience and not every attempt succeeds",
+        "value": "Hunting requires patience and not every attempt succeeds",
+        "correct": true
+      },
+      {
+        "label": "Frogs always catch their food on the first try",
+        "value": "Frogs always catch their food on the first try",
+        "correct": false
+      },
+      {
+        "label": "Dragonflies are faster than any predator",
+        "value": "Dragonflies are faster than any predator",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

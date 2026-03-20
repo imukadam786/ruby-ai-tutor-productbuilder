@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.44",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Standing on a flat stone, waiting"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Standing on a flat stone, waiting",
+        "value": "Standing on a flat stone, waiting",
+        "correct": true
+      },
+      {
+        "label": "Wading slowly through the shallow water",
+        "value": "Wading slowly through the shallow water",
+        "correct": false
+      },
+      {
+        "label": "Flying above the surface to spot fish",
+        "value": "Flying above the surface to spot fish",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.44",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It was fishing — herons hunt by standing motionless near water waiting for fish"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was fishing — herons stand motionless near water waiting for fish",
+        "value": "It was fishing — herons stand motionless near water waiting for fish",
+        "correct": true
+      },
+      {
+        "label": "It was resting after a long flight",
+        "value": "It was resting after a long flight",
+        "correct": false
+      },
+      {
+        "label": "It was watching out for the man with the rod",
+        "value": "It was watching out for the man with the rod",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

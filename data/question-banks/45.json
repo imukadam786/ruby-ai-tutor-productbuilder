@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.45",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Under the coat rack"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Under the coat rack",
+        "value": "Under the coat rack",
+        "correct": true
+      },
+      {
+        "label": "Behind the bedroom door",
+        "value": "Behind the bedroom door",
+        "correct": false
+      },
+      {
+        "label": "Under his bed",
+        "value": "Under his bed",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.45",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The second shoe was also hidden somewhere — the same problem was going to happen again"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He still had to find the second shoe so the same problem was about to start again",
+        "value": "He still had to find the second shoe so the same problem was about to start again",
+        "correct": true
+      },
+      {
+        "label": "He was relieved and finally ready to leave the house",
+        "value": "He was relieved and finally ready to leave the house",
+        "correct": false
+      },
+      {
+        "label": "He gave up and decided to go in his socks",
+        "value": "He gave up and decided to go in his socks",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

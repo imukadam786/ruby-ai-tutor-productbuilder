@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.30",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Opened one eye, looked, then closed it again"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Opened one eye, looked, then closed it again",
+        "value": "Opened one eye, looked, then closed it again",
+        "correct": true
+      },
+      {
+        "label": "Stood up and moved out of the way",
+        "value": "Stood up and moved out of the way",
+        "correct": false
+      },
+      {
+        "label": "Meowed and rolled over",
+        "value": "Meowed and rolled over",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.30",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "They were very comfortable and felt completely safe in their home"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "They felt completely safe and comfortable in their home",
+        "value": "They felt completely safe and comfortable in their home",
+        "correct": true
+      },
+      {
+        "label": "They were too tired to care about anything",
+        "value": "They were too tired to care about anything",
+        "correct": false
+      },
+      {
+        "label": "They were pretending to be asleep",
+        "value": "They were pretending to be asleep",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

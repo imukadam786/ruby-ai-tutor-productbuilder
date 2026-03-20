@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.7",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A big grin"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A big grin",
+        "value": "A big grin",
+        "correct": true
+      },
+      {
+        "label": "A worried look",
+        "value": "A worried look",
+        "correct": false
+      },
+      {
+        "label": "A wave from far away",
+        "value": "A wave from far away",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.7",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "They were nearly late — the bell was about to ring"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "The bell was about to ring and they were nearly late",
+        "value": "The bell was about to ring and they were nearly late",
+        "correct": true
+      },
+      {
+        "label": "They wanted to be first through the door",
+        "value": "They wanted to be first through the door",
+        "correct": false
+      },
+      {
+        "label": "They were cold from the wind",
+        "value": "They were cold from the wind",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.39",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "It had a red line running through it"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It had a red line running through it",
+        "value": "It had a red line running through it",
+        "correct": true
+      },
+      {
+        "label": "It was perfectly round and smooth",
+        "value": "It was perfectly round and smooth",
+        "correct": false
+      },
+      {
+        "label": "It was much bigger than all the others",
+        "value": "It was much bigger than all the others",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.39",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "She had said it before — the collection had grown too large and she was frustrated"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "She had said it before and the collection had grown too large",
+        "value": "She had said it before and the collection had grown too large",
+        "correct": true
+      },
+      {
+        "label": "She was worried he would sell the stones",
+        "value": "She was worried he would sell the stones",
+        "correct": false
+      },
+      {
+        "label": "She had never liked stones being kept inside",
+        "value": "She had never liked stones being kept inside",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

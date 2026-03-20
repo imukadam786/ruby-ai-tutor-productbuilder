@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.20",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A shiny button that fell off the table"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A shiny button that fell off the table",
+        "value": "A shiny button that fell off the table",
+        "correct": true
+      },
+      {
+        "label": "A red button from the pile",
+        "value": "A red button from the pile",
+        "correct": false
+      },
+      {
+        "label": "A rolling piece of thread",
+        "value": "A rolling piece of thread",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.20",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Cats are playful and curious — attracted to small moving objects"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Cats are playful and drawn to small moving things",
+        "value": "Cats are playful and drawn to small moving things",
+        "correct": true
+      },
+      {
+        "label": "Cats always prefer shiny objects to dull ones",
+        "value": "Cats always prefer shiny objects to dull ones",
+        "correct": false
+      },
+      {
+        "label": "Cats knock things off tables on purpose",
+        "value": "Cats knock things off tables on purpose",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

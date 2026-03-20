@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.11",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Making loud sucking sounds"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Making loud sucking sounds",
+        "value": "Making loud sucking sounds",
+        "correct": true
+      },
+      {
+        "label": "Getting stuck and pulling free",
+        "value": "Getting stuck and pulling free",
+        "correct": false
+      },
+      {
+        "label": "Getting wet on the inside",
+        "value": "Getting wet on the inside",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.11",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Satisfied and happy despite being wet — the text says 'wet but happy'"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Satisfied and happy even though he was wet",
+        "value": "Satisfied and happy even though he was wet",
+        "correct": true
+      },
+      {
+        "label": "Tired and ready to go home",
+        "value": "Tired and ready to go home",
+        "correct": false
+      },
+      {
+        "label": "Upset that his boots got muddy",
+        "value": "Upset that his boots got muddy",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

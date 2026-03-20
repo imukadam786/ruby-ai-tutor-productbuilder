@@ -130,11 +130,11 @@ export function determineNextAction(
 ): NextAction {
   const sessionAccuracy = sessionAttempts > 0 ? sessionCorrect / sessionAttempts : 0;
 
-  // 1. ACCELERATE — >90% accuracy, 2+ formats, zero errors this session, 3+ questions
-  if (sessionAttempts >= 3 && sessionCorrect === sessionAttempts) {
+  // 1. ACCELERATE — ≥90% accuracy, 2+ formats, 3+ questions
+  if (sessionAttempts >= 3 && sessionAccuracy >= 0.9) {
     const sessionSlice = recentAttempts.slice(-sessionAttempts);
     const formatsUsed = new Set(sessionSlice.map((a) => a.template));
-    if (sessionAccuracy > 0.9 && formatsUsed.size >= 2) {
+    if (formatsUsed.size >= 2) {
       return "accelerate";
     }
   }
@@ -245,7 +245,7 @@ export function getLevelProgress(
 ): number {
   if (skillIds.length === 0) return 0;
   const mastered = skillIds.filter(
-    (id) => masteryMap[id]?.status === "mastered"
+    (id) => masteryMap[id]?.status === "mastered" || masteryMap[id]?.status === "assumed"
   ).length;
   return Math.round((mastered / skillIds.length) * 100);
 }

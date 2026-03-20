@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.38",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "After two weeks"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "After two weeks",
+        "value": "After two weeks",
+        "correct": true
+      },
+      {
+        "label": "After three days",
+        "value": "After three days",
+        "correct": false
+      },
+      {
+        "label": "After one month",
+        "value": "After one month",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.38",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Kittens are born with their eyes shut — this is normal, confirmed by eyes opening after two weeks"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Kittens are born with their eyes shut and they open as they grow",
+        "value": "Kittens are born with their eyes shut and they open as they grow",
+        "correct": true
+      },
+      {
+        "label": "The wardrobe was too dark for their eyes to open",
+        "value": "The wardrobe was too dark for their eyes to open",
+        "correct": false
+      },
+      {
+        "label": "The mother kept washing their eyes shut to calm them",
+        "value": "The mother kept washing their eyes shut to calm them",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

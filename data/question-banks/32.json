@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.32",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A silver trail"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A silver trail",
+        "value": "A silver trail",
+        "correct": true
+      },
+      {
+        "label": "A sticky smear",
+        "value": "A sticky smear",
+        "correct": false
+      },
+      {
+        "label": "A damp mark",
+        "value": "A damp mark",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.32",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "She was gentle and curious — she cared about small creatures"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "She was gentle and curious about small creatures",
+        "value": "She was gentle and curious about small creatures",
+        "correct": true
+      },
+      {
+        "label": "She was trying to impress her friends",
+        "value": "She was trying to impress her friends",
+        "correct": false
+      },
+      {
+        "label": "She was studying snails for a school project",
+        "value": "She was studying snails for a school project",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

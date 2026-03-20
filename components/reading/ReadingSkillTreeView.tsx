@@ -14,7 +14,7 @@ const statusConfig = {
   available:     { bg: "bg-purple-50",   text: "text-purple-700",  border: "border-purple-200",  icon: "📖", label: "Available" },
   in_progress:   { bg: "bg-orange-50",   text: "text-orange-700",  border: "border-orange-200",  icon: "⚡", label: "In Progress" },
   mastered:      { bg: "bg-green-50",    text: "text-green-700",   border: "border-green-200",   icon: "✅", label: "Mastered" },
-  auto_complete: { bg: "bg-green-50",    text: "text-green-600",   border: "border-green-200",   icon: "✦",  label: "Auto-completed" },
+  auto_complete: { bg: "bg-green-50",    text: "text-green-600",   border: "border-green-200",   icon: "✦",  label: "Passed" },
   entry_point:   { bg: "bg-blue-50",     text: "text-blue-700",    border: "border-blue-300",    icon: "🎯", label: "Entry Point" },
   active:        { bg: "bg-purple-100",  text: "text-purple-800",  border: "border-purple-400",  icon: "▶",  label: "Active" },
 };

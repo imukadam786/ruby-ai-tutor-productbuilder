@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.18",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Bits of bread"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Bits of bread",
+        "value": "Bits of bread",
+        "correct": true
+      },
+      {
+        "label": "Fish from his pocket",
+        "value": "Fish from his pocket",
+        "correct": false
+      },
+      {
+        "label": "Seeds from a bag",
+        "value": "Seeds from a bag",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.18",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "He was kind and cheerful — he enjoyed simple pleasures"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He was kind and enjoyed simple pleasures",
+        "value": "He was kind and enjoyed simple pleasures",
+        "correct": true
+      },
+      {
+        "label": "He was lonely and came to the pond every day",
+        "value": "He was lonely and came to the pond every day",
+        "correct": false
+      },
+      {
+        "label": "He was bored and had nothing else to do",
+        "value": "He was bored and had nothing else to do",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

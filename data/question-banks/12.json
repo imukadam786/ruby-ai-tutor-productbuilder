@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.12",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Flew away"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Flew away",
+        "value": "Flew away",
+        "correct": true
+      },
+      {
+        "label": "Buzzed loudly and stayed still",
+        "value": "Buzzed loudly and stayed still",
+        "correct": false
+      },
+      {
+        "label": "Fell into the web",
+        "value": "Fell into the web",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.12",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Flies are hard to catch — a spider must be very fast because flies can sense the web shaking"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Flies can sense danger and are hard for spiders to catch",
+        "value": "Flies can sense danger and are hard for spiders to catch",
+        "correct": true
+      },
+      {
+        "label": "Spiders always miss when hunting flies",
+        "value": "Spiders always miss when hunting flies",
+        "correct": false
+      },
+      {
+        "label": "Flies are faster than spiders in every way",
+        "value": "Flies are faster than spiders in every way",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

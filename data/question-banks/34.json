@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.34",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Their dog Rusty"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Their dog Rusty",
+        "value": "Their dog Rusty",
+        "correct": true
+      },
+      {
+        "label": "Their little sister",
+        "value": "Their little sister",
+        "correct": false
+      },
+      {
+        "label": "A neighbour's cat",
+        "value": "A neighbour's cat",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.34",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "They liked having him there — he made the den feel more cosy"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "They liked having him there and he made the den feel cosy",
+        "value": "They liked having him there and he made the den feel cosy",
+        "correct": true
+      },
+      {
+        "label": "They felt sorry for him in the cold outside",
+        "value": "They felt sorry for him in the cold outside",
+        "correct": false
+      },
+      {
+        "label": "He was too big to push back out again",
+        "value": "He was too big to push back out again",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

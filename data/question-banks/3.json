@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.3",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Six"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Six",
+        "value": "Six",
+        "correct": true
+      },
+      {
+        "label": "Three",
+        "value": "Three",
+        "correct": false
+      },
+      {
+        "label": "Nine",
+        "value": "Nine",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.3",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "To keep them warm — logical for newly hatched chicks"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "To keep them warm in the sun",
+        "value": "To keep them warm in the sun",
+        "correct": true
+      },
+      {
+        "label": "To show them where to find food",
+        "value": "To show them where to find food",
+        "correct": false
+      },
+      {
+        "label": "To teach them to scratch the ground",
+        "value": "To teach them to scratch the ground",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

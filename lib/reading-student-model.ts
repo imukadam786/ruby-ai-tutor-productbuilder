@@ -365,7 +365,7 @@ export function determineReadingDecision(
   // ADVANCE: mastered + session stable
   const correctRequired = skill?.mastery_criteria.correct_required ?? 3;
   const isMastered = (mastery?.correct_count ?? 0) >= correctRequired;
-  if (isMastered && isSessionStable && latestResult.is_correct) {
+  if (isMastered && isSessionStable) {
     return "ADVANCE";
   }
 

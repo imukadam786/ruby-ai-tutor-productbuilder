@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.8",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Sat down and began to wash its face"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Sat down and washed its face",
+        "value": "Sat down and washed its face",
+        "correct": true
+      },
+      {
+        "label": "Climbed higher up the wall",
+        "value": "Climbed higher up the wall",
+        "correct": false
+      },
+      {
+        "label": "Ran to find another bird",
+        "value": "Ran to find another bird",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.8",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Unbothered and calm — cats wash when they are relaxed"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Calm and unbothered",
+        "value": "Calm and unbothered",
+        "correct": true
+      },
+      {
+        "label": "Hungry and disappointed",
+        "value": "Hungry and disappointed",
+        "correct": false
+      },
+      {
+        "label": "Angry and frustrated",
+        "value": "Angry and frustrated",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

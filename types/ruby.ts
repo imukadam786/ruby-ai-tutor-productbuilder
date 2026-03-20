@@ -50,7 +50,7 @@ export interface SkillTree {
 
 // ─── Student Model ────────────────────────────────────────────────────────────
 
-export type MasteryStatus = "locked" | "in_progress" | "mastered" | "needs_review";
+export type MasteryStatus = "locked" | "in_progress" | "mastered" | "needs_review" | "assumed";
 
 export interface SkillAttempt {
   id: string;

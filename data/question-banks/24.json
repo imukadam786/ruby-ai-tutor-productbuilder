@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.24",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "She turned the pot so each side got the sun"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "She turned the pot so each side got sun",
+        "value": "She turned the pot so each side got sun",
+        "correct": true
+      },
+      {
+        "label": "She put it in a bigger pot",
+        "value": "She put it in a bigger pot",
+        "correct": false
+      },
+      {
+        "label": "She added special plant food",
+        "value": "She added special plant food",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.24",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "She was careful and observant — most people would not think to do this"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "She was careful and observant",
+        "value": "She was careful and observant",
+        "correct": true
+      },
+      {
+        "label": "She was in a hurry to grow the plant quickly",
+        "value": "She was in a hurry to grow the plant quickly",
+        "correct": false
+      },
+      {
+        "label": "She forgot to water it at first",
+        "value": "She forgot to water it at first",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

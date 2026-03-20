@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import skillTreeData from "@/data/skill-tree.json";
 import { StudentProfile } from "@/types/ruby";
-import { getSkillStatus, getLevelById } from "@/lib/student-model";
+import { getSkillStatus } from "@/lib/student-model";
 import { getLevelProgress } from "@/lib/mastery-engine";
 
 interface SkillTreeViewProps {
@@ -16,7 +16,7 @@ const statusConfig = {
   in_progress:   { bg: "bg-orange-50", text: "text-orange-700", border: "border-orange-200",icon: "⚡",  label: "In Progress" },
   mastered:      { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200", icon: "✅", label: "Mastered" },
   active:        { bg: "bg-blue-100",  text: "text-blue-800",   border: "border-blue-400",  icon: "▶",  label: "Active" },
-  auto_complete: { bg: "bg-green-50",  text: "text-green-600",  border: "border-green-200", icon: "✦",  label: "Auto-completed" },
+  auto_complete: { bg: "bg-green-50",  text: "text-green-600",  border: "border-green-200", icon: "✦",  label: "Passed" },
   entry_point:   { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-300",  icon: "🎯", label: "Entry Point" },
 };
 

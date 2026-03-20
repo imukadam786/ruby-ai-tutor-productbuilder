@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.26",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Before the sun rose"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Before the sun rose",
+        "value": "Before the sun rose",
+        "correct": true
+      },
+      {
+        "label": "At midday",
+        "value": "At midday",
+        "correct": false
+      },
+      {
+        "label": "Just as the sun came up",
+        "value": "Just as the sun came up",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.26",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "Fresh bread has a strong smell and she had been baking since before sunrise"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Fresh bread baked since before sunrise fills the street with a strong smell",
+        "value": "Fresh bread baked since before sunrise fills the street with a strong smell",
+        "correct": true
+      },
+      {
+        "label": "She put a fan outside to spread the smell further",
+        "value": "She put a fan outside to spread the smell further",
+        "correct": false
+      },
+      {
+        "label": "People could see smoke coming from the oven",
+        "value": "People could see smoke coming from the oven",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

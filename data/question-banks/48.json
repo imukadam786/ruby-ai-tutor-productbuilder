@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.48",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Began washing its ear as if the other was not there"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Began washing its ear as if the other cat was not there",
+        "value": "Began washing its ear as if the other cat was not there",
+        "correct": true
+      },
+      {
+        "label": "Leapt off the wall and ran away",
+        "value": "Leapt off the wall and ran away",
+        "correct": false
+      },
+      {
+        "label": "Began hissing quietly",
+        "value": "Began hissing quietly",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.48",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It was ending the staring contest without admitting defeat — a face-saving behaviour"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was ending the staring contest without admitting defeat",
+        "value": "It was ending the staring contest without admitting defeat",
+        "correct": true
+      },
+      {
+        "label": "Its ear was itchy and it had been waiting to scratch it",
+        "value": "Its ear was itchy and it had been waiting to scratch it",
+        "correct": false
+      },
+      {
+        "label": "It had won and felt satisfied with the result",
+        "value": "It had won and felt satisfied with the result",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.21",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "Turned the light off"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Turned the light off",
+        "value": "Turned the light off",
+        "correct": true
+      },
+      {
+        "label": "Cleaned the glass on the light",
+        "value": "Cleaned the glass on the light",
+        "correct": false
+      },
+      {
+        "label": "Added more oil to the lamp",
+        "value": "Added more oil to the lamp",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.21",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It warned them about the rocks — without it they could sail into danger at night"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It warned ships about the dangerous rocks nearby",
+        "value": "It warned ships about the dangerous rocks nearby",
+        "correct": true
+      },
+      {
+        "label": "It helped ships find the harbour entrance",
+        "value": "It helped ships find the harbour entrance",
+        "correct": false
+      },
+      {
+        "label": "It showed sailors where the water was deep",
+        "value": "It showed sailors where the water was deep",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

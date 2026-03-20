@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.14",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "On her windowsill"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "On her windowsill",
+        "value": "On her windowsill",
+        "correct": true
+      },
+      {
+        "label": "In the box under her bed",
+        "value": "In the box under her bed",
+        "correct": false
+      },
+      {
+        "label": "On the kitchen table",
+        "value": "On the kitchen table",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.14",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "It was her favourite — the text calls it 'the best one'"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was her favourite and she wanted to see it every day",
+        "value": "It was her favourite and she wanted to see it every day",
+        "correct": true
+      },
+      {
+        "label": "The box was too full to fit it",
+        "value": "The box was too full to fit it",
+        "correct": false
+      },
+      {
+        "label": "She wanted it to stay dry",
+        "value": "She wanted it to stay dry",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",

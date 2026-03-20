@@ -167,7 +167,7 @@ export function arePrerequisitesMet(
   if (!skill) return false;
   if (skill.prerequisites.length === 0) return true;
   return skill.prerequisites.every(
-    (prereqId) => masteryMap[prereqId]?.status === "mastered"
+    (prereqId) => masteryMap[prereqId]?.status === "mastered" || masteryMap[prereqId]?.status === "assumed"
   );
 }
 
@@ -219,17 +219,16 @@ export function completeMathsPlacement(
 ): StudentProfile {
   const updatedMastery = { ...profile.skill_mastery };
   for (const skillId of result.autoCompletedSkillIds) {
-    const skill = getSkillById(skillId);
     updatedMastery[skillId] = {
       skill_id: skillId,
-      status: "mastered",
-      correct_count: skill?.mastery_criteria.correct_required ?? 3,
-      attempt_count: skill?.mastery_criteria.correct_required ?? 3,
-      formats_used: ["symbolic"],
+      status: "assumed",
+      correct_count: 0,
+      attempt_count: 0,
+      formats_used: [],
       scaffolded_attempts: 0,
       last_attempted: new Date().toISOString(),
-      mastered_at: new Date().toISOString(),
       attempts: [],
+      p_learned: 0.70,
     };
   }
   const parts = result.entrySkillId.split(".");

@@ -248,8 +248,24 @@
     "displayWord": "",
     "passageRef": "16.5",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A big bone"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A big bone",
+        "value": "A big bone",
+        "correct": true
+      },
+      {
+        "label": "A shoe",
+        "value": "A shoe",
+        "correct": false
+      },
+      {
+        "label": "A stick",
+        "value": "A stick",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D18",
@@ -260,8 +276,24 @@
     "displayWord": "",
     "passageRef": "16.5",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "He did not want Jill to take it — dogs hide things they want to keep"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "He did not want Jill to take it",
+        "value": "He did not want Jill to take it",
+        "correct": true
+      },
+      {
+        "label": "He wanted to bury it somewhere safer",
+        "value": "He wanted to bury it somewhere safer",
+        "correct": false
+      },
+      {
+        "label": "He was playing a hiding game",
+        "value": "He was playing a hiding game",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "Q15",
