@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness — Rhyme",
+    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do these two words rhyme?",
-    "displayWord": "cup • pup",
+    "question": "Do 'cup' and 'pup' rhyme?",
+    "displayWord": "cup \u00e2\u20ac\u00a2 pup",
     "answerMode": "choice",
     "choices": [
       {
@@ -22,7 +22,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation — First Sound",
+    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'fan'? Tap the sound below.",
@@ -30,28 +30,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/a/",
-        "value": "/a/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short A, as in apple",
         "correct": false
       },
       {
-        "label": "/f/",
-        "value": "/f/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "F, as in fish",
         "correct": true
       },
       {
-        "label": "/n/",
-        "value": "/n/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "N, as in net",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D03",
-    "domain": "Letter Sound — Consonants",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -59,28 +60,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/m/",
-        "value": "/m/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "M, as in mat",
         "correct": false
       },
       {
-        "label": "/n/",
-        "value": "/n/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "N, as in net",
         "correct": false
       },
       {
-        "label": "/h/",
-        "value": "/h/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "H, as in hat",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D04",
-    "domain": "Letter Sound — Vowels",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -88,24 +90,25 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/e/",
-        "value": "/e/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short E, as in bed",
         "correct": false
       },
       {
-        "label": "/o/",
-        "value": "/o/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short O, as in hot",
         "correct": false
       },
       {
-        "label": "/a/",
-        "value": "/a/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short A, as in apple",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D05",
@@ -113,21 +116,21 @@
     "answerMode": "audio-tap",
     "gate": "A",
     "question": "What sound do these two letters make together?",
-    "subText": "Tap each sound to hear it, then choose the right one.",
+    "subText": "Tap to hear each sound, then choose the right one.",
     "displayWord": "ng",
     "choices": [
       {
-        "label": "/ng/",
+        "label": "Sound 1",
         "speech": "ng, as in ring",
         "correct": true
       },
       {
-        "label": "/n/",
+        "label": "Sound 2",
         "speech": "N, as in net",
         "correct": false
       },
       {
-        "label": "/g/",
+        "label": "Sound 3",
         "speech": "G, as in got",
         "correct": false
       }
@@ -141,6 +144,28 @@
     "question": "Read this word out loud for me.",
     "displayWord": "frog",
     "expectedAnswer": "frog",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "bat",
+    "answerMode": "voice",
+    "expectedAnswer": "bat",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "shop",
+    "answerMode": "voice",
+    "expectedAnswer": "shop",
     "voiceHint": "Tap the mic and say the word you see"
   },
   {
@@ -168,7 +193,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words — Automaticity",
+    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -198,7 +223,7 @@
     "displayWord": "HIDDEN",
     "answerMode": "voice",
     "expectedAnswer": "hidden",
-    "syllableBreak": "hid·den"
+    "syllableBreak": "hid\u00c2\u00b7den"
   },
   {
     "id": "D14",
@@ -209,19 +234,36 @@
     "displayWord": "ADVENTURE",
     "answerMode": "voice",
     "expectedAnswer": "adventure",
-    "syllableBreak": "ad·ven·ture"
+    "syllableBreak": "ad\u00c2\u00b7ven\u00c2\u00b7ture"
   },
   {
     "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "question": "Tap the prefix in this word.",
     "displayWord": "PREVIEW",
-    "answerMode": "voice",
+    "answerMode": "choice",
     "expectedAnswer": "pre",
     "affixType": "prefix",
-    "targetAffix": "pre"
+    "targetAffix": "pre",
+    "choices": [
+      {
+        "label": "PRE",
+        "value": "pre",
+        "correct": true
+      },
+      {
+        "label": "VIEW",
+        "value": "view",
+        "correct": false
+      },
+      {
+        "label": "UN",
+        "value": "un",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D16",
@@ -294,342 +336,5 @@
         "correct": false
       }
     ]
-  },
-  {
-    "id": "Q15",
-    "domain": "Syllable Segmentation",
-    "domainCode": "WU001",
-    "phase": 2,
-    "skillId": "R1.T2.A2",
-    "question": "How many syllables does the word 'sun' have?",
-    "displayWord": "sun",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "1",
-        "value": "1",
-        "correct": true
-      },
-      {
-        "label": "2",
-        "value": "2",
-        "correct": false
-      },
-      {
-        "label": "3",
-        "value": "3",
-        "correct": false
-      },
-      {
-        "label": "4",
-        "value": "4",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q16",
-    "domain": "Phoneme Deletion",
-    "domainCode": "WU002",
-    "phase": 2,
-    "skillId": "R1.T3.A2",
-    "question": "Think of 'snap' without the /n/ sound. Tap the word you get.",
-    "displayWord": "snap",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "sap",
-        "value": "sap",
-        "correct": true
-      },
-      {
-        "label": "map",
-        "value": "map",
-        "correct": false
-      },
-      {
-        "label": "tap",
-        "value": "tap",
-        "correct": false
-      },
-      {
-        "label": "nap",
-        "value": "nap",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q17",
-    "domain": "Phoneme Sequencing",
-    "domainCode": "WU003",
-    "phase": 2,
-    "skillId": "R1.T3.A3",
-    "question": "What is the FIRST sound in 'knit'?",
-    "displayWord": "knit",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "/k/",
-        "value": "/k/",
-        "correct": false
-      },
-      {
-        "label": "/n/",
-        "value": "/n/",
-        "correct": true
-      },
-      {
-        "label": "/i/",
-        "value": "/i/",
-        "correct": false
-      },
-      {
-        "label": "/t/",
-        "value": "/t/",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q18",
-    "domain": "Sequencing & Main Idea",
-    "domainCode": "WU004",
-    "phase": 2,
-    "skillId": "R4.T1.A2",
-    "passage": "Tom put on his coat. He picked up his bag. Then he said goodbye to his mum. He ran to the bus stop.",
-    "question": "What is this passage mostly about?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Tom's coat",
-        "value": "Tom's coat",
-        "correct": false
-      },
-      {
-        "label": "Tom's mum",
-        "value": "Tom's mum",
-        "correct": false
-      },
-      {
-        "label": "Tom getting ready to leave",
-        "value": "Tom getting ready to leave",
-        "correct": true
-      },
-      {
-        "label": "Missing the bus",
-        "value": "Missing the bus",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q19",
-    "domain": "Context Clues",
-    "domainCode": "WU005",
-    "phase": 2,
-    "skillId": "R4.T2.A2",
-    "sentence": "The explorer crossed the **vast** desert — it seemed to go on forever.",
-    "question": "What does the word 'vast' mean in this sentence?",
-    "displayWord": "vast",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Very hot",
-        "value": "Very hot",
-        "correct": false
-      },
-      {
-        "label": "Very large",
-        "value": "Very large",
-        "correct": true
-      },
-      {
-        "label": "Very cold",
-        "value": "Very cold",
-        "correct": false
-      },
-      {
-        "label": "Very quiet",
-        "value": "Very quiet",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q20",
-    "domain": "Text Structure Recognition",
-    "domainCode": "WU006",
-    "phase": 2,
-    "skillId": "R4.T3.A1",
-    "text": "Once upon a time, a young girl found a door at the bottom of her garden. Behind it was another world.",
-    "question": "What type of text is this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A story",
-        "value": "A story",
-        "correct": true
-      },
-      {
-        "label": "Instructions",
-        "value": "Instructions",
-        "correct": false
-      },
-      {
-        "label": "A report",
-        "value": "A report",
-        "correct": false
-      },
-      {
-        "label": "An argument",
-        "value": "An argument",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q21",
-    "domain": "Cause & Effect",
-    "domainCode": "WU007",
-    "phase": 2,
-    "skillId": "R4.T3.A2",
-    "sentence": "Because he stayed up too late, he was tired all day at school.",
-    "question": "Why was he tired at school?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "He missed breakfast",
-        "value": "He missed breakfast",
-        "correct": false
-      },
-      {
-        "label": "He stayed up too late",
-        "value": "He stayed up too late",
-        "correct": true
-      },
-      {
-        "label": "His bed was uncomfortable",
-        "value": "His bed was uncomfortable",
-        "correct": false
-      },
-      {
-        "label": "School was boring",
-        "value": "School was boring",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q22",
-    "domain": "Vocabulary in Context (Academic)",
-    "domainCode": "WU008",
-    "phase": 2,
-    "skillId": "R5.T2.A1",
-    "sentence": "The study **demonstrated** a clear link between exercise and mental health.",
-    "question": "What does the word 'demonstrated' mean in this context?",
-    "displayWord": "demonstrated",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Guessed",
-        "value": "Guessed",
-        "correct": false
-      },
-      {
-        "label": "Showed clearly",
-        "value": "Showed clearly",
-        "correct": true
-      },
-      {
-        "label": "Questioned",
-        "value": "Questioned",
-        "correct": false
-      },
-      {
-        "label": "Ignored",
-        "value": "Ignored",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q23",
-    "domain": "Author Intent",
-    "domainCode": "WU009",
-    "phase": 2,
-    "skillId": "R5.T1.A2",
-    "passage": "The Great Barrier Reef stretches over 2,300 kilometres along Australia's coast. It is the world's largest coral reef system.",
-    "question": "Why did the author write this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "To warn about climate change",
-        "value": "To warn about climate change",
-        "correct": false
-      },
-      {
-        "label": "To give information about the reef",
-        "value": "To give information about the reef",
-        "correct": true
-      },
-      {
-        "label": "To persuade readers to visit Australia",
-        "value": "To persuade readers to visit Australia",
-        "correct": false
-      },
-      {
-        "label": "To tell a story set underwater",
-        "value": "To tell a story set underwater",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q24",
-    "domain": "CVC Encoding",
-    "domainCode": "WU010",
-    "phase": 2,
-    "skillId": "R2.T1.A3",
-    "question": "Which spelling is correct for /p/-/e/-/n/?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "pan",
-        "value": "pan",
-        "correct": false
-      },
-      {
-        "label": "pin",
-        "value": "pin",
-        "correct": false
-      },
-      {
-        "label": "pen",
-        "value": "pen",
-        "correct": true
-      },
-      {
-        "label": "pun",
-        "value": "pun",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q25",
-    "domain": "Complex Consonant Clusters",
-    "domainCode": "WU011",
-    "phase": 2,
-    "skillId": "R2.T3.A2",
-    "question": "Read this word out loud.",
-    "displayWord": "STRETCH",
-    "answerMode": "voice",
-    "expectedAnswer": "stretch"
   }
 ]

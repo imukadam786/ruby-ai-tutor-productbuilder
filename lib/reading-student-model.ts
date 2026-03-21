@@ -6,7 +6,6 @@ import {
   ReadingAtomicSkill,
   ReadingMasteryStatus,
   ReadingTemplate,
-  ReadingDecision,
   DiagnosticPlacementResult,
 } from "@/types/reading";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
@@ -82,7 +81,6 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
     placement: null,
     errorPatterns: {},
     sessionHistory: {},
-    warmupSkillsCompleted: [],
   };
   saveReadingProfile(profile);
   return profile;
@@ -93,8 +91,7 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
 export function recordReadingAttempt(
   profile: ReadingStudentProfile,
   attempt: ReadingSkillAttempt,
-  updatedMastery: ReadingSkillMastery,
-  decision?: string
+  updatedMastery: ReadingSkillMastery
 ): ReadingStudentProfile {
   const errorKey = attempt.error_type as ReadingErrorType;
   const existing = profile.errorPatterns[attempt.skill_id];
@@ -116,7 +113,7 @@ export function recordReadingAttempt(
       [attempt.skill_id]: {
         type: errorKey,
         count: (existing?.count ?? 0) + 1,
-        retaughtCount: decision === "RETEACH"
+        retaughtCount: !attempt.is_correct
           ? (existing?.retaughtCount ?? 0) + 1
           : (existing?.retaughtCount ?? 0),
       },
@@ -171,32 +168,35 @@ export function initReadingSkillMastery(skillId: string): ReadingSkillMastery {
   };
 }
 
+// ─── Grade-adjusted mastery threshold ─────────────────────────────────────────
+// Grade 1: −0.15 (0.95 → 0.80)   Grade 2: −0.05 (0.95 → 0.90)   Grade 3+: 0.95
+// Floor at 0.50 to prevent trivial mastery.
+function gradeAdjustedIsMastered(p_learned: number, grade: number): boolean {
+  const base = 0.95;
+  const adjustment = grade <= 1 ? -0.15 : grade === 2 ? -0.05 : 0;
+  const threshold = Math.max(0.50, base + adjustment);
+  return p_learned >= threshold;
+}
+
+const MASTERY_MIN_ATTEMPTS = 5;
+
 export function evaluateReadingMastery(
   attempts: ReadingSkillAttempt[],
-  skill: ReadingAtomicSkill,
-  p_learned?: number
+  p_learned: number,
+  grade?: number
 ): ReadingMasteryStatus {
-  // ── BKT path: use continuous probability when available ──────────────────
-  if (p_learned !== undefined) {
-    if (attempts.length === 0) return "locked";
-    if (bktIsMastered(p_learned)) return "mastered";
-    return "in_progress";
-  }
-
-  // ── Legacy threshold path (backward compat for existing profiles) ─────────
-  const { correct_required, formats_required, allow_scaffolding } = skill.mastery_criteria;
-  const valid = allow_scaffolding ? attempts : attempts.filter((a) => !a.scaffolded);
-  const correct = valid.filter((a) => a.is_correct);
-  const formats = new Set<ReadingTemplate>(correct.map((a) => a.template));
-  if (correct.length >= correct_required && formats.size >= formats_required) return "mastered";
-  if (attempts.length > 0) return "in_progress";
-  return "locked";
+  if (attempts.length === 0) return "locked";
+  if (attempts.length < MASTERY_MIN_ATTEMPTS) return "in_progress";
+  const mastered = grade !== undefined
+    ? gradeAdjustedIsMastered(p_learned, grade)
+    : bktIsMastered(p_learned);
+  return mastered ? "mastered" : "in_progress";
 }
 
 export function updateReadingSkillMastery(
   existing: ReadingSkillMastery,
   attempt: ReadingSkillAttempt,
-  skill: ReadingAtomicSkill
+  grade?: number
 ): ReadingSkillMastery {
   const updatedAttempts = [...existing.attempts, attempt];
 
@@ -204,7 +204,7 @@ export function updateReadingSkillMastery(
   const currentP = existing.p_learned ?? initBKT(DEFAULT_BKT_PARAMS);
   const updatedP = updateBKT(currentP, attempt.is_correct, DEFAULT_BKT_PARAMS);
 
-  const newStatus = evaluateReadingMastery(updatedAttempts, skill, updatedP);
+  const newStatus = evaluateReadingMastery(updatedAttempts, updatedP, grade);
   const formatsUsed = Array.from(
     new Set([...existing.formats_used, attempt.template])
   ) as ReadingTemplate[];
@@ -331,104 +331,84 @@ export function getReadingSkillStatus(
   return allMet ? "available" : "locked";
 }
 
-export function determineNextReadingAction(
-  mastery: ReadingSkillMastery,
-  recentAttempts: ReadingSkillAttempt[]
-): "continue_skill" | "advance_skill" | "advance_tier" | "advance_level" | "review_prerequisite" {
-  if (mastery.status === "mastered") return "advance_skill";
-  if (recentAttempts.length >= 3) {
-    const lastThree = recentAttempts.slice(-3);
-    if (lastThree.every((a) => !a.is_correct)) return "review_prerequisite";
-  }
-  return "continue_skill";
-}
+// ─── Needs Review Scan ────────────────────────────────────────────────────────
+// Skills mastered more than NEEDS_REVIEW_DAYS ago without recent practice are
+// flagged for a one-question retention probe at the start of the next session.
 
-// ─── Decision Engine (Section 10 + Section 11) ────────────────────────────────
+export const NEEDS_REVIEW_DAYS = 7;
 
-export function determineReadingDecision(
-  skillId: string,
-  profile: ReadingStudentProfile,
-  latestResult: { is_correct: boolean; error_type: ReadingErrorType }
-): ReadingDecision {
-  const mastery = profile.skill_mastery[skillId];
-  const skill = getReadingSkillById(skillId);
+/**
+ * Scans all mastered skills and marks stale ones as "needs_review".
+ * A skill is stale if the most recent of mastered_at / last_reviewed_at /
+ * last_attempted is older than NEEDS_REVIEW_DAYS.
+ * Returns the profile unchanged if no skills need flagging.
+ */
+export function scanAndMarkNeedsReview(
+  profile: ReadingStudentProfile
+): ReadingStudentProfile {
+  const cutoff = Date.now() - NEEDS_REVIEW_DAYS * 24 * 60 * 60 * 1000;
+  let changed = false;
+  const updatedMastery = { ...profile.skill_mastery };
 
-  // Get recent attempts (last 5)
-  const attempts = mastery?.attempts ?? [];
-  const last5 = attempts.slice(-5);
-  const recentAccuracy = last5.length > 0
-    ? last5.filter((a) => a.is_correct).length / last5.length
-    : 0;
-
-  // Session history for stability check
-  const sessions = profile.sessionHistory[skillId] ?? [];
-  const passedSessions = sessions.reduce<number[]>((acc, passed, i) => {
-    if (passed) acc.push(i);
-    return acc;
-  }, []);
-  // Session stability: passed in 2+ non-consecutive sessions
-  const isSessionStable = passedSessions.length >= 2 && (passedSessions[passedSessions.length - 1] - passedSessions[0]) >= 2;
-
-  // Error pattern tracking
-  const errorPattern = profile.errorPatterns[skillId];
-  const errorType = latestResult.error_type;
-  const retaughtCount = errorPattern?.retaughtCount ?? 0;
-  const errorCount = errorPattern?.count ?? 0;
-
-  // ACCELERATE: >90% accuracy in last 5 + 2+ formats + no errors
-  if (last5.length >= 5 && recentAccuracy > 0.9 && latestResult.is_correct) {
-    const formatsUsed = new Set(last5.map((a) => a.template));
-    if (formatsUsed.size >= 2) {
-      return "ACCELERATE";
+  for (const [skillId, mastery] of Object.entries(updatedMastery)) {
+    if (mastery.status !== "mastered") continue;
+    // Use the most recent activity timestamp for this skill
+    const timestamps = [
+      mastery.last_attempted,
+      mastery.mastered_at,
+      mastery.last_reviewed_at,
+    ].filter(Boolean).map((t) => new Date(t!).getTime());
+    const mostRecent = Math.max(...timestamps);
+    if (mostRecent < cutoff) {
+      updatedMastery[skillId] = { ...mastery, status: "needs_review" };
+      changed = true;
     }
   }
 
-  // ADVANCE: mastered + session stable
-  const correctRequired = skill?.mastery_criteria.correct_required ?? 3;
-  const isMastered = (mastery?.correct_count ?? 0) >= correctRequired;
-  if (isMastered && isSessionStable) {
-    return "ADVANCE";
-  }
+  if (!changed) return profile;
+  const updated = { ...profile, skill_mastery: updatedMastery };
+  saveReadingProfile(updated);
+  return updated;
+}
 
-  // Apply Section 11 error routing table
-  if (errorType !== "correct") {
-    // BACKTRACK conditions per error type
-    if (errorType === "ERR_PHONEME_CONF" && retaughtCount >= 3) return "BACKTRACK";
-    if (errorType === "ERR_SOUND_RECALL" && errorCount >= 2) return "BACKTRACK";
-    if (errorType === "ERR_BLEND_FAIL" && retaughtCount >= 1 && recentAccuracy < 0.5) return "BACKTRACK";
-    if (errorType === "ERR_SOUND_OMIT" && errorCount >= 3) return "BACKTRACK";
-    if (errorType === "ERR_SOUND_INSERT" && retaughtCount >= 2) return "BACKTRACK";
-    if (errorType === "ERR_VOWEL_CONF" && errorCount >= 2) return "BACKTRACK";
-    if (errorType === "ERR_ORTHO_GUESS" && retaughtCount >= 1 && recentAccuracy < 0.6) return "BACKTRACK";
-    if (errorType === "ERR_MULTI_BREAK" && retaughtCount >= 1 && recentAccuracy < 0.5) return "BACKTRACK";
-    if (errorType === "ERR_MEANING_BLIND" && errorCount >= 2) return "BACKTRACK";
-    if (errorType === "ERR_SELF_MON" && recentAccuracy < 0.3 && errorCount >= 3) return "BACKTRACK";
+/**
+ * Returns up to one "needs_review" skill ID, prioritising the most stale
+ * (longest since any activity). Returns null if none pending.
+ */
+export function pickNeedsReviewSkill(profile: ReadingStudentProfile): string | null {
+  const candidates = Object.values(profile.skill_mastery).filter(
+    (m) => m.status === "needs_review"
+  );
+  if (candidates.length === 0) return null;
+  candidates.sort((a, b) => {
+    const tA = new Date(a.last_reviewed_at ?? a.last_attempted).getTime();
+    const tB = new Date(b.last_reviewed_at ?? b.last_attempted).getTime();
+    return tA - tB; // oldest first
+  });
+  return candidates[0].skill_id;
+}
 
-    // BACKTRACK for accuracy < 60% despite reteach
-    if (recentAccuracy < 0.6 && retaughtCount >= 2) return "BACKTRACK";
-
-    // PRACTICE conditions (first occurrence for these types)
-    if (errorType === "ERR_SIGHT_MISS" && errorCount <= 1) return "PRACTICE";
-    if (errorType === "ERR_FLUENCY_HES" && errorCount <= 1) return "PRACTICE";
-
-    // Sight word miss > 30% after 3 PRACTICE → RETEACH
-    if (errorType === "ERR_SIGHT_MISS" && errorCount > 3 && recentAccuracy < 0.7) return "RETEACH";
-    // Fluency: no improvement after 3 → RETEACH
-    if (errorType === "ERR_FLUENCY_HES" && errorCount > 3) return "RETEACH";
-
-    // Default: RETEACH for consistent errors
-    if (errorCount >= 2) return "RETEACH";
-
-    // First occurrence of most errors → RETEACH
-    return "RETEACH";
-  }
-
-  // No errors — check accuracy thresholds
-  if (recentAccuracy >= 0.75 && !isMastered) return "PRACTICE";
-  if (recentAccuracy >= 0.75 && isMastered && !isSessionStable) return "PRACTICE";
-  if (recentAccuracy < 0.75 && last5.length >= 2) return "RETEACH";
-
-  return "PRACTICE";
+/**
+ * After a review question is answered, stamps last_reviewed_at and sets
+ * status back to "mastered" (if BKT still high) or leaves "in_progress".
+ * The BKT update in updateReadingSkillMastery already handles the status —
+ * this just stamps the review timestamp.
+ */
+export function stampReviewedAt(
+  profile: ReadingStudentProfile,
+  skillId: string
+): ReadingStudentProfile {
+  const mastery = profile.skill_mastery[skillId];
+  if (!mastery) return profile;
+  const updated = {
+    ...profile,
+    skill_mastery: {
+      ...profile.skill_mastery,
+      [skillId]: { ...mastery, last_reviewed_at: new Date().toISOString() },
+    },
+  };
+  saveReadingProfile(updated);
+  return updated;
 }
 
 // ─── Diagnostic Placement ─────────────────────────────────────────────────────

@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness — Rhyme",
+    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do these two words rhyme?",
-    "displayWord": "feet • meet",
+    "question": "Do 'feet' and 'meet' rhyme?",
+    "displayWord": "feet \u00e2\u20ac\u00a2 meet",
     "answerMode": "choice",
     "choices": [
       {
@@ -22,7 +22,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation — First Sound",
+    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'pin'? Tap the sound below.",
@@ -30,28 +30,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/p/",
-        "value": "/p/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "P, as in pin",
         "correct": true
       },
       {
-        "label": "/n/",
-        "value": "/n/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "N, as in net",
         "correct": false
       },
       {
-        "label": "/i/",
-        "value": "/i/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short I, as in sit",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D03",
-    "domain": "Letter Sound — Consonants",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -59,28 +60,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/s/",
-        "value": "/s/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "S, as in sun",
         "correct": true
       },
       {
-        "label": "/z/",
-        "value": "/z/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "Z, as in zip",
         "correct": false
       },
       {
-        "label": "/f/",
-        "value": "/f/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "F, as in fish",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D04",
-    "domain": "Letter Sound — Vowels",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -88,24 +90,25 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/u/",
-        "value": "/u/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short U, as in cup",
         "correct": true
       },
       {
-        "label": "/o/",
-        "value": "/o/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short O, as in hot",
         "correct": false
       },
       {
-        "label": "/i/",
-        "value": "/i/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short I, as in sit",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D05",
@@ -113,21 +116,21 @@
     "answerMode": "audio-tap",
     "gate": "A",
     "question": "What sound do these two letters make together?",
-    "subText": "Tap each sound to hear it, then choose the right one.",
+    "subText": "Tap to hear each sound, then choose the right one.",
     "displayWord": "sh",
     "choices": [
       {
-        "label": "/sh/",
+        "label": "Sound 1",
         "speech": "sh, as in ship",
         "correct": true
       },
       {
-        "label": "/s/",
+        "label": "Sound 2",
         "speech": "S, as in sun",
         "correct": false
       },
       {
-        "label": "/ch/",
+        "label": "Sound 3",
         "speech": "ch, as in chip",
         "correct": false
       }
@@ -141,6 +144,28 @@
     "question": "Read this word out loud for me.",
     "displayWord": "crop",
     "expectedAnswer": "crop",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "big",
+    "answerMode": "voice",
+    "expectedAnswer": "big",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "champ",
+    "answerMode": "voice",
+    "expectedAnswer": "champ",
     "voiceHint": "Tap the mic and say the word you see"
   },
   {
@@ -168,7 +193,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words — Automaticity",
+    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -198,7 +223,7 @@
     "displayWord": "HELMET",
     "answerMode": "voice",
     "expectedAnswer": "helmet",
-    "syllableBreak": "hel·met"
+    "syllableBreak": "hel\u00c2\u00b7met"
   },
   {
     "id": "D14",
@@ -209,19 +234,36 @@
     "displayWord": "CONDITION",
     "answerMode": "voice",
     "expectedAnswer": "condition",
-    "syllableBreak": "con·di·tion"
+    "syllableBreak": "con\u00c2\u00b7di\u00c2\u00b7tion"
   },
   {
     "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "question": "Tap the prefix in this word.",
     "displayWord": "PREDICT",
-    "answerMode": "voice",
+    "answerMode": "choice",
     "expectedAnswer": "pre",
     "affixType": "prefix",
-    "targetAffix": "pre"
+    "targetAffix": "pre",
+    "choices": [
+      {
+        "label": "PRE",
+        "value": "pre",
+        "correct": true
+      },
+      {
+        "label": "DICT",
+        "value": "dict",
+        "correct": false
+      },
+      {
+        "label": "UN",
+        "value": "un",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D16",
@@ -294,342 +336,5 @@
         "correct": false
       }
     ]
-  },
-  {
-    "id": "Q15",
-    "domain": "Syllable Segmentation",
-    "domainCode": "WU001",
-    "phase": 2,
-    "skillId": "R1.T2.A2",
-    "question": "How many syllables does the word 'important' have?",
-    "displayWord": "important",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "1",
-        "value": "1",
-        "correct": false
-      },
-      {
-        "label": "2",
-        "value": "2",
-        "correct": false
-      },
-      {
-        "label": "3",
-        "value": "3",
-        "correct": true
-      },
-      {
-        "label": "4",
-        "value": "4",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q16",
-    "domain": "Phoneme Deletion",
-    "domainCode": "WU002",
-    "phase": 2,
-    "skillId": "R1.T3.A2",
-    "question": "Think of 'grab' without the /r/ sound. Tap the word you get.",
-    "displayWord": "grab",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "gab",
-        "value": "gab",
-        "correct": true
-      },
-      {
-        "label": "tab",
-        "value": "tab",
-        "correct": false
-      },
-      {
-        "label": "jab",
-        "value": "jab",
-        "correct": false
-      },
-      {
-        "label": "cab",
-        "value": "cab",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q17",
-    "domain": "Phoneme Sequencing",
-    "domainCode": "WU003",
-    "phase": 2,
-    "skillId": "R1.T3.A3",
-    "question": "What is the FIRST sound in 'through'?",
-    "displayWord": "through",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "/t/",
-        "value": "/t/",
-        "correct": false
-      },
-      {
-        "label": "/r/",
-        "value": "/r/",
-        "correct": false
-      },
-      {
-        "label": "/th/",
-        "value": "/th/",
-        "correct": true
-      },
-      {
-        "label": "/oo/",
-        "value": "/oo/",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q18",
-    "domain": "Sequencing & Main Idea",
-    "domainCode": "WU004",
-    "phase": 2,
-    "skillId": "R4.T1.A2",
-    "passage": "The bird found a twig. It flew back to the tree. It added the twig to its nest. Soon the nest was big enough.",
-    "question": "What did the bird do BEFORE flying back to the tree?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Found a twig",
-        "value": "Found a twig",
-        "correct": true
-      },
-      {
-        "label": "Added the twig",
-        "value": "Added the twig",
-        "correct": false
-      },
-      {
-        "label": "Made the nest big",
-        "value": "Made the nest big",
-        "correct": false
-      },
-      {
-        "label": "Laid an egg",
-        "value": "Laid an egg",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q19",
-    "domain": "Context Clues",
-    "domainCode": "WU005",
-    "phase": 2,
-    "skillId": "R4.T2.A2",
-    "sentence": "She had to **endure** three hours of rain before the concert finally started.",
-    "question": "What does the word 'endure' mean in this sentence?",
-    "displayWord": "endure",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Enjoy",
-        "value": "Enjoy",
-        "correct": false
-      },
-      {
-        "label": "Put up with",
-        "value": "Put up with",
-        "correct": true
-      },
-      {
-        "label": "Avoid",
-        "value": "Avoid",
-        "correct": false
-      },
-      {
-        "label": "Celebrate",
-        "value": "Celebrate",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q20",
-    "domain": "Text Structure Recognition",
-    "domainCode": "WU006",
-    "phase": 2,
-    "skillId": "R4.T3.A1",
-    "text": "Mount Everest is the world's highest mountain at 8,849 metres. It sits on the border of Nepal and Tibet.",
-    "question": "What type of text is this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A story",
-        "value": "A story",
-        "correct": false
-      },
-      {
-        "label": "Instructions",
-        "value": "Instructions",
-        "correct": false
-      },
-      {
-        "label": "A report",
-        "value": "A report",
-        "correct": true
-      },
-      {
-        "label": "A letter",
-        "value": "A letter",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q21",
-    "domain": "Cause & Effect",
-    "domainCode": "WU007",
-    "phase": 2,
-    "skillId": "R4.T3.A2",
-    "sentence": "The window broke because a ball hit it.",
-    "question": "What caused the window to break?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A ball hit it",
-        "value": "A ball hit it",
-        "correct": true
-      },
-      {
-        "label": "The wind was too strong",
-        "value": "The wind was too strong",
-        "correct": false
-      },
-      {
-        "label": "It was very old",
-        "value": "It was very old",
-        "correct": false
-      },
-      {
-        "label": "Someone opened it too hard",
-        "value": "Someone opened it too hard",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q22",
-    "domain": "Vocabulary in Context (Academic)",
-    "domainCode": "WU008",
-    "phase": 2,
-    "skillId": "R5.T2.A1",
-    "sentence": "The programme seeks to **empower** young people to become leaders.",
-    "question": "What does the word 'empower' mean in this context?",
-    "displayWord": "empower",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Give confidence and ability to act",
-        "value": "Give confidence and ability to act",
-        "correct": true
-      },
-      {
-        "label": "Train professionally",
-        "value": "Train professionally",
-        "correct": false
-      },
-      {
-        "label": "Select carefully",
-        "value": "Select carefully",
-        "correct": false
-      },
-      {
-        "label": "Fund financially",
-        "value": "Fund financially",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q23",
-    "domain": "Author Intent",
-    "domainCode": "WU009",
-    "phase": 2,
-    "skillId": "R5.T1.A2",
-    "passage": "Every year, 8 million tonnes of plastic enter our oceans. Fish mistake it for food. The problem will only get worse unless we change our habits.",
-    "question": "What does the author most want readers to do?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Learn about ocean life",
-        "value": "Learn about ocean life",
-        "correct": false
-      },
-      {
-        "label": "Change their habits to reduce plastic pollution",
-        "value": "Change their habits to reduce plastic pollution",
-        "correct": true
-      },
-      {
-        "label": "Study pollution data",
-        "value": "Study pollution data",
-        "correct": false
-      },
-      {
-        "label": "Feel sad about the environment",
-        "value": "Feel sad about the environment",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q24",
-    "domain": "CVC Encoding",
-    "domainCode": "WU010",
-    "phase": 2,
-    "skillId": "R2.T1.A3",
-    "question": "Which spelling is correct for /w/-/e/-/b/?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "wab",
-        "value": "wab",
-        "correct": false
-      },
-      {
-        "label": "wib",
-        "value": "wib",
-        "correct": false
-      },
-      {
-        "label": "wub",
-        "value": "wub",
-        "correct": false
-      },
-      {
-        "label": "web",
-        "value": "web",
-        "correct": true
-      }
-    ]
-  },
-  {
-    "id": "Q25",
-    "domain": "Complex Consonant Clusters",
-    "domainCode": "WU011",
-    "phase": 2,
-    "skillId": "R2.T3.A2",
-    "question": "Read this word out loud.",
-    "displayWord": "THRASH",
-    "answerMode": "voice",
-    "expectedAnswer": "thrash"
   }
 ]

@@ -216,10 +216,6 @@ Keep language simple, warm, and age-appropriate for a primary school child.`;
       timestamp: new Date().toISOString(),
     };
 
-    // Base decision derived from correctness; the full Section 10/11 decision is
-    // recalculated client-side in ReadingSession once the profile is updated.
-    const decision: ReadingDiagnosticResult["decision"] = isCorrect ? "PRACTICE" : "RETEACH";
-
     const result: ReadingDiagnosticResult = {
       is_correct: isCorrect,
       error_type: finalErrorType,
@@ -233,7 +229,6 @@ Keep language simple, warm, and age-appropriate for a primary school child.`;
         formats_used: [submission.template],
       },
       next_action: "continue_skill",
-      decision,
     };
 
     return NextResponse.json({ result, attempt });

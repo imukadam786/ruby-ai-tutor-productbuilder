@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness — Rhyme",
+    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do these two words rhyme?",
-    "displayWord": "ball • bell",
+    "question": "Do 'ball' and 'bell' rhyme?",
+    "displayWord": "ball \u00e2\u20ac\u00a2 bell",
     "answerMode": "choice",
     "choices": [
       {
@@ -22,7 +22,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation — First Sound",
+    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'yak'? Tap the sound below.",
@@ -30,28 +30,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/k/",
-        "value": "/k/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "K, as in kite",
         "correct": false
       },
       {
-        "label": "/y/",
-        "value": "/y/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "Y, as in yes",
         "correct": true
       },
       {
-        "label": "/a/",
-        "value": "/a/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short A, as in apple",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D03",
-    "domain": "Letter Sound — Consonants",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -59,28 +60,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/l/",
-        "value": "/l/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "L, as in leg",
         "correct": false
       },
       {
-        "label": "/w/",
-        "value": "/w/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "W, as in wet",
         "correct": false
       },
       {
-        "label": "/r/",
-        "value": "/r/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "R, as in red",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D04",
-    "domain": "Letter Sound — Vowels",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -88,24 +90,25 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/i/",
-        "value": "/i/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short I, as in sit",
         "correct": false
       },
       {
-        "label": "/u/",
-        "value": "/u/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short U, as in cup",
         "correct": true
       },
       {
-        "label": "/o/",
-        "value": "/o/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short O, as in hot",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D05",
@@ -113,21 +116,21 @@
     "answerMode": "audio-tap",
     "gate": "A",
     "question": "What sound do these two letters make together?",
-    "subText": "Tap each sound to hear it, then choose the right one.",
+    "subText": "Tap to hear each sound, then choose the right one.",
     "displayWord": "ph",
     "choices": [
       {
-        "label": "/f/",
-        "speech": "F — ph makes the F sound, as in phone",
+        "label": "Sound 1",
+        "speech": "F \u00e2\u20ac\u201d ph makes the F sound, as in phone",
         "correct": true
       },
       {
-        "label": "/p/",
+        "label": "Sound 2",
         "speech": "P, as in pin",
         "correct": false
       },
       {
-        "label": "/b/",
+        "label": "Sound 3",
         "speech": "B, as in bat",
         "correct": false
       }
@@ -141,6 +144,28 @@
     "question": "Read this word out loud for me.",
     "displayWord": "stem",
     "expectedAnswer": "stem",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "fun",
+    "answerMode": "voice",
+    "expectedAnswer": "fun",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "shrug",
+    "answerMode": "voice",
+    "expectedAnswer": "shrug",
     "voiceHint": "Tap the mic and say the word you see"
   },
   {
@@ -168,7 +193,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words — Automaticity",
+    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -198,7 +223,7 @@
     "displayWord": "BORSIP",
     "answerMode": "voice",
     "expectedAnswer": "borsip",
-    "syllableBreak": "bor·sip"
+    "syllableBreak": "bor\u00c2\u00b7sip"
   },
   {
     "id": "D14",
@@ -209,19 +234,36 @@
     "displayWord": "FANRUBDOT",
     "answerMode": "voice",
     "expectedAnswer": "fanrubdot",
-    "syllableBreak": "fan·rub·dot"
+    "syllableBreak": "fan\u00c2\u00b7rub\u00c2\u00b7dot"
   },
   {
     "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "This word has a special part at the end. Say just that part out loud.",
+    "question": "Tap the suffix in this word.",
     "displayWord": "SLOWLY",
-    "answerMode": "voice",
+    "answerMode": "choice",
     "expectedAnswer": "ly",
     "affixType": "suffix",
-    "targetAffix": "ly"
+    "targetAffix": "ly",
+    "choices": [
+      {
+        "label": "SLOW",
+        "value": "slow",
+        "correct": false
+      },
+      {
+        "label": "LY",
+        "value": "ly",
+        "correct": true
+      },
+      {
+        "label": "ING",
+        "value": "ing",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D16",
@@ -294,342 +336,5 @@
         "correct": false
       }
     ]
-  },
-  {
-    "id": "Q15",
-    "domain": "Syllable Segmentation",
-    "domainCode": "WU001",
-    "phase": 2,
-    "skillId": "R1.T2.A2",
-    "question": "Listen to the parts of a word. Tap the word you hear.",
-    "displayWord": "win — dow",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "winter",
-        "value": "winter",
-        "correct": false
-      },
-      {
-        "label": "window",
-        "value": "window",
-        "correct": true
-      },
-      {
-        "label": "winner",
-        "value": "winner",
-        "correct": false
-      },
-      {
-        "label": "wide",
-        "value": "wide",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q16",
-    "domain": "Phoneme Deletion",
-    "domainCode": "WU002",
-    "phase": 2,
-    "skillId": "R1.T3.A2",
-    "question": "Think of 'blend' without the /b/ sound. Tap the word you get.",
-    "displayWord": "blend",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "lend",
-        "value": "lend",
-        "correct": true
-      },
-      {
-        "label": "bend",
-        "value": "bend",
-        "correct": false
-      },
-      {
-        "label": "fend",
-        "value": "fend",
-        "correct": false
-      },
-      {
-        "label": "mend",
-        "value": "mend",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q17",
-    "domain": "Phoneme Sequencing",
-    "domainCode": "WU003",
-    "phase": 2,
-    "skillId": "R1.T3.A3",
-    "question": "How many sounds are in 'it'?",
-    "displayWord": "it",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "1",
-        "value": "1",
-        "correct": false
-      },
-      {
-        "label": "2",
-        "value": "2",
-        "correct": true
-      },
-      {
-        "label": "3",
-        "value": "3",
-        "correct": false
-      },
-      {
-        "label": "4",
-        "value": "4",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q18",
-    "domain": "Sequencing & Main Idea",
-    "domainCode": "WU004",
-    "phase": 2,
-    "skillId": "R4.T1.A2",
-    "passage": "Ravi opened his lunchbox. He ate his sandwich first. Then he had his apple. He drank his water last.",
-    "question": "What did Ravi eat FIRST?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "His sandwich",
-        "value": "His sandwich",
-        "correct": true
-      },
-      {
-        "label": "His apple",
-        "value": "His apple",
-        "correct": false
-      },
-      {
-        "label": "He drank water",
-        "value": "He drank water",
-        "correct": false
-      },
-      {
-        "label": "He opened his box",
-        "value": "He opened his box",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q19",
-    "domain": "Context Clues",
-    "domainCode": "WU005",
-    "phase": 2,
-    "skillId": "R4.T2.A2",
-    "sentence": "The stream **babbled** over smooth stones as it wound through the valley.",
-    "question": "What does the word 'babbled' mean in this sentence?",
-    "displayWord": "babbled",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Rushed fast",
-        "value": "Rushed fast",
-        "correct": false
-      },
-      {
-        "label": "Made a gentle flowing sound",
-        "value": "Made a gentle flowing sound",
-        "correct": true
-      },
-      {
-        "label": "Was silent",
-        "value": "Was silent",
-        "correct": false
-      },
-      {
-        "label": "Flooded",
-        "value": "Flooded",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q20",
-    "domain": "Text Structure Recognition",
-    "domainCode": "WU006",
-    "phase": 2,
-    "skillId": "R4.T3.A1",
-    "text": "He opened the envelope slowly. His name was at the top — he had been chosen.",
-    "question": "What type of text is this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A story",
-        "value": "A story",
-        "correct": true
-      },
-      {
-        "label": "A report",
-        "value": "A report",
-        "correct": false
-      },
-      {
-        "label": "Instructions",
-        "value": "Instructions",
-        "correct": false
-      },
-      {
-        "label": "An argument",
-        "value": "An argument",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q21",
-    "domain": "Cause & Effect",
-    "domainCode": "WU007",
-    "phase": 2,
-    "skillId": "R4.T3.A2",
-    "sentence": "The computer crashed because too many programmes were open at once.",
-    "question": "Why did the computer crash?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "The battery ran out",
-        "value": "The battery ran out",
-        "correct": false
-      },
-      {
-        "label": "Too many programmes were open",
-        "value": "Too many programmes were open",
-        "correct": true
-      },
-      {
-        "label": "There was a virus",
-        "value": "There was a virus",
-        "correct": false
-      },
-      {
-        "label": "Someone spilled water on it",
-        "value": "Someone spilled water on it",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q22",
-    "domain": "Vocabulary in Context (Academic)",
-    "domainCode": "WU008",
-    "phase": 2,
-    "skillId": "R5.T2.A1",
-    "sentence": "The museum aims to **cultivate** an appreciation of art in young people.",
-    "question": "What does the word 'cultivate' mean in this context?",
-    "displayWord": "cultivate",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Measure",
-        "value": "Measure",
-        "correct": false
-      },
-      {
-        "label": "Develop and encourage",
-        "value": "Develop and encourage",
-        "correct": true
-      },
-      {
-        "label": "Assess",
-        "value": "Assess",
-        "correct": false
-      },
-      {
-        "label": "Publicise",
-        "value": "Publicise",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q23",
-    "domain": "Author Intent",
-    "domainCode": "WU009",
-    "phase": 2,
-    "skillId": "R5.T1.A2",
-    "passage": "Children who grow up with pets have higher empathy, lower anxiety, and better social skills. Consider adopting — a pet could change your child's life.",
-    "question": "What does the author want readers to do?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Visit a pet shop",
-        "value": "Visit a pet shop",
-        "correct": false
-      },
-      {
-        "label": "Consider adopting a pet",
-        "value": "Consider adopting a pet",
-        "correct": true
-      },
-      {
-        "label": "Research pet ownership",
-        "value": "Research pet ownership",
-        "correct": false
-      },
-      {
-        "label": "Teach children to care for animals",
-        "value": "Teach children to care for animals",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q24",
-    "domain": "CVC Encoding",
-    "domainCode": "WU010",
-    "phase": 2,
-    "skillId": "R2.T1.A3",
-    "question": "Which spelling is correct for /n/-/u/-/t/?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "nat",
-        "value": "nat",
-        "correct": false
-      },
-      {
-        "label": "net",
-        "value": "net",
-        "correct": false
-      },
-      {
-        "label": "nit",
-        "value": "nit",
-        "correct": false
-      },
-      {
-        "label": "nut",
-        "value": "nut",
-        "correct": true
-      }
-    ]
-  },
-  {
-    "id": "Q25",
-    "domain": "Complex Consonant Clusters",
-    "domainCode": "WU011",
-    "phase": 2,
-    "skillId": "R2.T3.A2",
-    "question": "Read this word out loud.",
-    "displayWord": "STRAP",
-    "answerMode": "voice",
-    "expectedAnswer": "strap"
   }
 ]

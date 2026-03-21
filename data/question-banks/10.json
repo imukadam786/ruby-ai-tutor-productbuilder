@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness — Rhyme",
+    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do these two words rhyme?",
-    "displayWord": "top • mop",
+    "question": "Do 'top' and 'mop' rhyme?",
+    "displayWord": "top \u00e2\u20ac\u00a2 mop",
     "answerMode": "choice",
     "choices": [
       {
@@ -22,7 +22,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation — First Sound",
+    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'net'? Tap the sound below.",
@@ -30,28 +30,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/e/",
-        "value": "/e/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short E, as in bed",
         "correct": false
       },
       {
-        "label": "/n/",
-        "value": "/n/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "N, as in net",
         "correct": true
       },
       {
-        "label": "/t/",
-        "value": "/t/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "T, as in top",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D03",
-    "domain": "Letter Sound — Consonants",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -59,28 +60,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/n/",
-        "value": "/n/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "N, as in net",
         "correct": false
       },
       {
-        "label": "/b/",
-        "value": "/b/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "B, as in bat",
         "correct": false
       },
       {
-        "label": "/m/",
-        "value": "/m/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "M, as in mat",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D04",
-    "domain": "Letter Sound — Vowels",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -88,24 +90,25 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/i/",
-        "value": "/i/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short I, as in sit",
         "correct": false
       },
       {
-        "label": "/o/",
-        "value": "/o/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short O, as in hot",
         "correct": false
       },
       {
-        "label": "/u/",
-        "value": "/u/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short U, as in cup",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D05",
@@ -113,21 +116,21 @@
     "answerMode": "audio-tap",
     "gate": "A",
     "question": "What sound do these two letters make together?",
-    "subText": "Tap each sound to hear it, then choose the right one.",
+    "subText": "Tap to hear each sound, then choose the right one.",
     "displayWord": "th",
     "choices": [
       {
-        "label": "/th/",
+        "label": "Sound 1",
         "speech": "th, as in this",
         "correct": true
       },
       {
-        "label": "/t/",
+        "label": "Sound 2",
         "speech": "T, as in top",
         "correct": false
       },
       {
-        "label": "/d/",
+        "label": "Sound 3",
         "speech": "D, as in dog",
         "correct": false
       }
@@ -141,6 +144,28 @@
     "question": "Read this word out loud for me.",
     "displayWord": "slip",
     "expectedAnswer": "slip",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "sun",
+    "answerMode": "voice",
+    "expectedAnswer": "sun",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "shell",
+    "answerMode": "voice",
+    "expectedAnswer": "shell",
     "voiceHint": "Tap the mic and say the word you see"
   },
   {
@@ -168,7 +193,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words — Automaticity",
+    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -198,7 +223,7 @@
     "displayWord": "RIBBON",
     "answerMode": "voice",
     "expectedAnswer": "ribbon",
-    "syllableBreak": "rib·bon"
+    "syllableBreak": "rib\u00c2\u00b7bon"
   },
   {
     "id": "D14",
@@ -209,19 +234,36 @@
     "displayWord": "WONDERFUL",
     "answerMode": "voice",
     "expectedAnswer": "wonderful",
-    "syllableBreak": "won·der·ful"
+    "syllableBreak": "won\u00c2\u00b7der\u00c2\u00b7ful"
   },
   {
     "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "question": "Tap the prefix in this word.",
     "displayWord": "UNSAFE",
-    "answerMode": "voice",
+    "answerMode": "choice",
     "expectedAnswer": "un",
     "affixType": "prefix",
-    "targetAffix": "un"
+    "targetAffix": "un",
+    "choices": [
+      {
+        "label": "UN",
+        "value": "un",
+        "correct": true
+      },
+      {
+        "label": "SAFE",
+        "value": "safe",
+        "correct": false
+      },
+      {
+        "label": "RE",
+        "value": "re",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D16",
@@ -294,342 +336,5 @@
         "correct": false
       }
     ]
-  },
-  {
-    "id": "Q15",
-    "domain": "Syllable Segmentation",
-    "domainCode": "WU001",
-    "phase": 2,
-    "skillId": "R1.T2.A2",
-    "question": "How many syllables does the word 'garden' have?",
-    "displayWord": "garden",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "1",
-        "value": "1",
-        "correct": false
-      },
-      {
-        "label": "2",
-        "value": "2",
-        "correct": true
-      },
-      {
-        "label": "3",
-        "value": "3",
-        "correct": false
-      },
-      {
-        "label": "4",
-        "value": "4",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q16",
-    "domain": "Phoneme Deletion",
-    "domainCode": "WU002",
-    "phase": 2,
-    "skillId": "R1.T3.A2",
-    "question": "Think of 'spin' without the /p/ sound. Tap the word you get.",
-    "displayWord": "spin",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "sin",
-        "value": "sin",
-        "correct": true
-      },
-      {
-        "label": "tin",
-        "value": "tin",
-        "correct": false
-      },
-      {
-        "label": "bin",
-        "value": "bin",
-        "correct": false
-      },
-      {
-        "label": "pin",
-        "value": "pin",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q17",
-    "domain": "Phoneme Sequencing",
-    "domainCode": "WU003",
-    "phase": 2,
-    "skillId": "R1.T3.A3",
-    "question": "What is the FIRST sound in 'frog'?",
-    "displayWord": "frog",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "/f/",
-        "value": "/f/",
-        "correct": true
-      },
-      {
-        "label": "/r/",
-        "value": "/r/",
-        "correct": false
-      },
-      {
-        "label": "/o/",
-        "value": "/o/",
-        "correct": false
-      },
-      {
-        "label": "/g/",
-        "value": "/g/",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q18",
-    "domain": "Sequencing & Main Idea",
-    "domainCode": "WU004",
-    "phase": 2,
-    "skillId": "R4.T1.A2",
-    "passage": "The sun set slowly. The sky turned orange, then pink. Finally, it went dark. The stars came out.",
-    "question": "What is this passage mostly about?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Daytime weather",
-        "value": "Daytime weather",
-        "correct": false
-      },
-      {
-        "label": "The sky changing at sunset",
-        "value": "The sky changing at sunset",
-        "correct": true
-      },
-      {
-        "label": "Different types of stars",
-        "value": "Different types of stars",
-        "correct": false
-      },
-      {
-        "label": "Why the sun sets",
-        "value": "Why the sun sets",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q19",
-    "domain": "Context Clues",
-    "domainCode": "WU005",
-    "phase": 2,
-    "skillId": "R4.T2.A2",
-    "sentence": "The mountain path was **treacherous** with loose rocks and steep drops.",
-    "question": "What does the word 'treacherous' mean in this sentence?",
-    "displayWord": "treacherous",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Beautiful",
-        "value": "Beautiful",
-        "correct": false
-      },
-      {
-        "label": "Easy",
-        "value": "Easy",
-        "correct": false
-      },
-      {
-        "label": "Dangerous",
-        "value": "Dangerous",
-        "correct": true
-      },
-      {
-        "label": "Narrow",
-        "value": "Narrow",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q20",
-    "domain": "Text Structure Recognition",
-    "domainCode": "WU006",
-    "phase": 2,
-    "skillId": "R4.T3.A1",
-    "text": "The Eiffel Tower was built in 1889. It stands 330 metres tall and attracts millions of visitors each year.",
-    "question": "What type of text is this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A story",
-        "value": "A story",
-        "correct": false
-      },
-      {
-        "label": "A report",
-        "value": "A report",
-        "correct": true
-      },
-      {
-        "label": "Instructions",
-        "value": "Instructions",
-        "correct": false
-      },
-      {
-        "label": "A letter",
-        "value": "A letter",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q21",
-    "domain": "Cause & Effect",
-    "domainCode": "WU007",
-    "phase": 2,
-    "skillId": "R4.T3.A2",
-    "sentence": "Tom missed the bus because he left home late.",
-    "question": "Why did Tom miss the bus?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "He left home late",
-        "value": "He left home late",
-        "correct": true
-      },
-      {
-        "label": "The bus was early",
-        "value": "The bus was early",
-        "correct": false
-      },
-      {
-        "label": "He got lost",
-        "value": "He got lost",
-        "correct": false
-      },
-      {
-        "label": "The bus was full",
-        "value": "The bus was full",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q22",
-    "domain": "Vocabulary in Context (Academic)",
-    "domainCode": "WU008",
-    "phase": 2,
-    "skillId": "R5.T2.A1",
-    "sentence": "The author uses **metaphor** to **convey** the character's loneliness.",
-    "question": "What does the word 'convey' mean in this context?",
-    "displayWord": "convey",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Express and communicate",
-        "value": "Express and communicate",
-        "correct": true
-      },
-      {
-        "label": "Hide",
-        "value": "Hide",
-        "correct": false
-      },
-      {
-        "label": "Ignore",
-        "value": "Ignore",
-        "correct": false
-      },
-      {
-        "label": "Describe physically",
-        "value": "Describe physically",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q23",
-    "domain": "Author Intent",
-    "domainCode": "WU009",
-    "phase": 2,
-    "skillId": "R5.T1.A2",
-    "passage": "Monarch butterflies migrate over 4,500 kilometres every year, travelling from Canada to Mexico.",
-    "question": "What is the purpose of this text?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "To tell a story",
-        "value": "To tell a story",
-        "correct": false
-      },
-      {
-        "label": "To persuade you to protect butterflies",
-        "value": "To persuade you to protect butterflies",
-        "correct": false
-      },
-      {
-        "label": "To share an interesting fact",
-        "value": "To share an interesting fact",
-        "correct": true
-      },
-      {
-        "label": "To explain how migration works",
-        "value": "To explain how migration works",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q24",
-    "domain": "CVC Encoding",
-    "domainCode": "WU010",
-    "phase": 2,
-    "skillId": "R2.T1.A3",
-    "question": "Which spelling is correct for /m/-/a/-/p/?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "mop",
-        "value": "mop",
-        "correct": false
-      },
-      {
-        "label": "map",
-        "value": "map",
-        "correct": true
-      },
-      {
-        "label": "mip",
-        "value": "mip",
-        "correct": false
-      },
-      {
-        "label": "mup",
-        "value": "mup",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q25",
-    "domain": "Complex Consonant Clusters",
-    "domainCode": "WU011",
-    "phase": 2,
-    "skillId": "R2.T3.A2",
-    "question": "Read this word out loud.",
-    "displayWord": "SCRAWL",
-    "answerMode": "voice",
-    "expectedAnswer": "scrawl"
   }
 ]

@@ -61,7 +61,7 @@ function adaptBankTask(raw: RawBankTask, block: DiagnosticBlock): Task {
 // Search windows:      1–3→[A,B], 4–6→[A,C], 7–9→[B,D], 10+→[C,F]
 
 const SEARCH_GATES: Array<{ name: string; domains: [string, string] }> = [
-  { name: "A", domains: ["M001", "M004"] },
+  { name: "A", domains: ["M002", "M003"] },
   { name: "B", domains: ["M005", "M006"] },
   { name: "C", domains: ["M007", "M008"] },
   { name: "D", domains: ["M009", "M010"] },
@@ -213,7 +213,7 @@ function computePlacement(
 
   const hardGatePassed = passed("M006", "A");
 
-  const gateA = passed("M001", "A") && passed("M004", "A");
+  const gateA = passed("M002", "A") && passed("M003", "A");
   const gateB = passed("M005", "A") && hardGatePassed;
   const gateC = passed("M007", "B") && passed("M008", "B");
   const gateD = passed("M009", "B") && passed("M010", "B");

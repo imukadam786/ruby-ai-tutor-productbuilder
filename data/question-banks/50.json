@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness — Rhyme",
+    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do these two words rhyme?",
-    "displayWord": "drum • drip",
+    "question": "Do 'drum' and 'drip' rhyme?",
+    "displayWord": "drum \u00e2\u20ac\u00a2 drip",
     "answerMode": "choice",
     "choices": [
       {
@@ -22,7 +22,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation — First Sound",
+    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'gap'? Tap the sound below.",
@@ -30,28 +30,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/p/",
-        "value": "/p/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "P, as in pin",
         "correct": false
       },
       {
-        "label": "/a/",
-        "value": "/a/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short A, as in apple",
         "correct": false
       },
       {
-        "label": "/g/",
-        "value": "/g/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "G, as in got",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D03",
-    "domain": "Letter Sound — Consonants",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -59,28 +60,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/g/",
-        "value": "/g/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "G, as in got",
         "correct": false
       },
       {
-        "label": "/t/",
-        "value": "/t/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "T, as in top",
         "correct": false
       },
       {
-        "label": "/k/",
-        "value": "/k/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "K, as in kite",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D04",
-    "domain": "Letter Sound — Vowels",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -88,24 +90,25 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/u/",
-        "value": "/u/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short U, as in cup",
         "correct": true
       },
       {
-        "label": "/o/",
-        "value": "/o/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short O, as in hot",
         "correct": false
       },
       {
-        "label": "/i/",
-        "value": "/i/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short I, as in sit",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D05",
@@ -113,21 +116,21 @@
     "answerMode": "audio-tap",
     "gate": "A",
     "question": "What sound do these two letters make together?",
-    "subText": "Tap each sound to hear it, then choose the right one.",
+    "subText": "Tap to hear each sound, then choose the right one.",
     "displayWord": "sh",
     "choices": [
       {
-        "label": "/sh/",
+        "label": "Sound 1",
         "speech": "sh, as in ship",
         "correct": true
       },
       {
-        "label": "/s/",
+        "label": "Sound 2",
         "speech": "S, as in sun",
         "correct": false
       },
       {
-        "label": "/ch/",
+        "label": "Sound 3",
         "speech": "ch, as in chip",
         "correct": false
       }
@@ -141,6 +144,28 @@
     "question": "Read this word out loud for me.",
     "displayWord": "sped",
     "expectedAnswer": "sped",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "cut",
+    "answerMode": "voice",
+    "expectedAnswer": "cut",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "chose",
+    "answerMode": "voice",
+    "expectedAnswer": "chose",
     "voiceHint": "Tap the mic and say the word you see"
   },
   {
@@ -168,7 +193,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words — Automaticity",
+    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -198,7 +223,7 @@
     "displayWord": "WOVNET",
     "answerMode": "voice",
     "expectedAnswer": "wovnet",
-    "syllableBreak": "wov·net"
+    "syllableBreak": "wov\u00c2\u00b7net"
   },
   {
     "id": "D14",
@@ -209,19 +234,36 @@
     "displayWord": "WEPNALREB",
     "answerMode": "voice",
     "expectedAnswer": "wepnalreb",
-    "syllableBreak": "wep·nal·reb"
+    "syllableBreak": "wep\u00c2\u00b7nal\u00c2\u00b7reb"
   },
   {
     "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "This word has a special part at the end. Say just that part out loud.",
+    "question": "Tap the suffix in this word.",
     "displayWord": "PRINTED",
-    "answerMode": "voice",
+    "answerMode": "choice",
     "expectedAnswer": "ed",
     "affixType": "suffix",
-    "targetAffix": "ed"
+    "targetAffix": "ed",
+    "choices": [
+      {
+        "label": "PRINT",
+        "value": "print",
+        "correct": false
+      },
+      {
+        "label": "ED",
+        "value": "ed",
+        "correct": true
+      },
+      {
+        "label": "ING",
+        "value": "ing",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D16",
@@ -294,342 +336,5 @@
         "correct": false
       }
     ]
-  },
-  {
-    "id": "Q15",
-    "domain": "Syllable Segmentation",
-    "domainCode": "WU001",
-    "phase": 2,
-    "skillId": "R1.T2.A2",
-    "question": "Listen to the parts of a word. Tap the word you hear.",
-    "displayWord": "pock — et",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "pocket",
-        "value": "pocket",
-        "correct": true
-      },
-      {
-        "label": "picket",
-        "value": "picket",
-        "correct": false
-      },
-      {
-        "label": "packet",
-        "value": "packet",
-        "correct": false
-      },
-      {
-        "label": "rocket",
-        "value": "rocket",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q16",
-    "domain": "Phoneme Deletion",
-    "domainCode": "WU002",
-    "phase": 2,
-    "skillId": "R1.T3.A2",
-    "question": "Think of 'brag' without the /r/ sound. Tap the word you get.",
-    "displayWord": "brag",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "bag",
-        "value": "bag",
-        "correct": true
-      },
-      {
-        "label": "tag",
-        "value": "tag",
-        "correct": false
-      },
-      {
-        "label": "lag",
-        "value": "lag",
-        "correct": false
-      },
-      {
-        "label": "wag",
-        "value": "wag",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q17",
-    "domain": "Phoneme Sequencing",
-    "domainCode": "WU003",
-    "phase": 2,
-    "skillId": "R1.T3.A3",
-    "question": "How many sounds are in 'last'?",
-    "displayWord": "last",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "3",
-        "value": "3",
-        "correct": false
-      },
-      {
-        "label": "4",
-        "value": "4",
-        "correct": true
-      },
-      {
-        "label": "5",
-        "value": "5",
-        "correct": false
-      },
-      {
-        "label": "6",
-        "value": "6",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q18",
-    "domain": "Sequencing & Main Idea",
-    "domainCode": "WU004",
-    "phase": 2,
-    "skillId": "R4.T1.A2",
-    "passage": "The fire alarm sounded. Everyone stood up calmly. The teacher led the class outside. They waited on the field.",
-    "question": "What is this passage mostly about?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Fire safety rules",
-        "value": "Fire safety rules",
-        "correct": false
-      },
-      {
-        "label": "The class doing a fire drill",
-        "value": "The class doing a fire drill",
-        "correct": true
-      },
-      {
-        "label": "Types of alarms",
-        "value": "Types of alarms",
-        "correct": false
-      },
-      {
-        "label": "School playgrounds",
-        "value": "School playgrounds",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q19",
-    "domain": "Context Clues",
-    "domainCode": "WU005",
-    "phase": 2,
-    "skillId": "R4.T2.A2",
-    "sentence": "The audience was **captivated** by the performance and sat in complete silence.",
-    "question": "What does the word 'captivated' mean in this sentence?",
-    "displayWord": "captivated",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Bored",
-        "value": "Bored",
-        "correct": false
-      },
-      {
-        "label": "Completely absorbed",
-        "value": "Completely absorbed",
-        "correct": true
-      },
-      {
-        "label": "Confused",
-        "value": "Confused",
-        "correct": false
-      },
-      {
-        "label": "Noisy",
-        "value": "Noisy",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q20",
-    "domain": "Text Structure Recognition",
-    "domainCode": "WU006",
-    "phase": 2,
-    "skillId": "R4.T3.A1",
-    "text": "He stood at the edge of the platform. The train was late. Again.",
-    "question": "What type of text is this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A story",
-        "value": "A story",
-        "correct": true
-      },
-      {
-        "label": "Instructions",
-        "value": "Instructions",
-        "correct": false
-      },
-      {
-        "label": "A report",
-        "value": "A report",
-        "correct": false
-      },
-      {
-        "label": "An argument",
-        "value": "An argument",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q21",
-    "domain": "Cause & Effect",
-    "domainCode": "WU007",
-    "phase": 2,
-    "skillId": "R4.T3.A2",
-    "sentence": "The alarm woke everyone up because someone had burnt the toast.",
-    "question": "What set off the alarm?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A fire started",
-        "value": "A fire started",
-        "correct": false
-      },
-      {
-        "label": "Burnt toast",
-        "value": "Burnt toast",
-        "correct": true
-      },
-      {
-        "label": "Someone tested it",
-        "value": "Someone tested it",
-        "correct": false
-      },
-      {
-        "label": "The electricity flickered",
-        "value": "The electricity flickered",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q22",
-    "domain": "Vocabulary in Context (Academic)",
-    "domainCode": "WU008",
-    "phase": 2,
-    "skillId": "R5.T2.A1",
-    "sentence": "The project **exemplifies** best practice in community-led conservation.",
-    "question": "What does the word 'exemplifies' mean in this context?",
-    "displayWord": "exemplifies",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Criticises",
-        "value": "Criticises",
-        "correct": false
-      },
-      {
-        "label": "Is a perfect example of",
-        "value": "Is a perfect example of",
-        "correct": true
-      },
-      {
-        "label": "Fails to show",
-        "value": "Fails to show",
-        "correct": false
-      },
-      {
-        "label": "Describes",
-        "value": "Describes",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q23",
-    "domain": "Author Intent",
-    "domainCode": "WU009",
-    "phase": 2,
-    "skillId": "R5.T1.A2",
-    "passage": "Marie Curie was the first woman to win a Nobel Prize — and the only person to win it in two different sciences.",
-    "question": "Why did the author write this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "To persuade you to study science",
-        "value": "To persuade you to study science",
-        "correct": false
-      },
-      {
-        "label": "To compare scientists",
-        "value": "To compare scientists",
-        "correct": false
-      },
-      {
-        "label": "To share an impressive historical achievement",
-        "value": "To share an impressive historical achievement",
-        "correct": true
-      },
-      {
-        "label": "To describe Curie's experiments",
-        "value": "To describe Curie's experiments",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q24",
-    "domain": "CVC Encoding",
-    "domainCode": "WU010",
-    "phase": 2,
-    "skillId": "R2.T1.A3",
-    "question": "Which spelling is correct for /s/-/o/-/b/?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "sab",
-        "value": "sab",
-        "correct": false
-      },
-      {
-        "label": "sib",
-        "value": "sib",
-        "correct": false
-      },
-      {
-        "label": "sub",
-        "value": "sub",
-        "correct": false
-      },
-      {
-        "label": "sob",
-        "value": "sob",
-        "correct": true
-      }
-    ]
-  },
-  {
-    "id": "Q25",
-    "domain": "Complex Consonant Clusters",
-    "domainCode": "WU011",
-    "phase": 2,
-    "skillId": "R2.T3.A2",
-    "question": "Read this word out loud.",
-    "displayWord": "SPRINKLE",
-    "answerMode": "voice",
-    "expectedAnswer": "sprinkle"
   }
 ]

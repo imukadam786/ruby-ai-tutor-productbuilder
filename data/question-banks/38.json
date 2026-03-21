@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness — Rhyme",
+    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do these two words rhyme?",
-    "displayWord": "cake • kick",
+    "question": "Do 'cake' and 'kick' rhyme?",
+    "displayWord": "cake \u00e2\u20ac\u00a2 kick",
     "answerMode": "choice",
     "choices": [
       {
@@ -22,7 +22,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation — First Sound",
+    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'sap'? Tap the sound below.",
@@ -30,28 +30,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/p/",
-        "value": "/p/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "P, as in pin",
         "correct": false
       },
       {
-        "label": "/a/",
-        "value": "/a/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short A, as in apple",
         "correct": false
       },
       {
-        "label": "/s/",
-        "value": "/s/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "S, as in sun",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D03",
-    "domain": "Letter Sound — Consonants",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -59,28 +60,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/b/",
-        "value": "/b/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "B, as in bat",
         "correct": false
       },
       {
-        "label": "/f/",
-        "value": "/f/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "F, as in fish",
         "correct": false
       },
       {
-        "label": "/v/",
-        "value": "/v/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "V, as in van",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D04",
-    "domain": "Letter Sound — Vowels",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -88,24 +90,25 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/u/",
-        "value": "/u/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short U, as in cup",
         "correct": false
       },
       {
-        "label": "/i/",
-        "value": "/i/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short I, as in sit",
         "correct": true
       },
       {
-        "label": "/e/",
-        "value": "/e/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short E, as in bed",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D05",
@@ -113,21 +116,21 @@
     "answerMode": "audio-tap",
     "gate": "A",
     "question": "What sound do these two letters make together?",
-    "subText": "Tap each sound to hear it, then choose the right one.",
+    "subText": "Tap to hear each sound, then choose the right one.",
     "displayWord": "th",
     "choices": [
       {
-        "label": "/th/",
+        "label": "Sound 1",
         "speech": "th, as in this",
         "correct": true
       },
       {
-        "label": "/t/",
+        "label": "Sound 2",
         "speech": "T, as in top",
         "correct": false
       },
       {
-        "label": "/d/",
+        "label": "Sound 3",
         "speech": "D, as in dog",
         "correct": false
       }
@@ -141,6 +144,28 @@
     "question": "Read this word out loud for me.",
     "displayWord": "snore",
     "expectedAnswer": "snore",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "sob",
+    "answerMode": "voice",
+    "expectedAnswer": "sob",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "share",
+    "answerMode": "voice",
+    "expectedAnswer": "share",
     "voiceHint": "Tap the mic and say the word you see"
   },
   {
@@ -168,7 +193,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words — Automaticity",
+    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -198,7 +223,7 @@
     "displayWord": "SUDMEF",
     "answerMode": "voice",
     "expectedAnswer": "sudmef",
-    "syllableBreak": "sud·mef"
+    "syllableBreak": "sud\u00c2\u00b7mef"
   },
   {
     "id": "D14",
@@ -209,19 +234,36 @@
     "displayWord": "GABFOTREB",
     "answerMode": "voice",
     "expectedAnswer": "gabfotreb",
-    "syllableBreak": "gab·fot·reb"
+    "syllableBreak": "gab\u00c2\u00b7fot\u00c2\u00b7reb"
   },
   {
     "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "This word has a special part at the end. Say just that part out loud.",
+    "question": "Tap the suffix in this word.",
     "displayWord": "HOPEFUL",
-    "answerMode": "voice",
+    "answerMode": "choice",
     "expectedAnswer": "ful",
     "affixType": "suffix",
-    "targetAffix": "ful"
+    "targetAffix": "ful",
+    "choices": [
+      {
+        "label": "HOPE",
+        "value": "hope",
+        "correct": false
+      },
+      {
+        "label": "FUL",
+        "value": "ful",
+        "correct": true
+      },
+      {
+        "label": "ING",
+        "value": "ing",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D16",
@@ -294,342 +336,5 @@
         "correct": false
       }
     ]
-  },
-  {
-    "id": "Q15",
-    "domain": "Syllable Segmentation",
-    "domainCode": "WU001",
-    "phase": 2,
-    "skillId": "R1.T2.A2",
-    "question": "Listen to the parts of a word. Tap the word you hear.",
-    "displayWord": "bas — ket",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "basket",
-        "value": "basket",
-        "correct": true
-      },
-      {
-        "label": "biscuit",
-        "value": "biscuit",
-        "correct": false
-      },
-      {
-        "label": "banquet",
-        "value": "banquet",
-        "correct": false
-      },
-      {
-        "label": "blanket",
-        "value": "blanket",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q16",
-    "domain": "Phoneme Deletion",
-    "domainCode": "WU002",
-    "phase": 2,
-    "skillId": "R1.T3.A2",
-    "question": "Think of 'pluck' without the /l/ sound. Tap the word you get.",
-    "displayWord": "pluck",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "puck",
-        "value": "puck",
-        "correct": true
-      },
-      {
-        "label": "duck",
-        "value": "duck",
-        "correct": false
-      },
-      {
-        "label": "luck",
-        "value": "luck",
-        "correct": false
-      },
-      {
-        "label": "tuck",
-        "value": "tuck",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q17",
-    "domain": "Phoneme Sequencing",
-    "domainCode": "WU003",
-    "phase": 2,
-    "skillId": "R1.T3.A3",
-    "question": "How many sounds are in 'map'?",
-    "displayWord": "map",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "2",
-        "value": "2",
-        "correct": false
-      },
-      {
-        "label": "3",
-        "value": "3",
-        "correct": true
-      },
-      {
-        "label": "4",
-        "value": "4",
-        "correct": false
-      },
-      {
-        "label": "5",
-        "value": "5",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q18",
-    "domain": "Sequencing & Main Idea",
-    "domainCode": "WU004",
-    "phase": 2,
-    "skillId": "R4.T1.A2",
-    "passage": "The lamp flickered once. Then it went off. The room went dark. Sara found a torch.",
-    "question": "What is this passage mostly about?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Types of lamps",
-        "value": "Types of lamps",
-        "correct": false
-      },
-      {
-        "label": "A lamp going off and Sara responding",
-        "value": "A lamp going off and Sara responding",
-        "correct": true
-      },
-      {
-        "label": "How torches work",
-        "value": "How torches work",
-        "correct": false
-      },
-      {
-        "label": "Saving electricity",
-        "value": "Saving electricity",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q19",
-    "domain": "Context Clues",
-    "domainCode": "WU005",
-    "phase": 2,
-    "skillId": "R4.T2.A2",
-    "sentence": "The instructions were **ambiguous** and everyone interpreted them differently.",
-    "question": "What does the word 'ambiguous' mean in this sentence?",
-    "displayWord": "ambiguous",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Unclear",
-        "value": "Unclear",
-        "correct": true
-      },
-      {
-        "label": "Long",
-        "value": "Long",
-        "correct": false
-      },
-      {
-        "label": "Simple",
-        "value": "Simple",
-        "correct": false
-      },
-      {
-        "label": "Strict",
-        "value": "Strict",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q20",
-    "domain": "Text Structure Recognition",
-    "domainCode": "WU006",
-    "phase": 2,
-    "skillId": "R4.T3.A1",
-    "text": "Zoos should be closed. Wild animals belong in nature, not in cages for humans to stare at.",
-    "question": "What is the purpose of this text?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "To describe",
-        "value": "To describe",
-        "correct": false
-      },
-      {
-        "label": "To inform",
-        "value": "To inform",
-        "correct": false
-      },
-      {
-        "label": "To persuade",
-        "value": "To persuade",
-        "correct": true
-      },
-      {
-        "label": "To explain",
-        "value": "To explain",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q21",
-    "domain": "Cause & Effect",
-    "domainCode": "WU007",
-    "phase": 2,
-    "skillId": "R4.T3.A2",
-    "sentence": "The whole class got extra break because they had all finished their work.",
-    "question": "Why did they get extra break?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "It was sunny",
-        "value": "It was sunny",
-        "correct": false
-      },
-      {
-        "label": "The teacher was happy",
-        "value": "The teacher was happy",
-        "correct": false
-      },
-      {
-        "label": "They finished their work",
-        "value": "They finished their work",
-        "correct": true
-      },
-      {
-        "label": "It was a special day",
-        "value": "It was a special day",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q22",
-    "domain": "Vocabulary in Context (Academic)",
-    "domainCode": "WU008",
-    "phase": 2,
-    "skillId": "R5.T2.A1",
-    "sentence": "The organisation seeks to **bridge** the gap between wealthy and poorer communities.",
-    "question": "What does the word 'bridge' mean in this context?",
-    "displayWord": "bridge",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Widen",
-        "value": "Widen",
-        "correct": false
-      },
-      {
-        "label": "Connect and close",
-        "value": "Connect and close",
-        "correct": true
-      },
-      {
-        "label": "Measure",
-        "value": "Measure",
-        "correct": false
-      },
-      {
-        "label": "Remove",
-        "value": "Remove",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q23",
-    "domain": "Author Intent",
-    "domainCode": "WU009",
-    "phase": 2,
-    "skillId": "R5.T1.A2",
-    "passage": "The Moon has no atmosphere, so its surface temperature swings from 127°C in daylight to -173°C at night.",
-    "question": "What is the author's purpose?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "To persuade you to be interested in space",
-        "value": "To persuade you to be interested in space",
-        "correct": false
-      },
-      {
-        "label": "To share a scientific fact about the Moon",
-        "value": "To share a scientific fact about the Moon",
-        "correct": true
-      },
-      {
-        "label": "To compare the Moon to Earth",
-        "value": "To compare the Moon to Earth",
-        "correct": false
-      },
-      {
-        "label": "To explain why we cannot live on the Moon",
-        "value": "To explain why we cannot live on the Moon",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q24",
-    "domain": "CVC Encoding",
-    "domainCode": "WU010",
-    "phase": 2,
-    "skillId": "R2.T1.A3",
-    "question": "Which spelling is correct for /j/-/o/-/t/?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "jat",
-        "value": "jat",
-        "correct": false
-      },
-      {
-        "label": "jet",
-        "value": "jet",
-        "correct": false
-      },
-      {
-        "label": "jut",
-        "value": "jut",
-        "correct": false
-      },
-      {
-        "label": "jot",
-        "value": "jot",
-        "correct": true
-      }
-    ]
-  },
-  {
-    "id": "Q25",
-    "domain": "Complex Consonant Clusters",
-    "domainCode": "WU011",
-    "phase": 2,
-    "skillId": "R2.T3.A2",
-    "question": "Read this word out loud.",
-    "displayWord": "SPRING",
-    "answerMode": "voice",
-    "expectedAnswer": "spring"
   }
 ]

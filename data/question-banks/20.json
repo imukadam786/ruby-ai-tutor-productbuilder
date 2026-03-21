@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness — Rhyme",
+    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do these two words rhyme?",
-    "displayWord": "star • car",
+    "question": "Do 'star' and 'car' rhyme?",
+    "displayWord": "star \u00e2\u20ac\u00a2 car",
     "answerMode": "choice",
     "choices": [
       {
@@ -22,7 +22,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation — First Sound",
+    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'mix'? Tap the sound below.",
@@ -30,28 +30,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/i/",
-        "value": "/i/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short I, as in sit",
         "correct": false
       },
       {
-        "label": "/m/",
-        "value": "/m/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "M, as in mat",
         "correct": true
       },
       {
-        "label": "/ks/",
-        "value": "/ks/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "ks, as in fox",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D03",
-    "domain": "Letter Sound — Consonants",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -59,28 +60,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/w/",
-        "value": "/w/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "W, as in wet",
         "correct": false
       },
       {
-        "label": "/y/",
-        "value": "/y/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "Y, as in yes",
         "correct": true
       },
       {
-        "label": "/j/",
-        "value": "/j/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "J, as in jump",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D04",
-    "domain": "Letter Sound — Vowels",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -88,24 +90,25 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/u/",
-        "value": "/u/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short U, as in cup",
         "correct": true
       },
       {
-        "label": "/i/",
-        "value": "/i/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short I, as in sit",
         "correct": false
       },
       {
-        "label": "/o/",
-        "value": "/o/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short O, as in hot",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D05",
@@ -113,21 +116,21 @@
     "answerMode": "audio-tap",
     "gate": "A",
     "question": "What sound do these two letters make together?",
-    "subText": "Tap each sound to hear it, then choose the right one.",
+    "subText": "Tap to hear each sound, then choose the right one.",
     "displayWord": "ng",
     "choices": [
       {
-        "label": "/ng/",
+        "label": "Sound 1",
         "speech": "ng, as in ring",
         "correct": true
       },
       {
-        "label": "/n/",
+        "label": "Sound 2",
         "speech": "N, as in net",
         "correct": false
       },
       {
-        "label": "/g/",
+        "label": "Sound 3",
         "speech": "G, as in got",
         "correct": false
       }
@@ -141,6 +144,28 @@
     "question": "Read this word out loud for me.",
     "displayWord": "grin",
     "expectedAnswer": "grin",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "ran",
+    "answerMode": "voice",
+    "expectedAnswer": "ran",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "sharp",
+    "answerMode": "voice",
+    "expectedAnswer": "sharp",
     "voiceHint": "Tap the mic and say the word you see"
   },
   {
@@ -168,7 +193,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words — Automaticity",
+    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -198,7 +223,7 @@
     "displayWord": "MAGNET",
     "answerMode": "voice",
     "expectedAnswer": "magnet",
-    "syllableBreak": "mag·net"
+    "syllableBreak": "mag\u00c2\u00b7net"
   },
   {
     "id": "D14",
@@ -209,19 +234,36 @@
     "displayWord": "COMFORTABLE",
     "answerMode": "voice",
     "expectedAnswer": "comfortable",
-    "syllableBreak": "com·fort·a·ble"
+    "syllableBreak": "com\u00c2\u00b7fort\u00c2\u00b7a\u00c2\u00b7ble"
   },
   {
     "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "This word has a special part at the end. Say just that part out loud.",
+    "question": "Tap the suffix in this word.",
     "displayWord": "JUMPED",
-    "answerMode": "voice",
+    "answerMode": "choice",
     "expectedAnswer": "ed",
     "affixType": "suffix",
-    "targetAffix": "ed"
+    "targetAffix": "ed",
+    "choices": [
+      {
+        "label": "JUMP",
+        "value": "jump",
+        "correct": false
+      },
+      {
+        "label": "ED",
+        "value": "ed",
+        "correct": true
+      },
+      {
+        "label": "ING",
+        "value": "ing",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D16",
@@ -230,7 +272,7 @@
     "gate": "D",
     "question": "Here is a short story. Read it to me.",
     "displayWord": "",
-    "passage": "Meg had a jar full of buttons. She tipped them onto the table and sorted them into piles — red ones, blue ones, and shiny ones. The shiny pile was the smallest. Her cat came and patted one of the shiny buttons off the table and chased it.",
+    "passage": "Meg had a jar full of buttons. She tipped them onto the table and sorted them into piles \u00e2\u20ac\u201d red ones, blue ones, and shiny ones. The shiny pile was the smallest. Her cat came and patted one of the shiny buttons off the table and chased it.",
     "passageId": "16.20",
     "answerMode": "voice",
     "scoringCriteria": {
@@ -294,342 +336,5 @@
         "correct": false
       }
     ]
-  },
-  {
-    "id": "Q15",
-    "domain": "Syllable Segmentation",
-    "domainCode": "WU001",
-    "phase": 2,
-    "skillId": "R1.T2.A2",
-    "question": "Which word has 1 syllable?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "happy",
-        "value": "happy",
-        "correct": false
-      },
-      {
-        "label": "umbrella",
-        "value": "umbrella",
-        "correct": false
-      },
-      {
-        "label": "cat",
-        "value": "cat",
-        "correct": true
-      },
-      {
-        "label": "tiger",
-        "value": "tiger",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q16",
-    "domain": "Phoneme Deletion",
-    "domainCode": "WU002",
-    "phase": 2,
-    "skillId": "R1.T3.A2",
-    "question": "Think of 'grin' without the /r/ sound. Tap the word you get.",
-    "displayWord": "grin",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "gin",
-        "value": "gin",
-        "correct": true
-      },
-      {
-        "label": "bin",
-        "value": "bin",
-        "correct": false
-      },
-      {
-        "label": "fin",
-        "value": "fin",
-        "correct": false
-      },
-      {
-        "label": "pin",
-        "value": "pin",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q17",
-    "domain": "Phoneme Sequencing",
-    "domainCode": "WU003",
-    "phase": 2,
-    "skillId": "R1.T3.A3",
-    "question": "What is the FIRST sound in 'clap'?",
-    "displayWord": "clap",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "/k/",
-        "value": "/k/",
-        "correct": true
-      },
-      {
-        "label": "/l/",
-        "value": "/l/",
-        "correct": false
-      },
-      {
-        "label": "/a/",
-        "value": "/a/",
-        "correct": false
-      },
-      {
-        "label": "/p/",
-        "value": "/p/",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q18",
-    "domain": "Sequencing & Main Idea",
-    "domainCode": "WU004",
-    "phase": 2,
-    "skillId": "R4.T1.A2",
-    "passage": "Zoe unpacked her pencil case. She sharpened her pencil. She opened her book. Then she started writing.",
-    "question": "What is this passage mostly about?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Pencil cases",
-        "value": "Pencil cases",
-        "correct": false
-      },
-      {
-        "label": "Zoe getting ready to write",
-        "value": "Zoe getting ready to write",
-        "correct": true
-      },
-      {
-        "label": "How to sharpen pencils",
-        "value": "How to sharpen pencils",
-        "correct": false
-      },
-      {
-        "label": "Different types of books",
-        "value": "Different types of books",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q19",
-    "domain": "Context Clues",
-    "domainCode": "WU005",
-    "phase": 2,
-    "skillId": "R4.T2.A2",
-    "sentence": "The smell from the bakery was **irresistible** and we couldn't walk past.",
-    "question": "What does the word 'irresistible' mean in this sentence?",
-    "displayWord": "irresistible",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Unpleasant",
-        "value": "Unpleasant",
-        "correct": false
-      },
-      {
-        "label": "Faint",
-        "value": "Faint",
-        "correct": false
-      },
-      {
-        "label": "Impossible to resist",
-        "value": "Impossible to resist",
-        "correct": true
-      },
-      {
-        "label": "Strange",
-        "value": "Strange",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q20",
-    "domain": "Text Structure Recognition",
-    "domainCode": "WU006",
-    "phase": 2,
-    "skillId": "R4.T3.A1",
-    "text": "It was the hottest summer on record. The roads shimmered with heat and the park fountains had run dry.",
-    "question": "What type of text is this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A story",
-        "value": "A story",
-        "correct": true
-      },
-      {
-        "label": "Instructions",
-        "value": "Instructions",
-        "correct": false
-      },
-      {
-        "label": "A report",
-        "value": "A report",
-        "correct": false
-      },
-      {
-        "label": "An argument",
-        "value": "An argument",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q21",
-    "domain": "Cause & Effect",
-    "domainCode": "WU007",
-    "phase": 2,
-    "skillId": "R4.T3.A2",
-    "sentence": "The road was flooded, so cars had to take a different route.",
-    "question": "Why did cars take a different route?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "The road was closed for repairs",
-        "value": "The road was closed for repairs",
-        "correct": false
-      },
-      {
-        "label": "The road was flooded",
-        "value": "The road was flooded",
-        "correct": true
-      },
-      {
-        "label": "There was a crash",
-        "value": "There was a crash",
-        "correct": false
-      },
-      {
-        "label": "The road was icy",
-        "value": "The road was icy",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q22",
-    "domain": "Vocabulary in Context (Academic)",
-    "domainCode": "WU008",
-    "phase": 2,
-    "skillId": "R5.T2.A1",
-    "sentence": "The architect's design was **innovative** — nothing like it had been built before.",
-    "question": "What does the word 'innovative' mean in this context?",
-    "displayWord": "innovative",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Traditional",
-        "value": "Traditional",
-        "correct": false
-      },
-      {
-        "label": "New and original",
-        "value": "New and original",
-        "correct": true
-      },
-      {
-        "label": "Expensive",
-        "value": "Expensive",
-        "correct": false
-      },
-      {
-        "label": "Simple",
-        "value": "Simple",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q23",
-    "domain": "Author Intent",
-    "domainCode": "WU009",
-    "phase": 2,
-    "skillId": "R5.T1.A2",
-    "passage": "The Industrial Revolution began in Britain in the late 18th century. It transformed how goods were made and how people lived.",
-    "question": "Why did the author write this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "To celebrate Britain's achievements",
-        "value": "To celebrate Britain's achievements",
-        "correct": false
-      },
-      {
-        "label": "To describe a significant period in history",
-        "value": "To describe a significant period in history",
-        "correct": true
-      },
-      {
-        "label": "To compare past and present",
-        "value": "To compare past and present",
-        "correct": false
-      },
-      {
-        "label": "To persuade readers to study history",
-        "value": "To persuade readers to study history",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q24",
-    "domain": "CVC Encoding",
-    "domainCode": "WU010",
-    "phase": 2,
-    "skillId": "R2.T1.A3",
-    "question": "Which spelling is correct for /p/-/i/-/g/?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "peg",
-        "value": "peg",
-        "correct": false
-      },
-      {
-        "label": "pag",
-        "value": "pag",
-        "correct": false
-      },
-      {
-        "label": "pug",
-        "value": "pug",
-        "correct": false
-      },
-      {
-        "label": "pig",
-        "value": "pig",
-        "correct": true
-      }
-    ]
-  },
-  {
-    "id": "Q25",
-    "domain": "Complex Consonant Clusters",
-    "domainCode": "WU011",
-    "phase": 2,
-    "skillId": "R2.T3.A2",
-    "question": "Read this word out loud.",
-    "displayWord": "SCRAPE",
-    "answerMode": "voice",
-    "expectedAnswer": "scrape"
   }
 ]

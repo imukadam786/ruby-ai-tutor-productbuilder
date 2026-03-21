@@ -27,18 +27,13 @@ import {
   updateSessionHistory,
   updateReadingSkillMastery,
   initReadingSkillMastery,
-  determineNextReadingAction,
   completeDiagnosticPlacement,
-  determineReadingDecision,
   saveReadingProfile,
+  scanAndMarkNeedsReview,
+  pickNeedsReviewSkill,
+  stampReviewedAt,
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
-import SessionWarmup from "@/components/reading/SessionWarmup";
-import {
-  hasWarmupTasksRemaining,
-  selectSessionWarmupSkills,
-  WarmupResult,
-} from "@/lib/reading-warmup";
 import { selectReadingTemplate } from "@/lib/template-selector";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
@@ -48,13 +43,12 @@ import {
   trackSkillMastered,
   trackSkillAdvanced,
   trackReteach,
-  trackBacktrack,
   trackSessionStarted,
   trackSessionEnded,
   trackPlacementCompleted,
 } from "@/lib/analytics";
 
-type SessionPhase = "warmup" | "loading_question" | "question" | "feedback" | "mastered" | "complete";
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
 
 // ─── Reading report input builder ─────────────────────────────────────────────
 
@@ -159,54 +153,8 @@ export default function ReadingSession() {
   const [pendingPlacementResult, setPendingPlacementResult] = useState<import("@/types/reading").DiagnosticPlacementResult | null>(null);
   const [showReport, setShowReport] = useState(false);
 
-  // Phase 2 warmup
-  const [warmupBankIndex] = useState(() => Math.floor(Math.random() * 50) + 1);
-  const [warmupSkillIds, setWarmupSkillIds] = useState<string[]>([]);
-
-  const handleWarmupComplete = useCallback((results: WarmupResult[]) => {
-    // Use profileRef (declared below) so this never closes over a stale profile value
-    const current = profileRef.current;
-    if (!current) {
-      setPhase("loading_question");
-      return;
-    }
-
-    const completed = [...(current.warmupSkillsCompleted ?? [])];
-    const updatedMastery = { ...current.skill_mastery };
-
-    for (const r of results) {
-      if (!completed.includes(r.skillId)) completed.push(r.skillId);
-      if (!updatedMastery[r.skillId]) {
-        updatedMastery[r.skillId] = {
-          skill_id: r.skillId,
-          status: r.correct ? "mastered" : "in_progress",
-          correct_count: r.correct ? 1 : 0,
-          attempt_count: 1,
-          formats_used: ["oral"],
-          scaffolded_attempts: 0,
-          last_attempted: new Date().toISOString(),
-          attempts: [],
-        };
-      }
-    }
-
-    const updated = {
-      ...current,
-      warmupSkillsCompleted: completed,
-      skill_mastery: updatedMastery,
-      last_active: new Date().toISOString(),
-    };
-
-    fetch("/api/reading/warmup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ results }),
-    }).catch(() => {});
-
-    saveReadingProfile(updated);
-    setProfile(updated);
-    setPhase("loading_question");
-  }, []);
+  // Needs-review: skill ID of a stale mastered skill to probe before main practice
+  const [pendingReviewSkillId, setPendingReviewSkillId] = useState<string | null>(null);
 
   // Recent templates — used by selectReadingTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<ReadingTemplate[]>([]);
@@ -232,15 +180,11 @@ export default function ReadingSession() {
           current_level: saved.current_level,
         });
       }
-      setProfile(saved);
-      // Show warmup if placement is done and warmup tasks remain
-      if (saved.placementCompleted && hasWarmupTasksRemaining(saved)) {
-        const skills = selectSessionWarmupSkills(saved);
-        setWarmupSkillIds(skills);
-        setPhase("warmup");
-      } else {
-        setPhase("loading_question");
-      }
+      const scanned = saved.placementCompleted ? scanAndMarkNeedsReview(saved) : saved;
+      setProfile(scanned);
+      const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scanned) : null;
+      if (reviewSkill) setPendingReviewSkillId(reviewSkill);
+      setPhase("loading_question");
     } else {
       // Auto-create from onboarding — no setup screen needed
       readOnboardingWithFallback().then(({ name, grade }) => {
@@ -253,7 +197,7 @@ export default function ReadingSession() {
   }, []);
 
   const loadQuestion = useCallback(
-    async (skillId: string, template: ReadingTemplate, attemptNum: number, decision = "practice", errorType: string | null = null) => {
+    async (skillId: string, template: ReadingTemplate, attemptNum: number, is_correct = true, errorType: string | null = null) => {
       setPhase("loading_question");
       setStatusMessage("Generating your question...");
       try {
@@ -265,7 +209,7 @@ export default function ReadingSession() {
             template,
             attempt_number: attemptNum,
             include_hint: attemptNum > 1,
-            decision,
+            is_correct,
             error_type: errorType,
           }),
         });
@@ -282,14 +226,16 @@ export default function ReadingSession() {
 
   useEffect(() => {
     if (phase === "loading_question" && profile) {
-      const decision = currentResult?.decision?.toLowerCase() ?? "practice";
+      const prevCorrect = currentResult?.is_correct ?? true;
       const errorType =
         currentResult && !currentResult.is_correct && currentResult.error_type !== "correct"
           ? currentResult.error_type
           : null;
-      const template = selectReadingTemplate(decision, errorType, null, recentTemplatesRef.current);
+      const template = selectReadingTemplate(prevCorrect, errorType, null, recentTemplatesRef.current);
       recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
-      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, decision, errorType);
+      // If a stale mastered skill needs a retention probe, load that first
+      const skillIdToLoad = pendingReviewSkillId ?? profile.current_skill_id;
+      loadQuestion(skillIdToLoad, template, skillAttemptCount + 1, prevCorrect, errorType);
     }
   }, [phase, profile, skillAttemptCount, currentResult, loadQuestion]);
 
@@ -306,14 +252,7 @@ export default function ReadingSession() {
       if (!profile) return;
       const updated = completeDiagnosticPlacement(profile, result);
       setProfile(updated);
-      // Show warmup immediately after placement if tasks remain
-      if (hasWarmupTasksRemaining(updated)) {
-        const skills = selectSessionWarmupSkills(updated);
-        setWarmupSkillIds(skills);
-        setPhase("warmup");
-      } else {
-        setPhase("loading_question");
-      }
+      setPhase("loading_question");
 
       trackPlacementCompleted({
         subject: "reading",
@@ -367,7 +306,7 @@ export default function ReadingSession() {
         profile.skill_mastery[currentQuestion.skill_id] ||
         initReadingSkillMastery(currentQuestion.skill_id);
 
-      const updatedMastery = updateReadingSkillMastery(existingMastery, attempt, skill);
+      const updatedMastery = updateReadingSkillMastery(existingMastery, attempt, profile.grade);
       result.mastery_update = {
         skill_id: currentQuestion.skill_id,
         new_status: updatedMastery.status,
@@ -376,22 +315,15 @@ export default function ReadingSession() {
         formats_used: updatedMastery.formats_used,
       };
 
-      const nextAction = determineNextReadingAction(updatedMastery, updatedMastery.attempts);
-      result.next_action = nextAction;
+      result.next_action = updatedMastery.status === "mastered" ? "advance_skill" : "continue_skill";
 
-      // Section 10/11 decision engine
-      const decision = determineReadingDecision(currentQuestion.skill_id, profile, {
-        is_correct: result.is_correct,
-        error_type: result.error_type,
-      });
-      result.decision = decision;
-
-      // Map decision back to next_action when appropriate
-      if (decision === "ADVANCE" || decision === "ACCELERATE") result.next_action = "advance_skill";
-      if (decision === "BACKTRACK") result.next_action = "review_prerequisite";
-
-      const profileAfterAttempt = recordReadingAttempt(profile, attempt, updatedMastery, decision);
-      setProfile(profileAfterAttempt);
+      const isReviewQuestion = pendingReviewSkillId === currentQuestion.skill_id;
+      const profileAfterAttempt = recordReadingAttempt(profile, attempt, updatedMastery);
+      const profileAfterReview = isReviewQuestion
+        ? stampReviewedAt(profileAfterAttempt, currentQuestion.skill_id)
+        : profileAfterAttempt;
+      setProfile(profileAfterReview);
+      if (isReviewQuestion) setPendingReviewSkillId(null);
 
       const newSessionAttempts = sessionAttempts + 1;
       const newSessionCorrect = sessionCorrect + (result.is_correct ? 1 : 0);
@@ -407,7 +339,6 @@ export default function ReadingSession() {
         is_correct: result.is_correct,
         used_hint: usedHint,
         attempt_number: skillAttemptCount + 1,
-        decision,
       });
 
       if (updatedMastery.status === "mastered") {
@@ -423,7 +354,7 @@ export default function ReadingSession() {
         document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "reading" } }));
         setPhase("mastered");
       } else {
-        if (decision === "RETEACH") {
+        if (!result.is_correct) {
           trackReteach({
             subject: "reading",
             skill_id: currentQuestion.skill_id,
@@ -441,24 +372,6 @@ export default function ReadingSession() {
 
   const handleNextAfterFeedback = () => {
     if (!profile || !currentResult) return;
-    if (currentResult.next_action === "review_prerequisite") {
-      const skill = getReadingSkillById(profile.current_skill_id);
-      if (skill && skill.prerequisites.length > 0) {
-        const prereqId = skill.prerequisites[skill.prerequisites.length - 1];
-        trackBacktrack({ subject: "reading", from_skill_id: profile.current_skill_id, to_prereq_id: prereqId });
-        // Record session as not passed — student is backtracking off this skill
-        if (!hasRecordedSession.current) {
-          hasRecordedSession.current = true;
-          updateSessionHistory(profile, profile.current_skill_id, false);
-        }
-        const updated = advanceToReadingSkill(profile, prereqId);
-        setProfile(updated);
-        setSkillAttemptCount(0);
-        recentTemplatesRef.current = [];
-        setPhase("loading_question");
-        return;
-      }
-    }
     setPhase("loading_question");
   };
 
@@ -620,19 +533,6 @@ export default function ReadingSession() {
         studentName={profile.name}
         onComplete={handlePlacementComplete}
         onViewReport={handleViewReport}
-      />
-    );
-  }
-
-  // ─── Warmup ───────────────────────────────────────────────────────────────────
-
-  if (phase === "warmup" && profile) {
-    return (
-      <SessionWarmup
-        skillIds={warmupSkillIds}
-        bankIndex={warmupBankIndex}
-        studentName={profile.name}
-        onComplete={handleWarmupComplete}
       />
     );
   }
@@ -1027,8 +927,50 @@ function ReadingQuestionCard({
       {/* Answer input */}
       <div className="px-6 pb-6 space-y-4">
 
-        {/* ── AUDIO-TAP mode (letter-sound / digraph / blend skills) ── */}
-        {isAudioTap ? (
+        {/* ── WRITTEN mode (L3 encoding — student types spelling after hearing TTS) ── */}
+        {question.template === "written" && question.displayWord ? (
+          <>
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 text-center">
+              <p className="text-xs text-amber-500 font-semibold uppercase tracking-widest mb-2">Listen and type</p>
+              <button
+                onClick={() => togglePlay(question.displayWord!)}
+                className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl font-bold text-base transition-all active:scale-95 ${
+                  playing
+                    ? "bg-orange-400 text-white shadow-lg"
+                    : "bg-amber-400 hover:bg-amber-500 text-white shadow-md"
+                }`}
+              >
+                {playing ? (
+                  <><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>Stop</>
+                ) : (
+                  <><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Tap to hear the word</>
+                )}
+              </button>
+            </div>
+            <input
+              type="text"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") handleSubmit(); }}
+              placeholder="Type the word here…"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              disabled={submitting}
+              className="w-full border-2 border-gray-200 focus:border-purple-400 rounded-2xl px-5 py-4 text-xl font-mono text-center outline-none transition-colors disabled:opacity-40"
+            />
+            <button
+              onClick={handleSubmit}
+              disabled={!answer.trim() || submitting}
+              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+            >
+              {submitting ? (
+                <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>Checking...</>
+              ) : "Submit →"}
+            </button>
+          </>
+        ) : isAudioTap ? (
           <>
             {/* Large display word (letter, digraph, blend) */}
             {question.displayWord && (
@@ -1040,7 +982,7 @@ function ReadingQuestionCard({
             )}
 
             <p className="text-sm text-center text-gray-400 font-medium">
-              Tap each button to hear the sound, then choose the right one
+              Tap each word to hear it, then choose the one with the right sound
             </p>
 
             <div className="grid grid-cols-3 gap-3">
@@ -1066,7 +1008,7 @@ function ReadingQuestionCard({
                       <path d="M8 5v14l11-7z"/>
                     </svg>
                   )}
-                  <span className="font-mono text-sm text-center leading-tight">{c.label}</span>
+                  <span className="font-semibold text-base text-center leading-tight">{c.label}</span>
                 </button>
               ))}
             </div>

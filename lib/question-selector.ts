@@ -59,13 +59,14 @@ const bank = questionBankData as {
 };
 
 // ─── Level → Domain mapping ───────────────────────────────────────────────────
-// Maps skill tree level numbers to question bank domains.
-// Derived from question-bank.json skill_ids assignments.
+// Coarse fallback: maps skill tree level numbers to question bank domains.
+// Only used when a skill has no explicit entry in question-bank.json skill_ids.
+// #6b will add skill_ids for all 45 unmapped skills, making this purely a safety net.
 const LEVEL_TO_DOMAIN: Record<number, string> = {
   1:  "M001",  // Counting and Early Number Sense
   2:  "M004",  // Addition Concepts
   3:  "M005",  // Subtraction Concepts
-  4:  "M004",  // Addition and Subtraction Fluency
+  4:  "M004",  // Addition and Subtraction Fluency (T1 only — T2/T3 overridden below)
   5:  "M006",  // Multiplication Concepts
   6:  "M006",  // Multiplicative Reasoning
   7:  "M007",  // Division Concepts
@@ -76,9 +77,29 @@ const LEVEL_TO_DOMAIN: Record<number, string> = {
   12: "M010",  // Negative Numbers and Integers
   13: "M011",  // Algebra — Patterns and Variables
   14: "M012",  // Linear Equations
-  15: "M013",  // Geometry — Shape and Space (stopgap: Quadratic domain)
-  16: "M014",  // Statistics and Data (stopgap: Function domain)
+  15: "M_GEO", // Geometry — Angles, Area and Volume
+  16: "M_STAT", // Statistics — Averages, Charts and Probability
   17: "M018",  // Advanced Problem Solving
+};
+
+// ─── Skill-level domain overrides ─────────────────────────────────────────────
+// Fixes three cases where the level-fallback gives the wrong subject entirely.
+// Applied before both the bank skill_ids check and LEVEL_TO_DOMAIN.
+// These will be superseded naturally when #6b adds skill_ids for these skills
+// in question-bank.json — at that point the DOMAIN_FOR_SKILL check takes over.
+const SKILL_DOMAIN_OVERRIDE: Record<string, string> = {
+  // L1.T2.A3 "Compare numbers using < > =" — level fallback gives M001 (dot
+  // counting). Correct domain is M002 (Number Recognition and Ordering).
+  "L1.T2.A3": "M002",
+
+  // L4.T2.A1 "Compensation strategy for subtraction" — level fallback gives
+  // M004 (Addition). This is a subtraction skill; M005 is correct.
+  "L4.T2.A1": "M005",
+
+  // L4.T3.A1 "Add and subtract three-digit numbers" — level fallback gives
+  // M004 (Addition only). Student has had extensive addition practice via L2
+  // and L4.T1; serving M005 (Subtraction) here balances the mixed operation.
+  "L4.T3.A1": "M005",
 };
 
 // Build explicit skill_id → domain map from question bank data
@@ -91,10 +112,13 @@ for (const [domainId, domain] of Object.entries(bank.domains)) {
 
 // ─── Get domain for a skill ───────────────────────────────────────────────────
 export function getDomainForSkill(skillId: string): string | null {
-  // Try explicit mapping from question bank first
+  // 1. Skill-level overrides — corrects cases where level fallback is wrong subject
+  if (SKILL_DOMAIN_OVERRIDE[skillId]) return SKILL_DOMAIN_OVERRIDE[skillId];
+
+  // 2. Explicit mapping from question bank skill_ids (most skills)
   if (DOMAIN_FOR_SKILL[skillId]) return DOMAIN_FOR_SKILL[skillId];
 
-  // Fall back to level-based mapping
+  // 3. Coarse level-based fallback (acceptable for most unmapped tier 2/3 skills)
   const levelMatch = skillId.match(/^L(\d+)\./);
   if (levelMatch) {
     const level = parseInt(levelMatch[1]);
@@ -223,6 +247,7 @@ export function bankQuestionToGenerated(
   hint?: string;
   expected_answer: string;
   scaffolding_notes: string;
+  difficulty?: number;
   bank_question: BankQuestion;
 } {
   // Determine template from input_type
@@ -247,6 +272,7 @@ export function bankQuestionToGenerated(
     hint,
     expected_answer: q.expected,
     scaffolding_notes: `Error signals: ${q.error_signals.join(", ")}`,
+    difficulty: q.difficulty,
     bank_question: q,
   };
 }
@@ -290,13 +316,15 @@ function buildQuestionText(q: BankQuestion, domainId: string): string {
     case "M016":
     case "M017":
     case "M018":
+    case "M_GEO":
+    case "M_STAT":
       return q.question;
     default:
       return q.question;
   }
 }
 
-function buildHint(q: BankQuestion, domainId: string): string {
+function buildHint(_q: BankQuestion, domainId: string): string {
   const hints: Record<string, string> = {
     M001: "Count each dot one at a time, touching or pointing to each one.",
     M002: "Look at the pattern — is the sequence going up or down? By how much each time?",
@@ -317,6 +345,8 @@ function buildHint(q: BankQuestion, domainId: string): string {
     M016: "SOH CAH TOA: Sin=Opposite/Hypotenuse, Cos=Adjacent/Hypotenuse, Tan=Opposite/Adjacent.",
     M017: "Power rule: if f(x) = ax^n, then f'(x) = n·ax^(n-1). Differentiate each term.",
     M018: "Break the problem into steps. Identify what you know and what you need to find.",
+    M_GEO: "Angles: acute < 90, right = 90, obtuse 90–180, reflex > 180. Area: rectangle = l×w, triangle = ½bh. Volume = l×w×h.",
+    M_STAT: "Mean = total ÷ count. Median = middle value when ordered. Mode = most frequent. Probability = favourable ÷ total.",
   };
   return hints[domainId] || "Read the question carefully and break it into smaller steps.";
 }

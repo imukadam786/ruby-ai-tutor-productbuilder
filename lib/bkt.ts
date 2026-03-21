@@ -21,7 +21,7 @@ export interface BKTParams {
 /** Default parameters calibrated for structured school-age learning. */
 export const DEFAULT_BKT_PARAMS: BKTParams = {
   p_init: 0.10,
-  p_transit: 0.15,
+  p_transit: 0.06,
   p_slip: 0.08,
   p_guess: 0.20,
 };

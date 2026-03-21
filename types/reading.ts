@@ -17,8 +17,6 @@ export type ReadingErrorType =
   | "ERR_SELF_MON"
   | "correct";
 
-export type ReadingDecision = "ADVANCE" | "PRACTICE" | "RETEACH" | "BACKTRACK" | "ACCELERATE";
-
 export interface DiagnosticTaskResult {
   taskId: string;
   correct: boolean;
@@ -98,6 +96,7 @@ export interface ReadingSkillMastery {
   scaffolded_attempts: number;
   last_attempted: string;
   mastered_at?: string;
+  last_reviewed_at?: string;
   attempts: ReadingSkillAttempt[];
   /** BKT: continuous probability estimate that student has learned this skill (0–1) */
   p_learned?: number;
@@ -121,7 +120,6 @@ export interface ReadingStudentProfile {
   placement: DiagnosticPlacementResult | null;
   errorPatterns: Record<string, { type: ReadingErrorType; count: number; retaughtCount: number }>;
   sessionHistory: Record<string, boolean[]>;
-  warmupSkillsCompleted: string[];
 }
 
 // ─── Session ──────────────────────────────────────────────────────────────────
@@ -170,5 +168,4 @@ export interface ReadingDiagnosticResult {
     formats_used: ReadingTemplate[];
   };
   next_action: "continue_skill" | "advance_skill" | "advance_tier" | "advance_level" | "review_prerequisite";
-  decision?: ReadingDecision;
 }

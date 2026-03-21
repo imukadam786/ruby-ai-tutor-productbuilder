@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness — Rhyme",
+    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do these two words rhyme?",
-    "displayWord": "feet • fat",
+    "question": "Do 'feet' and 'fat' rhyme?",
+    "displayWord": "feet \u00e2\u20ac\u00a2 fat",
     "answerMode": "choice",
     "choices": [
       {
@@ -22,7 +22,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation — First Sound",
+    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'tip'? Tap the sound below.",
@@ -30,28 +30,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/i/",
-        "value": "/i/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short I, as in sit",
         "correct": false
       },
       {
-        "label": "/p/",
-        "value": "/p/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "P, as in pin",
         "correct": false
       },
       {
-        "label": "/t/",
-        "value": "/t/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "T, as in top",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D03",
-    "domain": "Letter Sound — Consonants",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -59,28 +60,29 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/v/",
-        "value": "/v/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "V, as in van",
         "correct": false
       },
       {
-        "label": "/r/",
-        "value": "/r/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "R, as in red",
         "correct": false
       },
       {
-        "label": "/w/",
-        "value": "/w/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "W, as in wet",
         "correct": true
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D04",
-    "domain": "Letter Sound — Vowels",
+    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -88,24 +90,25 @@
     "answerMode": "audio-tap",
     "choices": [
       {
-        "label": "/a/",
-        "value": "/a/",
+        "label": "Sound 1",
+        "value": "sound-1",
         "speech": "short A, as in apple",
         "correct": false
       },
       {
-        "label": "/o/",
-        "value": "/o/",
+        "label": "Sound 2",
+        "value": "sound-2",
         "speech": "short O, as in hot",
         "correct": true
       },
       {
-        "label": "/u/",
-        "value": "/u/",
+        "label": "Sound 3",
+        "value": "sound-3",
         "speech": "short U, as in cup",
         "correct": false
       }
-    ]
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
     "id": "D05",
@@ -113,21 +116,21 @@
     "answerMode": "audio-tap",
     "gate": "A",
     "question": "What sound do these two letters make together?",
-    "subText": "Tap each sound to hear it, then choose the right one.",
+    "subText": "Tap to hear each sound, then choose the right one.",
     "displayWord": "wh",
     "choices": [
       {
-        "label": "/wh/",
+        "label": "Sound 1",
         "speech": "wh, as in when",
         "correct": true
       },
       {
-        "label": "/w/",
+        "label": "Sound 2",
         "speech": "W, as in wet",
         "correct": false
       },
       {
-        "label": "/h/",
+        "label": "Sound 3",
         "speech": "H, as in hat",
         "correct": false
       }
@@ -141,6 +144,28 @@
     "question": "Read this word out loud for me.",
     "displayWord": "blaze",
     "expectedAnswer": "blaze",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "peg",
+    "answerMode": "voice",
+    "expectedAnswer": "peg",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "shave",
+    "answerMode": "voice",
+    "expectedAnswer": "shave",
     "voiceHint": "Tap the mic and say the word you see"
   },
   {
@@ -168,7 +193,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words — Automaticity",
+    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -198,7 +223,7 @@
     "displayWord": "HOBPIG",
     "answerMode": "voice",
     "expectedAnswer": "hobpig",
-    "syllableBreak": "hob·pig"
+    "syllableBreak": "hob\u00c2\u00b7pig"
   },
   {
     "id": "D14",
@@ -209,19 +234,36 @@
     "displayWord": "REBSOPNID",
     "answerMode": "voice",
     "expectedAnswer": "rebsopnid",
-    "syllableBreak": "reb·sop·nid"
+    "syllableBreak": "reb\u00c2\u00b7sop\u00c2\u00b7nid"
   },
   {
     "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "This word has a special part at the end. Say just that part out loud.",
+    "question": "Tap the suffix in this word.",
     "displayWord": "CAREFUL",
-    "answerMode": "voice",
+    "answerMode": "choice",
     "expectedAnswer": "ful",
     "affixType": "suffix",
-    "targetAffix": "ful"
+    "targetAffix": "ful",
+    "choices": [
+      {
+        "label": "CARE",
+        "value": "care",
+        "correct": false
+      },
+      {
+        "label": "FUL",
+        "value": "ful",
+        "correct": true
+      },
+      {
+        "label": "ING",
+        "value": "ing",
+        "correct": false
+      }
+    ]
   },
   {
     "id": "D16",
@@ -230,7 +272,7 @@
     "gate": "D",
     "question": "Here is a short story. Read it to me.",
     "displayWord": "",
-    "passage": "Hugo liked collecting stones. He had a box full of them — grey ones, brown ones, and one white one with a red line running through it. He found most of them in the riverbed. His mum said no more stones. He found two more on the way home.",
+    "passage": "Hugo liked collecting stones. He had a box full of them \u00e2\u20ac\u201d grey ones, brown ones, and one white one with a red line running through it. He found most of them in the riverbed. His mum said no more stones. He found two more on the way home.",
     "passageId": "16.39",
     "answerMode": "voice",
     "scoringCriteria": {
@@ -294,342 +336,5 @@
         "correct": false
       }
     ]
-  },
-  {
-    "id": "Q15",
-    "domain": "Syllable Segmentation",
-    "domainCode": "WU001",
-    "phase": 2,
-    "skillId": "R1.T2.A2",
-    "question": "Listen to the parts of a word. Tap the word you hear.",
-    "displayWord": "pen — cil",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "pencil",
-        "value": "pencil",
-        "correct": true
-      },
-      {
-        "label": "pension",
-        "value": "pension",
-        "correct": false
-      },
-      {
-        "label": "panel",
-        "value": "panel",
-        "correct": false
-      },
-      {
-        "label": "pebble",
-        "value": "pebble",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q16",
-    "domain": "Phoneme Deletion",
-    "domainCode": "WU002",
-    "phase": 2,
-    "skillId": "R1.T3.A2",
-    "question": "Think of 'grown' without the /r/ sound. Tap the word you get.",
-    "displayWord": "grown",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "gown",
-        "value": "gown",
-        "correct": true
-      },
-      {
-        "label": "down",
-        "value": "down",
-        "correct": false
-      },
-      {
-        "label": "town",
-        "value": "town",
-        "correct": false
-      },
-      {
-        "label": "own",
-        "value": "own",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q17",
-    "domain": "Phoneme Sequencing",
-    "domainCode": "WU003",
-    "phase": 2,
-    "skillId": "R1.T3.A3",
-    "question": "How many sounds are in 'sock'?",
-    "displayWord": "sock",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "2",
-        "value": "2",
-        "correct": false
-      },
-      {
-        "label": "3",
-        "value": "3",
-        "correct": true
-      },
-      {
-        "label": "4",
-        "value": "4",
-        "correct": false
-      },
-      {
-        "label": "5",
-        "value": "5",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q18",
-    "domain": "Sequencing & Main Idea",
-    "domainCode": "WU004",
-    "phase": 2,
-    "skillId": "R4.T1.A2",
-    "passage": "Finn caught the ball. He passed it to his friend. His friend kicked it hard. It went straight into the net.",
-    "question": "What happened LAST?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Finn caught the ball",
-        "value": "Finn caught the ball",
-        "correct": false
-      },
-      {
-        "label": "He passed it",
-        "value": "He passed it",
-        "correct": false
-      },
-      {
-        "label": "His friend kicked it",
-        "value": "His friend kicked it",
-        "correct": false
-      },
-      {
-        "label": "It went into the net",
-        "value": "It went into the net",
-        "correct": true
-      }
-    ]
-  },
-  {
-    "id": "Q19",
-    "domain": "Context Clues",
-    "domainCode": "WU005",
-    "phase": 2,
-    "skillId": "R4.T2.A2",
-    "sentence": "The crowd **dispersed** after the show ended, heading in all directions.",
-    "question": "What does the word 'dispersed' mean in this sentence?",
-    "displayWord": "dispersed",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Arrived",
-        "value": "Arrived",
-        "correct": false
-      },
-      {
-        "label": "Cheered",
-        "value": "Cheered",
-        "correct": false
-      },
-      {
-        "label": "Spread out and left",
-        "value": "Spread out and left",
-        "correct": true
-      },
-      {
-        "label": "Grew bigger",
-        "value": "Grew bigger",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q20",
-    "domain": "Text Structure Recognition",
-    "domainCode": "WU006",
-    "phase": 2,
-    "skillId": "R4.T3.A1",
-    "text": "The Sahara Desert covers about 9 million square kilometres. It is the largest hot desert in the world.",
-    "question": "What type of text is this?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A story",
-        "value": "A story",
-        "correct": false
-      },
-      {
-        "label": "A report",
-        "value": "A report",
-        "correct": true
-      },
-      {
-        "label": "Instructions",
-        "value": "Instructions",
-        "correct": false
-      },
-      {
-        "label": "An argument",
-        "value": "An argument",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q21",
-    "domain": "Cause & Effect",
-    "domainCode": "WU007",
-    "phase": 2,
-    "skillId": "R4.T3.A2",
-    "sentence": "The car wouldn't start because the battery was flat.",
-    "question": "Why wouldn't the car start?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "The car was out of fuel",
-        "value": "The car was out of fuel",
-        "correct": false
-      },
-      {
-        "label": "The battery was flat",
-        "value": "The battery was flat",
-        "correct": true
-      },
-      {
-        "label": "The engine was wet",
-        "value": "The engine was wet",
-        "correct": false
-      },
-      {
-        "label": "The key was broken",
-        "value": "The key was broken",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q22",
-    "domain": "Vocabulary in Context (Academic)",
-    "domainCode": "WU008",
-    "phase": 2,
-    "skillId": "R5.T2.A1",
-    "sentence": "The findings have been **disseminated** widely through scientific journals.",
-    "question": "What does the word 'disseminated' mean in this context?",
-    "displayWord": "disseminated",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Hidden",
-        "value": "Hidden",
-        "correct": false
-      },
-      {
-        "label": "Spread and shared",
-        "value": "Spread and shared",
-        "correct": true
-      },
-      {
-        "label": "Challenged",
-        "value": "Challenged",
-        "correct": false
-      },
-      {
-        "label": "Corrected",
-        "value": "Corrected",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q23",
-    "domain": "Author Intent",
-    "domainCode": "WU009",
-    "phase": 2,
-    "skillId": "R5.T1.A2",
-    "passage": "Students who volunteer gain real-world skills, improve their wellbeing, and strengthen their university applications. Get involved — volunteer today.",
-    "question": "What is the author's main purpose?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "To explain volunteering schemes",
-        "value": "To explain volunteering schemes",
-        "correct": false
-      },
-      {
-        "label": "To encourage students to volunteer",
-        "value": "To encourage students to volunteer",
-        "correct": true
-      },
-      {
-        "label": "To describe university requirements",
-        "value": "To describe university requirements",
-        "correct": false
-      },
-      {
-        "label": "To share statistics about volunteering",
-        "value": "To share statistics about volunteering",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "Q24",
-    "domain": "CVC Encoding",
-    "domainCode": "WU010",
-    "phase": 2,
-    "skillId": "R2.T1.A3",
-    "question": "Which spelling is correct for /z/-/i/-/p/?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "zap",
-        "value": "zap",
-        "correct": false
-      },
-      {
-        "label": "zep",
-        "value": "zep",
-        "correct": false
-      },
-      {
-        "label": "zop",
-        "value": "zop",
-        "correct": false
-      },
-      {
-        "label": "zip",
-        "value": "zip",
-        "correct": true
-      }
-    ]
-  },
-  {
-    "id": "Q25",
-    "domain": "Complex Consonant Clusters",
-    "domainCode": "WU011",
-    "phase": 2,
-    "skillId": "R2.T3.A2",
-    "question": "Read this word out loud.",
-    "displayWord": "THRUST",
-    "answerMode": "voice",
-    "expectedAnswer": "thrust"
   }
 ]
