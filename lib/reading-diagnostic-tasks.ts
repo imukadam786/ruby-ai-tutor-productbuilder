@@ -1,6 +1,6 @@
 // ─── Reading Diagnostic Task Bank ─────────────────────────────────────────────
-// 14 tasks administered once per student to determine reading placement.
-// Full test always administered — no early exit.
+// Up to 18 tasks administered once per student to determine reading placement.
+// Early exit after 3 consecutive failures — placement calculator handles partial results.
 
 export type DiagnosticTaskMode = "voice" | "text" | "tap" | "audio-tap" | "voice-timed";
 

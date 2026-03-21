@@ -559,7 +559,13 @@ export default function ReadingDiagnosticPlacement({
     setShowEncouragement(true);
     await new Promise(r => setTimeout(r, 800));
 
-    if (currentIndex + 1 >= totalTasks) {
+    // ── Early exit: 3 consecutive failures ────────────────────────────────────
+    // Mirrors maths diagnostic behaviour. Avoids making struggling students sit
+    // through all tasks when their placement is already clear.
+    const last3 = newCompleted.slice(-3);
+    const earlyExit = last3.length === 3 && last3.every(r => !r.correct);
+
+    if (earlyExit || currentIndex + 1 >= totalTasks) {
       setPhase("calculating");
       try {
         const res = await fetch("/api/reading/diagnostic/placement", {
