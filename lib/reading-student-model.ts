@@ -10,6 +10,7 @@ import {
 } from "@/types/reading";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
 import { supabase } from "@/lib/supabase";
+import { retrySupabase } from "@/lib/supabase-retry";
 import {
   initBKT,
   updateBKT,
@@ -37,15 +38,15 @@ export function getReadingProfile(): ReadingStudentProfile | null {
 export function saveReadingProfile(profile: ReadingStudentProfile): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(READING_STUDENT_KEY, JSON.stringify(profile));
-  // Fire-and-forget Supabase sync — localStorage is source of truth
-  void supabase.from("student_profiles").upsert({
+  // Supabase sync with retry — localStorage is source of truth
+  void retrySupabase(() => supabase.from("student_profiles").upsert({
     id: profile.id,
     subject: "reading",
     name: profile.name,
     grade: profile.grade,
     profile_data: profile as unknown as Record<string, unknown>,
     updated_at: new Date().toISOString(),
-  }, { onConflict: "id" });
+  }, { onConflict: "id" }));
 }
 
 export function createReadingProfile(name: string, grade: number): ReadingStudentProfile {
@@ -120,8 +121,8 @@ export function recordReadingAttempt(
     },
   };
   saveReadingProfile(updated);
-  // Fire-and-forget attempt record
-  void supabase.from("skill_attempts").insert({
+  // Supabase sync with retry
+  void retrySupabase(() => supabase.from("skill_attempts").insert({
     student_id: profile.id,
     subject: "reading",
     skill_id: attempt.skill_id,
@@ -130,7 +131,7 @@ export function recordReadingAttempt(
     template: attempt.template ?? null,
     scaffolded: attempt.scaffolded ?? false,
     p_learned: updatedMastery.p_learned ?? null,
-  });
+  }));
   return updated;
 }
 
@@ -449,8 +450,8 @@ export function completeDiagnosticPlacement(
     last_active: new Date().toISOString(),
   };
   saveReadingProfile(updated);
-  // Fire-and-forget diagnostic result record
-  void supabase.from("diagnostic_results").insert({
+  // Supabase sync with retry
+  void retrySupabase(() => supabase.from("diagnostic_results").insert({
     student_id: profile.id,
     subject: "reading",
     entry_skill_id: result.entrySkillId,
@@ -459,7 +460,7 @@ export function completeDiagnosticPlacement(
     dominant_errors: result.dominantErrors ?? [],
     hard_gate_passed: result.hardGatePassed ?? true,
     completed_at: new Date(result.completedAt).toISOString(),
-  });
+  }));
   return updated;
 }
 
