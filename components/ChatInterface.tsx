@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { apiFetch } from "@/lib/fetch";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -34,7 +33,7 @@ function RubyAvatar({ size = "w-16 h-16" }: { size?: string }) {
   return (
     <div className={`${size} rounded-full flex-shrink-0 overflow-hidden`}>
       <img
-        src="/icons/icon-192.png"
+        src="/ruby-avatar.png"
         alt="Ruby"
         className="w-full h-full object-cover"
         onError={(e) => {
@@ -74,10 +73,104 @@ function RubyAvatar({ size = "w-16 h-16" }: { size?: string }) {
   );
 }
 
-import { speakViaAPI } from "@/lib/tts";
+// ── Natural voice engine ──────────────────────────────────────────────────────
+function prepareForSpeech(raw: string): string {
+  return raw
+    .replace(/#{1,6}\s+/g, "")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
+    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/^\s*[-*+]\s/gm, "")
+    .replace(/^\s*\d+\.\s/gm, "")
+    .replace(/\$\$([^$]+)\$\$/g, (_, eq) => `the equation: ${eq}`)
+    .replace(/\$([^$]+)\$/g, (_, eq) => eq)
+    .replace(/\n{2,}/g, ". ")
+    .replace(/\n/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
 
-// Alias so all call sites remain unchanged
-const speakNaturally = speakViaAPI;
+function pickVoice(): SpeechSynthesisVoice | null {
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = [
+    "Samantha", "Karen", "Moira",
+    "Google UK English Female", "Microsoft Zira",
+    "Microsoft Susan", "Google US English",
+  ];
+  for (const name of preferred) {
+    const v = voices.find((v) => v.name.includes(name));
+    if (v) return v;
+  }
+  return voices.find((v) => v.lang.startsWith("en")) ?? null;
+}
+
+// Returns a cancel() function — calling it stops all queued sentences immediately
+function speakNaturally(
+  text: string,
+  onStart: () => void,
+  onEnd: () => void
+): () => void {
+  let cancelled = false;
+  let timer: ReturnType<typeof setTimeout> | null = null;
+
+  const cancel = () => {
+    cancelled = true;
+    if (timer !== null) { clearTimeout(timer); timer = null; }
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    onEnd();
+  };
+
+  if (!("speechSynthesis" in window)) { onEnd(); return cancel; }
+  window.speechSynthesis.cancel();
+
+  const cleaned = prepareForSpeech(text);
+  const sentences = cleaned
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+
+  if (sentences.length === 0) { onEnd(); return cancel; }
+
+  let idx = 0;
+  onStart();
+
+  const speakNext = () => {
+    if (cancelled) return;
+    if (idx >= sentences.length) { onEnd(); return; }
+
+    const sentence = sentences[idx++];
+    const utt = new SpeechSynthesisUtterance(sentence);
+    utt.rate = 0.92;
+    utt.pitch = 1.12;
+    utt.volume = 1;
+    const voice = pickVoice();
+    if (voice) utt.voice = voice;
+
+    const isQuestion = sentence.trim().endsWith("?");
+    const hasNumber = /\d/.test(sentence);
+    const pauseMs = isQuestion ? 650 : hasNumber ? 450 : 320;
+
+    utt.onend = () => {
+      if (cancelled) return;
+      timer = setTimeout(speakNext, pauseMs);
+    };
+    utt.onerror = () => {
+      if (cancelled) return;
+      timer = setTimeout(speakNext, pauseMs);
+    };
+
+    window.speechSynthesis.speak(utt);
+  };
+
+  if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.addEventListener("voiceschanged", speakNext, { once: true });
+  } else {
+    speakNext();
+  }
+
+  return cancel;
+}
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
@@ -203,7 +296,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
           imageMimeType = capturedFile.type;
         }
 
-        const response = await apiFetch("/api/chat", {
+        const response = await fetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -346,7 +439,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             {msg.role === "user" ? (
               /* User bubble */
               <div className="max-w-[80%] sm:max-w-[65%]">
-                <div className="bg-[#B7182E] text-white rounded-2xl rounded-tr-sm px-4 py-3">
+                <div className="bg-blue-500 text-white rounded-2xl rounded-tr-sm px-4 py-3">
                   <p className="text-base leading-relaxed whitespace-pre-wrap">{msg.content}</p>
                 </div>
                 <p className="text-xs text-gray-400 mt-1 text-right">
@@ -449,7 +542,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         )}
 
         {/* GPT-style input container */}
-        <div className="relative flex items-end gap-2 bg-gray-50 border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-[#B7182E] focus-within:ring-2 focus-within:ring-[#B7182E]/15 transition-all shadow-sm">
+        <div className="relative flex items-end gap-2 bg-gray-50 border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all shadow-sm">
 
           {/* Upload button (inside container, left) */}
           <div className="relative flex-shrink-0 self-end pb-0.5" ref={uploadMenuRef}>
@@ -540,7 +633,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             <button
               onClick={() => sendMessage(input)}
               disabled={(!input.trim() && !attachedFile) || isLoading}
-              className="w-8 h-8 bg-[#B7182E] hover:bg-[#9e1427] disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
+              className="w-8 h-8 bg-gray-900 hover:bg-gray-700 disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />

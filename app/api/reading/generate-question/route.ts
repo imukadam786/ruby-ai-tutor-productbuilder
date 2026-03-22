@@ -1,328 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { requireApiSecret } from "@/lib/api-auth";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
-import { ReadingTemplate, ReadingGeneratedQuestion, AudioTapChoice } from "@/types/reading";
-
-// ── Audio-tap question builder for phoneme-production skills ──────────────────
-// These skills (R2.T1, R2.T2) require isolated phoneme production which STT
-// cannot reliably detect. We generate deterministic multiple-choice questions.
-
-// ── Word-choice pools for phoneme-identification skills ───────────────────────
-// TTS speaks full words only — no isolated phonemes.
-// Each entry: one correct word + two distractor words.
-// Student taps to hear each word, then picks the one with the target sound.
-
-const VOWELS = new Set(["a","e","i","o","u"]);
-
-// R2.T1 — Letter-Sound: correct word starts with (consonant) or contains (vowel) the phoneme
-const LETTER_WORD_CHOICES: Record<string, { correct: string; distractors: [string, string] }> = {
-  b: { correct: "bat",   distractors: ["dog",  "pin"]  },
-  d: { correct: "dog",   distractors: ["bat",  "got"]  },
-  f: { correct: "fan",   distractors: ["sun",  "mat"]  },
-  g: { correct: "got",   distractors: ["dot",  "hot"]  },
-  h: { correct: "hat",   distractors: ["bat",  "cat"]  },
-  j: { correct: "jug",   distractors: ["bug",  "mug"]  },
-  k: { correct: "kit",   distractors: ["bit",  "sit"]  },
-  l: { correct: "log",   distractors: ["dog",  "fog"]  },
-  m: { correct: "mat",   distractors: ["bat",  "hat"]  },
-  n: { correct: "net",   distractors: ["bet",  "set"]  },
-  p: { correct: "pin",   distractors: ["bin",  "tin"]  },
-  r: { correct: "red",   distractors: ["bed",  "led"]  },
-  s: { correct: "sun",   distractors: ["run",  "gun"]  },
-  t: { correct: "top",   distractors: ["hop",  "pop"]  },
-  v: { correct: "van",   distractors: ["pan",  "can"]  },
-  w: { correct: "wet",   distractors: ["net",  "set"]  },
-  y: { correct: "yam",   distractors: ["jam",  "ham"]  },
-  z: { correct: "zip",   distractors: ["dip",  "hip"]  },
-  // Vowels — correct word has the short vowel sound in the middle (CVC)
-  a: { correct: "cat",   distractors: ["sit",  "hot"]  },
-  e: { correct: "hen",   distractors: ["bin",  "hop"]  },
-  i: { correct: "sit",   distractors: ["cat",  "cup"]  },
-  o: { correct: "hot",   distractors: ["hat",  "hit"]  },
-  u: { correct: "cup",   distractors: ["cap",  "cop"]  },
-};
-
-// R2.T2.A1 — Digraph: correct word contains the digraph sound
-const DIGRAPH_WORD_CHOICES: Record<string, { correct: string; distractors: [string, string] }> = {
-  sh: { correct: "ship",  distractors: ["chip", "tip"]  },
-  ch: { correct: "chin",  distractors: ["shin", "tin"]  },
-  th: { correct: "that",  distractors: ["sat",  "mat"]  },
-  wh: { correct: "when",  distractors: ["hen",  "ten"]  },
-  ck: { correct: "duck",  distractors: ["dug",  "dun"]  },
-  ng: { correct: "ring",  distractors: ["rim",  "rip"]  },
-  ph: { correct: "phone", distractors: ["bone", "tone"] },
-};
-
-// R2.T2.A2 — Blend: correct word starts with the consonant blend
-const BLEND_WORD_CHOICES: Record<string, { correct: string; distractors: [string, string] }> = {
-  bl: { correct: "blue",  distractors: ["clue",  "true"]  },
-  cl: { correct: "clap",  distractors: ["flap",  "slap"]  },
-  fl: { correct: "flag",  distractors: ["clap",  "drag"]  },
-  pl: { correct: "plan",  distractors: ["clan",  "span"]  },
-  br: { correct: "brim",  distractors: ["trim",  "grim"]  },
-  cr: { correct: "crab",  distractors: ["drab",  "grab"]  },
-  dr: { correct: "drip",  distractors: ["trip",  "grip"]  },
-  fr: { correct: "frog",  distractors: ["blog",  "clog"]  },
-  gr: { correct: "grin",  distractors: ["spin",  "slim"]  },
-  pr: { correct: "press", distractors: ["dress", "bless"] },
-  st: { correct: "stop",  distractors: ["drop",  "crop"]  },
-  sp: { correct: "spin",  distractors: ["grin",  "slim"]  },
-  sn: { correct: "snap",  distractors: ["trap",  "clap"]  },
-  sk: { correct: "skip",  distractors: ["drip",  "trip"]  },
-  tr: { correct: "trap",  distractors: ["snap",  "clap"]  },
-  sl: { correct: "slip",  distractors: ["skip",  "grip"]  },
-  sw: { correct: "swim",  distractors: ["slim",  "trim"]  },
-};
-
-// ── Static word pools for L2 reading and L3 encoding skills ──────────────────
-// These replace LLM calls for written/reading template skills.
-// Expected answer is always the word itself (exact match, case-insensitive).
-
-// R3.T1.A1 + R2.T2.A3 — Short-vowel CVC words (no blends or digraphs)
-const CVC_POOL = [
-  "cat","dog","sit","hot","run","bin","mat","fog","pin","cup",
-  "bat","hen","lip","jog","mud","cap","bed","dig","mop","bud",
-  "fin","leg","hop","sad","wet","big","nap","set","tip","web",
-  "zip","dim","got","jam","kit","lot","pop","ram","van","yam",
-];
-
-// R3.T1.A2 — CCVC / CVCC words (initial or final blend)
-const BLEND_WORD_POOL = [
-  "stop","frog","clap","drip","flat","grip","plan","slim","trip","brim",
-  "snap","spin","step","skip","slab","drop","flag","grin","plop","trim",
-  "bled","crab","drab","flop","pram","scab","sled","slug","snag","stab",
-  "swam","brag","clod","cram","glob","plum","skid","slid","spud","stub",
-];
-
-// R3.T1.A3 — Phonically regular but less common real words
-const UNFAMILIAR_POOL = [
-  "crisp","stomp","drift","blend","cleft","frost","grump","plonk","brisk","clump",
-  "flint","scalp","sprig","throb","whisk","tramp","clench","crept","glint","growl",
-  "pluck","scald","skimp","slunk","sniff","speck","strut","swept","thump","squat",
-];
-
-// R3.T1.A4 — Nonsense words (phonically plausible, no real-word memory possible)
-const NONSENSE_POOL = [
-  "zolp","brix","flem","blim","wuft","nuck","fept","vusk","drap","klob",
-  "snuv","trelp","grimp","plonf","skuv","twib","bleff","drusk","flumb","grolt",
-  "pwick","snelf","zlob","brimp","chuft","glosp","plick","snuft","trimp","vlomp",
-  "wruft","zlemb","crulp","driff","flonk","grusk","plimp","snolv","tremp","wulft",
-];
-
-// R2.T2.A4 — Words containing a digraph (sh/ch/th/wh/ck/ng)
-const DIGRAPH_WORD_POOL = [
-  "ship","shop","shed","shell","shock","sharp",
-  "chin","chip","chop","chunk","check","chain",
-  "that","thin","thick","three","thud","them",
-  "whip","wheel","which","when","wheat","while",
-  "duck","back","lock","dock","sick","kick",
-  "ring","long","song","bring","sang","swing",
-  "chest","flesh","think","bench","shack","chose",
-];
-
-// R3.T2.A1 — uses BLEND_WORD_POOL (complete left-to-right sequence, same words, different instruction)
-// R3.T2.A2 — uses UNFAMILIAR_POOL (self-correction prompt, same words, different instruction)
-
-/** Builds a deterministic static question for L3 encoding or L2 reading skills.
- *  Returns null if the skill should fall through to LLM generation. */
-function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "id"> | null {
-  // ── L2 CVC decoding (student sees word, reads it aloud via STT) ──────────
-  if (skill_id === "R2.T2.A3") {
-    const word = pickRandom(CVC_POOL);
-    return {
-      skill_id,
-      template: "reading" as ReadingTemplate,
-      question: "Read this word out loud.",
-      displayWord: word.toUpperCase(),
-      expected_answer: word,
-      scaffolding_notes: "CVC decoding: student blends all three phonemes into one word.",
-    };
-  }
-
-  // ── L2 digraph word decoding ─────────────────────────────────────────────
-  if (skill_id === "R2.T2.A4") {
-    const word = pickRandom(DIGRAPH_WORD_POOL);
-    return {
-      skill_id,
-      template: "reading" as ReadingTemplate,
-      question: "Read this word out loud.",
-      displayWord: word.toUpperCase(),
-      expected_answer: word,
-      scaffolding_notes: "Digraph decoding: student identifies the digraph sound and blends the full word.",
-    };
-  }
-
-  // ── L3 CVC encoding (student hears word via TTS, types the spelling) ─────
-  if (skill_id === "R3.T1.A1") {
-    const word = pickRandom(CVC_POOL);
-    return {
-      skill_id,
-      template: "written" as ReadingTemplate,
-      question: "Listen to the word. Type what you hear — one letter for each sound.",
-      displayWord: word,
-      expected_answer: word,
-      scaffolding_notes: "CVC encoding: student maps each phoneme to a grapheme in order.",
-    };
-  }
-
-  // ── L3 CCVC/CVCC encoding ────────────────────────────────────────────────
-  if (skill_id === "R3.T1.A2") {
-    const word = pickRandom(BLEND_WORD_POOL);
-    return {
-      skill_id,
-      template: "written" as ReadingTemplate,
-      question: "Listen to the word. Type every sound you hear — don't miss any letters in the blend.",
-      displayWord: word,
-      expected_answer: word,
-      scaffolding_notes: "Blend encoding: student must capture all phonemes including the blend.",
-    };
-  }
-
-  // ── L3 unfamiliar real word encoding ────────────────────────────────────
-  if (skill_id === "R3.T1.A3") {
-    const word = pickRandom(UNFAMILIAR_POOL);
-    return {
-      skill_id,
-      template: "written" as ReadingTemplate,
-      question: "Listen carefully. Type this word by sounding it out — you may not have seen it before.",
-      displayWord: word,
-      expected_answer: word,
-      scaffolding_notes: "Phonological analysis: student must decode by sound, not memory.",
-    };
-  }
-
-  // ── L3 nonsense word encoding (code proof) ───────────────────────────────
-  if (skill_id === "R3.T1.A4") {
-    const word = pickRandom(NONSENSE_POOL);
-    return {
-      skill_id,
-      template: "written" as ReadingTemplate,
-      question: "This is a made-up word. Listen and type every sound you hear.",
-      displayWord: word,
-      expected_answer: word,
-      scaffolding_notes: "Nonsense encoding: proves student uses the phonics code, not word memory.",
-    };
-  }
-
-  // ── L3 left-to-right grapheme sequence ──────────────────────────────────
-  if (skill_id === "R3.T2.A1") {
-    const word = pickRandom(BLEND_WORD_POOL);
-    return {
-      skill_id,
-      template: "written" as ReadingTemplate,
-      question: "Listen and write every sound from the first to the last — nothing missing, nothing out of order.",
-      displayWord: word,
-      expected_answer: word,
-      scaffolding_notes: "Sequence completeness: student must account for every phoneme in order.",
-    };
-  }
-
-  // ── L3 phonetic self-correction ──────────────────────────────────────────
-  if (skill_id === "R3.T2.A2") {
-    const word = pickRandom(UNFAMILIAR_POOL);
-    return {
-      skill_id,
-      template: "written" as ReadingTemplate,
-      question: "Listen, type your best spelling, then check — does every letter match a sound you heard?",
-      displayWord: word,
-      expected_answer: word,
-      scaffolding_notes: "Self-correction: student reviews own attempt against phoneme sequence.",
-    };
-  }
-
-  return null;
-}
-
-function pickRandom<T>(arr: T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-function shuffle<T>(arr: T[]): T[] {
-  const out = [...arr];
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
-  }
-  return out;
-}
-
-/** Returns a word-choice question for letter-sound, digraph, or blend skills.
- *  TTS speaks full words only — no isolated phonemes.
- *  Returns null if the skill should fall through to LLM generation. */
-function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "id"> | null {
-  // R2.T1 — Letter-Sound Correspondence (word-choice format)
-  if (skill_id.startsWith("R2.T1")) {
-    const consonantKeys = Object.keys(LETTER_WORD_CHOICES).filter((l) => !VOWELS.has(l));
-    const pool = skill_id === "R2.T1.A1"
-      ? consonantKeys
-      : Object.keys(LETTER_WORD_CHOICES);
-    const letter = pickRandom(pool) as string;
-    const data = LETTER_WORD_CHOICES[letter];
-    if (!data) return null;
-    const choices: AudioTapChoice[] = shuffle([
-      { label: data.correct,        speech: data.correct,        correct: true  },
-      { label: data.distractors[0], speech: data.distractors[0], correct: false },
-      { label: data.distractors[1], speech: data.distractors[1], correct: false },
-    ]);
-    const question = VOWELS.has(letter)
-      ? `Which word has the short ${letter.toUpperCase()} sound?`
-      : `Which word STARTS with the ${letter.toUpperCase()} sound?`;
-    return {
-      skill_id,
-      template: "oral" as ReadingTemplate,
-      question,
-      displayWord: letter.toUpperCase(),
-      audioChoices: choices,
-      expected_answer: data.correct,
-      scaffolding_notes: "Word-choice: student taps each word to hear it, then picks the one with the target sound.",
-    };
-  }
-
-  // R2.T2.A1 — Digraph Phoneme Retrieval (word-choice format)
-  if (skill_id === "R2.T2.A1") {
-    const digraph = pickRandom(Object.keys(DIGRAPH_WORD_CHOICES)) as string;
-    const data = DIGRAPH_WORD_CHOICES[digraph];
-    if (!data) return null;
-    const choices: AudioTapChoice[] = shuffle([
-      { label: data.correct,        speech: data.correct,        correct: true  },
-      { label: data.distractors[0], speech: data.distractors[0], correct: false },
-      { label: data.distractors[1], speech: data.distractors[1], correct: false },
-    ]);
-    return {
-      skill_id,
-      template: "oral" as ReadingTemplate,
-      question: `Which word has the ${digraph.toUpperCase()} sound?`,
-      displayWord: digraph.toUpperCase(),
-      audioChoices: choices,
-      expected_answer: data.correct,
-      scaffolding_notes: "Word-choice: student identifies which word contains the digraph sound.",
-    };
-  }
-
-  // R2.T2.A2 — Consonant Blend Production (word-choice format)
-  if (skill_id === "R2.T2.A2") {
-    const blend = pickRandom(Object.keys(BLEND_WORD_CHOICES)) as string;
-    const data = BLEND_WORD_CHOICES[blend];
-    if (!data) return null;
-    const choices: AudioTapChoice[] = shuffle([
-      { label: data.correct,        speech: data.correct,        correct: true  },
-      { label: data.distractors[0], speech: data.distractors[0], correct: false },
-      { label: data.distractors[1], speech: data.distractors[1], correct: false },
-    ]);
-    return {
-      skill_id,
-      template: "oral" as ReadingTemplate,
-      question: `Which word STARTS with the ${blend.toUpperCase()} blend?`,
-      displayWord: blend.toUpperCase(),
-      audioChoices: choices,
-      expected_answer: data.correct,
-      scaffolding_notes: "Word-choice: student identifies which word starts with the target blend.",
-    };
-  }
-
-  return null;
-}
+import { ReadingTemplate, ReadingGeneratedQuestion } from "@/types/reading";
 
 const ERROR_RECOVERY_INSTRUCTIONS: Record<string, string> = {
   ERR_PHONEME_CONF:
@@ -366,46 +45,46 @@ const ERROR_RECOVERY_INSTRUCTIONS: Record<string, string> = {
     "Ask the student if everything made sense. The goal is to trigger self-correction.",
 };
 
+const DECISION_INSTRUCTIONS: Record<string, string> = {
+  reteach:
+    "This is a RETEACH question. Use a simpler context, shorter words, and stronger " +
+    "scaffolding cues than the previous question. Change the approach — do not repeat " +
+    "the same question format that just failed.",
+  practice:
+    "This is a PRACTICE question. Same skill, new example. Maintain the same difficulty " +
+    "level as the previous question. No scaffolding needed.",
+  advance:
+    "The student has mastered this skill. Generate the first question for the next skill " +
+    "in the sequence. Do not reference the previous skill.",
+  accelerate:
+    "The student is fast-tracking. Generate a question at the next skill level immediately. " +
+    "Do not generate consolidation questions for the current skill.",
+  backtrack:
+    "The student is returning to a prerequisite skill. Generate the first question for " +
+    "that prerequisite skill. Use simple, foundational examples.",
+};
 
 export async function POST(req: NextRequest) {
-  const deny = requireApiSecret(req);
-  if (deny) return deny;
   try {
     const {
       skill_id,
       template,
       attempt_number = 1,
       include_hint = false,
-      is_correct = true,
+      decision = "practice",
       error_type = null,
     }: {
       skill_id: string;
       template: ReadingTemplate;
       attempt_number?: number;
       include_hint?: boolean;
-      is_correct?: boolean;
+      decision?: string;
       error_type?: string | null;
     } = await req.json();
 
     const skill = getReadingSkillById(skill_id);
     if (!skill) {
       return NextResponse.json({ error: "Skill not found" }, { status: 404 });
-    }
-
-    // For letter-sound and digraph skills, return a deterministic audio-tap question
-    // (no LLM needed — isolated phoneme production cannot be captured by STT)
-    if (template === "oral") {
-      const tapQuestion = buildAudioTapQuestion(skill_id);
-      if (tapQuestion) {
-        return NextResponse.json({ ...tapQuestion, id: `rq_${Date.now()}` });
-      }
-    }
-
-    // For L2 reading and L3 encoding skills, return a static word-bank question
-    // (no LLM needed — expected answer is the word itself, checked by exact match)
-    const staticQuestion = buildStaticQuestion(skill_id);
-    if (staticQuestion) {
-      return NextResponse.json({ ...staticQuestion, id: `rq_${Date.now()}` });
     }
 
     const templateDescriptions: Record<ReadingTemplate, string> = {
@@ -424,18 +103,17 @@ export async function POST(req: NextRequest) {
       ? `
 The student's most recent error was classified as: ${error_type}
 ${ERROR_RECOVERY_INSTRUCTIONS[error_type]}
-${!is_correct ? "Use a simpler context, shorter words, and stronger scaffolding cues than the previous question. Change the approach — do not repeat the same question format that just failed." : ""}`
-      : !is_correct
-        ? "The student answered incorrectly. Use a simpler context and stronger scaffolding cues. Change the approach — do not repeat the same question format that just failed."
-        : "Generate a question that continues consolidating this skill. Same difficulty level, new example.";
 
-    // Detect phoneme-production skills by skill ID — only R2.T1 (letter-sound)
-    // and R2.T2.A1/A2 (digraph/blend production) require the oral phoneme constraint.
-    // Word-decoding skills (R2.T2.A3+) are reading tasks — never phoneme production.
-    const isPhonemeSkill =
-      skill_id.startsWith("R2.T1") ||
-      skill_id === "R2.T2.A1" ||
-      skill_id === "R2.T2.A2";
+The decision engine has determined: ${decision.toUpperCase()}
+${DECISION_INSTRUCTIONS[decision.toLowerCase()] ?? ""}`
+      : `
+No error on the previous attempt. Decision: ${decision.toUpperCase()}.
+${DECISION_INSTRUCTIONS[decision.toLowerCase()] ?? "Generate a question that continues consolidating this skill."}`;
+
+    // Detect phoneme-production skills — these need word-based oral tasks
+    const isPhonemeSkill = /phonem|letter.?sound|digraph|blend|vowel.?sound|consonant.?sound/i.test(
+      skill.title + " " + skill.description
+    );
 
     const phonemeVoiceRule =
       template === "oral" && isPhonemeSkill
@@ -491,7 +169,7 @@ Important:
       model: OPENAI_MODEL,
       max_tokens: 1024,
       messages: [{ role: "user", content: prompt }],
-    }, { signal: AbortSignal.timeout(20_000) });
+    });
 
     const text = response.choices[0]?.message?.content ?? "";
 

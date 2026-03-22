@@ -1,7 +1,5 @@
 import { StudentProfile, SkillMastery, SkillAttempt, ErrorType, AtomicSkill, MathsPlacementResult } from "@/types/ruby";
 import skillTreeData from "@/data/skill-tree.json";
-import { supabase } from "@/lib/supabase";
-import { retrySupabase } from "@/lib/supabase-retry";
 
 const STUDENT_KEY = "ruby_student_profile";
 const DEFAULT_STARTING_SKILL = "L1.T1.A1";
@@ -23,15 +21,6 @@ export function getStudentProfile(): StudentProfile | null {
 export function saveStudentProfile(profile: StudentProfile): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(STUDENT_KEY, JSON.stringify(profile));
-  // Supabase sync with retry — localStorage is source of truth
-  void retrySupabase(() => supabase.from("student_profiles").upsert({
-    id: profile.id,
-    subject: "maths",
-    name: profile.name,
-    grade: profile.grade,
-    profile_data: profile as unknown as Record<string, unknown>,
-    updated_at: new Date().toISOString(),
-  }, { onConflict: "id" }));
 }
 
 export function createStudentProfile(name: string, grade: number): StudentProfile {
@@ -87,17 +76,6 @@ export function recordAttempt(
     },
   };
   saveStudentProfile(updated);
-  // Supabase sync with retry
-  void retrySupabase(() => supabase.from("skill_attempts").insert({
-    student_id: profile.id,
-    subject: "maths",
-    skill_id: attempt.skill_id,
-    is_correct: attempt.is_correct,
-    error_type: attempt.error_type ?? null,
-    template: attempt.template ?? null,
-    scaffolded: attempt.scaffolded ?? false,
-    p_learned: updatedMastery.p_learned ?? null,
-  }));
   return updated;
 }
 
@@ -189,7 +167,7 @@ export function arePrerequisitesMet(
   if (!skill) return false;
   if (skill.prerequisites.length === 0) return true;
   return skill.prerequisites.every(
-    (prereqId) => masteryMap[prereqId]?.status === "mastered" || masteryMap[prereqId]?.status === "assumed"
+    (prereqId) => masteryMap[prereqId]?.status === "mastered"
   );
 }
 
@@ -241,16 +219,17 @@ export function completeMathsPlacement(
 ): StudentProfile {
   const updatedMastery = { ...profile.skill_mastery };
   for (const skillId of result.autoCompletedSkillIds) {
+    const skill = getSkillById(skillId);
     updatedMastery[skillId] = {
       skill_id: skillId,
-      status: "assumed",
-      correct_count: 0,
-      attempt_count: 0,
-      formats_used: [],
+      status: "mastered",
+      correct_count: skill?.mastery_criteria.correct_required ?? 3,
+      attempt_count: skill?.mastery_criteria.correct_required ?? 3,
+      formats_used: ["symbolic"],
       scaffolded_attempts: 0,
       last_attempted: new Date().toISOString(),
+      mastered_at: new Date().toISOString(),
       attempts: [],
-      p_learned: 0.70,
     };
   }
   const parts = result.entrySkillId.split(".");

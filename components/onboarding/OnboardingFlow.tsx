@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { getTranslations } from "@/lib/onboarding-translations";
 import { supabase } from "@/lib/supabase";
+import Flag from "react-world-flags";
 
 export type OnboardingData = {
   language: string;
@@ -12,29 +13,16 @@ export type OnboardingData = {
   name: string;
   email: string;
   plan: string;
-  userId?: string;
 };
 
-const LANGUAGES: { value: string; label: string }[] = [
-  { value: "English",    label: "English" },
-  { value: "Afrikaans",  label: "Afrikaans" },
-  { value: "Arabic",     label: "Arabic" },
-  { value: "French",     label: "French" },
-  { value: "German",     label: "German" },
-  { value: "isiNdebele", label: "isiNdebele (Ndebele)" },
-  { value: "isiXhosa",   label: "isiXhosa (Xhosa)" },
-  { value: "isiZulu",    label: "isiZulu (Zulu)" },
-  { value: "Sepedi",     label: "Sepedi (Northern Sotho)" },
-  { value: "Sesotho",    label: "Sesotho (Southern Sotho)" },
-  { value: "Setswana",   label: "Setswana (Tswana)" },
-  { value: "siSwati",    label: "siSwati (Swati)" },
-  { value: "Spanish",    label: "Spanish" },
-  { value: "Tshivenda",  label: "Tshivenda (Venda)" },
-  { value: "Xitsonga",   label: "Xitsonga (Tsonga)" },
+const LANGUAGES = [
+  "English",
+  "Afrikaans", "isiNdebele", "isiXhosa", "isiZulu",
+  "Sepedi", "Sesotho", "Setswana", "siSwati",
+  "Tshivenda", "Xitsonga",
 ];
 
 const GRADES = [
-  { grade: "1", emoji: "⭐" }, { grade: "2", emoji: "⭐" },
   { grade: "3", emoji: "😊" }, { grade: "4", emoji: "😊" },
   { grade: "5", emoji: "😊" }, { grade: "6", emoji: "😊" },
   { grade: "7", emoji: "😎" }, { grade: "8", emoji: "😎" },
@@ -72,13 +60,13 @@ function ScoreChart({ bars }: { bars: number[] }) {
 }
 
 const CURRICULA: { label: string; flag: string }[] = [
-  { label: "CAPS",                    flag: "🇿🇦" },
-  { label: "IEB",                     flag: "🇿🇦" },
-  { label: "CAPS-SID",                flag: "🇿🇦" },
-  { label: "LSEN",                    flag: "🇿🇦" },
-  { label: "American Curriculum",     flag: "🇺🇸" },
-  { label: "Cambridge International", flag: "🇬🇧" },
-  { label: "British Curriculum",      flag: "🇬🇧" },
+  { label: "CAPS",                    flag: "ZA" },
+  { label: "IEB",                     flag: "ZA" },
+  { label: "CAPS-SID",                flag: "ZA" },
+  { label: "LSEN",                    flag: "ZA" },
+  { label: "American Curriculum",     flag: "US" },
+  { label: "Cambridge International", flag: "GB" },
+  { label: "British Curriculum",      flag: "GB" },
 ];
 
 const PLANS = [
@@ -169,7 +157,6 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState("");
   const [loginMode, setLoginMode] = useState(false);
-  const [signedUpUserId, setSignedUpUserId] = useState<string | undefined>(undefined);
 
   const lang = data.language || "English";
   const t = getTranslations(lang);
@@ -194,13 +181,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         options: { data: { full_name: name } },
       });
       if (error) throw error;
-      // Supabase returns identities:[] when the email already exists (security feature)
-      if (!authData.session && authData.user?.identities?.length === 0) {
-        setAuthError("An account with this email already exists. Please use Log In instead.");
-        return;
-      }
       if (authData.user) {
-        setSignedUpUserId(authData.user.id);
         await supabase.from("users").upsert({
           id: authData.user.id,
           email,
@@ -238,14 +219,13 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         name: fullName,
         email: authData.user?.email || email,
         plan: "existing",
-        userId: authData.user?.id,
       };
       localStorage.setItem("onboardingData", JSON.stringify(final));
       onComplete(final);
     } catch (err: unknown) {
       const raw = err instanceof Error ? err.message : "";
       const msg = raw.toLowerCase().includes("invalid login credentials") || raw.toLowerCase().includes("invalid")
-        ? "Incorrect email or password. Please check and try again."
+        ? "Incorrect email or password. If you just signed up, please check your email for a confirmation link."
         : raw || "Login failed. Please try again.";
       setAuthError(msg);
     } finally {
@@ -254,7 +234,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   };
 
   // ── Complete onboarding (no plan step) ────────────────────────────────────
-const [paymentLoading, setPaymentLoading] = useState(false);
+  const [paymentLoading, setPaymentLoading] = useState(false);
 
 const handleComplete = async () => {
   if (!name || !email) return;
@@ -262,7 +242,6 @@ const handleComplete = async () => {
   setPaymentLoading(true);
 
   try {
-
     const final: OnboardingData = {
       language: data.language || "English",
       grade: data.grade || "",
@@ -271,21 +250,9 @@ const handleComplete = async () => {
       name,
       email,
       plan: "standard",
-      userId: signedUpUserId,
     };
 
-    // Update Supabase with grade, curriculum and language now that user has selected them
-    if (signedUpUserId) {
-      await supabase.from("users").upsert({
-        id: signedUpUserId,
-        email,
-        full_name: name,
-        grade: final.grade || null,
-        curriculum: final.curriculum || null,
-        language: final.language,
-      });
-    }
-
+    // Save locally (optional)
     localStorage.setItem("onboardingData", JSON.stringify(final));
 
     // 🔥 Call your backend to initialize PayFast
@@ -430,17 +397,17 @@ const handleComplete = async () => {
               <h1 className="text-3xl font-bold text-[#1a2744] mb-6 leading-snug flex-shrink-0">{t.step1Title}</h1>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
                 <div className="grid grid-cols-3 gap-3">
-                  {LANGUAGES.map(({ value, label }) => (
+                  {LANGUAGES.map((language) => (
                     <button
-                      key={value}
-                      onClick={() => select("language", value)}
-                      className={`py-4 px-2 rounded-2xl text-sm font-medium border-2 transition-all ${
-                        data.language === value
+                      key={language}
+                      onClick={() => select("language", language)}
+                      className={`py-4 px-2 rounded-2xl text-base font-medium border-2 transition-all ${
+                        data.language === language
                           ? "border-rose-500 bg-rose-50 text-rose-600"
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      {label}
+                      {language}
                     </button>
                   ))}
                 </div>
@@ -526,7 +493,9 @@ const handleComplete = async () => {
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      <span className="flex-shrink-0 text-xl leading-none">{flag}</span>
+                      <span className="flex-shrink-0 rounded overflow-hidden shadow-sm" style={{ width: 28, height: 20, display: "inline-flex", alignItems: "center" }}>
+                        <Flag code={flag} style={{ width: 28, height: 20, objectFit: "cover", borderRadius: 3 }} />
+                      </span>
                       {label}
                     </button>
                   ))}

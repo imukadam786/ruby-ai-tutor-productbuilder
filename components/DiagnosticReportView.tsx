@@ -5,8 +5,7 @@
 //   input          — placement data (built client-side from student profile)
 //   onStartLearning — called when student taps "Start Learning"
 
-import { buildDeterministicReportContent, } from "@/lib/report-content-builder";
-import { describeError } from "@/lib/report-generator";
+import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 
 // ─── Colour helpers ───────────────────────────────────────────────────────────
@@ -122,16 +121,12 @@ export default function DiagnosticReportView({
               <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Working Level</p>
               <p className="text-white font-bold text-base">{input.workingLevel}</p>
               <p className="text-[#FDA4AF] text-xs">
-                {input.gradeLevelGap < 0
-                  ? `~${Math.abs(input.gradeLevelGap)} yr${Math.abs(input.gradeLevelGap) !== 1 ? "s" : ""} above grade level`
-                  : input.gradeLevelGap === 0
-                  ? "At grade level"
-                  : `~${input.gradeLevelGap} yr${input.gradeLevelGap !== 1 ? "s" : ""} below grade level`}
+                {input.gradeLevelGap <= 0 ? "At grade level" : `~${input.gradeLevelGap} yr${input.gradeLevelGap !== 1 ? "s" : ""} below grade`}
               </p>
             </div>
             <div>
-              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Score</p>
-              <p className="text-white font-bold text-base">{input.correctCount}/{input.questionsAnalysed}</p>
+              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Questions</p>
+              <p className="text-white font-bold text-base">{input.questionsAnalysed}</p>
               <p className="text-[#FDA4AF] text-xs">Placement reliable</p>
             </div>
           </div>
@@ -156,27 +151,6 @@ export default function DiagnosticReportView({
               ))}
             </div>
           </div>
-
-          {/* ── Error patterns ── */}
-          {input.dominantErrors.length > 0 && (() => {
-            const patterns = input.dominantErrors
-              .map((code) => describeError(code, input.subject))
-              .filter(Boolean);
-            if (!patterns.length) return null;
-            return (
-              <Section>
-                <SectionLabel>Patterns found</SectionLabel>
-                <div className="space-y-2">
-                  {patterns.map((desc, i) => (
-                    <div key={i} className="flex gap-2 items-start">
-                      <span className="text-amber-500 font-bold mt-0.5 text-base leading-none">▸</span>
-                      <span className="text-gray-700 text-sm leading-relaxed">{desc}</span>
-                    </div>
-                  ))}
-                </div>
-              </Section>
-            );
-          })()}
 
           {/* ── Strengths ── */}
           <div className="rounded-2xl bg-green-50 border border-green-200 p-5">

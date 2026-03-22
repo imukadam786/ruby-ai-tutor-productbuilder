@@ -1,11 +1,11 @@
 [
   {
-    "id": "D01",
-    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do 'star' and 'car' rhyme?",
-    "displayWord": "star \u00e2\u20ac\u00a2 car",
+    "question": "Do these two words rhyme?",
+    "displayWord": "star • car",
     "answerMode": "choice",
     "choices": [
       {
@@ -21,155 +21,82 @@
     ]
   },
   {
-    "id": "D02",
-    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
     "domainCode": "D002",
     "gate": "A",
-    "question": "What is the very first sound in 'mix'? Tap the sound below.",
+    "question": "What is the very first sound in 'mix'? Say just the sound, not the letter name.",
     "displayWord": "mix",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "value": "sound-1",
-        "speech": "short I, as in sit",
-        "correct": false
-      },
-      {
-        "label": "Sound 2",
-        "value": "sound-2",
-        "speech": "M, as in mat",
-        "correct": true
-      },
-      {
-        "label": "Sound 3",
-        "value": "sound-3",
-        "speech": "ks, as in fox",
-        "correct": false
-      }
-    ],
-    "subText": "Tap to hear each sound, then choose the right one."
+    "answerMode": "voice",
+    "expectedAnswer": "/m/"
   },
   {
-    "id": "D03",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
     "displayWord": "Y",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "value": "sound-1",
-        "speech": "W, as in wet",
-        "correct": false
-      },
-      {
-        "label": "Sound 2",
-        "value": "sound-2",
-        "speech": "Y, as in yes",
-        "correct": true
-      },
-      {
-        "label": "Sound 3",
-        "value": "sound-3",
-        "speech": "J, as in jump",
-        "correct": false
-      }
-    ],
-    "subText": "Tap to hear each sound, then choose the right one."
+    "answerMode": "voice",
+    "expectedAnswer": "/j/",
+    "maxResponseMs": 2500
   },
   {
-    "id": "D04",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
     "displayWord": "u",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "value": "sound-1",
-        "speech": "short U, as in cup",
-        "correct": true
-      },
-      {
-        "label": "Sound 2",
-        "value": "sound-2",
-        "speech": "short I, as in sit",
-        "correct": false
-      },
-      {
-        "label": "Sound 3",
-        "value": "sound-3",
-        "speech": "short O, as in hot",
-        "correct": false
-      }
-    ],
-    "subText": "Tap to hear each sound, then choose the right one."
-  },
-  {
-    "id": "D05",
-    "domain": "Digraph Recognition",
-    "answerMode": "audio-tap",
-    "gate": "A",
-    "question": "What sound do these two letters make together?",
-    "subText": "Tap to hear each sound, then choose the right one.",
-    "displayWord": "ng",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "speech": "ng, as in ring",
-        "correct": true
-      },
-      {
-        "label": "Sound 2",
-        "speech": "N, as in net",
-        "correct": false
-      },
-      {
-        "label": "Sound 3",
-        "speech": "G, as in got",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "D06",
-    "domain": "Consonant Blend Decoding",
     "answerMode": "voice",
-    "gate": "A",
-    "question": "Read this word out loud for me.",
-    "displayWord": "grin",
-    "expectedAnswer": "grin",
-    "voiceHint": "Tap the mic and say the word you see"
+    "expectedAnswer": "/ʌ/ (short u as in up)",
+    "maxResponseMs": 2500
   },
   {
-    "id": "D07",
-    "domain": "CVC Word Reading",
-    "domainCode": "D007",
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
     "gate": "B",
     "question": "Read this word out loud for me.",
-    "displayWord": "ran",
+    "displayWord": "FOZ",
     "answerMode": "voice",
-    "expectedAnswer": "ran",
-    "voiceHint": "Tap the mic and say the word you see"
+    "wordType": "nonsense",
+    "expectedAnswer": "foz"
   },
   {
-    "id": "D08",
-    "domain": "Digraph Word Decoding",
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'foz'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/f/ / /o/ / /z/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What sound do the letters CH make in this word?",
+    "displayWord": "CHIP",
+    "answerMode": "voice",
+    "expectedAnswer": "/tʃ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
     "domainCode": "D008",
     "gate": "B",
     "question": "Read this word out loud for me.",
-    "displayWord": "sharp",
+    "displayWord": "SPOD",
     "answerMode": "voice",
-    "expectedAnswer": "sharp",
-    "voiceHint": "Tap the mic and say the word you see"
+    "wordType": "nonsense",
+    "expectedAnswer": "spod"
   },
   {
-    "id": "D09",
+    "id": "Q9",
     "domain": "Long Vowel / Silent E",
     "domainCode": "D009",
     "gate": "C",
@@ -180,7 +107,7 @@
     "vowelPattern": "long u"
   },
   {
-    "id": "D10",
+    "id": "Q10",
     "domain": "Vowel Teams",
     "domainCode": "D010",
     "gate": "C",
@@ -192,8 +119,8 @@
     "maxResponseMs": 4000
   },
   {
-    "id": "D11",
-    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -204,7 +131,7 @@
     "maxResponseMs": 2500
   },
   {
-    "id": "D12",
+    "id": "Q12",
     "domain": "R-Controlled Vowels",
     "domainCode": "D012",
     "gate": "C",
@@ -215,7 +142,7 @@
     "rControlledPattern": "ur"
   },
   {
-    "id": "D13",
+    "id": "Q13",
     "domain": "Two-Syllable Decoding",
     "domainCode": "D013",
     "gate": "C",
@@ -223,10 +150,10 @@
     "displayWord": "MAGNET",
     "answerMode": "voice",
     "expectedAnswer": "magnet",
-    "syllableBreak": "mag\u00c2\u00b7net"
+    "syllableBreak": "mag·net"
   },
   {
-    "id": "D14",
+    "id": "Q14",
     "domain": "Multisyllabic Decoding",
     "domainCode": "D014",
     "gate": "C",
@@ -234,45 +161,28 @@
     "displayWord": "COMFORTABLE",
     "answerMode": "voice",
     "expectedAnswer": "comfortable",
-    "syllableBreak": "com\u00c2\u00b7fort\u00c2\u00b7a\u00c2\u00b7ble"
+    "syllableBreak": "com·fort·a·ble"
   },
   {
-    "id": "D15",
+    "id": "Q15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "Tap the suffix in this word.",
+    "question": "This word has a special part at the end. Say just that part out loud.",
     "displayWord": "JUMPED",
-    "answerMode": "choice",
+    "answerMode": "voice",
     "expectedAnswer": "ed",
     "affixType": "suffix",
-    "targetAffix": "ed",
-    "choices": [
-      {
-        "label": "JUMP",
-        "value": "jump",
-        "correct": false
-      },
-      {
-        "label": "ED",
-        "value": "ed",
-        "correct": true
-      },
-      {
-        "label": "ING",
-        "value": "ing",
-        "correct": false
-      }
-    ]
+    "targetAffix": "ed"
   },
   {
-    "id": "D16",
+    "id": "Q16",
     "domain": "Fluency Passage",
     "domainCode": "D016",
     "gate": "D",
     "question": "Here is a short story. Read it to me.",
     "displayWord": "",
-    "passage": "Meg had a jar full of buttons. She tipped them onto the table and sorted them into piles \u00e2\u20ac\u201d red ones, blue ones, and shiny ones. The shiny pile was the smallest. Her cat came and patted one of the shiny buttons off the table and chased it.",
+    "passage": "Meg had a jar full of buttons. She tipped them onto the table and sorted them into piles — red ones, blue ones, and shiny ones. The shiny pile was the smallest. Her cat came and patted one of the shiny buttons off the table and chased it.",
     "passageId": "16.20",
     "answerMode": "voice",
     "scoringCriteria": {
@@ -282,7 +192,7 @@
     }
   },
   {
-    "id": "D17",
+    "id": "Q17",
     "domain": "Literal Comprehension",
     "domainCode": "D017",
     "gate": "D",
@@ -290,27 +200,11 @@
     "displayWord": "",
     "passageRef": "16.20",
     "comprehensionType": "literal",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "A shiny button that fell off the table",
-        "value": "A shiny button that fell off the table",
-        "correct": true
-      },
-      {
-        "label": "A red button from the pile",
-        "value": "A red button from the pile",
-        "correct": false
-      },
-      {
-        "label": "A rolling piece of thread",
-        "value": "A rolling piece of thread",
-        "correct": false
-      }
-    ]
+    "answerMode": "voice",
+    "expectedAnswer": "A shiny button that fell off the table"
   },
   {
-    "id": "D18",
+    "id": "Q18",
     "domain": "Inferential Comprehension",
     "domainCode": "D018",
     "gate": "D",
@@ -318,23 +212,7 @@
     "displayWord": "",
     "passageRef": "16.20",
     "comprehensionType": "inferential",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Cats are playful and drawn to small moving things",
-        "value": "Cats are playful and drawn to small moving things",
-        "correct": true
-      },
-      {
-        "label": "Cats always prefer shiny objects to dull ones",
-        "value": "Cats always prefer shiny objects to dull ones",
-        "correct": false
-      },
-      {
-        "label": "Cats knock things off tables on purpose",
-        "value": "Cats knock things off tables on purpose",
-        "correct": false
-      }
-    ]
+    "answerMode": "voice",
+    "expectedAnswer": "Cats are playful and curious — attracted to small moving objects"
   }
 ]

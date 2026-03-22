@@ -17,12 +17,13 @@ export type ReadingErrorType =
   | "ERR_SELF_MON"
   | "correct";
 
+export type ReadingDecision = "ADVANCE" | "PRACTICE" | "RETEACH" | "BACKTRACK" | "ACCELERATE";
+
 export interface DiagnosticTaskResult {
   taskId: string;
   correct: boolean;
   score: number;
   response: string;
-  errorType?: string;
 }
 
 export interface DiagnosticPlacementResult {
@@ -31,7 +32,6 @@ export interface DiagnosticPlacementResult {
   entrySkillId: string;
   autoCompletedSkillIds: string[];
   hardGatePassed: boolean;
-  dominantErrors: string[];
 }
 
 export interface ReadingErrorSignature {
@@ -70,7 +70,7 @@ export interface ReadingLevel {
 
 // ─── Student Model ────────────────────────────────────────────────────────────
 
-export type ReadingMasteryStatus = "locked" | "in_progress" | "mastered" | "needs_review" | "assumed";
+export type ReadingMasteryStatus = "locked" | "in_progress" | "mastered" | "needs_review";
 
 export interface ReadingSkillAttempt {
   id: string;
@@ -96,10 +96,7 @@ export interface ReadingSkillMastery {
   scaffolded_attempts: number;
   last_attempted: string;
   mastered_at?: string;
-  last_reviewed_at?: string;
   attempts: ReadingSkillAttempt[];
-  /** BKT: continuous probability estimate that student has learned this skill (0–1) */
-  p_learned?: number;
 }
 
 export interface ReadingStudentProfile {
@@ -124,19 +121,11 @@ export interface ReadingStudentProfile {
 
 // ─── Session ──────────────────────────────────────────────────────────────────
 
-export interface AudioTapChoice {
-  label: string;   // displayed on button, e.g. "/b/"
-  speech: string;  // spoken by TTS when tapped, e.g. "B, as in bat"
-  correct: boolean;
-}
-
 export interface ReadingGeneratedQuestion {
   id: string;
   skill_id: string;
   template: ReadingTemplate;
   question: string;
-  displayWord?: string;         // large card display for audio-tap (e.g. "B", "sh")
-  audioChoices?: AudioTapChoice[];
   hint?: string;
   expected_answer: string;
   scaffolding_notes: string;
@@ -152,7 +141,6 @@ export interface ReadingAnswerSubmission {
   student_steps: string;
   expected_answer: string;
   used_hint: boolean;
-  attempt_number: number; // 1 = first attempt on this skill, 2+ = repeated incorrect
   language?: string;
 }
 
@@ -169,4 +157,5 @@ export interface ReadingDiagnosticResult {
     formats_used: ReadingTemplate[];
   };
   next_action: "continue_skill" | "advance_skill" | "advance_tier" | "advance_level" | "review_prerequisite";
+  decision?: ReadingDecision;
 }

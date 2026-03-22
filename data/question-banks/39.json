@@ -1,11 +1,11 @@
 [
   {
-    "id": "D01",
-    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do 'feet' and 'fat' rhyme?",
-    "displayWord": "feet \u00e2\u20ac\u00a2 fat",
+    "question": "Do these two words rhyme?",
+    "displayWord": "feet • fat",
     "answerMode": "choice",
     "choices": [
       {
@@ -21,155 +21,82 @@
     ]
   },
   {
-    "id": "D02",
-    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
     "domainCode": "D002",
     "gate": "A",
-    "question": "What is the very first sound in 'tip'? Tap the sound below.",
+    "question": "What is the very first sound in 'tip'? Say just the sound, not the letter name.",
     "displayWord": "tip",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "value": "sound-1",
-        "speech": "short I, as in sit",
-        "correct": false
-      },
-      {
-        "label": "Sound 2",
-        "value": "sound-2",
-        "speech": "P, as in pin",
-        "correct": false
-      },
-      {
-        "label": "Sound 3",
-        "value": "sound-3",
-        "speech": "T, as in top",
-        "correct": true
-      }
-    ],
-    "subText": "Tap to hear each sound, then choose the right one."
+    "answerMode": "voice",
+    "expectedAnswer": "/t/"
   },
   {
-    "id": "D03",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
     "displayWord": "w",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "value": "sound-1",
-        "speech": "V, as in van",
-        "correct": false
-      },
-      {
-        "label": "Sound 2",
-        "value": "sound-2",
-        "speech": "R, as in red",
-        "correct": false
-      },
-      {
-        "label": "Sound 3",
-        "value": "sound-3",
-        "speech": "W, as in wet",
-        "correct": true
-      }
-    ],
-    "subText": "Tap to hear each sound, then choose the right one."
+    "answerMode": "voice",
+    "expectedAnswer": "/w/",
+    "maxResponseMs": 2500
   },
   {
-    "id": "D04",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
     "displayWord": "O",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "value": "sound-1",
-        "speech": "short A, as in apple",
-        "correct": false
-      },
-      {
-        "label": "Sound 2",
-        "value": "sound-2",
-        "speech": "short O, as in hot",
-        "correct": true
-      },
-      {
-        "label": "Sound 3",
-        "value": "sound-3",
-        "speech": "short U, as in cup",
-        "correct": false
-      }
-    ],
-    "subText": "Tap to hear each sound, then choose the right one."
-  },
-  {
-    "id": "D05",
-    "domain": "Digraph Recognition",
-    "answerMode": "audio-tap",
-    "gate": "A",
-    "question": "What sound do these two letters make together?",
-    "subText": "Tap to hear each sound, then choose the right one.",
-    "displayWord": "wh",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "speech": "wh, as in when",
-        "correct": true
-      },
-      {
-        "label": "Sound 2",
-        "speech": "W, as in wet",
-        "correct": false
-      },
-      {
-        "label": "Sound 3",
-        "speech": "H, as in hat",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "D06",
-    "domain": "Consonant Blend Decoding",
     "answerMode": "voice",
-    "gate": "A",
-    "question": "Read this word out loud for me.",
-    "displayWord": "blaze",
-    "expectedAnswer": "blaze",
-    "voiceHint": "Tap the mic and say the word you see"
+    "expectedAnswer": "/ɒ/ (short o as in odd)",
+    "maxResponseMs": 2500
   },
   {
-    "id": "D07",
-    "domain": "CVC Word Reading",
-    "domainCode": "D007",
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
     "gate": "B",
     "question": "Read this word out loud for me.",
-    "displayWord": "peg",
+    "displayWord": "SAG",
     "answerMode": "voice",
-    "expectedAnswer": "peg",
-    "voiceHint": "Tap the mic and say the word you see"
+    "wordType": "real",
+    "expectedAnswer": "sag"
   },
   {
-    "id": "D08",
-    "domain": "Digraph Word Decoding",
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'rup'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/r/ / /u/ / /p/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "th",
+    "answerMode": "voice",
+    "expectedAnswer": "/θ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
     "domainCode": "D008",
     "gate": "B",
     "question": "Read this word out loud for me.",
-    "displayWord": "shave",
+    "displayWord": "SMELL",
     "answerMode": "voice",
-    "expectedAnswer": "shave",
-    "voiceHint": "Tap the mic and say the word you see"
+    "wordType": "real",
+    "expectedAnswer": "smell"
   },
   {
-    "id": "D09",
+    "id": "Q9",
     "domain": "Long Vowel / Silent E",
     "domainCode": "D009",
     "gate": "C",
@@ -180,7 +107,7 @@
     "vowelPattern": "long a"
   },
   {
-    "id": "D10",
+    "id": "Q10",
     "domain": "Vowel Teams",
     "domainCode": "D010",
     "gate": "C",
@@ -192,8 +119,8 @@
     "maxResponseMs": 4000
   },
   {
-    "id": "D11",
-    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -204,7 +131,7 @@
     "maxResponseMs": 2500
   },
   {
-    "id": "D12",
+    "id": "Q12",
     "domain": "R-Controlled Vowels",
     "domainCode": "D012",
     "gate": "C",
@@ -215,7 +142,7 @@
     "rControlledPattern": "or"
   },
   {
-    "id": "D13",
+    "id": "Q13",
     "domain": "Two-Syllable Decoding",
     "domainCode": "D013",
     "gate": "C",
@@ -223,10 +150,10 @@
     "displayWord": "HOBPIG",
     "answerMode": "voice",
     "expectedAnswer": "hobpig",
-    "syllableBreak": "hob\u00c2\u00b7pig"
+    "syllableBreak": "hob·pig"
   },
   {
-    "id": "D14",
+    "id": "Q14",
     "domain": "Multisyllabic Decoding",
     "domainCode": "D014",
     "gate": "C",
@@ -234,45 +161,28 @@
     "displayWord": "REBSOPNID",
     "answerMode": "voice",
     "expectedAnswer": "rebsopnid",
-    "syllableBreak": "reb\u00c2\u00b7sop\u00c2\u00b7nid"
+    "syllableBreak": "reb·sop·nid"
   },
   {
-    "id": "D15",
+    "id": "Q15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "Tap the suffix in this word.",
+    "question": "This word has a special part at the end. Say just that part out loud.",
     "displayWord": "CAREFUL",
-    "answerMode": "choice",
+    "answerMode": "voice",
     "expectedAnswer": "ful",
     "affixType": "suffix",
-    "targetAffix": "ful",
-    "choices": [
-      {
-        "label": "CARE",
-        "value": "care",
-        "correct": false
-      },
-      {
-        "label": "FUL",
-        "value": "ful",
-        "correct": true
-      },
-      {
-        "label": "ING",
-        "value": "ing",
-        "correct": false
-      }
-    ]
+    "targetAffix": "ful"
   },
   {
-    "id": "D16",
+    "id": "Q16",
     "domain": "Fluency Passage",
     "domainCode": "D016",
     "gate": "D",
     "question": "Here is a short story. Read it to me.",
     "displayWord": "",
-    "passage": "Hugo liked collecting stones. He had a box full of them \u00e2\u20ac\u201d grey ones, brown ones, and one white one with a red line running through it. He found most of them in the riverbed. His mum said no more stones. He found two more on the way home.",
+    "passage": "Hugo liked collecting stones. He had a box full of them — grey ones, brown ones, and one white one with a red line running through it. He found most of them in the riverbed. His mum said no more stones. He found two more on the way home.",
     "passageId": "16.39",
     "answerMode": "voice",
     "scoringCriteria": {
@@ -282,7 +192,7 @@
     }
   },
   {
-    "id": "D17",
+    "id": "Q17",
     "domain": "Literal Comprehension",
     "domainCode": "D017",
     "gate": "D",
@@ -290,27 +200,11 @@
     "displayWord": "",
     "passageRef": "16.39",
     "comprehensionType": "literal",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "It had a red line running through it",
-        "value": "It had a red line running through it",
-        "correct": true
-      },
-      {
-        "label": "It was perfectly round and smooth",
-        "value": "It was perfectly round and smooth",
-        "correct": false
-      },
-      {
-        "label": "It was much bigger than all the others",
-        "value": "It was much bigger than all the others",
-        "correct": false
-      }
-    ]
+    "answerMode": "voice",
+    "expectedAnswer": "It had a red line running through it"
   },
   {
-    "id": "D18",
+    "id": "Q18",
     "domain": "Inferential Comprehension",
     "domainCode": "D018",
     "gate": "D",
@@ -318,23 +212,7 @@
     "displayWord": "",
     "passageRef": "16.39",
     "comprehensionType": "inferential",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "She had said it before and the collection had grown too large",
-        "value": "She had said it before and the collection had grown too large",
-        "correct": true
-      },
-      {
-        "label": "She was worried he would sell the stones",
-        "value": "She was worried he would sell the stones",
-        "correct": false
-      },
-      {
-        "label": "She had never liked stones being kept inside",
-        "value": "She had never liked stones being kept inside",
-        "correct": false
-      }
-    ]
+    "answerMode": "voice",
+    "expectedAnswer": "She had said it before — the collection had grown too large and she was frustrated"
   }
 ]
