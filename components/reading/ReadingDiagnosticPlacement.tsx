@@ -708,7 +708,7 @@ export default function ReadingDiagnosticPlacement({
       "R1.T1.A1","R1.T1.A2","R1.T1.A3","R1.T2.A1","R1.T2.A2","R1.T3.A1","R1.T3.A2","R1.T3.A3",
       "R2.T1.A1","R2.T1.A2","R2.T1.A3","R2.T2.A1","R2.T2.A2","R2.T3.A1","R2.T3.A2","R2.T3.A3",
       "R3.T1.A1","R3.T1.A2","R3.T1.A3","R3.T1.A4","R3.T2.A1","R3.T2.A2",
-      "R4.T1.A1","R4.T1.A2","R4.T2.A1","R4.T2.A2","R4.T3.A1","R4.T3.A2",
+      "R4.T1.A1","R4.T2.A1","R4.T2.A2","R4.T3.A1","R4.T3.A2",
       "R5.T1.A1","R5.T1.A2","R5.T1.A3","R5.T2.A1","R5.T2.A2","R5.T3.A1",
     ];
     const levelGroups = [

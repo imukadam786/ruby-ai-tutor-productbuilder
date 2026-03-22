@@ -758,32 +758,6 @@
               ],
               "recovery_strategy": "PHONEME_SUB: identify substitution pattern (onset/coda/vowel?) and drill that phonogram. WHOLE_WORD_GUESS: return to L3 encoding.",
               "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
-            },
-            {
-              "id": "R4.T1.A2",
-              "title": "Nonsense Word Oral Decoding",
-              "description": "Read made-up words aloud using the phonics code — not guessing from memory. Because the word has never been seen before, the only way to read it is to decode it sound by sound. Producing a real word instead is an automatic fail.",
-              "prerequisites": ["R4.T1.A1"],
-              "templates": ["oral", "reading"],
-              "error_signatures": [
-                {
-                  "type": "real_word_substitution",
-                  "description": "Reads a real word instead of decoding the nonsense word",
-                  "example": "For 'blof', learner reads 'blow'"
-                },
-                {
-                  "type": "low_plausibility",
-                  "description": "Phoneme accuracy below 70% — output not recognisably related to target",
-                  "example": "For 'spund', learner produces a string that shares no sounds with the target"
-                },
-                {
-                  "type": "refusal",
-                  "description": "Learner refuses to attempt the nonsense word",
-                  "example": "Learner says 'That's not a real word, I can't read it'"
-                }
-              ],
-              "recovery_strategy": "REAL_WORD_SUB: explicit instruction 'read what you see'. REFUSAL: explain the purpose 'we're practising the code, not the word'.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
             }
           ]
         },
