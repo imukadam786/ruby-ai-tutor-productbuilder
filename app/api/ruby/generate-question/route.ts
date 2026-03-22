@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { requireApiSecret } from "@/lib/api-auth";
 import {
   getDomainForSkill,
   selectQuestion,
@@ -7,6 +8,8 @@ import {
 import { abilityLevel } from "@/lib/bkt";
 
 export async function POST(req: NextRequest) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   try {
     const {
       skill_id,

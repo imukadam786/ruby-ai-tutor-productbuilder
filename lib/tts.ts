@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import { apiFetch } from "@/lib/fetch";
 
 // Strip markdown and clean text before sending to TTS
 export function prepareForSpeech(raw: string): string {
@@ -47,7 +48,7 @@ export function speakViaAPI(
 
   onStart();
 
-  fetch("/api/tts", {
+  apiFetch("/api/tts", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text: cleaned }),

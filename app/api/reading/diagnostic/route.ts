@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { requireApiSecret } from "@/lib/api-auth";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 
 const TASK_DEFINITIONS: Record<string, { description: string; mode: "voice" | "text" | "tap" }> = {
@@ -98,6 +99,8 @@ const TASK_ITEMS: Record<string, string[]> = {
 };
 
 export async function POST(req: NextRequest) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   try {
     const { taskId, studentName, context } = await req.json() as {
       taskId: string;

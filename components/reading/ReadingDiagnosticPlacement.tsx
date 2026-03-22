@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { apiFetch } from "@/lib/fetch";
 import { DiagnosticPlacementResult, DiagnosticTaskResult } from "@/types/reading";
 import { speakViaAPI } from "@/lib/tts";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
@@ -568,7 +569,7 @@ export default function ReadingDiagnosticPlacement({
     if (earlyExit || currentIndex + 1 >= totalTasks) {
       setPhase("calculating");
       try {
-        const res = await fetch("/api/reading/diagnostic/placement", {
+        const res = await apiFetch("/api/reading/diagnostic/placement", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ tasks: newCompleted }),

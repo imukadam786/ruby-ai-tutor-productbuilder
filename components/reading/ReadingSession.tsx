@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { apiFetch } from "@/lib/fetch";
 import { useT } from "@/lib/i18n";
 
 import { speakViaAPI } from "@/lib/tts";
@@ -201,7 +202,7 @@ export default function ReadingSession() {
       setPhase("loading_question");
       setStatusMessage("Generating your question...");
       try {
-        const res = await fetch("/api/reading/generate-question", {
+        const res = await apiFetch("/api/reading/generate-question", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -279,7 +280,7 @@ export default function ReadingSession() {
 
 
     try {
-      const res = await fetch("/api/reading/submit-answer", {
+      const res = await apiFetch("/api/reading/submit-answer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

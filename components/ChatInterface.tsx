@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { apiFetch } from "@/lib/fetch";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -202,7 +203,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
           imageMimeType = capturedFile.type;
         }
 
-        const response = await fetch("/api/chat", {
+        const response = await apiFetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

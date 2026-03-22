@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { apiFetch } from "@/lib/fetch";
 import {
   StudentProfile,
   GeneratedQuestion,
@@ -180,7 +181,7 @@ export default function DiagnosticSession() {
         const usedRefs = domainId ? getUsedRefs(currentProfile, domainId) : [];
         const skillPLearned = currentProfile.skill_mastery[skillId]?.p_learned;
 
-        const res = await fetch("/api/ruby/generate-question", {
+        const res = await apiFetch("/api/ruby/generate-question", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -233,7 +234,7 @@ export default function DiagnosticSession() {
     if (!currentQuestion || !profile) return;
 
     try {
-      const res = await fetch("/api/ruby/submit-answer", {
+      const res = await apiFetch("/api/ruby/submit-answer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -390,7 +391,7 @@ export default function DiagnosticSession() {
       // Fire-and-forget report generation — failure must never block the student
       try {
         const input = buildMathsReportInput(updatedProfile);
-        fetch("/api/reports/generate", {
+        apiFetch("/api/reports/generate", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ input }),

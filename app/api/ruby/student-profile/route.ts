@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import { requireApiSecret } from "@/lib/api-auth";
 
 // This route is a pass-through for client-side localStorage operations.
 // It returns the initial skill tree structure so the client can bootstrap.
 
 import skillTreeData from "@/data/skill-tree.json";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   return NextResponse.json({
     skill_tree: skillTreeData,
     total_levels: skillTreeData.levels.length,
@@ -22,6 +25,8 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   try {
     const body = await req.json();
     // Validate profile structure

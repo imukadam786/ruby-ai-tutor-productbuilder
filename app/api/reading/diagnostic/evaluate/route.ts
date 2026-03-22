@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { requireApiSecret } from "@/lib/api-auth";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { ReadingErrorType } from "@/types/reading";
 
@@ -24,6 +25,8 @@ const TASK_MASTERY_THRESHOLDS: Record<string, number> = {
 };
 
 export async function POST(req: NextRequest) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   try {
     const { taskId, response, items } = await req.json() as {
       taskId: string;

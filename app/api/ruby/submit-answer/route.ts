@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { requireApiSecret } from "@/lib/api-auth";
 import { getOpenAI, OPENAI_MODEL, OPENAI_SMART_MODEL } from "@/lib/anthropic";
 import { getSkillById } from "@/lib/student-model";
 import {
@@ -9,6 +10,8 @@ import {
 import { AnswerSubmission, DiagnosticResult, SkillAttempt } from "@/types/ruby";
 
 export async function POST(req: NextRequest) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   try {
     const submission: AnswerSubmission = await req.json();
 
