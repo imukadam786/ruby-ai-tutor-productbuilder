@@ -1004,15 +1004,17 @@ function ReadingQuestionCard({
                   }`}
                 >
                   {playingChoiceValue === c.label ? (
-                    <svg className="w-5 h-5 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                      <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
-                    </svg>
+                    <>
+                      <svg className="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                        <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+                      </svg>
+                      <span className="font-semibold text-sm text-center leading-tight">{c.label}</span>
+                    </>
                   ) : (
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z"/>
                     </svg>
                   )}
-                  <span className="font-semibold text-base text-center leading-tight">{c.label}</span>
                 </button>
               ))}
             </div>
