@@ -189,6 +189,10 @@ export default function ReadingSession() {
       }
       const scanned = saved.placementCompleted ? scanAndMarkNeedsReview(saved) : saved;
       setProfile(scanned);
+      // Restore attempt count from persisted mastery so mid-session tab-close doesn't
+      // reset question difficulty back to "attempt 1" on resume.
+      const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
+      setSkillAttemptCount(restoredAttemptCount);
       const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scanned) : null;
       if (reviewSkill) setPendingReviewSkillId(reviewSkill);
       setPhase("loading_question");
@@ -827,13 +831,10 @@ function ReadingQuestionCard({
   const [usedHint, setUsedHint] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const [listening, setListening] = useState(false);
   const [selectedAudioChoice, setSelectedAudioChoice] = useState<string | null>(null);
   const [playingChoiceValue, setPlayingChoiceValue] = useState<string | null>(null);
   const cancelSpeechRef = useRef<(() => void) | null>(null);
   const cancelChoiceAudioRef = useRef<(() => void) | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const recognitionRef = useRef<any>(null);
 
   const isAudioTap = !!(question.audioChoices && question.audioChoices.length > 0);
 
@@ -854,42 +855,21 @@ function ReadingQuestionCard({
     );
   };
 
-  // ── STT: same pattern as ChatInterface ───────────────────────────────────────
-  const startVoice = () => {
-    if (!("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) {
-      alert("Voice input is not supported in your browser. Try Chrome.");
-      return;
-    }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    const rec = new SR();
-    rec.continuous = true;
-    rec.interimResults = true;
-    rec.lang = "en-US";
-    rec.onstart = () => setListening(true);
-    rec.onend = () => setListening(false);
-    rec.onerror = () => setListening(false);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    rec.onresult = (event: any) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const transcript = Array.from(event.results as any[])
-        .map((r: any) => r[0].transcript)
-        .join("");
-      setAnswer(transcript);
-    };
-    recognitionRef.current = rec;
-    rec.start();
-  };
-
-  const stopVoice = () => { recognitionRef.current?.stop(); setListening(false); };
-
   const handleSubmit = () => {
-    if ((!answer.trim() && !listening) || submitting) return;
-    if (listening) stopVoice();
+    if (!answer.trim() || submitting) return;
     cancelSpeechRef.current?.();
     setPlaying(false);
     setSubmitting(true);
     onSubmit(answer, "", usedHint);
+    setSubmitting(false);
+  };
+
+  const handleSelfReport = (correct: boolean) => {
+    if (submitting) return;
+    cancelSpeechRef.current?.();
+    setPlaying(false);
+    setSubmitting(true);
+    onSubmit(correct ? question.expected_answer : "", "", usedHint);
     setSubmitting(false);
   };
 
@@ -1099,59 +1079,81 @@ function ReadingQuestionCard({
               </button>
             )}
           </>
-        ) : (
+        ) : question.template === "reading" ? (
           <>
-            {/* ── Word card for decoding tasks (reading template with displayWord) ── */}
+            {/* ── SELF-REPORT mode (reading template) ── */}
+            {/* Word card shown for single-word decoding tasks */}
             {question.displayWord && (
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 text-center">
                 <p className="text-5xl font-bold text-blue-800 tracking-wide">{question.displayWord}</p>
               </div>
             )}
 
-            {/* ── VOICE mode (oral template, non-phoneme-production skills) ── */}
-            <div className="flex flex-col items-center gap-3">
+            {/* TTS verify button — lets student hear the word after attempting to read it */}
+            {question.displayWord && (
               <button
-                onClick={listening ? stopVoice : startVoice}
-                disabled={submitting}
-                className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 ${
-                  listening
-                    ? "bg-red-500 text-white animate-pulse shadow-red-200 shadow-xl"
-                    : "bg-purple-500 text-white hover:bg-purple-600"
+                onClick={() => togglePlay(question.displayWord!)}
+                className={`w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 font-medium text-sm transition-all active:scale-95 ${
+                  playing
+                    ? "bg-orange-50 border-orange-300 text-orange-600"
+                    : "border-gray-200 text-gray-500 hover:border-blue-300 hover:text-blue-600 hover:bg-blue-50"
                 }`}
               >
-                {listening ? (
-                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="6" y="6" width="12" height="12" rx="2" />
-                  </svg>
+                {playing ? (
+                  <><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>Stop</>
                 ) : (
-                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
-                  </svg>
+                  <><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Hear the word</>
                 )}
               </button>
-              <p className="text-sm text-gray-400 font-medium">
-                {listening ? "🔴 Listening… tap to stop" : "Tap the mic to speak"}
-              </p>
-            </div>
-
-            {answer && (
-              <div className="bg-purple-50 border border-purple-200 rounded-2xl px-4 py-3 text-center">
-                <p className="text-sm text-purple-500 font-medium mb-1">I heard:</p>
-                <p className="text-purple-800 font-semibold">"{answer}"</p>
-              </div>
             )}
 
+            <p className="text-center text-sm text-gray-400 font-medium">
+              {question.displayWord ? "Read the word, then tap to check yourself" : "Read the passage above, then tell us how you went"}
+            </p>
+
+            {/* Self-report buttons */}
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                onClick={() => handleSelfReport(true)}
+                disabled={submitting}
+                className="flex flex-col items-center gap-2 py-5 rounded-2xl bg-green-50 border-2 border-green-200 text-green-700 font-bold text-base hover:bg-green-100 hover:border-green-400 transition-all active:scale-95 disabled:opacity-40"
+              >
+                <span className="text-3xl">✓</span>
+                <span>Got it!</span>
+              </button>
+              <button
+                onClick={() => handleSelfReport(false)}
+                disabled={submitting}
+                className="flex flex-col items-center gap-2 py-5 rounded-2xl bg-red-50 border-2 border-red-200 text-red-600 font-bold text-base hover:bg-red-100 hover:border-red-400 transition-all active:scale-95 disabled:opacity-40"
+              >
+                <span className="text-3xl">✗</span>
+                <span>Need help</span>
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* ── TYPED INPUT mode (oral/written without audioChoices) ── */}
+            <textarea
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSubmit(); } }}
+              placeholder="Type your answer here…"
+              rows={3}
+              disabled={submitting}
+              autoComplete="off"
+              autoCorrect="off"
+              spellCheck={false}
+              className="w-full border-2 border-gray-200 focus:border-purple-400 rounded-2xl px-5 py-4 text-base outline-none transition-colors disabled:opacity-40 resize-none"
+            />
             <button
               onClick={handleSubmit}
-              disabled={(!answer.trim() && !listening) || submitting}
+              disabled={!answer.trim() || submitting}
               className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
             >
               {submitting ? (
-                <>
-                  <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Checking...
-                </>
-              ) : listening ? "Stop & Submit →" : "Submit Answer →"}
+                <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>Checking...</>
+              ) : "Submit →"}
             </button>
           </>
         )}

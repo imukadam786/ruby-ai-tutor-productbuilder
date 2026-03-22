@@ -532,6 +532,92 @@ const R5_WRITTEN_PASSAGES = [
   },
 ];
 
+// R2.T3.A1 — Vowel team words for decoding (student reads aloud via STT)
+const VOWEL_TEAM_POOL = [
+  // ai
+  "rain","sail","tail","main","pain","wait","train","chain","brain","plain",
+  // ea
+  "leaf","beat","seat","read","team","dream","heap","clean","steal","speak",
+  // oa
+  "boat","coat","road","load","soap","toast","goat","float","groan","cloak",
+  // oo (long)
+  "moon","food","cool","pool","boot","tooth","spoon","bloom","drool","proof",
+  // oo (short)
+  "book","cook","look","foot","wood","good","stood","brook","shook","hook",
+  // ow (as in snow)
+  "snow","flow","grow","slow","show","glow","blow","crow","throw","bowl",
+  // ou/ow (as in cloud/cow)
+  "cloud","loud","sound","found","round","mouth","count","shout","ground","brown",
+  // ie
+  "pie","tie","tried","cried","dried","fried","skied","spied",
+  // ue/ew
+  "blue","true","clue","glue","grew","blew","flew","drew",
+];
+
+// R2.T3.A2 — Phonogram pattern words (student reads word containing the phonogram)
+const PHONOGRAM_POOL: { phonogram: string; word: string }[] = [
+  { phonogram: "-ack", word: "back"  },
+  { phonogram: "-ake", word: "cake"  },
+  { phonogram: "-ale", word: "tale"  },
+  { phonogram: "-all", word: "ball"  },
+  { phonogram: "-ame", word: "game"  },
+  { phonogram: "-ank", word: "bank"  },
+  { phonogram: "-ap",  word: "map"   },
+  { phonogram: "-ash", word: "cash"  },
+  { phonogram: "-at",  word: "hat"   },
+  { phonogram: "-ate", word: "late"  },
+  { phonogram: "-aw",  word: "claw"  },
+  { phonogram: "-ay",  word: "play"  },
+  { phonogram: "-eat", word: "heat"  },
+  { phonogram: "-ell", word: "bell"  },
+  { phonogram: "-est", word: "nest"  },
+  { phonogram: "-ice", word: "rice"  },
+  { phonogram: "-ick", word: "brick" },
+  { phonogram: "-ide", word: "slide" },
+  { phonogram: "-ight",word: "light" },
+  { phonogram: "-ill", word: "hill"  },
+  { phonogram: "-in",  word: "spin"  },
+  { phonogram: "-ine", word: "vine"  },
+  { phonogram: "-ing", word: "ring"  },
+  { phonogram: "-ink", word: "think" },
+  { phonogram: "-ip",  word: "drip"  },
+  { phonogram: "-it",  word: "spit"  },
+  { phonogram: "-ock", word: "clock" },
+  { phonogram: "-oke", word: "smoke" },
+  { phonogram: "-op",  word: "drop"  },
+  { phonogram: "-ore", word: "store" },
+  { phonogram: "-ot",  word: "spot"  },
+  { phonogram: "-uck", word: "truck" },
+  { phonogram: "-ug",  word: "plug"  },
+  { phonogram: "-ump", word: "stump" },
+  { phonogram: "-unk", word: "chunk" },
+  { phonogram: "-ut",  word: "shut"  },
+  { phonogram: "-ub",  word: "grub"  },
+  { phonogram: "-an",  word: "plan"  },
+  { phonogram: "-oom", word: "bloom" },
+  { phonogram: "-ail", word: "snail" },
+];
+
+// R2.T3.A3 — Vowel team blending: segmented phonemes → student picks the blended word (audio-tap)
+const VOWEL_TEAM_BLEND_CHOICES: {
+  segments: string;
+  correct: string;
+  distractors: [string, string];
+}[] = [
+  { segments: "r - ai - n",      correct: "rain",  distractors: ["ran",   "rein"]  },
+  { segments: "b - oa - t",      correct: "boat",  distractors: ["boot",  "bat"]   },
+  { segments: "s - ea - t",      correct: "seat",  distractors: ["sat",   "suit"]  },
+  { segments: "m - oo - n",      correct: "moon",  distractors: ["man",   "mean"]  },
+  { segments: "s - n - ow",      correct: "snow",  distractors: ["show",  "now"]   },
+  { segments: "cl - ou - d",     correct: "cloud", distractors: ["clod",  "loud"]  },
+  { segments: "l - ea - f",      correct: "leaf",  distractors: ["loaf",  "left"]  },
+  { segments: "tr - ai - n",     correct: "train", distractors: ["ran",   "rain"]  },
+  { segments: "b - oo - k",      correct: "book",  distractors: ["back",  "buck"]  },
+  { segments: "gl - ue",         correct: "glue",  distractors: ["glow",  "clue"]  },
+  { segments: "t - oa - s - t",  correct: "toast", distractors: ["test",  "coast"] },
+  { segments: "sp - ea - k",     correct: "speak", distractors: ["peak",  "speck"] },
+];
+
 // R3.T1.A4 — Nonsense words (phonically plausible, no real-word memory possible)
 const NONSENSE_POOL = [
   "zolp","brix","flem","blim","wuft","nuck","fept","vusk","drap","klob",
@@ -580,6 +666,32 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word.toUpperCase(),
       expected_answer: word,
       scaffolding_notes: "Digraph decoding: student identifies the digraph sound and blends the full word.",
+    };
+  }
+
+  // ── R2 vowel team word decoding (student reads word aloud via STT) ────────
+  if (skill_id === "R2.T3.A1") {
+    const word = pickRandom(VOWEL_TEAM_POOL);
+    return {
+      skill_id,
+      template: "reading" as ReadingTemplate,
+      question: "Read this word out loud.",
+      displayWord: word.toUpperCase(),
+      expected_answer: word,
+      scaffolding_notes: "Vowel team decoding: student identifies the vowel team and reads the whole word.",
+    };
+  }
+
+  // ── R2 phonogram word reading (student reads word containing the phonogram) ─
+  if (skill_id === "R2.T3.A2") {
+    const item = pickRandom(PHONOGRAM_POOL);
+    return {
+      skill_id,
+      template: "reading" as ReadingTemplate,
+      question: `Read this word out loud. Listen for the ${item.phonogram} part.`,
+      displayWord: item.word.toUpperCase(),
+      expected_answer: item.word,
+      scaffolding_notes: `Phonogram decoding: student reads the ${item.phonogram} pattern and blends the full word.`,
     };
   }
 
@@ -712,15 +824,15 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
     };
   }
 
-  // R4.T3.A2 — Self-monitoring for meaning (student reads and identifies the error word)
+  // R4.T3.A2 — Self-monitoring for meaning (student reads and types the error word)
   if (skill_id === "R4.T3.A2") {
     const item = pickRandom(R4_SELF_MONITORING_PASSAGES);
     return {
       skill_id,
-      template: "reading" as ReadingTemplate,
-      question: `Read this aloud. Tell me if anything sounds strange or doesn't make sense — and say which word seemed wrong.\n\n${item.passage}`,
+      template: "written" as ReadingTemplate,
+      question: `Read this passage. One word does not make sense. Type the word that seemed wrong.\n\n${item.passage}`,
       expected_answer: item.expected_answer,
-      scaffolding_notes: `Self-monitoring: passage contains the word "${item.error_word}" which violates meaning. Student should catch and name it.`,
+      scaffolding_notes: `Self-monitoring: passage contains the word "${item.error_word}" which violates meaning. Student should catch and type it.`,
     };
   }
 
@@ -731,7 +843,7 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
     const item = pickRandom(R5_LITERAL_PASSAGES);
     return {
       skill_id,
-      template: "reading" as ReadingTemplate,
+      template: "written" as ReadingTemplate,
       question: `${item.passage}\n\n${item.question}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Literal comprehension: student answers a factual question and cites the words from the passage that support their answer.",
@@ -743,7 +855,7 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
     const item = pickRandom(R5_INFERENCE_PASSAGES);
     return {
       skill_id,
-      template: "reading" as ReadingTemplate,
+      template: "written" as ReadingTemplate,
       question: `${item.passage}\n\n${item.question}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Inferential comprehension: student reads beyond the text, uses 'because' or 'this shows that', and supports their inference with evidence.",
@@ -755,7 +867,7 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
     const item = pickRandom(R5_RETELL_PASSAGES);
     return {
       skill_id,
-      template: "reading" as ReadingTemplate,
+      template: "written" as ReadingTemplate,
       question: `${item.passage}\n\n${item.question}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Retell: student identifies the main idea and gives at least 2 supporting details in a logical order.",
@@ -883,6 +995,25 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
       audioChoices: choices,
       expected_answer: data.correct,
       scaffolding_notes: "Word-choice: student identifies which word starts with the target blend.",
+    };
+  }
+
+  // R2.T3.A3 — Vowel Team Blending (display segmented phonemes, student picks the word)
+  if (skill_id === "R2.T3.A3") {
+    const entry = pickRandom(VOWEL_TEAM_BLEND_CHOICES);
+    const choices: AudioTapChoice[] = shuffle([
+      { label: entry.correct,        speech: entry.correct,        correct: true  },
+      { label: entry.distractors[0], speech: entry.distractors[0], correct: false },
+      { label: entry.distractors[1], speech: entry.distractors[1], correct: false },
+    ]);
+    return {
+      skill_id,
+      template: "oral" as ReadingTemplate,
+      question: "Tap to hear each word. Which one matches these sounds?",
+      displayWord: entry.segments,
+      audioChoices: choices,
+      expected_answer: entry.correct,
+      scaffolding_notes: "Vowel team blending: student blends the segmented sounds (including the vowel team) into a whole word.",
     };
   }
 

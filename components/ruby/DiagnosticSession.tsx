@@ -164,6 +164,10 @@ export default function DiagnosticSession() {
       const scanned = scannedMastery !== saved.skill_mastery ? { ...saved, skill_mastery: scannedMastery } : saved;
       if (scanned !== saved) saveStudentProfile(scanned);
       setProfile(scanned);
+      // Restore attempt count from persisted mastery so mid-session tab-close doesn't
+      // reset question difficulty back to "attempt 1" on resume.
+      const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
+      setSkillAttemptCount(restoredAttemptCount);
       const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scannedMastery) : null;
       if (reviewSkill) setPendingReviewSkillId(reviewSkill);
       setPhase("loading_question");
