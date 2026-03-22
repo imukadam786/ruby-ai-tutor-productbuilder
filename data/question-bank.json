@@ -13022,11 +13022,13 @@
       "title": "Multi-Step Problem – Plan and Solve",
       "gate": "D",
       "skill_ids": [
-        "L17.T1.A1"
+        "L17.T1.A1",
+        "L17.T2.A1",
+        "L17.T3.A1"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
-      "authored_pool": 12,
+      "authored_pool": 18,
       "questions": [
         {
           "ref": "18.1",
@@ -13193,6 +13195,66 @@
             "ERR_UNIT_ERROR",
             "ERR_CALC_ERROR"
           ],
+          "ruby_prompt": "Read this problem carefully. Plan your solution step by step, then give your final answer.",
+          "difficulty": 5
+        },
+        {
+          "ref": "18.13",
+          "question": "A farmer plants 6 rows of trees with 15 trees in each row. He then cuts down 18 trees. How many trees remain?",
+          "expected": "72",
+          "unit": "trees",
+          "input_type": "text",
+          "error_signals": ["ERR_PLAN_MISSING", "ERR_CALC_ERROR"],
+          "ruby_prompt": "Read this problem carefully. Plan your solution step by step, then give your final answer.",
+          "difficulty": 4
+        },
+        {
+          "ref": "18.14",
+          "question": "A swimming pool holds 4500 litres. It leaks 25 litres per hour. After 8 hours, how many litres remain?",
+          "expected": "4300",
+          "unit": "litres",
+          "input_type": "text",
+          "error_signals": ["ERR_PLAN_MISSING", "ERR_CALC_ERROR"],
+          "ruby_prompt": "Read this problem carefully. Plan your solution step by step, then give your final answer.",
+          "difficulty": 4
+        },
+        {
+          "ref": "18.15",
+          "question": "Thabo earns R850 per week. He spends R320 on rent and R175 on food. How much does he save in 4 weeks?",
+          "expected": "1420",
+          "unit": "R",
+          "input_type": "text",
+          "error_signals": ["ERR_PLAN_MISSING", "ERR_CALC_ERROR"],
+          "ruby_prompt": "Read this problem carefully. Plan your solution step by step, then give your final answer.",
+          "difficulty": 4
+        },
+        {
+          "ref": "18.16",
+          "question": "A class of 35 students each bring 4 books to donate. The library already had 48 books. If books are packed into boxes of 12, how many full boxes can be made?",
+          "expected": "15",
+          "unit": "boxes",
+          "input_type": "text",
+          "error_signals": ["ERR_PLAN_MISSING", "ERR_CALC_ERROR"],
+          "ruby_prompt": "Read this problem carefully. Plan your solution step by step, then give your final answer.",
+          "difficulty": 5
+        },
+        {
+          "ref": "18.17",
+          "question": "A bus travels at 60 km/h for 2 hours, then at 80 km/h for 1 hour. What is the total distance travelled?",
+          "expected": "200",
+          "unit": "km",
+          "input_type": "text",
+          "error_signals": ["ERR_PLAN_MISSING", "ERR_CALC_ERROR"],
+          "ruby_prompt": "Read this problem carefully. Plan your solution step by step, then give your final answer.",
+          "difficulty": 4
+        },
+        {
+          "ref": "18.18",
+          "question": "A shop buys 40 shirts for R35 each and sells them for R55 each. If 6 shirts are unsold, what is the total profit?",
+          "expected": "680",
+          "unit": "R",
+          "input_type": "text",
+          "error_signals": ["ERR_PLAN_MISSING", "ERR_CALC_ERROR"],
           "ruby_prompt": "Read this problem carefully. Plan your solution step by step, then give your final answer.",
           "difficulty": 5
         }
