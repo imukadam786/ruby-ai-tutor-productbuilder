@@ -54,7 +54,6 @@ export function trackQuestionAnswered(opts: {
   is_correct: boolean;
   used_hint: boolean;
   attempt_number: number;
-  decision: string; // reteach | practice | accelerate | advance | backtrack
 }) {
   posthog.capture("question_answered", opts);
 }

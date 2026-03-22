@@ -2,8 +2,11 @@ import { NextRequest } from "next/server";
 import OpenAI from "openai";
 import { Message } from "@/types";
 import { TUTOR_SYSTEM_PROMPT } from "@/lib/anthropic";
+import { requireApiSecret } from "@/lib/api-auth";
 
 export async function POST(req: NextRequest) {
+    const deny = requireApiSecret(req);
+    if (deny) return deny;
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
     try {
         const {
@@ -58,7 +61,7 @@ export async function POST(req: NextRequest) {
                 },
                 ...openaiMessages,
             ],
-        });
+        }, { signal: AbortSignal.timeout(30_000) });
 
         const encoder = new TextEncoder();
 

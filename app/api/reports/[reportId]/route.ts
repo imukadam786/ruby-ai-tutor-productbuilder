@@ -3,12 +3,15 @@
 // Used by the parent dashboard / download link in SettingsView.
 
 import { NextRequest, NextResponse } from "next/server";
+import { requireApiSecret } from "@/lib/api-auth";
 import { getReportPDF, getReportMeta } from "@/lib/report-store";
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ reportId: string }> }
 ) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   const { reportId } = await params;
   const pdf = await getReportPDF(reportId);
 

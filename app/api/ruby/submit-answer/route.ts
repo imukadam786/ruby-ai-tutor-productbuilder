@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
+import { requireApiSecret } from "@/lib/api-auth";
+import { getOpenAI, OPENAI_MODEL, OPENAI_SMART_MODEL } from "@/lib/anthropic";
 import { getSkillById } from "@/lib/student-model";
 import {
   checkAnswerCorrectness,
@@ -9,6 +10,8 @@ import {
 import { AnswerSubmission, DiagnosticResult, SkillAttempt } from "@/types/ruby";
 
 export async function POST(req: NextRequest) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   try {
     const submission: AnswerSubmission = await req.json();
 
@@ -32,20 +35,23 @@ export async function POST(req: NextRequest) {
       attemptNumber: 1,
     });
 
-    // Get AI diagnostic
     const diagnosticPrompt = buildDiagnosticPrompt(
       submission,
       skill,
       preClassifiedError
     );
 
-    const aiResponse = await getOpenAI().chat.completions.create({
-      model: OPENAI_MODEL,
-      max_tokens: 1024,
-      messages: [{ role: "user", content: diagnosticPrompt }],
-    });
-
-    const aiText = aiResponse.choices[0]?.message?.content ?? "";
+    // ── 3-tier LLM decision ───────────────────────────────────────────────────
+    // Tier 1 — correct:             static praise, 0 API calls
+    // Tier 2 — first incorrect:     pre-authored recovery tip, 0 API calls
+    // Tier 3 — repeated incorrect:  LLM deep re-teaching, 1 API call
+    const PRAISE = [
+      "Great work! That's exactly right.",
+      "Well done! Keep it up.",
+      "Correct! You're doing brilliantly.",
+      "Excellent! That's the right answer.",
+      "Spot on! Nice thinking.",
+    ];
 
     let aiDiagnosis: {
       is_correct: boolean;
@@ -54,22 +60,66 @@ export async function POST(req: NextRequest) {
       recovery_explanation: string;
     };
 
-    try {
-      const jsonMatch = aiText.match(/\{[\s\S]*\}/);
-      aiDiagnosis = JSON.parse(jsonMatch ? jsonMatch[0] : aiText);
-    } catch {
-      // Fallback if AI response is not valid JSON
+    if (isCorrect) {
+      // Tier 1 — no LLM call
+      const praise = PRAISE[Math.floor(Math.random() * PRAISE.length)];
       aiDiagnosis = {
-        is_correct: isCorrect,
+        is_correct: true,
+        error_type: "none",
+        feedback: praise,
+        recovery_explanation: "",
+      };
+    } else if (submission.attempt_number <= 1) {
+      // Tier 2 — first incorrect: use pre-authored recovery tip, no LLM call
+      aiDiagnosis = {
+        is_correct: false,
         error_type: preClassifiedError,
-        feedback: isCorrect
-          ? "Great work! Your answer is correct."
-          : `Your answer was ${submission.student_answer} but the expected answer is ${submission.expected_answer}. Let's look at this together.`,
+        feedback: `Not quite — the answer is ${submission.expected_answer}. Let's try another one.`,
         recovery_explanation: skill.recovery_strategy,
       };
+    } else {
+      // Tier 3 — repeated incorrect: call LLM for personalised re-teaching
+      const openai = getOpenAI();
+      let aiText = "";
+
+      if (submission.working_image) {
+        const visionResponse = await openai.chat.completions.create({
+          model: OPENAI_SMART_MODEL,
+          max_tokens: 1024,
+          messages: [
+            {
+              role: "user",
+              content: [
+                { type: "text", text: diagnosticPrompt },
+                { type: "image_url", image_url: { url: submission.working_image, detail: "high" } },
+                { type: "text", text: "The image above is a photo of the student's handwritten working from their book. Use it to inform your diagnosis — look for the steps they attempted, any errors in their method, and whether their process matches their final answer." },
+              ],
+            },
+          ],
+        }, { signal: AbortSignal.timeout(20_000) });
+        aiText = visionResponse.choices[0]?.message?.content ?? "";
+      } else {
+        const aiResponse = await openai.chat.completions.create({
+          model: OPENAI_MODEL,
+          max_tokens: 1024,
+          messages: [{ role: "user", content: diagnosticPrompt }],
+        }, { signal: AbortSignal.timeout(20_000) });
+        aiText = aiResponse.choices[0]?.message?.content ?? "";
+      }
+
+      try {
+        const jsonMatch = aiText.match(/\{[\s\S]*\}/);
+        aiDiagnosis = JSON.parse(jsonMatch ? jsonMatch[0] : aiText);
+      } catch {
+        aiDiagnosis = {
+          is_correct: false,
+          error_type: preClassifiedError,
+          feedback: `Your answer was ${submission.student_answer} but the expected answer is ${submission.expected_answer}. Let's look at this step by step.`,
+          recovery_explanation: skill.recovery_strategy,
+        };
+      }
     }
 
-    // Build the attempt record
     const attempt: SkillAttempt = {
       id: `attempt_${Date.now()}`,
       skill_id: submission.skill_id,

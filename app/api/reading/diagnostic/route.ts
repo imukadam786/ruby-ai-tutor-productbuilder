@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { requireApiSecret } from "@/lib/api-auth";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 
 const TASK_DEFINITIONS: Record<string, { description: string; mode: "voice" | "text" | "tap" }> = {
@@ -98,6 +99,8 @@ const TASK_ITEMS: Record<string, string[]> = {
 };
 
 export async function POST(req: NextRequest) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   try {
     const { taskId, studentName, context } = await req.json() as {
       taskId: string;
@@ -131,7 +134,7 @@ Keep language very simple and encouraging. Address the student by name if it hel
       model: OPENAI_MODEL,
       max_tokens: 256,
       messages: [{ role: "user", content: prompt }],
-    });
+    }, { signal: AbortSignal.timeout(20_000) });
 
     const aiText = aiResponse.choices[0]?.message?.content ?? "";
 

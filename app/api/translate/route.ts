@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
+import { requireApiSecret } from "@/lib/api-auth";
 
 export async function POST(req: NextRequest) {
+  const deny = requireApiSecret(req);
+  if (deny) return deny;
   try {
     const { strings, targetLanguage } = await req.json();
 
@@ -21,7 +24,7 @@ ${JSON.stringify(strings, null, 2)}`;
       model: OPENAI_MODEL,
       max_tokens: 6000,
       messages: [{ role: "user", content: prompt }],
-    });
+    }, { signal: AbortSignal.timeout(30_000) });
 
     const text = response.choices[0]?.message?.content ?? "{}";
     const jsonMatch = text.match(/\{[\s\S]*\}/);

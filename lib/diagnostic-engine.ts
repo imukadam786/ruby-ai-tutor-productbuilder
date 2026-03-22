@@ -147,7 +147,7 @@ Be specific to this student's actual work. Do not be generic.`;
 // ─── Diagnostic Early Exit ────────────────────────────────────────────────────
 
 export type EarlyExitResult =
-  | { exit: false; skipToBlock3?: boolean }
+  | { exit: false }
   | { exit: true; placementLevel: number; reason: string };
 
 export function evaluateEarlyExit(
@@ -165,15 +165,7 @@ export function evaluateEarlyExit(
     }
   }
 
-  // Condition 2 — all correct in Block 1+2 → skip to Block 3 (not a full exit)
-  if (currentBlock === 2) {
-    const block12 = completedTasks.filter((t) => t.block === 1 || t.block === 2);
-    if (block12.length > 0 && block12.every((t) => t.correct)) {
-      return { exit: false, skipToBlock3: true };
-    }
-  }
-
-  // Condition 3 — 5+ errors in Block 2 → place at Block 1 ceiling
+  // Condition 2 — 5+ errors in Block 2 → place at Block 1 ceiling
   if (currentBlock === 2) {
     const block2Errors = errorHistory.filter((e) =>
       completedTasks.some((t) => t.domain === e.taskId && t.block === 2)
@@ -186,6 +178,24 @@ export function evaluateEarlyExit(
         exit: true,
         placementLevel: block1Ceiling ? 3 : 1,
         reason: "Complete Block 2 failure — place at Block 1 ceiling",
+      };
+    }
+  }
+
+  // Condition 3 — 3 primary questions in a row incorrect → exit, place at last correct answer
+  const primaryOnly = completedTasks.filter((t) => !t.is_probe);
+  if (primaryOnly.length >= 3) {
+    const lastThree = primaryOnly.slice(-3);
+    if (lastThree.every((t) => !t.correct)) {
+      // Place at the domain of the last correct answer, or level 1 if none
+      const lastCorrect = [...primaryOnly].reverse().find((t) => t.correct);
+      const placementLevel = lastCorrect
+        ? Math.max(1, parseInt(lastCorrect.domain.replace("M", ""), 10) - 1)
+        : 1;
+      return {
+        exit: true,
+        placementLevel,
+        reason: "Three consecutive incorrect answers — stopping early to avoid frustration",
       };
     }
   }

@@ -3,38 +3,7 @@
 import { useRef, useState, useCallback } from "react";
 import { DiagnosticResult, ErrorType } from "@/types/ruby";
 import { useT } from "@/lib/i18n";
-
-// Map language name → BCP-47 code for speechSynthesis
-const LANG_CODE: Record<string, string> = {
-  English: "en-ZA", Afrikaans: "af-ZA", isiZulu: "zu-ZA", isiXhosa: "xh-ZA",
-  Sepedi: "nso-ZA", Setswana: "tn-ZA", Sesotho: "st-ZA", Xitsonga: "ts-ZA",
-  siSwati: "ss-ZA", Tshivenda: "ve-ZA", isiNdebele: "nr-ZA",
-};
-
-function useTTS(langName: string) {
-  const [playing, setPlaying] = useState(false);
-  const utterRef = useRef<SpeechSynthesisUtterance | null>(null);
-
-  const speak = useCallback((text: string) => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const utt = new SpeechSynthesisUtterance(text);
-    utt.lang = LANG_CODE[langName] ?? "en-ZA";
-    utt.rate = 0.92;
-    utt.onstart = () => setPlaying(true);
-    utt.onend = () => setPlaying(false);
-    utt.onerror = () => setPlaying(false);
-    utterRef.current = utt;
-    window.speechSynthesis.speak(utt);
-  }, [langName]);
-
-  const stop = useCallback(() => {
-    window.speechSynthesis?.cancel();
-    setPlaying(false);
-  }, []);
-
-  return { playing, speak, stop };
-}
+import { useTTS } from "@/lib/tts";
 
 interface FeedbackCardProps {
   result: DiagnosticResult;
@@ -56,7 +25,7 @@ export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
   const isCorrect = result.is_correct;
   const touchStartY = useRef(0);
   const feedbackText = [result.feedback, result.recovery_explanation].filter(Boolean).join(". ");
-  const { playing, speak, stop } = useTTS(language);
+  const { playing, speak, stop } = useTTS();
 
   return (
     <div className={`rounded-2xl border-2 overflow-hidden ${
@@ -134,7 +103,7 @@ export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
         )}
       </div>
 
-      {/* Swipe up for next */}
+      {/* Click / swipe for next */}
       <div
         className="px-6 pb-6 pt-2 flex flex-col items-center gap-1 cursor-pointer select-none"
         onClick={onNext}
@@ -143,7 +112,8 @@ export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
           if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
         }}
       >
-        <p className="text-xs text-gray-400">Swipe up for next question</p>
+        <p className="text-xs text-gray-400 md:hidden">Swipe up for next question</p>
+        <p className="text-xs text-gray-400 hidden md:block">Click for next question</p>
         <div className={`animate-bounce ${isCorrect ? "text-green-500" : "text-blue-500"}`}>
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />

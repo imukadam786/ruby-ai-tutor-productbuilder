@@ -393,6 +393,68 @@
               ],
               "recovery_strategy": "ORDER_REVERSAL: left-to-right physical cue. INTRUSIVE_VOWEL: exaggerate the blend inside a word with no pause; model until eliminated.",
               "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R2.T2.A3",
+              "title": "CVC Word Decoding",
+              "description": "Read short-vowel consonant-vowel-consonant words by applying letter-sound knowledge to a whole word. The learner sees a CVC word and says it correctly — not letter by letter, but as a blended whole.",
+              "prerequisites": ["R2.T1.A2"],
+              "templates": ["reading"],
+              "error_signatures": [
+                {
+                  "type": "ERR_VOWEL_CONF",
+                  "description": "Wrong short vowel produced for the middle letter",
+                  "example": "Reads 'sit' as 'sat' or 'set'"
+                },
+                {
+                  "type": "ERR_PHONEME_CONF",
+                  "description": "One consonant substituted for another",
+                  "example": "Reads 'map' as 'nap' or 'cap'"
+                },
+                {
+                  "type": "ERR_BLEND_FAIL",
+                  "description": "Letter sounds produced individually but not blended into the word",
+                  "example": "Says /k/ /ae/ /t/ separately instead of 'cat'"
+                },
+                {
+                  "type": "ERR_ORTHO_GUESS",
+                  "description": "Word guessed from first letter without decoding",
+                  "example": "Sees 'cup' and says 'car' — only used the 'c'"
+                }
+              ],
+              "recovery_strategy": "VOWEL_CONF: short vowel discrimination drills using minimal pairs. BLEND_FAIL: return to R2.T3.A3 phoneme blending. ORTHO_GUESS: cover all but the target letter and decode left to right.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R2.T2.A4",
+              "title": "Word Decoding with Digraphs",
+              "description": "Read words that contain a digraph (sh, ch) by treating the two-letter combination as a single sound. The learner blends the digraph sound with the surrounding letters to produce the full word.",
+              "prerequisites": ["R2.T2.A3", "R2.T2.A1"],
+              "templates": ["reading"],
+              "error_signatures": [
+                {
+                  "type": "ERR_PHONEME_CONF",
+                  "description": "Digraph treated as two separate letter sounds",
+                  "example": "Reads 'ship' as 's-hip' — separates the /s/ and /h/ instead of fusing them to /sh/"
+                },
+                {
+                  "type": "ERR_SOUND_OMIT",
+                  "description": "One letter of the digraph dropped entirely",
+                  "example": "Reads 'chin' as 'hin' or 'cin'"
+                },
+                {
+                  "type": "ERR_VOWEL_CONF",
+                  "description": "Short vowel in the word read incorrectly",
+                  "example": "Reads 'shop' as 'ship' — vowel substituted"
+                },
+                {
+                  "type": "ERR_ORTHO_GUESS",
+                  "description": "Word guessed from the digraph or first letter only",
+                  "example": "Sees 'chip' and says 'chair' — recognised 'ch' but guessed the rest"
+                }
+              ],
+              "recovery_strategy": "PHONEME_CONF: drill the digraph in isolation first, then inside the same word. SOUND_OMIT: highlight the digraph as a single unit visually. ORTHO_GUESS: force left-to-right decoding with a finger underline.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
             }
           ]
         },
@@ -695,32 +757,6 @@
                 }
               ],
               "recovery_strategy": "PHONEME_SUB: identify substitution pattern (onset/coda/vowel?) and drill that phonogram. WHOLE_WORD_GUESS: return to L3 encoding.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
-            },
-            {
-              "id": "R4.T1.A2",
-              "title": "Nonsense Word Oral Decoding",
-              "description": "Read made-up words aloud using the phonics code — not guessing from memory. Because the word has never been seen before, the only way to read it is to decode it sound by sound. Producing a real word instead is an automatic fail.",
-              "prerequisites": ["R4.T1.A1"],
-              "templates": ["oral", "reading"],
-              "error_signatures": [
-                {
-                  "type": "real_word_substitution",
-                  "description": "Reads a real word instead of decoding the nonsense word",
-                  "example": "For 'blof', learner reads 'blow'"
-                },
-                {
-                  "type": "low_plausibility",
-                  "description": "Phoneme accuracy below 70% — output not recognisably related to target",
-                  "example": "For 'spund', learner produces a string that shares no sounds with the target"
-                },
-                {
-                  "type": "refusal",
-                  "description": "Learner refuses to attempt the nonsense word",
-                  "example": "Learner says 'That's not a real word, I can't read it'"
-                }
-              ],
-              "recovery_strategy": "REAL_WORD_SUB: explicit instruction 'read what you see'. REFUSAL: explain the purpose 'we're practising the code, not the word'.",
               "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
             }
           ]
