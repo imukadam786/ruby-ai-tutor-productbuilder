@@ -234,14 +234,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   };
 
   // ── Complete onboarding (no plan step) ────────────────────────────────────
-  const [paymentLoading, setPaymentLoading] = useState(false);
-
-const handleComplete = async () => {
-  if (!name || !email) return;
-
-  setPaymentLoading(true);
-
-  try {
+  const handleComplete = () => {
     const final: OnboardingData = {
       language: data.language || "English",
       grade: data.grade || "",
@@ -251,39 +244,9 @@ const handleComplete = async () => {
       email,
       plan: "standard",
     };
-
-    // Save locally (optional)
     localStorage.setItem("onboardingData", JSON.stringify(final));
-
-    // 🔥 Call your backend to initialize PayFast
-    const res = await fetch("/api/payfast/init", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(final),
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to initialize payment");
-    }
-
-    const { redirectUrl } = await res.json();
-
-    if (!redirectUrl) {
-      throw new Error("No redirect URL returned");
-    }
-
-    // 🚀 Redirect to PayFast
-    window.location.href = redirectUrl;
-
-  } catch (err) {
-    console.error(err);
-    alert("Something went wrong starting payment. Please try again.");
-  } finally {
-    setPaymentLoading(false);
-  }
-};
+    onComplete(final);
+  };
 
   const outerMaxW = "max-w-md";
   // Progress bar counts steps 2–6 (step 1 is account creation, no bar)
@@ -502,12 +465,7 @@ const handleComplete = async () => {
                 </div>
               </div>
               <div className="pt-4 flex-shrink-0">
-                              <ContinueBtn
-                                  label="Continue to Payment"
-                                  onClick={handleComplete}
-                                  disabled={!data.curriculum}
-                                  loading={paymentLoading}
-                              />
+                <ContinueBtn label={t.continueBtn} onClick={handleComplete} disabled={!data.curriculum} />
               </div>
             </div>
           )}
