@@ -24,7 +24,7 @@ ${JSON.stringify(strings, null, 2)}`;
       model: OPENAI_MODEL,
       max_tokens: 6000,
       messages: [{ role: "user", content: prompt }],
-    });
+    }, { signal: AbortSignal.timeout(30_000) });
 
     const text = response.choices[0]?.message?.content ?? "{}";
     const jsonMatch = text.match(/\{[\s\S]*\}/);

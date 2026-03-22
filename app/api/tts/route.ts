@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
       voice: "fable",   // Natural British-ish accent, warm tutor quality
       input: text.slice(0, 4096),
       speed: 1.1,
-    });
+    }, { signal: AbortSignal.timeout(15_000) });
 
     const buffer = Buffer.from(await response.arrayBuffer());
 

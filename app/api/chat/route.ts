@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
                 },
                 ...openaiMessages,
             ],
-        });
+        }, { signal: AbortSignal.timeout(30_000) });
 
         const encoder = new TextEncoder();
 

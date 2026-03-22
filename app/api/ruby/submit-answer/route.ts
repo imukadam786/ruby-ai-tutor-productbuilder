@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
             ],
           },
         ],
-      });
+      }, { signal: AbortSignal.timeout(20_000) });
       aiText = visionResponse.choices[0]?.message?.content ?? "";
     } else {
       // Standard text-only request
@@ -77,7 +77,7 @@ export async function POST(req: NextRequest) {
         model: OPENAI_MODEL,
         max_tokens: 1024,
         messages: [{ role: "user", content: diagnosticPrompt }],
-      });
+      }, { signal: AbortSignal.timeout(20_000) });
       aiText = aiResponse.choices[0]?.message?.content ?? "";
     }
 

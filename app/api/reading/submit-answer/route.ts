@@ -177,7 +177,7 @@ Keep language simple, warm, and age-appropriate for a primary school child.`;
       model: OPENAI_MODEL,
       max_tokens: 512,
       messages: [{ role: "user", content: prompt }],
-    });
+    }, { signal: AbortSignal.timeout(20_000) });
 
     const aiText = aiResponse.choices[0]?.message?.content ?? "";
 

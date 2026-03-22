@@ -491,7 +491,7 @@ Important:
       model: OPENAI_MODEL,
       max_tokens: 1024,
       messages: [{ role: "user", content: prompt }],
-    });
+    }, { signal: AbortSignal.timeout(20_000) });
 
     const text = response.choices[0]?.message?.content ?? "";
 

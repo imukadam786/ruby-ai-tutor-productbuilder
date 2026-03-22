@@ -328,6 +328,8 @@ export default function DiagnosticSession() {
       }
     } catch (e) {
       console.error(e);
+      setStatusMessage("Something went wrong — please try submitting again.");
+      setPhase("question");
     }
   };
 
