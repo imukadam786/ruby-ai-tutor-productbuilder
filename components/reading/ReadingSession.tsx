@@ -860,10 +860,12 @@ function ReadingQuestionCard({
         <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap">
           {question.question}
         </p>
-        {/* Play/Stop pill — same style as ChatInterface message buttons */}
+        {/* Play/Stop pill — hidden for audio-tap questions (question text contains
+            phoneme labels like "SH" that TTS cannot pronounce correctly) */}
         <div className="flex items-center gap-3 mt-3">
           <button
             onClick={() => togglePlay(question.question)}
+            hidden={isAudioTap}
             className={`flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all ${
               playing
                 ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
