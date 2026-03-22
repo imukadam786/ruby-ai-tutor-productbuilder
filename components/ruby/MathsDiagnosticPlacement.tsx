@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
+import { evaluateEarlyExit } from "@/lib/diagnostic-engine";
 import { simplifyText } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 
@@ -86,6 +87,9 @@ function getSearchWindow(grade: number): [number, number] {
 // ── Probe tasks (choice-based, do not count toward 9-task cap) ────────────────
 
 const MATHS_PROBE_TASKS: Record<string, Task> = {
+
+  // ── Block 1 — Gate A/B foundational probes ───────────────────────────────
+
   place_value_probe_1: {
     id: "PROBE_PV1", domain: "M003", domainTitle: "Place Value — Probe",
     gate: "A", block: 1, answerMode: "choice",
@@ -111,6 +115,82 @@ const MATHS_PROBE_TASKS: Record<string, Task> = {
       { label: "16", value: "16", correct: false },
     ],
   },
+  operation_confusion_probe_1: {
+    id: "PROBE_OP1", domain: "M006", domainTitle: "Multiplication — Probe",
+    gate: "A", block: 1, answerMode: "choice",
+    question: "There are 3 bags. Each bag has 4 apples. How many apples in total?",
+    isProbe: true, probeFor: "ERR_MULT_ADD",
+    choices: [
+      { label: "7",  value: "7",  correct: false },
+      { label: "12", value: "12", correct: true  },
+      { label: "8",  value: "8",  correct: false },
+      { label: "34", value: "34", correct: false },
+    ],
+  },
+  subtraction_reversal_probe_1: {
+    id: "PROBE_SR1", domain: "M005", domainTitle: "Subtraction — Probe",
+    gate: "A", block: 1, answerMode: "choice",
+    question: "23 − 7 = ?",
+    isProbe: true, probeFor: "ERR_REVERSAL",
+    choices: [
+      { label: "16", value: "16", correct: true  },
+      { label: "24", value: "24", correct: false },
+      { label: "30", value: "30", correct: false },
+      { label: "14", value: "14", correct: false },
+    ],
+  },
+  skip_count_probe_1: {
+    id: "PROBE_SC1", domain: "M024", domainTitle: "Skip Counting — Probe",
+    gate: "A", block: 1, answerMode: "choice",
+    question: "What comes next?",
+    stimulus: "5, 10, 15, __",
+    isProbe: true, probeFor: "ERR_SKIP_COUNT_STEP",
+    choices: [
+      { label: "20", value: "20", correct: true  },
+      { label: "17", value: "17", correct: false },
+      { label: "16", value: "16", correct: false },
+      { label: "25", value: "25", correct: false },
+    ],
+  },
+  times_table_probe_1: {
+    id: "PROBE_TT1", domain: "M025", domainTitle: "Times Tables — Probe",
+    gate: "A", block: 1, answerMode: "choice",
+    question: "7 × 8 = ?",
+    isProbe: true, probeFor: "ERR_TIMES_TABLE",
+    choices: [
+      { label: "56", value: "56", correct: true  },
+      { label: "54", value: "54", correct: false },
+      { label: "48", value: "48", correct: false },
+      { label: "63", value: "63", correct: false },
+    ],
+  },
+  addition_regroup_probe_1: {
+    id: "PROBE_AR1", domain: "M020", domainTitle: "Two-Digit Addition — Probe",
+    gate: "A", block: 1, answerMode: "choice",
+    question: "47 + 35 = ?",
+    isProbe: true, probeFor: "ERR_REGROUP",
+    choices: [
+      { label: "82", value: "82", correct: true  },
+      { label: "72", value: "72", correct: false },
+      { label: "73", value: "73", correct: false },
+      { label: "812", value: "812", correct: false },
+    ],
+  },
+  subtraction_borrow_probe_1: {
+    id: "PROBE_SB1", domain: "M022", domainTitle: "Two-Digit Subtraction — Probe",
+    gate: "A", block: 1, answerMode: "choice",
+    question: "52 − 28 = ?",
+    isProbe: true, probeFor: "ERR_BORROW",
+    choices: [
+      { label: "24", value: "24", correct: true  },
+      { label: "36", value: "36", correct: false },
+      { label: "34", value: "34", correct: false },
+      { label: "26", value: "26", correct: false },
+    ],
+  },
+
+  // ── Block 2 — Gate B/C/D probes ─────────────────────────────────────────
+
   fraction_form_probe_1: {
     id: "PROBE_FF1", domain: "M008", domainTitle: "Fraction Form — Probe",
     gate: "B", block: 2, answerMode: "choice",
@@ -118,17 +198,157 @@ const MATHS_PROBE_TASKS: Record<string, Task> = {
     isProbe: true, probeFor: "ERR_FRACTION_FORM",
     choices: [
       { label: "2/1", value: "2/1", correct: false },
-      { label: "1/2", value: "1/2", correct: true },
+      { label: "1/2", value: "1/2", correct: true  },
       { label: "2/2", value: "2/2", correct: false },
       { label: "1/4", value: "1/4", correct: false },
+    ],
+  },
+  fraction_add_probe_1: {
+    id: "PROBE_FA1", domain: "M008", domainTitle: "Fraction Addition — Probe",
+    gate: "B", block: 2, answerMode: "choice",
+    question: "1/2 + 1/4 = ?",
+    isProbe: true, probeFor: "ERR_COMMON_DENOM",
+    choices: [
+      { label: "3/4", value: "3/4", correct: true  },
+      { label: "2/6", value: "2/6", correct: false },
+      { label: "2/4", value: "2/4", correct: false },
+      { label: "1/4", value: "1/4", correct: false },
+    ],
+  },
+  integer_sign_probe_1: {
+    id: "PROBE_IS1", domain: "M010", domainTitle: "Integer Sign — Probe",
+    gate: "B", block: 2, answerMode: "choice",
+    question: "−3 + 5 = ?",
+    isProbe: true, probeFor: "ERR_INTEGER_SIGN",
+    choices: [
+      { label: "2",  value: "2",  correct: true  },
+      { label: "−2", value: "-2", correct: false },
+      { label: "8",  value: "8",  correct: false },
+      { label: "−8", value: "-8", correct: false },
+    ],
+  },
+  order_of_ops_probe_1: {
+    id: "PROBE_OO1", domain: "M010", domainTitle: "Order of Operations — Probe",
+    gate: "B", block: 2, answerMode: "choice",
+    question: "2 + 3 × 4 = ?",
+    isProbe: true, probeFor: "ERR_BODMAS_ORDER",
+    choices: [
+      { label: "14", value: "14", correct: true  },
+      { label: "20", value: "20", correct: false },
+      { label: "24", value: "24", correct: false },
+      { label: "10", value: "10", correct: false },
+    ],
+  },
+  ratio_unit_probe_1: {
+    id: "PROBE_RU1", domain: "M009", domainTitle: "Ratio — Probe",
+    gate: "B", block: 2, answerMode: "choice",
+    question: "Cats to dogs is 3 : 2. There are 12 cats. How many dogs?",
+    isProbe: true, probeFor: "ERR_RATIO_ADD",
+    choices: [
+      { label: "8",  value: "8",  correct: true  },
+      { label: "5",  value: "5",  correct: false },
+      { label: "6",  value: "6",  correct: false },
+      { label: "10", value: "10", correct: false },
+    ],
+  },
+  like_terms_probe_1: {
+    id: "PROBE_LT1", domain: "M011", domainTitle: "Algebraic Expressions — Probe",
+    gate: "C", block: 2, answerMode: "choice",
+    question: "Simplify: 3x + 5 + 2x",
+    isProbe: true, probeFor: "ERR_LIKE_TERMS",
+    choices: [
+      { label: "5x + 5", value: "5x + 5", correct: true  },
+      { label: "10x",    value: "10x",    correct: false },
+      { label: "3x + 7", value: "3x + 7", correct: false },
+      { label: "5x",     value: "5x",     correct: false },
+    ],
+  },
+
+  // ── Block 3 — Gate C/D advanced probes ──────────────────────────────────
+
+  decimal_place_probe_1: {
+    id: "PROBE_DP1", domain: "M_DEC", domainTitle: "Decimals — Probe",
+    gate: "C", block: 3, answerMode: "choice",
+    question: "0.5 + 0.25 = ?",
+    isProbe: true, probeFor: "ERR_ALIGNMENT",
+    choices: [
+      { label: "0.75", value: "0.75", correct: true  },
+      { label: "0.30", value: "0.30", correct: false },
+      { label: "0.55", value: "0.55", correct: false },
+      { label: "0.7",  value: "0.7",  correct: false },
+    ],
+  },
+  percent_probe_1: {
+    id: "PROBE_PC1", domain: "M031", domainTitle: "Percentages — Probe",
+    gate: "C", block: 3, answerMode: "choice",
+    question: "What is 10% of 80?",
+    isProbe: true, probeFor: "ERR_PCT_OF_AMOUNT",
+    choices: [
+      { label: "8",   value: "8",   correct: true  },
+      { label: "18",  value: "18",  correct: false },
+      { label: "800", value: "800", correct: false },
+      { label: "0.8", value: "0.8", correct: false },
+    ],
+  },
+  negative_mult_probe_1: {
+    id: "PROBE_NM1", domain: "M032", domainTitle: "Negative Numbers — Probe",
+    gate: "C", block: 3, answerMode: "choice",
+    question: "(−3) × (−4) = ?",
+    isProbe: true, probeFor: "ERR_NEG_MULT_SIGN",
+    choices: [
+      { label: "12",  value: "12",  correct: true  },
+      { label: "−12", value: "-12", correct: false },
+      { label: "7",   value: "7",   correct: false },
+      { label: "−1",  value: "-1",  correct: false },
     ],
   },
 };
 
 function getFollowUpProbe(errorType: string, block: DiagnosticBlock): Task | null {
-  if (errorType === "ERR_DIGIT_SWAP" && block === 1) return MATHS_PROBE_TASKS.place_value_probe_1;
-  if (errorType === "ERR_COUNT_SKIP" && block === 1) return MATHS_PROBE_TASKS.count_sequence_probe_1;
-  if ((errorType === "ERR_INVERT" || errorType === "ERR_PART_WHOLE") && block <= 2) return MATHS_PROBE_TASKS.fraction_form_probe_1;
+  // Block 1 — Gate A/B
+  if (block === 1) {
+    if (errorType === "ERR_DIGIT_SWAP" || errorType === "ERR_FACE_VALUE")
+      return MATHS_PROBE_TASKS.place_value_probe_1;
+    if (errorType === "ERR_COUNT_SKIP" || errorType === "ERR_OFF_BY_ONE" || errorType === "ERR_SEQ_DIR")
+      return MATHS_PROBE_TASKS.count_sequence_probe_1;
+    if (errorType === "ERR_MULT_ADD" || errorType === "ERR_FIELD_SWAP")
+      return MATHS_PROBE_TASKS.operation_confusion_probe_1;
+    if (errorType === "ERR_REVERSAL" || errorType === "ERR_SUB_ADD")
+      return MATHS_PROBE_TASKS.subtraction_reversal_probe_1;
+    if (errorType === "ERR_SKIP_COUNT_STEP" || errorType === "ERR_PATTERN")
+      return MATHS_PROBE_TASKS.skip_count_probe_1;
+    if (errorType === "ERR_TIMES_TABLE" || errorType === "ERR_MULT_OFF")
+      return MATHS_PROBE_TASKS.times_table_probe_1;
+    if (errorType === "ERR_REGROUP" || errorType === "ERR_ADD_TENS_AFTER_CARRY")
+      return MATHS_PROBE_TASKS.addition_regroup_probe_1;
+    if (errorType === "ERR_BORROW" || errorType === "ERR_SUB_AFTER_BORROW")
+      return MATHS_PROBE_TASKS.subtraction_borrow_probe_1;
+  }
+
+  // Block 2 — Gate B/C/D
+  if (block <= 2) {
+    if (errorType === "ERR_INVERT" || errorType === "ERR_PART_WHOLE")
+      return MATHS_PROBE_TASKS.fraction_form_probe_1;
+    if (errorType === "ERR_COMMON_DENOM" || errorType === "ERR_ADD_FRAC" || errorType === "ERR_DENOM_CHANGE")
+      return MATHS_PROBE_TASKS.fraction_add_probe_1;
+    if (errorType === "ERR_INTEGER_SIGN" || errorType === "ERR_NEG_ADD" || errorType === "ERR_NEG_SUB")
+      return MATHS_PROBE_TASKS.integer_sign_probe_1;
+    if (errorType === "ERR_BODMAS_ORDER" || errorType === "ERR_BRACKET_IGNORE")
+      return MATHS_PROBE_TASKS.order_of_ops_probe_1;
+    if (errorType === "ERR_RATIO_ADD" || errorType === "ERR_RATIO_PARTIAL")
+      return MATHS_PROBE_TASKS.ratio_unit_probe_1;
+    if (errorType === "ERR_LIKE_TERMS" || errorType === "ERR_SIGN_DROP")
+      return MATHS_PROBE_TASKS.like_terms_probe_1;
+  }
+
+  // Block 3 — Gate C/D
+  if (errorType === "ERR_ALIGNMENT" || errorType === "ERR_DECIMAL_PLACE" || errorType === "ERR_DECIMAL_ALIGN")
+    return MATHS_PROBE_TASKS.decimal_place_probe_1;
+  if (errorType === "ERR_PCT_OF_AMOUNT" || errorType === "ERR_PERCENT_CALC")
+    return MATHS_PROBE_TASKS.percent_probe_1;
+  if (errorType === "ERR_NEG_MULT_SIGN" || errorType === "ERR_NEG_NEG_MULT" || errorType === "ERR_NEG_DIV_SIGN")
+    return MATHS_PROBE_TASKS.negative_mult_probe_1;
+
   return null;
 }
 
@@ -368,6 +588,7 @@ export default function MathsDiagnosticPlacement({
   const [completedTasks, setCompletedTasks] = useState<MathsPlacementTaskResult[]>([]);
   const [errorHistory, setErrorHistory] = useState<{ taskId: string; errorType: string }[]>([]);
   const [probesRun, setProbesRun] = useState(0);
+  const earlyExitOverrideRef = useRef<{ placementLevel: number; reason: string } | null>(null);
   const [placementResult, setPlacementResult] = useState<MathsPlacementResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showEncouragement, setShowEncouragement] = useState(false);
@@ -416,6 +637,18 @@ export default function MathsDiagnosticPlacement({
         setDomainTitleMap(titleMap);
         setPhaseQueue(anchorQueue);
         setPhaseIndex(0);
+
+        // M2 fix — Foundation probes: for grades 4+ the anchor gate is B or higher,
+        // so M002 (counting) and M003 (place value) are never directly tested.
+        // Pre-load them as choice probes before the anchor phase so computePlacement
+        // always has real scoreMap data for gateA instead of the grade-based default.
+        if (anchorGateIdx > 0) {
+          setProbeQueue([
+            MATHS_PROBE_TASKS.count_sequence_probe_1,
+            MATHS_PROBE_TASKS.place_value_probe_1,
+          ]);
+        }
+
         setPhase("task");
       })
       .catch(() => setPhase("task"));
@@ -458,16 +691,31 @@ export default function MathsDiagnosticPlacement({
   const finishDiagnostic = useCallback(
     (completed: MathsPlacementTaskResult[], pCount: number) => {
       const result = computePlacement(completed, grade, pCount);
+      const override = earlyExitOverrideRef.current;
+
+      let entryLevel = result.entryLevel;
+      let entrySkillId = result.entrySkillId;
+      let autoCompletedSkillIds = result.autoCompletedSkillIds;
+      let earlyExitReason = result.earlyExitReason;
+
+      if (override) {
+        entryLevel = override.placementLevel;
+        earlyExitReason = override.reason;
+        const level = getLevelById(entryLevel);
+        entrySkillId = level?.tiers?.[0]?.atomic_skills?.[0]?.id ?? `L${entryLevel}.T1.A1`;
+        autoCompletedSkillIds = entryLevel > 1 ? getSkillIdsForLevels(entryLevel) : [];
+      }
+
       const placement: MathsPlacementResult = {
         completedAt: Date.now(),
         placementCompletedAt: Date.now(),
         tasks: completed,
-        entrySkillId: result.entrySkillId,
-        entryLevel: result.entryLevel,
-        autoCompletedSkillIds: result.autoCompletedSkillIds,
+        entrySkillId,
+        entryLevel,
+        autoCompletedSkillIds,
         hardGatePassed: result.hardGatePassed,
         placementBlock: result.placementBlock,
-        earlyExitReason: result.earlyExitReason,
+        earlyExitReason,
         probesRun: result.probesRun,
       };
       setPlacementResult(placement);
@@ -508,6 +756,20 @@ export default function MathsDiagnosticPlacement({
           setProbeQueue((q) => [...q, probe]);
           setProbesFiredThisPhase((n) => n + 1);
         }
+      }
+
+      // ── Early exit check ───────────────────────────────────────────────────
+      const earlyExit = evaluateEarlyExit(
+        newCompleted,
+        currentTask?.block ?? 1,
+        newErrorHistory,
+      );
+      if (earlyExit.exit) {
+        earlyExitOverrideRef.current = { placementLevel: earlyExit.placementLevel, reason: earlyExit.reason };
+        setShowEncouragement(false);
+        finishDiagnostic(newCompleted, probesRun);
+        setSubmitting(false);
+        return;
       }
 
       // ── Phase advancement ──────────────────────────────────────────────────

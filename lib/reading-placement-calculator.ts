@@ -28,9 +28,9 @@ function skillsBefore(entrySkillId: string): string[] {
 
 // ─── Diagnostic task scan order ───────────────────────────────────────────────
 const TASK_SCAN_ORDER = [
-  "D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08",
-  "D09", "D10", "D11", "D12",
-  "D13", "D14", "D15", "D16", "D17", "D18",
+  "D01", "D01B", "D02", "D02B", "D03", "D04", "D05", "D06", "D07", "D08",
+  "D09", "D10", "D10B", "D11", "D12",
+  "D13", "D13B", "D13C", "D14", "D15", "D15B", "D16", "D17", "D18",
 ];
 
 // ─── Dominant error collector ─────────────────────────────────────────────────
@@ -82,6 +82,12 @@ export function calculateReadingPlacement(
 
   const dominantErrors = collectDominantErrors(taskResults);
 
+  // ── Hard gate: basic phonics decoding ────────────────────────────────────
+  // A student passes the phonics gate if they can decode basic CVC words (D07).
+  // Gate-failed students are still placed correctly but flagged so the session
+  // knows not to surface fluency/comprehension content before decoding is secure.
+  const hardGatePassed = taskPassed("D07");
+
   // ── RULE 1: Foundation failure ───────────────────────────────────────────
   if (!taskPassed("D01") || !taskPassed("D02")) {
     return {
@@ -89,7 +95,7 @@ export function calculateReadingPlacement(
       tasks: taskResults,
       entrySkillId: "R1.T1.A1",
       autoCompletedSkillIds: [],
-      hardGatePassed: true,
+      hardGatePassed: false,
       dominantErrors,
     };
   }
@@ -123,7 +129,7 @@ export function calculateReadingPlacement(
     tasks: taskResults,
     entrySkillId,
     autoCompletedSkillIds: skillsBefore(entrySkillId),
-    hardGatePassed: true,
+    hardGatePassed,
     dominantErrors,
   };
 }

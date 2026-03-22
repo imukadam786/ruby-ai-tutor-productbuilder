@@ -231,22 +231,30 @@ async function loadRandomQuestionPaper(): Promise<Task[]> {
 
 // ── Default error type per task (used when a task is failed or skipped) ──────
 const TASK_ERROR_MAP: Record<string, string> = {
-  D01: "ERR_PHONEME_CONF",
-  D02: "ERR_PHONEME_CONF",
-  D03: "ERR_SOUND_RECALL",
-  D04: "ERR_VOWEL_CONF",
-  D05: "ERR_SOUND_RECALL",
-  D06: "ERR_BLEND_FAIL",
-  D09: "ERR_VOWEL_CONF",
-  D10: "ERR_VOWEL_CONF",
-  D11: "ERR_SIGHT_MISS",
-  D12: "ERR_VOWEL_CONF",
-  D13: "ERR_MULTI_BREAK",
-  D14: "ERR_MULTI_BREAK",
-  D15: "ERR_SOUND_RECALL",
-  D16: "ERR_FLUENCY_HES",
-  D17: "ERR_MEANING_BLIND",
-  D18: "ERR_MEANING_BLIND",
+  D01:  "ERR_PHONEME_CONF",
+  D01B: "ERR_SYLLABLE_BREAK",
+  D02:  "ERR_PHONEME_CONF",
+  D02B: "ERR_PHONEME_CONF",
+  D03:  "ERR_SOUND_RECALL",
+  D04:  "ERR_VOWEL_CONF",
+  D05:  "ERR_SOUND_RECALL",
+  D06:  "ERR_BLEND_FAIL",
+  D07:  "ERR_BLEND_FAIL",
+  D08:  "ERR_SOUND_RECALL",
+  D09:  "ERR_VOWEL_CONF",
+  D10:  "ERR_VOWEL_CONF",
+  D10B: "ERR_BLEND_FAIL",
+  D11:  "ERR_SIGHT_MISS",
+  D12:  "ERR_VOWEL_CONF",
+  D13:  "ERR_MULTI_BREAK",
+  D13B: "ERR_ENCODE_BLEND",
+  D13C: "ERR_ENCODE_BLEND",
+  D14:  "ERR_MULTI_BREAK",
+  D15:  "ERR_SOUND_RECALL",
+  D15B: "ERR_MEANING_BLIND",
+  D16:  "ERR_FLUENCY_HES",
+  D17:  "ERR_MEANING_BLIND",
+  D18:  "ERR_MEANING_BLIND",
 };
 
 // ── Skill name map ─────────────────────────────────────────────────────────────
@@ -296,15 +304,36 @@ function scoreVoiceResponse(transcript: string, expected: string, taskId: string
   const t = normalize(transcript);
   const e = normalize(expected);
   if (!t) return { correct: false, score: 0 };
+  // No expected answer (e.g. passage tasks) — caller must handle separately
+  if (!e) return { correct: false, score: 0 };
   // Comprehension tasks: any non-empty response counts (evaluated by context, not exact match)
   if (taskId === "D17" || taskId === "D18") return { correct: true, score: 1 };
-  // Exact or substring match
-  if (t === e || t.includes(e) || e.includes(t)) return { correct: true, score: 1 };
-  // Levenshtein similarity — requires ≥ 0.8 to prevent "coal" → "call" false positives
-  const dist = levenshtein(t, e);
-  const maxLen = Math.max(t.length, e.length);
-  const similarity = maxLen > 0 ? 1 - dist / maxLen : 1;
-  return { correct: similarity >= 0.8, score: similarity };
+  // Word-level matching: split transcript into words so "there" does not falsely match "the".
+  // For single-word targets, find the best-matching word in the transcript.
+  const words = transcript.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(Boolean);
+  // Exact word match
+  if (words.some((w) => normalize(w) === e)) return { correct: true, score: 1 };
+  // Best Levenshtein similarity across all transcript words
+  let bestSim = 0;
+  for (const word of words) {
+    const nw = normalize(word);
+    const dist = levenshtein(nw, e);
+    const maxLen = Math.max(nw.length, e.length);
+    const sim = maxLen > 0 ? 1 - dist / maxLen : 1;
+    if (sim > bestSim) bestSim = sim;
+  }
+  // ≥ 0.8 required to avoid "coal"→"call" false positives on short words
+  return { correct: bestSim >= 0.8, score: bestSim };
+}
+
+/** Score D16-style fluency passages by word-coverage accuracy. */
+function scorePassageReading(transcript: string, passage: string): { correct: boolean; score: number } {
+  const passageWords = passage.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(Boolean);
+  const spokenn = new Set(transcript.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(Boolean));
+  const matched = passageWords.filter((w) => spokenn.has(w)).length;
+  const accuracy = passageWords.length > 0 ? matched / passageWords.length : 0;
+  // Pass if student read ≥ 85% of the passage words (proxy for ≥ 40 WPM in a 60-second window)
+  return { correct: accuracy >= 0.85, score: accuracy };
 }
 
 // ── Reading level label map ───────────────────────────────────────────────────
@@ -560,11 +589,24 @@ export default function ReadingDiagnosticPlacement({
     setShowEncouragement(true);
     await new Promise(r => setTimeout(r, 800));
 
-    // ── Early exit: 3 consecutive failures ────────────────────────────────────
-    // Mirrors maths diagnostic behaviour. Avoids making struggling students sit
-    // through all tasks when their placement is already clear.
+    // ── Early exit logic ──────────────────────────────────────────────────────
+    const failed = (taskId: string) => newCompleted.some(r => r.taskId === taskId && !r.correct);
+
+    // Foundation gate: D01 + D02 both failed → student is at R1 oral language baseline.
+    // No need to administer phonics or fluency tasks — exit immediately after D02.
+    const foundationExit = failed("D01") && failed("D02") &&
+      newCompleted.some(r => r.taskId === "D02");
+
+    // Phonics gate: letter sounds (D03+D04) and digraph phoneme (D05) all failed →
+    // student is a pre-reader who needs letter-sound instruction first.
+    const phonicsExit = failed("D03") && failed("D04") && failed("D05") &&
+      newCompleted.some(r => r.taskId === "D05");
+
+    // Consecutive failures: 3 in a row at any point.
     const last3 = newCompleted.slice(-3);
-    const earlyExit = last3.length === 3 && last3.every(r => !r.correct);
+    const consecutiveExit = last3.length === 3 && last3.every(r => !r.correct);
+
+    const earlyExit = foundationExit || phonicsExit || consecutiveExit;
 
     if (earlyExit || currentIndex + 1 >= totalTasks) {
       setPhase("calculating");
@@ -572,7 +614,7 @@ export default function ReadingDiagnosticPlacement({
         const res = await apiFetch("/api/reading/diagnostic/placement", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ tasks: newCompleted }),
+          body: JSON.stringify({ tasks: newCompleted, grade: studentGrade }),
         });
         const placement: DiagnosticPlacementResult = res.ok ? await res.json() : {
           completedAt: Date.now(), tasks: newCompleted,
@@ -609,6 +651,12 @@ export default function ReadingDiagnosticPlacement({
     // No speech captured — skip rather than score as wrong
     if (!t) {
       advanceTask({ taskId: task.id, correct: false, score: 0, response: "(no response)", errorType: TASK_ERROR_MAP[task.id] });
+      return;
+    }
+    // Passage tasks: score by word-coverage accuracy (proxy for fluency rate)
+    if (task.passage) {
+      const { correct, score } = scorePassageReading(t, task.passage);
+      advanceTask({ taskId: task.id, correct, score, response: t, errorType: correct ? "correct" : TASK_ERROR_MAP[task.id] });
       return;
     }
     const { correct, score } = scoreVoiceResponse(t, task.expectedAnswer ?? "", task.id);
@@ -706,7 +754,7 @@ export default function ReadingDiagnosticPlacement({
     const entryName = SKILL_NAME_MAP[placementResult.entrySkillId] ?? placementResult.entrySkillId;
     const ALL_IDS = [
       "R1.T1.A1","R1.T1.A2","R1.T1.A3","R1.T2.A1","R1.T2.A2","R1.T3.A1","R1.T3.A2","R1.T3.A3",
-      "R2.T1.A1","R2.T1.A2","R2.T1.A3","R2.T2.A1","R2.T2.A2","R2.T3.A1","R2.T3.A2","R2.T3.A3",
+      "R2.T1.A1","R2.T1.A2","R2.T1.A3","R2.T2.A1","R2.T2.A2","R2.T2.A3","R2.T2.A4","R2.T3.A1","R2.T3.A2","R2.T3.A3",
       "R3.T1.A1","R3.T1.A2","R3.T1.A3","R3.T1.A4","R3.T2.A1","R3.T2.A2",
       "R4.T1.A1","R4.T2.A1","R4.T2.A2","R4.T3.A1","R4.T3.A2",
       "R5.T1.A1","R5.T1.A2","R5.T1.A3","R5.T2.A1","R5.T2.A2","R5.T3.A1",

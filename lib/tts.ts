@@ -6,6 +6,7 @@ import { apiFetch } from "@/lib/fetch";
 // Strip markdown and clean text before sending to TTS
 export function prepareForSpeech(raw: string): string {
   return raw
+    .replace(/\/[a-zA-Z]{1,4}\//g, "")  // Strip phoneme notation: /sh/, /th/, /b/, /æ/, etc.
     .replace(/#{1,6}\s+/g, "")
     .replace(/\*\*(.+?)\*\*/g, "$1")
     .replace(/\*(.+?)\*/g, "$1")

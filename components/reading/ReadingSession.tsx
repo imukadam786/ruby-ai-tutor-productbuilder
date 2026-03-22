@@ -36,6 +36,8 @@ import {
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
 import { selectReadingTemplate } from "@/lib/template-selector";
+import { detectStuck } from "@/lib/stuck-detector";
+import StuckScreen from "@/components/shared/StuckScreen";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import {
@@ -49,7 +51,7 @@ import {
   trackPlacementCompleted,
 } from "@/lib/analytics";
 
-type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "stuck" | "complete";
 
 // ─── Reading report input builder ─────────────────────────────────────────────
 
@@ -159,6 +161,10 @@ export default function ReadingSession() {
 
   // Recent templates — used by selectReadingTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<ReadingTemplate[]>([]);
+
+  // Stuck detection — tracks attempt_count when student last dismissed the stuck screen
+  const stuckDismissedAtRef = useRef(0);
+  const [stuckAttemptCount, setStuckAttemptCount] = useState(0);
 
   // Prevents double-writing sessionHistory for the same skill session
   const hasRecordedSession = useRef(false);
@@ -365,7 +371,17 @@ export default function ReadingSession() {
           });
         }
         setCurrentResult(result);
-        setPhase("feedback");
+        const stuckState = detectStuck(
+          updatedMastery.attempt_count,
+          updatedMastery.p_learned ?? 0,
+          stuckDismissedAtRef.current,
+        );
+        if (stuckState.level === "stuck") {
+          setStuckAttemptCount(stuckState.attemptCount);
+          setPhase("stuck");
+        } else {
+          setPhase("feedback");
+        }
       }
     } catch (e) {
       console.error(e);
@@ -377,6 +393,38 @@ export default function ReadingSession() {
   const handleNextAfterFeedback = () => {
     if (!profile || !currentResult) return;
     setPhase("loading_question");
+  };
+
+  const handleMarkDone = () => {
+    if (!profile || !currentQuestion) return;
+    const skillId = currentQuestion.skill_id;
+    const existingMastery = profile.skill_mastery[skillId] || initReadingSkillMastery(skillId);
+    const assumedMastery = { ...existingMastery, status: "assumed" as const };
+    const profileWithAssumed = {
+      ...profile,
+      skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
+    };
+    const nextSkillId = getNextReadingSkillId(skillId);
+    if (nextSkillId) {
+      trackSkillAdvanced({ subject: "reading", from_skill_id: skillId, to_skill_id: nextSkillId });
+      const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
+      saveReadingProfile(advanced);
+      setProfile(advanced);
+    } else {
+      saveReadingProfile(profileWithAssumed);
+      setProfile(profileWithAssumed);
+    }
+    stuckDismissedAtRef.current = 0;
+    setSkillAttemptCount(0);
+    recentTemplatesRef.current = [];
+    setPhase(nextSkillId ? "loading_question" : "complete");
+  };
+
+  const handleKeepTrying = () => {
+    if (!currentQuestion || !profile) return;
+    const mastery = profile.skill_mastery[currentQuestion.skill_id];
+    stuckDismissedAtRef.current = mastery?.attempt_count ?? skillAttemptCount;
+    setPhase("feedback");
   };
 
   const handleNextAfterMastered = () => {
@@ -641,6 +689,24 @@ export default function ReadingSession() {
             </button>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  // ─── Stuck ────────────────────────────────────────────────────────────────────
+
+  if (phase === "stuck" && currentQuestion) {
+    const skill = getReadingSkillById(currentQuestion.skill_id);
+    return (
+      <div className="flex flex-col h-full bg-gray-50">
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <StuckScreen
+          skillTitle={skill?.title ?? "this skill"}
+          subject="reading"
+          attemptCount={stuckAttemptCount}
+          onMarkDone={handleMarkDone}
+          onKeepTrying={handleKeepTrying}
+        />
       </div>
     );
   }
@@ -1035,6 +1101,13 @@ function ReadingQuestionCard({
           </>
         ) : (
           <>
+            {/* ── Word card for decoding tasks (reading template with displayWord) ── */}
+            {question.displayWord && (
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 text-center">
+                <p className="text-5xl font-bold text-blue-800 tracking-wide">{question.displayWord}</p>
+              </div>
+            )}
+
             {/* ── VOICE mode (oral template, non-phoneme-production skills) ── */}
             <div className="flex flex-col items-center gap-3">
               <button

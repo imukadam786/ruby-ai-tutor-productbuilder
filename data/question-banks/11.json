@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
+    "domain": "Phonological Awareness â€” Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'ball' and 'tall' rhyme?",
-    "displayWord": "ball \u00e2\u20ac\u00a2 tall",
+    "displayWord": "ball â€¢ tall",
     "answerMode": "choice",
     "choices": [
       {
@@ -21,8 +21,35 @@
     ]
   },
   {
+    "id": "D01B",
+    "domain": "Syllable Segmentation",
+    "domainCode": "D001B",
+    "gate": "A",
+    "question": "How many syllables in \"bucket\"?",
+    "displayWord": "bucket",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      }
+    ],
+    "subText": "Say the word quietly and count the beats."
+  },
+  {
     "id": "D02",
-    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
+    "domain": "Phoneme Isolation â€” First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'cup'? Tap the sound below.",
@@ -51,8 +78,35 @@
     "subText": "Tap to hear each sound, then choose the right one."
   },
   {
+    "id": "D02B",
+    "domain": "Full Phoneme Segmentation",
+    "domainCode": "D002B",
+    "gate": "A",
+    "question": "How many sounds are in \"shoe\"?",
+    "displayWord": "shoe",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ],
+    "subText": "Count each individual sound — not letters."
+  },
+  {
     "id": "D03",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
+    "domain": "Letter Sound â€” Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -82,7 +136,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
+    "domain": "Letter Sound â€” Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -192,8 +246,35 @@
     "maxResponseMs": 4000
   },
   {
+    "id": "D10B",
+    "domain": "Phoneme Sequence Blending",
+    "domainCode": "D010B",
+    "gate": "C",
+    "question": "Blend these sounds together: /p/ /l/ /ea/ /se/ — what word do they make?",
+    "displayWord": "/p/ /l/ /ea/ /se/",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "fleas",
+        "value": "fleas",
+        "correct": false
+      },
+      {
+        "label": "please",
+        "value": "please",
+        "correct": true
+      },
+      {
+        "label": "sneeze",
+        "value": "sneeze",
+        "correct": false
+      }
+    ],
+    "subText": "Listen to the sounds and blend them into one word."
+  },
+  {
     "id": "D11",
-    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
+    "domain": "Sight Words â€” Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -223,7 +304,29 @@
     "displayWord": "SUDDEN",
     "answerMode": "voice",
     "expectedAnswer": "sudden",
-    "syllableBreak": "sud\u00c2\u00b7den"
+    "syllableBreak": "sudÂ·den"
+  },
+  {
+    "id": "D13B",
+    "domain": "Consonant Blend Encoding",
+    "domainCode": "D013B",
+    "gate": "C",
+    "question": "Spell this word: \"sled\"",
+    "displayWord": "sled",
+    "answerMode": "voice",
+    "expectedAnswer": "s l e d",
+    "voiceHint": "Say each letter clearly, one at a time."
+  },
+  {
+    "id": "D13C",
+    "domain": "Unfamiliar Word Encoding",
+    "domainCode": "D013C",
+    "gate": "C",
+    "question": "Spell this made-up word: \"gript\"",
+    "displayWord": "gript",
+    "answerMode": "voice",
+    "expectedAnswer": "g r i p t",
+    "voiceHint": "Use the sounds to work it out, then say each letter."
   },
   {
     "id": "D14",
@@ -234,7 +337,7 @@
     "displayWord": "EXAMPLE",
     "answerMode": "voice",
     "expectedAnswer": "example",
-    "syllableBreak": "ex\u00c2\u00b7am\u00c2\u00b7ple"
+    "syllableBreak": "exÂ·amÂ·ple"
   },
   {
     "id": "D15",
@@ -264,6 +367,33 @@
         "correct": false
       }
     ]
+  },
+  {
+    "id": "D15B",
+    "domain": "Self-Monitoring for Meaning",
+    "domainCode": "D015B",
+    "gate": "D",
+    "question": "You read a sentence and it doesn't make sense. What should you do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "reread the sentence",
+        "value": "reread the sentence",
+        "correct": true
+      },
+      {
+        "label": "read faster",
+        "value": "read faster",
+        "correct": false
+      },
+      {
+        "label": "skip to the next page",
+        "value": "skip to the next page",
+        "correct": false
+      }
+    ],
+    "subText": "Think about what a good reader would do."
   },
   {
     "id": "D16",

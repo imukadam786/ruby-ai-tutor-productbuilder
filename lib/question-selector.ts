@@ -80,6 +80,11 @@ const LEVEL_TO_DOMAIN: Record<number, string> = {
   15: "M_GEO", // Geometry — Angles, Area and Volume
   16: "M_STAT", // Statistics — Averages, Charts and Probability
   17: "M018",  // Advanced Problem Solving
+  18: "M013",  // Quadratic Algebra
+  19: "M014",  // Functions and Straight Lines
+  20: "M015",  // Exponentials and Logarithms
+  21: "M016",  // Trigonometric Ratios
+  22: "M017",  // Calculus — Differentiation
 };
 
 // ─── Skill-level domain overrides ─────────────────────────────────────────────
@@ -92,14 +97,8 @@ const SKILL_DOMAIN_OVERRIDE: Record<string, string> = {
   // counting). Correct domain is M002 (Number Recognition and Ordering).
   "L1.T2.A3": "M002",
 
-  // L4.T2.A1 "Compensation strategy for subtraction" — level fallback gives
-  // M004 (Addition). This is a subtraction skill; M005 is correct.
-  "L4.T2.A1": "M005",
-
-  // L4.T3.A1 "Add and subtract three-digit numbers" — level fallback gives
-  // M004 (Addition only). Student has had extensive addition practice via L2
-  // and L4.T1; serving M005 (Subtraction) here balances the mixed operation.
-  "L4.T3.A1": "M005",
+  // L4.T2.A1 and L4.T3.A1 are now in M023 (skill_ids), which takes priority
+  // via DOMAIN_FOR_SKILL — overrides removed.
 };
 
 // Build explicit skill_id → domain map from question bank data
@@ -347,6 +346,22 @@ function buildHint(_q: BankQuestion, domainId: string): string {
     M018: "Break the problem into steps. Identify what you know and what you need to find.",
     M_GEO: "Angles: acute < 90, right = 90, obtuse 90–180, reflex > 180. Area: rectangle = l×w, triangle = ½bh. Volume = l×w×h.",
     M_STAT: "Mean = total ÷ count. Median = middle value when ordered. Mode = most frequent. Probability = favourable ÷ total.",
+    M019: "Doubles: 6+6=12, 7+7=14, 8+8=16. Near-doubles: add or subtract 1. Make-ten: find what you need to reach 10 first.",
+    M020: "Add ones first. If ones sum to 10 or more, write the units and carry 1 ten to the tens column.",
+    M021: "Instead of counting back, count up from the smaller number to the larger. The number of steps is the difference.",
+    M022: "Subtract ones first. If you can't (top digit smaller), borrow 1 ten from the tens column.",
+    M023: "Splitting: break each number into tens and ones, add separately. Compensation: round to a friendly number, then adjust.",
+    M024: "Count by 2s, 5s, or 10s. Find the common difference and add or subtract it each time.",
+    M025: "Use counting strategies for ×2 (doubles), ×5 (count by 5s), ×10 (add a zero). For harder tables, use known facts to derive new ones.",
+    M026: "Commutative: a×b = b×a. Distributive: a×(b+c) = a×b + a×c. Split the second number into tens and ones.",
+    M027: "Multiply each digit in turn from right to left, carrying any tens into the next column.",
+    M028: "Think of division as the inverse of multiplication. For remainders: multiply to find the nearest multiple, then subtract.",
+    M029: "On a number line, count how many equal parts and which part the arrow points to. For equivalence, multiply top and bottom by the same number.",
+    M030: "Adding fractions: find a common denominator first. Multiplying: top × top, bottom × bottom. Dividing: multiply by the reciprocal (flip the second fraction).",
+    M031: "10% = ÷10. 25% = ÷4. 50% = ÷2. Increase: add the percentage. Decrease: subtract the percentage. Unitary method: find the value of 1 unit first.",
+    M032: "Adding a negative = subtracting. Subtracting a negative = adding. Negative × negative = positive. Negative × positive = negative.",
+    M033: "For patterns, find the common difference. To expand brackets, multiply each term inside by the number outside. To factorise, find the HCF of all terms.",
+    M034: "Move all x terms to one side and all numbers to the other. For word problems, define x, write the equation, then solve.",
   };
   return hints[domainId] || "Read the question carefully and break it into smaller steps.";
 }

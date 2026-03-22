@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
+    "domain": "Phonological Awareness â€” Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'feet' and 'fat' rhyme?",
-    "displayWord": "feet \u00e2\u20ac\u00a2 fat",
+    "displayWord": "feet â€¢ fat",
     "answerMode": "choice",
     "choices": [
       {
@@ -21,8 +21,35 @@
     ]
   },
   {
+    "id": "D01B",
+    "domain": "Syllable Segmentation",
+    "domainCode": "D001B",
+    "gate": "A",
+    "question": "How many syllables in \"computer\"?",
+    "displayWord": "computer",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ],
+    "subText": "Say the word quietly and count the beats."
+  },
+  {
     "id": "D02",
-    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
+    "domain": "Phoneme Isolation â€” First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'tip'? Tap the sound below.",
@@ -51,8 +78,38 @@
     "subText": "Tap to hear each sound, then choose the right one."
   },
   {
+    "id": "D02B",
+    "domain": "Full Phoneme Segmentation",
+    "domainCode": "D002B",
+    "gate": "A",
+    "question": "What is the last sound in \"hug\"?",
+    "displayWord": "hug",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "/g/",
+        "value": "/g/",
+        "speech": "/g/",
+        "correct": true
+      },
+      {
+        "label": "/h/",
+        "value": "/h/",
+        "speech": "/h/",
+        "correct": false
+      },
+      {
+        "label": "/u/",
+        "value": "/u/",
+        "speech": "/u/",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound choice, then choose the last sound in the word."
+  },
+  {
     "id": "D03",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
+    "domain": "Letter Sound â€” Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -82,7 +139,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
+    "domain": "Letter Sound â€” Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -192,8 +249,35 @@
     "maxResponseMs": 4000
   },
   {
+    "id": "D10B",
+    "domain": "Phoneme Sequence Blending",
+    "domainCode": "D010B",
+    "gate": "C",
+    "question": "Blend these sounds together: /s/ /t/ /r/ /ay/ — what word do they make?",
+    "displayWord": "/s/ /t/ /r/ /ay/",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "spray",
+        "value": "spray",
+        "correct": false
+      },
+      {
+        "label": "stray",
+        "value": "stray",
+        "correct": true
+      },
+      {
+        "label": "pray",
+        "value": "pray",
+        "correct": false
+      }
+    ],
+    "subText": "Listen to the sounds and blend them into one word."
+  },
+  {
     "id": "D11",
-    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
+    "domain": "Sight Words â€” Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -223,7 +307,29 @@
     "displayWord": "HOBPIG",
     "answerMode": "voice",
     "expectedAnswer": "hobpig",
-    "syllableBreak": "hob\u00c2\u00b7pig"
+    "syllableBreak": "hobÂ·pig"
+  },
+  {
+    "id": "D13B",
+    "domain": "Consonant Blend Encoding",
+    "domainCode": "D013B",
+    "gate": "C",
+    "question": "Spell this word: \"grim\"",
+    "displayWord": "grim",
+    "answerMode": "voice",
+    "expectedAnswer": "g r i m",
+    "voiceHint": "Say each letter clearly, one at a time."
+  },
+  {
+    "id": "D13C",
+    "domain": "Unfamiliar Word Encoding",
+    "domainCode": "D013C",
+    "gate": "C",
+    "question": "Spell this made-up word: \"splan\"",
+    "displayWord": "splan",
+    "answerMode": "voice",
+    "expectedAnswer": "s p l a n",
+    "voiceHint": "Use the sounds to work it out, then say each letter."
   },
   {
     "id": "D14",
@@ -234,7 +340,7 @@
     "displayWord": "REBSOPNID",
     "answerMode": "voice",
     "expectedAnswer": "rebsopnid",
-    "syllableBreak": "reb\u00c2\u00b7sop\u00c2\u00b7nid"
+    "syllableBreak": "rebÂ·sopÂ·nid"
   },
   {
     "id": "D15",
@@ -266,13 +372,40 @@
     ]
   },
   {
+    "id": "D15B",
+    "domain": "Self-Monitoring for Meaning",
+    "domainCode": "D015B",
+    "gate": "D",
+    "question": "A reader says: \"Wait, that word doesn't fit — let me try again.\" What skill is this?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "guessing",
+        "value": "guessing",
+        "correct": false
+      },
+      {
+        "label": "self-monitoring",
+        "value": "self-monitoring",
+        "correct": true
+      },
+      {
+        "label": "skipping",
+        "value": "skipping",
+        "correct": false
+      }
+    ],
+    "subText": "Think about what a good reader would do."
+  },
+  {
     "id": "D16",
     "domain": "Fluency Passage",
     "domainCode": "D016",
     "gate": "D",
     "question": "Here is a short story. Read it to me.",
     "displayWord": "",
-    "passage": "Hugo liked collecting stones. He had a box full of them \u00e2\u20ac\u201d grey ones, brown ones, and one white one with a red line running through it. He found most of them in the riverbed. His mum said no more stones. He found two more on the way home.",
+    "passage": "Hugo liked collecting stones. He had a box full of them â€” grey ones, brown ones, and one white one with a red line running through it. He found most of them in the riverbed. His mum said no more stones. He found two more on the way home.",
     "passageId": "16.39",
     "answerMode": "voice",
     "scoringCriteria": {

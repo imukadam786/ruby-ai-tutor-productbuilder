@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
+    "domain": "Phonological Awareness â€” Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'man' and 'pan' rhyme?",
-    "displayWord": "man \u00e2\u20ac\u00a2 pan",
+    "displayWord": "man â€¢ pan",
     "answerMode": "choice",
     "choices": [
       {
@@ -21,8 +21,35 @@
     ]
   },
   {
+    "id": "D01B",
+    "domain": "Syllable Segmentation",
+    "domainCode": "D001B",
+    "gate": "A",
+    "question": "How many syllables in \"butter\"?",
+    "displayWord": "butter",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      }
+    ],
+    "subText": "Say the word quietly and count the beats."
+  },
+  {
     "id": "D02",
-    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
+    "domain": "Phoneme Isolation â€” First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'run'? Tap the sound below.",
@@ -51,8 +78,35 @@
     "subText": "Tap to hear each sound, then choose the right one."
   },
   {
+    "id": "D02B",
+    "domain": "Full Phoneme Segmentation",
+    "domainCode": "D002B",
+    "gate": "A",
+    "question": "How many sounds are in \"frog\"?",
+    "displayWord": "frog",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": true
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ],
+    "subText": "Count each individual sound — not letters."
+  },
+  {
     "id": "D03",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
+    "domain": "Letter Sound â€” Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -82,7 +136,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
+    "domain": "Letter Sound â€” Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -192,8 +246,35 @@
     "maxResponseMs": 4000
   },
   {
+    "id": "D10B",
+    "domain": "Phoneme Sequence Blending",
+    "domainCode": "D010B",
+    "gate": "C",
+    "question": "Blend these sounds together: /t/ /r/ /ee/ — what word do they make?",
+    "displayWord": "/t/ /r/ /ee/",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "free",
+        "value": "free",
+        "correct": false
+      },
+      {
+        "label": "tree",
+        "value": "tree",
+        "correct": true
+      },
+      {
+        "label": "three",
+        "value": "three",
+        "correct": false
+      }
+    ],
+    "subText": "Listen to the sounds and blend them into one word."
+  },
+  {
     "id": "D11",
-    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
+    "domain": "Sight Words â€” Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -223,7 +304,29 @@
     "displayWord": "PICNIC",
     "answerMode": "voice",
     "expectedAnswer": "picnic",
-    "syllableBreak": "pic\u00c2\u00b7nic"
+    "syllableBreak": "picÂ·nic"
+  },
+  {
+    "id": "D13B",
+    "domain": "Consonant Blend Encoding",
+    "domainCode": "D013B",
+    "gate": "C",
+    "question": "Spell this word: \"hand\"",
+    "displayWord": "hand",
+    "answerMode": "voice",
+    "expectedAnswer": "h a n d",
+    "voiceHint": "Say each letter clearly, one at a time."
+  },
+  {
+    "id": "D13C",
+    "domain": "Unfamiliar Word Encoding",
+    "domainCode": "D013C",
+    "gate": "C",
+    "question": "Spell this made-up word: \"drox\"",
+    "displayWord": "drox",
+    "answerMode": "voice",
+    "expectedAnswer": "d r o x",
+    "voiceHint": "Use the sounds to work it out, then say each letter."
   },
   {
     "id": "D14",
@@ -234,7 +337,7 @@
     "displayWord": "HOWEVER",
     "answerMode": "voice",
     "expectedAnswer": "however",
-    "syllableBreak": "how\u00c2\u00b7ev\u00c2\u00b7er"
+    "syllableBreak": "howÂ·evÂ·er"
   },
   {
     "id": "D15",
@@ -264,6 +367,33 @@
         "correct": false
       }
     ]
+  },
+  {
+    "id": "D15B",
+    "domain": "Self-Monitoring for Meaning",
+    "domainCode": "D015B",
+    "gate": "D",
+    "question": "What does it mean to 'monitor your reading'?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "reading as fast as you can",
+        "value": "reading as fast as you can",
+        "correct": false
+      },
+      {
+        "label": "checking that what you read makes sense",
+        "value": "checking that what you read makes sense",
+        "correct": true
+      },
+      {
+        "label": "reading every word twice",
+        "value": "reading every word twice",
+        "correct": false
+      }
+    ],
+    "subText": "Think about what a good reader would do."
   },
   {
     "id": "D16",

@@ -28,6 +28,8 @@ import { getReadingProfile } from "@/lib/reading-student-model";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
 import { selectMathsTemplate } from "@/lib/template-selector";
+import { detectStuck } from "@/lib/stuck-detector";
+import StuckScreen from "@/components/shared/StuckScreen";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { describeError } from "@/lib/report-generator";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
@@ -43,7 +45,7 @@ import {
   trackPlacementCompleted,
 } from "@/lib/analytics";
 
-type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "stuck" | "complete";
 
 // ─── Report input builder ─────────────────────────────────────────────────────
 // Constructs DiagnosticReportInput from the completed student profile.
@@ -142,6 +144,10 @@ export default function DiagnosticSession() {
 
   // Recent templates — used by selectMathsTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<QuestionTemplate[]>([]);
+
+  // Stuck detection — tracks attempt_count when student last dismissed the stuck screen
+  const stuckDismissedAtRef = useRef(0);
+  const [stuckAttemptCount, setStuckAttemptCount] = useState(0);
 
   useEffect(() => {
     const saved = getStudentProfile();
@@ -325,7 +331,17 @@ export default function DiagnosticSession() {
           setReteachCount(0);
         }
         setCurrentResult(result);
-        setPhase("feedback");
+        const stuckState = detectStuck(
+          updatedMastery.attempt_count,
+          updatedMastery.p_learned ?? 0,
+          stuckDismissedAtRef.current,
+        );
+        if (stuckState.level === "stuck") {
+          setStuckAttemptCount(stuckState.attemptCount);
+          setPhase("stuck");
+        } else {
+          setPhase("feedback");
+        }
       }
     } catch (e) {
       console.error(e);
@@ -339,6 +355,40 @@ export default function DiagnosticSession() {
 
     setLastWasIncorrect(currentResult.next_action === "review_prerequisite");
     setPhase("loading_question");
+  };
+
+  const handleMarkDone = () => {
+    if (!profile || !currentQuestion) return;
+    const skillId = currentQuestion.skill_id;
+    const existingMastery = profile.skill_mastery[skillId] || initSkillMastery(skillId);
+    const assumedMastery = { ...existingMastery, status: "assumed" as const };
+    const profileWithAssumed = {
+      ...profile,
+      skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
+    };
+    const nextSkillId = getNextSkillId(skillId);
+    if (nextSkillId) {
+      trackSkillAdvanced({ subject: "maths", from_skill_id: skillId, to_skill_id: nextSkillId });
+      const advanced = advanceToSkill(profileWithAssumed, nextSkillId);
+      saveStudentProfile(advanced);
+      setProfile(advanced);
+    } else {
+      saveStudentProfile(profileWithAssumed);
+      setProfile(profileWithAssumed);
+    }
+    stuckDismissedAtRef.current = 0;
+    setSkillAttemptCount(0);
+    recentTemplatesRef.current = [];
+    setReteachCount(0);
+    setLastWasIncorrect(false);
+    setPhase(nextSkillId ? "loading_question" : "complete");
+  };
+
+  const handleKeepTrying = () => {
+    if (!currentQuestion || !profile) return;
+    const mastery = profile.skill_mastery[currentQuestion.skill_id];
+    stuckDismissedAtRef.current = mastery?.attempt_count ?? skillAttemptCount;
+    setPhase("feedback");
   };
 
   const handleNextAfterMastered = () => {
@@ -651,6 +701,22 @@ export default function DiagnosticSession() {
             </button>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (phase === "stuck" && currentQuestion) {
+    const skill = getSkillById(currentQuestion.skill_id);
+    return (
+      <div className="flex flex-col h-full bg-gray-50">
+        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <StuckScreen
+          skillTitle={skill?.title ?? "this skill"}
+          subject="maths"
+          attemptCount={stuckAttemptCount}
+          onMarkDone={handleMarkDone}
+          onKeepTrying={handleKeepTrying}
+        />
       </div>
     );
   }

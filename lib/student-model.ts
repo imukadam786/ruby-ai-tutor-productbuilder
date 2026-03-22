@@ -267,5 +267,16 @@ export function completeMathsPlacement(
     last_active: new Date().toISOString(),
   };
   saveStudentProfile(updated);
+  // Supabase: record diagnostic result for analytics (mirrors reading model)
+  void retrySupabase(() => supabase.from("diagnostic_results").insert({
+    student_id: profile.id,
+    subject: "maths",
+    entry_skill_id: result.entrySkillId,
+    entry_level: levelId,
+    auto_completed_skill_ids: result.autoCompletedSkillIds,
+    dominant_errors: [],
+    hard_gate_passed: result.hardGatePassed,
+    completed_at: new Date(result.completedAt).toISOString(),
+  }));
   return updated;
 }

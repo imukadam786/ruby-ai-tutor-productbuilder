@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
+    "domain": "Phonological Awareness â€” Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'ball' and 'bell' rhyme?",
-    "displayWord": "ball \u00e2\u20ac\u00a2 bell",
+    "displayWord": "ball â€¢ bell",
     "answerMode": "choice",
     "choices": [
       {
@@ -21,8 +21,35 @@
     ]
   },
   {
+    "id": "D01B",
+    "domain": "Syllable Segmentation",
+    "domainCode": "D001B",
+    "gate": "A",
+    "question": "How many syllables in \"together\"?",
+    "displayWord": "together",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ],
+    "subText": "Say the word quietly and count the beats."
+  },
+  {
     "id": "D02",
-    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
+    "domain": "Phoneme Isolation â€” First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'yak'? Tap the sound below.",
@@ -51,8 +78,38 @@
     "subText": "Tap to hear each sound, then choose the right one."
   },
   {
+    "id": "D02B",
+    "domain": "Full Phoneme Segmentation",
+    "domainCode": "D002B",
+    "gate": "A",
+    "question": "What is the last sound in \"big\"?",
+    "displayWord": "big",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "/g/",
+        "value": "/g/",
+        "speech": "/g/",
+        "correct": true
+      },
+      {
+        "label": "/b/",
+        "value": "/b/",
+        "speech": "/b/",
+        "correct": false
+      },
+      {
+        "label": "/i/",
+        "value": "/i/",
+        "speech": "/i/",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound choice, then choose the last sound in the word."
+  },
+  {
     "id": "D03",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
+    "domain": "Letter Sound â€” Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -82,7 +139,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
+    "domain": "Letter Sound â€” Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -121,7 +178,7 @@
     "choices": [
       {
         "label": "Sound 1",
-        "speech": "F \u00e2\u20ac\u201d ph makes the F sound, as in phone",
+        "speech": "F â€” ph makes the F sound, as in phone",
         "correct": true
       },
       {
@@ -192,8 +249,35 @@
     "maxResponseMs": 4000
   },
   {
+    "id": "D10B",
+    "domain": "Phoneme Sequence Blending",
+    "domainCode": "D010B",
+    "gate": "C",
+    "question": "Blend these sounds together: /s/ /t/ /r/ /oo/ /ng/ — what word do they make?",
+    "displayWord": "/s/ /t/ /r/ /oo/ /ng/",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "prong",
+        "value": "prong",
+        "correct": false
+      },
+      {
+        "label": "strong",
+        "value": "strong",
+        "correct": true
+      },
+      {
+        "label": "wrong",
+        "value": "wrong",
+        "correct": false
+      }
+    ],
+    "subText": "Listen to the sounds and blend them into one word."
+  },
+  {
     "id": "D11",
-    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
+    "domain": "Sight Words â€” Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -223,7 +307,29 @@
     "displayWord": "BORSIP",
     "answerMode": "voice",
     "expectedAnswer": "borsip",
-    "syllableBreak": "bor\u00c2\u00b7sip"
+    "syllableBreak": "borÂ·sip"
+  },
+  {
+    "id": "D13B",
+    "domain": "Consonant Blend Encoding",
+    "domainCode": "D013B",
+    "gate": "C",
+    "question": "Spell this word: \"flop\"",
+    "displayWord": "flop",
+    "answerMode": "voice",
+    "expectedAnswer": "f l o p",
+    "voiceHint": "Say each letter clearly, one at a time."
+  },
+  {
+    "id": "D13C",
+    "domain": "Unfamiliar Word Encoding",
+    "domainCode": "D013C",
+    "gate": "C",
+    "question": "Spell this made-up word: \"trop\"",
+    "displayWord": "trop",
+    "answerMode": "voice",
+    "expectedAnswer": "t r o p",
+    "voiceHint": "Use the sounds to work it out, then say each letter."
   },
   {
     "id": "D14",
@@ -234,7 +340,7 @@
     "displayWord": "FANRUBDOT",
     "answerMode": "voice",
     "expectedAnswer": "fanrubdot",
-    "syllableBreak": "fan\u00c2\u00b7rub\u00c2\u00b7dot"
+    "syllableBreak": "fanÂ·rubÂ·dot"
   },
   {
     "id": "D15",
@@ -264,6 +370,33 @@
         "correct": false
       }
     ]
+  },
+  {
+    "id": "D15B",
+    "domain": "Self-Monitoring for Meaning",
+    "domainCode": "D015B",
+    "gate": "D",
+    "question": "Which of these shows a reader checking their own understanding?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "\"Does this make sense?\"",
+        "value": "\"Does this make sense?\"",
+        "correct": true
+      },
+      {
+        "label": "\"I'll just keep going\"",
+        "value": "\"I'll just keep going\"",
+        "correct": false
+      },
+      {
+        "label": "\"This is boring\"",
+        "value": "\"This is boring\"",
+        "correct": false
+      }
+    ],
+    "subText": "Think about what a good reader would do."
   },
   {
     "id": "D16",

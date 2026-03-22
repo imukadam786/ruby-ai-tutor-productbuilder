@@ -230,6 +230,8 @@ const READING_ERROR_PLAIN: Record<string, string> = {
   ERR_FLUENCY_HES: "Reads accurately but slowly — hesitates on words they know",
   ERR_MEANING_BLIND: "Reads words correctly but does not understand what the passage means",
   ERR_SELF_MON: "Does not notice or correct errors that make the sentence nonsensical",
+  ERR_SYLLABLE_BREAK: "Struggles to break spoken words into syllables or blend syllables back together",
+  ERR_ENCODE_BLEND: "Can read blend patterns but cannot reproduce them when spelling — phoneme-to-grapheme mapping is not yet secure",
 };
 
 /** Translates a raw ERR_* code (or generic slug) to a parent-readable description. */

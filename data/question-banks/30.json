@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness \u00e2\u20ac\u201d Rhyme",
+    "domain": "Phonological Awareness â€” Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'red' and 'rod' rhyme?",
-    "displayWord": "red \u00e2\u20ac\u00a2 rod",
+    "displayWord": "red â€¢ rod",
     "answerMode": "choice",
     "choices": [
       {
@@ -21,8 +21,35 @@
     ]
   },
   {
+    "id": "D01B",
+    "domain": "Syllable Segmentation",
+    "domainCode": "D001B",
+    "gate": "A",
+    "question": "How many syllables in \"dinosaur\"?",
+    "displayWord": "dinosaur",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ],
+    "subText": "Say the word quietly and count the beats."
+  },
+  {
     "id": "D02",
-    "domain": "Phoneme Isolation \u00e2\u20ac\u201d First Sound",
+    "domain": "Phoneme Isolation â€” First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'ten'? Tap the sound below.",
@@ -51,8 +78,38 @@
     "subText": "Tap to hear each sound, then choose the right one."
   },
   {
+    "id": "D02B",
+    "domain": "Full Phoneme Segmentation",
+    "domainCode": "D002B",
+    "gate": "A",
+    "question": "What is the last sound in \"bed\"?",
+    "displayWord": "bed",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "/d/",
+        "value": "/d/",
+        "speech": "/d/",
+        "correct": true
+      },
+      {
+        "label": "/b/",
+        "value": "/b/",
+        "speech": "/b/",
+        "correct": false
+      },
+      {
+        "label": "/e/",
+        "value": "/e/",
+        "speech": "/e/",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound choice, then choose the last sound in the word."
+  },
+  {
     "id": "D03",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Consonants",
+    "domain": "Letter Sound â€” Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -82,7 +139,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound \u00e2\u20ac\u201d Vowels",
+    "domain": "Letter Sound â€” Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -192,8 +249,35 @@
     "maxResponseMs": 4000
   },
   {
+    "id": "D10B",
+    "domain": "Phoneme Sequence Blending",
+    "domainCode": "D010B",
+    "gate": "C",
+    "question": "Blend these sounds together: /t/ /h/ /r/ /ow/ /n/ — what word do they make?",
+    "displayWord": "/t/ /h/ /r/ /ow/ /n/",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "groan",
+        "value": "groan",
+        "correct": false
+      },
+      {
+        "label": "thrown",
+        "value": "thrown",
+        "correct": true
+      },
+      {
+        "label": "known",
+        "value": "known",
+        "correct": false
+      }
+    ],
+    "subText": "Listen to the sounds and blend them into one word."
+  },
+  {
     "id": "D11",
-    "domain": "Sight Words \u00e2\u20ac\u201d Automaticity",
+    "domain": "Sight Words â€” Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -223,7 +307,29 @@
     "displayWord": "ZELBIT",
     "answerMode": "voice",
     "expectedAnswer": "zelbit",
-    "syllableBreak": "zel\u00c2\u00b7bit"
+    "syllableBreak": "zelÂ·bit"
+  },
+  {
+    "id": "D13B",
+    "domain": "Consonant Blend Encoding",
+    "domainCode": "D013B",
+    "gate": "C",
+    "question": "Spell this word: \"drip\"",
+    "displayWord": "drip",
+    "answerMode": "voice",
+    "expectedAnswer": "d r i p",
+    "voiceHint": "Say each letter clearly, one at a time."
+  },
+  {
+    "id": "D13C",
+    "domain": "Unfamiliar Word Encoding",
+    "domainCode": "D013C",
+    "gate": "C",
+    "question": "Spell this made-up word: \"spiv\"",
+    "displayWord": "spiv",
+    "answerMode": "voice",
+    "expectedAnswer": "s p i v",
+    "voiceHint": "Use the sounds to work it out, then say each letter."
   },
   {
     "id": "D14",
@@ -234,7 +340,7 @@
     "displayWord": "ZELBITROP",
     "answerMode": "voice",
     "expectedAnswer": "zelbitrop",
-    "syllableBreak": "zel\u00c2\u00b7bit\u00c2\u00b7rop"
+    "syllableBreak": "zelÂ·bitÂ·rop"
   },
   {
     "id": "D15",
@@ -264,6 +370,33 @@
         "correct": false
       }
     ]
+  },
+  {
+    "id": "D15B",
+    "domain": "Self-Monitoring for Meaning",
+    "domainCode": "D015B",
+    "gate": "D",
+    "question": "You read 'The bird fright off the branch.' Something is wrong. What should you do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "go back and reread the tricky word",
+        "value": "go back and reread the tricky word",
+        "correct": true
+      },
+      {
+        "label": "read the next sentence",
+        "value": "read the next sentence",
+        "correct": false
+      },
+      {
+        "label": "sound out every letter",
+        "value": "sound out every letter",
+        "correct": false
+      }
+    ],
+    "subText": "Think about what a good reader would do."
   },
   {
     "id": "D16",
