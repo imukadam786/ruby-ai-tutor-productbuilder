@@ -173,6 +173,7 @@ export interface AnswerSubmission {
   student_steps: string;
   expected_answer: string;
   used_hint: boolean;
+  attempt_number: number; // 1 = first attempt on this skill, 2+ = repeated incorrect
   language?: string;
   working_image?: string; // base64 data URL of handwritten working photo
 }

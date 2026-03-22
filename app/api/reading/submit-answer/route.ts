@@ -133,7 +133,45 @@ export async function POST(req: NextRequest) {
       ? `\nIMPORTANT: Write your "feedback" and "recovery_explanation" values in ${submission.language}. All other JSON fields remain in English.\n`
       : "";
 
-    const prompt = `You are Ruby, a literacy diagnostic tutor for primary school students (Grade R–3).${langInstruction}
+    // ── 3-tier LLM decision ───────────────────────────────────────────────────
+    // Tier 1 — correct:             static praise, 0 API calls
+    // Tier 2 — first incorrect:     pre-authored recovery tip, 0 API calls
+    // Tier 3 — repeated incorrect:  LLM deep re-teaching, 1 API call
+    const PRAISE = [
+      "Great work! That's exactly right.",
+      "Well done! Keep it up.",
+      "Correct! You're doing brilliantly.",
+      "Excellent! That's the right answer.",
+      "Spot on! Nice thinking.",
+    ];
+
+    let aiDiagnosis: {
+      is_correct: boolean;
+      error_type: string;
+      feedback: string;
+      recovery_explanation: string;
+    };
+
+    if (isCorrect) {
+      // Tier 1 — no LLM call
+      const praise = PRAISE[Math.floor(Math.random() * PRAISE.length)];
+      aiDiagnosis = {
+        is_correct: true,
+        error_type: "correct",
+        feedback: praise,
+        recovery_explanation: "",
+      };
+    } else if (submission.attempt_number <= 1) {
+      // Tier 2 — first incorrect: pre-authored tip, no LLM call
+      aiDiagnosis = {
+        is_correct: false,
+        error_type: preClassified,
+        feedback: `Not quite — the answer is "${submission.expected_answer}". Let's try another one.`,
+        recovery_explanation: skill.recovery_strategy,
+      };
+    } else {
+      // Tier 3 — repeated incorrect: LLM personalised re-teaching
+      const prompt = `You are Ruby, a literacy diagnostic tutor for primary school students (Grade R–3).${langInstruction}
 
 A student is working on this reading/literacy skill:
 SKILL: ${skill.title}
@@ -146,10 +184,9 @@ STUDENT'S ANSWER: ${submission.student_answer}
 USED HINT: ${submission.used_hint}
 ${phonemeWordNote}
 
-Analyse the student's response and provide diagnostic feedback.
+The student has answered incorrectly more than once. Provide a warm, personalised explanation to help them understand.
 
 For error_type, use ONLY one of these exact values:
-- "correct" (student answered correctly)
 - "ERR_PHONEME_CONF" (confuses similar sounds, e.g. /p/ vs /b/)
 - "ERR_SOUND_RECALL" (cannot retrieve a letter's sound)
 - "ERR_BLEND_FAIL" (can say phonemes separately but cannot blend into a word)
@@ -165,41 +202,31 @@ For error_type, use ONLY one of these exact values:
 
 Respond in this exact JSON format (no markdown, raw JSON only):
 {
-  "is_correct": ${isCorrect},
+  "is_correct": false,
   "error_type": "one of the values above",
-  "feedback": "Warm, encouraging 1-2 sentence feedback appropriate for a young learner. If correct, celebrate. If wrong, gently explain what went wrong.",
-  "recovery_explanation": "A brief, simple explanation or tip to help the student improve on this skill."
-}
+  "feedback": "Warm, encouraging 1-2 sentence feedback for a young learner explaining what went wrong.",
+  "recovery_explanation": "A brief, simple tip to help the student improve on this specific skill."
+}`;
 
-Keep language simple, warm, and age-appropriate for a primary school child.`;
+      const aiResponse = await getOpenAI().chat.completions.create({
+        model: OPENAI_MODEL,
+        max_tokens: 512,
+        messages: [{ role: "user", content: prompt }],
+      }, { signal: AbortSignal.timeout(20_000) });
 
-    const aiResponse = await getOpenAI().chat.completions.create({
-      model: OPENAI_MODEL,
-      max_tokens: 512,
-      messages: [{ role: "user", content: prompt }],
-    }, { signal: AbortSignal.timeout(20_000) });
+      const aiText = aiResponse.choices[0]?.message?.content ?? "";
 
-    const aiText = aiResponse.choices[0]?.message?.content ?? "";
-
-    let aiDiagnosis: {
-      is_correct: boolean;
-      error_type: string;
-      feedback: string;
-      recovery_explanation: string;
-    };
-
-    try {
-      const jsonMatch = aiText.match(/\{[\s\S]*\}/);
-      aiDiagnosis = JSON.parse(jsonMatch ? jsonMatch[0] : aiText);
-    } catch {
-      aiDiagnosis = {
-        is_correct: isCorrect,
-        error_type: preClassified,
-        feedback: isCorrect
-          ? "Well done! Your answer is correct!"
-          : `Your answer was "${submission.student_answer}" but the expected answer is "${submission.expected_answer}". Let's keep practising!`,
-        recovery_explanation: skill.recovery_strategy,
-      };
+      try {
+        const jsonMatch = aiText.match(/\{[\s\S]*\}/);
+        aiDiagnosis = JSON.parse(jsonMatch ? jsonMatch[0] : aiText);
+      } catch {
+        aiDiagnosis = {
+          is_correct: false,
+          error_type: preClassified,
+          feedback: `Your answer was "${submission.student_answer}" but the expected answer is "${submission.expected_answer}". Let's keep practising!`,
+          recovery_explanation: skill.recovery_strategy,
+        };
+      }
     }
 
     const finalErrorType = sanitiseErrorType(aiDiagnosis.error_type, preClassified);

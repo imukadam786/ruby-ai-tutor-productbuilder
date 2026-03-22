@@ -152,6 +152,7 @@ export interface ReadingAnswerSubmission {
   student_steps: string;
   expected_answer: string;
   used_hint: boolean;
+  attempt_number: number; // 1 = first attempt on this skill, 2+ = repeated incorrect
   language?: string;
 }
 

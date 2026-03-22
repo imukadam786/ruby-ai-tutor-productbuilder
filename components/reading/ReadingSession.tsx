@@ -293,6 +293,7 @@ export default function ReadingSession() {
           student_steps: steps,
           expected_answer: currentQuestion.expected_answer,
           used_hint: usedHint,
+          attempt_number: skillAttemptCount + 1,
           language,
         }),
       });
