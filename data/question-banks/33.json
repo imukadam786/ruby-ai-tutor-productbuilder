@@ -194,6 +194,32 @@
     ]
   },
   {
+    "id": "D05B",
+    "domain": "Digraph Recognition",
+    "answerMode": "audio-tap",
+    "gate": "A",
+    "question": "What sound do these two letters make together?",
+    "subText": "Tap to hear each sound, then choose the right one.",
+    "displayWord": "ng",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "speech": "ng, as in ring",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "speech": "N, as in net",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "speech": "G, as in go",
+        "correct": false
+      }
+    ]
+  },
+  {
     "id": "D06",
     "domain": "Consonant Blend Decoding",
     "answerMode": "voice",

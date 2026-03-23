@@ -9,12 +9,6 @@ import { describeError } from "@/lib/report-generator";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { DIAGNOSTIC_TASKS } from "@/lib/reading-diagnostic-tasks";
 
-// ── Passage used for D16, D17, D18 ───────────────────────────────────────────
-const FLUENCY_PASSAGE =
-  "Sam ran to the old red barn at the end of the lane. His dog Max ran with him. " +
-  "They liked to play in the soft hay. The sun was hot, but the barn was cool and shady. " +
-  "Sam sat down to rest. Max lay next to him and gave his hand a big lick.";
-
 // ── Task definitions (hardcoded — no API calls for generation) ────────────────
 
 type AnswerMode = "choice" | "voice" | "flash_choice" | "audio-tap";
@@ -49,10 +43,10 @@ interface Task {
 // cannot reliably recognise — redesign as keyboard-tap spelling is a future iteration.
 // Grade 4+ is capped at 17 — students beyond this advance through the skill tree.
 const GRADE_TASK_IDS: Record<number, string[]> = {
-  1: ["D01","D01B","D02","D02B","D03","D04","D05","D06","D07"],
-  2: ["D01","D01B","D02","D02B","D03","D04","D05","D06","D07","D08","D09","D10"],
-  3: ["D01","D01B","D02","D02B","D03","D04","D05","D06","D07","D08","D09","D10","D10B","D11","D12"],
-  4: ["D01","D01B","D02","D02B","D03","D04","D05","D06","D07","D08","D09","D10","D10B","D11","D12","D13","D13B"],
+  1: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07"],
+  2: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07","D08","D09","D10"],
+  3: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07","D08","D09","D10","D10B","D11","D12"],
+  4: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07","D08","D09","D10","D10B","D11","D12","D13","D13B"],
 };
 
 // ── Dynamic task loader ───────────────────────────────────────────────────────
@@ -320,14 +314,12 @@ function levenshtein(a: string, b: string): number {
   return prev[n];
 }
 
-function scoreVoiceResponse(transcript: string, expected: string, taskId: string): { correct: boolean; score: number } {
+function scoreVoiceResponse(transcript: string, expected: string): { correct: boolean; score: number } {
   const t = normalize(transcript);
   const e = normalize(expected);
   if (!t) return { correct: false, score: 0 };
   // No expected answer (e.g. passage tasks) — caller must handle separately
   if (!e) return { correct: false, score: 0 };
-  // Comprehension tasks: any non-empty response counts (evaluated by context, not exact match)
-  if (taskId === "D17" || taskId === "D18") return { correct: true, score: 1 };
   // Word-level matching: split transcript into words so "there" does not falsely match "the".
   // For single-word targets, find the best-matching word in the transcript.
   const words = transcript.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(Boolean);
@@ -683,7 +675,7 @@ export default function ReadingDiagnosticPlacement({
       advanceTask({ taskId: task.id, correct, score, response: t, errorType: correct ? "correct" : TASK_ERROR_MAP[task.id] });
       return;
     }
-    const { correct, score } = scoreVoiceResponse(t, task.expectedAnswer ?? "", task.id);
+    const { correct, score } = scoreVoiceResponse(t, task.expectedAnswer ?? "");
     advanceTask({ taskId: task.id, correct, score, response: t, errorType: correct ? "correct" : TASK_ERROR_MAP[task.id] });
   }, [submitting, transcript, task, stopVoice, advanceTask]);
 

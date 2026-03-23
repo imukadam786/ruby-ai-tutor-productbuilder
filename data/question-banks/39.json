@@ -194,6 +194,32 @@
     ]
   },
   {
+    "id": "D05B",
+    "domain": "Digraph Recognition",
+    "answerMode": "audio-tap",
+    "gate": "A",
+    "question": "What sound do these two letters make together?",
+    "subText": "Tap to hear each sound, then choose the right one.",
+    "displayWord": "ck",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "speech": "ck, as in clock",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "speech": "C, as in cat",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "speech": "K, as in kite",
+        "correct": false
+      }
+    ]
+  },
+  {
     "id": "D06",
     "domain": "Consonant Blend Decoding",
     "answerMode": "voice",

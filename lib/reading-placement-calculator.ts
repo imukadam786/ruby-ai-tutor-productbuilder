@@ -28,7 +28,7 @@ function skillsBefore(entrySkillId: string): string[] {
 
 // ─── Diagnostic task scan order ───────────────────────────────────────────────
 const TASK_SCAN_ORDER = [
-  "D01", "D01B", "D02", "D02B", "D03", "D04", "D05", "D06", "D07", "D08",
+  "D01", "D01B", "D02", "D02B", "D03", "D04", "D05", "D05B", "D06", "D07", "D08",
   "D09", "D10", "D10B", "D11", "D12",
   "D13", "D13B", "D13C", "D14", "D15", "D15B", "D16", "D17", "D18",
 ];

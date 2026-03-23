@@ -132,6 +132,16 @@ export const DIAGNOSTIC_TASKS: DiagnosticTask[] = [
     items: [{ id: "D05-01", prompt: "What sound do these two letters make together?", expected: "correct" }],
   },
   {
+    id: "D05B",
+    domain: "Digraph Recognition — Two-Letter Sounds",
+    mode: "audio-tap",
+    description: "Second digraph recognition item — different digraph from D05",
+    instruction: "Tap each sound to hear it, then choose the right one.",
+    passThreshold: 0.8,
+    mapsToSkill: "R2.T2.A1",
+    items: [{ id: "D05B-01", prompt: "What sound do these two letters make together?", expected: "correct" }],
+  },
+  {
     id: "D06",
     domain: "Consonant Blend Decoding",
     mode: "voice",
