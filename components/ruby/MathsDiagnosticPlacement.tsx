@@ -53,6 +53,35 @@ function adaptBankTask(raw: RawBankTask, block: DiagnosticBlock): Task {
   return { ...raw, block };
 }
 
+// ── Domain → default error code when a question is answered incorrectly ───────
+// Used as fallback when errorSignals[] is not set on the bank task.
+const DOMAIN_ERROR_MAP: Record<string, string> = {
+  M001: "ERR_COUNT_OFF_BY_ONE",   // Counting
+  M002: "ERR_SEQ_RULE",           // Number sequences
+  M003: "ERR_FACE_VALUE",         // Place value
+  M020: "ERR_ADD_NEAR_MISS",      // 2-digit addition
+  M004: "ERR_ADD_NEAR_MISS",      // Addition strategies
+  M005: "ERR_SUB_ADD",            // Subtraction strategies
+  M006: "ERR_MULT_ADD",           // Multiplication
+  M028: "ERR_WRONG_STRATEGY",     // Division strategies
+  M007: "ERR_PART_WHOLE",         // Decomposition
+  M029: "ERR_FRACTION_FORM",      // Fractions – number line
+  M008: "ERR_INVERT",             // Fraction operations
+  M031: "ERR_WRONG_OP",           // Percentages
+  M009: "ERR_RATIO_ADD",          // Ratio & proportion
+  M010: "ERR_BODMAS_ORDER",       // BODMAS
+  M032: "ERR_INTEGER_SIGN",       // Negative number operations
+  M033: "ERR_SEQ_RULE",           // Number patterns / expanding brackets
+  M011: "ERR_LIKE_TERMS",         // Algebraic expressions
+  M012: "ERR_OP_ERROR",           // Linear equations
+  M034: "ERR_OP_ERROR",           // Advanced linear equations
+  M013: "ERR_FACTOR_WRONG",       // Quadratic factorisation
+  M014: "ERR_FEATURE_SWAP",       // Functions & lines
+  M015: "ERR_LOG_BASE",           // Exponentials & logs
+  M016: "ERR_TRIG_SWAP",          // Trigonometry
+  M017: "ERR_POWER_RULE",         // Calculus
+};
+
 // ── 12-gate structure — one gate per SA CAPS grade level ──────────────────────
 // Each gate covers 2 diagnostic domains in curriculum order.
 // The diagnostic loads a 3-gate window around the student's grade so questions
@@ -106,7 +135,7 @@ function normaliseAnswer(s: string): string {
 
 function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; errorType?: string } {
   const a0 = answers[0]?.trim() ?? "";
-  const errorType = task.errorSignals?.[0] ?? "conceptual_gap";
+  const errorType = task.errorSignals?.[0] ?? DOMAIN_ERROR_MAP[task.domain] ?? "conceptual_gap";
 
   if (task.answerMode === "numeric") {
     const correct = a0 !== "" && Number(a0) === Number(task.expectedAnswer);
@@ -461,7 +490,7 @@ export default function MathsDiagnosticPlacement({
     (choice: Choice) => {
       if (submitting || selectedChoice || !task) return;
       setSelectedChoice(choice.value);
-      const errorType = choice.correct ? undefined : "conceptual_gap";
+      const errorType = choice.correct ? undefined : (DOMAIN_ERROR_MAP[task.domain] ?? "conceptual_gap");
       setTimeout(() => {
         advanceTask({
           domain: task.domain,

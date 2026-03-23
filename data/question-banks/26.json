@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness â€” Rhyme",
+    "domain": "Phonological Awareness – Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'cat' and 'cup' rhyme?",
-    "displayWord": "cat â€¢ cup",
+    "displayWord": "cat • cup",
     "answerMode": "choice",
     "choices": [
       {
@@ -49,7 +49,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation â€” First Sound",
+    "domain": "Phoneme Isolation – First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'leg'? Tap the sound below.",
@@ -109,7 +109,7 @@
   },
   {
     "id": "D03",
-    "domain": "Letter Sound â€” Consonants",
+    "domain": "Letter Sound – Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -139,7 +139,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound â€” Vowels",
+    "domain": "Letter Sound – Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -178,7 +178,7 @@
     "choices": [
       {
         "label": "Sound 1",
-        "speech": "K â€” one sound, as in duck",
+        "speech": "K – one sound, as in duck",
         "correct": true
       },
       {
@@ -231,10 +231,10 @@
     "domainCode": "D009",
     "gate": "C",
     "question": "Read this word out loud for me. The silent e changes the vowel sound.",
-    "displayWord": "WIFE",
+    "displayWord": "TAPE",
     "answerMode": "voice",
-    "expectedAnswer": "wife",
-    "vowelPattern": "long i"
+    "expectedAnswer": "tape",
+    "vowelPattern": "long a"
   },
   {
     "id": "D10",
@@ -242,9 +242,9 @@
     "domainCode": "D010",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "REAM",
+    "displayWord": "SEAL",
     "answerMode": "voice",
-    "expectedAnswer": "ream",
+    "expectedAnswer": "seal",
     "vowelTeam": "ea",
     "maxResponseMs": 4000
   },
@@ -277,7 +277,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words â€” Automaticity",
+    "domain": "Sight Words – Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -293,10 +293,10 @@
     "domainCode": "D012",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "DARK",
+    "displayWord": "TERM",
     "answerMode": "voice",
-    "expectedAnswer": "dark",
-    "rControlledPattern": "ar"
+    "expectedAnswer": "term",
+    "rControlledPattern": "er"
   },
   {
     "id": "D13",

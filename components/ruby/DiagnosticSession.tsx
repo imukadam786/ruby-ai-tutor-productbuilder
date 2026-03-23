@@ -18,6 +18,8 @@ import {
   advanceToSkill,
   recordAttempt,
   completeMathsPlacement,
+  linkStudentProfileToAuth,
+  hydrateStudentProfileFromSupabase,
 } from "@/lib/student-model";
 import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
@@ -50,6 +52,26 @@ type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | 
 // ─── Report input builder ─────────────────────────────────────────────────────
 // Constructs DiagnosticReportInput from the completed student profile.
 // Called after placement completes; runs client-side since profile is in localStorage.
+
+// Maps maths skill tree level (1–22) to the equivalent school grade band.
+// Derived from GATE_PASSED_ENTRY in MathsDiagnosticPlacement:
+//   Gate 0→L2 (Gr1), Gate 1→L4 (Gr2), Gate 2→L5 (Gr3), Gate 3→L8 (Gr4),
+//   Gate 4→L11 (Gr5), Gate 5→L12 (Gr6), Gate 6→L13 (Gr7), Gate 7→L14 (Gr8),
+//   Gate 8→L17 (Gr9), Gate 9→L19 (Gr10), Gate 10→L21 (Gr11), Gate 11→L22 (Gr12)
+function skillLevelToGradeEquiv(level: number): number {
+  if (level <= 3)  return 1;
+  if (level <= 4)  return 2;
+  if (level <= 7)  return 3;
+  if (level <= 10) return 4;
+  if (level <= 11) return 5;
+  if (level <= 12) return 6;
+  if (level <= 13) return 7;
+  if (level <= 16) return 8;
+  if (level <= 18) return 9;
+  if (level <= 20) return 10;
+  if (level <= 21) return 11;
+  return 12;
+}
 
 function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
   const placement = profile.placement!;
@@ -93,12 +115,14 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
   const entrySkill = getSkillById(placement.entrySkillId);
   const placementSkill = entrySkill?.title ?? placement.entrySkillId;
 
+  const gradeEquiv = skillLevelToGradeEquiv(placement.entryLevel);
+
   return {
     subject: "maths",
     studentName: profile.name.split(" ")[0],
     studentGrade: profile.grade,
-    workingLevel: `Grade ${placement.entryLevel}`,
-    gradeLevelGap: profile.grade - placement.entryLevel,
+    workingLevel: `Grade ${gradeEquiv}`,
+    gradeLevelGap: profile.grade - gradeEquiv,
     questionsAnalysed: placement.tasks.filter((t) => !t.is_probe).length,
     correctCount: placement.tasks.filter((t) => !t.is_probe && t.correct).length,
     domainScores,
@@ -114,7 +138,8 @@ function readOnboarding(): { name: string; grade: number } {
     if (!raw) return { name: "Student", grade: 7 };
     const data = JSON.parse(raw);
     const name = ((data.name as string) || "Student").split(" ")[0];
-    const grade = parseInt(data.grade as string) || 7;
+    const parsed = parseInt(data.grade as string, 10);
+    const grade = !isNaN(parsed) && parsed >= 1 && parsed <= 12 ? parsed : 7;
     return { name, grade };
   } catch {
     return { name: "Student", grade: 7 };
@@ -150,9 +175,10 @@ export default function DiagnosticSession() {
   const [stuckAttemptCount, setStuckAttemptCount] = useState(0);
 
   useEffect(() => {
-    const saved = getStudentProfile();
-    if (saved) {
+    function initWithProfile(saved: import("@/types/ruby").StudentProfile) {
       identifyStudent({ id: saved.id, name: saved.name, grade: saved.grade });
+      // Keep auth link fresh — fire-and-forget, non-blocking
+      void linkStudentProfileToAuth(saved.id);
       if (saved.placementCompleted) {
         trackSessionStarted({
           subject: "maths",
@@ -164,20 +190,29 @@ export default function DiagnosticSession() {
       const scanned = scannedMastery !== saved.skill_mastery ? { ...saved, skill_mastery: scannedMastery } : saved;
       if (scanned !== saved) saveStudentProfile(scanned);
       setProfile(scanned);
-      // Restore attempt count from persisted mastery so mid-session tab-close doesn't
-      // reset question difficulty back to "attempt 1" on resume.
       const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
       setSkillAttemptCount(restoredAttemptCount);
       const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scannedMastery) : null;
       if (reviewSkill) setPendingReviewSkillId(reviewSkill);
       setPhase("loading_question");
+    }
+
+    const saved = getStudentProfile();
+    if (saved) {
+      initWithProfile(saved);
     } else {
-      // Auto-create profile from onboarding data — no setup screen needed
-      const { name, grade } = readOnboarding();
-      const newProfile = createStudentProfile(name, grade);
-      identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
-      setProfile(newProfile);
-      // phase stays at loading_question; placement gate will intercept
+      // localStorage cleared — try to restore from Supabase before creating a new profile
+      hydrateStudentProfileFromSupabase().then((restored) => {
+        if (restored) {
+          initWithProfile(restored);
+        } else {
+          const { name, grade } = readOnboarding();
+          const newProfile = createStudentProfile(name, grade);
+          identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
+          setProfile(newProfile);
+          // phase stays at loading_question; placement gate will intercept
+        }
+      });
     }
   }, []);
 
@@ -451,7 +486,7 @@ export default function DiagnosticSession() {
         apiFetch("/api/reports/generate", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ input }),
+          body: JSON.stringify({ input, studentId: updatedProfile.id }),
         }).catch((err) =>
           console.error("[DiagnosticComplete] Report generation failed silently:", err)
         );

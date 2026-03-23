@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness â€” Rhyme",
+    "domain": "Phonological Awareness – Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'feet' and 'fat' rhyme?",
-    "displayWord": "feet â€¢ fat",
+    "displayWord": "feet • fat",
     "answerMode": "choice",
     "choices": [
       {
@@ -49,7 +49,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation â€” First Sound",
+    "domain": "Phoneme Isolation – First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'tip'? Tap the sound below.",
@@ -109,7 +109,7 @@
   },
   {
     "id": "D03",
-    "domain": "Letter Sound â€” Consonants",
+    "domain": "Letter Sound – Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -139,7 +139,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound â€” Vowels",
+    "domain": "Letter Sound – Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -231,10 +231,10 @@
     "domainCode": "D009",
     "gate": "C",
     "question": "Read this word out loud for me. The silent e changes the vowel sound.",
-    "displayWord": "WAFE",
+    "displayWord": "DOSE",
     "answerMode": "voice",
-    "expectedAnswer": "wafe",
-    "vowelPattern": "long a"
+    "expectedAnswer": "dose",
+    "vowelPattern": "long o"
   },
   {
     "id": "D10",
@@ -242,10 +242,10 @@
     "domainCode": "D010",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "DOAM",
+    "displayWord": "FEET",
     "answerMode": "voice",
-    "expectedAnswer": "doam",
-    "vowelTeam": "oa",
+    "expectedAnswer": "feet",
+    "vowelTeam": "ee",
     "maxResponseMs": 4000
   },
   {
@@ -277,7 +277,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words â€” Automaticity",
+    "domain": "Sight Words – Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -293,10 +293,10 @@
     "domainCode": "D012",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "GORK",
+    "displayWord": "TWIRL",
     "answerMode": "voice",
-    "expectedAnswer": "gork",
-    "rControlledPattern": "or"
+    "expectedAnswer": "twirl",
+    "rControlledPattern": "ir"
   },
   {
     "id": "D13",
@@ -405,7 +405,7 @@
     "gate": "D",
     "question": "Here is a short story. Read it to me.",
     "displayWord": "",
-    "passage": "Hugo liked collecting stones. He had a box full of them â€” grey ones, brown ones, and one white one with a red line running through it. He found most of them in the riverbed. His mum said no more stones. He found two more on the way home.",
+    "passage": "Hugo liked collecting stones. He had a box full of them – grey ones, brown ones, and one white one with a red line running through it. He found most of them in the riverbed. His mum said no more stones. He found two more on the way home.",
     "passageId": "16.39",
     "answerMode": "voice",
     "scoringCriteria": {

@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness â€” Rhyme",
+    "domain": "Phonological Awareness – Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'blue' and 'blow' rhyme?",
-    "displayWord": "blue â€¢ blow",
+    "displayWord": "blue • blow",
     "answerMode": "choice",
     "choices": [
       {
@@ -49,7 +49,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation â€” First Sound",
+    "domain": "Phoneme Isolation – First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'mud'? Tap the sound below.",
@@ -109,7 +109,7 @@
   },
   {
     "id": "D03",
-    "domain": "Letter Sound â€” Consonants",
+    "domain": "Letter Sound – Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -139,7 +139,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound â€” Vowels",
+    "domain": "Letter Sound – Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -231,10 +231,10 @@
     "domainCode": "D009",
     "gate": "C",
     "question": "Read this word out loud for me. The silent e changes the vowel sound.",
-    "displayWord": "GOME",
+    "displayWord": "DIVE",
     "answerMode": "voice",
-    "expectedAnswer": "gome",
-    "vowelPattern": "long o"
+    "expectedAnswer": "dive",
+    "vowelPattern": "long i"
   },
   {
     "id": "D10",
@@ -242,10 +242,10 @@
     "domainCode": "D010",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "ZAIG",
+    "displayWord": "DEEP",
     "answerMode": "voice",
-    "expectedAnswer": "zaig",
-    "vowelTeam": "ai",
+    "expectedAnswer": "deep",
+    "vowelTeam": "ee",
     "maxResponseMs": 4000
   },
   {
@@ -277,7 +277,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words â€” Automaticity",
+    "domain": "Sight Words – Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -293,10 +293,10 @@
     "domainCode": "D012",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "VERD",
+    "displayWord": "SKIRT",
     "answerMode": "voice",
-    "expectedAnswer": "verd",
-    "rControlledPattern": "er"
+    "expectedAnswer": "skirt",
+    "rControlledPattern": "ir"
   },
   {
     "id": "D13",
@@ -405,7 +405,7 @@
     "gate": "D",
     "question": "Here is a short story. Read it to me.",
     "displayWord": "",
-    "passage": "Gran kept a jar of boiled sweets on the high shelf in the kitchen. They were always the same â€” yellow and round and very hard. She gave one to each grandchild when they came to visit. They always lasted the whole bus journey home.",
+    "passage": "Gran kept a jar of boiled sweets on the high shelf in the kitchen. They were always the same – yellow and round and very hard. She gave one to each grandchild when they came to visit. They always lasted the whole bus journey home.",
     "passageId": "16.37",
     "answerMode": "voice",
     "scoringCriteria": {

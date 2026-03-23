@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness â€” Rhyme",
+    "domain": "Phonological Awareness – Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'hot' and 'pot' rhyme?",
-    "displayWord": "hot â€¢ pot",
+    "displayWord": "hot • pot",
     "answerMode": "choice",
     "choices": [
       {
@@ -49,7 +49,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation â€” First Sound",
+    "domain": "Phoneme Isolation – First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'lip'? Tap the sound below.",
@@ -106,7 +106,7 @@
   },
   {
     "id": "D03",
-    "domain": "Letter Sound â€” Consonants",
+    "domain": "Letter Sound – Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -136,7 +136,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound â€” Vowels",
+    "domain": "Letter Sound – Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -175,7 +175,7 @@
     "choices": [
       {
         "label": "Sound 1",
-        "speech": "F â€” ph makes the F sound, as in phone",
+        "speech": "F – ph makes the F sound, as in phone",
         "correct": true
       },
       {
@@ -228,10 +228,10 @@
     "domainCode": "D009",
     "gate": "C",
     "question": "Read this word out loud for me. The silent e changes the vowel sound.",
-    "displayWord": "HOLE",
+    "displayWord": "CUTE",
     "answerMode": "voice",
-    "expectedAnswer": "hole",
-    "vowelPattern": "long o"
+    "expectedAnswer": "cute",
+    "vowelPattern": "long u"
   },
   {
     "id": "D10",
@@ -239,10 +239,10 @@
     "domainCode": "D010",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "ROAD",
+    "displayWord": "BAIT",
     "answerMode": "voice",
-    "expectedAnswer": "road",
-    "vowelTeam": "oa",
+    "expectedAnswer": "bait",
+    "vowelTeam": "ai",
     "maxResponseMs": 4000
   },
   {
@@ -274,7 +274,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words â€” Automaticity",
+    "domain": "Sight Words – Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -290,10 +290,10 @@
     "domainCode": "D012",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "HER",
+    "displayWord": "PARK",
     "answerMode": "voice",
-    "expectedAnswer": "her",
-    "rControlledPattern": "er"
+    "expectedAnswer": "park",
+    "rControlledPattern": "ar"
   },
   {
     "id": "D13",

@@ -33,6 +33,10 @@ import {
   scanAndMarkNeedsReview,
   pickNeedsReviewSkill,
   stampReviewedAt,
+  linkReadingProfileToAuth,
+  hydrateReadingProfileFromSupabase,
+  getReadingUsedRefs,
+  markReadingQuestionUsed,
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
 import { selectReadingTemplate } from "@/lib/template-selector";
@@ -102,7 +106,7 @@ function buildReadingReportInput(
     studentName: profile.name.split(" ")[0],
     studentGrade: profile.grade,
     workingLevel: `Reading Level ${entryLevel}`,
-    gradeLevelGap: profile.grade - entryLevel - 1,
+    gradeLevelGap: profile.grade - entryLevel,
     questionsAnalysed: total,
     correctCount: result.tasks.filter((t) => t.correct).length,
     domainScores,
@@ -112,13 +116,18 @@ function buildReadingReportInput(
   };
 }
 
+function parseGrade(raw: unknown, fallback: number): number {
+  const parsed = parseInt(raw as string, 10);
+  return !isNaN(parsed) && parsed >= 1 && parsed <= 12 ? parsed : fallback;
+}
+
 async function readOnboardingWithFallback(): Promise<{ name: string; grade: number }> {
   try {
     const raw = localStorage.getItem("onboardingData");
     if (raw) {
       const data = JSON.parse(raw);
       const name = ((data.name as string) || "").split(" ")[0];
-      const grade = parseInt(data.grade as string) || 3;
+      const grade = parseGrade(data.grade, 3);
       if (name) return { name, grade };
     }
   } catch { /* fall through */ }
@@ -128,10 +137,10 @@ async function readOnboardingWithFallback(): Promise<{ name: string; grade: numb
     const { supabase } = await import("@/lib/supabase");
     const { data: { user } } = await supabase.auth.getUser();
     if (user) {
-      const { data } = await supabase.from("users").select("name, grade").eq("id", user.id).single();
-      if (data?.name) {
-        const name = (data.name as string).split(" ")[0];
-        const grade = parseInt(data.grade as string) || 3;
+      const { data } = await supabase.from("users").select("full_name, grade").eq("id", user.id).single();
+      if (data?.full_name) {
+        const name = (data.full_name as string).split(" ")[0];
+        const grade = parseGrade(data.grade, 3);
         return { name, grade };
       }
     }
@@ -179,9 +188,10 @@ export default function ReadingSession() {
   }, [phase, currentQuestion?.id]);
 
   useEffect(() => {
-    const saved = getReadingProfile();
-    if (saved) {
+    function initWithProfile(saved: import("@/types/reading").ReadingStudentProfile) {
       identifyStudent({ id: saved.id, name: saved.name, grade: saved.grade });
+      // Keep auth link fresh — fire-and-forget, non-blocking
+      void linkReadingProfileToAuth(saved.id);
       if (saved.placementCompleted) {
         trackSessionStarted({
           subject: "reading",
@@ -191,20 +201,29 @@ export default function ReadingSession() {
       }
       const scanned = saved.placementCompleted ? scanAndMarkNeedsReview(saved) : saved;
       setProfile(scanned);
-      // Restore attempt count from persisted mastery so mid-session tab-close doesn't
-      // reset question difficulty back to "attempt 1" on resume.
       const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
       setSkillAttemptCount(restoredAttemptCount);
       const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scanned) : null;
       if (reviewSkill) setPendingReviewSkillId(reviewSkill);
       setPhase("loading_question");
+    }
+
+    const saved = getReadingProfile();
+    if (saved) {
+      initWithProfile(saved);
     } else {
-      // Auto-create from onboarding — no setup screen needed
-      readOnboardingWithFallback().then(({ name, grade }) => {
-        const newProfile = createReadingProfile(name, grade);
-        identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
-        setProfile(newProfile);
-        // placement gate will intercept before loading_question fires
+      // localStorage cleared — try to restore from Supabase before creating a new profile
+      hydrateReadingProfileFromSupabase().then((restored) => {
+        if (restored) {
+          initWithProfile(restored);
+        } else {
+          readOnboardingWithFallback().then(({ name, grade }) => {
+            const newProfile = createReadingProfile(name, grade);
+            identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
+            setProfile(newProfile);
+            // placement gate will intercept before loading_question fires
+          });
+        }
       });
     }
   }, []);
@@ -214,6 +233,7 @@ export default function ReadingSession() {
       setPhase("loading_question");
       setStatusMessage("Generating your question...");
       try {
+        const used_refs = profileRef.current ? getReadingUsedRefs(profileRef.current, skillId) : [];
         const res = await apiFetch("/api/reading/generate-question", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -224,10 +244,16 @@ export default function ReadingSession() {
             include_hint: attemptNum > 1,
             is_correct,
             error_type: errorType,
+            used_refs,
           }),
         });
         if (!res.ok) throw new Error("Failed to generate question");
         const q: ReadingGeneratedQuestion = await res.json();
+        // Mark this pool ref as used so it isn't served again until the pool resets
+        if (q.used_ref && profileRef.current) {
+          const updated = markReadingQuestionUsed(profileRef.current, skillId, q.used_ref);
+          setProfile(updated);
+        }
         setCurrentQuestion(q);
         setPhase("question");
       } catch {
@@ -283,6 +309,18 @@ export default function ReadingSession() {
         current_skill_id: updated.current_skill_id,
         current_level: updated.current_level,
       });
+
+      // Fire-and-forget report generation — failure must never block the student
+      try {
+        const rInput = buildReadingReportInput(updated, result);
+        apiFetch("/api/reports/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ input: rInput, studentId: updated.id }),
+        }).catch((err) => console.error("[ReadingPlacement] Report generation failed silently:", err));
+      } catch (err) {
+        console.error("[ReadingPlacement] Report input build failed:", err);
+      }
     },
     [profile]
   );
@@ -607,6 +645,7 @@ export default function ReadingSession() {
     return (
       <ReadingDiagnosticPlacement
         studentName={profile.name}
+        studentGrade={profile.grade}
         onComplete={handlePlacementComplete}
         onViewReport={handleViewReport}
       />

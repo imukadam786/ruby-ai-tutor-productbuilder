@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness â€” Rhyme",
+    "domain": "Phonological Awareness – Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'chest' and 'nest' rhyme?",
-    "displayWord": "chest â€¢ nest",
+    "displayWord": "chest • nest",
     "answerMode": "choice",
     "choices": [
       {
@@ -49,7 +49,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation â€” First Sound",
+    "domain": "Phoneme Isolation – First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'den'? Tap the sound below.",
@@ -106,7 +106,7 @@
   },
   {
     "id": "D03",
-    "domain": "Letter Sound â€” Consonants",
+    "domain": "Letter Sound – Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -136,7 +136,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound â€” Vowels",
+    "domain": "Letter Sound – Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -228,10 +228,10 @@
     "domainCode": "D009",
     "gate": "C",
     "question": "Read this word out loud for me. The silent e changes the vowel sound.",
-    "displayWord": "DUNE",
+    "displayWord": "ROPE",
     "answerMode": "voice",
-    "expectedAnswer": "dune",
-    "vowelPattern": "long u"
+    "expectedAnswer": "rope",
+    "vowelPattern": "long o"
   },
   {
     "id": "D10",
@@ -239,10 +239,10 @@
     "domainCode": "D010",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "BOOM",
+    "displayWord": "ROAD",
     "answerMode": "voice",
-    "expectedAnswer": "boom",
-    "vowelTeam": "oo",
+    "expectedAnswer": "road",
+    "vowelTeam": "oa",
     "maxResponseMs": 4000
   },
   {
@@ -274,7 +274,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words â€” Automaticity",
+    "domain": "Sight Words – Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -290,10 +290,10 @@
     "domainCode": "D012",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "CORD",
+    "displayWord": "HERD",
     "answerMode": "voice",
-    "expectedAnswer": "cord",
-    "rControlledPattern": "or"
+    "expectedAnswer": "herd",
+    "rControlledPattern": "er"
   },
   {
     "id": "D13",

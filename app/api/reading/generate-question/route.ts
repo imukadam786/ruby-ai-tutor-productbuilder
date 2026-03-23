@@ -73,6 +73,26 @@ const DIGRAPH_WORD_CHOICES: { digraph: string; correct: string; distractors: [st
   { digraph: "ph", correct: "phone", distractors: ["bone", "tone"]  },
   { digraph: "ph", correct: "photo", distractors: ["pony", "polo"]  },
   { digraph: "ph", correct: "graph", distractors: ["grab", "gram"]  },
+  // extended entries
+  { digraph: "sh", correct: "shade", distractors: ["blade", "made"] },
+  { digraph: "sh", correct: "shift", distractors: ["drift", "lift"] },
+  { digraph: "sh", correct: "shout", distractors: ["trout", "pout"] },
+  { digraph: "sh", correct: "shrub", distractors: ["grub",  "club"] },
+  { digraph: "ch", correct: "chick", distractors: ["trick", "brick"]},
+  { digraph: "ch", correct: "chart", distractors: ["dart",  "part"] },
+  { digraph: "ch", correct: "chess", distractors: ["dress", "press"]},
+  { digraph: "ch", correct: "chuck", distractors: ["truck", "stuck"]},
+  { digraph: "th", correct: "cloth", distractors: ["blot",  "slot"] },
+  { digraph: "th", correct: "broth", distractors: ["blot",  "trot"] },
+  { digraph: "th", correct: "teeth", distractors: ["feet",  "meet"] },
+  { digraph: "wh", correct: "white", distractors: ["bite",  "kite"] },
+  { digraph: "wh", correct: "whale", distractors: ["tale",  "bale"] },
+  { digraph: "ck", correct: "clock", distractors: ["block", "flock"]},
+  { digraph: "ck", correct: "trick", distractors: ["brick", "click"]},
+  { digraph: "ck", correct: "black", distractors: ["slack", "stack"]},
+  { digraph: "ng", correct: "bring", distractors: ["brim",  "brit"] },
+  { digraph: "ng", correct: "sting", distractors: ["stem",  "step"] },
+  { digraph: "ng", correct: "strong",distractors: ["strop", "strob"]},
 ];
 
 // R2.T2.A2 — Blend: correct word starts with the consonant blend
@@ -117,22 +137,94 @@ const RHYME_CHOICES: { target: string; correct: string; distractors: [string, st
   { target: "book",  correct: "look",  distractors: ["run",   "sit"]   },
   { target: "star",  correct: "car",   distractors: ["moon",  "fish"]  },
   { target: "cold",  correct: "bold",  distractors: ["warm",  "soft"]  },
+  // extended pool
+  { target: "fog",   correct: "log",   distractors: ["hat",   "cup"]   },
+  { target: "cap",   correct: "map",   distractors: ["dog",   "run"]   },
+  { target: "bit",   correct: "sit",   distractors: ["hop",   "map"]   },
+  { target: "bug",   correct: "mug",   distractors: ["bat",   "hop"]   },
+  { target: "wet",   correct: "net",   distractors: ["cup",   "dog"]   },
+  { target: "fan",   correct: "ran",   distractors: ["dog",   "cup"]   },
+  { target: "pin",   correct: "bin",   distractors: ["hot",   "cap"]   },
+  { target: "tall",  correct: "wall",  distractors: ["run",   "dog"]   },
+  { target: "meet",  correct: "feet",  distractors: ["hat",   "cup"]   },
+  { target: "rope",  correct: "hope",  distractors: ["hat",   "cup"]   },
+  { target: "tell",  correct: "bell",  distractors: ["run",   "hat"]   },
+  { target: "sand",  correct: "hand",  distractors: ["cup",   "dog"]   },
+  { target: "heat",  correct: "meat",  distractors: ["book",  "run"]   },
+  { target: "clock", correct: "block", distractors: ["ship",  "dog"]   },
+  { target: "cry",   correct: "fly",   distractors: ["sun",   "hat"]   },
+  { target: "blow",  correct: "snow",  distractors: ["cup",   "hat"]   },
+  { target: "train", correct: "chain", distractors: ["book",  "cup"]   },
+  { target: "stone", correct: "bone",  distractors: ["book",  "cup"]   },
+  { target: "sleep", correct: "deep",  distractors: ["hat",   "cup"]   },
+  { target: "white", correct: "bite",  distractors: ["book",  "cup"]   },
+  { target: "coat",  correct: "boat",  distractors: ["hat",   "sun"]   },
+  { target: "town",  correct: "brown", distractors: ["sun",   "hat"]   },
+  { target: "clap",  correct: "map",   distractors: ["dog",   "cup"]   },
+  { target: "spring",correct: "ring",  distractors: ["book",  "sun"]   },
+  { target: "play",  correct: "day",   distractors: ["sun",   "dog"]   },
+  { target: "mad",   correct: "glad",  distractors: ["cup",   "run"]   },
+  { target: "mix",   correct: "fix",   distractors: ["dog",   "hat"]   },
+  { target: "best",  correct: "nest",  distractors: ["run",   "cup"]   },
+  { target: "top",   correct: "drop",  distractors: ["sun",   "hat"]   },
+  { target: "jump",  correct: "pump",  distractors: ["dog",   "run"]   },
+  { target: "chair", correct: "bear",  distractors: ["book",  "cup"]   },
+  { target: "found", correct: "round", distractors: ["hat",   "dog"]   },
+  { target: "green", correct: "seen",  distractors: ["cup",   "hat"]   },
+  { target: "bright",correct: "night", distractors: ["cup",   "sun"]   },
 ];
 
 // R1.T2.A2 — Syllable: student picks the word with the target number of syllables
 const SYLLABLE_CHOICES: { count: number; correct: string; distractors: [string, string] }[] = [
-  { count: 1, correct: "cat",      distractors: ["rabbit",   "umbrella"] },
-  { count: 2, correct: "rabbit",   distractors: ["cat",      "together"] },
-  { count: 3, correct: "together", distractors: ["rabbit",   "cat"]      },
-  { count: 1, correct: "jump",     distractors: ["happy",    "remember"] },
-  { count: 2, correct: "puppy",    distractors: ["fish",     "computer"] },
-  { count: 3, correct: "umbrella", distractors: ["bird",     "garden"]   },
-  { count: 1, correct: "bath",     distractors: ["table",    "tomorrow"] },
-  { count: 2, correct: "window",   distractors: ["run",      "remember"] },
-  { count: 3, correct: "computer", distractors: ["puppy",    "dog"]      },
-  { count: 1, correct: "hot",      distractors: ["button",   "umbrella"] },
-  { count: 2, correct: "garden",   distractors: ["cat",      "computer"] },
-  { count: 3, correct: "remember", distractors: ["happy",    "fish"]     },
+  { count: 1, correct: "cat",       distractors: ["rabbit",    "umbrella"]  },
+  { count: 2, correct: "rabbit",    distractors: ["cat",       "together"]  },
+  { count: 3, correct: "together",  distractors: ["rabbit",    "cat"]       },
+  { count: 1, correct: "jump",      distractors: ["happy",     "remember"]  },
+  { count: 2, correct: "puppy",     distractors: ["fish",      "computer"]  },
+  { count: 3, correct: "umbrella",  distractors: ["bird",      "garden"]    },
+  { count: 1, correct: "bath",      distractors: ["table",     "tomorrow"]  },
+  { count: 2, correct: "window",    distractors: ["run",       "remember"]  },
+  { count: 3, correct: "computer",  distractors: ["puppy",     "dog"]       },
+  { count: 1, correct: "hot",       distractors: ["button",    "umbrella"]  },
+  { count: 2, correct: "garden",    distractors: ["cat",       "computer"]  },
+  { count: 3, correct: "remember",  distractors: ["happy",     "fish"]      },
+  // extended pool
+  { count: 1, correct: "snake",     distractors: ["yellow",    "library"]   },
+  { count: 2, correct: "yellow",    distractors: ["snake",     "library"]   },
+  { count: 3, correct: "library",   distractors: ["snake",     "yellow"]    },
+  { count: 1, correct: "flag",      distractors: ["open",      "beautiful"] },
+  { count: 2, correct: "open",      distractors: ["flag",      "beautiful"] },
+  { count: 3, correct: "beautiful", distractors: ["open",      "flag"]      },
+  { count: 1, correct: "house",     distractors: ["sister",    "another"]   },
+  { count: 2, correct: "sister",    distractors: ["house",     "another"]   },
+  { count: 3, correct: "another",   distractors: ["house",     "sister"]    },
+  { count: 1, correct: "train",     distractors: ["morning",   "adventure"] },
+  { count: 2, correct: "morning",   distractors: ["train",     "adventure"] },
+  { count: 3, correct: "adventure", distractors: ["morning",   "train"]     },
+  { count: 1, correct: "drum",      distractors: ["begin",     "amazing"]   },
+  { count: 2, correct: "begin",     distractors: ["drum",      "amazing"]   },
+  { count: 3, correct: "amazing",   distractors: ["drum",      "begin"]     },
+  { count: 1, correct: "cheese",    distractors: ["lucky",     "fantastic"] },
+  { count: 2, correct: "lucky",     distractors: ["cheese",    "fantastic"] },
+  { count: 3, correct: "fantastic", distractors: ["cheese",    "lucky"]     },
+  { count: 1, correct: "phone",     distractors: ["lion",      "tomorrow"]  },
+  { count: 2, correct: "lion",      distractors: ["phone",     "tomorrow"]  },
+  { count: 3, correct: "tomorrow",  distractors: ["phone",     "lion"]      },
+  { count: 1, correct: "fly",       distractors: ["pencil",    "elephant"]  },
+  { count: 2, correct: "pencil",    distractors: ["fly",       "elephant"]  },
+  { count: 3, correct: "elephant",  distractors: ["pencil",    "fly"]       },
+  { count: 1, correct: "sport",     distractors: ["table",     "family"]    },
+  { count: 2, correct: "table",     distractors: ["sport",     "family"]    },
+  { count: 3, correct: "family",    distractors: ["sport",     "table"]     },
+  { count: 1, correct: "street",    distractors: ["butter",    "however"]   },
+  { count: 2, correct: "butter",    distractors: ["street",    "however"]   },
+  { count: 3, correct: "however",   distractors: ["butter",    "street"]    },
+  { count: 1, correct: "slide",     distractors: ["mirror",    "important"] },
+  { count: 2, correct: "mirror",    distractors: ["slide",     "important"] },
+  { count: 3, correct: "important", distractors: ["mirror",    "slide"]     },
+  { count: 1, correct: "book",      distractors: ["monkey",    "exciting"]  },
+  { count: 2, correct: "monkey",    distractors: ["book",      "exciting"]  },
+  { count: 3, correct: "exciting",  distractors: ["monkey",    "book"]      },
 ];
 
 // R1.T3.A1 — Phoneme Isolation: student picks the word that shares the onset or coda
@@ -160,6 +252,35 @@ const PHONEME_ISOLATION_CHOICES: {
   { type: "coda",  target: "ham",  correct: "dim",  distractors: ["hot",  "cat"]  },
   { type: "coda",  target: "fix",  correct: "box",  distractors: ["hat",  "run"]  },
   { type: "coda",  target: "bell", correct: "fill", distractors: ["bat",  "top"]  },
+  // extended onset
+  { type: "onset", target: "cat",  correct: "cap",  distractors: ["sun",  "mop"]  },
+  { type: "onset", target: "dog",  correct: "dip",  distractors: ["cat",  "run"]  },
+  { type: "onset", target: "pig",  correct: "pot",  distractors: ["bat",  "cup"]  },
+  { type: "onset", target: "log",  correct: "lid",  distractors: ["bat",  "cup"]  },
+  { type: "onset", target: "map",  correct: "mud",  distractors: ["cup",  "dog"]  },
+  { type: "onset", target: "bin",  correct: "bad",  distractors: ["cup",  "dog"]  },
+  { type: "onset", target: "cup",  correct: "cod",  distractors: ["sun",  "bat"]  },
+  { type: "onset", target: "sit",  correct: "sob",  distractors: ["hat",  "run"]  },
+  { type: "onset", target: "gap",  correct: "got",  distractors: ["sun",  "bat"]  },
+  { type: "onset", target: "win",  correct: "web",  distractors: ["cup",  "dog"]  },
+  { type: "onset", target: "hit",  correct: "hop",  distractors: ["bat",  "cup"]  },
+  { type: "onset", target: "run",  correct: "rug",  distractors: ["hat",  "dog"]  },
+  { type: "onset", target: "jet",  correct: "jug",  distractors: ["bat",  "cup"]  },
+  { type: "onset", target: "kit",  correct: "kid",  distractors: ["sun",  "mop"]  },
+  { type: "onset", target: "zip",  correct: "zap",  distractors: ["cup",  "bat"]  },
+  // extended coda
+  { type: "coda",  target: "map",  correct: "cup",  distractors: ["dog",  "sun"]  },
+  { type: "coda",  target: "sit",  correct: "bat",  distractors: ["dog",  "run"]  },
+  { type: "coda",  target: "run",  correct: "hen",  distractors: ["cat",  "top"]  },
+  { type: "coda",  target: "bed",  correct: "mad",  distractors: ["top",  "cup"]  },
+  { type: "coda",  target: "got",  correct: "hot",  distractors: ["cup",  "bin"]  },
+  { type: "coda",  target: "bag",  correct: "big",  distractors: ["cup",  "hot"]  },
+  { type: "coda",  target: "mud",  correct: "sad",  distractors: ["top",  "cup"]  },
+  { type: "coda",  target: "win",  correct: "sun",  distractors: ["hot",  "cap"]  },
+  { type: "coda",  target: "hop",  correct: "cup",  distractors: ["bat",  "dog"]  },
+  { type: "coda",  target: "set",  correct: "bit",  distractors: ["dog",  "run"]  },
+  { type: "coda",  target: "dim",  correct: "swim", distractors: ["bat",  "cup"]  },
+  { type: "coda",  target: "kick", correct: "sock", distractors: ["cup",  "bat"]  },
 ];
 
 // R1.T3.A2 — Segmentation & Blending: two sub-types
@@ -169,18 +290,48 @@ const PHONEME_SEGMENT_CHOICES: {
   correct: string;
   distractors: [string, string];
 }[] = [
-  { type: "count", count: 2, correct: "go",   distractors: ["cat",  "stop"] },
-  { type: "count", count: 3, correct: "cat",  distractors: ["go",   "stop"] },
-  { type: "count", count: 4, correct: "stop", distractors: ["cat",  "go"]   },
-  { type: "count", count: 2, correct: "up",   distractors: ["bat",  "frog"] },
-  { type: "count", count: 3, correct: "bat",  distractors: ["up",   "frog"] },
-  { type: "count", count: 4, correct: "frog", distractors: ["bat",  "up"]   },
-  { type: "count", count: 3, correct: "sun",  distractors: ["me",   "clap"] },
-  { type: "count", count: 2, correct: "me",   distractors: ["sun",  "clap"] },
-  { type: "count", count: 4, correct: "clap", distractors: ["sun",  "me"]   },
-  { type: "count", count: 3, correct: "hop",  distractors: ["at",   "flat"] },
-  { type: "count", count: 2, correct: "at",   distractors: ["hop",  "flat"] },
-  { type: "count", count: 4, correct: "flat", distractors: ["hop",  "at"]   },
+  { type: "count", count: 2, correct: "go",    distractors: ["cat",   "stop"]  },
+  { type: "count", count: 3, correct: "cat",   distractors: ["go",    "stop"]  },
+  { type: "count", count: 4, correct: "stop",  distractors: ["cat",   "go"]    },
+  { type: "count", count: 2, correct: "up",    distractors: ["bat",   "frog"]  },
+  { type: "count", count: 3, correct: "bat",   distractors: ["up",    "frog"]  },
+  { type: "count", count: 4, correct: "frog",  distractors: ["bat",   "up"]    },
+  { type: "count", count: 3, correct: "sun",   distractors: ["me",    "clap"]  },
+  { type: "count", count: 2, correct: "me",    distractors: ["sun",   "clap"]  },
+  { type: "count", count: 4, correct: "clap",  distractors: ["sun",   "me"]    },
+  { type: "count", count: 3, correct: "hop",   distractors: ["at",    "flat"]  },
+  { type: "count", count: 2, correct: "at",    distractors: ["hop",   "flat"]  },
+  { type: "count", count: 4, correct: "flat",  distractors: ["hop",   "at"]    },
+  // extended pool
+  { type: "count", count: 2, correct: "no",    distractors: ["dog",   "trip"]  },
+  { type: "count", count: 3, correct: "dog",   distractors: ["no",    "trip"]  },
+  { type: "count", count: 4, correct: "trip",  distractors: ["dog",   "no"]    },
+  { type: "count", count: 2, correct: "ice",   distractors: ["red",   "skin"]  },
+  { type: "count", count: 3, correct: "red",   distractors: ["ice",   "skin"]  },
+  { type: "count", count: 4, correct: "skin",  distractors: ["red",   "ice"]   },
+  { type: "count", count: 2, correct: "I",     distractors: ["him",   "jump"]  },
+  { type: "count", count: 3, correct: "him",   distractors: ["I",     "jump"]  },
+  { type: "count", count: 4, correct: "jump",  distractors: ["him",   "I"]     },
+  { type: "count", count: 3, correct: "sit",   distractors: ["my",    "hand"]  },
+  { type: "count", count: 2, correct: "my",    distractors: ["sit",   "hand"]  },
+  { type: "count", count: 4, correct: "hand",  distractors: ["sit",   "my"]    },
+  { type: "count", count: 3, correct: "mud",   distractors: ["a",     "grim"]  },
+  { type: "count", count: 2, correct: "be",    distractors: ["mud",   "grim"]  },
+  { type: "count", count: 4, correct: "grim",  distractors: ["mud",   "be"]    },
+  { type: "count", count: 3, correct: "map",   distractors: ["two",   "belt"]  },
+  { type: "count", count: 2, correct: "two",   distractors: ["map",   "belt"]  },
+  { type: "count", count: 4, correct: "belt",  distractors: ["map",   "two"]   },
+  { type: "count", count: 3, correct: "job",   distractors: ["I",     "snap"]  },
+  { type: "count", count: 4, correct: "snap",  distractors: ["job",   "I"]     },
+  { type: "count", count: 3, correct: "cup",   distractors: ["ow",    "step"]  },
+  { type: "count", count: 2, correct: "ow",    distractors: ["cup",   "step"]  },
+  { type: "count", count: 4, correct: "step",  distractors: ["cup",   "ow"]    },
+  { type: "count", count: 3, correct: "bin",   distractors: ["so",    "plop"]  },
+  { type: "count", count: 2, correct: "so",    distractors: ["bin",   "plop"]  },
+  { type: "count", count: 4, correct: "plop",  distractors: ["bin",   "so"]    },
+  { type: "count", count: 3, correct: "hen",   distractors: ["he",    "slim"]  },
+  { type: "count", count: 2, correct: "he",    distractors: ["hen",   "slim"]  },
+  { type: "count", count: 4, correct: "slim",  distractors: ["hen",   "he"]    },
 ];
 const PHONEME_BLEND_CHOICES: {
   type: "blend";
@@ -188,14 +339,48 @@ const PHONEME_BLEND_CHOICES: {
   correct: string;
   distractors: [string, string];
 }[] = [
-  { type: "blend", segments: "k - a - t", correct: "cat",  distractors: ["bat",  "cup"]  },
-  { type: "blend", segments: "s - u - n", correct: "sun",  distractors: ["fun",  "bun"]  },
-  { type: "blend", segments: "d - o - g", correct: "dog",  distractors: ["log",  "fog"]  },
-  { type: "blend", segments: "r - e - d", correct: "red",  distractors: ["bed",  "led"]  },
-  { type: "blend", segments: "h - o - p", correct: "hop",  distractors: ["top",  "pop"]  },
-  { type: "blend", segments: "p - i - n", correct: "pin",  distractors: ["bin",  "tin"]  },
-  { type: "blend", segments: "m - a - p", correct: "map",  distractors: ["cap",  "tap"]  },
-  { type: "blend", segments: "b - u - g", correct: "bug",  distractors: ["dug",  "mug"]  },
+  { type: "blend", segments: "k - a - t",     correct: "cat",   distractors: ["bat",   "cup"]   },
+  { type: "blend", segments: "s - u - n",     correct: "sun",   distractors: ["fun",   "bun"]   },
+  { type: "blend", segments: "d - o - g",     correct: "dog",   distractors: ["log",   "fog"]   },
+  { type: "blend", segments: "r - e - d",     correct: "red",   distractors: ["bed",   "led"]   },
+  { type: "blend", segments: "h - o - p",     correct: "hop",   distractors: ["top",   "pop"]   },
+  { type: "blend", segments: "p - i - n",     correct: "pin",   distractors: ["bin",   "tin"]   },
+  { type: "blend", segments: "m - a - p",     correct: "map",   distractors: ["cap",   "tap"]   },
+  { type: "blend", segments: "b - u - g",     correct: "bug",   distractors: ["dug",   "mug"]   },
+  // extended pool
+  { type: "blend", segments: "f - i - sh",    correct: "fish",  distractors: ["dish",  "wish"]  },
+  { type: "blend", segments: "ch - i - p",    correct: "chip",  distractors: ["ship",  "tip"]   },
+  { type: "blend", segments: "sh - o - p",    correct: "shop",  distractors: ["stop",  "chop"]  },
+  { type: "blend", segments: "th - i - n",    correct: "thin",  distractors: ["win",   "chin"]  },
+  { type: "blend", segments: "w - e - b",     correct: "web",   distractors: ["bed",   "wet"]   },
+  { type: "blend", segments: "j - o - g",     correct: "jog",   distractors: ["log",   "fog"]   },
+  { type: "blend", segments: "n - u - t",     correct: "nut",   distractors: ["but",   "gut"]   },
+  { type: "blend", segments: "v - a - n",     correct: "van",   distractors: ["can",   "pan"]   },
+  { type: "blend", segments: "z - i - p",     correct: "zip",   distractors: ["dip",   "hip"]   },
+  { type: "blend", segments: "w - i - g",     correct: "wig",   distractors: ["big",   "dig"]   },
+  { type: "blend", segments: "l - e - g",     correct: "leg",   distractors: ["beg",   "peg"]   },
+  { type: "blend", segments: "t - u - b",     correct: "tub",   distractors: ["cub",   "rub"]   },
+  { type: "blend", segments: "f - o - g",     correct: "fog",   distractors: ["dog",   "log"]   },
+  { type: "blend", segments: "g - u - m",     correct: "gum",   distractors: ["rum",   "sum"]   },
+  { type: "blend", segments: "s - a - d",     correct: "sad",   distractors: ["bad",   "mad"]   },
+  { type: "blend", segments: "h - e - n",     correct: "hen",   distractors: ["den",   "ten"]   },
+  { type: "blend", segments: "c - o - t",     correct: "cot",   distractors: ["dot",   "got"]   },
+  { type: "blend", segments: "r - i - p",     correct: "rip",   distractors: ["dip",   "tip"]   },
+  { type: "blend", segments: "t - i - n",     correct: "tin",   distractors: ["bin",   "fin"]   },
+  { type: "blend", segments: "p - o - t",     correct: "pot",   distractors: ["cot",   "hot"]   },
+  { type: "blend", segments: "c - u - p",     correct: "cup",   distractors: ["pup",   "sup"]   },
+  { type: "blend", segments: "b - i - t",     correct: "bit",   distractors: ["fit",   "hit"]   },
+  { type: "blend", segments: "s - i - t",     correct: "sit",   distractors: ["bit",   "wit"]   },
+  { type: "blend", segments: "d - i - m",     correct: "dim",   distractors: ["him",   "rim"]   },
+  { type: "blend", segments: "g - o - t",     correct: "got",   distractors: ["cot",   "hot"]   },
+  { type: "blend", segments: "w - a - x",     correct: "wax",   distractors: ["tax",   "max"]   },
+  { type: "blend", segments: "y - a - m",     correct: "yam",   distractors: ["jam",   "ham"]   },
+  { type: "blend", segments: "c - a - b",     correct: "cab",   distractors: ["dab",   "tab"]   },
+  { type: "blend", segments: "s - o - b",     correct: "sob",   distractors: ["bob",   "mob"]   },
+  { type: "blend", segments: "l - i - p",     correct: "lip",   distractors: ["dip",   "tip"]   },
+  { type: "blend", segments: "m - o - p",     correct: "mop",   distractors: ["hop",   "top"]   },
+  { type: "blend", segments: "r - u - g",     correct: "rug",   distractors: ["bug",   "mug"]   },
+  { type: "blend", segments: "n - a - p",     correct: "nap",   distractors: ["cap",   "tap"]   },
 ];
 
 // R1.T3.A3 — Phoneme Manipulation: deletion and substitution (natural language, no slash notation)
@@ -203,29 +388,63 @@ const PHONEME_MANIP_CHOICES: {
   type: "delete" | "substitute";
   target: string;
   position: "first" | "last";
-  to?: string;    // for substitute only — the replacement letter name
+  to?: string;
   correct: string;
   distractors: [string, string];
 }[] = [
   // Deletion — remove first sound
-  { type: "delete",     target: "bat",  position: "first",            correct: "at",  distractors: ["hat",  "fat"]  },
-  { type: "delete",     target: "stop", position: "first",            correct: "top", distractors: ["hop",  "pop"]  },
-  { type: "delete",     target: "slip", position: "first",            correct: "lip", distractors: ["dip",  "tip"]  },
-  { type: "delete",     target: "snag", position: "first",            correct: "nag", distractors: ["bag",  "tag"]  },
-  { type: "delete",     target: "grip", position: "first",            correct: "rip", distractors: ["dip",  "hip"]  },
+  { type: "delete",     target: "bat",  position: "first",           correct: "at",  distractors: ["hat",  "fat"]  },
+  { type: "delete",     target: "stop", position: "first",           correct: "top", distractors: ["hop",  "pop"]  },
+  { type: "delete",     target: "slip", position: "first",           correct: "lip", distractors: ["dip",  "tip"]  },
+  { type: "delete",     target: "snag", position: "first",           correct: "nag", distractors: ["bag",  "tag"]  },
+  { type: "delete",     target: "grip", position: "first",           correct: "rip", distractors: ["dip",  "hip"]  },
   // Deletion — remove last sound
-  { type: "delete",     target: "cats", position: "last",             correct: "cat", distractors: ["bat",  "hat"]  },
-  { type: "delete",     target: "runs", position: "last",             correct: "run", distractors: ["sun",  "fun"]  },
-  { type: "delete",     target: "dogs", position: "last",             correct: "dog", distractors: ["log",  "fog"]  },
+  { type: "delete",     target: "cats", position: "last",            correct: "cat", distractors: ["bat",  "hat"]  },
+  { type: "delete",     target: "runs", position: "last",            correct: "run", distractors: ["sun",  "fun"]  },
+  { type: "delete",     target: "dogs", position: "last",            correct: "dog", distractors: ["log",  "fog"]  },
   // Substitution — change first sound
-  { type: "substitute", target: "bat",  position: "first", to: "s",   correct: "sat", distractors: ["hat",  "mat"]  },
-  { type: "substitute", target: "hot",  position: "first", to: "d",   correct: "dot", distractors: ["pot",  "lot"]  },
-  { type: "substitute", target: "pin",  position: "first", to: "b",   correct: "bin", distractors: ["tin",  "sin"]  },
-  { type: "substitute", target: "fan",  position: "first", to: "r",   correct: "ran", distractors: ["can",  "pan"]  },
+  { type: "substitute", target: "bat",  position: "first", to: "s",  correct: "sat", distractors: ["hat",  "mat"]  },
+  { type: "substitute", target: "hot",  position: "first", to: "d",  correct: "dot", distractors: ["pot",  "lot"]  },
+  { type: "substitute", target: "pin",  position: "first", to: "b",  correct: "bin", distractors: ["tin",  "sin"]  },
+  { type: "substitute", target: "fan",  position: "first", to: "r",  correct: "ran", distractors: ["can",  "pan"]  },
   // Substitution — change last sound
-  { type: "substitute", target: "cap",  position: "last",  to: "t",   correct: "cat", distractors: ["bat",  "hat"]  },
-  { type: "substitute", target: "mud",  position: "last",  to: "g",   correct: "mug", distractors: ["bug",  "tug"]  },
-  { type: "substitute", target: "sit",  position: "last",  to: "p",   correct: "sip", distractors: ["dip",  "tip"]  },
+  { type: "substitute", target: "cap",  position: "last",  to: "t",  correct: "cat", distractors: ["bat",  "hat"]  },
+  { type: "substitute", target: "mud",  position: "last",  to: "g",  correct: "mug", distractors: ["bug",  "tug"]  },
+  { type: "substitute", target: "sit",  position: "last",  to: "p",  correct: "sip", distractors: ["dip",  "tip"]  },
+  // extended deletion — first sound
+  { type: "delete",     target: "flat", position: "first",           correct: "lat", distractors: ["mat",  "sat"]  },
+  { type: "delete",     target: "clap", position: "first",           correct: "lap", distractors: ["map",  "cap"]  },
+  { type: "delete",     target: "spin", position: "first",           correct: "pin", distractors: ["bin",  "tin"]  },
+  { type: "delete",     target: "frog", position: "first",           correct: "rog", distractors: ["log",  "fog"]  },
+  { type: "delete",     target: "trip", position: "first",           correct: "rip", distractors: ["dip",  "tip"]  },
+  { type: "delete",     target: "snap", position: "first",           correct: "nap", distractors: ["cap",  "map"]  },
+  { type: "delete",     target: "skin", position: "first",           correct: "kin", distractors: ["bin",  "tin"]  },
+  { type: "delete",     target: "drip", position: "first",           correct: "rip", distractors: ["dip",  "hip"]  },
+  { type: "delete",     target: "crab", position: "first",           correct: "rab", distractors: ["tab",  "cab"]  },
+  { type: "delete",     target: "plan", position: "first",           correct: "lan", distractors: ["ran",  "can"]  },
+  // extended deletion — last sound
+  { type: "delete",     target: "maps", position: "last",            correct: "map", distractors: ["cap",  "tap"]  },
+  { type: "delete",     target: "bins", position: "last",            correct: "bin", distractors: ["pin",  "tin"]  },
+  { type: "delete",     target: "cups", position: "last",            correct: "cup", distractors: ["pup",  "sup"]  },
+  { type: "delete",     target: "hats", position: "last",            correct: "hat", distractors: ["bat",  "mat"]  },
+  { type: "delete",     target: "beds", position: "last",            correct: "bed", distractors: ["red",  "led"]  },
+  // extended substitution — change first sound
+  { type: "substitute", target: "mat",  position: "first", to: "c",  correct: "cat", distractors: ["bat",  "sat"]  },
+  { type: "substitute", target: "log",  position: "first", to: "d",  correct: "dog", distractors: ["fog",  "hog"]  },
+  { type: "substitute", target: "cup",  position: "first", to: "p",  correct: "pup", distractors: ["sup",  "tup"]  },
+  { type: "substitute", target: "dig",  position: "first", to: "b",  correct: "big", distractors: ["wig",  "fig"]  },
+  { type: "substitute", target: "net",  position: "first", to: "w",  correct: "wet", distractors: ["set",  "met"]  },
+  { type: "substitute", target: "ran",  position: "first", to: "c",  correct: "can", distractors: ["pan",  "man"]  },
+  { type: "substitute", target: "hop",  position: "first", to: "t",  correct: "top", distractors: ["pop",  "cop"]  },
+  { type: "substitute", target: "sun",  position: "first", to: "f",  correct: "fun", distractors: ["run",  "bun"]  },
+  // extended substitution — change last sound
+  { type: "substitute", target: "bit",  position: "last",  to: "g",  correct: "big", distractors: ["dig",  "wig"]  },
+  { type: "substitute", target: "hop",  position: "last",  to: "t",  correct: "hot", distractors: ["dot",  "got"]  },
+  { type: "substitute", target: "ran",  position: "last",  to: "g",  correct: "rag", distractors: ["bag",  "tag"]  },
+  { type: "substitute", target: "pin",  position: "last",  to: "g",  correct: "pig", distractors: ["big",  "dig"]  },
+  { type: "substitute", target: "bed",  position: "last",  to: "g",  correct: "beg", distractors: ["leg",  "peg"]  },
+  { type: "substitute", target: "cup",  position: "last",  to: "t",  correct: "cut", distractors: ["but",  "gut"]  },
+  { type: "substitute", target: "log",  position: "last",  to: "t",  correct: "lot", distractors: ["cot",  "dot"]  },
 ];
 
 // ── Static word pools for L2 reading and L3 encoding skills ──────────────────
@@ -238,6 +457,13 @@ const CVC_POOL = [
   "bat","hen","lip","jog","mud","cap","bed","dig","mop","bud",
   "fin","leg","hop","sad","wet","big","nap","set","tip","web",
   "zip","dim","got","jam","kit","lot","pop","ram","van","yam",
+  // extended pool
+  "hit","pit","rid","rip","rot","rug","rum","sag","sap","sat",
+  "sub","sum","tab","tan","tap","tin","tub","tug","vat","wag",
+  "wax","wit","yap","zap","cob","cod","con","cop","cot","cub",
+  "dab","dam","den","dot","dun","fad","fan","fat","fig","fit",
+  "fob","gab","gap","gas","gel","gig","gin","gum","gun","gut",
+  "hug","hut","kid","lag","lap","lad","lid","lop","lug","mob",
 ];
 
 // R3.T1.A2 — CCVC / CVCC words (initial or final blend)
@@ -246,6 +472,13 @@ const BLEND_WORD_POOL = [
   "snap","spin","step","skip","slab","drop","flag","grin","plop","trim",
   "bled","crab","drab","flop","pram","scab","sled","slug","snag","stab",
   "swam","brag","clod","cram","glob","plum","skid","slid","spud","stub",
+  // extended pool
+  "flap","clam","clop","crop","plod","trod","scat","skit","slog","snub",
+  "spat","spot","spun","stag","stem","stun","blab","blip","blot","clip",
+  "clot","club","glad","glop","gram","grim","tram","trap","prod","prop",
+  "skim","slam","slap","slip","slot","slum","sped","spit","flab","flip",
+  "blob","slop","crag","drug","brig","flan","scam","scum","twig","plug",
+  "snot","swot","blew","clew","brew","drew","grew","stew","swig","strop",
 ];
 
 // R3.T1.A3 — Phonically regular but less common real words
@@ -253,6 +486,14 @@ const UNFAMILIAR_POOL = [
   "crisp","stomp","drift","blend","cleft","frost","grump","plonk","brisk","clump",
   "flint","scalp","sprig","throb","whisk","tramp","clench","crept","glint","growl",
   "pluck","scald","skimp","slunk","sniff","speck","strut","swept","thump","squat",
+  // extended pool
+  "thrift","floss","broth","froth","filth","gulch","mulch","blink","brink","clink",
+  "drink","shrink","stink","clank","crank","drank","frank","plank","stank","thank",
+  "blank","flump","plump","slump","trump","cramp","clamp","stamp","swamp","crimp",
+  "shrimp","blimp","grind","bland","brand","grand","spend","mend","lend","fend",
+  "tend","bent","dent","lent","rent","sent","tent","vent","went","deft",
+  "heft","left","belt","felt","melt","bulk","hulk","sulk","pulp","gulp",
+  "milk","silk","helm","yelp","kelp","mink","rink","sink","wink","limp",
 ];
 
 // R4.T1.A1 — Phonetically regular but less common real words (harder than R3, Grade 2–3)
@@ -261,6 +502,14 @@ const R4_PHONETIC_POOL = [
   "stench","crunch","splotch","clutch","thrush","squint","wrench","twitch","slump","grunt",
   "dwell","fleck","strum","gruff","scuff","crimp","brunt","blotch","sketch","notch",
   "fetch","drench","bluff","shrunk","shred","yelp","kelp","scamp","clamp","froth",
+  // extended pool
+  "strep","scrub","crutch","stitch","scotch","hatch","latch","botch","hutch","watch",
+  "patch","catch","match","etch","vetch","retch","wretch","belch","squelch","filch",
+  "zilch","hunch","bunch","lunch","munch","punch","flinch","pinch","cinch","wince",
+  "mince","dense","fence","hence","sense","tense","verse","terse","curse","nurse",
+  "burst","thirst","perch","birch","lurch","church","march","parch","torch","scorch",
+  "splint","grudge","budge","judge","fudge","nudge","sludge","pledge","ledge","hedge",
+  "wedge","badge","bulge","gorge","surge","purge","verge","merge","lunge","plunge",
 ];
 
 // R4 passage bank — pre-authored short passages for fluency skills
@@ -551,6 +800,12 @@ const VOWEL_TEAM_POOL = [
   "pie","tie","tried","cried","dried","fried","skied","spied",
   // ue/ew
   "blue","true","clue","glue","grew","blew","flew","drew",
+  // ay (as in day)
+  "day","say","play","stay","gray","spray","clay","pray","sway","tray",
+  // ee (as in tree)
+  "tree","free","see","bee","fee","knee","flee","three","speed","greet",
+  // ea (additional)
+  "near","dear","fear","year","clear","hear","pea","sea","tea","flea",
 ];
 
 // R2.T3.A2 — Phonogram pattern words (student reads word containing the phonogram)
@@ -595,6 +850,47 @@ const PHONOGRAM_POOL: { phonogram: string; word: string }[] = [
   { phonogram: "-an",  word: "plan"  },
   { phonogram: "-oom", word: "bloom" },
   { phonogram: "-ail", word: "snail" },
+  // extended — second and third words per pattern
+  { phonogram: "-ack", word: "hack"  }, { phonogram: "-ack", word: "stack" },
+  { phonogram: "-ake", word: "bake"  }, { phonogram: "-ake", word: "shake" },
+  { phonogram: "-ale", word: "bale"  }, { phonogram: "-ale", word: "whale" },
+  { phonogram: "-all", word: "call"  }, { phonogram: "-all", word: "tall"  },
+  { phonogram: "-ame", word: "fame"  }, { phonogram: "-ame", word: "flame" },
+  { phonogram: "-ank", word: "rank"  }, { phonogram: "-ank", word: "drank" },
+  { phonogram: "-ap",  word: "cap"   }, { phonogram: "-ap",  word: "snap"  },
+  { phonogram: "-ash", word: "dash"  }, { phonogram: "-ash", word: "crash" },
+  { phonogram: "-at",  word: "fat"   }, { phonogram: "-at",  word: "flat"  },
+  { phonogram: "-ate", word: "gate"  }, { phonogram: "-ate", word: "crate" },
+  { phonogram: "-aw",  word: "jaw"   }, { phonogram: "-aw",  word: "draw"  },
+  { phonogram: "-ay",  word: "day"   }, { phonogram: "-ay",  word: "stay"  },
+  { phonogram: "-eat", word: "beat"  }, { phonogram: "-eat", word: "treat" },
+  { phonogram: "-ell", word: "sell"  }, { phonogram: "-ell", word: "shell" },
+  { phonogram: "-est", word: "best"  }, { phonogram: "-est", word: "chest" },
+  { phonogram: "-ice", word: "dice"  }, { phonogram: "-ice", word: "price" },
+  { phonogram: "-ick", word: "kick"  }, { phonogram: "-ick", word: "stick" },
+  { phonogram: "-ide", word: "hide"  }, { phonogram: "-ide", word: "ride"  },
+  { phonogram: "-ight",word: "night" }, { phonogram: "-ight",word: "bright"},
+  { phonogram: "-ill", word: "fill"  }, { phonogram: "-ill", word: "still" },
+  { phonogram: "-in",  word: "thin"  }, { phonogram: "-in",  word: "grin"  },
+  { phonogram: "-ine", word: "pine"  }, { phonogram: "-ine", word: "shine" },
+  { phonogram: "-ing", word: "sing"  }, { phonogram: "-ing", word: "bring" },
+  { phonogram: "-ink", word: "sink"  }, { phonogram: "-ink", word: "drink" },
+  { phonogram: "-ip",  word: "tip"   }, { phonogram: "-ip",  word: "skip"  },
+  { phonogram: "-it",  word: "bit"   }, { phonogram: "-it",  word: "knit"  },
+  { phonogram: "-ock", word: "knock" }, { phonogram: "-ock", word: "flock" },
+  { phonogram: "-oke", word: "spoke" }, { phonogram: "-oke", word: "broke" },
+  { phonogram: "-op",  word: "shop"  }, { phonogram: "-op",  word: "crop"  },
+  { phonogram: "-ore", word: "more"  }, { phonogram: "-ore", word: "score" },
+  { phonogram: "-ot",  word: "hot"   }, { phonogram: "-ot",  word: "trot"  },
+  { phonogram: "-uck", word: "duck"  }, { phonogram: "-uck", word: "stuck" },
+  { phonogram: "-ug",  word: "bug"   }, { phonogram: "-ug",  word: "shrug" },
+  { phonogram: "-ump", word: "jump"  }, { phonogram: "-ump", word: "plump" },
+  { phonogram: "-unk", word: "skunk" }, { phonogram: "-unk", word: "drunk" },
+  { phonogram: "-ut",  word: "but"   }, { phonogram: "-ut",  word: "strut" },
+  { phonogram: "-ub",  word: "club"  }, { phonogram: "-ub",  word: "scrub" },
+  { phonogram: "-an",  word: "can"   }, { phonogram: "-an",  word: "span"  },
+  { phonogram: "-oom", word: "room"  }, { phonogram: "-oom", word: "zoom"  },
+  { phonogram: "-ail", word: "tail"  }, { phonogram: "-ail", word: "trail" },
 ];
 
 // R2.T3.A3 — Vowel team blending: segmented phonemes → student picks the blended word (audio-tap)
@@ -615,14 +911,46 @@ const VOWEL_TEAM_BLEND_CHOICES: {
   { segments: "gl - ue",         correct: "glue",  distractors: ["glow",  "clue"]  },
   { segments: "t - oa - s - t",  correct: "toast", distractors: ["test",  "coast"] },
   { segments: "sp - ea - k",     correct: "speak", distractors: ["peak",  "speck"] },
+  // extended pool
+  { segments: "f - ee - t",      correct: "feet",  distractors: ["fat",   "fit"]   },
+  { segments: "s - ee - d",      correct: "seed",  distractors: ["said",  "side"]  },
+  { segments: "t - ee - th",     correct: "teeth", distractors: ["tenth", "tenth"] },
+  { segments: "b - ea - ch",     correct: "beach", distractors: ["batch", "beech"] },
+  { segments: "t - ea - m",      correct: "team",  distractors: ["tame",  "trim"]  },
+  { segments: "d - r - ea - m",  correct: "dream", distractors: ["drum",  "drip"]  },
+  { segments: "f - l - oa - t",  correct: "float", distractors: ["flat",  "flit"]  },
+  { segments: "r - oa - d",      correct: "road",  distractors: ["rod",   "read"]  },
+  { segments: "g - r - oa - n",  correct: "groan", distractors: ["gran",  "grin"]  },
+  { segments: "c - oo - l",      correct: "cool",  distractors: ["col",   "coal"]  },
+  { segments: "sp - oo - n",     correct: "spoon", distractors: ["span",  "spin"]  },
+  { segments: "f - oo - t",      correct: "foot",  distractors: ["fat",   "fit"]   },
+  { segments: "w - oo - d",      correct: "wood",  distractors: ["wad",   "wed"]   },
+  { segments: "g - r - ow",      correct: "grow",  distractors: ["grub",  "grab"]  },
+  { segments: "bl - ow",         correct: "blow",  distractors: ["blue",  "blob"]  },
+  { segments: "cr - ow - n",     correct: "crown", distractors: ["cron",  "cram"]  },
+  { segments: "f - ou - nd",     correct: "found", distractors: ["fond",  "fund"]  },
+  { segments: "r - ou - nd",     correct: "round", distractors: ["rand",  "rind"]  },
+  { segments: "sh - ou - t",     correct: "shout", distractors: ["shot",  "shut"]  },
+  { segments: "p - l - ay",      correct: "play",  distractors: ["plan",  "plop"]  },
+  { segments: "d - ay",          correct: "day",   distractors: ["dip",   "dog"]   },
+  { segments: "s - t - ay",      correct: "stay",  distractors: ["stop",  "step"]  },
 ];
 
 // R3.T1.A4 — Nonsense words (phonically plausible, no real-word memory possible)
+// TTS pronounces these via G2P rules — same as reading an unfamiliar word aloud.
+// Student hears via TTS and types the sounds — STT is never used for this skill.
 const NONSENSE_POOL = [
   "zolp","brix","flem","blim","wuft","nuck","fept","vusk","drap","klob",
   "snuv","trelp","grimp","plonf","skuv","twib","bleff","drusk","flumb","grolt",
   "pwick","snelf","zlob","brimp","chuft","glosp","plick","snuft","trimp","vlomp",
   "wruft","zlemb","crulp","driff","flonk","grusk","plimp","snolv","tremp","wulft",
+  // extended pool
+  "snalf","brult","zivp","klunt","frelb","gribz","ploxt","snorv","twick","blorf",
+  "dresp","grubs","plits","snerv","trold","cluff","vrent","dwolp","snult","freck",
+  "glimp","prubz","skuft","trelb","vlunk","wrobs","znelf","crolf","drump","flend",
+  "gritl","snorf","treck","blund","cralp","dremp","flinb","klobs","plend","snevt",
+  "tribs","vrump","znolp","brelm","drelf","plims","snock","trelm","vronk","wrimp",
+  "znuff","zrelt","grulf","flonb","crulb","blonf","wrubt","snelp","drimp","klobf",
 ];
 
 // R2.T2.A4 — Words containing a digraph (sh/ch/th/wh/ck/ng)
@@ -634,6 +962,19 @@ const DIGRAPH_WORD_POOL = [
   "duck","back","lock","dock","sick","kick",
   "ring","long","song","bring","sang","swing",
   "chest","flesh","think","bench","shack","chose",
+  // extended pool — sh
+  "shade","shift","shelf","shore","shout","shrub","shine","shirt","shook","shred",
+  // extended pool — ch
+  "chick","churn","charm","chart","chess","chuck","chat","church",
+  // extended pool — th
+  "bath","math","path","with","tooth","teeth","truth","cloth",
+  // extended pool — wh
+  "white","whale","whole","whose","where",
+  // extended pool — ck
+  "block","brick","click","clock","crack","flick","knock","lack","lick","luck",
+  "neck","nick","pack","pick","rock","sack","stick","truck","tuck","peck",
+  // extended pool — ng
+  "bang","ding","gang","hang","king","lung","rang","rung","sing","tang","wing","zing",
 ];
 
 // R3.T2.A1 — uses BLEND_WORD_POOL (complete left-to-right sequence, same words, different instruction)
@@ -641,10 +982,10 @@ const DIGRAPH_WORD_POOL = [
 
 /** Builds a deterministic static question for L3 encoding or L2 reading skills.
  *  Returns null if the skill should fall through to LLM generation. */
-function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "id"> | null {
+function buildStaticQuestion(skill_id: string, used_refs: string[]): Omit<ReadingGeneratedQuestion, "id"> | null {
   // ── L2 CVC decoding (student sees word, reads it aloud via STT) ──────────
   if (skill_id === "R2.T2.A3") {
-    const word = pickRandom(CVC_POOL);
+    const { item: word, ref } = pickExcluding(CVC_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "reading" as ReadingTemplate,
@@ -652,12 +993,13 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word.toUpperCase(),
       expected_answer: word,
       scaffolding_notes: "CVC decoding: student blends all three phonemes into one word.",
+      used_ref: ref,
     };
   }
 
   // ── L2 digraph word decoding ─────────────────────────────────────────────
   if (skill_id === "R2.T2.A4") {
-    const word = pickRandom(DIGRAPH_WORD_POOL);
+    const { item: word, ref } = pickExcluding(DIGRAPH_WORD_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "reading" as ReadingTemplate,
@@ -665,12 +1007,13 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word.toUpperCase(),
       expected_answer: word,
       scaffolding_notes: "Digraph decoding: student identifies the digraph sound and blends the full word.",
+      used_ref: ref,
     };
   }
 
   // ── R2 vowel team word decoding (student reads word aloud via STT) ────────
   if (skill_id === "R2.T3.A1") {
-    const word = pickRandom(VOWEL_TEAM_POOL);
+    const { item: word, ref } = pickExcluding(VOWEL_TEAM_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "reading" as ReadingTemplate,
@@ -678,12 +1021,13 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word.toUpperCase(),
       expected_answer: word,
       scaffolding_notes: "Vowel team decoding: student identifies the vowel team and reads the whole word.",
+      used_ref: ref,
     };
   }
 
   // ── R2 phonogram word reading (student reads word containing the phonogram) ─
   if (skill_id === "R2.T3.A2") {
-    const item = pickRandom(PHONOGRAM_POOL);
+    const { item, ref } = pickExcluding(PHONOGRAM_POOL, (e) => e.word, used_refs);
     return {
       skill_id,
       template: "reading" as ReadingTemplate,
@@ -691,12 +1035,13 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: item.word.toUpperCase(),
       expected_answer: item.word,
       scaffolding_notes: `Phonogram decoding: student reads the ${item.phonogram} pattern and blends the full word.`,
+      used_ref: ref,
     };
   }
 
   // ── L3 CVC encoding (student hears word via TTS, types the spelling) ─────
   if (skill_id === "R3.T1.A1") {
-    const word = pickRandom(CVC_POOL);
+    const { item: word, ref } = pickExcluding(CVC_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
@@ -704,12 +1049,13 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word,
       expected_answer: word,
       scaffolding_notes: "CVC encoding: student maps each phoneme to a grapheme in order.",
+      used_ref: ref,
     };
   }
 
   // ── L3 CCVC/CVCC encoding ────────────────────────────────────────────────
   if (skill_id === "R3.T1.A2") {
-    const word = pickRandom(BLEND_WORD_POOL);
+    const { item: word, ref } = pickExcluding(BLEND_WORD_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
@@ -717,12 +1063,13 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word,
       expected_answer: word,
       scaffolding_notes: "Blend encoding: student must capture all phonemes including the blend.",
+      used_ref: ref,
     };
   }
 
   // ── L3 unfamiliar real word encoding ────────────────────────────────────
   if (skill_id === "R3.T1.A3") {
-    const word = pickRandom(UNFAMILIAR_POOL);
+    const { item: word, ref } = pickExcluding(UNFAMILIAR_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
@@ -730,12 +1077,13 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word,
       expected_answer: word,
       scaffolding_notes: "Phonological analysis: student must decode by sound, not memory.",
+      used_ref: ref,
     };
   }
 
   // ── L3 nonsense word encoding (code proof) ───────────────────────────────
   if (skill_id === "R3.T1.A4") {
-    const word = pickRandom(NONSENSE_POOL);
+    const { item: word, ref } = pickExcluding(NONSENSE_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
@@ -743,12 +1091,13 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word,
       expected_answer: word,
       scaffolding_notes: "Nonsense encoding: proves student uses the phonics code, not word memory.",
+      used_ref: ref,
     };
   }
 
   // ── L3 left-to-right grapheme sequence ──────────────────────────────────
   if (skill_id === "R3.T2.A1") {
-    const word = pickRandom(BLEND_WORD_POOL);
+    const { item: word, ref } = pickExcluding(BLEND_WORD_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
@@ -756,12 +1105,13 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word,
       expected_answer: word,
       scaffolding_notes: "Sequence completeness: student must account for every phoneme in order.",
+      used_ref: ref,
     };
   }
 
   // ── L3 phonetic self-correction ──────────────────────────────────────────
   if (skill_id === "R3.T2.A2") {
-    const word = pickRandom(UNFAMILIAR_POOL);
+    const { item: word, ref } = pickExcluding(UNFAMILIAR_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
@@ -769,6 +1119,7 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word,
       expected_answer: word,
       scaffolding_notes: "Self-correction: student reviews own attempt against phoneme sequence.",
+      used_ref: ref,
     };
   }
 
@@ -776,7 +1127,7 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
 
   // R4.T1.A1 — Phonetic word decoding (student reads unfamiliar word aloud via STT)
   if (skill_id === "R4.T1.A1") {
-    const word = pickRandom(R4_PHONETIC_POOL);
+    const { item: word, ref } = pickExcluding(R4_PHONETIC_POOL, (w) => w, used_refs);
     return {
       skill_id,
       template: "reading" as ReadingTemplate,
@@ -784,54 +1135,59 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
       displayWord: word.toUpperCase(),
       expected_answer: word,
       scaffolding_notes: "Phonetic decoding: student applies phonics knowledge to decode an unfamiliar word — each sound in order.",
+      used_ref: ref,
     };
   }
 
   // R4.T2.A1 — Left-to-right text tracking (student reads 3-line passage aloud)
   if (skill_id === "R4.T2.A1") {
-    const item = pickRandom(R4_TRACKING_PASSAGES);
+    const { item, ref } = pickExcluding(R4_TRACKING_PASSAGES, (p) => p.expected_answer, used_refs);
     return {
       skill_id,
       template: "reading" as ReadingTemplate,
       question: `Read each line from left to right. Start at the left each time you move to a new line.\n\n${item.passage}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Tracking: student reads each line left-to-right without skipping or repeating lines.",
+      used_ref: ref,
     };
   }
 
   // R4.T2.A2 — Whole-word reading (student reads word set as fast as possible)
   if (skill_id === "R4.T2.A2") {
-    const item = pickRandom(R4_WORD_SETS);
+    const { item, ref } = pickExcluding(R4_WORD_SETS, (s) => s.expected, used_refs);
     return {
       skill_id,
       template: "reading" as ReadingTemplate,
       question: `Read these words as quickly as you can — say each one as a whole word, not letter by letter.\n\n${item.words}`,
       expected_answer: item.expected,
       scaffolding_notes: "Whole-word reading: student should recognise each word instantly without sounding out individual letters.",
+      used_ref: ref,
     };
   }
 
   // R4.T3.A1 — Phrased reading with prosody (student reads passage using punctuation as phrasing cues)
   if (skill_id === "R4.T3.A1") {
-    const item = pickRandom(R4_PROSODY_PASSAGES);
+    const { item, ref } = pickExcluding(R4_PROSODY_PASSAGES, (p) => p.expected_answer, used_refs);
     return {
       skill_id,
       template: "reading" as ReadingTemplate,
       question: `Read this aloud. Use the punctuation to help you group your words — pause at commas and full stops.\n\n${item.passage}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Prosody: student should read in phrases grouped by punctuation, not word-by-word.",
+      used_ref: ref,
     };
   }
 
   // R4.T3.A2 — Self-monitoring for meaning (student reads and types the error word)
   if (skill_id === "R4.T3.A2") {
-    const item = pickRandom(R4_SELF_MONITORING_PASSAGES);
+    const { item, ref } = pickExcluding(R4_SELF_MONITORING_PASSAGES, (p) => p.expected_answer, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
       question: `Read this passage. One word does not make sense. Type the word that seemed wrong.\n\n${item.passage}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: `Self-monitoring: passage contains the word "${item.error_word}" which violates meaning. Student should catch and type it.`,
+      used_ref: ref,
     };
   }
 
@@ -839,81 +1195,92 @@ function buildStaticQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "
 
   // R5.T1.A1 — Literal Comprehension with Text Evidence
   if (skill_id === "R5.T1.A1") {
-    const item = pickRandom(R5_LITERAL_PASSAGES);
+    const { item, ref } = pickExcluding(R5_LITERAL_PASSAGES, (p) => p.expected_answer, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
       question: `${item.passage}\n\n${item.question}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Literal comprehension: student answers a factual question and cites the words from the passage that support their answer.",
+      used_ref: ref,
     };
   }
 
   // R5.T1.A2 — Inferential Comprehension with Connector and Evidence
   if (skill_id === "R5.T1.A2") {
-    const item = pickRandom(R5_INFERENCE_PASSAGES);
+    const { item, ref } = pickExcluding(R5_INFERENCE_PASSAGES, (p) => p.expected_answer, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
       question: `${item.passage}\n\n${item.question}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Inferential comprehension: student reads beyond the text, uses 'because' or 'this shows that', and supports their inference with evidence.",
+      used_ref: ref,
     };
   }
 
   // R5.T1.A3 — Oral or Written Retell with Main Idea and Supporting Details
   if (skill_id === "R5.T1.A3") {
-    const item = pickRandom(R5_RETELL_PASSAGES);
+    const { item, ref } = pickExcluding(R5_RETELL_PASSAGES, (p) => p.expected_answer, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
       question: `${item.passage}\n\n${item.question}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Retell: student identifies the main idea and gives at least 2 supporting details in a logical order.",
+      used_ref: ref,
     };
   }
 
   // R5.T2.A1 — Reasoning Connective Use
   if (skill_id === "R5.T2.A1") {
-    const item = pickRandom(R5_CONNECTIVE_PROMPTS);
+    const { item, ref } = pickExcluding(R5_CONNECTIVE_PROMPTS, (p) => p.expected_answer, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
       question: `Write one sentence that connects these two ideas using a connective word (because, however, or therefore).\n\nIdea 1: ${item.sentence_a}\nIdea 2: ${item.sentence_b}\n\n${item.connective_hint}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Connective use: student joins two related ideas using the appropriate logical connective. Accept any grammatically correct sentence that uses a suitable connective.",
+      used_ref: ref,
     };
   }
 
   // R5.T2.A2 — Contextually Accurate Vocabulary Use
   if (skill_id === "R5.T2.A2") {
-    const item = pickRandom(R5_VOCABULARY_PROMPTS);
+    const { item, ref } = pickExcluding(R5_VOCABULARY_PROMPTS, (p) => p.word, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
       question: `The word '${item.word}' means ${item.definition}.\n\nWrite your own sentence using the word '${item.word}' to show that you understand what it means.`,
       expected_answer: `A correct sentence using '${item.word}' in context. Example: ${item.example}`,
       scaffolding_notes: `Vocabulary use: student uses '${item.word}' in a sentence where the meaning is clearly correct. Reject sentences where the word is misused or just copied from the definition.`,
+      used_ref: ref,
     };
   }
 
   // R5.T3.A1 — Structured Written Response with Topic Sentence and Connectives
   if (skill_id === "R5.T3.A1") {
-    const item = pickRandom(R5_WRITTEN_PASSAGES);
+    const { item, ref } = pickExcluding(R5_WRITTEN_PASSAGES, (p) => p.expected_answer, used_refs);
     return {
       skill_id,
       template: "written" as ReadingTemplate,
       question: `${item.passage}\n\n${item.question}`,
       expected_answer: item.expected_answer,
       scaffolding_notes: "Structured response: student writes a topic sentence, 2+ supporting details, and uses at least one connective. Check for completeness, logical order, and accurate connective use.",
+      used_ref: ref,
     };
   }
 
   return null;
 }
 
-function pickRandom<T>(arr: T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
+/** Picks a random item that hasn't been used yet (by ref). Falls back to full pool if all used. */
+function pickExcluding<T>(arr: T[], getRef: (item: T) => string, used: string[]): { item: T; ref: string } {
+  const usedSet = new Set(used);
+  const available = arr.filter((item) => !usedSet.has(getRef(item)));
+  const pool = available.length > 0 ? available : arr;
+  const item = pool[Math.floor(Math.random() * pool.length)];
+  return { item, ref: getRef(item) };
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -928,14 +1295,12 @@ function shuffle<T>(arr: T[]): T[] {
 /** Returns a word-choice question for letter-sound, digraph, or blend skills.
  *  TTS speaks full words only — no isolated phonemes.
  *  Returns null if the skill should fall through to LLM generation. */
-function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion, "id"> | null {
+function buildAudioTapQuestion(skill_id: string, used_refs: string[]): Omit<ReadingGeneratedQuestion, "id"> | null {
   // R2.T1 — Letter-Sound Correspondence (word-choice format)
   if (skill_id.startsWith("R2.T1")) {
     const consonantKeys = Object.keys(LETTER_WORD_CHOICES).filter((l) => !VOWELS.has(l));
-    const pool = skill_id === "R2.T1.A1"
-      ? consonantKeys
-      : Object.keys(LETTER_WORD_CHOICES);
-    const letter = pickRandom(pool) as string;
+    const pool = skill_id === "R2.T1.A1" ? consonantKeys : Object.keys(LETTER_WORD_CHOICES);
+    const { item: letter, ref } = pickExcluding(pool, (k) => k, used_refs);
     const data = LETTER_WORD_CHOICES[letter];
     if (!data) return null;
     const choices: AudioTapChoice[] = shuffle([
@@ -954,12 +1319,13 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
       audioChoices: choices,
       expected_answer: data.correct,
       scaffolding_notes: "Word-choice: student taps each word to hear it, then picks the one with the target sound.",
+      used_ref: ref,
     };
   }
 
   // R2.T2.A1 — Digraph Phoneme Retrieval (word-choice format)
   if (skill_id === "R2.T2.A1") {
-    const entry = pickRandom(DIGRAPH_WORD_CHOICES);
+    const { item: entry, ref } = pickExcluding(DIGRAPH_WORD_CHOICES, (e) => e.correct, used_refs);
     const choices: AudioTapChoice[] = shuffle([
       { label: entry.correct,        speech: entry.correct,        correct: true  },
       { label: entry.distractors[0], speech: entry.distractors[0], correct: false },
@@ -973,12 +1339,14 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
       audioChoices: choices,
       expected_answer: entry.correct,
       scaffolding_notes: "Word-choice: student identifies which word contains the digraph sound.",
+      used_ref: ref,
     };
   }
 
   // R2.T2.A2 — Consonant Blend Production (word-choice format)
   if (skill_id === "R2.T2.A2") {
-    const blend = pickRandom(Object.keys(BLEND_WORD_CHOICES)) as string;
+    const blendKeys = Object.keys(BLEND_WORD_CHOICES);
+    const { item: blend, ref } = pickExcluding(blendKeys, (k) => k, used_refs);
     const data = BLEND_WORD_CHOICES[blend];
     if (!data) return null;
     const choices: AudioTapChoice[] = shuffle([
@@ -994,12 +1362,13 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
       audioChoices: choices,
       expected_answer: data.correct,
       scaffolding_notes: "Word-choice: student identifies which word starts with the target blend.",
+      used_ref: ref,
     };
   }
 
   // R2.T3.A3 — Vowel Team Blending (display segmented phonemes, student picks the word)
   if (skill_id === "R2.T3.A3") {
-    const entry = pickRandom(VOWEL_TEAM_BLEND_CHOICES);
+    const { item: entry, ref } = pickExcluding(VOWEL_TEAM_BLEND_CHOICES, (e) => e.correct, used_refs);
     const choices: AudioTapChoice[] = shuffle([
       { label: entry.correct,        speech: entry.correct,        correct: true  },
       { label: entry.distractors[0], speech: entry.distractors[0], correct: false },
@@ -1013,6 +1382,7 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
       audioChoices: choices,
       expected_answer: entry.correct,
       scaffolding_notes: "Vowel team blending: student blends the segmented sounds (including the vowel team) into a whole word.",
+      used_ref: ref,
     };
   }
 
@@ -1020,7 +1390,7 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
 
   // R1.T2.A1 — Rhyme Generation and Identification
   if (skill_id === "R1.T2.A1") {
-    const entry = pickRandom(RHYME_CHOICES);
+    const { item: entry, ref } = pickExcluding(RHYME_CHOICES, (e) => e.target, used_refs);
     const choices: AudioTapChoice[] = shuffle([
       { label: entry.correct,        speech: entry.correct,        correct: true  },
       { label: entry.distractors[0], speech: entry.distractors[0], correct: false },
@@ -1034,12 +1404,13 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
       audioChoices: choices,
       expected_answer: entry.correct,
       scaffolding_notes: "Rhyme identification: student taps each word to hear it, then picks the one that sounds the same at the end as the target.",
+      used_ref: ref,
     };
   }
 
   // R1.T2.A2 — Syllable Segmentation and Blending
   if (skill_id === "R1.T2.A2") {
-    const entry = pickRandom(SYLLABLE_CHOICES);
+    const { item: entry, ref } = pickExcluding(SYLLABLE_CHOICES, (e) => e.correct, used_refs);
     const syllableWord = entry.count === 1 ? "syllable" : "syllables";
     const choices: AudioTapChoice[] = shuffle([
       { label: entry.correct,        speech: entry.correct,        correct: true  },
@@ -1054,12 +1425,13 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
       audioChoices: choices,
       expected_answer: entry.correct,
       scaffolding_notes: "Syllable counting: student listens to each word and counts the beats to find the one with the target syllable count.",
+      used_ref: ref,
     };
   }
 
   // R1.T3.A1 — Phoneme Isolation (onset and coda)
   if (skill_id === "R1.T3.A1") {
-    const entry = pickRandom(PHONEME_ISOLATION_CHOICES);
+    const { item: entry, ref } = pickExcluding(PHONEME_ISOLATION_CHOICES, (e) => e.target, used_refs);
     const choices: AudioTapChoice[] = shuffle([
       { label: entry.correct,        speech: entry.correct,        correct: true  },
       { label: entry.distractors[0], speech: entry.distractors[0], correct: false },
@@ -1076,15 +1448,15 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
       audioChoices: choices,
       expected_answer: entry.correct,
       scaffolding_notes: `Phoneme isolation (${entry.type}): student identifies the target sound in the reference word, then finds the word that shares it.`,
+      used_ref: ref,
     };
   }
 
   // R1.T3.A2 — Full Phoneme Segmentation and Blending (two sub-types, randomly selected)
   if (skill_id === "R1.T3.A2") {
-    // Alternate between count (segmentation) and blend tasks
     const useBlend = Math.random() < 0.5 && PHONEME_BLEND_CHOICES.length > 0;
     if (useBlend) {
-      const entry = pickRandom(PHONEME_BLEND_CHOICES);
+      const { item: entry, ref } = pickExcluding(PHONEME_BLEND_CHOICES, (e) => e.correct, used_refs);
       const choices: AudioTapChoice[] = shuffle([
         { label: entry.correct,        speech: entry.correct,        correct: true  },
         { label: entry.distractors[0], speech: entry.distractors[0], correct: false },
@@ -1098,9 +1470,10 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
         audioChoices: choices,
         expected_answer: entry.correct,
         scaffolding_notes: "Phoneme blending: student reads the segmented sounds, blends them mentally, then finds the matching word.",
+        used_ref: ref,
       };
     } else {
-      const entry = pickRandom(PHONEME_SEGMENT_CHOICES);
+      const { item: entry, ref } = pickExcluding(PHONEME_SEGMENT_CHOICES, (e) => e.correct, used_refs);
       const soundWord = entry.count === 1 ? "sound" : "sounds";
       const choices: AudioTapChoice[] = shuffle([
         { label: entry.correct,        speech: entry.correct,        correct: true  },
@@ -1115,13 +1488,14 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
         audioChoices: choices,
         expected_answer: entry.correct,
         scaffolding_notes: "Phoneme segmentation: student listens to each word and counts the individual sounds to find the one with the target count.",
+        used_ref: ref,
       };
     }
   }
 
   // R1.T3.A3 — Phoneme Manipulation (deletion and substitution)
   if (skill_id === "R1.T3.A3") {
-    const entry = pickRandom(PHONEME_MANIP_CHOICES);
+    const { item: entry, ref } = pickExcluding(PHONEME_MANIP_CHOICES, (e) => e.target, used_refs);
     const choices: AudioTapChoice[] = shuffle([
       { label: entry.correct,        speech: entry.correct,        correct: true  },
       { label: entry.distractors[0], speech: entry.distractors[0], correct: false },
@@ -1138,6 +1512,7 @@ function buildAudioTapQuestion(skill_id: string): Omit<ReadingGeneratedQuestion,
       audioChoices: choices,
       expected_answer: entry.correct,
       scaffolding_notes: `Phoneme manipulation (${entry.type}): student mentally ${entry.type === "delete" ? "removes" : "swaps"} a sound and identifies the resulting word.`,
+      used_ref: ref,
     };
   }
 
@@ -1196,6 +1571,7 @@ export async function POST(req: NextRequest) {
       include_hint = false,
       is_correct = true,
       error_type = null,
+      used_refs = [],
     }: {
       skill_id: string;
       template: ReadingTemplate;
@@ -1203,6 +1579,7 @@ export async function POST(req: NextRequest) {
       include_hint?: boolean;
       is_correct?: boolean;
       error_type?: string | null;
+      used_refs?: string[];
     } = await req.json();
 
     const skill = getReadingSkillById(skill_id);
@@ -1213,7 +1590,7 @@ export async function POST(req: NextRequest) {
     // For letter-sound and digraph skills, return a deterministic audio-tap question
     // (no LLM needed — isolated phoneme production cannot be captured by STT)
     if (template === "oral") {
-      const tapQuestion = buildAudioTapQuestion(skill_id);
+      const tapQuestion = buildAudioTapQuestion(skill_id, used_refs);
       if (tapQuestion) {
         return NextResponse.json({ ...tapQuestion, id: `rq_${Date.now()}` });
       }
@@ -1221,7 +1598,7 @@ export async function POST(req: NextRequest) {
 
     // For L2 reading and L3 encoding skills, return a static word-bank question
     // (no LLM needed — expected answer is the word itself, checked by exact match)
-    const staticQuestion = buildStaticQuestion(skill_id);
+    const staticQuestion = buildStaticQuestion(skill_id, used_refs);
     if (staticQuestion) {
       return NextResponse.json({ ...staticQuestion, id: `rq_${Date.now()}` });
     }

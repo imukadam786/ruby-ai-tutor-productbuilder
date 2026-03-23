@@ -37,13 +37,33 @@ interface Task {
   passage?: string;           // D16 full passage
 }
 
+// ── Grade-task ceiling ────────────────────────────────────────────────────────
+// Reading always starts at D01 (phonological awareness) regardless of grade.
+// The ceiling controls how far up the pipeline each grade is tested.
+// All counts are fixed and predictable — 3-task increments:
+//   Grade 1:  9 tasks — D01–D07  (phonological awareness + basic CVC decoding)
+//   Grade 2: 12 tasks — D01–D10  (+ vowel patterns: silent E, vowel teams)
+//   Grade 3: 15 tasks — D01–D12  (+ sight words, phoneme blending, r-controlled)
+//   Grade 4+: 17 tasks — D01–D13B (+ two-syllable decoding, consonant blend encoding)
+// D13C (Unfamiliar Word Encoding) excluded: it uses intentional pseudo-words that STT
+// cannot reliably recognise — redesign as keyboard-tap spelling is a future iteration.
+// Grade 4+ is capped at 17 — students beyond this advance through the skill tree.
+const GRADE_TASK_IDS: Record<number, string[]> = {
+  1: ["D01","D01B","D02","D02B","D03","D04","D05","D06","D07"],
+  2: ["D01","D01B","D02","D02B","D03","D04","D05","D06","D07","D08","D09","D10"],
+  3: ["D01","D01B","D02","D02B","D03","D04","D05","D06","D07","D08","D09","D10","D10B","D11","D12"],
+  4: ["D01","D01B","D02","D02B","D03","D04","D05","D06","D07","D08","D09","D10","D10B","D11","D12","D13","D13B"],
+};
+
 // ── Dynamic task loader ───────────────────────────────────────────────────────
-async function loadRandomQuestionPaper(): Promise<Task[]> {
+async function loadRandomQuestionPaper(grade: number): Promise<Task[]> {
   const randomNumber = Math.floor(Math.random() * 50) + 1; // 1–50
   const paper = await import(`@/data/question-banks/${randomNumber}.json`);
   const all = paper.default as Task[];
-  // Only include tasks that have a gate (A/C/D). Q15–Q25 are ungated and excluded.
-  return all.filter((t) => !!t.gate);
+  const withGate = all.filter((t) => !!t.gate);
+  const allowed = GRADE_TASK_IDS[Math.min(grade, 4)];
+  if (!allowed) return withGate; // Grade 5+ gets all tasks
+  return withGate.filter((t) => allowed.includes(t.id));
 }
 
 
@@ -231,30 +251,30 @@ async function loadRandomQuestionPaper(): Promise<Task[]> {
 
 // ── Default error type per task (used when a task is failed or skipped) ──────
 const TASK_ERROR_MAP: Record<string, string> = {
-  D01:  "ERR_PHONEME_CONF",
-  D01B: "ERR_SYLLABLE_BREAK",
-  D02:  "ERR_PHONEME_CONF",
-  D02B: "ERR_PHONEME_CONF",
-  D03:  "ERR_SOUND_RECALL",
-  D04:  "ERR_VOWEL_CONF",
-  D05:  "ERR_SOUND_RECALL",
-  D06:  "ERR_BLEND_FAIL",
-  D07:  "ERR_BLEND_FAIL",
-  D08:  "ERR_SOUND_RECALL",
-  D09:  "ERR_VOWEL_CONF",
-  D10:  "ERR_VOWEL_CONF",
-  D10B: "ERR_BLEND_FAIL",
-  D11:  "ERR_SIGHT_MISS",
-  D12:  "ERR_VOWEL_CONF",
-  D13:  "ERR_MULTI_BREAK",
-  D13B: "ERR_ENCODE_BLEND",
-  D13C: "ERR_ENCODE_BLEND",
-  D14:  "ERR_MULTI_BREAK",
-  D15:  "ERR_SOUND_RECALL",
-  D15B: "ERR_MEANING_BLIND",
-  D16:  "ERR_FLUENCY_HES",
-  D17:  "ERR_MEANING_BLIND",
-  D18:  "ERR_MEANING_BLIND",
+  D01:  "ERR_PHONEME_CONF",    // Rhyme detection — phonological awareness
+  D01B: "ERR_SYLLABLE_BREAK",  // Syllable segmentation & blending
+  D02:  "ERR_PHONEME_CONF",    // Phoneme isolation — onset/coda matching
+  D02B: "ERR_PHONEME_CONF",    // Full phoneme segmentation / counting
+  D03:  "ERR_SOUND_RECALL",    // Consonant sound discrimination
+  D04:  "ERR_VOWEL_CONF",      // Short vowel identification (specifically vowel, not consonant)
+  D05:  "ERR_SOUND_RECALL",    // Digraph recognition — two-letter sound
+  D06:  "ERR_BLEND_FAIL",      // Consonant blend decoding (CCVC/CVCC — blends are the gap)
+  D07:  "ERR_SOUND_OMIT",      // CVC word reading — basic decoding failure (not a blend issue)
+  D08:  "ERR_SOUND_RECALL",    // Digraph word decoding — sh/ch recognition
+  D09:  "ERR_VOWEL_CONF",      // Long vowel / silent E — vowel pattern confusion
+  D10:  "ERR_VOWEL_CONF",      // Vowel teams — ai/ea/oa/oo confusion
+  D10B: "ERR_BLEND_FAIL",      // Phoneme sequence blending — multi-phoneme clusters
+  D11:  "ERR_SIGHT_MISS",      // Sight word automaticity — high-frequency words
+  D12:  "ERR_VOWEL_CONF",      // R-controlled vowels — ar/er/or confusion
+  D13:  "ERR_MULTI_BREAK",     // Two-syllable decoding — syllable boundary errors
+  D13B: "ERR_ENCODE_BLEND",    // Consonant blend encoding — phoneme-to-grapheme mapping
+  D13C: "ERR_ENCODE_BLEND",    // Unfamiliar word encoding — phonological analysis
+  D14:  "ERR_MULTI_BREAK",     // Multisyllabic decoding — 3-syllable words
+  D15:  "ERR_SOUND_RECALL",    // Prefix/suffix recognition — morpheme identification
+  D15B: "ERR_MEANING_BLIND",   // Self-monitoring — does not notice nonsensical reading
+  D16:  "ERR_FLUENCY_HES",     // Oral reading fluency — speed/prosody
+  D17:  "ERR_MEANING_BLIND",   // Literal comprehension — explicit retrieval
+  D18:  "ERR_MEANING_BLIND",   // Inferential comprehension — implied meaning
 };
 
 // ── Skill name map ─────────────────────────────────────────────────────────────
@@ -426,11 +446,15 @@ export default function ReadingDiagnosticPlacement({
   const [micEnabled, setMicEnabled] = useState(false);
   // Prevents tap-through from audio-tap choice button to "That's my answer"
   const [submitReady, setSubmitReady] = useState(false);
+  // STT unavailable (non-Chrome) — show inline notice and auto-advance
+  const [sttUnavailable, setSttUnavailable] = useState(false);
   // Refs for stable access inside STT callbacks
   const transcriptRef = useRef("");
   const listeningRef = useRef(false);
   const ttsHasPlayedRef = useRef(false);
   const micTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Ref keeps latest task id accessible inside the [] useCallback for startVoice
+  const currentTaskIdRef = useRef<string>("");
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
@@ -441,7 +465,7 @@ export default function ReadingDiagnosticPlacement({
     const fetchTasks = async () => {
       let tasks: Task[] = [];
       while (!cancelled && tasks.length === 0) {
-        tasks = await loadRandomQuestionPaper();
+        tasks = await loadRandomQuestionPaper(studentGrade);
       }
       if (!cancelled) {
         TASKSRef.current = tasks;
@@ -530,7 +554,7 @@ export default function ReadingDiagnosticPlacement({
   const startVoice = useCallback(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!SR) { alert("Voice input not supported in this browser. Please use Chrome."); return; }
+    if (!SR) { setSttUnavailable(true); return; }
     const rec = new SR();
     rec.continuous = false;
     rec.interimResults = true;
@@ -574,6 +598,25 @@ export default function ReadingDiagnosticPlacement({
   // Keep refs in sync so advanceTask always reads current values
   taskIndexRef.current = taskIndex;
   completedTasksRef.current = completedTasks;
+  // Keep current task id accessible inside the [] startVoice callback
+  const currentTask = TASKSRef.current[taskIndex];
+  currentTaskIdRef.current = currentTask?.id ?? "";
+
+  // Reset STT-unavailable flag whenever the task changes
+  useEffect(() => { setSttUnavailable(false); }, [taskIndex]);
+
+  // When STT is unavailable on a voice task, auto-advance after 2 s scored as sttSkipped
+  // (sttSkipped tasks are excluded from placement scoring — treated as unadministered)
+  useEffect(() => {
+    if (!sttUnavailable) return;
+    const taskId = currentTaskIdRef.current;
+    if (!taskId) return;
+    const timer = setTimeout(() => {
+      advanceTask({ taskId, correct: false, score: 0, response: "(stt-unavailable)", sttSkipped: true });
+    }, 2000);
+    return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sttUnavailable]);
 
   // Advance to next task — uses refs to avoid stale closure issues
   const advanceTask = useCallback(async (result: DiagnosticTaskResult) => {
@@ -589,26 +632,7 @@ export default function ReadingDiagnosticPlacement({
     setShowEncouragement(true);
     await new Promise(r => setTimeout(r, 800));
 
-    // ── Early exit logic ──────────────────────────────────────────────────────
-    const failed = (taskId: string) => newCompleted.some(r => r.taskId === taskId && !r.correct);
-
-    // Foundation gate: D01 + D02 both failed → student is at R1 oral language baseline.
-    // No need to administer phonics or fluency tasks — exit immediately after D02.
-    const foundationExit = failed("D01") && failed("D02") &&
-      newCompleted.some(r => r.taskId === "D02");
-
-    // Phonics gate: letter sounds (D03+D04) and digraph phoneme (D05) all failed →
-    // student is a pre-reader who needs letter-sound instruction first.
-    const phonicsExit = failed("D03") && failed("D04") && failed("D05") &&
-      newCompleted.some(r => r.taskId === "D05");
-
-    // Consecutive failures: 3 in a row at any point.
-    const last3 = newCompleted.slice(-3);
-    const consecutiveExit = last3.length === 3 && last3.every(r => !r.correct);
-
-    const earlyExit = foundationExit || phonicsExit || consecutiveExit;
-
-    if (earlyExit || currentIndex + 1 >= totalTasks) {
+    if (currentIndex + 1 >= totalTasks) {
       setPhase("calculating");
       try {
         const res = await apiFetch("/api/reading/diagnostic/placement", {
@@ -965,51 +989,63 @@ export default function ReadingDiagnosticPlacement({
               <div className="space-y-4">
                 {task.voiceHint && <p className="text-sm text-gray-400 text-center">{task.voiceHint}</p>}
 
-                {/* Big mic button */}
-                <div className="flex flex-col items-center gap-3">
-                  <button
-                    onClick={listening ? stopVoice : startVoice}
-                    disabled={submitting || speaking || !micEnabled}
-                    className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 ${
-                      listening
-                        ? "bg-red-500 text-white animate-pulse shadow-red-200 shadow-xl"
-                        : (speaking || !micEnabled)
-                        ? "bg-gray-300 text-gray-400 cursor-not-allowed"
-                        : "bg-blue-500 text-white hover:bg-blue-600"
-                    }`}
-                  >
-                    {listening ? (
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" /></svg>
-                    ) : (
-                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
-                      </svg>
-                    )}
-                  </button>
-                  <p className="text-sm text-gray-400 font-medium">
-                    {speaking ? "⏳ Listen to the question first…" : listening ? "🔴 Listening… tap to stop" : !micEnabled ? "⏳ Getting ready…" : "Tap the mic to speak"}
-                  </p>
-                </div>
-
-                {/* Live transcript */}
-                {transcript && (
-                  <div className="bg-green-50 border border-green-200 rounded-2xl px-4 py-3 text-center">
-                    <p className="text-sm text-green-500 font-medium mb-1">I heard:</p>
-                    <p className="text-green-800 font-semibold">"{transcript}"</p>
+                {/* STT unavailable — inline notice, auto-advances in 2 s */}
+                {sttUnavailable && (
+                  <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-center space-y-1">
+                    <p className="text-amber-700 font-semibold text-sm">Voice input isn&apos;t available in this browser</p>
+                    <p className="text-amber-600 text-xs">This question will be skipped automatically…</p>
                   </div>
                 )}
 
-                {/* Submit voice — always shown; enabled once transcript exists or mic is active */}
-                {canSubmitVoice && (
-                  <button
-                    onClick={handleVoiceSubmit}
-                    disabled={(!transcript && !listening) || submitting}
-                    className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
-                  >
-                    {submitting ? (
-                      <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Saving…</>
-                    ) : listening ? "Stop & Submit →" : "Submit →"}
-                  </button>
+                {/* Mic, transcript and submit — hidden while sttUnavailable */}
+                {!sttUnavailable && (
+                  <>
+                    <div className="flex flex-col items-center gap-3">
+                      <button
+                        onClick={listening ? stopVoice : startVoice}
+                        disabled={submitting || speaking || !micEnabled}
+                        className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 ${
+                          listening
+                            ? "bg-red-500 text-white animate-pulse shadow-red-200 shadow-xl"
+                            : (speaking || !micEnabled)
+                            ? "bg-gray-300 text-gray-400 cursor-not-allowed"
+                            : "bg-blue-500 text-white hover:bg-blue-600"
+                        }`}
+                      >
+                        {listening ? (
+                          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" /></svg>
+                        ) : (
+                          <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
+                          </svg>
+                        )}
+                      </button>
+                      <p className="text-sm text-gray-400 font-medium">
+                        {speaking ? "⏳ Listen to the question first…" : listening ? "🔴 Listening… tap to stop" : !micEnabled ? "⏳ Getting ready…" : "Tap the mic to speak"}
+                      </p>
+                    </div>
+
+                    {/* Live transcript */}
+                    {transcript && (
+                      <div className="bg-green-50 border border-green-200 rounded-2xl px-4 py-3 text-center">
+                        <p className="text-sm text-green-500 font-medium mb-1">I heard:</p>
+                        <p className="text-green-800 font-semibold">"{transcript}"</p>
+                      </div>
+                    )}
+
+                    {/* Submit voice */}
+                    {canSubmitVoice && (
+                      <button
+                        onClick={handleVoiceSubmit}
+                        disabled={(!transcript && !listening) || submitting}
+                        className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                      >
+                        {submitting ? (
+                          <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Saving…</>
+                        ) : listening ? "Stop & Submit →" : "Submit →"}
+                      </button>
+                    )}
+                  </>
                 )}
               </div>
             )}

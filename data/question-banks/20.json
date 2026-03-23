@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness â€” Rhyme",
+    "domain": "Phonological Awareness – Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'star' and 'car' rhyme?",
-    "displayWord": "star â€¢ car",
+    "displayWord": "star • car",
     "answerMode": "choice",
     "choices": [
       {
@@ -49,7 +49,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation â€” First Sound",
+    "domain": "Phoneme Isolation – First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'mix'? Tap the sound below.",
@@ -106,7 +106,7 @@
   },
   {
     "id": "D03",
-    "domain": "Letter Sound â€” Consonants",
+    "domain": "Letter Sound – Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -136,7 +136,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound â€” Vowels",
+    "domain": "Letter Sound – Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -228,9 +228,9 @@
     "domainCode": "D009",
     "gate": "C",
     "question": "Read this word out loud for me. The silent e changes the vowel sound.",
-    "displayWord": "FUSE",
+    "displayWord": "MULE",
     "answerMode": "voice",
-    "expectedAnswer": "fuse",
+    "expectedAnswer": "mule",
     "vowelPattern": "long u"
   },
   {
@@ -239,10 +239,10 @@
     "domainCode": "D010",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "SOON",
+    "displayWord": "MEAL",
     "answerMode": "voice",
-    "expectedAnswer": "soon",
-    "vowelTeam": "oo",
+    "expectedAnswer": "meal",
+    "vowelTeam": "ea",
     "maxResponseMs": 4000
   },
   {
@@ -274,7 +274,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words â€” Automaticity",
+    "domain": "Sight Words – Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -290,10 +290,10 @@
     "domainCode": "D012",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "HURT",
+    "displayWord": "SPORT",
     "answerMode": "voice",
-    "expectedAnswer": "hurt",
-    "rControlledPattern": "ur"
+    "expectedAnswer": "sport",
+    "rControlledPattern": "or"
   },
   {
     "id": "D13",
@@ -402,7 +402,7 @@
     "gate": "D",
     "question": "Here is a short story. Read it to me.",
     "displayWord": "",
-    "passage": "Meg had a jar full of buttons. She tipped them onto the table and sorted them into piles â€” red ones, blue ones, and shiny ones. The shiny pile was the smallest. Her cat came and patted one of the shiny buttons off the table and chased it.",
+    "passage": "Meg had a jar full of buttons. She tipped them onto the table and sorted them into piles – red ones, blue ones, and shiny ones. The shiny pile was the smallest. Her cat came and patted one of the shiny buttons off the table and chased it.",
     "passageId": "16.20",
     "answerMode": "voice",
     "scoringCriteria": {

@@ -228,17 +228,24 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     try {
       const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
-      // Fetch the user's saved name from Supabase metadata
-      const fullName = (authData.user?.user_metadata?.full_name as string | undefined) || "";
+      // Fetch the user's saved profile from the users table (grade, name, language, curriculum)
+      const userId = authData.user?.id;
+      const { data: userData } = userId
+        ? await supabase.from("users").select("full_name, grade, language, curriculum").eq("id", userId).single()
+        : { data: null };
+      const fullName =
+        (userData?.full_name as string | undefined) ||
+        (authData.user?.user_metadata?.full_name as string | undefined) ||
+        "";
       const final: OnboardingData = {
-        language: data.language || "English",
-        grade: data.grade || "",
+        language: (userData?.language as string | undefined) || data.language || "English",
+        grade: (userData?.grade as string | undefined) || data.grade || "",
         averageScore: data.averageScore || "",
-        curriculum: data.curriculum || "",
+        curriculum: (userData?.curriculum as string | undefined) || data.curriculum || "",
         name: fullName,
         email: authData.user?.email || email,
         plan: "existing",
-        userId: authData.user?.id,
+        userId,
       };
       localStorage.setItem("onboardingData", JSON.stringify(final));
       onComplete(final);

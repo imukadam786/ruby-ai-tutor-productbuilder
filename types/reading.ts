@@ -25,6 +25,7 @@ export interface DiagnosticTaskResult {
   score: number;
   response: string;
   errorType?: string;
+  sttSkipped?: boolean; // true when voice input unavailable — excluded from placement scoring
 }
 
 export interface DiagnosticPlacementResult {
@@ -122,6 +123,8 @@ export interface ReadingStudentProfile {
   placement: DiagnosticPlacementResult | null;
   errorPatterns: Record<string, { type: ReadingErrorType; count: number; retaughtCount: number }>;
   sessionHistory: Record<string, boolean[]>;
+  /** Tracks which pool refs have been served per skill — prevents same question showing twice */
+  used_questions?: Record<string, string[]>;
 }
 
 // ─── Session ──────────────────────────────────────────────────────────────────
@@ -142,6 +145,8 @@ export interface ReadingGeneratedQuestion {
   hint?: string;
   expected_answer: string;
   scaffolding_notes: string;
+  /** Pool ref used to generate this question — stored in used_questions to avoid repeats */
+  used_ref?: string;
 }
 
 export interface ReadingAnswerSubmission {

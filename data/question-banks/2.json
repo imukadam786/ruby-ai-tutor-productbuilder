@@ -1,11 +1,11 @@
 [
   {
     "id": "D01",
-    "domain": "Phonological Awareness â€” Rhyme",
+    "domain": "Phonological Awareness – Rhyme",
     "domainCode": "D001",
     "gate": "A",
     "question": "Do 'dog' and 'log' rhyme?",
-    "displayWord": "dog â€¢ log",
+    "displayWord": "dog • log",
     "answerMode": "choice",
     "choices": [
       {
@@ -49,7 +49,7 @@
   },
   {
     "id": "D02",
-    "domain": "Phoneme Isolation â€” First Sound",
+    "domain": "Phoneme Isolation – First Sound",
     "domainCode": "D002",
     "gate": "A",
     "question": "What is the very first sound in 'man'? Tap the sound below.",
@@ -106,7 +106,7 @@
   },
   {
     "id": "D03",
-    "domain": "Letter Sound â€” Consonants",
+    "domain": "Letter Sound – Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
@@ -136,7 +136,7 @@
   },
   {
     "id": "D04",
-    "domain": "Letter Sound â€” Vowels",
+    "domain": "Letter Sound – Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
@@ -228,9 +228,9 @@
     "domainCode": "D009",
     "gate": "C",
     "question": "Read this word out loud for me. The silent e changes the vowel sound.",
-    "displayWord": "TIME",
+    "displayWord": "BIKE",
     "answerMode": "voice",
-    "expectedAnswer": "time",
+    "expectedAnswer": "bike",
     "vowelPattern": "long i"
   },
   {
@@ -239,10 +239,10 @@
     "domainCode": "D010",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "BEAM",
+    "displayWord": "MAIL",
     "answerMode": "voice",
-    "expectedAnswer": "beam",
-    "vowelTeam": "ea",
+    "expectedAnswer": "mail",
+    "vowelTeam": "ai",
     "maxResponseMs": 4000
   },
   {
@@ -274,7 +274,7 @@
   },
   {
     "id": "D11",
-    "domain": "Sight Words â€” Automaticity",
+    "domain": "Sight Words – Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -290,10 +290,10 @@
     "domainCode": "D012",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "FERN",
+    "displayWord": "CAR",
     "answerMode": "voice",
-    "expectedAnswer": "fern",
-    "rControlledPattern": "er"
+    "expectedAnswer": "car",
+    "rControlledPattern": "ar"
   },
   {
     "id": "D13",

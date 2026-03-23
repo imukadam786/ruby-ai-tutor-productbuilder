@@ -33,6 +33,16 @@ const TASK_SCAN_ORDER = [
   "D13", "D13B", "D13C", "D14", "D15", "D15B", "D16", "D17", "D18",
 ];
 
+// ─── Grade ceiling placement (when all administered tasks pass) ────────────────
+// A student who passes everything in their grade window starts at the top of
+// that window — not at R5 (advanced reader), which requires the full pipeline.
+const GRADE_CEILING_SKILL: Record<number, string> = {
+  1: "R2.T2.A3",  // D07 (CVC Word Reading) — Grade 1 ceiling (9 tasks)
+  2: "R2.T3.A1",  // D10 (Vowel Teams) — Grade 2 ceiling (12 tasks)
+  3: "R2.T3.A2",  // D12 (R-Controlled Vowels) — Grade 3 ceiling (15 tasks)
+  4: "R3.T1.A2",  // D13B (Consonant Blend Encoding) — Grade 4+ ceiling (17 tasks)
+};
+
 // ─── Dominant error collector ─────────────────────────────────────────────────
 /** Returns up to 3 most frequent error types from failed task results. */
 function collectDominantErrors(taskResults: DiagnosticTaskResult[]): string[] {
@@ -66,10 +76,12 @@ export function calculateReadingPlacement(
   taskResults: DiagnosticTaskResult[],
   grade = 3
 ): DiagnosticPlacementResult {
-  // Index results by taskId for O(1) lookup
+  // Index results by taskId for O(1) lookup.
+  // sttSkipped tasks are excluded — treated as unadministered so they don't
+  // falsely count as failures for non-Chrome users.
   const resultMap: Record<string, DiagnosticTaskResult> = {};
   for (const r of taskResults) {
-    resultMap[r.taskId] = r;
+    if (!r.sttSkipped) resultMap[r.taskId] = r;
   }
 
   /** Returns true if the task was administered and met its grade-adjusted passThreshold. */
@@ -101,21 +113,26 @@ export function calculateReadingPlacement(
   }
 
   // ── RULE 2: First-failure scan ───────────────────────────────────────────
+  // Only consider tasks that were actually administered (in resultMap).
+  // Lower grades have a task ceiling and will not have D08+ in their results.
   let firstFailTaskId: string | null = null;
   for (const tid of TASK_SCAN_ORDER) {
+    if (!resultMap[tid]) continue; // not administered this grade — skip
     if (!taskPassed(tid)) {
       firstFailTaskId = tid;
       break;
     }
   }
 
-  // Fallback: all tasks passed — advanced reader.
+  // Fallback: all administered tasks passed.
+  // Grade 5+ = advanced reader (R5). Lower grades = top of their ceiling.
   if (!firstFailTaskId) {
+    const ceilingSkill = GRADE_CEILING_SKILL[Math.min(grade, 4)] ?? "R5.T1.A1";
     return {
       completedAt: Date.now(),
       tasks: taskResults,
-      entrySkillId: "R5.T1.A1",
-      autoCompletedSkillIds: skillsBefore("R5.T1.A1"),
+      entrySkillId: ceilingSkill,
+      autoCompletedSkillIds: skillsBefore(ceilingSkill),
       hardGatePassed: true,
       dominantErrors,
     };

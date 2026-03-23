@@ -49,6 +49,50 @@ export function saveReadingProfile(profile: ReadingStudentProfile): void {
   }, { onConflict: "id" }));
 }
 
+/**
+ * Links this profile to the currently authenticated Supabase user.
+ * Called fire-and-forget on init — enables hydrateReadingProfileFromSupabase() to work.
+ * No-op if not authenticated.
+ */
+export async function linkReadingProfileToAuth(profileId: string): Promise<void> {
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+    void retrySupabase(() =>
+      supabase.from("student_profiles")
+        .update({ auth_user_id: user.id })
+        .eq("id", profileId)
+    );
+  } catch { /* non-critical */ }
+}
+
+/**
+ * When localStorage is empty (e.g. browser data cleared), queries Supabase
+ * for the most recent reading profile linked to the authenticated user,
+ * restores it to localStorage, and returns it.
+ * Returns null if not authenticated or no profile found.
+ */
+export async function hydrateReadingProfileFromSupabase(): Promise<ReadingStudentProfile | null> {
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return null;
+    const { data } = await supabase
+      .from("student_profiles")
+      .select("profile_data")
+      .eq("auth_user_id", user.id)
+      .eq("subject", "reading")
+      .order("updated_at", { ascending: false })
+      .limit(1)
+      .single();
+    if (!data?.profile_data) return null;
+    const profile = data.profile_data as unknown as ReadingStudentProfile;
+    localStorage.setItem(READING_STUDENT_KEY, JSON.stringify(profile));
+    return profile;
+  } catch {
+    return null;
+  }
+}
+
 export function createReadingProfile(name: string, grade: number): ReadingStudentProfile {
   const profile: ReadingStudentProfile = {
     id: `reading_${Date.now()}`,
@@ -84,6 +128,7 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
     placement: null,
     errorPatterns: {},
     sessionHistory: {},
+    used_questions: {},
   };
   saveReadingProfile(profile);
   return profile;
@@ -473,4 +518,29 @@ export function getReadingLevelProgress(
   if (skillIds.length === 0) return 0;
   const mastered = skillIds.filter((id) => masteryMap[id]?.status === "mastered" || masteryMap[id]?.status === "assumed").length;
   return Math.round((mastered / skillIds.length) * 100);
+}
+
+// ─── Used-question tracking ───────────────────────────────────────────────────
+
+/** Returns the list of pool refs already served for a skill this session. */
+export function getReadingUsedRefs(profile: ReadingStudentProfile, skillId: string): string[] {
+  return profile.used_questions?.[skillId] ?? [];
+}
+
+/** Adds a ref to the used list for a skill, saves the profile, and returns the updated profile. */
+export function markReadingQuestionUsed(
+  profile: ReadingStudentProfile,
+  skillId: string,
+  ref: string
+): ReadingStudentProfile {
+  const existing = profile.used_questions?.[skillId] ?? [];
+  const updated: ReadingStudentProfile = {
+    ...profile,
+    used_questions: {
+      ...(profile.used_questions ?? {}),
+      [skillId]: [...existing, ref],
+    },
+  };
+  saveReadingProfile(updated);
+  return updated;
 }
