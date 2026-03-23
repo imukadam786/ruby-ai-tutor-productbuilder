@@ -499,7 +499,6 @@ export default function MathsDiagnosticPlacement({
           block: task.block,
           correct: choice.correct,
           error_type: errorType,
-          is_probe: false,
         });
       }, 450);
     },
@@ -518,7 +517,6 @@ export default function MathsDiagnosticPlacement({
       block: task.block,
       correct,
       error_type: errorType,
-      is_probe: false,
     });
   }, [submitting, task, answers, advanceTask]);
 
@@ -526,7 +524,7 @@ export default function MathsDiagnosticPlacement({
     if (submitting || !task) return;
     advanceTask({
       domain: task.domain, score: 0, response: "(skipped)",
-      block: task.block, correct: false, is_probe: false,
+      block: task.block, correct: false,
     });
   }, [submitting, task, advanceTask]);
 

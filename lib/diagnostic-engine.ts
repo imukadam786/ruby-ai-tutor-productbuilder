@@ -182,13 +182,12 @@ export function evaluateEarlyExit(
     }
   }
 
-  // Condition 3 — 3 primary questions in a row incorrect → exit, place at last correct answer
-  const primaryOnly = completedTasks.filter((t) => !t.is_probe);
-  if (primaryOnly.length >= 3) {
-    const lastThree = primaryOnly.slice(-3);
+  // Condition 3 — 3 questions in a row incorrect → exit, place at last correct answer
+  if (completedTasks.length >= 3) {
+    const lastThree = completedTasks.slice(-3);
     if (lastThree.every((t) => !t.correct)) {
       // Place at the domain of the last correct answer, or level 1 if none
-      const lastCorrect = [...primaryOnly].reverse().find((t) => t.correct);
+      const lastCorrect = [...completedTasks].reverse().find((t) => t.correct);
       const placementLevel = lastCorrect
         ? Math.max(1, parseInt(lastCorrect.domain.replace("M", ""), 10) - 1)
         : 1;

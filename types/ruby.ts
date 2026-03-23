@@ -100,7 +100,6 @@ export interface MathsPlacementTaskResult {
   block?: DiagnosticBlock;
   correct?: boolean;
   error_type?: string;
-  is_probe?: boolean;
 }
 
 export interface MathsPlacementResult {
