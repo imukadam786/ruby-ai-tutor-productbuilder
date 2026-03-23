@@ -49,7 +49,6 @@ import {
   trackQuestionAnswered,
   trackSkillMastered,
   trackSkillAdvanced,
-  trackReteach,
   trackSessionStarted,
   trackSessionEnded,
   trackPlacementCompleted,
@@ -411,14 +410,6 @@ export default function ReadingSession() {
         document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "reading" } }));
         setPhase("mastered");
       } else {
-        if (!result.is_correct) {
-          trackReteach({
-            subject: "reading",
-            skill_id: currentQuestion.skill_id,
-            error_type: result.error_type ?? "unknown",
-            reteach_count: 1,
-          });
-        }
         setCurrentResult(result);
         const stuckState = detectStuck(
           updatedMastery.attempt_count,
@@ -767,7 +758,6 @@ export default function ReadingSession() {
   if (phase === "feedback" && currentResult) {
     const nextLabels: Record<string, string> = {
       continue_skill: "Try another question",
-      review_prerequisite: "Review prerequisite skill",
       advance_skill: "Next skill",
       advance_tier: "Next topic",
       advance_level: "Next level",

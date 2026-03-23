@@ -41,7 +41,6 @@ import {
   trackQuestionAnswered,
   trackSkillMastered,
   trackSkillAdvanced,
-  trackReteach,
   trackSessionStarted,
   trackSessionEnded,
   trackPlacementCompleted,
@@ -156,8 +155,6 @@ export default function DiagnosticSession() {
   const [skillAttemptCount, setSkillAttemptCount] = useState(0);
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
-  const [reteachCount, setReteachCount] = useState(0);
-  const [lastWasIncorrect, setLastWasIncorrect] = useState<boolean>(false);
   const [statusMessage, setStatusMessage] = useState("");
   const [loadErrorCount, setLoadErrorCount] = useState(0);
   const retryFnRef = useRef<(() => void) | null>(null);
@@ -273,12 +270,13 @@ export default function DiagnosticSession() {
   useEffect(() => {
     if (phase === "loading_question" && profile) {
       const errorType = (currentResult && !currentResult.is_correct) ? (currentResult.error_type ?? null) : null;
-      const template = selectMathsTemplate(lastWasIncorrect, errorType, recentTemplatesRef.current);
+      const lastWasWrong = currentResult?.is_correct === false;
+      const template = selectMathsTemplate(lastWasWrong, errorType, recentTemplatesRef.current);
       recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
       const skillIdToLoad = pendingReviewSkillId ?? profile.current_skill_id;
-      loadQuestion(skillIdToLoad, template, skillAttemptCount + 1, profile, lastWasIncorrect);
+      loadQuestion(skillIdToLoad, template, skillAttemptCount + 1, profile, lastWasWrong);
     }
-  }, [phase, profile, skillAttemptCount, loadQuestion, lastWasIncorrect]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [phase, profile, skillAttemptCount, loadQuestion, currentResult]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean, workingImage?: string) => {
     if (!currentQuestion || !profile) return;
@@ -363,17 +361,6 @@ export default function DiagnosticSession() {
         document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "maths" } }));
         setPhase("mastered");
       } else {
-        if (!result.is_correct) {
-          setReteachCount((n) => n + 1);
-          trackReteach({
-            subject: "maths",
-            skill_id: currentQuestion.skill_id,
-            error_type: result.error_type ?? "unknown",
-            reteach_count: reteachCount + 1,
-          });
-        } else {
-          setReteachCount(0);
-        }
         setCurrentResult(result);
         const stuckState = detectStuck(
           updatedMastery.attempt_count,
@@ -397,7 +384,6 @@ export default function DiagnosticSession() {
   const handleNextAfterFeedback = () => {
     if (!profile || !currentResult) return;
 
-    setLastWasIncorrect(currentResult.next_action === "review_prerequisite");
     setPhase("loading_question");
   };
 
@@ -423,8 +409,6 @@ export default function DiagnosticSession() {
     stuckDismissedAtRef.current = 0;
     setSkillAttemptCount(0);
     recentTemplatesRef.current = [];
-    setReteachCount(0);
-    setLastWasIncorrect(false);
     setPhase(nextSkillId ? "loading_question" : "complete");
   };
 
@@ -448,8 +432,6 @@ export default function DiagnosticSession() {
     }
     setSkillAttemptCount(0);
     recentTemplatesRef.current = [];
-    setReteachCount(0);
-    setLastWasIncorrect(false);
     setPhase(nextSkillId ? "loading_question" : "complete");
   };
 
@@ -469,8 +451,6 @@ export default function DiagnosticSession() {
       setProfile(updated);
       setSkillAttemptCount(0);
       recentTemplatesRef.current = [];
-      setReteachCount(0);
-      setLastWasIncorrect(false);
       setPhase("loading_question");
     } else {
       setPhase("complete");
@@ -538,7 +518,6 @@ export default function DiagnosticSession() {
     recentTemplatesRef.current = [];
     setSessionCorrect(0);
     setSessionAttempts(0);
-    setReteachCount(0);
   };
 
   // Skill-tree-only reset — keeps placement result, returns to entry point with fresh questions
@@ -578,7 +557,6 @@ export default function DiagnosticSession() {
     recentTemplatesRef.current = [];
     setSessionCorrect(0);
     setSessionAttempts(0);
-    setReteachCount(0);
   };
 
   // Refs always point to latest profile + functions — fixes stale closure in event handler
@@ -715,13 +693,6 @@ export default function DiagnosticSession() {
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
-            {lastWasIncorrect && (
-              <div className="bg-orange-50 border border-orange-200 rounded-xl px-4 py-2 text-sm text-orange-800">
-                {reteachCount >= 2
-                  ? "One more go — slightly different approach."
-                  : "Let's try this a different way."}
-              </div>
-            )}
             {skill && (
               <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
                 <div className="flex-1">
@@ -738,7 +709,7 @@ export default function DiagnosticSession() {
               question={currentQuestion}
               onSubmit={handleSubmitAnswer}
               isSubmitting={false}
-              forceHint={lastWasIncorrect}
+              forceHint={currentResult?.is_correct === false}
             />
           </div>
         </div>
@@ -750,8 +721,6 @@ export default function DiagnosticSession() {
     const nextLabels: Record<string, string> = {
       continue_skill: "Try another question",
       practice: "Next question",
-      reteach: "Try a different approach",
-      review_prerequisite: "Review prerequisite skill",
       advance_skill: "Next skill",
       advance_tier: "Next topic",
       advance_level: "Next level",

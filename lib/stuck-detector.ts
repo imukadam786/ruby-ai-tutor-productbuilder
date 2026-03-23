@@ -5,8 +5,8 @@
  * with the same p_learned scale and attempt_count tracking.
  *
  * Thresholds:
- *   warn  — 10+ attempts, p_learned < 0.50  →  extra-empathetic reteach tone
- *   stuck — 15+ attempts, p_learned < 0.60  →  full intervention screen
+ *   warn  — 3+ attempts, p_learned < 0.50  →  informational only
+ *   stuck — 5+ attempts, p_learned < 0.60  →  full intervention screen
  *
  * The warn level is informational only (callers may change tone/message).
  * The stuck level should surface the StuckScreen UI.
@@ -20,8 +20,8 @@ export interface StuckState {
   pLearned: number;
 }
 
-export const STUCK_WARN_ATTEMPTS  = 10;
-export const STUCK_HARD_ATTEMPTS  = 15;
+export const STUCK_WARN_ATTEMPTS  = 3;
+export const STUCK_HARD_ATTEMPTS  = 5;
 export const STUCK_WARN_THRESHOLD = 0.50;  // p_learned below this at warn boundary
 export const STUCK_HARD_THRESHOLD = 0.60;  // p_learned below this at hard boundary
 
