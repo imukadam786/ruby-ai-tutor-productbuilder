@@ -80,7 +80,7 @@ export async function hydrateStudentProfileFromSupabase(): Promise<StudentProfil
 
 export function createStudentProfile(name: string, grade: number): StudentProfile {
   const profile: StudentProfile = {
-    id: `student_${Date.now()}`,
+    id: crypto.randomUUID(),
     name,
     grade,
     current_level: DEFAULT_STARTING_LEVEL,

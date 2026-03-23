@@ -96,7 +96,7 @@ export async function hydrateReadingProfileFromSupabase(): Promise<ReadingStuden
 
 export function createReadingProfile(name: string, grade: number): ReadingStudentProfile {
   const profile: ReadingStudentProfile = {
-    id: `reading_${Date.now()}`,
+    id: crypto.randomUUID(),
     name,
     grade,
     current_level: DEFAULT_STARTING_LEVEL,
