@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
-import { requireApiSecret } from "@/lib/api-auth";
 
 export async function POST(req: NextRequest) {
-  const deny = requireApiSecret(req);
-  if (deny) return deny;
   try {
     const { strings, targetLanguage } = await req.json();
 

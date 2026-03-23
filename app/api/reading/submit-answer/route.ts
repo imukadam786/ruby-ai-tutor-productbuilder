@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { requireApiSecret } from "@/lib/api-auth";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import {
@@ -103,8 +102,6 @@ function sanitiseErrorType(raw: string, fallback: ReadingErrorType): ReadingErro
 }
 
 export async function POST(req: NextRequest) {
-  const deny = requireApiSecret(req);
-  if (deny) return deny;
   try {
     const submission: ReadingAnswerSubmission = await req.json();
 

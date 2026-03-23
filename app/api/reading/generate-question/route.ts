@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { requireApiSecret } from "@/lib/api-auth";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import { ReadingTemplate, ReadingGeneratedQuestion, AudioTapChoice } from "@/types/reading";
@@ -1189,8 +1188,6 @@ const ERROR_RECOVERY_INSTRUCTIONS: Record<string, string> = {
 
 
 export async function POST(req: NextRequest) {
-  const deny = requireApiSecret(req);
-  if (deny) return deny;
   try {
     const {
       skill_id,

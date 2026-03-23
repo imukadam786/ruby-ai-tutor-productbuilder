@@ -4,14 +4,11 @@
 // the student profile, since the profile lives in localStorage not a server DB).
 
 import { NextRequest, NextResponse } from "next/server";
-import { requireApiSecret } from "@/lib/api-auth";
 import { generateReportContent, type DiagnosticReportInput } from "@/lib/report-generator";
 import { buildReportPDF } from "@/lib/report-pdf";
 import { saveReport } from "@/lib/report-store";
 
 export async function POST(req: NextRequest) {
-  const deny = requireApiSecret(req);
-  if (deny) return deny;
   try {
     const body = await req.json();
     const { input }: { input: DiagnosticReportInput } = body;

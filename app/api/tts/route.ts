@@ -1,12 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
-import { requireApiSecret } from "@/lib/api-auth";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
 export async function POST(req: NextRequest) {
-  const deny = requireApiSecret(req);
-  if (deny) return deny;
   try {
     const { text } = await req.json();
     if (!text || typeof text !== "string") {
