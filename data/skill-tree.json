@@ -15,26 +15,60 @@
               "title": "Count objects to 10",
               "description": "Count a set of up to 10 physical or pictured objects with one-to-one correspondence",
               "prerequisites": [],
-              "templates": ["concrete", "story", "symbolic"],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Skips or double-counts objects", "example": "Counts 7 objects as 8" },
-                { "type": "conceptual_gap", "description": "Does not understand cardinality — last number is not the total", "example": "After counting '1,2,3,4,5' cannot state there are 5 objects" }
+                {
+                  "type": "execution_slip",
+                  "description": "Skips or double-counts objects",
+                  "example": "Counts 7 objects as 8"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not understand cardinality — last number is not the total",
+                  "example": "After counting '1,2,3,4,5' cannot state there are 5 objects"
+                }
               ],
               "recovery_strategy": "Use touch-counting with physical objects. Reinforce cardinality by asking 'how many altogether?' after every count.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L1.T1.A2",
               "title": "Count objects to 20",
               "description": "Count sets of up to 20 objects accurately",
-              "prerequisites": ["L1.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L1.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Errors at teen numbers (13/14 confusion)", "example": "Counts 13 as 14" },
-                { "type": "conceptual_gap", "description": "Does not bridge from 10 to 11", "example": "Counts '...9, 10, 20'" }
+                {
+                  "type": "execution_slip",
+                  "description": "Errors at teen numbers (13/14 confusion)",
+                  "example": "Counts 13 as 14"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not bridge from 10 to 11",
+                  "example": "Counts '...9, 10, 20'"
+                }
               ],
               "recovery_strategy": "Use ten-frames. Emphasise the structure of teen numbers as '10 and some more'.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -46,37 +80,77 @@
               "id": "L1.T2.A1",
               "title": "Recognise and write numerals 0–20",
               "description": "Identify and write numerals 0 to 20 correctly",
-              "prerequisites": ["L1.T1.A2"],
-              "templates": ["concrete", "symbolic"],
+              "prerequisites": [
+                "L1.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Reverses numerals (e.g. 6/9, 2/5)", "example": "Writes 6 for 9" }
+                {
+                  "type": "execution_slip",
+                  "description": "Reverses numerals (e.g. 6/9, 2/5)",
+                  "example": "Writes 6 for 9"
+                }
               ],
               "recovery_strategy": "Provide numeral formation practice with verbal description of strokes.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L1.T2.A2",
               "title": "Order numbers to 20",
               "description": "Place numbers in ascending and descending order on a number line",
-              "prerequisites": ["L1.T2.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L1.T2.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Confuses before/after on number line", "example": "Places 14 before 13" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses before/after on number line",
+                  "example": "Places 14 before 13"
+                }
               ],
               "recovery_strategy": "Use a physical number line walk. Ask 'which comes next when counting forward?'",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L1.T2.A3",
               "title": "Compare numbers using < > =",
               "description": "Use comparison symbols to compare pairs of numbers to 20",
-              "prerequisites": ["L1.T2.A2"],
-              "templates": ["concrete", "symbolic"],
+              "prerequisites": [
+                "L1.T2.A2"
+              ],
+              "templates": [
+                "concrete",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "representation_confusion", "description": "Reverses < and >", "example": "Writes 8 > 5 as 8 < 5" }
+                {
+                  "type": "representation_confusion",
+                  "description": "Reverses < and >",
+                  "example": "Writes 8 > 5 as 8 < 5"
+                }
               ],
               "recovery_strategy": "Use 'hungry crocodile' analogy — the mouth always faces the bigger number.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -88,14 +162,32 @@
               "id": "L1.T3.A1",
               "title": "Understand tens and ones to 99",
               "description": "Partition two-digit numbers into tens and ones using place value",
-              "prerequisites": ["L1.T2.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L1.T2.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Treats digits as separate units rather than place value", "example": "Says 35 has 3 ones and 5 tens" },
-                { "type": "representation_confusion", "description": "Confuses tens and ones columns", "example": "Writes 53 for 35" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Treats digits as separate units rather than place value",
+                  "example": "Says 35 has 3 ones and 5 tens"
+                },
+                {
+                  "type": "representation_confusion",
+                  "description": "Confuses tens and ones columns",
+                  "example": "Writes 53 for 35"
+                }
               ],
               "recovery_strategy": "Use base-10 blocks. Build the number physically then record it.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -114,27 +206,63 @@
               "id": "L2.T1.A1",
               "title": "Add by counting all",
               "description": "Combine two groups and count all objects to find the total",
-              "prerequisites": ["L1.T1.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L1.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Miscounts combined group", "example": "3+4 counted as 6" },
-                { "type": "conceptual_gap", "description": "Does not understand combining increases the total", "example": "Counts only the second group" }
+                {
+                  "type": "execution_slip",
+                  "description": "Miscounts combined group",
+                  "example": "3+4 counted as 6"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not understand combining increases the total",
+                  "example": "Counts only the second group"
+                }
               ],
               "recovery_strategy": "Use two distinct groups of objects. Model combining physically before counting.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L2.T1.A2",
               "title": "Add by counting on",
               "description": "Start from the larger number and count on to add efficiently",
-              "prerequisites": ["L2.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L2.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Counts on from the first rather than larger number", "example": "For 3+8 counts on from 3" },
-                { "type": "execution_slip", "description": "Off-by-one error when counting on", "example": "8+3: says '8...9,10,11,12' getting 12" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Counts on from the first rather than larger number",
+                  "example": "For 3+8 counts on from 3"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Off-by-one error when counting on",
+                  "example": "8+3: says '8...9,10,11,12' getting 12"
+                }
               ],
               "recovery_strategy": "Use a number line. Mark the starting number and physically jump the correct number of spaces.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -146,26 +274,59 @@
               "id": "L2.T2.A1",
               "title": "Doubles and near-doubles",
               "description": "Know doubles to 10+10 and use them to calculate near-doubles",
-              "prerequisites": ["L2.T1.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L2.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Does not apply double as a reference", "example": "Cannot use 6+6=12 to solve 6+7" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Does not apply double as a reference",
+                  "example": "Cannot use 6+6=12 to solve 6+7"
+                }
               ],
               "recovery_strategy": "Teach doubles as a family. For near-doubles, explicitly show: 6+7 = 6+6+1 = 12+1.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L2.T2.A2",
               "title": "Make 10 strategy",
               "description": "Bridge through 10 to add numbers crossing the tens boundary",
-              "prerequisites": ["L2.T2.A1", "L1.T3.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L2.T2.A1",
+                "L1.T3.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Does not recognise bonds to 10", "example": "Cannot identify that 7 needs 3 to make 10" },
-                { "type": "strategy_gap", "description": "Does not split the second addend to bridge 10", "example": "Adds 8+5 without using make-10 strategy" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not recognise bonds to 10",
+                  "example": "Cannot identify that 7 needs 3 to make 10"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Does not split the second addend to bridge 10",
+                  "example": "Adds 8+5 without using make-10 strategy"
+                }
               ],
               "recovery_strategy": "Use ten-frames. Physically fill the frame to 10, then count remaining dots.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -177,27 +338,64 @@
               "id": "L2.T3.A1",
               "title": "Add two-digit numbers without regrouping",
               "description": "Add two-digit numbers where ones do not cross ten",
-              "prerequisites": ["L2.T2.A2", "L1.T3.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L2.T2.A2",
+                "L1.T3.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Adds digits without regard to place value", "example": "23+14 = 37 but treated as independent digits" },
-                { "type": "conceptual_gap", "description": "Does not partition into tens and ones", "example": "Treats 23+14 as (2+1)+(3+4) but confuses position" }
+                {
+                  "type": "execution_slip",
+                  "description": "Adds digits without regard to place value",
+                  "example": "23+14 = 37 but treated as independent digits"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not partition into tens and ones",
+                  "example": "Treats 23+14 as (2+1)+(3+4) but confuses position"
+                }
               ],
               "recovery_strategy": "Use base-10 blocks. Separate tens and ones physically before adding.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L2.T3.A2",
               "title": "Add two-digit numbers with regrouping",
               "description": "Add two-digit numbers that require carrying (regrouping ones into tens)",
-              "prerequisites": ["L2.T3.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L2.T3.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Adds ones correctly but forgets to carry", "example": "28+35 = 53 (forgets to carry the 1)" },
-                { "type": "conceptual_gap", "description": "Does not understand regrouping means exchanging 10 ones for 1 ten", "example": "Groups 13 ones but writes 13 in the ones column" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Adds ones correctly but forgets to carry",
+                  "example": "28+35 = 53 (forgets to carry the 1)"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not understand regrouping means exchanging 10 ones for 1 ten",
+                  "example": "Groups 13 ones but writes 13 in the ones column"
+                }
               ],
               "recovery_strategy": "Use base-10 blocks to physically exchange 10 ones for a tens rod. Record each exchange step.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -216,27 +414,64 @@
               "id": "L3.T1.A1",
               "title": "Subtract by taking away",
               "description": "Remove objects from a group and count what remains",
-              "prerequisites": ["L2.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L2.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Counts removed objects rather than remaining", "example": "12-5: counts the 5 removed and says the answer is 5" },
-                { "type": "execution_slip", "description": "Miscounts remaining objects", "example": "12-5 counted as 6" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Counts removed objects rather than remaining",
+                  "example": "12-5: counts the 5 removed and says the answer is 5"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Miscounts remaining objects",
+                  "example": "12-5 counted as 6"
+                }
               ],
               "recovery_strategy": "Physically remove and cover the subtracted objects. Count only what remains uncovered.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L3.T1.A2",
               "title": "Subtraction by counting back",
               "description": "Count back on a number line to subtract efficiently",
-              "prerequisites": ["L3.T1.A1", "L2.T1.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L3.T1.A1",
+                "L2.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Off-by-one error counting back", "example": "15-4: starts at 15 and counts '15,14,13,12' but says 12 not 11" },
-                { "type": "strategy_gap", "description": "Counts back from the wrong number", "example": "Starts from the subtrahend rather than minuend" }
+                {
+                  "type": "execution_slip",
+                  "description": "Off-by-one error counting back",
+                  "example": "15-4: starts at 15 and counts '15,14,13,12' but says 12 not 11"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Counts back from the wrong number",
+                  "example": "Starts from the subtrahend rather than minuend"
+                }
               ],
               "recovery_strategy": "Mark start and jumps on a number line. Count jumps, not landings.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -248,14 +483,32 @@
               "id": "L3.T2.A1",
               "title": "Find the difference by counting up",
               "description": "Determine how many more by counting up from smaller to larger number",
-              "prerequisites": ["L3.T1.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L3.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "representation_confusion", "description": "Confuses take-away with difference interpretation", "example": "Uses take-away method when difference is needed" },
-                { "type": "conceptual_gap", "description": "Does not recognise subtraction as inverse of addition", "example": "Cannot use 5+?=12 to solve 12-5" }
+                {
+                  "type": "representation_confusion",
+                  "description": "Confuses take-away with difference interpretation",
+                  "example": "Uses take-away method when difference is needed"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not recognise subtraction as inverse of addition",
+                  "example": "Cannot use 5+?=12 to solve 12-5"
+                }
               ],
               "recovery_strategy": "Use a bar model showing two quantities. The difference is the gap between them.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -267,26 +520,59 @@
               "id": "L3.T3.A1",
               "title": "Subtract two-digit numbers without regrouping",
               "description": "Subtract two-digit numbers where ones do not require borrowing",
-              "prerequisites": ["L3.T2.A1", "L1.T3.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L3.T2.A1",
+                "L1.T3.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Subtracts smaller digit from larger regardless of position", "example": "52-27: does 7-2 in ones column giving 35" }
+                {
+                  "type": "execution_slip",
+                  "description": "Subtracts smaller digit from larger regardless of position",
+                  "example": "52-27: does 7-2 in ones column giving 35"
+                }
               ],
               "recovery_strategy": "Use base-10 blocks. Partition both numbers before subtracting column by column.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L3.T3.A2",
               "title": "Subtract two-digit numbers with regrouping",
               "description": "Subtract using decomposition (borrowing) when ones column requires it",
-              "prerequisites": ["L3.T3.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L3.T3.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Forgets to reduce tens after borrowing", "example": "43-18: borrows but still uses 4 tens giving 35" },
-                { "type": "conceptual_gap", "description": "Does not understand borrowing as exchanging 1 ten for 10 ones", "example": "Tries to borrow from an empty column" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Forgets to reduce tens after borrowing",
+                  "example": "43-18: borrows but still uses 4 tens giving 35"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not understand borrowing as exchanging 1 ten for 10 ones",
+                  "example": "Tries to borrow from an empty column"
+                }
               ],
               "recovery_strategy": "Physically exchange a tens rod for 10 ones. Record the exchange in the algorithm.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -305,25 +591,51 @@
               "id": "L4.T1.A1",
               "title": "Compensation strategy for addition",
               "description": "Round to a friendly number, add, then adjust",
-              "prerequisites": ["L2.T3.A2"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L2.T3.A2"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Rounds but forgets to compensate", "example": "49+23: rounds 49 to 50, adds to get 73, forgets to subtract 1" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Rounds but forgets to compensate",
+                  "example": "49+23: rounds 49 to 50, adds to get 73, forgets to subtract 1"
+                }
               ],
               "recovery_strategy": "Explicitly record the round-add-adjust steps. Use a number line to show the adjustment.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L4.T1.A2",
               "title": "Splitting strategy for addition",
               "description": "Partition both numbers into hundreds, tens, ones then add each part",
-              "prerequisites": ["L2.T3.A2"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L2.T3.A2"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Splits correctly but makes arithmetic error in partial sum", "example": "234+156: tens 30+50=70 recorded as 80" }
+                {
+                  "type": "execution_slip",
+                  "description": "Splits correctly but makes arithmetic error in partial sum",
+                  "example": "234+156: tens 30+50=70 recorded as 80"
+                }
               ],
               "recovery_strategy": "Use a written split layout. Record each partial sum clearly before combining.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -335,13 +647,27 @@
               "id": "L4.T2.A1",
               "title": "Compensation strategy for subtraction",
               "description": "Round the subtrahend to a friendly number, subtract, then adjust",
-              "prerequisites": ["L3.T3.A2", "L4.T1.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L3.T3.A2",
+                "L4.T1.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Adjusts in wrong direction after rounding subtrahend", "example": "84-39: subtracts 40 getting 44, then subtracts 1 instead of adding 1" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Adjusts in wrong direction after rounding subtrahend",
+                  "example": "84-39: subtracts 40 getting 44, then subtracts 1 instead of adding 1"
+                }
               ],
               "recovery_strategy": "Use a number line. Show that subtracting 40 goes too far and must jump back 1.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -353,14 +679,33 @@
               "id": "L4.T3.A1",
               "title": "Add and subtract three-digit numbers",
               "description": "Apply standard algorithm to three-digit addition and subtraction with regrouping",
-              "prerequisites": ["L4.T1.A2", "L4.T2.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L4.T1.A2",
+                "L4.T2.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Multiple regrouping errors in algorithm", "example": "Correctly regroups ones but forgets second regroup in tens" },
-                { "type": "strategy_gap", "description": "Applies algorithm mechanically without checking reasonableness", "example": "Gets answer smaller than minuend in subtraction" }
+                {
+                  "type": "execution_slip",
+                  "description": "Multiple regrouping errors in algorithm",
+                  "example": "Correctly regroups ones but forgets second regroup in tens"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Applies algorithm mechanically without checking reasonableness",
+                  "example": "Gets answer smaller than minuend in subtraction"
+                }
               ],
               "recovery_strategy": "Estimate first to establish a benchmark. Check algorithm answer against estimate.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -379,27 +724,63 @@
               "id": "L5.T1.A1",
               "title": "Identify and make equal groups",
               "description": "Recognise and create equal groups; express as repeated addition",
-              "prerequisites": ["L2.T1.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L2.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Does not understand groups must be equal", "example": "Creates groups of different sizes" },
-                { "type": "representation_confusion", "description": "Confuses number of groups with group size", "example": "For 3 groups of 4 writes 4 × 3 but means 3 groups not 4" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not understand groups must be equal",
+                  "example": "Creates groups of different sizes"
+                },
+                {
+                  "type": "representation_confusion",
+                  "description": "Confuses number of groups with group size",
+                  "example": "For 3 groups of 4 writes 4 × 3 but means 3 groups not 4"
+                }
               ],
               "recovery_strategy": "Use physical objects arranged into equal groups. Count groups first, then count in each group.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L5.T1.A2",
               "title": "Represent multiplication with arrays",
               "description": "Create and interpret rectangular arrays; connect to multiplication notation",
-              "prerequisites": ["L5.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L5.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "representation_confusion", "description": "Confuses rows and columns", "example": "3×4 array drawn as 4 rows of 3 and claimed to be different from 3 rows of 4" },
-                { "type": "conceptual_gap", "description": "Does not connect array to multiplication equation", "example": "Cannot write 3×4=12 from a 3 by 4 array" }
+                {
+                  "type": "representation_confusion",
+                  "description": "Confuses rows and columns",
+                  "example": "3×4 array drawn as 4 rows of 3 and claimed to be different from 3 rows of 4"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not connect array to multiplication equation",
+                  "example": "Cannot write 3×4=12 from a 3 by 4 array"
+                }
               ],
               "recovery_strategy": "Label rows and columns explicitly. Show commutativity by rotating the array.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -411,38 +792,82 @@
               "id": "L5.T2.A1",
               "title": "Skip count by 2s, 5s, and 10s",
               "description": "Count in multiples of 2, 5, and 10 to support multiplication understanding",
-              "prerequisites": ["L5.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L5.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Breaks pattern in skip counting", "example": "10, 20, 30, 40, 45..." }
+                {
+                  "type": "execution_slip",
+                  "description": "Breaks pattern in skip counting",
+                  "example": "10, 20, 30, 40, 45..."
+                }
               ],
               "recovery_strategy": "Use a hundreds chart and highlight multiples. Clap or step on multiples.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L5.T2.A2",
               "title": "Times tables: 2, 5, 10",
               "description": "Recall and apply 2, 5, and 10 times tables with fluency",
-              "prerequisites": ["L5.T2.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L5.T2.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Off-by-one in table sequence", "example": "7×5 = 30 (skipped one step)" }
+                {
+                  "type": "execution_slip",
+                  "description": "Off-by-one in table sequence",
+                  "example": "7×5 = 30 (skipped one step)"
+                }
               ],
               "recovery_strategy": "Connect to skip counting. Visualise with arrays or number lines.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L5.T2.A3",
               "title": "Times tables: 3, 4, 6, 7, 8, 9",
               "description": "Recall and apply remaining times tables with fluency",
-              "prerequisites": ["L5.T2.A2"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L5.T2.A2"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Confuses adjacent table facts", "example": "6×8 recalled as 42 (confused with 6×7)" },
-                { "type": "strategy_gap", "description": "Cannot derive unknown fact from known facts", "example": "Does not use 5×8=40 to find 6×8" }
+                {
+                  "type": "execution_slip",
+                  "description": "Confuses adjacent table facts",
+                  "example": "6×8 recalled as 42 (confused with 6×7)"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Cannot derive unknown fact from known facts",
+                  "example": "Does not use 5×8=40 to find 6×8"
+                }
               ],
               "recovery_strategy": "Teach derivation strategies: use known facts as anchors. 6×8 = 5×8 + 8.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -454,13 +879,27 @@
               "id": "L5.T3.A1",
               "title": "Commutative property of multiplication",
               "description": "Understand and apply a×b = b×a to reduce memorisation load",
-              "prerequisites": ["L5.T1.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L5.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Believes order matters in multiplication", "example": "Treats 4×7 and 7×4 as different problems" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Believes order matters in multiplication",
+                  "example": "Treats 4×7 and 7×4 as different problems"
+                }
               ],
               "recovery_strategy": "Rotate an array physically. Count to confirm same total.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -479,13 +918,27 @@
               "id": "L6.T1.A1",
               "title": "Interpret multiplication as scaling",
               "description": "Understand multiplication as making something n times as large",
-              "prerequisites": ["L5.T1.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L5.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Confuses scaling with repeated addition only", "example": "Cannot represent 3 times as long on a diagram" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses scaling with repeated addition only",
+                  "example": "Cannot represent 3 times as long on a diagram"
+                }
               ],
               "recovery_strategy": "Use tape diagrams (bar models) to show scaling. Draw and label n copies of the unit.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -497,40 +950,93 @@
               "id": "L6.T2.A1",
               "title": "Multiply 2-digit by 1-digit using splitting",
               "description": "Apply distributive property: split tens and ones, multiply each part, recombine",
-              "prerequisites": ["L5.T2.A3", "L1.T3.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L5.T2.A3",
+                "L1.T3.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Splits number but adds rather than multiplies parts", "example": "23×4: does (20+3)×4 but calculates 20+4 and 3+4" },
-                { "type": "execution_slip", "description": "Partial product arithmetic error", "example": "23×4: 20×4=70 (should be 80)" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Splits number but adds rather than multiplies parts",
+                  "example": "23×4: does (20+3)×4 but calculates 20+4 and 3+4"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Partial product arithmetic error",
+                  "example": "23×4: 20×4=70 (should be 80)"
+                }
               ],
               "recovery_strategy": "Use an area model (grid). Label each section with its partial product.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L6.T2.A2",
               "title": "Multiply 3-digit by 1-digit",
               "description": "Extend splitting strategy to hundreds, tens, and ones",
-              "prerequisites": ["L6.T2.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L6.T2.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Error in hundreds partial product", "example": "234×3: 200×3=500 instead of 600" },
-                { "type": "strategy_gap", "description": "Forgets to include hundreds in the split", "example": "Only splits tens and ones" }
+                {
+                  "type": "execution_slip",
+                  "description": "Error in hundreds partial product",
+                  "example": "234×3: 200×3=500 instead of 600"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Forgets to include hundreds in the split",
+                  "example": "Only splits tens and ones"
+                }
               ],
               "recovery_strategy": "Use a 3-column area model. Ensure all three columns are multiplied.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L6.T2.A3",
               "title": "Multiply 2-digit by 2-digit",
               "description": "Apply full area model or standard algorithm to 2-digit by 2-digit multiplication",
-              "prerequisites": ["L6.T2.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L6.T2.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Only multiplies ones by ones and tens by tens, ignoring cross products", "example": "23×41: calculates 20×40 + 3×1 only" },
-                { "type": "execution_slip", "description": "Misaligns rows in standard algorithm", "example": "Second partial product not shifted left" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Only multiplies ones by ones and tens by tens, ignoring cross products",
+                  "example": "23×41: calculates 20×40 + 3×1 only"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Misaligns rows in standard algorithm",
+                  "example": "Second partial product not shifted left"
+                }
               ],
               "recovery_strategy": "Use a 2×2 area model (four cells). All four products must be found and summed.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -542,13 +1048,27 @@
               "id": "L6.T3.A1",
               "title": "Apply distributive property",
               "description": "Use a(b+c) = ab+ac to simplify multiplication calculations",
-              "prerequisites": ["L6.T2.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L6.T2.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Distributes only to first term", "example": "3×(20+4) = 3×20+4 (forgets to multiply 4)" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Distributes only to first term",
+                  "example": "3×(20+4) = 3×20+4 (forgets to multiply 4)"
+                }
               ],
               "recovery_strategy": "Use an area model. Show that the multiplier covers both parts of the split.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -567,27 +1087,63 @@
               "id": "L7.T1.A1",
               "title": "Division as equal sharing",
               "description": "Share a quantity equally among groups; interpret remainder",
-              "prerequisites": ["L5.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L5.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Confuses divisor with quotient", "example": "24÷6: says answer is 6 because there are 6 groups" },
-                { "type": "execution_slip", "description": "Does not distribute equally — some groups larger", "example": "Shares 12 into 4 as 5,3,3,1" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses divisor with quotient",
+                  "example": "24÷6: says answer is 6 because there are 6 groups"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Does not distribute equally — some groups larger",
+                  "example": "Shares 12 into 4 as 5,3,3,1"
+                }
               ],
               "recovery_strategy": "Use physical objects. Share one at a time into equal piles and count the result.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L7.T1.A2",
               "title": "Division as grouping",
               "description": "Find how many equal groups can be made from a total",
-              "prerequisites": ["L7.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L7.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "representation_confusion", "description": "Confuses sharing and grouping interpretation", "example": "Uses sharing method when grouping is required" },
-                { "type": "conceptual_gap", "description": "Does not connect grouping division to multiplication", "example": "Cannot use 5×?=20 to solve 20÷5" }
+                {
+                  "type": "representation_confusion",
+                  "description": "Confuses sharing and grouping interpretation",
+                  "example": "Uses sharing method when grouping is required"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not connect grouping division to multiplication",
+                  "example": "Cannot use 5×?=20 to solve 20÷5"
+                }
               ],
               "recovery_strategy": "Act out: 'How many bags of 5 can I make from 20 apples?' Count groups made.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -599,13 +1155,27 @@
               "id": "L7.T2.A1",
               "title": "Use multiplication to solve division",
               "description": "Recognise division as the inverse of multiplication and use fact families",
-              "prerequisites": ["L7.T1.A2", "L5.T2.A3"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L7.T1.A2",
+                "L5.T2.A3"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Does not recognise inverse relationship", "example": "Cannot use 8×7=56 to solve 56÷7" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not recognise inverse relationship",
+                  "example": "Cannot use 8×7=56 to solve 56÷7"
+                }
               ],
               "recovery_strategy": "Build fact families: 4×6=24, 6×4=24, 24÷4=6, 24÷6=4. Show all four together.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -617,14 +1187,31 @@
               "id": "L7.T3.A1",
               "title": "Divide 2-digit by 1-digit with remainder",
               "description": "Apply short division; interpret and use remainders contextually",
-              "prerequisites": ["L7.T2.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L7.T2.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Does not bring down correctly in short division", "example": "Forgets to include remainder in next step" },
-                { "type": "conceptual_gap", "description": "Cannot interpret remainder in context", "example": "Gets 3 remainder 2 but cannot explain what the 2 means" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Does not bring down correctly in short division",
+                  "example": "Forgets to include remainder in next step"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot interpret remainder in context",
+                  "example": "Gets 3 remainder 2 but cannot explain what the 2 means"
+                }
               ],
               "recovery_strategy": "Use chunking (repeated subtraction) alongside short division. Map each step of chunking to short division.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -643,26 +1230,58 @@
               "id": "L8.T1.A1",
               "title": "Identify unit fractions",
               "description": "Identify 1/2, 1/3, 1/4, 1/5, 1/8, 1/10 as equal parts of a whole",
-              "prerequisites": ["L7.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L7.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Does not require parts to be equal", "example": "Accepts unequal pieces as halves" },
-                { "type": "representation_confusion", "description": "Confuses numerator and denominator meaning", "example": "Says 1/4 means 1 out of 4 but interprets denominator as 'number of shaded parts'" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not require parts to be equal",
+                  "example": "Accepts unequal pieces as halves"
+                },
+                {
+                  "type": "representation_confusion",
+                  "description": "Confuses numerator and denominator meaning",
+                  "example": "Says 1/4 means 1 out of 4 but interprets denominator as 'number of shaded parts'"
+                }
               ],
               "recovery_strategy": "Always fold or cut physical shapes. Confirm equality by overlapping parts.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L8.T1.A2",
               "title": "Identify non-unit fractions",
               "description": "Name and write fractions with numerators greater than 1",
-              "prerequisites": ["L8.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L8.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Counts unshaded rather than shaded parts for numerator", "example": "3/5 shaded: writes 2/5" }
+                {
+                  "type": "execution_slip",
+                  "description": "Counts unshaded rather than shaded parts for numerator",
+                  "example": "3/5 shaded: writes 2/5"
+                }
               ],
               "recovery_strategy": "Explicitly circle shaded parts and count. Label numerator first, then denominator.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -674,14 +1293,31 @@
               "id": "L8.T2.A1",
               "title": "Place fractions on a number line",
               "description": "Mark and identify fractions between 0 and 1 on a number line",
-              "prerequisites": ["L8.T1.A2"],
-              "templates": ["concrete", "symbolic"],
+              "prerequisites": [
+                "L8.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Does not divide the number line into equal parts", "example": "Places 1/4 at the midpoint of the number line" },
-                { "type": "representation_confusion", "description": "Counts marks rather than spaces (intervals)", "example": "For thirds, makes 3 marks rather than dividing into 3 equal spaces" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not divide the number line into equal parts",
+                  "example": "Places 1/4 at the midpoint of the number line"
+                },
+                {
+                  "type": "representation_confusion",
+                  "description": "Counts marks rather than spaces (intervals)",
+                  "example": "For thirds, makes 3 marks rather than dividing into 3 equal spaces"
+                }
               ],
               "recovery_strategy": "Fold a paper strip into equal sections. Place strip below the number line and transfer markings.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -693,14 +1329,32 @@
               "id": "L8.T3.A1",
               "title": "Find equivalent fractions",
               "description": "Identify and generate equivalent fractions using multiplication and division",
-              "prerequisites": ["L8.T2.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L8.T2.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Adds the same value to numerator and denominator rather than multiplying", "example": "Converts 1/2 to 2/3 by adding 1 to each" },
-                { "type": "conceptual_gap", "description": "Does not understand equivalence means same point on number line", "example": "Cannot verify 2/4 = 1/2 visually" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Adds the same value to numerator and denominator rather than multiplying",
+                  "example": "Converts 1/2 to 2/3 by adding 1 to each"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not understand equivalence means same point on number line",
+                  "example": "Cannot verify 2/4 = 1/2 visually"
+                }
               ],
               "recovery_strategy": "Use fraction walls or strips to show same length = same value. Record the multiplier used for both numerator and denominator.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -719,26 +1373,58 @@
               "id": "L9.T1.A1",
               "title": "Add fractions with same denominator",
               "description": "Add fractions by counting equal parts; simplify results",
-              "prerequisites": ["L8.T1.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L8.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Adds numerators AND denominators", "example": "1/4 + 2/4 = 3/8" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Adds numerators AND denominators",
+                  "example": "1/4 + 2/4 = 3/8"
+                }
               ],
               "recovery_strategy": "Use fraction strips. Show parts being combined; the size of parts (denominator) does not change.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L9.T1.A2",
               "title": "Add fractions with different denominators",
               "description": "Find common denominators and add unlike fractions",
-              "prerequisites": ["L9.T1.A1", "L8.T3.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L9.T1.A1",
+                "L8.T3.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Adds without finding common denominator", "example": "1/3 + 1/4 = 2/7" },
-                { "type": "execution_slip", "description": "Finds LCD but converts only one fraction", "example": "1/3 + 1/4: converts 1/3 to 4/12 but keeps 1/4" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Adds without finding common denominator",
+                  "example": "1/3 + 1/4 = 2/7"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Finds LCD but converts only one fraction",
+                  "example": "1/3 + 1/4: converts 1/3 to 4/12 but keeps 1/4"
+                }
               ],
               "recovery_strategy": "Use fraction strips of both sizes side by side. Find the first shared length mark.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -750,26 +1436,59 @@
               "id": "L9.T2.A1",
               "title": "Multiply a fraction by a whole number",
               "description": "Interpret n × (a/b) as n copies of (a/b); apply and simplify",
-              "prerequisites": ["L9.T1.A1", "L5.T1.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L9.T1.A1",
+                "L5.T1.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Multiplies both numerator and denominator by n", "example": "3 × 2/5 = 6/15" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Multiplies both numerator and denominator by n",
+                  "example": "3 × 2/5 = 6/15"
+                }
               ],
               "recovery_strategy": "Draw 3 copies of 2/5 on a number line. Count total fifths.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L9.T2.A2",
               "title": "Multiply fraction by fraction",
               "description": "Apply the algorithm: (a/b) × (c/d) = ac/bd; interpret as 'fraction of a fraction'",
-              "prerequisites": ["L9.T2.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L9.T2.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Adds instead of multiplies", "example": "2/3 × 3/4 = 5/7" },
-                { "type": "conceptual_gap", "description": "Cannot interpret as 'fraction of a fraction'", "example": "Cannot represent 2/3 of 3/4 on an area model" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Adds instead of multiplies",
+                  "example": "2/3 × 3/4 = 5/7"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot interpret as 'fraction of a fraction'",
+                  "example": "Cannot represent 2/3 of 3/4 on an area model"
+                }
               ],
               "recovery_strategy": "Use a unit square area model. Shade rows for one fraction, columns for the other. Overlap = product.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -781,26 +1500,58 @@
               "id": "L9.T3.A1",
               "title": "Divide fraction by whole number",
               "description": "Divide a fraction into equal parts using diagrams and the algorithm",
-              "prerequisites": ["L9.T2.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L9.T2.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Multiplies instead of divides", "example": "2/3 ÷ 4 = 8/3" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Multiplies instead of divides",
+                  "example": "2/3 ÷ 4 = 8/3"
+                }
               ],
               "recovery_strategy": "Draw 2/3 on a number line. Split each third into 4 equal parts and identify the result.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L9.T3.A2",
               "title": "Divide fraction by fraction (invert and multiply)",
               "description": "Apply a/b ÷ c/d = a/b × d/c and interpret with models",
-              "prerequisites": ["L9.T3.A1", "L9.T2.A2"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L9.T3.A1",
+                "L9.T2.A2"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Inverts the wrong fraction", "example": "2/3 ÷ 4/5: flips 2/3 instead of 4/5" },
-                { "type": "conceptual_gap", "description": "Cannot explain why invert-and-multiply works", "example": "Applies rule but cannot verify with a model" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Inverts the wrong fraction",
+                  "example": "2/3 ÷ 4/5: flips 2/3 instead of 4/5"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot explain why invert-and-multiply works",
+                  "example": "Applies rule but cannot verify with a model"
+                }
               ],
               "recovery_strategy": "Use a measurement model: 'How many 4/5 fit into 2/3?' Count with a number line.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -819,14 +1570,33 @@
               "id": "L10.T1.A1",
               "title": "Understand tenths and hundredths",
               "description": "Represent decimals to two places using place value and connect to fractions",
-              "prerequisites": ["L8.T1.A2", "L1.T3.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L8.T1.A2",
+                "L1.T3.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "representation_confusion", "description": "Treats decimal digits as whole numbers", "example": "Thinks 0.25 > 0.8 because 25 > 8" },
-                { "type": "conceptual_gap", "description": "Cannot connect 0.3 to 3/10", "example": "Does not see tenths as a fraction" }
+                {
+                  "type": "representation_confusion",
+                  "description": "Treats decimal digits as whole numbers",
+                  "example": "Thinks 0.25 > 0.8 because 25 > 8"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot connect 0.3 to 3/10",
+                  "example": "Does not see tenths as a fraction"
+                }
               ],
               "recovery_strategy": "Use a decimal place value chart. Fill with base-10 blocks; connect each column to its fraction name.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -838,26 +1608,57 @@
               "id": "L10.T2.A1",
               "title": "Add and subtract decimals",
               "description": "Add and subtract decimal numbers using place value alignment",
-              "prerequisites": ["L10.T1.A1", "L4.T3.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L10.T1.A1",
+                "L4.T3.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Misaligns decimal points", "example": "3.4 + 0.25 written with 4 and 2 in same column" }
+                {
+                  "type": "execution_slip",
+                  "description": "Misaligns decimal points",
+                  "example": "3.4 + 0.25 written with 4 and 2 in same column"
+                }
               ],
               "recovery_strategy": "Always write the decimal point first and align all digits to it. Use zeros as placeholders.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L10.T2.A2",
               "title": "Multiply and divide decimals by 10, 100, 1000",
               "description": "Apply place value understanding to multiply/divide by powers of 10",
-              "prerequisites": ["L10.T1.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L10.T1.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Adds or removes zeros rather than moving the decimal point", "example": "3.4 × 10 = 3.40" },
-                { "type": "execution_slip", "description": "Moves decimal wrong number of places", "example": "0.25 × 100 = 2.5 instead of 25" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Adds or removes zeros rather than moving the decimal point",
+                  "example": "3.4 × 10 = 3.40"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Moves decimal wrong number of places",
+                  "example": "0.25 × 100 = 2.5 instead of 25"
+                }
               ],
               "recovery_strategy": "Use a place value grid. Show digits moving columns rather than the decimal moving.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -869,14 +1670,31 @@
               "id": "L10.T3.A1",
               "title": "Round decimals to nearest whole or decimal place",
               "description": "Apply rounding rules to decimal numbers in context",
-              "prerequisites": ["L10.T1.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L10.T1.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Rounds down when digit is 5", "example": "2.75 rounded to 1 dp = 2.7" },
-                { "type": "execution_slip", "description": "Rounds wrong digit", "example": "Rounds ones rather than tenths when rounding to 1 dp" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Rounds down when digit is 5",
+                  "example": "2.75 rounded to 1 dp = 2.7"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Rounds wrong digit",
+                  "example": "Rounds ones rather than tenths when rounding to 1 dp"
+                }
               ],
               "recovery_strategy": "Use a number line segment. Mark the decimal between two round numbers; identify which is closer.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -895,26 +1713,57 @@
               "id": "L11.T1.A1",
               "title": "Express and simplify ratios",
               "description": "Write a ratio from a context and simplify using HCF",
-              "prerequisites": ["L7.T2.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L7.T2.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "representation_confusion", "description": "Writes ratio as fraction incorrectly", "example": "3:5 written as 3/8 (includes total)" },
-                { "type": "strategy_gap", "description": "Does not simplify to lowest terms", "example": "4:6 left unsimplified when 2:3 required" }
+                {
+                  "type": "representation_confusion",
+                  "description": "Writes ratio as fraction incorrectly",
+                  "example": "3:5 written as 3/8 (includes total)"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Does not simplify to lowest terms",
+                  "example": "4:6 left unsimplified when 2:3 required"
+                }
               ],
               "recovery_strategy": "Use bar models to represent each part of the ratio. Explicitly identify HCF before simplifying.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L11.T1.A2",
               "title": "Divide a quantity in a given ratio",
               "description": "Share a total into parts using a ratio; find each part's value",
-              "prerequisites": ["L11.T1.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L11.T1.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Divides by number of terms rather than total parts", "example": "£30 in ratio 2:3: divides by 2 instead of 5" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Divides by number of terms rather than total parts",
+                  "example": "£30 in ratio 2:3: divides by 2 instead of 5"
+                }
               ],
               "recovery_strategy": "Find total number of parts first (sum of ratio terms). Find value of 1 part. Then multiply.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -926,26 +1775,57 @@
               "id": "L11.T2.A1",
               "title": "Solve proportion problems (unitary method)",
               "description": "Find 1 unit then scale; apply to direct proportion contexts",
-              "prerequisites": ["L11.T1.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L11.T1.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Does not use unitary method; uses additive reasoning instead", "example": "If 3 items cost £12, incorrectly adds £12 to find 4 items" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Does not use unitary method; uses additive reasoning instead",
+                  "example": "If 3 items cost £12, incorrectly adds £12 to find 4 items"
+                }
               ],
               "recovery_strategy": "Always find '1 unit' as an explicit step. Write it down before scaling.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L11.T2.A2",
               "title": "Calculate percentage of an amount",
               "description": "Find percentages using 10% as a building block and/or decimal equivalents",
-              "prerequisites": ["L10.T2.A2", "L11.T2.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L10.T2.A2",
+                "L11.T2.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Divides by percentage rather than converting to decimal", "example": "40% of 80 = 80 ÷ 40 = 2" },
-                { "type": "execution_slip", "description": "Error converting percentage to decimal", "example": "35% = 3.5 rather than 0.35" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Divides by percentage rather than converting to decimal",
+                  "example": "40% of 80 = 80 ÷ 40 = 2"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Error converting percentage to decimal",
+                  "example": "35% = 3.5 rather than 0.35"
+                }
               ],
               "recovery_strategy": "Build from 10% (divide by 10). Then combine: 30% = 3×10%, 35% = 30%+5%.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -957,14 +1837,31 @@
               "id": "L11.T3.A1",
               "title": "Calculate percentage increase and decrease",
               "description": "Increase or decrease a value by a percentage; use multipliers",
-              "prerequisites": ["L11.T2.A2"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L11.T2.A2"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Finds percentage but adds to wrong original", "example": "20% increase on £60: finds £12 but adds to £20" },
-                { "type": "conceptual_gap", "description": "Cannot use multiplier method", "example": "Cannot express 15% increase as × 1.15" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Finds percentage but adds to wrong original",
+                  "example": "20% increase on £60: finds £12 but adds to £20"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot use multiplier method",
+                  "example": "Cannot express 15% increase as × 1.15"
+                }
               ],
               "recovery_strategy": "Use bar model: whole bar = 100%. Add/remove % blocks. Then teach multiplier as one-step shortcut.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -983,13 +1880,27 @@
               "id": "L12.T1.A1",
               "title": "Order and compare negative numbers",
               "description": "Place negative numbers on a number line; compare using < and >",
-              "prerequisites": ["L1.T2.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L1.T2.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Thinks −5 > −2 because 5 > 2", "example": "Orders −5, −2, 1 as −5, 1, −2" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Thinks −5 > −2 because 5 > 2",
+                  "example": "Orders −5, −2, 1 as −5, 1, −2"
+                }
               ],
               "recovery_strategy": "Use a vertical thermometer. Higher on the thermometer = greater value. Negative numbers are below zero.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1001,26 +1912,58 @@
               "id": "L12.T2.A1",
               "title": "Add and subtract with negative numbers",
               "description": "Apply rules for adding/subtracting negative numbers on a number line",
-              "prerequisites": ["L12.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L12.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Does not understand subtracting a negative = adding", "example": "5−(−3) = 2 instead of 8" },
-                { "type": "execution_slip", "description": "Confuses direction on number line", "example": "Moves right when subtracting" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not understand subtracting a negative = adding",
+                  "example": "5−(−3) = 2 instead of 8"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Confuses direction on number line",
+                  "example": "Moves right when subtracting"
+                }
               ],
               "recovery_strategy": "Use a number line with direction arrows. Subtracting reverses direction; subtracting a negative reverses twice.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L12.T2.A2",
               "title": "Multiply and divide with negative numbers",
               "description": "Apply sign rules: same signs = positive, different signs = negative",
-              "prerequisites": ["L12.T2.A1", "L5.T2.A3"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L12.T2.A1",
+                "L5.T2.A3"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Ignores signs and just multiplies magnitudes", "example": "(−3)×(−4) = −12 instead of 12" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Ignores signs and just multiplies magnitudes",
+                  "example": "(−3)×(−4) = −12 instead of 12"
+                }
               ],
               "recovery_strategy": "Use a 2×2 sign table. Practice sign determination separately from magnitude calculation.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1032,14 +1975,30 @@
               "id": "L12.T3.A1",
               "title": "Apply BODMAS/PEMDAS order of operations",
               "description": "Evaluate expressions with mixed operations following correct precedence",
-              "prerequisites": ["L12.T2.A2"],
-              "templates": ["symbolic"],
+              "prerequisites": [
+                "L12.T2.A2"
+              ],
+              "templates": [
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Evaluates left to right without following precedence", "example": "3 + 4 × 2 = 14 instead of 11" },
-                { "type": "execution_slip", "description": "Forgets to evaluate brackets first", "example": "2 × (3+4) = 10 instead of 14" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Evaluates left to right without following precedence",
+                  "example": "3 + 4 × 2 = 14 instead of 11"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Forgets to evaluate brackets first",
+                  "example": "2 × (3+4) = 10 instead of 14"
+                }
               ],
               "recovery_strategy": "Circle brackets first, then underline multiplication/division, then evaluate in order.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -1058,13 +2017,27 @@
               "id": "L13.T1.A1",
               "title": "Identify and extend number patterns",
               "description": "Describe the rule for a sequence and find missing terms",
-              "prerequisites": ["L4.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L4.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Identifies first difference only; misses second difference in quadratic sequences", "example": "1,4,9,16: says 'add 3 each time' without checking differences" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Identifies first difference only; misses second difference in quadratic sequences",
+                  "example": "1,4,9,16: says 'add 3 each time' without checking differences"
+                }
               ],
               "recovery_strategy": "Always calculate all differences. If first differences vary, calculate second differences.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1076,27 +2049,61 @@
               "id": "L13.T2.A1",
               "title": "Write and evaluate algebraic expressions",
               "description": "Represent unknown quantities with letters; substitute values and evaluate",
-              "prerequisites": ["L13.T1.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L13.T1.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "representation_confusion", "description": "Treats letter as a specific unknown number rather than a variable", "example": "Insists x must be 'the answer'" },
-                { "type": "execution_slip", "description": "Error substituting negative values", "example": "Evaluates 3x when x=−2 as 3×2=6 instead of −6" }
+                {
+                  "type": "representation_confusion",
+                  "description": "Treats letter as a specific unknown number rather than a variable",
+                  "example": "Insists x must be 'the answer'"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Error substituting negative values",
+                  "example": "Evaluates 3x when x=−2 as 3×2=6 instead of −6"
+                }
               ],
               "recovery_strategy": "Use function machines. Input value → operation → output. Connect to expression notation.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L13.T2.A2",
               "title": "Simplify expressions by collecting like terms",
               "description": "Group and simplify algebraic terms with the same variable",
-              "prerequisites": ["L13.T2.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L13.T2.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Adds unlike terms", "example": "3x + 2y = 5xy" },
-                { "type": "execution_slip", "description": "Errors with negative coefficients when collecting", "example": "5x − 3x = 8x instead of 2x" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Adds unlike terms",
+                  "example": "3x + 2y = 5xy"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Errors with negative coefficients when collecting",
+                  "example": "5x − 3x = 8x instead of 2x"
+                }
               ],
               "recovery_strategy": "Colour-code like terms. Collect same-colour groups before combining.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1108,25 +2115,50 @@
               "id": "L13.T3.A1",
               "title": "Expand single brackets",
               "description": "Multiply each term inside the bracket by the term outside",
-              "prerequisites": ["L13.T2.A2", "L6.T3.A1"],
-              "templates": ["symbolic"],
+              "prerequisites": [
+                "L13.T2.A2",
+                "L6.T3.A1"
+              ],
+              "templates": [
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Multiplies only the first term in the bracket", "example": "3(x+4) = 3x+4 instead of 3x+12" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Multiplies only the first term in the bracket",
+                  "example": "3(x+4) = 3x+4 instead of 3x+12"
+                }
               ],
               "recovery_strategy": "Use an area model rectangle. Multiplier is the width, bracket terms are the two height sections.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L13.T3.A2",
               "title": "Factorise by extracting the HCF",
               "description": "Find the highest common factor of terms and write in factorised form",
-              "prerequisites": ["L13.T3.A1"],
-              "templates": ["symbolic"],
+              "prerequisites": [
+                "L13.T3.A1"
+              ],
+              "templates": [
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Takes a common factor but not the highest", "example": "6x+9: takes 3(2x+3) when HCF is 3, but only takes 3(2x+3)... actually this may be right — let me use a clearer example: 12x+8: factors as 2(6x+4) instead of 4(3x+2)" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Takes a common factor but not the highest",
+                  "example": "6x+9: takes 3(2x+3) when HCF is 3, but only takes 3(2x+3)... actually this may be right — let me use a clearer example: 12x+8: factors as 2(6x+4) instead of 4(3x+2)"
+                }
               ],
               "recovery_strategy": "Find HCF of numerical coefficients first. Then check if variable is common too. Verify by expanding.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -1145,26 +2177,56 @@
               "id": "L14.T1.A1",
               "title": "Solve one-step equations",
               "description": "Isolate the variable in equations of the form x+a=b or ax=b",
-              "prerequisites": ["L13.T2.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L13.T2.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Performs inverse operation on wrong side", "example": "x+5=12: subtracts 5 from 12 only, getting x=7 correctly but by accident" },
-                { "type": "conceptual_gap", "description": "Does not understand balancing (doing same to both sides)", "example": "x+5=12: crosses out +5 but does not adjust right side" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Performs inverse operation on wrong side",
+                  "example": "x+5=12: subtracts 5 from 12 only, getting x=7 correctly but by accident"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not understand balancing (doing same to both sides)",
+                  "example": "x+5=12: crosses out +5 but does not adjust right side"
+                }
               ],
               "recovery_strategy": "Use a balance scale model. Whatever is done to one side must be done to the other.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L14.T1.A2",
               "title": "Solve two-step equations",
               "description": "Solve equations of the form ax+b=c by applying inverse operations in order",
-              "prerequisites": ["L14.T1.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L14.T1.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Applies inverse operations in wrong order", "example": "2x+3=11: divides by 2 first getting x+3=5.5 then subtracts 3" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Applies inverse operations in wrong order",
+                  "example": "2x+3=11: divides by 2 first getting x+3=5.5 then subtracts 3"
+                }
               ],
               "recovery_strategy": "Use a function machine (forward and reverse). Reverse operations in reverse order.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1176,13 +2238,26 @@
               "id": "L14.T2.A1",
               "title": "Solve equations with unknowns on both sides",
               "description": "Collect variable terms on one side; constant terms on the other",
-              "prerequisites": ["L14.T1.A2"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L14.T1.A2"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Moves term incorrectly (changes to same sign rather than opposite)", "example": "3x+4=x+10: moves x to get 3x+4+x=10" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Moves term incorrectly (changes to same sign rather than opposite)",
+                  "example": "3x+4=x+10: moves x to get 3x+4+x=10"
+                }
               ],
               "recovery_strategy": "Use balance model. Moving a term to the other side changes its sign. Verify each step.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1194,14 +2269,30 @@
               "id": "L14.T3.A1",
               "title": "Form and solve equations from word problems",
               "description": "Translate a word problem into an equation; solve and interpret in context",
-              "prerequisites": ["L14.T2.A1"],
-              "templates": ["story"],
+              "prerequisites": [
+                "L14.T2.A1"
+              ],
+              "templates": [
+                "story"
+              ],
               "error_signatures": [
-                { "type": "representation_confusion", "description": "Writes equation with digits and words mixed; cannot form clean algebraic equation", "example": "'Three more than double a number is 11' written as 3+2=11" },
-                { "type": "strategy_gap", "description": "Solves equation correctly but does not answer the question in context", "example": "Finds x=4 but problem asked for the original number which was x+2=6" }
+                {
+                  "type": "representation_confusion",
+                  "description": "Writes equation with digits and words mixed; cannot form clean algebraic equation",
+                  "example": "'Three more than double a number is 11' written as 3+2=11"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Solves equation correctly but does not answer the question in context",
+                  "example": "Finds x=4 but problem asked for the original number which was x+2=6"
+                }
               ],
               "recovery_strategy": "Define the variable first. Write in full: 'Let x = ...' before forming the equation.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -1221,25 +2312,54 @@
               "title": "Identify and measure angles",
               "description": "Classify angles (acute, right, obtuse, reflex); measure with a protractor",
               "prerequisites": [],
-              "templates": ["concrete", "symbolic"],
+              "templates": [
+                "concrete",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Reads wrong scale on protractor", "example": "Measures 65° as 115°" },
-                { "type": "conceptual_gap", "description": "Does not align protractor baseline with arm of angle", "example": "Places centre incorrectly at vertex" }
+                {
+                  "type": "execution_slip",
+                  "description": "Reads wrong scale on protractor",
+                  "example": "Measures 65° as 115°"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not align protractor baseline with arm of angle",
+                  "example": "Places centre incorrectly at vertex"
+                }
               ],
               "recovery_strategy": "Check: Does the angle look acute or obtuse? Use this to select the correct scale reading.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             },
             {
               "id": "L15.T1.A2",
               "title": "Angle relationships (supplementary, vertically opposite, angles in triangle)",
               "description": "Apply angle rules to find unknown angles in diagrams",
-              "prerequisites": ["L15.T1.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L15.T1.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Cannot identify which angle rule applies", "example": "Uses co-interior angles rule when corresponding angles are needed" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Cannot identify which angle rule applies",
+                  "example": "Uses co-interior angles rule when corresponding angles are needed"
+                }
               ],
               "recovery_strategy": "Label angle relationships explicitly before calculating. State the rule in words first.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1251,14 +2371,32 @@
               "id": "L15.T2.A1",
               "title": "Calculate area of rectangles and triangles",
               "description": "Apply formulas: rectangle A=lw; triangle A=½bh",
-              "prerequisites": ["L6.T2.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L6.T2.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Confuses area and perimeter", "example": "Adds sides when area is asked; multiplies when perimeter is asked" },
-                { "type": "strategy_gap", "description": "Does not halve when finding triangle area", "example": "A = b × h instead of ½ × b × h" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses area and perimeter",
+                  "example": "Adds sides when area is asked; multiplies when perimeter is asked"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Does not halve when finding triangle area",
+                  "example": "A = b × h instead of ½ × b × h"
+                }
               ],
               "recovery_strategy": "Count squares to verify formula. Pair triangle with its rectangle to show it is exactly half.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1270,13 +2408,27 @@
               "id": "L15.T3.A1",
               "title": "Calculate volume of cuboids",
               "description": "Apply V = l × w × h; identify dimensions from diagrams",
-              "prerequisites": ["L15.T2.A1"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L15.T2.A1"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Multiplies only two dimensions (area instead of volume)", "example": "V = 4 × 3 = 12 (forgets height)" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Multiplies only two dimensions (area instead of volume)",
+                  "example": "V = 4 × 3 = 12 (forgets height)"
+                }
               ],
               "recovery_strategy": "Use cubic centimetre blocks. Build the base layer (l×w) then stack h layers. Count total.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -1295,14 +2447,32 @@
               "id": "L16.T1.A1",
               "title": "Calculate mean, median, and mode",
               "description": "Find each average and understand when each is appropriate",
-              "prerequisites": ["L4.T3.A1", "L7.T3.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L4.T3.A1",
+                "L7.T3.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Calculates mean as sum rather than sum ÷ n", "example": "Mean of 3,5,7 = 15 instead of 5" },
-                { "type": "execution_slip", "description": "Does not sort data before finding median", "example": "Median of 3,7,1,5 taken as second value (7) instead of sorting first" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Calculates mean as sum rather than sum ÷ n",
+                  "example": "Mean of 3,5,7 = 15 instead of 5"
+                },
+                {
+                  "type": "execution_slip",
+                  "description": "Does not sort data before finding median",
+                  "example": "Median of 3,7,1,5 taken as second value (7) instead of sorting first"
+                }
               ],
               "recovery_strategy": "Use acronym: Mode = Most frequent; Median = Middle (must sort); Mean = shared evenly.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1314,14 +2484,32 @@
               "id": "L16.T2.A1",
               "title": "Interpret and draw bar charts and pie charts",
               "description": "Read scales accurately; calculate angles for pie charts; draw with appropriate labels",
-              "prerequisites": ["L11.T2.A2"],
-              "templates": ["concrete", "story", "symbolic"],
+              "prerequisites": [
+                "L11.T2.A2"
+              ],
+              "templates": [
+                "concrete",
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "execution_slip", "description": "Misreads scale intervals on bar chart", "example": "Scale in 5s: reads a bar reaching between marks as 5 rather than 7.5" },
-                { "type": "strategy_gap", "description": "Incorrect pie chart angle calculation", "example": "Divides frequency by 360 instead of by total then multiplies by 360" }
+                {
+                  "type": "execution_slip",
+                  "description": "Misreads scale intervals on bar chart",
+                  "example": "Scale in 5s: reads a bar reaching between marks as 5 rather than 7.5"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Incorrect pie chart angle calculation",
+                  "example": "Divides frequency by 360 instead of by total then multiplies by 360"
+                }
               ],
               "recovery_strategy": "For pie charts: fraction of total × 360 = angle. Always verify angles sum to 360°.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1333,14 +2521,32 @@
               "id": "L16.T3.A1",
               "title": "Calculate and express probability",
               "description": "Express probability as a fraction, decimal, and percentage; use sample space",
-              "prerequisites": ["L8.T1.A2", "L11.T2.A2"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L8.T1.A2",
+                "L11.T2.A2"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "conceptual_gap", "description": "Uses impossible/certain language but cannot quantify", "example": "Knows probability is between 0 and 1 but cannot calculate P(event)" },
-                { "type": "strategy_gap", "description": "Does not list complete sample space", "example": "Counts favourable outcomes only, not total outcomes" }
+                {
+                  "type": "conceptual_gap",
+                  "description": "Uses impossible/certain language but cannot quantify",
+                  "example": "Knows probability is between 0 and 1 but cannot calculate P(event)"
+                },
+                {
+                  "type": "strategy_gap",
+                  "description": "Does not list complete sample space",
+                  "example": "Counts favourable outcomes only, not total outcomes"
+                }
               ],
               "recovery_strategy": "Always list all possible outcomes (sample space) before counting favourable outcomes.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
             }
           ]
         }
@@ -1359,14 +2565,30 @@
               "id": "L17.T1.A1",
               "title": "Solve multi-step word problems",
               "description": "Plan and execute a multi-step solution; check reasonableness at each step",
-              "prerequisites": ["L14.T3.A1"],
-              "templates": ["story"],
+              "prerequisites": [
+                "L14.T3.A1"
+              ],
+              "templates": [
+                "story"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Loses track of the question mid-solution", "example": "Performs correct calculations but answers a sub-question rather than the final question" },
-                { "type": "conceptual_gap", "description": "Cannot identify which operations are needed", "example": "Uses addition when the problem requires multiplication then subtraction" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Loses track of the question mid-solution",
+                  "example": "Performs correct calculations but answers a sub-question rather than the final question"
+                },
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot identify which operations are needed",
+                  "example": "Uses addition when the problem requires multiplication then subtraction"
+                }
               ],
               "recovery_strategy": "Identify: What do I know? What do I need to find? What intermediate steps are needed? Draw a diagram.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1378,13 +2600,25 @@
               "id": "L17.T2.A1",
               "title": "Use and justify mathematical conjectures",
               "description": "Test a conjecture with examples; explain why a generalisation is or is not valid",
-              "prerequisites": ["L17.T1.A1"],
-              "templates": ["symbolic"],
+              "prerequisites": [
+                "L17.T1.A1"
+              ],
+              "templates": [
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Cannot distinguish between showing and proving", "example": "Tests two cases and claims proved for all cases" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Cannot distinguish between showing and proving",
+                  "example": "Tests two cases and claims proved for all cases"
+                }
               ],
               "recovery_strategy": "Distinguish: examples support a conjecture but a counterexample disproves it. One counterexample is enough.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
             }
           ]
         },
@@ -1396,13 +2630,236 @@
               "id": "L17.T3.A1",
               "title": "Apply systematic problem-solving strategies",
               "description": "Use drawing, working backwards, trial and improvement, or algebraic methods to solve non-routine problems",
-              "prerequisites": ["L17.T2.A1"],
-              "templates": ["story", "symbolic"],
+              "prerequisites": [
+                "L17.T2.A1"
+              ],
+              "templates": [
+                "story",
+                "symbolic"
+              ],
               "error_signatures": [
-                { "type": "strategy_gap", "description": "Uses trial and error unsystematically", "example": "Tries random values without narrowing the search space" }
+                {
+                  "type": "strategy_gap",
+                  "description": "Uses trial and error unsystematically",
+                  "example": "Tries random values without narrowing the search space"
+                }
               ],
               "recovery_strategy": "Teach Polya's steps explicitly: Understand → Plan → Execute → Review. Revisit the plan when stuck.",
-              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": false }
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Quadratic Algebra",
+      "description": "Factorise and work with quadratic expressions of the form x² + bx + c",
+      "tiers": [
+        {
+          "id": "L18.T1",
+          "title": "Quadratic Factorisation",
+          "atomic_skills": [
+            {
+              "id": "L18.T1.A1",
+              "title": "Factorise quadratic expressions of the form x² + bx + c",
+              "description": "Find two binomial factors by identifying a pair of numbers that multiply to c and add to b",
+              "prerequisites": [
+                "L13.T3.A2"
+              ],
+              "templates": [
+                "symbolic"
+              ],
+              "error_signatures": [
+                {
+                  "type": "sign_error",
+                  "description": "Chooses factors with wrong signs",
+                  "example": "x² - 5x + 6 → (x + 2)(x + 3) instead of (x - 2)(x - 3)"
+                },
+                {
+                  "type": "factor_error",
+                  "description": "Correct sign but wrong pair of numbers",
+                  "example": "x² + 5x + 6 → (x + 1)(x + 6) instead of (x + 2)(x + 3)"
+                }
+              ],
+              "recovery_strategy": "List factor pairs of c. Check which pair adds to b. Then assign signs to satisfy the sum.",
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Functions and Straight Lines",
+      "description": "Interpret and work with linear functions in the form y = mx + c",
+      "tiers": [
+        {
+          "id": "L19.T1",
+          "title": "Key Features of Linear Functions",
+          "atomic_skills": [
+            {
+              "id": "L19.T1.A1",
+              "title": "Identify gradient, x-intercept and y-intercept of a linear function",
+              "description": "For y = mx + c: identify gradient m, y-intercept by setting x=0, x-intercept by setting y=0",
+              "prerequisites": [
+                "L14.T2.A1"
+              ],
+              "templates": [
+                "symbolic"
+              ],
+              "error_signatures": [
+                {
+                  "type": "intercept_confusion",
+                  "description": "Swaps x-intercept and y-intercept",
+                  "example": "For y = 2x - 4 gives y-int: 2 instead of -4"
+                },
+                {
+                  "type": "gradient_sign_error",
+                  "description": "Drops the sign of the gradient",
+                  "example": "For y = -3x + 1 gives gradient: 3 instead of -3"
+                }
+              ],
+              "recovery_strategy": "y-intercept: substitute x=0 and solve. x-intercept: substitute y=0 and solve. Gradient is the coefficient of x including its sign.",
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Exponentials and Logarithms",
+      "description": "Convert between exponential and logarithmic notation and evaluate expressions",
+      "tiers": [
+        {
+          "id": "L20.T1",
+          "title": "Exponential and Log Conversion",
+          "atomic_skills": [
+            {
+              "id": "L20.T1.A1",
+              "title": "Convert between exponential and logarithmic form",
+              "description": "Apply the definition log_b(x) = n ↔ b^n = x to evaluate and convert expressions",
+              "prerequisites": [
+                "L18.T1.A1"
+              ],
+              "templates": [
+                "symbolic"
+              ],
+              "error_signatures": [
+                {
+                  "type": "base_confusion",
+                  "description": "Confuses base and argument in the log",
+                  "example": "log₂(8) = 2 instead of 3 (confuses base with answer)"
+                },
+                {
+                  "type": "log_exp_swap",
+                  "description": "Applies log rules to exponential or vice versa",
+                  "example": "2³ = 6 instead of 8 (adds instead of multiplies)"
+                }
+              ],
+              "recovery_strategy": "Write log_b(x) = n as b^n = x. Ask: what power do I raise b to, to get x?",
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Trigonometric Ratios",
+      "description": "Apply SOH CAH TOA to find sine, cosine and tangent in right-angled triangles",
+      "tiers": [
+        {
+          "id": "L21.T1",
+          "title": "Trigonometry in Right-Angled Triangles",
+          "atomic_skills": [
+            {
+              "id": "L21.T1.A1",
+              "title": "Find sine, cosine and tangent using SOH CAH TOA",
+              "description": "Identify opposite, adjacent and hypotenuse relative to a given angle; compute the three trig ratios",
+              "prerequisites": [
+                "L15.T2.A1"
+              ],
+              "templates": [
+                "symbolic"
+              ],
+              "error_signatures": [
+                {
+                  "type": "side_swap",
+                  "description": "Swaps opposite and adjacent",
+                  "example": "Uses adjacent/hypotenuse for sine instead of opposite/hypotenuse"
+                },
+                {
+                  "type": "ratio_inversion",
+                  "description": "Inverts the ratio (flips numerator and denominator)",
+                  "example": "sin θ = hypotenuse/opposite instead of opposite/hypotenuse"
+                }
+              ],
+              "recovery_strategy": "Label the triangle first: H=hypotenuse (longest), O=opposite the angle, A=adjacent. Then SOH: sin=O/H, CAH: cos=A/H, TOA: tan=O/A.",
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Calculus — Differentiation",
+      "description": "Differentiate polynomial functions using the power rule",
+      "tiers": [
+        {
+          "id": "L22.T1",
+          "title": "Differential Calculus",
+          "atomic_skills": [
+            {
+              "id": "L22.T1.A1",
+              "title": "Differentiate polynomial functions using the power rule",
+              "description": "Apply d/dx(axⁿ) = naxⁿ⁻¹ to each term; differentiate sums and differences of power functions",
+              "prerequisites": [
+                "L20.T1.A1"
+              ],
+              "templates": [
+                "symbolic"
+              ],
+              "error_signatures": [
+                {
+                  "type": "power_not_decremented",
+                  "description": "Multiplies by the power but forgets to reduce it by 1",
+                  "example": "d/dx(x³) = 3x³ instead of 3x²"
+                },
+                {
+                  "type": "coefficient_error",
+                  "description": "Drops or miscalculates the new coefficient after multiplying",
+                  "example": "d/dx(4x²) = 2x instead of 8x"
+                }
+              ],
+              "recovery_strategy": "For each term axⁿ: new coefficient = n×a, new power = n-1. Constants differentiate to 0.",
+              "mastery_criteria": {
+                "correct_required": 3,
+                "formats_required": 1,
+                "allow_scaffolding": false
+              }
             }
           ]
         }

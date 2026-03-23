@@ -20,6 +20,8 @@ export interface BankQuestion {
   labels?: string[];
   ruby_prompt: string;
   error_signals: string[];
+  /** Difficulty level 1–5 assigned by tag-difficulty script. Used for ability-matched selection. */
+  difficulty?: number;
   // Type-specific fields
   display?: string;
   expression?: string;
@@ -57,25 +59,46 @@ const bank = questionBankData as {
 };
 
 // ─── Level → Domain mapping ───────────────────────────────────────────────────
-// Maps skill tree level numbers to diagnostic domains (Ruby Maths Platform Spec v1).
+// Coarse fallback: maps skill tree level numbers to question bank domains.
+// Only used when a skill has no explicit entry in question-bank.json skill_ids.
+// #6b will add skill_ids for all 45 unmapped skills, making this purely a safety net.
 const LEVEL_TO_DOMAIN: Record<number, string> = {
-  1:  "M001", // Counting and Cardinality / Early Number Sense
-  2:  "M004", // Addition – Mental Strategy
-  3:  "M005", // Subtraction – Mental Strategy
-  4:  "M006", // Multiplication – Equal Groups (Hard Gate)
-  5:  "M007", // Flexible Decomposition
-  6:  "M007", // Multiplicative Reasoning (same domain)
-  7:  "M008", // Fraction – Unit Interpretation
-  8:  "M009", // Ratio and Proportion
-  9:  "M010", // Integer Operations and BODMAS
-  10: "M011", // Algebraic Expression
-  11: "M009", // Extended Ratio
-  12: "M010", // Extended Integers
-  13: "M011", // Extended Algebra
-  14: "M012", // Linear Equation
-  15: "M013", // Quadratic Factorisation
-  16: "M014", // Function – Key Features
-  17: "M018", // Multi-Step Problem – Plan and Solve
+  1:  "M001",  // Counting and Early Number Sense
+  2:  "M004",  // Addition Concepts
+  3:  "M005",  // Subtraction Concepts
+  4:  "M004",  // Addition and Subtraction Fluency (T1 only — T2/T3 overridden below)
+  5:  "M006",  // Multiplication Concepts
+  6:  "M006",  // Multiplicative Reasoning
+  7:  "M007",  // Division Concepts
+  8:  "M008",  // Fractions — Introduction
+  9:  "M008",  // Fraction Operations
+  10: "M_DEC", // Decimals
+  11: "M009",  // Ratio and Proportion
+  12: "M010",  // Negative Numbers and Integers
+  13: "M011",  // Algebra — Patterns and Variables
+  14: "M012",  // Linear Equations
+  15: "M_GEO", // Geometry — Angles, Area and Volume
+  16: "M_STAT", // Statistics — Averages, Charts and Probability
+  17: "M018",  // Advanced Problem Solving
+  18: "M013",  // Quadratic Algebra
+  19: "M014",  // Functions and Straight Lines
+  20: "M015",  // Exponentials and Logarithms
+  21: "M016",  // Trigonometric Ratios
+  22: "M017",  // Calculus — Differentiation
+};
+
+// ─── Skill-level domain overrides ─────────────────────────────────────────────
+// Fixes three cases where the level-fallback gives the wrong subject entirely.
+// Applied before both the bank skill_ids check and LEVEL_TO_DOMAIN.
+// These will be superseded naturally when #6b adds skill_ids for these skills
+// in question-bank.json — at that point the DOMAIN_FOR_SKILL check takes over.
+const SKILL_DOMAIN_OVERRIDE: Record<string, string> = {
+  // L1.T2.A3 "Compare numbers using < > =" — level fallback gives M001 (dot
+  // counting). Correct domain is M002 (Number Recognition and Ordering).
+  "L1.T2.A3": "M002",
+
+  // L4.T2.A1 and L4.T3.A1 are now in M023 (skill_ids), which takes priority
+  // via DOMAIN_FOR_SKILL — overrides removed.
 };
 
 // Build explicit skill_id → domain map from question bank data
@@ -88,10 +111,13 @@ for (const [domainId, domain] of Object.entries(bank.domains)) {
 
 // ─── Get domain for a skill ───────────────────────────────────────────────────
 export function getDomainForSkill(skillId: string): string | null {
-  // Try explicit mapping from question bank first
+  // 1. Skill-level overrides — corrects cases where level fallback is wrong subject
+  if (SKILL_DOMAIN_OVERRIDE[skillId]) return SKILL_DOMAIN_OVERRIDE[skillId];
+
+  // 2. Explicit mapping from question bank skill_ids (most skills)
   if (DOMAIN_FOR_SKILL[skillId]) return DOMAIN_FOR_SKILL[skillId];
 
-  // Fall back to level-based mapping
+  // 3. Coarse level-based fallback (acceptable for most unmapped tier 2/3 skills)
   const levelMatch = skillId.match(/^L(\d+)\./);
   if (levelMatch) {
     const level = parseInt(levelMatch[1]);
@@ -104,12 +130,24 @@ export function getDomain(domainId: string): DomainInfo | null {
   return bank.domains[domainId] || null;
 }
 
-// ─── Select a random unused question for a domain ─────────────────────────────
+// ─── Select a difficulty-matched unused question for a domain ─────────────────
+/**
+ * Selects a question from the pool, preferring questions that match the
+ * student's current ability level (derived from BKT p_learned).
+ *
+ * @param domainId      question bank domain (e.g. "M004")
+ * @param usedRefs      refs already shown to this student
+ * @param isReteach     if true, prefer easier questions to rebuild confidence
+ * @param skillId       specific skill override (e.g. to cap M001 dots)
+ * @param abilityLevel  student ability 1–5 from bkt.abilityLevel(p_learned).
+ *                      When undefined, falls back to random selection (legacy).
+ */
 export function selectQuestion(
   domainId: string,
   usedRefs: string[],
   isReteach = false,
-  skillId = ""
+  skillId = "",
+  abilityLevel?: number
 ): BankQuestion | null {
   const domain = bank.domains[domainId];
   if (!domain) return null;
@@ -139,7 +177,34 @@ export function selectQuestion(
     if (small.length > 0) available = small;
   }
 
-  // Pick random question
+  // ── Difficulty-matched selection ────────────────────────────────────────────
+  // When abilityLevel is provided and questions have difficulty tags, prefer
+  // questions in the student's ZPD: ability or ability+1 (slightly challenging).
+  if (abilityLevel !== undefined) {
+    const target = isReteach
+      ? Math.max(1, abilityLevel - 1)   // reteach: one step easier
+      : abilityLevel;                   // normal: match current ability
+
+    // Try exact match first, then widen ±1
+    const exact = available.filter(
+      (q) => q.difficulty !== undefined && q.difficulty === target
+    );
+    if (exact.length > 0) {
+      return exact[Math.floor(Math.random() * exact.length)];
+    }
+
+    const near = available.filter(
+      (q) =>
+        q.difficulty !== undefined &&
+        Math.abs(q.difficulty - target) <= 1
+    );
+    if (near.length > 0) {
+      return near[Math.floor(Math.random() * near.length)];
+    }
+    // Fall through to random if no tagged questions found
+  }
+
+  // Pick random question (fallback / legacy path)
   const idx = Math.floor(Math.random() * available.length);
   return available[idx];
 }
@@ -181,6 +246,7 @@ export function bankQuestionToGenerated(
   hint?: string;
   expected_answer: string;
   scaffolding_notes: string;
+  difficulty?: number;
   bank_question: BankQuestion;
 } {
   // Determine template from input_type
@@ -205,6 +271,7 @@ export function bankQuestionToGenerated(
     hint,
     expected_answer: q.expected,
     scaffolding_notes: `Error signals: ${q.error_signals.join(", ")}`,
+    difficulty: q.difficulty,
     bank_question: q,
   };
 }
@@ -237,6 +304,7 @@ function buildQuestionText(q: BankQuestion, domainId: string): string {
       return `${q.ruby_prompt}\n\nNumber: ${q.display}\n\nExample: ${q.expected_a} AND ${q.expected_b} (any valid decomposition accepted)`;
     case "M008":
       return `Fraction: ${q.fraction}\n\n${q.ruby_prompt}`;
+    case "M_DEC":
     case "M009":
     case "M010":
     case "M011":
@@ -247,13 +315,15 @@ function buildQuestionText(q: BankQuestion, domainId: string): string {
     case "M016":
     case "M017":
     case "M018":
+    case "M_GEO":
+    case "M_STAT":
       return q.question;
     default:
       return q.question;
   }
 }
 
-function buildHint(q: BankQuestion, domainId: string): string {
+function buildHint(_q: BankQuestion, domainId: string): string {
   const hints: Record<string, string> = {
     M001: "Count each dot one at a time, touching or pointing to each one.",
     M002: "Look at the pattern — is the sequence going up or down? By how much each time?",
@@ -264,6 +334,7 @@ function buildHint(q: BankQuestion, domainId: string): string {
     M007: "You can split hundreds, tens, and ones in many ways. E.g. 345 = 300+40+5 or 300+45.",
     M008: "The denominator (bottom number) tells you how many equal parts the whole is divided into.",
     M009: "Find the scale factor first: what number do you multiply one side by to get the other?",
+    M_DEC: "Line up the decimal points before adding or subtracting. When multiplying by 10, 100 or 1000, move each digit that many places to the left.",
     M010: "Remember BODMAS: Brackets, Orders, Division, Multiplication, Addition, Subtraction.",
     M011: "Collect the x terms together, then collect the number terms together.",
     M012: "Inverse operations: subtract the constant from both sides first, then divide.",
@@ -273,6 +344,24 @@ function buildHint(q: BankQuestion, domainId: string): string {
     M016: "SOH CAH TOA: Sin=Opposite/Hypotenuse, Cos=Adjacent/Hypotenuse, Tan=Opposite/Adjacent.",
     M017: "Power rule: if f(x) = ax^n, then f'(x) = n·ax^(n-1). Differentiate each term.",
     M018: "Break the problem into steps. Identify what you know and what you need to find.",
+    M_GEO: "Angles: acute < 90, right = 90, obtuse 90–180, reflex > 180. Area: rectangle = l×w, triangle = ½bh. Volume = l×w×h.",
+    M_STAT: "Mean = total ÷ count. Median = middle value when ordered. Mode = most frequent. Probability = favourable ÷ total.",
+    M019: "Doubles: 6+6=12, 7+7=14, 8+8=16. Near-doubles: add or subtract 1. Make-ten: find what you need to reach 10 first.",
+    M020: "Add ones first. If ones sum to 10 or more, write the units and carry 1 ten to the tens column.",
+    M021: "Instead of counting back, count up from the smaller number to the larger. The number of steps is the difference.",
+    M022: "Subtract ones first. If you can't (top digit smaller), borrow 1 ten from the tens column.",
+    M023: "Splitting: break each number into tens and ones, add separately. Compensation: round to a friendly number, then adjust.",
+    M024: "Count by 2s, 5s, or 10s. Find the common difference and add or subtract it each time.",
+    M025: "Use counting strategies for ×2 (doubles), ×5 (count by 5s), ×10 (add a zero). For harder tables, use known facts to derive new ones.",
+    M026: "Commutative: a×b = b×a. Distributive: a×(b+c) = a×b + a×c. Split the second number into tens and ones.",
+    M027: "Multiply each digit in turn from right to left, carrying any tens into the next column.",
+    M028: "Think of division as the inverse of multiplication. For remainders: multiply to find the nearest multiple, then subtract.",
+    M029: "On a number line, count how many equal parts and which part the arrow points to. For equivalence, multiply top and bottom by the same number.",
+    M030: "Adding fractions: find a common denominator first. Multiplying: top × top, bottom × bottom. Dividing: multiply by the reciprocal (flip the second fraction).",
+    M031: "10% = ÷10. 25% = ÷4. 50% = ÷2. Increase: add the percentage. Decrease: subtract the percentage. Unitary method: find the value of 1 unit first.",
+    M032: "Adding a negative = subtracting. Subtracting a negative = adding. Negative × negative = positive. Negative × positive = negative.",
+    M033: "For patterns, find the common difference. To expand brackets, multiply each term inside by the number outside. To factorise, find the HCF of all terms.",
+    M034: "Move all x terms to one side and all numbers to the other. For word problems, define x, write the equation, then solve.",
   };
   return hints[domainId] || "Read the question carefully and break it into smaller steps.";
 }

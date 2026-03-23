@@ -4,8 +4,10 @@ export type ReadingTemplate = "oral" | "listening" | "written" | "reading";
 
 export type ReadingErrorType =
   | "ERR_PHONEME_CONF"
+  | "ERR_SYLLABLE_BREAK"
   | "ERR_SOUND_RECALL"
   | "ERR_BLEND_FAIL"
+  | "ERR_ENCODE_BLEND"
   | "ERR_SOUND_OMIT"
   | "ERR_SOUND_INSERT"
   | "ERR_VOWEL_CONF"

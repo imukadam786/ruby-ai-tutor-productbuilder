@@ -213,6 +213,19 @@ export function getSkillIdsForLevels(belowLevel: number): string[] {
 
 // ─── Maths Placement ──────────────────────────────────────────────────────────
 
+function deriveDominantErrors(tasks: MathsPlacementResult["tasks"]): string[] {
+  const counts: Record<string, number> = {};
+  for (const t of tasks) {
+    if (t.error_type && t.error_type !== "correct") {
+      counts[t.error_type] = (counts[t.error_type] ?? 0) + 1;
+    }
+  }
+  return Object.entries(counts)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 3)
+    .map(([code]) => code);
+}
+
 export function completeMathsPlacement(
   profile: StudentProfile,
   result: MathsPlacementResult
@@ -246,5 +259,16 @@ export function completeMathsPlacement(
     last_active: new Date().toISOString(),
   };
   saveStudentProfile(updated);
+  // Supabase: record diagnostic result for analytics (mirrors reading model)
+  void retrySupabase(() => supabase.from("diagnostic_results").insert({
+    student_id: profile.id,
+    subject: "maths",
+    entry_skill_id: result.entrySkillId,
+    entry_level: levelId,
+    auto_completed_skill_ids: result.autoCompletedSkillIds,
+    dominant_errors: deriveDominantErrors(result.tasks),
+    hard_gate_passed: result.hardGatePassed,
+    completed_at: new Date(result.completedAt).toISOString(),
+  }));
   return updated;
 }
