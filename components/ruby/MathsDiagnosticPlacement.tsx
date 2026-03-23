@@ -3,7 +3,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
-import { evaluateEarlyExit } from "@/lib/diagnostic-engine";
 import { simplifyText } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 
@@ -24,7 +23,7 @@ interface Task {
   id: string;
   domain: string;
   domainTitle: string;
-  gate: "A" | "B" | "C" | "D";
+  gate: "A" | "B" | "C" | "D"; // kept for bank file compatibility
   block: DiagnosticBlock;
   question: string;
   stimulus?: string;
@@ -33,8 +32,6 @@ interface Task {
   fields?: TaskField[];
   choices?: Choice[];
   errorSignals?: string[];
-  isProbe?: boolean;
-  probeFor?: string;
 }
 
 // ── Raw JSON bank task shape ───────────────────────────────────────────────────
@@ -56,301 +53,50 @@ function adaptBankTask(raw: RawBankTask, block: DiagnosticBlock): Task {
   return { ...raw, block };
 }
 
-// ── Binary-search gate definitions ────────────────────────────────────────────
-// Gates A–F each map to two bank domains.
-// Grade-banded anchor: 1–3→A(0), 4–6→B(1), 7–9→C(2), 10+→D(3)
-// Search windows:      1–3→[A,B], 4–6→[A,C], 7–9→[B,D], 10+→[C,F]
+// ── 12-gate structure — one gate per SA CAPS grade level ──────────────────────
+// Each gate covers 2 diagnostic domains in curriculum order.
+// The diagnostic loads a 3-gate window around the student's grade so questions
+// are always grade-appropriate (no fractions for a Grade 1 student, etc.).
 
 const SEARCH_GATES: Array<{ name: string; domains: [string, string] }> = [
-  { name: "A", domains: ["M002", "M003"] },
-  { name: "B", domains: ["M005", "M006"] },
-  { name: "C", domains: ["M007", "M008"] },
-  { name: "D", domains: ["M009", "M010"] },
-  { name: "E", domains: ["M011", "M012"] },
-  { name: "F", domains: ["M013", "M014"] },
+  { name: "G1",  domains: ["M001", "M002"] },  // Grade 1:  Counting / Number sequences
+  { name: "G2",  domains: ["M003", "M020"] },  // Grade 2:  Place value / 2-digit addition
+  { name: "G3",  domains: ["M004", "M005"] },  // Grade 3:  Addition / Subtraction strategy
+  { name: "G4",  domains: ["M006", "M028"] },  // Grade 4:  Multiplication / Division
+  { name: "G5",  domains: ["M007", "M029"] },  // Grade 5:  Decomposition / Fractions intro
+  { name: "G6",  domains: ["M008", "M031"] },  // Grade 6:  Fraction operations / Percentages
+  { name: "G7",  domains: ["M009", "M010"] },  // Grade 7:  Ratio & proportion / BODMAS
+  { name: "G8",  domains: ["M032", "M033"] },  // Grade 8:  Negative numbers / Algebra patterns
+  { name: "G9",  domains: ["M011", "M012"] },  // Grade 9:  Algebraic expressions / Linear equations
+  { name: "G10", domains: ["M013", "M034"] },  // Grade 10: Quadratic factorisation / Advanced linear
+  { name: "G11", domains: ["M014", "M015"] },  // Grade 11: Functions & lines / Exponentials & logs
+  { name: "G12", domains: ["M016", "M017"] },  // Grade 12: Trigonometry / Calculus
 ];
 
-function getAnchorGateIndex(grade: number): number {
-  if (grade <= 3) return 0;
-  if (grade <= 6) return 1;
-  if (grade <= 9) return 2;
-  return 3;
-}
-
+// Grade N (1-indexed) → gate window [lo, hi] (0-indexed).
+// Grade 1 → [0,0]  (1 gate).  Grade 2 → [0,1]  (2 gates).  Grade 3+ → 3-gate window.
 function getSearchWindow(grade: number): [number, number] {
-  if (grade <= 3) return [0, 1];
-  if (grade <= 6) return [0, 2];
-  if (grade <= 9) return [1, 3];
-  return [2, 5];
+  const hi = Math.min(grade - 1, SEARCH_GATES.length - 1);
+  const lo = Math.max(0, hi - 2);
+  return [lo, hi];
 }
 
-// ── Probe tasks (choice-based, do not count toward 9-task cap) ────────────────
-
-const MATHS_PROBE_TASKS: Record<string, Task> = {
-
-  // ── Block 1 — Gate A/B foundational probes ───────────────────────────────
-
-  place_value_probe_1: {
-    id: "PROBE_PV1", domain: "M003", domainTitle: "Place Value — Probe",
-    gate: "A", block: 1, answerMode: "choice",
-    question: "What is the tens digit in the number 473?",
-    isProbe: true, probeFor: "ERR_PLACE_VALUE",
-    choices: [
-      { label: "4", value: "4", correct: false },
-      { label: "7", value: "7", correct: true },
-      { label: "3", value: "3", correct: false },
-      { label: "40", value: "40", correct: false },
-    ],
-  },
-  count_sequence_probe_1: {
-    id: "PROBE_CS1", domain: "M002", domainTitle: "Counting Sequence — Probe",
-    gate: "A", block: 1, answerMode: "choice",
-    question: "Count on from 13. What is the next number?",
-    stimulus: "13, __, __",
-    isProbe: true, probeFor: "ERR_COUNT_SKIP",
-    choices: [
-      { label: "14", value: "14", correct: true },
-      { label: "15", value: "15", correct: false },
-      { label: "12", value: "12", correct: false },
-      { label: "16", value: "16", correct: false },
-    ],
-  },
-  operation_confusion_probe_1: {
-    id: "PROBE_OP1", domain: "M006", domainTitle: "Multiplication — Probe",
-    gate: "A", block: 1, answerMode: "choice",
-    question: "There are 3 bags. Each bag has 4 apples. How many apples in total?",
-    isProbe: true, probeFor: "ERR_MULT_ADD",
-    choices: [
-      { label: "7",  value: "7",  correct: false },
-      { label: "12", value: "12", correct: true  },
-      { label: "8",  value: "8",  correct: false },
-      { label: "34", value: "34", correct: false },
-    ],
-  },
-  subtraction_reversal_probe_1: {
-    id: "PROBE_SR1", domain: "M005", domainTitle: "Subtraction — Probe",
-    gate: "A", block: 1, answerMode: "choice",
-    question: "23 − 7 = ?",
-    isProbe: true, probeFor: "ERR_REVERSAL",
-    choices: [
-      { label: "16", value: "16", correct: true  },
-      { label: "24", value: "24", correct: false },
-      { label: "30", value: "30", correct: false },
-      { label: "14", value: "14", correct: false },
-    ],
-  },
-  skip_count_probe_1: {
-    id: "PROBE_SC1", domain: "M024", domainTitle: "Skip Counting — Probe",
-    gate: "A", block: 1, answerMode: "choice",
-    question: "What comes next?",
-    stimulus: "5, 10, 15, __",
-    isProbe: true, probeFor: "ERR_SKIP_COUNT_STEP",
-    choices: [
-      { label: "20", value: "20", correct: true  },
-      { label: "17", value: "17", correct: false },
-      { label: "16", value: "16", correct: false },
-      { label: "25", value: "25", correct: false },
-    ],
-  },
-  times_table_probe_1: {
-    id: "PROBE_TT1", domain: "M025", domainTitle: "Times Tables — Probe",
-    gate: "A", block: 1, answerMode: "choice",
-    question: "7 × 8 = ?",
-    isProbe: true, probeFor: "ERR_TIMES_TABLE",
-    choices: [
-      { label: "56", value: "56", correct: true  },
-      { label: "54", value: "54", correct: false },
-      { label: "48", value: "48", correct: false },
-      { label: "63", value: "63", correct: false },
-    ],
-  },
-  addition_regroup_probe_1: {
-    id: "PROBE_AR1", domain: "M020", domainTitle: "Two-Digit Addition — Probe",
-    gate: "A", block: 1, answerMode: "choice",
-    question: "47 + 35 = ?",
-    isProbe: true, probeFor: "ERR_REGROUP",
-    choices: [
-      { label: "82", value: "82", correct: true  },
-      { label: "72", value: "72", correct: false },
-      { label: "73", value: "73", correct: false },
-      { label: "812", value: "812", correct: false },
-    ],
-  },
-  subtraction_borrow_probe_1: {
-    id: "PROBE_SB1", domain: "M022", domainTitle: "Two-Digit Subtraction — Probe",
-    gate: "A", block: 1, answerMode: "choice",
-    question: "52 − 28 = ?",
-    isProbe: true, probeFor: "ERR_BORROW",
-    choices: [
-      { label: "24", value: "24", correct: true  },
-      { label: "36", value: "36", correct: false },
-      { label: "34", value: "34", correct: false },
-      { label: "26", value: "26", correct: false },
-    ],
-  },
-
-  // ── Block 2 — Gate B/C/D probes ─────────────────────────────────────────
-
-  fraction_form_probe_1: {
-    id: "PROBE_FF1", domain: "M008", domainTitle: "Fraction Form — Probe",
-    gate: "B", block: 2, answerMode: "choice",
-    question: "Which of these shows one half?",
-    isProbe: true, probeFor: "ERR_FRACTION_FORM",
-    choices: [
-      { label: "2/1", value: "2/1", correct: false },
-      { label: "1/2", value: "1/2", correct: true  },
-      { label: "2/2", value: "2/2", correct: false },
-      { label: "1/4", value: "1/4", correct: false },
-    ],
-  },
-  fraction_add_probe_1: {
-    id: "PROBE_FA1", domain: "M008", domainTitle: "Fraction Addition — Probe",
-    gate: "B", block: 2, answerMode: "choice",
-    question: "1/2 + 1/4 = ?",
-    isProbe: true, probeFor: "ERR_COMMON_DENOM",
-    choices: [
-      { label: "3/4", value: "3/4", correct: true  },
-      { label: "2/6", value: "2/6", correct: false },
-      { label: "2/4", value: "2/4", correct: false },
-      { label: "1/4", value: "1/4", correct: false },
-    ],
-  },
-  integer_sign_probe_1: {
-    id: "PROBE_IS1", domain: "M010", domainTitle: "Integer Sign — Probe",
-    gate: "B", block: 2, answerMode: "choice",
-    question: "−3 + 5 = ?",
-    isProbe: true, probeFor: "ERR_INTEGER_SIGN",
-    choices: [
-      { label: "2",  value: "2",  correct: true  },
-      { label: "−2", value: "-2", correct: false },
-      { label: "8",  value: "8",  correct: false },
-      { label: "−8", value: "-8", correct: false },
-    ],
-  },
-  order_of_ops_probe_1: {
-    id: "PROBE_OO1", domain: "M010", domainTitle: "Order of Operations — Probe",
-    gate: "B", block: 2, answerMode: "choice",
-    question: "2 + 3 × 4 = ?",
-    isProbe: true, probeFor: "ERR_BODMAS_ORDER",
-    choices: [
-      { label: "14", value: "14", correct: true  },
-      { label: "20", value: "20", correct: false },
-      { label: "24", value: "24", correct: false },
-      { label: "10", value: "10", correct: false },
-    ],
-  },
-  ratio_unit_probe_1: {
-    id: "PROBE_RU1", domain: "M009", domainTitle: "Ratio — Probe",
-    gate: "B", block: 2, answerMode: "choice",
-    question: "Cats to dogs is 3 : 2. There are 12 cats. How many dogs?",
-    isProbe: true, probeFor: "ERR_RATIO_ADD",
-    choices: [
-      { label: "8",  value: "8",  correct: true  },
-      { label: "5",  value: "5",  correct: false },
-      { label: "6",  value: "6",  correct: false },
-      { label: "10", value: "10", correct: false },
-    ],
-  },
-  like_terms_probe_1: {
-    id: "PROBE_LT1", domain: "M011", domainTitle: "Algebraic Expressions — Probe",
-    gate: "C", block: 2, answerMode: "choice",
-    question: "Simplify: 3x + 5 + 2x",
-    isProbe: true, probeFor: "ERR_LIKE_TERMS",
-    choices: [
-      { label: "5x + 5", value: "5x + 5", correct: true  },
-      { label: "10x",    value: "10x",    correct: false },
-      { label: "3x + 7", value: "3x + 7", correct: false },
-      { label: "5x",     value: "5x",     correct: false },
-    ],
-  },
-
-  // ── Block 3 — Gate C/D advanced probes ──────────────────────────────────
-
-  decimal_place_probe_1: {
-    id: "PROBE_DP1", domain: "M_DEC", domainTitle: "Decimals — Probe",
-    gate: "C", block: 3, answerMode: "choice",
-    question: "0.5 + 0.25 = ?",
-    isProbe: true, probeFor: "ERR_ALIGNMENT",
-    choices: [
-      { label: "0.75", value: "0.75", correct: true  },
-      { label: "0.30", value: "0.30", correct: false },
-      { label: "0.55", value: "0.55", correct: false },
-      { label: "0.7",  value: "0.7",  correct: false },
-    ],
-  },
-  percent_probe_1: {
-    id: "PROBE_PC1", domain: "M031", domainTitle: "Percentages — Probe",
-    gate: "C", block: 3, answerMode: "choice",
-    question: "What is 10% of 80?",
-    isProbe: true, probeFor: "ERR_PCT_OF_AMOUNT",
-    choices: [
-      { label: "8",   value: "8",   correct: true  },
-      { label: "18",  value: "18",  correct: false },
-      { label: "800", value: "800", correct: false },
-      { label: "0.8", value: "0.8", correct: false },
-    ],
-  },
-  negative_mult_probe_1: {
-    id: "PROBE_NM1", domain: "M032", domainTitle: "Negative Numbers — Probe",
-    gate: "C", block: 3, answerMode: "choice",
-    question: "(−3) × (−4) = ?",
-    isProbe: true, probeFor: "ERR_NEG_MULT_SIGN",
-    choices: [
-      { label: "12",  value: "12",  correct: true  },
-      { label: "−12", value: "-12", correct: false },
-      { label: "7",   value: "7",   correct: false },
-      { label: "−1",  value: "-1",  correct: false },
-    ],
-  },
+// Entry skill-tree level when a student passes a given gate.
+// "Passed gate N" means they have mastered that content → start at the next level.
+const GATE_PASSED_ENTRY: Record<number, number> = {
+  0: 2,   // Passed Grade 1 → entry Addition (level 2)
+  1: 4,   // Passed Grade 2 → entry Addition Fluency (level 4)
+  2: 5,   // Passed Grade 3 → entry Multiplication (level 5)
+  3: 8,   // Passed Grade 4 → entry Fractions (level 8)
+  4: 11,  // Passed Grade 5 → entry Ratio & Proportion (level 11)
+  5: 12,  // Passed Grade 6 → entry Integer Operations (level 12)
+  6: 13,  // Passed Grade 7 → entry Algebra (level 13)
+  7: 14,  // Passed Grade 8 → entry Linear Equations (level 14)
+  8: 17,  // Passed Grade 9 → entry Multi-Step Problems (level 17)
+  9: 19,  // Passed Grade 10 → entry Functions (level 19)
+  10: 21, // Passed Grade 11 → entry Trigonometry (level 21)
+  11: 22, // Passed Grade 12 → top of tree (level 22)
 };
-
-function getFollowUpProbe(errorType: string, block: DiagnosticBlock): Task | null {
-  // Block 1 — Gate A/B
-  if (block === 1) {
-    if (errorType === "ERR_DIGIT_SWAP" || errorType === "ERR_FACE_VALUE")
-      return MATHS_PROBE_TASKS.place_value_probe_1;
-    if (errorType === "ERR_COUNT_SKIP" || errorType === "ERR_OFF_BY_ONE" || errorType === "ERR_SEQ_DIR")
-      return MATHS_PROBE_TASKS.count_sequence_probe_1;
-    if (errorType === "ERR_MULT_ADD" || errorType === "ERR_FIELD_SWAP")
-      return MATHS_PROBE_TASKS.operation_confusion_probe_1;
-    if (errorType === "ERR_REVERSAL" || errorType === "ERR_SUB_ADD")
-      return MATHS_PROBE_TASKS.subtraction_reversal_probe_1;
-    if (errorType === "ERR_SKIP_COUNT_STEP" || errorType === "ERR_PATTERN")
-      return MATHS_PROBE_TASKS.skip_count_probe_1;
-    if (errorType === "ERR_TIMES_TABLE" || errorType === "ERR_MULT_OFF")
-      return MATHS_PROBE_TASKS.times_table_probe_1;
-    if (errorType === "ERR_REGROUP" || errorType === "ERR_ADD_TENS_AFTER_CARRY")
-      return MATHS_PROBE_TASKS.addition_regroup_probe_1;
-    if (errorType === "ERR_BORROW" || errorType === "ERR_SUB_AFTER_BORROW")
-      return MATHS_PROBE_TASKS.subtraction_borrow_probe_1;
-  }
-
-  // Block 2 — Gate B/C/D
-  if (block <= 2) {
-    if (errorType === "ERR_INVERT" || errorType === "ERR_PART_WHOLE")
-      return MATHS_PROBE_TASKS.fraction_form_probe_1;
-    if (errorType === "ERR_COMMON_DENOM" || errorType === "ERR_ADD_FRAC" || errorType === "ERR_DENOM_CHANGE")
-      return MATHS_PROBE_TASKS.fraction_add_probe_1;
-    if (errorType === "ERR_INTEGER_SIGN" || errorType === "ERR_NEG_ADD" || errorType === "ERR_NEG_SUB")
-      return MATHS_PROBE_TASKS.integer_sign_probe_1;
-    if (errorType === "ERR_BODMAS_ORDER" || errorType === "ERR_BRACKET_IGNORE")
-      return MATHS_PROBE_TASKS.order_of_ops_probe_1;
-    if (errorType === "ERR_RATIO_ADD" || errorType === "ERR_RATIO_PARTIAL")
-      return MATHS_PROBE_TASKS.ratio_unit_probe_1;
-    if (errorType === "ERR_LIKE_TERMS" || errorType === "ERR_SIGN_DROP")
-      return MATHS_PROBE_TASKS.like_terms_probe_1;
-  }
-
-  // Block 3 — Gate C/D
-  if (errorType === "ERR_ALIGNMENT" || errorType === "ERR_DECIMAL_PLACE" || errorType === "ERR_DECIMAL_ALIGN")
-    return MATHS_PROBE_TASKS.decimal_place_probe_1;
-  if (errorType === "ERR_PCT_OF_AMOUNT" || errorType === "ERR_PERCENT_CALC")
-    return MATHS_PROBE_TASKS.percent_probe_1;
-  if (errorType === "ERR_NEG_MULT_SIGN" || errorType === "ERR_NEG_NEG_MULT" || errorType === "ERR_NEG_DIV_SIGN")
-    return MATHS_PROBE_TASKS.negative_mult_probe_1;
-
-  return null;
-}
 
 // ── Answer evaluation ─────────────────────────────────────────────────────────
 
@@ -390,80 +136,75 @@ function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; 
   return { correct: false, errorType };
 }
 
-// ── Placement computation ─────────────────────────────────────────────────────
+// ── Grade floor (entry level fallback when no gate is passed) ─────────────────
 
-const GATE_GRADE_THRESHOLD: Record<"A" | "B" | "C" | "D", number> = {
-  A: 4,   // Basic counting/ops — expected by Grade 4
-  B: 7,   // Decomposition/Fractions/Ratio — Grade 7
-  C: 10,  // Algebra/Equations — Grade 10
-  D: 13,  // Advanced (logs, trig, calc, differentiation) — Grade 13+
-};
-
+// Conservative fallback entry level when a student fails every gate in their window.
+// Deliberately set ~2 grade levels below the window's lowest gate so the learning
+// session can quickly find the real floor via BKT rather than starting too high.
 function getGradeFloor(grade: number): number {
-  if (grade <= 2) return 1;
-  if (grade <= 3) return 2;
-  if (grade <= 4) return 3;
-  if (grade <= 5) return 4;
-  if (grade <= 6) return 5;
-  if (grade <= 7) return 6;
-  if (grade <= 8) return 7;
-  if (grade <= 9) return 9;
-  if (grade <= 10) return 11;
-  if (grade <= 11) return 13;
-  if (grade <= 12) return 15;
+  if (grade <= 2) return 1;   // Grade 1–2 failed → start at Counting
+  if (grade <= 3) return 1;   // Grade 3 failed  → start at Counting
+  if (grade <= 4) return 2;   // Grade 4 failed  → start at Addition
+  if (grade <= 5) return 3;   // Grade 5 failed  → start at Subtraction
+  if (grade <= 6) return 4;   // Grade 6 failed  → start at Multiplication entry
+  if (grade <= 7) return 5;   // Grade 7 failed  → start at Multiplication
+  if (grade <= 8) return 5;   // Grade 8 failed  → start at Multiplication
+  if (grade <= 9) return 7;   // Grade 9 failed  → start at Fractions
+  if (grade <= 10) return 8;  // Grade 10 failed → start at Ratio/Proportion entry
+  if (grade <= 11) return 11; // Grade 11 failed → start at Ratio
+  if (grade <= 12) return 13; // Grade 12 failed → start at Algebra
   return 17;
 }
+
+// ── Placement computation ─────────────────────────────────────────────────────
 
 function computePlacement(
   results: MathsPlacementTaskResult[],
   grade: number,
-  probesRun?: number
 ): {
   entryLevel: number; entrySkillId: string; hardGatePassed: boolean;
   autoCompletedSkillIds: string[]; earlyExitReason: string | null;
   probesRun: number; placementBlock: DiagnosticBlock;
 } {
-  const scoreMap: Record<string, boolean> = {};
+  // Tally correct answers and total attempts per domain
+  const domainCorrect: Record<string, number> = {};
+  const domainTotal: Record<string, number> = {};
   for (const r of results) {
-    scoreMap[r.domain] = r.score === 1;
+    domainCorrect[r.domain] = (domainCorrect[r.domain] ?? 0) + (r.correct ? 1 : 0);
+    domainTotal[r.domain]   = (domainTotal[r.domain]   ?? 0) + 1;
   }
 
-  const passed = (domain: string, gate: "A" | "B" | "C" | "D") =>
-    domain in scoreMap ? scoreMap[domain] : grade >= GATE_GRADE_THRESHOLD[gate];
+  // Domain passed threshold scales with question count:
+  //   2 questions (Grade 3–12): both must be correct — prevents a single lucky
+  //     answer passing a domain and cascading into a large overplacement.
+  //   3 questions (Grade 2):    majority (≥2/3) — one slip is forgiven.
+  //   6 questions (Grade 1):    majority (≥4/6) — consistent performance needed.
+  const domainPassed = (d: string) => {
+    const total = domainTotal[d] ?? 0;
+    const correct = domainCorrect[d] ?? 0;
+    if (total === 0) return false;
+    if (total === 2) return correct === 2;           // strict: both correct
+    return correct / total >= 0.5;                  // majority for 3q and 6q
+  };
 
-  const hardGatePassed = passed("M006", "A");
+  // Gate passed = both domains passed
+  const gatePassed = (idx: number): boolean => {
+    const gate = SEARCH_GATES[idx];
+    return !!gate && gate.domains.every((d) => domainPassed(d));
+  };
 
-  const gateA = passed("M002", "A") && passed("M003", "A");
-  const gateB = passed("M005", "A") && hardGatePassed;
-  const gateC = passed("M007", "B") && passed("M008", "B");
-  const gateD = passed("M009", "B") && passed("M010", "B");
-  const gateE = passed("M011", "C") && passed("M012", "C");
-  const gateF = passed("M013", "C") && passed("M014", "C");
+  // Find the highest gate passed within the student's diagnostic window
+  const [lo, hi] = getSearchWindow(grade);
+  let highestPassedGate = -1;
+  for (let i = lo; i <= hi; i++) {
+    if (gatePassed(i)) highestPassedGate = i;
+  }
 
-  const passM004 = passed("M004", "A");
-  const passM006 = passed("M006", "A");
-  const passM008 = passed("M008", "B");
-  const passM009 = passed("M009", "B");
-  const passM011 = passed("M011", "C");
-  const passM013 = passed("M013", "C");
-  const passM015 = passed("M015", "D") || passed("M016", "D") || passed("M017", "D");
+  const entryLevel = highestPassedGate >= 0
+    ? (GATE_PASSED_ENTRY[highestPassedGate] ?? getGradeFloor(grade))
+    : getGradeFloor(grade);
 
-  let computedLevel = 1;
-  if (gateF && passM015)      computedLevel = 17;
-  else if (gateF)             computedLevel = 16;
-  else if (gateE && passM013) computedLevel = 15;
-  else if (gateE)             computedLevel = 14;
-  else if (gateD && passM011) computedLevel = 13;
-  else if (gateD)             computedLevel = 12;
-  else if (gateC && passM009) computedLevel = 11;
-  else if (gateC)             computedLevel = 8;
-  else if (passM008)          computedLevel = 10;
-  else if (gateB && passM006) computedLevel = 6;
-  else if (gateB)             computedLevel = 5;
-  else if (gateA)             computedLevel = 2;
-  else if (passM004)          computedLevel = 2;
-
-  const entryLevel = computedLevel;
+  const hardGatePassed = gatePassed(3); // Gate 3 = Multiplication / Division
 
   const level = getLevelById(entryLevel);
   let entrySkillId = `L${entryLevel}.T1.A1`;
@@ -472,13 +213,12 @@ function computePlacement(
   }
 
   const autoCompletedSkillIds = entryLevel > 1 ? getSkillIdsForLevels(entryLevel) : [];
-  const placementBlock: DiagnosticBlock = gateF || gateE ? 3 : gateD || gateC ? 2 : 1;
 
   return {
     entryLevel, entrySkillId, hardGatePassed, autoCompletedSkillIds,
     earlyExitReason: null,
-    probesRun: probesRun ?? 0,
-    placementBlock,
+    probesRun: 0,
+    placementBlock: 1,
   };
 }
 
@@ -502,21 +242,14 @@ const LEVEL_LABEL: Record<number, string> = {
   15: "Quadratics",
   16: "Functions",
   17: "Multi-Step Problems",
+  18: "Quadratic Factorisation",
+  19: "Functions & Graphs",
+  20: "Exponentials & Logs",
+  21: "Trigonometry",
+  22: "Calculus",
 };
 
 type Phase = "welcome" | "loading" | "task" | "result";
-
-// ── Binary search state (ref avoids stale-closure issues in advanceTask) ──────
-
-interface BsState {
-  diagPhase: "anchor" | "search1" | "search2" | "confirm";
-  anchorGateIdx: number;
-  searchLo: number;
-  searchHi: number;
-  search1GateIdx: number;
-  search2GateIdx: number;
-  lastPassedGateIdx: number;   // -1 = none passed yet
-}
 
 // ── Stimulus renderer ─────────────────────────────────────────────────────────
 
@@ -565,158 +298,131 @@ export default function MathsDiagnosticPlacement({
   const [domainTitleMap, setDomainTitleMap] = useState<Record<string, string>>({});
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Dynamic task queue — rebuilt phase by phase
-  const [allBankTasks, setAllBankTasks] = useState<Task[]>([]);
-  const [phaseQueue, setPhaseQueue] = useState<Task[]>([]);
-  const [phaseIndex, setPhaseIndex] = useState(0);
-  const bsRef = useRef<BsState>({
-    diagPhase: "anchor",
-    anchorGateIdx: 0,
-    searchLo: 0,
-    searchHi: 0,
-    search1GateIdx: -1,
-    search2GateIdx: -1,
-    lastPassedGateIdx: -1,
-  });
-
-  const [probeQueue, setProbeQueue] = useState<Task[]>([]);
-  const [probesFiredThisPhase, setProbesFiredThisPhase] = useState(0);
+  // Flat question queue — built once on load, no phase transitions
+  const [taskQueue, setTaskQueue] = useState<Task[]>([]);
+  const [taskIndex, setTaskIndex] = useState(0);
 
   const [answers, setAnswers] = useState<string[]>([]);
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
 
   const [completedTasks, setCompletedTasks] = useState<MathsPlacementTaskResult[]>([]);
-  const [errorHistory, setErrorHistory] = useState<{ taskId: string; errorType: string }[]>([]);
-  const [probesRun, setProbesRun] = useState(0);
-  const earlyExitOverrideRef = useRef<{ placementLevel: number; reason: string } | null>(null);
   const [placementResult, setPlacementResult] = useState<MathsPlacementResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showEncouragement, setShowEncouragement] = useState(false);
 
   const bankLoadedRef = useRef(false);
 
-  // ── Load random bank and build anchor queue ────────────────────────────────
+  // ── Load banks and build a flat 12-question queue ─────────────────────────
+  // Every grade always receives exactly 12 questions.
+  // The number of bank files loaded scales with the window size so that each
+  // domain always has the same number of distinct questions:
+  //   Grade 1  — 1 gate,  2 domains → load 6 banks → 6 questions per domain
+  //   Grade 2  — 2 gates, 4 domains → load 3 banks → 3 questions per domain
+  //   Grade 3+ — 3 gates, 6 domains → load 2 banks → 2 questions per domain
+  // Bank files are chosen at random (no repeats) so every session is different.
 
   const loadBank = useCallback(() => {
     if (bankLoadedRef.current) return;
     bankLoadedRef.current = true;
     setPhase("loading");
-    const n = Math.floor(Math.random() * 50) + 1;
-    import(`@/data/maths-question-banks/${n}.json`)
-      .then((mod) => {
-        const raw = (mod.default ?? mod) as RawBankTask[];
+
+    const [lo, hi] = getSearchWindow(grade);
+    const totalDomains = (hi - lo + 1) * 2;          // 2, 4, or 6
+    const bankCount = Math.round(12 / totalDomains);  // 6, 3, or 2
+
+    // Pick bankCount distinct random bank numbers (1–50)
+    const bankNums: number[] = [];
+    while (bankNums.length < bankCount) {
+      const n = Math.floor(Math.random() * 50) + 1;
+      if (!bankNums.includes(n)) bankNums.push(n);
+    }
+
+    Promise.all(bankNums.map((n) => import(`@/data/maths-question-banks/${n}.json`)))
+      .then((mods) => {
         const readingLevel = getReadingProfile()?.current_level ?? 5;
-        const tasks: Task[] = raw.map((t) => {
-          const task = adaptBankTask(t, 1);
-          return { ...task, question: simplifyText(task.question, readingLevel) };
+
+        // Index each bank by domain
+        const banks: Record<string, RawBankTask>[] = mods.map((mod) => {
+          const raw = (mod.default ?? mod) as RawBankTask[];
+          const byDomain: Record<string, RawBankTask> = {};
+          raw.forEach((t) => { byDomain[t.domain] = t; });
+          return byDomain;
         });
+
         const titleMap: Record<string, string> = {};
-        tasks.forEach((t) => { titleMap[t.domain] = t.domainTitle; });
+        mods.forEach((mod) => {
+          (mod.default ?? mod as RawBankTask[]).forEach((t: RawBankTask) => {
+            titleMap[t.domain] = t.domainTitle;
+          });
+        });
 
-        // Initialise binary search state
-        const anchorGateIdx = getAnchorGateIndex(grade);
-        const [winLo, winHi] = getSearchWindow(grade);
-        bsRef.current = {
-          diagPhase: "anchor",
-          anchorGateIdx,
-          searchLo: winLo,
-          searchHi: winHi,
-          search1GateIdx: -1,
-          search2GateIdx: -1,
-          lastPassedGateIdx: -1,
-        };
-
-        // Phase 1: anchor — 2 tasks from anchor gate
-        const anchorGate = SEARCH_GATES[anchorGateIdx];
-        const anchorQueue: Task[] = anchorGate.domains
-          .map((d) => tasks.find((t) => t.domain === d))
-          .filter(Boolean)
-          .map((t) => ({ ...t!, block: 1 as DiagnosticBlock }));
-
-        setAllBankTasks(tasks);
-        setDomainTitleMap(titleMap);
-        setPhaseQueue(anchorQueue);
-        setPhaseIndex(0);
-
-        // M2 fix — Foundation probes: for grades 4+ the anchor gate is B or higher,
-        // so M002 (counting) and M003 (place value) are never directly tested.
-        // Pre-load them as choice probes before the anchor phase so computePlacement
-        // always has real scoreMap data for gateA instead of the grade-based default.
-        if (anchorGateIdx > 0) {
-          setProbeQueue([
-            MATHS_PROBE_TASKS.count_sequence_probe_1,
-            MATHS_PROBE_TASKS.place_value_probe_1,
-          ]);
+        // Build flat queue: gate order, domain order, then one question per bank
+        const queue: Task[] = [];
+        for (let gi = lo; gi <= hi; gi++) {
+          for (const domain of SEARCH_GATES[gi].domains) {
+            for (const bank of banks) {
+              const raw = bank[domain];
+              if (raw) {
+                const adapted = adaptBankTask(raw, 1);
+                queue.push({ ...adapted, question: simplifyText(adapted.question, readingLevel) });
+              }
+            }
+          }
         }
 
+        setDomainTitleMap(titleMap);
+        setTaskQueue(queue);
+        setTaskIndex(0);
         setPhase("task");
       })
       .catch(() => setPhase("task"));
   }, [grade]);
 
-  // ── Current task: drain probe queue before advancing phase queue ──────────
+  // ── Current task and progress ──────────────────────────────────────────────
 
-  const task: Task | undefined =
-    probeQueue.length > 0 ? probeQueue[0] : phaseQueue[phaseIndex];
-
-  // Progress: 9 primary questions total (2 anchor + 4 search + 3 confirm)
-  const TOTAL_QUESTIONS = 9;
-  const primaryCompleted = completedTasks.filter((t) => !t.is_probe).length;
+  const task: Task | undefined = taskQueue[taskIndex];
+  const TOTAL_QUESTIONS = taskQueue.length || 12;
+  const primaryCompleted = completedTasks.length;
   const progress = (primaryCompleted / TOTAL_QUESTIONS) * 100;
   const phaseLabel =
-    primaryCompleted < 2
+    primaryCompleted < TOTAL_QUESTIONS / 3
       ? "Getting started"
-      : primaryCompleted < 6
+      : primaryCompleted < (TOTAL_QUESTIONS * 2) / 3
       ? "Finding your level"
       : "Almost done";
 
   const answerInputRef = useRef<HTMLInputElement>(null);
 
-  // Reset answer state and focus input (desktop only) whenever the task changes
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
-  }, [task?.id, phaseIndex]);
+  }, [taskIndex]);
 
   useEffect(() => {
     if (task) {
       setAnswers(task.fields ? task.fields.map(() => "") : [""]);
       setSelectedChoice(null);
       if (window.matchMedia("(pointer: fine)").matches) {
-        // Defer one tick so the input is rendered before focusing
         setTimeout(() => answerInputRef.current?.focus(), 0);
       }
     }
   }, [task?.id]);
 
+  // ── Finish ─────────────────────────────────────────────────────────────────
+
   const finishDiagnostic = useCallback(
-    (completed: MathsPlacementTaskResult[], pCount: number) => {
-      const result = computePlacement(completed, grade, pCount);
-      const override = earlyExitOverrideRef.current;
-
-      let entryLevel = result.entryLevel;
-      let entrySkillId = result.entrySkillId;
-      let autoCompletedSkillIds = result.autoCompletedSkillIds;
-      let earlyExitReason = result.earlyExitReason;
-
-      if (override) {
-        entryLevel = override.placementLevel;
-        earlyExitReason = override.reason;
-        const level = getLevelById(entryLevel);
-        entrySkillId = level?.tiers?.[0]?.atomic_skills?.[0]?.id ?? `L${entryLevel}.T1.A1`;
-        autoCompletedSkillIds = entryLevel > 1 ? getSkillIdsForLevels(entryLevel) : [];
-      }
-
+    (completed: MathsPlacementTaskResult[]) => {
+      const result = computePlacement(completed, grade);
       const placement: MathsPlacementResult = {
         completedAt: Date.now(),
         placementCompletedAt: Date.now(),
         tasks: completed,
-        entrySkillId,
-        entryLevel,
-        autoCompletedSkillIds,
+        entrySkillId: result.entrySkillId,
+        entryLevel: result.entryLevel,
+        autoCompletedSkillIds: result.autoCompletedSkillIds,
         hardGatePassed: result.hardGatePassed,
         placementBlock: result.placementBlock,
-        earlyExitReason,
-        probesRun: result.probesRun,
+        earlyExitReason: null,
+        probesRun: 0,
       };
       setPlacementResult(placement);
       setPhase("result");
@@ -724,224 +430,33 @@ export default function MathsDiagnosticPlacement({
     [grade]
   );
 
+  // ── Advance through flat queue — no binary search, no early exit ───────────
+
   const advanceTask = useCallback(
     async (result: MathsPlacementTaskResult) => {
       setSubmitting(true);
       const newCompleted = [...completedTasks, result];
       setCompletedTasks(newCompleted);
 
-      const newErrorHistory = [...errorHistory];
-      if (!result.correct && !result.is_probe && result.error_type) {
-        newErrorHistory.push({ taskId: result.domain, errorType: result.error_type });
-        setErrorHistory(newErrorHistory);
-      }
-
       setShowEncouragement(true);
       await new Promise((r) => setTimeout(r, 600));
 
-      // ── Probe path ─────────────────────────────────────────────────────────
-      if (result.is_probe) {
-        setProbesRun((n) => n + 1);
-        setProbeQueue((q) => q.slice(1));
+      const nextIndex = taskIndex + 1;
+      if (nextIndex < taskQueue.length) {
+        setTaskIndex(nextIndex);
         setShowEncouragement(false);
         setSubmitting(false);
-        return;
-      }
-
-      // ── Primary task: maybe trigger follow-up probe ────────────────────────
-      const currentTask = phaseQueue[phaseIndex];
-      if (!result.correct && result.error_type && probesFiredThisPhase < 2) {
-        const probe = getFollowUpProbe(result.error_type, currentTask?.block ?? 1);
-        if (probe) {
-          setProbeQueue((q) => [...q, probe]);
-          setProbesFiredThisPhase((n) => n + 1);
-        }
-      }
-
-      // ── Early exit check ───────────────────────────────────────────────────
-      const earlyExit = evaluateEarlyExit(
-        newCompleted,
-        currentTask?.block ?? 1,
-        newErrorHistory,
-      );
-      if (earlyExit.exit) {
-        earlyExitOverrideRef.current = { placementLevel: earlyExit.placementLevel, reason: earlyExit.reason };
+      } else {
         setShowEncouragement(false);
-        finishDiagnostic(newCompleted, probesRun);
+        finishDiagnostic(newCompleted);
         setSubmitting(false);
-        return;
       }
-
-      // ── Phase advancement ──────────────────────────────────────────────────
-      const nextPhaseIndex = phaseIndex + 1;
-
-      if (nextPhaseIndex < phaseQueue.length) {
-        // More tasks remain in current phase queue
-        setPhaseIndex(nextPhaseIndex);
-        setShowEncouragement(false);
-        setSubmitting(false);
-        return;
-      }
-
-      // Current phase exhausted — transition to next
-      const bs = bsRef.current;
-      const primary = newCompleted.filter((t) => !t.is_probe);
-      // Passes for the tasks in the phase just completed (by domain)
-      const phaseDomains = new Set(phaseQueue.map((t) => t.domain));
-      const phaseResults = primary.filter((t) => phaseDomains.has(t.domain));
-      const phasePasses = phaseResults.filter((t) => t.correct).length;
-
-      setProbesFiredThisPhase(0);
-
-      // ── anchor → search1 ──────────────────────────────────────────────────
-      if (bs.diagPhase === "anchor") {
-        if (phasePasses === 2) {
-          bs.lastPassedGateIdx = bs.anchorGateIdx;
-          bs.searchLo = Math.min(bs.anchorGateIdx + 1, bs.searchHi);
-        } else {
-          bs.searchHi = Math.max(bs.anchorGateIdx - 1, bs.searchLo);
-        }
-
-        bs.diagPhase = "search1";
-        const mid1 = bs.searchLo <= bs.searchHi
-          ? Math.floor((bs.searchLo + bs.searchHi) / 2)
-          : bs.anchorGateIdx; // fallback: reuse anchor gate area
-        const clamped1 = Math.max(0, Math.min(mid1, SEARCH_GATES.length - 1));
-        bs.search1GateIdx = clamped1;
-
-        // Fix 2: search converged to the anchor gate — no new info, skip to confirm
-        if (clamped1 === bs.anchorGateIdx) {
-          bs.diagPhase = "confirm";
-          const [, winHi] = getSearchWindow(grade);
-          const maxConfirmGate = Math.min(winHi, SEARCH_GATES.length - 1);
-          const cg = Math.max(0, Math.min(
-            bs.lastPassedGateIdx >= 0 ? bs.lastPassedGateIdx : 0,
-            maxConfirmGate,
-          ));
-          const confirmQueue: Task[] = [cg, cg + 1, cg + 2]
-            .filter((gi) => gi <= maxConfirmGate)
-            .map((gi) => {
-              const gate = SEARCH_GATES[gi];
-              if (!gate) return null;
-              const t = allBankTasks.find((t) => t.domain === gate.domains[0]);
-              return t ? { ...t, block: 3 as DiagnosticBlock } : null;
-            })
-            .filter(Boolean) as Task[];
-          setPhaseQueue(confirmQueue);
-          setPhaseIndex(0);
-        } else {
-          const s1Gate = SEARCH_GATES[clamped1];
-          const s1Queue: Task[] = s1Gate.domains
-            .map((d) => allBankTasks.find((t) => t.domain === d))
-            .filter(Boolean)
-            .map((t) => ({ ...t!, block: 2 as DiagnosticBlock }));
-          setPhaseQueue(s1Queue);
-          setPhaseIndex(0);
-        }
-
-      // ── search1 → search2 ─────────────────────────────────────────────────
-      } else if (bs.diagPhase === "search1") {
-        if (phasePasses === 2) {
-          bs.lastPassedGateIdx = Math.max(bs.lastPassedGateIdx, bs.search1GateIdx);
-          bs.searchLo = bs.search1GateIdx + 1;
-        } else {
-          bs.searchHi = bs.search1GateIdx - 1;
-        }
-
-        bs.diagPhase = "search2";
-        let mid2: number;
-        if (bs.searchLo <= bs.searchHi) {
-          mid2 = Math.floor((bs.searchLo + bs.searchHi) / 2);
-        } else {
-          // Search converged — pick a gate adjacent to last passed (or anchor)
-          const ref = bs.lastPassedGateIdx >= 0 ? bs.lastPassedGateIdx : bs.anchorGateIdx;
-          mid2 = phasePasses === 2
-            ? Math.min(ref + 1, SEARCH_GATES.length - 1)
-            : Math.max(ref - 1, 0);
-        }
-
-        // Clamp search2 to the grade's search window so students never get
-        // out-of-grade questions (e.g. fractions for a grade 1 student).
-        const [winLo2, winHi2] = getSearchWindow(grade);
-        mid2 = Math.max(winLo2, Math.min(mid2, winHi2));
-        bs.search2GateIdx = mid2;
-
-        // If search2 would repeat a gate already tested, skip straight to confirm.
-        if (mid2 === bs.anchorGateIdx || mid2 === bs.search1GateIdx) {
-          bs.diagPhase = "confirm";
-          const maxConfirmGate2 = Math.min(winHi2, SEARCH_GATES.length - 1);
-          const cg2 = Math.max(0, Math.min(
-            bs.lastPassedGateIdx >= 0 ? bs.lastPassedGateIdx : 0,
-            maxConfirmGate2,
-          ));
-          const earlyConfirmQueue: Task[] = [cg2, cg2 + 1, cg2 + 2]
-            .filter((gi) => gi <= maxConfirmGate2)
-            .map((gi) => {
-              const gate = SEARCH_GATES[gi];
-              if (!gate) return null;
-              const t = allBankTasks.find((t) => t.domain === gate.domains[0]);
-              return t ? { ...t, block: 3 as DiagnosticBlock } : null;
-            })
-            .filter(Boolean) as Task[];
-          setPhaseQueue(earlyConfirmQueue);
-          setPhaseIndex(0);
-        } else {
-          const s2Gate = SEARCH_GATES[mid2];
-          const s2Queue: Task[] = s2Gate.domains
-            .map((d) => allBankTasks.find((t) => t.domain === d))
-            .filter(Boolean)
-            .map((t) => ({ ...t!, block: 2 as DiagnosticBlock }));
-          setPhaseQueue(s2Queue);
-          setPhaseIndex(0);
-        }
-
-      // ── search2 → confirm ─────────────────────────────────────────────────
-      } else if (bs.diagPhase === "search2") {
-        if (phasePasses === 2) {
-          bs.lastPassedGateIdx = Math.max(bs.lastPassedGateIdx, bs.search2GateIdx);
-        }
-
-        bs.diagPhase = "confirm";
-
-        // Fix 3: clamp confirm gates to grade's search window so grade 1 students
-        // never receive fraction/ratio/algebra questions from higher gates.
-        const [, winHi] = getSearchWindow(grade);
-        const maxConfirmGate = Math.min(winHi, SEARCH_GATES.length - 1);
-        const cg = Math.max(0, Math.min(
-          bs.lastPassedGateIdx >= 0 ? bs.lastPassedGateIdx : 0,
-          maxConfirmGate,
-        ));
-        const confirmQueue: Task[] = [cg, cg + 1, cg + 2]
-          .filter((gi) => gi <= maxConfirmGate)
-          .map((gi) => {
-            const gate = SEARCH_GATES[gi];
-            if (!gate) return null;
-            const t = allBankTasks.find((t) => t.domain === gate.domains[0]);
-            return t ? { ...t, block: 3 as DiagnosticBlock } : null;
-          })
-          .filter(Boolean) as Task[];
-
-        setPhaseQueue(confirmQueue);
-        setPhaseIndex(0);
-
-      // ── confirm → done ────────────────────────────────────────────────────
-      } else if (bs.diagPhase === "confirm") {
-        setShowEncouragement(false);
-        finishDiagnostic(newCompleted, probesRun);
-        setSubmitting(false);
-        return;
-      }
-
-      setShowEncouragement(false);
-      setSubmitting(false);
     },
-    [
-      completedTasks, errorHistory, phaseIndex, phaseQueue, allBankTasks,
-      probesFiredThisPhase, probeQueue, probesRun, finishDiagnostic,
-    ]
+    [completedTasks, taskIndex, taskQueue.length, finishDiagnostic]
   );
 
-  // ── Choice handler (probe tasks) ───────────────────────────────────────────
+  // ── Choice handler ─────────────────────────────────────────────────────────
+
   const handleChoice = useCallback(
     (choice: Choice) => {
       if (submitting || selectedChoice || !task) return;
@@ -955,7 +470,7 @@ export default function MathsDiagnosticPlacement({
           block: task.block,
           correct: choice.correct,
           error_type: errorType,
-          is_probe: true,
+          is_probe: false,
         });
       }, 450);
     },
@@ -963,6 +478,7 @@ export default function MathsDiagnosticPlacement({
   );
 
   // ── Open-ended submit handler ──────────────────────────────────────────────
+
   const handleSubmit = useCallback(() => {
     if (submitting || !task) return;
     const { correct, errorType } = evaluateTaskAnswer(task, answers);
@@ -973,7 +489,7 @@ export default function MathsDiagnosticPlacement({
       block: task.block,
       correct,
       error_type: errorType,
-      is_probe: !!task.isProbe,
+      is_probe: false,
     });
   }, [submitting, task, answers, advanceTask]);
 
@@ -981,11 +497,12 @@ export default function MathsDiagnosticPlacement({
     if (submitting || !task) return;
     advanceTask({
       domain: task.domain, score: 0, response: "(skipped)",
-      block: task.block, correct: false, is_probe: !!task.isProbe,
+      block: task.block, correct: false, is_probe: false,
     });
   }, [submitting, task, advanceTask]);
 
   // ── Welcome ────────────────────────────────────────────────────────────────
+
   if (phase === "welcome") {
     return (
       <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100 items-center justify-center p-6">
@@ -1002,7 +519,7 @@ export default function MathsDiagnosticPlacement({
           </div>
           <div className="grid grid-cols-3 gap-2 text-sm text-gray-600">
             {[
-              { icon: "🎯", text: "9 questions" },
+              { icon: "🎯", text: "12 questions" },
               { icon: "⏱️", text: "~5 min" },
               { icon: "🏆", text: "Find your level" },
             ].map(({ icon, text }) => (
@@ -1024,6 +541,7 @@ export default function MathsDiagnosticPlacement({
   }
 
   // ── Loading ────────────────────────────────────────────────────────────────
+
   if (phase === "loading") {
     return (
       <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100 items-center justify-center">
@@ -1034,11 +552,12 @@ export default function MathsDiagnosticPlacement({
   }
 
   // ── Result ─────────────────────────────────────────────────────────────────
+
   if (phase === "result" && placementResult) {
     const autoCount = placementResult.autoCompletedSkillIds.length;
     const entryLabel = LEVEL_LABEL[placementResult.entryLevel] ?? `Level ${placementResult.entryLevel}`;
-    const correctCount = placementResult.tasks.filter((t) => t.score === 1 && !t.is_probe).length;
-    const totalCount = placementResult.tasks.filter((t) => !t.is_probe).length;
+    const correctCount = placementResult.tasks.filter((t) => t.score === 1).length;
+    const totalCount = placementResult.tasks.length;
 
     return (
       <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100 overflow-y-auto">
@@ -1068,8 +587,8 @@ export default function MathsDiagnosticPlacement({
           <div className="bg-white rounded-3xl shadow-md p-5">
             <h3 className="font-bold text-gray-700 text-sm uppercase tracking-wide mb-3">Your Results</h3>
             <div className="space-y-2">
-              {placementResult.tasks.filter((t) => !t.is_probe).map((t) => (
-                <div key={t.domain} className="flex items-center gap-3">
+              {placementResult.tasks.map((t, i) => (
+                <div key={`${t.domain}-${i}`} className="flex items-center gap-3">
                   <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
                     t.score === 1 ? "bg-green-400 text-white" : "bg-gray-200 text-gray-400"
                   }`}>
@@ -1095,6 +614,7 @@ export default function MathsDiagnosticPlacement({
   }
 
   // ── Task screen ────────────────────────────────────────────────────────────
+
   if (!task) return null;
 
   const isChoiceTask = task.answerMode === "choice";
@@ -1138,7 +658,7 @@ export default function MathsDiagnosticPlacement({
           {/* Answer card */}
           <div className="bg-white rounded-3xl shadow-md p-5 space-y-4">
 
-            {/* ── Choice UI (probe tasks) ── */}
+            {/* ── Choice UI ── */}
             {isChoiceTask && task.choices && (
               <div className="grid grid-cols-2 gap-3">
                 {task.choices.map((c) => (

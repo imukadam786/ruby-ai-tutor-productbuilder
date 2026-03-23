@@ -69,7 +69,7 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
     const avg = data.scores.reduce((a, b) => a + b, 0) / data.scores.length;
     const score = Math.round(avg * 100);
     const label: "strong" | "building" | "practice" =
-      avg >= 0.8 ? "strong" : avg >= 0.6 ? "building" : "practice";
+      avg >= 0.8 ? "strong" : avg >= 0.4 ? "building" : "practice";
     const primaryError = data.errors.length > 0 ? data.errors[0] : null;
     // Get human-readable domain title from question bank
     const domainTitle = getDomain(domainId)?.title ?? domainId;
