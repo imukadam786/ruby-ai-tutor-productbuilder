@@ -778,20 +778,21 @@ export default function DiagnosticSession() {
       <div className="flex flex-col h-full bg-gray-50">
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
-          <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
-            <div className="text-5xl mb-2">🏆</div>
-            <h3 className="text-2xl font-bold text-green-800">Skill Mastered!</h3>
-            <p className="text-green-700">
-              You&apos;ve mastered <strong>{skill?.title || "this skill"}</strong>!
+          <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
+            <div className="text-6xl mb-1">🎉</div>
+            <div className="flex justify-center gap-2 text-2xl">⭐⭐⭐</div>
+            <h3 className="text-2xl font-bold text-green-800">Skill Complete!</h3>
+            <p className="text-green-700 text-lg">
+              You mastered <strong>{skill?.title || "this skill"}</strong>!
             </p>
             {currentResult && (
-              <p className="text-gray-600 text-sm">{currentResult.feedback}</p>
+              <p className="text-gray-500 text-sm">{currentResult.feedback}</p>
             )}
             <button
               onClick={handleNextAfterMastered}
-              className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-medium transition-all shadow-md mt-2"
+              className="w-full bg-green-500 hover:bg-green-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md mt-2"
             >
-              Continue to Next Skill →
+              Keep going →
             </button>
           </div>
         </div>
