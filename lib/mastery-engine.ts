@@ -10,6 +10,7 @@ import {
   isMastered as bktIsMastered,
   DEFAULT_BKT_PARAMS,
   paramsForDifficulty,
+  transitForMathsLevel,
 } from "@/lib/bkt";
 
 // ─── Mastery Determination ────────────────────────────────────────────────────
@@ -68,11 +69,15 @@ export function updateSkillMastery(
   const updatedAttempts = [...existing.attempts, attempt];
 
   // ── BKT update ────────────────────────────────────────────────────────────
-  // Use difficulty-calibrated params when available: harder questions have lower
-  // guess rates so a correct answer carries more evidential weight.
-  const bktParams = difficulty !== undefined
-    ? paramsForDifficulty(difficulty)
-    : DEFAULT_BKT_PARAMS;
+  // Params layered in priority order:
+  //   1. difficulty adjusts p_slip / p_guess (evidential weight per answer)
+  //   2. skill level adjusts p_transit (learning rate — procedural vs conceptual)
+  const levelMatch = attempt.skill_id.match(/^L(\d+)/);
+  const skillLevel = levelMatch ? parseInt(levelMatch[1], 10) : 5;
+  const bktParams = {
+    ...(difficulty !== undefined ? paramsForDifficulty(difficulty) : DEFAULT_BKT_PARAMS),
+    p_transit: transitForMathsLevel(skillLevel),
+  };
   const currentP = existing.p_learned ?? initBKT(DEFAULT_BKT_PARAMS);
   const updatedP = updateBKT(currentP, attempt.is_correct, bktParams);
 

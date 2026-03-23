@@ -96,6 +96,31 @@ export function paramsForDifficulty(difficulty: number): BKTParams {
 }
 
 /**
+ * Level-banded p_transit for maths skills (L1–L22).
+ * Procedural skills are acquired faster than conceptual ones.
+ *   L1–L4  (counting → multiplication):  0.15 → ~10 correct for mastery
+ *   L5–L9  (fractions → integers):        0.08 → ~18 correct
+ *   L10+   (algebra → calculus):          0.05 → ~28 correct
+ */
+export function transitForMathsLevel(level: number): number {
+  if (level <= 4) return 0.15;
+  if (level <= 9) return 0.08;
+  return 0.05;
+}
+
+/**
+ * Level-banded p_transit for reading skills (R1–R5).
+ *   R1–R2  (phonological awareness + phonics):  0.12 → ~12 correct
+ *   R3–R4  (word recognition + fluency):         0.08 → ~18 correct
+ *   R5     (comprehension):                      0.06 → ~24 correct
+ */
+export function transitForReadingLevel(level: number): number {
+  if (level <= 2) return 0.12;
+  if (level <= 4) return 0.08;
+  return 0.06;
+}
+
+/**
  * Map p_learned (0–1) to an ability level (1–5) for difficulty-matched
  * question selection. A student with p_learned = 0.65 is at ability level 3
  * and benefits most from difficulty-3 questions.

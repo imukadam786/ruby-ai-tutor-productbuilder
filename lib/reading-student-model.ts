@@ -16,6 +16,7 @@ import {
   updateBKT,
   isMastered as bktIsMastered,
   DEFAULT_BKT_PARAMS,
+  transitForReadingLevel,
 } from "@/lib/bkt";
 
 const READING_STUDENT_KEY = "ruby_reading_profile";
@@ -249,8 +250,12 @@ export function updateReadingSkillMastery(
   const updatedAttempts = [...existing.attempts, attempt];
 
   // ── BKT update ────────────────────────────────────────────────────────────
+  // Level-banded p_transit: phonics skills are acquired faster than comprehension.
+  const levelMatch = attempt.skill_id.match(/^R(\d+)/);
+  const skillLevel = levelMatch ? parseInt(levelMatch[1], 10) : 3;
+  const bktParams = { ...DEFAULT_BKT_PARAMS, p_transit: transitForReadingLevel(skillLevel) };
   const currentP = existing.p_learned ?? initBKT(DEFAULT_BKT_PARAMS);
-  const updatedP = updateBKT(currentP, attempt.is_correct, DEFAULT_BKT_PARAMS);
+  const updatedP = updateBKT(currentP, attempt.is_correct, bktParams);
 
   const newStatus = evaluateReadingMastery(updatedAttempts, updatedP, grade);
   const formatsUsed = Array.from(
