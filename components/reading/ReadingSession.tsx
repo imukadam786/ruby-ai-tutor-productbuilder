@@ -160,6 +160,8 @@ export default function ReadingSession() {
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
+  const [loadErrorCount, setLoadErrorCount] = useState(0);
+  const retryFnRef = useRef<(() => void) | null>(null);
   // Set when a hardGatePassed=false student finishes all R1 skills
   const [r1GateReached, setR1GateReached] = useState(false);
 
@@ -232,6 +234,7 @@ export default function ReadingSession() {
     async (skillId: string, template: ReadingTemplate, attemptNum: number, is_correct = true, errorType: string | null = null) => {
       setPhase("loading_question");
       setStatusMessage("Generating your question...");
+      retryFnRef.current = () => loadQuestion(skillId, template, attemptNum, is_correct, errorType);
       try {
         const used_refs = profileRef.current ? getReadingUsedRefs(profileRef.current, skillId) : [];
         const res = await apiFetch("/api/reading/generate-question", {
@@ -255,9 +258,11 @@ export default function ReadingSession() {
           setProfile(updated);
         }
         setCurrentQuestion(q);
+        setLoadErrorCount(0);
         setPhase("question");
       } catch {
-        setStatusMessage("Failed to load question. Check your API key and refresh.");
+        setLoadErrorCount((c) => c + 1);
+        setStatusMessage("Failed to load question.");
       }
     },
     []
@@ -474,6 +479,38 @@ export default function ReadingSession() {
     setPhase(nextSkillId ? "loading_question" : "complete");
   };
 
+  const handleSkipOnLoadError = () => {
+    if (!profile) return;
+    setLoadErrorCount(0);
+    const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
+    const existingMastery = profile.skill_mastery[skillId] || initReadingSkillMastery(skillId);
+    const profileWithAssumed = {
+      ...profile,
+      skill_mastery: { ...profile.skill_mastery, [skillId]: { ...existingMastery, status: "assumed" as const } },
+    };
+    const nextSkillId = getNextReadingSkillId(skillId);
+    const gated = profile.placement?.hardGatePassed === false;
+    const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
+    if (gated && crossesGate) {
+      saveReadingProfile(profileWithAssumed);
+      setProfile(profileWithAssumed);
+      setR1GateReached(true);
+      setPhase("complete");
+      return;
+    }
+    if (nextSkillId) {
+      const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
+      saveReadingProfile(advanced);
+      setProfile(advanced);
+    } else {
+      saveReadingProfile(profileWithAssumed);
+      setProfile(profileWithAssumed);
+    }
+    setSkillAttemptCount(0);
+    recentTemplatesRef.current = [];
+    setPhase(nextSkillId ? "loading_question" : "complete");
+  };
+
   const handleKeepTrying = () => {
     if (!currentQuestion || !profile) return;
     const mastery = profile.skill_mastery[currentQuestion.skill_id];
@@ -658,11 +695,36 @@ export default function ReadingSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-gray-600 font-medium text-base">{statusMessage || "Loading..."}</p>
-          </div>
+        <div className="flex-1 flex items-center justify-center p-6">
+          {loadErrorCount === 0 ? (
+            <div className="text-center">
+              <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-gray-600 font-medium text-base">{statusMessage || "Loading..."}</p>
+            </div>
+          ) : (
+            <div className="text-center max-w-sm w-full space-y-4">
+              <div className="text-4xl">⚠️</div>
+              <p className="text-gray-800 font-semibold">
+                {loadErrorCount >= 3 ? "Still not loading" : "Couldn't load the question"}
+              </p>
+              <p className="text-gray-500 text-sm">Check your connection and try again.</p>
+              {loadErrorCount < 3 ? (
+                <button
+                  onClick={() => retryFnRef.current?.()}
+                  className="w-full bg-purple-500 text-white py-3 rounded-2xl font-semibold hover:bg-purple-600 transition-colors"
+                >
+                  Try again
+                </button>
+              ) : (
+                <button
+                  onClick={handleSkipOnLoadError}
+                  className="w-full bg-gray-200 text-gray-700 py-3 rounded-2xl font-semibold hover:bg-gray-300 transition-colors"
+                >
+                  Skip this question
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     );

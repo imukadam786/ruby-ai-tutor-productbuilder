@@ -159,6 +159,8 @@ export default function DiagnosticSession() {
   const [reteachCount, setReteachCount] = useState(0);
   const [lastWasIncorrect, setLastWasIncorrect] = useState<boolean>(false);
   const [statusMessage, setStatusMessage] = useState("");
+  const [loadErrorCount, setLoadErrorCount] = useState(0);
+  const retryFnRef = useRef<(() => void) | null>(null);
 
   // Report state — shown after placement before learning begins
   const [pendingPlacementResult, setPendingPlacementResult] = useState<MathsPlacementResult | null>(null);
@@ -220,6 +222,7 @@ export default function DiagnosticSession() {
     async (skillId: string, _template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile, forceHint = false) => {
       setPhase("loading_question");
       setStatusMessage("Loading your question...");
+      retryFnRef.current = () => loadQuestion(skillId, _template, attemptNum, currentProfile, forceHint);
       try {
         // Get used refs so server can exclude already-seen questions
         const domainId = getDomainForSkill(skillId);
@@ -253,9 +256,11 @@ export default function DiagnosticSession() {
         }
 
         setCurrentQuestion(q);
+        setLoadErrorCount(0);
         setPhase("question");
       } catch {
-        setStatusMessage("Failed to load question. Please refresh or check your connection.");
+        setLoadErrorCount((c) => c + 1);
+        setStatusMessage("Failed to load question.");
       }
     },
     []
@@ -416,6 +421,31 @@ export default function DiagnosticSession() {
       setProfile(profileWithAssumed);
     }
     stuckDismissedAtRef.current = 0;
+    setSkillAttemptCount(0);
+    recentTemplatesRef.current = [];
+    setReteachCount(0);
+    setLastWasIncorrect(false);
+    setPhase(nextSkillId ? "loading_question" : "complete");
+  };
+
+  const handleSkipOnLoadError = () => {
+    if (!profile) return;
+    setLoadErrorCount(0);
+    const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
+    const existingMastery = profile.skill_mastery[skillId] || initSkillMastery(skillId);
+    const profileWithAssumed = {
+      ...profile,
+      skill_mastery: { ...profile.skill_mastery, [skillId]: { ...existingMastery, status: "assumed" as const } },
+    };
+    const nextSkillId = getNextSkillId(skillId);
+    if (nextSkillId) {
+      const advanced = advanceToSkill(profileWithAssumed, nextSkillId);
+      saveStudentProfile(advanced);
+      setProfile(advanced);
+    } else {
+      saveStudentProfile(profileWithAssumed);
+      setProfile(profileWithAssumed);
+    }
     setSkillAttemptCount(0);
     recentTemplatesRef.current = [];
     setReteachCount(0);
@@ -643,11 +673,36 @@ export default function DiagnosticSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-gray-600 font-medium">{statusMessage || "Loading..."}</p>
-          </div>
+        <div className="flex-1 flex items-center justify-center p-6">
+          {loadErrorCount === 0 ? (
+            <div className="text-center">
+              <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-gray-600 font-medium">{statusMessage || "Loading..."}</p>
+            </div>
+          ) : (
+            <div className="text-center max-w-sm w-full space-y-4">
+              <div className="text-4xl">⚠️</div>
+              <p className="text-gray-800 font-semibold">
+                {loadErrorCount >= 3 ? "Still not loading" : "Couldn't load the question"}
+              </p>
+              <p className="text-gray-500 text-sm">Check your connection and try again.</p>
+              {loadErrorCount < 3 ? (
+                <button
+                  onClick={() => retryFnRef.current?.()}
+                  className="w-full bg-blue-500 text-white py-3 rounded-2xl font-semibold hover:bg-blue-600 transition-colors"
+                >
+                  Try again
+                </button>
+              ) : (
+                <button
+                  onClick={handleSkipOnLoadError}
+                  className="w-full bg-gray-200 text-gray-700 py-3 rounded-2xl font-semibold hover:bg-gray-300 transition-colors"
+                >
+                  Skip this question
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     );
