@@ -125,14 +125,20 @@ export function calculateReadingPlacement(
   }
 
   // Fallback: all administered tasks passed.
-  // Grade 5+ = advanced reader (R5). Lower grades = top of their ceiling.
+  // A student who aced everything up to their grade ceiling has demonstrated
+  // the ceiling skill — auto-complete it and start at the next skill in sequence.
   if (!firstFailTaskId) {
     const ceilingSkill = GRADE_CEILING_SKILL[Math.min(grade, 4)] ?? "R5.T1.A1";
+    const ceilingIdx = SKILL_SEQUENCE.indexOf(ceilingSkill);
+    const entrySkillId =
+      ceilingIdx >= 0 && ceilingIdx + 1 < SKILL_SEQUENCE.length
+        ? SKILL_SEQUENCE[ceilingIdx + 1]
+        : ceilingSkill;
     return {
       completedAt: Date.now(),
       tasks: taskResults,
-      entrySkillId: ceilingSkill,
-      autoCompletedSkillIds: skillsBefore(ceilingSkill),
+      entrySkillId,
+      autoCompletedSkillIds: skillsBefore(entrySkillId),
       hardGatePassed: true,
       dominantErrors,
     };
