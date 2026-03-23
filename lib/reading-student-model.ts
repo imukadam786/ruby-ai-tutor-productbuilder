@@ -49,10 +49,8 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
     last_active: new Date().toISOString(),
     error_history: {
       ERR_PHONEME_CONF: 0,
-      ERR_SYLLABLE_BREAK: 0,
       ERR_SOUND_RECALL: 0,
       ERR_BLEND_FAIL: 0,
-      ERR_ENCODE_BLEND: 0,
       ERR_SOUND_OMIT: 0,
       ERR_SOUND_INSERT: 0,
       ERR_VOWEL_CONF: 0,

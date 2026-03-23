@@ -1,11 +1,11 @@
 [
   {
-    "id": "D01",
-    "domain": "Phonological Awareness â€” Rhyme",
+    "id": "Q1",
+    "domain": "Phonological Awareness — Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do 'red' and 'rod' rhyme?",
-    "displayWord": "red â€¢ rod",
+    "question": "Do these two words rhyme?",
+    "displayWord": "red • rod",
     "answerMode": "choice",
     "choices": [
       {
@@ -21,212 +21,82 @@
     ]
   },
   {
-    "id": "D01B",
-    "domain": "Syllable Segmentation",
-    "domainCode": "D001B",
-    "gate": "A",
-    "question": "How many syllables in \"dinosaur\"?",
-    "displayWord": "dinosaur",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "2",
-        "value": "2",
-        "correct": false
-      },
-      {
-        "label": "3",
-        "value": "3",
-        "correct": true
-      },
-      {
-        "label": "4",
-        "value": "4",
-        "correct": false
-      }
-    ],
-    "subText": "Say the word quietly and count the beats."
-  },
-  {
-    "id": "D02",
-    "domain": "Phoneme Isolation â€” First Sound",
+    "id": "Q2",
+    "domain": "Phoneme Isolation — First Sound",
     "domainCode": "D002",
     "gate": "A",
-    "question": "What is the very first sound in 'ten'? Tap the sound below.",
+    "question": "What is the very first sound in 'ten'? Say just the sound, not the letter name.",
     "displayWord": "ten",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "value": "sound-1",
-        "speech": "short E, as in bed",
-        "correct": false
-      },
-      {
-        "label": "Sound 2",
-        "value": "sound-2",
-        "speech": "T, as in top",
-        "correct": true
-      },
-      {
-        "label": "Sound 3",
-        "value": "sound-3",
-        "speech": "N, as in net",
-        "correct": false
-      }
-    ],
-    "subText": "Tap to hear each sound, then choose the right one."
+    "answerMode": "voice",
+    "expectedAnswer": "/t/"
   },
   {
-    "id": "D02B",
-    "domain": "Full Phoneme Segmentation",
-    "domainCode": "D002B",
-    "gate": "A",
-    "question": "What is the last sound in \"bed\"?",
-    "displayWord": "bed",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "/d/",
-        "value": "/d/",
-        "speech": "/d/",
-        "correct": true
-      },
-      {
-        "label": "/b/",
-        "value": "/b/",
-        "speech": "/b/",
-        "correct": false
-      },
-      {
-        "label": "/e/",
-        "value": "/e/",
-        "speech": "/e/",
-        "correct": false
-      }
-    ],
-    "subText": "Tap to hear each sound choice, then choose the last sound in the word."
-  },
-  {
-    "id": "D03",
-    "domain": "Letter Sound â€” Consonants",
+    "id": "Q3",
+    "domain": "Letter Sound — Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
     "displayWord": "l",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "value": "sound-1",
-        "speech": "R, as in red",
-        "correct": false
-      },
-      {
-        "label": "Sound 2",
-        "value": "sound-2",
-        "speech": "L, as in leg",
-        "correct": true
-      },
-      {
-        "label": "Sound 3",
-        "value": "sound-3",
-        "speech": "N, as in net",
-        "correct": false
-      }
-    ],
-    "subText": "Tap to hear each sound, then choose the right one."
+    "answerMode": "voice",
+    "expectedAnswer": "/l/",
+    "maxResponseMs": 2500
   },
   {
-    "id": "D04",
-    "domain": "Letter Sound â€” Vowels",
+    "id": "Q4",
+    "domain": "Letter Sound — Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
     "displayWord": "u",
-    "answerMode": "audio-tap",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "value": "sound-1",
-        "speech": "short I, as in sit",
-        "correct": false
-      },
-      {
-        "label": "Sound 2",
-        "value": "sound-2",
-        "speech": "short O, as in hot",
-        "correct": false
-      },
-      {
-        "label": "Sound 3",
-        "value": "sound-3",
-        "speech": "short U, as in cup",
-        "correct": true
-      }
-    ],
-    "subText": "Tap to hear each sound, then choose the right one."
-  },
-  {
-    "id": "D05",
-    "domain": "Digraph Recognition",
-    "answerMode": "audio-tap",
-    "gate": "A",
-    "question": "What sound do these two letters make together?",
-    "subText": "Tap to hear each sound, then choose the right one.",
-    "displayWord": "ch",
-    "choices": [
-      {
-        "label": "Sound 1",
-        "speech": "ch, as in chip",
-        "correct": true
-      },
-      {
-        "label": "Sound 2",
-        "speech": "sh, as in ship",
-        "correct": false
-      },
-      {
-        "label": "Sound 3",
-        "speech": "K, as in cat",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "D06",
-    "domain": "Consonant Blend Decoding",
     "answerMode": "voice",
-    "gate": "A",
-    "question": "Read this word out loud for me.",
-    "displayWord": "clot",
-    "expectedAnswer": "clot",
-    "voiceHint": "Tap the mic and say the word you see"
+    "expectedAnswer": "/ʌ/ (short u as in up)",
+    "maxResponseMs": 2500
   },
   {
-    "id": "D07",
-    "domain": "CVC Word Reading",
-    "domainCode": "D007",
+    "id": "Q5",
+    "domain": "CVC Decoding",
+    "domainCode": "D005",
     "gate": "B",
     "question": "Read this word out loud for me.",
-    "displayWord": "but",
+    "displayWord": "WIG",
     "answerMode": "voice",
-    "expectedAnswer": "but",
-    "voiceHint": "Tap the mic and say the word you see"
+    "wordType": "real",
+    "expectedAnswer": "wig"
   },
   {
-    "id": "D08",
-    "domain": "Digraph Word Decoding",
+    "id": "Q6",
+    "domain": "CVC Encoding — Voice Segmentation",
+    "domainCode": "D006",
+    "gate": "B",
+    "question": "Say this word back to me sound by sound: 'mav'",
+    "displayWord": "",
+    "answerMode": "voice",
+    "expectedAnswer": "/m/ / /a/ / /v/"
+  },
+  {
+    "id": "Q7",
+    "domain": "Digraph Recognition",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "What one sound do these two letters make together?",
+    "displayWord": "ng",
+    "answerMode": "voice",
+    "expectedAnswer": "/ŋ/",
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "Q8",
+    "domain": "Consonant Blend Decoding",
     "domainCode": "D008",
     "gate": "B",
     "question": "Read this word out loud for me.",
-    "displayWord": "shake",
+    "displayWord": "SPAV",
     "answerMode": "voice",
-    "expectedAnswer": "shake",
-    "voiceHint": "Tap the mic and say the word you see"
+    "wordType": "nonsense",
+    "expectedAnswer": "spav"
   },
   {
-    "id": "D09",
+    "id": "Q9",
     "domain": "Long Vowel / Silent E",
     "domainCode": "D009",
     "gate": "C",
@@ -237,7 +107,7 @@
     "vowelPattern": "long i"
   },
   {
-    "id": "D10",
+    "id": "Q10",
     "domain": "Vowel Teams",
     "domainCode": "D010",
     "gate": "C",
@@ -249,35 +119,8 @@
     "maxResponseMs": 4000
   },
   {
-    "id": "D10B",
-    "domain": "Phoneme Sequence Blending",
-    "domainCode": "D010B",
-    "gate": "C",
-    "question": "Blend these sounds together: /t/ /h/ /r/ /ow/ /n/ — what word do they make?",
-    "displayWord": "/t/ /h/ /r/ /ow/ /n/",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "groan",
-        "value": "groan",
-        "correct": false
-      },
-      {
-        "label": "thrown",
-        "value": "thrown",
-        "correct": true
-      },
-      {
-        "label": "known",
-        "value": "known",
-        "correct": false
-      }
-    ],
-    "subText": "Listen to the sounds and blend them into one word."
-  },
-  {
-    "id": "D11",
-    "domain": "Sight Words â€” Automaticity",
+    "id": "Q11",
+    "domain": "Sight Words — Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -288,7 +131,7 @@
     "maxResponseMs": 2500
   },
   {
-    "id": "D12",
+    "id": "Q12",
     "domain": "R-Controlled Vowels",
     "domainCode": "D012",
     "gate": "C",
@@ -299,7 +142,7 @@
     "rControlledPattern": "ur"
   },
   {
-    "id": "D13",
+    "id": "Q13",
     "domain": "Two-Syllable Decoding",
     "domainCode": "D013",
     "gate": "C",
@@ -307,32 +150,10 @@
     "displayWord": "ZELBIT",
     "answerMode": "voice",
     "expectedAnswer": "zelbit",
-    "syllableBreak": "zelÂ·bit"
+    "syllableBreak": "zel·bit"
   },
   {
-    "id": "D13B",
-    "domain": "Consonant Blend Encoding",
-    "domainCode": "D013B",
-    "gate": "C",
-    "question": "Spell this word: \"drip\"",
-    "displayWord": "drip",
-    "answerMode": "voice",
-    "expectedAnswer": "d r i p",
-    "voiceHint": "Say each letter clearly, one at a time."
-  },
-  {
-    "id": "D13C",
-    "domain": "Unfamiliar Word Encoding",
-    "domainCode": "D013C",
-    "gate": "C",
-    "question": "Spell this made-up word: \"spiv\"",
-    "displayWord": "spiv",
-    "answerMode": "voice",
-    "expectedAnswer": "s p i v",
-    "voiceHint": "Use the sounds to work it out, then say each letter."
-  },
-  {
-    "id": "D14",
+    "id": "Q14",
     "domain": "Multisyllabic Decoding",
     "domainCode": "D014",
     "gate": "C",
@@ -340,66 +161,22 @@
     "displayWord": "ZELBITROP",
     "answerMode": "voice",
     "expectedAnswer": "zelbitrop",
-    "syllableBreak": "zelÂ·bitÂ·rop"
+    "syllableBreak": "zel·bit·rop"
   },
   {
-    "id": "D15",
+    "id": "Q15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "Tap the suffix in this word.",
+    "question": "This word has a special part at the end. Say just that part out loud.",
     "displayWord": "FARMER",
-    "answerMode": "choice",
+    "answerMode": "voice",
     "expectedAnswer": "er",
     "affixType": "suffix",
-    "targetAffix": "er",
-    "choices": [
-      {
-        "label": "FARM",
-        "value": "farm",
-        "correct": false
-      },
-      {
-        "label": "ER",
-        "value": "er",
-        "correct": true
-      },
-      {
-        "label": "ING",
-        "value": "ing",
-        "correct": false
-      }
-    ]
+    "targetAffix": "er"
   },
   {
-    "id": "D15B",
-    "domain": "Self-Monitoring for Meaning",
-    "domainCode": "D015B",
-    "gate": "D",
-    "question": "You read 'The bird fright off the branch.' Something is wrong. What should you do?",
-    "displayWord": "",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "go back and reread the tricky word",
-        "value": "go back and reread the tricky word",
-        "correct": true
-      },
-      {
-        "label": "read the next sentence",
-        "value": "read the next sentence",
-        "correct": false
-      },
-      {
-        "label": "sound out every letter",
-        "value": "sound out every letter",
-        "correct": false
-      }
-    ],
-    "subText": "Think about what a good reader would do."
-  },
-  {
-    "id": "D16",
+    "id": "Q16",
     "domain": "Fluency Passage",
     "domainCode": "D016",
     "gate": "D",
@@ -415,7 +192,7 @@
     }
   },
   {
-    "id": "D17",
+    "id": "Q17",
     "domain": "Literal Comprehension",
     "domainCode": "D017",
     "gate": "D",
@@ -423,27 +200,11 @@
     "displayWord": "",
     "passageRef": "16.30",
     "comprehensionType": "literal",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "Opened one eye, looked, then closed it again",
-        "value": "Opened one eye, looked, then closed it again",
-        "correct": true
-      },
-      {
-        "label": "Stood up and moved out of the way",
-        "value": "Stood up and moved out of the way",
-        "correct": false
-      },
-      {
-        "label": "Meowed and rolled over",
-        "value": "Meowed and rolled over",
-        "correct": false
-      }
-    ]
+    "answerMode": "voice",
+    "expectedAnswer": "Opened one eye, looked, then closed it again"
   },
   {
-    "id": "D18",
+    "id": "Q18",
     "domain": "Inferential Comprehension",
     "domainCode": "D018",
     "gate": "D",
@@ -451,23 +212,7 @@
     "displayWord": "",
     "passageRef": "16.30",
     "comprehensionType": "inferential",
-    "answerMode": "choice",
-    "choices": [
-      {
-        "label": "They felt completely safe and comfortable in their home",
-        "value": "They felt completely safe and comfortable in their home",
-        "correct": true
-      },
-      {
-        "label": "They were too tired to care about anything",
-        "value": "They were too tired to care about anything",
-        "correct": false
-      },
-      {
-        "label": "They were pretending to be asleep",
-        "value": "They were pretending to be asleep",
-        "correct": false
-      }
-    ]
+    "answerMode": "voice",
+    "expectedAnswer": "They were very comfortable and felt completely safe in their home"
   }
 ]

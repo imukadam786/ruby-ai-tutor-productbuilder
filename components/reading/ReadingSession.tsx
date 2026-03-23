@@ -1,13 +1,93 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { apiFetch } from "@/lib/fetch";
 import { useT } from "@/lib/i18n";
 
-import { speakViaAPI } from "@/lib/tts";
+// ── Natural voice engine (mirrors ChatInterface) ──────────────────────────────
+function prepareForSpeech(raw: string): string {
+  return raw
+    .replace(/#{1,6}\s+/g, "")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
+    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/^\s*[-*+]\s/gm, "")
+    .replace(/^\s*\d+\.\s/gm, "")
+    .replace(/\n{2,}/g, ". ")
+    .replace(/\n/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
 
-// Alias so all call sites remain unchanged
-const speakNaturally = speakViaAPI;
+function pickVoice(): SpeechSynthesisVoice | null {
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = [
+    "Samantha", "Karen", "Moira",
+    "Google UK English Female", "Microsoft Zira",
+    "Microsoft Susan", "Google US English",
+  ];
+  for (const name of preferred) {
+    const v = voices.find((v) => v.name.includes(name));
+    if (v) return v;
+  }
+  return voices.find((v) => v.lang.startsWith("en")) ?? null;
+}
+
+function speakNaturally(
+  text: string,
+  onStart: () => void,
+  onEnd: () => void
+): () => void {
+  let cancelled = false;
+  let timer: ReturnType<typeof setTimeout> | null = null;
+
+  const cancel = () => {
+    cancelled = true;
+    if (timer !== null) { clearTimeout(timer); timer = null; }
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    onEnd();
+  };
+
+  if (!("speechSynthesis" in window)) { onEnd(); return cancel; }
+  window.speechSynthesis.cancel();
+
+  const cleaned = prepareForSpeech(text);
+  const sentences = cleaned
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+
+  if (sentences.length === 0) { onEnd(); return cancel; }
+
+  let idx = 0;
+  onStart();
+
+  const speakNext = () => {
+    if (cancelled) return;
+    if (idx >= sentences.length) { onEnd(); return; }
+    const sentence = sentences[idx++];
+    const utt = new SpeechSynthesisUtterance(sentence);
+    utt.rate = 0.92;
+    utt.pitch = 1.12;
+    utt.volume = 1;
+    const voice = pickVoice();
+    if (voice) utt.voice = voice;
+    const isQuestion = sentence.trim().endsWith("?");
+    const hasNumber = /\d/.test(sentence);
+    const pauseMs = isQuestion ? 650 : hasNumber ? 450 : 320;
+    utt.onend = () => { if (cancelled) return; timer = setTimeout(speakNext, pauseMs); };
+    utt.onerror = () => { if (cancelled) return; timer = setTimeout(speakNext, pauseMs); };
+    window.speechSynthesis.speak(utt);
+  };
+
+  if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.addEventListener("voiceschanged", speakNext, { once: true });
+  } else {
+    speakNext();
+  }
+
+  return cancel;
+}
 // ─────────────────────────────────────────────────────────────────────────────
 
 import {
@@ -28,16 +108,13 @@ import {
   updateSessionHistory,
   updateReadingSkillMastery,
   initReadingSkillMastery,
+  determineNextReadingAction,
   completeDiagnosticPlacement,
+  determineReadingDecision,
   saveReadingProfile,
-  scanAndMarkNeedsReview,
-  pickNeedsReviewSkill,
-  stampReviewedAt,
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
 import { selectReadingTemplate } from "@/lib/template-selector";
-import { detectStuck } from "@/lib/stuck-detector";
-import StuckScreen from "@/components/shared/StuckScreen";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import {
@@ -46,12 +123,13 @@ import {
   trackSkillMastered,
   trackSkillAdvanced,
   trackReteach,
+  trackBacktrack,
   trackSessionStarted,
   trackSessionEnded,
   trackPlacementCompleted,
 } from "@/lib/analytics";
 
-type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "stuck" | "complete";
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
 
 // ─── Reading report input builder ─────────────────────────────────────────────
 
@@ -79,20 +157,8 @@ function buildReadingReportInput(
       const score = Math.round((groupCorrect / g.tasks.length) * 100);
       const label: "strong" | "building" | "practice" =
         score >= 75 ? "strong" : score >= 50 ? "building" : "practice";
-      // DiagnosticTaskResult has no error_type field — errorNote unavailable at placement stage
       return { domain: g.name, score, label, errorNote: null };
     });
-
-  // Derive dominant errors from profile.error_history (accumulated across all reading activity)
-  // Falls back to score-based heuristic if no history exists yet
-  const historyEntries = Object.entries(profile.error_history ?? {})
-    .filter(([code, count]) => code !== "correct" && (count as number) > 0)
-    .sort(([, a], [, b]) => (b as number) - (a as number))
-    .slice(0, 3)
-    .map(([code]) => code);
-  const dominantErrors = historyEntries.length > 0
-    ? historyEntries
-    : overallScore < 50 ? ["ERR_BLEND_FAIL"] : overallScore < 70 ? ["ERR_SOUND_RECALL"] : [];
 
   const entryLevel = result.autoCompletedSkillIds.length > 6 ? 3
     : result.autoCompletedSkillIds.length > 2 ? 2 : 1;
@@ -102,47 +168,31 @@ function buildReadingReportInput(
     studentName: profile.name.split(" ")[0],
     studentGrade: profile.grade,
     workingLevel: `Reading Level ${entryLevel}`,
-    gradeLevelGap: profile.grade - entryLevel - 1,
+    gradeLevelGap: Math.max(0, profile.grade - entryLevel - 1),
     questionsAnalysed: total,
-    correctCount: result.tasks.filter((t) => t.correct).length,
     domainScores,
-    dominantErrors,
+    dominantErrors: overallScore < 50 ? ["ERR_BLEND_FAIL"] : overallScore < 70 ? ["ERR_SOUND_RECALL"] : [],
     placementSkill: result.entrySkillId,
+    hardGateBlocked: !result.hardGatePassed,
     skillsCompleted: result.autoCompletedSkillIds.length,
   };
 }
 
-async function readOnboardingWithFallback(): Promise<{ name: string; grade: number }> {
+function readOnboarding(): { name: string; grade: number } {
   try {
     const raw = localStorage.getItem("onboardingData");
-    if (raw) {
-      const data = JSON.parse(raw);
-      const name = ((data.name as string) || "").split(" ")[0];
-      const grade = parseInt(data.grade as string) || 3;
-      if (name) return { name, grade };
-    }
-  } catch { /* fall through */ }
-
-  // Supabase fallback for returning users who skipped onboarding
-  try {
-    const { supabase } = await import("@/lib/supabase");
-    const { data: { user } } = await supabase.auth.getUser();
-    if (user) {
-      const { data } = await supabase.from("users").select("name, grade").eq("id", user.id).single();
-      if (data?.name) {
-        const name = (data.name as string).split(" ")[0];
-        const grade = parseInt(data.grade as string) || 3;
-        return { name, grade };
-      }
-    }
-  } catch { /* fall through */ }
-
-  return { name: "Student", grade: 3 };
+    if (!raw) return { name: "Student", grade: 3 };
+    const data = JSON.parse(raw);
+    const name = ((data.name as string) || "Student").split(" ")[0];
+    const grade = parseInt(data.grade as string) || 3;
+    return { name, grade };
+  } catch {
+    return { name: "Student", grade: 3 };
+  }
 }
 
 export default function ReadingSession() {
   const { language } = useT();
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<ReadingStudentProfile | null>(null);
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<ReadingGeneratedQuestion | null>(null);
@@ -151,32 +201,16 @@ export default function ReadingSession() {
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
-  // Set when a hardGatePassed=false student finishes all R1 skills
-  const [r1GateReached, setR1GateReached] = useState(false);
 
   // Report state — shown after placement, before learning begins
   const [pendingPlacementResult, setPendingPlacementResult] = useState<import("@/types/reading").DiagnosticPlacementResult | null>(null);
   const [showReport, setShowReport] = useState(false);
 
-  // Needs-review: skill ID of a stale mastered skill to probe before main practice
-  const [pendingReviewSkillId, setPendingReviewSkillId] = useState<string | null>(null);
-
   // Recent templates — used by selectReadingTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<ReadingTemplate[]>([]);
 
-  // Stuck detection — tracks attempt_count when student last dismissed the stuck screen
-  const stuckDismissedAtRef = useRef(0);
-  const [stuckAttemptCount, setStuckAttemptCount] = useState(0);
-
   // Prevents double-writing sessionHistory for the same skill session
   const hasRecordedSession = useRef(false);
-
-  // Keep profileRef in sync so callbacks never close over a stale profile
-  useEffect(() => { profileRef.current = profile; }, [profile]);
-
-  useEffect(() => {
-    scrollRef.current?.scrollTo({ top: 0 });
-  }, [phase, currentQuestion?.id]);
 
   useEffect(() => {
     const saved = getReadingProfile();
@@ -189,32 +223,24 @@ export default function ReadingSession() {
           current_level: saved.current_level,
         });
       }
-      const scanned = saved.placementCompleted ? scanAndMarkNeedsReview(saved) : saved;
-      setProfile(scanned);
-      // Restore attempt count from persisted mastery so mid-session tab-close doesn't
-      // reset question difficulty back to "attempt 1" on resume.
-      const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
-      setSkillAttemptCount(restoredAttemptCount);
-      const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scanned) : null;
-      if (reviewSkill) setPendingReviewSkillId(reviewSkill);
+      setProfile(saved);
       setPhase("loading_question");
     } else {
       // Auto-create from onboarding — no setup screen needed
-      readOnboardingWithFallback().then(({ name, grade }) => {
-        const newProfile = createReadingProfile(name, grade);
-        identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
-        setProfile(newProfile);
-        // placement gate will intercept before loading_question fires
-      });
+      const { name, grade } = readOnboarding();
+      const newProfile = createReadingProfile(name, grade);
+      identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
+      setProfile(newProfile);
+      // placement gate will intercept before loading_question fires
     }
   }, []);
 
   const loadQuestion = useCallback(
-    async (skillId: string, template: ReadingTemplate, attemptNum: number, is_correct = true, errorType: string | null = null) => {
+    async (skillId: string, template: ReadingTemplate, attemptNum: number, decision = "practice", errorType: string | null = null) => {
       setPhase("loading_question");
       setStatusMessage("Generating your question...");
       try {
-        const res = await apiFetch("/api/reading/generate-question", {
+        const res = await fetch("/api/reading/generate-question", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -222,7 +248,7 @@ export default function ReadingSession() {
             template,
             attempt_number: attemptNum,
             include_hint: attemptNum > 1,
-            is_correct,
+            decision,
             error_type: errorType,
           }),
         });
@@ -239,16 +265,14 @@ export default function ReadingSession() {
 
   useEffect(() => {
     if (phase === "loading_question" && profile) {
-      const prevCorrect = currentResult?.is_correct ?? true;
+      const decision = currentResult?.decision?.toLowerCase() ?? "practice";
       const errorType =
         currentResult && !currentResult.is_correct && currentResult.error_type !== "correct"
           ? currentResult.error_type
           : null;
-      const template = selectReadingTemplate(prevCorrect, errorType, null, recentTemplatesRef.current);
+      const template = selectReadingTemplate(decision, errorType, null, recentTemplatesRef.current);
       recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
-      // If a stale mastered skill needs a retention probe, load that first
-      const skillIdToLoad = pendingReviewSkillId ?? profile.current_skill_id;
-      loadQuestion(skillIdToLoad, template, skillAttemptCount + 1, prevCorrect, errorType);
+      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, decision, errorType);
     }
   }, [phase, profile, skillAttemptCount, currentResult, loadQuestion]);
 
@@ -292,7 +316,7 @@ export default function ReadingSession() {
 
 
     try {
-      const res = await apiFetch("/api/reading/submit-answer", {
+      const res = await fetch("/api/reading/submit-answer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -305,7 +329,6 @@ export default function ReadingSession() {
           student_steps: steps,
           expected_answer: currentQuestion.expected_answer,
           used_hint: usedHint,
-          attempt_number: skillAttemptCount + 1,
           language,
         }),
       });
@@ -320,7 +343,7 @@ export default function ReadingSession() {
         profile.skill_mastery[currentQuestion.skill_id] ||
         initReadingSkillMastery(currentQuestion.skill_id);
 
-      const updatedMastery = updateReadingSkillMastery(existingMastery, attempt, profile.grade);
+      const updatedMastery = updateReadingSkillMastery(existingMastery, attempt, skill);
       result.mastery_update = {
         skill_id: currentQuestion.skill_id,
         new_status: updatedMastery.status,
@@ -329,15 +352,22 @@ export default function ReadingSession() {
         formats_used: updatedMastery.formats_used,
       };
 
-      result.next_action = updatedMastery.status === "mastered" ? "advance_skill" : "continue_skill";
+      const nextAction = determineNextReadingAction(updatedMastery, updatedMastery.attempts);
+      result.next_action = nextAction;
 
-      const isReviewQuestion = pendingReviewSkillId === currentQuestion.skill_id;
-      const profileAfterAttempt = recordReadingAttempt(profile, attempt, updatedMastery);
-      const profileAfterReview = isReviewQuestion
-        ? stampReviewedAt(profileAfterAttempt, currentQuestion.skill_id)
-        : profileAfterAttempt;
-      setProfile(profileAfterReview);
-      if (isReviewQuestion) setPendingReviewSkillId(null);
+      // Section 10/11 decision engine
+      const decision = determineReadingDecision(currentQuestion.skill_id, profile, {
+        is_correct: result.is_correct,
+        error_type: result.error_type,
+      });
+      result.decision = decision;
+
+      // Map decision back to next_action when appropriate
+      if (decision === "ADVANCE" || decision === "ACCELERATE") result.next_action = "advance_skill";
+      if (decision === "BACKTRACK") result.next_action = "review_prerequisite";
+
+      const profileAfterAttempt = recordReadingAttempt(profile, attempt, updatedMastery, decision);
+      setProfile(profileAfterAttempt);
 
       const newSessionAttempts = sessionAttempts + 1;
       const newSessionCorrect = sessionCorrect + (result.is_correct ? 1 : 0);
@@ -353,6 +383,7 @@ export default function ReadingSession() {
         is_correct: result.is_correct,
         used_hint: usedHint,
         attempt_number: skillAttemptCount + 1,
+        decision,
       });
 
       if (updatedMastery.status === "mastered") {
@@ -368,7 +399,7 @@ export default function ReadingSession() {
         document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "reading" } }));
         setPhase("mastered");
       } else {
-        if (!result.is_correct) {
+        if (decision === "RETEACH") {
           trackReteach({
             subject: "reading",
             skill_id: currentQuestion.skill_id,
@@ -377,70 +408,34 @@ export default function ReadingSession() {
           });
         }
         setCurrentResult(result);
-        const stuckState = detectStuck(
-          updatedMastery.attempt_count,
-          updatedMastery.p_learned ?? 0,
-          stuckDismissedAtRef.current,
-        );
-        if (stuckState.level === "stuck") {
-          setStuckAttemptCount(stuckState.attemptCount);
-          setPhase("stuck");
-        } else {
-          setPhase("feedback");
-        }
+        setPhase("feedback");
       }
     } catch (e) {
       console.error(e);
-      setStatusMessage("Something went wrong — please try submitting again.");
-      setPhase("question");
     }
   };
 
   const handleNextAfterFeedback = () => {
     if (!profile || !currentResult) return;
+    if (currentResult.next_action === "review_prerequisite") {
+      const skill = getReadingSkillById(profile.current_skill_id);
+      if (skill && skill.prerequisites.length > 0) {
+        const prereqId = skill.prerequisites[skill.prerequisites.length - 1];
+        trackBacktrack({ subject: "reading", from_skill_id: profile.current_skill_id, to_prereq_id: prereqId });
+        // Record session as not passed — student is backtracking off this skill
+        if (!hasRecordedSession.current) {
+          hasRecordedSession.current = true;
+          updateSessionHistory(profile, profile.current_skill_id, false);
+        }
+        const updated = advanceToReadingSkill(profile, prereqId);
+        setProfile(updated);
+        setSkillAttemptCount(0);
+        recentTemplatesRef.current = [];
+        setPhase("loading_question");
+        return;
+      }
+    }
     setPhase("loading_question");
-  };
-
-  const handleMarkDone = () => {
-    if (!profile || !currentQuestion) return;
-    const skillId = currentQuestion.skill_id;
-    const existingMastery = profile.skill_mastery[skillId] || initReadingSkillMastery(skillId);
-    const assumedMastery = { ...existingMastery, status: "assumed" as const };
-    const profileWithAssumed = {
-      ...profile,
-      skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
-    };
-    const nextSkillId = getNextReadingSkillId(skillId);
-    // Hard gate: student failed D07 (phoneme blending) — cap at R1 skills
-    const gated = profile.placement?.hardGatePassed === false;
-    const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
-    if (gated && crossesGate) {
-      saveReadingProfile(profileWithAssumed);
-      setProfile(profileWithAssumed);
-      setR1GateReached(true);
-      setPhase("complete");
-      return;
-    }
-    if (nextSkillId) {
-      trackSkillAdvanced({ subject: "reading", from_skill_id: skillId, to_skill_id: nextSkillId });
-      const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
-      saveReadingProfile(advanced);
-      setProfile(advanced);
-    } else {
-      saveReadingProfile(profileWithAssumed);
-      setProfile(profileWithAssumed);
-    }
-    stuckDismissedAtRef.current = 0;
-    setSkillAttemptCount(0);
-    recentTemplatesRef.current = [];
-    setPhase(nextSkillId ? "loading_question" : "complete");
-  };
-
-  const handleKeepTrying = () => {
-    if (!currentQuestion || !profile) return;
-    const mastery = profile.skill_mastery[currentQuestion.skill_id];
-    stuckDismissedAtRef.current = mastery?.attempt_count ?? skillAttemptCount;
-    setPhase("feedback");
   };
 
   const handleNextAfterMastered = () => {
@@ -451,14 +446,6 @@ export default function ReadingSession() {
       updateSessionHistory(profile, profile.current_skill_id, true);
     }
     const nextSkillId = getNextReadingSkillId(profile.current_skill_id);
-    // Hard gate: student failed D07 (phoneme blending) — cap at R1 skills
-    const gated = profile.placement?.hardGatePassed === false;
-    const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
-    if (gated && crossesGate) {
-      setR1GateReached(true);
-      setPhase("complete");
-      return;
-    }
     if (nextSkillId) {
       trackSkillAdvanced({ subject: "reading", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
       const updated = advanceToReadingSkill(profile, nextSkillId);
@@ -474,11 +461,7 @@ export default function ReadingSession() {
   // Full reset — wipes everything, reruns placement with fresh questions
   const resetToPlacement = () => {
     localStorage.removeItem("ruby_reading_profile");
-    let name = "Student", grade = 3;
-    try {
-      const raw = localStorage.getItem("onboardingData");
-      if (raw) { const d = JSON.parse(raw); name = ((d.name as string) || "").split(" ")[0] || "Student"; grade = parseInt(d.grade as string) || 3; }
-    } catch { /* ignore */ }
+    const { name, grade } = readOnboarding();
     const freshProfile = createReadingProfile(name, grade);
     setProfile(freshProfile);
     setPhase("loading_question");
@@ -637,7 +620,7 @@ export default function ReadingSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
             {skill && (
               <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
@@ -674,7 +657,7 @@ export default function ReadingSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto">
             <ReadingFeedbackCard
               result={currentResult}
@@ -717,24 +700,6 @@ export default function ReadingSession() {
     );
   }
 
-  // ─── Stuck ────────────────────────────────────────────────────────────────────
-
-  if (phase === "stuck" && currentQuestion) {
-    const skill = getReadingSkillById(currentQuestion.skill_id);
-    return (
-      <div className="flex flex-col h-full bg-gray-50">
-        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <StuckScreen
-          skillTitle={skill?.title ?? "this skill"}
-          subject="reading"
-          attemptCount={stuckAttemptCount}
-          onMarkDone={handleMarkDone}
-          onKeepTrying={handleKeepTrying}
-        />
-      </div>
-    );
-  }
-
   // ─── Complete ─────────────────────────────────────────────────────────────────
 
   if (phase === "complete") {
@@ -742,29 +707,19 @@ export default function ReadingSession() {
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
-          {r1GateReached ? (
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
-              <div className="text-5xl mb-2">⭐</div>
-              <h3 className="text-2xl font-bold text-gray-900">Phonological Awareness Complete!</h3>
-              <p className="text-gray-600">
-                Fantastic work! You&apos;ve finished all the sound-awareness exercises. Your teacher or parent will help you with your next steps in reading.
-              </p>
-            </div>
-          ) : (
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
-              <div className="text-5xl mb-2">🎓</div>
-              <h3 className="text-2xl font-bold text-gray-900">Amazing!</h3>
-              <p className="text-gray-600">
-                You&apos;ve completed the entire Ruby Reading Skill Tree. What an incredible achievement!
-              </p>
-              <button
-                onClick={resetToPlacement}
-                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-xl font-medium mt-2"
-              >
-                Start Again
-              </button>
-            </div>
-          )}
+          <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
+            <div className="text-5xl mb-2">🎓</div>
+            <h3 className="text-2xl font-bold text-gray-900">Amazing!</h3>
+            <p className="text-gray-600">
+              You&apos;ve completed the entire Ruby Reading Skill Tree. What an incredible achievement!
+            </p>
+            <button
+              onClick={resetToPlacement}
+              className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-xl font-medium mt-2"
+            >
+              Start Again
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -861,12 +816,10 @@ function ReadingQuestionCard({
   const [usedHint, setUsedHint] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const [selectedAudioChoice, setSelectedAudioChoice] = useState<string | null>(null);
-  const [playingChoiceValue, setPlayingChoiceValue] = useState<string | null>(null);
+  const [listening, setListening] = useState(false);
   const cancelSpeechRef = useRef<(() => void) | null>(null);
-  const cancelChoiceAudioRef = useRef<(() => void) | null>(null);
-
-  const isAudioTap = !!(question.audioChoices && question.audioChoices.length > 0);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const recognitionRef = useRef<any>(null);
 
   const config = templateConfig[question.template] || templateConfig.oral;
 
@@ -885,41 +838,42 @@ function ReadingQuestionCard({
     );
   };
 
+  // ── STT: same pattern as ChatInterface ───────────────────────────────────────
+  const startVoice = () => {
+    if (!("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) {
+      alert("Voice input is not supported in your browser. Try Chrome.");
+      return;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const rec = new SR();
+    rec.continuous = true;
+    rec.interimResults = true;
+    rec.lang = "en-US";
+    rec.onstart = () => setListening(true);
+    rec.onend = () => setListening(false);
+    rec.onerror = () => setListening(false);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    rec.onresult = (event: any) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const transcript = Array.from(event.results as any[])
+        .map((r: any) => r[0].transcript)
+        .join("");
+      setAnswer(transcript);
+    };
+    recognitionRef.current = rec;
+    rec.start();
+  };
+
+  const stopVoice = () => { recognitionRef.current?.stop(); setListening(false); };
+
   const handleSubmit = () => {
-    if (!answer.trim() || submitting) return;
+    if ((!answer.trim() && !listening) || submitting) return;
+    if (listening) stopVoice();
     cancelSpeechRef.current?.();
     setPlaying(false);
     setSubmitting(true);
     onSubmit(answer, "", usedHint);
-    setSubmitting(false);
-  };
-
-  const handleSelfReport = (correct: boolean) => {
-    if (submitting) return;
-    cancelSpeechRef.current?.();
-    setPlaying(false);
-    setSubmitting(true);
-    onSubmit(correct ? question.expected_answer : "", "", usedHint);
-    setSubmitting(false);
-  };
-
-  const handleAudioChoiceTap = (choice: { label: string; speech: string; correct: boolean }) => {
-    cancelChoiceAudioRef.current?.();
-    setSelectedAudioChoice(choice.label);
-    setPlayingChoiceValue(choice.label);
-    cancelChoiceAudioRef.current = speakNaturally(
-      choice.speech,
-      () => {},
-      () => setPlayingChoiceValue(null)
-    );
-  };
-
-  const handleAudioChoiceSubmit = () => {
-    if (!selectedAudioChoice || submitting) return;
-    cancelChoiceAudioRef.current?.();
-    setPlayingChoiceValue(null);
-    setSubmitting(true);
-    onSubmit(selectedAudioChoice, "", usedHint);
     setSubmitting(false);
   };
 
@@ -936,12 +890,10 @@ function ReadingQuestionCard({
         <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap">
           {question.question}
         </p>
-        {/* Play/Stop pill — hidden for audio-tap questions (question text contains
-            phoneme labels like "SH" that TTS cannot pronounce correctly) */}
+        {/* Play/Stop pill — same style as ChatInterface message buttons */}
         <div className="flex items-center gap-3 mt-3">
           <button
             onClick={() => togglePlay(question.question)}
-            hidden={isAudioTap}
             className={`flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all ${
               playing
                 ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
@@ -1006,187 +958,62 @@ function ReadingQuestionCard({
         </div>
       )}
 
-      {/* Answer input */}
+      {/* Answer input — mic inside container, same as ChatInterface input bar */}
       <div className="px-6 pb-6 space-y-4">
-
-        {/* ── WRITTEN mode (L3 encoding — student types spelling after hearing TTS) ── */}
-        {question.template === "written" && question.displayWord ? (
-          <>
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 text-center">
-              <p className="text-xs text-amber-500 font-semibold uppercase tracking-widest mb-2">Listen and type</p>
-              <button
-                onClick={() => togglePlay(question.displayWord!)}
-                className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl font-bold text-base transition-all active:scale-95 ${
-                  playing
-                    ? "bg-orange-400 text-white shadow-lg"
-                    : "bg-amber-400 hover:bg-amber-500 text-white shadow-md"
-                }`}
-              >
-                {playing ? (
-                  <><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>Stop</>
-                ) : (
-                  <><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Tap to hear the word</>
-                )}
-              </button>
+        <div>
+          <label className="block text-base font-medium text-gray-700 mb-1.5">Your Answer</label>
+          <div className={`relative flex items-end gap-2 border rounded-2xl px-3 py-2 transition-all ${
+            listening
+              ? "border-red-400 bg-red-50 ring-2 ring-red-100"
+              : "bg-gray-50 border-gray-200 focus-within:border-purple-400 focus-within:ring-2 focus-within:ring-purple-100"
+          }`}>
+            {/* Answer display area */}
+            <div className={`flex-1 py-1.5 text-base leading-relaxed min-h-[28px] ${answer ? "text-gray-800" : "text-gray-400"}`}>
+              {answer || "Your answer will display here"}
             </div>
-            <input
-              type="text"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              onKeyDown={(e) => { if (e.key === "Enter") handleSubmit(); }}
-              placeholder="Type the word here…"
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck={false}
-              disabled={submitting}
-              className="w-full border-2 border-gray-200 focus:border-purple-400 rounded-2xl px-5 py-4 text-xl font-mono text-center outline-none transition-colors disabled:opacity-40"
-            />
+            {/* Mic button — same style as ChatInterface */}
             <button
-              onClick={handleSubmit}
-              disabled={!answer.trim() || submitting}
-              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+              onClick={listening ? stopVoice : startVoice}
+              className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${
+                listening ? "bg-red-100 text-red-500" : "text-gray-400 hover:text-gray-600 hover:bg-white"
+              }`}
+              title={listening ? "Stop listening" : "Voice input"}
             >
-              {submitting ? (
-                <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>Checking...</>
-              ) : "Submit →"}
+              {listening ? (
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <rect x="6" y="6" width="12" height="12" rx="1" />
+                </svg>
+              ) : (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
+                </svg>
+              )}
             </button>
-          </>
-        ) : isAudioTap ? (
-          <>
-            {/* Large display word (letter, digraph, blend) */}
-            {question.displayWord && (
-              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 text-center">
-                <p className="text-6xl font-bold text-purple-700 tracking-widest">
-                  {question.displayWord}
-                </p>
-              </div>
-            )}
-
-            <p className="text-sm text-center text-gray-400 font-medium">
-              Tap each word to hear it, then choose the one with the right sound
+          </div>
+          {listening && (
+            <p className="text-sm text-red-500 mt-1.5 flex items-center gap-1">
+              <span className="w-2 h-2 bg-red-500 rounded-full inline-block animate-pulse" />
+              Listening... speak your answer
             </p>
+          )}
+        </div>
 
-            <div className="grid grid-cols-3 gap-3">
-              {question.audioChoices!.map((c) => (
-                <button
-                  key={c.label}
-                  onClick={() => handleAudioChoiceTap(c)}
-                  disabled={submitting}
-                  className={`flex flex-col items-center justify-center gap-2 py-5 rounded-2xl border-2 font-bold transition-all active:scale-95 ${
-                    selectedAudioChoice === c.label
-                      ? "bg-purple-500 border-purple-500 text-white shadow-lg scale-105"
-                      : playingChoiceValue === c.label
-                      ? "bg-purple-50 border-purple-400 text-purple-700"
-                      : "border-gray-200 text-gray-700 hover:border-purple-300 hover:bg-purple-50"
-                  }`}
-                >
-                  {playingChoiceValue === c.label ? (
-                    <>
-                      <svg className="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                        <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
-                      </svg>
-                      <span className="font-semibold text-sm text-center leading-tight">{c.label}</span>
-                    </>
-                  ) : (
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  )}
-                </button>
-              ))}
-            </div>
-
-            {selectedAudioChoice && (
-              <button
-                onClick={handleAudioChoiceSubmit}
-                disabled={submitting}
-                className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
-              >
-                {submitting ? (
-                  <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Checking...</>
-                ) : "That's my answer →"}
-              </button>
-            )}
-          </>
-        ) : question.template === "reading" ? (
-          <>
-            {/* ── SELF-REPORT mode (reading template) ── */}
-            {/* Word card shown for single-word decoding tasks */}
-            {question.displayWord && (
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 text-center">
-                <p className="text-5xl font-bold text-blue-800 tracking-wide">{question.displayWord}</p>
-              </div>
-            )}
-
-            {/* TTS verify button — lets student hear the word after attempting to read it */}
-            {question.displayWord && (
-              <button
-                onClick={() => togglePlay(question.displayWord!)}
-                className={`w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 font-medium text-sm transition-all active:scale-95 ${
-                  playing
-                    ? "bg-orange-50 border-orange-300 text-orange-600"
-                    : "border-gray-200 text-gray-500 hover:border-blue-300 hover:text-blue-600 hover:bg-blue-50"
-                }`}
-              >
-                {playing ? (
-                  <><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>Stop</>
-                ) : (
-                  <><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Hear the word</>
-                )}
-              </button>
-            )}
-
-            <p className="text-center text-sm text-gray-400 font-medium">
-              {question.displayWord ? "Read the word, then tap to check yourself" : "Read the passage above, then tell us how you went"}
-            </p>
-
-            {/* Self-report buttons */}
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                onClick={() => handleSelfReport(true)}
-                disabled={submitting}
-                className="flex flex-col items-center gap-2 py-5 rounded-2xl bg-green-50 border-2 border-green-200 text-green-700 font-bold text-base hover:bg-green-100 hover:border-green-400 transition-all active:scale-95 disabled:opacity-40"
-              >
-                <span className="text-3xl">✓</span>
-                <span>Got it!</span>
-              </button>
-              <button
-                onClick={() => handleSelfReport(false)}
-                disabled={submitting}
-                className="flex flex-col items-center gap-2 py-5 rounded-2xl bg-red-50 border-2 border-red-200 text-red-600 font-bold text-base hover:bg-red-100 hover:border-red-400 transition-all active:scale-95 disabled:opacity-40"
-              >
-                <span className="text-3xl">✗</span>
-                <span>Need help</span>
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            {/* ── TYPED INPUT mode (oral/written without audioChoices) ── */}
-            <textarea
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSubmit(); } }}
-              placeholder="Type your answer here…"
-              rows={3}
-              disabled={submitting}
-              autoComplete="off"
-              autoCorrect="off"
-              spellCheck={false}
-              className="w-full border-2 border-gray-200 focus:border-purple-400 rounded-2xl px-5 py-4 text-base outline-none transition-colors disabled:opacity-40 resize-none"
-            />
-            <button
-              onClick={handleSubmit}
-              disabled={!answer.trim() || submitting}
-              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
-            >
-              {submitting ? (
-                <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>Checking...</>
-              ) : "Submit →"}
-            </button>
-          </>
-        )}
+        <button
+          onClick={handleSubmit}
+          disabled={(!answer.trim() && !listening) || submitting}
+          className="w-full bg-purple-500 hover:bg-purple-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white py-3 rounded-xl font-medium transition-all shadow-md flex items-center justify-center gap-2"
+        >
+          {submitting ? (
+            <>
+              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              Checking...
+            </>
+          ) : listening ? (
+            "Stop & Submit"
+          ) : (
+            "Submit Answer"
+          )}
+        </button>
       </div>
     </div>
   );
@@ -1271,7 +1098,7 @@ function ReadingFeedbackCard({
         </div>
       )}
 
-      {/* Click / swipe for next */}
+      {/* Swipe up for next */}
       <div
         className="flex flex-col items-center gap-1 pt-2 cursor-pointer select-none"
         onClick={onNext}
@@ -1280,8 +1107,7 @@ function ReadingFeedbackCard({
           if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
         }}
       >
-        <p className="text-sm text-gray-400 md:hidden">Swipe up for next question</p>
-        <p className="text-sm text-gray-400 hidden md:block">Click for next question</p>
+        <p className="text-sm text-gray-400">Swipe up for next question</p>
         <div className="animate-bounce text-purple-500">
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
