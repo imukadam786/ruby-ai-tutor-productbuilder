@@ -170,3 +170,20 @@ create policy "skill_attempts_insert" on public.skill_attempts
 
 create policy "diagnostic_results_insert" on public.diagnostic_results
   for insert with check (true);
+
+-- ─────────────────────────────────────────────────────────────
+-- Phase 3 — Auth-linked profile restore
+-- Run this migration once to enable Supabase profile restore
+-- when localStorage has been cleared.
+-- ─────────────────────────────────────────────────────────────
+alter table public.student_profiles
+  add column if not exists auth_user_id uuid references auth.users(id) on delete cascade;
+
+-- Index for efficient restore queries (auth_user_id + subject)
+create index if not exists student_profiles_auth_user_idx
+  on public.student_profiles (auth_user_id, subject)
+  where auth_user_id is not null;
+
+-- Allow authenticated users to read their own profiles (for restore)
+create policy "student_profiles_own_read" on public.student_profiles
+  for select using (auth_user_id = auth.uid());

@@ -34,6 +34,50 @@ export function saveStudentProfile(profile: StudentProfile): void {
   }, { onConflict: "id" }));
 }
 
+/**
+ * Links this profile to the currently authenticated Supabase user.
+ * Called fire-and-forget on init — enables hydrateStudentProfileFromSupabase() to work.
+ * No-op if not authenticated.
+ */
+export async function linkStudentProfileToAuth(profileId: string): Promise<void> {
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+    void retrySupabase(() =>
+      supabase.from("student_profiles")
+        .update({ auth_user_id: user.id })
+        .eq("id", profileId)
+    );
+  } catch { /* non-critical */ }
+}
+
+/**
+ * When localStorage is empty (e.g. browser data cleared), queries Supabase
+ * for the most recent maths profile linked to the authenticated user,
+ * restores it to localStorage, and returns it.
+ * Returns null if not authenticated or no profile found.
+ */
+export async function hydrateStudentProfileFromSupabase(): Promise<StudentProfile | null> {
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return null;
+    const { data } = await supabase
+      .from("student_profiles")
+      .select("profile_data")
+      .eq("auth_user_id", user.id)
+      .eq("subject", "maths")
+      .order("updated_at", { ascending: false })
+      .limit(1)
+      .single();
+    if (!data?.profile_data) return null;
+    const profile = data.profile_data as unknown as StudentProfile;
+    localStorage.setItem(STUDENT_KEY, JSON.stringify(profile));
+    return profile;
+  } catch {
+    return null;
+  }
+}
+
 export function createStudentProfile(name: string, grade: number): StudentProfile {
   const profile: StudentProfile = {
     id: `student_${Date.now()}`,
