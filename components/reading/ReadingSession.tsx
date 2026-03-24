@@ -176,6 +176,9 @@ export default function ReadingSession() {
 
   // Stuck detection — tracks attempt_count when student last dismissed the stuck screen
   const stuckDismissedAtRef = useRef(0);
+
+  // Prefetch cache — holds the next question fetched during feedback phase
+  const prefetchedQuestionRef = useRef<{ question: ReadingGeneratedQuestion; skillId: string } | null>(null);
   const [stuckAttemptCount, setStuckAttemptCount] = useState(0);
 
   // Prevents double-writing sessionHistory for the same skill session
@@ -231,9 +234,25 @@ export default function ReadingSession() {
 
   const loadQuestion = useCallback(
     async (skillId: string, template: ReadingTemplate, attemptNum: number, is_correct = true, errorType: string | null = null) => {
+      retryFnRef.current = () => loadQuestion(skillId, template, attemptNum, is_correct, errorType);
+
+      // Use prefetched question if available — skips network call and spinner
+      const prefetch = prefetchedQuestionRef.current;
+      if (prefetch?.skillId === skillId) {
+        prefetchedQuestionRef.current = null;
+        const q = prefetch.question;
+        if (q.used_ref && profileRef.current) {
+          const updated = markReadingQuestionUsed(profileRef.current, skillId, q.used_ref);
+          setProfile(updated);
+        }
+        setCurrentQuestion(q);
+        setLoadErrorCount(0);
+        setPhase("question");
+        return;
+      }
+
       setPhase("loading_question");
       setStatusMessage("Generating your question...");
-      retryFnRef.current = () => loadQuestion(skillId, template, attemptNum, is_correct, errorType);
       try {
         const used_refs = profileRef.current ? getReadingUsedRefs(profileRef.current, skillId) : [];
         const res = await apiFetch("/api/reading/generate-question", {
@@ -421,6 +440,29 @@ export default function ReadingSession() {
           setPhase("stuck");
         } else {
           setPhase("feedback");
+          // Prefetch next question while student reads feedback
+          const nextSkillId = profileAfterReview.current_skill_id;
+          const nextUsedRefs = getReadingUsedRefs(profileAfterReview, nextSkillId);
+          const nextErrorType = !result.is_correct && result.error_type !== "correct" ? result.error_type : null;
+          const nextTemplate = selectReadingTemplate(result.is_correct, nextErrorType, null, recentTemplatesRef.current);
+          void apiFetch("/api/reading/generate-question", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              skill_id: nextSkillId,
+              template: nextTemplate,
+              attempt_number: skillAttemptCount + 2,
+              include_hint: !result.is_correct,
+              is_correct: result.is_correct,
+              error_type: nextErrorType,
+              used_refs: nextUsedRefs,
+            }),
+          }).then(async (res) => {
+            if (res.ok) {
+              const q: ReadingGeneratedQuestion = await res.json();
+              prefetchedQuestionRef.current = { question: q, skillId: nextSkillId };
+            }
+          }).catch(() => { /* silent — loadQuestion will fetch normally as fallback */ });
         }
       }
     } catch (e) {

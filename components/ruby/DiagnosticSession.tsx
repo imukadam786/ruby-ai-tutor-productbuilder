@@ -173,6 +173,9 @@ export default function DiagnosticSession() {
   const stuckDismissedAtRef = useRef(0);
   const [stuckAttemptCount, setStuckAttemptCount] = useState(0);
 
+  // Prefetch cache — holds the next question fetched during feedback phase
+  const prefetchedQuestionRef = useRef<{ question: GeneratedQuestion; skillId: string } | null>(null);
+
   useEffect(() => {
     function initWithProfile(saved: import("@/types/ruby").StudentProfile) {
       identifyStudent({ id: saved.id, name: saved.name, grade: saved.grade });
@@ -217,9 +220,29 @@ export default function DiagnosticSession() {
 
   const loadQuestion = useCallback(
     async (skillId: string, _template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile, forceHint = false) => {
+      retryFnRef.current = () => loadQuestion(skillId, _template, attemptNum, currentProfile, forceHint);
+
+      // Use prefetched question if available — skips network call and spinner
+      const prefetch = prefetchedQuestionRef.current;
+      if (prefetch?.skillId === skillId) {
+        prefetchedQuestionRef.current = null;
+        let q = prefetch.question;
+        const readingProfile = getReadingProfile();
+        const readingLevel = readingProfile?.current_level ?? 5;
+        q = simplifyQuestion(q, readingLevel);
+        if (q.domain_id && q.question_ref) {
+          const updatedProfile = markQuestionUsed(currentProfile, q.domain_id, q.question_ref);
+          saveStudentProfile(updatedProfile);
+          setProfile(updatedProfile);
+        }
+        setCurrentQuestion(q);
+        setLoadErrorCount(0);
+        setPhase("question");
+        return;
+      }
+
       setPhase("loading_question");
       setStatusMessage("Loading your question...");
-      retryFnRef.current = () => loadQuestion(skillId, _template, attemptNum, currentProfile, forceHint);
       try {
         // Get used refs so server can exclude already-seen questions
         const domainId = getDomainForSkill(skillId);
@@ -372,6 +395,26 @@ export default function DiagnosticSession() {
           setPhase("stuck");
         } else {
           setPhase("feedback");
+          // Prefetch next question while student reads feedback
+          const nextSkillId = updatedProfile.current_skill_id;
+          const nextDomainId = getDomainForSkill(nextSkillId);
+          const nextUsedRefs = nextDomainId ? getUsedRefs(updatedProfile, nextDomainId) : [];
+          void apiFetch("/api/ruby/generate-question", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              skill_id: nextSkillId,
+              attempt_number: skillAttemptCount + 2,
+              include_hint: !result.is_correct,
+              used_refs: nextUsedRefs,
+              p_learned: updatedMastery.p_learned,
+            }),
+          }).then(async (res) => {
+            if (res.ok) {
+              const q: GeneratedQuestion = await res.json();
+              prefetchedQuestionRef.current = { question: q, skillId: nextSkillId };
+            }
+          }).catch(() => { /* silent — loadQuestion will fetch normally as fallback */ });
         }
       }
     } catch (e) {
