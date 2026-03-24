@@ -178,18 +178,27 @@ export default function DiagnosticSession() {
 
   useEffect(() => {
     function initWithProfile(saved: import("@/types/ruby").StudentProfile) {
-      identifyStudent({ id: saved.id, name: saved.name, grade: saved.grade });
+      // Sync grade and name from onboarding if they differ from the stored profile.
+      // Handles the case where a tester or user changes grade between sessions.
+      const { name: onboardingName, grade: onboardingGrade } = readOnboarding();
+      const gradeChanged = onboardingGrade !== saved.grade;
+      const nameChanged = onboardingName !== "Student" && onboardingName !== saved.name.split(" ")[0];
+      const synced = (gradeChanged || nameChanged)
+        ? { ...saved, grade: gradeChanged ? onboardingGrade : saved.grade, name: nameChanged ? onboardingName : saved.name }
+        : saved;
+
+      identifyStudent({ id: synced.id, name: synced.name, grade: synced.grade });
       // Keep auth link fresh — fire-and-forget, non-blocking
-      void linkStudentProfileToAuth(saved.id);
-      if (saved.placementCompleted) {
+      void linkStudentProfileToAuth(synced.id);
+      if (synced.placementCompleted) {
         trackSessionStarted({
           subject: "maths",
-          current_skill_id: saved.current_skill_id,
-          current_level: saved.current_level,
+          current_skill_id: synced.current_skill_id,
+          current_level: synced.current_level,
         });
       }
-      const scannedMastery = saved.placementCompleted ? scanMasteryForReview(saved.skill_mastery) : saved.skill_mastery;
-      const scanned = scannedMastery !== saved.skill_mastery ? { ...saved, skill_mastery: scannedMastery } : saved;
+      const scannedMastery = synced.placementCompleted ? scanMasteryForReview(synced.skill_mastery) : synced.skill_mastery;
+      const scanned = scannedMastery !== synced.skill_mastery ? { ...synced, skill_mastery: scannedMastery } : synced;
       if (scanned !== saved) saveStudentProfile(scanned);
       setProfile(scanned);
       const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;

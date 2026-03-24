@@ -691,8 +691,9 @@ export default function ReadingDiagnosticPlacement({
   const handleAudioTapPlay = useCallback((choice: Choice) => {
     if (submitting) return;
     cancelChoiceAudio.current?.();
-    setPlayingChoiceValue(choice.value);
-    setSelectedChoice(choice.value);
+    const key = choice.value ?? choice.label;
+    setPlayingChoiceValue(key);
+    setSelectedChoice(key);
     cancelChoiceAudio.current = speakText(
       choice.speech ?? choice.label,
       () => setPlayingChoiceValue(null)
@@ -702,7 +703,7 @@ export default function ReadingDiagnosticPlacement({
   // Audio-tap: submit the selected choice
   const handleAudioTapSubmit = useCallback(() => {
     if (!task || !selectedChoice || submitting) return;
-    const chosen = task.choices?.find((c) => c.value === selectedChoice);
+    const chosen = task.choices?.find((c) => (c.value ?? c.label) === selectedChoice);
     if (!chosen) return;
     cancelChoiceAudio.current?.();
     setPlayingChoiceValue(null);
@@ -1049,20 +1050,22 @@ export default function ReadingDiagnosticPlacement({
                   Tap each button to hear the sound, then choose the right one
                 </p>
                 <div className="grid grid-cols-3 gap-3">
-                  {task.choices.map((c) => (
+                  {task.choices.map((c) => {
+                    const choiceKey = c.value ?? c.label;
+                    return (
                     <button
-                      key={c.value}
+                      key={choiceKey}
                       onClick={() => handleAudioTapPlay(c)}
                       disabled={submitting}
                       className={`flex flex-col items-center justify-center gap-2 py-5 rounded-2xl border-2 font-bold transition-all active:scale-95 ${
-                        selectedChoice === c.value
+                        selectedChoice === choiceKey
                           ? "bg-blue-500 border-blue-500 text-white shadow-lg scale-105"
-                          : playingChoiceValue === c.value
+                          : playingChoiceValue === choiceKey
                           ? "bg-blue-50 border-blue-400 text-blue-700"
                           : "border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50"
                       }`}
                     >
-                      {playingChoiceValue === c.value ? (
+                      {playingChoiceValue === choiceKey ? (
                         <svg className="w-7 h-7 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
                           <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
                         </svg>
@@ -1072,7 +1075,7 @@ export default function ReadingDiagnosticPlacement({
                         </svg>
                       )}
                     </button>
-                  ))}
+                  );})}
                 </div>
                 {selectedChoice && (
                   <button

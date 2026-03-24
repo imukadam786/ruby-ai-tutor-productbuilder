@@ -155,8 +155,8 @@ export function selectQuestion(
   const pool = domain.questions;
   if (pool.length === 0) return null;
 
-  // Filter out already-used refs
-  let available = pool.filter((q) => !usedRefs.includes(q.ref));
+  // Filter out already-used refs and question types the UI cannot render
+  let available = pool.filter((q) => !usedRefs.includes(q.ref) && q.input_type !== "triple_numeric");
 
   // If pool exhausted, reset (give full pool again)
   if (available.length === 0) {
