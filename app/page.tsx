@@ -291,9 +291,10 @@ export default function Home() {
       if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setAppState("app");
     } else {
-      // New signup — always wipe any previous user's data
+      // New signup — wipe any previous user's data, then restore fresh onboarding data
       PERSISTENT_USER_KEYS.forEach((k) => localStorage.removeItem(k));
       localStorage.removeItem("current_user_id");
+      localStorage.setItem("onboardingData", JSON.stringify(data));
       if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setWelcomeName(data.name || "");
       setAppState("welcome");
