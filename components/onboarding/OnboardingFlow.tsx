@@ -237,18 +237,18 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         (userData?.full_name as string | undefined) ||
         (authData.user?.user_metadata?.full_name as string | undefined) ||
         "";
-      const final: OnboardingData = {
-        language: (userData?.language as string | undefined) || data.language || "English",
-        grade: (userData?.grade as string | undefined) || data.grade || "",
-        averageScore: data.averageScore || "",
-        curriculum: (userData?.curriculum as string | undefined) || data.curriculum || "",
-        name: fullName,
-        email: authData.user?.email || email,
+      // Pre-populate form with Supabase defaults, then let user confirm/change via steps 2-5.
+      // This ensures the user's fresh grade selection is always used (not a stale Supabase value).
+      setData((d) => ({
+        ...d,
+        language: (userData?.language as string | undefined) || d.language || "English",
+        grade: (userData?.grade as string | undefined) || d.grade || "",
+        curriculum: (userData?.curriculum as string | undefined) || d.curriculum || "",
         plan: "existing",
-        userId,
-      };
-      localStorage.setItem("onboardingData", JSON.stringify(final));
-      onComplete(final);
+      }));
+      setName(fullName);
+      setSignedUpUserId(userId);
+      next();
     } catch (err: unknown) {
       const raw = err instanceof Error ? err.message : "";
       const msg = raw.toLowerCase().includes("invalid login credentials") || raw.toLowerCase().includes("invalid")
@@ -269,7 +269,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       curriculum: data.curriculum || "",
       name,
       email,
-      plan: "standard",
+      plan: data.plan || "standard",
       userId: signedUpUserId,
     };
     // Update Supabase with grade, curriculum and language now that user has selected them
@@ -472,7 +472,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 </div>
               </div>
               <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.averageScore} />
+                <ContinueBtn label={t.continueBtn} onClick={next} />
               </div>
             </div>
           )}
