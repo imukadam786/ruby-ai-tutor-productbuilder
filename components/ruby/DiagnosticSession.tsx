@@ -659,7 +659,7 @@ export default function DiagnosticSession() {
           {loadErrorCount === 0 ? (
             <div className="text-center">
               <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-gray-600 font-medium">{statusMessage || "Loading..."}</p>
+              <p className="text-gray-600 font-medium">{statusMessage || "Ruby is personalising your learning..."}</p>
             </div>
           ) : (
             <div className="text-center max-w-sm w-full space-y-4">

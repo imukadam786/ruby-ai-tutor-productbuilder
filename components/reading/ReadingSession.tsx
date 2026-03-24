@@ -732,7 +732,7 @@ export default function ReadingSession() {
           {loadErrorCount === 0 ? (
             <div className="text-center">
               <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-gray-600 font-medium text-base">{statusMessage || "Loading..."}</p>
+              <p className="text-gray-600 font-medium text-base">{statusMessage || "Ruby is personalising your learning..."}</p>
             </div>
           ) : (
             <div className="text-center max-w-sm w-full space-y-4">
