@@ -97,6 +97,10 @@ export function addTopicStudied(topic: string): void {
 }
 
 export function incrementSession(): void {
+  if (typeof window === "undefined") return;
+  // Only count once per browser tab session — sessionStorage is cleared on tab close
+  if (sessionStorage.getItem("session_counted")) return;
+  sessionStorage.setItem("session_counted", "1");
   const progress = getProgress();
   updateProgress({
     sessionCount: progress.sessionCount + 1,

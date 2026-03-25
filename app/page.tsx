@@ -67,13 +67,13 @@ function AppContent() {
   const [chatEngaged, setChatEngaged] = useState(false);
 
   useEffect(() => {
-    incrementSession();
     refreshStats();
 
-    // Maths + reading: trigger survey after each micro skill is mastered
+    // Maths + reading: count session + trigger survey after each micro skill is mastered
     const onSkillMastered = (e: Event) => {
       const type = (e as CustomEvent).detail?.type as "maths" | "reading";
       if (!type) return;
+      incrementSession();
       setSurvey({ type });
     };
     document.addEventListener("ruby-skill-mastered", onSkillMastered);
@@ -162,7 +162,7 @@ function AppContent() {
 
       <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
-        {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
+        {activeView === "chat" && <ChatInterface onMessageSent={() => { incrementSession(); refreshStats(); setChatEngaged(true); }} />}
         {activeView === "progress" && <ProgressTracker />}
         {activeView === "ruby" && <DiagnosticSession />}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
