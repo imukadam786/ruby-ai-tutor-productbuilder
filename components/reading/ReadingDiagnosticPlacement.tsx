@@ -274,17 +274,46 @@ const TASK_ERROR_MAP: Record<string, string> = {
 // ── Skill name map ─────────────────────────────────────────────────────────────
 
 const SKILL_NAME_MAP: Record<string, string> = {
+  // R1 — Listening & Phonological Awareness
   "R1.T1.A1": "Following Instructions",
+  "R1.T1.A2": "Story Retell",
+  "R1.T1.A3": "Speaking in Sentences",
   "R1.T2.A1": "Rhyme Awareness",
+  "R1.T2.A2": "Syllable Segmentation",
   "R1.T3.A1": "Phoneme Isolation",
+  "R1.T3.A2": "Phoneme Blending",
+  "R1.T3.A3": "Phoneme Manipulation",
+  // R2 — Letter Sounds & Decoding
   "R2.T1.A1": "Letter Sounds",
-  "R2.T2.A1": "Digraphs & Blends",
+  "R2.T1.A2": "Letter-Sound Mapping",
+  "R2.T1.A3": "Letter Discrimination",
+  "R2.T2.A1": "Digraph Sounds",
+  "R2.T2.A2": "Consonant Blends",
+  "R2.T2.A3": "CVC Word Decoding",
+  "R2.T2.A4": "Digraph Word Decoding",
   "R2.T3.A1": "Vowel Patterns",
+  "R2.T3.A2": "Phonogram Retrieval",
+  "R2.T3.A3": "Sound Blending",
+  // R3 — Spelling & Encoding
   "R3.T1.A1": "Spelling Foundations",
+  "R3.T1.A2": "Blend Spelling",
+  "R3.T1.A3": "Word Encoding",
+  "R3.T1.A4": "Nonsense Word Spelling",
+  "R3.T2.A1": "Complete Spelling",
+  "R3.T2.A2": "Spelling Self-Correction",
+  // R4 — Fluency & Word Recognition
   "R4.T1.A1": "Word Decoding",
+  "R4.T2.A1": "Text Tracking",
+  "R4.T2.A2": "Word Recognition",
   "R4.T3.A1": "Fluent Reading",
+  "R4.T3.A2": "Reading for Meaning",
+  // R5 — Comprehension
   "R5.T1.A1": "Comprehension",
+  "R5.T1.A2": "Inferential Comprehension",
   "R5.T1.A3": "Inferential Thinking",
+  "R5.T2.A1": "Reading Reasoning",
+  "R5.T2.A2": "Vocabulary Use",
+  "R5.T3.A1": "Written Response",
 };
 
 // ── TTS helper ────────────────────────────────────────────────────────────────
@@ -694,6 +723,7 @@ export default function ReadingDiagnosticPlacement({
   // Audio-tap: tap a choice button → play its speech + mark as selected
   const handleAudioTapPlay = useCallback((choice: Choice) => {
     if (submitting) return;
+    cancelSpeech.current?.();   // Stop question TTS so choice audio isn't blocked
     cancelChoiceAudio.current?.();
     const key = choice.value ?? choice.label;
     setPlayingChoiceValue(key);

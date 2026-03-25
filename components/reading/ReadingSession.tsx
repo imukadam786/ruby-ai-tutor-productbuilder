@@ -1332,17 +1332,24 @@ function ReadingQuestionCard({
   );
 }
 
-// Map language name → BCP-47 for speechSynthesis
-const READING_LANG_CODE: Record<string, string> = {
-  English: "en-ZA", Afrikaans: "af-ZA", isiZulu: "zu-ZA", isiXhosa: "xh-ZA",
-  Sepedi: "nso-ZA", Setswana: "tn-ZA", Sesotho: "st-ZA", Xitsonga: "ts-ZA",
-  siSwati: "ss-ZA", Tshivenda: "ve-ZA", isiNdebele: "nr-ZA",
+const ERROR_LABELS: Record<string, string> = {
+  ERR_PHONEME_CONF:  "Sound mix-up",
+  ERR_SOUND_RECALL:  "Sound recall",
+  ERR_BLEND_FAIL:    "Blending sounds",
+  ERR_SOUND_OMIT:    "Missing a sound",
+  ERR_SOUND_INSERT:  "Extra sound added",
+  ERR_VOWEL_CONF:    "Vowel confusion",
+  ERR_ORTHO_GUESS:   "Guessing the word",
+  ERR_SIGHT_MISS:    "Sight word",
+  ERR_MULTI_BREAK:   "Breaking up words",
+  ERR_FLUENCY_HES:   "Reading fluency",
+  ERR_MEANING_BLIND: "Reading for meaning",
+  ERR_SELF_MON:      "Self-monitoring",
 };
 
 function ReadingFeedbackCard({
   result,
   onNext,
-  language = "English",
 }: {
   result: ReadingDiagnosticResult;
   onNext: () => void;
@@ -1351,19 +1358,21 @@ function ReadingFeedbackCard({
 }) {
   const touchStartY = useRef(0);
   const [ttsPlaying, setTtsPlaying] = useState(false);
+  const cancelTTSRef = useRef<(() => void) | null>(null);
   const feedbackText = [result.feedback, result.recovery_explanation].filter(Boolean).join(". ");
 
   const handlePlay = () => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    if (ttsPlaying) { window.speechSynthesis.cancel(); setTtsPlaying(false); return; }
-    window.speechSynthesis.cancel();
-    const utt = new SpeechSynthesisUtterance(feedbackText);
-    utt.lang = READING_LANG_CODE[language] ?? "en-ZA";
-    utt.rate = 0.92;
-    utt.onstart = () => setTtsPlaying(true);
-    utt.onend = () => setTtsPlaying(false);
-    utt.onerror = () => setTtsPlaying(false);
-    window.speechSynthesis.speak(utt);
+    if (ttsPlaying) {
+      cancelTTSRef.current?.();
+      cancelTTSRef.current = null;
+      setTtsPlaying(false);
+      return;
+    }
+    cancelTTSRef.current = speakViaAPI(
+      feedbackText,
+      () => setTtsPlaying(true),
+      () => { setTtsPlaying(false); cancelTTSRef.current = null; }
+    );
   };
 
   return (
@@ -1381,7 +1390,7 @@ function ReadingFeedbackCard({
             {result.is_correct ? "Correct!" : "Not quite right"}
           </p>
           <p className={`text-base ${result.is_correct ? "text-green-600" : "text-red-600"}`}>
-            {result.error_type !== "correct" && result.error_type.replace(/_/g, " ")}
+            {result.error_type !== "correct" && (ERROR_LABELS[result.error_type] ?? "Keep practising")}
           </p>
         </div>
       </div>

@@ -1587,13 +1587,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Skill not found" }, { status: 404 });
     }
 
-    // For letter-sound and digraph skills, return a deterministic audio-tap question
-    // (no LLM needed — isolated phoneme production cannot be captured by STT)
-    if (template === "oral") {
-      const tapQuestion = buildAudioTapQuestion(skill_id, used_refs);
-      if (tapQuestion) {
-        return NextResponse.json({ ...tapQuestion, id: `rq_${Date.now()}` });
-      }
+    // For phonological/phonemic-awareness skills, always return a deterministic
+    // audio-tap question — regardless of template. These skills require the student
+    // to listen and tap; they cannot "clap syllables" into a microphone, and the
+    // LLM falls back to unusable voice tasks when the template is "listening".
+    const tapQuestion = buildAudioTapQuestion(skill_id, used_refs);
+    if (tapQuestion) {
+      return NextResponse.json({ ...tapQuestion, id: `rq_${Date.now()}` });
     }
 
     // For L2 reading and L3 encoding skills, return a static word-bank question

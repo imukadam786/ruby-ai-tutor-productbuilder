@@ -4,9 +4,14 @@ import { useState, useRef, useCallback } from "react";
 import { apiFetch } from "@/lib/fetch";
 
 // ── TTS prefetch cache ─────────────────────────────────────────────────────────
-// Keyed by cleaned text. Stores in-flight or resolved blob URL promises so that
-// speakViaAPI can play instantly if the audio is already fetched.
+// Keyed by cleaned text.
+// ttsCache: in-flight or resolved blob URL promises
+// ttsCacheSync: synchronously-readable blob URLs once resolved
+// On iOS/mobile, audio.play() must be called within the synchronous user gesture
+// handler. Even a resolved Promise's .then() is a microtask (async), so we keep
+// a second synchronous map of already-resolved URLs for instant playback on tap.
 const ttsCache = new Map<string, Promise<string>>();
+const ttsCacheSync = new Map<string, string>();
 
 function fetchTTSUrl(cleanedText: string): Promise<string> {
   if (ttsCache.has(cleanedText)) return ttsCache.get(cleanedText)!;
@@ -19,7 +24,11 @@ function fetchTTSUrl(cleanedText: string): Promise<string> {
       if (!res.ok) throw new Error("TTS failed");
       return res.blob();
     })
-    .then((blob) => URL.createObjectURL(blob))
+    .then((blob) => {
+      const url = URL.createObjectURL(blob);
+      ttsCacheSync.set(cleanedText, url); // store for synchronous access
+      return url;
+    })
     .catch((err) => {
       ttsCache.delete(cleanedText); // allow retry on failure
       throw err;
@@ -83,6 +92,19 @@ export function speakViaAPI(
 
   onStart();
 
+  // If the blob URL is already resolved, play synchronously within the user
+  // gesture handler — required on iOS where audio.play() must be called in the
+  // same synchronous call stack as the tap/click event.
+  const syncUrl = ttsCacheSync.get(cleaned);
+  if (syncUrl) {
+    audio = new Audio(syncUrl);
+    audio.onended = () => onEnd();
+    audio.onerror = () => onEnd();
+    audio.play().catch(() => onEnd());
+    return cancel;
+  }
+
+  // URL not yet ready — fetch async (first time or after a cache miss)
   fetchTTSUrl(cleaned)
     .then((url) => {
       if (cancelled) return;
