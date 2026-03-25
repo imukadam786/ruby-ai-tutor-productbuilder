@@ -1048,6 +1048,7 @@ function ReadingQuestionCard({
   };
 
   const handleAudioChoiceTap = (choice: { label: string; speech: string; correct: boolean }) => {
+    cancelSpeechRef.current?.();   // Stop question TTS before playing choice audio
     cancelChoiceAudioRef.current?.();
     setSelectedAudioChoice(choice.label);
     setPlayingChoiceValue(choice.label);

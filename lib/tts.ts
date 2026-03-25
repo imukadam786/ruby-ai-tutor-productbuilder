@@ -104,13 +104,21 @@ export function speakViaAPI(
     return cancel;
   }
 
-  // URL not yet ready — fetch async (first time or after a cache miss)
+  // URL not yet ready — create the Audio element NOW (synchronously, within the
+  // user gesture handler) so iOS registers the user activation. The initial
+  // play() call will fail because src is empty, but that's expected — it still
+  // unlocks the audio context so the real play() call below is permitted even
+  // though it happens asynchronously inside a Promise callback.
+  audio = new Audio();
+  audio.play().catch(() => {}); // unlock iOS audio context — failure is intentional
+
   fetchTTSUrl(cleaned)
     .then((url) => {
-      if (cancelled) return;
-      audio = new Audio(url);
+      if (cancelled || !audio) return;
+      audio.src = url;
       audio.onended = () => onEnd();
       audio.onerror = () => onEnd();
+      audio.load();
       audio.play().catch(() => onEnd());
     })
     .catch(() => {
