@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { apiFetch } from "@/lib/fetch";
 import { useT } from "@/lib/i18n";
 
-import { speakViaAPI } from "@/lib/tts";
+import { speakViaAPI, prefetchTTS } from "@/lib/tts";
 
 // Alias so all call sites remain unchanged
 const speakNaturally = speakViaAPI;
@@ -999,6 +999,12 @@ function ReadingQuestionCard({
   const [playingChoiceValue, setPlayingChoiceValue] = useState<string | null>(null);
   const cancelSpeechRef = useRef<(() => void) | null>(null);
   const cancelChoiceAudioRef = useRef<(() => void) | null>(null);
+
+  // Prefetch TTS as soon as the question mounts so audio is ready when user taps play
+  useEffect(() => {
+    if (question.question) prefetchTTS(question.question);
+    question.audioChoices?.forEach((c) => { if (c.speech) prefetchTTS(c.speech); });
+  }, [question.id]);
 
   const isAudioTap = !!(question.audioChoices && question.audioChoices.length > 0);
 

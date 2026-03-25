@@ -3,6 +3,40 @@
 import { useState, useRef, useCallback } from "react";
 import { apiFetch } from "@/lib/fetch";
 
+// ── TTS prefetch cache ─────────────────────────────────────────────────────────
+// Keyed by cleaned text. Stores in-flight or resolved blob URL promises so that
+// speakViaAPI can play instantly if the audio is already fetched.
+const ttsCache = new Map<string, Promise<string>>();
+
+function fetchTTSUrl(cleanedText: string): Promise<string> {
+  if (ttsCache.has(cleanedText)) return ttsCache.get(cleanedText)!;
+  const promise = apiFetch("/api/tts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text: cleanedText }),
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("TTS failed");
+      return res.blob();
+    })
+    .then((blob) => URL.createObjectURL(blob))
+    .catch((err) => {
+      ttsCache.delete(cleanedText); // allow retry on failure
+      throw err;
+    });
+  ttsCache.set(cleanedText, promise);
+  return promise;
+}
+
+/**
+ * Fire-and-forget: start fetching TTS audio for text before the user presses play.
+ * Call when a question or passage loads. Safe to call multiple times — cached.
+ */
+export function prefetchTTS(text: string): void {
+  const cleaned = prepareForSpeech(text);
+  if (cleaned) fetchTTSUrl(cleaned).catch(() => {});
+}
+
 // Strip markdown and clean text before sending to TTS
 export function prepareForSpeech(raw: string): string {
   return raw
@@ -49,27 +83,12 @@ export function speakViaAPI(
 
   onStart();
 
-  apiFetch("/api/tts", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text: cleaned }),
-  })
-    .then((res) => {
-      if (!res.ok || cancelled) throw new Error("cancelled or failed");
-      return res.blob();
-    })
-    .then((blob) => {
+  fetchTTSUrl(cleaned)
+    .then((url) => {
       if (cancelled) return;
-      const url = URL.createObjectURL(blob);
       audio = new Audio(url);
-      audio.onended = () => {
-        URL.revokeObjectURL(url);
-        onEnd();
-      };
-      audio.onerror = () => {
-        URL.revokeObjectURL(url);
-        onEnd();
-      };
+      audio.onended = () => onEnd();
+      audio.onerror = () => onEnd();
       audio.play().catch(() => onEnd());
     })
     .catch(() => {

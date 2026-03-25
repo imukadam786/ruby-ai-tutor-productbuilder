@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { apiFetch } from "@/lib/fetch";
 import { DiagnosticPlacementResult, DiagnosticTaskResult } from "@/types/reading";
-import { speakViaAPI } from "@/lib/tts";
+import { speakViaAPI, prefetchTTS } from "@/lib/tts";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import { describeError } from "@/lib/report-generator";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
@@ -496,6 +496,10 @@ export default function ReadingDiagnosticPlacement({
     transcriptRef.current = "";
     ttsHasPlayedRef.current = false;
     if (micTimerRef.current) { clearTimeout(micTimerRef.current); micTimerRef.current = null; }
+
+    // Prefetch TTS immediately so audio is ready by the time the timeout fires
+    prefetchTTS(task.question);
+    if (task.choices) task.choices.forEach((c) => { if (c.speech) prefetchTTS(c.speech); });
 
     // Small delay then speak
     const t = setTimeout(() => {
