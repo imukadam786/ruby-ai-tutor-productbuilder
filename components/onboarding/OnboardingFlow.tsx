@@ -18,19 +18,15 @@ export type OnboardingData = {
 const LANGUAGES: { value: string; label: string }[] = [
   { value: "English",    label: "English" },
   { value: "Afrikaans",  label: "Afrikaans" },
-  { value: "Arabic",     label: "Arabic" },
-  { value: "French",     label: "French" },
-  { value: "German",     label: "German" },
-  { value: "isiNdebele", label: "isiNdebele (Ndebele)" },
-  { value: "isiXhosa",   label: "isiXhosa (Xhosa)" },
-  { value: "isiZulu",    label: "isiZulu (Zulu)" },
-  { value: "Sepedi",     label: "Sepedi (Northern Sotho)" },
-  { value: "Sesotho",    label: "Sesotho (Southern Sotho)" },
-  { value: "Setswana",   label: "Setswana (Tswana)" },
-  { value: "siSwati",    label: "siSwati (Swati)" },
-  { value: "Spanish",    label: "Spanish" },
-  { value: "Tshivenda",  label: "Tshivenda (Venda)" },
-  { value: "Xitsonga",   label: "Xitsonga (Tsonga)" },
+  { value: "isiNdebele", label: "isiNdebele" },
+  { value: "isiXhosa",   label: "isiXhosa" },
+  { value: "isiZulu",    label: "isiZulu" },
+  { value: "Sepedi",     label: "Sepedi" },
+  { value: "Sesotho",    label: "Sesotho" },
+  { value: "Setswana",   label: "Setswana" },
+  { value: "siSwati",    label: "siSwati" },
+  { value: "Tshivenda",  label: "Tshivenda" },
+  { value: "Xitsonga",   label: "Xitsonga" },
 ];
 
 const GRADES = [
