@@ -229,40 +229,50 @@ export default function DiagnosticSession() {
   const loadQuestion = useCallback(
     (skillId: string, _template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile, forceHint = false) => {
       retryFnRef.current = () => loadQuestion(skillId, _template, attemptNum, currentProfile, forceHint);
-      const domainId = getDomainForSkill(skillId);
-      if (!domainId) {
+      try {
+        const domainId = getDomainForSkill(skillId);
+        if (!domainId) {
+          setLoadErrorCount((c) => c + 1);
+          setStatusMessage("No questions available for this skill.");
+          return;
+        }
+
+        const usedRefs = getUsedRefs(currentProfile, domainId);
+        const skillPLearned = currentProfile.skill_mastery[skillId]?.p_learned;
+        const ability = skillPLearned !== undefined ? abilityLevel(skillPLearned) : undefined;
+        const bankQ = selectQuestion(domainId, usedRefs, forceHint || attemptNum > 1, skillId, ability);
+
+        if (!bankQ) {
+          setLoadErrorCount((c) => c + 1);
+          setStatusMessage("No questions available for this skill.");
+          return;
+        }
+
+        const readingProfile = getReadingProfile();
+        const readingLevel = readingProfile?.current_level ?? 5;
+        let q = simplifyQuestion(
+          bankQuestionToGenerated(bankQ, skillId, domainId, forceHint || attemptNum > 1) as GeneratedQuestion,
+          readingLevel
+        );
+
+        if (q.domain_id && q.question_ref) {
+          try {
+            const updatedProfile = markQuestionUsed(currentProfile, q.domain_id, q.question_ref);
+            saveStudentProfile(updatedProfile);
+            setProfile(updatedProfile);
+          } catch {
+            // localStorage full or unavailable — continue without saving used ref
+          }
+        }
+
+        setCurrentQuestion(q);
+        setLoadErrorCount(0);
+        setPhase("question");
+      } catch (err) {
+        console.error("[loadQuestion] unexpected error:", err);
         setLoadErrorCount((c) => c + 1);
-        setStatusMessage("No questions available for this skill.");
-        return;
+        setStatusMessage("Something went wrong loading the next question. Please try again.");
       }
-
-      const usedRefs = getUsedRefs(currentProfile, domainId);
-      const skillPLearned = currentProfile.skill_mastery[skillId]?.p_learned;
-      const ability = skillPLearned !== undefined ? abilityLevel(skillPLearned) : undefined;
-      const bankQ = selectQuestion(domainId, usedRefs, forceHint || attemptNum > 1, skillId, ability);
-
-      if (!bankQ) {
-        setLoadErrorCount((c) => c + 1);
-        setStatusMessage("No questions available for this skill.");
-        return;
-      }
-
-      const readingProfile = getReadingProfile();
-      const readingLevel = readingProfile?.current_level ?? 5;
-      let q = simplifyQuestion(
-        bankQuestionToGenerated(bankQ, skillId, domainId, forceHint || attemptNum > 1) as GeneratedQuestion,
-        readingLevel
-      );
-
-      if (q.domain_id && q.question_ref) {
-        const updatedProfile = markQuestionUsed(currentProfile, q.domain_id, q.question_ref);
-        saveStudentProfile(updatedProfile);
-        setProfile(updatedProfile);
-      }
-
-      setCurrentQuestion(q);
-      setLoadErrorCount(0);
-      setPhase("question");
     },
     []
   );
