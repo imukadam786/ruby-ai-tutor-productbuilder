@@ -461,6 +461,10 @@ export default function ReadingSession() {
             if (res.ok) {
               const q: ReadingGeneratedQuestion = await res.json();
               prefetchedQuestionRef.current = { question: q, skillId: nextSkillId };
+              // Prefetch TTS for the next question during feedback so audio is
+              // ready the moment the question appears — not after it mounts
+              if (q.question) prefetchTTS(q.question);
+              q.audioChoices?.forEach((c) => { if (c.speech) prefetchTTS(c.speech); });
             }
           }).catch(() => { /* silent — loadQuestion will fetch normally as fallback */ });
         }
