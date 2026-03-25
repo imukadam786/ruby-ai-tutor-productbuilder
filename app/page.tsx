@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 // ── Always-needed (static imports) ──────────────────────────────────────────
 import Sidebar from "@/components/Sidebar";
@@ -65,6 +65,7 @@ function AppContent() {
 
   // Track chat engagement (at least one message sent this session)
   const [chatEngaged, setChatEngaged] = useState(false);
+  const chatMessageCountRef = useRef(0);
 
   useEffect(() => {
     refreshStats();
@@ -162,7 +163,7 @@ function AppContent() {
 
       <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
-        {activeView === "chat" && <ChatInterface onMessageSent={() => { incrementSession(); refreshStats(); setChatEngaged(true); }} />}
+        {activeView === "chat" && <ChatInterface onMessageSent={() => { chatMessageCountRef.current += 1; if (chatMessageCountRef.current >= 3) incrementSession(); refreshStats(); setChatEngaged(true); }} />}
         {activeView === "progress" && <ProgressTracker />}
         {activeView === "ruby" && <DiagnosticSession />}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
