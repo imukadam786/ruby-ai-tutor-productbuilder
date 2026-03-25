@@ -222,16 +222,39 @@ function computePlacement(
     return !!gate && gate.domains.every((d) => domainPassed(d));
   };
 
-  // Find the highest gate passed within the student's diagnostic window
+  // Find the highest gate passed and the lowest gate failed within the window.
+  // A gate is only considered "failed" if it was actually tested (domainTotal > 0).
   const [lo, hi] = getSearchWindow(grade);
   let highestPassedGate = -1;
+  let lowestFailedGate  = -1;
   for (let i = lo; i <= hi; i++) {
-    if (gatePassed(i)) highestPassedGate = i;
+    if (gatePassed(i)) {
+      highestPassedGate = i;
+    } else {
+      const gate = SEARCH_GATES[i];
+      const wasTested = gate.domains.some((d) => (domainTotal[d] ?? 0) > 0);
+      if (wasTested && lowestFailedGate === -1) lowestFailedGate = i;
+    }
   }
 
-  const entryLevel = highestPassedGate >= 0
-    ? (GATE_PASSED_ENTRY[highestPassedGate] ?? getGradeFloor(grade))
-    : getGradeFloor(grade);
+  // Gap detection: student passed a higher gate but failed a lower one.
+  // This means they have a prerequisite gap — e.g. can do quadratics but
+  // cannot handle negative integers. Placing them at the higher pass level
+  // would skip a foundational gap. Instead, start at the content they failed.
+  const hasGap = lowestFailedGate >= 0 && highestPassedGate > lowestFailedGate;
+
+  const entryLevel = (() => {
+    if (highestPassedGate < 0) return getGradeFloor(grade);
+    if (hasGap) {
+      // Start at the level that opens with the failed gate's content.
+      // GATE_PASSED_ENTRY[lowestFailedGate - 1] = "start level when the gate
+      // just below the failure was passed" = the first level of failed content.
+      return lowestFailedGate > 0
+        ? (GATE_PASSED_ENTRY[lowestFailedGate - 1] ?? getGradeFloor(grade))
+        : getGradeFloor(grade);
+    }
+    return GATE_PASSED_ENTRY[highestPassedGate] ?? getGradeFloor(grade);
+  })();
 
   const hardGatePassed = gatePassed(3); // Gate 3 = Multiplication / Division
 
