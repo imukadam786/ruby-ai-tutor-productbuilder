@@ -3,6 +3,8 @@ import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import { ReadingTemplate, ReadingGeneratedQuestion, AudioTapChoice } from "@/types/reading";
 
+export const runtime = "edge";
+
 // ── Audio-tap question builder for phoneme-production skills ──────────────────
 // These skills (R2.T1, R2.T2) require isolated phoneme production which STT
 // cannot reliably detect. We generate deterministic multiple-choice questions.
