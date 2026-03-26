@@ -265,23 +265,52 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    const recognition = new SR();
-    recognition.continuous = false;
-    recognition.interimResults = true;
-    recognition.lang = "en-US";
-    recognition.onstart = () => setIsListening(true);
-    recognition.onend = () => setIsListening(false);
-    recognition.onerror = () => setIsListening(false);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    recognition.onresult = (event: any) => {
-      const transcript = Array.from(event.results)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        .map((r: any) => r[0].transcript).join("");
-      setInput(transcript);
-      if (event.results[event.results.length - 1].isFinal) sendMessage(transcript);
+    const lang = (navigator.language || "").startsWith("en") ? navigator.language : "en-GB";
+    let capturedTranscript = "";
+    let restartCount = 0;
+    const MAX_RESTARTS = 3;
+    let done = false;
+
+    const launchRec = () => {
+      const recognition = new SR();
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      recognition.lang = lang;
+      recognition.onstart = () => setIsListening(true);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      recognition.onresult = (event: any) => {
+        const transcript = Array.from(event.results)
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          .map((r: any) => r[0].transcript).join("");
+        capturedTranscript = transcript;
+        setInput(transcript);
+        if (event.results[event.results.length - 1].isFinal) {
+          done = true;
+          setIsListening(false);
+          sendMessage(transcript);
+        }
+      };
+      recognition.onend = () => {
+        if (!done && !capturedTranscript && restartCount < MAX_RESTARTS) {
+          restartCount++;
+          setTimeout(launchRec, 400);
+          return;
+        }
+        setIsListening(false);
+      };
+      recognition.onerror = () => {
+        if (!done && !capturedTranscript && restartCount < MAX_RESTARTS) {
+          restartCount++;
+          setTimeout(launchRec, 400);
+          return;
+        }
+        setIsListening(false);
+      };
+      recognitionRef.current = recognition;
+      try { recognition.start(); } catch { setIsListening(false); }
     };
-    recognitionRef.current = recognition;
-    recognition.start();
+
+    launchRec();
   };
 
   const stopVoice = () => { recognitionRef.current?.stop(); setIsListening(false); };

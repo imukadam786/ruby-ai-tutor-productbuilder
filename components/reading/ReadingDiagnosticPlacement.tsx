@@ -469,6 +469,7 @@ export default function ReadingDiagnosticPlacement({
   const [submitReady, setSubmitReady] = useState(false);
   // STT unavailable (non-Chrome) — show inline notice and auto-advance
   const [sttUnavailable, setSttUnavailable] = useState(false);
+  const [sttHavingTrouble, setSttHavingTrouble] = useState(false);
   // Refs for stable access inside STT callbacks
   const transcriptRef = useRef("");
   const listeningRef = useRef(false);
@@ -476,6 +477,9 @@ export default function ReadingDiagnosticPlacement({
   const micTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Ref keeps latest task id accessible inside the [] useCallback for startVoice
   const currentTaskIdRef = useRef<string>("");
+  // STT restart attempt counter — resets when listening stops or transcript captured
+  const restartCountRef = useRef(0);
+  const MAX_STT_RESTARTS = 5;
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
@@ -580,37 +584,62 @@ export default function ReadingDiagnosticPlacement({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!SR) { setSttUnavailable(true); return; }
-    const rec = new SR();
-    rec.continuous = false;
-    rec.interimResults = true;
-    rec.lang = "en-US";
-    rec.onstart = () => setListening(true);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    rec.onresult = (e: any) => {
-      const t = Array.from(e.results as ArrayLike<SpeechRecognitionResult>)
-        .map((r) => r[0].transcript).join("");
-      transcriptRef.current = t;
-      setTranscript(t);
+
+    restartCountRef.current = 0;
+    setSttHavingTrouble(false);
+
+    const lang = (navigator.language || "").startsWith("en") ? navigator.language : "en-GB";
+
+    const launchRec = () => {
+      const rec = new SR();
+      rec.continuous = false;
+      rec.interimResults = true;
+      rec.lang = lang;
+      rec.onstart = () => setListening(true);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      rec.onresult = (e: any) => {
+        const t = Array.from(e.results as ArrayLike<SpeechRecognitionResult>)
+          .map((r) => r[0].transcript).join("");
+        transcriptRef.current = t;
+        setTranscript(t);
+      };
+      rec.onend = () => {
+        if (listeningRef.current && !transcriptRef.current.trim() && srRef.current === rec) {
+          restartCountRef.current += 1;
+          if (restartCountRef.current >= MAX_STT_RESTARTS) {
+            setSttHavingTrouble(true);
+            listeningRef.current = false;
+            setListening(false);
+            return;
+          }
+          // 400 ms gap — Chrome needs time to fully release the audio context
+          setTimeout(() => { if (listeningRef.current) launchRec(); }, 400);
+          return;
+        }
+        listeningRef.current = false;
+        setListening(false);
+      };
+      rec.onerror = () => {
+        if (listeningRef.current && !transcriptRef.current.trim() && srRef.current === rec) {
+          restartCountRef.current += 1;
+          if (restartCountRef.current >= MAX_STT_RESTARTS) {
+            setSttHavingTrouble(true);
+            listeningRef.current = false;
+            setListening(false);
+            return;
+          }
+          setTimeout(() => { if (listeningRef.current) launchRec(); }, 400);
+          return;
+        }
+        listeningRef.current = false;
+        setListening(false);
+      };
+      srRef.current = rec;
+      try { rec.start(); } catch { listeningRef.current = false; setListening(false); }
     };
-    rec.onend = () => {
-      // Restart if user is still listening but nothing was captured yet
-      if (listeningRef.current && !transcriptRef.current.trim() && srRef.current === rec) {
-        try { rec.start(); return; } catch { /* fall through to stop */ }
-      }
-      listeningRef.current = false;
-      setListening(false);
-    };
-    rec.onerror = () => {
-      // On no-speech error, restart if still listening
-      if (listeningRef.current && !transcriptRef.current.trim() && srRef.current === rec) {
-        try { setTimeout(() => rec.start(), 150); return; } catch { /* fall through */ }
-      }
-      listeningRef.current = false;
-      setListening(false);
-    };
-    srRef.current = rec;
+
     listeningRef.current = true;
-    rec.start();
+    launchRec();
   }, []);
 
   const stopVoice = useCallback(() => {
@@ -627,8 +656,8 @@ export default function ReadingDiagnosticPlacement({
   const currentTask = TASKSRef.current[taskIndex];
   currentTaskIdRef.current = currentTask?.id ?? "";
 
-  // Reset STT-unavailable flag whenever the task changes
-  useEffect(() => { setSttUnavailable(false); }, [taskIndex]);
+  // Reset STT flags whenever the task changes
+  useEffect(() => { setSttUnavailable(false); setSttHavingTrouble(false); restartCountRef.current = 0; }, [taskIndex]);
 
   // When STT is unavailable on a voice task, auto-advance after 2 s scored as sttSkipped
   // (sttSkipped tasks are excluded from placement scoring — treated as unadministered)
@@ -1029,13 +1058,15 @@ export default function ReadingDiagnosticPlacement({
                   <>
                     <div className="flex flex-col items-center gap-3">
                       <button
-                        onClick={listening ? stopVoice : startVoice}
+                        onClick={() => { setSttHavingTrouble(false); restartCountRef.current = 0; listening ? stopVoice() : startVoice(); }}
                         disabled={submitting || speaking || !micEnabled}
                         className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 ${
                           listening
                             ? "bg-red-500 text-white animate-pulse shadow-red-200 shadow-xl"
                             : (speaking || !micEnabled)
                             ? "bg-gray-300 text-gray-400 cursor-not-allowed"
+                            : sttHavingTrouble
+                            ? "bg-orange-500 text-white hover:bg-orange-600"
                             : "bg-blue-500 text-white hover:bg-blue-600"
                         }`}
                       >
@@ -1047,8 +1078,12 @@ export default function ReadingDiagnosticPlacement({
                           </svg>
                         )}
                       </button>
-                      <p className="text-sm text-gray-400 font-medium">
-                        {speaking ? "⏳ Listen to the question first…" : listening ? "🔴 Listening… tap to stop" : !micEnabled ? "⏳ Getting ready…" : "Tap the mic to speak"}
+                      <p className="text-sm font-medium text-center max-w-[200px]">
+                        {speaking ? <span className="text-gray-400">⏳ Listen to the question first…</span>
+                          : listening ? <span className="text-gray-400">🔴 Listening… tap to stop</span>
+                          : !micEnabled ? <span className="text-gray-400">⏳ Getting ready…</span>
+                          : sttHavingTrouble ? <span className="text-orange-500">Having trouble hearing you — tap to try again</span>
+                          : <span className="text-gray-400">Tap the mic to speak</span>}
                       </p>
                     </div>
 
