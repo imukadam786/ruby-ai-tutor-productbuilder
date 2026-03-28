@@ -483,69 +483,79 @@ export default function ReadingSession() {
 
   const handleMarkDone = () => {
     if (!profile || !currentQuestion) return;
-    const skillId = currentQuestion.skill_id;
-    const existingMastery = profile.skill_mastery[skillId] || initReadingSkillMastery(skillId);
-    const assumedMastery = { ...existingMastery, status: "assumed" as const };
-    const profileWithAssumed = {
-      ...profile,
-      skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
-    };
-    const nextSkillId = getNextReadingSkillId(skillId);
-    // Hard gate: student failed D07 (phoneme blending) — cap at R1 skills
-    const gated = profile.placement?.hardGatePassed === false;
-    const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
-    if (gated && crossesGate) {
-      saveReadingProfile(profileWithAssumed);
-      setProfile(profileWithAssumed);
-      setR1GateReached(true);
-      setPhase("complete");
-      return;
+    try {
+      const skillId = currentQuestion.skill_id;
+      const existingMastery = profile.skill_mastery[skillId] || initReadingSkillMastery(skillId);
+      const assumedMastery = { ...existingMastery, status: "assumed" as const };
+      const profileWithAssumed = {
+        ...profile,
+        skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
+      };
+      const nextSkillId = getNextReadingSkillId(skillId);
+      // Hard gate: student failed D07 (phoneme blending) — cap at R1 skills
+      const gated = profile.placement?.hardGatePassed === false;
+      const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
+      if (gated && crossesGate) {
+        saveReadingProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+        setR1GateReached(true);
+        setPhase("complete");
+        return;
+      }
+      if (nextSkillId) {
+        trackSkillAdvanced({ subject: "reading", from_skill_id: skillId, to_skill_id: nextSkillId });
+        const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
+        saveReadingProfile(advanced);
+        setProfile(advanced);
+      } else {
+        saveReadingProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+      }
+      stuckDismissedAtRef.current = 0;
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase(nextSkillId ? "loading_question" : "complete");
+    } catch (err) {
+      console.error("[handleMarkDone] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
     }
-    if (nextSkillId) {
-      trackSkillAdvanced({ subject: "reading", from_skill_id: skillId, to_skill_id: nextSkillId });
-      const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
-      saveReadingProfile(advanced);
-      setProfile(advanced);
-    } else {
-      saveReadingProfile(profileWithAssumed);
-      setProfile(profileWithAssumed);
-    }
-    stuckDismissedAtRef.current = 0;
-    setSkillAttemptCount(0);
-    recentTemplatesRef.current = [];
-    setPhase(nextSkillId ? "loading_question" : "complete");
   };
 
   const handleSkipOnLoadError = () => {
     if (!profile) return;
-    setLoadErrorCount(0);
-    const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
-    const existingMastery = profile.skill_mastery[skillId] || initReadingSkillMastery(skillId);
-    const profileWithAssumed = {
-      ...profile,
-      skill_mastery: { ...profile.skill_mastery, [skillId]: { ...existingMastery, status: "assumed" as const } },
-    };
-    const nextSkillId = getNextReadingSkillId(skillId);
-    const gated = profile.placement?.hardGatePassed === false;
-    const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
-    if (gated && crossesGate) {
-      saveReadingProfile(profileWithAssumed);
-      setProfile(profileWithAssumed);
-      setR1GateReached(true);
-      setPhase("complete");
-      return;
+    try {
+      setLoadErrorCount(0);
+      const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
+      const existingMastery = profile.skill_mastery[skillId] || initReadingSkillMastery(skillId);
+      const profileWithAssumed = {
+        ...profile,
+        skill_mastery: { ...profile.skill_mastery, [skillId]: { ...existingMastery, status: "assumed" as const } },
+      };
+      const nextSkillId = getNextReadingSkillId(skillId);
+      const gated = profile.placement?.hardGatePassed === false;
+      const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
+      if (gated && crossesGate) {
+        saveReadingProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+        setR1GateReached(true);
+        setPhase("complete");
+        return;
+      }
+      if (nextSkillId) {
+        const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
+        saveReadingProfile(advanced);
+        setProfile(advanced);
+      } else {
+        saveReadingProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+      }
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase(nextSkillId ? "loading_question" : "complete");
+    } catch (err) {
+      console.error("[handleSkipOnLoadError] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
     }
-    if (nextSkillId) {
-      const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
-      saveReadingProfile(advanced);
-      setProfile(advanced);
-    } else {
-      saveReadingProfile(profileWithAssumed);
-      setProfile(profileWithAssumed);
-    }
-    setSkillAttemptCount(0);
-    recentTemplatesRef.current = [];
-    setPhase(nextSkillId ? "loading_question" : "complete");
   };
 
   const handleKeepTrying = () => {
@@ -557,29 +567,34 @@ export default function ReadingSession() {
 
   const handleNextAfterMastered = () => {
     if (!profile) return;
-    // Record session as passed — student mastered this skill
-    if (!hasRecordedSession.current) {
-      hasRecordedSession.current = true;
-      updateSessionHistory(profile, profile.current_skill_id, true);
-    }
-    const nextSkillId = getNextReadingSkillId(profile.current_skill_id);
-    // Hard gate: student failed D07 (phoneme blending) — cap at R1 skills
-    const gated = profile.placement?.hardGatePassed === false;
-    const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
-    if (gated && crossesGate) {
-      setR1GateReached(true);
-      setPhase("complete");
-      return;
-    }
-    if (nextSkillId) {
-      trackSkillAdvanced({ subject: "reading", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
-      const updated = advanceToReadingSkill(profile, nextSkillId);
-      setProfile(updated);
-      setSkillAttemptCount(0);
-      recentTemplatesRef.current = [];
-      setPhase("loading_question");
-    } else {
-      setPhase("complete");
+    try {
+      // Record session as passed — student mastered this skill
+      if (!hasRecordedSession.current) {
+        hasRecordedSession.current = true;
+        updateSessionHistory(profile, profile.current_skill_id, true);
+      }
+      const nextSkillId = getNextReadingSkillId(profile.current_skill_id);
+      // Hard gate: student failed D07 (phoneme blending) — cap at R1 skills
+      const gated = profile.placement?.hardGatePassed === false;
+      const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
+      if (gated && crossesGate) {
+        setR1GateReached(true);
+        setPhase("complete");
+        return;
+      }
+      if (nextSkillId) {
+        trackSkillAdvanced({ subject: "reading", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
+        const updated = advanceToReadingSkill(profile, nextSkillId);
+        setProfile(updated);
+        setSkillAttemptCount(0);
+        recentTemplatesRef.current = [];
+        setPhase("loading_question");
+      } else {
+        setPhase("complete");
+      }
+    } catch (err) {
+      console.error("[handleNextAfterMastered] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
     }
   };
 

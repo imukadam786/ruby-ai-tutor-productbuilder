@@ -403,50 +403,60 @@ export default function DiagnosticSession() {
 
   const handleMarkDone = () => {
     if (!profile || !currentQuestion) return;
-    const skillId = currentQuestion.skill_id;
-    const existingMastery = profile.skill_mastery[skillId] || initSkillMastery(skillId);
-    const assumedMastery = { ...existingMastery, status: "assumed" as const };
-    const profileWithAssumed = {
-      ...profile,
-      skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
-    };
-    const nextSkillId = getNextSkillId(skillId);
-    if (nextSkillId) {
-      trackSkillAdvanced({ subject: "maths", from_skill_id: skillId, to_skill_id: nextSkillId });
-      const advanced = advanceToSkill(profileWithAssumed, nextSkillId);
-      saveStudentProfile(advanced);
-      setProfile(advanced);
-    } else {
-      saveStudentProfile(profileWithAssumed);
-      setProfile(profileWithAssumed);
+    try {
+      const skillId = currentQuestion.skill_id;
+      const existingMastery = profile.skill_mastery[skillId] || initSkillMastery(skillId);
+      const assumedMastery = { ...existingMastery, status: "assumed" as const };
+      const profileWithAssumed = {
+        ...profile,
+        skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
+      };
+      const nextSkillId = getNextSkillId(skillId);
+      if (nextSkillId) {
+        trackSkillAdvanced({ subject: "maths", from_skill_id: skillId, to_skill_id: nextSkillId });
+        const advanced = advanceToSkill(profileWithAssumed, nextSkillId);
+        saveStudentProfile(advanced);
+        setProfile(advanced);
+      } else {
+        saveStudentProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+      }
+      stuckDismissedAtRef.current = 0;
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase(nextSkillId ? "loading_question" : "complete");
+    } catch (err) {
+      console.error("[handleMarkDone] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
     }
-    stuckDismissedAtRef.current = 0;
-    setSkillAttemptCount(0);
-    recentTemplatesRef.current = [];
-    setPhase(nextSkillId ? "loading_question" : "complete");
   };
 
   const handleSkipOnLoadError = () => {
     if (!profile) return;
-    setLoadErrorCount(0);
-    const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
-    const existingMastery = profile.skill_mastery[skillId] || initSkillMastery(skillId);
-    const profileWithAssumed = {
-      ...profile,
-      skill_mastery: { ...profile.skill_mastery, [skillId]: { ...existingMastery, status: "assumed" as const } },
-    };
-    const nextSkillId = getNextSkillId(skillId);
-    if (nextSkillId) {
-      const advanced = advanceToSkill(profileWithAssumed, nextSkillId);
-      saveStudentProfile(advanced);
-      setProfile(advanced);
-    } else {
-      saveStudentProfile(profileWithAssumed);
-      setProfile(profileWithAssumed);
+    try {
+      setLoadErrorCount(0);
+      const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
+      const existingMastery = profile.skill_mastery[skillId] || initSkillMastery(skillId);
+      const profileWithAssumed = {
+        ...profile,
+        skill_mastery: { ...profile.skill_mastery, [skillId]: { ...existingMastery, status: "assumed" as const } },
+      };
+      const nextSkillId = getNextSkillId(skillId);
+      if (nextSkillId) {
+        const advanced = advanceToSkill(profileWithAssumed, nextSkillId);
+        saveStudentProfile(advanced);
+        setProfile(advanced);
+      } else {
+        saveStudentProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+      }
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase(nextSkillId ? "loading_question" : "complete");
+    } catch (err) {
+      console.error("[handleSkipOnLoadError] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
     }
-    setSkillAttemptCount(0);
-    recentTemplatesRef.current = [];
-    setPhase(nextSkillId ? "loading_question" : "complete");
   };
 
   const handleKeepTrying = () => {
@@ -458,16 +468,21 @@ export default function DiagnosticSession() {
 
   const handleNextAfterMastered = () => {
     if (!profile) return;
-    const nextSkillId = getNextSkillId(profile.current_skill_id);
-    if (nextSkillId) {
-      trackSkillAdvanced({ subject: "maths", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
-      const updated = advanceToSkill(profile, nextSkillId);
-      setProfile(updated);
-      setSkillAttemptCount(0);
-      recentTemplatesRef.current = [];
-      setPhase("loading_question");
-    } else {
-      setPhase("complete");
+    try {
+      const nextSkillId = getNextSkillId(profile.current_skill_id);
+      if (nextSkillId) {
+        trackSkillAdvanced({ subject: "maths", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
+        const updated = advanceToSkill(profile, nextSkillId);
+        setProfile(updated);
+        setSkillAttemptCount(0);
+        recentTemplatesRef.current = [];
+        setPhase("loading_question");
+      } else {
+        setPhase("complete");
+      }
+    } catch (err) {
+      console.error("[handleNextAfterMastered] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
     }
   };
 

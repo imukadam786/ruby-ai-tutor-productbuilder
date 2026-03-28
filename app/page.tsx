@@ -22,6 +22,7 @@ const WatchComingSoon      = dynamic(() => import("@/components/WatchComingSoon"
 const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerModal"),                  { ssr: false });
 const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
 const FloatingFeedback     = dynamic(() => import("@/components/beta/FloatingFeedback"),                { ssr: false });
+import ErrorBoundary from "@/components/ErrorBoundary";
 import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
@@ -165,10 +166,10 @@ function AppContent() {
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { chatMessageCountRef.current += 1; if (chatMessageCountRef.current >= 3) incrementSession(); refreshStats(); setChatEngaged(true); }} />}
         {activeView === "progress" && <ProgressTracker />}
-        {activeView === "ruby" && <DiagnosticSession />}
+        {activeView === "ruby" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
-        {activeView === "reading" && <ReadingSession />}
+        {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} />}
         {activeView === "matric" && <MatricComingSoon />}
