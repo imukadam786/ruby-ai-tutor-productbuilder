@@ -44,6 +44,7 @@ import { detectStuck } from "@/lib/stuck-detector";
 import StuckScreen from "@/components/shared/StuckScreen";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
+import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import {
   identifyStudent,
   trackQuestionAnswered,
@@ -333,16 +334,16 @@ export default function ReadingSession() {
         current_level: updated.current_level,
       });
 
-      // Fire-and-forget report generation — failure must never block the student
+      // Build and persist report to localStorage for parent viewing
       try {
         const rInput = buildReadingReportInput(updated, result);
-        apiFetch("/api/reports/generate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ input: rInput, studentId: updated.id }),
-        }).catch((err) => console.error("[ReadingPlacement] Report generation failed silently:", err));
+        const rContent = buildDeterministicReportContent(rInput);
+        localStorage.setItem(
+          "ruby_reading_report",
+          JSON.stringify({ input: rInput, content: rContent, generatedAt: Date.now() })
+        );
       } catch (err) {
-        console.error("[ReadingPlacement] Report input build failed:", err);
+        console.error("[ReadingPlacement] Report save failed:", err);
       }
     },
     [profile]

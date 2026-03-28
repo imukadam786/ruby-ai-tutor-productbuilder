@@ -35,6 +35,7 @@ import { detectStuck } from "@/lib/stuck-detector";
 import StuckScreen from "@/components/shared/StuckScreen";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { describeError } from "@/lib/report-generator";
+import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import { useT } from "@/lib/i18n";
 import {
@@ -519,18 +520,16 @@ export default function DiagnosticSession() {
         current_level: updatedProfile.current_level,
       });
 
-      // Fire-and-forget report generation — failure must never block the student
+      // Build and persist report to localStorage for parent viewing
       try {
         const input = buildMathsReportInput(updatedProfile);
-        apiFetch("/api/reports/generate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ input, studentId: updatedProfile.id }),
-        }).catch((err) =>
-          console.error("[DiagnosticComplete] Report generation failed silently:", err)
+        const content = buildDeterministicReportContent(input);
+        localStorage.setItem(
+          "ruby_maths_report",
+          JSON.stringify({ input, content, generatedAt: Date.now() })
         );
       } catch (err) {
-        console.error("[DiagnosticComplete] Report input build failed:", err);
+        console.error("[DiagnosticComplete] Report save failed:", err);
       }
     },
     [profile]

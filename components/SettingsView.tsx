@@ -5,6 +5,7 @@ import { useT } from "@/lib/i18n";
 import SpinningGlobe from "@/components/SpinningGlobe";
 import EduBackground from "@/components/EduBackground";
 import { supabase } from "@/lib/supabase";
+import DiagnosticReportView from "@/components/DiagnosticReportView";
 
 interface SettingsViewProps {
   onBack: () => void;
@@ -228,8 +229,22 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
   const [plan, setPlan] = useState("free");
   const [saved, setSaved] = useState(false);
 
+  // Report availability
+  const [hasMathsReport, setHasMathsReport] = useState(false);
+  const [hasReadingReport, setHasReadingReport] = useState(false);
+
+  // Internal page state — null = main settings, "maths" / "reading" = report view
+  const [reportPage, setReportPage] = useState<"maths" | "reading" | null>(null);
+
   // Active modal
   const [modal, setModal] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      setHasMathsReport(!!localStorage.getItem("ruby_maths_report"));
+      setHasReadingReport(!!localStorage.getItem("ruby_reading_report"));
+    } catch { /* ignore */ }
+  }, []);
 
   useEffect(() => {
     const loadProfile = async () => {
@@ -290,6 +305,10 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
 
   const close = () => setModal(null);
 
+  if (reportPage) {
+    return <DiagnosticReportView subject={reportPage} onBack={() => setReportPage(null)} />;
+  }
+
   return (
     <>
       <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -342,7 +361,26 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                   value={learnLang}
                   onClick={() => setModal("learnLang")}
                 />
-                <Row icon={icons.download} label={t("settings.download_report")} onClick={() => setModal("downloadPDF")} />
+                <Row
+                  icon={icons.book}
+                  label="Maths Discovery Report"
+                  onClick={hasMathsReport ? () => setReportPage("maths") : undefined}
+                  rightEl={
+                    hasMathsReport
+                      ? <RowChevron />
+                      : <span className="text-xs text-gray-300">Complete diagnostic to unlock</span>
+                  }
+                />
+                <Row
+                  icon={icons.book}
+                  label="Reading Discovery Report"
+                  onClick={hasReadingReport ? () => setReportPage("reading") : undefined}
+                  rightEl={
+                    hasReadingReport
+                      ? <RowChevron />
+                      : <span className="text-xs text-gray-300">Complete diagnostic to unlock</span>
+                  }
+                />
               </Card>
             </section>
 
@@ -449,16 +487,6 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
         </Modal>
       )}
 
-      {modal === "downloadPDF" && (
-        <Modal title="Download progress report" onClose={close}>
-          <div className="space-y-4">
-            <p className="text-sm text-gray-600">Your personalised progress report includes skill mastery, streaks, and session history.</p>
-            <button onClick={close} className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2">
-              {icons.download} Download PDF
-            </button>
-          </div>
-        </Modal>
-      )}
 
       {saved && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs font-medium px-4 py-2.5 rounded-full shadow-lg z-50">
