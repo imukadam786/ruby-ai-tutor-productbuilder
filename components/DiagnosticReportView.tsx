@@ -1,215 +1,277 @@
 "use client";
+// ─── components/DiagnosticReportView.tsx ──────────────────────────────────────
+// Full-screen in-app diagnostic report. Matches the PDF template design.
+// Props:
+//   input          — placement data (built client-side from student profile)
+//   onStartLearning — called when student taps "Start Learning"
 
-import type { DiagnosticReportInput, ReportContent } from "@/lib/report-generator";
+import { buildDeterministicReportContent, } from "@/lib/report-content-builder";
+import { describeError } from "@/lib/report-generator";
+import type { DiagnosticReportInput } from "@/lib/report-generator";
 
-interface Props {
-  subject: "maths" | "reading";
-  onBack: () => void;
-}
+// ─── Colour helpers ───────────────────────────────────────────────────────────
 
-const LABEL_STYLE: Record<string, string> = {
-  strong:   "bg-green-100 text-green-700",
-  building: "bg-amber-100 text-amber-700",
-  practice: "bg-red-100 text-red-600",
+const LABEL_STYLES = {
+  strong:   { badge: "bg-green-100 text-green-800",  bar: "bg-green-500",  border: "border-green-200" },
+  building: { badge: "bg-amber-100 text-amber-800",  bar: "bg-amber-400",  border: "border-amber-200" },
+  practice: { badge: "bg-blue-100 text-blue-800",    bar: "bg-blue-400",   border: "border-blue-200"  },
 };
 
-const LABEL_TEXT: Record<string, string> = {
-  strong:   "Strong",
-  building: "Building",
-  practice: "Needs practice",
+const LABEL_TEXT = {
+  strong:   "Strong foundation",
+  building: "Building skills",
+  practice: "Needs more practice",
 };
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 space-y-3">
-      <h2 className="text-sm font-semibold text-[#1a2744] uppercase tracking-wide">{title}</h2>
+    <div className={`rounded-2xl border border-gray-100 bg-white shadow-sm p-5 ${className}`}>
       {children}
     </div>
   );
 }
 
-function Prose({ text }: { text: string }) {
-  return <p className="text-sm text-gray-700 leading-relaxed">{text}</p>;
-}
-
-function BackButton({ onClick }: { onClick: () => void }) {
+function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <button
-      onClick={onClick}
-      className="p-2 -ml-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-    >
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
+    <p className="text-[11px] font-semibold uppercase tracking-widest text-gray-400 mb-3">{children}</p>
   );
 }
 
-export default function DiagnosticReportView({ subject, onBack }: Props) {
-  let reportData: { input: DiagnosticReportInput; content: ReportContent; generatedAt: number } | null = null;
-  try {
-    const key = subject === "maths" ? "ruby_maths_report" : "ruby_reading_report";
-    const raw = localStorage.getItem(key);
-    if (raw) reportData = JSON.parse(raw);
-  } catch { /* ignore */ }
-
-  const subjectLabel = subject === "maths" ? "Maths" : "Reading";
-
-  if (!reportData) {
-    return (
-      <div className="flex flex-col h-full bg-[#F4F4F5]">
-        <div className="bg-white border-b border-gray-100 px-5 py-4 flex items-center gap-3 flex-shrink-0">
-          <BackButton onClick={onBack} />
-          <h1 className="font-semibold text-gray-900 text-lg">{subjectLabel} Discovery Report</h1>
-        </div>
-        <div className="flex-1 flex items-center justify-center p-8 text-center">
-          <div className="space-y-2">
-            <p className="text-gray-700 font-medium">No report available yet.</p>
-            <p className="text-sm text-gray-400">Complete the {subjectLabel} diagnostic to unlock your report.</p>
-          </div>
-        </div>
+function DomainCard({ domain, score, label, errorNote }: DiagnosticReportInput["domainScores"][0]) {
+  const s = LABEL_STYLES[label];
+  return (
+    <div className={`rounded-xl border ${s.border} bg-white p-4`}>
+      <div className="flex items-center justify-between mb-2">
+        <span className="font-semibold text-gray-800 text-sm">{domain}</span>
+        <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${s.badge}`}>
+          {LABEL_TEXT[label]}
+        </span>
       </div>
-    );
-  }
+      <div className="w-full h-2 rounded-full bg-gray-100 mb-1">
+        <div
+          className={`h-2 rounded-full ${s.bar} transition-all`}
+          style={{ width: `${Math.max(4, score)}%` }}
+        />
+      </div>
+      {errorNote && (
+        <p className="text-xs text-gray-400 italic mt-1.5">{errorNote}</p>
+      )}
+    </div>
+  );
+}
 
-  const { input, content } = reportData;
-  const generatedDate = new Date(reportData.generatedAt).toLocaleDateString("en-GB", {
-    day: "numeric", month: "long", year: "numeric",
-  });
+function StepCircle({ n }: { n: number }) {
+  return (
+    <div className="w-8 h-8 rounded-full bg-[#E94663] text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
+      {n}
+    </div>
+  );
+}
+
+function CheckItem({ text }: { text: string }) {
+  return (
+    <div className="flex gap-2 items-start">
+      <span className="text-green-600 font-bold mt-0.5">✓</span>
+      <span className="text-green-800 text-sm">{text}</span>
+    </div>
+  );
+}
+
+function BulletItem({ text }: { text: string }) {
+  return (
+    <div className="flex gap-2 items-start">
+      <span className="text-[#B7182E] font-bold mt-0.5 text-base leading-none">•</span>
+      <span className="text-gray-700 text-sm">{text}</span>
+    </div>
+  );
+}
+
+// ─── Main component ───────────────────────────────────────────────────────────
+
+export default function DiagnosticReportView({
+  input,
+  onStartLearning,
+}: {
+  input: DiagnosticReportInput;
+  onStartLearning: () => void;
+}) {
+  const content = buildDeterministicReportContent(input);
+  const subject = input.subject === "maths" ? "Maths" : "Reading";
+  const today = new Date().toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
 
   return (
-    <div className="flex flex-col h-full bg-[#F4F4F5]">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-100 px-5 py-4 flex items-center gap-3 flex-shrink-0">
-        <BackButton onClick={onBack} />
-        <div className="flex-1 min-w-0">
-          <h1 className="font-semibold text-gray-900 text-lg leading-tight">{subjectLabel} Discovery Report</h1>
-          <p className="text-xs text-gray-400 mt-0.5">{input.studentName} · Grade {input.studentGrade} · {generatedDate}</p>
+    <div className="flex flex-col h-full bg-gray-50 overflow-hidden">
+      {/* ── Scrollable body ── */}
+      <div className="flex-1 overflow-y-auto pb-4">
+
+        {/* ── Header ── */}
+        <div className="bg-[#B7182E] px-5 py-6 print:py-8">
+          <p className="text-[#F9A8B4] text-xs font-bold uppercase tracking-widest mb-1">ruby</p>
+          <h1 className="text-white text-2xl font-bold leading-tight">Learning Checkup Report</h1>
+          <p className="text-[#FDA4AF] text-sm mt-1">{subject} · Diagnostic Placement · {today}</p>
+
+          <div className="grid grid-cols-3 gap-3 mt-5">
+            <div>
+              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Student</p>
+              <p className="text-white font-bold text-base">{input.studentName}</p>
+              <p className="text-[#FDA4AF] text-xs">Grade {input.studentGrade}</p>
+            </div>
+            <div>
+              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Working Level</p>
+              <p className="text-white font-bold text-base">{input.workingLevel}</p>
+              <p className="text-[#FDA4AF] text-xs">
+                {input.gradeLevelGap < 0
+                  ? `~${Math.abs(input.gradeLevelGap)} yr${Math.abs(input.gradeLevelGap) !== 1 ? "s" : ""} above grade level`
+                  : input.gradeLevelGap === 0
+                  ? "At grade level"
+                  : `~${input.gradeLevelGap} yr${input.gradeLevelGap !== 1 ? "s" : ""} below grade level`}
+              </p>
+            </div>
+            <div>
+              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Score</p>
+              <p className="text-white font-bold text-base">{input.correctCount}/{input.questionsAnalysed}</p>
+              <p className="text-[#FDA4AF] text-xs">Placement reliable</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="px-4 py-5 space-y-4 max-w-xl mx-auto w-full">
+
+          {/* ── Where student starts ── */}
+          <div className="rounded-2xl bg-green-50 border border-green-200 p-5">
+            <h2 className="font-bold text-green-800 text-base mb-2">
+              📍 Where {input.studentName} starts on Ruby
+            </h2>
+            <p className="text-green-700 text-sm leading-relaxed">{content.placementSummary}</p>
+          </div>
+
+          {/* ── Performance by area ── */}
+          <div>
+            <SectionLabel>Performance by area</SectionLabel>
+            <div className="space-y-3">
+              {input.domainScores.map((d) => (
+                <DomainCard key={d.domain} {...d} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── Error patterns ── */}
+          {input.dominantErrors.length > 0 && (() => {
+            const patterns = input.dominantErrors
+              .map((code) => describeError(code, input.subject))
+              .filter(Boolean);
+            if (!patterns.length) return null;
+            return (
+              <Section>
+                <SectionLabel>Patterns found</SectionLabel>
+                <div className="space-y-2">
+                  {patterns.map((desc, i) => (
+                    <div key={i} className="flex gap-2 items-start">
+                      <span className="text-amber-500 font-bold mt-0.5 text-base leading-none">▸</span>
+                      <span className="text-gray-700 text-sm leading-relaxed">{desc}</span>
+                    </div>
+                  ))}
+                </div>
+              </Section>
+            );
+          })()}
+
+          {/* ── Strengths ── */}
+          <div className="rounded-2xl bg-green-50 border border-green-200 p-5">
+            <h2 className="font-bold text-green-800 text-base mb-2">
+              ★ How Ruby will use {input.studentName}&apos;s strengths
+            </h2>
+            <p className="text-green-700 text-sm leading-relaxed">{content.strengthsNote}</p>
+          </div>
+
+          {/* ── Main focus / root cause ── */}
+          <Section>
+            <h2 className="font-bold text-gray-800 text-base mb-2">
+              ▸ What to focus on first
+            </h2>
+            <p className="text-gray-600 text-sm leading-relaxed">{content.rootCauseSummary}</p>
+          </Section>
+
+          {/* ── Learning plan ── */}
+          <Section>
+            <SectionLabel>What Ruby will teach first</SectionLabel>
+            <div className="space-y-5">
+              {content.learningPlan.map((step) => (
+                <div key={step.stepNumber} className="flex gap-3">
+                  <StepCircle n={step.stepNumber} />
+                  <div className="flex-1">
+                    <p className="font-semibold text-gray-800 text-sm mb-1">{step.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-1.5">{step.description}</p>
+                    <p className="text-gray-400 text-xs italic">{step.estimate}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* ── Experience ── */}
+          <Section className="bg-gray-50">
+            <h2 className="font-bold text-gray-800 text-base mb-3">
+              What {input.studentName} will experience on Ruby
+            </h2>
+            <div className="space-y-2">
+              {content.experienceBullets.map((b, i) => (
+                <BulletItem key={i} text={b} />
+              ))}
+            </div>
+          </Section>
+
+          {/* ── Parent guidance ── */}
+          <Section>
+            <SectionLabel>Parent guidance</SectionLabel>
+            <p className="text-gray-400 text-xs italic mb-4">
+              Practical suggestions based specifically on what Ruby found in {input.studentName}&apos;s placement activity.
+            </p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">What you may notice at home</p>
+            <p className="text-gray-700 text-sm leading-relaxed mb-4">{content.parentGuidance.whatYouMayNotice}</p>
+            <div className="border-t border-gray-100 pt-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">How you can help this week</p>
+              <p className="text-gray-700 text-sm leading-relaxed">{content.parentGuidance.howYouCanHelp}</p>
+            </div>
+          </Section>
+
+          {/* ── Expected outcomes ── */}
+          <div className="rounded-2xl bg-green-50 border border-green-200 p-5">
+            <h2 className="font-bold text-green-800 text-base mb-3">
+              What to expect as {input.studentName} progresses
+            </h2>
+            <div className="space-y-2">
+              {content.expectedOutcomes.map((o, i) => (
+                <CheckItem key={i} text={o} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── After first session ── */}
+          <div className="rounded-2xl bg-blue-50 border border-blue-200 p-5">
+            <h2 className="font-bold text-blue-800 text-base mb-2">
+              After {input.studentName}&apos;s first session
+            </h2>
+            <p className="text-blue-700 text-sm leading-relaxed">{content.nextSessionHook}</p>
+          </div>
+
+          {/* ── Footer ── */}
+          <p className="text-center text-gray-400 text-xs pb-2">
+            Generated by Ruby AI Tutor · {today}
+          </p>
         </div>
       </div>
 
-      {/* Scrollable body */}
-      <div className="flex-1 overflow-y-auto">
-        <div className="max-w-2xl mx-auto px-4 py-6 space-y-4">
-
-          {/* Placement overview */}
-          <Section title="Placement Overview">
-            <div className="flex flex-wrap gap-3">
-              <div className="flex-1 min-w-[120px] bg-[#1a2744] rounded-xl px-4 py-3 text-white">
-                <p className="text-xs opacity-70 mb-0.5">Starting level</p>
-                <p className="text-base font-bold">{input.workingLevel}</p>
-              </div>
-              <div className="flex-1 min-w-[120px] bg-gray-50 rounded-xl px-4 py-3">
-                <p className="text-xs text-gray-400 mb-0.5">Questions completed</p>
-                <p className="text-base font-bold text-gray-800">{input.questionsAnalysed}</p>
-              </div>
-              {input.skillsCompleted > 0 && (
-                <div className="flex-1 min-w-[120px] bg-green-50 rounded-xl px-4 py-3">
-                  <p className="text-xs text-green-600 mb-0.5">Skills already known</p>
-                  <p className="text-base font-bold text-green-700">{input.skillsCompleted}</p>
-                </div>
-              )}
-            </div>
-            <Prose text={content.placementSummary} />
-          </Section>
-
-          {/* Domain scores */}
-          {input.domainScores.length > 0 && (
-            <Section title="Topic Breakdown">
-              <div className="space-y-3">
-                {input.domainScores.map((d) => (
-                  <div key={d.domain}>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm text-gray-700 font-medium">{d.domain}</span>
-                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${LABEL_STYLE[d.label] ?? "bg-gray-100 text-gray-600"}`}>
-                        {LABEL_TEXT[d.label] ?? d.label}
-                      </span>
-                    </div>
-                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full rounded-full ${d.label === "strong" ? "bg-green-400" : d.label === "building" ? "bg-amber-400" : "bg-red-400"}`}
-                        style={{ width: `${d.score}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Section>
-          )}
-
-          {/* Strengths */}
-          <Section title="What's Going Well">
-            <Prose text={content.strengthsNote} />
-          </Section>
-
-          {/* Root cause */}
-          <Section title="What Ruby Will Focus On">
-            <Prose text={content.rootCauseSummary} />
-          </Section>
-
-          {/* Learning plan */}
-          <Section title="Learning Plan">
-            <div className="space-y-4">
-              {content.learningPlan.map((step) => (
-                <div key={step.stepNumber} className="flex gap-3">
-                  <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#1a2744] text-white text-xs font-bold flex items-center justify-center mt-0.5">
-                    {step.stepNumber}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-gray-800 mb-0.5">{step.title}</p>
-                    <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
-                    <p className="text-xs text-gray-400 mt-1">{step.estimate}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Section>
-
-          {/* What the student will experience */}
-          <Section title="What to Expect on Ruby">
-            <ul className="space-y-2">
-              {content.experienceBullets.map((b, i) => (
-                <li key={i} className="flex gap-2 text-sm text-gray-700">
-                  <span className="text-[#1a2744] font-bold flex-shrink-0">·</span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </Section>
-
-          {/* For parents */}
-          <Section title="For Parents">
-            <div className="space-y-4">
-              <div>
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">What You May Notice</p>
-                <Prose text={content.parentGuidance.whatYouMayNotice} />
-              </div>
-              <div className="border-t border-gray-100 pt-4">
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">How You Can Help This Week</p>
-                <Prose text={content.parentGuidance.howYouCanHelp} />
-              </div>
-            </div>
-          </Section>
-
-          {/* Expected outcomes */}
-          <Section title="What You Will See Improve">
-            <ul className="space-y-2">
-              {content.expectedOutcomes.map((o, i) => (
-                <li key={i} className="flex gap-2 text-sm text-gray-700">
-                  <span className="text-green-500 flex-shrink-0">✓</span>
-                  {o}
-                </li>
-              ))}
-            </ul>
-          </Section>
-
-          {/* Next steps */}
-          <Section title="Next Steps">
-            <Prose text={content.nextSessionHook} />
-          </Section>
-
-          <p className="text-center text-xs text-gray-300 pb-6">Ruby AI Tutor · Discovery Report</p>
-        </div>
+      {/* ── Bottom bar — stays inside the report panel ── */}
+      <div className="bg-white border-t border-gray-200 px-4 py-3 shadow-lg flex-shrink-0">
+        <button
+          onClick={onStartLearning}
+          className="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-base transition-all hover:bg-green-700 shadow-md"
+        >
+          Start Learning 🚀
+        </button>
       </div>
     </div>
   );

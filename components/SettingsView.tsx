@@ -5,7 +5,7 @@ import { useT } from "@/lib/i18n";
 import SpinningGlobe from "@/components/SpinningGlobe";
 import EduBackground from "@/components/EduBackground";
 import { supabase } from "@/lib/supabase";
-import DiagnosticReportView from "@/components/DiagnosticReportView";
+import SavedReportView from "@/components/SavedReportView";
 
 interface SettingsViewProps {
   onBack: () => void;
@@ -306,7 +306,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
   const close = () => setModal(null);
 
   if (reportPage) {
-    return <DiagnosticReportView subject={reportPage} onBack={() => setReportPage(null)} />;
+    return <SavedReportView subject={reportPage} onBack={() => setReportPage(null)} />;
   }
 
   return (
