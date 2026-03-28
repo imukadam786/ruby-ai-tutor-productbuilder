@@ -163,7 +163,7 @@ export async function POST(req: NextRequest) {
       aiDiagnosis = {
         is_correct: false,
         error_type: preClassified,
-        feedback: `Not quite — the answer is "${submission.expected_answer}". Let's try another one.`,
+        feedback: "Not quite — give it another try!",
         recovery_explanation: skill.recovery_strategy,
       };
     } else {
@@ -220,7 +220,7 @@ Respond in this exact JSON format (no markdown, raw JSON only):
         aiDiagnosis = {
           is_correct: false,
           error_type: preClassified,
-          feedback: `Your answer was "${submission.student_answer}" but the expected answer is "${submission.expected_answer}". Let's keep practising!`,
+          feedback: `Let's work through this together. ${skill.recovery_strategy}`,
           recovery_explanation: skill.recovery_strategy,
         };
       }

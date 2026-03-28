@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
       aiDiagnosis = {
         is_correct: false,
         error_type: preClassifiedError,
-        feedback: `Not quite — the answer is ${submission.expected_answer}. Let's try another one.`,
+        feedback: "Not quite — give it another try!",
         recovery_explanation: skill.recovery_strategy,
       };
     } else {
@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
         aiDiagnosis = {
           is_correct: false,
           error_type: preClassifiedError,
-          feedback: `Your answer was ${submission.student_answer} but the expected answer is ${submission.expected_answer}. Let's look at this step by step.`,
+          feedback: `Let's work through this together. ${skill.recovery_strategy}`,
           recovery_explanation: skill.recovery_strategy,
         };
       }
