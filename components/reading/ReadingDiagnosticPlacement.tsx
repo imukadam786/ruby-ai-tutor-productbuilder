@@ -473,7 +473,6 @@ export default function ReadingDiagnosticPlacement({
   // Refs for stable access inside STT callbacks
   const transcriptRef = useRef("");
   const listeningRef = useRef(false);
-  const ttsHasPlayedRef = useRef(false);
   const micTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Ref keeps latest task id accessible inside the [] useCallback for startVoice
   const currentTaskIdRef = useRef<string>("");
@@ -527,22 +526,17 @@ export default function ReadingDiagnosticPlacement({
     setMicEnabled(false);
     setSubmitReady(false);
     transcriptRef.current = "";
-    ttsHasPlayedRef.current = false;
     if (micTimerRef.current) { clearTimeout(micTimerRef.current); micTimerRef.current = null; }
 
-    // Prefetch TTS immediately so audio is ready by the time the timeout fires
+    // Prefetch TTS immediately so audio is ready when user taps play — no auto-play
     prefetchTTS(task.question);
     if (task.choices) task.choices.forEach((c) => { if (c.speech) prefetchTTS(c.speech); });
 
-    // Small delay then speak
-    const t = setTimeout(() => {
-      cancelSpeech.current = speakText(task.question, () => {
-        ttsHasPlayedRef.current = true;
-        setSpeaking(false);
-      });
-      setSpeaking(true);
-    }, 300);
-    return () => clearTimeout(t);
+    // Enable mic after a short delay — user does not need to hear the question first
+    micTimerRef.current = setTimeout(() => setMicEnabled(true), 800);
+    return () => {
+      if (micTimerRef.current) { clearTimeout(micTimerRef.current); micTimerRef.current = null; }
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskIndex, phase, task]);
 
@@ -563,9 +557,8 @@ export default function ReadingDiagnosticPlacement({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskIndex, phase, task]);
 
-  // Enable mic 500 ms after TTS finishes (once TTS has played at least once per task)
+  // Disable mic while question audio plays; re-enable 500 ms after it stops
   useEffect(() => {
-    if (!ttsHasPlayedRef.current) return;
     if (speaking) { setMicEnabled(false); return; }
     if (micTimerRef.current) clearTimeout(micTimerRef.current);
     micTimerRef.current = setTimeout(() => setMicEnabled(true), 500);
@@ -964,6 +957,9 @@ export default function ReadingDiagnosticPlacement({
             {/* Re-read button */}
             <button
               onClick={() => {
+                cancelChoiceAudio.current?.();
+                cancelChoiceAudio.current = null;
+                setPlayingChoiceValue(null);
                 cancelSpeech.current?.();
                 cancelSpeech.current = speakText(task.question, () => setSpeaking(false));
                 setSpeaking(true);
@@ -971,7 +967,7 @@ export default function ReadingDiagnosticPlacement({
               className="flex items-center gap-1.5 text-sm text-blue-400 hover:text-blue-600 transition-colors"
             >
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-              Hear the question again
+              Hear the question
             </button>
 
             {/* ── Large word display ── */}
