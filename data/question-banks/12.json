@@ -1,0 +1,496 @@
+[
+  {
+    "id": "D01",
+    "domain": "Phonological Awareness – Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do 'ring' and 'sing' rhyme?",
+    "displayWord": "ring • sing",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": true
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D01B",
+    "domain": "Syllable Segmentation",
+    "domainCode": "D001B",
+    "gate": "A",
+    "question": "How many syllables in \"pencil\"?",
+    "displayWord": "pencil",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      }
+    ],
+    "subText": "Say the word quietly and count the beats."
+  },
+  {
+    "id": "D02",
+    "domain": "Phoneme Isolation – First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'wet'? Tap the sound below.",
+    "displayWord": "wet",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "value": "sound-1",
+        "speech": "W, as in wet",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "value": "sound-2",
+        "speech": "short E, as in bed",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "value": "sound-3",
+        "speech": "T, as in top",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
+  },
+  {
+    "id": "D02B",
+    "domain": "Full Phoneme Segmentation",
+    "domainCode": "D002B",
+    "gate": "A",
+    "question": "How many sounds are in \"rain\"?",
+    "displayWord": "rain",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ],
+    "subText": "Count each individual sound — not letters."
+  },
+  {
+    "id": "D03",
+    "domain": "Letter Sound – Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "P",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "value": "sound-1",
+        "speech": "T, as in top",
+        "correct": false
+      },
+      {
+        "label": "Sound 2",
+        "value": "sound-2",
+        "speech": "B, as in bat",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "value": "sound-3",
+        "speech": "P, as in pin",
+        "correct": true
+      }
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
+  },
+  {
+    "id": "D04",
+    "domain": "Letter Sound – Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "e",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "value": "sound-1",
+        "speech": "short E, as in bed",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "value": "sound-2",
+        "speech": "short I, as in sit",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "value": "sound-3",
+        "speech": "short A, as in apple",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
+  },
+  {
+    "id": "D05",
+    "domain": "Digraph Recognition",
+    "answerMode": "audio-tap",
+    "gate": "A",
+    "question": "What sound do these two letters make together?",
+    "subText": "Tap to hear each sound, then choose the right one.",
+    "displayWord": "ck",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "speech": "K – one sound, as in duck",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "speech": "two separate sounds",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "speech": "ch, as in chip",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D05B",
+    "domain": "Digraph Recognition",
+    "answerMode": "audio-tap",
+    "gate": "A",
+    "question": "What sound do these two letters make together?",
+    "subText": "Tap to hear each sound, then choose the right one.",
+    "displayWord": "ng",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "speech": "ng, as in ring",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "speech": "N, as in net",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "speech": "G, as in go",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D06",
+    "domain": "Consonant Blend Decoding",
+    "answerMode": "voice",
+    "gate": "A",
+    "question": "Read this word out loud for me.",
+    "displayWord": "trip",
+    "expectedAnswer": "trip",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "tin",
+    "answerMode": "voice",
+    "expectedAnswer": "tin",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "chick",
+    "answerMode": "voice",
+    "expectedAnswer": "chick",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D09",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "HIDE",
+    "answerMode": "voice",
+    "expectedAnswer": "hide",
+    "vowelPattern": "long i"
+  },
+  {
+    "id": "D10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "COAT",
+    "answerMode": "voice",
+    "expectedAnswer": "coat",
+    "vowelTeam": "oa",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "D10B",
+    "domain": "Phoneme Sequence Blending",
+    "domainCode": "D010B",
+    "gate": "C",
+    "question": "Blend these sounds together: /b/ /r/ /ea/ /d/ — what word do they make?",
+    "displayWord": "/b/ /r/ /ea/ /d/",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "spread",
+        "value": "spread",
+        "correct": false
+      },
+      {
+        "label": "bread",
+        "value": "bread",
+        "correct": true
+      },
+      {
+        "label": "thread",
+        "value": "thread",
+        "correct": false
+      }
+    ],
+    "subText": "Listen to the sounds and blend them into one word."
+  },
+  {
+    "id": "D11",
+    "domain": "Sight Words – Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "DOES",
+    "answerMode": "voice",
+    "expectedAnswer": "does",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "D12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "CORN",
+    "answerMode": "voice",
+    "expectedAnswer": "corn",
+    "rControlledPattern": "or"
+  },
+  {
+    "id": "D13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "MUFFIN",
+    "answerMode": "voice",
+    "expectedAnswer": "muffin",
+    "syllableBreak": "mufÂ·fin"
+  },
+  {
+    "id": "D13B",
+    "domain": "Consonant Blend Encoding",
+    "domainCode": "D013B",
+    "gate": "C",
+    "question": "Spell this word: \"slid\"",
+    "displayWord": "slid",
+    "answerMode": "voice",
+    "expectedAnswer": "s l i d",
+    "voiceHint": "Say each letter clearly, one at a time."
+  },
+  {
+    "id": "D13C",
+    "domain": "Unfamiliar Word Encoding",
+    "domainCode": "D013C",
+    "gate": "C",
+    "question": "Spell this made-up word: \"spod\"",
+    "displayWord": "spod",
+    "answerMode": "voice",
+    "expectedAnswer": "s p o d",
+    "voiceHint": "Use the sounds to work it out, then say each letter."
+  },
+  {
+    "id": "D14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "ELEPHANT",
+    "answerMode": "voice",
+    "expectedAnswer": "elephant",
+    "syllableBreak": "elÂ·eÂ·phant"
+  },
+  {
+    "id": "D15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "Tap the prefix in this word.",
+    "displayWord": "PREPARE",
+    "answerMode": "choice",
+    "expectedAnswer": "pre",
+    "affixType": "prefix",
+    "targetAffix": "pre",
+    "choices": [
+      {
+        "label": "PRE",
+        "value": "pre",
+        "correct": true
+      },
+      {
+        "label": "PARE",
+        "value": "pare",
+        "correct": false
+      },
+      {
+        "label": "UN",
+        "value": "un",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D15B",
+    "domain": "Self-Monitoring for Meaning",
+    "domainCode": "D015B",
+    "gate": "D",
+    "question": "You read \"The dog ran over the pond\" but that doesn't make sense. What should you do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "keep reading",
+        "value": "keep reading",
+        "correct": false
+      },
+      {
+        "label": "go back and check the word",
+        "value": "go back and check the word",
+        "correct": true
+      },
+      {
+        "label": "ask someone to read it for you",
+        "value": "ask someone to read it for you",
+        "correct": false
+      }
+    ],
+    "subText": "Think about what a good reader would do."
+  },
+  {
+    "id": "D16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The spider sat in the middle of her web and waited. A fly buzzed past and landed near the edge of the web. The web trembled. The spider moved fast along one of the silk threads. But the fly felt the web shake and flew away in time.",
+    "passageId": "16.12",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "D17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did the fly do when the web trembled?",
+    "displayWord": "",
+    "passageRef": "16.12",
+    "comprehensionType": "literal",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Flew away",
+        "value": "Flew away",
+        "correct": true
+      },
+      {
+        "label": "Buzzed loudly and stayed still",
+        "value": "Buzzed loudly and stayed still",
+        "correct": false
+      },
+      {
+        "label": "Fell into the web",
+        "value": "Fell into the web",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does this passage tell you about flies and spiders?",
+    "displayWord": "",
+    "passageRef": "16.12",
+    "comprehensionType": "inferential",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Flies can sense danger and are hard for spiders to catch",
+        "value": "Flies can sense danger and are hard for spiders to catch",
+        "correct": true
+      },
+      {
+        "label": "Spiders always miss when hunting flies",
+        "value": "Spiders always miss when hunting flies",
+        "correct": false
+      },
+      {
+        "label": "Flies are faster than spiders in every way",
+        "value": "Flies are faster than spiders in every way",
+        "correct": false
+      }
+    ]
+  }
+]

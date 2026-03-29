@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { apiFetch } from "@/lib/fetch";
 
 // All translatable UI strings (English defaults)
 export const UI_STRINGS: Record<string, string> = {
@@ -27,7 +28,7 @@ export const UI_STRINGS: Record<string, string> = {
   "sidebar.settings_desc": "Preferences",
   "sidebar.logout": "Logout",
   "sidebar.logout_desc": "Sign out",
-  "sidebar.powered_by": "Powered by Groq",
+  "sidebar.powered_by": "Powered by Hula",
   // Home
   "home.ready": "Ready to keep learning?",
   "home.skills_mastered": "Skills Mastered",
@@ -195,7 +196,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     setIsTranslating(true);
     try {
-      const res = await fetch("/api/translate", {
+      const res = await apiFetch("/api/translate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ strings: UI_STRINGS, targetLanguage: lang }),

@@ -1,5 +1,7 @@
 import { StudentProfile, SkillMastery, SkillAttempt, ErrorType, AtomicSkill, MathsPlacementResult } from "@/types/ruby";
 import skillTreeData from "@/data/skill-tree.json";
+import { supabase } from "@/lib/supabase";
+import { retrySupabase } from "@/lib/supabase-retry";
 
 const STUDENT_KEY = "ruby_student_profile";
 const DEFAULT_STARTING_SKILL = "L1.T1.A1";
@@ -21,11 +23,64 @@ export function getStudentProfile(): StudentProfile | null {
 export function saveStudentProfile(profile: StudentProfile): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(STUDENT_KEY, JSON.stringify(profile));
+  // Supabase sync with retry — localStorage is source of truth
+  void retrySupabase(() => supabase.from("student_profiles").upsert({
+    id: profile.id,
+    subject: "maths",
+    name: profile.name,
+    grade: profile.grade,
+    profile_data: profile as unknown as Record<string, unknown>,
+    updated_at: new Date().toISOString(),
+  }, { onConflict: "id" }));
+}
+
+/**
+ * Links this profile to the currently authenticated Supabase user.
+ * Called fire-and-forget on init — enables hydrateStudentProfileFromSupabase() to work.
+ * No-op if not authenticated.
+ */
+export async function linkStudentProfileToAuth(profileId: string): Promise<void> {
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+    void retrySupabase(() =>
+      supabase.from("student_profiles")
+        .update({ auth_user_id: user.id })
+        .eq("id", profileId)
+    );
+  } catch { /* non-critical */ }
+}
+
+/**
+ * When localStorage is empty (e.g. browser data cleared), queries Supabase
+ * for the most recent maths profile linked to the authenticated user,
+ * restores it to localStorage, and returns it.
+ * Returns null if not authenticated or no profile found.
+ */
+export async function hydrateStudentProfileFromSupabase(): Promise<StudentProfile | null> {
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return null;
+    const { data } = await supabase
+      .from("student_profiles")
+      .select("profile_data")
+      .eq("auth_user_id", user.id)
+      .eq("subject", "maths")
+      .order("updated_at", { ascending: false })
+      .limit(1)
+      .single();
+    if (!data?.profile_data) return null;
+    const profile = data.profile_data as unknown as StudentProfile;
+    localStorage.setItem(STUDENT_KEY, JSON.stringify(profile));
+    return profile;
+  } catch {
+    return null;
+  }
 }
 
 export function createStudentProfile(name: string, grade: number): StudentProfile {
   const profile: StudentProfile = {
-    id: `student_${Date.now()}`,
+    id: crypto.randomUUID(),
     name,
     grade,
     current_level: DEFAULT_STARTING_LEVEL,
@@ -76,6 +131,17 @@ export function recordAttempt(
     },
   };
   saveStudentProfile(updated);
+  // Supabase sync with retry
+  void retrySupabase(() => supabase.from("skill_attempts").insert({
+    student_id: profile.id,
+    subject: "maths",
+    skill_id: attempt.skill_id,
+    is_correct: attempt.is_correct,
+    error_type: attempt.error_type ?? null,
+    template: attempt.template ?? null,
+    scaffolded: attempt.scaffolded ?? false,
+    p_learned: updatedMastery.p_learned ?? null,
+  }));
   return updated;
 }
 
@@ -167,7 +233,7 @@ export function arePrerequisitesMet(
   if (!skill) return false;
   if (skill.prerequisites.length === 0) return true;
   return skill.prerequisites.every(
-    (prereqId) => masteryMap[prereqId]?.status === "mastered"
+    (prereqId) => masteryMap[prereqId]?.status === "mastered" || masteryMap[prereqId]?.status === "assumed"
   );
 }
 
@@ -213,23 +279,35 @@ export function getSkillIdsForLevels(belowLevel: number): string[] {
 
 // ─── Maths Placement ──────────────────────────────────────────────────────────
 
+function deriveDominantErrors(tasks: MathsPlacementResult["tasks"]): string[] {
+  const counts: Record<string, number> = {};
+  for (const t of tasks) {
+    if (t.error_type && t.error_type !== "correct") {
+      counts[t.error_type] = (counts[t.error_type] ?? 0) + 1;
+    }
+  }
+  return Object.entries(counts)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 3)
+    .map(([code]) => code);
+}
+
 export function completeMathsPlacement(
   profile: StudentProfile,
   result: MathsPlacementResult
 ): StudentProfile {
   const updatedMastery = { ...profile.skill_mastery };
   for (const skillId of result.autoCompletedSkillIds) {
-    const skill = getSkillById(skillId);
     updatedMastery[skillId] = {
       skill_id: skillId,
-      status: "mastered",
-      correct_count: skill?.mastery_criteria.correct_required ?? 3,
-      attempt_count: skill?.mastery_criteria.correct_required ?? 3,
-      formats_used: ["symbolic"],
+      status: "assumed",
+      correct_count: 0,
+      attempt_count: 0,
+      formats_used: [],
       scaffolded_attempts: 0,
       last_attempted: new Date().toISOString(),
-      mastered_at: new Date().toISOString(),
       attempts: [],
+      p_learned: 0.70,
     };
   }
   const parts = result.entrySkillId.split(".");
@@ -246,5 +324,16 @@ export function completeMathsPlacement(
     last_active: new Date().toISOString(),
   };
   saveStudentProfile(updated);
+  // Supabase: record diagnostic result for analytics (mirrors reading model)
+  void retrySupabase(() => supabase.from("diagnostic_results").insert({
+    student_id: profile.id,
+    subject: "maths",
+    entry_skill_id: result.entrySkillId,
+    entry_level: levelId,
+    auto_completed_skill_ids: result.autoCompletedSkillIds,
+    dominant_errors: deriveDominantErrors(result.tasks),
+    hard_gate_passed: result.hardGatePassed,
+    completed_at: new Date(result.completedAt).toISOString(),
+  }));
   return updated;
 }

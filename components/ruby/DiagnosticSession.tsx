@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { apiFetch } from "@/lib/fetch";
 import {
   StudentProfile,
   GeneratedQuestion,
   DiagnosticResult,
   SkillAttempt,
   QuestionTemplate,
-  MathsSessionRecord,
 } from "@/types/ruby";
 import {
   getStudentProfile,
@@ -18,24 +18,120 @@ import {
   advanceToSkill,
   recordAttempt,
   completeMathsPlacement,
+  linkStudentProfileToAuth,
+  hydrateStudentProfileFromSupabase,
 } from "@/lib/student-model";
 import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
-import { updateSkillMastery, initSkillMastery, determineNextAction, buildReviewQueue, recordMathsSession } from "@/lib/mastery-engine";
-import { getDomainForSkill, getUsedRefs, markQuestionUsed } from "@/lib/question-selector";
+import { updateSkillMastery, initSkillMastery, scanMasteryForReview, pickNeedsReviewSkill, stampMathsReviewedAt } from "@/lib/mastery-engine";
+import { getDomainForSkill, getDomain, getUsedRefs, markQuestionUsed, selectQuestion, bankQuestionToGenerated } from "@/lib/question-selector";
+import { abilityLevel } from "@/lib/bkt";
+import { simplifyQuestion } from "@/lib/question-simplifier";
+import { getReadingProfile } from "@/lib/reading-student-model";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
+import { selectMathsTemplate } from "@/lib/template-selector";
+import { detectStuck } from "@/lib/stuck-detector";
+import StuckScreen from "@/components/shared/StuckScreen";
+import type { DiagnosticReportInput } from "@/lib/report-generator";
+import { describeError } from "@/lib/report-generator";
+import { buildDeterministicReportContent } from "@/lib/report-content-builder";
+import DiagnosticReportView from "@/components/DiagnosticReportView";
+import { useT } from "@/lib/i18n";
+import {
+  identifyStudent,
+  trackQuestionAnswered,
+  trackSkillMastered,
+  trackSkillAdvanced,
+  trackSessionStarted,
+  trackSessionEnded,
+  trackPlacementCompleted,
+} from "@/lib/analytics";
 
-const TEMPLATES: QuestionTemplate[] = ["concrete", "story", "symbolic"];
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "stuck" | "complete";
 
-const RETEACH_TEMPLATES: Record<string, QuestionTemplate> = {
-  execution_slip:            "story",
-  strategy_gap:              "concrete",
-  representation_confusion:  "concrete",
-  conceptual_gap:            "symbolic",
-};
+// ─── Report input builder ─────────────────────────────────────────────────────
+// Constructs DiagnosticReportInput from the completed student profile.
+// Called after placement completes; runs client-side since profile is in localStorage.
 
-type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
+// Maps maths skill tree level (1–22) to the equivalent school grade band.
+// Derived from GATE_PASSED_ENTRY in MathsDiagnosticPlacement:
+//   Gate 0→L2 (Gr1), Gate 1→L4 (Gr2), Gate 2→L5 (Gr3), Gate 3→L8 (Gr4),
+//   Gate 4→L11 (Gr5), Gate 5→L12 (Gr6), Gate 6→L13 (Gr7), Gate 7→L14 (Gr8),
+//   Gate 8→L17 (Gr9), Gate 9→L19 (Gr10), Gate 10→L21 (Gr11), Gate 11→L22 (Gr12)
+function skillLevelToGradeEquiv(level: number): number {
+  if (level <= 3)  return 1;
+  if (level <= 4)  return 2;
+  if (level <= 7)  return 3;
+  if (level <= 10) return 4;
+  if (level <= 11) return 5;
+  if (level <= 12) return 6;
+  if (level <= 13) return 7;
+  if (level <= 16) return 8;
+  if (level <= 18) return 9;
+  if (level <= 20) return 10;
+  if (level <= 21) return 11;
+  return 12;
+}
+
+function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
+  const placement = profile.placement!;
+
+  // Group tasks by domain — count score and collect error types
+  const domainMap: Record<string, { scores: number[]; errors: string[] }> = {};
+  for (const task of placement.tasks) {
+    if (!domainMap[task.domain]) domainMap[task.domain] = { scores: [], errors: [] };
+    domainMap[task.domain].scores.push(task.correct ? 1 : task.score ?? 0);
+    if (task.error_type && task.error_type !== "correct") {
+      domainMap[task.domain].errors.push(task.error_type);
+    }
+  }
+
+  // Build per-domain score objects
+  const domainScores = Object.entries(domainMap).map(([domainId, data]) => {
+    const avg = data.scores.reduce((a, b) => a + b, 0) / data.scores.length;
+    const score = Math.round(avg * 100);
+    const label: "strong" | "building" | "practice" =
+      avg >= 0.8 ? "strong" : avg >= 0.4 ? "building" : "practice";
+    const primaryError = data.errors.length > 0 ? data.errors[0] : null;
+    // Get human-readable domain title from question bank
+    const domainTitle = getDomain(domainId)?.title ?? domainId;
+    const errorNote = primaryError ? (describeError(primaryError, "maths") ?? null) : null;
+    return { domain: domainTitle, score, label, errorNote };
+  });
+
+  // Derive dominant errors (top 3 by frequency across all tasks)
+  const errorCounts: Record<string, number> = {};
+  placement.tasks.forEach((t) => {
+    if (t.error_type && t.error_type !== "correct") {
+      errorCounts[t.error_type] = (errorCounts[t.error_type] ?? 0) + 1;
+    }
+  });
+  const dominantErrors = Object.entries(errorCounts)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 3)
+    .map(([code]) => code);
+
+  // Entry skill plain name
+  const entrySkill = getSkillById(placement.entrySkillId);
+  const placementSkill = entrySkill?.title ?? placement.entrySkillId;
+
+  const gradeEquiv = skillLevelToGradeEquiv(placement.entryLevel);
+
+  return {
+    subject: "maths",
+    studentName: profile.name.split(" ")[0],
+    studentGrade: profile.grade,
+    workingLevel: `Grade ${gradeEquiv}`,
+    gradeLevelGap: profile.grade - gradeEquiv,
+    questionsAnalysed: placement.tasks.length,
+    correctCount: placement.tasks.filter((t) => t.correct).length,
+    domainScores,
+    dominantErrors,
+    placementSkill,
+    skillsCompleted: placement.autoCompletedSkillIds.length,
+  };
+}
 
 function readOnboarding(): { name: string; grade: number } {
   try {
@@ -43,7 +139,8 @@ function readOnboarding(): { name: string; grade: number } {
     if (!raw) return { name: "Student", grade: 7 };
     const data = JSON.parse(raw);
     const name = ((data.name as string) || "Student").split(" ")[0];
-    const grade = parseInt(data.grade as string) || 7;
+    const parsed = parseInt(data.grade as string, 10);
+    const grade = !isNaN(parsed) && parsed >= 1 && parsed <= 12 ? parsed : 7;
     return { name, grade };
   } catch {
     return { name: "Student", grade: 7 };
@@ -51,105 +148,156 @@ function readOnboarding(): { name: string; grade: number } {
 }
 
 export default function DiagnosticSession() {
+  const { language } = useT();
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<GeneratedQuestion | null>(null);
   const [currentResult, setCurrentResult] = useState<DiagnosticResult | null>(null);
-  const [templateIndex, setTemplateIndex] = useState(0);
   const [skillAttemptCount, setSkillAttemptCount] = useState(0);
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
-  const [reteachCount, setReteachCount] = useState(0);
-  const [lastDecision, setLastDecision] = useState<string>("practice");
   const [statusMessage, setStatusMessage] = useState("");
+  const [loadErrorCount, setLoadErrorCount] = useState(0);
+  const retryFnRef = useRef<(() => void) | null>(null);
 
-  // Review queue — skills mastered 7+ days ago, checked before new skill work
-  const [reviewQueue, setReviewQueue] = useState<string[]>([]);
-  const [reviewSkillIndex, setReviewSkillIndex] = useState(0);
-  const [reviewCorrect, setReviewCorrect] = useState(0);
-  const [reviewAttempts, setReviewAttempts] = useState(0);
-  // activeSkillId holds the student's real current skill while reviewing
-  const [activeSkillId, setActiveSkillId] = useState<string | null>(null);
+  // Report state — shown after placement before learning begins
+  const [pendingPlacementResult, setPendingPlacementResult] = useState<MathsPlacementResult | null>(null);
+  const [showReport, setShowReport] = useState(false);
 
-  // Cross-session stability — one session record per skill per session
-  const hasRecordedSession = useRef(false);
-  const sessionIdRef = useRef<string>(crypto.randomUUID());
+  // Needs-review: skill ID of a stale mastered skill to probe before main practice
+  const [pendingReviewSkillId, setPendingReviewSkillId] = useState<string | null>(null);
+
+  // Recent templates — used by selectMathsTemplate for anti-repetition; last 3 kept
+  const recentTemplatesRef = useRef<QuestionTemplate[]>([]);
+
+  // Stuck detection — tracks attempt_count when student last dismissed the stuck screen
+  const stuckDismissedAtRef = useRef(0);
+  const [stuckAttemptCount, setStuckAttemptCount] = useState(0);
+
 
   useEffect(() => {
+    function initWithProfile(saved: import("@/types/ruby").StudentProfile) {
+      // Sync grade and name from onboarding if they differ from the stored profile.
+      // Handles the case where a tester or user changes grade between sessions.
+      const { name: onboardingName, grade: onboardingGrade } = readOnboarding();
+      const gradeChanged = onboardingGrade !== saved.grade;
+      const nameChanged = onboardingName !== "Student" && onboardingName !== saved.name.split(" ")[0];
+      const synced = (gradeChanged || nameChanged)
+        ? { ...saved, grade: gradeChanged ? onboardingGrade : saved.grade, name: nameChanged ? onboardingName : saved.name }
+        : saved;
+
+      identifyStudent({ id: synced.id, name: synced.name, grade: synced.grade });
+      // Keep auth link fresh — fire-and-forget, non-blocking
+      void linkStudentProfileToAuth(synced.id);
+      if (synced.placementCompleted) {
+        trackSessionStarted({
+          subject: "maths",
+          current_skill_id: synced.current_skill_id,
+          current_level: synced.current_level,
+        });
+      }
+      const scannedMastery = synced.placementCompleted ? scanMasteryForReview(synced.skill_mastery) : synced.skill_mastery;
+      const scanned = scannedMastery !== synced.skill_mastery ? { ...synced, skill_mastery: scannedMastery } : synced;
+      if (scanned !== saved) saveStudentProfile(scanned);
+      setProfile(scanned);
+      const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
+      setSkillAttemptCount(restoredAttemptCount);
+      const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scannedMastery) : null;
+      if (reviewSkill) setPendingReviewSkillId(reviewSkill);
+      setPhase("loading_question");
+    }
+
     const saved = getStudentProfile();
     if (saved) {
-      const queue = buildReviewQueue(saved);
-      if (queue.length > 0) {
-        // Park the real active skill, load first review skill instead
-        setActiveSkillId(saved.current_skill_id);
-        setReviewQueue(queue);
-        setProfile({ ...saved, current_skill_id: queue[0] });
-      } else {
-        setProfile(saved);
-      }
-      setPhase("loading_question");
+      initWithProfile(saved);
     } else {
-      // Auto-create profile from onboarding data — no setup screen needed
-      const { name, grade } = readOnboarding();
-      const newProfile = createStudentProfile(name, grade);
-      setProfile(newProfile);
-      // phase stays at loading_question; placement gate will intercept
+      // localStorage cleared — try to restore from Supabase before creating a new profile
+      hydrateStudentProfileFromSupabase().then((restored) => {
+        if (restored) {
+          initWithProfile(restored);
+        } else {
+          const { name, grade } = readOnboarding();
+          const newProfile = createStudentProfile(name, grade);
+          identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
+          setProfile(newProfile);
+          // phase stays at loading_question; placement gate will intercept
+        }
+      });
     }
   }, []);
 
   const loadQuestion = useCallback(
-    async (skillId: string, _template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile, forceHint = false) => {
-      setPhase("loading_question");
-      setStatusMessage("Loading your question...");
+    (skillId: string, _template: QuestionTemplate, attemptNum: number, currentProfile: StudentProfile, forceHint = false) => {
+      retryFnRef.current = () => loadQuestion(skillId, _template, attemptNum, currentProfile, forceHint);
       try {
-        // Get used refs so server can exclude already-seen questions
         const domainId = getDomainForSkill(skillId);
-        const usedRefs = domainId ? getUsedRefs(currentProfile, domainId) : [];
+        if (!domainId) {
+          setLoadErrorCount((c) => c + 1);
+          setStatusMessage("No questions available for this skill.");
+          return;
+        }
 
-        const res = await fetch("/api/ruby/generate-question", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            skill_id: skillId,
-            attempt_number: attemptNum,
-            include_hint: forceHint || attemptNum > 1, // always include hint on reteach
-            used_refs: usedRefs,
-          }),
-        });
-        if (!res.ok) throw new Error("Failed to load question");
-        const q: GeneratedQuestion = await res.json();
+        const usedRefs = getUsedRefs(currentProfile, domainId);
+        const skillPLearned = currentProfile.skill_mastery[skillId]?.p_learned;
+        const ability = skillPLearned !== undefined ? abilityLevel(skillPLearned) : undefined;
+        const bankQ = selectQuestion(domainId, usedRefs, forceHint || attemptNum > 1, skillId, ability);
 
-        // Mark question as used in student profile immediately
+        if (!bankQ) {
+          setLoadErrorCount((c) => c + 1);
+          setStatusMessage("No questions available for this skill.");
+          return;
+        }
+
+        const readingProfile = getReadingProfile();
+        const readingLevel = readingProfile?.current_level ?? 5;
+        let q = simplifyQuestion(
+          bankQuestionToGenerated(bankQ, skillId, domainId, forceHint || attemptNum > 1) as GeneratedQuestion,
+          readingLevel
+        );
+
         if (q.domain_id && q.question_ref) {
-          const updatedProfile = markQuestionUsed(currentProfile, q.domain_id, q.question_ref);
-          saveStudentProfile(updatedProfile);
-          setProfile(updatedProfile);
+          try {
+            const updatedProfile = markQuestionUsed(currentProfile, q.domain_id, q.question_ref);
+            saveStudentProfile(updatedProfile);
+            setProfile(updatedProfile);
+          } catch {
+            // localStorage full or unavailable — continue without saving used ref
+          }
         }
 
         setCurrentQuestion(q);
+        setLoadErrorCount(0);
         setPhase("question");
-      } catch {
-        setStatusMessage("Failed to load question. Please refresh or check your connection.");
+      } catch (err) {
+        console.error("[loadQuestion] unexpected error:", err);
+        setLoadErrorCount((c) => c + 1);
+        setStatusMessage("Something went wrong loading the next question. Please try again.");
       }
     },
     []
   );
 
   useEffect(() => {
-    if (phase === "loading_question" && profile) {
-      const template = TEMPLATES[templateIndex % TEMPLATES.length];
-      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, profile, lastDecision === "reteach");
-    }
-  }, [phase, profile, templateIndex, skillAttemptCount, loadQuestion, lastDecision]);
+    scrollRef.current?.scrollTo({ top: 0 });
+  }, [phase, currentQuestion?.id]);
 
-  const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean) => {
+  useEffect(() => {
+    if (phase === "loading_question" && profile) {
+      const errorType = (currentResult && !currentResult.is_correct) ? (currentResult.error_type ?? null) : null;
+      const lastWasWrong = currentResult?.is_correct === false;
+      const template = selectMathsTemplate(lastWasWrong, errorType, recentTemplatesRef.current);
+      recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
+      const skillIdToLoad = pendingReviewSkillId ?? profile.current_skill_id;
+      loadQuestion(skillIdToLoad, template, skillAttemptCount + 1, profile, lastWasWrong);
+    }
+  }, [phase, profile, skillAttemptCount, loadQuestion, currentResult]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean, workingImage?: string) => {
     if (!currentQuestion || !profile) return;
 
-    // Notify page-level survey tracker that a maths question was answered
-    document.dispatchEvent(new CustomEvent("ruby-question-answered", { detail: { type: "maths" } }));
-
     try {
-      const res = await fetch("/api/ruby/submit-answer", {
+      const res = await apiFetch("/api/ruby/submit-answer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -162,6 +310,9 @@ export default function DiagnosticSession() {
           student_steps: steps,
           expected_answer: currentQuestion.expected_answer,
           used_hint: usedHint,
+          attempt_number: skillAttemptCount + 1,
+          language,
+          working_image: workingImage,
         }),
       });
 
@@ -176,7 +327,7 @@ export default function DiagnosticSession() {
         profile.skill_mastery[currentQuestion.skill_id] ||
         initSkillMastery(currentQuestion.skill_id);
 
-      const updatedMastery = updateSkillMastery(existingMastery, attempt, skill);
+      const updatedMastery = updateSkillMastery(existingMastery, attempt, profile.grade, currentQuestion.difficulty);
       result.mastery_update = {
         skill_id: currentQuestion.skill_id,
         new_status: updatedMastery.status,
@@ -185,204 +336,164 @@ export default function DiagnosticSession() {
         formats_used: updatedMastery.formats_used,
       };
 
-      // Compute post-attempt session totals for the decision engine
+      // BKT drives everything — mastery status is the sole progression signal
       const newSessionAttempts = sessionAttempts + 1;
       const newSessionCorrect = sessionCorrect + (result.is_correct ? 1 : 0);
-
-      // Determine next action
-      const nextAction = determineNextAction(
-        updatedMastery,
-        updatedMastery.attempts,
-        3, // skills in tier (simplified)
-        Object.values(profile.skill_mastery).filter(
-          (m) => m.skill_id.startsWith(profile.current_tier_id) && m.status === "mastered"
-        ).length,
-        3,
-        3,
-        newSessionCorrect,
-        newSessionAttempts,
-        reteachCount
-      );
-      result.next_action = nextAction;
+      result.next_action = updatedMastery.status === "mastered" ? "advance_skill" : "continue_skill";
 
       setSessionAttempts(newSessionAttempts);
       setSessionCorrect(newSessionCorrect);
       setSkillAttemptCount((n) => n + 1);
 
-      // ACCELERATE — force mastery and go straight to mastered screen
-      if (nextAction === "accelerate") {
-        const masteredMastery = {
-          ...updatedMastery,
-          status: "mastered" as const,
-          mastered_at: new Date().toISOString(),
-        };
-        const acceleratedProfile = recordAttempt(profile, attempt, masteredMastery);
-        setProfile(acceleratedProfile);
-        result.next_action = "advance_skill";
-        setCurrentResult(result);
-        setPhase("mastered");
-        return;
-      }
+      trackQuestionAnswered({
+        subject: "maths",
+        skill_id: currentQuestion.skill_id,
+        template: currentQuestion.template,
+        is_correct: result.is_correct,
+        used_hint: usedHint,
+        attempt_number: skillAttemptCount + 1,
+      });
 
-      // Record attempt in profile (non-accelerate path)
-      const updatedProfile = recordAttempt(profile, attempt, updatedMastery);
+      const isReviewQuestion = pendingReviewSkillId === currentQuestion.skill_id;
+      const profileAfterAttempt = recordAttempt(profile, attempt, updatedMastery);
+      const updatedProfile = isReviewQuestion
+        ? stampMathsReviewedAt(profileAfterAttempt, currentQuestion.skill_id)
+        : profileAfterAttempt;
+      if (isReviewQuestion) setPendingReviewSkillId(null);
       setProfile(updatedProfile);
 
-      // ── Review mode: 2–3 question retention check ──────────────────────────
-      const inReview = reviewQueue.length > 0 && reviewSkillIndex < reviewQueue.length;
-      if (inReview) {
-        const newReviewAttempts = reviewAttempts + 1;
-        const newReviewCorrect = reviewCorrect + (result.is_correct ? 1 : 0);
-        setReviewAttempts(newReviewAttempts);
-        setReviewCorrect(newReviewCorrect);
-
-        if (newReviewAttempts >= 2) {
-          const passed = newReviewCorrect / newReviewAttempts >= 0.75;
-          const reviewedSkillId = reviewQueue[reviewSkillIndex];
-          const now = new Date().toISOString();
-
-          // Write last_reviewed_at regardless of pass/fail — prevents re-queuing for 7 days
-          const reviewedMastery = {
-            ...updatedProfile.skill_mastery[reviewedSkillId],
-            last_reviewed_at: now,
-            needs_reinforcement: passed ? false : true,
-          };
-          const profileAfterReview = {
-            ...updatedProfile,
-            skill_mastery: { ...updatedProfile.skill_mastery, [reviewedSkillId]: reviewedMastery },
-          };
-
-          if (!passed) {
-            console.log(`[SpacedRep] Skill ${reviewedSkillId} failed review — flagged for reinforcement`);
-          }
-
-          const nextReviewIndex = reviewSkillIndex + 1;
-          setReviewSkillIndex(nextReviewIndex);
-          setReviewCorrect(0);
-          setReviewAttempts(0);
-
-          if (nextReviewIndex < reviewQueue.length) {
-            // Move to next review skill
-            const nextReviewSkillId = reviewQueue[nextReviewIndex];
-            setProfile({ ...profileAfterReview, current_skill_id: nextReviewSkillId });
-          } else {
-            // All reviews done — restore the active skill
-            const resumeSkillId = activeSkillId ?? updatedProfile.current_skill_id;
-            setProfile({ ...profileAfterReview, current_skill_id: resumeSkillId });
-            setActiveSkillId(null);
-            setReviewQueue([]);
-          }
-          setSkillAttemptCount(0);
-          setTemplateIndex(0);
-          setPhase("loading_question");
-          return;
-        }
-
-        // Still within the 2–3 question window — next question on same review skill
-        setCurrentResult(result);
-        setPhase("feedback");
-        return;
-      }
-      // ── End review mode ────────────────────────────────────────────────────
-
       if (updatedMastery.status === "mastered") {
+        saveStudentProfile(updatedProfile);
+        trackSkillMastered({
+          subject: "maths",
+          skill_id: currentQuestion.skill_id,
+          level: profile.current_level,
+          session_attempt_count: newSessionAttempts,
+          session_correct: newSessionCorrect,
+        });
         result.next_action = "advance_skill";
         setCurrentResult(result);
+        document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "maths" } }));
         setPhase("mastered");
       } else {
-        // Increment reteachCount when engine decides RETEACH
-        if (nextAction === "reteach") setReteachCount((n) => n + 1);
         setCurrentResult(result);
-        setPhase("feedback");
+        const stuckState = detectStuck(
+          updatedMastery.attempt_count,
+          updatedMastery.p_learned ?? 0,
+          stuckDismissedAtRef.current,
+        );
+        if (stuckState.level === "stuck") {
+          setStuckAttemptCount(stuckState.attemptCount);
+          setPhase("stuck");
+        } else {
+          setPhase("feedback");
+        }
       }
     } catch (e) {
       console.error(e);
+      setStatusMessage("Something went wrong — please try submitting again.");
+      setPhase("question");
     }
   };
 
   const handleNextAfterFeedback = () => {
     if (!profile || !currentResult) return;
 
-    if (currentResult.next_action === "review_prerequisite") {
-      const skill = getSkillById(profile.current_skill_id);
-      if (skill && skill.prerequisites.length > 0) {
-        const prereqId = skill.prerequisites[skill.prerequisites.length - 1];
-        // Record session as not passed — student is backtracking off this skill
-        let latestProfile = profile;
-        if (!hasRecordedSession.current) {
-          hasRecordedSession.current = true;
-          const mastery = profile.skill_mastery[profile.current_skill_id];
-          if (mastery) {
-            const record: MathsSessionRecord = {
-              sessionId: sessionIdRef.current,
-              timestamp: Date.now(),
-              accuracy: sessionAttempts > 0 ? sessionCorrect / sessionAttempts : 0,
-              passed: false,
-            };
-            const updatedMastery = recordMathsSession(mastery, record);
-            latestProfile = { ...profile, skill_mastery: { ...profile.skill_mastery, [profile.current_skill_id]: updatedMastery } };
-          }
-        }
-        const updated = advanceToSkill(latestProfile, prereqId);
-        setProfile(updated);
-        setSkillAttemptCount(0);
-        setTemplateIndex(0);
-        setReteachCount(0);
-        setLastDecision("practice");
-        setPhase("loading_question");
-        return;
-      }
-    }
-
-    // RETEACH — changed strategy: different template + proactive hint + framing
-    if (currentResult.next_action === "reteach") {
-      const errorType = currentResult.error_type ?? "";
-      const reteachTemplate = RETEACH_TEMPLATES[errorType] ?? TEMPLATES[templateIndex % TEMPLATES.length];
-      const reteachIndex = TEMPLATES.indexOf(reteachTemplate);
-      setLastDecision("reteach");
-      setTemplateIndex(reteachIndex >= 0 ? reteachIndex : templateIndex + 1);
-      setPhase("loading_question");
-      return;
-    }
-
-    // PRACTICE — same as continue_skill: advance template, same skill
-    // continue_skill also falls through here for backward compatibility
-    setLastDecision("practice");
-    setTemplateIndex((i) => i + 1);
     setPhase("loading_question");
+  };
+
+  const handleMarkDone = () => {
+    if (!profile || !currentQuestion) return;
+    try {
+      const skillId = currentQuestion.skill_id;
+      const existingMastery = profile.skill_mastery[skillId] || initSkillMastery(skillId);
+      const assumedMastery = { ...existingMastery, status: "assumed" as const };
+      const profileWithAssumed = {
+        ...profile,
+        skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
+      };
+      const nextSkillId = getNextSkillId(skillId);
+      if (nextSkillId) {
+        trackSkillAdvanced({ subject: "maths", from_skill_id: skillId, to_skill_id: nextSkillId });
+        const advanced = advanceToSkill(profileWithAssumed, nextSkillId);
+        saveStudentProfile(advanced);
+        setProfile(advanced);
+      } else {
+        saveStudentProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+      }
+      stuckDismissedAtRef.current = 0;
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase(nextSkillId ? "loading_question" : "complete");
+    } catch (err) {
+      console.error("[handleMarkDone] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
+    }
+  };
+
+  const handleSkipOnLoadError = () => {
+    if (!profile) return;
+    try {
+      setLoadErrorCount(0);
+      const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
+      const existingMastery = profile.skill_mastery[skillId] || initSkillMastery(skillId);
+      const profileWithAssumed = {
+        ...profile,
+        skill_mastery: { ...profile.skill_mastery, [skillId]: { ...existingMastery, status: "assumed" as const } },
+      };
+      const nextSkillId = getNextSkillId(skillId);
+      if (nextSkillId) {
+        const advanced = advanceToSkill(profileWithAssumed, nextSkillId);
+        saveStudentProfile(advanced);
+        setProfile(advanced);
+      } else {
+        saveStudentProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+      }
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase(nextSkillId ? "loading_question" : "complete");
+    } catch (err) {
+      console.error("[handleSkipOnLoadError] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
+    }
+  };
+
+  const handleKeepTrying = () => {
+    if (!currentQuestion || !profile) return;
+    const mastery = profile.skill_mastery[currentQuestion.skill_id];
+    stuckDismissedAtRef.current = mastery?.attempt_count ?? skillAttemptCount;
+    setPhase("feedback");
   };
 
   const handleNextAfterMastered = () => {
     if (!profile) return;
-    // Record session as passed — student has met stability and is advancing
-    let latestProfile = profile;
-    if (!hasRecordedSession.current) {
-      hasRecordedSession.current = true;
-      const mastery = profile.skill_mastery[profile.current_skill_id];
-      if (mastery) {
-        const record: MathsSessionRecord = {
-          sessionId: sessionIdRef.current,
-          timestamp: Date.now(),
-          accuracy: sessionAttempts > 0 ? sessionCorrect / sessionAttempts : 1,
-          passed: true,
-        };
-        const updatedMastery = recordMathsSession(mastery, record);
-        latestProfile = { ...profile, skill_mastery: { ...profile.skill_mastery, [profile.current_skill_id]: updatedMastery } };
+    try {
+      const nextSkillId = getNextSkillId(profile.current_skill_id);
+      if (nextSkillId) {
+        trackSkillAdvanced({ subject: "maths", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
+        const updated = advanceToSkill(profile, nextSkillId);
+        setProfile(updated);
+        setSkillAttemptCount(0);
+        recentTemplatesRef.current = [];
+        setPhase("loading_question");
+      } else {
+        setPhase("complete");
       }
-    }
-    const nextSkillId = getNextSkillId(latestProfile.current_skill_id);
-    if (nextSkillId) {
-      const updated = advanceToSkill(latestProfile, nextSkillId);
-      setProfile(updated);
-      setSkillAttemptCount(0);
-      setTemplateIndex(0);
-      setReteachCount(0);
-      setLastDecision("practice");
-      setPhase("loading_question");
-    } else {
-      setPhase("complete");
+    } catch (err) {
+      console.error("[handleNextAfterMastered] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
     }
   };
+
+  const handleViewReport = useCallback(
+    (result: MathsPlacementResult) => {
+      setPendingPlacementResult(result);
+      setShowReport(true);
+    },
+    []
+  );
 
   const handlePlacementComplete = useCallback(
     (result: MathsPlacementResult) => {
@@ -390,6 +501,36 @@ export default function DiagnosticSession() {
       const updatedProfile = completeMathsPlacement(profile, result);
       setProfile(updatedProfile);
       setPhase("loading_question");
+
+      // Track placement completion
+      trackPlacementCompleted({
+        subject: "maths",
+        grade: profile.grade,
+        entry_level: result.entryLevel,
+        grade_gap: profile.grade - result.entryLevel,
+        hard_gate_passed: result.hardGatePassed,
+        questions_analysed: result.tasks.length,
+        skills_auto_completed: result.autoCompletedSkillIds.length,
+        placement_block: result.placementBlock ?? null,
+        early_exit_reason: result.earlyExitReason ?? null,
+      });
+      trackSessionStarted({
+        subject: "maths",
+        current_skill_id: updatedProfile.current_skill_id,
+        current_level: updatedProfile.current_level,
+      });
+
+      // Build and persist report to localStorage for parent viewing
+      try {
+        const input = buildMathsReportInput(updatedProfile);
+        const content = buildDeterministicReportContent(input);
+        localStorage.setItem(
+          "ruby_maths_report",
+          JSON.stringify({ input, content, generatedAt: Date.now() })
+        );
+      } catch (err) {
+        console.error("[DiagnosticComplete] Report save failed:", err);
+      }
     },
     [profile]
   );
@@ -402,10 +543,9 @@ export default function DiagnosticSession() {
     setProfile(freshProfile);
     setPhase("loading_question");
     setSkillAttemptCount(0);
-    setTemplateIndex(0);
+    recentTemplatesRef.current = [];
     setSessionCorrect(0);
     setSessionAttempts(0);
-    setReteachCount(0);
   };
 
   // Skill-tree-only reset — keeps placement result, returns to entry point with fresh questions
@@ -442,10 +582,9 @@ export default function DiagnosticSession() {
     setProfile(updated);
     setPhase("loading_question");
     setSkillAttemptCount(0);
-    setTemplateIndex(0);
+    recentTemplatesRef.current = [];
     setSessionCorrect(0);
     setSessionAttempts(0);
-    setReteachCount(0);
   };
 
   // Refs always point to latest profile + functions — fixes stale closure in event handler
@@ -454,33 +593,33 @@ export default function DiagnosticSession() {
   const actionsRef = useRef({ resetToPlacement, resetSkillTree });
   actionsRef.current = { resetToPlacement, resetSkillTree };
 
-  // Reset session-record flag when the student moves to a new skill
+  // Reset template history when the student moves to a new skill
   const prevSkillRef = useRef<string | null>(null);
   if (profile && profile.current_skill_id !== prevSkillRef.current) {
     prevSkillRef.current = profile.current_skill_id;
-    hasRecordedSession.current = false;
-    sessionIdRef.current = crypto.randomUUID();
+    recentTemplatesRef.current = [];
   }
 
-  // On unmount — write a session record if not already written for this skill
+  // Refs for session totals — accessible in unmount cleanup without stale closure
+  const sessionAttemptsRef = useRef(0);
+  const sessionCorrectRef = useRef(0);
+  sessionAttemptsRef.current = sessionAttempts;
+  sessionCorrectRef.current = sessionCorrect;
+
+  // On unmount — emit session_ended analytics
   useEffect(() => {
     return () => {
       const p = profileRef.current;
-      if (!p || hasRecordedSession.current) return;
-      hasRecordedSession.current = true;
-      const mastery = p.skill_mastery[p.current_skill_id];
-      if (!mastery) return;
-      const record: MathsSessionRecord = {
-        sessionId: sessionIdRef.current,
-        timestamp: Date.now(),
-        accuracy: 0,
-        passed: mastery.status === "mastered",
-      };
-      const updatedMastery = recordMathsSession(mastery, record);
-      const updatedProfile = { ...p, skill_mastery: { ...p.skill_mastery, [p.current_skill_id]: updatedMastery } };
-      // saveStudentProfile is called inside student-model — import inline to avoid circular dep
-      if (typeof window !== "undefined") {
-        localStorage.setItem("ruby_student_profile", JSON.stringify(updatedProfile));
+      const attempts = sessionAttemptsRef.current;
+      const correct = sessionCorrectRef.current;
+
+      if (p?.placementCompleted && attempts > 0) {
+        trackSessionEnded({
+          subject: "maths",
+          questions_answered: attempts,
+          correct,
+          accuracy: Math.round((correct / attempts) * 100),
+        });
       }
     };
   }, []);
@@ -508,11 +647,30 @@ export default function DiagnosticSession() {
 
   // Placement gate — show discovery activity before regular learning begins
   if (profile && !profile.placementCompleted) {
+    // Report view — shown after placement, before learning begins
+    if (showReport && pendingPlacementResult) {
+      const reportInput = buildMathsReportInput({
+        ...profile,
+        placement: { ...pendingPlacementResult, completedAt: Date.now(), placementCompletedAt: Date.now() },
+        placementCompleted: true,
+      });
+      return (
+        <DiagnosticReportView
+          input={reportInput}
+          onStartLearning={() => {
+            setShowReport(false);
+            handlePlacementComplete(pendingPlacementResult);
+          }}
+        />
+      );
+    }
+
     return (
       <MathsDiagnosticPlacement
         studentName={profile.name}
         grade={profile.grade}
         onComplete={handlePlacementComplete}
+        onViewReport={handleViewReport}
       />
     );
   }
@@ -521,11 +679,36 @@ export default function DiagnosticSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-gray-600 font-medium">{statusMessage || "Loading..."}</p>
-          </div>
+        <div className="flex-1 flex items-center justify-center p-6">
+          {loadErrorCount === 0 ? (
+            <div className="text-center">
+              <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-gray-600 font-medium">{statusMessage || "Ruby is personalising your learning..."}</p>
+            </div>
+          ) : (
+            <div className="text-center max-w-sm w-full space-y-4">
+              <div className="text-4xl">⚠️</div>
+              <p className="text-gray-800 font-semibold">
+                {loadErrorCount >= 3 ? "Still not loading" : "Couldn't load the question"}
+              </p>
+              <p className="text-gray-500 text-sm">Check your connection and try again.</p>
+              {loadErrorCount < 3 ? (
+                <button
+                  onClick={() => retryFnRef.current?.()}
+                  className="w-full bg-blue-500 text-white py-3 rounded-2xl font-semibold hover:bg-blue-600 transition-colors"
+                >
+                  Try again
+                </button>
+              ) : (
+                <button
+                  onClick={handleSkipOnLoadError}
+                  className="w-full bg-gray-200 text-gray-700 py-3 rounded-2xl font-semibold hover:bg-gray-300 transition-colors"
+                >
+                  Skip this question
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     );
@@ -536,20 +719,8 @@ export default function DiagnosticSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
-            {reviewQueue.length > 0 && reviewSkillIndex < reviewQueue.length && (
-              <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-2 text-sm text-amber-800">
-                Quick check — you mastered this before. Let&apos;s make sure it&apos;s still solid.
-              </div>
-            )}
-            {lastDecision === "reteach" && (
-              <div className="bg-orange-50 border border-orange-200 rounded-xl px-4 py-2 text-sm text-orange-800">
-                {reteachCount >= 2
-                  ? "One more go — slightly different approach."
-                  : "Let's try this a different way."}
-              </div>
-            )}
             {skill && (
               <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
                 <div className="flex-1">
@@ -566,7 +737,7 @@ export default function DiagnosticSession() {
               question={currentQuestion}
               onSubmit={handleSubmitAnswer}
               isSubmitting={false}
-              forceHint={lastDecision === "reteach"}
+              forceHint={currentResult?.is_correct === false}
             />
           </div>
         </div>
@@ -578,8 +749,6 @@ export default function DiagnosticSession() {
     const nextLabels: Record<string, string> = {
       continue_skill: "Try another question",
       practice: "Next question",
-      reteach: "Try a different approach",
-      review_prerequisite: "Review prerequisite skill",
       advance_skill: "Next skill",
       advance_tier: "Next topic",
       advance_level: "Next level",
@@ -587,7 +756,7 @@ export default function DiagnosticSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto">
             <FeedbackCard
               result={currentResult}
@@ -606,23 +775,40 @@ export default function DiagnosticSession() {
       <div className="flex flex-col h-full bg-gray-50">
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
-          <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
-            <div className="text-5xl mb-2">🏆</div>
-            <h3 className="text-2xl font-bold text-green-800">Skill Mastered!</h3>
-            <p className="text-green-700">
-              You&apos;ve mastered <strong>{skill?.title || "this skill"}</strong>!
+          <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
+            <div className="text-6xl mb-1">🎉</div>
+            <div className="flex justify-center gap-2 text-2xl">⭐⭐⭐</div>
+            <h3 className="text-2xl font-bold text-green-800">Skill Complete!</h3>
+            <p className="text-green-700 text-lg">
+              You mastered <strong>{skill?.title || "this skill"}</strong>!
             </p>
             {currentResult && (
-              <p className="text-gray-600 text-sm">{currentResult.feedback}</p>
+              <p className="text-gray-500 text-sm">{currentResult.feedback}</p>
             )}
             <button
               onClick={handleNextAfterMastered}
-              className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-medium transition-all shadow-md mt-2"
+              className="w-full bg-green-500 hover:bg-green-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md mt-2"
             >
-              Continue to Next Skill →
+              Keep going →
             </button>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (phase === "stuck" && currentQuestion) {
+    const skill = getSkillById(currentQuestion.skill_id);
+    return (
+      <div className="flex flex-col h-full bg-gray-50">
+        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <StuckScreen
+          skillTitle={skill?.title ?? "this skill"}
+          subject="maths"
+          attemptCount={stuckAttemptCount}
+          onMarkDone={handleMarkDone}
+          onKeepTrying={handleKeepTrying}
+        />
       </div>
     );
   }

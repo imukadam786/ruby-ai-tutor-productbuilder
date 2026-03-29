@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { groq, GROQ_MODEL } from "@/lib/anthropic";
+import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { ReadingErrorType } from "@/types/reading";
 
 const TASK_MASTERY_THRESHOLDS: Record<string, number> = {
@@ -63,11 +63,11 @@ Respond in this exact JSON format (raw JSON only, no markdown):
 
 Set "correct" to true if score >= ${threshold}. Use "correct" as errorType when the student succeeds.`;
 
-    const aiResponse = await groq.chat.completions.create({
-      model: GROQ_MODEL,
+    const aiResponse = await getOpenAI().chat.completions.create({
+      model: OPENAI_MODEL,
       max_tokens: 256,
       messages: [{ role: "user", content: prompt }],
-    });
+    }, { signal: AbortSignal.timeout(20_000) });
 
     const aiText = aiResponse.choices[0]?.message?.content ?? "";
 

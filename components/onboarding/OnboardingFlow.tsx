@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { getTranslations } from "@/lib/onboarding-translations";
 import { supabase } from "@/lib/supabase";
-import Flag from "react-world-flags";
 
 export type OnboardingData = {
   language: string;
@@ -13,16 +12,25 @@ export type OnboardingData = {
   name: string;
   email: string;
   plan: string;
+  userId?: string;
 };
 
-const LANGUAGES = [
-  "English",
-  "Afrikaans", "isiNdebele", "isiXhosa", "isiZulu",
-  "Sepedi", "Sesotho", "Setswana", "siSwati",
-  "Tshivenda", "Xitsonga",
+const LANGUAGES: { value: string; label: string }[] = [
+  { value: "English",    label: "English" },
+  { value: "Afrikaans",  label: "Afrikaans" },
+  { value: "isiNdebele", label: "isiNdebele" },
+  { value: "isiXhosa",   label: "isiXhosa" },
+  { value: "isiZulu",    label: "isiZulu" },
+  { value: "Sepedi",     label: "Sepedi" },
+  { value: "Sesotho",    label: "Sesotho" },
+  { value: "Setswana",   label: "Setswana" },
+  { value: "siSwati",    label: "siSwati" },
+  { value: "Tshivenda",  label: "Tshivenda" },
+  { value: "Xitsonga",   label: "Xitsonga" },
 ];
 
 const GRADES = [
+  { grade: "1", emoji: "⭐" }, { grade: "2", emoji: "⭐" },
   { grade: "3", emoji: "😊" }, { grade: "4", emoji: "😊" },
   { grade: "5", emoji: "😊" }, { grade: "6", emoji: "😊" },
   { grade: "7", emoji: "😎" }, { grade: "8", emoji: "😎" },
@@ -60,13 +68,13 @@ function ScoreChart({ bars }: { bars: number[] }) {
 }
 
 const CURRICULA: { label: string; flag: string }[] = [
-  { label: "CAPS",                    flag: "ZA" },
-  { label: "IEB",                     flag: "ZA" },
-  { label: "CAPS-SID",                flag: "ZA" },
-  { label: "LSEN",                    flag: "ZA" },
-  { label: "American Curriculum",     flag: "US" },
-  { label: "Cambridge International", flag: "GB" },
-  { label: "British Curriculum",      flag: "GB" },
+  { label: "CAPS",                    flag: "🇿🇦" },
+  { label: "IEB",                     flag: "🇿🇦" },
+  { label: "CAPS-SID",                flag: "🇿🇦" },
+  { label: "LSEN",                    flag: "🇿🇦" },
+  { label: "American Curriculum",     flag: "🇺🇸" },
+  { label: "Cambridge International", flag: "🇬🇧" },
+  { label: "British Curriculum",      flag: "🇬🇧" },
 ];
 
 const PLANS = [
@@ -110,7 +118,7 @@ const PLANS = [
   },
 ];
 
-// Steps: 1=language, 2=grade, 3=score, 4=curriculum, 5=create_account
+// Steps: 1=create_account, 2=language, 3=grade, 4=score, 5=curriculum
 const TOTAL_STEPS = 5;
 
 function BackButton({ onClick }: { onClick: () => void }) {
@@ -157,6 +165,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState("");
   const [loginMode, setLoginMode] = useState(false);
+  const [signedUpUserId, setSignedUpUserId] = useState<string | undefined>(undefined);
 
   const lang = data.language || "English";
   const t = getTranslations(lang);
@@ -181,7 +190,13 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         options: { data: { full_name: name } },
       });
       if (error) throw error;
+      // Supabase returns identities:[] when the email already exists (security feature)
+      if (!authData.session && authData.user?.identities?.length === 0) {
+        setAuthError("An account with this email already exists. Please use Log In instead.");
+        return;
+      }
       if (authData.user) {
+        setSignedUpUserId(authData.user.id);
         await supabase.from("users").upsert({
           id: authData.user.id,
           email,
@@ -191,18 +206,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           language: data.language || "English",
         });
       }
-      const final: OnboardingData = {
-        language: data.language || "English",
-        grade: data.grade || "",
-        averageScore: data.averageScore || "",
-        curriculum: data.curriculum || "",
-        name,
-        email,
-        plan: "free",
-      };
-      localStorage.setItem("onboardingComplete", "true");
-      localStorage.setItem("onboardingData", JSON.stringify(final));
-      onComplete(final);
+      // Account created — continue through onboarding questions
+      next();
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
       setAuthError(msg);
@@ -217,30 +222,42 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     setAuthLoading(true);
     setAuthError("");
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
-      const final: OnboardingData = {
-        language: data.language || "English",
-        grade: data.grade || "",
-        averageScore: data.averageScore || "",
-        curriculum: data.curriculum || "",
-        name,
-        email,
+      // Fetch the user's saved profile from the users table (grade, name, language, curriculum)
+      const userId = authData.user?.id;
+      const { data: userData } = userId
+        ? await supabase.from("users").select("full_name, grade, language, curriculum").eq("id", userId).single()
+        : { data: null };
+      const fullName =
+        (userData?.full_name as string | undefined) ||
+        (authData.user?.user_metadata?.full_name as string | undefined) ||
+        "";
+      // Pre-populate form with Supabase defaults, then let user confirm/change via steps 2-5.
+      // This ensures the user's fresh grade selection is always used (not a stale Supabase value).
+      setData((d) => ({
+        ...d,
+        language: (userData?.language as string | undefined) || d.language || "English",
+        grade: (userData?.grade as string | undefined) || d.grade || "",
+        curriculum: (userData?.curriculum as string | undefined) || d.curriculum || "",
         plan: "existing",
-      };
-      localStorage.setItem("onboardingComplete", "true");
-      localStorage.setItem("onboardingData", JSON.stringify(final));
-      onComplete(final);
+      }));
+      setName(fullName);
+      setSignedUpUserId(userId);
+      next();
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Login failed. Check your email and password.";
+      const raw = err instanceof Error ? err.message : "";
+      const msg = raw.toLowerCase().includes("invalid login credentials") || raw.toLowerCase().includes("invalid")
+        ? "Incorrect email or password. Please check and try again."
+        : raw || "Login failed. Please try again.";
       setAuthError(msg);
     } finally {
       setAuthLoading(false);
     }
   };
 
-  // ── Save plan + complete ───────────────────────────────────────────────────
-  const handleSelectPlan = async (planId: string) => {
+  // ── Complete onboarding (no plan step) ────────────────────────────────────
+  const handleComplete = async () => {
     const final: OnboardingData = {
       language: data.language || "English",
       grade: data.grade || "",
@@ -248,25 +265,26 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       curriculum: data.curriculum || "",
       name,
       email,
-      plan: planId,
+      plan: data.plan || "standard",
+      userId: signedUpUserId,
     };
-    // Record plan in Supabase if authenticated
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        await supabase.from("users").update({
-          plan: planId === "grade12" ? "pro" : "free",
-        }).eq("id", user.id);
-      }
-    } catch { /* silent — plan saved locally either way */ }
-
-    localStorage.setItem("onboardingComplete", "true");
+    // Update Supabase with grade, curriculum and language now that user has selected them
+    if (signedUpUserId) {
+      await supabase.from("users").upsert({
+        id: signedUpUserId,
+        email,
+        full_name: name,
+        grade: final.grade || null,
+        curriculum: final.curriculum || null,
+        language: final.language,
+      });
+    }
     localStorage.setItem("onboardingData", JSON.stringify(final));
     onComplete(final);
   };
 
-  // Wider container only on the plan step so both cards fit on desktop
-  const outerMaxW = step === 6 ? "max-w-md md:max-w-2xl" : "max-w-md";
+  const outerMaxW = "max-w-md";
+  // Progress bar counts steps 2–6 (step 1 is account creation, no bar)
 
   return (
     // Fills the full locked viewport (html+body are h-full overflow-hidden)
@@ -274,8 +292,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       <div className={`w-full ${outerMaxW} mx-auto flex-1 flex flex-col min-h-0`}>
         <div className="bg-white rounded-3xl shadow-xl flex-1 flex flex-col overflow-hidden min-h-0">
 
-          {/* Progress bar — hidden on create account step */}
-          {step !== 5 && (
+          {/* Progress bar — hidden on create account step (step 1) */}
+          {step !== 1 && (
             <div className="h-1.5 bg-rose-100 flex-shrink-0">
               <div
                 className="h-full bg-rose-500 transition-all duration-500 ease-out"
@@ -284,131 +302,25 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
             </div>
           )}
 
-          {/* ── Step 1: Language ── */}
+          {/* ── Step 1: Create Account / Login ── */}
           {step === 1 && (
-            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-6 leading-snug flex-shrink-0">{t.step1Title}</h1>
-              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
-                <div className="grid grid-cols-3 gap-3">
-                  {LANGUAGES.map((language) => (
-                    <button
-                      key={language}
-                      onClick={() => select("language", language)}
-                      className={`py-4 px-2 rounded-2xl text-base font-medium border-2 transition-all ${
-                        data.language === language
-                          ? "border-rose-500 bg-rose-50 text-rose-600"
-                          : "border-gray-200 text-gray-700 hover:border-gray-300"
-                      }`}
-                    >
-                      {language}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.language} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 2: Grade ── */}
-          {step === 2 && (
-            <div className="flex-1 flex flex-col p-6">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-4 leading-snug">{t.step3Title}</h1>
-              <div className="flex-1 grid grid-cols-2 gap-2.5 content-start">
-                {GRADES.map(({ grade, emoji }) => (
-                  <button
-                    key={grade}
-                    onClick={() => select("grade", grade)}
-                    className={`flex items-center justify-center gap-3 py-2.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
-                      data.grade === grade
-                        ? "border-rose-500 bg-rose-50 text-rose-600"
-                        : "border-gray-200 text-gray-700 hover:border-gray-300"
-                    }`}
-                  >
-                    <span className="text-xl">{emoji}</span>
-                    <span>{grade}</span>
-                  </button>
-                ))}
-              </div>
-              <div className="pt-4">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.grade} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 3: Average Score ── */}
-          {step === 3 && (
-            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">{t.step4Title}</h1>
-              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step4Sub}</p>
-              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
-                <div className="grid grid-cols-2 gap-3">
-                  {SCORES.map(({ label, bars }) => (
-                    <button
-                      key={label}
-                      onClick={() => select("averageScore", label)}
-                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
-                        data.averageScore === label
-                          ? "border-rose-500 bg-rose-50 text-rose-600"
-                          : "border-gray-200 text-gray-700 hover:border-gray-300"
-                      }`}
-                    >
-                      <ScoreChart bars={bars} />
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.averageScore} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 4: Curriculum ── */}
-          {step === 4 && (
-            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which curriculum do you follow?</h1>
-              <p className="text-gray-400 text-base mb-6 flex-shrink-0">Select your school's curriculum</p>
-              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
-                <div className="flex flex-col gap-3">
-                  {CURRICULA.map(({ label, flag }) => (
-                    <button
-                      key={label}
-                      onClick={() => select("curriculum", label)}
-                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
-                        data.curriculum === label
-                          ? "border-rose-500 bg-rose-50 text-rose-600"
-                          : "border-gray-200 text-gray-700 hover:border-gray-300"
-                      }`}
-                    >
-                      <span className="flex-shrink-0 rounded overflow-hidden shadow-sm" style={{ width: 28, height: 20, display: "inline-flex", alignItems: "center" }}>
-                        <Flag code={flag} style={{ width: 28, height: 20, objectFit: "cover", borderRadius: 3 }} />
-                      </span>
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.curriculum} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 5: Create Account / Login ── */}
-          {step === 5 && (
-            <div className="flex-1 flex flex-col p-5 justify-between">
-              <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-4">
+            <div className="flex-1 flex flex-col p-5">
+              <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-1">
                 {loginMode ? "Welcome back" : t.step7Title}
               </h1>
 
-              <div className="flex flex-col gap-3 mb-3">
-                {/* Name — hidden in login mode */}
+              {/* Ruby superheroes — only on sign-up */}
+              {!loginMode && (
+                <div className="flex justify-center mb-1">
+                  <img
+                    src="/ruby-heroes.png"
+                    alt="Ruby superheroes"
+                    className="h-36 w-auto object-contain"
+                  />
+                </div>
+              )}
+
+              <div className="flex flex-col gap-2.5 mb-2.5">
                 {!loginMode && (
                   <div>
                     <label className="block text-sm font-semibold text-gray-800 mb-1">{t.nameLabel}</label>
@@ -447,106 +359,146 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 </div>
               </div>
 
-              {/* Error message */}
-              {authError && (
-                <p className="text-red-500 text-sm text-center mb-3 px-2">{authError}</p>
-              )}
-
-              <button
-                onClick={loginMode ? handleLogin : handleSignUp}
-                disabled={loginMode ? (!email || !password || authLoading) : (!name || !email || !password || authLoading)}
-                className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors mb-3 flex items-center justify-center gap-2"
-              >
-                {authLoading && (
-                  <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                  </svg>
+              <div className="md:mt-auto md:pt-4">
+                {authError && (
+                  <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
                 )}
-                {loginMode ? "Log in" : "Start Free Beta"}
-              </button>
-
-              <p className="text-center text-base text-gray-500">
-                {loginMode ? "Don't have an account? " : t.loginPrompt + " "}
                 <button
-                  onClick={() => { setLoginMode(!loginMode); setAuthError(""); }}
-                  className="text-rose-500 font-medium"
+                  onClick={loginMode ? handleLogin : handleSignUp}
+                  disabled={loginMode ? (!email || !password || authLoading) : (!name || !email || !password || authLoading)}
+                  className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors mb-2.5 flex items-center justify-center gap-2"
                 >
-                  {loginMode ? "Sign up" : t.loginLink}
+                  {authLoading && (
+                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                    </svg>
+                  )}
+                  {loginMode ? "Log in" : "Start Free Beta"}
                 </button>
-              </p>
+                {loginMode ? (
+                  <button onClick={() => { setLoginMode(false); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
+                    Create Account
+                  </button>
+                ) : (
+                  <button onClick={() => { setLoginMode(true); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
+                    Log In
+                  </button>
+                )}
+              </div>
             </div>
           )}
 
-          {/* ── Step 6: Choose Plan ── */}
-          {step === 6 && (
+          {/* ── Step 2: Language ── */}
+          {step === 2 && (
             <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-1 flex-shrink-0">{t.step8Title}</h1>
-              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step8Sub}</p>
-
-              {/* Mobile: one card at a time, snap scroll horizontally — no vertical scroll inside */}
-              <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory flex-1 min-h-0 gap-4 -mx-6 px-6 pb-2 scrollbar-hide">
-                {PLANS.map((plan) => (
-                  <div
-                    key={plan.id}
-                    className={`flex-shrink-0 w-full snap-center border-2 ${plan.borderClass} rounded-2xl p-4 flex flex-col`}
-                  >
-                    <p className="font-bold text-[#1a2744] text-base mb-0.5">{plan.name}</p>
-                    <p className={`text-2xl font-bold ${plan.priceClass} mb-3`}>
-                      <span className="text-base font-semibold">R</span> {plan.price}
-                      <span className="text-sm font-normal text-gray-400"> {t.perMonth}</span>
-                    </p>
-                    <ul className="flex flex-col gap-1.5 mb-4 flex-1">
-                      {plan.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
-                          <svg className="w-3.5 h-3.5 flex-shrink-0" style={{ color: plan.accentColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-6 leading-snug flex-shrink-0">{t.step1Title}</h1>
+              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
+                <div className="grid grid-cols-3 gap-3">
+                  {LANGUAGES.map(({ value, label }) => (
                     <button
-                      onClick={() => handleSelectPlan(plan.id)}
-                      className={`w-full py-3 rounded-full text-white font-semibold text-sm transition-colors flex-shrink-0 ${plan.btnClass}`}
+                      key={value}
+                      onClick={() => select("language", value)}
+                      className={`py-4 px-2 rounded-2xl text-sm font-medium border-2 transition-all ${
+                        data.language === value
+                          ? "border-rose-500 bg-rose-50 text-rose-600"
+                          : "border-gray-200 text-gray-700 hover:border-gray-300"
+                      }`}
                     >
-                      {t.selectPlan}
+                      {label}
                     </button>
-                  </div>
+                  ))}
+                </div>
+              </div>
+              <div className="pt-4 flex-shrink-0">
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.language} />
+              </div>
+            </div>
+          )}
+
+          {/* ── Step 3: Grade ── */}
+          {step === 3 && (
+            <div className="flex-1 flex flex-col p-6">
+              <BackButton onClick={back} />
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-4 leading-snug">{t.step3Title}</h1>
+              <div className="flex-1 grid grid-cols-2 gap-2.5 content-start">
+                {GRADES.map(({ grade, emoji }) => (
+                  <button
+                    key={grade}
+                    onClick={() => select("grade", grade)}
+                    className={`flex items-center justify-center gap-3 py-2.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
+                      data.grade === grade
+                        ? "border-rose-500 bg-rose-50 text-rose-600"
+                        : "border-gray-200 text-gray-700 hover:border-gray-300"
+                    }`}
+                  >
+                    <span className="text-xl">{emoji}</span>
+                    <span>{grade}</span>
+                  </button>
                 ))}
               </div>
+              <div className="pt-4">
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.grade} />
+              </div>
+            </div>
+          )}
 
-              {/* Desktop: both plans side by side */}
-              <div className="hidden md:grid grid-cols-2 gap-4 flex-1 min-h-0 overflow-y-auto">
-                {PLANS.map((plan) => (
-                  <div
-                    key={plan.id}
-                    className={`border-2 ${plan.borderClass} rounded-2xl p-5 flex flex-col`}
-                  >
-                    <p className="font-bold text-[#1a2744] text-base mb-1">{plan.name}</p>
-                    <p className={`text-3xl font-bold ${plan.priceClass} mb-4`}>
-                      <span className="text-lg font-semibold">R</span> {plan.price}
-                      <span className="text-sm font-normal text-gray-400"> {t.perMonth}</span>
-                    </p>
-                    <ul className="flex flex-col gap-2 mb-5 flex-1">
-                      {plan.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-base text-gray-600">
-                          <svg className="w-4 h-4 flex-shrink-0" style={{ color: plan.accentColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
+          {/* ── Step 4: Average Score ── */}
+          {step === 4 && (
+            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
+              <BackButton onClick={back} />
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">{t.step4Title}</h1>
+              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step4Sub}</p>
+              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
+                <div className="grid grid-cols-2 gap-3">
+                  {SCORES.map(({ label, bars }) => (
                     <button
-                      onClick={() => handleSelectPlan(plan.id)}
-                      className={`w-full py-3.5 rounded-full text-white font-semibold text-base transition-colors ${plan.btnClass}`}
+                      key={label}
+                      onClick={() => select("averageScore", label)}
+                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
+                        data.averageScore === label
+                          ? "border-rose-500 bg-rose-50 text-rose-600"
+                          : "border-gray-200 text-gray-700 hover:border-gray-300"
+                      }`}
                     >
-                      {t.selectPlan}
+                      <ScoreChart bars={bars} />
+                      {label}
                     </button>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+              <div className="pt-4 flex-shrink-0">
+                <ContinueBtn label={t.continueBtn} onClick={next} />
+              </div>
+            </div>
+          )}
+
+          {/* ── Step 5: Curriculum ── */}
+          {step === 5 && (
+            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
+              <BackButton onClick={back} />
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which curriculum do you follow?</h1>
+              <p className="text-gray-400 text-base mb-6 flex-shrink-0">Select your school's curriculum</p>
+              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
+                <div className="flex flex-col gap-3">
+                  {CURRICULA.map(({ label, flag }) => (
+                    <button
+                      key={label}
+                      onClick={() => select("curriculum", label)}
+                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
+                        data.curriculum === label
+                          ? "border-rose-500 bg-rose-50 text-rose-600"
+                          : "border-gray-200 text-gray-700 hover:border-gray-300"
+                      }`}
+                    >
+                      <span className="flex-shrink-0 text-xl leading-none">{flag}</span>
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="pt-4 flex-shrink-0">
+                <ContinueBtn label={t.continueBtn} onClick={handleComplete} disabled={!data.curriculum} />
               </div>
             </div>
           )}

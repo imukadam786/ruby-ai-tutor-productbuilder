@@ -51,7 +51,7 @@ export const TRANSLATIONS: Record<string, TranslationKeys> = {
     videos: "Videos",
     characters: "Characters",
     continueBtn: "Continue",
-    step7Title: "Create an account",
+    step7Title: "Create an Account",
     googleBtn: "Continue with Google",
     orEmail: "OR USE EMAIL",
     nameLabel: "Full Name",

@@ -122,11 +122,11 @@ export default function Sidebar({
         {/* Logo */}
         <div className="px-6 py-5 border-b border-white/20 flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex-shrink-0">
+            <div className="w-10 h-10 flex-shrink-0 rounded-full overflow-hidden bg-white">
               <img
-                src="/ruby-avatar.png"
+                src="/icons/icon-192.png"
                 alt="Ruby"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
                   const fb = e.currentTarget.nextElementSibling as HTMLElement | null;
@@ -146,13 +146,15 @@ export default function Sidebar({
             </div>
           </div>
           <div className="flex items-center gap-1">
-          {/* Globe — language picker, desktop only (mobile has it in top bar) */}
+          {/* Language picker — desktop only (mobile has it in top bar) */}
           <button
             onClick={onOpenLangPicker}
-            className="hidden md:block p-1 rounded-lg transition-opacity hover:opacity-80"
+            className="hidden md:block p-1.5 rounded-lg transition-opacity hover:opacity-80"
             aria-label="Change language"
           >
-            <span className="text-2xl leading-none">🌍</span>
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+            </svg>
           </button>
           <button
             onClick={onClose}
@@ -238,7 +240,7 @@ export default function Sidebar({
             <div className="font-medium text-base">{t("sidebar.logout")}</div>
           </button>
 
-          <p className="text-white/50 text-sm text-center pt-2">{t("sidebar.powered_by")}</p>
+          <p className="text-white/50 text-sm text-center pt-2">Powered by Hula</p>
         </div>
       </aside>
     </>

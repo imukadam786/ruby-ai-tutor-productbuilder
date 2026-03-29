@@ -6,6 +6,7 @@ import { getProgress, getStreakData } from "@/lib/storage";
 import { getStudentProfile } from "@/lib/student-model";
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
+import { supabase } from "@/lib/supabase";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
@@ -13,11 +14,11 @@ interface HomeScreenProps {
 
 function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   return (
-    <div className={`${size} flex-shrink-0`}>
+    <div className={`${size} flex-shrink-0 rounded-full overflow-hidden bg-white`}>
       <img
-        src="/ruby-avatar.png"
+        src="/icons/icon-192.png"
         alt="Ruby"
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover"
         onError={(e) => {
           e.currentTarget.style.display = "none";
           const fb = e.currentTarget.nextElementSibling as HTMLElement | null;
@@ -47,7 +48,7 @@ function loadStats(): Stats {
   const mastery = profile?.skill_mastery ?? {};
   const values = Object.values(mastery);
   return {
-    skillsMastered: values.filter((m) => m.status === "mastered").length,
+    skillsMastered: values.filter((m) => m.status === "mastered" || m.status === "assumed").length,
     inProgress: values.filter((m) => m.status === "in_progress").length,
     lessonsDone: progress.lessonsCompleted,
     studySessions: progress.sessionCount,
@@ -166,15 +167,23 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
   const [streak, setStreak] = useState({ currentStreak: 0, bestStreak: 0 });
 
   useEffect(() => {
-    // Load name
-    try {
-      const raw = localStorage.getItem("onboardingData");
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        const first = (parsed.name as string | undefined)?.trim().split(/\s+/)[0];
-        if (first) setFirstName(first);
-      }
-    } catch { /* ignore */ }
+    // Load name — localStorage first, then Supabase session as fallback
+    const loadName = async () => {
+      try {
+        const raw = localStorage.getItem("onboardingData");
+        const saved = raw ? (JSON.parse(raw).name as string | undefined) : undefined;
+        if (saved?.trim()) {
+          setFirstName(saved.trim().split(/\s+/)[0]);
+          return;
+        }
+      } catch { /* ignore */ }
+      // Fallback: read from Supabase user metadata
+      const { data: { user } } = await supabase.auth.getUser();
+      const fullName = user?.user_metadata?.full_name as string | undefined;
+      const first = fullName?.trim().split(/\s+/)[0];
+      if (first) setFirstName(first);
+    };
+    loadName();
 
     // Load stats
     setStats(loadStats());

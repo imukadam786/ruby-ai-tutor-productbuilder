@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { groq, GROQ_MODEL } from "@/lib/anthropic";
+import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,11 +17,11 @@ CRITICAL RULES:
 Strings to translate:
 ${JSON.stringify(strings, null, 2)}`;
 
-    const response = await groq.chat.completions.create({
-      model: GROQ_MODEL,
+    const response = await getOpenAI().chat.completions.create({
+      model: OPENAI_MODEL,
       max_tokens: 6000,
       messages: [{ role: "user", content: prompt }],
-    });
+    }, { signal: AbortSignal.timeout(30_000) });
 
     const text = response.choices[0]?.message?.content ?? "{}";
     const jsonMatch = text.match(/\{[\s\S]*\}/);

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { groq, GROQ_MODEL } from "@/lib/anthropic";
+import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 
 const TASK_DEFINITIONS: Record<string, { description: string; mode: "voice" | "text" | "tap" }> = {
   D01: {
@@ -127,11 +127,11 @@ Generate the task prompt in this exact JSON format (raw JSON, no markdown):
 
 Keep language very simple and encouraging. Address the student by name if it helps. Do not say 'correct' or 'wrong' in the prompt.`;
 
-    const aiResponse = await groq.chat.completions.create({
-      model: GROQ_MODEL,
+    const aiResponse = await getOpenAI().chat.completions.create({
+      model: OPENAI_MODEL,
       max_tokens: 256,
       messages: [{ role: "user", content: prompt }],
-    });
+    }, { signal: AbortSignal.timeout(20_000) });
 
     const aiText = aiResponse.choices[0]?.message?.content ?? "";
 

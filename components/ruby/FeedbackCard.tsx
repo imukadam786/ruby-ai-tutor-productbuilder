@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useCallback } from "react";
 import { DiagnosticResult, ErrorType } from "@/types/ruby";
 import { useT } from "@/lib/i18n";
+import { useTTS } from "@/lib/tts";
 
 interface FeedbackCardProps {
   result: DiagnosticResult;
@@ -19,9 +20,12 @@ const errorLabels: Record<ErrorType, { label: string; color: string; icon: strin
 };
 
 export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
+  const { language } = useT();
   const errorInfo = errorLabels[result.error_type];
   const isCorrect = result.is_correct;
   const touchStartY = useRef(0);
+  const feedbackText = [result.feedback, result.recovery_explanation].filter(Boolean).join(". ");
+  const { playing, speak, stop } = useTTS();
 
   return (
     <div className={`rounded-2xl border-2 overflow-hidden ${
@@ -58,7 +62,28 @@ export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
       {/* Feedback */}
       <div className="px-6 py-5 space-y-4">
         <div>
-          <p className="text-sm font-medium text-gray-600 mb-1">Feedback</p>
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-sm font-medium text-gray-600">Feedback</p>
+            {!isCorrect && (
+              <button
+                onClick={() => playing ? stop() : speak(feedbackText)}
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 hover:bg-orange-200 text-orange-700 text-xs font-medium transition-colors"
+                aria-label={playing ? "Stop audio" : "Play explanation"}
+              >
+                {playing ? (
+                  <>
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    Stop
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                  </>
+                )}
+              </button>
+            )}
+          </div>
           <p className="text-gray-800 leading-relaxed">{result.feedback}</p>
         </div>
 
@@ -78,7 +103,7 @@ export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
         )}
       </div>
 
-      {/* Swipe up for next */}
+      {/* Click / swipe for next */}
       <div
         className="px-6 pb-6 pt-2 flex flex-col items-center gap-1 cursor-pointer select-none"
         onClick={onNext}
@@ -87,7 +112,8 @@ export default function FeedbackCard({ result, onNext }: FeedbackCardProps) {
           if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
         }}
       >
-        <p className="text-xs text-gray-400">Swipe up for next question</p>
+        <p className="text-xs text-gray-400 md:hidden">Swipe up for next question</p>
+        <p className="text-xs text-gray-400 hidden md:block">Click for next question</p>
         <div className={`animate-bounce ${isCorrect ? "text-green-500" : "text-blue-500"}`}>
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />

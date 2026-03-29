@@ -1,0 +1,492 @@
+[
+  {
+    "id": "1.16",
+    "domain": "M001",
+    "domainTitle": "Counting and Cardinality",
+    "gate": "A",
+    "question": "Count these dots. How many are there?",
+    "stimulus": "Dot array: 20 dots (randomised layout)",
+    "answerMode": "numeric",
+    "expectedAnswer": 20,
+    "errorSignals": [
+      "ERR_COUNT_OFF_BY_ONE",
+      "ERR_COUNT_SKIP"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "2.16",
+    "domain": "M002",
+    "domainTitle": "Counting Sequence",
+    "gate": "A",
+    "stimulus": "30, 40, 50, ___",
+    "missingPosition": "End",
+    "question": "What number comes next?",
+    "answerMode": "numeric",
+    "expectedAnswer": 60,
+    "errorSignals": [
+      "ERR_SEQ_RULE",
+      "ERR_OFF_BY_ONE",
+      "ERR_SEQ_DIR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "3.16",
+    "domain": "M003",
+    "domainTitle": "Place Value — Tens and Ones",
+    "gate": "A",
+    "stimulus": "91",
+    "question": "How many tens? How many ones?",
+    "answerMode": "multiField",
+    "fields": [
+      {
+        "label": "TENS",
+        "expectedAnswer": 9
+      },
+      {
+        "label": "ONES",
+        "expectedAnswer": 1
+      }
+    ],
+    "errorSignals": [
+      "ERR_DIGIT_SWAP",
+      "ERR_FACE_VALUE"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "4.16",
+    "domain": "M004",
+    "domainTitle": "Addition — Mental Strategy",
+    "gate": "A",
+    "stimulus": "4 + 6 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 10,
+    "errorSignals": [
+      "ERR_ADD_NEAR_MISS",
+      "ERR_WRONG_OP",
+      "ERR_FLUENCY_SLOW"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "5.16",
+    "domain": "M005",
+    "domainTitle": "Subtraction — Mental Strategy",
+    "gate": "A",
+    "stimulus": "8 − 4 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 4,
+    "errorSignals": [
+      "ERR_SUB_ADD",
+      "ERR_REVERSAL"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "6.16",
+    "domain": "M006",
+    "domainTitle": "Multiplication — Equal Groups",
+    "gate": "A",
+    "poolSize": 18,
+    "bindingConstraint": true,
+    "stimulus": "There are 4 teams. Each team has 9 players.",
+    "question": "Read this. Then answer the three questions below.",
+    "answerMode": "multiField",
+    "fields": [
+      {
+        "label": "Number of groups",
+        "expectedAnswer": 4
+      },
+      {
+        "label": "Number in each group",
+        "expectedAnswer": 9
+      },
+      {
+        "label": "Total",
+        "expectedAnswer": 36
+      }
+    ],
+    "errorSignals": [
+      "ERR_MULT_ADD",
+      "ERR_FIELD_SWAP"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "7.16",
+    "domain": "M007",
+    "domainTitle": "Flexible Decomposition",
+    "gate": "B",
+    "stimulus": "457",
+    "question": "This number can be split in different ways. Write it two different ways using hundreds, tens, and ones — or any other split that works.",
+    "answerMode": "multiField",
+    "fields": [
+      {
+        "label": "Write it one way",
+        "exampleAnswer": "400 + 50 + 7"
+      },
+      {
+        "label": "Write it another way",
+        "exampleAnswer": "400 + 57"
+      }
+    ],
+    "validationRule": "Both entries must sum to the target number and must differ from each other.",
+    "errorSignals": [
+      "ERR_RIGID",
+      "ERR_WRONG_SUM"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "8.16",
+    "domain": "M008",
+    "domainTitle": "Fraction — Unit Interpretation",
+    "gate": "B",
+    "stimulus": "4/7",
+    "visual": "Bar model: 7 parts, 4 shaded",
+    "question": "This fraction shows part of a whole. How many equal parts is the whole cut into? How many parts are selected?",
+    "answerMode": "multiField",
+    "fields": [
+      {
+        "label": "Equal parts (denominator)",
+        "expectedAnswer": 7
+      },
+      {
+        "label": "Parts selected (numerator)",
+        "expectedAnswer": 4
+      }
+    ],
+    "errorSignals": [
+      "ERR_INVERT",
+      "ERR_PART_WHOLE"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "9.16",
+    "domain": "M009",
+    "domainTitle": "Ratio and Proportion",
+    "gate": "B",
+    "stimulus": "2 : 7 = ___ : 14",
+    "problemType": "missingValue",
+    "question": "Work out the missing number. Show your thinking if you need to.",
+    "answerMode": "text",
+    "expectedAnswer": "4",
+    "errorSignals": [
+      "ERR_RATIO_ADD",
+      "ERR_RATIO_INVERT",
+      "ERR_RATIO_PARTIAL"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "10.16",
+    "domain": "M010",
+    "domainTitle": "Integer Operations and BODMAS",
+    "gate": "B",
+    "stimulus": "5 + 4 × 2 − 1",
+    "question": "Evaluate this expression. Be careful about the order of operations.",
+    "answerMode": "numeric",
+    "expectedAnswer": 12,
+    "errorSignals": [
+      "ERR_BODMAS_ORDER",
+      "ERR_INTEGER_SIGN",
+      "ERR_BRACKET_IGNORE"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "11.16",
+    "domain": "M011",
+    "domainTitle": "Algebraic Expression",
+    "gate": "C",
+    "stimulus": "x + 2x + 3x",
+    "task": "simplify",
+    "question": "Simplify this expression.",
+    "answerMode": "text",
+    "expectedAnswer": "6x",
+    "errorSignals": [
+      "ERR_LIKE_TERMS",
+      "ERR_SIGN_DROP"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "12.16",
+    "domain": "M012",
+    "domainTitle": "Linear Equation",
+    "gate": "C",
+    "stimulus": "5x + 3 = 28",
+    "question": "Solve this equation. Show your working step by step.",
+    "answerMode": "multiField",
+    "fields": [
+      {
+        "label": "Step 1",
+        "expectedAnswer": "5x = 25"
+      },
+      {
+        "label": "Answer: x =",
+        "expectedAnswer": 5
+      }
+    ],
+    "errorSignals": [
+      "ERR_STEP_SKIP",
+      "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "13.16",
+    "domain": "M013",
+    "domainTitle": "Quadratic Factorisation",
+    "gate": "C",
+    "poolSize": 42,
+    "bindingConstraint": true,
+    "stimulus": "x² + 4x − 12",
+    "question": "Factorise this quadratic. Write it as two brackets.",
+    "answerMode": "multiField",
+    "fields": [
+      {
+        "label": "First bracket",
+        "hint": "(x + ___)"
+      },
+      {
+        "label": "Second bracket",
+        "hint": "(x + ___)"
+      }
+    ],
+    "expectedAnswer": "(x + 6)(x − 2)",
+    "rootsCheck": {
+      "product": -12,
+      "sum": 4
+    },
+    "errorSignals": [
+      "ERR_FACTOR_SIGN",
+      "ERR_FACTOR_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "14.16",
+    "domain": "M014",
+    "domainTitle": "Function — Key Features",
+    "gate": "C",
+    "poolSize": 38,
+    "bindingConstraint": true,
+    "stimulus": "y = x² − 16",
+    "question": "For this function, find the y-intercept, the x-intercepts, and the turning point.",
+    "answerMode": "multiField",
+    "fields": [
+      {
+        "label": "y-intercept",
+        "expectedAnswer": "(0, −16)"
+      },
+      {
+        "label": "x-intercepts",
+        "expectedAnswer": "x = 4, x = −4"
+      },
+      {
+        "label": "Turning point (vertex)",
+        "expectedAnswer": "(0, −16)"
+      }
+    ],
+    "errorSignals": [
+      "ERR_FEATURE_SWAP",
+      "ERR_SIGN_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "15.16",
+    "domain": "M015",
+    "domainTitle": "Exponential and Log Conversion",
+    "gate": "D",
+    "poolSize": 28,
+    "bindingConstraint": true,
+    "stimulus": "log₃ 27",
+    "taskType": "evaluate",
+    "question": "Evaluate this logarithm.",
+    "answerMode": "text",
+    "expectedAnswer": "3",
+    "errorSignals": [
+      "ERR_LOG_BASE",
+      "ERR_LOG_INVERT"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "16.16",
+    "domain": "M016",
+    "domainTitle": "Trigonometric Ratios",
+    "gate": "D",
+    "poolSize": 22,
+    "bindingConstraint": true,
+    "stimulus": "8-15-17 right triangle — θ at top (adj=8, opp=15, hyp=17)",
+    "ratioAsked": "sin θ",
+    "question": "For the labelled angle θ in this right triangle, write the sin θ ratio as a fraction.",
+    "answerMode": "fraction",
+    "expectedAnswer": "15/17",
+    "errorSignals": [
+      "ERR_TRIG_SWAP",
+      "ERR_TRIG_INVERT"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "17.16",
+    "domain": "M017",
+    "domainTitle": "Differentiation — Power Rule",
+    "gate": "D",
+    "stimulus": "f(x) = 2x² + 8x",
+    "question": "Differentiate this function using the power rule. Write the full derivative.",
+    "answerMode": "text",
+    "expectedAnswer": "f'(x) = 4x + 8",
+    "errorSignals": [
+      "ERR_POWER_RULE",
+      "ERR_CONST_DIFF",
+      "ERR_COEFF_SLIP"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "18.4",
+    "domain": "M018",
+    "domainTitle": "Multi-Step Problem — Plan and Solve",
+    "gate": "D",
+    "poolSize": 12,
+    "bindingConstraint": true,
+    "stimulus": "A school invests R20 000 at 6% per annum compound interest. How much will it be worth after 5 years? Round to the nearest rand.",
+    "question": "Read this problem carefully. First write your plan, then set up and solve, then give your answer in words.",
+    "answerMode": "multiField",
+    "fields": [
+      {
+        "label": "Plan",
+        "hint": "Identify what maths is needed",
+        "expectedAnswer": "Identify compound interest formula A = P(1+r)^n"
+      },
+      {
+        "label": "Equation / Solve",
+        "expectedAnswer": "A = 20000(1.06)^5 = 20000 × 1.3382 ≈ R26 764"
+      },
+      {
+        "label": "Interpret",
+        "hint": "Answer in context with units",
+        "expectedAnswer": "After 5 years the investment will be worth approximately R26 764"
+      }
+    ],
+    "errorSignals": [
+      "ERR_PLAN_SKIP",
+      "ERR_CONTEXT_IGNORE"
+    ],
+    "passThreshold": 0.75
+  },
+  {
+    "id": "20.16",
+    "domain": "M020",
+    "domainTitle": "Two-Digit Addition",
+    "gate": "A",
+    "stimulus": "23 + 61 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 84,
+    "errorSignals": [
+      "ERR_ADD_TENS",
+      "ERR_PLACE_VALUE"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "29.16",
+    "domain": "M029",
+    "domainTitle": "Fractions — Number Line and Equivalence",
+    "gate": "B",
+    "stimulus": "2/5 = ___/15",
+    "question": "Fill in the missing number to make an equivalent fraction.",
+    "answerMode": "numeric",
+    "expectedAnswer": 6,
+    "errorSignals": [
+      "ERR_EQUIV_MULT",
+      "ERR_DENOM_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "31.16",
+    "domain": "M031",
+    "domainTitle": "Percentages",
+    "gate": "B",
+    "stimulus": "50% of 6",
+    "question": "Work out this percentage.",
+    "answerMode": "numeric",
+    "expectedAnswer": 3,
+    "errorSignals": [
+      "ERR_PCT_DECIMAL",
+      "ERR_PCT_OF_AMOUNT"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "32.16",
+    "domain": "M032",
+    "domainTitle": "Negative Number Operations",
+    "gate": "C",
+    "stimulus": "1 − (−4) = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 5,
+    "errorSignals": [
+      "ERR_INTEGER_SIGN",
+      "ERR_NEG_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "33.16",
+    "domain": "M033",
+    "domainTitle": "Number Patterns and Expanding Brackets",
+    "gate": "C",
+    "stimulus": "2(x − 8)",
+    "question": "Expand the brackets.",
+    "answerMode": "text",
+    "expectedAnswer": "2x − 16",
+    "errorSignals": [
+      "ERR_EXPAND",
+      "ERR_SIGN_DROP"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "28.16",
+    "domain": "M028",
+    "domainTitle": "Division Strategies",
+    "gate": "B",
+    "stimulus": "15 ÷ 5 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 3,
+    "errorSignals": [
+      "ERR_DIV_MULT",
+      "ERR_REMAINDER"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "34.16",
+    "domain": "M034",
+    "domainTitle": "Advanced Linear Equations",
+    "gate": "C",
+    "stimulus": "9x + 1 = 55",
+    "question": "Solve for x. Type the value of x.",
+    "answerMode": "numeric",
+    "expectedAnswer": 6,
+    "errorSignals": [
+      "ERR_STEP_SKIP",
+      "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  }
+]

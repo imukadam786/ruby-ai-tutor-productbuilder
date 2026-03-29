@@ -3,6 +3,26 @@ import { Message, ProgressData } from "@/types";
 const MESSAGES_KEY = "ai_tutor_messages";
 const PROGRESS_KEY = "ai_tutor_progress";
 
+// Keys that are wiped only when a DIFFERENT user logs in on this device.
+// Never cleared on logout — same user must see their data when they log back in.
+export const PERSISTENT_USER_KEYS = [
+  MESSAGES_KEY,
+  PROGRESS_KEY,
+  "ruby_streak",
+  "ruby_student_profile",
+  "ruby_reading_profile",
+  "onboardingData",
+  "survey_count_chat",
+  "beta_session_surveys",
+  "beta_feedback",
+  "matric_waitlist",
+];
+
+export function clearAllUserData(): void {
+  if (typeof window === "undefined") return;
+  PERSISTENT_USER_KEYS.forEach((key) => localStorage.removeItem(key));
+}
+
 export function getMessages(): Message[] {
   if (typeof window === "undefined") return [];
   try {
@@ -77,6 +97,10 @@ export function addTopicStudied(topic: string): void {
 }
 
 export function incrementSession(): void {
+  if (typeof window === "undefined") return;
+  // Only count once per browser tab session — sessionStorage is cleared on tab close
+  if (sessionStorage.getItem("session_counted")) return;
+  sessionStorage.setItem("session_counted", "1");
   const progress = getProgress();
   updateProgress({
     sessionCount: progress.sessionCount + 1,
