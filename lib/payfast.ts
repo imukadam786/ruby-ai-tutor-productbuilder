@@ -80,8 +80,8 @@ export function buildCheckoutParams({
   const params: Record<string, string> = {
     merchant_id:       MERCHANT_ID,
     merchant_key:      MERCHANT_KEY,
-    return_url:        `${baseUrl}/settings?payment=success`,
-    cancel_url:        `${baseUrl}/settings?payment=cancelled`,
+    return_url:        `${baseUrl}/?payment=success`,
+    cancel_url:        `${baseUrl}/?payment=cancelled`,
     notify_url:        `${baseUrl}/api/payfast/notify`,
     name_first:        firstName || "Ruby",
     name_last:         lastName  || "User",
