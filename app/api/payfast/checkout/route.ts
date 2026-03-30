@@ -34,7 +34,10 @@ export async function POST(request: NextRequest) {
     .single();
 
   const nameParts = (profile?.full_name || "").trim().split(/\s+/);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
+        (process.env.VERCEL_URL
+            ? `https://${process.env.VERCEL_URL}`
+            : "http://localhost:3000");
 
   const params = buildCheckoutParams({
     userId:    user.id,
