@@ -98,11 +98,12 @@ export function calculateReadingPlacement(
 
   const dominantErrors = collectDominantErrors(taskResults);
 
-  // ── Hard gate: basic phonics decoding ────────────────────────────────────
-  // A student passes the phonics gate if they can decode basic CVC words (D07).
-  // Gate-failed students are still placed correctly but flagged so the session
-  // knows not to surface fluency/comprehension content before decoding is secure.
-  const hardGatePassed = taskPassed("D07");
+  // ── Hard gate: derived from entry placement, not a fixed task ────────────
+  // hardGatePassed = true  → student placed in R2 or above; R2+ content is accessible.
+  // hardGatePassed = false → student placed in R1; session caps progression at R1
+  //                          until phonological foundation is established.
+  // Deriving from entrySkillId (set below) eliminates the previous contradiction
+  // where failing D07 placed a student at R2.T2.A3 but gated them to R1 content.
 
   // ── RULE 1: Foundation failure ───────────────────────────────────────────
   // Only applied for grades 1–3. For grade 4+ a D01/D02 stumble is likely
@@ -161,7 +162,7 @@ export function calculateReadingPlacement(
     tasks: taskResults,
     entrySkillId,
     autoCompletedSkillIds: skillsBefore(entrySkillId),
-    hardGatePassed,
+    hardGatePassed: !entrySkillId.startsWith("R1."),
     dominantErrors,
   };
 }
