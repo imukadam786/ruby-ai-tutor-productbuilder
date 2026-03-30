@@ -222,8 +222,23 @@ function computePlacement(
     return !!gate && gate.domains.every((d) => domainPassed(d));
   };
 
-  // Find the highest gate passed and the lowest gate failed within the window.
+  // A gate is "decisively failed" when any domain within it has 0 correct answers.
+  // A domain with 1/2 correct is a borderline slip and should NOT trigger gap placement —
+  // only complete misses (0 correct) indicate a genuine conceptual gap.
+  const gateDecisivelyFailed = (idx: number): boolean => {
+    const gate = SEARCH_GATES[idx];
+    if (!gate) return false;
+    return gate.domains.some((d) => {
+      const total = domainTotal[d] ?? 0;
+      const correct = domainCorrect[d] ?? 0;
+      return total > 0 && correct === 0;
+    });
+  };
+
+  // Find the highest gate passed and the lowest gate decisively failed within the window.
   // A gate is only considered "failed" if it was actually tested (domainTotal > 0).
+  // Borderline failures (e.g. 1/2 correct) are excluded from gap detection to prevent
+  // a single execution slip from triggering a multi-grade underplacement.
   const [lo, hi] = getSearchWindow(grade);
   let highestPassedGate = -1;
   let lowestFailedGate  = -1;
@@ -233,7 +248,9 @@ function computePlacement(
     } else {
       const gate = SEARCH_GATES[i];
       const wasTested = gate.domains.some((d) => (domainTotal[d] ?? 0) > 0);
-      if (wasTested && lowestFailedGate === -1) lowestFailedGate = i;
+      if (wasTested && lowestFailedGate === -1 && gateDecisivelyFailed(i)) {
+        lowestFailedGate = i;
+      }
     }
   }
 
