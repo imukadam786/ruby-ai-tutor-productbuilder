@@ -1038,6 +1038,10 @@ function ReadingQuestionCard({
       setPlaying(false);
       return;
     }
+    // Stop any choice audio that may be playing before starting question playback
+    cancelChoiceAudioRef.current?.();
+    cancelChoiceAudioRef.current = null;
+    setPlayingChoiceValue(null);
     cancelSpeechRef.current = speakNaturally(
       text,
       () => setPlaying(true),
@@ -1065,6 +1069,8 @@ function ReadingQuestionCard({
 
   const handleAudioChoiceTap = (choice: { label: string; speech: string; correct: boolean }) => {
     cancelSpeechRef.current?.();   // Stop question TTS before playing choice audio
+    cancelSpeechRef.current = null;
+    setPlaying(false);
     cancelChoiceAudioRef.current?.();
     setSelectedAudioChoice(choice.label);
     setPlayingChoiceValue(choice.label);
