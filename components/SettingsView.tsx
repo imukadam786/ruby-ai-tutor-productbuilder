@@ -236,6 +236,13 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
   // Internal page state — null = main settings, "maths" / "reading" = report view
   const [reportPage, setReportPage] = useState<"maths" | "reading" | null>(null);
 
+  // Subscription state
+  const [supaUser, setSupaUser] = useState<{ id: string; email?: string } | null>(null);
+  const [pfToken, setPfToken] = useState<string | null>(null);
+  const [upgrading, setUpgrading] = useState(false);
+  const [cancelling, setCancelling] = useState(false);
+  const [subError, setSubError] = useState<string | null>(null);
+
   // Active modal
   const [modal, setModal] = useState<string | null>(null);
 
@@ -285,6 +292,22 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
     loadProfile();
   }, []);
 
+  // Load live subscription from Supabase
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session?.user) return;
+      setSupaUser(session.user as { id: string; email?: string });
+      supabase
+        .from("subscriptions")
+        .select("plan, status, payfast_token")
+        .eq("user_id", session.user.id)
+        .single()
+        .then(({ data }) => {
+          if (data?.plan) setPlan(data.plan);
+          if (data?.payfast_token) setPfToken(data.payfast_token);
+        });
+    });
+  }, []);
 
   const saveProfile = () => {
     try {
@@ -303,7 +326,70 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
 
   const planInfo = PLAN_INFO[plan] || PLAN_INFO.free;
 
-  const close = () => setModal(null);
+  const close = () => { setModal(null); setSubError(null); };
+
+  async function startCheckout(targetPlan: string) {
+    if (!supaUser) { setSubError("Please sign in to upgrade."); return; }
+    setUpgrading(true);
+    setSubError(null);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const res = await fetch("/api/payfast/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session?.access_token}`,
+        },
+        body: JSON.stringify({ plan: targetPlan }),
+      });
+      if (!res.ok) { setSubError("Could not start checkout. Try again."); return; }
+      const { url, params } = await res.json();
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = url;
+      Object.entries(params as Record<string, string>).forEach(([k, v]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = k;
+        input.value = v;
+        form.appendChild(input);
+      });
+      document.body.appendChild(form);
+      form.submit();
+    } catch {
+      setSubError("Network error. Please try again.");
+      setUpgrading(false);
+    }
+  }
+
+  async function cancelSubscription() {
+    if (!supaUser) return;
+    setCancelling(true);
+    setSubError(null);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const res = await fetch("/api/payfast/cancel", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${session?.access_token}` },
+      });
+      if (res.ok) {
+        setPlan("free");
+        setPfToken(null);
+        close();
+      } else {
+        const { error } = await res.json();
+        setSubError(error || "Cancellation failed. Contact support.");
+      }
+    } catch {
+      setSubError("Network error. Please try again.");
+    } finally {
+      setCancelling(false);
+    }
+  }
+
+  if (reportPage) {
+    return <SavedReportView subject={reportPage} onBack={() => setReportPage(null)} />;
+  }
 
   if (reportPage) {
     return <SavedReportView subject={reportPage} onBack={() => setReportPage(null)} />;
@@ -400,8 +486,34 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                       {planInfo.label}
                     </span>
                   }
-                />
-                <Row icon={icons.star} label={t("settings.plan_features")} onClick={() => setModal("planFeatures")} />
+                              />
+
+                <Row icon={icons.star}       label={t("settings.plan_features")}      onClick={() => setModal("planFeatures")} />
+                {planInfo.label === "Free" && (
+                  <Row icon={icons.star} label="Upgrade plan" onClick={() => setModal("upgradePlan")} />
+                )}
+                <Row icon={icons.receipt}    label={t("settings.billing_cycle")}       value="Monthly"       onClick={() => setModal("billing")} />
+                <Row icon={icons.creditCard} label={t("settings.payment_method")}      value="•••• 4242"    onClick={() => setModal("payment")} />
+                <Row icon={icons.creditCard} label={t("settings.update_payment")}                            onClick={() => setModal("payment")} />
+                <Row icon={icons.receipt}    label={t("settings.billing_history")}                           onClick={() => setModal("invoices")} />
+                {pfToken && (
+                  <Row icon={icons.xCircle} label={t("settings.cancel_sub")} danger onClick={() => setModal("cancelSub")} />
+                )}
+              </Card>
+            </section>
+
+            {/* ── Support ───────────────────────────────────────────────── */}
+            <section>
+              <SectionHeader
+                title={t("settings.support")}
+                subtitle={t("settings.support_desc")}
+              />
+              <Card>
+                <Row icon={icons.question}  label={t("settings.faq")}         onClick={() => setModal("faq")} />
+                <Row icon={icons.chat}      label={t("settings.contact")}      onClick={() => setModal("contact")} />
+                <Row icon={icons.chat}      label={t("settings.feedback")}     onClick={() => setModal("feedback")} />
+                <Row icon={icons.flag}      label={t("settings.report_bug")}   onClick={() => setModal("bug")} />
+                <Row icon={icons.lightbulb} label={t("settings.suggest")}      onClick={() => setModal("feature")} />
               </Card>
             </section>
 
@@ -487,6 +599,168 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
         </Modal>
       )}
 
+      {modal === "billing" && (
+        <Modal title="Billing cycle" onClose={close}>
+          <div className="space-y-3">
+            {["Monthly", "Annually (save 20%)"].map((cycle) => (
+              <button key={cycle}
+                className="w-full text-left px-4 py-3 rounded-xl bg-gray-50 hover:bg-gray-100 text-sm text-gray-700 font-medium transition-colors">
+                {cycle}
+              </button>
+            ))}
+          </div>
+        </Modal>
+      )}
+
+      {modal === "payment" && (
+        <Modal title="Payment method" onClose={close}>
+          <div className="space-y-4">
+            <div className="bg-gray-50 rounded-xl px-4 py-3 flex items-center gap-3">
+              <span className="text-2xl">💳</span>
+              <div>
+                <p className="text-sm font-medium text-gray-800">Visa ending in 4242</p>
+                <p className="text-xs text-gray-400">Expires 08/27</p>
+              </div>
+            </div>
+            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
+              Update payment details
+            </button>
+          </div>
+        </Modal>
+      )}
+
+      {modal === "invoices" && (
+        <Modal title="Billing history" onClose={close}>
+          <div className="space-y-2">
+            {[
+              { date: "1 Mar 2026", amount: planInfo.price, status: "Paid" },
+              { date: "1 Feb 2026", amount: planInfo.price, status: "Paid" },
+              { date: "1 Jan 2026", amount: planInfo.price, status: "Paid" },
+            ].map((inv) => (
+              <div key={inv.date} className="flex items-center justify-between px-4 py-3 bg-gray-50 rounded-xl">
+                <div>
+                  <p className="text-sm font-medium text-gray-800">{inv.date}</p>
+                  <p className="text-xs text-gray-400">{inv.amount}</p>
+                </div>
+                <span className="text-xs bg-green-100 text-green-700 font-semibold px-2.5 py-0.5 rounded-full">{inv.status}</span>
+              </div>
+            ))}
+          </div>
+        </Modal>
+      )}
+
+      {modal === "cancelSub" && (
+        <Modal title="Cancel subscription" onClose={close}>
+          <div className="space-y-4">
+            <p className="text-sm text-gray-600">You&apos;ll lose access to all premium features at the end of your billing cycle. Your progress data will be kept.</p>
+            {subError && (
+              <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2">{subError}</p>
+            )}
+            <button onClick={close} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
+              Keep subscription
+            </button>
+            <button
+              onClick={cancelSubscription}
+              disabled={cancelling}
+              className="w-full bg-red-500 hover:bg-red-600 disabled:opacity-50 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
+            >
+              {cancelling ? "Cancelling…" : "Cancel subscription"}
+            </button>
+          </div>
+        </Modal>
+      )}
+
+      {modal === "upgradePlan" && (
+        <Modal title="Upgrade your plan" onClose={close}>
+          <div className="space-y-3">
+            {subError && (
+              <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2">{subError}</p>
+            )}
+            {(["starter", "pro", "ultimate"] as const).map((p) => {
+              const info = PLAN_INFO[p];
+              return (
+                <div key={p} className="border border-gray-100 rounded-2xl p-4 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${info.color}`}>
+                      {info.label}
+                    </span>
+                    <span className="text-sm font-bold text-gray-800">{info.price}</span>
+                  </div>
+                  <ul className="space-y-1 pb-1">
+                    {info.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-xs text-gray-500">
+                        <span className="text-green-500 flex-shrink-0">✓</span>{f}
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={() => startCheckout(p)}
+                    disabled={upgrading}
+                    className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white py-2 rounded-xl text-sm font-medium transition-colors"
+                  >
+                    {upgrading ? "Redirecting to PayFast…" : `Subscribe — ${info.price}`}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </Modal>
+      )}
+
+      {modal === "downloadPDF" && (
+        <Modal title="Download progress report" onClose={close}>
+          <div className="space-y-4">
+            <p className="text-sm text-gray-600">Your personalised progress report includes skill mastery, streaks, and session history.</p>
+            <button onClick={close} className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2">
+              {icons.download} Download PDF
+            </button>
+          </div>
+        </Modal>
+      )}
+
+      {modal === "faq" && (
+        <Modal title="Frequently asked questions" onClose={close}>
+          <div className="space-y-3">
+            {[
+              { q: "How does Ruby teach maths?", a: "Ruby uses an adaptive skill tree with 72 atomic skills to diagnose and target gaps." },
+              { q: "Can I change the learning language?", a: "Yes — go to Learning Settings and choose your preferred language." },
+              { q: "Is my data safe?", a: "All progress is stored locally on your device and never shared without consent." },
+            ].map(({ q, a }) => (
+              <div key={q} className="bg-gray-50 rounded-xl px-4 py-3">
+                <p className="text-sm font-medium text-gray-800 mb-1">{q}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </Modal>
+      )}
+
+      {(modal === "contact" || modal === "feedback" || modal === "bug" || modal === "feature") && (
+        <Modal
+          title={
+            modal === "contact" ? "Contact support" :
+            modal === "feedback" ? "Provide feedback" :
+            modal === "bug" ? "Report a bug" : "Suggest a feature"
+          }
+          onClose={close}
+        >
+          <div className="space-y-4">
+            <textarea
+              rows={4}
+              placeholder={
+                modal === "contact" ? "Describe your issue..." :
+                modal === "feedback" ? "What do you think of Ruby?" :
+                modal === "bug" ? "Describe what went wrong and how to reproduce it..." :
+                "What feature would make Ruby better?"
+              }
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-50 placeholder-gray-300"
+            />
+            <button onClick={close} className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
+              Send
+            </button>
+          </div>
+        </Modal>
+      )}
 
       {saved && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs font-medium px-4 py-2.5 rounded-full shadow-lg z-50">
