@@ -444,6 +444,16 @@ export default function MathsDiagnosticPlacement({
       : "Almost done";
 
   const answerInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [workingImage, setWorkingImage] = useState<string | undefined>(undefined);
+
+  const handleImageCapture = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => setWorkingImage(reader.result as string);
+    reader.readAsDataURL(file);
+  };
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
@@ -453,6 +463,8 @@ export default function MathsDiagnosticPlacement({
     if (task) {
       setAnswers(task.fields ? task.fields.map(() => "") : [""]);
       setSelectedChoice(null);
+      setWorkingImage(undefined);
+      if (fileInputRef.current) fileInputRef.current.value = "";
       if (window.matchMedia("(pointer: fine)").matches) {
         setTimeout(() => answerInputRef.current?.focus(), 0);
       }
@@ -786,6 +798,51 @@ export default function MathsDiagnosticPlacement({
                 >
                   Submit ✓
                 </button>
+              </div>
+            )}
+
+            {/* ── Working photo (Grade 3+, non-choice tasks only) ── */}
+            {grade >= 3 && !isChoiceTask && (
+              <div>
+                <label className="block text-sm font-medium text-gray-500 mb-1.5">
+                  Show your working <span className="font-normal text-gray-400">(optional)</span>
+                </label>
+                {workingImage ? (
+                  <div className="relative rounded-xl overflow-hidden border border-gray-200">
+                    <img src={workingImage} alt="Your working" className="w-full max-h-48 object-contain bg-gray-50" />
+                    <button
+                      onClick={() => { setWorkingImage(undefined); if (fileInputRef.current) fileInputRef.current.value = ""; }}
+                      className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white shadow border border-gray-200 flex items-center justify-center text-gray-500 hover:text-red-500 transition-colors"
+                      title="Remove photo"
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={submitting}
+                    className="w-full border-2 border-dashed border-gray-200 rounded-xl py-6 flex flex-col items-center justify-center gap-2 text-gray-400 hover:border-teal-400 hover:text-teal-400 transition-colors bg-gray-50 hover:bg-teal-50"
+                  >
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                    </svg>
+                    <span className="text-sm font-medium">Upload your working from your book/page</span>
+                    <span className="text-xs text-gray-300">Tap to open camera or choose a photo</span>
+                  </button>
+                )}
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  onChange={handleImageCapture}
+                  className="hidden"
+                />
               </div>
             )}
 
