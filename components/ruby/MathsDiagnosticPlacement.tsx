@@ -178,8 +178,7 @@ function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; 
 // Deliberately set ~2 grade levels below the window's lowest gate so the learning
 // session can quickly find the real floor via BKT rather than starting too high.
 function getGradeFloor(grade: number): number {
-  if (grade <= 2) return 1;   // Grade 1–2 failed → start at Counting
-  if (grade <= 3) return 1;   // Grade 3 failed  → start at Counting
+  if (grade <= 3) return 1;   // Grade 1–3 failed → start at Counting (window includes G1)
   if (grade <= 4) return 2;   // Grade 4 failed  → start at Addition
   if (grade <= 5) return 3;   // Grade 5 failed  → start at Subtraction
   if (grade <= 6) return 4;   // Grade 6 failed  → start at Multiplication entry
