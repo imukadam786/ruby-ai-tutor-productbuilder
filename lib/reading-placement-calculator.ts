@@ -106,12 +106,18 @@ export function calculateReadingPlacement(
   // where failing D07 placed a student at R2.T2.A3 but gated them to R1 content.
 
   // ── RULE 1: Foundation failure ───────────────────────────────────────────
-  // Only applied for grades 1–3. For grade 4+ a D01/D02 stumble is likely
-  // a slip or STT mis-read rather than a true phonological deficit — let
-  // Rule 2 map to the actual first-failure skill instead of hard-placing
-  // at R1.T1.A1 (the absolute foundation), which would be inappropriate
-  // for an older student who scored well overall.
-  if (grade <= 3 && (!taskPassed("D01") || !taskPassed("D02"))) {
+  // Grade 1–3: either D01 or D02 failing is enough to indicate a phonological
+  // deficit — place at absolute foundation R1.T1.A1.
+  //
+  // Grade 4+: require BOTH D01 and D02 to fail before placing at foundation.
+  // A single failure is likely an STT slip for an older student; two consecutive
+  // failures across different phonological tasks is too consistent to be noise
+  // and suggests a genuine underlying deficit that must be addressed first.
+  const foundationFailed = grade <= 3
+    ? (!taskPassed("D01") || !taskPassed("D02"))
+    : (!taskPassed("D01") && !taskPassed("D02"));
+
+  if (foundationFailed) {
     return {
       completedAt: Date.now(),
       tasks: taskResults,
