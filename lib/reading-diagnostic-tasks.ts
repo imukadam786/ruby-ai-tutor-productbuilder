@@ -196,7 +196,7 @@ export const DIAGNOSTIC_TASKS: DiagnosticTask[] = [
     description: "CVCe word decoding",
     instruction: "Read each word out loud.",
     passThreshold: 0.8,
-    mapsToSkill: "R2.T2.A3",
+    mapsToSkill: "R2.T3.A1",
     items: [
       { id: "D09-01", prompt: 'Read this word: "cake"', expected: "cake" },
       { id: "D09-02", prompt: 'Read this word: "kite"', expected: "kite" },
@@ -347,7 +347,7 @@ export const DIAGNOSTIC_TASKS: DiagnosticTask[] = [
     mode: "tap",
     description: "Identify when reading breaks down and apply fix-up strategies",
     instruction: "Read each question and tap the best answer.",
-    passThreshold: 1.0,
+    passThreshold: 0.75,
     mapsToSkill: "R4.T3.A2",
     items: [
       {

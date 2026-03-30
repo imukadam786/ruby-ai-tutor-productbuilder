@@ -153,11 +153,18 @@ function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; 
       const correct = task.fields.every((_, i) => (answers[i] ?? "").trim().length > 0);
       return { correct, errorType: correct ? undefined : errorType };
     }
-    const correctCount = gradedFields.filter((f, i) => {
+    // Use the original field index (not the filtered index) so answers[i] aligns
+    // correctly even when some fields have no expectedAnswer (ungraded fields).
+    let correctCount = 0;
+    for (let i = 0; i < task.fields.length; i++) {
+      const f = task.fields[i];
+      if (f.expectedAnswer === undefined) continue;
       const ua = normaliseAnswer(answers[i] ?? "");
       const ea = normaliseAnswer(String(f.expectedAnswer));
-      return ua === ea || (typeof f.expectedAnswer === "number" && Number(answers[i]) === f.expectedAnswer);
-    }).length;
+      if (ua === ea || (typeof f.expectedAnswer === "number" && Number(answers[i]) === f.expectedAnswer)) {
+        correctCount++;
+      }
+    }
     const correct = correctCount >= Math.ceil(gradedFields.length * 0.6);
     return { correct, errorType: correct ? undefined : errorType };
   }
@@ -207,13 +214,14 @@ function computePlacement(
   //   2 questions (Grade 3–12): both must be correct — prevents a single lucky
   //     answer passing a domain and cascading into a large overplacement.
   //   3 questions (Grade 2):    majority (≥2/3) — one slip is forgiven.
-  //   6 questions (Grade 1):    majority (≥4/6) — consistent performance needed.
+  //   6 questions (Grade 1):    strong majority (≥4/6, 67%) — consistent performance needed.
   const domainPassed = (d: string) => {
     const total = domainTotal[d] ?? 0;
     const correct = domainCorrect[d] ?? 0;
     if (total === 0) return false;
     if (total === 2) return correct === 2;           // strict: both correct
-    return correct / total >= 0.5;                  // majority for 3q and 6q
+    if (total >= 6) return correct >= Math.ceil(total * 0.67); // Grade 1: ≥4/6
+    return correct / total >= 0.5;                  // Grade 2: ≥2/3
   };
 
   // Gate passed = both domains passed

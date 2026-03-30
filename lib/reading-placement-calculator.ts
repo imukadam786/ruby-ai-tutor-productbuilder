@@ -22,7 +22,11 @@ const SKILL_SEQUENCE: string[] = (skillTreeData as { levels: { tiers: { atomic_s
 /** Returns all skills that come before entrySkillId in the tree. */
 function skillsBefore(entrySkillId: string): string[] {
   const idx = SKILL_SEQUENCE.indexOf(entrySkillId);
-  if (idx <= 0) return [];
+  if (idx < 0) {
+    console.warn(`[reading-placement] entrySkillId "${entrySkillId}" not found in SKILL_SEQUENCE — auto-complete will be empty. Check reading-skill-tree.json for a missing or renamed skill.`);
+    return [];
+  }
+  if (idx === 0) return [];
   return SKILL_SEQUENCE.slice(0, idx);
 }
 
