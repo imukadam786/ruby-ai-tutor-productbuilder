@@ -201,6 +201,11 @@ function computePlacement(
   autoCompletedSkillIds: string[]; earlyExitReason: string | null;
   probesRun: number; placementBlock: DiagnosticBlock;
 } {
+  if (grade < 1 || grade > 12) {
+    console.warn(`[maths-placement] Invalid grade ${grade} — clamping to range 1–12`);
+    grade = Math.max(1, Math.min(12, grade));
+  }
+
   // Tally correct answers and total attempts per domain
   const domainCorrect: Record<string, number> = {};
   const domainTotal: Record<string, number> = {};
