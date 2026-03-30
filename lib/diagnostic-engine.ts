@@ -1,4 +1,4 @@
-import { ErrorType, AnswerSubmission, AtomicSkill, DiagnosticBlock, MathsPlacementTaskResult } from "@/types/ruby";
+import { ErrorType, AnswerSubmission, AtomicSkill } from "@/types/ruby";
 
 // ─── Error Classification ─────────────────────────────────────────────────────
 
@@ -142,62 +142,4 @@ Please respond in this exact JSON format:
 }
 
 Be specific to this student's actual work. Do not be generic.`;
-}
-
-// ─── Diagnostic Early Exit ────────────────────────────────────────────────────
-
-export type EarlyExitResult =
-  | { exit: false }
-  | { exit: true; placementLevel: number; reason: string };
-
-export function evaluateEarlyExit(
-  completedTasks: MathsPlacementTaskResult[],
-  currentBlock: DiagnosticBlock,
-  errorHistory: Array<{ taskId: string; errorType: string }>
-): EarlyExitResult {
-  // Condition 1 — 4+ deep conceptual errors in Block 1 → place at level 1
-  if (currentBlock === 1) {
-    const deepConceptual = errorHistory.filter((e) =>
-      ["conceptual_gap", "ERR_OP_MEANING", "ERR_ZERO_IDENTITY", "ERR_PART_WHOLE"].includes(e.errorType)
-    );
-    if (deepConceptual.length >= 4) {
-      return { exit: true, placementLevel: 1, reason: "Consistent conceptual gap in Block 1 — place at Phase 1" };
-    }
-  }
-
-  // Condition 2 — 5+ errors in Block 2 → place at Block 1 ceiling
-  if (currentBlock === 2) {
-    const block2Errors = errorHistory.filter((e) =>
-      completedTasks.some((t) => t.domain === e.taskId && t.block === 2)
-    );
-    if (block2Errors.length >= 5) {
-      const block1Ceiling = completedTasks
-        .filter((t) => t.block === 1 && t.correct)
-        .sort((a, b) => (b.domain > a.domain ? 1 : -1))[0];
-      return {
-        exit: true,
-        placementLevel: block1Ceiling ? 3 : 1,
-        reason: "Complete Block 2 failure — place at Block 1 ceiling",
-      };
-    }
-  }
-
-  // Condition 3 — 3 questions in a row incorrect → exit, place at last correct answer
-  if (completedTasks.length >= 3) {
-    const lastThree = completedTasks.slice(-3);
-    if (lastThree.every((t) => !t.correct)) {
-      // Place at the domain of the last correct answer, or level 1 if none
-      const lastCorrect = [...completedTasks].reverse().find((t) => t.correct);
-      const placementLevel = lastCorrect
-        ? Math.max(1, parseInt(lastCorrect.domain.replace("M", ""), 10) - 1)
-        : 1;
-      return {
-        exit: true,
-        placementLevel,
-        reason: "Three consecutive incorrect answers — stopping early to avoid frustration",
-      };
-    }
-  }
-
-  return { exit: false };
 }
