@@ -451,6 +451,19 @@ export default function MathsDiagnosticPlacement({
           }
         }
 
+        // Validate: every domain in the search window must have at least one question.
+        // A missing domain means SEARCH_GATES is out of sync with the bank files —
+        // that gate will silently fail and underplace every student who hits it.
+        const domainCounts: Record<string, number> = {};
+        queue.forEach((t) => { domainCounts[t.domain] = (domainCounts[t.domain] ?? 0) + 1; });
+        for (let gi = lo; gi <= hi; gi++) {
+          for (const domain of SEARCH_GATES[gi].domains) {
+            if (!domainCounts[domain]) {
+              console.warn(`[maths-placement] No questions loaded for domain ${domain} (gate ${SEARCH_GATES[gi].name}) — SEARCH_GATES may be out of sync with bank files. Students hitting this gate will be underplaced.`);
+            }
+          }
+        }
+
         setDomainTitleMap(titleMap);
         setTaskQueue(queue);
         setTaskIndex(0);
