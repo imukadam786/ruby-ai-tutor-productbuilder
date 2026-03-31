@@ -901,8 +901,14 @@ export default function ReadingSession() {
               <div className="text-5xl mb-2">⭐</div>
               <h3 className="text-2xl font-bold text-gray-900">Phonological Awareness Complete!</h3>
               <p className="text-gray-600">
-                Fantastic work! You&apos;ve finished all the sound-awareness exercises. Your teacher or parent will help you with your next steps in reading.
+                Fantastic work! You&apos;ve finished all the sound-awareness exercises. Take the reading check-in again to unlock the next stage.
               </p>
+              <button
+                onClick={resetToPlacement}
+                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-xl font-medium mt-2"
+              >
+                Start reading check-in
+              </button>
             </div>
           ) : (
             <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">

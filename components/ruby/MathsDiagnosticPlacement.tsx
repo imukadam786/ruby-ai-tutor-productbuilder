@@ -330,7 +330,7 @@ const LEVEL_LABEL: Record<number, string> = {
   22: "Calculus",
 };
 
-type Phase = "welcome" | "loading" | "task" | "result";
+type Phase = "welcome" | "loading" | "task" | "result" | "error";
 
 // ── Stimulus renderer ─────────────────────────────────────────────────────────
 
@@ -469,7 +469,7 @@ export default function MathsDiagnosticPlacement({
         setTaskIndex(0);
         setPhase("task");
       })
-      .catch(() => setPhase("task"));
+      .catch(() => setPhase("error"));
   }, [grade]);
 
   // ── Current task and progress ──────────────────────────────────────────────
@@ -651,6 +651,26 @@ export default function MathsDiagnosticPlacement({
       <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100 items-center justify-center">
         <div className="text-4xl animate-spin">⚙️</div>
         <p className="mt-4 text-teal-700 font-medium">Preparing your questions…</p>
+      </div>
+    );
+  }
+
+  // ── Error ──────────────────────────────────────────────────────────────────
+
+  if (phase === "error") {
+    return (
+      <div className="flex flex-col h-full bg-gray-50 items-center justify-center p-6">
+        <div className="bg-white rounded-2xl p-8 shadow-sm max-w-sm w-full text-center space-y-4">
+          <div className="text-4xl">⚠️</div>
+          <h3 className="text-xl font-bold text-gray-900">Couldn&apos;t load questions</h3>
+          <p className="text-gray-500 text-sm">Check your connection and try again.</p>
+          <button
+            onClick={() => { bankLoadedRef.current = false; setPhase("welcome"); }}
+            className="w-full bg-[#B7182E] text-white py-3 rounded-2xl font-semibold hover:opacity-90 transition-opacity"
+          >
+            Try again
+          </button>
+        </div>
       </div>
     );
   }
