@@ -37,6 +37,7 @@ function AppContent() {
   const { t } = useT();
 
   const [activeView, setActiveView] = useState<ActiveView>("home");
+  const [paymentReturn, setPaymentReturn] = useState<"success" | "cancelled" | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [stats, setStats] = useState({ lessonsCompleted: 0 });
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
@@ -74,6 +75,7 @@ function AppContent() {
     const params = new URLSearchParams(window.location.search);
     const payment = params.get("payment");
     if (payment === "success" || payment === "cancelled") {
+      setPaymentReturn(payment);
       setActiveView("settings");
       // Clean URL without reload
       window.history.replaceState({}, "", "/");
@@ -183,7 +185,7 @@ function AppContent() {
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
         {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
-        {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} />}
+        {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "matric" && <MatricComingSoon />}
         {activeView === "watch" && <WatchComingSoon />}
       </main>

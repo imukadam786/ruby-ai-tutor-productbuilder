@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useT } from "@/lib/i18n";
 import SpinningGlobe from "@/components/SpinningGlobe";
 import EduBackground from "@/components/EduBackground";
@@ -9,6 +9,7 @@ import SavedReportView from "@/components/SavedReportView";
 
 interface SettingsViewProps {
   onBack: () => void;
+  paymentReturn?: "success" | "cancelled" | null;
 }
 
 // ── Small reusable pieces ─────────────────────────────────────────────────────
@@ -217,7 +218,7 @@ const LANGUAGES = [
 
 // ── Main component ────────────────────────────────────────────────────────────
 
-export default function SettingsView({ onBack }: SettingsViewProps) {
+export default function SettingsView({ onBack, paymentReturn }: SettingsViewProps) {
   const { t, setLanguage, isTranslating } = useT();
 
   // Profile state
@@ -293,21 +294,27 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
   }, []);
 
   // Load live subscription from Supabase
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session?.user) return;
-      setSupaUser(session.user as { id: string; email?: string });
-      supabase
-        .from("subscriptions")
-        .select("plan, status, payfast_token")
-        .eq("user_id", session.user.id)
-        .single()
-        .then(({ data }) => {
-          if (data?.plan) setPlan(data.plan);
-          if (data?.payfast_token) setPfToken(data.payfast_token);
-        });
-    });
+  const fetchSubscription = useCallback(async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session?.user) return;
+    setSupaUser(session.user as { id: string; email?: string });
+    const { data } = await supabase
+      .from("subscriptions")
+      .select("plan, status, payfast_token")
+      .eq("user_id", session.user.id)
+      .single();
+    if (data?.plan) setPlan(data.plan);
+    if (data?.payfast_token) setPfToken(data.payfast_token);
   }, []);
+
+  useEffect(() => { fetchSubscription(); }, [fetchSubscription]);
+
+  // On return from PayFast, re-fetch after 3 s to let the ITN webhook settle
+  useEffect(() => {
+    if (paymentReturn !== "success") return;
+    const timer = setTimeout(() => fetchSubscription(), 3000);
+    return () => clearTimeout(timer);
+  }, [paymentReturn, fetchSubscription]);
 
   const saveProfile = () => {
     try {
