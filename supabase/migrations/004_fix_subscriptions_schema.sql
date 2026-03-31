@@ -27,16 +27,16 @@ ALTER TABLE public.users
   CHECK (plan IN ('free', 'starter', 'pro', 'ultimate', 'school'));
 
 -- 5. Allow service-role to bypass RLS on subscriptions and users
---    (service_role already bypasses RLS by default in Supabase,
---     but ensure no restrictive policies block it)
-CREATE POLICY IF NOT EXISTS "service_role_subscriptions"
+DROP POLICY IF EXISTS "service_role_subscriptions" ON public.subscriptions;
+CREATE POLICY "service_role_subscriptions"
   ON public.subscriptions
   FOR ALL
   TO service_role
   USING (true)
   WITH CHECK (true);
 
-CREATE POLICY IF NOT EXISTS "service_role_users"
+DROP POLICY IF EXISTS "service_role_users" ON public.users;
+CREATE POLICY "service_role_users"
   ON public.users
   FOR ALL
   TO service_role
