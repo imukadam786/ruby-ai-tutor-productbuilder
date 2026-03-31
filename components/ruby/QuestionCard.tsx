@@ -17,7 +17,11 @@ const templateLabels: Record<QuestionTemplate, { label: string; icon: string; co
 };
 
 export default function QuestionCard({ question, onSubmit, isSubmitting, forceHint = false }: QuestionCardProps) {
+  const isMultiField = Array.isArray(question.labels) && question.labels.length > 0;
   const [answer, setAnswer] = useState("");
+  const [fieldValues, setFieldValues] = useState<string[]>(
+    question.labels ? question.labels.map(() => "") : []
+  );
   const [hintVisible, setHintVisible] = useState(forceHint);
   const [usedHint, setUsedHint] = useState(false);
   const [workingImage, setWorkingImage] = useState<string | undefined>(undefined);
@@ -25,10 +29,12 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
   const answerInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: fine)").matches) {
+    setAnswer("");
+    setFieldValues(question.labels ? question.labels.map(() => "") : []);
+    if (!isMultiField && window.matchMedia("(pointer: fine)").matches) {
       answerInputRef.current?.focus();
     }
-  }, [question.id]);
+  }, [question.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const templateInfo = templateLabels[question.template];
 
@@ -46,8 +52,13 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
   };
 
   const handleSubmit = () => {
-    if (!answer.trim()) return;
-    onSubmit(answer, "", usedHint, workingImage);
+    if (isMultiField) {
+      if (!fieldValues.every((v) => v.trim())) return;
+      onSubmit(fieldValues.join(","), "", usedHint, workingImage);
+    } else {
+      if (!answer.trim()) return;
+      onSubmit(answer, "", usedHint, workingImage);
+    }
   };
 
   return (
@@ -92,21 +103,46 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
 
       {/* Answer inputs */}
       <div className="px-6 pb-6 space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1.5">
-            Your Answer
-          </label>
-          <input
-            ref={answerInputRef}
-            type="text"
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-            placeholder="Write your answer here..."
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
-            disabled={isSubmitting}
-          />
-        </div>
+        {isMultiField ? (
+          <div className="space-y-3">
+            {question.labels!.map((label, i) => (
+              <div key={label}>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  {label}
+                </label>
+                <input
+                  type="number"
+                  value={fieldValues[i] ?? ""}
+                  onChange={(e) => {
+                    const next = [...fieldValues];
+                    next[i] = e.target.value;
+                    setFieldValues(next);
+                  }}
+                  onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                  placeholder="0"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
+                  disabled={isSubmitting}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Your Answer
+            </label>
+            <input
+              ref={answerInputRef}
+              type="text"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+              placeholder="Write your answer here..."
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
+              disabled={isSubmitting}
+            />
+          </div>
+        )}
 
         {/* Working upload */}
         <div>
@@ -160,7 +196,7 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
 
         <button
           onClick={handleSubmit}
-          disabled={!answer.trim() || isSubmitting}
+          disabled={(isMultiField ? !fieldValues.every((v) => v.trim()) : !answer.trim()) || isSubmitting}
           className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white py-3 rounded-xl font-medium transition-all shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 flex items-center justify-center gap-2"
         >
           {isSubmitting ? (

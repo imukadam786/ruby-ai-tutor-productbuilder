@@ -160,6 +160,8 @@ export interface GeneratedQuestion {
   bank_question?: Record<string, unknown>;
   /** Difficulty level 1–5 assigned by tagging script; used for ability-matched selection */
   difficulty?: number;
+  /** Field labels for multi-input questions (e.g. triple_numeric: ["Groups", "In each group", "Total"]) */
+  labels?: string[];
 }
 
 export interface AnswerSubmission {
