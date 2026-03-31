@@ -162,8 +162,6 @@ export default function ReadingSession() {
   const [statusMessage, setStatusMessage] = useState("");
   const [loadErrorCount, setLoadErrorCount] = useState(0);
   const retryFnRef = useRef<(() => void) | null>(null);
-  // Set when a hardGatePassed=false student finishes all R1 skills
-  const [r1GateReached, setR1GateReached] = useState(false);
 
   // Report state — shown after placement, before learning begins
   const [pendingPlacementResult, setPendingPlacementResult] = useState<import("@/types/reading").DiagnosticPlacementResult | null>(null);
@@ -493,16 +491,6 @@ export default function ReadingSession() {
         skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
       };
       const nextSkillId = getNextReadingSkillId(skillId);
-      // Hard gate: student failed D07 (phoneme blending) — cap at R1 skills
-      const gated = profile.placement?.hardGatePassed === false;
-      const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
-      if (gated && crossesGate) {
-        saveReadingProfile(profileWithAssumed);
-        setProfile(profileWithAssumed);
-        setR1GateReached(true);
-        setPhase("complete");
-        return;
-      }
       if (nextSkillId) {
         trackSkillAdvanced({ subject: "reading", from_skill_id: skillId, to_skill_id: nextSkillId });
         const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
@@ -533,15 +521,6 @@ export default function ReadingSession() {
         skill_mastery: { ...profile.skill_mastery, [skillId]: { ...existingMastery, status: "assumed" as const } },
       };
       const nextSkillId = getNextReadingSkillId(skillId);
-      const gated = profile.placement?.hardGatePassed === false;
-      const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
-      if (gated && crossesGate) {
-        saveReadingProfile(profileWithAssumed);
-        setProfile(profileWithAssumed);
-        setR1GateReached(true);
-        setPhase("complete");
-        return;
-      }
       if (nextSkillId) {
         const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
         saveReadingProfile(advanced);
@@ -575,14 +554,6 @@ export default function ReadingSession() {
         updateSessionHistory(profile, profile.current_skill_id, true);
       }
       const nextSkillId = getNextReadingSkillId(profile.current_skill_id);
-      // Hard gate: student failed D07 (phoneme blending) — cap at R1 skills
-      const gated = profile.placement?.hardGatePassed === false;
-      const crossesGate = nextSkillId && !nextSkillId.startsWith("R1.");
-      if (gated && crossesGate) {
-        setR1GateReached(true);
-        setPhase("complete");
-        return;
-      }
       if (nextSkillId) {
         trackSkillAdvanced({ subject: "reading", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
         const updated = advanceToReadingSkill(profile, nextSkillId);
@@ -896,16 +867,7 @@ export default function ReadingSession() {
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
-          {r1GateReached ? (
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
-              <div className="text-5xl mb-2">⭐</div>
-              <h3 className="text-2xl font-bold text-gray-900">Phonological Awareness Complete!</h3>
-              <p className="text-gray-600">
-                Fantastic work! You&apos;ve finished all the sound-awareness exercises. Your teacher or parent will help you with your next steps in reading.
-              </p>
-            </div>
-          ) : (
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
+          <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
               <div className="text-5xl mb-2">🎓</div>
               <h3 className="text-2xl font-bold text-gray-900">Amazing!</h3>
               <p className="text-gray-600">
@@ -918,7 +880,6 @@ export default function ReadingSession() {
                 Start Again
               </button>
             </div>
-          )}
         </div>
       </div>
     );

@@ -113,17 +113,23 @@ function getSearchWindow(grade: number): [number, number] {
 // Entry skill-tree level when a student passes a given gate.
 // "Passed gate N" means they have mastered that content → start at the next level.
 const GATE_PASSED_ENTRY: Record<number, number> = {
-  0: 2,   // Passed Grade 1 → entry Addition (level 2)
-  1: 4,   // Passed Grade 2 → entry Addition Fluency (level 4)
-  2: 5,   // Passed Grade 3 → entry Multiplication (level 5)
-  3: 8,   // Passed Grade 4 → entry Fractions (level 8)
-  4: 11,  // Passed Grade 5 → entry Ratio & Proportion (level 11)
-  5: 12,  // Passed Grade 6 → entry Integer Operations (level 12)
-  6: 13,  // Passed Grade 7 → entry Algebra (level 13)
+  0: 2,   // Passed Grade 1 → entry Addition Concepts (level 2)
+  1: 3,   // Passed Grade 2 → entry Subtraction Concepts (level 3)
+  //       Previously jumped to 4, skipping L3. Place value + 2-digit addition
+  //       does not cover subtraction as take-away/difference or borrowing.
+  2: 5,   // Passed Grade 3 → entry Multiplication Concepts (level 5)
+  3: 8,   // Passed Grade 4 → entry Fractions Introduction (level 8)
+  4: 9,   // Passed Grade 5 → entry Fraction Operations (level 9)
+  //       Previously jumped to 11, skipping L9 (Fraction Operations) and L10
+  //       (Decimals). Fraction equivalence ≠ fraction arithmetic or decimal ops.
+  5: 12,  // Passed Grade 6 → entry Negative Numbers and Integers (level 12)
+  6: 13,  // Passed Grade 7 → entry Algebra — Patterns and Variables (level 13)
   7: 14,  // Passed Grade 8 → entry Linear Equations (level 14)
-  8: 17,  // Passed Grade 9 → entry Multi-Step Problems (level 17)
-  9: 19,  // Passed Grade 10 → entry Functions (level 19)
-  10: 21, // Passed Grade 11 → entry Trigonometry (level 21)
+  8: 15,  // Passed Grade 9 → entry Geometry — Shape and Space (level 15)
+  //       Previously jumped to 17, skipping L15 (Geometry) and L16 (Statistics).
+  //       Algebra and linear equations have zero content overlap with either domain.
+  9: 19,  // Passed Grade 10 → entry Functions and Straight Lines (level 19)
+  10: 21, // Passed Grade 11 → entry Trigonometric Ratios (level 21)
   11: 22, // Passed Grade 12 → top of tree (level 22)
 };
 
@@ -277,31 +283,31 @@ function computePlacement(
 // ── Level labels ──────────────────────────────────────────────────────────────
 
 const LEVEL_LABEL: Record<number, string> = {
-  1: "Counting & Number Sense",
-  2: "Addition Strategies",
-  3: "Subtraction Strategies",
-  4: "Multiplication",
-  5: "Flexible Decomposition",
-  6: "Multiplicative Reasoning",
-  7: "Fractions",
-  8: "Ratio & Proportion",
-  9: "Integer Operations",
-  10: "Algebraic Thinking",
-  11: "Extended Ratio",
-  12: "Extended Integers",
-  13: "Advanced Algebra",
+  1:  "Counting & Number Sense",
+  2:  "Addition Concepts",
+  3:  "Subtraction Concepts",
+  4:  "Addition & Subtraction Fluency",
+  5:  "Multiplication Concepts",
+  6:  "Multiplicative Reasoning",
+  7:  "Division Concepts",
+  8:  "Fractions — Introduction",
+  9:  "Fraction Operations",
+  10: "Decimals",
+  11: "Ratio and Proportion",
+  12: "Negative Numbers and Integers",
+  13: "Algebra — Patterns and Variables",
   14: "Linear Equations",
-  15: "Quadratics",
-  16: "Functions",
-  17: "Multi-Step Problems",
-  18: "Quadratic Factorisation",
-  19: "Functions & Graphs",
-  20: "Exponentials & Logs",
-  21: "Trigonometry",
-  22: "Calculus",
+  15: "Geometry — Shape and Space",
+  16: "Statistics and Data",
+  17: "Advanced Problem Solving",
+  18: "Quadratic Algebra",
+  19: "Functions and Straight Lines",
+  20: "Exponentials and Logarithms",
+  21: "Trigonometric Ratios",
+  22: "Calculus — Differentiation",
 };
 
-type Phase = "welcome" | "loading" | "task" | "result";
+type Phase = "welcome" | "loading" | "task" | "result" | "error";
 
 // ── Stimulus renderer ─────────────────────────────────────────────────────────
 
@@ -427,7 +433,7 @@ export default function MathsDiagnosticPlacement({
         setTaskIndex(0);
         setPhase("task");
       })
-      .catch(() => setPhase("task"));
+      .catch(() => setPhase("error"));
   }, [grade]);
 
   // ── Current task and progress ──────────────────────────────────────────────
@@ -609,6 +615,26 @@ export default function MathsDiagnosticPlacement({
       <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100 items-center justify-center">
         <div className="text-4xl animate-spin">⚙️</div>
         <p className="mt-4 text-teal-700 font-medium">Preparing your questions…</p>
+      </div>
+    );
+  }
+
+  // ── Error ──────────────────────────────────────────────────────────────────
+
+  if (phase === "error") {
+    return (
+      <div className="flex flex-col h-full bg-gray-50 items-center justify-center p-6">
+        <div className="bg-white rounded-2xl p-8 shadow-sm max-w-sm w-full text-center space-y-4">
+          <div className="text-4xl">⚠️</div>
+          <h3 className="text-xl font-bold text-gray-900">Couldn&apos;t load questions</h3>
+          <p className="text-gray-500 text-sm">Check your connection and try again.</p>
+          <button
+            onClick={() => { bankLoadedRef.current = false; setPhase("welcome"); }}
+            className="w-full bg-[#B7182E] text-white py-3 rounded-2xl font-semibold hover:opacity-90 transition-opacity"
+          >
+            Try again
+          </button>
+        </div>
       </div>
     );
   }
