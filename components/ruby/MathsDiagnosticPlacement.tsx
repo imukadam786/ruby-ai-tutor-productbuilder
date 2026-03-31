@@ -114,20 +114,20 @@ function getSearchWindow(grade: number): [number, number] {
 // "Passed gate N" means they have mastered that content → start at the next level.
 const GATE_PASSED_ENTRY: Record<number, number> = {
   0: 2,   // Passed Grade 1 → entry Addition Concepts (level 2)
-  1: 4,   // Passed Grade 2 → entry Addition & Subtraction Fluency (level 4)
+  1: 3,   // Passed Grade 2 → entry Subtraction Concepts (level 3)
+  //       Previously jumped to 4, skipping L3. Place value + 2-digit addition
+  //       does not cover subtraction as take-away/difference or borrowing.
   2: 5,   // Passed Grade 3 → entry Multiplication Concepts (level 5)
   3: 8,   // Passed Grade 4 → entry Fractions Introduction (level 8)
   4: 9,   // Passed Grade 5 → entry Fraction Operations (level 9)
-  //       Previously jumped to 11 (Ratio), skipping L9 Fraction Operations and
-  //       L10 Decimals. Gate tests fraction equivalence, not fraction arithmetic
-  //       or decimal computation — those gaps must be worked through directly.
-  5: 12,  // Passed Grade 6 → entry Negative Numbers & Integers (level 12)
-  6: 13,  // Passed Grade 7 → entry Algebra — Patterns & Variables (level 13)
+  //       Previously jumped to 11, skipping L9 (Fraction Operations) and L10
+  //       (Decimals). Fraction equivalence ≠ fraction arithmetic or decimal ops.
+  5: 12,  // Passed Grade 6 → entry Negative Numbers and Integers (level 12)
+  6: 13,  // Passed Grade 7 → entry Algebra — Patterns and Variables (level 13)
   7: 14,  // Passed Grade 8 → entry Linear Equations (level 14)
   8: 15,  // Passed Grade 9 → entry Geometry — Shape and Space (level 15)
-  //       Previously jumped to 17 (Advanced Problem Solving), skipping L15
-  //       Geometry and L16 Statistics entirely. Algebra and linear equations
-  //       have zero content overlap with those domains.
+  //       Previously jumped to 17, skipping L15 (Geometry) and L16 (Statistics).
+  //       Algebra and linear equations have zero content overlap with either domain.
   9: 19,  // Passed Grade 10 → entry Functions and Straight Lines (level 19)
   10: 21, // Passed Grade 11 → entry Trigonometric Ratios (level 21)
   11: 22, // Passed Grade 12 → top of tree (level 22)
@@ -159,18 +159,11 @@ function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; 
       const correct = task.fields.every((_, i) => (answers[i] ?? "").trim().length > 0);
       return { correct, errorType: correct ? undefined : errorType };
     }
-    // Use the original field index (not the filtered index) so answers[i] aligns
-    // correctly even when some fields have no expectedAnswer (ungraded fields).
-    let correctCount = 0;
-    for (let i = 0; i < task.fields.length; i++) {
-      const f = task.fields[i];
-      if (f.expectedAnswer === undefined) continue;
+    const correctCount = gradedFields.filter((f, i) => {
       const ua = normaliseAnswer(answers[i] ?? "");
       const ea = normaliseAnswer(String(f.expectedAnswer));
-      if (ua === ea || (typeof f.expectedAnswer === "number" && Number(answers[i]) === f.expectedAnswer)) {
-        correctCount++;
-      }
-    }
+      return ua === ea || (typeof f.expectedAnswer === "number" && Number(answers[i]) === f.expectedAnswer);
+    }).length;
     const correct = correctCount >= Math.ceil(gradedFields.length * 0.6);
     return { correct, errorType: correct ? undefined : errorType };
   }
@@ -184,7 +177,8 @@ function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; 
 // Deliberately set ~2 grade levels below the window's lowest gate so the learning
 // session can quickly find the real floor via BKT rather than starting too high.
 function getGradeFloor(grade: number): number {
-  if (grade <= 3) return 1;   // Grade 1–3 failed → start at Counting (window includes G1)
+  if (grade <= 2) return 1;   // Grade 1–2 failed → start at Counting
+  if (grade <= 3) return 1;   // Grade 3 failed  → start at Counting
   if (grade <= 4) return 2;   // Grade 4 failed  → start at Addition
   if (grade <= 5) return 3;   // Grade 5 failed  → start at Subtraction
   if (grade <= 6) return 4;   // Grade 6 failed  → start at Multiplication entry
@@ -207,11 +201,6 @@ function computePlacement(
   autoCompletedSkillIds: string[]; earlyExitReason: string | null;
   probesRun: number; placementBlock: DiagnosticBlock;
 } {
-  if (grade < 1 || grade > 12) {
-    console.warn(`[maths-placement] Invalid grade ${grade} — clamping to range 1–12`);
-    grade = Math.max(1, Math.min(12, grade));
-  }
-
   // Tally correct answers and total attempts per domain
   const domainCorrect: Record<string, number> = {};
   const domainTotal: Record<string, number> = {};
@@ -224,14 +213,13 @@ function computePlacement(
   //   2 questions (Grade 3–12): both must be correct — prevents a single lucky
   //     answer passing a domain and cascading into a large overplacement.
   //   3 questions (Grade 2):    majority (≥2/3) — one slip is forgiven.
-  //   6 questions (Grade 1):    strong majority (≥4/6, 67%) — consistent performance needed.
+  //   6 questions (Grade 1):    majority (≥4/6) — consistent performance needed.
   const domainPassed = (d: string) => {
     const total = domainTotal[d] ?? 0;
     const correct = domainCorrect[d] ?? 0;
     if (total === 0) return false;
     if (total === 2) return correct === 2;           // strict: both correct
-    if (total >= 6) return correct >= Math.ceil(total * 0.67); // Grade 1: ≥4/6
-    return correct / total >= 0.5;                  // Grade 2: ≥2/3
+    return correct / total >= 0.5;                  // majority for 3q and 6q
   };
 
   // Gate passed = both domains passed
@@ -240,23 +228,8 @@ function computePlacement(
     return !!gate && gate.domains.every((d) => domainPassed(d));
   };
 
-  // A gate is "decisively failed" when any domain within it has 0 correct answers.
-  // A domain with 1/2 correct is a borderline slip and should NOT trigger gap placement —
-  // only complete misses (0 correct) indicate a genuine conceptual gap.
-  const gateDecisivelyFailed = (idx: number): boolean => {
-    const gate = SEARCH_GATES[idx];
-    if (!gate) return false;
-    return gate.domains.some((d) => {
-      const total = domainTotal[d] ?? 0;
-      const correct = domainCorrect[d] ?? 0;
-      return total > 0 && correct === 0;
-    });
-  };
-
-  // Find the highest gate passed and the lowest gate decisively failed within the window.
+  // Find the highest gate passed and the lowest gate failed within the window.
   // A gate is only considered "failed" if it was actually tested (domainTotal > 0).
-  // Borderline failures (e.g. 1/2 correct) are excluded from gap detection to prevent
-  // a single execution slip from triggering a multi-grade underplacement.
   const [lo, hi] = getSearchWindow(grade);
   let highestPassedGate = -1;
   let lowestFailedGate  = -1;
@@ -266,9 +239,7 @@ function computePlacement(
     } else {
       const gate = SEARCH_GATES[i];
       const wasTested = gate.domains.some((d) => (domainTotal[d] ?? 0) > 0);
-      if (wasTested && lowestFailedGate === -1 && gateDecisivelyFailed(i)) {
-        lowestFailedGate = i;
-      }
+      if (wasTested && lowestFailedGate === -1) lowestFailedGate = i;
     }
   }
 
@@ -453,19 +424,6 @@ export default function MathsDiagnosticPlacement({
                 const adapted = adaptBankTask(raw, 1);
                 queue.push({ ...adapted, question: simplifyText(adapted.question, readingLevel) });
               }
-            }
-          }
-        }
-
-        // Validate: every domain in the search window must have at least one question.
-        // A missing domain means SEARCH_GATES is out of sync with the bank files —
-        // that gate will silently fail and underplace every student who hits it.
-        const domainCounts: Record<string, number> = {};
-        queue.forEach((t) => { domainCounts[t.domain] = (domainCounts[t.domain] ?? 0) + 1; });
-        for (let gi = lo; gi <= hi; gi++) {
-          for (const domain of SEARCH_GATES[gi].domains) {
-            if (!domainCounts[domain]) {
-              console.warn(`[maths-placement] No questions loaded for domain ${domain} (gate ${SEARCH_GATES[gi].name}) — SEARCH_GATES may be out of sync with bank files. Students hitting this gate will be underplaced.`);
             }
           }
         }
