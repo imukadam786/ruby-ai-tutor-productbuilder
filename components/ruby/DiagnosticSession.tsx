@@ -56,22 +56,22 @@ type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | 
 
 // Maps maths skill tree level (1–22) to the equivalent school grade band.
 // Derived from GATE_PASSED_ENTRY in MathsDiagnosticPlacement:
-//   Gate 0→L2 (Gr1), Gate 1→L4 (Gr2), Gate 2→L5 (Gr3), Gate 3→L8 (Gr4),
-//   Gate 4→L11 (Gr5), Gate 5→L12 (Gr6), Gate 6→L13 (Gr7), Gate 7→L14 (Gr8),
-//   Gate 8→L17 (Gr9), Gate 9→L19 (Gr10), Gate 10→L21 (Gr11), Gate 11→L22 (Gr12)
+//   Gate 0→L2 (Gr1), Gate 1→L3 (Gr2), Gate 2→L5 (Gr3), Gate 3→L8 (Gr4),
+//   Gate 4→L9 (Gr5), Gate 5→L12 (Gr6), Gate 6→L13 (Gr7), Gate 7→L14 (Gr8),
+//   Gate 8→L15 (Gr9), Gate 9→L19 (Gr10), Gate 10→L21 (Gr11), Gate 11→L22 (Gr12)
 function skillLevelToGradeEquiv(level: number): number {
-  if (level <= 3)  return 1;
-  if (level <= 4)  return 2;
-  if (level <= 7)  return 3;
-  if (level <= 10) return 4;
-  if (level <= 11) return 5;
-  if (level <= 12) return 6;
-  if (level <= 13) return 7;
-  if (level <= 16) return 8;
-  if (level <= 18) return 9;
-  if (level <= 20) return 10;
-  if (level <= 21) return 11;
-  return 12;
+  if (level <= 2)  return 1;   // Counting & Addition Concepts
+  if (level <= 3)  return 2;   // Subtraction Concepts
+  if (level <= 7)  return 3;   // Fluency through Division Concepts
+  if (level <= 8)  return 4;   // Fractions Introduction
+  if (level <= 10) return 5;   // Fraction Operations & Decimals
+  if (level <= 12) return 6;   // Ratio and Negative Numbers
+  if (level <= 13) return 7;   // Algebra — Patterns and Variables
+  if (level <= 14) return 8;   // Linear Equations
+  if (level <= 18) return 9;   // Geometry, Statistics, Problem Solving, Quadratics
+  if (level <= 20) return 10;  // Functions and Exponentials
+  if (level <= 21) return 11;  // Trigonometric Ratios
+  return 12;                   // Calculus
 }
 
 function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
