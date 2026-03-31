@@ -23,6 +23,7 @@ const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerMo
 const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
 const FloatingFeedback     = dynamic(() => import("@/components/beta/FloatingFeedback"),                { ssr: false });
 import ErrorBoundary from "@/components/ErrorBoundary";
+const TrialExpiredScreen = dynamic(() => import("@/components/TrialExpiredScreen"), { ssr: false });
 import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
@@ -248,7 +249,7 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
 
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "app">("loading");
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
 
   useEffect(() => {
@@ -262,7 +263,7 @@ export default function Home() {
     }
 
     // Check for an existing valid session — if found, skip login entirely
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session) {
         if (session.user.id) localStorage.setItem("current_user_id", session.user.id);
         // Ensure onboardingData has the user's name — may be absent on a fresh device
@@ -281,7 +282,30 @@ export default function Home() {
             }
           }
         } catch { /* ignore */ }
-        setAppState("app");
+
+        // Check trial expiry and subscription status
+        const { data: userData } = await supabase
+          .from("users")
+          .select("trial_expires_at")
+          .eq("id", session.user.id)
+          .single();
+
+        const { data: subData } = await supabase
+          .from("subscriptions")
+          .select("status")
+          .eq("user_id", session.user.id)
+          .single();
+
+        const hasActiveSub = subData?.status === "active";
+        const trialExpired = userData?.trial_expires_at
+          ? new Date(userData.trial_expires_at) < new Date()
+          : false;
+
+        if (!hasActiveSub && trialExpired) {
+          setAppState("trial-expired");
+        } else {
+          setAppState("app");
+        }
       } else {
         setAppState("onboarding");
       }
@@ -330,6 +354,10 @@ export default function Home() {
         onStartLearning={() => setAppState("app")}
       />
     );
+  }
+
+  if (appState === "trial-expired") {
+    return <TrialExpiredScreen />;
   }
 
   return (
