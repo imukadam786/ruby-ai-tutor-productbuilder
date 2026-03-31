@@ -241,7 +241,7 @@ export default function DiagnosticSession() {
         const usedRefs = getUsedRefs(currentProfile, domainId);
         const skillPLearned = currentProfile.skill_mastery[skillId]?.p_learned;
         const ability = skillPLearned !== undefined ? abilityLevel(skillPLearned) : undefined;
-        const bankQ = selectQuestion(domainId, usedRefs, forceHint || attemptNum > 1, skillId, ability);
+        const bankQ = selectQuestion(domainId, usedRefs, forceHint, skillId, ability);
 
         if (!bankQ) {
           setLoadErrorCount((c) => c + 1);
@@ -252,7 +252,7 @@ export default function DiagnosticSession() {
         const readingProfile = getReadingProfile();
         const readingLevel = readingProfile?.current_level ?? 5;
         let q = simplifyQuestion(
-          bankQuestionToGenerated(bankQ, skillId, domainId, forceHint || attemptNum > 1) as GeneratedQuestion,
+          bankQuestionToGenerated(bankQ, skillId, domainId, forceHint) as GeneratedQuestion,
           readingLevel
         );
 
