@@ -155,8 +155,8 @@ export function selectQuestion(
   const pool = domain.questions;
   if (pool.length === 0) return null;
 
-  // Filter out already-used refs and question types the UI cannot render
-  let available = pool.filter((q) => !usedRefs.includes(q.ref) && q.input_type !== "triple_numeric");
+  // Filter out already-used refs
+  let available = pool.filter((q) => !usedRefs.includes(q.ref));
 
   // If pool exhausted, reset (give full pool again)
   if (available.length === 0) {
@@ -247,6 +247,7 @@ export function bankQuestionToGenerated(
   expected_answer: string;
   scaffolding_notes: string;
   difficulty?: number;
+  labels?: string[];
   bank_question: BankQuestion;
 } {
   // Determine template from input_type
@@ -272,6 +273,7 @@ export function bankQuestionToGenerated(
     expected_answer: q.expected,
     scaffolding_notes: `Error signals: ${q.error_signals.join(", ")}`,
     difficulty: q.difficulty,
+    labels: q.labels,
     bank_question: q,
   };
 }

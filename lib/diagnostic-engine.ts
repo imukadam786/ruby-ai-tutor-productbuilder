@@ -67,6 +67,20 @@ export function checkAnswerCorrectness(
   studentAnswer: string,
   expectedAnswer: string
 ): boolean {
+  // Multi-field answers (e.g. triple_numeric: "3,4,12") — compare each field individually
+  if (expectedAnswer.includes(",")) {
+    const expectedFields = expectedAnswer.split(",").map((f) => f.trim());
+    const studentFields = studentAnswer.split(",").map((f) => f.trim());
+    if (expectedFields.length !== studentFields.length) return false;
+    return expectedFields.every((ef, i) => {
+      const sf = studentFields[i];
+      if (sf === ef) return true;
+      const en = parseFloat(ef);
+      const sn = parseFloat(sf);
+      return !isNaN(en) && !isNaN(sn) && Math.abs(en - sn) < 0.001;
+    });
+  }
+
   const s = normaliseAnswer(studentAnswer);
   const e = normaliseAnswer(expectedAnswer);
 
