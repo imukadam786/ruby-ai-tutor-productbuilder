@@ -283,6 +283,13 @@ export default function Home() {
           }
         } catch { /* ignore */ }
 
+        // If returning from a PayFast payment, skip trial check — ITN will update DB async
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("payment") === "success") {
+          setAppState("app");
+          return;
+        }
+
         // Check trial expiry and subscription status
         const { data: userData } = await supabase
           .from("users")
