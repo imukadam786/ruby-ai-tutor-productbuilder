@@ -113,17 +113,23 @@ function getSearchWindow(grade: number): [number, number] {
 // Entry skill-tree level when a student passes a given gate.
 // "Passed gate N" means they have mastered that content → start at the next level.
 const GATE_PASSED_ENTRY: Record<number, number> = {
-  0: 2,   // Passed Grade 1 → entry Addition (level 2)
-  1: 4,   // Passed Grade 2 → entry Addition Fluency (level 4)
-  2: 5,   // Passed Grade 3 → entry Multiplication (level 5)
-  3: 8,   // Passed Grade 4 → entry Fractions (level 8)
-  4: 11,  // Passed Grade 5 → entry Ratio & Proportion (level 11)
-  5: 12,  // Passed Grade 6 → entry Integer Operations (level 12)
-  6: 13,  // Passed Grade 7 → entry Algebra (level 13)
+  0: 2,   // Passed Grade 1 → entry Addition Concepts (level 2)
+  1: 4,   // Passed Grade 2 → entry Addition & Subtraction Fluency (level 4)
+  2: 5,   // Passed Grade 3 → entry Multiplication Concepts (level 5)
+  3: 8,   // Passed Grade 4 → entry Fractions Introduction (level 8)
+  4: 9,   // Passed Grade 5 → entry Fraction Operations (level 9)
+  //       Previously jumped to 11 (Ratio), skipping L9 Fraction Operations and
+  //       L10 Decimals. Gate tests fraction equivalence, not fraction arithmetic
+  //       or decimal computation — those gaps must be worked through directly.
+  5: 12,  // Passed Grade 6 → entry Negative Numbers & Integers (level 12)
+  6: 13,  // Passed Grade 7 → entry Algebra — Patterns & Variables (level 13)
   7: 14,  // Passed Grade 8 → entry Linear Equations (level 14)
-  8: 17,  // Passed Grade 9 → entry Multi-Step Problems (level 17)
-  9: 19,  // Passed Grade 10 → entry Functions (level 19)
-  10: 21, // Passed Grade 11 → entry Trigonometry (level 21)
+  8: 15,  // Passed Grade 9 → entry Geometry — Shape and Space (level 15)
+  //       Previously jumped to 17 (Advanced Problem Solving), skipping L15
+  //       Geometry and L16 Statistics entirely. Algebra and linear equations
+  //       have zero content overlap with those domains.
+  9: 19,  // Passed Grade 10 → entry Functions and Straight Lines (level 19)
+  10: 21, // Passed Grade 11 → entry Trigonometric Ratios (level 21)
   11: 22, // Passed Grade 12 → top of tree (level 22)
 };
 
@@ -306,28 +312,28 @@ function computePlacement(
 // ── Level labels ──────────────────────────────────────────────────────────────
 
 const LEVEL_LABEL: Record<number, string> = {
-  1: "Counting & Number Sense",
-  2: "Addition Strategies",
-  3: "Subtraction Strategies",
-  4: "Multiplication",
-  5: "Flexible Decomposition",
-  6: "Multiplicative Reasoning",
-  7: "Fractions",
-  8: "Ratio & Proportion",
-  9: "Integer Operations",
-  10: "Algebraic Thinking",
-  11: "Extended Ratio",
-  12: "Extended Integers",
-  13: "Advanced Algebra",
+  1:  "Counting & Number Sense",
+  2:  "Addition Concepts",
+  3:  "Subtraction Concepts",
+  4:  "Addition & Subtraction Fluency",
+  5:  "Multiplication Concepts",
+  6:  "Multiplicative Reasoning",
+  7:  "Division Concepts",
+  8:  "Fractions — Introduction",
+  9:  "Fraction Operations",
+  10: "Decimals",
+  11: "Ratio and Proportion",
+  12: "Negative Numbers and Integers",
+  13: "Algebra — Patterns and Variables",
   14: "Linear Equations",
-  15: "Quadratics",
-  16: "Functions",
-  17: "Multi-Step Problems",
-  18: "Quadratic Factorisation",
-  19: "Functions & Graphs",
-  20: "Exponentials & Logs",
-  21: "Trigonometry",
-  22: "Calculus",
+  15: "Geometry — Shape and Space",
+  16: "Statistics and Data",
+  17: "Advanced Problem Solving",
+  18: "Quadratic Algebra",
+  19: "Functions and Straight Lines",
+  20: "Exponentials and Logarithms",
+  21: "Trigonometric Ratios",
+  22: "Calculus — Differentiation",
 };
 
 type Phase = "welcome" | "loading" | "task" | "result" | "error";
