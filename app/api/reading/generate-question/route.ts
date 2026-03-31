@@ -44,6 +44,63 @@ const LETTER_WORD_CHOICES: Record<string, { correct: string; distractors: [strin
   u: { correct: "cup",   distractors: ["cap",  "cop"]  },
 };
 
+// R2.T1.A2 — Backward mapping: student hears/sees a word and picks the letter it starts with.
+// Used to test the sound→letter direction. Consonant entries use first-sound; vowel entries use middle-sound.
+const BACKWARD_LETTER_CHOICES: { word: string; correctLetter: string; distractorLetters: [string, string]; vowel: boolean }[] = [
+  // Consonants — "Which letter makes the FIRST sound in '{word}'?"
+  { word: "bat",  correctLetter: "B", distractorLetters: ["D", "P"],  vowel: false },
+  { word: "dog",  correctLetter: "D", distractorLetters: ["B", "G"],  vowel: false },
+  { word: "fan",  correctLetter: "F", distractorLetters: ["V", "N"],  vowel: false },
+  { word: "got",  correctLetter: "G", distractorLetters: ["D", "K"],  vowel: false },
+  { word: "hat",  correctLetter: "H", distractorLetters: ["B", "T"],  vowel: false },
+  { word: "jug",  correctLetter: "J", distractorLetters: ["G", "B"],  vowel: false },
+  { word: "kit",  correctLetter: "K", distractorLetters: ["G", "T"],  vowel: false },
+  { word: "log",  correctLetter: "L", distractorLetters: ["D", "B"],  vowel: false },
+  { word: "mat",  correctLetter: "M", distractorLetters: ["N", "W"],  vowel: false },
+  { word: "net",  correctLetter: "N", distractorLetters: ["M", "H"],  vowel: false },
+  { word: "pin",  correctLetter: "P", distractorLetters: ["B", "D"],  vowel: false },
+  { word: "red",  correctLetter: "R", distractorLetters: ["D", "N"],  vowel: false },
+  { word: "sun",  correctLetter: "S", distractorLetters: ["F", "N"],  vowel: false },
+  { word: "top",  correctLetter: "T", distractorLetters: ["D", "P"],  vowel: false },
+  { word: "van",  correctLetter: "V", distractorLetters: ["F", "B"],  vowel: false },
+  { word: "wet",  correctLetter: "W", distractorLetters: ["M", "N"],  vowel: false },
+  { word: "yam",  correctLetter: "Y", distractorLetters: ["J", "W"],  vowel: false },
+  { word: "zip",  correctLetter: "Z", distractorLetters: ["S", "D"],  vowel: false },
+  // Vowels — "Which letter makes the MIDDLE sound in '{word}'?"
+  { word: "cat",  correctLetter: "A", distractorLetters: ["E", "O"],  vowel: true  },
+  { word: "hen",  correctLetter: "E", distractorLetters: ["A", "I"],  vowel: true  },
+  { word: "sit",  correctLetter: "I", distractorLetters: ["E", "A"],  vowel: true  },
+  { word: "hot",  correctLetter: "O", distractorLetters: ["A", "U"],  vowel: true  },
+  { word: "cup",  correctLetter: "U", distractorLetters: ["O", "A"],  vowel: true  },
+];
+
+// R2.T1.A3 — Confusable-pair discrimination: b/d, p/q, m/w.
+// Student sees the letter (displayWord) and must pick the word that starts with its sound.
+// The confusable field is always a word starting with the visually similar letter's sound —
+// choosing it reveals a letter-shape mix-up.
+const CONFUSABLE_PAIR_CHOICES: { letter: string; correct: string; confusable: string; neutral: string }[] = [
+  // b / d
+  { letter: "b", correct: "bat",  confusable: "dog",  neutral: "fan" },
+  { letter: "b", correct: "bag",  confusable: "dig",  neutral: "sun" },
+  { letter: "b", correct: "bug",  confusable: "dip",  neutral: "map" },
+  { letter: "d", correct: "dog",  confusable: "bat",  neutral: "fan" },
+  { letter: "d", correct: "dig",  confusable: "big",  neutral: "sun" },
+  { letter: "d", correct: "dot",  confusable: "bit",  neutral: "map" },
+  // p / q  (q = /kw/ so choices are clearly distinct sounds — tests letter-shape ID)
+  { letter: "p", correct: "pin",  confusable: "quit", neutral: "sun" },
+  { letter: "p", correct: "pat",  confusable: "quiz", neutral: "mat" },
+  { letter: "p", correct: "pot",  confusable: "quit", neutral: "hot" },
+  { letter: "q", correct: "quit", confusable: "pin",  neutral: "sun" },
+  { letter: "q", correct: "quiz", confusable: "pat",  neutral: "mat" },
+  // m / w
+  { letter: "m", correct: "mat",  confusable: "wet",  neutral: "hat" },
+  { letter: "m", correct: "mud",  confusable: "win",  neutral: "bud" },
+  { letter: "m", correct: "men",  confusable: "web",  neutral: "hen" },
+  { letter: "w", correct: "wet",  confusable: "mat",  neutral: "hat" },
+  { letter: "w", correct: "win",  confusable: "mud",  neutral: "bud" },
+  { letter: "w", correct: "web",  confusable: "men",  neutral: "hen" },
+];
+
 // R2.T2.A1 — Digraph: correct word contains the digraph sound
 // Array format allows multiple entries per digraph (avoids same-word repeats within a BKT session)
 const DIGRAPH_WORD_CHOICES: { digraph: string; correct: string; distractors: [string, string] }[] = [
@@ -1298,11 +1355,10 @@ function shuffle<T>(arr: T[]): T[] {
  *  TTS speaks full words only — no isolated phonemes.
  *  Returns null if the skill should fall through to LLM generation. */
 function buildAudioTapQuestion(skill_id: string, used_refs: string[]): Omit<ReadingGeneratedQuestion, "id"> | null {
-  // R2.T1 — Letter-Sound Correspondence (word-choice format)
-  if (skill_id.startsWith("R2.T1")) {
+  // R2.T1.A1 — Letter-to-Sound Retrieval: consonant-only word choices
+  if (skill_id === "R2.T1.A1") {
     const consonantKeys = Object.keys(LETTER_WORD_CHOICES).filter((l) => !VOWELS.has(l));
-    const pool = skill_id === "R2.T1.A1" ? consonantKeys : Object.keys(LETTER_WORD_CHOICES);
-    const { item: letter, ref } = pickExcluding(pool, (k) => k, used_refs);
+    const { item: letter, ref } = pickExcluding(consonantKeys, (k) => k, used_refs);
     const data = LETTER_WORD_CHOICES[letter];
     if (!data) return null;
     const choices: AudioTapChoice[] = shuffle([
@@ -1310,17 +1366,96 @@ function buildAudioTapQuestion(skill_id: string, used_refs: string[]): Omit<Read
       { label: data.distractors[0], speech: data.distractors[0], correct: false },
       { label: data.distractors[1], speech: data.distractors[1], correct: false },
     ]);
-    const question = VOWELS.has(letter)
-      ? `Which word has the short ${letter.toUpperCase()} sound?`
-      : `Which word STARTS with the ${letter.toUpperCase()} sound?`;
     return {
       skill_id,
       template: "oral" as ReadingTemplate,
-      question,
+      question: `Which word STARTS with the ${letter.toUpperCase()} sound?`,
       displayWord: letter.toUpperCase(),
       audioChoices: choices,
       expected_answer: data.correct,
       scaffolding_notes: "Word-choice: student taps each word to hear it, then picks the one with the target sound.",
+      used_ref: ref,
+    };
+  }
+
+  // R2.T1.A2 — Bidirectional Letter-Sound Mapping: alternates forward (letter→word) and backward (word→letter)
+  if (skill_id === "R2.T1.A2") {
+    // Build a combined pool of forward refs ("fwd_b") and backward refs ("bwd_bat")
+    const fwdRefs = Object.keys(LETTER_WORD_CHOICES).map((l) => `fwd_${l}`);
+    const bwdRefs = BACKWARD_LETTER_CHOICES.map((e) => `bwd_${e.word}`);
+    const allRefs = [...fwdRefs, ...bwdRefs];
+    const { item: ref } = pickExcluding(allRefs, (r) => r, used_refs);
+
+    if (ref.startsWith("fwd_")) {
+      const letter = ref.slice(4);
+      const data = LETTER_WORD_CHOICES[letter];
+      if (!data) return null;
+      const choices: AudioTapChoice[] = shuffle([
+        { label: data.correct,        speech: data.correct,        correct: true  },
+        { label: data.distractors[0], speech: data.distractors[0], correct: false },
+        { label: data.distractors[1], speech: data.distractors[1], correct: false },
+      ]);
+      const question = VOWELS.has(letter)
+        ? `Which word has the short ${letter.toUpperCase()} sound?`
+        : `Which word STARTS with the ${letter.toUpperCase()} sound?`;
+      return {
+        skill_id,
+        template: "oral" as ReadingTemplate,
+        question,
+        displayWord: letter.toUpperCase(),
+        audioChoices: choices,
+        expected_answer: data.correct,
+        scaffolding_notes: "Forward direction: letter shown, student picks the word with that sound.",
+        used_ref: ref,
+      };
+    } else {
+      // Backward: word shown, student picks the letter
+      const word = ref.slice(4);
+      const entry = BACKWARD_LETTER_CHOICES.find((e) => e.word === word);
+      if (!entry) return null;
+      const question = entry.vowel
+        ? `Which letter makes the MIDDLE sound in "${entry.word}"?`
+        : `Which letter makes the FIRST sound in "${entry.word}"?`;
+      const choices: AudioTapChoice[] = shuffle([
+        { label: entry.correctLetter,          speech: `${entry.correctLetter}, as in ${entry.word}`,          correct: true  },
+        { label: entry.distractorLetters[0],   speech: `${entry.distractorLetters[0]}`,                        correct: false },
+        { label: entry.distractorLetters[1],   speech: `${entry.distractorLetters[1]}`,                        correct: false },
+      ]);
+      return {
+        skill_id,
+        template: "oral" as ReadingTemplate,
+        question,
+        displayWord: entry.word,
+        audioChoices: choices,
+        expected_answer: entry.correctLetter,
+        scaffolding_notes: "Backward direction: word shown, student picks the letter that makes its first (or middle) sound.",
+        used_ref: ref,
+      };
+    }
+  }
+
+  // R2.T1.A3 — Visually Confusable Letter Discrimination (b/d, p/q, m/w)
+  // The letter is shown; student picks the word that starts with its sound.
+  // The confusable distractor starts with the look-alike letter's sound — revealing a mix-up.
+  if (skill_id === "R2.T1.A3") {
+    const { item: entry, ref } = pickExcluding(
+      CONFUSABLE_PAIR_CHOICES,
+      (e) => `${e.letter}_${e.correct}`,
+      used_refs
+    );
+    const choices: AudioTapChoice[] = shuffle([
+      { label: entry.correct,    speech: entry.correct,    correct: true  },
+      { label: entry.confusable, speech: entry.confusable, correct: false },
+      { label: entry.neutral,    speech: entry.neutral,    correct: false },
+    ]);
+    return {
+      skill_id,
+      template: "reading" as ReadingTemplate,
+      question: `Which word starts with the sound this letter makes?`,
+      displayWord: entry.letter.toUpperCase(),
+      audioChoices: choices,
+      expected_answer: entry.correct,
+      scaffolding_notes: `Confusable-pair drill. If student picks "${entry.confusable}", they are reading "${entry.letter}" as its look-alike partner.`,
       used_ref: ref,
     };
   }
