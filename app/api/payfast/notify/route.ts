@@ -23,9 +23,11 @@ export async function POST(request: NextRequest) {
 
   const {
     payment_status,
-    m_payment_id: userId,   // we stored userId here
-    custom_str1:  plan,     // plan name
-    token,                  // subscription token (set on first payment)
+    m_payment_id:    userId,            // we stored userId here
+    custom_str1:     plan,              // plan name
+    token,                              // subscription token (set on first payment)
+    amount_gross:    amountGross,       // actual amount charged
+    pf_payment_id:   pfPaymentId,       // PayFast's own payment ID
   } = data;
 
   if (!userId) {
@@ -52,6 +54,19 @@ export async function POST(request: NextRequest) {
       );
 
     if (subErr) console.error("[PayFast ITN] subscription upsert error", subErr);
+
+    const { error: payErr } = await supabaseAdmin
+      .from("payments")
+      .insert({
+        user_id:           userId,
+        payfast_payment_id: pfPaymentId || null,
+        amount:            parseFloat(amountGross || "0"),
+        plan:              plan || "starter",
+        status:            "complete",
+        paid_at:           new Date().toISOString(),
+      });
+
+    if (payErr) console.error("[PayFast ITN] payment insert error", payErr);
 
     const { error: userErr } = await supabaseAdmin
       .from("users")

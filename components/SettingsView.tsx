@@ -244,6 +244,9 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   const [cancelling, setCancelling] = useState(false);
   const [subError, setSubError] = useState<string | null>(null);
 
+  // Billing history
+  const [payments, setPayments] = useState<{ id: string; paid_at: string; amount: number; plan: string; status: string }[]>([]);
+
   // Active modal
   const [modal, setModal] = useState<string | null>(null);
 
@@ -298,13 +301,22 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
     const { data: { session } } = await supabase.auth.getSession();
     if (!session?.user) return;
     setSupaUser(session.user as { id: string; email?: string });
-    const { data } = await supabase
+
+    const { data: sub } = await supabase
       .from("subscriptions")
       .select("plan, status, payfast_token")
       .eq("user_id", session.user.id)
       .single();
-    if (data?.plan) setPlan(data.plan);
-    if (data?.payfast_token) setPfToken(data.payfast_token);
+    if (sub?.plan) setPlan(sub.plan);
+    if (sub?.payfast_token) setPfToken(sub.payfast_token);
+
+    const { data: history } = await supabase
+      .from("payments")
+      .select("id, paid_at, amount, plan, status")
+      .eq("user_id", session.user.id)
+      .order("paid_at", { ascending: false })
+      .limit(12);
+    if (history) setPayments(history);
   }, []);
 
   useEffect(() => { fetchSubscription(); }, [fetchSubscription]);
@@ -499,9 +511,9 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
                 {planInfo.label === "Free" && (
                   <Row icon={icons.star} label="Upgrade plan" onClick={() => setModal("upgradePlan")} />
                 )}
-                <Row icon={icons.receipt}    label={t("settings.billing_cycle")}       value="Monthly"       onClick={() => setModal("billing")} />
-                <Row icon={icons.creditCard} label={t("settings.payment_method")}      value="•••• 4242"    onClick={() => setModal("payment")} />
-                <Row icon={icons.creditCard} label={t("settings.update_payment")}                            onClick={() => setModal("payment")} />
+                {pfToken && (
+                  <Row icon={icons.creditCard} label={t("settings.update_payment")} onClick={() => setModal("payment")} />
+                )}
                 <Row icon={icons.receipt}    label={t("settings.billing_history")}                           onClick={() => setModal("invoices")} />
                 {pfToken && (
                   <Row icon={icons.xCircle} label={t("settings.cancel_sub")} danger onClick={() => setModal("cancelSub")} />
@@ -606,32 +618,22 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
         </Modal>
       )}
 
-      {modal === "billing" && (
-        <Modal title="Billing cycle" onClose={close}>
-          <div className="space-y-3">
-            {["Monthly", "Annually (save 20%)"].map((cycle) => (
-              <button key={cycle}
-                className="w-full text-left px-4 py-3 rounded-xl bg-gray-50 hover:bg-gray-100 text-sm text-gray-700 font-medium transition-colors">
-                {cycle}
-              </button>
-            ))}
-          </div>
-        </Modal>
-      )}
 
-      {modal === "payment" && (
-        <Modal title="Payment method" onClose={close}>
+      {modal === "payment" && pfToken && (
+        <Modal title="Update payment method" onClose={close}>
           <div className="space-y-4">
-            <div className="bg-gray-50 rounded-xl px-4 py-3 flex items-center gap-3">
-              <span className="text-2xl">💳</span>
-              <div>
-                <p className="text-sm font-medium text-gray-800">Visa ending in 4242</p>
-                <p className="text-xs text-gray-400">Expires 08/27</p>
-              </div>
-            </div>
-            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Update payment details
-            </button>
+            <p className="text-sm text-gray-500">
+              Your payment details are securely managed by PayFast. Click below to update your card on their secure page.
+            </p>
+            <a
+              href={`${process.env.NEXT_PUBLIC_PAYFAST_BASE_URL || "https://sandbox.payfast.co.za"}/eng/recurring/update/${pfToken}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors text-center"
+              onClick={close}
+            >
+              Update payment details on PayFast
+            </a>
           </div>
         </Modal>
       )}
@@ -639,19 +641,21 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
       {modal === "invoices" && (
         <Modal title="Billing history" onClose={close}>
           <div className="space-y-2">
-            {[
-              { date: "1 Mar 2026", amount: planInfo.price, status: "Paid" },
-              { date: "1 Feb 2026", amount: planInfo.price, status: "Paid" },
-              { date: "1 Jan 2026", amount: planInfo.price, status: "Paid" },
-            ].map((inv) => (
-              <div key={inv.date} className="flex items-center justify-between px-4 py-3 bg-gray-50 rounded-xl">
-                <div>
-                  <p className="text-sm font-medium text-gray-800">{inv.date}</p>
-                  <p className="text-xs text-gray-400">{inv.amount}</p>
+            {payments.length === 0 ? (
+              <p className="text-sm text-gray-400 text-center py-4">No payments yet.</p>
+            ) : (
+              payments.map((p) => (
+                <div key={p.id} className="flex items-center justify-between px-4 py-3 bg-gray-50 rounded-xl">
+                  <div>
+                    <p className="text-sm font-medium text-gray-800">
+                      {new Date(p.paid_at).toLocaleDateString("en-ZA", { day: "numeric", month: "short", year: "numeric" })}
+                    </p>
+                    <p className="text-xs text-gray-400 capitalize">{p.plan} — R{Number(p.amount).toFixed(2)}</p>
+                  </div>
+                  <span className="text-xs bg-green-100 text-green-700 font-semibold px-2.5 py-0.5 rounded-full capitalize">{p.status}</span>
                 </div>
-                <span className="text-xs bg-green-100 text-green-700 font-semibold px-2.5 py-0.5 rounded-full">{inv.status}</span>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </Modal>
       )}
