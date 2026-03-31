@@ -68,6 +68,18 @@ function AppContent() {
   const [chatEngaged, setChatEngaged] = useState(false);
   const chatMessageCountRef = useRef(0);
 
+  // Handle PayFast return redirect — navigate to settings and show result
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const payment = params.get("payment");
+    if (payment === "success" || payment === "cancelled") {
+      setActiveView("settings");
+      // Clean URL without reload
+      window.history.replaceState({}, "", "/");
+    }
+  }, []);
+
   useEffect(() => {
     refreshStats();
 
