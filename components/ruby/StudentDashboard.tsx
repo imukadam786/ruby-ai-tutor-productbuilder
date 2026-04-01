@@ -131,7 +131,7 @@ export default function StudentDashboard({ profile }: StudentDashboardProps) {
                   .filter(([type, count]) => type !== "correct" && count > 0)
                   .sort(([, a], [, b]) => b - a)
                   .map(([type, count]) => {
-                    const info = errorLabels[type];
+                    const info = errorLabels[type as ErrorType] ?? errorLabels["execution_slip"];
                     const pct = Math.round((count / profile.total_attempts) * 100);
                     return (
                       <div key={type}>
