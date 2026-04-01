@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
       const praise = PRAISE[Math.floor(Math.random() * PRAISE.length)];
       aiDiagnosis = {
         is_correct: true,
-        error_type: "none",
+        error_type: "correct",
         feedback: praise,
         recovery_explanation: "",
       };
