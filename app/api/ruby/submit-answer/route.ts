@@ -6,7 +6,15 @@ import {
   classifyError,
   buildDiagnosticPrompt,
 } from "@/lib/diagnostic-engine";
-import { AnswerSubmission, DiagnosticResult, SkillAttempt } from "@/types/ruby";
+import { AnswerSubmission, DiagnosticResult, ErrorType, SkillAttempt } from "@/types/ruby";
+
+const VALID_ERROR_TYPES: ErrorType[] = [
+  "correct",
+  "conceptual_gap",
+  "strategy_gap",
+  "representation_confusion",
+  "execution_slip",
+];
 
 export async function POST(req: NextRequest) {
   try {
@@ -106,7 +114,13 @@ export async function POST(req: NextRequest) {
 
       try {
         const jsonMatch = aiText.match(/\{[\s\S]*\}/);
-        aiDiagnosis = JSON.parse(jsonMatch ? jsonMatch[0] : aiText);
+        const parsed = JSON.parse(jsonMatch ? jsonMatch[0] : aiText);
+        aiDiagnosis = {
+          ...parsed,
+          error_type: VALID_ERROR_TYPES.includes(parsed.error_type)
+            ? parsed.error_type
+            : preClassifiedError,
+        };
       } catch {
         aiDiagnosis = {
           is_correct: false,
