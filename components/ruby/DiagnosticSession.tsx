@@ -38,6 +38,7 @@ import { describeError } from "@/lib/report-generator";
 import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import { useT } from "@/lib/i18n";
+import { readOnboarding } from "@/lib/onboarding-reader";
 import {
   identifyStudent,
   trackQuestionAnswered,
@@ -133,19 +134,7 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
   };
 }
 
-function readOnboarding(): { name: string; grade: number } {
-  try {
-    const raw = localStorage.getItem("onboardingData");
-    if (!raw) return { name: "Student", grade: 7 };
-    const data = JSON.parse(raw);
-    const name = ((data.name as string) || "Student").split(" ")[0];
-    const parsed = parseInt(data.grade as string, 10);
-    const grade = !isNaN(parsed) && parsed >= 1 && parsed <= 12 ? parsed : 7;
-    return { name, grade };
-  } catch {
-    return { name: "Student", grade: 7 };
-  }
-}
+// readOnboarding imported from @/lib/onboarding-reader
 
 export default function DiagnosticSession() {
   const { language } = useT();
@@ -180,11 +169,11 @@ export default function DiagnosticSession() {
     function initWithProfile(saved: import("@/types/ruby").StudentProfile) {
       // Sync grade and name from onboarding if they differ from the stored profile.
       // Handles the case where a tester or user changes grade between sessions.
-      const { name: onboardingName, grade: onboardingGrade } = readOnboarding();
-      const gradeChanged = onboardingGrade !== saved.grade;
-      const nameChanged = onboardingName !== "Student" && onboardingName !== saved.name.split(" ")[0];
+      const onboarding = readOnboarding();
+      const gradeChanged = onboarding !== null && onboarding.grade !== saved.grade;
+      const nameChanged = onboarding !== null && onboarding.name !== "Student" && onboarding.name !== saved.name.split(" ")[0];
       const synced = (gradeChanged || nameChanged)
-        ? { ...saved, grade: gradeChanged ? onboardingGrade : saved.grade, name: nameChanged ? onboardingName : saved.name }
+        ? { ...saved, grade: gradeChanged ? onboarding!.grade : saved.grade, name: nameChanged ? onboarding!.name : saved.name }
         : saved;
 
       identifyStudent({ id: synced.id, name: synced.name, grade: synced.grade });
@@ -217,9 +206,10 @@ export default function DiagnosticSession() {
         if (restored) {
           initWithProfile(restored);
         } else {
-          const { name, grade } = readOnboarding();
+          const { name, grade } = readOnboarding() ?? { name: "Student", grade: 7 };
           const newProfile = createStudentProfile(name, grade);
           identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
+          void linkStudentProfileToAuth(newProfile.id);
           setProfile(newProfile);
           // phase stays at loading_question; placement gate will intercept
         }

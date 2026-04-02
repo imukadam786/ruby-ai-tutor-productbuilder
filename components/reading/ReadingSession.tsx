@@ -984,6 +984,8 @@ function ReadingQuestionCard({
   // Prefetch TTS as soon as the question mounts so audio is ready when user taps play
   useEffect(() => {
     if (question.question) prefetchTTS(question.question);
+    // Prefetch displayWord in lowercase — matches what togglePlay sends to TTS
+    if (question.displayWord) prefetchTTS(question.displayWord.toLowerCase());
     question.audioChoices?.forEach((c) => { if (c.speech) prefetchTTS(c.speech); });
   }, [question.id]);
 
@@ -1143,7 +1145,7 @@ function ReadingQuestionCard({
             <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 text-center">
               <p className="text-xs text-amber-500 font-semibold uppercase tracking-widest mb-2">Listen and type</p>
               <button
-                onClick={() => togglePlay(question.displayWord!)}
+                onClick={() => togglePlay(question.displayWord!.toLowerCase())}
                 className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl font-bold text-base transition-all active:scale-95 ${
                   playing
                     ? "bg-orange-400 text-white shadow-lg"
@@ -1250,7 +1252,7 @@ function ReadingQuestionCard({
             {/* TTS verify button — lets student hear the word after attempting to read it */}
             {question.displayWord && (
               <button
-                onClick={() => togglePlay(question.displayWord!)}
+                onClick={() => togglePlay(question.displayWord!.toLowerCase())}
                 className={`w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 font-medium text-sm transition-all active:scale-95 ${
                   playing
                     ? "bg-orange-50 border-orange-300 text-orange-600"
