@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
+import { SEARCH_GATES, GATE_PASSED_ENTRY, getSearchWindow, getGradeFloor } from "@/lib/maths-placement-engine";
 import { simplifyText } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 
@@ -82,56 +83,8 @@ const DOMAIN_ERROR_MAP: Record<string, string> = {
   M017: "ERR_POWER_RULE",         // Calculus
 };
 
-// ── 12-gate structure — one gate per SA CAPS grade level ──────────────────────
-// Each gate covers 2 diagnostic domains in curriculum order.
-// The diagnostic loads a 3-gate window around the student's grade so questions
-// are always grade-appropriate (no fractions for a Grade 1 student, etc.).
-
-const SEARCH_GATES: Array<{ name: string; domains: [string, string] }> = [
-  { name: "G1",  domains: ["M001", "M002"] },  // Grade 1:  Counting / Number sequences
-  { name: "G2",  domains: ["M003", "M020"] },  // Grade 2:  Place value / 2-digit addition
-  { name: "G3",  domains: ["M004", "M005"] },  // Grade 3:  Addition / Subtraction strategy
-  { name: "G4",  domains: ["M006", "M028"] },  // Grade 4:  Multiplication / Division
-  { name: "G5",  domains: ["M007", "M029"] },  // Grade 5:  Decomposition / Fractions intro
-  { name: "G6",  domains: ["M008", "M031"] },  // Grade 6:  Fraction operations / Percentages
-  { name: "G7",  domains: ["M009", "M010"] },  // Grade 7:  Ratio & proportion / BODMAS
-  { name: "G8",  domains: ["M032", "M033"] },  // Grade 8:  Negative numbers / Algebra patterns
-  { name: "G9",  domains: ["M011", "M012"] },  // Grade 9:  Algebraic expressions / Linear equations
-  { name: "G10", domains: ["M013", "M034"] },  // Grade 10: Quadratic factorisation / Advanced linear
-  { name: "G11", domains: ["M014", "M015"] },  // Grade 11: Functions & lines / Exponentials & logs
-  { name: "G12", domains: ["M016", "M017"] },  // Grade 12: Trigonometry / Calculus
-];
-
-// Grade N (1-indexed) → gate window [lo, hi] (0-indexed).
-// Grade 1 → [0,0]  (1 gate).  Grade 2 → [0,1]  (2 gates).  Grade 3+ → 3-gate window.
-function getSearchWindow(grade: number): [number, number] {
-  const hi = Math.min(grade - 1, SEARCH_GATES.length - 1);
-  const lo = Math.max(0, hi - 2);
-  return [lo, hi];
-}
-
-// Entry skill-tree level when a student passes a given gate.
-// "Passed gate N" means they have mastered that content → start at the next level.
-const GATE_PASSED_ENTRY: Record<number, number> = {
-  0: 2,   // Passed Grade 1 → entry Addition Concepts (level 2)
-  1: 3,   // Passed Grade 2 → entry Subtraction Concepts (level 3)
-  //       Previously jumped to 4, skipping L3. Place value + 2-digit addition
-  //       does not cover subtraction as take-away/difference or borrowing.
-  2: 5,   // Passed Grade 3 → entry Multiplication Concepts (level 5)
-  3: 8,   // Passed Grade 4 → entry Fractions Introduction (level 8)
-  4: 9,   // Passed Grade 5 → entry Fraction Operations (level 9)
-  //       Previously jumped to 11, skipping L9 (Fraction Operations) and L10
-  //       (Decimals). Fraction equivalence ≠ fraction arithmetic or decimal ops.
-  5: 12,  // Passed Grade 6 → entry Negative Numbers and Integers (level 12)
-  6: 13,  // Passed Grade 7 → entry Algebra — Patterns and Variables (level 13)
-  7: 14,  // Passed Grade 8 → entry Linear Equations (level 14)
-  8: 15,  // Passed Grade 9 → entry Geometry — Shape and Space (level 15)
-  //       Previously jumped to 17, skipping L15 (Geometry) and L16 (Statistics).
-  //       Algebra and linear equations have zero content overlap with either domain.
-  9: 19,  // Passed Grade 10 → entry Functions and Straight Lines (level 19)
-  10: 21, // Passed Grade 11 → entry Trigonometric Ratios (level 21)
-  11: 22, // Passed Grade 12 → top of tree (level 22)
-};
+// SEARCH_GATES, GATE_PASSED_ENTRY, getSearchWindow, getGradeFloor
+// are imported from @/lib/maths-placement-engine
 
 // ── Answer evaluation ─────────────────────────────────────────────────────────
 

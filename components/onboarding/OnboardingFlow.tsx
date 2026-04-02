@@ -197,6 +197,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       }
       if (authData.user) {
         setSignedUpUserId(authData.user.id);
+        const trialExpiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
         await supabase.from("users").upsert({
           id: authData.user.id,
           email,
@@ -204,6 +205,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           grade: data.grade || null,
           curriculum: data.curriculum || null,
           language: data.language || "English",
+          trial_expires_at: trialExpiresAt,
         });
       }
       // Account created — continue through onboarding questions

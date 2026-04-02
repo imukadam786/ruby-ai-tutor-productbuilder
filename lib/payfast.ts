@@ -46,10 +46,24 @@ export function generateSignature(
   return crypto.createHash("md5").update(toHash).digest("hex");
 }
 
-/** Verify the signature on an ITN POST body */
+/**
+ * Verify the signature on an ITN POST body.
+ * PayFast includes empty-value fields in the ITN signature, so we do NOT
+ * filter them out here (unlike the checkout signature builder).
+ */
 export function verifyITNSignature(data: Record<string, string>): boolean {
   const { signature, ...rest } = data;
-  return signature === generateSignature(rest, PASSPHRASE);
+
+  const str = Object.entries(rest)
+    .map(([k, v]) => `${k}=${encodeURIComponent(v).replace(/%20/g, "+")}`)
+    .join("&");
+
+  const toHash = PASSPHRASE
+    ? `${str}&passphrase=${encodeURIComponent(PASSPHRASE).replace(/%20/g, "+")}`
+    : str;
+
+  const computed = crypto.createHash("md5").update(toHash).digest("hex");
+  return signature === computed;
 }
 
 // ── Checkout params builder ───────────────────────────────────────────────────
