@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
-import { SEARCH_GATES, GATE_PASSED_ENTRY, getSearchWindow, getGradeFloor } from "@/lib/maths-placement-engine";
+import { SEARCH_GATES, GATE_PASSED_ENTRY, getSearchWindow } from "@/lib/maths-placement-engine";
 import { simplifyText } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 
