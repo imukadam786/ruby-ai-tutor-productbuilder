@@ -177,6 +177,150 @@ export function selectQuestion(
     if (small.length > 0) available = small;
   }
 
+  // ── Skill-level sub-pool filtering ──────────────────────────────────────────
+  // M028: L7.T2.A1 gets clean multiplication-inverse division only;
+  //       L7.T3.A1 gets questions that involve a quotient or remainder.
+  if (domainId === "M028") {
+    if (skillId === "L7.T2.A1") {
+      const clean = available.filter(
+        (q) => !q.question.toLowerCase().includes("remainder") &&
+               !q.question.toLowerCase().includes("quotient")
+      );
+      if (clean.length > 0) available = clean;
+    } else if (skillId === "L7.T3.A1") {
+      const rem = available.filter(
+        (q) => q.question.toLowerCase().includes("remainder") ||
+               q.question.toLowerCase().includes("quotient")
+      );
+      if (rem.length > 0) available = rem;
+    }
+  }
+
+  // M029: L8.T2.A1 gets number-line questions;
+  //       L8.T3.A1 gets equivalence / simplify / compare questions.
+  if (domainId === "M029") {
+    if (skillId === "L8.T2.A1") {
+      const nl = available.filter(
+        (q) => q.question.toLowerCase().includes("number line") ||
+               q.question.toLowerCase().includes("arrow")
+      );
+      if (nl.length > 0) available = nl;
+    } else if (skillId === "L8.T3.A1") {
+      const eq = available.filter(
+        (q) => !q.question.toLowerCase().includes("number line") &&
+               !q.question.toLowerCase().includes("arrow")
+      );
+      if (eq.length > 0) available = eq;
+    }
+  }
+
+  // M030: each L9 skill draws only from its operation subtype.
+  const M030_SKILL_SUBTYPE: Record<string, string> = {
+    "L9.T1.A1": "add_same",
+    "L9.T1.A2": "add_diff",
+    "L9.T2.A1": "mult_whole",
+    "L9.T2.A2": "mult_frac",
+    "L9.T3.A1": "div_whole",
+    "L9.T3.A2": "div_frac",
+  };
+  if (domainId === "M030" && skillId && M030_SKILL_SUBTYPE[skillId]) {
+    const subtype = M030_SKILL_SUBTYPE[skillId];
+    const typed = available.filter((q) => (q as BankQuestion & { subtype?: string }).subtype === subtype);
+    if (typed.length > 0) available = typed;
+  }
+
+  // M025: L5.T2.A2 gets ×2, ×5, ×10 table facts only;
+  //       L5.T2.A3 gets the harder tables (×3,×4,×6,×7,×8,×9,×11,×12).
+  if (domainId === "M025") {
+    const parseM025Factors = (q: BankQuestion): [number, number] | null => {
+      const m = q.question.match(/^(\d+)\s*×\s*(\d+)\s*=/);
+      return m ? [parseInt(m[1], 10), parseInt(m[2], 10)] : null;
+    };
+    const easyTables = new Set([2, 5, 10]);
+    if (skillId === "L5.T2.A2") {
+      const f = available.filter((q) => {
+        const p = parseM025Factors(q);
+        return p && (easyTables.has(p[0]) || easyTables.has(p[1]));
+      });
+      if (f.length > 0) available = f;
+    } else if (skillId === "L5.T2.A3") {
+      const f = available.filter((q) => {
+        const p = parseM025Factors(q);
+        return p && !easyTables.has(p[0]) && !easyTables.has(p[1]);
+      });
+      if (f.length > 0) available = f;
+    }
+  }
+
+  // M027: route each L6.T2 skill to its correct digit-size sub-pool.
+  //   L6.T2.A1 = 2-digit × 1-digit (e.g. 23 × 4)
+  //   L6.T2.A2 = 3-digit × 1-digit (e.g. 215 × 4)
+  //   L6.T2.A3 = 2-digit × 2-digit (e.g. 23 × 12)
+  if (domainId === "M027") {
+    const parseFactors = (q: BankQuestion): [number, number] | null => {
+      const m = q.question.match(/^(\d+)\s*×\s*(\d+)\s*=/);
+      return m ? [parseInt(m[1], 10), parseInt(m[2], 10)] : null;
+    };
+    if (skillId === "L6.T2.A1") {
+      const f = available.filter((q) => {
+        const p = parseFactors(q);
+        return p && p[0] >= 10 && p[0] <= 99 && p[1] >= 1 && p[1] <= 9;
+      });
+      if (f.length > 0) available = f;
+    } else if (skillId === "L6.T2.A2") {
+      const f = available.filter((q) => {
+        const p = parseFactors(q);
+        return p && p[0] >= 100 && p[0] <= 999 && p[1] >= 1 && p[1] <= 9;
+      });
+      if (f.length > 0) available = f;
+    } else if (skillId === "L6.T2.A3") {
+      const f = available.filter((q) => {
+        const p = parseFactors(q);
+        return p && p[0] >= 10 && p[0] <= 99 && p[1] >= 10 && p[1] <= 99;
+      });
+      if (f.length > 0) available = f;
+    }
+  }
+
+  // M023: L4.T1.A2 (splitting for addition) gets addition questions only;
+  //       L4.T2.A1 (compensation for subtraction) gets subtraction questions only;
+  //       L4.T3.A1 (three-digit, both ops) gets the full pool.
+  if (domainId === "M023") {
+    if (skillId === "L4.T1.A2") {
+      const addQ = available.filter((q) => q.question.includes("+"));
+      if (addQ.length > 0) available = addQ;
+    } else if (skillId === "L4.T2.A1") {
+      const subQ = available.filter(
+        (q) => q.question.includes("−") || q.question.includes(" - ")
+      );
+      if (subQ.length > 0) available = subQ;
+    }
+  }
+
+  // M026: L5.T3.A1 (commutative property) gets only "a×b = b×a" style questions;
+  //       L6.T3.A1 (distributive property) gets only expansion/factoring questions.
+  if (domainId === "M026") {
+    if (skillId === "L5.T3.A1") {
+      const commutative = available.filter(
+        (q) =>
+          !q.question.toLowerCase().includes("distributive") &&
+          !q.question.toLowerCase().includes("expand") &&
+          !q.question.toLowerCase().includes("split") &&
+          !q.question.includes("(")
+      );
+      if (commutative.length > 0) available = commutative;
+    } else if (skillId === "L6.T3.A1") {
+      const distributive = available.filter(
+        (q) =>
+          q.question.toLowerCase().includes("distributive") ||
+          q.question.toLowerCase().includes("expand") ||
+          q.question.toLowerCase().includes("split") ||
+          q.question.includes("(")
+      );
+      if (distributive.length > 0) available = distributive;
+    }
+  }
+
   // ── Difficulty-matched selection ────────────────────────────────────────────
   // When abilityLevel is provided and questions have difficulty tags, prefer
   // questions in the student's ZPD: ability or ability+1 (slightly challenging).
@@ -306,6 +450,8 @@ function buildQuestionText(q: BankQuestion, domainId: string): string {
       return `${q.ruby_prompt}\n\nNumber: ${q.display}\n\nExample: ${q.expected_a} AND ${q.expected_b} (any valid decomposition accepted)`;
     case "M008":
       return `Fraction: ${q.fraction}\n\n${q.ruby_prompt}`;
+    case "M_SCALE":
+    case "M_DIV_SHARE":
     case "M_DEC":
     case "M009":
     case "M010":
@@ -364,6 +510,8 @@ function buildHint(_q: BankQuestion, domainId: string): string {
     M032: "Adding a negative = subtracting. Subtracting a negative = adding. Negative × negative = positive. Negative × positive = negative.",
     M033: "For patterns, find the common difference. To expand brackets, multiply each term inside by the number outside. To factorise, find the HCF of all terms.",
     M034: "Move all x terms to one side and all numbers to the other. For word problems, define x, write the equation, then solve.",
+    M_SCALE: "Think: how many times as large? Multiply the original amount by the scale factor.",
+    M_DIV_SHARE: "Sharing: divide equally into groups. Grouping: count how many groups of that size fit.",
   };
   return hints[domainId] || "Read the question carefully and break it into smaller steps.";
 }

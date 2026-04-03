@@ -252,11 +252,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+6"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+7"
       }
     ],
     "expectedAnswer": "(x + 6)(x + 7)",
@@ -447,7 +449,7 @@
   {
     "id": "33.32",
     "domain": "M033",
-    "domainTitle": "Number Patterns and Expanding Brackets",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
     "stimulus": "3(x − 4)",
     "question": "Expand the brackets.",
@@ -486,6 +488,21 @@
     "errorSignals": [
       "ERR_STEP_SKIP",
       "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.32",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "A rectangle has length 7 cm and width 8 cm.",
+    "question": "What is the perimeter? Type the answer in cm.",
+    "answerMode": "numeric",
+    "expectedAnswer": 30,
+    "errorSignals": [
+      "ERR_PERI_FORMULA",
+      "ERR_CALC_WRONG"
     ],
     "passThreshold": 0.8
   }

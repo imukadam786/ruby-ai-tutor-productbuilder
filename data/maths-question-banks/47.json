@@ -253,11 +253,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x-3"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+2"
       }
     ],
     "expectedAnswer": "(x − 3)(x + 2)",
@@ -446,17 +448,17 @@
     "passThreshold": 0.8
   },
   {
-    "id": "33.47",
+    "id": "33.HCF47",
     "domain": "M033",
-    "domainTitle": "Number Patterns and Expanding Brackets",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "3(x + 12)",
-    "question": "Expand the brackets.",
+    "stimulus": "14x + 7",
+    "question": "Factorise by taking out the highest common factor.",
     "answerMode": "text",
-    "expectedAnswer": "3x + 36",
+    "expectedAnswer": "7(2x + 1)",
     "errorSignals": [
-      "ERR_EXPAND",
-      "ERR_SIGN_DROP"
+      "ERR_HCF_WRONG",
+      "ERR_FACTOR_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -487,6 +489,21 @@
     "errorSignals": [
       "ERR_STEP_SKIP",
       "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.47",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "A triangle has base 10 cm and height 6 cm.",
+    "question": "What is the area? Type the answer in cm².",
+    "answerMode": "numeric",
+    "expectedAnswer": 30,
+    "errorSignals": [
+      "ERR_AREA_FORMULA",
+      "ERR_CALC_WRONG"
     ],
     "passThreshold": 0.8
   }

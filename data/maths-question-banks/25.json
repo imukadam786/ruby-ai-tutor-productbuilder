@@ -253,11 +253,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x-7"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+1"
       }
     ],
     "expectedAnswer": "(x − 7)(x + 1)",
@@ -448,7 +450,7 @@
   {
     "id": "33.25",
     "domain": "M033",
-    "domainTitle": "Number Patterns and Expanding Brackets",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
     "stimulus": "3(x + 1)",
     "question": "Expand the brackets.",
@@ -487,6 +489,21 @@
     "errorSignals": [
       "ERR_STEP_SKIP",
       "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.25",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "A rectangle has length 20 cm and width 5 cm.",
+    "question": "What is the area? Type the answer in cm².",
+    "answerMode": "numeric",
+    "expectedAnswer": 100,
+    "errorSignals": [
+      "ERR_AREA_FORMULA",
+      "ERR_CALC_WRONG"
     ],
     "passThreshold": 0.8
   }

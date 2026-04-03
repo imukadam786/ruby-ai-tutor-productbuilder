@@ -4880,10 +4880,7 @@
     "M007": {
       "title": "Flexible Decomposition",
       "gate": "B",
-      "skill_ids": [
-        "L7.T1.A1",
-        "L7.T1.A2"
-      ],
+      "skill_ids": [],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
       "questions": [
@@ -5944,8 +5941,7 @@
       "gate": "B",
       "skill_ids": [
         "L8.T1.A1",
-        "L8.T1.A2",
-        "L9.T1.A1"
+        "L8.T1.A2"
       ],
       "pass_threshold": 0.8,
       "questions_for_mastery": 3,
@@ -19523,61 +19519,6 @@
           "difficulty": 2
         },
         {
-          "ref": "24.24",
-          "question": "What is the 5th multiple of 4?",
-          "expected": "20",
-          "input_type": "numeric",
-          "error_signals": [
-            "ERR_SKIP_COUNT"
-          ],
-          "ruby_prompt": "Count by 4s: 4, 8, 12, 16, __ — what is the 5th?",
-          "difficulty": 2
-        },
-        {
-          "ref": "24.25",
-          "question": "What is the 6th multiple of 3?",
-          "expected": "18",
-          "input_type": "numeric",
-          "error_signals": [
-            "ERR_SKIP_COUNT"
-          ],
-          "ruby_prompt": "Count by 3s up to the 6th term.",
-          "difficulty": 1
-        },
-        {
-          "ref": "24.26",
-          "question": "What is the 7th multiple of 5?",
-          "expected": "35",
-          "input_type": "numeric",
-          "error_signals": [
-            "ERR_SKIP_COUNT"
-          ],
-          "ruby_prompt": "Count by 5s: 5, 10, 15, 20, 25, 30, __ — what's 7th?",
-          "difficulty": 2
-        },
-        {
-          "ref": "24.27",
-          "question": "What is the 4th multiple of 8?",
-          "expected": "32",
-          "input_type": "numeric",
-          "error_signals": [
-            "ERR_SKIP_COUNT"
-          ],
-          "ruby_prompt": "Count by 8s up to the 4th term.",
-          "difficulty": 2
-        },
-        {
-          "ref": "24.28",
-          "question": "What is the 6th multiple of 7?",
-          "expected": "42",
-          "input_type": "numeric",
-          "error_signals": [
-            "ERR_SKIP_COUNT"
-          ],
-          "ruby_prompt": "Count by 7s: 7, 14, 21, 28, 35, __ — what's the 6th?",
-          "difficulty": 2
-        },
-        {
           "ref": "24.29",
           "question": "12, 16, 20, __, 28 — what is the missing number?",
           "expected": "24",
@@ -19608,17 +19549,6 @@
             "ERR_SKIP_COUNT"
           ],
           "ruby_prompt": "The step is 8 — what is 32 + 8?",
-          "difficulty": 2
-        },
-        {
-          "ref": "24.32",
-          "question": "Count by 3s: what is the 8th multiple of 3?",
-          "expected": "24",
-          "input_type": "numeric",
-          "error_signals": [
-            "ERR_SKIP_COUNT"
-          ],
-          "ruby_prompt": "3 × 8 = ? Or count by 3s eight times.",
           "difficulty": 2
         },
         {
@@ -19699,17 +19629,6 @@
           "difficulty": 1
         },
         {
-          "ref": "24.40",
-          "question": "What is the 9th multiple of 4?",
-          "expected": "36",
-          "input_type": "numeric",
-          "error_signals": [
-            "ERR_SKIP_COUNT"
-          ],
-          "ruby_prompt": "Count by 4s nine times, or calculate 4 × 9.",
-          "difficulty": 2
-        },
-        {
           "ref": "24.41",
           "question": "Count by 11s: 11, 22, __, 44, 55 — what is the missing number?",
           "expected": "33",
@@ -19743,17 +19662,6 @@
           "difficulty": 2
         },
         {
-          "ref": "24.44",
-          "question": "What is the 10th multiple of 6?",
-          "expected": "60",
-          "input_type": "numeric",
-          "error_signals": [
-            "ERR_SKIP_COUNT"
-          ],
-          "ruby_prompt": "6 × 10 = ? Or count by 6s ten times.",
-          "difficulty": 2
-        },
-        {
           "ref": "24.45",
           "question": "Count by 7s: 7, 14, 21, 28, 35, __ — what comes next?",
           "expected": "42",
@@ -19762,17 +19670,6 @@
             "ERR_SKIP_COUNT"
           ],
           "ruby_prompt": "Add 7 each time — what is 35 + 7?",
-          "difficulty": 2
-        },
-        {
-          "ref": "24.46",
-          "question": "What is the 8th multiple of 9?",
-          "expected": "72",
-          "input_type": "numeric",
-          "error_signals": [
-            "ERR_SKIP_COUNT"
-          ],
-          "ruby_prompt": "Count by 9s eight times, or use 9 × 8.",
           "difficulty": 2
         },
         {
@@ -19809,14 +19706,75 @@
           "difficulty": 2
         },
         {
-          "ref": "24.50",
-          "question": "What is the 12th multiple of 5?",
+          "ref": "24.51",
+          "question": "6, 12, 18, 24, __ — what is the next number? (Counting by 6s.)",
+          "expected": "30",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_SEQ_RULE",
+            "ERR_OFF_BY_ONE"
+          ],
+          "ruby_prompt": "Count by 6s: 6, 12, 18, 24, 30.",
+          "difficulty": 2
+        },
+        {
+          "ref": "24.52",
+          "question": "6, __, 18, 24, 30 — what is the missing number?",
+          "expected": "12",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_SEQ_RULE",
+            "ERR_OFF_BY_ONE"
+          ],
+          "ruby_prompt": "Count by 6s: 6, 12, 18, 24, 30.",
+          "difficulty": 2
+        },
+        {
+          "ref": "24.53",
+          "question": "Count by 6s: 24, 30, 36, __ — what comes next?",
+          "expected": "42",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_SEQ_RULE",
+            "ERR_OFF_BY_ONE"
+          ],
+          "ruby_prompt": "Add 6 each time: 36 + 6 = 42.",
+          "difficulty": 2
+        },
+        {
+          "ref": "24.54",
+          "question": "Count by 6s: 42, 48, 54, __ — what comes next?",
           "expected": "60",
           "input_type": "numeric",
           "error_signals": [
-            "ERR_SKIP_COUNT"
+            "ERR_SEQ_RULE",
+            "ERR_OFF_BY_ONE"
           ],
-          "ruby_prompt": "5 × 12 = ? Or count by 5s twelve times.",
+          "ruby_prompt": "Add 6 each time: 54 + 6 = 60.",
+          "difficulty": 2
+        },
+        {
+          "ref": "24.55",
+          "question": "Count backwards by 6s: 48, 42, 36, __ — what comes next?",
+          "expected": "30",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_SEQ_RULE",
+            "ERR_SEQ_DIR"
+          ],
+          "ruby_prompt": "Subtract 6 each time: 36 - 6 = 30.",
+          "difficulty": 3
+        },
+        {
+          "ref": "24.56",
+          "question": "__, 12, 18, 24, 30 — what is the missing first number? (Counting by 6s.)",
+          "expected": "6",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_SEQ_RULE",
+            "ERR_OFF_BY_ONE"
+          ],
+          "ruby_prompt": "Count back by 6: 12 - 6 = 6.",
           "difficulty": 2
         }
       ]
@@ -22141,6 +22099,246 @@
           ],
           "ruby_prompt": "9 times what gives 90?",
           "difficulty": 1
+        },
+        {
+          "ref": "28.51",
+          "question": "13 ÷ 4: what is the quotient (whole number answer only)?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "4×3=12, less than 13. Quotient is 3.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.52",
+          "question": "13 ÷ 4 = 3 remainder __. What is the remainder?",
+          "expected": "1",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "4×3=12. Subtract: 13-12=1. Remainder is 1.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.53",
+          "question": "17 ÷ 5: what is the quotient (whole number answer only)?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "5×3=15, less than 17. Quotient is 3.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.54",
+          "question": "17 ÷ 5 = 3 remainder __. What is the remainder?",
+          "expected": "2",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "5×3=15. Subtract: 17-15=2. Remainder is 2.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.55",
+          "question": "19 ÷ 3: what is the quotient (whole number answer only)?",
+          "expected": "6",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "3×6=18, less than 19. Quotient is 6.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.56",
+          "question": "19 ÷ 3 = 6 remainder __. What is the remainder?",
+          "expected": "1",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "3×6=18. Subtract: 19-18=1. Remainder is 1.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.57",
+          "question": "22 ÷ 7: what is the quotient (whole number answer only)?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "7×3=21, less than 22. Quotient is 3.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.58",
+          "question": "22 ÷ 7 = 3 remainder __. What is the remainder?",
+          "expected": "1",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "7×3=21. Subtract: 22-21=1. Remainder is 1.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.59",
+          "question": "29 ÷ 4: what is the quotient (whole number answer only)?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "4×7=28, less than 29. Quotient is 7.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.60",
+          "question": "29 ÷ 4 = 7 remainder __. What is the remainder?",
+          "expected": "1",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "4×7=28. Subtract: 29-28=1. Remainder is 1.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.61",
+          "question": "31 ÷ 6: what is the quotient (whole number answer only)?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "6×5=30, less than 31. Quotient is 5.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.62",
+          "question": "31 ÷ 6 = 5 remainder __. What is the remainder?",
+          "expected": "1",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "6×5=30. Subtract: 31-30=1. Remainder is 1.",
+          "difficulty": 2
+        },
+        {
+          "ref": "28.63",
+          "question": "38 ÷ 7: what is the quotient (whole number answer only)?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "7×5=35, less than 38. Quotient is 5.",
+          "difficulty": 3
+        },
+        {
+          "ref": "28.64",
+          "question": "38 ÷ 7 = 5 remainder __. What is the remainder?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "7×5=35. Subtract: 38-35=3. Remainder is 3.",
+          "difficulty": 3
+        },
+        {
+          "ref": "28.65",
+          "question": "43 ÷ 8: what is the quotient (whole number answer only)?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "8×5=40, less than 43. Quotient is 5.",
+          "difficulty": 3
+        },
+        {
+          "ref": "28.66",
+          "question": "43 ÷ 8 = 5 remainder __. What is the remainder?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "8×5=40. Subtract: 43-40=3. Remainder is 3.",
+          "difficulty": 3
+        },
+        {
+          "ref": "28.67",
+          "question": "53 ÷ 9: what is the quotient (whole number answer only)?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "9×5=45, less than 53. Quotient is 5.",
+          "difficulty": 3
+        },
+        {
+          "ref": "28.68",
+          "question": "53 ÷ 9 = 5 remainder __. What is the remainder?",
+          "expected": "8",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "9×5=45. Subtract: 53-45=8. Remainder is 8.",
+          "difficulty": 3
+        },
+        {
+          "ref": "28.69",
+          "question": "61 ÷ 8: what is the quotient (whole number answer only)?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_IGNORE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "8×7=56, less than 61. Quotient is 7.",
+          "difficulty": 3
+        },
+        {
+          "ref": "28.70",
+          "question": "61 ÷ 8 = 7 remainder __. What is the remainder?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_REMAINDER_CALC",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "8×7=56. Subtract: 61-56=5. Remainder is 5.",
+          "difficulty": 3
         }
       ]
     },
@@ -22722,6 +22920,7 @@
       "title": "Fraction Operations",
       "gate": "B",
       "skill_ids": [
+        "L9.T1.A1",
         "L9.T1.A2",
         "L9.T2.A1",
         "L9.T2.A2",
@@ -22741,7 +22940,8 @@
             "ERR_ADD_FRAC"
           ],
           "ruby_prompt": "Convert 1/2 to 2/4. Then 2/4 + 1/4 = 3/4.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.2",
@@ -22753,7 +22953,8 @@
             "ERR_ADD_FRAC"
           ],
           "ruby_prompt": "Convert 1/3 to 2/6. Then 2/6 + 1/6 = 3/6 = 1/2.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.3",
@@ -22765,7 +22966,8 @@
             "ERR_ADD_FRAC"
           ],
           "ruby_prompt": "Convert 3/4 to 6/8. Then 6/8 + 1/8 = 7/8.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.4",
@@ -22777,7 +22979,8 @@
             "ERR_SIMPLIFY"
           ],
           "ruby_prompt": "1/4 × 8 = 8/4 = 2. Divide the whole number by the denominator.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "mult_whole"
         },
         {
           "ref": "30.5",
@@ -22789,7 +22992,8 @@
             "ERR_SIMPLIFY"
           ],
           "ruby_prompt": "2/3 × 6 = (2×6)/3 = 12/3 = 4.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "mult_whole"
         },
         {
           "ref": "30.6",
@@ -22801,7 +23005,8 @@
             "ERR_ADD_NOT_MULT"
           ],
           "ruby_prompt": "Multiply top by top and bottom by bottom: (1×1)/(2×3) = 1/6.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "mult_frac"
         },
         {
           "ref": "30.7",
@@ -22813,7 +23018,8 @@
             "ERR_SIMPLIFY"
           ],
           "ruby_prompt": "(2×3)/(3×4) = 6/12. Simplify: 6/12 = 1/2.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "mult_frac"
         },
         {
           "ref": "30.8",
@@ -22825,7 +23031,8 @@
             "ERR_DENOM_CHANGE"
           ],
           "ruby_prompt": "3/4 ÷ 3 = 3/12 = 1/4. Multiply the denominator by the whole number.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "div_whole"
         },
         {
           "ref": "30.9",
@@ -22837,7 +23044,8 @@
             "ERR_DENOM_CHANGE"
           ],
           "ruby_prompt": "2/3 ÷ 4 = 2/12 = 1/6.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "div_whole"
         },
         {
           "ref": "30.10",
@@ -22849,7 +23057,8 @@
             "ERR_FRAC_DIV"
           ],
           "ruby_prompt": "Flip the second fraction and multiply: 1/2 × 4/1 = 4/2 = 2.",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "div_frac"
         },
         {
           "ref": "30.11",
@@ -22861,7 +23070,8 @@
             "ERR_FRAC_DIV"
           ],
           "ruby_prompt": "Flip and multiply: 2/3 × 6/1 = 12/3 = 4.",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "div_frac"
         },
         {
           "ref": "30.12",
@@ -22872,7 +23082,8 @@
             "ERR_FRAC_ADD_SAME"
           ],
           "ruby_prompt": "Same denominator — just add the numerators.",
-          "difficulty": 1
+          "difficulty": 1,
+          "subtype": "add_same"
         },
         {
           "ref": "30.13",
@@ -22883,7 +23094,8 @@
             "ERR_FRAC_ADD_SAME"
           ],
           "ruby_prompt": "Denominators match — add the tops.",
-          "difficulty": 1
+          "difficulty": 1,
+          "subtype": "add_same"
         },
         {
           "ref": "30.14",
@@ -22894,7 +23106,8 @@
             "ERR_FRAC_ADD_SAME"
           ],
           "ruby_prompt": "Same denominator — add numerators: 3+2.",
-          "difficulty": 1
+          "difficulty": 1,
+          "subtype": "add_same"
         },
         {
           "ref": "30.15",
@@ -22905,7 +23118,8 @@
             "ERR_FRAC_SUB_SAME"
           ],
           "ruby_prompt": "Same denominator — subtract the numerators.",
-          "difficulty": 1
+          "difficulty": 1,
+          "subtype": "add_same"
         },
         {
           "ref": "30.16",
@@ -22916,7 +23130,8 @@
             "ERR_FRAC_SUB_SAME"
           ],
           "ruby_prompt": "Same denominator — subtract tops: 7−3.",
-          "difficulty": 1
+          "difficulty": 1,
+          "subtype": "add_same"
         },
         {
           "ref": "30.17",
@@ -22927,7 +23142,8 @@
             "ERR_FRAC_SUB_SAME"
           ],
           "ruby_prompt": "3 minus 1 over 4 — keep the denominator.",
-          "difficulty": 1
+          "difficulty": 1,
+          "subtype": "add_same"
         },
         {
           "ref": "30.18",
@@ -22938,7 +23154,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 1/2 to 2/4, then add 2/4 + 1/4.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.19",
@@ -22949,7 +23166,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 1/3 to 2/6, then add 2/6 + 1/6 = 3/6 = 1/2.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.20",
@@ -22960,7 +23178,8 @@
             "ERR_FRAC_SUB_DIFF"
           ],
           "ruby_prompt": "Convert 3/4 to 6/8, then subtract 6/8 − 1/8.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.21",
@@ -22971,7 +23190,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 2/3 to 4/6, then add 4/6 + 1/6.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.22",
@@ -22982,7 +23202,8 @@
             "ERR_FRAC_SUB_DIFF"
           ],
           "ruby_prompt": "Convert 1/3 to 2/6, then subtract 5/6 − 2/6 = 3/6 = 1/2.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.23",
@@ -22993,7 +23214,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 1/2 to 4/8, then add 4/8 + 3/8.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.24",
@@ -23004,7 +23226,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Common denominator is 12: 4/12 + 3/12 = ?",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.25",
@@ -23015,7 +23238,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 3/5 to 6/10, then add 6/10 + 1/10.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.26",
@@ -23026,7 +23250,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 5/6 to 10/12, then add 10/12 + 1/12.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.27",
@@ -23037,7 +23262,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Common denominator 12: 9/12 + 2/12 = ?",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.28",
@@ -23048,7 +23274,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 2/5 to 4/10, then add 4/10 + 3/10.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.29",
@@ -23059,7 +23286,8 @@
             "ERR_FRAC_SUB_DIFF"
           ],
           "ruby_prompt": "Convert 1/2 to 4/8, then subtract 7/8 − 4/8.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.30",
@@ -23070,7 +23298,8 @@
             "ERR_FRAC_SUB_DIFF"
           ],
           "ruby_prompt": "Convert 1/2 to 3/6, subtract 5/6 − 3/6 = 2/6 = 1/3.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.31",
@@ -23081,7 +23310,8 @@
             "ERR_FRAC_MULT"
           ],
           "ruby_prompt": "Multiply the numerator by 2: 3×2 over 4.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "mult_whole"
         },
         {
           "ref": "30.32",
@@ -23092,7 +23322,8 @@
             "ERR_FRAC_MULT"
           ],
           "ruby_prompt": "Multiply numerators together and denominators together.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "mult_frac"
         },
         {
           "ref": "30.33",
@@ -23103,7 +23334,8 @@
             "ERR_FRAC_MULT"
           ],
           "ruby_prompt": "3×2=6 over 5×3=15 — simplify 6/15.",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "mult_frac"
         },
         {
           "ref": "30.34",
@@ -23114,7 +23346,8 @@
             "ERR_FRAC_MULT"
           ],
           "ruby_prompt": "4×5=20 over 5×8=40 — simplify 20/40.",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "mult_frac"
         },
         {
           "ref": "30.35",
@@ -23125,7 +23358,8 @@
             "ERR_FRAC_MULT"
           ],
           "ruby_prompt": "1×2=2 over 2×3=6 — simplify 2/6.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "mult_frac"
         },
         {
           "ref": "30.36",
@@ -23136,7 +23370,8 @@
             "ERR_FRAC_DIV"
           ],
           "ruby_prompt": "Dividing by 2 means multiplying the denominator by 2.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "div_whole"
         },
         {
           "ref": "30.37",
@@ -23147,7 +23382,8 @@
             "ERR_FRAC_DIV"
           ],
           "ruby_prompt": "Divide the numerator by 3: 3÷3=1, keep the denominator.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "div_whole"
         },
         {
           "ref": "30.38",
@@ -23158,7 +23394,8 @@
             "ERR_FRAC_DIV_RECIP"
           ],
           "ruby_prompt": "Flip 1/2 to get 2/1, then multiply: 3/4 × 2/1.",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "div_frac"
         },
         {
           "ref": "30.39",
@@ -23169,7 +23406,8 @@
             "ERR_FRAC_DIV_RECIP"
           ],
           "ruby_prompt": "Flip 1/3 to get 3/1, then multiply: 5/6 × 3/1.",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "div_frac"
         },
         {
           "ref": "30.40",
@@ -23180,7 +23418,8 @@
             "ERR_FRAC_DIV_RECIP"
           ],
           "ruby_prompt": "Flip 2/5 to get 5/2, multiply: 4/5 × 5/2 — simplify.",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "div_frac"
         },
         {
           "ref": "30.41",
@@ -23191,7 +23430,8 @@
             "ERR_FRAC_ADD_SAME"
           ],
           "ruby_prompt": "Add all three quarters together.",
-          "difficulty": 1
+          "difficulty": 1,
+          "subtype": "add_same"
         },
         {
           "ref": "30.42",
@@ -23202,7 +23442,8 @@
             "ERR_FRAC_SUB_DIFF"
           ],
           "ruby_prompt": "Think of 1 as 8/8, then subtract 3/8.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.43",
@@ -23213,7 +23454,8 @@
             "ERR_FRAC_SUB_DIFF"
           ],
           "ruby_prompt": "Write 1 as 5/5, then subtract 2/5.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.44",
@@ -23224,7 +23466,8 @@
             "ERR_FRAC_SUB_DIFF"
           ],
           "ruby_prompt": "Common denominator 12: 8/12 − 3/12 = ?",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.45",
@@ -23235,7 +23478,8 @@
             "ERR_FRAC_SUB_DIFF"
           ],
           "ruby_prompt": "Common denominator 10: 5/10 − 2/10 = ?",
-          "difficulty": 3
+          "difficulty": 3,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.46",
@@ -23246,7 +23490,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 2/5 to 4/10, then add 3/10 + 4/10.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.47",
@@ -23257,7 +23502,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 1/3 to 3/9, then add 4/9 + 3/9.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.48",
@@ -23268,7 +23514,8 @@
             "ERR_FRAC_SUB_DIFF"
           ],
           "ruby_prompt": "Convert 2/5 to 4/10, then subtract 7/10 − 4/10.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.49",
@@ -23279,7 +23526,8 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 1/4 to 2/8, then add 5/8 + 2/8.",
-          "difficulty": 2
+          "difficulty": 2,
+          "subtype": "add_diff"
         },
         {
           "ref": "30.50",
@@ -23290,6 +23538,580 @@
             "ERR_FRAC_ADD_DIFF"
           ],
           "ruby_prompt": "Convert 1/3 to 4/12, then add 4/12 + 5/12 = 9/12 = 3/4.",
+          "difficulty": 3,
+          "subtype": "add_diff"
+        },
+        {
+          "ref": "30.51",
+          "question": "1/3 + 1/3 = ?",
+          "expected": "2/3",
+          "input_type": "text",
+          "subtype": "add_same",
+          "error_signals": [
+            "ERR_ADD_SAME_DENOM"
+          ],
+          "ruby_prompt": "Same denominator: just add the tops. 1+1=2, keep /3.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.52",
+          "question": "2/7 + 3/7 = ?",
+          "expected": "5/7",
+          "input_type": "text",
+          "subtype": "add_same",
+          "error_signals": [
+            "ERR_ADD_SAME_DENOM"
+          ],
+          "ruby_prompt": "Same denominator: 2+3=5, keep /7.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.53",
+          "question": "1/5 + 2/5 = ?",
+          "expected": "3/5",
+          "input_type": "text",
+          "subtype": "add_same",
+          "error_signals": [
+            "ERR_ADD_SAME_DENOM"
+          ],
+          "ruby_prompt": "Same denominator: 1+2=3, keep /5.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.54",
+          "question": "1/6 + 4/6 = ?",
+          "expected": "5/6",
+          "input_type": "text",
+          "subtype": "add_same",
+          "error_signals": [
+            "ERR_ADD_SAME_DENOM"
+          ],
+          "ruby_prompt": "Same denominator: 1+4=5, keep /6.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.55",
+          "question": "5/8 − 1/8 = ?",
+          "expected": "4/8",
+          "input_type": "text",
+          "subtype": "add_same",
+          "error_signals": [
+            "ERR_SUB_SAME_DENOM"
+          ],
+          "ruby_prompt": "Same denominator: 5-1=4, keep /8.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.56",
+          "question": "4/5 − 2/5 = ?",
+          "expected": "2/5",
+          "input_type": "text",
+          "subtype": "add_same",
+          "error_signals": [
+            "ERR_SUB_SAME_DENOM"
+          ],
+          "ruby_prompt": "Same denominator: 4-2=2, keep /5.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.57",
+          "question": "7/9 − 4/9 = ?",
+          "expected": "3/9",
+          "input_type": "text",
+          "subtype": "add_same",
+          "error_signals": [
+            "ERR_SUB_SAME_DENOM"
+          ],
+          "ruby_prompt": "Same denominator: 7-4=3, keep /9.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.58",
+          "question": "4/9 + 2/9 = ?",
+          "expected": "6/9",
+          "input_type": "text",
+          "subtype": "add_same",
+          "error_signals": [
+            "ERR_ADD_SAME_DENOM"
+          ],
+          "ruby_prompt": "Same denominator: 4+2=6, keep /9.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.59",
+          "question": "1/5 × 10 = ?",
+          "expected": "2",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "1/5 of 10: divide 10 by 5, then multiply by 1.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.60",
+          "question": "3/4 × 8 = ?",
+          "expected": "6",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "3/4 of 8: 8÷4=2, then 2×3=6.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.61",
+          "question": "2/5 × 10 = ?",
+          "expected": "4",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "2/5 of 10: 10÷5=2, then 2×2=4.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.62",
+          "question": "1/3 × 9 = ?",
+          "expected": "3",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "1/3 of 9: 9÷3=3.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.63",
+          "question": "3/8 × 8 = ?",
+          "expected": "3",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "3/8 of 8: 8÷8=1, then 1×3=3.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.64",
+          "question": "1/6 × 12 = ?",
+          "expected": "2",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "1/6 of 12: 12÷6=2.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.65",
+          "question": "3/5 × 5 = ?",
+          "expected": "3",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "3/5 of 5: 5÷5=1, then 1×3=3.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.66",
+          "question": "5/6 × 6 = ?",
+          "expected": "5",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "5/6 of 6: 6÷6=1, then 1×5=5.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.67",
+          "question": "4/7 × 7 = ?",
+          "expected": "4",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "4/7 of 7: 7÷7=1, then 1×4=4.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.68",
+          "question": "1/4 × 12 = ?",
+          "expected": "3",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "1/4 of 12: 12÷4=3.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.69",
+          "question": "2/3 × 9 = ?",
+          "expected": "6",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "2/3 of 9: 9÷3=3, then 3×2=6.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.70",
+          "question": "2/7 × 7 = ?",
+          "expected": "2",
+          "input_type": "numeric",
+          "subtype": "mult_whole",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "2/7 of 7: 7÷7=1, then 1×2=2.",
+          "difficulty": 1
+        },
+        {
+          "ref": "30.71",
+          "question": "1/4 × 1/2 = ?",
+          "expected": "1/8",
+          "input_type": "text",
+          "subtype": "mult_frac",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "Multiply tops: 1×1=1. Multiply bottoms: 4×2=8. Answer: 1/8.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.72",
+          "question": "2/5 × 1/3 = ?",
+          "expected": "2/15",
+          "input_type": "text",
+          "subtype": "mult_frac",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "Tops: 2×1=2. Bottoms: 5×3=15. Answer: 2/15.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.73",
+          "question": "3/4 × 2/5 = ?",
+          "expected": "3/10",
+          "input_type": "text",
+          "subtype": "mult_frac",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "Tops: 3×2=6. Bottoms: 4×5=20. Simplify 6/20 = 3/10.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.74",
+          "question": "1/3 × 3/5 = ?",
+          "expected": "1/5",
+          "input_type": "text",
+          "subtype": "mult_frac",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "Tops: 1×3=3. Bottoms: 3×5=15. Simplify 3/15 = 1/5.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.75",
+          "question": "5/6 × 3/5 = ?",
+          "expected": "1/2",
+          "input_type": "text",
+          "subtype": "mult_frac",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "Tops: 5×3=15. Bottoms: 6×5=30. Simplify 15/30 = 1/2.",
+          "difficulty": 4
+        },
+        {
+          "ref": "30.76",
+          "question": "3/8 × 4/9 = ?",
+          "expected": "1/6",
+          "input_type": "text",
+          "subtype": "mult_frac",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "Tops: 3×4=12. Bottoms: 8×9=72. Simplify 12/72 = 1/6.",
+          "difficulty": 4
+        },
+        {
+          "ref": "30.77",
+          "question": "1/2 × 4/5 = ?",
+          "expected": "2/5",
+          "input_type": "text",
+          "subtype": "mult_frac",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "Tops: 1×4=4. Bottoms: 2×5=10. Simplify 4/10 = 2/5.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.78",
+          "question": "2/3 × 3/8 = ?",
+          "expected": "1/4",
+          "input_type": "text",
+          "subtype": "mult_frac",
+          "error_signals": [
+            "ERR_MULT_FRAC"
+          ],
+          "ruby_prompt": "Tops: 2×3=6. Bottoms: 3×8=24. Simplify 6/24 = 1/4.",
+          "difficulty": 4
+        },
+        {
+          "ref": "30.79",
+          "question": "1/2 ÷ 2 = ?",
+          "expected": "1/4",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "Dividing by 2: multiply the denominator by 2. 1/(2×2)=1/4.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.80",
+          "question": "2/5 ÷ 2 = ?",
+          "expected": "1/5",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "2/5 ÷ 2 = 2/10 = 1/5.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.81",
+          "question": "3/4 ÷ 6 = ?",
+          "expected": "1/8",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "3/4 ÷ 6 = 3/24 = 1/8.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.82",
+          "question": "4/5 ÷ 4 = ?",
+          "expected": "1/5",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "4/5 ÷ 4 = 4/20 = 1/5.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.83",
+          "question": "5/6 ÷ 5 = ?",
+          "expected": "1/6",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "5/6 ÷ 5 = 5/30 = 1/6.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.84",
+          "question": "2/3 ÷ 2 = ?",
+          "expected": "1/3",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "2/3 ÷ 2 = 2/6 = 1/3.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.85",
+          "question": "7/8 ÷ 7 = ?",
+          "expected": "1/8",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "7/8 ÷ 7 = 7/56 = 1/8.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.86",
+          "question": "3/5 ÷ 3 = ?",
+          "expected": "1/5",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "3/5 ÷ 3 = 3/15 = 1/5.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.87",
+          "question": "1/4 ÷ 2 = ?",
+          "expected": "1/8",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "1/4 ÷ 2 = 1/8.",
+          "difficulty": 2
+        },
+        {
+          "ref": "30.88",
+          "question": "6/7 ÷ 6 = ?",
+          "expected": "1/7",
+          "input_type": "text",
+          "subtype": "div_whole",
+          "error_signals": [
+            "ERR_DIV_FRAC"
+          ],
+          "ruby_prompt": "6/7 ÷ 6 = 6/42 = 1/7.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.89",
+          "question": "3/4 ÷ 3/8 = ? (Multiply by the reciprocal.)",
+          "expected": "2",
+          "input_type": "numeric",
+          "subtype": "div_frac",
+          "error_signals": [
+            "ERR_DIV_FRAC",
+            "ERR_INVERT"
+          ],
+          "ruby_prompt": "3/4 × 8/3 = 24/12 = 2.",
+          "difficulty": 4
+        },
+        {
+          "ref": "30.90",
+          "question": "2/3 ÷ 1/3 = ? (Multiply by the reciprocal.)",
+          "expected": "2",
+          "input_type": "numeric",
+          "subtype": "div_frac",
+          "error_signals": [
+            "ERR_DIV_FRAC",
+            "ERR_INVERT"
+          ],
+          "ruby_prompt": "2/3 × 3/1 = 6/3 = 2.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.91",
+          "question": "1/2 ÷ 1/6 = ? (Multiply by the reciprocal.)",
+          "expected": "3",
+          "input_type": "numeric",
+          "subtype": "div_frac",
+          "error_signals": [
+            "ERR_DIV_FRAC",
+            "ERR_INVERT"
+          ],
+          "ruby_prompt": "1/2 × 6/1 = 6/2 = 3.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.92",
+          "question": "3/5 ÷ 1/5 = ? (Multiply by the reciprocal.)",
+          "expected": "3",
+          "input_type": "numeric",
+          "subtype": "div_frac",
+          "error_signals": [
+            "ERR_DIV_FRAC",
+            "ERR_INVERT"
+          ],
+          "ruby_prompt": "3/5 × 5/1 = 15/5 = 3.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.93",
+          "question": "4/7 ÷ 2/7 = ? (Multiply by the reciprocal.)",
+          "expected": "2",
+          "input_type": "numeric",
+          "subtype": "div_frac",
+          "error_signals": [
+            "ERR_DIV_FRAC",
+            "ERR_INVERT"
+          ],
+          "ruby_prompt": "4/7 × 7/2 = 28/14 = 2.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.94",
+          "question": "1/4 ÷ 1/8 = ? (Multiply by the reciprocal.)",
+          "expected": "2",
+          "input_type": "numeric",
+          "subtype": "div_frac",
+          "error_signals": [
+            "ERR_DIV_FRAC",
+            "ERR_INVERT"
+          ],
+          "ruby_prompt": "1/4 × 8/1 = 8/4 = 2.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.95",
+          "question": "5/6 ÷ 1/6 = ? (Multiply by the reciprocal.)",
+          "expected": "5",
+          "input_type": "numeric",
+          "subtype": "div_frac",
+          "error_signals": [
+            "ERR_DIV_FRAC",
+            "ERR_INVERT"
+          ],
+          "ruby_prompt": "5/6 × 6/1 = 30/6 = 5.",
+          "difficulty": 3
+        },
+        {
+          "ref": "30.96",
+          "question": "7/8 ÷ 7/16 = ? (Multiply by the reciprocal.)",
+          "expected": "2",
+          "input_type": "numeric",
+          "subtype": "div_frac",
+          "error_signals": [
+            "ERR_DIV_FRAC",
+            "ERR_INVERT"
+          ],
+          "ruby_prompt": "7/8 × 16/7 = 112/56 = 2.",
+          "difficulty": 4
+        },
+        {
+          "ref": "30.97",
+          "question": "2/5 ÷ 1/10 = ? (Multiply by the reciprocal.)",
+          "expected": "4",
+          "input_type": "numeric",
+          "subtype": "div_frac",
+          "error_signals": [
+            "ERR_DIV_FRAC",
+            "ERR_INVERT"
+          ],
+          "ruby_prompt": "2/5 × 10/1 = 20/5 = 4.",
           "difficulty": 3
         }
       ]
@@ -25585,6 +26407,930 @@
           ],
           "ruby_prompt": "Expand: 3x - 12 = 2x + 2. Subtract 2x, then add 12.",
           "difficulty": 3
+        }
+      ]
+    },
+    "M_DIV_SHARE": {
+      "title": "Division as Sharing and Grouping",
+      "gate": "G4",
+      "skill_ids": [
+        "L7.T1.A1",
+        "L7.T1.A2"
+      ],
+      "pass_threshold": 0.8,
+      "questions_for_mastery": 3,
+      "authored_pool": 50,
+      "questions": [
+        {
+          "ref": "DS.1",
+          "question": "12 apples shared equally among 4 children. How many does each child get?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "12 ÷ 4 = 3.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.2",
+          "question": "15 sweets shared equally among 5 friends. How many does each friend get?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "15 ÷ 5 = 3.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.3",
+          "question": "20 stickers shared equally among 4 children. How many does each child get?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "20 ÷ 4 = 5.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.4",
+          "question": "18 pencils shared equally among 6 students. How many does each student get?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "18 ÷ 6 = 3.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.5",
+          "question": "24 grapes shared equally among 8 people. How many does each person get?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "24 ÷ 8 = 3.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.6",
+          "question": "16 cookies shared equally among 4 children. How many does each child get?",
+          "expected": "4",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "16 ÷ 4 = 4.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.7",
+          "question": "30 marbles shared equally among 5 children. How many does each child get?",
+          "expected": "6",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "30 ÷ 5 = 6.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.8",
+          "question": "28 stickers shared equally among 7 students. How many does each student get?",
+          "expected": "4",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "28 ÷ 7 = 4.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.9",
+          "question": "36 sweets shared equally among 9 friends. How many does each friend get?",
+          "expected": "4",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "36 ÷ 9 = 4.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.10",
+          "question": "42 apples shared equally among 6 people. How many does each person get?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "42 ÷ 6 = 7.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.11",
+          "question": "21 books shared equally among 3 shelves. How many books on each shelf?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "21 ÷ 3 = 7.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.12",
+          "question": "32 crayons shared equally among 8 children. How many does each child get?",
+          "expected": "4",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "32 ÷ 8 = 4.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.13",
+          "question": "45 biscuits shared equally among 9 plates. How many on each plate?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "45 ÷ 9 = 5.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.14",
+          "question": "40 stickers shared equally among 8 children. How many does each child get?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "40 ÷ 8 = 5.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.15",
+          "question": "48 grapes shared equally among 6 people. How many does each person get?",
+          "expected": "8",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "48 ÷ 6 = 8.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.16",
+          "question": "35 sweets shared equally among 5 friends. How many does each friend get?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "35 ÷ 5 = 7.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.17",
+          "question": "27 pencils shared equally among 9 students. How many does each student get?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "27 ÷ 9 = 3.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.18",
+          "question": "56 marbles shared equally among 7 children. How many does each child get?",
+          "expected": "8",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "56 ÷ 7 = 8.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.19",
+          "question": "63 books shared equally among 9 shelves. How many books on each shelf?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "63 ÷ 9 = 7.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.20",
+          "question": "72 grapes shared equally among 8 people. How many does each person get?",
+          "expected": "9",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "72 ÷ 8 = 9.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.21",
+          "question": "14 crayons shared equally among 2 children. How many does each child get?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "14 ÷ 2 = 7.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.22",
+          "question": "18 apples shared equally among 3 people. How many does each person get?",
+          "expected": "6",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "18 ÷ 3 = 6.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.23",
+          "question": "24 cookies shared equally among 6 children. How many does each child get?",
+          "expected": "4",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "24 ÷ 6 = 4.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.24",
+          "question": "33 pencils shared equally among 3 students. How many does each student get?",
+          "expected": "11",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "33 ÷ 3 = 11.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.25",
+          "question": "44 sweets shared equally among 4 friends. How many does each friend get?",
+          "expected": "11",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "44 ÷ 4 = 11.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.26",
+          "question": "How many groups of 3 can you make from 12?",
+          "expected": "4",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "12 ÷ 3 = 4 groups.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.27",
+          "question": "How many groups of 4 can you make from 20?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "20 ÷ 4 = 5 groups.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.28",
+          "question": "How many groups of 5 can you make from 25?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "25 ÷ 5 = 5 groups.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.29",
+          "question": "How many groups of 6 can you make from 18?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "18 ÷ 6 = 3 groups.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.30",
+          "question": "How many groups of 7 can you make from 21?",
+          "expected": "3",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "21 ÷ 7 = 3 groups.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.31",
+          "question": "How many groups of 3 can you make from 24?",
+          "expected": "8",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "24 ÷ 3 = 8 groups.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.32",
+          "question": "How many groups of 4 can you make from 32?",
+          "expected": "8",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "32 ÷ 4 = 8 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.33",
+          "question": "How many groups of 5 can you make from 45?",
+          "expected": "9",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "45 ÷ 5 = 9 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.34",
+          "question": "How many groups of 6 can you make from 42?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "42 ÷ 6 = 7 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.35",
+          "question": "How many groups of 7 can you make from 56?",
+          "expected": "8",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "56 ÷ 7 = 8 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.36",
+          "question": "How many groups of 8 can you make from 40?",
+          "expected": "5",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "40 ÷ 8 = 5 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.37",
+          "question": "How many groups of 9 can you make from 63?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "63 ÷ 9 = 7 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.38",
+          "question": "How many groups of 2 can you make from 16?",
+          "expected": "8",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "16 ÷ 2 = 8 groups.",
+          "difficulty": 1
+        },
+        {
+          "ref": "DS.39",
+          "question": "How many groups of 3 can you make from 27?",
+          "expected": "9",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "27 ÷ 3 = 9 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.40",
+          "question": "How many groups of 4 can you make from 36?",
+          "expected": "9",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "36 ÷ 4 = 9 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.41",
+          "question": "How many groups of 5 can you make from 35?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "35 ÷ 5 = 7 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.42",
+          "question": "How many groups of 6 can you make from 48?",
+          "expected": "8",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "48 ÷ 6 = 8 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.43",
+          "question": "How many groups of 7 can you make from 49?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "49 ÷ 7 = 7 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.44",
+          "question": "How many groups of 8 can you make from 64?",
+          "expected": "8",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "64 ÷ 8 = 8 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.45",
+          "question": "How many groups of 9 can you make from 81?",
+          "expected": "9",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "81 ÷ 9 = 9 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.46",
+          "question": "How many groups of 4 can you make from 28?",
+          "expected": "7",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "28 ÷ 4 = 7 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.47",
+          "question": "How many groups of 6 can you make from 54?",
+          "expected": "9",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "54 ÷ 6 = 9 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.48",
+          "question": "How many groups of 8 can you make from 72?",
+          "expected": "9",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "72 ÷ 8 = 9 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.49",
+          "question": "How many groups of 7 can you make from 42?",
+          "expected": "6",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "42 ÷ 7 = 6 groups.",
+          "difficulty": 2
+        },
+        {
+          "ref": "DS.50",
+          "question": "How many groups of 3 can you make from 33?",
+          "expected": "11",
+          "input_type": "numeric",
+          "error_signals": [
+            "ERR_DIV_SHARE",
+            "ERR_DIV_OFF"
+          ],
+          "ruby_prompt": "33 ÷ 3 = 11 groups.",
+          "difficulty": 2
+        }
+      ]
+    },
+    "M_SCALE": {
+      "title": "Multiplication as Scaling",
+      "gate": "B",
+      "skill_ids": [
+        "L6.T1.A1"
+      ],
+      "pass_threshold": 0.8,
+      "questions_for_mastery": 3,
+      "questions": [
+        {
+          "ref": "SC.1",
+          "question": "A ribbon is 5 cm long. A second ribbon is 3 times as long. How long is the second ribbon?",
+          "expected": "15",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 5 × 3 = 15 cm."
+        },
+        {
+          "ref": "SC.2",
+          "question": "Tom has 4 stickers. Jane has 5 times as many. How many stickers does Jane have?",
+          "expected": "20",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 4 × 5 = 20 stickers."
+        },
+        {
+          "ref": "SC.3",
+          "question": "A worm is 6 cm long. A snake is 4 times as long. How long is the snake?",
+          "expected": "24",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 6 × 4 = 24 cm."
+        },
+        {
+          "ref": "SC.4",
+          "question": "A plant is 3 cm tall. After two weeks it is 6 times as tall. How tall is the plant now?",
+          "expected": "18",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 3 × 6 = 18 cm."
+        },
+        {
+          "ref": "SC.5",
+          "question": "Ben runs 5 km. Sara runs 3 times as far. How far does Sara run?",
+          "expected": "15",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 5 × 3 = 15 km."
+        },
+        {
+          "ref": "SC.6",
+          "question": "A box weighs 4 kg. A second box is 5 times as heavy. How heavy is the second box?",
+          "expected": "20",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 4 × 5 = 20 kg."
+        },
+        {
+          "ref": "SC.7",
+          "question": "Lily has 7 books. Max has 4 times as many. How many books does Max have?",
+          "expected": "28",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 7 × 4 = 28 books."
+        },
+        {
+          "ref": "SC.8",
+          "question": "A pencil is 9 cm long. A ruler is 2 times as long. How long is the ruler?",
+          "expected": "18",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 9 × 2 = 18 cm."
+        },
+        {
+          "ref": "SC.9",
+          "question": "Sam has £3. Ella has 8 times as much money. How much does Ella have?",
+          "expected": "24",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 3 × 8 = £24."
+        },
+        {
+          "ref": "SC.10",
+          "question": "A car travels 8 km. A train travels 6 times as far. How far does the train travel?",
+          "expected": "48",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 8 × 6 = 48 km."
+        },
+        {
+          "ref": "SC.11",
+          "question": "A pond is 12 m wide. A lake is 5 times as wide. How wide is the lake?",
+          "expected": "60",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 12 × 5 = 60 m."
+        },
+        {
+          "ref": "SC.12",
+          "question": "A tree is 15 m tall. A building is 3 times as tall. How tall is the building?",
+          "expected": "45",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 15 × 3 = 45 m."
+        },
+        {
+          "ref": "SC.13",
+          "question": "Josh saved £25. His sister saved 4 times as much. How much did his sister save?",
+          "expected": "100",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 25 × 4 = £100."
+        },
+        {
+          "ref": "SC.14",
+          "question": "A jar holds 250 ml. A bottle holds 3 times as much. How much does the bottle hold?",
+          "expected": "750",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 250 × 3 = 750 ml."
+        },
+        {
+          "ref": "SC.15",
+          "question": "A field is 14 m long. A park is 5 times as long. How long is the park?",
+          "expected": "70",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 14 × 5 = 70 m."
+        },
+        {
+          "ref": "SC.16",
+          "question": "A brick weighs 3 kg. A stone is 7 times as heavy. How heavy is the stone?",
+          "expected": "21",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 3 × 7 = 21 kg."
+        },
+        {
+          "ref": "SC.17",
+          "question": "A caterpillar is 8 cm long. A stick insect is 6 times as long. How long is the stick insect?",
+          "expected": "48",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 8 × 6 = 48 cm."
+        },
+        {
+          "ref": "SC.18",
+          "question": "A model car is 16 cm long. The real car is 10 times as long. How long is the real car in cm?",
+          "expected": "160",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 16 × 10 = 160 cm."
+        },
+        {
+          "ref": "SC.19",
+          "question": "A small box has 24 tiles. A larger box has 3 times as many. How many tiles are in the larger box?",
+          "expected": "72",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 24 × 3 = 72 tiles."
+        },
+        {
+          "ref": "SC.20",
+          "question": "A baby weighs 4 kg at birth. By age 1 the baby weighs 3 times as much. How much does the baby weigh?",
+          "expected": "12",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 4 × 3 = 12 kg."
+        },
+        {
+          "ref": "SC.21",
+          "question": "A small pipe carries 6 litres per minute. A large pipe carries 8 times as much. How many litres per minute does the large pipe carry?",
+          "expected": "48",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 6 × 8 = 48 litres per minute."
+        },
+        {
+          "ref": "SC.22",
+          "question": "A blue rod is 9 cm. A red rod is 5 times as long. How long is the red rod?",
+          "expected": "45",
+          "input_type": "numeric",
+          "difficulty": 1,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 9 × 5 = 45 cm."
+        },
+        {
+          "ref": "SC.23",
+          "question": "One bag holds 7 kg of sand. Another bag holds 6 times as much. How many kg does the second bag hold?",
+          "expected": "42",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 7 × 6 = 42 kg."
+        },
+        {
+          "ref": "SC.24",
+          "question": "A shelf holds 18 books. A bookcase holds 4 times as many. How many books can the bookcase hold?",
+          "expected": "72",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 18 × 4 = 72 books."
+        },
+        {
+          "ref": "SC.25",
+          "question": "A tree grew 11 cm in spring. It grew 3 times as much in summer. How many cm did it grow in summer?",
+          "expected": "33",
+          "input_type": "numeric",
+          "difficulty": 2,
+          "error_signals": [
+            "ERR_ADD_NOT_MULT",
+            "ERR_ARITH"
+          ],
+          "ruby_prompt": "Multiply: 11 × 3 = 33 cm."
         }
       ]
     }
