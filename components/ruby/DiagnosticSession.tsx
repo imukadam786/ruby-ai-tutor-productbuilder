@@ -528,7 +528,7 @@ export default function DiagnosticSession() {
   // Full reset — wipes everything, reruns placement with shuffled questions
   const resetToPlacement = () => {
     localStorage.removeItem("ruby_student_profile");
-    const { name, grade } = readOnboarding();
+    const { name, grade } = readOnboarding() ?? { name: "Student", grade: 7 };
     const freshProfile = createStudentProfile(name, grade);
     setProfile(freshProfile);
     setPhase("loading_question");
