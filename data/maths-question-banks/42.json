@@ -252,11 +252,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+4"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x-3"
       }
     ],
     "expectedAnswer": "(x + 4)(x − 3)",
@@ -445,17 +447,17 @@
     "passThreshold": 0.8
   },
   {
-    "id": "33.42",
+    "id": "33.HCF42",
     "domain": "M033",
-    "domainTitle": "Number Patterns and Expanding Brackets",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "3(x − 9)",
-    "question": "Expand the brackets.",
+    "stimulus": "12x + 8",
+    "question": "Factorise by taking out the highest common factor.",
     "answerMode": "text",
-    "expectedAnswer": "3x − 27",
+    "expectedAnswer": "4(3x + 2)",
     "errorSignals": [
-      "ERR_EXPAND",
-      "ERR_SIGN_DROP"
+      "ERR_HCF_WRONG",
+      "ERR_FACTOR_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -486,6 +488,21 @@
     "errorSignals": [
       "ERR_STEP_SKIP",
       "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.42",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "Two angles on a straight line. One angle is 150°.",
+    "question": "What is the other angle? Type the answer in degrees.",
+    "answerMode": "numeric",
+    "expectedAnswer": 30,
+    "errorSignals": [
+      "ERR_SUPP_ANGLE",
+      "ERR_CALC_WRONG"
     ],
     "passThreshold": 0.8
   }

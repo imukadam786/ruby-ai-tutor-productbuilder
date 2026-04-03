@@ -253,11 +253,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+2"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+4"
       }
     ],
     "expectedAnswer": "(x + 2)(x + 4)",
@@ -446,17 +448,17 @@
     "passThreshold": 0.8
   },
   {
-    "id": "33.10",
+    "id": "33.NP10",
     "domain": "M033",
-    "domainTitle": "Number Patterns and Expanding Brackets",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "2(x − 5)",
-    "question": "Expand the brackets.",
-    "answerMode": "text",
-    "expectedAnswer": "2x − 10",
+    "stimulus": "4, 8, 12, 16, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 20,
     "errorSignals": [
-      "ERR_EXPAND",
-      "ERR_SIGN_DROP"
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -487,6 +489,21 @@
     "errorSignals": [
       "ERR_STEP_SKIP",
       "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.10",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "A triangle has angles of 50° and 80°.",
+    "question": "What is the third angle? Type the answer in degrees.",
+    "answerMode": "numeric",
+    "expectedAnswer": 50,
+    "errorSignals": [
+      "ERR_ANGLE_SUM",
+      "ERR_CALC_WRONG"
     ],
     "passThreshold": 0.8
   }

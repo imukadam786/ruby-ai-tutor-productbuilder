@@ -253,11 +253,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x-5"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+2"
       }
     ],
     "expectedAnswer": "(x − 5)(x + 2)",
@@ -446,17 +448,17 @@
     "passThreshold": 0.8
   },
   {
-    "id": "33.35",
+    "id": "33.HCF35",
     "domain": "M033",
-    "domainTitle": "Number Patterns and Expanding Brackets",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "3(x + 6)",
-    "question": "Expand the brackets.",
+    "stimulus": "4x + 8",
+    "question": "Factorise by taking out the highest common factor.",
     "answerMode": "text",
-    "expectedAnswer": "3x + 18",
+    "expectedAnswer": "4(x + 2)",
     "errorSignals": [
-      "ERR_EXPAND",
-      "ERR_SIGN_DROP"
+      "ERR_HCF_WRONG",
+      "ERR_FACTOR_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -487,6 +489,21 @@
     "errorSignals": [
       "ERR_STEP_SKIP",
       "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.35",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "A rectangle has length 20 cm and width 5 cm.",
+    "question": "What is the perimeter? Type the answer in cm.",
+    "answerMode": "numeric",
+    "expectedAnswer": 50,
+    "errorSignals": [
+      "ERR_PERI_FORMULA",
+      "ERR_CALC_WRONG"
     ],
     "passThreshold": 0.8
   }

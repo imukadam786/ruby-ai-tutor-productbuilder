@@ -77,6 +77,7 @@ const DOMAIN_ERROR_MAP: Record<string, string> = {
   M012: "ERR_OP_ERROR",           // Linear equations
   M034: "ERR_OP_ERROR",           // Advanced linear equations
   M013: "ERR_FACTOR_WRONG",       // Quadratic factorisation
+  M_GEO: "ERR_GEO_CALC",         // Geometry — Shape and Space
   M014: "ERR_FEATURE_SWAP",       // Functions & lines
   M015: "ERR_LOG_BASE",           // Exponentials & logs
   M016: "ERR_TRIG_SWAP",          // Trigonometry
@@ -92,6 +93,18 @@ function normaliseAnswer(s: string): string {
   return s.toLowerCase().trim().replace(/\s+/g, " ").replace(/[,]/g, "");
 }
 
+// Normalises algebraic expressions: strips outer parens, all whitespace, and
+// converts the Unicode minus sign (−) to ASCII (-) so student input like
+// "(x - 2)" matches stored expected answers like "x-2" or "(x − 2)".
+function normaliseAlgebra(s: string): string {
+  return s
+    .toLowerCase()
+    .trim()
+    .replace(/\u2212/g, "-")           // unicode minus → ascii
+    .replace(/\s+/g, "")               // strip all whitespace
+    .replace(/^\((.+)\)$/, "$1");      // strip single layer of outer parens
+}
+
 function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; errorType?: string } {
   const a0 = answers[0]?.trim() ?? "";
   const errorType = task.errorSignals?.[0] ?? DOMAIN_ERROR_MAP[task.domain] ?? "conceptual_gap";
@@ -102,7 +115,10 @@ function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; 
   }
 
   if (task.answerMode === "text" || task.answerMode === "fraction") {
-    const correct = normaliseAnswer(a0) === normaliseAnswer(String(task.expectedAnswer ?? ""));
+    const expected = String(task.expectedAnswer ?? "");
+    const correct =
+      normaliseAnswer(a0) === normaliseAnswer(expected) ||
+      normaliseAlgebra(a0) === normaliseAlgebra(expected);
     return { correct, errorType: correct ? undefined : errorType };
   }
 
@@ -113,9 +129,15 @@ function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; 
       return { correct, errorType: correct ? undefined : errorType };
     }
     const correctCount = gradedFields.filter((f, i) => {
-      const ua = normaliseAnswer(answers[i] ?? "");
-      const ea = normaliseAnswer(String(f.expectedAnswer));
-      return ua === ea || (typeof f.expectedAnswer === "number" && Number(answers[i]) === f.expectedAnswer);
+      const raw = answers[i] ?? "";
+      if (typeof f.expectedAnswer === "number") {
+        return Number(raw) === f.expectedAnswer;
+      }
+      const ea = String(f.expectedAnswer);
+      return (
+        normaliseAnswer(raw) === normaliseAnswer(ea) ||
+        normaliseAlgebra(raw) === normaliseAlgebra(ea)
+      );
     }).length;
     const correct = correctCount >= Math.ceil(gradedFields.length * 0.6);
     return { correct, errorType: correct ? undefined : errorType };

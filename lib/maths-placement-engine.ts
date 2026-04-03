@@ -14,7 +14,7 @@ export const SEARCH_GATES: Array<{ name: string; domains: [string, string] }> = 
   { name: "G7",  domains: ["M009", "M010"] },  // Grade 7:  Ratio & proportion / BODMAS
   { name: "G8",  domains: ["M032", "M033"] },  // Grade 8:  Negative numbers / Algebra patterns
   { name: "G9",  domains: ["M011", "M012"] },  // Grade 9:  Algebraic expressions / Linear equations
-  { name: "G10", domains: ["M013", "M034"] },  // Grade 10: Quadratic factorisation / Advanced linear
+  { name: "G10", domains: ["M_GEO", "M013"] },  // Grade 10: Geometry & space (L15) / Quadratic factorisation (L18)
   { name: "G11", domains: ["M014", "M015"] },  // Grade 11: Functions & lines / Exponentials & logs
   { name: "G12", domains: ["M016", "M017"] },  // Grade 12: Trigonometry / Calculus
 ];
