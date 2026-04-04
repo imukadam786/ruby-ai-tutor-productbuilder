@@ -437,28 +437,28 @@
     "domain": "M032",
     "domainTitle": "Negative Number Operations",
     "gate": "C",
-    "stimulus": "−2 − (−1) = ___",
+    "stimulus": "(−10) ÷ (−2) = ___",
     "question": "Work this out. Type the answer.",
     "answerMode": "numeric",
-    "expectedAnswer": -1,
+    "expectedAnswer": 5,
     "errorSignals": [
       "ERR_INTEGER_SIGN",
-      "ERR_NEG_ADD"
+      "ERR_NEG_DIV"
     ],
     "passThreshold": 0.8
   },
   {
-    "id": "33.HCF39",
+    "id": "33.NP39",
     "domain": "M033",
     "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "6x − 12",
-    "question": "Factorise by taking out the highest common factor.",
-    "answerMode": "text",
-    "expectedAnswer": "6(x − 2)",
+    "stimulus": "6, 10, 14, 18, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 22,
     "errorSignals": [
-      "ERR_HCF_WRONG",
-      "ERR_FACTOR_WRONG"
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -504,6 +504,21 @@
     "errorSignals": [
       "ERR_SUPP_ANGLE",
       "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.39",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "7/9 - 2/9",
+    "question": "Subtract these fractions. Type the answer as a fraction.",
+    "answerMode": "fraction",
+    "expectedAnswer": "5/9",
+    "errorSignals": [
+      "ERR_SUB_FRAC",
+      "ERR_COMMON_DENOM"
     ],
     "passThreshold": 0.8
   }

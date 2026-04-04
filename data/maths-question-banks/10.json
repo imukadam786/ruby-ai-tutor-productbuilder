@@ -506,5 +506,20 @@
       "ERR_CALC_WRONG"
     ],
     "passThreshold": 0.8
+  },
+  {
+    "id": "30.10",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "3/5 x 10",
+    "question": "Multiply the fraction by the whole number. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 6,
+    "errorSignals": [
+      "ERR_FRAC_WHOLE_MULT",
+      "ERR_SIMPLIFY"
+    ],
+    "passThreshold": 0.8
   }
 ]

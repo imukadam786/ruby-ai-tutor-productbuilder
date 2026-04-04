@@ -38,7 +38,8 @@ import { describeError } from "@/lib/report-generator";
 import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import { useT } from "@/lib/i18n";
-import { readOnboarding } from "@/lib/onboarding-reader";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import { GATE_PASSED_ENTRY, LEVEL_LABEL } from "@/lib/maths-placement-engine";
 import {
   identifyStudent,
   trackQuestionAnswered,
@@ -55,24 +56,12 @@ type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | 
 // Constructs DiagnosticReportInput from the completed student profile.
 // Called after placement completes; runs client-side since profile is in localStorage.
 
-// Maps maths skill tree level (1–22) to the equivalent school grade band.
-// Derived from GATE_PASSED_ENTRY in MathsDiagnosticPlacement:
-//   Gate 0→L2 (Gr1), Gate 1→L3 (Gr2), Gate 2→L5 (Gr3), Gate 3→L8 (Gr4),
-//   Gate 4→L9 (Gr5), Gate 5→L12 (Gr6), Gate 6→L13 (Gr7), Gate 7→L14 (Gr8),
-//   Gate 8→L15 (Gr9), Gate 9→L19 (Gr10), Gate 10→L21 (Gr11), Gate 11→L22 (Gr12)
-function skillLevelToGradeEquiv(level: number): number {
-  if (level <= 2)  return 1;   // Counting & Addition Concepts
-  if (level <= 3)  return 2;   // Subtraction Concepts
-  if (level <= 7)  return 3;   // Fluency through Division Concepts
-  if (level <= 8)  return 4;   // Fractions Introduction
-  if (level <= 10) return 5;   // Fraction Operations & Decimals
-  if (level <= 12) return 6;   // Ratio and Negative Numbers
-  if (level <= 13) return 7;   // Algebra — Patterns and Variables
-  if (level <= 14) return 8;   // Linear Equations
-  if (level <= 18) return 9;   // Geometry, Statistics, Problem Solving, Quadratics
-  if (level <= 20) return 10;  // Functions and Exponentials
-  if (level <= 21) return 11;  // Trigonometric Ratios
-  return 12;                   // Calculus
+// Returns the expected skill tree entry level for a given school grade.
+// Derived from GATE_PASSED_ENTRY: the level a student enters after passing
+// the gate that corresponds to their grade.
+function expectedEntryLevel(grade: number): number {
+  const idx = Math.min(Math.max(grade - 1, 0), 11);
+  return GATE_PASSED_ENTRY[idx] ?? 1;
 }
 
 function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
@@ -117,14 +106,16 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
   const entrySkill = getSkillById(placement.entrySkillId);
   const placementSkill = entrySkill?.title ?? placement.entrySkillId;
 
-  const gradeEquiv = skillLevelToGradeEquiv(placement.entryLevel);
+  const levelTitle  = LEVEL_LABEL[placement.entryLevel] ?? `Level ${placement.entryLevel}`;
+  const expected    = expectedEntryLevel(profile.grade);
+  const levelGap    = expected - placement.entryLevel; // positive = behind expected
 
   return {
     subject: "maths",
     studentName: profile.name.split(" ")[0],
     studentGrade: profile.grade,
-    workingLevel: `Grade ${gradeEquiv}`,
-    gradeLevelGap: profile.grade - gradeEquiv,
+    workingLevel: `Level ${placement.entryLevel} — ${levelTitle}`,
+    gradeLevelGap: levelGap,
     questionsAnalysed: placement.tasks.length,
     correctCount: placement.tasks.filter((t) => t.correct).length,
     domainScores,
@@ -134,7 +125,6 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
   };
 }
 
-// readOnboarding imported from @/lib/onboarding-reader
 
 export default function DiagnosticSession() {
   const { language } = useT();
@@ -166,55 +156,60 @@ export default function DiagnosticSession() {
 
 
   useEffect(() => {
-    function initWithProfile(saved: import("@/types/ruby").StudentProfile) {
-      // Sync grade and name from onboarding if they differ from the stored profile.
-      // Handles the case where a tester or user changes grade between sessions.
-      const onboarding = readOnboarding();
-      const gradeChanged = onboarding !== null && onboarding.grade !== saved.grade;
-      const nameChanged = onboarding !== null && onboarding.name !== "Student" && onboarding.name !== saved.name.split(" ")[0];
-      const synced = (gradeChanged || nameChanged)
-        ? { ...saved, grade: gradeChanged ? onboarding!.grade : saved.grade, name: nameChanged ? onboarding!.name : saved.name }
-        : saved;
+    // Fetch authoritative grade from Supabase users table first.
+    // This is the single source of truth — written at onboarding completion and
+    // survives browser clears, device switches, and tester session resets.
+    // Falls back to localStorage onboardingData, then a safe default.
+    fetchAuthorisedGrade().then((authorised) => {
+      const authName  = authorised?.name  ?? "Student";
+      const authGrade = authorised?.grade ?? 7;
 
-      identifyStudent({ id: synced.id, name: synced.name, grade: synced.grade });
-      // Keep auth link fresh — fire-and-forget, non-blocking
-      void linkStudentProfileToAuth(synced.id);
-      if (synced.placementCompleted) {
-        trackSessionStarted({
-          subject: "maths",
-          current_skill_id: synced.current_skill_id,
-          current_level: synced.current_level,
+      function initWithProfile(saved: import("@/types/ruby").StudentProfile) {
+        // Always apply the authoritative grade — never trust the cached profile grade.
+        const gradeChanged = saved.grade !== authGrade;
+        const nameChanged  = authName !== "Student" && authName !== saved.name.split(" ")[0];
+        const synced = (gradeChanged || nameChanged)
+          ? { ...saved, grade: authGrade, name: nameChanged ? authName : saved.name }
+          : saved;
+
+        identifyStudent({ id: synced.id, name: synced.name, grade: synced.grade });
+        void linkStudentProfileToAuth(synced.id);
+        if (synced.placementCompleted) {
+          trackSessionStarted({
+            subject: "maths",
+            current_skill_id: synced.current_skill_id,
+            current_level: synced.current_level,
+          });
+        }
+        const scannedMastery = synced.placementCompleted ? scanMasteryForReview(synced.skill_mastery) : synced.skill_mastery;
+        const scanned = scannedMastery !== synced.skill_mastery ? { ...synced, skill_mastery: scannedMastery } : synced;
+        if (scanned !== saved) saveStudentProfile(scanned);
+        setProfile(scanned);
+        const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
+        setSkillAttemptCount(restoredAttemptCount);
+        const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scannedMastery) : null;
+        if (reviewSkill) setPendingReviewSkillId(reviewSkill);
+        setPhase("loading_question");
+      }
+
+      const saved = getStudentProfile();
+      if (saved) {
+        initWithProfile(saved);
+      } else {
+        // localStorage cleared — try to restore from Supabase before creating a new profile
+        hydrateStudentProfileFromSupabase().then((restored) => {
+          if (restored) {
+            initWithProfile(restored);
+          } else {
+            const newProfile = createStudentProfile(authName, authGrade);
+            identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
+            void linkStudentProfileToAuth(newProfile.id);
+            setProfile(newProfile);
+            // phase stays at loading_question; placement gate will intercept
+          }
         });
       }
-      const scannedMastery = synced.placementCompleted ? scanMasteryForReview(synced.skill_mastery) : synced.skill_mastery;
-      const scanned = scannedMastery !== synced.skill_mastery ? { ...synced, skill_mastery: scannedMastery } : synced;
-      if (scanned !== saved) saveStudentProfile(scanned);
-      setProfile(scanned);
-      const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
-      setSkillAttemptCount(restoredAttemptCount);
-      const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scannedMastery) : null;
-      if (reviewSkill) setPendingReviewSkillId(reviewSkill);
-      setPhase("loading_question");
-    }
-
-    const saved = getStudentProfile();
-    if (saved) {
-      initWithProfile(saved);
-    } else {
-      // localStorage cleared — try to restore from Supabase before creating a new profile
-      hydrateStudentProfileFromSupabase().then((restored) => {
-        if (restored) {
-          initWithProfile(restored);
-        } else {
-          const { name, grade } = readOnboarding() ?? { name: "Student", grade: 7 };
-          const newProfile = createStudentProfile(name, grade);
-          identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
-          void linkStudentProfileToAuth(newProfile.id);
-          setProfile(newProfile);
-          // phase stays at loading_question; placement gate will intercept
-        }
-      });
-    }
+    });
   }, []);
 
   const loadQuestion = useCallback(
@@ -528,14 +523,17 @@ export default function DiagnosticSession() {
   // Full reset — wipes everything, reruns placement with shuffled questions
   const resetToPlacement = () => {
     localStorage.removeItem("ruby_student_profile");
-    const { name, grade } = readOnboarding() ?? { name: "Student", grade: 7 };
-    const freshProfile = createStudentProfile(name, grade);
-    setProfile(freshProfile);
-    setPhase("loading_question");
-    setSkillAttemptCount(0);
-    recentTemplatesRef.current = [];
-    setSessionCorrect(0);
-    setSessionAttempts(0);
+    fetchAuthorisedGrade().then((authorised) => {
+      const name  = authorised?.name  ?? "Student";
+      const grade = authorised?.grade ?? 7;
+      const freshProfile = createStudentProfile(name, grade);
+      setProfile(freshProfile);
+      setPhase("loading_question");
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setSessionCorrect(0);
+      setSessionAttempts(0);
+    });
   };
 
   // Skill-tree-only reset — keeps placement result, returns to entry point with fresh questions

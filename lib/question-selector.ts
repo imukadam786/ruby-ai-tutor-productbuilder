@@ -69,7 +69,7 @@ const LEVEL_TO_DOMAIN: Record<number, string> = {
   4:  "M004",  // Addition and Subtraction Fluency (T1 only — T2/T3 overridden below)
   5:  "M006",  // Multiplication Concepts
   6:  "M006",  // Multiplicative Reasoning
-  7:  "M007",  // Division Concepts
+  7:  "M028",  // Division Concepts
   8:  "M008",  // Fractions — Introduction
   9:  "M008",  // Fraction Operations
   10: "M_DEC", // Decimals

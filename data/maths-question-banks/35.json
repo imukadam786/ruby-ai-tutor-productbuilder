@@ -188,13 +188,12 @@
     "domain": "M010",
     "domainTitle": "Integer Operations and BODMAS",
     "gate": "B",
-    "stimulus": "−5 + 9 − 3",
+    "stimulus": "(8 − 3) × (2 + 1)",
     "question": "Evaluate this expression. Be careful about the order of operations.",
     "answerMode": "numeric",
-    "expectedAnswer": 1,
+    "expectedAnswer": 15,
     "errorSignals": [
       "ERR_BODMAS_ORDER",
-      "ERR_INTEGER_SIGN",
       "ERR_BRACKET_IGNORE"
     ],
     "passThreshold": 0.8
@@ -437,28 +436,28 @@
     "domain": "M032",
     "domainTitle": "Negative Number Operations",
     "gate": "C",
-    "stimulus": "−1 − (−9) = ___",
+    "stimulus": "8 × (−2) = ___",
     "question": "Work this out. Type the answer.",
     "answerMode": "numeric",
-    "expectedAnswer": 8,
+    "expectedAnswer": -16,
     "errorSignals": [
       "ERR_INTEGER_SIGN",
-      "ERR_NEG_ADD"
+      "ERR_NEG_MULT"
     ],
     "passThreshold": 0.8
   },
   {
-    "id": "33.HCF35",
+    "id": "33.NP35",
     "domain": "M033",
     "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "4x + 8",
-    "question": "Factorise by taking out the highest common factor.",
-    "answerMode": "text",
-    "expectedAnswer": "4(x + 2)",
+    "stimulus": "13, 26, 39, 52, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 65,
     "errorSignals": [
-      "ERR_HCF_WRONG",
-      "ERR_FACTOR_WRONG"
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -504,6 +503,21 @@
     "errorSignals": [
       "ERR_PERI_FORMULA",
       "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.35",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "2/9 + 5/9",
+    "question": "Add these fractions. Type the answer as a fraction.",
+    "answerMode": "fraction",
+    "expectedAnswer": "7/9",
+    "errorSignals": [
+      "ERR_ADD_FRAC",
+      "ERR_COMMON_DENOM"
     ],
     "passThreshold": 0.8
   }

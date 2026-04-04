@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
-import { SEARCH_GATES, GATE_PASSED_ENTRY, getSearchWindow } from "@/lib/maths-placement-engine";
+import { SEARCH_GATES, GATE_PASSED_ENTRY, LEVEL_LABEL, getSearchWindow } from "@/lib/maths-placement-engine";
 import { simplifyText } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 
@@ -255,32 +255,7 @@ function computePlacement(
   };
 }
 
-// ── Level labels ──────────────────────────────────────────────────────────────
-
-const LEVEL_LABEL: Record<number, string> = {
-  1:  "Counting & Number Sense",
-  2:  "Addition Concepts",
-  3:  "Subtraction Concepts",
-  4:  "Addition & Subtraction Fluency",
-  5:  "Multiplication Concepts",
-  6:  "Multiplicative Reasoning",
-  7:  "Division Concepts",
-  8:  "Fractions — Introduction",
-  9:  "Fraction Operations",
-  10: "Decimals",
-  11: "Ratio and Proportion",
-  12: "Negative Numbers and Integers",
-  13: "Algebra — Patterns and Variables",
-  14: "Linear Equations",
-  15: "Geometry — Shape and Space",
-  16: "Statistics and Data",
-  17: "Advanced Problem Solving",
-  18: "Quadratic Algebra",
-  19: "Functions and Straight Lines",
-  20: "Exponentials and Logarithms",
-  21: "Trigonometric Ratios",
-  22: "Calculus — Differentiation",
-};
+// LEVEL_LABEL imported from maths-placement-engine
 
 type Phase = "welcome" | "loading" | "task" | "result" | "error";
 
@@ -336,6 +311,7 @@ export default function MathsDiagnosticPlacement({
   const [taskIndex, setTaskIndex] = useState(0);
 
   const [answers, setAnswers] = useState<string[]>([]);
+  const [bracketParts, setBracketParts] = useState<{ sign: "+" | "-"; num: string }[]>([]);
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
 
   const [completedTasks, setCompletedTasks] = useState<MathsPlacementTaskResult[]>([]);
@@ -443,6 +419,9 @@ export default function MathsDiagnosticPlacement({
   useEffect(() => {
     if (task) {
       setAnswers(task.fields ? task.fields.map(() => "") : [""]);
+      if (task.domain === "M013" && task.fields) {
+        setBracketParts(task.fields.map(() => ({ sign: "+", num: "" })));
+      }
       setSelectedChoice(null);
       setWorkingImage(undefined);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -766,8 +745,74 @@ export default function MathsDiagnosticPlacement({
               </div>
             )}
 
-            {/* ── Multi-field UI ── */}
-            {task.answerMode === "multiField" && task.fields && (
+            {/* ── Multi-field UI — quadratic bracket widget ── */}
+            {task.answerMode === "multiField" && task.fields && task.domain === "M013" && (
+              <div className="space-y-3">
+                {task.fields.map((field, i) => {
+                  const parts = bracketParts[i] ?? { sign: "+", num: "" };
+                  const updatePart = (key: "sign" | "num", val: string) => {
+                    const next = bracketParts.map((p, j) => j === i ? { ...p, [key]: val } : p);
+                    setBracketParts(next);
+                    const newSign = key === "sign" ? val : parts.sign;
+                    const newNum  = key === "num"  ? val : parts.num;
+                    const assembled = newNum.trim() !== "" ? "x" + newSign + newNum : "";
+                    const nextAnswers = [...answers];
+                    nextAnswers[i] = assembled;
+                    setAnswers(nextAnswers);
+                  };
+                  return (
+                    <div key={i}>
+                      <label className="block text-sm font-semibold text-gray-500 mb-1.5">{field.label}</label>
+                      <div className="flex items-center gap-2">
+                        <span className="text-gray-700 font-mono text-xl font-semibold select-none">(x</span>
+                        {/* Sign toggle */}
+                        <div className="flex rounded-xl border-2 border-gray-200 overflow-hidden">
+                          <button
+                            type="button"
+                            onClick={() => updatePart("sign", "+")}
+                            disabled={submitting}
+                            className={`px-3 py-2 font-bold text-lg leading-none transition-colors ${parts.sign === "+" ? "bg-teal-500 text-white" : "bg-gray-50 text-gray-400 hover:bg-gray-100"}`}
+                          >+</button>
+                          <button
+                            type="button"
+                            onClick={() => updatePart("sign", "-")}
+                            disabled={submitting}
+                            className={`px-3 py-2 font-bold text-lg leading-none transition-colors ${parts.sign === "-" ? "bg-rose-500 text-white" : "bg-gray-50 text-gray-400 hover:bg-gray-100"}`}
+                          >−</button>
+                        </div>
+                        {/* Number input */}
+                        <input
+                          type="number"
+                          min="0"
+                          value={parts.num}
+                          onChange={(e) => updatePart("num", e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" && i === (task.fields!.length - 1) && hasAnswers && !submitting) {
+                              handleSubmit();
+                            }
+                          }}
+                          ref={i === 0 ? answerInputRef : undefined}
+                          disabled={submitting}
+                          placeholder="  ?"
+                          className="w-20 border-2 border-gray-200 rounded-xl px-2 py-2 text-xl font-bold text-center text-gray-800 focus:outline-none focus:border-teal-400 transition-colors placeholder:text-gray-300"
+                        />
+                        <span className="text-gray-700 font-mono text-xl font-semibold select-none">)</span>
+                      </div>
+                    </div>
+                  );
+                })}
+                <button
+                  onClick={handleSubmit}
+                  disabled={submitting || !hasAnswers}
+                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg disabled:opacity-40 transition-all hover:shadow-md active:scale-98"
+                >
+                  Submit ✓
+                </button>
+              </div>
+            )}
+
+            {/* ── Multi-field UI — generic text fields ── */}
+            {task.answerMode === "multiField" && task.fields && task.domain !== "M013" && (
               <div className="space-y-3">
                 {task.fields.map((field, i) => (
                   <div key={i}>
