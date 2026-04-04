@@ -436,28 +436,28 @@
     "domain": "M032",
     "domainTitle": "Negative Number Operations",
     "gate": "C",
-    "stimulus": "1 − (−8) = ___",
+    "stimulus": "(−6) × (−2) = ___",
     "question": "Work this out. Type the answer.",
     "answerMode": "numeric",
-    "expectedAnswer": 9,
+    "expectedAnswer": 12,
     "errorSignals": [
       "ERR_INTEGER_SIGN",
-      "ERR_NEG_ADD"
+      "ERR_NEG_MULT"
     ],
     "passThreshold": 0.8
   },
   {
-    "id": "33.32",
+    "id": "33.NP32",
     "domain": "M033",
     "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "3(x − 4)",
-    "question": "Expand the brackets.",
-    "answerMode": "text",
-    "expectedAnswer": "3x − 12",
+    "stimulus": "45, 40, 35, 30, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 25,
     "errorSignals": [
-      "ERR_EXPAND",
-      "ERR_SIGN_DROP"
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -503,6 +503,21 @@
     "errorSignals": [
       "ERR_PERI_FORMULA",
       "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.32",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "3/11 + 7/11",
+    "question": "Add these fractions. Type the answer as a fraction.",
+    "answerMode": "fraction",
+    "expectedAnswer": "10/11",
+    "errorSignals": [
+      "ERR_ADD_FRAC",
+      "ERR_COMMON_DENOM"
     ],
     "passThreshold": 0.8
   }

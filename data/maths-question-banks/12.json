@@ -188,13 +188,12 @@
     "domain": "M010",
     "domainTitle": "Integer Operations and BODMAS",
     "gate": "B",
-    "stimulus": "−7 + 10",
+    "stimulus": "5 × 2 − 4 ÷ 2",
     "question": "Evaluate this expression. Be careful about the order of operations.",
     "answerMode": "numeric",
-    "expectedAnswer": 3,
+    "expectedAnswer": 8,
     "errorSignals": [
       "ERR_BODMAS_ORDER",
-      "ERR_INTEGER_SIGN",
       "ERR_BRACKET_IGNORE"
     ],
     "passThreshold": 0.8
@@ -504,6 +503,21 @@
     "errorSignals": [
       "ERR_ANGLE_SUM",
       "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.12",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "2/3 x 9",
+    "question": "Multiply the fraction by the whole number. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 6,
+    "errorSignals": [
+      "ERR_FRAC_WHOLE_MULT",
+      "ERR_SIMPLIFY"
     ],
     "passThreshold": 0.8
   }

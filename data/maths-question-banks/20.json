@@ -447,17 +447,17 @@
     "passThreshold": 0.8
   },
   {
-    "id": "33.20",
+    "id": "33.NP20",
     "domain": "M033",
     "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "2(x − 10)",
-    "question": "Expand the brackets.",
-    "answerMode": "text",
-    "expectedAnswer": "2x − 20",
+    "stimulus": "40, 36, 32, 28, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 24,
     "errorSignals": [
-      "ERR_EXPAND",
-      "ERR_SIGN_DROP"
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -503,6 +503,21 @@
     "errorSignals": [
       "ERR_AREA_FORMULA",
       "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.20",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "5/6 x 12",
+    "question": "Multiply the fraction by the whole number. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 10,
+    "errorSignals": [
+      "ERR_FRAC_WHOLE_MULT",
+      "ERR_SIMPLIFY"
     ],
     "passThreshold": 0.8
   }

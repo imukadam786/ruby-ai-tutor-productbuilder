@@ -437,28 +437,28 @@
     "domain": "M032",
     "domainTitle": "Negative Number Operations",
     "gate": "C",
-    "stimulus": "−1 + 10 = ___",
+    "stimulus": "(−5) × (−4) = ___",
     "question": "Work this out. Type the answer.",
     "answerMode": "numeric",
-    "expectedAnswer": 9,
+    "expectedAnswer": 20,
     "errorSignals": [
       "ERR_INTEGER_SIGN",
-      "ERR_NEG_ADD"
+      "ERR_NEG_MULT"
     ],
     "passThreshold": 0.8
   },
   {
-    "id": "33.HCF37",
+    "id": "33.NP37",
     "domain": "M033",
     "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "5x + 15",
-    "question": "Factorise by taking out the highest common factor.",
-    "answerMode": "text",
-    "expectedAnswer": "5(x + 3)",
+    "stimulus": "20, 40, 60, 80, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 100,
     "errorSignals": [
-      "ERR_HCF_WRONG",
-      "ERR_FACTOR_WRONG"
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -504,6 +504,21 @@
     "errorSignals": [
       "ERR_SUPP_ANGLE",
       "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.37",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "4/11 + 5/11",
+    "question": "Add these fractions. Type the answer as a fraction.",
+    "answerMode": "fraction",
+    "expectedAnswer": "9/11",
+    "errorSignals": [
+      "ERR_ADD_FRAC",
+      "ERR_COMMON_DENOM"
     ],
     "passThreshold": 0.8
   }

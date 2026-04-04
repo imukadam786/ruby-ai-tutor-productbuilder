@@ -188,13 +188,12 @@
     "domain": "M010",
     "domainTitle": "Integer Operations and BODMAS",
     "gate": "B",
-    "stimulus": "−1 − 8",
+    "stimulus": "4 + 6 ÷ 2 × 3",
     "question": "Evaluate this expression. Be careful about the order of operations.",
     "answerMode": "numeric",
-    "expectedAnswer": -9,
+    "expectedAnswer": 13,
     "errorSignals": [
       "ERR_BODMAS_ORDER",
-      "ERR_INTEGER_SIGN",
       "ERR_BRACKET_IGNORE"
     ],
     "passThreshold": 0.8
@@ -448,17 +447,17 @@
     "passThreshold": 0.8
   },
   {
-    "id": "33.22",
+    "id": "33.NP22",
     "domain": "M033",
     "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
     "gate": "C",
-    "stimulus": "2(x − 11)",
-    "question": "Expand the brackets.",
-    "answerMode": "text",
-    "expectedAnswer": "2x − 22",
+    "stimulus": "49, 42, 35, 28, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 21,
     "errorSignals": [
-      "ERR_EXPAND",
-      "ERR_SIGN_DROP"
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
     ],
     "passThreshold": 0.8
   },
@@ -504,6 +503,21 @@
     "errorSignals": [
       "ERR_AREA_FORMULA",
       "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.22",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "3/8 x 16",
+    "question": "Multiply the fraction by the whole number. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 6,
+    "errorSignals": [
+      "ERR_FRAC_WHOLE_MULT",
+      "ERR_SIMPLIFY"
     ],
     "passThreshold": 0.8
   }
