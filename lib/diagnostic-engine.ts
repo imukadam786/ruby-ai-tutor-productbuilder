@@ -55,8 +55,17 @@ export function classifyError(input: ClassificationInput): ErrorType {
 
 // ─── Answer Normalisation ─────────────────────────────────────────────────────
 
+// Normalise any Unicode dash/minus variant to ASCII hyphen-minus.
+// Mobile keyboards (iOS/Android) can emit U+2212 MINUS SIGN, U+2013 EN DASH,
+// U+2010 HYPHEN, U+FE63 SMALL HYPHEN-MINUS, or U+FF0D FULLWIDTH HYPHEN-MINUS
+// instead of the plain ASCII U+002D. Without this step those characters are
+// stripped by the numeric regex and "-6" becomes "6".
+function normaliseMinus(s: string): string {
+  return s.replace(/[\u2212\u2010\u2013\u2014\uFE63\uFF0D]/g, "-");
+}
+
 export function normaliseAnswer(answer: string): string {
-  return answer
+  return normaliseMinus(answer)
     .trim()
     .toLowerCase()
     .replace(/\s+/g, " ")
@@ -70,12 +79,12 @@ export function checkAnswerCorrectness(
   // Multi-field answers (e.g. triple_numeric: "3,4,12") — compare each field individually
   if (expectedAnswer.includes(",")) {
     const expectedFields = expectedAnswer.split(",").map((f) => f.trim());
-    const studentFields = studentAnswer.split(",").map((f) => f.trim());
+    const studentFields = studentAnswer.split(",").map((f) => normaliseMinus(f.trim()));
     if (expectedFields.length !== studentFields.length) return false;
     return expectedFields.every((ef, i) => {
       const sf = studentFields[i];
       if (sf === ef) return true;
-      const en = parseFloat(ef);
+      const en = parseFloat(normaliseMinus(ef));
       const sn = parseFloat(sf);
       return !isNaN(en) && !isNaN(sn) && Math.abs(en - sn) < 0.001;
     });
