@@ -676,7 +676,7 @@ export default function ReadingDiagnosticPlacement({
     setCompletedTasks(newCompleted);
     completedTasksRef.current = newCompleted;
 
-    setShowEncouragement(true);
+    if (result.response !== "(skipped)" && result.response !== "(no response)" && !result.sttSkipped) setShowEncouragement(true);
     await new Promise(r => setTimeout(r, 800));
 
     if (currentIndex + 1 >= totalTasks) {

@@ -462,7 +462,7 @@ export default function MathsDiagnosticPlacement({
       const newCompleted = [...completedTasks, result];
       setCompletedTasks(newCompleted);
 
-      setShowEncouragement(true);
+      if (result.response !== "(skipped)") setShowEncouragement(true);
       await new Promise((r) => setTimeout(r, 600));
 
       const nextIndex = taskIndex + 1;
