@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { GeneratedQuestion, QuestionTemplate } from "@/types/ruby";
+import { GeneratedQuestion, GraduatedHint, QuestionTemplate } from "@/types/ruby";
 
 interface QuestionCardProps {
   question: GeneratedQuestion;
@@ -22,8 +22,9 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
   const [fieldValues, setFieldValues] = useState<string[]>(
     question.labels ? question.labels.map(() => "") : []
   );
-  const [hintVisible, setHintVisible] = useState(forceHint);
-  const [usedHint, setUsedHint] = useState(false);
+  // hintLevel: 0 = not shown, 1 = nudge, 2 = process, 3 = worked (deepest)
+  const [hintLevel, setHintLevel] = useState(forceHint ? 3 : 0);
+  const [usedHint, setUsedHint] = useState(forceHint);
   const [workingImage, setWorkingImage] = useState<string | undefined>(undefined);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const answerInputRef = useRef<HTMLInputElement>(null);
@@ -31,6 +32,8 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
   useEffect(() => {
     setAnswer("");
     setFieldValues(question.labels ? question.labels.map(() => "") : []);
+    setHintLevel(forceHint ? 3 : 0);
+    setUsedHint(forceHint);
     if (!isMultiField && window.matchMedia("(pointer: fine)").matches) {
       answerInputRef.current?.focus();
     }
@@ -39,9 +42,20 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
   const templateInfo = templateLabels[question.template];
 
   const handleShowHint = () => {
-    setHintVisible(true);
+    setHintLevel((prev) => Math.min(prev + 1, 3));
     setUsedHint(true);
   };
+
+  // Derive the graduated hints — prefer question.hints, fall back to legacy question.hint at level 3
+  const graduatedHints: GraduatedHint | undefined = question.hints ?? (
+    question.hint ? { nudge: question.hint, process: question.hint, worked: question.hint } : undefined
+  );
+
+  const MAX_HINT_LEVEL = graduatedHints ? 3 : 0;
+  const hintLabels = ["Need a hint?", "A bit more help", "Show me the first step"];
+  const hintTexts = graduatedHints
+    ? [graduatedHints.nudge, graduatedHints.process, graduatedHints.worked]
+    : [];
 
   const handleImageCapture = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -78,25 +92,43 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
         </p>
       </div>
 
-      {/* Hint */}
-      {question.hint && (
-        <div className="px-6 pb-4">
-          {!hintVisible ? (
+      {/* Graduated hints */}
+      {MAX_HINT_LEVEL > 0 && (
+        <div className="px-6 pb-4 space-y-2">
+          {/* Show revealed hint levels */}
+          {hintLevel > 0 && hintTexts.slice(0, hintLevel).map((text, i) => (
+            <div
+              key={i}
+              className={`rounded-xl p-3 border ${
+                i === 0 ? "bg-yellow-50 border-yellow-200" :
+                i === 1 ? "bg-orange-50 border-orange-200" :
+                          "bg-blue-50 border-blue-200"
+              }`}
+            >
+              <p className={`text-sm ${
+                i === 0 ? "text-yellow-800" :
+                i === 1 ? "text-orange-800" :
+                          "text-blue-800"
+              }`}>
+                <span className="font-medium">
+                  {i === 0 ? "Hint: " : i === 1 ? "More help: " : "First step: "}
+                </span>
+                {text}
+              </p>
+            </div>
+          ))}
+
+          {/* Button to reveal the next level */}
+          {hintLevel < MAX_HINT_LEVEL && (
             <button
               onClick={handleShowHint}
-              className="text-blue-500 hover:text-blue-700 text-sm flex items-center gap-1 transition-colors"
+              className="text-blue-500 hover:text-blue-700 text-sm flex items-center gap-1.5 transition-colors mt-1"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.347a3.75 3.75 0 01-5.303-5.304" />
               </svg>
-              Show hint
+              {hintLabels[hintLevel]}
             </button>
-          ) : (
-            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3">
-              <p className="text-yellow-800 text-sm">
-                <span className="font-medium">Hint: </span>{question.hint}
-              </p>
-            </div>
           )}
         </div>
       )}

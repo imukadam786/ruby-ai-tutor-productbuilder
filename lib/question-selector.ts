@@ -9,7 +9,7 @@
  */
 
 import questionBankData from "@/data/question-bank.json";
-import { StudentProfile } from "@/types/ruby";
+import { StudentProfile, GraduatedHint } from "@/types/ruby";
 
 export interface BankQuestion {
   ref: string;
@@ -388,6 +388,7 @@ export function bankQuestionToGenerated(
   template: "concrete" | "story" | "symbolic";
   question: string;
   hint?: string;
+  hints: GraduatedHint;
   expected_answer: string;
   scaffolding_notes: string;
   difficulty?: number;
@@ -400,11 +401,10 @@ export function bankQuestionToGenerated(
   else if (q.input_type === "numeric" && q.context?.includes("Dot")) template = "concrete";
   else if (q.context?.includes("story") || q.question?.toLowerCase().includes("there are")) template = "story";
 
-  // Build hint if requested
-  let hint: string | undefined;
-  if (includeHint) {
-    hint = buildHint(q, domainId);
-  }
+  // Build graduated hints (always available; shown progressively in UI)
+  const hints = buildGraduatedHints(domainId);
+  // Legacy flat hint — keep for backward compat with forceHint path
+  const hint = includeHint ? hints.worked : undefined;
 
   return {
     id: `q_${domainId}_${q.ref}_${Date.now()}`,
@@ -414,6 +414,7 @@ export function bankQuestionToGenerated(
     template,
     question: buildQuestionText(q, domainId),
     hint,
+    hints,
     expected_answer: q.expected,
     scaffolding_notes: `Error signals: ${q.error_signals.join(", ")}`,
     difficulty: q.difficulty,
@@ -471,47 +472,208 @@ function buildQuestionText(q: BankQuestion, domainId: string): string {
   }
 }
 
-function buildHint(_q: BankQuestion, domainId: string): string {
-  const hints: Record<string, string> = {
-    M001: "Count each dot one at a time, touching or pointing to each one.",
-    M002: "Look at the pattern — is the sequence going up or down? By how much each time?",
-    M003: "The tens digit tells you how many groups of 10. The ones digit tells you the leftovers.",
-    M004: "Try counting on from the larger number, or think of a number bond.",
-    M005: "Think: what number do you add to the smaller number to get the larger one?",
-    M006: "Groups × items in each group = total. Count one group first.",
-    M007: "You can split hundreds, tens, and ones in many ways. E.g. 345 = 300+40+5 or 300+45.",
-    M008: "The denominator (bottom number) tells you how many equal parts the whole is divided into.",
-    M009: "Find the scale factor first: what number do you multiply one side by to get the other?",
-    M_DEC: "Line up the decimal points before adding or subtracting. When multiplying by 10, 100 or 1000, move each digit that many places to the left.",
-    M010: "Remember BODMAS: Brackets, Orders, Division, Multiplication, Addition, Subtraction.",
-    M011: "Collect the x terms together, then collect the number terms together.",
-    M012: "Inverse operations: subtract the constant from both sides first, then divide.",
-    M013: "Find two numbers that multiply to give c and add to give b.",
-    M014: "y-intercept: set x=0. x-intercept: set y=0. Gradient: the coefficient of x.",
-    M015: "log_b(x) = n means b^n = x. Switch between log and exponential form.",
-    M016: "SOH CAH TOA: Sin=Opposite/Hypotenuse, Cos=Adjacent/Hypotenuse, Tan=Opposite/Adjacent.",
-    M017: "Power rule: if f(x) = ax^n, then f'(x) = n·ax^(n-1). Differentiate each term.",
-    M018: "Break the problem into steps. Identify what you know and what you need to find.",
-    M_GEO: "Angles: acute < 90, right = 90, obtuse 90–180, reflex > 180. Area: rectangle = l×w, triangle = ½bh. Volume = l×w×h.",
-    M_STAT: "Mean = total ÷ count. Median = middle value when ordered. Mode = most frequent. Probability = favourable ÷ total.",
-    M019: "Doubles: 6+6=12, 7+7=14, 8+8=16. Near-doubles: add or subtract 1. Make-ten: find what you need to reach 10 first.",
-    M020: "Add ones first. If ones sum to 10 or more, write the units and carry 1 ten to the tens column.",
-    M021: "Instead of counting back, count up from the smaller number to the larger. The number of steps is the difference.",
-    M022: "Subtract ones first. If you can't (top digit smaller), borrow 1 ten from the tens column.",
-    M023: "Splitting: break each number into tens and ones, add separately. Compensation: round to a friendly number, then adjust.",
-    M024: "Count by 2s, 5s, or 10s. Find the common difference and add or subtract it each time.",
-    M025: "Use counting strategies for ×2 (doubles), ×5 (count by 5s), ×10 (add a zero). For harder tables, use known facts to derive new ones.",
-    M026: "Commutative: a×b = b×a. Distributive: a×(b+c) = a×b + a×c. Split the second number into tens and ones.",
-    M027: "Multiply each digit in turn from right to left, carrying any tens into the next column.",
-    M028: "Think of division as the inverse of multiplication. For remainders: multiply to find the nearest multiple, then subtract.",
-    M029: "On a number line, count how many equal parts and which part the arrow points to. For equivalence, multiply top and bottom by the same number.",
-    M030: "Adding fractions: find a common denominator first. Multiplying: top × top, bottom × bottom. Dividing: multiply by the reciprocal (flip the second fraction).",
-    M031: "10% = ÷10. 25% = ÷4. 50% = ÷2. Increase: add the percentage. Decrease: subtract the percentage. Unitary method: find the value of 1 unit first.",
-    M032: "Adding a negative = subtracting. Subtracting a negative = adding. Negative × negative = positive. Negative × positive = negative.",
-    M033: "For patterns, find the common difference. To expand brackets, multiply each term inside by the number outside. To factorise, find the HCF of all terms.",
-    M034: "Move all x terms to one side and all numbers to the other. For word problems, define x, write the equation, then solve.",
-    M_SCALE: "Think: how many times as large? Multiply the original amount by the scale factor.",
-    M_DIV_SHARE: "Sharing: divide equally into groups. Grouping: count how many groups of that size fit.",
+function buildGraduatedHints(domainId: string): GraduatedHint {
+  const map: Record<string, GraduatedHint> = {
+    M001: {
+      nudge:   "Think about how many objects you can see.",
+      process: "Count each dot one at a time — point to each one as you go.",
+      worked:  "Start at 1 and count every dot: 1, 2, 3… until you've touched them all.",
+    },
+    M002: {
+      nudge:   "Look at the numbers — is there a pattern?",
+      process: "Is the sequence going up or down? Work out by how much each time.",
+      worked:  "Find the difference between the first two numbers. Check if that same difference applies to the next pair — then continue the pattern.",
+    },
+    M003: {
+      nudge:   "Think about tens and ones.",
+      process: "The tens digit tells you how many groups of 10. The ones digit tells you the leftovers.",
+      worked:  "For a number like 47: the tens digit is 4 (so 4 groups of 10 = 40), and the ones digit is 7. Answer: 4 tens and 7 ones.",
+    },
+    M004: {
+      nudge:   "Think about what addition means — combining two amounts.",
+      process: "Start from the larger number and count on by the smaller one.",
+      worked:  "For 7 + 5: start at 7, then count on 5 more — 8, 9, 10, 11, 12.",
+    },
+    M005: {
+      nudge:   "Think about what subtraction means — taking away or finding the gap.",
+      process: "Count up from the smaller number to the larger. The number of steps is the answer.",
+      worked:  "For 12 − 7: start at 7 and count up to 12 — that's 5 steps, so the answer is 5.",
+    },
+    M006: {
+      nudge:   "Think about equal groups.",
+      process: "Multiplication means groups × items in each group = total.",
+      worked:  "Count one group first, then add that amount repeatedly — or multiply: groups × size of each group.",
+    },
+    M007: {
+      nudge:   "There's more than one way to split this number.",
+      process: "Break the number into hundreds, tens, and ones — or any combination that adds up correctly.",
+      worked:  "For 345: you could write 300 + 40 + 5, or 300 + 45, or 200 + 145. Any valid split is correct.",
+    },
+    M008: {
+      nudge:   "Look at the bottom number of the fraction.",
+      process: "The denominator (bottom) tells you how many equal parts the whole is split into.",
+      worked:  "For ¾: the whole is split into 4 equal parts. You are counting 3 of those parts.",
+    },
+    M009: {
+      nudge:   "How does one side relate to the other?",
+      process: "Find the scale factor: what do you multiply one side by to get the other?",
+      worked:  "If one side is 4 and the other is 12, the scale factor is 3 (4 × 3 = 12). Apply that same factor to find the missing value.",
+    },
+    M_DEC: {
+      nudge:   "Where are the decimal points?",
+      process: "Line up the decimal points before adding or subtracting. For ×10, 100 or 1000 — move digits left.",
+      worked:  "For 3.4 + 1.25: write them so the decimal points align, then add column by column — 3.40 + 1.25 = 4.65.",
+    },
+    M010: {
+      nudge:   "The order you do operations matters.",
+      process: "Follow BODMAS: Brackets first, then Orders, then Division/Multiplication, then Addition/Subtraction.",
+      worked:  "For 3 + 2 × 4: do the multiplication first (2 × 4 = 8), then add 3. Answer: 11, not 20.",
+    },
+    M011: {
+      nudge:   "Group like terms together.",
+      process: "Collect all the x terms on one side and all the number terms on the other.",
+      worked:  "For 3x + 5 + x − 2: group x terms (3x + x = 4x) and numbers (5 − 2 = 3). Simplified: 4x + 3.",
+    },
+    M012: {
+      nudge:   "Use inverse operations — undo what was done to x.",
+      process: "Subtract the constant from both sides first, then divide both sides by the coefficient of x.",
+      worked:  "For 2x + 3 = 11: subtract 3 from both sides → 2x = 8, then divide by 2 → x = 4.",
+    },
+    M013: {
+      nudge:   "Think about what two numbers multiply to give the last term.",
+      process: "Find two numbers that multiply to give c and add to give b.",
+      worked:  "For x² + 5x + 6: find two numbers that multiply to 6 and add to 5. That's 2 and 3. So: (x + 2)(x + 3).",
+    },
+    M014: {
+      nudge:   "Think about where the line crosses the axes.",
+      process: "y-intercept: set x = 0. x-intercept: set y = 0. Gradient = coefficient of x.",
+      worked:  "For y = 2x + 3: gradient = 2, y-intercept = 3 (set x=0: y=3), x-intercept = −1.5 (set y=0: x = −3/2).",
+    },
+    M015: {
+      nudge:   "Think about the relationship between logs and powers.",
+      process: "log_b(x) = n means b^n = x. Switch between log and exponential form.",
+      worked:  "log₂(8) = 3 because 2³ = 8. Use this switching to solve: if log₃(x) = 4, then x = 3⁴ = 81.",
+    },
+    M016: {
+      nudge:   "Label the sides of the triangle first.",
+      process: "SOH CAH TOA: Sin = Opposite/Hypotenuse, Cos = Adjacent/Hypotenuse, Tan = Opposite/Adjacent.",
+      worked:  "Label the hypotenuse, the side opposite the angle, and the adjacent side. Choose the ratio that uses two of those three. Rearrange to find the unknown.",
+    },
+    M017: {
+      nudge:   "Think about the power of x and its coefficient.",
+      process: "Power rule: if f(x) = axⁿ, then f′(x) = n·axⁿ⁻¹. Differentiate each term separately.",
+      worked:  "For f(x) = 3x² + 2x: differentiate each term — 3x² → 6x, 2x → 2. So f′(x) = 6x + 2.",
+    },
+    M018: {
+      nudge:   "Break the problem into smaller parts.",
+      process: "Identify what you know and what you need to find. Write it down before calculating.",
+      worked:  "List the given values. Write the formula. Substitute the known values. Solve for the unknown step by step.",
+    },
+    M_GEO: {
+      nudge:   "Think about the shape and what measurements you need.",
+      process: "Area of rectangle = l×w. Area of triangle = ½bh. Angles in a triangle add to 180°.",
+      worked:  "Identify the shape. Write the formula. Substitute the measurements. Calculate step by step.",
+    },
+    M_STAT: {
+      nudge:   "Think about what each average or probability measure means.",
+      process: "Mean = total ÷ count. Median = middle value (ordered). Mode = most frequent. Probability = favourable ÷ total.",
+      worked:  "For mean of 3, 7, 5, 9: add them (3+7+5+9=24), then divide by 4. Mean = 6.",
+    },
+    M019: {
+      nudge:   "Do you know any doubles near this number?",
+      process: "Use doubles (6+6=12), near-doubles (6+7=13), or make-ten (8+5: 8+2=10, +3=13).",
+      worked:  "For 7 + 8: 7 + 7 = 14 (double), then add 1 more → 15.",
+    },
+    M020: {
+      nudge:   "Start with the ones column.",
+      process: "Add ones first. If the ones total 10 or more, write the units digit and carry 1 ten.",
+      worked:  "For 47 + 35: ones: 7+5=12, write 2 carry 1. Tens: 4+3+1(carry)=8. Answer: 82.",
+    },
+    M021: {
+      nudge:   "Think about the gap between the two numbers.",
+      process: "Count up from the smaller number to the larger — the number of steps is the difference.",
+      worked:  "For 52 − 37: count up from 37 → 40 (3 steps) → 52 (12 steps). Total: 3 + 12 = 15.",
+    },
+    M022: {
+      nudge:   "Start with the ones column.",
+      process: "Subtract ones first. If the top digit is smaller, borrow 1 ten from the tens column.",
+      worked:  "For 63 − 28: ones: can't do 3−8, so borrow — 13−8=5. Tens: 5−2=3 (after borrowing). Answer: 35.",
+    },
+    M023: {
+      nudge:   "Is there a friendly number nearby you could use?",
+      process: "Splitting: break into tens and ones and add separately. Compensation: round, calculate, adjust.",
+      worked:  "For 46 + 38 by splitting: 40+30=70, 6+8=14, total=84. By compensation: 46+40=86, −2=84.",
+    },
+    M024: {
+      nudge:   "Look at the difference between consecutive terms.",
+      process: "Find the common difference and add (or subtract) it each time.",
+      worked:  "For 3, 6, 9, ?: the difference is 3 each time. Next term: 9 + 3 = 12.",
+    },
+    M025: {
+      nudge:   "Do you know a related fact you could use?",
+      process: "×2 = doubles, ×5 = count by 5s, ×10 = add a zero. Use known facts to derive unknown ones.",
+      worked:  "For 7×6: if you know 7×5=35, just add one more 7 → 35+7=42.",
+    },
+    M026: {
+      nudge:   "Try splitting one of the numbers to make it easier.",
+      process: "Distributive law: a×(b+c) = a×b + a×c. Split the second number into tens and ones.",
+      worked:  "For 7×14: split 14 into 10+4. Then 7×10=70 and 7×4=28. Total: 70+28=98.",
+    },
+    M027: {
+      nudge:   "Start from the right-hand column.",
+      process: "Multiply each digit from right to left, carrying any tens into the next column.",
+      worked:  "For 34×6: ones: 4×6=24, write 4 carry 2. Tens: 3×6=18, +2=20. Answer: 204.",
+    },
+    M028: {
+      nudge:   "Think about multiplication — division is the inverse.",
+      process: "Ask: how many times does the divisor go into the number? For remainders, find the nearest multiple.",
+      worked:  "For 29 ÷ 4: 4×7=28 (nearest multiple), 29−28=1. Answer: 7 remainder 1.",
+    },
+    M029: {
+      nudge:   "Look at how the fraction is drawn or written.",
+      process: "For equivalent fractions: multiply or divide both top and bottom by the same number.",
+      worked:  "For ½ = ?/8: multiply top and bottom by 4 → 4/8. Check: 4÷8 = 0.5 = ½. ✓",
+    },
+    M030: {
+      nudge:   "Check whether the denominators are the same.",
+      process: "Adding: find a common denominator first. Multiplying: top×top, bottom×bottom. Dividing: flip the second fraction and multiply.",
+      worked:  "For ½ + ⅓: common denominator is 6. ½=3/6, ⅓=2/6. Sum: 5/6.",
+    },
+    M031: {
+      nudge:   "Do you know a simple percentage you could start from?",
+      process: "10% = ÷10. 25% = ÷4. 50% = ÷2. Build up from a simple percentage.",
+      worked:  "For 35% of 80: 10% of 80=8. 30%=24. 5%=4. 35%=24+4=28.",
+    },
+    M032: {
+      nudge:   "Think carefully about the signs.",
+      process: "Adding a negative = subtracting. Subtracting a negative = adding. Negative × negative = positive.",
+      worked:  "For −3 + (−5): adding a negative, so −3 − 5 = −8. For −4 × −2: negative × negative = positive → 8.",
+    },
+    M033: {
+      nudge:   "What operation was applied to get from one term to the next?",
+      process: "For sequences: find the common difference. For brackets: multiply each term inside by the factor outside.",
+      worked:  "For 3(x + 4): multiply 3 by x → 3x, and 3 by 4 → 12. Expanded: 3x + 12.",
+    },
+    M034: {
+      nudge:   "What is the unknown and what do you know?",
+      process: "Move all x terms to one side and all number terms to the other. Use inverse operations.",
+      worked:  "For 3x − 4 = 11: add 4 to both sides → 3x = 15. Divide by 3 → x = 5.",
+    },
+    M_SCALE: {
+      nudge:   "How does the new amount compare to the original?",
+      process: "Find the scale factor — how many times larger or smaller is the new amount?",
+      worked:  "If a recipe for 4 needs 200g of flour, for 10 people: scale factor = 10÷4 = 2.5. Flour = 200×2.5 = 500g.",
+    },
+    M_DIV_SHARE: {
+      nudge:   "Are you sharing equally or grouping?",
+      process: "Sharing: divide total equally into groups. Grouping: count how many groups of that size fit into the total.",
+      worked:  "Sharing 24 sweets among 6 children: 24÷6=4 each. Grouping 24 into groups of 6: 24÷6=4 groups.",
+    },
   };
-  return hints[domainId] || "Read the question carefully and break it into smaller steps.";
+
+  return map[domainId] ?? {
+    nudge:   "Read the question carefully — what is it asking you to find?",
+    process: "Break the problem into smaller steps. Write down what you know first.",
+    worked:  "Identify the key numbers and the operation needed. Work through one step at a time.",
+  };
 }
