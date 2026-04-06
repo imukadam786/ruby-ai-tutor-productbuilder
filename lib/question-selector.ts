@@ -402,7 +402,7 @@ export function bankQuestionToGenerated(
   else if (q.context?.includes("story") || q.question?.toLowerCase().includes("there are")) template = "story";
 
   // Build graduated hints (always available; shown progressively in UI)
-  const hints = buildGraduatedHints(domainId);
+  const hints = buildGraduatedHints(q, domainId);
   // Legacy flat hint — keep for backward compat with forceHint path
   const hint = includeHint ? hints.worked : undefined;
 
@@ -472,7 +472,73 @@ function buildQuestionText(q: BankQuestion, domainId: string): string {
   }
 }
 
-function buildGraduatedHints(domainId: string): GraduatedHint {
+function ordinal(n: number): string {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return s[(v - 20) % 10] ?? s[v] ?? s[0];
+}
+
+function buildGraduatedHints(q: BankQuestion, domainId: string): GraduatedHint {
+  // ── M029: 4 distinct sub-types share one domain — detect from error_signals ──
+  if (domainId === "M029") {
+    const sig = q.error_signals ?? [];
+
+    // Number line questions
+    if (sig.some(s => s === "ERR_NUM_LINE" || s === "ERR_NUMBER_LINE")) {
+      // Extract parts/position from question text e.g. "split into 6 equal parts. The arrow is at the 4th mark"
+      const partsMatch  = q.question.match(/(\d+)\s*equal parts/i);
+      const markMatch   = q.question.match(/(?:at the |at\s|points to the )(\d+)(?:st|nd|rd|th)?\s*mark/i);
+      const parts  = partsMatch  ? partsMatch[1]  : "4";
+      const mark   = markMatch   ? markMatch[1]   : "3";
+      return {
+        nudge:   "Count how many equal parts the line is divided into — that's your denominator.",
+        process: "The number of parts = denominator (bottom). The position of the arrow = numerator (top).",
+        worked:  `Line split into ${parts} equal parts, arrow at the ${mark}${ordinal(Number(mark))} mark → fraction is ${mark}/${parts}.`,
+      };
+    }
+
+    // Compare / order fractions
+    if (sig.some(s => s === "ERR_FRAC_ORDER")) {
+      // Extract the two fractions from question text e.g. "Which is larger: 5/6 or 7/8?"
+      const fracMatch = q.question.match(/(\d+\/\d+)\D+(\d+\/\d+)/);
+      const [f1, f2] = fracMatch ? [fracMatch[1], fracMatch[2]] : ["5/6", "7/8"];
+      const [n1, d1] = f1.split("/").map(Number);
+      const [n2, d2] = f2.split("/").map(Number);
+      const lcd = d1 * d2;
+      return {
+        nudge:   "You can't compare fractions directly unless they have the same denominator.",
+        process: "Find a common denominator, then convert both fractions and compare the numerators.",
+        worked:  `Compare ${f1} and ${f2}: common denominator is ${lcd}. ${f1} = ${n1 * d2}/${lcd}, ${f2} = ${n2 * d1}/${lcd}. Compare ${n1 * d2} and ${n2 * d1}.`,
+      };
+    }
+
+    // Simplify fractions
+    if (sig.some(s => s === "ERR_SIMPLIFY" || s === "ERR_SIMPLIFY_FRAC" || s === "ERR_HCF")) {
+      const fracMatch = q.question.match(/(\d+\/\d+)/);
+      const frac = fracMatch ? fracMatch[1] : "6/9";
+      return {
+        nudge:   "Look for a number that divides evenly into both the top and bottom.",
+        process: "Find the highest common factor (HCF) of the numerator and denominator. Divide both by it.",
+        worked:  `To simplify ${frac}: find the HCF of both numbers. Divide the top and bottom by that HCF. Keep dividing until no common factor remains.`,
+      };
+    }
+
+    // Equivalent fractions (default M029 sub-type)
+    if (sig.some(s => s === "ERR_EQUIV_FRAC" || s === "ERR_MULTIPLY_BOTH" || s === "ERR_EQUIV_MULT" || s === "ERR_DENOM_ADD")) {
+      const fracMatch = q.question.match(/(\d+\/\d+)/);
+      const frac = fracMatch ? fracMatch[1] : "1/2";
+      const [, den] = frac.split("/").map(Number);
+      const targetMatch = q.question.match(/denominator of (\d+)/i) || q.question.match(/=\s*___\/(\d+)/);
+      const targetDen = targetMatch ? Number(targetMatch[1]) : den * 2;
+      const factor = targetDen / den;
+      return {
+        nudge:   "Whatever you do to the bottom of a fraction, you must do the same to the top.",
+        process: `Find what you multiply ${den} by to reach ${targetDen}. Then multiply the numerator by the same number.`,
+        worked:  `${frac}: bottom ${den} × ${factor} = ${targetDen}. So top must also × ${factor}.`,
+      };
+    }
+  }
+
   const map: Record<string, GraduatedHint> = {
     M001: {
       nudge:   "Think about how many objects you can see.",
@@ -629,6 +695,7 @@ function buildGraduatedHints(domainId: string): GraduatedHint {
       process: "Ask: how many times does the divisor go into the number? For remainders, find the nearest multiple.",
       worked:  "For 29 ÷ 4: 4×7=28 (nearest multiple), 29−28=1. Answer: 7 remainder 1.",
     },
+    // M029 sub-types handled below via early return
     M029: {
       nudge:   "Look at how the fraction is drawn or written.",
       process: "For equivalent fractions: multiply or divide both top and bottom by the same number.",
