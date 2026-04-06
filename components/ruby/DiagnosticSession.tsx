@@ -139,6 +139,7 @@ export default function DiagnosticSession() {
   const [statusMessage, setStatusMessage] = useState("");
   const [loadErrorCount, setLoadErrorCount] = useState(0);
   const retryFnRef = useRef<(() => void) | null>(null);
+  const lastStudentAnswerRef = useRef<string>("");
 
   // Report state — shown after placement before learning begins
   const [pendingPlacementResult, setPendingPlacementResult] = useState<MathsPlacementResult | null>(null);
@@ -280,6 +281,7 @@ export default function DiagnosticSession() {
 
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean, workingImage?: string) => {
     if (!currentQuestion || !profile) return;
+    lastStudentAnswerRef.current = answer;
 
     try {
       const res = await apiFetch("/api/ruby/submit-answer", {
@@ -750,6 +752,13 @@ export default function DiagnosticSession() {
               result={currentResult}
               onNext={handleNextAfterFeedback}
               nextLabel={nextLabels[currentResult.next_action] || "Continue"}
+              grade={profile?.grade}
+              questionContext={currentQuestion ? {
+                skill_id: currentQuestion.skill_id,
+                question: currentQuestion.question,
+                student_answer: lastStudentAnswerRef.current,
+                expected_answer: currentQuestion.expected_answer,
+              } : undefined}
             />
           </div>
         </div>
