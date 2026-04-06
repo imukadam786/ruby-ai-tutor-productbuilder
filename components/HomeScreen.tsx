@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
 import { getProgress, getStreakData } from "@/lib/storage";
-import { getStudentProfile } from "@/lib/student-model";
+import { getStudentProfile, hydrateStudentProfileFromSupabase } from "@/lib/student-model";
+import { StudentProfile } from "@/types/ruby";
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 import { supabase } from "@/lib/supabase";
@@ -42,17 +43,21 @@ interface Stats {
   studySessions: number;
 }
 
-function loadStats(): Stats {
+function buildStats(profile: StudentProfile | null): Stats {
   const progress = getProgress();
-  const profile = getStudentProfile();
   const mastery = profile?.skill_mastery ?? {};
   const values = Object.values(mastery);
   return {
     skillsMastered: values.filter((m) => m.status === "mastered" || m.status === "assumed").length,
     inProgress: values.filter((m) => m.status === "in_progress").length,
     lessonsDone: progress.lessonsCompleted,
-    studySessions: progress.sessionCount,
+    // Fall back to profile.session_count when progress key is 0 — recovers cross-device
+    studySessions: progress.sessionCount || (profile?.session_count ?? 0),
   };
+}
+
+function loadStats(): Stats {
+  return buildStats(getStudentProfile());
 }
 
 export default function HomeScreen({ onNavigate }: HomeScreenProps) {
@@ -185,9 +190,17 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
     };
     loadName();
 
-    // Load stats
-    setStats(loadStats());
+    // Load stats from localStorage — instant render
+    const localProfile = getStudentProfile();
+    setStats(buildStats(localProfile));
     setStreak(getStreakData());
+
+    // If profile is absent (new device / cleared browser), try Supabase restore
+    if (!localProfile) {
+      hydrateStudentProfileFromSupabase().then((restored) => {
+        if (restored) setStats(buildStats(restored));
+      });
+    }
   }, []);
 
   return (
