@@ -49,7 +49,7 @@ export function prefetchTTS(text: string): void {
 // Strip markdown and clean text before sending to TTS
 export function prepareForSpeech(raw: string): string {
   return raw
-    .replace(/\/[a-zA-Z]{1,4}\//g, "")  // Strip phoneme notation: /sh/, /th/, /b/, /æ/, etc.
+    .replace(/\/([a-zA-Z]{1,4})\//g, "$1")  // Expand phoneme notation: /sh/ → sh, /g/ → g (stripping leaves empty string)
     .replace(/#{1,6}\s+/g, "")
     .replace(/\*\*(.+?)\*\*/g, "$1")
     .replace(/\*(.+?)\*/g, "$1")
