@@ -472,6 +472,10 @@ function buildQuestionText(q: BankQuestion, domainId: string): string {
   }
 }
 
+function gcd(a: number, b: number): number {
+  return b === 0 ? a : gcd(a % b, b);
+}
+
 function ordinal(n: number): string {
   const s = ["th", "st", "nd", "rd"];
   const v = n % 100;
@@ -537,6 +541,373 @@ function buildGraduatedHints(q: BankQuestion, domainId: string): GraduatedHint {
         worked:  `${frac}: bottom ${den} × ${factor} = ${targetDen}. So top must also × ${factor}.`,
       };
     }
+  }
+
+  // ── M011: simplify vs substitute ─────────────────────────────────────────────
+  if (domainId === "M011") {
+    const sig = q.error_signals ?? [];
+
+    if (sig.some(s => s === "ERR_SUBST_ARITH" || s === "ERR_INTEGER_SIGN")) {
+      // Substitution question — extract variable and value
+      const varMatch = q.question.match(/when\s+([a-z])\s*=\s*(-?\d+)/i);
+      const varName  = varMatch ? varMatch[1] : "x";
+      const varVal   = varMatch ? varMatch[2] : "2";
+      return {
+        nudge:   `Find the value of ${varName} in the question, then replace every ${varName} with that number.`,
+        process: `Substitution means swapping the letter for its value. Replace every ${varName} with ${varVal}, then calculate.`,
+        worked:  `For an expression like 3${varName} + 1 when ${varName} = ${varVal}: replace ${varName} → 3 × ${varVal} + 1 = ${3 * Number(varVal) + 1}.`,
+      };
+    }
+
+    // Default: simplify / collect like terms
+    // Extract terms from question if possible
+    const exprMatch = q.question.match(/Simplify[:\s]+(.+)/i);
+    const expr = exprMatch ? exprMatch[1].trim() : "3x + 5 + 2x";
+    return {
+      nudge:   "Look for terms that have the same letter — those can be combined.",
+      process: "Collect all the x terms together, then collect all the number terms together.",
+      worked:  `For "${expr}": group the letter terms and the number terms separately, then add each group.`,
+    };
+  }
+
+  // ── M030: 8 fraction operation sub-types ─────────────────────────────────────
+  if (domainId === "M030") {
+    const sig = q.error_signals ?? [];
+
+    // Divide fraction ÷ fraction (flip and multiply)
+    if (sig.some(s => s === "ERR_RECIPROCAL" || s === "ERR_FRAC_DIV_RECIP" || s === "ERR_FRAC_DIV")) {
+      const fracMatch = q.question.match(/(\d+\/\d+)\s*[÷/]\s*(\d+\/\d+)/);
+      const [f1, f2] = fracMatch ? [fracMatch[1], fracMatch[2]] : ["1/2", "1/4"];
+      const [n2, d2] = f2.split("/").map(Number);
+      return {
+        nudge:   "Dividing by a fraction is the same as multiplying by its flip.",
+        process: "Keep the first fraction. Change ÷ to ×. Flip the second fraction (swap top and bottom). Then multiply.",
+        worked:  `${f1} ÷ ${f2}: keep ${f1}, flip ${f2} to ${d2}/${n2}, then multiply: ${f1} × ${d2}/${n2}.`,
+      };
+    }
+
+    // Multiply fraction × fraction
+    if (sig.some(s => s === "ERR_FRAC_FRAC_MULT" || s === "ERR_ADD_NOT_MULT" || s === "ERR_MULT_FRAC")) {
+      const fracMatch = q.question.match(/(\d+\/\d+)\s*[×*]\s*(\d+\/\d+)/);
+      const [f1, f2] = fracMatch ? [fracMatch[1], fracMatch[2]] : ["2/3", "3/4"];
+      const [n1, d1] = f1.split("/").map(Number);
+      const [n2, d2] = f2.split("/").map(Number);
+      return {
+        nudge:   "Multiplying fractions: top × top, bottom × bottom.",
+        process: "Multiply the two numerators together. Multiply the two denominators together. Simplify if possible.",
+        worked:  `${f1} × ${f2}: top = ${n1} × ${n2} = ${n1 * n2}, bottom = ${d1} × ${d2} = ${d1 * d2}. Result: ${n1 * n2}/${d1 * d2}.`,
+      };
+    }
+
+    // Multiply fraction × whole number
+    if (sig.some(s => s === "ERR_FRAC_WHOLE_MULT" || s === "ERR_FRAC_MULT")) {
+      const fracMatch = q.question.match(/(\d+\/\d+)\s*[×*]\s*(\d+)/);
+      const wholeMatch = q.question.match(/(\d+)\s*[×*]\s*(\d+\/\d+)/);
+      const frac  = fracMatch  ? fracMatch[1]  : wholeMatch ? wholeMatch[2] : "1/4";
+      const whole = fracMatch  ? fracMatch[2]  : wholeMatch ? wholeMatch[1] : "8";
+      const [n, d] = frac.split("/").map(Number);
+      const wn = Number(whole);
+      return {
+        nudge:   "Multiply the top of the fraction by the whole number — the bottom stays the same.",
+        process: `Numerator × whole number, keep the denominator. Then simplify.`,
+        worked:  `${frac} × ${whole}: top = ${n} × ${wn} = ${n * wn}, bottom stays ${d}. Result: ${n * wn}/${d} = ${(n * wn) / d}.`,
+      };
+    }
+
+    // Divide fraction ÷ whole number
+    if (sig.some(s => s === "ERR_DENOM_CHANGE" || s === "ERR_FRAC_WHOLE_DIV" || s === "ERR_DIV_FRAC")) {
+      const match = q.question.match(/(\d+\/\d+)\s*÷\s*(\d+)/);
+      const frac  = match ? match[1] : "3/4";
+      const whole = match ? match[2] : "3";
+      const [n, d] = frac.split("/").map(Number);
+      const wn = Number(whole);
+      return {
+        nudge:   "Dividing a fraction by a whole number makes it smaller — multiply the denominator.",
+        process: "Keep the numerator. Multiply the denominator by the whole number. Simplify if possible.",
+        worked:  `${frac} ÷ ${whole}: keep top ${n}, bottom = ${d} × ${wn} = ${d * wn}. Result: ${n}/${d * wn}.`,
+      };
+    }
+
+    // Subtract fractions — different denominators
+    if (sig.some(s => s === "ERR_COMMON_DENOM" || s === "ERR_SUB_FRAC" || s === "ERR_FRAC_SUB_DIFF")) {
+      const match = q.question.match(/(\d+\/\d+)\s*[−\-]\s*(\d+\/\d+)/);
+      const [f1, f2] = match ? [match[1], match[2]] : ["3/4", "1/8"];
+      const [n1, d1] = f1.split("/").map(Number);
+      const [n2, d2] = f2.split("/").map(Number);
+      const lcd = d1 * d2 / gcd(d1, d2);
+      return {
+        nudge:   "You can only subtract fractions that have the same denominator.",
+        process: "Find the lowest common denominator. Convert both fractions. Then subtract the numerators.",
+        worked:  `${f1} − ${f2}: LCD = ${lcd}. Convert: ${f1} = ${n1 * (lcd / d1)}/${lcd}, ${f2} = ${n2 * (lcd / d2)}/${lcd}. Subtract tops: ${n1 * (lcd / d1) - n2 * (lcd / d2)}/${lcd}.`,
+      };
+    }
+
+    // Subtract fractions — same denominator
+    if (sig.some(s => s === "ERR_FRAC_SUB_SAME" || s === "ERR_SUB_SAME_DENOM")) {
+      const match = q.question.match(/(\d+\/\d+)\s*[−\-]\s*(\d+\/\d+)/);
+      const [f1, f2] = match ? [match[1], match[2]] : ["5/6", "2/6"];
+      const [n1, d1] = f1.split("/").map(Number);
+      const [n2]     = f2.split("/").map(Number);
+      return {
+        nudge:   "Same denominator — just subtract the top numbers.",
+        process: "When denominators match, subtract numerator from numerator. Keep the denominator.",
+        worked:  `${f1} − ${f2}: tops ${n1} − ${n2} = ${n1 - n2}, bottom stays ${d1}. Result: ${n1 - n2}/${d1}.`,
+      };
+    }
+
+    // Add fractions — different denominators
+    if (sig.some(s => s === "ERR_ADD_FRAC" || s === "ERR_FRAC_ADD_DIFF")) {
+      const match = q.question.match(/(\d+\/\d+)\s*\+\s*(\d+\/\d+)/);
+      const [f1, f2] = match ? [match[1], match[2]] : ["1/2", "1/3"];
+      const [n1, d1] = f1.split("/").map(Number);
+      const [n2, d2] = f2.split("/").map(Number);
+      const lcd = d1 * d2 / gcd(d1, d2);
+      return {
+        nudge:   "You can only add fractions that have the same denominator.",
+        process: "Find the lowest common denominator. Convert both fractions. Then add the numerators.",
+        worked:  `${f1} + ${f2}: LCD = ${lcd}. Convert: ${f1} = ${n1 * (lcd / d1)}/${lcd}, ${f2} = ${n2 * (lcd / d2)}/${lcd}. Add tops: ${n1 * (lcd / d1) + n2 * (lcd / d2)}/${lcd}.`,
+      };
+    }
+
+    // Add fractions — same denominator (default M030 fallback)
+    const match = q.question.match(/(\d+\/\d+)\s*\+\s*(\d+\/\d+)/);
+    const [f1, f2] = match ? [match[1], match[2]] : ["1/4", "2/4"];
+    const [n1, d1] = f1.split("/").map(Number);
+    const [n2]     = f2.split("/").map(Number);
+    return {
+      nudge:   "Same denominator — just add the top numbers.",
+      process: "When denominators match, add numerator to numerator. Keep the denominator the same.",
+      worked:  `${f1} + ${f2}: tops ${n1} + ${n2} = ${n1 + n2}, bottom stays ${d1}. Result: ${n1 + n2}/${d1}.`,
+    };
+  }
+
+  // ── M032: negative number sub-types ──────────────────────────────────────────
+  if (domainId === "M032") {
+    const sig = q.error_signals ?? [];
+
+    // Compare / order negatives
+    if (sig.some(s => s === "ERR_NEG_ORDER")) {
+      return {
+        nudge:   "On a number line, numbers get smaller as you go left.",
+        process: "Negative numbers: the bigger the digit, the further left (smaller) it is. -8 is less than -3.",
+        worked:  "Think of a thermometer: −8° is colder (smaller) than −3°. So −3 > −8.",
+      };
+    }
+
+    // Negative × negative = positive
+    if (sig.some(s => s === "ERR_NEG_NEG_MULT" || s === "ERR_NEG_NEG_DIV")) {
+      const match = q.question.match(/(-\d+)\s*[×*÷/]\s*(-\d+)/);
+      const [a, b] = match ? [match[1], match[2]] : ["-5", "-3"];
+      const op = q.question.includes("÷") || q.question.includes("/") ? "÷" : "×";
+      const result = op === "×" ? Math.abs(Number(a)) * Math.abs(Number(b)) : Math.abs(Number(a)) / Math.abs(Number(b));
+      return {
+        nudge:   "Two negatives make a positive.",
+        process: `Negative ${op} negative = positive. Ignore the signs, do the calculation, then make the answer positive.`,
+        worked:  `${a} ${op} ${b}: two negatives → positive. ${Math.abs(Number(a))} ${op} ${Math.abs(Number(b))} = ${result}. Answer: +${result}.`,
+      };
+    }
+
+    // Negative × or ÷ positive
+    if (sig.some(s => s === "ERR_NEG_MULT" || s === "ERR_NEG_MULT_SIGN" || s === "ERR_NEG_DIV" || s === "ERR_NEG_DIV_SIGN" || s === "ERR_INTEGER_SIGN")) {
+      const op = (q.question.includes("÷") || q.question.includes("/ ")) ? "÷" : "×";
+      return {
+        nudge:   "One positive and one negative always gives a negative answer.",
+        process: `Ignore the signs, do the ${op} calculation, then make the answer negative.`,
+        worked:  `For −3 × 4: 3 × 4 = 12, one negative → answer is −12. For 12 ÷ (−4): 12 ÷ 4 = 3, one negative → answer is −3.`,
+      };
+    }
+
+    // Subtract a negative (double negative = add)
+    if (sig.some(s => s === "ERR_NEG_SUB")) {
+      const match = q.question.match(/(-?\d+)\s*-\s*\(-?(\d+)\)/);
+      const [a, b] = match ? [match[1], match[2]] : ["4", "6"];
+      return {
+        nudge:   "Subtracting a negative is the same as adding.",
+        process: "Two minus signs next to each other become a plus. Rewrite the expression, then calculate.",
+        worked:  `${a} − (−${b}): the two minuses become a plus → ${a} + ${b} = ${Number(a) + Number(b)}.`,
+      };
+    }
+
+    // Add negative, subtract to give negative
+    const match = q.question.match(/(-?\d+)\s*[+\-]\s*\(?(-?\d+)\)?/);
+    const [a, b] = match ? [match[1], match[2]] : ["-8", "3"];
+    const isAdd = q.question.includes("+");
+    return {
+      nudge:   "Think about direction on a number line — negative means going left.",
+      process: isAdd
+        ? "Adding a negative means moving left. Start at the first number and move left by the second."
+        : "Subtracting moves left. If you end up below zero, the answer is negative.",
+      worked:  isAdd
+        ? `${a} + (${b}): start at ${a}, move ${Math.abs(Number(b))} left → ${Number(a) + Number(b)}.`
+        : `${a} − ${Math.abs(Number(b))}: start at ${a}, move ${Math.abs(Number(b))} left → ${Number(a) - Math.abs(Number(b))}.`,
+    };
+  }
+
+  // ── M_GEO: 12 geometry sub-types ─────────────────────────────────────────────
+  if (domainId === "M_GEO") {
+    const sig = q.error_signals ?? [];
+    const qText = q.question;
+
+    // Pythagorean theorem
+    if (sig.some(s => s === "ERR_PYTHAGORAS" || s === "ERR_SQRT")) {
+      const nums = qText.match(/(\d+)\s*cm.*?(\d+)\s*cm/);
+      const [a, b] = nums ? [nums[1], nums[2]] : ["3", "4"];
+      const isHyp = qText.toLowerCase().includes("hypotenuse") && !qText.toLowerCase().includes("leg");
+      return {
+        nudge:   "This is Pythagoras — label the sides first.",
+        process: isHyp
+          ? "Square both legs, add them, then take the square root to get the hypotenuse."
+          : "Square the hypotenuse, subtract the known leg squared, then take the square root.",
+        worked:  isHyp
+          ? `Legs ${a} and ${b}: hypotenuse = √(${a}² + ${b}²) = √(${Number(a)**2} + ${Number(b)**2}) = √${Number(a)**2 + Number(b)**2}.`
+          : `Hypotenuse and one leg given: missing leg = √(hyp² − leg²). Square each, subtract, square root.`,
+      };
+    }
+
+    // Circle — area
+    if (sig.some(s => s === "ERR_PI" || s === "ERR_RADIUS_SQUARED") && !sig.some(s => s === "ERR_VOLUME_CYLINDER")) {
+      const rMatch = qText.match(/radius\s+(\d+)/i);
+      const r = rMatch ? rMatch[1] : "7";
+      return {
+        nudge:   "Area of a circle uses the radius, not the diameter.",
+        process: "Formula: Area = π × r². Square the radius first, then multiply by π (≈ 3.14).",
+        worked:  `Radius = ${r}: Area = 3.14 × ${r}² = 3.14 × ${Number(r)**2} = ${(3.14 * Number(r)**2).toFixed(1)} cm².`,
+      };
+    }
+
+    // Circle — circumference
+    if (sig.some(s => s === "ERR_CIRCUMFERENCE" || s === "ERR_DIAMETER_RADIUS")) {
+      const dMatch = qText.match(/diameter\s+(\d+)/i);
+      const rMatch = qText.match(/radius\s+(\d+)/i);
+      const d = dMatch ? dMatch[1] : rMatch ? String(Number(rMatch[1]) * 2) : "10";
+      return {
+        nudge:   "Circumference uses the diameter (all the way across), not the radius.",
+        process: "Formula: Circumference = π × diameter. If given radius, double it first.",
+        worked:  `Diameter = ${d}: C = 3.14 × ${d} = ${(3.14 * Number(d)).toFixed(1)} cm.`,
+      };
+    }
+
+    // Volume — cylinder
+    if (sig.some(s => s === "ERR_VOLUME_CYLINDER")) {
+      const rMatch = qText.match(/radius\s+(\d+)/i);
+      const hMatch = qText.match(/height\s+(\d+)/i);
+      const r = rMatch ? rMatch[1] : "2";
+      const h = hMatch ? hMatch[1] : "5";
+      return {
+        nudge:   "Volume of a cylinder = area of the circular base × height.",
+        process: "Step 1: find the circle area (π × r²). Step 2: multiply by the height.",
+        worked:  `r = ${r}, h = ${h}: base area = 3.14 × ${r}² = ${(3.14 * Number(r)**2).toFixed(2)}. Volume = ${(3.14 * Number(r)**2).toFixed(2)} × ${h} = ${(3.14 * Number(r)**2 * Number(h)).toFixed(1)} cm³.`,
+      };
+    }
+
+    // Volume — cuboid
+    if (sig.some(s => s === "ERR_THREE_DIMS" || s === "ERR_VOLUME")) {
+      const nums = [...qText.matchAll(/(\d+)\s*cm/gi)].map(m => m[1]);
+      const [l, w, h] = nums.length >= 3 ? nums : ["5", "3", "2"];
+      return {
+        nudge:   "Volume = length × width × height.",
+        process: "Multiply all three dimensions together. Make sure you use all three.",
+        worked:  `l = ${l}, w = ${w}, h = ${h}: Volume = ${l} × ${w} × ${h} = ${Number(l) * Number(w) * Number(h)} cm³.`,
+      };
+    }
+
+    // Surface area
+    if (sig.some(s => s === "ERR_SURFACE_AREA" || s === "ERR_6_FACES")) {
+      const sMatch = qText.match(/side\s+(\d+)/i);
+      const s = sMatch ? sMatch[1] : "3";
+      return {
+        nudge:   "Surface area = the total area of all the faces.",
+        process: "For a cube: all 6 faces are identical squares. Area of one face = side². Total = 6 × side².",
+        worked:  `Side = ${s}: one face = ${s}² = ${Number(s)**2} cm². Total surface area = 6 × ${Number(s)**2} = ${6 * Number(s)**2} cm².`,
+      };
+    }
+
+    // Area — triangle
+    if (sig.some(s => s === "ERR_HALF_MISSING" || s === "ERR_AREA_FORMULA") && qText.toLowerCase().includes("triangle")) {
+      const bMatch = qText.match(/base\s+(\d+)/i);
+      const hMatch = qText.match(/height\s+(\d+)/i);
+      const b = bMatch ? bMatch[1] : "8";
+      const h = hMatch ? hMatch[1] : "5";
+      return {
+        nudge:   "A triangle is half of a rectangle — don't forget the half.",
+        process: "Formula: Area = ½ × base × height.",
+        worked:  `Base = ${b}, height = ${h}: Area = ½ × ${b} × ${h} = ${0.5 * Number(b) * Number(h)} cm².`,
+      };
+    }
+
+    // Area — parallelogram
+    if (sig.some(s => s === "ERR_AREA_FORMULA" || s === "ERR_PARALLELOGRAM") && qText.toLowerCase().includes("parallelogram")) {
+      const bMatch = qText.match(/base\s+(\d+)/i);
+      const hMatch = qText.match(/height\s+(\d+)/i);
+      const b = bMatch ? bMatch[1] : "6";
+      const h = hMatch ? hMatch[1] : "4";
+      return {
+        nudge:   "A parallelogram has the same area formula as a rectangle.",
+        process: "Formula: Area = base × height. Use the perpendicular height, not the slant side.",
+        worked:  `Base = ${b}, height = ${h}: Area = ${b} × ${h} = ${Number(b) * Number(h)} cm².`,
+      };
+    }
+
+    // Area — rectangle or square
+    if (sig.some(s => s === "ERR_AREA_FORMULA" || s === "ERR_ARITHMETIC" || s === "ERR_FORMULA" || s === "ERR_AREA_SQUARE" || s === "ERR_SQUARED")) {
+      const isSquare = qText.toLowerCase().includes("square");
+      const nums = [...qText.matchAll(/(\d+)\s*cm/gi)].map(m => Number(m[1]));
+      const l = nums[0] ?? 8;
+      const w = isSquare ? l : (nums[1] ?? 3);
+      return {
+        nudge:   isSquare ? "Square area = side × side." : "Area of a rectangle = length × width.",
+        process: isSquare ? "Multiply the side length by itself (square it)." : "Multiply the two different side lengths together.",
+        worked:  isSquare
+          ? `Side = ${l}: Area = ${l} × ${l} = ${l * l} cm².`
+          : `Length = ${l}, width = ${w}: Area = ${l} × ${w} = ${l * w} cm².`,
+      };
+    }
+
+    // Perimeter
+    if (sig.some(s => s === "ERR_PERI_FORMULA" || s === "ERR_FORMULA" || s === "ERR_PERIMETER")) {
+      const nums = [...qText.matchAll(/(\d+)\s*cm/gi)].map(m => Number(m[1]));
+      const l = nums[0] ?? 9;
+      const w = nums[1] ?? 4;
+      return {
+        nudge:   "Perimeter = the total distance around the outside.",
+        process: "Add up all the sides. For a rectangle: P = 2 × (length + width).",
+        worked:  `Length = ${l}, width = ${w}: P = 2 × (${l} + ${w}) = 2 × ${l + w} = ${2 * (l + w)} cm.`,
+      };
+    }
+
+    // Vertically opposite / supplementary angles
+    if (sig.some(s => s === "ERR_VERT_OPP" || s === "ERR_EQUAL" || s === "ERR_SUPPLEMENTARY" || s === "ERR_STRAIGHT_LINE")) {
+      const aMatch = qText.match(/(\d+)\s*°/);
+      const a = aMatch ? aMatch[1] : "65";
+      const isVert = sig.some(s => s === "ERR_VERT_OPP" || s === "ERR_EQUAL");
+      return {
+        nudge:   isVert ? "Vertically opposite angles are always equal." : "Angles on a straight line add up to 180°.",
+        process: isVert ? "The angle directly across the intersection is the same size." : "Subtract the given angle from 180 to find the missing one.",
+        worked:  isVert
+          ? `Vertically opposite to ${a}° = ${a}°. They're always the same.`
+          : `Angles on a line = 180°. Missing angle = 180 − ${a} = ${180 - Number(a)}°.`,
+      };
+    }
+
+    // Angle types (classify)
+    if (sig.some(s => s === "ERR_ANGLE_TYPE" || s === "ERR_RANGE")) {
+      return {
+        nudge:   "Think about where the angle falls relative to 90° and 180°.",
+        process: "Acute < 90°. Right = 90°. Obtuse: 90°–180°. Straight = 180°. Reflex > 180°.",
+        worked:  "45° → less than 90° → acute. 135° → between 90° and 180° → obtuse. 200° → more than 180° → reflex.",
+      };
+    }
+
+    // Triangle / quadrilateral angle sums (default M_GEO fallback)
+    const aMatch = qText.match(/(\d+)\s*°.*?(\d+)\s*°/);
+    const [a1, a2] = aMatch ? [Number(aMatch[1]), Number(aMatch[2])] : [60, 80];
+    const isQuad = sig.some(s => s === "ERR_QUAD");
+    const total = isQuad ? 360 : 180;
+    return {
+      nudge:   `Angles in a ${isQuad ? "quadrilateral" : "triangle"} always add up to ${total}°.`,
+      process: `Add the angles you know, then subtract from ${total}° to find the missing one.`,
+      worked:  `Known angles: ${a1}° + ${a2}° = ${a1 + a2}°. Missing = ${total} − ${a1 + a2} = ${total - a1 - a2}°.`,
+    };
   }
 
   const map: Record<string, GraduatedHint> = {
