@@ -147,6 +147,15 @@ export interface DiagnosticSession {
   completed: boolean;
 }
 
+export interface GraduatedHint {
+  /** Tap 1 — directional nudge, vague */
+  nudge: string;
+  /** Tap 2 — process pointer, what to do */
+  process: string;
+  /** Tap 3 — first step worked, most revealing */
+  worked: string;
+}
+
 export interface GeneratedQuestion {
   id: string;
   skill_id: string;
@@ -155,6 +164,7 @@ export interface GeneratedQuestion {
   template: QuestionTemplate;
   question: string;
   hint?: string;
+  hints?: GraduatedHint;
   expected_answer: string;
   scaffolding_notes: string;
   bank_question?: Record<string, unknown>;
