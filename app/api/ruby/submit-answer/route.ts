@@ -50,13 +50,47 @@ export async function POST(req: NextRequest) {
     // Tier 1 — correct:             static praise, 0 API calls
     // Tier 2 — first incorrect:     pre-authored recovery tip, 0 API calls
     // Tier 3 — repeated incorrect:  LLM deep re-teaching, 1 API call
-    const PRAISE = [
-      "Great work! That's exactly right.",
-      "Well done! Keep it up.",
-      "Correct! You're doing brilliantly.",
-      "Excellent! That's the right answer.",
-      "Spot on! Nice thinking.",
+
+    // Grade-aware praise pools.
+    // Grades 1–3: warm, enthusiastic, emoji-friendly.
+    // Grades 4–7: encouraging but not childish.
+    // Grades 8–12: minimal; extra line added for hard questions (difficulty ≥ 4).
+    const PRAISE_EARLY = [
+      "Amazing! You got it! ⭐",
+      "Brilliant work! That's exactly right! 🌟",
+      "Yes! You did it! Keep going! ⭐",
+      "Fantastic! That's correct! 🎉",
+      "Superstar! Well done! ⭐",
     ];
+    const PRAISE_MID = [
+      "Correct! Good thinking.",
+      "Well done — that's right.",
+      "Spot on. Keep it up.",
+      "Nice work. That's exactly it.",
+      "Correct. Good approach.",
+    ];
+    const PRAISE_SENIOR = [
+      "Correct.",
+      "Right answer.",
+      "That's it.",
+      "Exactly right.",
+      "Correct — well done.",
+    ];
+    const PRAISE_SENIOR_HARD = [
+      "Correct — that one takes real understanding.",
+      "Right. That's a genuinely challenging skill.",
+      "Exactly right. Not an easy question.",
+      "Correct — good work on a hard one.",
+    ];
+
+    function selectPraise(grade: number, difficulty: number): string {
+      const pick = <T>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
+      if (grade <= 3) return pick(PRAISE_EARLY);
+      if (grade <= 7) return pick(PRAISE_MID);
+      // Senior: acknowledge hard questions specifically
+      if (difficulty >= 4) return pick(PRAISE_SENIOR_HARD);
+      return pick(PRAISE_SENIOR);
+    }
 
     let aiDiagnosis: {
       is_correct: boolean;
@@ -67,7 +101,7 @@ export async function POST(req: NextRequest) {
 
     if (isCorrect) {
       // Tier 1 — no LLM call
-      const praise = PRAISE[Math.floor(Math.random() * PRAISE.length)];
+      const praise = selectPraise(submission.grade ?? 5, submission.difficulty ?? 2);
       aiDiagnosis = {
         is_correct: true,
         error_type: "correct",

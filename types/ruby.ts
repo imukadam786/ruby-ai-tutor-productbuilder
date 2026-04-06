@@ -187,6 +187,8 @@ export interface AnswerSubmission {
   attempt_number: number; // 1 = first attempt on this skill, 2+ = repeated incorrect
   language?: string;
   working_image?: string; // base64 data URL of handwritten working photo
+  grade?: number;         // student's school grade — used for grade-aware praise
+  difficulty?: number;    // question difficulty 1–5 — used for hard-skill acknowledgement
 }
 
 export interface DiagnosticResult {
