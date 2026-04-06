@@ -300,6 +300,8 @@ export default function DiagnosticSession() {
           attempt_number: skillAttemptCount + 1,
           language,
           working_image: workingImage,
+          grade: profile.grade,
+          difficulty: currentQuestion.difficulty,
         }),
       });
 
