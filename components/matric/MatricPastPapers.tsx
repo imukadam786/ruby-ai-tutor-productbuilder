@@ -699,12 +699,12 @@ function SessionView({
       <div className="flex-shrink-0 bg-white border-b border-gray-100 px-4 py-2 flex items-center gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-700 transition-colors flex-shrink-0"
+          className="flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-[#BE1832] bg-gray-100 hover:bg-rose-50 px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
         >
-          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          Exit
+          Back
         </button>
         <span className="text-xs font-semibold text-gray-500 flex-shrink-0">
           {paper.subject} {paper.paperCode}
@@ -779,7 +779,7 @@ function SessionView({
                   updateAttempt(currentSQ.id, { textWorking: e.target.value })
                 }
                 placeholder="Type your working here…"
-                rows={5}
+                rows={9}
                 className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none"
               />
 
@@ -883,48 +883,56 @@ function SessionView({
               )}
             </div>
 
-            {/* Question dot navigator */}
-            <div className="px-5 pb-5">
-              <div className="flex flex-wrap gap-1.5">
-                {flatQuestions.map((sq, idx) => {
-                  const a = attempts[sq.id];
-                  const hasContent = a.textWorking.trim() || a.imageFile;
-                  const isDone = a.submitted;
-                  const isCurrent = idx === currentIdx;
-
-                  return (
-                    <button
-                      key={sq.id}
-                      onClick={() => setCurrentIdx(idx)}
-                      title={sq.label}
-                      className={`w-7 h-7 rounded-lg text-xs font-bold transition-all ${
-                        isCurrent
-                          ? "bg-[#BE1832] text-white shadow"
-                          : isDone
-                          ? "bg-green-100 text-green-700 border border-green-200"
-                          : hasContent
-                          ? "bg-amber-100 text-amber-700 border border-amber-200"
-                          : "bg-gray-100 text-gray-400 border border-gray-200 hover:border-gray-300"
-                      }`}
-                    >
-                      {idx + 1}
-                    </button>
-                  );
-                })}
-              </div>
-              <p className="text-xs text-gray-400 mt-2">
-                {answeredCount}/{totalQuestions} answered
-              </p>
-              {mode === "practice" && answeredCount > 0 && (
-                <button
-                  onClick={handleSubmitPaper}
-                  className="mt-3 w-full py-2.5 rounded-xl bg-[#BE1832] text-white font-semibold text-sm hover:bg-[#a31529] transition-colors"
-                >
-                  Submit Paper for Evaluation
-                </button>
-              )}
-            </div>
           </div>
+
+          {/* ── Sub-question navigator (pinned bottom) ── */}
+          {(() => {
+            const currentTopLevelQ = paper.questions.find((q) =>
+              q.subQuestions.some((sq) => sq.id === currentSQ.id)
+            );
+            const subQsForQ = currentTopLevelQ?.subQuestions ?? [];
+            return (
+              <div className="flex-shrink-0 border-t border-gray-100 bg-white px-4 py-3 space-y-2">
+                <div className="flex flex-wrap gap-1.5">
+                  {subQsForQ.map((sq) => {
+                    const flatIdx = flatQuestions.findIndex((f) => f.id === sq.id);
+                    const a = attempts[sq.id];
+                    const hasContent = !!(a.textWorking.trim() || a.imageFile);
+                    const isDone = a.submitted;
+                    const isCurrent = sq.id === currentSQ.id;
+                    return (
+                      <button
+                        key={sq.id}
+                        onClick={() => setCurrentIdx(flatIdx)}
+                        className={`px-2.5 h-7 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
+                          isCurrent
+                            ? "bg-[#BE1832] text-white shadow"
+                            : isDone
+                            ? "bg-green-100 text-green-700 border border-green-200"
+                            : hasContent
+                            ? "bg-amber-100 text-amber-700 border border-amber-200"
+                            : "bg-gray-100 text-gray-400 border border-gray-200 hover:border-gray-300"
+                        }`}
+                      >
+                        {sq.label}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-gray-400">{answeredCount}/{totalQuestions} answered</p>
+                  {mode === "practice" && answeredCount > 0 && (
+                    <button
+                      onClick={handleSubmitPaper}
+                      className="text-xs font-semibold bg-[#BE1832] text-white px-3 py-1.5 rounded-lg hover:bg-[#a31529] transition-colors"
+                    >
+                      Submit Paper
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })()}
         </div>
 
         {/* ── RIGHT PANEL: AI Coach (guided mode only) ── */}
