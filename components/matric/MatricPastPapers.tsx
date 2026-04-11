@@ -538,16 +538,37 @@ function SessionView({
   const [isSubmittingPaper, setIsSubmittingPaper] = useState(false);
   const [submitProgress, setSubmitProgress] = useState(0);
   const [showFormulaSheet, setShowFormulaSheet] = useState(false);
+  const [leftPanelOpen, setLeftPanelOpen] = useState(true);
+  const [hintLevel, setHintLevel] = useState(0);
 
   const formulaSheetContent = paper.formulaSheetVariant
     ? FORMULA_SHEETS[paper.formulaSheetVariant]
     : null;
+
+  // Reset hint level when question changes
+  useEffect(() => {
+    setHintLevel(0);
+  }, [currentIdx]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const coachEndRef = useRef<HTMLDivElement>(null);
 
   const currentSQ = flatQuestions[currentIdx];
   const currentAttempt = attempts[currentSQ.id];
+
+  // Derive 3-level hints from memoText for the current question
+  const buildHints = (memoText: string, marks: number): [string, string, string] => {
+    const lines = memoText.split("\n").filter((l) => l.trim().startsWith("Mark"));
+    const markCount = lines.length;
+    const nudge = `This question is worth ${marks} mark${marks !== 1 ? "s" : ""}. There ${markCount > 1 ? `are ${markCount} mark steps` : "is 1 mark step"} — identify each one before writing your answer.`;
+    const process = lines[0]
+      ? `First mark: ${lines[0].replace(/^Mark \d+:\s*/i, "").trim()}`
+      : "Start by identifying what the question is asking for, then apply the relevant formula or method.";
+    const worked = lines.slice(0, 2).join(" → ").replace(/Mark \d+:\s*/gi, "").trim() ||
+      "See the memo for the full worked solution.";
+    return [nudge, process, worked];
+  };
+  const [hint1, hint2, hint3] = buildHints(currentSQ.memoText, currentSQ.marks);
 
   // Scroll coach panel to bottom when new messages arrive
   useEffect(() => {
@@ -798,11 +819,7 @@ function SessionView({
         {formulaSheetContent && (
           <button
             onClick={() => setShowFormulaSheet((v) => !v)}
-            className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0 ${
-              showFormulaSheet
-                ? "bg-[#BE1832] text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-rose-50 hover:text-[#BE1832]"
-            }`}
+            className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]"
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -846,16 +863,29 @@ function SessionView({
       {/* Split screen (guided) / Full screen (practice) */}
       <div className="flex-1 flex overflow-hidden min-h-0">
         {/* ── LEFT PANEL: Question + Working ── */}
-        <div className={`${mode === "practice" ? "flex-1" : "w-1/2"} flex flex-col border-r border-gray-200 overflow-hidden`}>
+        <div className={`flex flex-col border-r border-gray-200 overflow-hidden transition-all duration-300 ${
+          leftPanelOpen
+            ? mode === "practice" ? "flex-1" : "w-1/2"
+            : "w-0 border-r-0"
+        }`}>
           {/* Question navigation header */}
-          <div className="flex-shrink-0 bg-white px-4 py-3 border-b border-gray-100 flex items-center gap-2">
+          <div className="flex-shrink-0 bg-white px-4 py-3 border-b border-gray-100 flex items-center gap-2 min-w-0">
+            <button
+              onClick={() => setLeftPanelOpen(false)}
+              title="Collapse panel"
+              className="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+              </svg>
+            </button>
             <select
               value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
               onChange={(e) => {
                 const idx = questionStartIndices[Number(e.target.value)];
                 if (idx >= 0) setCurrentIdx(idx);
               }}
-              className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
+              className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-base font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
             >
               {paper.questions.map((q, i) => (
                 <option key={q.number} value={i}>
@@ -863,7 +893,7 @@ function SessionView({
                 </option>
               ))}
             </select>
-            <span className="text-xs text-gray-400 flex-shrink-0 whitespace-nowrap">
+            <span className="text-base text-gray-500 font-semibold flex-shrink-0 whitespace-nowrap">
               {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
             </span>
           </div>
@@ -888,12 +918,12 @@ function SessionView({
             })()}
             {/* Question text */}
             <div className="px-5 py-5 border-b border-gray-100">
-              <div className="text-sm text-gray-800 leading-relaxed">
+              <div className="text-base text-gray-800 leading-relaxed">
                 <MathMarkdown content={currentSQ.questionText} />
               </div>
 
               {currentAttempt.submitted && mode === "guided" && (
-                <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold">
+                <div className="mt-3 inline-flex items-center gap-1.5 text-base font-semibold">
                   {currentAttempt.marksEarned >= currentSQ.marks ? (
                     <span className="text-green-600">✓ {currentAttempt.marksEarned}/{currentSQ.marks} marks earned</span>
                   ) : (
@@ -908,10 +938,10 @@ function SessionView({
             {/* Working area */}
             <div className="px-5 py-4 space-y-3">
               <div className="flex items-center justify-between">
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                <p className="text-base font-semibold text-gray-500">
                   Your Working
                 </p>
-                <span className="text-xs text-gray-300">
+                <span className="text-sm text-gray-300">
                   {currentAttempt.textWorking.length > 0 ? `${currentAttempt.textWorking.length} chars` : ""}
                 </span>
               </div>
@@ -924,11 +954,52 @@ function SessionView({
                 }
                 placeholder="Type your working here… e.g. x² - 3x - 10 = 0 → (x+2)(x-5) = 0"
                 rows={9}
-                className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
               />
-              <p className="text-xs text-gray-300">
-                Tip: use ^ for powers (x^2), sqrt() for roots, and / for fractions (3/4)
-              </p>
+
+              {/* Graduated hint system */}
+              <div className="space-y-2">
+                {hintLevel > 0 && (
+                  <div className={`rounded-xl px-4 py-3 border flex items-start gap-2.5 ${
+                    hintLevel === 1 ? "bg-yellow-50 border-yellow-200" :
+                    hintLevel === 2 ? "bg-orange-50 border-orange-200" :
+                                      "bg-blue-50 border-blue-200"
+                  }`}>
+                    <svg className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
+                      hintLevel === 1 ? "text-yellow-500" :
+                      hintLevel === 2 ? "text-orange-500" :
+                                        "text-blue-500"
+                    }`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.347a3.75 3.75 0 01-5.303 0l-.347-.347a5 5 0 117.072 0z" />
+                    </svg>
+                    <p className={`text-sm leading-relaxed ${
+                      hintLevel === 1 ? "text-yellow-800" :
+                      hintLevel === 2 ? "text-orange-800" :
+                                        "text-blue-800"
+                    }`}>
+                      <span className="font-semibold">
+                        {hintLevel === 1 ? "Hint: " : hintLevel === 2 ? "More help: " : "First step: "}
+                      </span>
+                      {hintLevel === 1 ? hint1 : hintLevel === 2 ? hint2 : hint3}
+                    </p>
+                  </div>
+                )}
+                {hintLevel < 3 && (
+                  <button
+                    onClick={() => setHintLevel((p) => Math.min(p + 1, 3))}
+                    className={`flex items-center gap-1.5 text-sm transition-colors ${
+                      hintLevel === 0 ? "text-yellow-500 hover:text-yellow-700" :
+                      hintLevel === 1 ? "text-orange-500 hover:text-orange-700" :
+                                        "text-blue-500 hover:text-blue-700"
+                    }`}
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.347a3.75 3.75 0 01-5.303 0l-.347-.347a5 5 0 117.072 0z" />
+                    </svg>
+                    {hintLevel === 0 ? "Need a hint?" : hintLevel === 1 ? "A bit more help" : "Show me the first step"}
+                  </button>
+                )}
+              </div>
 
               {/* Image upload */}
               {!currentAttempt.imagePreviewUrl ? (
@@ -1110,8 +1181,24 @@ function SessionView({
           })()}
         </div>
 
+        {/* ── Expand left panel tab (shown when panel is collapsed) ── */}
+        {!leftPanelOpen && (
+          <button
+            onClick={() => setLeftPanelOpen(true)}
+            title="Show question panel"
+            className="flex-shrink-0 flex flex-col items-center justify-center gap-1 w-8 bg-white border-r border-gray-200 text-gray-400 hover:text-[#BE1832] hover:bg-rose-50 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+            </svg>
+            <span className="text-[10px] font-semibold writing-mode-vertical" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", letterSpacing: "0.05em" }}>
+              Question
+            </span>
+          </button>
+        )}
+
         {/* ── RIGHT PANEL: AI Coach (guided mode only) ── */}
-        {mode === "guided" && <div className="w-1/2 flex flex-col overflow-hidden bg-white">
+        {mode === "guided" && <div className={`${leftPanelOpen ? "w-1/2" : "flex-1"} flex flex-col overflow-hidden bg-white`}>
           <div className="flex-shrink-0 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
