@@ -25,6 +25,9 @@ export interface Paper {
   totalMarks: number;
   durationHours: number;
   questions: PaperQuestion[];
+  questionPaperUrl?: string;
+  memoUrl?: string;
+  formulaSheetVariant?: import("./formula-sheets").FormulaSheetVariant;
 }
 
 export const PAPERS: Paper[] = [
@@ -36,6 +39,7 @@ export const PAPERS: Paper[] = [
     session: "May/June",
     totalMarks: 150,
     durationHours: 3,
+    formulaSheetVariant: "standard",
     questions: [
       {
         number: 1,
@@ -701,6 +705,7 @@ Mark 3: = 347/499 ≈ 0.70`,
     session: "May/June",
     totalMarks: 150,
     durationHours: 3,
+    formulaSheetVariant: "standard",
     questions: [
       {
         number: 1,
