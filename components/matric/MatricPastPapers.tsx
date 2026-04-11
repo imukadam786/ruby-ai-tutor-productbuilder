@@ -792,8 +792,8 @@ function SessionView({
 
   return (
     <div className="h-full flex flex-col overflow-hidden relative">
-      {/* Top progress bar */}
-      <div className="flex-shrink-0 bg-white border-b border-gray-100 px-4 py-2 flex items-center gap-3">
+      {/* Combined top bar: back + question selector + progress + info sheet */}
+      <div className="flex-shrink-0 bg-white border-b border-gray-100 px-4 py-2.5 flex items-center gap-3">
         <button
           onClick={onBack}
           className="flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-[#BE1832] bg-gray-100 hover:bg-rose-50 px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
@@ -803,18 +803,34 @@ function SessionView({
           </svg>
           Back
         </button>
-        <span className="text-xs font-semibold text-gray-500 flex-shrink-0">
-          {paper.subject} {paper.paperCode}
+        <select
+          value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
+          onChange={(e) => {
+            const idx = questionStartIndices[Number(e.target.value)];
+            if (idx >= 0) setCurrentIdx(idx);
+          }}
+          className="flex-1 min-w-0 border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
+        >
+          {paper.questions.map((q, i) => (
+            <option key={q.number} value={i}>
+              Q{q.number} — {q.title}
+            </option>
+          ))}
+        </select>
+        <span className="text-sm text-gray-500 font-semibold flex-shrink-0 whitespace-nowrap">
+          {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
         </span>
-        <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+        <div className="w-20 h-1.5 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
           <div
             className="h-full bg-[#BE1832] rounded-full transition-all"
             style={{ width: `${(submittedCount / totalQuestions) * 100}%` }}
           />
         </div>
-        <span className="text-xs text-gray-400 flex-shrink-0">
-          {submittedCount}/{totalQuestions}
-        </span>
+        <div className="flex items-center gap-1.5 flex-shrink-0">
+          <span className="text-xs text-gray-500 font-medium">{submittedCount}/{totalQuestions}</span>
+          <span className="inline-block w-2 h-2 rounded-full bg-green-400" title="answered" />
+          <span className="inline-block w-2 h-2 rounded-full bg-amber-400" title="in progress" />
+        </div>
         {formulaSheetContent && (
           <button
             onClick={() => setShowFormulaSheet((v) => !v)}
@@ -830,7 +846,7 @@ function SessionView({
 
       {/* Info sheet overlay drawer */}
       {showFormulaSheet && formulaSheetContent && (
-        <div className="absolute inset-0 z-20 flex" style={{ top: "41px" }}>
+        <div className="absolute inset-0 z-20 flex" style={{ top: "49px" }}>
           <div
             className="absolute inset-0 bg-black/20"
             onClick={() => setShowFormulaSheet(false)}
@@ -863,53 +879,32 @@ function SessionView({
       <div className="flex-1 flex overflow-hidden min-h-0">
         {/* ── LEFT PANEL: Question + Working ── */}
         <div className={`${mode === "practice" ? "flex-1" : "w-1/2"} flex flex-col border-r border-gray-200 overflow-hidden`}>
-          {/* Question navigation header */}
-          <div className="flex-shrink-0 bg-white px-4 py-3 border-b border-gray-100 flex items-center gap-2 min-w-0">
-            <select
-              value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
-              onChange={(e) => {
-                const idx = questionStartIndices[Number(e.target.value)];
-                if (idx >= 0) setCurrentIdx(idx);
-              }}
-              className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-base font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
-            >
-              {paper.questions.map((q, i) => (
-                <option key={q.number} value={i}>
-                  Q{q.number} — {q.title}
-                </option>
-              ))}
-            </select>
-            <span className="text-base text-gray-500 font-semibold flex-shrink-0 whitespace-nowrap">
-              {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
-            </span>
-          </div>
-
-          {/* Scrollable content area */}
-          <div className="flex-1 overflow-y-auto">
-            {/* Diagram (sub-question level overrides parent level) */}
+          {/* Content area — no scroll, flex column */}
+          <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+            {/* Diagram */}
             {(() => {
               const parentQ = paper.questions.find((q) =>
                 q.subQuestions.some((sq) => sq.id === currentSQ.id)
               );
               const diagramUrl = currentSQ.diagramUrl ?? parentQ?.diagramUrl;
               return diagramUrl ? (
-                <div className="px-5 pt-5 pb-3">
+                <div className="flex-shrink-0 px-5 pt-3 pb-2">
                   <img
                     src={diagramUrl}
                     alt={`Diagram for ${currentSQ.label}`}
-                    className="w-full max-w-md mx-auto rounded-lg border border-gray-200"
+                    className="w-full max-w-md mx-auto rounded-lg border border-gray-200 max-h-32 object-contain"
                   />
                 </div>
               ) : null;
             })()}
+
             {/* Question text */}
-            <div className="px-5 py-5 border-b border-gray-100">
+            <div className="flex-shrink-0 px-5 py-3 border-b border-gray-100">
               <div className="text-base text-gray-800 leading-relaxed">
                 <MathMarkdown content={currentSQ.questionText} />
               </div>
-
               {currentAttempt.submitted && mode === "guided" && (
-                <div className="mt-3 inline-flex items-center gap-1.5 text-base font-semibold">
+                <div className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold">
                   {currentAttempt.marksEarned >= currentSQ.marks ? (
                     <span className="text-green-600">✓ {currentAttempt.marksEarned}/{currentSQ.marks} marks earned</span>
                   ) : (
@@ -921,54 +916,45 @@ function SessionView({
               )}
             </div>
 
-            {/* Working area */}
-            <div className="px-5 py-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <p className="text-base font-semibold text-gray-500">
-                  Your Working
-                </p>
-                <span className="text-sm text-gray-300">
-                  {currentAttempt.textWorking.length > 0 ? `${currentAttempt.textWorking.length} chars` : ""}
-                </span>
-              </div>
-
-              {/* Text area */}
+            {/* Working area — grows to fill remaining space */}
+            <div className="flex-1 flex flex-col min-h-0 px-5 py-3 gap-2">
+              {/* Textarea */}
               <textarea
                 value={currentAttempt.textWorking}
                 onChange={(e) =>
                   updateAttempt(currentSQ.id, { textWorking: e.target.value })
                 }
                 placeholder="Type your working here… e.g. x² - 3x - 10 = 0 → (x+2)(x-5) = 0"
-                rows={9}
-                className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
+                className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
               />
 
-              {/* Graduated hint system */}
-              <div className="space-y-2">
-                {hintLevel > 0 && (
-                  <div className={`rounded-xl px-4 py-3 border flex items-start gap-2.5 ${
-                    hintLevel === 1 ? "bg-yellow-50 border-yellow-200" :
-                    hintLevel === 2 ? "bg-orange-50 border-orange-200" :
-                                      "bg-blue-50 border-blue-200"
-                  }`}>
-                    <svg className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                      hintLevel === 1 ? "text-yellow-500" :
-                      hintLevel === 2 ? "text-orange-500" :
-                                        "text-blue-500"
-                    }`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.347a3.75 3.75 0 01-5.303 0l-.347-.347a5 5 0 117.072 0z" />
-                    </svg>
-                    <p className={`text-sm leading-relaxed ${
-                      hintLevel === 1 ? "text-yellow-800" :
-                      hintLevel === 2 ? "text-orange-800" :
-                                        "text-blue-800"
-                    }`}>
-                      <span className="font-semibold">
-                        {hintLevel === 1 ? "Hint: " : hintLevel === 2 ? "More help: " : "First step: "}
-                      </span>
-                      {hintLevel === 1 ? hint1 : hintLevel === 2 ? hint2 : hint3}
-                    </p>
-                  </div>
+              {/* Below textarea: camera + hint + char count */}
+              <div className="flex items-center gap-3 flex-shrink-0">
+                {!currentAttempt.imagePreviewUrl && (
+                  <>
+                    <button
+                      onClick={() => fileInputRef.current?.click()}
+                      className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-[#BE1832] transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      Upload Image
+                    </button>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/*"
+                      capture="environment"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) handleImageSelected(file);
+                        e.target.value = "";
+                      }}
+                    />
+                  </>
                 )}
                 {hintLevel < 3 && (
                   <button
@@ -985,40 +971,18 @@ function SessionView({
                     {hintLevel === 0 ? "Need a hint?" : hintLevel === 1 ? "A bit more help" : "Show me the first step"}
                   </button>
                 )}
+                <span className="ml-auto text-xs text-gray-300">
+                  {currentAttempt.textWorking.length > 0 ? `${currentAttempt.textWorking.length} chars` : ""}
+                </span>
               </div>
 
-              {/* Image upload */}
-              {!currentAttempt.imagePreviewUrl ? (
-                <>
-                  <button
-                    onClick={() => fileInputRef.current?.click()}
-                    className="flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-xl border border-dashed border-gray-300 text-gray-500 hover:text-[#BE1832] hover:border-[#BE1832] transition-colors"
-                  >
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span className="text-sm font-medium">Upload Image</span>
-                  </button>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    capture="environment"
-                    className="hidden"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) handleImageSelected(file);
-                      e.target.value = "";
-                    }}
-                  />
-                </>
-              ) : (
-                <div className="relative">
+              {/* Image preview */}
+              {currentAttempt.imagePreviewUrl && (
+                <div className="relative flex-shrink-0">
                   <img
                     src={currentAttempt.imagePreviewUrl}
                     alt="Your working"
-                    className="w-full rounded-xl border border-gray-200 max-h-48 object-contain bg-gray-50"
+                    className="w-full rounded-xl border border-gray-200 max-h-32 object-contain bg-gray-50"
                   />
                   <button
                     onClick={removeImage}
@@ -1031,10 +995,37 @@ function SessionView({
                 </div>
               )}
 
-              {/* Submit / action buttons */}
+              {/* Hint display */}
+              {hintLevel > 0 && (
+                <div className={`flex-shrink-0 rounded-xl px-4 py-3 border flex items-start gap-2.5 ${
+                  hintLevel === 1 ? "bg-yellow-50 border-yellow-200" :
+                  hintLevel === 2 ? "bg-orange-50 border-orange-200" :
+                                    "bg-blue-50 border-blue-200"
+                }`}>
+                  <svg className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
+                    hintLevel === 1 ? "text-yellow-500" :
+                    hintLevel === 2 ? "text-orange-500" :
+                                      "text-blue-500"
+                  }`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.347a3.75 3.75 0 01-5.303 0l-.347-.347a5 5 0 117.072 0z" />
+                  </svg>
+                  <p className={`text-sm leading-relaxed ${
+                    hintLevel === 1 ? "text-yellow-800" :
+                    hintLevel === 2 ? "text-orange-800" :
+                                      "text-blue-800"
+                  }`}>
+                    <span className="font-semibold">
+                      {hintLevel === 1 ? "Hint: " : hintLevel === 2 ? "More help: " : "First step: "}
+                    </span>
+                    {hintLevel === 1 ? hint1 : hintLevel === 2 ? hint2 : hint3}
+                  </p>
+                </div>
+              )}
+
+              {/* Action buttons */}
               {mode === "guided" ? (
                 currentAttempt.submitted ? (
-                  <div className="flex gap-2 pt-1">
+                  <div className="flex gap-2 flex-shrink-0">
                     <button
                       onClick={handleRetry}
                       className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
@@ -1056,7 +1047,7 @@ function SessionView({
                       isEvaluating ||
                       (!currentAttempt.textWorking.trim() && !currentAttempt.imageFile)
                     }
-                    className="w-full py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                    className="flex-shrink-0 w-full py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                   >
                     {isEvaluating ? (
                       <>
@@ -1073,7 +1064,7 @@ function SessionView({
                 )
               ) : (
                 /* Practice mode — prev / skip / next */
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-shrink-0">
                   <button
                     onClick={() => goTo(currentIdx - 1)}
                     disabled={currentIdx === 0}
@@ -1113,28 +1104,17 @@ function SessionView({
             );
             const subQsForQ = currentTopLevelQ?.subQuestions ?? [];
             return (
-              <div className="flex-shrink-0 border-t border-gray-100 bg-white px-4 py-3 space-y-2.5">
-                {/* Progress summary */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-bold text-gray-800">{answeredCount}/{totalQuestions}</span>
-                    <span className="text-xs text-gray-400">answered</span>
-                    <span className="flex items-center gap-1 text-xs text-gray-400">
-                      <span className="inline-block w-2 h-2 rounded-full bg-green-400" />answered
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-gray-400">
-                      <span className="inline-block w-2 h-2 rounded-full bg-amber-400" />in progress
-                    </span>
-                  </div>
-                  {mode === "practice" && answeredCount > 0 && (
+              <div className="flex-shrink-0 border-t border-gray-100 bg-white px-4 py-2 space-y-1.5">
+                {mode === "practice" && answeredCount > 0 && (
+                  <div className="flex justify-end">
                     <button
                       onClick={handleSubmitPaper}
                       className="text-xs font-semibold bg-[#BE1832] text-white px-3 py-1.5 rounded-lg hover:bg-[#a31529] transition-colors"
                     >
                       Submit Paper
                     </button>
-                  )}
-                </div>
+                  </div>
+                )}
                 {/* Sub-question pills */}
                 <div className="flex flex-wrap gap-1.5">
                   {subQsForQ.map((sq) => {
