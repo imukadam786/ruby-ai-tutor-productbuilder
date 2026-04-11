@@ -226,7 +226,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     try {
       const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
-      // Fetch the user's saved profile from the users table (grade, name, language, curriculum)
+      // Fetch the user's saved profile from the users table
       const userId = authData.user?.id;
       const { data: userData } = userId
         ? await supabase.from("users").select("full_name, grade, language, curriculum").eq("id", userId).single()
@@ -235,18 +235,19 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         (userData?.full_name as string | undefined) ||
         (authData.user?.user_metadata?.full_name as string | undefined) ||
         "";
-      // Pre-populate form with Supabase defaults, then let user confirm/change via steps 2-5.
-      // This ensures the user's fresh grade selection is always used (not a stale Supabase value).
-      setData((d) => ({
-        ...d,
-        language: (userData?.language as string | undefined) || d.language || "English",
-        grade: (userData?.grade as string | undefined) || d.grade || "",
-        curriculum: (userData?.curriculum as string | undefined) || d.curriculum || "",
+      // Build final data from saved profile and go straight to the app — no re-onboarding
+      const final: OnboardingData = {
+        language: (userData?.language as string | undefined) || "English",
+        grade: (userData?.grade as string | undefined) || "",
+        averageScore: "",
+        curriculum: (userData?.curriculum as string | undefined) || "",
+        name: fullName,
+        email,
         plan: "existing",
-      }));
-      setName(fullName);
-      setSignedUpUserId(userId);
-      next();
+        userId,
+      };
+      localStorage.setItem("onboardingData", JSON.stringify(final));
+      onComplete(final);
     } catch (err: unknown) {
       const raw = err instanceof Error ? err.message : "";
       const msg = raw.toLowerCase().includes("invalid login credentials") || raw.toLowerCase().includes("invalid")
@@ -383,7 +384,18 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     Create Account
                   </button>
                 ) : (
-                  <button onClick={() => { setLoginMode(true); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
+                  <button
+                    onClick={() => {
+                      setAuthError("");
+                      if (email && password) {
+                        setLoginMode(true);
+                        handleLogin();
+                      } else {
+                        setLoginMode(true);
+                      }
+                    }}
+                    className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors"
+                  >
                     Log In
                   </button>
                 )}
