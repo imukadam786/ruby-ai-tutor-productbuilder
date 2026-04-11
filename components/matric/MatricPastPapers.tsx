@@ -306,8 +306,9 @@ function ModeSelect({
   const [language, setLanguage] = useState("English");
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5]">
-      <div className="max-w-2xl mx-auto px-5 py-10 space-y-8">
+    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+      <EduBackground />
+      <div className="relative z-10 max-w-2xl mx-auto px-5 py-10 space-y-8">
         <button
           onClick={onBack}
           className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 transition-colors"
