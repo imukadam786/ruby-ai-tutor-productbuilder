@@ -40,6 +40,7 @@ function AppContent() {
   const [activeView, setActiveView] = useState<ActiveView>("home");
   const [paymentReturn, setPaymentReturn] = useState<"success" | "cancelled" | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [stats, setStats] = useState({ lessonsCompleted: 0 });
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
@@ -162,9 +163,10 @@ function AppContent() {
       <Sidebar
         activeView={activeView}
         onViewChange={handleViewChange}
-  
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        collapsed={sidebarCollapsed}
+        onToggleCollapse={() => setSidebarCollapsed((v) => !v)}
         onSettings={() => handleViewChange("settings")}
         onOpenLangPicker={() => setShowLangPicker(true)}
         onLogout={async () => {

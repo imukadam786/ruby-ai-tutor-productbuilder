@@ -538,7 +538,6 @@ function SessionView({
   const [isSubmittingPaper, setIsSubmittingPaper] = useState(false);
   const [submitProgress, setSubmitProgress] = useState(0);
   const [showFormulaSheet, setShowFormulaSheet] = useState(false);
-  const [leftPanelOpen, setLeftPanelOpen] = useState(true);
   const [hintLevel, setHintLevel] = useState(0);
 
   const formulaSheetContent = paper.formulaSheetVariant
@@ -863,22 +862,9 @@ function SessionView({
       {/* Split screen (guided) / Full screen (practice) */}
       <div className="flex-1 flex overflow-hidden min-h-0">
         {/* ── LEFT PANEL: Question + Working ── */}
-        <div className={`flex flex-col border-r border-gray-200 overflow-hidden transition-all duration-300 ${
-          leftPanelOpen
-            ? mode === "practice" ? "flex-1" : "w-1/2"
-            : "w-0 border-r-0"
-        }`}>
+        <div className={`${mode === "practice" ? "flex-1" : "w-1/2"} flex flex-col border-r border-gray-200 overflow-hidden`}>
           {/* Question navigation header */}
           <div className="flex-shrink-0 bg-white px-4 py-3 border-b border-gray-100 flex items-center gap-2 min-w-0">
-            <button
-              onClick={() => setLeftPanelOpen(false)}
-              title="Collapse panel"
-              className="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
-              </svg>
-            </button>
             <select
               value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
               onChange={(e) => {
@@ -1181,24 +1167,8 @@ function SessionView({
           })()}
         </div>
 
-        {/* ── Expand left panel tab (shown when panel is collapsed) ── */}
-        {!leftPanelOpen && (
-          <button
-            onClick={() => setLeftPanelOpen(true)}
-            title="Show question panel"
-            className="flex-shrink-0 flex flex-col items-center justify-center gap-1 w-8 bg-white border-r border-gray-200 text-gray-400 hover:text-[#BE1832] hover:bg-rose-50 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-            </svg>
-            <span className="text-[10px] font-semibold writing-mode-vertical" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", letterSpacing: "0.05em" }}>
-              Question
-            </span>
-          </button>
-        )}
-
         {/* ── RIGHT PANEL: AI Coach (guided mode only) ── */}
-        {mode === "guided" && <div className={`${leftPanelOpen ? "w-1/2" : "flex-1"} flex flex-col overflow-hidden bg-white`}>
+        {mode === "guided" && <div className="w-1/2 flex flex-col overflow-hidden bg-white">
           <div className="flex-shrink-0 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
