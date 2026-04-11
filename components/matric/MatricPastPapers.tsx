@@ -157,14 +157,8 @@ function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void 
       <div className="relative max-w-3xl mx-auto px-5 py-10 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 bg-rose-50 border border-rose-200 text-[#BE1832] text-xs font-semibold px-3 py-1.5 rounded-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#BE1832]" />
-            NSC Past Papers
-          </div>
           <h1 className="text-3xl font-extrabold text-gray-900">Matric Exam Prep</h1>
-          <p className="text-gray-500 text-sm leading-relaxed max-w-lg">
-            Work through real past papers with step-by-step AI coaching. Get feedback in your home language.
-          </p>
+          <p className="text-gray-500 text-sm">Work through real past papers with step-by-step AI tutoring. Get feedback in your home language.</p>
         </div>
 
         {/* Subject cards */}
@@ -184,7 +178,7 @@ function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void 
               >
                 {/* Card gradient background */}
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${subject.color} opacity-10 group-hover:opacity-15 transition-opacity`} />
-                <div className="absolute inset-0 rounded-2xl bg-white border border-gray-100" style={{ zIndex: -1 }} />
+                <div className="absolute inset-0 rounded-2xl bg-white border-2 border-gray-300" style={{ zIndex: -1 }} />
 
                 <div className="relative space-y-3">
                   {/* Emoji icon */}
@@ -401,7 +395,7 @@ function ModeSelect({
         {/* Language selector */}
         <div className="space-y-2">
           <label className="text-sm font-semibold text-gray-700">Response language</label>
-          <p className="text-xs text-gray-400">The AI coach will give feedback in this language.</p>
+          <p className="text-xs text-gray-400">Ruby will give feedback in this language.</p>
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
@@ -438,14 +432,21 @@ function SessionView({
   mode,
   language,
   onFinish,
+  onBack,
 }: {
   paper: Paper;
   mode: SessionMode;
   language: string;
   onFinish: (attempts: Record<string, QuestionState>) => void;
+  onBack: () => void;
 }) {
   const flatQuestions = getFlatSubQuestions(paper);
   const totalQuestions = flatQuestions.length;
+
+  // Map each top-level question to the first flat index
+  const questionStartIndices = paper.questions.map((q) =>
+    flatQuestions.findIndex((sq) => sq.id === q.subQuestions[0].id)
+  );
 
   const [currentIdx, setCurrentIdx] = useState(0);
   const [attempts, setAttempts] = useState<Record<string, QuestionState>>(() => {
@@ -696,6 +697,15 @@ function SessionView({
     <div className="h-full flex flex-col overflow-hidden">
       {/* Top progress bar */}
       <div className="flex-shrink-0 bg-white border-b border-gray-100 px-4 py-2 flex items-center gap-3">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-700 transition-colors flex-shrink-0"
+        >
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Exit
+        </button>
         <span className="text-xs font-semibold text-gray-500 flex-shrink-0">
           {paper.subject} {paper.paperCode}
         </span>
@@ -710,38 +720,29 @@ function SessionView({
         </span>
       </div>
 
-      {/* Split screen */}
+      {/* Split screen (guided) / Full screen (practice) */}
       <div className="flex-1 flex overflow-hidden min-h-0">
         {/* ── LEFT PANEL: Question + Working ── */}
-        <div className="w-1/2 flex flex-col border-r border-gray-200 overflow-hidden">
+        <div className={`${mode === "practice" ? "flex-1" : "w-1/2"} flex flex-col border-r border-gray-200 overflow-hidden`}>
           {/* Question navigation header */}
-          <div className="flex-shrink-0 bg-white px-4 py-3 border-b border-gray-100 flex items-center justify-between gap-2">
-            <button
-              onClick={() => goTo(currentIdx - 1)}
-              disabled={currentIdx === 0}
-              className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          <div className="flex-shrink-0 bg-white px-4 py-3 border-b border-gray-100 flex items-center gap-2">
+            <select
+              value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
+              onChange={(e) => {
+                const idx = questionStartIndices[Number(e.target.value)];
+                if (idx >= 0) setCurrentIdx(idx);
+              }}
+              className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <div className="flex-1 text-center">
-              <span className="text-sm font-bold text-gray-700">
-                Question {currentSQ.label}
-              </span>
-              <span className="ml-2 text-xs text-gray-400">({currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"})</span>
-            </div>
-
-            <button
-              onClick={() => goTo(currentIdx + 1)}
-              disabled={currentIdx === totalQuestions - 1}
-              className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+              {paper.questions.map((q, i) => (
+                <option key={q.number} value={i}>
+                  Q{q.number} — {q.title}
+                </option>
+              ))}
+            </select>
+            <span className="text-xs text-gray-400 flex-shrink-0 whitespace-nowrap">
+              {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
+            </span>
           </div>
 
           {/* Scrollable content area */}
@@ -787,12 +788,13 @@ function SessionView({
                 <>
                   <button
                     onClick={() => fileInputRef.current?.click()}
-                    className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#BE1832] transition-colors"
+                    className="flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-xl border border-dashed border-gray-300 text-gray-500 hover:text-[#BE1832] hover:border-[#BE1832] transition-colors"
                   >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    Upload image of handwritten working
+                    <span className="text-sm font-medium">Upload Image</span>
                   </button>
                   <input
                     ref={fileInputRef}
@@ -912,68 +914,36 @@ function SessionView({
               </div>
               <p className="text-xs text-gray-400 mt-2">
                 {answeredCount}/{totalQuestions} answered
-                {mode === "practice" && answeredCount > 0 && (
-                  <span className="ml-1">· <span className="text-gray-500">ready to submit</span></span>
-                )}
               </p>
+              {mode === "practice" && answeredCount > 0 && (
+                <button
+                  onClick={handleSubmitPaper}
+                  className="mt-3 w-full py-2.5 rounded-xl bg-[#BE1832] text-white font-semibold text-sm hover:bg-[#a31529] transition-colors"
+                >
+                  Submit Paper for Evaluation
+                </button>
+              )}
             </div>
           </div>
         </div>
 
-        {/* ── RIGHT PANEL: AI Coach ── */}
-        <div className="w-1/2 flex flex-col overflow-hidden bg-white">
+        {/* ── RIGHT PANEL: AI Coach (guided mode only) ── */}
+        {mode === "guided" && <div className="w-1/2 flex flex-col overflow-hidden bg-white">
           <div className="flex-shrink-0 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
                 <img src="/icons/icon-192.png" alt="Ruby" className="w-full h-full object-cover" />
               </div>
-              <span className="text-sm font-semibold text-gray-700">AI Coach</span>
+              <span className="text-sm font-semibold text-gray-700">Ruby</span>
               <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">{language}</span>
             </div>
 
-            {mode === "practice" && (
-              <button
-                onClick={handleSubmitPaper}
-                disabled={answeredCount === 0}
-                className="text-xs font-semibold bg-[#BE1832] text-white px-3 py-1.5 rounded-lg hover:bg-[#a31529] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-              >
-                Submit Paper
-              </button>
-            )}
           </div>
 
           {/* Coach messages */}
           <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
-            {mode === "practice" ? (
-              <div className="space-y-4">
-                <div className="bg-blue-50 border border-blue-100 rounded-2xl px-4 py-4 text-sm text-blue-800 space-y-2">
-                  <p className="font-semibold">Practice Mode</p>
-                  <p>Work through all the questions on the left. Your answers are saved as you go. When you are ready, click <strong>Submit Paper</strong> to receive your full evaluation.</p>
-                </div>
-
-                <div className="text-center py-4">
-                  <div className="text-3xl font-black text-gray-200">{answeredCount}</div>
-                  <div className="text-xs text-gray-400">of {totalQuestions} questions answered</div>
-                  <div className="mt-3 w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-[#BE1832] rounded-full transition-all"
-                      style={{ width: `${(answeredCount / totalQuestions) * 100}%` }}
-                    />
-                  </div>
-                </div>
-
-                {answeredCount > 0 && (
-                  <button
-                    onClick={handleSubmitPaper}
-                    className="w-full py-3 rounded-xl bg-[#BE1832] text-white font-semibold text-sm hover:bg-[#a31529] transition-colors"
-                  >
-                    Submit Paper for Evaluation
-                  </button>
-                )}
-              </div>
-            ) : (
-              <>
-                {currentAttempt.coachMessages.length === 0 && (
+            <>
+              {currentAttempt.coachMessages.length === 0 && (
                   <div className="text-sm text-gray-400 italic text-center py-8">
                     Submit your working to get feedback.
                   </div>
@@ -1024,10 +994,9 @@ function SessionView({
                 )}
 
                 <div ref={coachEndRef} />
-              </>
-            )}
+            </>
           </div>
-        </div>
+        </div>}
       </div>
     </div>
   );
@@ -1233,6 +1202,7 @@ export default function MatricPastPapers() {
         mode={sessionMode}
         language={language}
         onFinish={handleFinish}
+        onBack={handleBackToPapers}
       />
     );
   }
