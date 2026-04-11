@@ -807,21 +807,19 @@ function SessionView({
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            {showFormulaSheet ? "Close" : "Formula Sheet"}
+            Info Sheet
           </button>
         )}
       </div>
 
-      {/* Formula sheet overlay drawer */}
+      {/* Info sheet overlay drawer */}
       {showFormulaSheet && formulaSheetContent && (
         <div className="absolute inset-0 z-20 flex" style={{ top: "41px" }}>
-          {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/20"
             onClick={() => setShowFormulaSheet(false)}
           />
-          {/* Sheet panel — slides in from the right */}
-          <div className="absolute right-0 top-0 h-full w-full max-w-sm bg-white shadow-2xl border-l border-gray-200 flex flex-col z-10">
+          <div className="absolute right-0 top-0 h-full w-[480px] max-w-full bg-white shadow-2xl border-l border-gray-200 flex flex-col z-10">
             <div className="flex-shrink-0 flex items-center justify-between px-4 py-3 border-b border-gray-100">
               <span className="text-sm font-bold text-gray-800">Information Sheet</span>
               <button
@@ -833,8 +831,13 @@ function SessionView({
                 </svg>
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto px-5 py-4 text-sm text-gray-800 leading-relaxed space-y-1">
-              <MathMarkdown content={formulaSheetContent} />
+            <div className="flex-1 overflow-y-auto overflow-x-auto px-5 py-4 text-sm text-gray-800 leading-relaxed">
+              <div className="min-w-[420px]">
+                <MathMarkdown content={formulaSheetContent} />
+              </div>
+            </div>
+            <div className="flex-shrink-0 border-t border-gray-100 px-4 py-2 text-center">
+              <span className="text-xs text-gray-400">Scroll for more ↓</span>
             </div>
           </div>
         </div>
@@ -904,9 +907,14 @@ function SessionView({
 
             {/* Working area */}
             <div className="px-5 py-4 space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                Your Working
-              </p>
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                  Your Working
+                </p>
+                <span className="text-xs text-gray-300">
+                  {currentAttempt.textWorking.length > 0 ? `${currentAttempt.textWorking.length} chars` : ""}
+                </span>
+              </div>
 
               {/* Text area */}
               <textarea
@@ -914,10 +922,13 @@ function SessionView({
                 onChange={(e) =>
                   updateAttempt(currentSQ.id, { textWorking: e.target.value })
                 }
-                placeholder="Type your working here…"
+                placeholder="Type your working here… e.g. x² - 3x - 10 = 0 → (x+2)(x-5) = 0"
                 rows={9}
-                className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
               />
+              <p className="text-xs text-gray-300">
+                Tip: use ^ for powers (x^2), sqrt() for roots, and / for fractions (3/4)
+              </p>
 
               {/* Image upload */}
               {!currentAttempt.imagePreviewUrl ? (
@@ -1004,18 +1015,35 @@ function SessionView({
                   </button>
                 )
               ) : (
-                /* Practice mode — save & next */
-                <button
-                  onClick={() => {
-                    if (currentAttempt.textWorking.trim() || currentAttempt.imageFile) {
-                      updateAttempt(currentSQ.id, { submitted: false });
-                    }
-                    goTo(currentIdx + 1);
-                  }}
-                  className="w-full py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] transition-colors"
-                >
-                  {currentIdx < totalQuestions - 1 ? "Save & Next →" : "Save"}
-                </button>
+                /* Practice mode — prev / skip / next */
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => goTo(currentIdx - 1)}
+                    disabled={currentIdx === 0}
+                    className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors"
+                  >
+                    ← Prev
+                  </button>
+                  <button
+                    onClick={() => goTo(currentIdx + 1)}
+                    disabled={currentIdx === totalQuestions - 1}
+                    className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors"
+                  >
+                    Skip
+                  </button>
+                  <button
+                    onClick={() => {
+                      if (currentAttempt.textWorking.trim() || currentAttempt.imageFile) {
+                        updateAttempt(currentSQ.id, { submitted: false });
+                      }
+                      goTo(currentIdx + 1);
+                    }}
+                    disabled={currentIdx === totalQuestions - 1}
+                    className="flex-1 py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 transition-colors"
+                  >
+                    Save & Next →
+                  </button>
+                </div>
               )}
             </div>
 
@@ -1028,7 +1056,29 @@ function SessionView({
             );
             const subQsForQ = currentTopLevelQ?.subQuestions ?? [];
             return (
-              <div className="flex-shrink-0 border-t border-gray-100 bg-white px-4 py-3 space-y-2">
+              <div className="flex-shrink-0 border-t border-gray-100 bg-white px-4 py-3 space-y-2.5">
+                {/* Progress summary */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm font-bold text-gray-800">{answeredCount}/{totalQuestions}</span>
+                    <span className="text-xs text-gray-400">answered</span>
+                    <span className="flex items-center gap-1 text-xs text-gray-400">
+                      <span className="inline-block w-2 h-2 rounded-full bg-green-400" />answered
+                    </span>
+                    <span className="flex items-center gap-1 text-xs text-gray-400">
+                      <span className="inline-block w-2 h-2 rounded-full bg-amber-400" />in progress
+                    </span>
+                  </div>
+                  {mode === "practice" && answeredCount > 0 && (
+                    <button
+                      onClick={handleSubmitPaper}
+                      className="text-xs font-semibold bg-[#BE1832] text-white px-3 py-1.5 rounded-lg hover:bg-[#a31529] transition-colors"
+                    >
+                      Submit Paper
+                    </button>
+                  )}
+                </div>
+                {/* Sub-question pills */}
                 <div className="flex flex-wrap gap-1.5">
                   {subQsForQ.map((sq) => {
                     const flatIdx = flatQuestions.findIndex((f) => f.id === sq.id);
@@ -1054,17 +1104,6 @@ function SessionView({
                       </button>
                     );
                   })}
-                </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-xs text-gray-400">{answeredCount}/{totalQuestions} answered</p>
-                  {mode === "practice" && answeredCount > 0 && (
-                    <button
-                      onClick={handleSubmitPaper}
-                      className="text-xs font-semibold bg-[#BE1832] text-white px-3 py-1.5 rounded-lg hover:bg-[#a31529] transition-colors"
-                    >
-                      Submit Paper
-                    </button>
-                  )}
                 </div>
               </div>
             );

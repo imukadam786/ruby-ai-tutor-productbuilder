@@ -195,7 +195,7 @@ export default function Sidebar({
               >
                 <div className="flex items-center gap-2 min-w-0 mr-1">
                   <span className="text-base flex-shrink-0">{section.emoji}</span>
-                  <span className="text-sm font-semibold uppercase tracking-normal leading-tight">{section.label}</span>
+                  <span className="text-sm font-semibold leading-tight">{section.label}</span>
                 </div>
                 <ChevronIcon open={openSections[section.key]} />
               </button>
