@@ -5,11 +5,12 @@ import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { apiFetch } from "@/lib/fetch";
+import EduBackground from "@/components/EduBackground";
 import { PAPERS, Paper, SubQuestion, getFlatSubQuestions, getTopicBreakdown } from "@/lib/matric/papers";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-type Phase = "papers" | "mode" | "session" | "summary";
+type Phase = "subjects" | "papers" | "mode" | "session" | "summary";
 type SessionMode = "practice" | "guided";
 
 interface CoachMessage {
@@ -76,46 +77,213 @@ function MathMarkdown({ content }: { content: string }) {
   );
 }
 
-// ── Paper List ─────────────────────────────────────────────────────────────────
+// ── Subject data ───────────────────────────────────────────────────────────────
 
-function PaperList({ onSelect }: { onSelect: (paper: Paper) => void }) {
+const SUBJECTS = [
+  {
+    id: "accounting",
+    name: "Accounting",
+    emoji: "📒",
+    color: "from-emerald-500 to-teal-600",
+    available: false,
+  },
+  {
+    id: "afrikaans",
+    name: "Afrikaans",
+    emoji: "🇿🇦",
+    color: "from-orange-400 to-amber-500",
+    available: false,
+  },
+  {
+    id: "english",
+    name: "English",
+    emoji: "✏️",
+    color: "from-sky-400 to-blue-500",
+    available: false,
+  },
+  {
+    id: "geography",
+    name: "Geography",
+    emoji: "🌍",
+    color: "from-lime-500 to-green-600",
+    available: false,
+  },
+  {
+    id: "history",
+    name: "History",
+    emoji: "📜",
+    color: "from-amber-500 to-yellow-600",
+    available: false,
+  },
+  {
+    id: "life-sciences",
+    name: "Life Sciences",
+    emoji: "🧬",
+    color: "from-pink-500 to-rose-600",
+    available: false,
+  },
+  {
+    id: "mathematics",
+    name: "Mathematics",
+    emoji: "📐",
+    color: "from-[#BE1832] to-rose-700",
+    available: true,
+  },
+  {
+    id: "maths-literacy",
+    name: "Maths Literacy",
+    emoji: "🔢",
+    color: "from-violet-500 to-purple-600",
+    available: false,
+  },
+  {
+    id: "physical-science",
+    name: "Physical Science",
+    emoji: "⚗️",
+    color: "from-cyan-500 to-blue-600",
+    available: false,
+  },
+] as const;
+
+type SubjectId = (typeof SUBJECTS)[number]["id"];
+
+// ── Subject Select ─────────────────────────────────────────────────────────────
+
+function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void }) {
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5]">
-      <div className="max-w-3xl mx-auto px-5 py-10 space-y-8">
+    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+      <EduBackground />
+
+      <div className="relative max-w-3xl mx-auto px-5 py-10 space-y-8">
+        {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-2xl font-bold text-gray-900">Matric Past Papers</h1>
-          <p className="text-gray-500 text-sm">
-            Work through real NSC past exam papers with AI coaching at every step.
+          <div className="inline-flex items-center gap-2 bg-rose-50 border border-rose-200 text-[#BE1832] text-xs font-semibold px-3 py-1.5 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#BE1832]" />
+            NSC Past Papers
+          </div>
+          <h1 className="text-3xl font-extrabold text-gray-900">Matric Exam Prep</h1>
+          <p className="text-gray-500 text-sm leading-relaxed max-w-lg">
+            Work through real past papers with step-by-step AI coaching. Get feedback in your home language.
           </p>
         </div>
 
+        {/* Subject cards */}
         <div className="space-y-3">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Available Papers</h2>
-          {PAPERS.map((paper) => (
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a subject</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {SUBJECTS.map((subject) => (
+              <button
+                key={subject.id}
+                onClick={() => subject.available && onSelect(subject.id as SubjectId)}
+                disabled={!subject.available}
+                className={`relative rounded-2xl p-5 text-left transition-all group ${
+                  subject.available
+                    ? "shadow-sm hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
+                    : "opacity-60 cursor-not-allowed"
+                }`}
+              >
+                {/* Card gradient background */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${subject.color} opacity-10 group-hover:opacity-15 transition-opacity`} />
+                <div className="absolute inset-0 rounded-2xl bg-white border border-gray-100" style={{ zIndex: -1 }} />
+
+                <div className="relative space-y-3">
+                  {/* Emoji icon */}
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${subject.color} flex items-center justify-center text-xl shadow-sm`}>
+                    {subject.emoji}
+                  </div>
+
+                  <div>
+                    <p className="font-bold text-gray-800 text-sm leading-snug">{subject.name}</p>
+                    {subject.available ? (
+                      <p className="text-xs text-[#BE1832] font-medium mt-0.5">Papers available →</p>
+                    ) : (
+                      <p className="text-xs text-gray-400 mt-0.5">Coming soon</p>
+                    )}
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer note */}
+        <p className="text-xs text-gray-400 text-center">
+          More subjects and papers added regularly. All papers are official NSC past exams.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ── Paper List ─────────────────────────────────────────────────────────────────
+
+function PaperList({
+  subjectId,
+  onSelect,
+  onBack,
+}: {
+  subjectId: SubjectId;
+  onSelect: (paper: Paper) => void;
+  onBack: () => void;
+}) {
+  const subject = SUBJECTS.find((s) => s.id === subjectId)!;
+  const papers = PAPERS.filter((p) => p.subject.toLowerCase().replace(" ", "-") === subjectId || subjectId === "mathematics");
+
+  return (
+    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+      <EduBackground />
+
+      <div className="relative max-w-2xl mx-auto px-5 py-10 space-y-8">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 transition-colors"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          All subjects
+        </button>
+
+        {/* Subject header */}
+        <div className="flex items-center gap-4">
+          <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${subject.color} flex items-center justify-center text-2xl shadow-md flex-shrink-0`}>
+            {subject.emoji}
+          </div>
+          <div>
+            <h1 className="text-2xl font-extrabold text-gray-900">{subject.name}</h1>
+            <p className="text-sm text-gray-400">{papers.length} {papers.length === 1 ? "paper" : "papers"} available</p>
+          </div>
+        </div>
+
+        {/* Paper cards */}
+        <div className="space-y-3">
+          {papers.map((paper) => (
             <button
               key={paper.id}
               onClick={() => onSelect(paper)}
-              className="w-full text-left bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:shadow-md hover:border-rose-100 transition-all group"
+              className="w-full text-left bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:shadow-md hover:border-rose-200 transition-all group"
             >
-              <div className="flex items-start justify-between gap-4">
-                <div className="space-y-1">
+              <div className="flex items-center justify-between gap-4">
+                <div className="space-y-1.5">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-xs font-semibold bg-rose-50 text-[#BE1832] px-2.5 py-1 rounded-full">
-                      {paper.subject} {paper.paperCode}
+                      {paper.paperCode}
                     </span>
-                    <span className="text-xs text-gray-400">
-                      {paper.session} {paper.year}
-                    </span>
+                    <span className="text-xs text-gray-400">{paper.session} {paper.year}</span>
                   </div>
-                  <p className="font-semibold text-gray-800">
-                    {paper.subject} Paper {paper.paperCode} — {paper.session} {paper.year}
+                  <p className="font-bold text-gray-800">
+                    {paper.subject} — Paper {paper.paperCode}
                   </p>
-                  <p className="text-sm text-gray-400">
-                    {paper.totalMarks} marks · {paper.durationHours} hours · {paper.questions.length} questions
-                  </p>
+                  <div className="flex items-center gap-3 text-xs text-gray-400">
+                    <span>{paper.totalMarks} marks</span>
+                    <span>·</span>
+                    <span>{paper.durationHours} hours</span>
+                    <span>·</span>
+                    <span>{paper.questions.length} questions</span>
+                  </div>
                 </div>
                 <svg
-                  className="w-5 h-5 text-gray-300 group-hover:text-[#BE1832] flex-shrink-0 mt-1 transition-colors"
+                  className="w-5 h-5 text-gray-300 group-hover:text-[#BE1832] flex-shrink-0 transition-colors"
                   fill="none" viewBox="0 0 24 24" stroke="currentColor"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -123,11 +291,6 @@ function PaperList({ onSelect }: { onSelect: (paper: Paper) => void }) {
               </div>
             </button>
           ))}
-        </div>
-
-        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-5 text-sm text-gray-500 space-y-1">
-          <p className="font-medium text-gray-600">More papers coming soon</p>
-          <p>History, Geography, Physical Science, Life Sciences, Accounting, English, Afrikaans and more.</p>
         </div>
       </div>
     </div>
@@ -163,7 +326,7 @@ function ModeSelect({
 
         <div className="space-y-1">
           <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">
-            {paper.subject} {paper.paperCode} · {paper.session} {paper.year}
+            {paper.subject} · Paper {paper.paperCode} · {paper.session} {paper.year}
           </p>
           <h1 className="text-2xl font-bold text-gray-900">Choose your mode</h1>
         </div>
@@ -991,11 +1154,17 @@ function SummaryView({
 // ── Main Component ─────────────────────────────────────────────────────────────
 
 export default function MatricPastPapers() {
-  const [phase, setPhase] = useState<Phase>("papers");
+  const [phase, setPhase] = useState<Phase>("subjects");
+  const [selectedSubject, setSelectedSubject] = useState<SubjectId | null>(null);
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
   const [sessionMode, setSessionMode] = useState<SessionMode>("guided");
   const [language, setLanguage] = useState("English");
   const [finalAttempts, setFinalAttempts] = useState<Record<string, QuestionState> | null>(null);
+
+  const handleSubjectSelect = (subjectId: SubjectId) => {
+    setSelectedSubject(subjectId);
+    setPhase("papers");
+  };
 
   const handlePaperSelect = (paper: Paper) => {
     setSelectedPaper(paper);
@@ -1019,14 +1188,31 @@ export default function MatricPastPapers() {
     setPhase("mode");
   };
 
+  const handleBackToSubjects = () => {
+    setSelectedSubject(null);
+    setSelectedPaper(null);
+    setFinalAttempts(null);
+    setPhase("subjects");
+  };
+
   const handleBackToPapers = () => {
     setSelectedPaper(null);
     setFinalAttempts(null);
     setPhase("papers");
   };
 
-  if (phase === "papers") {
-    return <PaperList onSelect={handlePaperSelect} />;
+  if (phase === "subjects") {
+    return <SubjectSelect onSelect={handleSubjectSelect} />;
+  }
+
+  if (phase === "papers" && selectedSubject) {
+    return (
+      <PaperList
+        subjectId={selectedSubject}
+        onSelect={handlePaperSelect}
+        onBack={handleBackToSubjects}
+      />
+    );
   }
 
   if (phase === "mode" && selectedPaper) {
