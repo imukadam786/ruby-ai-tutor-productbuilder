@@ -747,6 +747,21 @@ function SessionView({
 
           {/* Scrollable content area */}
           <div className="flex-1 overflow-y-auto">
+            {/* Diagram (if this question has one) */}
+            {(() => {
+              const parentQ = paper.questions.find((q) =>
+                q.subQuestions.some((sq) => sq.id === currentSQ.id)
+              );
+              return parentQ?.diagramUrl ? (
+                <div className="px-5 pt-5 pb-3">
+                  <img
+                    src={parentQ.diagramUrl}
+                    alt={`Diagram for Question ${parentQ.number}`}
+                    className="w-full max-w-md mx-auto rounded-lg border border-gray-200"
+                  />
+                </div>
+              ) : null;
+            })()}
             {/* Question text */}
             <div className="px-5 py-5 border-b border-gray-100">
               <div className="text-sm text-gray-800 leading-relaxed">

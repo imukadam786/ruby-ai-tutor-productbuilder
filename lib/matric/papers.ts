@@ -11,6 +11,7 @@ export interface PaperQuestion {
   number: number;
   title: string;
   totalMarks: number;
+  diagramUrl?: string;
   subQuestions: SubQuestion[];
 }
 
@@ -275,6 +276,7 @@ Mark 3: Final answer: −14 ≤ m < −9`,
         number: 4,
         title: "Functions: Hyperbola",
         totalMarks: 15,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2025_q4.png",
         subQuestions: [
           {
             id: "4-1",
@@ -351,6 +353,7 @@ Mark 2: AA' = |5 − (−5)| = 10`,
         number: 5,
         title: "Functions: Parabola",
         totalMarks: 9,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2025_q5.png",
         subQuestions: [
           {
             id: "5-1",
@@ -395,6 +398,7 @@ Mark 4: Increasing curve (cubic shape — starts very negative bottom-left, incr
         number: 6,
         title: "Exponential Functions & Inverses",
         totalMarks: 11,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2025_q6.png",
         subQuestions: [
           {
             id: "6-1",
