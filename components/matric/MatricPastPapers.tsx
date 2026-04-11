@@ -747,16 +747,17 @@ function SessionView({
 
           {/* Scrollable content area */}
           <div className="flex-1 overflow-y-auto">
-            {/* Diagram (if this question has one) */}
+            {/* Diagram (sub-question level overrides parent level) */}
             {(() => {
               const parentQ = paper.questions.find((q) =>
                 q.subQuestions.some((sq) => sq.id === currentSQ.id)
               );
-              return parentQ?.diagramUrl ? (
+              const diagramUrl = currentSQ.diagramUrl ?? parentQ?.diagramUrl;
+              return diagramUrl ? (
                 <div className="px-5 pt-5 pb-3">
                   <img
-                    src={parentQ.diagramUrl}
-                    alt={`Diagram for Question ${parentQ.number}`}
+                    src={diagramUrl}
+                    alt={`Diagram for ${currentSQ.label}`}
                     className="w-full max-w-md mx-auto rounded-lg border border-gray-200"
                   />
                 </div>
