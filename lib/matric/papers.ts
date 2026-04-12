@@ -2441,7 +2441,7 @@ CA from 5.1 and 5.3.`,
         number: 6,
         title: "Parabola",
         totalMarks: 14,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2022_q6.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2022_q6.PNG",
         subQuestions: [
           {
             id: "22-6-1",
@@ -2611,7 +2611,7 @@ Answer: f'(x) = 1 + x^{−3/2} − 2x^{−3} = 1 + 1/x^{3/2} − 2/x³`,
         number: 9,
         title: "Cubic Function",
         totalMarks: 23,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2022_q9.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2022_q9.PNG",
         subQuestions: [
           {
             id: "22-9-1",
@@ -3316,6 +3316,7 @@ Mark 4: r = 10√3/3 ≈ 5.77 cm`,
         number: 11,
         title: "Probability",
         totalMarks: 15,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2021_q11.png",
         subQuestions: [
           {
             id: "21-11-1",
