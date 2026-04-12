@@ -26,7 +26,9 @@ export interface InfoSheet {
   title: string;
   /** Render from the pre-built markdown formula sheets (Maths) */
   formulaSheetVariant?: import("./formula-sheets").FormulaSheetVariant;
-  /** Render from Supabase-hosted images (Physics data sheets, etc.) */
+  /** Render a PDF in an iframe (upload PDF to Supabase storage) */
+  pdfUrl?: string;
+  /** Render from Supabase-hosted images (fallback for image-based sheets) */
   imageUrls?: string[];
 }
 
@@ -1437,11 +1439,7 @@ DB̂C = 106,26° → AB̂D = 180° − 106,26° = 73,74°`,
     durationHours: 3,
     infoSheet: {
       title: "Data Sheet",
-      imageUrls: [
-        "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2025_data-sheet_p1.png",
-        "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2025_data-sheet_p2.png",
-        "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2025_data-sheet_p3.png",
-      ],
+      pdfUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2025_data-sheet.pdf",
     },
     questions: [
       // ── QUESTION 1 — Multiple Choice (20 marks) ──────────────────────────────

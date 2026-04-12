@@ -505,9 +505,11 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
     ? FORMULA_SHEETS[sheet.formulaSheetVariant]
     : null;
 
+  const isPdf = !!sheet.pdfUrl;
+
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/40 p-0 sm:p-4">
-      <div className="bg-white rounded-t-2xl sm:rounded-2xl shadow-xl w-full sm:max-w-2xl max-h-[90vh] flex flex-col overflow-hidden">
+      <div className={`bg-white rounded-t-2xl sm:rounded-2xl shadow-xl w-full sm:max-w-2xl flex flex-col overflow-hidden ${isPdf ? "h-[90vh]" : "max-h-[90vh]"}`}>
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
           <div className="flex items-center gap-2">
@@ -516,40 +518,60 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
             </svg>
             <h2 className="font-bold text-gray-800 text-sm">{sheet.title}</h2>
           </div>
-          <button
-            onClick={onClose}
-            className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <div className="flex items-center gap-2">
+            {isPdf && (
+              <a
+                href={sheet.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-[#BE1832] font-medium hover:underline px-2 py-1"
+              >
+                Open in new tab
+              </a>
+            )}
+            <button
+              onClick={onClose}
+              className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
         {/* Content */}
-        <div className="flex-1 overflow-y-auto px-5 py-5 space-y-4 text-sm text-gray-700">
-          {markdownContent && (
-            <ReactMarkdown
-              remarkPlugins={[remarkMath]}
-              rehypePlugins={[rehypeKatex]}
-              components={{
-                h2: ({ children }) => <h2 className="text-base font-bold text-gray-800 mt-4 first:mt-0">{children}</h2>,
-                h3: ({ children }) => <h3 className="text-sm font-semibold text-gray-700 mt-3">{children}</h3>,
-                p: ({ children }) => <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>,
-                hr: () => <hr className="border-gray-200 my-3" />,
-              }}
-            >
-              {markdownContent}
-            </ReactMarkdown>
-          )}
-          {sheet.imageUrls?.map((url, i) => (
-            <img
-              key={i}
-              src={url}
-              alt={`${sheet.title} page ${i + 1}`}
-              className="w-full rounded-xl border border-gray-200"
-            />
-          ))}
-        </div>
+        {isPdf ? (
+          <iframe
+            src={sheet.pdfUrl}
+            className="flex-1 w-full"
+            title={sheet.title}
+          />
+        ) : (
+          <div className="flex-1 overflow-y-auto px-5 py-5 space-y-4 text-sm text-gray-700">
+            {markdownContent && (
+              <ReactMarkdown
+                remarkPlugins={[remarkMath]}
+                rehypePlugins={[rehypeKatex]}
+                components={{
+                  h2: ({ children }) => <h2 className="text-base font-bold text-gray-800 mt-4 first:mt-0">{children}</h2>,
+                  h3: ({ children }) => <h3 className="text-sm font-semibold text-gray-700 mt-3">{children}</h3>,
+                  p: ({ children }) => <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>,
+                  hr: () => <hr className="border-gray-200 my-3" />,
+                }}
+              >
+                {markdownContent}
+              </ReactMarkdown>
+            )}
+            {sheet.imageUrls?.map((url, i) => (
+              <img
+                key={i}
+                src={url}
+                alt={`${sheet.title} page ${i + 1}`}
+                className="w-full rounded-xl border border-gray-200"
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
