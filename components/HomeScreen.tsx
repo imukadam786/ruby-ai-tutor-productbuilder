@@ -190,7 +190,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
         {/* ── Current Streak ────────────────────────────────────────────── */}
         <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm mb-8">
           <div className="flex items-center gap-3">
-            <span className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0 text-xl">🔥</span>
+            <span className="text-2xl flex-shrink-0">🔥</span>
             <div>
               <p className="text-sm text-orange-600 font-medium">Current Streak</p>
               <div className="flex items-baseline gap-1.5 mt-0.5">
@@ -215,7 +215,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
                 onClick={() => onNavigate(action.view)}
                 className={`${action.bg} ${action.hover} rounded-2xl p-5 flex items-center gap-4 text-left transition-colors active:scale-[0.98]`}
               >
-                <div className="w-11 h-11 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="flex-shrink-0">
                   {action.icon}
                 </div>
                 <div>
@@ -237,9 +237,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
                 onClick={() => onNavigate(mode.id)}
                 className="bg-white rounded-2xl p-5 flex flex-col gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
               >
-                <div className={`w-10 h-10 ${mode.iconBg} rounded-xl flex items-center justify-center text-xl`}>
-                  {mode.emoji}
-                </div>
+                <span className="text-2xl">{mode.emoji}</span>
                 <div>
                   <p className="font-semibold text-gray-800 text-base">{mode.title}</p>
                   <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{mode.subtitle}</p>

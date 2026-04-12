@@ -100,7 +100,7 @@ export default function Sidebar({
     `w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left ${
       active
         ? "bg-white/25 text-white shadow-lg shadow-black/10"
-        : "text-white/75 hover:bg-white/15 hover:text-white"
+        : "text-white/90 hover:bg-white/15 hover:text-white"
     }`;
 
   return (
@@ -229,11 +229,11 @@ export default function Sidebar({
               <div key={section.key} className="space-y-1">
                 <button
                   onClick={() => toggleSection(section.key)}
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-white/60 hover:text-white hover:bg-white/15 transition-colors"
+                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-white/90 hover:text-white hover:bg-white/15 transition-colors"
                 >
-                  <div className="flex items-center gap-2 min-w-0 mr-1">
-                    <span className="text-base flex-shrink-0">{section.emoji}</span>
-                    <span className="text-sm font-semibold leading-tight">{section.label}</span>
+                  <div className="flex items-center gap-3 min-w-0 mr-1">
+                    <span className="text-lg flex-shrink-0">{section.emoji}</span>
+                    <span className="text-base font-medium leading-tight">{section.label}</span>
                   </div>
                   <ChevronIcon open={openSections[section.key]} />
                 </button>
@@ -265,7 +265,7 @@ export default function Sidebar({
           <button
             onClick={() => { onSettings?.(); onClose(); }}
             title={collapsed ? t("sidebar.settings") : undefined}
-            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-white/75 hover:bg-white/15 hover:text-white ${collapsed ? "justify-center px-0" : ""}`}
+            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-white/90 hover:bg-white/15 hover:text-white ${collapsed ? "justify-center px-0" : ""}`}
           >
             <span className="text-lg flex-shrink-0">⚙️</span>
             {!collapsed && <div className="font-medium text-base">{t("sidebar.settings")}</div>}
@@ -274,7 +274,7 @@ export default function Sidebar({
           <button
             onClick={onLogout}
             title={collapsed ? t("sidebar.logout") : undefined}
-            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-white/75 hover:bg-white/15 hover:text-white ${collapsed ? "justify-center px-0" : ""}`}
+            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-white/90 hover:bg-white/15 hover:text-white ${collapsed ? "justify-center px-0" : ""}`}
           >
             <span className="text-lg flex-shrink-0">🚪</span>
             {!collapsed && <div className="font-medium text-base">{t("sidebar.logout")}</div>}
