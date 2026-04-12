@@ -1379,9 +1379,6 @@ function ReadingFeedbackCard({
           <p className={`font-semibold ${result.is_correct ? "text-green-800" : "text-red-800"}`}>
             {result.is_correct ? "Correct!" : "Not quite right"}
           </p>
-          <p className={`text-base ${result.is_correct ? "text-green-600" : "text-red-600"}`}>
-            {result.error_type !== "correct" && (ERROR_LABELS[result.error_type] ?? "Keep practising")}
-          </p>
         </div>
       </div>
 
@@ -1403,10 +1400,11 @@ function ReadingFeedbackCard({
       </div>
 
       {!result.is_correct && result.recovery_explanation && (
-        <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-          <p className="text-blue-800 text-base leading-relaxed">
-            <span className="font-medium">Tip: </span>{result.recovery_explanation}
-          </p>
+        <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 flex items-start gap-2.5">
+          <svg className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.347a3.75 3.75 0 01-5.303 0l-.347-.347a5 5 0 117.072 0z" />
+          </svg>
+          <p className="text-blue-800 text-base leading-relaxed">{result.recovery_explanation}</p>
         </div>
       )}
 
