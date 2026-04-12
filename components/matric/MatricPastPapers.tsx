@@ -878,7 +878,7 @@ function SessionView({
             const idx = questionStartIndices[Number(e.target.value)];
             if (idx >= 0) setCurrentIdx(idx);
           }}
-          className="flex-1 min-w-0 border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
+          className="w-[180px] min-w-0 border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
         >
           {paper.questions.map((q, i) => (
             <option key={q.number} value={i}>
@@ -886,19 +886,25 @@ function SessionView({
             </option>
           ))}
         </select>
-        <span className="text-sm text-gray-500 font-semibold flex-shrink-0 whitespace-nowrap">
-          {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
-        </span>
-        <div className="w-20 h-1.5 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
-          <div
-            className="h-full bg-[#BE1832] rounded-full transition-all"
-            style={{ width: `${(submittedCount / totalQuestions) * 100}%` }}
-          />
-        </div>
-        <div className="flex items-center gap-1.5 flex-shrink-0">
-          <span className="text-xs text-gray-500 font-medium">{submittedCount}/{totalQuestions}</span>
-          <span className="inline-block w-2 h-2 rounded-full bg-green-400" title="answered" />
-          <span className="inline-block w-2 h-2 rounded-full bg-amber-400" title="in progress" />
+        {/* Student progress info */}
+        <div className="flex items-center gap-2 flex-1 min-w-0">
+          <span className="text-xs font-semibold text-gray-500 whitespace-nowrap">
+            Q{currentIdx + 1} of {totalQuestions}
+          </span>
+          <span className="text-gray-300 text-xs">·</span>
+          <span className="text-xs text-gray-500 font-semibold whitespace-nowrap">
+            {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
+          </span>
+          <span className="text-gray-300 text-xs">·</span>
+          <span className="text-xs text-gray-400 whitespace-nowrap">
+            {answeredCount} answered
+          </span>
+          <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden min-w-0 max-w-[80px]">
+            <div
+              className="h-full bg-[#BE1832] rounded-full transition-all"
+              style={{ width: `${(answeredCount / totalQuestions) * 100}%` }}
+            />
+          </div>
         </div>
         {paper.infoSheet && (
           <button
@@ -997,17 +1003,17 @@ function SessionView({
                     onChange={(e) =>
                       updateAttempt(currentSQ.id, { textWorking: e.target.value })
                     }
-                    placeholder="Type your working here… e.g. x² - 3x - 10 = 0 → (x+2)(x-5) = 0"
+                    placeholder="Show your working here"
                     className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
                   />
 
-                  {/* Below textarea: camera + hint + char count */}
-                  <div className="flex items-center gap-3 flex-shrink-0">
+                  {/* Below textarea: camera + hint — centred */}
+                  <div className="flex items-center justify-center gap-4 flex-shrink-0">
                     {!currentAttempt.imagePreviewUrl && (
                       <>
                         <button
                           onClick={() => fileInputRef.current?.click()}
-                          className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-[#BE1832] transition-colors"
+                          className="flex items-center gap-1.5 text-sm font-semibold text-blue-500 hover:text-blue-700 transition-colors"
                         >
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
@@ -1044,9 +1050,6 @@ function SessionView({
                         {hintLevel === 0 ? "Need a hint?" : hintLevel === 1 ? "A bit more help" : "Show me the first step"}
                       </button>
                     )}
-                    <span className="ml-auto text-xs text-gray-300">
-                      {currentAttempt.textWorking.length > 0 ? `${currentAttempt.textWorking.length} chars` : ""}
-                    </span>
                   </div>
 
                   {/* Image preview */}
@@ -1140,21 +1143,14 @@ function SessionView({
                   </button>
                 )
               ) : (
-                /* Practice mode — prev / skip / next */
-                <div className="flex gap-2 flex-shrink-0">
+                /* Practice mode — prev / save & next / skip */
+                <div className="flex justify-center gap-3 flex-shrink-0">
                   <button
                     onClick={() => goTo(currentIdx - 1)}
                     disabled={currentIdx === 0}
                     className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors"
                   >
                     ← Prev
-                  </button>
-                  <button
-                    onClick={() => goTo(currentIdx + 1)}
-                    disabled={currentIdx === totalQuestions - 1}
-                    className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors"
-                  >
-                    Skip
                   </button>
                   <button
                     onClick={() => {
@@ -1164,9 +1160,16 @@ function SessionView({
                       goTo(currentIdx + 1);
                     }}
                     disabled={currentIdx === totalQuestions - 1}
-                    className="flex-1 py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 transition-colors"
+                    className="py-2.5 px-5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 transition-colors"
                   >
                     Save & Next →
+                  </button>
+                  <button
+                    onClick={() => goTo(currentIdx + 1)}
+                    disabled={currentIdx === totalQuestions - 1}
+                    className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors"
+                  >
+                    Skip
                   </button>
                 </div>
               )}
