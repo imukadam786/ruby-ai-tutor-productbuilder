@@ -1,3 +1,5 @@
+export type MCQOptions = { A: string; B: string; C: string; D: string };
+
 export interface SubQuestion {
   id: string;
   label: string;
@@ -6,6 +8,10 @@ export interface SubQuestion {
   memoText: string;
   topic: string;
   diagramUrl?: string;
+  /** "mcq" renders A/B/C/D option cards. Defaults to "written" if omitted. */
+  type?: "written" | "mcq";
+  /** Required when type === "mcq" */
+  options?: MCQOptions;
 }
 
 export interface PaperQuestion {
@@ -14,6 +20,14 @@ export interface PaperQuestion {
   totalMarks: number;
   diagramUrl?: string;
   subQuestions: SubQuestion[];
+}
+
+export interface InfoSheet {
+  title: string;
+  /** Render from the pre-built markdown formula sheets (Maths) */
+  formulaSheetVariant?: import("./formula-sheets").FormulaSheetVariant;
+  /** Render from Supabase-hosted images (Physics data sheets, etc.) */
+  imageUrls?: string[];
 }
 
 export interface Paper {
@@ -27,7 +41,8 @@ export interface Paper {
   questions: PaperQuestion[];
   questionPaperUrl?: string;
   memoUrl?: string;
-  formulaSheetVariant?: import("./formula-sheets").FormulaSheetVariant;
+  /** Info / formula / data sheet shown in-session */
+  infoSheet?: InfoSheet;
 }
 
 export const PAPERS: Paper[] = [
@@ -39,7 +54,7 @@ export const PAPERS: Paper[] = [
     session: "May/June",
     totalMarks: 150,
     durationHours: 3,
-    formulaSheetVariant: "standard",
+    infoSheet: { title: "Info Sheet", formulaSheetVariant: "standard" },
     questions: [
       {
         number: 1,
@@ -705,7 +720,7 @@ Mark 3: = 347/499 ≈ 0.70`,
     session: "May/June",
     totalMarks: 150,
     durationHours: 3,
-    formulaSheetVariant: "standard",
+    infoSheet: { title: "Info Sheet", formulaSheetVariant: "standard" },
     questions: [
       {
         number: 1,
