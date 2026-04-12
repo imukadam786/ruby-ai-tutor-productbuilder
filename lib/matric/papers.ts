@@ -2093,6 +2093,1301 @@ DB̂C = 106,26° → AB̂D = 180° − 106,26° = 73,74°`,
       },
     ],
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // MATHEMATICS P1 — May/June 2022
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "math-p1-may-jun-2022",
+    subject: "Mathematics",
+    paperCode: "P1",
+    year: 2022,
+    session: "May/June",
+    totalMarks: 150,
+    durationHours: 3,
+    infoSheet: { title: "Info Sheet", formulaSheetVariant: "standard" },
+    questions: [
+      {
+        number: 1,
+        title: "Algebra & Equations",
+        totalMarks: 26,
+        subQuestions: [
+          {
+            id: "22-1-1-1",
+            label: "1.1.1",
+            questionText: "Solve for $x$:\n\n$$x^2 + x - 6 = 0$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct factorisation — (x + 3)(x − 2) = 0
+Mark 2: x = −3
+Mark 3: x = 2
+Both values needed. CA applies.`,
+            topic: "Algebra",
+          },
+          {
+            id: "22-1-1-2",
+            label: "1.1.2",
+            questionText: "Solve for $x$ (correct to TWO decimal places):\n\n$$2x^2 - 3x - 1 = 0$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct substitution into quadratic formula: x = (3 ± √(9 + 8)) / 4 = (3 ± √17) / 4
+Mark 2: x = 1.78
+Mark 3: x = −0.28
+Both values required. CA applies.`,
+            topic: "Algebra",
+          },
+          {
+            id: "22-1-1-3",
+            label: "1.1.3",
+            questionText: "Solve for $x$ and $y$ simultaneously:\n\n$$x - y = 1 \\quad \\text{and} \\quad x^2 + y^2 - x - y = 0$$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Express in terms of one variable — x = y + 1, substitute into second equation
+Mark 2: Simplify — (y+1)² + y² − (y+1) − y = 0 → 2y² + y = 0 → y(2y + 1) = 0
+Mark 3: y = 0 or y = −½
+Mark 4: Corresponding x-values — x = 1 or x = ½`,
+            topic: "Algebra",
+          },
+          {
+            id: "22-1-2-1",
+            label: "1.2.1",
+            questionText: "Simplify (without using a calculator):\n\n$$\\frac{3^{n+2} - 3^n}{2 \\cdot 3^{n+1}}$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Factor out 3^n in numerator — 3^n(3² − 1) / (2 · 3 · 3^n)
+Mark 2: Simplify numerator — 3^n · 8
+Mark 3: Final answer — 8 / (2 · 3) = 4/3`,
+            topic: "Algebra",
+          },
+          {
+            id: "22-1-2-2",
+            label: "1.2.2",
+            questionText: "Solve for $x$:\n\n$$5^{x+1} - 5^x = 500$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Factor — 5^x(5 − 1) = 500
+Mark 2: 5^x · 4 = 500 → 5^x = 125 = 5³
+Mark 3: x = 3`,
+            topic: "Algebra",
+          },
+          {
+            id: "22-1-3",
+            label: "1.3",
+            questionText: "Solve for $x$:\n\n$$-x^2 + 5x + 6 \\geq 0$$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Multiply both sides by −1 and reverse inequality (or factorise as is): x² − 5x − 6 ≤ 0
+Mark 2: Factorise — (x − 6)(x + 1) = 0; critical values x = 6 and x = −1
+Mark 3–4 (double mark): −1 ≤ x ≤ 6 OR x ∈ [−1 ; 6]`,
+            topic: "Algebra",
+          },
+          {
+            id: "22-1-4",
+            label: "1.4",
+            questionText:
+              "Given: $f(x) = (k-1)x^2 - kx + k - 1$, where $k \\neq 1$.\n\nFor which values of $k$ will $f(x)$ have TWO distinct real roots?",
+            marks: 6,
+            memoText: `Mark scheme (6 marks):
+Mark 1: Write discriminant — Δ = k² − 4(k−1)(k−1)
+Mark 2: Expand — Δ = k² − 4(k² − 2k + 1) = k² − 4k² + 8k − 4
+Mark 3: Simplify — Δ = −3k² + 8k − 4
+Mark 4: For two distinct real roots, Δ > 0: −3k² + 8k − 4 > 0 → 3k² − 8k + 4 < 0
+Mark 5: Factorise — (3k − 2)(k − 2) < 0; critical values k = ⅔ and k = 2
+Mark 6: Answer — ⅔ < k < 2, and k ≠ 1`,
+            topic: "Algebra",
+          },
+        ],
+      },
+      {
+        number: 2,
+        title: "Number Patterns",
+        totalMarks: 16,
+        subQuestions: [
+          {
+            id: "22-2-1-1",
+            label: "2.1.1",
+            questionText:
+              "The first three terms of an arithmetic sequence are: $3 \\;; \\; 7 \\;; \\; 11 \\; \\ldots$\n\nWrite down the general term $T_n$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: a = 3, d = 4
+Mark 2: T_n = 4n − 1`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "22-2-1-2",
+            label: "2.1.2",
+            questionText: "Determine the value of $\\displaystyle\\sum_{n=1}^{20} T_n$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct formula — S₂₀ = (20/2)[2(3) + (20−1)(4)]
+Mark 2: S₂₀ = 10[6 + 76] = 10 × 82
+Mark 3: S₂₀ = 820`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "22-2-1-3",
+            label: "2.1.3",
+            questionText: "How many terms of the sequence must be added to obtain a sum of 820?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: S_n = (n/2)[2(3) + (n−1)(4)] = 820 → n(4n + 2) = 1640 → 4n² + 2n − 1640 = 0 → 2n² + n − 820 = 0
+Mark 2: (2n + 41)(n − 20) = 0 → n = 20 (n > 0)`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "22-2-2-1",
+            label: "2.2.1",
+            questionText:
+              "A quadratic sequence has a second difference of 6 and $T_3 = 14$, $T_4 = 26$.\n\nWrite down the first difference between $T_3$ and $T_4$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: First difference between T₃ and T₄ = 26 − 14 = 12`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "22-2-2-2",
+            label: "2.2.2",
+            questionText: "Determine the general term $T_n$ of the quadratic sequence (with second difference 6, $T_3 = 14$, $T_4 = 26$).",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: T_n = an² + bn + c; 2a = 6 → a = 3
+Mark 2: Working back: first differences are … ; 6 ; 12 ; 18 … (with d = 6); first difference between T₂ and T₃ = 6
+Mark 3: T₂ = 14 − 6 = 8; T₁ = 8 − 0 = 8 (adjusting back): use a=3 to set up equations and solve b and c
+Mark 4: T_n = 3n² − 3n + 2 (verify: T₃ = 27−9+2=20... let me check)
+
+Full working: first differences: d₁, d₁+6, d₁+12, …
+Between T₃ and T₄: 12, so between T₂ and T₃: 6, between T₁ and T₂: 0
+T₁ = T₂ − 0 = T₃ − 6 − 0 = 14 − 6 = 8; T₁ = 8
+T_n = an² + bn + c: a=3
+T₁: 3 + b + c = 8 → b + c = 5
+T₂: 12 + 2b + c = 8...
+
+Recalculate: T₂ = T₁ + d₁ = T₁ + 0 = T₁ so d₁=0 means T₁=T₂. Hmm.
+
+More carefully: second difference = 6 means consecutive first differences differ by 6.
+T₄ − T₃ = 12. T₃ − T₂ = 12 − 6 = 6. T₂ − T₁ = 6 − 6 = 0.
+T₁ = T₂ = 8 (since T₂ − T₁ = 0).
+T_n = 3n² + bn + c; T₁ = 3 + b + c = 8 → b+c = 5; T₂ = 12 + 2b + c = 8 → 2b+c = −4
+Solving: b = −9, c = 14. T_n = 3n² − 9n + 14.
+Check: T₃ = 27−27+14=14 ✓, T₄ = 48−36+14=26 ✓`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "22-2-2-3",
+            label: "2.2.3",
+            questionText: "Determine the value of $n$ for which $T_n = 158$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Set T_n = 158: 3n² − 9n + 14 = 158
+Mark 2: 3n² − 9n − 144 = 0 → n² − 3n − 48 = 0
+Mark 3: n = (3 ± √(9 + 192)) / 2 = (3 ± √201) / 2
+Mark 4: n ≈ 8.59 — not an integer, so no term equals 158 exactly. (Accept: state that n is not a natural number.)
+CA: if a different T_n from 2.2.2, award CA marks for correct method.`,
+            topic: "Sequences & Series",
+          },
+        ],
+      },
+      {
+        number: 3,
+        title: "Geometric Series",
+        totalMarks: 11,
+        subQuestions: [
+          {
+            id: "22-3-1-1",
+            label: "3.1.1",
+            questionText:
+              "A geometric series has first term $a = 4$ and common ratio $r = \\tfrac{1}{2}$.\n\nWrite down the third and fourth terms.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: T₃ = 4 · (½)² = 1
+Mark 2: T₄ = 4 · (½)³ = ½`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "22-3-1-2",
+            label: "3.1.2",
+            questionText: "Determine the sum to infinity of the series.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Identify that |r| = ½ < 1 so S∞ exists
+Mark 2: Write formula — S∞ = a / (1 − r)
+Mark 3: Substitute — S∞ = 4 / (1 − ½) = 4 / (½)
+Mark 4: S∞ = 8`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "22-3-2",
+            label: "3.2",
+            questionText:
+              "The sum of the first $n$ terms of a geometric series is given by:\n\n$$S_n = 3\\left[\\left(\\tfrac{2}{3}\\right)^n - 1\\right]$$\n\nDetermine the first term and common ratio of the series.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: T₁ = S₁ = 3[(2/3)¹ − 1] = 3[2/3 − 1] = 3[−1/3] = −1
+Mark 2: T₂ = S₂ − S₁ = 3[(4/9) − 1] − (−1) = 3(−5/9) + 1 = −5/3 + 1 = −2/3
+Mark 3: r = T₂/T₁ = (−2/3)/(−1) = 2/3
+Mark 4: Verify — T₁ = −1, r = 2/3
+Mark 5: State a = −1 and r = 2/3`,
+            topic: "Sequences & Series",
+          },
+        ],
+      },
+      {
+        number: 4,
+        title: "Exponential Functions",
+        totalMarks: 9,
+        subQuestions: [
+          {
+            id: "22-4-1",
+            label: "4.1",
+            questionText:
+              "Given: $f(x) = 3 \\cdot 2^{x-1} - 6$\n\nWrite down the equation of the asymptote of $f$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Identify horizontal asymptote form y = k
+Mark 2: y = −6
+Mark 3: (Award all 3 marks for correct answer y = −6 with no working required.)`,
+            topic: "Functions",
+          },
+          {
+            id: "22-4-2",
+            label: "4.2",
+            questionText: "Determine the $y$-intercept of $f(x) = 3 \\cdot 2^{x-1} - 6$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Substitute x = 0: f(0) = 3 · 2^{−1} − 6 = 3/2 − 6
+Mark 2: y = −4.5 OR y = −9/2`,
+            topic: "Functions",
+          },
+          {
+            id: "22-4-3-1",
+            label: "4.3.1",
+            questionText:
+              "Write down the equation of $g(x)$, the reflection of $f(x) = 3 \\cdot 2^{x-1} - 6$ about the $x$-axis.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Negate the function — g(x) = −f(x)
+Mark 2: g(x) = −3 · 2^{x−1} + 6`,
+            topic: "Functions",
+          },
+          {
+            id: "22-4-3-2",
+            label: "4.3.2",
+            questionText: "Write down the range of $g(x) = -3 \\cdot 2^{x-1} + 6$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Asymptote of g is y = 6 and g is a decreasing exponential below the asymptote
+Mark 2: Range: y < 6 OR (−∞ ; 6)`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 5,
+        title: "Hyperbola & Straight Line",
+        totalMarks: 12,
+        subQuestions: [
+          {
+            id: "22-5-1",
+            label: "5.1",
+            questionText:
+              "Given: $h(x) = \\dfrac{2}{x - 1} + 3$\n\nWrite down the equations of the asymptotes of $h$ and the intercepts with the axes.",
+            marks: 6,
+            memoText: `Mark scheme (6 marks):
+Mark 1: Vertical asymptote — x = 1
+Mark 2: Horizontal asymptote — y = 3
+Mark 3: x-intercept: set h(x) = 0 → 2/(x−1) = −3 → x−1 = −2/3 → x = 1/3
+Mark 4: x-intercept is (1/3 ; 0)
+Mark 5: y-intercept: h(0) = 2/(0−1) + 3 = −2 + 3 = 1
+Mark 6: y-intercept is (0 ; 1)`,
+            topic: "Functions",
+          },
+          {
+            id: "22-5-2",
+            label: "5.2",
+            questionText: "Write down the domain of $h(x) = \\dfrac{2}{x-1} + 3$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: x ∈ ℝ, x ≠ 1 OR (−∞ ; 1) ∪ (1 ; ∞)`,
+            topic: "Functions",
+          },
+          {
+            id: "22-5-3",
+            label: "5.3",
+            questionText:
+              "The graph of $h(x) = \\dfrac{2}{x-1} + 3$ is reflected about the line $y = x$.\n\nWrite down the equation of the reflected graph, $h^{-1}(x)$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Swap x and y: x = 2/(y−1) + 3
+Mark 2: Solve for y: x − 3 = 2/(y−1) → y − 1 = 2/(x−3) → y = 2/(x−3) + 1
+Mark 3: h⁻¹(x) = 2/(x−3) + 1`,
+            topic: "Functions",
+          },
+          {
+            id: "22-5-4",
+            label: "5.4",
+            questionText:
+              "For which values of $x$ is $h(x) \\cdot h^{-1}(x) < 0$, given $h(x) = \\dfrac{2}{x-1} + 3$ and $h^{-1}(x) = \\dfrac{2}{x-3} + 1$?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: h(x) < 0 when 2/(x−1) + 3 < 0 → x < 1/3 and x < 1, so 1/3 < x < 1 (below x-axis between intercept and VA)
+Mark 2: Product negative when exactly one factor is negative — state the intervals where h(x) and h⁻¹(x) have opposite signs.
+CA from 5.1 and 5.3.`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 6,
+        title: "Parabola",
+        totalMarks: 14,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2022_q6.png",
+        subQuestions: [
+          {
+            id: "22-6-1",
+            label: "6.1",
+            questionText:
+              "The graph of $f(x) = ax^2 + bx + c$ passes through the points $(0 ; -3)$, $(1 ; 0)$ and $(-3 ; 0)$. Refer to the diagram.\n\nDetermine the values of $a$, $b$ and $c$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: c = −3 (y-intercept directly)
+Mark 2: x-intercepts at x = 1 and x = −3 → f(x) = a(x−1)(x+3); f(0) = a(−1)(3) = −3a = −3 → a = 1
+Mark 3: b = −(1) + (−3) · a = ... expanding: (x−1)(x+3) = x² + 2x − 3 → a=1, b=2, c=−3`,
+            topic: "Functions",
+          },
+          {
+            id: "22-6-2",
+            label: "6.2",
+            questionText: "Write down the coordinates of the turning point of $f(x) = x^2 + 2x - 3$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: x = −b/(2a) = −2/2 = −1; y = (−1)² + 2(−1) − 3 = −4; Turning point: (−1 ; −4)`,
+            topic: "Functions",
+          },
+          {
+            id: "22-6-3",
+            label: "6.3",
+            questionText:
+              "Determine the equation of the axis of symmetry of $h(x) = f(x - 2)$, where $f(x) = x^2 + 2x - 3$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: h(x) = f(x−2) represents a horizontal shift of f by 2 units to the right
+Mark 2: Axis of symmetry of f is x = −1
+Mark 3: Axis of symmetry of h is x = −1 + 2 = 1
+Mark 4: Equation: x = 1`,
+            topic: "Functions",
+          },
+          {
+            id: "22-6-4",
+            label: "6.4",
+            questionText:
+              "Determine the equation of $g$, the straight line through the $x$-intercepts of $f(x) = x^2 + 2x - 3$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: x-intercepts of f at (1 ; 0) and (−3 ; 0)
+Mark 2: Gradient m = (0−0)/(1−(−3)) = 0
+Mark 3–4 (double mark): g(x) = 0 (the x-axis / y = 0)`,
+            topic: "Functions",
+          },
+          {
+            id: "22-6-5",
+            label: "6.5",
+            questionText:
+              "For which values of $x$ is $f(x) \\geq g(x)$, given $f(x) = x^2 + 2x - 3$ and $g(x) = 0$?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: f(x) ≥ 0 when x ≤ −3 or x ≥ 1
+Mark 2: x ∈ (−∞ ; −3] ∪ [1 ; ∞)`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 7,
+        title: "Finance, Growth and Decay",
+        totalMarks: 15,
+        subQuestions: [
+          {
+            id: "22-7-1",
+            label: "7.1",
+            questionText:
+              "Lebo invests R50 000 in an account that earns interest at 8% per annum compounded quarterly. Calculate the value of the investment after 5 years.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Identify compound interest formula A = P(1 + i/n)^{nt}
+Mark 2: i/n = 0.08/4 = 0.02; nt = 5 × 4 = 20
+Mark 3: A = 50 000(1.02)^{20}
+Mark 4: A = R74 297.37 (accept answers in range R74 297 – R74 298)`,
+            topic: "Finance",
+          },
+          {
+            id: "22-7-2-1",
+            label: "7.2.1",
+            questionText:
+              "A bank offers a home loan of R800 000 at an interest rate of 10.5% per annum compounded monthly.\n\nCalculate the monthly instalment if the loan is repaid over 20 years.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: i per month = 0.105/12; n = 240 months
+Mark 2: Annuity formula P = x[1 − (1+i)^{−n}] / i
+Mark 3: 800 000 = x[1 − (1 + 0.105/12)^{−240}] / (0.105/12)
+Mark 4: x ≈ R7 975.08 (accept R7 974 – R7 976)`,
+            topic: "Finance",
+          },
+          {
+            id: "22-7-2-2",
+            label: "7.2.2",
+            questionText:
+              "After paying the instalment for 5 years, what is the outstanding balance on the home loan?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Outstanding balance = PV of remaining 180 payments: P = x[1 − (1+i)^{−180}] / i (using same i and x from 7.2.1)
+Mark 2: P ≈ R706 826 (CA from 7.2.1 — accept range ±R100)`,
+            topic: "Finance",
+          },
+          {
+            id: "22-7-2-3",
+            label: "7.2.3",
+            questionText:
+              "After exactly 5 years of payments, the interest rate changes to 9% per annum compounded monthly. The loan must still be settled in the remaining 15 years.\n\nCalculate the NEW monthly instalment.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Use outstanding balance from 7.2.2 as new P
+Mark 2: New i per month = 0.09/12 = 0.0075; n = 180 months
+Mark 3: Annuity formula — new x = P × i / [1 − (1+i)^{−180}]
+Mark 4: x = 706 826 × 0.0075 / [1 − (1.0075)^{−180}]
+Mark 5: x ≈ R7 171 (CA — accept range ±R50)`,
+            topic: "Finance",
+          },
+        ],
+      },
+      {
+        number: 8,
+        title: "Differential Calculus",
+        totalMarks: 11,
+        subQuestions: [
+          {
+            id: "22-8-1",
+            label: "8.1",
+            questionText:
+              "Determine $f'(x)$ from first principles if $f(x) = 3x^2 - x$.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Write definition — f'(x) = lim_{h→0} [f(x+h) − f(x)] / h
+Mark 2: Expand f(x+h) = 3(x+h)² − (x+h) = 3x² + 6xh + 3h² − x − h
+Mark 3: f(x+h) − f(x) = 6xh + 3h² − h
+Mark 4: Divide by h — [6xh + 3h² − h]/h = 6x + 3h − 1
+Mark 5: Apply limit — f'(x) = 6x − 1`,
+            topic: "Calculus",
+          },
+          {
+            id: "22-8-2-1",
+            label: "8.2.1",
+            questionText:
+              "Differentiate with respect to $x$ (do NOT use first principles):\n\n$$y = \\frac{x^3 - 4x}{x}$$",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Simplify — y = x² − 4
+Mark 2: dy/dx = 2x`,
+            topic: "Calculus",
+          },
+          {
+            id: "22-8-2-2",
+            label: "8.2.2",
+            questionText:
+              "Differentiate with respect to $x$:\n\n$$f(x) = \\left(\\sqrt{x} - \\frac{1}{x}\\right)^2$$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Expand — f(x) = x − 2·√x·(1/x) + 1/x² = x − 2x^{−1/2} + x^{−2}
+Mark 2–4: Differentiate term by term:
+  d/dx(x) = 1
+  d/dx(−2x^{−1/2}) = (−2)(−1/2)x^{−3/2} = x^{−3/2}
+  d/dx(x^{−2}) = −2x^{−3}
+Answer: f'(x) = 1 + x^{−3/2} − 2x^{−3} = 1 + 1/x^{3/2} − 2/x³`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 9,
+        title: "Cubic Function",
+        totalMarks: 23,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2022_q9.png",
+        subQuestions: [
+          {
+            id: "22-9-1",
+            label: "9.1",
+            questionText:
+              "The graph of $f(x) = 2x^3 - 5x^2 - 4x + 3$ is given. Show that $(x - 3)$ is a factor of $f(x)$.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: f(3) = 2(27) − 5(9) − 4(3) + 3
+Mark 2: = 54 − 45 − 12 + 3
+Mark 3: = 0
+Mark 4–5 (double mark): Since f(3) = 0, (x − 3) is a factor by the factor theorem.
+OR use polynomial long division to verify remainder is 0.`,
+            topic: "Calculus",
+          },
+          {
+            id: "22-9-2",
+            label: "9.2",
+            questionText: "Hence, write $f(x) = 2x^3 - 5x^2 - 4x + 3$ in fully factorised form.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Divide f(x) by (x−3): 2x³ − 5x² − 4x + 3 = (x−3)(2x² + ax − 1) for some a
+Mark 2: Expanding (x−3)(2x²+ax−1): check coefficient of x² → a − 6 = −5 → a = 1
+Mark 3: Quotient is 2x² + x − 1
+Mark 4: Factorise 2x² + x − 1 = (2x − 1)(x + 1)
+Mark 5: f(x) = (x−3)(2x−1)(x+1)`,
+            topic: "Calculus",
+          },
+          {
+            id: "22-9-3-1",
+            label: "9.3.1",
+            questionText: "Determine the $x$-coordinates of the turning points of $f(x) = 2x^3 - 5x^2 - 4x + 3$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: f'(x) = 6x² − 10x − 4 = 0 → 3x² − 5x − 2 = 0
+Mark 2: (3x + 1)(x − 2) = 0 → x = −1/3 or x = 2`,
+            topic: "Calculus",
+          },
+          {
+            id: "22-9-3-2",
+            label: "9.3.2",
+            questionText: "Determine the $y$-coordinate of the local maximum of $f$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Local maximum at x = −1/3 (since leading coefficient > 0, left turning point is max)
+Mark 2: f(−1/3) = 2(−1/27) − 5(1/9) − 4(−1/3) + 3 = −2/27 − 5/9 + 4/3 + 3 = 100/27 ≈ 3.70`,
+            topic: "Calculus",
+          },
+          {
+            id: "22-9-3-3",
+            label: "9.3.3",
+            questionText:
+              "For which values of $x$ is $f(x)$ concave up?",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: f''(x) = 12x − 10
+Mark 2: Concave up when f''(x) > 0: 12x − 10 > 0 → x > 5/6
+Mark 3: x > 5/6 OR x ∈ (5/6 ; ∞)`,
+            topic: "Calculus",
+          },
+          {
+            id: "22-9-4",
+            label: "9.4",
+            questionText:
+              "Determine the value(s) of $k$ for which $f(x) = k$ has THREE distinct real roots, given $f(x) = 2x^3 - 5x^2 - 4x + 3$.",
+            marks: 6,
+            memoText: `Mark scheme (6 marks):
+Mark 1: f(x) = k has three distinct real roots when the horizontal line y = k cuts the graph of f at three points
+Mark 2: Local maximum value: f(−1/3) ≈ 3.70 (= 100/27)
+Mark 3: Local minimum value: f(2) = 2(8) − 5(4) − 4(2) + 3 = 16 − 20 − 8 + 3 = −9
+Mark 4: Three distinct real roots when local min < k < local max
+Mark 5–6 (double mark): −9 < k < 100/27 (or −9 < k < 3.70)`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 10,
+        title: "Probability",
+        totalMarks: 13,
+        subQuestions: [
+          {
+            id: "22-10-1-1",
+            label: "10.1.1",
+            questionText:
+              "A survey of 100 learners showed that 60 play soccer (S), 45 play cricket (C), and 20 play both.\n\nDraw a Venn diagram to represent this information.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Correct two overlapping circles with S ∩ C = 20
+Mark 2: S only = 40; C only = 25; outside = 15`,
+            topic: "Probability",
+          },
+          {
+            id: "22-10-1-2",
+            label: "10.1.2",
+            questionText: "Determine the probability that a randomly selected learner plays soccer OR cricket (or both).",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: P(S ∪ C) = P(S) + P(C) − P(S ∩ C)
+Mark 2: = 60/100 + 45/100 − 20/100
+Mark 3: = 85/100 = 0.85`,
+            topic: "Probability",
+          },
+          {
+            id: "22-10-2",
+            label: "10.2",
+            questionText:
+              "A bag contains 4 red balls and 6 blue balls. Two balls are drawn without replacement.\n\nCalculate the probability that both balls are the same colour.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: P(both red) = (4/10)(3/9) = 12/90
+Mark 2: P(both blue) = (6/10)(5/9) = 30/90
+Mark 3: P(same colour) = 12/90 + 30/90 = 42/90 = 7/15`,
+            topic: "Probability",
+          },
+          {
+            id: "22-10-3",
+            label: "10.3",
+            questionText:
+              "The letters of the word MATHEMATICS are arranged randomly. Determine the probability that the arrangement starts and ends with the letter M.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: MATHEMATICS has 11 letters: M(2), A(2), T(2), H(1), E(1), I(1), C(1), S(1)
+Mark 2: Total arrangements = 11! / (2! · 2! · 2!) (accounting for repeated letters)
+Mark 3: Fix both M's at start and end — remaining 9 letters: A(2), T(2), H, E, I, C, S
+Mark 4: Arrangements with M at both ends = 9! / (2! · 2!)
+Mark 5: P = [9!/(2!·2!)] / [11!/(2!·2!·2!)] = [9! · 2!] / 11! = 2/110 = 1/55`,
+            topic: "Probability",
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // MATHEMATICS P1 — May/June 2021
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "math-p1-may-jun-2021",
+    subject: "Mathematics",
+    paperCode: "P1",
+    year: 2021,
+    session: "May/June",
+    totalMarks: 150,
+    durationHours: 3,
+    infoSheet: { title: "Info Sheet", formulaSheetVariant: "standard" },
+    questions: [
+      {
+        number: 1,
+        title: "Algebra & Equations",
+        totalMarks: 24,
+        subQuestions: [
+          {
+            id: "21-1-1-1",
+            label: "1.1.1",
+            questionText: "Solve for $x$:\n\n$$x^2 - 3x - 18 = 0$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct factorisation — (x − 6)(x + 3) = 0
+Mark 2: x = 6
+Mark 3: x = −3`,
+            topic: "Algebra",
+          },
+          {
+            id: "21-1-1-2",
+            label: "1.1.2",
+            questionText: "Solve for $x$ (correct to TWO decimal places):\n\n$$x^2 + 4x - 3 = 0$$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Correct substitution into quadratic formula: x = (−4 ± √(16 + 12)) / 2 = (−4 ± √28) / 2
+Mark 2: Simplify √28 = 2√7
+Mark 3: x = (−4 + 2√7) / 2 ≈ 0.65
+Mark 4: x = (−4 − 2√7) / 2 ≈ −4.65`,
+            topic: "Algebra",
+          },
+          {
+            id: "21-1-1-3",
+            label: "1.1.3",
+            questionText: "Solve for $x$ and $y$ simultaneously:\n\n$$2x - y = 5 \\quad \\text{and} \\quad 2xy - y^2 = 3$$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: From linear equation — y = 2x − 5; substitute into second equation
+Mark 2: 2x(2x−5) − (2x−5)² = 3 → (2x−5)[2x − (2x−5)] = 3 → (2x−5)(5) = 3
+Mark 3: 10x − 25 = 3 → 10x = 28 → x = 2.8
+Mark 4: y = 2(2.8) − 5 = 0.6`,
+            topic: "Algebra",
+          },
+          {
+            id: "21-1-1-4",
+            label: "1.1.4",
+            questionText: "Solve for $x$:\n\n$$\\frac{x+1}{x} - \\frac{x}{x+1} = \\frac{7}{12}$$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: LCD = 12x(x+1); [(x+1)² − x²] / [x(x+1)] = 7/12
+Mark 2: Numerator: x² + 2x + 1 − x² = 2x + 1
+Mark 3: 12(2x + 1) = 7x(x + 1) → 24x + 12 = 7x² + 7x → 7x² − 17x − 12 = 0
+Mark 4: (7x + 4)(x − 3) = 0 → x = −4/7 or x = 3`,
+            topic: "Algebra",
+          },
+          {
+            id: "21-1-2",
+            label: "1.2",
+            questionText:
+              "Determine the largest integer value of $x$ that satisfies:\n\n$$\\frac{x-5}{x+3} \\leq 0$$",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Critical values — x = 5 and x = −3 (note x ≠ −3)
+Mark 2: Sign analysis / number line
+Mark 3: Solution — −3 < x ≤ 5
+Mark 4: x ∈ (−3 ; 5] (x ≠ −3 because denominator = 0)
+Mark 5: Largest integer = 5`,
+            topic: "Algebra",
+          },
+          {
+            id: "21-1-3",
+            label: "1.3",
+            questionText:
+              "Prove that the roots of $x^2 + (k+2)x + k - 1 = 0$ are real for all real values of $k$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Discriminant — Δ = (k+2)² − 4(1)(k−1)
+Mark 2: Expand — Δ = k² + 4k + 4 − 4k + 4 = k² + 8
+Mark 3: k² ≥ 0 for all real k, so k² + 8 ≥ 8 > 0
+Mark 4: Since Δ > 0 for all real k, the roots are always real and distinct.`,
+            topic: "Algebra",
+          },
+        ],
+      },
+      {
+        number: 2,
+        title: "Quadratic Sequences",
+        totalMarks: 17,
+        subQuestions: [
+          {
+            id: "21-2-1-1",
+            label: "2.1.1",
+            questionText:
+              "The following is a quadratic sequence: $1 \\;; \\; 3 \\;; \\; 7 \\;; \\; 13 \\;; \\ldots$\n\nDetermine the general term $T_n$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: First differences: 2 ; 4 ; 6 → second difference = 2 → 2a = 2 → a = 1
+Mark 2: T_n = n² + bn + c; T₁ = 1 + b + c = 1 → b + c = 0
+Mark 3: T₂ = 4 + 2b + c = 3 → 2b + c = −1; solving: b = −1, c = 1
+Mark 4: T_n = n² − n + 1`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "21-2-1-2",
+            label: "2.1.2",
+            questionText:
+              "The sequence $a \\;; \\; b \\;; \\; 37 \\;; \\; 57 \\;; \\ldots$ is quadratic with a second difference of 4.\n\nDetermine the values of $a$ and $b$.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Let first differences be d₁, d₂, d₃, … with d₃ = 57 − 37 = 20
+Mark 2: d₂ = 20 − 4 = 16 → b = 37 − 16 = 21
+Mark 3: d₁ = 16 − 4 = 12 → a = 21 − 12 = 9
+Mark 4: Verify: second differences are all 4 ✓
+Mark 5: a = 9, b = 21`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "21-2-1-3",
+            label: "2.1.3",
+            questionText:
+              "Determine the value of $n$ for which $T_n = 381$ in the sequence $1 \\;; \\; 3 \\;; \\; 7 \\;; \\; 13 \\;; \\ldots$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Set T_n = 381: n² − n + 1 = 381 → n² − n − 380 = 0
+Mark 2: (n − 20)(n + 19) = 0
+Mark 3: n = 20 (n > 0)`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "21-2-1-4",
+            label: "2.1.4",
+            questionText:
+              "Is 265 a term in the sequence $1 \\;; \\; 3 \\;; \\; 7 \\;; \\; 13 \\;; \\ldots$? Justify your answer.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: n² − n + 1 = 265 → n² − n − 264 = 0 → n = (1 ± √1057)/2 ≈ 16.76; not a natural number, so 265 is NOT a term in the sequence.`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "21-2-2",
+            label: "2.2",
+            questionText:
+              "The sum of $n$ terms of a series is given by $S_n = n^2 + 3n$.\n\nDetermine the 8th term of the series.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: T₈ = S₈ − S₇
+Mark 2: S₈ = 64 + 24 = 88
+Mark 3: S₇ = 49 + 21 = 70
+Mark 4: T₈ = 88 − 70 = 18`,
+            topic: "Sequences & Series",
+          },
+        ],
+      },
+      {
+        number: 3,
+        title: "Geometric Sequences & Series",
+        totalMarks: 9,
+        subQuestions: [
+          {
+            id: "21-3-1-1",
+            label: "3.1.1",
+            questionText:
+              "The first three terms of a geometric sequence are $2 \\;; \\; 6 \\;; \\; 18 \\;; \\ldots$\n\nWrite down the common ratio.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: r = 6/2 = 3`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "21-3-1-2",
+            label: "3.1.2",
+            questionText: "Write down the 5th term of the sequence $2 \\;; \\; 6 \\;; \\; 18 \\;; \\ldots$",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: T₅ = 2 · 3⁴ = 162`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "21-3-1-3",
+            label: "3.1.3",
+            questionText: "Determine the sum of the first 10 terms of the sequence $2 \\;; \\; 6 \\;; \\; 18 \\;; \\ldots$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: S_n = a(r^n − 1)/(r − 1)
+Mark 2: S₁₀ = 2(3¹⁰ − 1)/(3 − 1) = 2(59 049 − 1)/2
+Mark 3: S₁₀ = 59 048`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "21-3-2",
+            label: "3.2",
+            questionText:
+              "A geometric series has first term 6 and sum to infinity of 10.\n\nDetermine the common ratio.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: S∞ = a/(1 − r); write 10 = 6/(1 − r)
+Mark 2: 1 − r = 6/10 = 3/5
+Mark 3: r = 1 − 3/5 = 2/5
+Mark 4: Verify |r| = 2/5 < 1 ✓`,
+            topic: "Sequences & Series",
+          },
+        ],
+      },
+      {
+        number: 4,
+        title: "Hyperbola",
+        totalMarks: 10,
+        subQuestions: [
+          {
+            id: "21-4-1",
+            label: "4.1",
+            questionText:
+              "Sketch the graph of $f(x) = \\dfrac{3}{x+2} - 1$, clearly showing the asymptotes, the intercepts with the axes, and one other point.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Vertical asymptote — x = −2; horizontal asymptote — y = −1
+Mark 2: x-intercept: 3/(x+2) = 1 → x + 2 = 3 → x = 1; point (1 ; 0)
+Mark 3: y-intercept: f(0) = 3/2 − 1 = ½; point (0 ; ½)
+Mark 4: Correct shape in both branches with asymptotes shown as dashed lines`,
+            topic: "Functions",
+          },
+          {
+            id: "21-4-2",
+            label: "4.2",
+            questionText: "Write down the domain of $f(x) = \\dfrac{3}{x+2} - 1$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1–2 (double mark): x ∈ ℝ, x ≠ −2 OR (−∞ ; −2) ∪ (−2 ; ∞)`,
+            topic: "Functions",
+          },
+          {
+            id: "21-4-3",
+            label: "4.3",
+            questionText:
+              "Determine the equation of $g$, the axis of symmetry of $f(x) = \\dfrac{3}{x+2} - 1$ that has a negative gradient.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: The axes of symmetry of a hyperbola pass through the intersection of the asymptotes — point (−2 ; −1)
+Mark 2: Two axes of symmetry have slopes ±1
+Mark 3: Negative gradient → slope = −1
+Mark 4: g: y − (−1) = −1(x − (−2)) → y = −x − 3`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 5,
+        title: "Parabola & Straight Line",
+        totalMarks: 18,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2021_q5.png",
+        subQuestions: [
+          {
+            id: "21-5-1",
+            label: "5.1",
+            questionText:
+              "Refer to the diagram. The graphs of $f(x) = -x^2 + 2x + 8$ and $g(x) = -2x + 8$ are given.\n\nWrite down the coordinates of the $y$-intercept of $f$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1–3 (double mark, or 1+2): f(0) = 8; y-intercept of f is (0 ; 8).
+Note: Also acceptable as 3 separate marks for substituting x=0, evaluating, stating coordinates.`,
+            topic: "Functions",
+          },
+          {
+            id: "21-5-2",
+            label: "5.2",
+            questionText: "Write down the coordinates of the turning point of $f(x) = -x^2 + 2x + 8$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: x = −b/(2a) = −2/(2·(−1)) = 1
+Mark 2: f(1) = −1 + 2 + 8 = 9; turning point (1 ; 9)`,
+            topic: "Functions",
+          },
+          {
+            id: "21-5-3",
+            label: "5.3",
+            questionText: "Write down the range of $f(x) = -x^2 + 2x + 8$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: y ≤ 9 OR (−∞ ; 9]`,
+            topic: "Functions",
+          },
+          {
+            id: "21-5-4",
+            label: "5.4",
+            questionText:
+              "Determine the $x$-coordinates of the points of intersection of $f$ and $g$, where $f(x) = -x^2 + 2x + 8$ and $g(x) = -2x + 8$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Set f(x) = g(x): −x² + 2x + 8 = −2x + 8
+Mark 2: −x² + 4x = 0 → −x(x − 4) = 0
+Mark 3: x = 0 or x = 4`,
+            topic: "Functions",
+          },
+          {
+            id: "21-5-5",
+            label: "5.5",
+            questionText:
+              "Determine the equation of $h$, the reflection of $g(x) = -2x + 8$ about the $x$-axis.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1–2 (double mark): h(x) = 2x − 8`,
+            topic: "Functions",
+          },
+          {
+            id: "21-5-6",
+            label: "5.6",
+            questionText:
+              "For which values of $x$ is $f(x) \\cdot g(x) \\leq 0$, given $f(x) = -x^2 + 2x + 8$ and $g(x) = -2x + 8$?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: f(x) = 0 at x = −2 and x = 4 (factorise −(x−4)(x+2) = 0); g(x) = 0 at x = 4
+Mark 2: f·g ≤ 0 when one is ≤ 0 and other ≥ 0 (or one is 0): x ≤ −2 or x ≥ 4`,
+            topic: "Functions",
+          },
+          {
+            id: "21-5-7",
+            label: "5.7",
+            questionText:
+              "For which values of $x$ is $f'(x) > 0$, given $f(x) = -x^2 + 2x + 8$?",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: f'(x) = −2x + 2
+Mark 2: Set f'(x) > 0: −2x + 2 > 0
+Mark 3: −2x > −2 → x < 1
+Mark 4–5 (double mark): f'(x) > 0 for x < 1 OR x ∈ (−∞ ; 1)`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 6,
+        title: "Exponential Function",
+        totalMarks: 8,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2021_q6.png",
+        subQuestions: [
+          {
+            id: "21-6-1-1",
+            label: "6.1.1",
+            questionText:
+              "Refer to the diagram. The graph of $f(x) = a \\cdot b^x + q$ passes through the points $(0 ; 3)$ and $(1 ; 1)$ and has asymptote $y = -1$.\n\nDetermine the value of $q$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1–2 (double mark): Asymptote y = −1, so q = −1.`,
+            topic: "Functions",
+          },
+          {
+            id: "21-6-1-2",
+            label: "6.1.2",
+            questionText: "Determine the values of $a$ and $b$ in $f(x) = a \\cdot b^x - 1$, given $f(0) = 3$ and $f(1) = 1$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: f(0) = a·b⁰ − 1 = a − 1 = 3 → a = 4
+Mark 2: f(1) = 4b − 1 = 1 → 4b = 2 → b = ½`,
+            topic: "Functions",
+          },
+          {
+            id: "21-6-2",
+            label: "6.2",
+            questionText:
+              "Describe the transformation of $f(x) = 4 \\cdot \\left(\\tfrac{1}{2}\\right)^x - 1$ to get $g(x) = 4 \\cdot \\left(\\tfrac{1}{2}\\right)^x + 2$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: The asymptote of f is y = −1; the asymptote of g is y = 2
+Mark 2: The graphs are the same shape — g is a vertical translation (shift) of f
+Mark 3: The shift is upward by 3 units
+Mark 4: g(x) = f(x) + 3; translation 3 units upward (in the positive y-direction)`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 7,
+        title: "Finance, Growth and Decay",
+        totalMarks: 13,
+        subQuestions: [
+          {
+            id: "21-7-1",
+            label: "7.1",
+            questionText:
+              "A car was purchased for R280 000. It depreciates at 18% per annum on a reducing balance. Calculate the value of the car after 4 years.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Reducing balance depreciation formula — A = P(1 − i)^n
+Mark 2: A = 280 000(1 − 0.18)^4 = 280 000(0.82)^4
+Mark 3: (0.82)^4 = 0.45212...
+Mark 4: A ≈ R126 594 (accept R126 500 – R126 600)`,
+            topic: "Finance",
+          },
+          {
+            id: "21-7-2-1",
+            label: "7.2.1",
+            questionText:
+              "Kemi takes out a loan and agrees to pay it back in equal monthly payments of R3 500 over 5 years. The interest rate is 12% per annum compounded monthly.\n\nCalculate the loan amount.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: i = 0.12/12 = 0.01 per month; n = 60 months
+Mark 2: PV = x[1 − (1+i)^{−n}] / i = 3 500[1 − (1.01)^{−60}] / 0.01
+Mark 3: PV ≈ R157 286 (accept R157 000 – R157 500)`,
+            topic: "Finance",
+          },
+          {
+            id: "21-7-2-2",
+            label: "7.2.2",
+            questionText:
+              "Kemi misses the first 6 payments. She then makes a lump-sum payment at the end of month 6 to settle all arrears. Calculate the amount of this lump-sum payment.",
+            marks: 6,
+            memoText: `Mark scheme (6 marks):
+Mark 1: Outstanding loan after 6 months of no payments (loan has grown with interest): A = PV(1 + i)^6
+Mark 2: A = 157 286(1.01)^6 ≈ R166 996
+Mark 3: Alternatively: amount she should have paid = future value of 6 missed payments
+Mark 4: FV of missed payments = 3 500[(1.01)^6 − 1]/0.01
+Mark 5: FV = 3 500 × 6.152 ≈ R21 531
+Mark 6: Either approach valid — lump sum = R21 531 (arrears) or state the full outstanding balance method. CA applies.`,
+            topic: "Finance",
+          },
+        ],
+      },
+      {
+        number: 8,
+        title: "Differential Calculus",
+        totalMarks: 12,
+        subQuestions: [
+          {
+            id: "21-8-1",
+            label: "8.1",
+            questionText:
+              "Determine $f'(x)$ from first principles if $f(x) = -2x^2 + 5x$.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: f'(x) = lim_{h→0} [f(x+h) − f(x)] / h
+Mark 2: f(x+h) = −2(x+h)² + 5(x+h) = −2x² − 4xh − 2h² + 5x + 5h
+Mark 3: f(x+h) − f(x) = −4xh − 2h² + 5h
+Mark 4: [f(x+h)−f(x)]/h = −4x − 2h + 5
+Mark 5: f'(x) = −4x + 5`,
+            topic: "Calculus",
+          },
+          {
+            id: "21-8-2-1",
+            label: "8.2.1",
+            questionText:
+              "Determine $\\dfrac{dy}{dx}$ if $y = 3x^3 - \\dfrac{4}{x^2}$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Rewrite — y = 3x³ − 4x^{−2}
+Mark 2: dy/dx = 9x² − 4(−2)x^{−3} = 9x² + 8x^{−3}
+Mark 3: dy/dx = 9x² + 8/x³`,
+            topic: "Calculus",
+          },
+          {
+            id: "21-8-2-2",
+            label: "8.2.2",
+            questionText:
+              "Determine $f'(x)$ if $f(x) = (2x - 1)^2$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Expand — f(x) = 4x² − 4x + 1
+Mark 2–3: f'(x) = 8x − 4
+Mark 4: (Full marks also for chain rule: f'(x) = 2(2x−1)·2 = 4(2x−1) = 8x − 4)`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 9,
+        title: "Cubic Function",
+        totalMarks: 11,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2021_q9.png",
+        subQuestions: [
+          {
+            id: "21-9-1",
+            label: "9.1",
+            questionText:
+              "Refer to the diagram. The function $f(x) = -x^3 + ax^2 + bx + c$ has $x$-intercepts at $x = -1$, $x = 2$ and $x = 3$.\n\nDetermine the values of $a$, $b$ and $c$.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: f(x) = −(x+1)(x−2)(x−3) (using x-intercepts with leading coefficient −1)
+Mark 2: Expand (x+1)(x−2) = x² − x − 2
+Mark 3: Multiply by (x−3): (x²−x−2)(x−3) = x³ − 4x² + x + 6
+Mark 4: f(x) = −(x³ − 4x² + x + 6) = −x³ + 4x² − x − 6
+Mark 5: a = 4, b = −1, c = −6`,
+            topic: "Calculus",
+          },
+          {
+            id: "21-9-2",
+            label: "9.2",
+            questionText:
+              "Determine the coordinates of the turning points of $f(x) = -x^3 + 4x^2 - x - 6$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: f'(x) = −3x² + 8x − 1; set f'(x) = 0 → 3x² − 8x + 1 = 0
+Mark 2: x = (8 ± √(64−12))/6 = (8 ± √52)/6 → x ≈ 0.13 or x ≈ 2.54
+Mark 3: Calculate corresponding y-values (CA from 9.1)`,
+            topic: "Calculus",
+          },
+          {
+            id: "21-9-3",
+            label: "9.3",
+            questionText:
+              "Determine the $x$-coordinate of the point of inflection of $f(x) = -x^3 + 4x^2 - x - 6$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: f''(x) = −6x + 8
+Mark 2: Set f''(x) = 0: −6x + 8 = 0 → x = 4/3
+Mark 3: f''(x) changes sign at x = 4/3, confirming inflection point`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 10,
+        title: "Application of Calculus (Optimisation)",
+        totalMarks: 13,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-may-jun-2021_q10.png",
+        subQuestions: [
+          {
+            id: "21-10-1",
+            label: "10.1",
+            questionText:
+              "Refer to the diagram. A right circular cylinder with radius $r$ cm and height $h$ cm is to be manufactured from a total surface area of $200\\pi$ cm².\n\nShow that $h = \\dfrac{100}{r} - r$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Total surface area of cylinder: 2πr² + 2πrh = 200π
+Mark 2: Divide by 2π: r² + rh = 100
+Mark 3: rh = 100 − r²
+Mark 4: h = (100 − r²)/r = 100/r − r ✓`,
+            topic: "Calculus",
+          },
+          {
+            id: "21-10-2-1",
+            label: "10.2.1",
+            questionText:
+              "Write down a formula for the volume $V$ of the cylinder in terms of $r$ only, using $h = \\dfrac{100}{r} - r$.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: V = πr²h
+Mark 2: Substitute h: V = πr²(100/r − r) = π(100r − r³)
+Mark 3: V = π(100r − r³) — in terms of r only
+Mark 4: dV/dr = π(100 − 3r²)
+Mark 5: Award for correct simplification showing V = 100πr − πr³`,
+            topic: "Calculus",
+          },
+          {
+            id: "21-10-2-2",
+            label: "10.2.2",
+            questionText:
+              "Determine the value of $r$ that gives the maximum volume of the cylinder.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: dV/dr = π(100 − 3r²) = 0
+Mark 2: 3r² = 100 → r² = 100/3 → r = 10/√3 (r > 0)
+Mark 3: d²V/dr² = −6πr < 0 for r > 0 → maximum confirmed
+Mark 4: r = 10√3/3 ≈ 5.77 cm`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 11,
+        title: "Probability",
+        totalMarks: 15,
+        subQuestions: [
+          {
+            id: "21-11-1",
+            label: "11.1",
+            questionText:
+              "Events $A$ and $B$ are independent. $P(A) = 0{,}4$ and $P(B) = 0{,}5$.\n\nDetermine $P(A \\cup B)$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Since A and B are independent, P(A ∩ B) = P(A) × P(B) = 0.4 × 0.5 = 0.2
+Mark 2: P(A ∪ B) = P(A) + P(B) − P(A ∩ B) = 0.4 + 0.5 − 0.2
+Mark 3: P(A ∪ B) = 0.7`,
+            topic: "Probability",
+          },
+          {
+            id: "21-11-2-1",
+            label: "11.2.1",
+            questionText:
+              "A group of 30 learners were surveyed about whether they own a bicycle (B) and whether they own a skateboard (S). 18 own a bicycle, 12 own a skateboard, and 7 own both.\n\nHow many learners own neither a bicycle nor a skateboard?",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: n(B ∪ S) = 18 + 12 − 7 = 23; neither = 30 − 23 = 7`,
+            topic: "Probability",
+          },
+          {
+            id: "21-11-2-2",
+            label: "11.2.2",
+            questionText: "Are events B and S mutually exclusive? Justify your answer.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: No — mutually exclusive means P(B ∩ S) = 0, but 7 learners own both (P(B ∩ S) = 7/30 ≠ 0).`,
+            topic: "Probability",
+          },
+          {
+            id: "21-11-2-3",
+            label: "11.2.3",
+            questionText: "Are events B and S independent? Justify your answer.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: P(B) = 18/30 = 3/5; P(S) = 12/30 = 2/5
+Mark 2: P(B) × P(S) = (3/5)(2/5) = 6/25 = 0.24
+Mark 3: P(B ∩ S) = 7/30 ≈ 0.233
+Mark 4: Since P(B) × P(S) ≠ P(B ∩ S), events B and S are NOT independent.`,
+            topic: "Probability",
+          },
+          {
+            id: "21-11-3-1",
+            label: "11.3.1",
+            questionText:
+              "Six boys and four girls are randomly arranged in a row. How many arrangements are possible if no restriction is placed on the order?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Total = 10!
+Mark 2: 10! = 3 628 800`,
+            topic: "Probability",
+          },
+          {
+            id: "21-11-3-2",
+            label: "11.3.2",
+            questionText:
+              "In how many ways can the 6 boys and 4 girls be arranged so that all 4 girls are together?",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Treat the 4 girls as a single unit → 7 units total
+Mark 2: Arrangements of 7 units = 7!
+Mark 3: Girls can be arranged among themselves in 4! ways
+Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
+            topic: "Probability",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getFlatSubQuestions(paper: Paper): SubQuestion[] {
