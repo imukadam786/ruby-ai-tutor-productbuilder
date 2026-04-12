@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -223,7 +223,7 @@ function PaperList({
   onBack: () => void;
 }) {
   const subject = SUBJECTS.find((s) => s.id === subjectId)!;
-  const papers = PAPERS.filter((p) => p.subject.toLowerCase().replace(" ", "-") === subjectId || subjectId === "mathematics");
+  const papers = PAPERS.filter((p) => p.subject.toLowerCase().replace(/\s+/g, "-") === subjectId);
 
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
@@ -506,6 +506,7 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
     : null;
 
   const isPdf = !!sheet.pdfUrl;
+  const [pdfError, setPdfError] = React.useState(false);
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/40 p-0 sm:p-4">
@@ -541,11 +542,22 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
         </div>
         {/* Content */}
         {isPdf ? (
-          <iframe
-            src={sheet.pdfUrl}
-            className="flex-1 w-full"
-            title={sheet.title}
-          />
+          pdfError ? (
+            <div className="flex-1 flex flex-col items-center justify-center gap-3 p-8 text-center">
+              <svg className="w-10 h-10 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <p className="text-sm font-semibold text-gray-600">Data sheet not yet uploaded</p>
+              <p className="text-xs text-gray-400">Upload the PDF to Supabase storage as:<br /><code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">{sheet.pdfUrl?.split("/").pop()}</code></p>
+            </div>
+          ) : (
+            <iframe
+              src={sheet.pdfUrl}
+              className="flex-1 w-full"
+              title={sheet.title}
+              onError={() => setPdfError(true)}
+            />
+          )
         ) : (
           <div className="flex-1 overflow-y-auto px-5 py-5 space-y-4 text-sm text-gray-700">
             {markdownContent && (
@@ -900,7 +912,7 @@ function SessionView({
             const idx = questionStartIndices[Number(e.target.value)];
             if (idx >= 0) setCurrentIdx(idx);
           }}
-          className="w-[180px] min-w-0 border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
+          className="flex-1 min-w-0 max-w-[260px] border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
         >
           {paper.questions.map((q, i) => (
             <option key={q.number} value={i}>
@@ -909,19 +921,22 @@ function SessionView({
           ))}
         </select>
         {/* Student progress info */}
-        <div className="flex items-center gap-2 flex-1 min-w-0">
-          <span className="text-xs font-semibold text-gray-500 whitespace-nowrap">
-            Q{currentIdx + 1} of {totalQuestions}
-          </span>
-          <span className="text-gray-300 text-xs">·</span>
-          <span className="text-xs text-gray-500 font-semibold whitespace-nowrap">
-            {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
-          </span>
-          <span className="text-gray-300 text-xs">·</span>
-          <span className="text-xs text-gray-400 whitespace-nowrap">
-            {answeredCount} answered
-          </span>
-          <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden min-w-0 max-w-[80px]">
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="flex flex-col items-end">
+            <span className="text-sm font-bold text-gray-800 whitespace-nowrap leading-tight">
+              Q{currentIdx + 1} <span className="text-gray-400 font-normal">of</span> {totalQuestions}
+            </span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-semibold text-[#BE1832] whitespace-nowrap">
+                {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
+              </span>
+              <span className="text-gray-300 text-xs">·</span>
+              <span className="text-xs text-gray-500 whitespace-nowrap">
+                {answeredCount} answered
+              </span>
+            </div>
+          </div>
+          <div className="w-16 h-1.5 bg-gray-100 rounded-full overflow-hidden">
             <div
               className="h-full bg-[#BE1832] rounded-full transition-all"
               style={{ width: `${(answeredCount / totalQuestions) * 100}%` }}
@@ -952,28 +967,27 @@ function SessionView({
         <div className={`${mode === "practice" ? "flex-1" : "w-1/2"} flex flex-col border-r border-gray-200 overflow-hidden`}>
           {/* Content area — no scroll, flex column */}
           <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
-            {/* Diagram */}
-            {(() => {
-              const parentQ = paper.questions.find((q) =>
-                q.subQuestions.some((sq) => sq.id === currentSQ.id)
-              );
-              const diagramUrl = currentSQ.diagramUrl ?? parentQ?.diagramUrl;
-              return diagramUrl ? (
-                <div className="flex-shrink-0 px-5 pt-3 pb-2">
-                  <img
-                    src={diagramUrl}
-                    alt={`Diagram for ${currentSQ.label}`}
-                    className="w-full max-w-md mx-auto rounded-lg border border-gray-200 max-h-32 object-contain"
-                  />
-                </div>
-              ) : null;
-            })()}
-
-            {/* Question text */}
-            <div className="flex-shrink-0 px-5 py-3 border-b border-gray-100">
+            {/* Question text + diagram (scrollable together) */}
+            <div className="flex-shrink-0 overflow-y-auto px-5 py-3 border-b border-gray-100 max-h-[55%]">
               <div className="text-base text-gray-800 leading-relaxed">
                 <MathMarkdown content={currentSQ.questionText} />
               </div>
+              {/* Diagram — below question text, full width */}
+              {(() => {
+                const parentQ = paper.questions.find((q) =>
+                  q.subQuestions.some((sq) => sq.id === currentSQ.id)
+                );
+                const diagramUrl = currentSQ.diagramUrl ?? parentQ?.diagramUrl;
+                return diagramUrl ? (
+                  <div className="mt-4">
+                    <img
+                      src={diagramUrl}
+                      alt={`Diagram for ${currentSQ.label}`}
+                      className="w-full rounded-xl border border-gray-200 object-contain"
+                    />
+                  </div>
+                ) : null;
+              })()}
               {currentAttempt.submitted && mode === "guided" && (
                 <div className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold">
                   {currentAttempt.marksEarned >= currentSQ.marks ? (
