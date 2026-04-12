@@ -1439,7 +1439,7 @@ DB̂C = 106,26° → AB̂D = 180° − 106,26° = 73,74°`,
     durationHours: 3,
     infoSheet: {
       title: "Data Sheet",
-      pdfUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2025_data-sheet.pdf",
+      formulaSheetVariant: "physics-p1",
     },
     questions: [
       // ── QUESTION 1 — Multiple Choice (20 marks) ──────────────────────────────
