@@ -143,7 +143,7 @@ const SUBJECTS = [
     name: "Physical Science",
     emoji: "⚗️",
     color: "from-cyan-500 to-blue-600",
-    available: false,
+    available: true,
   },
 ] as const;
 
