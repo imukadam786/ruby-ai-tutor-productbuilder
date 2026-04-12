@@ -126,15 +126,17 @@ export async function POST(req: NextRequest) {
       ? `\nNOTE: This question asked the student to say any word containing a target sound — NOT an exact word. Mark as correct if the student's word genuinely contains the target phoneme, even if it differs from the expected answer.`
       : "";
 
-    const langInstruction = submission.language && submission.language !== "English"
-      ? `\nIMPORTANT: Write your "feedback" and "recovery_explanation" values in ${submission.language}. All other JSON fields remain in English.\n`
+    const lang = submission.language && submission.language !== "English"
+      ? submission.language
+      : "English";
+    const langInstruction = lang !== "English"
+      ? `\nIMPORTANT: Write ONLY the "feedback" and "recovery_explanation" values in ${lang}. All other JSON field names and values (error_type, is_correct) must remain in English.\n`
       : "";
 
-    // ── 3-tier LLM decision ───────────────────────────────────────────────────
-    // Tier 1 — correct:             static praise, 0 API calls
-    // Tier 2 — first incorrect:     pre-authored recovery tip, 0 API calls
-    // Tier 3 — repeated incorrect:  LLM deep re-teaching, 1 API call
-    const PRAISE = [
+    // ── 2-tier LLM decision ───────────────────────────────────────────────────
+    // Tier 1 — correct:    static praise (translated if needed), 0 API calls
+    // Tier 2 — incorrect:  LLM generates friendly, language-correct feedback
+    const PRAISE_EN = [
       "Great work! That's exactly right.",
       "Well done! Keep it up.",
       "Correct! You're doing brilliantly.",
@@ -150,64 +152,64 @@ export async function POST(req: NextRequest) {
     };
 
     if (isCorrect) {
-      // Tier 1 — no LLM call
-      const praise = PRAISE[Math.floor(Math.random() * PRAISE.length)];
+      // Tier 1 — no LLM call; translate praise if needed
+      let praise = PRAISE_EN[Math.floor(Math.random() * PRAISE_EN.length)];
+      if (lang !== "English") {
+        try {
+          const praiseResp = await getOpenAI().chat.completions.create({
+            model: OPENAI_MODEL,
+            max_tokens: 60,
+            messages: [{
+              role: "user",
+              content: `Translate this short praise sentence into ${lang} for a child. Return only the translated sentence, nothing else: "${praise}"`,
+            }],
+          }, { signal: AbortSignal.timeout(8_000) });
+          praise = praiseResp.choices[0]?.message?.content?.trim() || praise;
+        } catch { /* keep English on failure */ }
+      }
       aiDiagnosis = {
         is_correct: true,
         error_type: "correct",
         feedback: praise,
         recovery_explanation: "",
       };
-    } else if (submission.attempt_number <= 1) {
-      // Tier 2 — first incorrect: pre-authored tip, no LLM call
-      aiDiagnosis = {
-        is_correct: false,
-        error_type: preClassified,
-        feedback: "Not quite — give it another try!",
-        recovery_explanation: skill.recovery_strategy,
-      };
     } else {
-      // Tier 3 — repeated incorrect: LLM personalised re-teaching
-      const prompt = `You are Ruby, a literacy diagnostic tutor for primary school students (Grade R–3).${langInstruction}
+      // Tier 2 — LLM generates friendly, student-facing, language-correct feedback
+      const isFirstAttempt = submission.attempt_number <= 1;
+      const prompt = `You are Ruby, a warm and encouraging literacy tutor for primary school students (Grade R–3).${langInstruction}
 
-A student is working on this reading/literacy skill:
+A student is practising this reading skill:
 SKILL: ${skill.title}
 DESCRIPTION: ${skill.description}
-RECOVERY STRATEGY: ${skill.recovery_strategy}
 
-QUESTION: ${submission.question}
-EXPECTED ANSWER: ${submission.expected_answer}
+QUESTION THEY WERE ASKED: ${submission.question}
+CORRECT ANSWER: ${submission.expected_answer}
 STUDENT'S ANSWER: ${submission.student_answer}
-USED HINT: ${submission.used_hint}
+${isFirstAttempt ? "This is their first attempt." : "They have already tried this more than once."}
 ${phonemeWordNote}
 
-The student has answered incorrectly more than once. Provide a warm, personalised explanation to help them understand.
+Write feedback that:
+- Tells the student what they got wrong in simple, friendly words (no jargon)
+- Shows them the correct answer clearly
+- Gives one practical tip they can do RIGHT NOW to improve (no technical codes like "Elkonin box drill" or "PHONEME_OMIT" — explain it in plain language a child understands)
+${isFirstAttempt ? "- Keep it brief and encouraging since it is their first try" : "- Be a bit more detailed since they have tried before"}
 
-For error_type, use ONLY one of these exact values:
-- "ERR_PHONEME_CONF" (confuses similar sounds, e.g. /p/ vs /b/)
-- "ERR_SOUND_RECALL" (cannot retrieve a letter's sound)
-- "ERR_BLEND_FAIL" (can say phonemes separately but cannot blend into a word)
-- "ERR_SOUND_OMIT" (phoneme missing from output — medial vowels or final consonants)
-- "ERR_SOUND_INSERT" (extra phoneme added)
-- "ERR_VOWEL_CONF" (short/long vowel mismatch or vowel team error)
-- "ERR_ORTHO_GUESS" (uses visual shape or first letter to guess rather than decode)
-- "ERR_SIGHT_MISS" (irregular high-frequency word misread)
-- "ERR_MULTI_BREAK" (decodes syllables separately but cannot blend full word)
-- "ERR_FLUENCY_HES" (hesitations or slow word-by-word reading)
-- "ERR_MEANING_BLIND" (reads accurately but shows no comprehension)
-- "ERR_SELF_MON" (does not notice or correct errors that create nonsense)
+For error_type, use ONLY one of these exact English values:
+"ERR_PHONEME_CONF", "ERR_SOUND_RECALL", "ERR_BLEND_FAIL", "ERR_SOUND_OMIT",
+"ERR_SOUND_INSERT", "ERR_VOWEL_CONF", "ERR_ORTHO_GUESS", "ERR_SIGHT_MISS",
+"ERR_MULTI_BREAK", "ERR_FLUENCY_HES", "ERR_MEANING_BLIND", "ERR_SELF_MON"
 
 Respond in this exact JSON format (no markdown, raw JSON only):
 {
   "is_correct": false,
   "error_type": "one of the values above",
-  "feedback": "Warm, encouraging 1-2 sentence feedback for a young learner explaining what went wrong.",
-  "recovery_explanation": "A brief, simple tip to help the student improve on this specific skill."
+  "feedback": "1-2 warm sentences telling the student what went wrong and showing the correct answer.",
+  "recovery_explanation": "One plain-language tip the student can act on immediately."
 }`;
 
       const aiResponse = await getOpenAI().chat.completions.create({
         model: OPENAI_MODEL,
-        max_tokens: 512,
+        max_tokens: 300,
         messages: [{ role: "user", content: prompt }],
       }, { signal: AbortSignal.timeout(20_000) });
 
@@ -220,8 +222,8 @@ Respond in this exact JSON format (no markdown, raw JSON only):
         aiDiagnosis = {
           is_correct: false,
           error_type: preClassified,
-          feedback: `Let's work through this together. ${skill.recovery_strategy}`,
-          recovery_explanation: skill.recovery_strategy,
+          feedback: "Not quite — give it another try!",
+          recovery_explanation: "Read each sound carefully from left to right, then blend them together.",
         };
       }
     }
