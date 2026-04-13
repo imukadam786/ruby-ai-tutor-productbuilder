@@ -3775,6 +3775,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 9,
         title: "Euclidean Geometry — Cyclic Quadrilateral",
         totalMarks: 16,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2022_q9.png",
         subQuestions: [
           {
             id: "p2-22-9-1",
@@ -8339,6 +8340,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 9,
         title: "Electrolytic Cells",
         totalMarks: 11,
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2022_q9.png",
         subQuestions: [
           {
             id: "ps-p2-22-9-1", label: "9.1", marks: 2,
@@ -8413,6 +8415,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           },
           {
             id: "ps-p2-23-1-2", label: "1.2", type: "mcq", marks: 2,
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q1.2.png",
             questionText: "Which ONE of the following compounds has the LOWEST VAPOUR PRESSURE at a given temperature? (Compounds: butanone, butan-1-ol, methanoic acid, propane.)",
             options: { A: "Propane", B: "Butanone", C: "Butan-1-ol", D: "Methanoic acid" },
             memoText: "Correct answer: D (2 marks)\nMethanoic acid (formic acid, HCOOH) has the strongest IMFs: hydrogen bonding via both O–H and C=O. Stronger IMFs → lowest vapour pressure.",
@@ -8444,6 +8447,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           },
           {
             id: "ps-p2-23-1-5", label: "1.5", type: "mcq", marks: 2,
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q1.5.png",
             questionText: "In a potential energy diagram, reactants are at energy Y, activated complex at Z, products at X (X < Y < Z). What is the activation energy for the FORWARD reaction and the enthalpy change ΔH?",
             options: {
               A: "Ea = Z − Y; ΔH = X − Y",
