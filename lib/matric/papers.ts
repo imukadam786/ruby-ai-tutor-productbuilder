@@ -584,7 +584,7 @@ Marks 5–6: Solve (1) − (2): b = 8; then 4a + 8 = 4 → a = −1`,
         number: 9,
         title: "Calculus: Cubic Functions",
         totalMarks: 18,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2025_q9.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2025_q9.png",
         subQuestions: [
           {
             id: "9-1",
@@ -733,7 +733,7 @@ Mark 3: = 347/499 ≈ 0.70`,
         number: 1,
         title: "Statistics",
         totalMarks: 9,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2025_q1.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2025_q1.png",
         subQuestions: [
           {
             id: "p2-1-1",
@@ -785,7 +785,7 @@ Mark 4: k = 21%`,
         number: 2,
         title: "Regression & Correlation",
         totalMarks: 10,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2025_q2.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2025_q2.png",
         subQuestions: [
           {
             id: "p2-2-1",
@@ -2774,7 +2774,7 @@ Mark 5: P = [9!/(2!·2!)] / [11!/(2!·2!·2!)] = [9! · 2!] / 11! = 2/110 = 1/55
         number: 1,
         title: "Algebra & Equations",
         totalMarks: 24,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-june-2021_q1.5.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-june-2021_q1.5.png",
         subQuestions: [
           {
             id: "21-1-1-1",
@@ -2856,7 +2856,7 @@ Mark 4: Since Δ > 0 for all real k, the roots are always real and distinct.`,
         number: 2,
         title: "Quadratic Sequences",
         totalMarks: 17,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-june-2021_q2.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-june-2021_q2.png",
         subQuestions: [
           {
             id: "21-2-1-1",
@@ -3888,7 +3888,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 1,
         title: "Statistics — Data Usage",
         totalMarks: 14,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2021_q1.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2021_q1.png",
         subQuestions: [
           {
             id: "p2-21-1-1",
@@ -3952,7 +3952,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 2,
         title: "Statistics — Absentee Ogive",
         totalMarks: 9,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2021_q2.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2021_q2.png",
         subQuestions: [
           {
             id: "p2-21-2-1",
@@ -4000,7 +4000,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 3,
         title: "Analytical Geometry",
         totalMarks: 19,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2021_q3.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2021_q3.png",
         subQuestions: [
           {
             id: "p2-21-3-1",
@@ -4064,7 +4064,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 4,
         title: "Circle Geometry — Analytical",
         totalMarks: 20,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2021_q4.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2021_q4.png",
         subQuestions: [
           {
             id: "p2-21-4-1",
@@ -4175,7 +4175,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 6,
         title: "Trigonometric Graphs",
         totalMarks: 13,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2021_q6.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2021_q6.png",
         subQuestions: [
           {
             id: "p2-21-6-1",
@@ -4348,7 +4348,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 10,
         title: "Euclidean Geometry — Proportionality",
         totalMarks: 15,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2021_q10.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2021_q10.png",
         subQuestions: [
           {
             id: "p2-21-10-1",
@@ -4545,7 +4545,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 4,
         title: "Functions — Hyperbola",
         totalMarks: 10,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2024_q4.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q4.png",
         subQuestions: [
           {
             id: "p1-24-4-1",
@@ -4585,7 +4585,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 5,
         title: "Functions — Logarithms & Exponentials",
         totalMarks: 9,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2024_q5.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q5.png",
         subQuestions: [
           {
             id: "p1-24-5-1",
@@ -4625,7 +4625,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 6,
         title: "Functions — Parabola",
         totalMarks: 18,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2024_q6.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q6.png",
         subQuestions: [
           {
             id: "p1-24-6-1",
@@ -4751,7 +4751,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 9,
         title: "Differential Calculus — Cubic Functions",
         totalMarks: 13,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2024_q9.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q9.png",
         subQuestions: [
           {
             id: "p1-24-9-1",
@@ -4791,7 +4791,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 10,
         title: "Differential Calculus — Optimisation",
         totalMarks: 8,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2024_q10.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q10.png",
         subQuestions: [
           {
             id: "p1-24-10-1",
@@ -4895,7 +4895,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 1,
         title: "Statistics — Scatter Plot & Regression",
         totalMarks: 10,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2024_q1.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q1.png",
         subQuestions: [
           {
             id: "p2-24-1-1",
@@ -4935,7 +4935,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 2,
         title: "Statistics — Ogive & Frequency Distribution",
         totalMarks: 11,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2024_q2.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q2.png",
         subQuestions: [
           {
             id: "p2-24-2-1",
@@ -4983,7 +4983,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 3,
         title: "Analytical Geometry — Lines & Triangles",
         totalMarks: 22,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2024_q3.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q3.png",
         subQuestions: [
           {
             id: "p2-24-3-1",
@@ -5039,7 +5039,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 4,
         title: "Analytical Geometry — Circles",
         totalMarks: 18,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2024_q4.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q4.png",
         subQuestions: [
           {
             id: "p2-24-4-1",
@@ -5158,7 +5158,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 6,
         title: "Trigonometry — Graphs",
         totalMarks: 10,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2024_q6.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q6.png",
         subQuestions: [
           {
             id: "p2-24-6-1",
@@ -5214,7 +5214,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 7,
         title: "Trigonometry — 2D Applications",
         totalMarks: 11,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2024_q7.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q7.png",
         subQuestions: [
           {
             id: "p2-24-7-1-1",
@@ -5262,7 +5262,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 8,
         title: "Euclidean Geometry — Circle Theorems",
         totalMarks: 11,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2024_q8.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q8.png",
         subQuestions: [
           {
             id: "p2-24-8-1",
@@ -5302,7 +5302,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 9,
         title: "Euclidean Geometry — Circle with Diameter",
         totalMarks: 12,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2024_q9.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q9.png",
         subQuestions: [
           {
             id: "p2-24-9-1",
@@ -5334,7 +5334,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 10,
         title: "Euclidean Geometry — Complex Proof",
         totalMarks: 19,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2024_q10.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q10.png",
         subQuestions: [
           {
             id: "p2-24-10-1",
@@ -6861,7 +6861,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-1-3", label: "1.3", type: "mcq", marks: 2,
             questionText: "A velocity-time graph shows an object starting at velocity v_i (below zero) at time t, rising to v_f (above zero) at time 3t. Which ONE best describes this motion?\n\n*(Refer to the v-t graph in the original question paper.)*",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q1.3.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q1.3.png",
             options: {
               A: "Object thrown vertically downward from the ground",
               B: "Object in free fall from rest",
@@ -6874,7 +6874,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-1-4", label: "1.4", type: "mcq", marks: 2,
             questionText: "Which ONE of the following graphs CORRECTLY shows the momentum of an object: p₁ rightward, then p₂ rightward (larger), with Δp leftward?\n\n*(Refer to four momentum graphs A–D in the original question paper.)*",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q1.4.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q1.4.png",
             options: {
               A: "Graph A",
               B: "Graph B",
@@ -6911,7 +6911,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-1-7", label: "1.7", type: "mcq", marks: 2,
             questionText: "Which graph CORRECTLY shows the relationship between the electric field E and charge Q at a fixed distance?\n\n*(Refer to four graphs A–D in the original question paper.)*",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q1.7.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q1.7.png",
             options: {
               A: "Graph A — E is directly proportional to Q (linear through origin)",
               B: "Graph B — E increases then levels off",
@@ -6924,7 +6924,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-1-8", label: "1.8", type: "mcq", marks: 2,
             questionText: "A circuit has 4 identical resistors with 4 ammeters (A1, A2, A3, A4). Which ammeter gives the LOWEST reading?\n\n*(Refer to the circuit diagram in the original question paper.)*",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q1.8.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q1.8.png",
             options: {
               A: "A1",
               B: "A2",
@@ -6964,7 +6964,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 2,
         title: "Newton's Laws",
         totalMarks: 15,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q2.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q2.png",
         subQuestions: [
           {
             id: "ps-p1-24-2-1", label: "2.1", marks: 2,
@@ -6975,7 +6975,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-2-2", label: "2.2", marks: 5,
             questionText: "Block A (4.1 kg) is on a rough horizontal table. Block B (2.3 kg) hangs vertically. A force F = 49 N is applied on A at 50° below the horizontal (to the left). μ_k = 0.35. Draw a FREE-BODY DIAGRAM for block A.",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q2.2.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q2.2.png",
             memoText: "Forces on A: Weight (40.18 N down), Normal N (up), F = 49 N at 50° below horizontal (to left), Tension T (to right, from string to B), Kinetic friction f_k (to left, opposing motion to right). All five forces labelled correctly. (5 marks)",
             topic: "Newton's Laws",
           },
@@ -6997,7 +6997,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 3,
         title: "Vertical Projectile Motion",
         totalMarks: 14,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q3.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q3.png",
         subQuestions: [
           {
             id: "ps-p1-24-3-1", label: "3.1", marks: 2,
@@ -7035,7 +7035,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 4,
         title: "Momentum and Impulse",
         totalMarks: 13,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q4.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q4.png",
         subQuestions: [
           {
             id: "ps-p1-24-4-1", label: "4.1", marks: 2,
@@ -7067,7 +7067,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 5,
         title: "Work, Energy and Power",
         totalMarks: 14,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q5.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q5.png",
         subQuestions: [
           {
             id: "ps-p1-24-5-1", label: "5.1", marks: 2,
@@ -7105,7 +7105,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 6,
         title: "Doppler Effect",
         totalMarks: 14,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q6.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q6.png",
         subQuestions: [
           {
             id: "ps-p1-24-6-1", label: "6.1", marks: 2,
@@ -7128,7 +7128,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-6-4", label: "6.4", marks: 3,
             questionText: "SKETCH a graph of the frequency recorded vs time as the police car approaches, passes, and moves away from the recorder.",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q6.4.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q6.4.png",
             memoText: "Graph: constant higher frequency (615 Hz) as approaching, sudden drop to lower frequency (526 Hz) as car passes, constant lower frequency as moving away. Step function shape. (3 marks)",
             topic: "Doppler Effect",
           },
@@ -7142,7 +7142,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-7-1-1", label: "7.1.1", marks: 2,
             questionText: "Draw the ELECTRIC FIELD PATTERN around a +4 nC point charge.",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q7.1.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q7.1.png",
             memoText: "Radial field lines pointing OUTWARD from the positive charge in all directions. At least 8 lines, evenly spaced, arrows pointing away. (2 marks)",
             topic: "Electrostatics",
           },
@@ -7161,7 +7161,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-7-2-2", label: "7.2.2", marks: 6,
             questionText: "Two polystyrene balls A and B (each mass 0.012 kg) are suspended from the ceiling. B has charge Q_B and hangs at 9° from vertical with A neutral. The balls are 10 cm apart. Calculate Q_B.",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q7.2.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q7.2.png",
             memoText: "For ball B: T sin9° = F_E (Coulomb) and T cos9° = mg. Tan9° = F_E/mg. F_E = mg tan9° = 0.012 × 9.8 × tan9° = 0.1176 × 0.1584 = 0.01863 N. F_E = kQ_A Q_B/r². But A is neutral → F_E = 0 initially. If A is also charged by induction? The problem likely means B is charged and A is induced. More likely: both balls carry charge. If only B is charged and A is neutral: no Coulomb force. Reconsider: perhaps A is given charge Q_A and B has Q_B. At 9° equilibrium: F_E = kQ_B²/r² (if equal charges). kQ_B²/(0.1²) = 0.01863. Q_B² = 0.01863×0.01/(9×10⁹) = 2.07×10⁻¹⁴. Q_B = 1.44×10⁻⁷ C. (6 marks)",
             topic: "Electrostatics",
           },
@@ -7171,7 +7171,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 8,
         title: "Electric Circuits",
         totalMarks: 19,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q8.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q8.png",
         subQuestions: [
           {
             id: "ps-p1-24-8-1", label: "8.1", marks: 1,
@@ -7209,7 +7209,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 9,
         title: "AC Generator and RMS Values",
         totalMarks: 15,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q9.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q9.png",
         subQuestions: [
           {
             id: "ps-p1-24-9-1", label: "9.1", marks: 2,
@@ -7244,7 +7244,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-9-6", label: "9.6", marks: 4,
             questionText: "The frequency f = 20 Hz. SKETCH a current vs time graph for TWO complete rotations of the coil.",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q9.6.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q9.6.png",
             memoText: "Sinusoidal graph: period T = 1/20 = 0.05 s. I_max = 2.95 A. Two complete cycles shown. Peaks at ±2.95 A at T/4 intervals. Time axis labelled with 0.05 s and 0.1 s. (4 marks)",
             topic: "Electric Circuits",
           },
@@ -7276,7 +7276,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p1-24-10-3-2", label: "10.3.2", marks: 3,
             questionText: "Explain why the gold-leaf of the electroscope COLLAPSES when UV light shines on the negatively charged zinc plate.",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p1-may-jun-2024_q10.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p1-may-jun-2024_q10.png",
             memoText: "UV photons have energy greater than the work function of zinc. Photoelectrons are ejected from the zinc plate. The negatively charged plate loses electrons (negative charge). The electroscope becomes less negatively charged → the gold leaves lose their charge → leaves collapse. (3 marks)",
             topic: "Photoelectric Effect and Emission/Absorption Spectra",
           },
@@ -8576,7 +8576,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 3,
         title: "Boiling Points and Intermolecular Forces",
         totalMarks: 11,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2023_q3.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q3.png",
         subQuestions: [
           {
             id: "ps-p2-23-3-1", label: "3.1", marks: 2,
@@ -8626,7 +8626,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 4,
         title: "Organic Reactions",
         totalMarks: 18,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2023_q4.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q4.png",
         subQuestions: [
           {
             id: "ps-p2-23-4-1-1", label: "4.1.1", marks: 1,
@@ -8704,7 +8704,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p2-23-5-3-1", label: "5.3.1", marks: 4,
             questionText: "Calculate the MASS of NO₂ at t = 400 s. (Read [N₂O₅] from graph, use stoichiometry, volume = 2 dm³.)",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2023_q5.3.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q5.3.png",
             memoText: "From graph: [N₂O₅] at t=0 = c₀, at t=400s = c₁. Δ[N₂O₅] = c₀ − c₁. Δ[NO₂] = 2 × Δ[N₂O₅] (stoichiometric ratio 4:2 = 2:1). Moles NO₂ = Δ[NO₂] × 2 dm³. Mass = moles × 46. (4 marks)",
             topic: "Reaction Rate",
           },
@@ -8717,7 +8717,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p2-23-5-4-1", label: "5.4.1", marks: 2,
             questionText: "Sketch Maxwell-Boltzmann curves P (initial concentration) and Q (higher concentration) on the same axes. Label the activation energy.",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2023_q5.4.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q5.4.png",
             memoText: "Curves P and Q have the SAME SHAPE (concentration doesn't change the Maxwell-Boltzmann distribution of speeds at constant T). Both curves are identical. Ea is the same vertical line for both. (2 marks)",
             topic: "Reaction Rate",
           },
@@ -8825,7 +8825,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 8,
         title: "Electrochemistry",
         totalMarks: 14,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2023_q8.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q8.png",
         subQuestions: [
           {
             id: "ps-p2-23-8-1", label: "8.1", marks: 3,
@@ -8944,7 +8944,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
           {
             id: "ps-p2-24-1-4", label: "1.4", type: "mcq", marks: 2,
             questionText: "10 g of CaCO₃ is reacted with excess HCl. This is compared to a previous experiment (Curve P) using 5 g of CaCO₃. Which curve describes the new experiment?\n\n*(Refer to the graph in the original question paper.)*",
-            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2024_q1.4.png",
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2024_q1.4.png",
             options: {
               A: "Curve I — same rate, same total volume",
               B: "Curve II — higher rate, same total volume",
@@ -9143,7 +9143,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 4,
         title: "Organic Reactions",
         totalMarks: 20,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2024_q4.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2024_q4.png",
         subQuestions: [
           {
             id: "ps-p2-24-4-1-1", label: "4.1.1", marks: 1,
@@ -9223,7 +9223,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 5,
         title: "Reaction Rate",
         totalMarks: 18,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2024_q5.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2024_q5.png",
         subQuestions: [
           {
             id: "ps-p2-24-5-1-1", label: "5.1.1", marks: 2,
@@ -9285,7 +9285,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 6,
         title: "Chemical Equilibrium",
         totalMarks: 18,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2024_q6.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2024_q6.png",
         subQuestions: [
           {
             id: "ps-p2-24-6-1", label: "6.1", marks: 2,
@@ -9384,7 +9384,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 8,
         title: "Electrochemistry",
         totalMarks: 15,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/phys-sci-p2-may-jun-2024_q8.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2024_q8.png",
         subQuestions: [
           {
             id: "ps-p2-24-8-1", label: "8.1", marks: 1,
@@ -10301,7 +10301,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 4,
         title: "Functions",
         totalMarks: 18,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2023_q4.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2023_q4.png",
         subQuestions: [
           {
             id: "p1-23-4-1-a",
@@ -10381,7 +10381,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 5,
         title: "Parabola & Linear Functions",
         totalMarks: 14,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2023_q5.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2023_q5.png",
         subQuestions: [
           {
             id: "p1-23-5-1",
@@ -10515,7 +10515,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 8,
         title: "Cubic Functions",
         totalMarks: 16,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2023_q8.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2023_q8.png",
         subQuestions: [
           {
             id: "p1-23-8-1",
@@ -10579,7 +10579,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 9,
         title: "Optimisation",
         totalMarks: 9,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p1-may-jun-2023_q9.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2023_q9.png",
         subQuestions: [
           {
             id: "p1-23-9-1",
@@ -10688,7 +10688,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 1,
         title: "Statistics",
         totalMarks: 12,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2023_q1.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2023_q1.png",
         subQuestions: [
           {
             id: "p2-23-1-1",
@@ -10728,7 +10728,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 2,
         title: "Statistics — Ogive",
         totalMarks: 8,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2023_q2.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2023_q2.png",
         subQuestions: [
           {
             id: "p2-23-2-1",
@@ -10768,7 +10768,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 3,
         title: "Analytical Geometry",
         totalMarks: 18,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2023_q3.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2023_q3.png",
         subQuestions: [
           {
             id: "p2-23-3-1",
@@ -10824,7 +10824,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 4,
         title: "Circles & Tangents",
         totalMarks: 22,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2023_q4.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2023_q4.png",
         subQuestions: [
           {
             id: "p2-23-4-1",
@@ -10951,7 +10951,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 6,
         title: "Trigonometric Graphs",
         totalMarks: 13,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2023_q6.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2023_q6.png",
         subQuestions: [
           {
             id: "p2-23-6-1",
@@ -10999,7 +10999,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 7,
         title: "3D Trigonometry",
         totalMarks: 8,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2023_q7.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2023_q7.png",
         subQuestions: [
           {
             id: "p2-23-7-1",
@@ -11031,7 +11031,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 8,
         title: "Euclidean Geometry",
         totalMarks: 15,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2023_q8.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2023_q8.png",
         subQuestions: [
           {
             id: "p2-23-8-1",
@@ -11079,7 +11079,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 9,
         title: "Euclidean Geometry — Proofs",
         totalMarks: 9,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2023_q9.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2023_q9.png",
         subQuestions: [
           {
             id: "p2-23-9-1",
@@ -11103,7 +11103,7 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
         number: 10,
         title: "Euclidean Geometry — Similarity",
         totalMarks: 17,
-        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagram/maths-p2-may-jun-2023_q10.png",
+        diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2023_q10.png",
         subQuestions: [
           {
             id: "p2-23-10-1",
