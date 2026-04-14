@@ -395,7 +395,7 @@ function PaperList({
                                 {progress.status === "not_started" && (
                                   <>
                                     <div className="flex-1 max-w-[120px] h-1.5 bg-gray-100 rounded-full" />
-                                    <span className="text-xs text-gray-400">Not started</span>
+                                    <span className="text-xs font-semibold text-[#BE1832]">🚀 Get Started · 0%</span>
                                   </>
                                 )}
                                 {progress.status === "in_progress" && (
@@ -1035,23 +1035,28 @@ function SessionView({
           ))}
         </select>
         {/* Student progress info — single row */}
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <span className="text-sm font-bold text-gray-800 whitespace-nowrap">
-            Q{currentIdx + 1} <span className="text-gray-400 font-normal">of</span> {totalQuestions}
-          </span>
-          <span className="text-gray-300 text-xs">·</span>
-          <span className="text-xs font-semibold text-[#BE1832] whitespace-nowrap">
-            {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
-          </span>
-          <span className="text-gray-300 text-xs">·</span>
-          <span className="text-xs text-gray-500 whitespace-nowrap">{answeredCount} answered</span>
-          <div className="w-12 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-[#BE1832] rounded-full transition-all"
-              style={{ width: `${(answeredCount / totalQuestions) * 100}%` }}
-            />
-          </div>
-        </div>
+        {(() => {
+          const pctComplete = totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0;
+          return (
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <span className="text-sm font-bold text-gray-800 whitespace-nowrap">
+                {currentSQ.label}
+              </span>
+              <span className="text-gray-300 text-xs">·</span>
+              <span className="text-xs font-semibold text-[#BE1832] whitespace-nowrap">
+                {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
+              </span>
+              <span className="text-gray-300 text-xs">·</span>
+              <span className="text-xs text-gray-500 whitespace-nowrap">{pctComplete}% complete</span>
+              <div className="w-12 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-[#BE1832] rounded-full transition-all"
+                  style={{ width: `${pctComplete}%` }}
+                />
+              </div>
+            </div>
+          );
+        })()}
         {paper.infoSheet && (
           <button
             onClick={() => setShowInfoSheet(true)}
@@ -1114,7 +1119,7 @@ function SessionView({
                 );
                 const diagramUrl = currentSQ.diagramUrl ?? parentQ?.diagramUrl;
                 return diagramUrl ? (
-                  <div className="mt-3">
+                  <div className="mt-3 flex justify-center">
                     <button
                       onClick={() => setExpandedDiagramUrl(diagramUrl)}
                       className="relative group block rounded-xl overflow-hidden border border-gray-200 bg-gray-50 max-w-[220px]"
@@ -1185,7 +1190,7 @@ function SessionView({
               ) : isMaths ? (
                 /* ── Maths: Step-by-step inputs ── */
                 <>
-                  <div className="flex-1 overflow-y-auto min-h-0 space-y-2 pr-0.5">
+                  <div className="flex-1 overflow-y-auto min-h-0 space-y-1.5 pr-0.5">
                     {STEP_LABELS.map((label, i) => {
                       const steps = mathsSteps[currentSQ.id] ?? ["", "", "", "", ""];
                       return (
@@ -1206,9 +1211,9 @@ function SessionView({
                               });
                             }}
                             placeholder={i < 4 ? `Working for ${label.toLowerCase()}…` : "Final answer…"}
-                            rows={1}
+                            rows={3}
                             className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
-                            style={{ height: "auto" }}
+                            style={{ minHeight: "4.5rem" }}
                             onInput={(e) => {
                               const t = e.target as HTMLTextAreaElement;
                               t.style.height = "auto";
