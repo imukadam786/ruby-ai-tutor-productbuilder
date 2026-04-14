@@ -395,7 +395,7 @@ function PaperList({
                                 {progress.status === "not_started" && (
                                   <>
                                     <div className="flex-1 max-w-[120px] h-1.5 bg-gray-100 rounded-full" />
-                                    <span className="text-xs font-semibold text-[#BE1832]">🚀 Get Started · 0%</span>
+                                    <span className="text-xs font-semibold text-[#BE1832]">Get Started 🚀 · 0%</span>
                                   </>
                                 )}
                                 {progress.status === "in_progress" && (
@@ -1007,67 +1007,84 @@ function SessionView({
     );
   }
 
+  const pctComplete = totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0;
+
   return (
     <div className="h-full flex flex-col overflow-hidden relative">
-      {/* Combined top bar: back + question selector + progress + info sheet */}
-      <div className="flex-shrink-0 bg-white border-b border-gray-100 px-4 py-2.5 flex items-center gap-3">
-        <button
-          onClick={onBack}
-          className="flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-[#BE1832] bg-gray-100 hover:bg-rose-50 px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Back
-        </button>
-        <select
-          value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
-          onChange={(e) => {
-            const idx = questionStartIndices[Number(e.target.value)];
-            if (idx >= 0) setCurrentIdx(idx);
-          }}
-          className="flex-1 min-w-0 max-w-[260px] border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
-        >
-          {paper.questions.map((q, i) => (
-            <option key={q.number} value={i}>
-              Q{q.number} — {q.title}
-            </option>
-          ))}
-        </select>
-        {/* Student progress info — single row */}
-        {(() => {
-          const pctComplete = totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0;
-          return (
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <span className="text-sm font-bold text-gray-800 whitespace-nowrap">
-                {currentSQ.label}
-              </span>
-              <span className="text-gray-300 text-xs">·</span>
-              <span className="text-xs font-semibold text-[#BE1832] whitespace-nowrap">
-                {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
-              </span>
-              <span className="text-gray-300 text-xs">·</span>
-              <span className="text-xs text-gray-500 whitespace-nowrap">{pctComplete}% complete</span>
-              <div className="w-12 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-[#BE1832] rounded-full transition-all"
-                  style={{ width: `${pctComplete}%` }}
-                />
-              </div>
-            </div>
-          );
-        })()}
-        {paper.infoSheet && (
+      {/* Top bar — two rows on mobile, single row on desktop */}
+      <div className="flex-shrink-0 bg-white border-b border-gray-100 px-3 sm:px-4">
+        {/* Row 1: back · question label · marks · % · info sheet */}
+        <div className="flex items-center gap-2 py-2">
           <button
-            onClick={() => setShowInfoSheet(true)}
-            className="ml-auto flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]"
+            onClick={onBack}
+            className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-[#BE1832] bg-gray-100 hover:bg-rose-50 px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0"
           >
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Info Sheet
+            <span className="hidden sm:inline">Back</span>
           </button>
-        )}
+
+          {/* Question label */}
+          <span className="text-sm font-bold text-gray-800 whitespace-nowrap">{currentSQ.label}</span>
+          <span className="text-gray-300 text-xs">·</span>
+          <span className="text-xs font-semibold text-[#BE1832] whitespace-nowrap">
+            {currentSQ.marks} {currentSQ.marks === 1 ? "mk" : "mks"}
+          </span>
+          <span className="text-gray-300 text-xs hidden sm:inline">·</span>
+          <span className="text-xs text-gray-500 whitespace-nowrap hidden sm:inline">{pctComplete}% done</span>
+          <div className="hidden sm:block w-10 h-1.5 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
+            <div className="h-full bg-[#BE1832] rounded-full transition-all" style={{ width: `${pctComplete}%` }} />
+          </div>
+
+          {paper.infoSheet && (
+            <button
+              onClick={() => setShowInfoSheet(true)}
+              className="ml-auto flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]"
+            >
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span>Info</span>
+            </button>
+          )}
+        </div>
+
+        {/* Row 2 (mobile only): progress bar + % + question selector */}
+        <div className="flex items-center gap-2 pb-2 sm:hidden">
+          <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+            <div className="h-full bg-[#BE1832] rounded-full transition-all" style={{ width: `${pctComplete}%` }} />
+          </div>
+          <span className="text-[11px] text-gray-500 whitespace-nowrap flex-shrink-0">{pctComplete}% done</span>
+          <select
+            value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
+            onChange={(e) => {
+              const idx = questionStartIndices[Number(e.target.value)];
+              if (idx >= 0) setCurrentIdx(idx);
+            }}
+            className="border border-gray-200 rounded-lg px-2 py-1 text-xs font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[120px] flex-shrink-0"
+          >
+            {paper.questions.map((q, i) => (
+              <option key={q.number} value={i}>Q{q.number} — {q.title}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Desktop-only: question select in row 1 area — shown inline above via sm: */}
+        <div className="hidden sm:flex items-center gap-2 pb-2">
+          <select
+            value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
+            onChange={(e) => {
+              const idx = questionStartIndices[Number(e.target.value)];
+              if (idx >= 0) setCurrentIdx(idx);
+            }}
+            className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[260px]"
+          >
+            {paper.questions.map((q, i) => (
+              <option key={q.number} value={i}>Q{q.number} — {q.title}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {/* Info Sheet Modal */}
@@ -1102,13 +1119,13 @@ function SessionView({
       )}
 
       {/* Split screen (guided) / Full screen (practice) */}
-      <div className="flex-1 flex overflow-hidden min-h-0">
+      <div className="flex-1 flex flex-col sm:flex-row overflow-hidden min-h-0">
         {/* ── LEFT PANEL: Question + Working ── */}
-        <div className={`${mode === "practice" ? "flex-1" : "w-[60%]"} flex flex-col border-r border-gray-200 overflow-hidden`}>
+        <div className={`${mode === "practice" ? "flex-1" : "flex-1 sm:w-[60%] sm:flex-none"} flex flex-col border-b sm:border-b-0 sm:border-r border-gray-200 overflow-hidden`}>
           {/* Content area — no scroll, flex column */}
           <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
             {/* Question text + diagram (scrollable together) */}
-            <div className="flex-shrink-0 overflow-y-auto px-5 py-3 border-b border-gray-100 max-h-[55%]">
+            <div className="flex-shrink-0 overflow-y-auto px-3 sm:px-5 py-2 sm:py-3 border-b border-gray-100 max-h-[30%] sm:max-h-[45%]">
               <div className="text-base text-gray-800 leading-relaxed">
                 <MathMarkdown content={currentSQ.questionText} />
               </div>
@@ -1158,7 +1175,7 @@ function SessionView({
             </div>
 
             {/* Working area — grows to fill remaining space */}
-            <div className="flex-1 flex flex-col min-h-0 px-5 py-3 gap-2">
+            <div className="flex-1 flex flex-col min-h-0 px-3 sm:px-5 py-2 sm:py-3 gap-1.5 sm:gap-2">
 
               {currentSQ.type === "mcq" && currentSQ.options ? (
                 /* ── MCQ Option Cards ── */
@@ -1195,7 +1212,7 @@ function SessionView({
                       const steps = mathsSteps[currentSQ.id] ?? ["", "", "", "", ""];
                       return (
                         <div key={label} className="flex items-start gap-2">
-                          <span className="flex-shrink-0 text-xs font-semibold text-gray-400 mt-2.5 w-20 text-right">{label}</span>
+                          <span className="flex-shrink-0 text-xs font-semibold text-gray-400 mt-2 w-14 sm:w-20 text-right">{label}</span>
                           <textarea
                             value={steps[i]}
                             disabled={currentAttempt.submitted}
@@ -1211,9 +1228,9 @@ function SessionView({
                               });
                             }}
                             placeholder={i < 4 ? `Working for ${label.toLowerCase()}…` : "Final answer…"}
-                            rows={3}
-                            className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
-                            style={{ minHeight: "4.5rem" }}
+                            rows={2}
+                            className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
+                            style={{ minHeight: "clamp(2.5rem, 8vh, 4.5rem)" }}
                             onInput={(e) => {
                               const t = e.target as HTMLTextAreaElement;
                               t.style.height = "auto";
@@ -1530,7 +1547,7 @@ function SessionView({
         </div>
 
         {/* ── RIGHT PANEL: AI Coach (guided mode only) ── */}
-        {mode === "guided" && <div className="w-[40%] flex flex-col overflow-hidden bg-white">
+        {mode === "guided" && <div className="h-[38%] sm:h-auto sm:w-[40%] flex flex-col overflow-hidden bg-white border-t sm:border-t-0">
           <div className="flex-shrink-0 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
