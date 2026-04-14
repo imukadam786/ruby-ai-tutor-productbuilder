@@ -211,7 +211,25 @@ function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void 
   );
 }
 
+// ── Progress helpers (localStorage) ───────────────────────────────────────────
+
+type PaperProgressStatus = "not_started" | "in_progress" | "completed";
+interface PaperProgress { status: PaperProgressStatus; pct?: number }
+
+function getPaperProgress(paperId: string): PaperProgress {
+  try {
+    const raw = typeof window !== "undefined" ? localStorage.getItem(`matric_progress_${paperId}`) : null;
+    return raw ? (JSON.parse(raw) as PaperProgress) : { status: "not_started" };
+  } catch { return { status: "not_started" }; }
+}
+
+function savePaperProgress(paperId: string, status: "in_progress" | "completed", pct?: number) {
+  try { localStorage.setItem(`matric_progress_${paperId}`, JSON.stringify({ status, pct })); } catch {}
+}
+
 // ── Paper List ─────────────────────────────────────────────────────────────────
+
+const ALL_YEARS = [2025, 2024, 2023, 2022, 2021];
 
 function PaperList({
   subjectId,
@@ -224,12 +242,16 @@ function PaperList({
 }) {
   const subject = SUBJECTS.find((s) => s.id === subjectId)!;
   const papers = PAPERS.filter((p) => p.subject.toLowerCase().replace(/\s+/g, "-") === subjectId);
+  const [expandedCode, setExpandedCode] = useState<"P1" | "P2" | null>("P1");
+
+  const papersByCode = (code: "P1" | "P2") =>
+    papers.filter((p) => p.paperCode === code).sort((a, b) => b.year - a.year);
 
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
-
       <div className="relative max-w-2xl mx-auto px-5 py-10 space-y-8">
+
         <button
           onClick={onBack}
           className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 transition-colors"
@@ -251,79 +273,174 @@ function PaperList({
           </div>
         </div>
 
-        {/* Paper cards */}
+        {/* Accordion: one card per paper code */}
         <div className="space-y-3">
-          {papers.map((paper) => (
-            <div key={paper.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-rose-200 transition-all group">
-              <button
-                onClick={() => onSelect(paper)}
-                className="w-full text-left p-5"
+          {(["P1", "P2"] as const).map((code) => {
+            const codeLabel = code === "P1" ? "1" : "2";
+            const codeGroup = papersByCode(code);
+            const isOpen = expandedCode === code;
+
+            return (
+              <div
+                key={code}
+                className="bg-white rounded-2xl border-2 border-gray-200 shadow-sm overflow-hidden transition-all"
               >
-                <div className="flex items-center justify-between gap-4">
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs font-semibold bg-rose-50 text-[#BE1832] px-2.5 py-1 rounded-full">
-                        {paper.paperCode}
+                {/* Accordion header */}
+                <button
+                  onClick={() => setExpandedCode(isOpen ? null : code)}
+                  className="w-full flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${subject.color} flex items-center justify-center text-white text-sm font-bold flex-shrink-0`}>
+                      P{codeLabel}
+                    </div>
+                    <span className="font-bold text-gray-900 text-base">
+                      {subject.name} Paper {codeLabel}
+                    </span>
+                    {codeGroup.length > 0 && (
+                      <span className="text-xs font-medium text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">
+                        {codeGroup.length} available
                       </span>
-                      <span className="text-xs text-gray-400">{paper.session} {paper.year}</span>
-                    </div>
-                    <p className="font-bold text-gray-800">
-                      {paper.subject} — Paper {paper.paperCode}
-                    </p>
-                    <div className="flex items-center gap-3 text-xs text-gray-400">
-                      <span>{paper.totalMarks} marks</span>
-                      <span>·</span>
-                      <span>{paper.durationHours} hours</span>
-                      <span>·</span>
-                      <span>{paper.questions.length} questions</span>
-                    </div>
+                    )}
                   </div>
                   <svg
-                    className="w-5 h-5 text-gray-300 group-hover:text-[#BE1832] flex-shrink-0 transition-colors"
+                    className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
                     fill="none" viewBox="0 0 24 24" stroke="currentColor"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                </div>
-              </button>
-              {(paper.questionPaperUrl || paper.memoUrl) && (
-                <div className="px-5 pb-4 flex items-center gap-2 flex-wrap border-t border-gray-50 pt-3">
-                  {paper.questionPaperUrl && (
-                    <a
-                      href={paper.questionPaperUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#BE1832] transition-colors"
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                      </svg>
-                      Question Paper
-                    </a>
-                  )}
-                  {paper.questionPaperUrl && paper.memoUrl && (
-                    <span className="text-gray-200">·</span>
-                  )}
-                  {paper.memoUrl && (
-                    <a
-                      href={paper.memoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#BE1832] transition-colors"
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                      </svg>
-                      Memo
-                    </a>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
+                </button>
+
+                {/* Year rows */}
+                {isOpen && (
+                  <div className="border-t border-gray-100 divide-y divide-gray-100">
+                    {ALL_YEARS.map((year) => {
+                      const paper = codeGroup.find((p) => p.year === year);
+                      const isLatest = year === 2025;
+
+                      if (!paper) {
+                        return (
+                          <div
+                            key={year}
+                            className="px-5 py-4 flex items-center justify-between opacity-40 cursor-not-allowed"
+                          >
+                            <div>
+                              <p className="text-sm font-semibold text-gray-500">May/June {year}</p>
+                              <p className="text-xs text-gray-400 mt-0.5">Coming soon</p>
+                            </div>
+                            <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full">Soon</span>
+                          </div>
+                        );
+                      }
+
+                      const progress = getPaperProgress(paper.id);
+
+                      return (
+                        <button
+                          key={year}
+                          onClick={() => onSelect(paper)}
+                          className={`w-full text-left px-5 group transition-colors ${
+                            isLatest ? "py-5 hover:bg-rose-50" : "py-4 hover:bg-gray-50"
+                          }`}
+                        >
+                          <div className="flex items-center justify-between gap-3">
+                            {/* Left: year + meta */}
+                            <div className="flex-1 min-w-0 space-y-2">
+                              {/* Session + year label */}
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className={`font-extrabold text-gray-900 ${isLatest ? "text-xl" : "text-base"}`}>
+                                  {paper.session} {year}
+                                </span>
+                                {isLatest && (
+                                  <span className="text-xs font-semibold bg-[#BE1832] text-white px-2.5 py-0.5 rounded-full">
+                                    Latest
+                                  </span>
+                                )}
+                              </div>
+
+                              {/* Stats row with icons */}
+                              <div className="flex items-center gap-3 flex-wrap">
+                                <span className="flex items-center gap-1 text-xs text-gray-500">
+                                  <span>📝</span>
+                                  <span className="font-medium">{paper.totalMarks} marks</span>
+                                </span>
+                                <span className="text-gray-200">·</span>
+                                <span className="flex items-center gap-1 text-xs text-gray-500">
+                                  <span>⏱</span>
+                                  <span className="font-medium">{paper.durationHours} hours</span>
+                                </span>
+                                <span className="text-gray-200">·</span>
+                                <span className="flex items-center gap-1 text-xs text-gray-500">
+                                  <span>❓</span>
+                                  <span className="font-medium">{paper.questions.length} questions</span>
+                                </span>
+                              </div>
+
+                              {/* QP + Memo availability (non-clickable) */}
+                              <div className="flex items-center gap-3">
+                                {paper.questionPaperUrl && (
+                                  <span className="flex items-center gap-1 text-xs text-gray-500">
+                                    <span className="text-green-500">✅</span> Question Paper
+                                  </span>
+                                )}
+                                {paper.memoUrl && (
+                                  <span className="flex items-center gap-1 text-xs text-gray-500">
+                                    <span className="text-green-500">✅</span> Memo
+                                  </span>
+                                )}
+                              </div>
+
+                              {/* Progress bar */}
+                              <div className="flex items-center gap-2">
+                                {progress.status === "not_started" && (
+                                  <>
+                                    <div className="flex-1 max-w-[120px] h-1.5 bg-gray-100 rounded-full" />
+                                    <span className="text-xs text-gray-400">Not started</span>
+                                  </>
+                                )}
+                                {progress.status === "in_progress" && (
+                                  <>
+                                    <div className="flex-1 max-w-[120px] h-1.5 bg-amber-100 rounded-full overflow-hidden">
+                                      <div className="h-full w-1/3 bg-amber-400 rounded-full" />
+                                    </div>
+                                    <span className="text-xs text-amber-600 font-medium">In progress</span>
+                                  </>
+                                )}
+                                {progress.status === "completed" && (
+                                  <>
+                                    <div className="flex-1 max-w-[120px] h-1.5 bg-green-100 rounded-full overflow-hidden">
+                                      <div
+                                        className="h-full bg-green-500 rounded-full"
+                                        style={{ width: `${progress.pct ?? 0}%` }}
+                                      />
+                                    </div>
+                                    <span className="text-xs text-green-600 font-semibold">
+                                      Completed · {progress.pct ?? 0}%
+                                    </span>
+                                  </>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* Red chevron */}
+                            <svg
+                              className="w-5 h-5 text-[#BE1832] flex-shrink-0 group-hover:translate-x-0.5 transition-transform"
+                              fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
+
+        <p className="text-xs text-gray-400 text-center">All papers are official NSC past exams.</p>
       </div>
     </div>
   );
@@ -340,8 +457,14 @@ function ModeSelect({
   onStart: (mode: SessionMode, language: string) => void;
   onBack: () => void;
 }) {
-  const [mode, setMode] = useState<SessionMode | null>(null);
+  // Guided Mode pre-selected as the recommended default
+  const [mode, setMode] = useState<SessionMode>("guided");
   const [language, setLanguage] = useState("English");
+
+  const SESSION_META: Record<SessionMode, string> = {
+    practice: "3 hours · Timer starts immediately",
+    guided: "Untimed · You can pause anytime",
+  };
 
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
@@ -373,6 +496,8 @@ function ModeSelect({
                 emoji: "🎯",
                 title: "Practice Mode",
                 subtitle: "Exam simulation",
+                recommendation: "Recommended for exams",
+                recommendationColor: "text-blue-600 bg-blue-50",
                 bullets: [
                   "No AI help during the paper",
                   "Work through all questions",
@@ -387,6 +512,8 @@ function ModeSelect({
                 emoji: "📚",
                 title: "Guided Mode",
                 subtitle: "Learn with AI coaching",
+                recommendation: "Best for learning",
+                recommendationColor: "text-[#BE1832] bg-rose-50",
                 bullets: [
                   "AI evaluates after each question",
                   "Step-by-step hints available",
@@ -405,6 +532,11 @@ function ModeSelect({
                 mode === m.id ? m.activeColor : m.color + " hover:opacity-80"
               }`}
             >
+              {/* Recommendation badge */}
+              <span className={`inline-block text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full mb-3 ${m.recommendationColor}`}>
+                {m.recommendation}
+              </span>
+
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-2xl">{m.emoji}</span>
                 <div>
@@ -431,67 +563,36 @@ function ModeSelect({
           ))}
         </div>
 
-        {/* Language selector */}
-        <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700">Response language</label>
-          <p className="text-xs text-gray-400">Ruby will give feedback in this language.</p>
+        {/* Language selector — elevated prominence */}
+        <div className="bg-white rounded-2xl border-2 border-[#BE1832]/20 p-5 space-y-3 shadow-sm">
+          <div className="flex items-center gap-2">
+            <span className="text-lg">🌍</span>
+            <div>
+              <label className="text-sm font-bold text-gray-800">Response language</label>
+              <p className="text-xs text-gray-500 mt-0.5">Ruby will give you feedback in this language — choose your home language for the best experience.</p>
+            </div>
+          </div>
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
+            className="w-full border-2 border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] focus:border-[#BE1832]"
           >
             {SA_LANGUAGES.map((l) => (
-              <option key={l} value={l}>
-                {l}
-              </option>
+              <option key={l} value={l}>{l}</option>
             ))}
           </select>
         </div>
 
-        {(paper.questionPaperUrl || paper.memoUrl) && (
-          <div className="bg-white rounded-2xl border border-gray-100 p-4 space-y-2">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Original PDFs</p>
-            <div className="flex items-center gap-4 flex-wrap">
-              {paper.questionPaperUrl && (
-                <a
-                  href={paper.questionPaperUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-[#BE1832] transition-colors font-medium"
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                  Question Paper
-                </a>
-              )}
-              {paper.memoUrl && (
-                <a
-                  href={paper.memoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-[#BE1832] transition-colors font-medium"
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                  Memo
-                </a>
-              )}
-            </div>
-          </div>
-        )}
+        {/* Session info copy */}
+        <p className="text-sm text-center text-gray-500 font-medium">
+          {SESSION_META[mode]}
+        </p>
 
         <button
-          onClick={() => mode && onStart(mode, language)}
-          disabled={!mode}
-          className="w-full bg-[#BE1832] hover:bg-[#a31529] disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
+          onClick={() => onStart(mode, language)}
+          className="w-full bg-[#BE1832] hover:bg-[#a31529] text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
         >
-          {mode === "practice"
-            ? "Start Practice Exam"
-            : mode === "guided"
-            ? "Start Guided Session"
-            : "Select a mode to continue"}
+          {mode === "practice" ? "Start Practice Exam" : "Start Guided Session"}
         </button>
       </div>
     </div>
@@ -509,8 +610,11 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
   const [pdfError, setPdfError] = React.useState(false);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/40 p-0 sm:p-4">
-      <div className={`bg-white rounded-t-2xl sm:rounded-2xl shadow-xl w-full sm:max-w-2xl flex flex-col overflow-hidden ${isPdf ? "h-[90vh]" : "max-h-[90vh]"}`}>
+    <div className="fixed inset-0 z-50 flex justify-end">
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/30" onClick={onClose} />
+      {/* Drawer panel slides in from right */}
+      <div className={`relative bg-white w-full sm:max-w-[520px] flex flex-col shadow-2xl ${isPdf ? "h-full" : "h-full"}`}>
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
           <div className="flex items-center gap-2">
@@ -533,6 +637,7 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
             <button
               onClick={onClose}
               className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+              title="Close"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -591,6 +696,7 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
 
 // ── Session View ───────────────────────────────────────────────────────────────
 
+
 function SessionView({
   paper,
   mode,
@@ -631,6 +737,14 @@ function SessionView({
   const [submitProgress, setSubmitProgress] = useState(0);
   const [showInfoSheet, setShowInfoSheet] = useState(false);
   const [hintLevel, setHintLevel] = useState(0);
+  const [expandedDiagramUrl, setExpandedDiagramUrl] = useState<string | null>(null);
+  const isMaths = paper.subject === "Mathematics";
+  const STEP_LABELS = ["Step 1", "Step 2", "Step 3", "Step 4", "Final Answer"];
+  const [mathsSteps, setMathsSteps] = useState<Record<string, string[]>>(() => {
+    const init: Record<string, string[]> = {};
+    flatQuestions.forEach((sq) => { init[sq.id] = ["", "", "", "", ""]; });
+    return init;
+  });
 
   // Reset hint level when question changes
   useEffect(() => {
@@ -920,23 +1034,18 @@ function SessionView({
             </option>
           ))}
         </select>
-        {/* Student progress info */}
+        {/* Student progress info — single row */}
         <div className="flex items-center gap-2 flex-shrink-0">
-          <div className="flex flex-col items-end">
-            <span className="text-sm font-bold text-gray-800 whitespace-nowrap leading-tight">
-              Q{currentIdx + 1} <span className="text-gray-400 font-normal">of</span> {totalQuestions}
-            </span>
-            <div className="flex items-center gap-1.5">
-              <span className="text-xs font-semibold text-[#BE1832] whitespace-nowrap">
-                {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
-              </span>
-              <span className="text-gray-300 text-xs">·</span>
-              <span className="text-xs text-gray-500 whitespace-nowrap">
-                {answeredCount} answered
-              </span>
-            </div>
-          </div>
-          <div className="w-16 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+          <span className="text-sm font-bold text-gray-800 whitespace-nowrap">
+            Q{currentIdx + 1} <span className="text-gray-400 font-normal">of</span> {totalQuestions}
+          </span>
+          <span className="text-gray-300 text-xs">·</span>
+          <span className="text-xs font-semibold text-[#BE1832] whitespace-nowrap">
+            {currentSQ.marks} {currentSQ.marks === 1 ? "mark" : "marks"}
+          </span>
+          <span className="text-gray-300 text-xs">·</span>
+          <span className="text-xs text-gray-500 whitespace-nowrap">{answeredCount} answered</span>
+          <div className="w-12 h-1.5 bg-gray-100 rounded-full overflow-hidden">
             <div
               className="h-full bg-[#BE1832] rounded-full transition-all"
               style={{ width: `${(answeredCount / totalQuestions) * 100}%` }}
@@ -946,7 +1055,7 @@ function SessionView({
         {paper.infoSheet && (
           <button
             onClick={() => setShowInfoSheet(true)}
-            className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]"
+            className="ml-auto flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]"
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -961,10 +1070,36 @@ function SessionView({
         <InfoSheetModal sheet={paper.infoSheet} onClose={() => setShowInfoSheet(false)} />
       )}
 
+      {/* Diagram lightbox */}
+      {expandedDiagramUrl && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setExpandedDiagramUrl(null)}
+        >
+          <div className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center">
+            <button
+              onClick={() => setExpandedDiagramUrl(null)}
+              className="absolute -top-10 right-0 text-white/80 hover:text-white p-1"
+              title="Close"
+            >
+              <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <img
+              src={expandedDiagramUrl}
+              alt="Diagram"
+              className="max-h-[85vh] max-w-full object-contain rounded-xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
+
       {/* Split screen (guided) / Full screen (practice) */}
       <div className="flex-1 flex overflow-hidden min-h-0">
         {/* ── LEFT PANEL: Question + Working ── */}
-        <div className={`${mode === "practice" ? "flex-1" : "w-1/2"} flex flex-col border-r border-gray-200 overflow-hidden`}>
+        <div className={`${mode === "practice" ? "flex-1" : "w-[60%]"} flex flex-col border-r border-gray-200 overflow-hidden`}>
           {/* Content area — no scroll, flex column */}
           <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
             {/* Question text + diagram (scrollable together) */}
@@ -972,19 +1107,35 @@ function SessionView({
               <div className="text-base text-gray-800 leading-relaxed">
                 <MathMarkdown content={currentSQ.questionText} />
               </div>
-              {/* Diagram — below question text, full width */}
+              {/* Diagram — thumbnail with tap-to-expand */}
               {(() => {
                 const parentQ = paper.questions.find((q) =>
                   q.subQuestions.some((sq) => sq.id === currentSQ.id)
                 );
                 const diagramUrl = currentSQ.diagramUrl ?? parentQ?.diagramUrl;
                 return diagramUrl ? (
-                  <div className="mt-4">
-                    <img
-                      src={diagramUrl}
-                      alt={`Diagram for ${currentSQ.label}`}
-                      className="w-full rounded-xl border border-gray-200 object-contain"
-                    />
+                  <div className="mt-3">
+                    <button
+                      onClick={() => setExpandedDiagramUrl(diagramUrl)}
+                      className="relative group block rounded-xl overflow-hidden border border-gray-200 bg-gray-50 max-w-[220px]"
+                      title="Tap to expand"
+                    >
+                      <img
+                        src={diagramUrl}
+                        alt={`Diagram for ${currentSQ.label}`}
+                        className="w-full object-contain max-h-28"
+                      />
+                      <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="text-[10px] font-semibold bg-black/60 text-white px-2 py-0.5 rounded-full">
+                          Tap to expand
+                        </span>
+                      </div>
+                      <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-100 group-hover:opacity-0 transition-opacity pointer-events-none">
+                        <span className="text-[10px] font-semibold bg-black/40 text-white px-2 py-0.5 rounded-full">
+                          Tap to expand
+                        </span>
+                      </div>
+                    </button>
                   </div>
                 ) : null;
               })()}
@@ -1031,19 +1182,44 @@ function SessionView({
                     );
                   })}
                 </div>
-              ) : (
-                /* ── Written: Textarea + upload ── */
+              ) : isMaths ? (
+                /* ── Maths: Step-by-step inputs ── */
                 <>
-                  <textarea
-                    value={currentAttempt.textWorking}
-                    onChange={(e) =>
-                      updateAttempt(currentSQ.id, { textWorking: e.target.value })
-                    }
-                    placeholder="Show your working here"
-                    className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
-                  />
-
-                  {/* Below textarea: camera + hint — centred */}
+                  <div className="flex-1 overflow-y-auto min-h-0 space-y-2 pr-0.5">
+                    {STEP_LABELS.map((label, i) => {
+                      const steps = mathsSteps[currentSQ.id] ?? ["", "", "", "", ""];
+                      return (
+                        <div key={label} className="flex items-start gap-2">
+                          <span className="flex-shrink-0 text-xs font-semibold text-gray-400 mt-2.5 w-20 text-right">{label}</span>
+                          <textarea
+                            value={steps[i]}
+                            disabled={currentAttempt.submitted}
+                            onChange={(e) => {
+                              const updated = [...steps];
+                              updated[i] = e.target.value;
+                              setMathsSteps((prev) => ({ ...prev, [currentSQ.id]: updated }));
+                              updateAttempt(currentSQ.id, {
+                                textWorking: updated
+                                  .map((v, j) => (v.trim() ? `${STEP_LABELS[j]}: ${v.trim()}` : ""))
+                                  .filter(Boolean)
+                                  .join("\n"),
+                              });
+                            }}
+                            placeholder={i < 4 ? `Working for ${label.toLowerCase()}…` : "Final answer…"}
+                            rows={1}
+                            className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
+                            style={{ height: "auto" }}
+                            onInput={(e) => {
+                              const t = e.target as HTMLTextAreaElement;
+                              t.style.height = "auto";
+                              t.style.height = `${t.scrollHeight}px`;
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {/* Upload + hint row */}
                   <div className="flex items-center justify-center gap-4 flex-shrink-0">
                     {!currentAttempt.imagePreviewUrl && (
                       <>
@@ -1051,11 +1227,8 @@ function SessionView({
                           onClick={() => fileInputRef.current?.click()}
                           className="flex items-center gap-1.5 text-sm font-semibold text-blue-500 hover:text-blue-700 transition-colors"
                         >
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                          </svg>
-                          Upload Image
+                          <span className="text-base leading-none">✏️</span>
+                          Upload handwritten working
                         </button>
                         <input
                           ref={fileInputRef}
@@ -1080,10 +1253,96 @@ function SessionView({
                                             "text-blue-500 hover:text-blue-700"
                         }`}
                       >
+                        <span className="text-base leading-none">💡</span>
+                        {hintLevel === 0 ? "Get a hint" : hintLevel === 1 ? "A bit more help" : "Show me the first step"}
+                      </button>
+                    )}
+                  </div>
+                  {currentAttempt.imagePreviewUrl && (
+                    <div className="relative flex-shrink-0">
+                      <img
+                        src={currentAttempt.imagePreviewUrl}
+                        alt="Your working"
+                        className="w-full rounded-xl border border-gray-200 max-h-32 object-contain bg-gray-50"
+                      />
+                      <button
+                        onClick={removeImage}
+                        className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white shadow border border-gray-200 flex items-center justify-center text-gray-500 hover:text-red-500 transition-colors"
+                      >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.347a3.75 3.75 0 01-5.303 0l-.347-.347a5 5 0 117.072 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
-                        {hintLevel === 0 ? "Need a hint?" : hintLevel === 1 ? "A bit more help" : "Show me the first step"}
+                      </button>
+                    </div>
+                  )}
+                  {hintLevel > 0 && (
+                    <div className={`flex-shrink-0 rounded-xl px-4 py-3 border flex items-start gap-2.5 ${
+                      hintLevel === 1 ? "bg-yellow-50 border-yellow-200" :
+                      hintLevel === 2 ? "bg-orange-50 border-orange-200" :
+                                        "bg-blue-50 border-blue-200"
+                    }`}>
+                      <span className="text-base leading-none flex-shrink-0 mt-0.5">💡</span>
+                      <p className={`text-sm leading-relaxed ${
+                        hintLevel === 1 ? "text-yellow-800" :
+                        hintLevel === 2 ? "text-orange-800" :
+                                          "text-blue-800"
+                      }`}>
+                        <span className="font-semibold">
+                          {hintLevel === 1 ? "Hint: " : hintLevel === 2 ? "More help: " : "First step: "}
+                        </span>
+                        {hintLevel === 1 ? hint1 : hintLevel === 2 ? hint2 : hint3}
+                      </p>
+                    </div>
+                  )}
+                </>
+              ) : (
+                /* ── Physics / other: large textarea ── */
+                <>
+                  <textarea
+                    value={currentAttempt.textWorking}
+                    onChange={(e) =>
+                      updateAttempt(currentSQ.id, { textWorking: e.target.value })
+                    }
+                    placeholder="Show your working here"
+                    className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
+                  />
+
+                  {/* Below textarea: camera + hint — centred */}
+                  <div className="flex items-center justify-center gap-4 flex-shrink-0">
+                    {!currentAttempt.imagePreviewUrl && (
+                      <>
+                        <button
+                          onClick={() => fileInputRef.current?.click()}
+                          className="flex items-center gap-1.5 text-sm font-semibold text-blue-500 hover:text-blue-700 transition-colors"
+                        >
+                          <span className="text-base leading-none">✏️</span>
+                          Upload handwritten working
+                        </button>
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept="image/*"
+                          capture="environment"
+                          className="hidden"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) handleImageSelected(file);
+                            e.target.value = "";
+                          }}
+                        />
+                      </>
+                    )}
+                    {hintLevel < 3 && (
+                      <button
+                        onClick={() => setHintLevel((p) => Math.min(p + 1, 3))}
+                        className={`flex items-center gap-1.5 text-sm transition-colors ${
+                          hintLevel === 0 ? "text-yellow-500 hover:text-yellow-700" :
+                          hintLevel === 1 ? "text-orange-500 hover:text-orange-700" :
+                                            "text-blue-500 hover:text-blue-700"
+                        }`}
+                      >
+                        <span className="text-base leading-none">💡</span>
+                        {hintLevel === 0 ? "Get a hint" : hintLevel === 1 ? "A bit more help" : "Show me the first step"}
                       </button>
                     )}
                   </div>
@@ -1231,40 +1490,42 @@ function SessionView({
                     </button>
                   </div>
                 )}
-                {/* Sub-question pills */}
-                <div className="flex flex-wrap gap-1.5">
-                  {subQsForQ.map((sq) => {
-                    const flatIdx = flatQuestions.findIndex((f) => f.id === sq.id);
-                    const a = attempts[sq.id];
-                    const hasContent = !!(a.textWorking.trim() || a.imageFile);
-                    const isDone = a.submitted;
-                    const isCurrent = sq.id === currentSQ.id;
-                    return (
-                      <button
-                        key={sq.id}
-                        onClick={() => setCurrentIdx(flatIdx)}
-                        className={`px-2.5 h-7 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
-                          isCurrent
-                            ? "bg-[#BE1832] text-white shadow"
-                            : isDone
-                            ? "bg-green-100 text-green-700 border border-green-200"
-                            : hasContent
-                            ? "bg-amber-100 text-amber-700 border border-amber-200"
-                            : "bg-gray-100 text-gray-400 border border-gray-200 hover:border-gray-300"
-                        }`}
-                      >
-                        {sq.label}
-                      </button>
-                    );
-                  })}
-                </div>
+                {/* Sub-question pills — hidden for Mathematics */}
+                {paper.subject !== "Mathematics" && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {subQsForQ.map((sq) => {
+                      const flatIdx = flatQuestions.findIndex((f) => f.id === sq.id);
+                      const a = attempts[sq.id];
+                      const hasContent = !!(a.textWorking.trim() || a.imageFile);
+                      const isDone = a.submitted;
+                      const isCurrent = sq.id === currentSQ.id;
+                      return (
+                        <button
+                          key={sq.id}
+                          onClick={() => setCurrentIdx(flatIdx)}
+                          className={`px-2.5 h-7 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
+                            isCurrent
+                              ? "bg-[#BE1832] text-white shadow"
+                              : isDone
+                              ? "bg-green-100 text-green-700 border border-green-200"
+                              : hasContent
+                              ? "bg-amber-100 text-amber-700 border border-amber-200"
+                              : "bg-gray-100 text-gray-400 border border-gray-200 hover:border-gray-300"
+                          }`}
+                        >
+                          {sq.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             );
           })()}
         </div>
 
         {/* ── RIGHT PANEL: AI Coach (guided mode only) ── */}
-        {mode === "guided" && <div className="w-1/2 flex flex-col overflow-hidden bg-white">
+        {mode === "guided" && <div className="w-[40%] flex flex-col overflow-hidden bg-white">
           <div className="flex-shrink-0 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
@@ -1293,8 +1554,11 @@ function SessionView({
                       </div>
                     ) : (
                       <div className="bg-rose-50 border border-rose-100 rounded-2xl px-4 py-4 space-y-3">
+                        <div className="text-sm text-gray-700 leading-relaxed">
+                          <MathMarkdown content={msg.content} />
+                        </div>
                         {msg.marksEarned !== undefined && msg.totalMarks !== undefined && (
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 pt-1 border-t border-rose-100">
                             <div
                               className={`text-xs font-bold px-2.5 py-1 rounded-full ${
                                 msg.marksEarned === msg.totalMarks
@@ -1311,9 +1575,6 @@ function SessionView({
                             )}
                           </div>
                         )}
-                        <div className="text-sm text-gray-700 leading-relaxed">
-                          <MathMarkdown content={msg.content} />
-                        </div>
                       </div>
                     )}
                   </div>
@@ -1325,7 +1586,7 @@ function SessionView({
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                     </svg>
-                    Evaluating your working…
+                    Looking this over…
                   </div>
                 )}
 
@@ -1480,10 +1741,18 @@ export default function MatricPastPapers() {
     setSessionMode(mode);
     setLanguage(lang);
     setFinalAttempts(null);
+    if (selectedPaper) savePaperProgress(selectedPaper.id, "in_progress");
     setPhase("session");
   };
 
   const handleFinish = (attempts: Record<string, QuestionState>) => {
+    if (selectedPaper) {
+      const flatQs = getFlatSubQuestions(selectedPaper);
+      const earned = flatQs.reduce((s, q) => s + (attempts[q.id]?.marksEarned ?? 0), 0);
+      const total = flatQs.reduce((s, q) => s + q.marks, 0);
+      const pct = total > 0 ? Math.round((earned / total) * 100) : 0;
+      savePaperProgress(selectedPaper.id, "completed", pct);
+    }
     setFinalAttempts(attempts);
     setPhase("summary");
   };
