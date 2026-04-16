@@ -343,6 +343,28 @@ function levenshtein(a: string, b: string): number {
   return prev[n];
 }
 
+/** Soundex encoding — catches STT homophones like "gaze"→"gays", "peat"→"Pete" */
+function soundex(s: string): string {
+  const upper = s.toUpperCase().replace(/[^A-Z]/g, "");
+  if (!upper) return "";
+  const map: Record<string, string> = {
+    B: "1", F: "1", P: "1", V: "1",
+    C: "2", G: "2", J: "2", K: "2", Q: "2", S: "2", X: "2", Z: "2",
+    D: "3", T: "3",
+    L: "4",
+    M: "5", N: "5",
+    R: "6",
+  };
+  let code = upper[0];
+  let prev = map[upper[0]] ?? "0";
+  for (let i = 1; i < upper.length && code.length < 4; i++) {
+    const c = map[upper[i]] ?? "0";
+    if (c !== "0" && c !== prev) code += c;
+    prev = c;
+  }
+  return code.padEnd(4, "0");
+}
+
 function scoreVoiceResponse(transcript: string, expected: string): { correct: boolean; score: number } {
   const t = normalize(transcript);
   const e = normalize(expected);
@@ -354,6 +376,11 @@ function scoreVoiceResponse(transcript: string, expected: string): { correct: bo
   const words = transcript.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(Boolean);
   // Exact word match
   if (words.some((w) => normalize(w) === e)) return { correct: true, score: 1 };
+  // Phonetic match — catches STT homophones (e.g. "gaze"→"gays", "peat"→"Pete")
+  const ePhonetic = soundex(e);
+  if (ePhonetic && words.some((w) => soundex(normalize(w)) === ePhonetic)) {
+    return { correct: true, score: 0.9 };
+  }
   // Best Levenshtein similarity across all transcript words
   let bestSim = 0;
   for (const word of words) {

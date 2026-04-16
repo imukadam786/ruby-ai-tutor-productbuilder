@@ -13,10 +13,10 @@ export async function POST(req: NextRequest) {
     }
 
     const response = await openai.audio.speech.create({
-      model: "tts-1",
+      model: "tts-1-hd",
       voice: "fable",   // Natural British-ish accent, warm tutor quality
       input: text.slice(0, 4096),
-      speed: 0.55,
+      speed: 0.9,
     }, { signal: AbortSignal.timeout(15_000) });
 
     const arrayBuffer = await response.arrayBuffer();
