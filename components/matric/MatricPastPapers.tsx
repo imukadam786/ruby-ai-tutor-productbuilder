@@ -85,63 +85,63 @@ const SUBJECTS = [
   {
     id: "accounting",
     name: "Accounting",
-    emoji: "📒",
+    thumbnail: "/thumbnails/accounting.jpeg",
     color: "from-emerald-500 to-teal-600",
     available: false,
   },
   {
     id: "afrikaans",
     name: "Afrikaans",
-    emoji: "🇿🇦",
+    thumbnail: "/thumbnails/afrikaans.jpeg",
     color: "from-orange-400 to-amber-500",
     available: false,
   },
   {
     id: "english",
     name: "English",
-    emoji: "✏️",
+    thumbnail: "/thumbnails/english.jpeg",
     color: "from-sky-400 to-blue-500",
     available: false,
   },
   {
     id: "geography",
     name: "Geography",
-    emoji: "🌍",
+    thumbnail: "/thumbnails/geography.jpeg",
     color: "from-lime-500 to-green-600",
     available: false,
   },
   {
     id: "history",
     name: "History",
-    emoji: "📜",
+    thumbnail: "/thumbnails/history.jpeg",
     color: "from-amber-500 to-yellow-600",
     available: false,
   },
   {
     id: "life-sciences",
     name: "Life Sciences",
-    emoji: "🧬",
+    thumbnail: "/thumbnails/life-sciences.jpeg",
     color: "from-pink-500 to-rose-600",
     available: false,
   },
   {
     id: "mathematics",
     name: "Mathematics",
-    emoji: "📐",
+    thumbnail: "/thumbnails/mathematics.jpeg",
     color: "from-[#BE1832] to-rose-700",
     available: true,
   },
   {
     id: "maths-literacy",
     name: "Maths Literacy",
-    emoji: "🔢",
+    thumbnail: "/thumbnails/maths-literacy.jpeg",
     color: "from-violet-500 to-purple-600",
     available: false,
   },
   {
     id: "physical-science",
     name: "Physical Science",
-    emoji: "⚗️",
+    thumbnail: "/thumbnails/physical-science.jpeg",
     color: "from-cyan-500 to-blue-600",
     available: true,
   },
@@ -172,30 +172,29 @@ function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void 
                 key={subject.id}
                 onClick={() => subject.available && onSelect(subject.id as SubjectId)}
                 disabled={!subject.available}
-                className={`relative rounded-2xl p-5 text-left transition-all group ${
+                className={`relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 ${
                   subject.available
-                    ? "shadow-sm hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
-                    : "opacity-60 cursor-not-allowed"
+                    ? "border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
+                    : "border-gray-200 opacity-60 cursor-not-allowed"
                 }`}
               >
-                {/* Card gradient background */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${subject.color} opacity-10 group-hover:opacity-15 transition-opacity`} />
-                <div className="absolute inset-0 rounded-2xl bg-white border-2 border-gray-300" style={{ zIndex: -1 }} />
+                {/* Thumbnail image */}
+                <div className="w-full aspect-square overflow-hidden">
+                  <img
+                    src={subject.thumbnail}
+                    alt={subject.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
 
-                <div className="relative space-y-3">
-                  {/* Emoji icon */}
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${subject.color} flex items-center justify-center text-xl shadow-sm`}>
-                    {subject.emoji}
-                  </div>
-
-                  <div>
-                    <p className="font-bold text-gray-800 text-sm leading-snug">{subject.name}</p>
-                    {subject.available ? (
-                      <p className="text-xs text-[#BE1832] font-medium mt-0.5">Papers available →</p>
-                    ) : (
-                      <p className="text-xs text-gray-400 mt-0.5">Coming soon</p>
-                    )}
-                  </div>
+                {/* Label strip */}
+                <div className="px-3 py-2.5">
+                  <p className="font-bold text-gray-800 text-sm leading-snug">{subject.name}</p>
+                  {subject.available ? (
+                    <p className="text-xs text-[#BE1832] font-semibold mt-0.5">Papers available →</p>
+                  ) : (
+                    <p className="text-xs text-gray-400 mt-0.5">Coming soon</p>
+                  )}
                 </div>
               </button>
             ))}
@@ -264,8 +263,8 @@ function PaperList({
 
         {/* Subject header */}
         <div className="flex items-center gap-4">
-          <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${subject.color} flex items-center justify-center text-2xl shadow-md flex-shrink-0`}>
-            {subject.emoji}
+          <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-md flex-shrink-0">
+            <img src={subject.thumbnail} alt={subject.name} className="w-full h-full object-cover" />
           </div>
           <div>
             <h1 className="text-2xl font-extrabold text-gray-900">{subject.name}</h1>
