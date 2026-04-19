@@ -381,12 +381,21 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
     }
   }
 
+  // Computes the discounted price per plan from discount_type + discount_value
+  // so each plan gets its own correctly discounted price.
   function effectivePriceRands(planKey: string): number | null {
     if (!appliedVoucher) return null;
     const applies =
       appliedVoucher.applicable_plans.length === 0 ||
       appliedVoucher.applicable_plans.includes(planKey);
-    return applies ? appliedVoucher.discounted_price : null;
+    if (!applies) return null;
+    const basePriceRands = parseInt(PLAN_INFO[planKey]?.price.replace(/[^0-9]/g, "") ?? "0", 10);
+    const dv = appliedVoucher.discount_value;
+    const discounted =
+      appliedVoucher.discount_type === "percentage"
+        ? basePriceRands * (1 - dv / 100)
+        : basePriceRands - dv;
+    return Math.max(0, Math.round(discounted * 100) / 100);
   }
 
   async function startCheckout(targetPlan: string) {

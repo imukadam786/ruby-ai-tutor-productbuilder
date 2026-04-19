@@ -48,14 +48,21 @@ export default function TrialExpiredScreen() {
   const [voucherError, setVoucherError] = useState<string | null>(null);
   const [appliedVoucher, setAppliedVoucher] = useState<(VoucherValidateResponse & { valid: true; code: string }) | null>(null);
 
-  // Returns the discounted price for a plan if a voucher is applied, else the base price
+  // Returns the discounted price for a plan if a voucher is applied, else the base price.
+  // Computes the discount from discount_type + discount_value so each plan gets
+  // its own correctly discounted price, not the starter price applied to all.
   function effectivePrice(plan: (typeof PLANS)[number]): number {
     if (!appliedVoucher) return plan.priceRands;
     const applies =
       appliedVoucher.applicable_plans.length === 0 ||
       appliedVoucher.applicable_plans.includes(plan.key);
     if (!applies) return plan.priceRands;
-    return appliedVoucher.discounted_price;
+    const dv = appliedVoucher.discount_value;
+    const discounted =
+      appliedVoucher.discount_type === "percentage"
+        ? plan.priceRands * (1 - dv / 100)
+        : plan.priceRands - dv;
+    return Math.max(0, Math.round(discounted * 100) / 100);
   }
 
   async function applyVoucher() {
