@@ -25,6 +25,7 @@ export async function POST(request: NextRequest) {
     payment_status,
     m_payment_id:    userId,            // we stored userId here
     custom_str1:     plan,              // plan name
+    custom_str2:     voucherCode,       // voucher code (if used)
     token,                              // subscription token (set on first payment)
     amount_gross:    amountGross,       // actual amount charged
     pf_payment_id:   pfPaymentId,       // PayFast's own payment ID
@@ -74,6 +75,19 @@ export async function POST(request: NextRequest) {
       .eq("id", userId);
 
     if (userErr) console.error("[PayFast ITN] user plan update error", userErr);
+
+    // Record voucher redemption if a voucher was used
+    if (voucherCode) {
+      const { error: redErr } = await supabaseAdmin
+        .from("voucher_redemptions")
+        .insert({ voucher_code: voucherCode, user_id: userId, plan: plan || "starter" });
+
+      if (redErr) {
+        console.error("[PayFast ITN] voucher redemption insert error", redErr);
+      } else {
+        await supabaseAdmin.rpc("increment_voucher_use", { voucher_code: voucherCode });
+      }
+    }
 
   } else if (payment_status === "CANCELLED") {
     await supabaseAdmin

@@ -6,6 +6,7 @@ import SpinningGlobe from "@/components/SpinningGlobe";
 import EduBackground from "@/components/EduBackground";
 import { supabase } from "@/lib/supabase";
 import SavedReportView from "@/components/SavedReportView";
+import type { VoucherValidateResponse } from "@/app/api/vouchers/validate/route";
 
 interface SettingsViewProps {
   onBack: () => void;
@@ -247,6 +248,12 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   // Billing history
   const [payments, setPayments] = useState<{ id: string; paid_at: string; amount: number; plan: string; status: string }[]>([]);
 
+  // Voucher (used in upgradePlan modal)
+  const [voucherInput, setVoucherInput] = useState("");
+  const [voucherLoading, setVoucherLoading] = useState(false);
+  const [voucherError, setVoucherError] = useState<string | null>(null);
+  const [appliedVoucher, setAppliedVoucher] = useState<(VoucherValidateResponse & { valid: true; code: string }) | null>(null);
+
   // Active modal
   const [modal, setModal] = useState<string | null>(null);
 
@@ -345,7 +352,42 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
 
   const planInfo = PLAN_INFO[plan] || PLAN_INFO.free;
 
-  const close = () => { setModal(null); setSubError(null); };
+  const close = () => {
+    setModal(null);
+    setSubError(null);
+    setAppliedVoucher(null);
+    setVoucherInput("");
+    setVoucherError(null);
+  };
+
+  async function applyVoucher(targetPlan: string) {
+    const code = voucherInput.trim().toUpperCase();
+    if (!code) return;
+    setVoucherLoading(true);
+    setVoucherError(null);
+    setAppliedVoucher(null);
+    try {
+      const res = await fetch(`/api/vouchers/validate?code=${encodeURIComponent(code)}&plan=${encodeURIComponent(targetPlan)}`);
+      const data: VoucherValidateResponse = await res.json();
+      if (!data.valid) {
+        setVoucherError(data.error);
+      } else {
+        setAppliedVoucher({ ...data, code });
+      }
+    } catch {
+      setVoucherError("Could not validate voucher. Please try again.");
+    } finally {
+      setVoucherLoading(false);
+    }
+  }
+
+  function effectivePriceRands(planKey: string): number | null {
+    if (!appliedVoucher) return null;
+    const applies =
+      appliedVoucher.applicable_plans.length === 0 ||
+      appliedVoucher.applicable_plans.includes(planKey);
+    return applies ? appliedVoucher.discounted_price : null;
+  }
 
   async function startCheckout(targetPlan: string) {
     if (!supaUser) { setSubError("Please sign in to upgrade."); return; }
@@ -359,7 +401,10 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
           "Content-Type": "application/json",
           Authorization: `Bearer ${session?.access_token}`,
         },
-        body: JSON.stringify({ plan: targetPlan }),
+        body: JSON.stringify({
+          plan: targetPlan,
+          ...(appliedVoucher ? { voucherCode: appliedVoucher.code } : {}),
+        }),
       });
       if (!res.ok) { setSubError("Could not start checkout. Try again."); return; }
       const { url, params } = await res.json();
@@ -687,15 +732,78 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
             {subError && (
               <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2">{subError}</p>
             )}
+
+            {/* Voucher input */}
+            {appliedVoucher ? (
+              <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-xl px-4 py-3">
+                <div>
+                  <p className="text-sm font-semibold text-green-700">
+                    Voucher <span className="font-bold">{appliedVoucher.code}</span> applied
+                  </p>
+                  <p className="text-xs text-green-600">
+                    {appliedVoucher.discount_type === "percentage"
+                      ? `${appliedVoucher.discount_value}% off`
+                      : `R${appliedVoucher.discount_value} off`}
+                    {appliedVoucher.applicable_plans.length > 0
+                      ? ` on ${appliedVoucher.applicable_plans.join(", ")}`
+                      : " on all plans"}
+                  </p>
+                </div>
+                <button
+                  onClick={() => { setAppliedVoucher(null); setVoucherInput(""); setVoucherError(null); }}
+                  className="text-green-500 hover:text-green-700 text-xs underline ml-3"
+                >
+                  Remove
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-1">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={voucherInput}
+                    onChange={(e) => setVoucherInput(e.target.value.toUpperCase())}
+                    onKeyDown={(e) => e.key === "Enter" && applyVoucher("starter")}
+                    placeholder="Voucher code"
+                    className="flex-1 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-300 bg-gray-50"
+                  />
+                  <button
+                    onClick={() => applyVoucher("starter")}
+                    disabled={voucherLoading || !voucherInput.trim()}
+                    className="bg-gray-800 hover:bg-gray-900 disabled:opacity-40 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors"
+                  >
+                    {voucherLoading ? "…" : "Apply"}
+                  </button>
+                </div>
+                {voucherError && (
+                  <p className="text-xs text-red-500 px-1">{voucherError}</p>
+                )}
+              </div>
+            )}
+
+            {/* Plan cards */}
             {(["starter", "pro", "ultimate"] as const).map((p) => {
               const info = PLAN_INFO[p];
+              const basePriceRands = parseInt(info.price.replace(/[^0-9]/g, ""), 10);
+              const discounted = effectivePriceRands(p);
+              const displayPrice = discounted !== null
+                ? `R${discounted % 1 === 0 ? discounted.toFixed(0) : discounted.toFixed(2)} / month`
+                : info.price;
+
               return (
                 <div key={p} className="border border-gray-100 rounded-2xl p-4 space-y-2">
                   <div className="flex items-center justify-between">
                     <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${info.color}`}>
                       {info.label}
                     </span>
-                    <span className="text-sm font-bold text-gray-800">{info.price}</span>
+                    <div className="text-right">
+                      {discounted !== null && (
+                        <span className="text-xs text-gray-400 line-through block">R{basePriceRands} / month</span>
+                      )}
+                      <span className={`text-sm font-bold ${discounted !== null ? "text-green-600" : "text-gray-800"}`}>
+                        {displayPrice}
+                      </span>
+                    </div>
                   </div>
                   <ul className="space-y-1 pb-1">
                     {info.features.map((f) => (
@@ -709,7 +817,7 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
                     disabled={upgrading}
                     className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white py-2 rounded-xl text-sm font-medium transition-colors"
                   >
-                    {upgrading ? "Redirecting to PayFast…" : `Subscribe — ${info.price}`}
+                    {upgrading ? "Redirecting to PayFast…" : `Subscribe — ${displayPrice}`}
                   </button>
                 </div>
               );
