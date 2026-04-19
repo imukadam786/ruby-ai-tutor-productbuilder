@@ -59,6 +59,7 @@ function AppContent() {
     "reading-skill-tree": t("nav.reading_skill_tree"),
     settings: t("sidebar.settings"),
     matric: "Matric Preparation",
+    "prep-papers-2026": "Prep Papers 2026",
   };
 
   const refreshStats = useCallback(() => {
@@ -190,6 +191,7 @@ function AppContent() {
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "matric" && <MatricPastPapers />}
+        {activeView === "prep-papers-2026" && <MatricPastPapers />}
         {activeView === "watch" && <WatchComingSoon />}
       </main>
 

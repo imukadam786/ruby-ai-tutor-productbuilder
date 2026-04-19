@@ -81,6 +81,7 @@ export default function Sidebar({
     maths: false,
     reading: false,
   });
+  const [matricOpen, setMatricOpen] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -193,15 +194,65 @@ export default function Sidebar({
 
           {/* Top-level items */}
           {topItems.map(({ id, emoji, label }) => (
-            <button
-              key={id}
-              onClick={() => handleNav(id)}
-              title={collapsed ? label : undefined}
-              className={`${navItemClass(activeView === id)} ${collapsed ? "justify-center px-0" : ""}`}
-            >
-              <span className="text-lg flex-shrink-0">{emoji}</span>
-              {!collapsed && <div className="font-medium text-base">{label}</div>}
-            </button>
+            <div key={id}>
+              {id === "matric" && !collapsed ? (
+                /* Matric Prep — split: main click navigates, chevron toggles sub-menu */
+                <div className="flex items-center gap-0.5">
+                  <button
+                    onClick={() => handleNav(id)}
+                    className={`${navItemClass(activeView === id)} flex-1`}
+                  >
+                    <span className="text-lg flex-shrink-0">{emoji}</span>
+                    <div className="font-medium text-base">{label}</div>
+                  </button>
+                  <button
+                    onClick={() => setMatricOpen((v) => !v)}
+                    className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/15 transition-colors flex-shrink-0"
+                    aria-label="Toggle Matric sub-menu"
+                  >
+                    <ChevronIcon open={matricOpen} />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => {
+                    handleNav(id);
+                    if (id === "matric") setMatricOpen((v) => !v);
+                  }}
+                  title={collapsed ? label : undefined}
+                  className={`${navItemClass(activeView === id)} ${collapsed ? "justify-center px-0" : ""}`}
+                >
+                  <span className="text-lg flex-shrink-0">{emoji}</span>
+                  {!collapsed && <div className="font-medium text-base">{label}</div>}
+                </button>
+              )}
+
+              {/* Matric sub-items dropdown */}
+              {id === "matric" && matricOpen && !collapsed && (
+                <div className="pl-1 pt-0.5">
+                  <button
+                    onClick={() => handleNav("prep-papers-2026")}
+                    className={navItemClass(activeView === "prep-papers-2026")}
+                  >
+                    <span className="text-lg flex-shrink-0">🗓️</span>
+                    <div className="min-w-0">
+                      <div className="font-medium text-base">Prep Papers 2026</div>
+                      <div className={`text-sm truncate ${activeView === "prep-papers-2026" ? "text-white/90" : "text-white/55"}`}>Latest exam papers</div>
+                    </div>
+                  </button>
+                </div>
+              )}
+              {/* Collapsed: show sub-items as flat icon buttons */}
+              {id === "matric" && collapsed && (
+                <button
+                  onClick={() => handleNav("prep-papers-2026")}
+                  title="Prep Papers 2026"
+                  className={`${navItemClass(activeView === "prep-papers-2026")} justify-center px-0`}
+                >
+                  <span className="text-lg flex-shrink-0">🗓️</span>
+                </button>
+              )}
+            </div>
           ))}
 
           {!collapsed && <div className="pt-2" />}
