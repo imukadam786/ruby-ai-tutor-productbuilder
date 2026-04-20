@@ -8,6 +8,8 @@ export interface SubQuestion {
   memoText: string;
   topic: string;
   diagramUrl?: string;
+  /** Completed sketch shown to student after submission (memo version of diagram) */
+  memoImageUrl?: string;
   /** "mcq" renders A/B/C/D option cards. Defaults to "written" if omitted. */
   type?: "written" | "mcq";
   /** Required when type === "mcq" */
@@ -11146,6 +11148,1732 @@ Mark 4: Total = 7! × 4! = 5 040 × 24 = 120 960`,
     ],
   },
 
+  // ── PREP PAPERS 2026 ─────────────────────────────────────────────────────────
+
+  {
+    id: "math-p1-prep-2026b",
+    subject: "Mathematics",
+    paperCode: "P1",
+    year: 2026,
+    session: "Prep B",
+    totalMarks: 150,
+    durationHours: 3,
+    infoSheet: { title: "Info Sheet", formulaSheetVariant: "standard" },
+    questions: [
+      {
+        number: 1,
+        title: "Algebra",
+        totalMarks: 25,
+        subQuestions: [
+          {
+            id: "b-1-1-1",
+            label: "1.1.1",
+            questionText: "Solve for $x$:\n\n$$x^2 - 3x - 10 = 0$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct factorisation — $(x - 5)(x + 2) = 0$
+Mark 2: $x = 5$
+Mark 3: $x = -2$
+Both values required for full marks. CA applies.`,
+            topic: "Algebra",
+          },
+          {
+            id: "b-1-1-2",
+            label: "1.1.2",
+            questionText: "Solve for $x$ (correct to TWO decimal places):\n\n$$3x^2 - x - 5 = 0$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct substitution into quadratic formula: $x = \\dfrac{1 \\pm \\sqrt{1 + 60}}{6} = \\dfrac{1 \\pm \\sqrt{61}}{6}$
+Mark 2: $x \\approx 1.47$
+Mark 3: $x \\approx -1.14$
+Both values required. CA applies.`,
+            topic: "Algebra",
+          },
+          {
+            id: "b-1-1-3",
+            label: "1.1.3",
+            questionText: "Solve for $x$:\n\n$$(x - 2)(x + 3) < 0$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Critical values $x = 2$ and $x = -3$
+Mark 2: Sign analysis — negative between the roots
+Mark 3: $-3 < x < 2$`,
+            topic: "Algebra",
+          },
+          {
+            id: "b-1-2",
+            label: "1.2",
+            questionText: "Solve simultaneously for $x$ and $y$:\n\n$$x - y = 1 \\quad \\text{and} \\quad x^2 + xy = 6$$",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Express $x$ in terms of $y$: $x = y + 1$
+Mark 2: Substitute into second equation — $(y+1)^2 + (y+1)y = 6$ → $2y^2 + 3y - 5 = 0$
+Mark 3: Factorise — $(2y + 5)(y - 1) = 0$
+Mark 4: $y = 1 \\Rightarrow x = 2$
+Mark 5: $y = -\\tfrac{5}{2} \\Rightarrow x = -\\tfrac{3}{2}$
+Both solution pairs required.`,
+            topic: "Algebra",
+          },
+          {
+            id: "b-1-3",
+            label: "1.3",
+            questionText: "Solve for $x$ if:\n\n$$\\frac{3}{x+1} + x = 3 \\quad (x \\neq -1)$$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Multiply through by $(x+1)$: $3 + x(x+1) = 3(x+1)$
+Mark 2: Expand and simplify — $x^2 - 2x = 0$
+Mark 3: Factorise — $x(x-2) = 0$
+Mark 4: $x = 0$ or $x = 2$ (both values required)`,
+            topic: "Algebra",
+          },
+          {
+            id: "b-1-4",
+            label: "1.4",
+            questionText: "Without using a calculator, simplify:\n\n$$\\frac{3^{2x+1} - 3^{2x}}{3^{2x} - 3^{2x-1}}$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Factorise numerator — $3^{2x}(3 - 1) = 2 \\cdot 3^{2x}$
+Mark 2: Factorise denominator — $3^{2x-1}(3 - 1) = 2 \\cdot 3^{2x-1}$
+Mark 3: Simplify — $\\dfrac{3^{2x}}{3^{2x-1}} = 3$`,
+            topic: "Algebra",
+          },
+          {
+            id: "b-1-5",
+            label: "1.5",
+            questionText: "Show that $x^2 + 4x + 5 > 0$ for all real values of $x$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Complete the square — $x^2 + 4x + 5 = (x^2 + 4x + 4) + 1$
+Mark 2: Write as $(x + 2)^2 + 1$
+Mark 3: State $(x+2)^2 \\geq 0$ for all real $x$
+Mark 4: Therefore $(x+2)^2 + 1 \\geq 1 > 0$ for all real $x$ (QED)`,
+            topic: "Algebra",
+          },
+        ],
+      },
+      {
+        number: 2,
+        title: "Arithmetic and Geometric Sequences",
+        totalMarks: 16,
+        subQuestions: [
+          {
+            id: "b-2-1",
+            label: "2.1",
+            questionText: "The arithmetic sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$ is given.\n\nWrite down the common difference.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $d = 3$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "b-2-2",
+            label: "2.2",
+            questionText: "Determine the general term $T_n$ of the sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Use $T_n = a + (n-1)d = 2 + (n-1)(3)$
+Mark 2: $T_n = 3n - 1$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "b-2-3",
+            label: "2.3",
+            questionText: "Which term of the sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$ equals $101$?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Set $T_n = 101$: $3n - 1 = 101 \\Rightarrow 3n = 102$
+Mark 2: $n = 34$ (the 34th term)`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "b-2-4",
+            label: "2.4",
+            questionText: "Calculate $S_{30}$, the sum of the first 30 terms of the arithmetic sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct formula $S_n = \\dfrac{n}{2}(2a + (n-1)d)$
+Mark 2: Correct substitution — $S_{30} = \\dfrac{30}{2}(4 + 29 \\times 3) = 15(91)$
+Mark 3: $S_{30} = 1\\,365$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "b-2-5",
+            label: "2.5",
+            questionText: "Determine the minimum number of terms of the arithmetic sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$ needed for the sum to exceed $500$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Set up inequality $S_n = \\dfrac{n(3n+1)}{2} > 500$ and solve: $n > 18.09$
+Mark 2: Minimum $n = 19$ terms (verify: $S_{19} = 551 > 500$)`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "b-2-6",
+            label: "2.6",
+            questionText: "A geometric sequence has first term $a = 4$ and common ratio $r = \\tfrac{1}{2}$.\n\nDetermine $S_\\infty$, the sum to infinity.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Correct formula $S_\\infty = \\dfrac{a}{1 - r}$
+Mark 2: $S_\\infty = \\dfrac{4}{1 - \\frac{1}{2}} = \\dfrac{4}{\\frac{1}{2}} = 8$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "b-2-7",
+            label: "2.7",
+            questionText: "For the geometric sequence with $a = 4$ and $r = \\tfrac{1}{2}$, after how many terms does $S_n$ first exceed $7.5$?",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Write $S_n = 8\\left[1 - \\left(\\tfrac{1}{2}\\right)^n\\right] > 7.5$
+Mark 2: Simplify to $\\left(\\tfrac{1}{2}\\right)^n < 0.0625 = \\tfrac{1}{16}$
+Mark 3: Convert to $2^n > 16$, so $n > 4$
+Mark 4: Minimum $n = 5$ terms (verify: $S_5 = 8(1 - \\tfrac{1}{32}) = 7.75 > 7.5$)`,
+            topic: "Sequences & Series",
+          },
+        ],
+      },
+      {
+        number: 3,
+        title: "Quadratic Sequence",
+        totalMarks: 9,
+        subQuestions: [
+          {
+            id: "b-3-1",
+            label: "3.1",
+            questionText: "The quadratic sequence $1\\,;\\,6\\,;\\,15\\,;\\,28\\,;\\,45\\,;\\,\\ldots$ is given.\n\nWrite down the second difference.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: Second difference $= 4$
+(1st differences: 5; 9; 13; 17 — these increase by 4 each time)`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "b-3-2",
+            label: "3.2",
+            questionText: "Determine the general term $T_n$ in the form $T_n = an^2 + bn + c$ for the sequence $1\\,;\\,6\\,;\\,15\\,;\\,28\\,;\\,45\\,;\\,\\ldots$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: $2a = 4 \\Rightarrow a = 2$
+Mark 2: $3a + b = 5 \\Rightarrow b = 5 - 6 = -1$
+Mark 3: $a + b + c = 1 \\Rightarrow 2 - 1 + c = 1 \\Rightarrow c = 0$
+Mark 4: $T_n = 2n^2 - n$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "b-3-3",
+            label: "3.3",
+            questionText: "Determine the value of $T_{20}$ for the sequence $1\\,;\\,6\\,;\\,15\\,;\\,28\\,;\\,45\\,;\\,\\ldots$",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Substitute $n = 20$: $T_{20} = 2(20)^2 - 20 = 800 - 20$
+Mark 2: $T_{20} = 780$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "b-3-4",
+            label: "3.4",
+            questionText: "Determine the values of $n$ for which $T_n > 100$ in the sequence $1\\,;\\,6\\,;\\,15\\,;\\,28\\,;\\,45\\,;\\,\\ldots$",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Set up $2n^2 - n > 100 \\Rightarrow 2n^2 - n - 100 > 0$, solve to get $n > 7.32$
+Mark 2: $T_n > 100$ for $n \\geq 8$ (verify: $T_7 = 91 < 100$, $T_8 = 120 > 100$)`,
+            topic: "Sequences & Series",
+          },
+        ],
+      },
+      {
+        number: 4,
+        title: "Functions — Hyperbola",
+        totalMarks: 10,
+        subQuestions: [
+          {
+            id: "b-4-1",
+            label: "4.1",
+            questionText: "The function $f(x) = \\dfrac{-4}{x+2} + 1$ is given.\n\nWrite down the equations of the asymptotes of $f$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Vertical asymptote — $x = -2$
+Mark 2: Horizontal asymptote — $y = 1$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-4-2",
+            label: "4.2",
+            questionText: "Determine the $x$-intercept of $f(x) = \\dfrac{-4}{x+2} + 1$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Set $y = 0$: $\\dfrac{-4}{x+2} + 1 = 0 \\Rightarrow \\dfrac{4}{x+2} = 1 \\Rightarrow x + 2 = 4$
+Mark 2: $x$-intercept: $(2\\,;\\,0)$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-4-3",
+            label: "4.3",
+            questionText: "Determine the $y$-intercept of $f(x) = \\dfrac{-4}{x+2} + 1$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $f(0) = \\dfrac{-4}{2} + 1 = -2 + 1 = -1$; $y$-intercept: $(0\\,;\\,-1)$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-4-4",
+            label: "4.4",
+            questionText: "Sketch the graph of $f(x) = \\dfrac{-4}{x+2} + 1$ for $-5 \\leq x \\leq 5$, clearly showing all asymptotes and intercepts.",
+            marks: 3,
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q4-axes.png",
+            memoImageUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q4-memo.png",
+            memoText: `Mark scheme (3 marks):
+Mark 1: Both asymptotes correctly drawn as dashed lines: $x = -2$ (vertical) and $y = 1$ (horizontal)
+Mark 2: Both intercepts correctly plotted: $x$-intercept $(2\\,;\\,0)$ and $y$-intercept $(0\\,;\\,-1)$
+Mark 3: Two correct hyperbola branches — upper-left branch (above $y=1$, left of $x=-2$) and lower-right branch (below $y=1$, right of $x=-2$), passing through the labelled intercepts
+
+Correct graph features: The function $f(x) = \\dfrac{-4}{x+2} + 1$ is a hyperbola with $a = -4$ (negative), so the upper branch is to the left and the lower branch is to the right.`,
+            topic: "Functions",
+          },
+          {
+            id: "b-4-5",
+            label: "4.5",
+            questionText: "Write down the equation of the axis of symmetry of $f(x) = \\dfrac{-4}{x+2} + 1$ with a **negative** gradient.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Axes of symmetry pass through the centre $(-2\\,;\\,1)$ with slopes $\\pm 1$
+Mark 2: Negative gradient axis: $y - 1 = -(x + 2) \\Rightarrow y = -x - 1$`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 5,
+        title: "Functions — Parabola and Line",
+        totalMarks: 16,
+        subQuestions: [
+          {
+            id: "b-5-1",
+            label: "5.1",
+            questionText: "$f(x) = -2x^2 + 4x + 6$ and $g(x) = 2x + 2$ are given.\n\nDetermine the coordinates of the turning point of $f$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Complete the square or use $x = -\\dfrac{b}{2a}$: $x = -\\dfrac{4}{2(-2)} = 1$
+Mark 2: $f(1) = -2(1) + 4 + 6 = 8$
+Mark 3: Turning point: $(1\\,;\\,8)$
+
+Alternatively via completing the square: $f(x) = -2(x^2 - 2x) + 6 = -2(x-1)^2 + 8$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-5-2",
+            label: "5.2",
+            questionText: "Write down the range of $f(x) = -2x^2 + 4x + 6$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $f$ has a maximum value of 8, so range is $y \\leq 8$ or $(-\\infty\\,;\\,8]$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-5-3",
+            label: "5.3",
+            questionText: "Determine the $x$-intercepts of $f(x) = -2x^2 + 4x + 6$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Set $f(x) = 0$: $-2x^2 + 4x + 6 = 0 \\Rightarrow x^2 - 2x - 3 = 0$
+Mark 2: Factorise — $(x - 3)(x + 1) = 0$
+Mark 3: $x$-intercepts: $(-1\\,;\\,0)$ and $(3\\,;\\,0)$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-5-4",
+            label: "5.4",
+            questionText: "Sketch $f$ and $g$ on the same system of axes. Label all intercepts and the turning point.\n\n$f(x) = -2x^2 + 4x + 6$ and $g(x) = 2x + 2$",
+            marks: 3,
+            memoImageUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q5-memo.png",
+            memoText: `Mark scheme (3 marks):
+Mark 1: $f$ correctly sketched — downward parabola with turning point $(1\\,;\\,8)$, $x$-intercepts $(-1\\,;\\,0)$ and $(3\\,;\\,0)$, $y$-intercept $(0\\,;\\,6)$
+Mark 2: $g$ correctly sketched — straight line through $(0\\,;\\,2)$ and $(-1\\,;\\,0)$
+Mark 3: All labelled intercepts and turning point clearly shown on both graphs`,
+            topic: "Functions",
+          },
+          {
+            id: "b-5-5",
+            label: "5.5",
+            questionText: "Determine the values of $x$ for which $f(x) \\geq g(x)$, where $f(x) = -2x^2 + 4x + 6$ and $g(x) = 2x + 2$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Set up $-2x^2 + 4x + 6 \\geq 2x + 2 \\Rightarrow -2x^2 + 2x + 4 \\geq 0 \\Rightarrow x^2 - x - 2 \\leq 0$
+Mark 2: Factorise — $(x - 2)(x + 1) \\leq 0$
+Mark 3: $-1 \\leq x \\leq 2$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-5-6",
+            label: "5.6",
+            questionText: "Determine the maximum vertical distance between $f$ and $g$ for $x \\in [-1\\,;\\,2]$, where $f(x) = -2x^2 + 4x + 6$ and $g(x) = 2x + 2$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Define $h(x) = f(x) - g(x) = -2x^2 + 4x + 6 - (2x + 2) = -2x^2 + 2x + 4$
+Mark 2: Complete the square or differentiate: $h'(x) = -4x + 2 = 0 \\Rightarrow x = \\tfrac{1}{2}$
+Mark 3: $h\\!\\left(\\tfrac{1}{2}\\right) = -2\\!\\left(\\tfrac{1}{4}\\right) + 1 + 4 = \\tfrac{9}{2} = 4.5$ units`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 6,
+        title: "Functions — Exponential and Inverse",
+        totalMarks: 10,
+        subQuestions: [
+          {
+            id: "b-6-1",
+            label: "6.1",
+            questionText: "$f(x) = 2^{-x} + 1$ is given.\n\nWrite down the equation of the asymptote of $f$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: As $x \\to +\\infty$, $2^{-x} \\to 0$, so horizontal asymptote is $y = 1$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-6-2",
+            label: "6.2",
+            questionText: "Determine the $y$-intercept of $f(x) = 2^{-x} + 1$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Substitute $x = 0$: $f(0) = 2^0 + 1 = 1 + 1$
+Mark 2: $y$-intercept: $(0\\,;\\,2)$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-6-3",
+            label: "6.3",
+            questionText: "Determine the $x$-intercept of $f(x) = 2^{-x} + 1$, if it exists.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $2^{-x} + 1 = 0 \\Rightarrow 2^{-x} = -1$, which is impossible since $2^{-x} > 0$ for all $x$. No $x$-intercept exists.`,
+            topic: "Functions",
+          },
+          {
+            id: "b-6-4",
+            label: "6.4",
+            questionText: "Write down the equation of $f^{-1}(x)$ for $f(x) = 2^{-x} + 1$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Write $y = 2^{-x} + 1$, so $y - 1 = 2^{-x}$, then $-x = \\log_2(y-1)$, giving $x = -\\log_2(y-1)$
+Mark 2: Swap $x$ and $y$: $f^{-1}(x) = -\\log_2(x - 1)$`,
+            topic: "Functions",
+          },
+          {
+            id: "b-6-5",
+            label: "6.5",
+            questionText: "State, with a reason, whether $f(x) = 2^{-x} + 1$ is an increasing or decreasing function.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Correct conclusion — $f$ is a **decreasing** function
+Mark 2: Valid reason — as $x$ increases, $-x$ decreases, so $2^{-x}$ decreases, therefore $f(x)$ decreases`,
+            topic: "Functions",
+          },
+          {
+            id: "b-6-6",
+            label: "6.6",
+            questionText: "Sketch $f$ and $f^{-1}$ on the same system of axes, showing all intercepts and asymptotes.\n\n$f(x) = 2^{-x} + 1$ and $f^{-1}(x) = -\\log_2(x-1)$",
+            marks: 2,
+            memoImageUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q6-memo.png",
+            memoText: `Mark scheme (2 marks):
+Mark 1: $f$ correctly sketched — decreasing exponential curve through $(0\\,;\\,2)$, asymptote $y = 1$. $f^{-1}$ correctly sketched — through $(2\\,;\\,0)$, asymptote $x = 1$.
+Mark 2: Both graphs are reflections of each other in the line $y = x$, with the line $y = x$ shown or implied. All asymptotes and intercepts labelled.`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 7,
+        title: "Financial Mathematics",
+        totalMarks: 13,
+        subQuestions: [
+          {
+            id: "b-7-1",
+            label: "7.1",
+            questionText: "Zara invests R15 000 at an interest rate of 8.5% per annum compounded quarterly.\n\nDetermine the effective annual interest rate.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct formula — $i_{\\text{eff}} = \\left(1 + \\dfrac{i_{\\text{nom}}}{m}\\right)^m - 1$
+Mark 2: Substitute correctly — $= \\left(1 + \\dfrac{0.085}{4}\\right)^4 - 1 = (1.02125)^4 - 1$
+Mark 3: $i_{\\text{eff}} \\approx 0.0877 = 8.77\\%$ p.a.`,
+            topic: "Financial Mathematics",
+          },
+          {
+            id: "b-7-2-1",
+            label: "7.2.1",
+            questionText: "A home loan of R250 000 is taken at 9% per annum compounded monthly. Monthly repayments are R3 200.\n\nCalculate the number of monthly repayments needed to settle the loan.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Correct formula — $PV = \\dfrac{x[1-(1+i)^{-n}]}{i}$
+Mark 2: Substitute $i = \\dfrac{0.09}{12} = 0.0075$, $PV = 250\\,000$, $x = 3\\,200$
+Mark 3: Solve for $(1.0075)^{-n} = 0.41406$
+Mark 4: Apply logarithms — $-n\\ln(1.0075) = \\ln(0.41406)$
+Mark 5: $n \\approx 117.97$, so $\\mathbf{118}$ monthly payments required`,
+            topic: "Financial Mathematics",
+          },
+          {
+            id: "b-7-2-2",
+            label: "7.2.2",
+            questionText: "Determine the outstanding balance on the home loan of R250 000 (at 9% p.a. compounded monthly, R3 200 per month) immediately after the 36th payment.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Correct balance formula — Balance $= PV(1+i)^{36} - x\\dfrac{[(1+i)^{36}-1]}{i}$
+Mark 2: $(1.0075)^{36} \\approx 1.30865$
+Mark 3: $250\\,000 \\times 1.30865 = R327\\,162.50$
+Mark 4: $3\\,200 \\times \\dfrac{(0.30865)}{0.0075} = R131\\,690.00$
+Mark 5: Outstanding balance $= R327\\,162.50 - R131\\,690.00 = \\mathbf{R195\\,472.50}$`,
+            topic: "Financial Mathematics",
+          },
+        ],
+      },
+      {
+        number: 8,
+        title: "Differential Calculus",
+        totalMarks: 16,
+        subQuestions: [
+          {
+            id: "b-8-1",
+            label: "8.1",
+            questionText: "Determine $f'(x)$ from **first principles** if $f(x) = -x^2 + 4$.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Write the definition — $f'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}$
+Mark 2: Substitute — $= \\lim_{h \\to 0} \\dfrac{[-(x+h)^2 + 4] - [-x^2 + 4]}{h}$
+Mark 3: Expand — $= \\lim_{h \\to 0} \\dfrac{-x^2 - 2xh - h^2 + 4 + x^2 - 4}{h}$
+Mark 4: Simplify — $= \\lim_{h \\to 0} \\dfrac{-2xh - h^2}{h} = \\lim_{h \\to 0}(-2x - h)$
+Mark 5: $f'(x) = -2x$`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-8-2-1",
+            label: "8.2.1",
+            questionText: "Determine $\\dfrac{dy}{dx}$ if $y = 3x^3 - 5x + \\dfrac{2}{x}$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Rewrite $\\dfrac{2}{x} = 2x^{-1}$
+Mark 2: Differentiate first two terms — $9x^2 - 5$
+Mark 3: Differentiate last term — $-2x^{-2} = -\\dfrac{2}{x^2}$
+Answer: $\\dfrac{dy}{dx} = 9x^2 - 5 - \\dfrac{2}{x^2}$`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-8-2-2",
+            label: "8.2.2",
+            questionText: "Determine $f'(x)$ if $f(x) = \\dfrac{x^2 + 1}{\\sqrt{x}}$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Rewrite — $f(x) = \\dfrac{x^2}{x^{1/2}} + \\dfrac{1}{x^{1/2}} = x^{3/2} + x^{-1/2}$
+Mark 2: Differentiate first term — $\\dfrac{3}{2}x^{1/2}$
+Mark 3: Differentiate second term — $-\\dfrac{1}{2}x^{-3/2}$
+Mark 4: Final answer: $f'(x) = \\dfrac{3\\sqrt{x}}{2} - \\dfrac{1}{2x\\sqrt{x}}$`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-8-3-1",
+            label: "8.3.1",
+            questionText: "$p(x) = x^3 - 3x + k$ passes through the point $(2\\,;\\,3)$.\n\nDetermine the value of $k$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Substitute $(2\\,;\\,3)$: $p(2) = 8 - 6 + k = 3$
+Mark 2: $k = 1$`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-8-3-2",
+            label: "8.3.2",
+            questionText: "For $p(x) = x^3 - 3x + 1$, determine the gradient of the tangent to $p$ at $x = -1$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $p'(x) = 3x^2 - 3$; substitute $x = -1$: $p'(-1) = 3(1) - 3$
+Mark 2: Gradient $= 0$ (horizontal tangent at $x = -1$)`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 9,
+        title: "Cubic Function",
+        totalMarks: 18,
+        subQuestions: [
+          {
+            id: "b-9-1",
+            label: "9.1",
+            questionText: "$f(x) = x^3 + 3x^2 - 9x + 5$ is given.\n\nShow that $(x - 1)$ is a factor of $f(x)$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Substitute $x = 1$: $f(1) = 1 + 3 - 9 + 5$
+Mark 2: $f(1) = 0$, therefore by the factor theorem $(x-1)$ is a factor ✓`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-9-2",
+            label: "9.2",
+            questionText: "Hence, factorise $f(x) = x^3 + 3x^2 - 9x + 5$ fully.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Perform polynomial division or inspection to get $f(x) = (x-1)(x^2 + 4x - 5)$
+Mark 2: Factorise the quadratic factor — $(x^2 + 4x - 5) = (x-1)(x+5)$
+Mark 3: $f(x) = (x-1)^2(x+5)$`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-9-3",
+            label: "9.3",
+            questionText: "Determine the $x$-intercept(s) and the $y$-intercept of $f(x) = x^3 + 3x^2 - 9x + 5$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: $x$-intercepts from $(x-1)^2(x+5) = 0$: $x = 1$ (touches, double root) and $x = -5$ (crosses)
+Mark 2: $x$-intercepts: $(1\\,;\\,0)$ and $(-5\\,;\\,0)$ — state which touches and which crosses
+Mark 3: $y$-intercept: $f(0) = 5$, so $(0\\,;\\,5)$`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-9-4",
+            label: "9.4",
+            questionText: "Determine the coordinates of the stationary points of $f(x) = x^3 + 3x^2 - 9x + 5$. Clearly classify the nature of each stationary point.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: $f'(x) = 3x^2 + 6x - 9 = 3(x+3)(x-1)$; set $f'(x) = 0$: $x = -3$ or $x = 1$
+Mark 2: $f(-3) = -27 + 27 + 27 + 5 = 32$; stationary point $(-3\\,;\\,32)$
+Mark 3: $f(1) = 0$; stationary point $(1\\,;\\,0)$
+Mark 4: $f''(x) = 6x + 6$; at $x=-3$: $f''(-3) = -12 < 0$ → **local maximum**
+Mark 5: At $x=1$: $f''(1) = 12 > 0$ → **local minimum**`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-9-5",
+            label: "9.5",
+            questionText: "Sketch the graph of $f(x) = x^3 + 3x^2 - 9x + 5$. Show all intercepts and stationary points.",
+            marks: 4,
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q9-axes.png",
+            memoImageUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q9-memo.png",
+            memoText: `Mark scheme (4 marks):
+Mark 1: Correct shape — cubic with positive leading coefficient
+Mark 2: $y$-intercept $(0\\,;\\,5)$ and $x$-intercepts $(-5\\,;\\,0)$ and $(1\\,;\\,0)$ correctly plotted. At $(1\\,;\\,0)$ the curve touches (turns) the $x$-axis.
+Mark 3: Local maximum $(-3\\,;\\,32)$ clearly shown
+Mark 4: Local minimum $(1\\,;\\,0)$ clearly shown (this coincides with the $x$-axis touch point)`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-9-6",
+            label: "9.6",
+            questionText: "Determine the $x$-coordinate of the point of inflection of $f(x) = x^3 + 3x^2 - 9x + 5$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $f''(x) = 6x + 6 = 0 \\Rightarrow x = -1$`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 10,
+        title: "Calculus Application — Optimisation",
+        totalMarks: 8,
+        subQuestions: [
+          {
+            id: "b-10-1",
+            label: "10.1",
+            questionText: "An open box (no lid) is made from cardboard. It has a square base of side $x$ cm and height $h$ cm. The volume of the box is 500 cm³.\n\nShow that $h = \\dfrac{500}{x^2}$.",
+            marks: 1,
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q10.png",
+            memoText: `Mark scheme (1 mark):
+Mark 1: Volume $= x^2 h = 500 \\Rightarrow h = \\dfrac{500}{x^2}$ ✓`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-10-2",
+            label: "10.2",
+            questionText: "Show that the total surface area of the open box is $A(x) = x^2 + \\dfrac{2\\,000}{x}$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $A = x^2 + 4xh$ (base + 4 sides)
+Mark 2: Substitute $h = \\dfrac{500}{x^2}$: $A = x^2 + 4x \\cdot \\dfrac{500}{x^2} = x^2 + \\dfrac{2\\,000}{x}$ ✓`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-10-3",
+            label: "10.3",
+            questionText: "Determine the value of $x$ for which the surface area of the open box is a minimum.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: $A'(x) = 2x - \\dfrac{2\\,000}{x^2}$; set $A'(x) = 0$
+Mark 2: $2x = \\dfrac{2\\,000}{x^2} \\Rightarrow x^3 = 1\\,000$
+Mark 3: $x = 10$ cm`,
+            topic: "Calculus",
+          },
+          {
+            id: "b-10-4",
+            label: "10.4",
+            questionText: "Calculate the minimum surface area of the open box (where $x = 10$ cm).",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Substitute $x = 10$: $A(10) = 100 + \\dfrac{2\\,000}{10} = 100 + 200$
+Mark 2: Minimum surface area $= 300$ cm²`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 11,
+        title: "Probability and Counting",
+        totalMarks: 9,
+        subQuestions: [
+          {
+            id: "b-11-1",
+            label: "11.1",
+            questionText: "A committee of 4 people is chosen at random from 6 men and 4 women.\n\nCalculate the probability that exactly 2 women are chosen.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Total ways to choose 4 from 10: $\\binom{10}{4} = 210$
+Mark 2: Ways with exactly 2 women: $\\binom{4}{2} \\times \\binom{6}{2} = 6 \\times 15 = 90$
+Mark 3: $P(\\text{exactly 2 women}) = \\dfrac{90}{210} = \\dfrac{3}{7}$`,
+            topic: "Probability",
+          },
+          {
+            id: "b-11-2-1",
+            label: "11.2.1",
+            questionText: "5 distinct letters A, B, C, D, E are arranged in a row.\n\nHow many different 3-letter arrangements can be formed from these 5 letters (no repetition)?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Use permutation — $P(5, 3) = 5 \\times 4 \\times 3$
+Mark 2: $= 60$ arrangements`,
+            topic: "Probability",
+          },
+          {
+            id: "b-11-2-2",
+            label: "11.2.2",
+            questionText: "Of the 3-letter arrangements of A, B, C, D, E (no repetition), how many have the letter B in the **middle**?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: B is fixed in the middle: _ B _; first position has 4 choices, last position has 3 choices
+Mark 2: $4 \\times 3 = 12$ arrangements`,
+            topic: "Probability",
+          },
+          {
+            id: "b-11-3",
+            label: "11.3",
+            questionText: "$P(A) = 0.4$ and $P(B) = 0.25$. Events $A$ and $B$ are independent.\n\nDetermine $P(A \\text{ or } B)$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Since independent: $P(A \\cap B) = P(A) \\times P(B) = 0.4 \\times 0.25 = 0.1$
+Mark 2: $P(A \\cup B) = 0.4 + 0.25 - 0.1 = 0.55$`,
+            topic: "Probability",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: "math-p1-prep-2026a",
+    subject: "Mathematics",
+    paperCode: "P1",
+    year: 2026,
+    session: "Prep A",
+    totalMarks: 150,
+    durationHours: 3,
+    infoSheet: { title: "Info Sheet", formulaSheetVariant: "standard" },
+    questions: [
+      {
+        number: 1,
+        title: "Algebra",
+        totalMarks: 25,
+        subQuestions: [
+          {
+            id: "a-1-1-1",
+            label: "1.1.1",
+            questionText: "Solve for $x$:\n\n$$x^2 - x - 6 = 0$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct factorisation — $(x - 3)(x + 2) = 0$
+Mark 2: $x = 3$
+Mark 3: $x = -2$
+Both values required for full marks. CA applies.`,
+            topic: "Algebra",
+          },
+          {
+            id: "a-1-1-2",
+            label: "1.1.2",
+            questionText: "Solve for $x$ (correct to TWO decimal places):\n\n$$2x^2 + 3x - 7 = 0$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct substitution — $x = \\dfrac{-3 \\pm \\sqrt{9 + 56}}{4} = \\dfrac{-3 \\pm \\sqrt{65}}{4}$
+Mark 2: $x \\approx 1.27$
+Mark 3: $x \\approx -2.77$
+Both values required. CA applies.`,
+            topic: "Algebra",
+          },
+          {
+            id: "a-1-1-3",
+            label: "1.1.3",
+            questionText: "Solve for $x$:\n\n$$x(x - 4) \\leq 0$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Critical values $x = 0$ and $x = 4$
+Mark 2: Sign analysis — negative between the roots (product ≤ 0)
+Mark 3: $0 \\leq x \\leq 4$`,
+            topic: "Algebra",
+          },
+          {
+            id: "a-1-2",
+            label: "1.2",
+            questionText: "Solve simultaneously for $x$ and $y$:\n\n$$y = x + 2 \\quad \\text{and} \\quad x^2 + y^2 = 10$$",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Substitute $y = x + 2$ into $x^2 + y^2 = 10$
+Mark 2: Expand — $x^2 + (x+2)^2 = 10 \\Rightarrow 2x^2 + 4x + 4 = 10 \\Rightarrow x^2 + 2x - 3 = 0$
+Mark 3: Factorise — $(x+3)(x-1) = 0$, so $x = 1$ or $x = -3$
+Mark 4: $x = 1 \\Rightarrow y = 3$
+Mark 5: $x = -3 \\Rightarrow y = -1$
+Both solution pairs required.`,
+            topic: "Algebra",
+          },
+          {
+            id: "a-1-3",
+            label: "1.3",
+            questionText: "Solve for $x$ if:\n\n$$\\sqrt{2x + 1} = x - 1$$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Square both sides (note restriction $x \\geq 1$): $2x + 1 = (x-1)^2 = x^2 - 2x + 1$
+Mark 2: Rearrange — $x^2 - 4x = 0 \\Rightarrow x(x - 4) = 0$, so $x = 0$ or $x = 4$
+Mark 3: Check $x = 0$: $\\sqrt{1} = 1 \\neq 0 - 1 = -1$ ✗ (rejected)
+Mark 4: $x = 4$ is the only valid solution (check: $\\sqrt{9} = 3 = 4 - 1$ ✓)`,
+            topic: "Algebra",
+          },
+          {
+            id: "a-1-4",
+            label: "1.4",
+            questionText: "Without using a calculator, simplify:\n\n$$\\frac{4^{x+1} - 4^x}{4^x - 4^{x-1}}$$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Factorise numerator — $4^x(4 - 1) = 3 \\cdot 4^x$
+Mark 2: Factorise denominator — $4^{x-1}(4 - 1) = 3 \\cdot 4^{x-1}$
+Mark 3: $\\dfrac{3 \\cdot 4^x}{3 \\cdot 4^{x-1}} = 4^1 = 4$`,
+            topic: "Algebra",
+          },
+          {
+            id: "a-1-5",
+            label: "1.5",
+            questionText: "Prove that $(n+1)^2 - (n-1)^2 = 4n$ for all integer values of $n$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Expand $(n+1)^2 = n^2 + 2n + 1$
+Mark 2: Expand $(n-1)^2 = n^2 - 2n + 1$
+Mark 3: Subtract — $(n^2 + 2n + 1) - (n^2 - 2n + 1) = 4n$
+Mark 4: Conclude $= 4n$ ✓ (QED — true for all integer values of $n$)`,
+            topic: "Algebra",
+          },
+        ],
+      },
+      {
+        number: 2,
+        title: "Sequences and Series",
+        totalMarks: 17,
+        subQuestions: [
+          {
+            id: "a-2-1",
+            label: "2.1",
+            questionText: "The arithmetic sequence $4\\,;\\,9\\,;\\,14\\,;\\,19\\,;\\,\\ldots$ is given.\n\nDetermine the common difference.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $d = 5$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-2-2",
+            label: "2.2",
+            questionText: "Write down the general term $T_n$ of the arithmetic sequence $4\\,;\\,9\\,;\\,14\\,;\\,19\\,;\\,\\ldots$",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $T_n = 4 + (n-1)(5)$
+Mark 2: $T_n = 5n - 1$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-2-3",
+            label: "2.3",
+            questionText: "Which term of the sequence $4\\,;\\,9\\,;\\,14\\,;\\,19\\,;\\,\\ldots$ has a value of $99$?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $5n - 1 = 99 \\Rightarrow 5n = 100$
+Mark 2: $n = 20$ (the 20th term)`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-2-4",
+            label: "2.4",
+            questionText: "Calculate $S_{25}$, the sum of the first 25 terms of $4\\,;\\,9\\,;\\,14\\,;\\,19\\,;\\,\\ldots$",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct formula $S_n = \\dfrac{n}{2}(2a + (n-1)d)$
+Mark 2: $S_{25} = \\dfrac{25}{2}(8 + 24 \\times 5) = \\dfrac{25}{2}(128)$
+Mark 3: $S_{25} = 1\\,600$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-2-5",
+            label: "2.5",
+            questionText: "A geometric sequence has $T_2 = 6$ and $T_4 = 54$.\n\nShow that the common ratio $r = 3$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Write $T_2 = ar = 6$ and $T_4 = ar^3 = 54$
+Mark 2: Divide: $\\dfrac{T_4}{T_2} = r^2 = \\dfrac{54}{6} = 9$
+Mark 3: $r = 3$ (taking positive value since $r > 0$ for the given terms) ✓`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-2-6",
+            label: "2.6",
+            questionText: "For the geometric sequence with $T_2 = 6$ and $r = 3$, determine $T_1$, the first term.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $ar = 6 \\Rightarrow a(3) = 6$
+Mark 2: $T_1 = a = 2$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-2-7",
+            label: "2.7",
+            questionText: "For the geometric sequence with $a = 2$ and $r = 3$, calculate $S_8$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $S_n = \\dfrac{a(r^n - 1)}{r - 1} = \\dfrac{2(3^8 - 1)}{3 - 1} = \\dfrac{2(6\\,561 - 1)}{2}$
+Mark 2: $S_8 = 6\\,560$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-2-8",
+            label: "2.8",
+            questionText: "Determine the value of:\n\n$$\\sum_{k=1}^{\\infty} 4\\left(\\frac{1}{3}\\right)^{k-1}$$",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Identify $a = 4$ and $r = \\tfrac{1}{3}$; since $|r| < 1$ the series converges; use $S_\\infty = \\dfrac{a}{1-r}$
+Mark 2: $S_\\infty = \\dfrac{4}{1 - \\frac{1}{3}} = \\dfrac{4}{\\frac{2}{3}} = 6$`,
+            topic: "Sequences & Series",
+          },
+        ],
+      },
+      {
+        number: 3,
+        title: "Quadratic Sequence",
+        totalMarks: 9,
+        subQuestions: [
+          {
+            id: "a-3-1",
+            label: "3.1",
+            questionText: "The quadratic sequence $3\\,;\\,7\\,;\\,13\\,;\\,21\\,;\\,31\\,;\\,\\ldots$ is given.\n\nWrite down the second difference.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: Second difference $= 2$
+(1st differences: 4; 6; 8; 10 — these increase by 2 each time)`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-3-2",
+            label: "3.2",
+            questionText: "Determine the general term $T_n$ in the form $T_n = an^2 + bn + c$ for the sequence $3\\,;\\,7\\,;\\,13\\,;\\,21\\,;\\,31\\,;\\,\\ldots$",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: $2a = 2 \\Rightarrow a = 1$
+Mark 2: $3a + b = 4 \\Rightarrow b = 4 - 3 = 1$
+Mark 3: $a + b + c = 3 \\Rightarrow 1 + 1 + c = 3 \\Rightarrow c = 1$
+Mark 4: $T_n = n^2 + n + 1$`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-3-3",
+            label: "3.3",
+            questionText: "Which term of the sequence $3\\,;\\,7\\,;\\,13\\,;\\,21\\,;\\,31\\,;\\,\\ldots$ equals $157$?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $n^2 + n + 1 = 157 \\Rightarrow n^2 + n - 156 = 0 \\Rightarrow (n-12)(n+13) = 0$
+Mark 2: $n = 12$ (reject $n = -13$) — the **12th term** equals 157`,
+            topic: "Sequences & Series",
+          },
+          {
+            id: "a-3-4",
+            label: "3.4",
+            questionText: "Determine the value of $T_{50}$ for the sequence $3\\,;\\,7\\,;\\,13\\,;\\,21\\,;\\,31\\,;\\,\\ldots$",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $T_{50} = (50)^2 + 50 + 1 = 2\\,500 + 50 + 1$
+Mark 2: $T_{50} = 2\\,551$`,
+            topic: "Sequences & Series",
+          },
+        ],
+      },
+      {
+        number: 4,
+        title: "Functions — Hyperbola",
+        totalMarks: 10,
+        subQuestions: [
+          {
+            id: "a-4-1",
+            label: "4.1",
+            questionText: "The function $f(x) = \\dfrac{2}{x-1} + 3$ is given.\n\nWrite down the equations of the asymptotes of $f$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Vertical asymptote — $x = 1$
+Mark 2: Horizontal asymptote — $y = 3$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-4-2",
+            label: "4.2",
+            questionText: "Determine the $x$-intercept of $f(x) = \\dfrac{2}{x-1} + 3$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Set $y = 0$: $\\dfrac{2}{x-1} + 3 = 0 \\Rightarrow \\dfrac{2}{x-1} = -3 \\Rightarrow x - 1 = -\\tfrac{2}{3}$
+Mark 2: $x = \\tfrac{1}{3}$; $x$-intercept: $\\left(\\tfrac{1}{3}\\,;\\,0\\right)$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-4-3",
+            label: "4.3",
+            questionText: "Determine the $y$-intercept of $f(x) = \\dfrac{2}{x-1} + 3$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $f(0) = \\dfrac{2}{0-1} + 3 = -2 + 3 = 1$; $y$-intercept: $(0\\,;\\,1)$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-4-4",
+            label: "4.4",
+            questionText: "Sketch the graph of $f(x) = \\dfrac{2}{x-1} + 3$ for $-2 \\leq x \\leq 5$, clearly showing all asymptotes and intercepts.",
+            marks: 3,
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q4-axes.png",
+            memoImageUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q4-memo.png",
+            memoText: `Mark scheme (3 marks):
+Mark 1: Both asymptotes correctly drawn as dashed lines: $x = 1$ (vertical) and $y = 3$ (horizontal)
+Mark 2: Both intercepts correctly plotted: $x$-intercept $(\\tfrac{1}{3}\\,;\\,0)$ and $y$-intercept $(0\\,;\\,1)$
+Mark 3: Two correct hyperbola branches — upper-right branch (above $y=3$, right of $x=1$) and lower-left branch (below $y=3$, left of $x=1$), passing through the labelled intercepts
+
+Correct graph features: $a = 2 > 0$, so upper branch is to the right of the vertical asymptote and lower branch is to the left.`,
+            topic: "Functions",
+          },
+          {
+            id: "a-4-5",
+            label: "4.5",
+            questionText: "Write down the equation of the axis of symmetry of $f(x) = \\dfrac{2}{x-1} + 3$ with a **positive** gradient.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Axes of symmetry pass through the centre $(1\\,;\\,3)$ with slopes $\\pm 1$
+Mark 2: Positive gradient axis: $y - 3 = +(x - 1) \\Rightarrow y = x + 2$`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 5,
+        title: "Functions — Parabola and Line",
+        totalMarks: 16,
+        subQuestions: [
+          {
+            id: "a-5-1",
+            label: "5.1",
+            questionText: "$f(x) = -x^2 + 4x + 5$ and $g(x) = x + 5$ are given.\n\nDetermine the coordinates of the turning point of $f$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Axis of symmetry: $x = -\\dfrac{b}{2a} = -\\dfrac{4}{2(-1)} = 2$
+Mark 2: $f(2) = -4 + 8 + 5 = 9$
+Mark 3: Turning point: $(2\\,;\\,9)$
+
+Alternatively: $f(x) = -(x^2 - 4x) + 5 = -(x-2)^2 + 9$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-5-2",
+            label: "5.2",
+            questionText: "Write down the range of $f(x) = -x^2 + 4x + 5$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $f$ has a maximum value of 9, so range is $y \\leq 9$ or $(-\\infty\\,;\\,9]$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-5-3",
+            label: "5.3",
+            questionText: "Determine the $x$-intercepts of $f(x) = -x^2 + 4x + 5$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Set $f(x) = 0$: $-x^2 + 4x + 5 = 0 \\Rightarrow x^2 - 4x - 5 = 0$
+Mark 2: Factorise — $(x-5)(x+1) = 0$
+Mark 3: $x$-intercepts: $(-1\\,;\\,0)$ and $(5\\,;\\,0)$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-5-4",
+            label: "5.4",
+            questionText: "Sketch $f$ and $g$ on the same system of axes. Label all intercepts and the turning point.\n\n$f(x) = -x^2 + 4x + 5$ and $g(x) = x + 5$",
+            marks: 3,
+            memoImageUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q5-memo.png",
+            memoText: `Mark scheme (3 marks):
+Mark 1: $f$ correctly sketched — downward parabola with turning point $(2\\,;\\,9)$, $x$-intercepts $(-1\\,;\\,0)$ and $(5\\,;\\,0)$, $y$-intercept $(0\\,;\\,5)$
+Mark 2: $g$ correctly sketched — straight line through $(0\\,;\\,5)$ and $(-5\\,;\\,0)$
+Mark 3: All labelled intercepts and turning point clearly shown on both graphs`,
+            topic: "Functions",
+          },
+          {
+            id: "a-5-5",
+            label: "5.5",
+            questionText: "Determine the values of $x$ for which $f(x) > g(x)$, where $f(x) = -x^2 + 4x + 5$ and $g(x) = x + 5$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: $-x^2 + 4x + 5 > x + 5 \\Rightarrow -x^2 + 3x > 0 \\Rightarrow x^2 - 3x < 0$
+Mark 2: Factorise — $x(x-3) < 0$
+Mark 3: $0 < x < 3$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-5-6",
+            label: "5.6",
+            questionText: "Determine the maximum vertical distance between $f$ and $g$ for $x \\in [0\\,;\\,3]$, where $f(x) = -x^2 + 4x + 5$ and $g(x) = x + 5$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: $h(x) = f(x) - g(x) = -x^2 + 4x + 5 - (x + 5) = -x^2 + 3x$
+Mark 2: $h'(x) = -2x + 3 = 0 \\Rightarrow x = \\tfrac{3}{2}$; complete the square: $h(x) = -(x - \\tfrac{3}{2})^2 + \\tfrac{9}{4}$
+Mark 3: Maximum distance $= \\tfrac{9}{4} = 2.25$ units at $x = \\tfrac{3}{2}$`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 6,
+        title: "Functions — Exponential and Inverse",
+        totalMarks: 10,
+        subQuestions: [
+          {
+            id: "a-6-1",
+            label: "6.1",
+            questionText: "$f(x) = 3^x - 2$ is given.\n\nWrite down the equation of the asymptote of $f$.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: As $x \\to -\\infty$, $3^x \\to 0$, so horizontal asymptote is $y = -2$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-6-2",
+            label: "6.2",
+            questionText: "Determine the $y$-intercept of $f(x) = 3^x - 2$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Substitute $x = 0$: $f(0) = 3^0 - 2 = 1 - 2$
+Mark 2: $y$-intercept: $(0\\,;\\,-1)$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-6-3",
+            label: "6.3",
+            questionText: "Determine the $x$-intercept of $f(x) = 3^x - 2$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Set $f(x) = 0$: $3^x - 2 = 0 \\Rightarrow 3^x = 2$, so $x = \\log_3 2$
+Mark 2: $x$-intercept: $(\\log_3 2\\,;\\,0) \\approx (0.63\\,;\\,0)$`,
+            topic: "Functions",
+          },
+          {
+            id: "a-6-4",
+            label: "6.4",
+            questionText: "Sketch $f$ and $f^{-1}$ on the same system of axes, clearly showing all intercepts and asymptotes.\n\n$f(x) = 3^x - 2$",
+            marks: 3,
+            memoImageUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q6-memo.png",
+            memoText: `Mark scheme (3 marks):
+Mark 1: $f$ correctly sketched — increasing exponential curve through $(0\\,;\\,-1)$ and $(\\log_3 2\\,;\\,0)$, asymptote $y = -2$
+Mark 2: $f^{-1}$ correctly sketched as the reflection of $f$ in $y = x$ — through $(-1\\,;\\,0)$ and $(0\\,;\\,\\log_3 2)$, asymptote $x = -2$
+Mark 3: Line $y = x$ shown (implied or drawn), all asymptotes and intercepts labelled`,
+            topic: "Functions",
+          },
+          {
+            id: "a-6-5",
+            label: "6.5",
+            questionText: "Write down the equation of $f^{-1}(x)$ for $f(x) = 3^x - 2$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Write $y = 3^x - 2$, so $y + 2 = 3^x$, then $x = \\log_3(y + 2)$
+Mark 2: Swap $x$ and $y$: $f^{-1}(x) = \\log_3(x + 2)$`,
+            topic: "Functions",
+          },
+        ],
+      },
+      {
+        number: 7,
+        title: "Financial Mathematics",
+        totalMarks: 13,
+        subQuestions: [
+          {
+            id: "a-7-1",
+            label: "7.1",
+            questionText: "A car is purchased for R280 000. It depreciates at 18% per annum on a reducing balance.\n\nDetermine the book value of the car after 3 years.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Correct formula — $A = P(1 - i)^n$
+Mark 2: Substitute — $A = 280\\,000(1 - 0.18)^3 = 280\\,000 \\times (0.82)^3$
+Mark 3: $A = 280\\,000 \\times 0.551368 \\approx \\mathbf{R154\\,383.04}$`,
+            topic: "Financial Mathematics",
+          },
+          {
+            id: "a-7-2",
+            label: "7.2",
+            questionText: "Thabo wants to save R180 000 in 4 years. He invests equal monthly deposits into a savings account earning 10.5% per annum compounded monthly.\n\nCalculate his monthly deposit.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Correct formula — $FV = \\dfrac{x[(1+i)^n - 1]}{i}$
+Mark 2: $i = \\dfrac{0.105}{12} = 0.00875$; $n = 48$; substitute $FV = 180\\,000$
+Mark 3: $(1.00875)^{48} \\approx 1.5191$; so $180\\,000 = x \\times \\dfrac{0.5191}{0.00875} = x \\times 59.327$
+Mark 4: $x = \\dfrac{180\\,000}{59.327} \\approx \\mathbf{R3\\,034.96}$`,
+            topic: "Financial Mathematics",
+          },
+          {
+            id: "a-7-3-1",
+            label: "7.3.1",
+            questionText: "A loan of R120 000 is taken at 12% per annum compounded monthly. Monthly repayments are R2 000.\n\nCalculate the number of monthly repayments needed to settle the loan.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Correct formula — $PV = \\dfrac{x[1-(1+i)^{-n}]}{i}$; $i = \\dfrac{0.12}{12} = 0.01$
+Mark 2: $120\\,000 = \\dfrac{2\\,000[1-(1.01)^{-n}]}{0.01}$; simplify to $(1.01)^{-n} = 0.4$
+Mark 3: $-n \\ln(1.01) = \\ln(0.4)$
+Mark 4: $n = \\dfrac{-\\ln(0.4)}{\\ln(1.01)} \\approx 92.09$, so **93 payments** required`,
+            topic: "Financial Mathematics",
+          },
+          {
+            id: "a-7-3-2",
+            label: "7.3.2",
+            questionText: "Determine the outstanding balance on the R120 000 loan (at 12% p.a. compounded monthly, R2 000 per month) immediately after the 24th payment.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Balance $= 120\\,000(1.01)^{24} - 2\\,000 \\times \\dfrac{(1.01)^{24}-1}{0.01}$; $(1.01)^{24} \\approx 1.26973$
+Mark 2: $= 120\\,000(1.26973) - 2\\,000(26.9735) = 152\\,367.60 - 53\\,947.00 = \\mathbf{R98\\,420.60}$`,
+            topic: "Financial Mathematics",
+          },
+        ],
+      },
+      {
+        number: 8,
+        title: "Differential Calculus",
+        totalMarks: 15,
+        subQuestions: [
+          {
+            id: "a-8-1",
+            label: "8.1",
+            questionText: "Determine $f'(x)$ from **first principles** if $f(x) = 3x^2 - x$.",
+            marks: 5,
+            memoText: `Mark scheme (5 marks):
+Mark 1: Write the definition — $f'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}$
+Mark 2: Substitute — $= \\lim_{h \\to 0} \\dfrac{3(x+h)^2 - (x+h) - 3x^2 + x}{h}$
+Mark 3: Expand — $= \\lim_{h \\to 0} \\dfrac{6xh + 3h^2 - h}{h}$
+Mark 4: Simplify — $= \\lim_{h \\to 0}(6x + 3h - 1)$
+Mark 5: $f'(x) = 6x - 1$`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-8-2-1",
+            label: "8.2.1",
+            questionText: "Determine $D_x\\left[x^5 - 3x^3 + 7\\right]$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Differentiate $x^5$: $5x^4$
+Mark 2: Differentiate $-3x^3$: $-9x^2$
+Mark 3: Differentiate constant 7: 0; final answer: $5x^4 - 9x^2$`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-8-2-2",
+            label: "8.2.2",
+            questionText: "Determine $f'(x)$ if $f(x) = (\\sqrt{x} - 2)^2$.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: Expand — $f(x) = (\\sqrt{x})^2 - 4\\sqrt{x} + 4 = x - 4x^{1/2} + 4$
+Mark 2: Differentiate $x$: $1$
+Mark 3: Differentiate $-4x^{1/2}$: $-4 \\times \\tfrac{1}{2}x^{-1/2} = -2x^{-1/2}$
+Mark 4: $f'(x) = 1 - \\dfrac{2}{\\sqrt{x}}$`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-8-3",
+            label: "8.3",
+            questionText: "The tangent to $g(x) = x^3 + ax^2 + bx$ at the point $(1\\,;\\,-1)$ has a gradient of $0$.\n\nDetermine the values of $a$ and $b$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: $g(1) = -1$: $1 + a + b = -1 \\Rightarrow a + b = -2$ ... (i)
+Mark 2: $g'(x) = 3x^2 + 2ax + b$; $g'(1) = 0$: $3 + 2a + b = 0 \\Rightarrow 2a + b = -3$ ... (ii)
+Mark 3: Subtract (i) from (ii): $a = -1$; substitute back: $b = -2-(-1) = -1$; so $a = -1$ and $b = -1$`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 9,
+        title: "Cubic Function",
+        totalMarks: 18,
+        subQuestions: [
+          {
+            id: "a-9-1",
+            label: "9.1",
+            questionText: "$f(x) = x^3 - 6x^2 + 9x - 4$ is given.\n\nShow that $(x - 1)$ is a factor of $f(x)$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Substitute $x = 1$: $f(1) = 1 - 6 + 9 - 4$
+Mark 2: $f(1) = 0$, therefore by the factor theorem $(x-1)$ is a factor ✓`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-9-2",
+            label: "9.2",
+            questionText: "Hence, factorise $f(x) = x^3 - 6x^2 + 9x - 4$ fully.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: $f(x) = (x-1)(x^2 - 5x + 4)$
+Mark 2: Factorise quadratic — $(x^2 - 5x + 4) = (x-1)(x-4)$
+Mark 3: $f(x) = (x-1)^2(x-4)$`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-9-3",
+            label: "9.3",
+            questionText: "Determine the $x$-intercept(s) and the $y$-intercept of $f(x) = x^3 - 6x^2 + 9x - 4$.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: $x$-intercepts from $(x-1)^2(x-4) = 0$: $x = 1$ (touches, double root) and $x = 4$ (crosses)
+Mark 2: $x$-intercepts: $(1\\,;\\,0)$ and $(4\\,;\\,0)$
+Mark 3: $y$-intercept: $f(0) = -4$, so $(0\\,;\\,-4)$`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-9-4",
+            label: "9.4",
+            questionText: "Determine the coordinates of the stationary points of $f(x) = x^3 - 6x^2 + 9x - 4$. Clearly indicate the nature of each stationary point.",
+            marks: 4,
+            memoText: `Mark scheme (4 marks):
+Mark 1: $f'(x) = 3x^2 - 12x + 9 = 3(x-1)(x-3)$; set $f'(x) = 0$: $x = 1$ or $x = 3$
+Mark 2: $f(1) = 0$; $f(3) = 27 - 54 + 27 - 4 = -4$
+Mark 3: $f''(x) = 6x - 12$; at $x=1$: $f''(1) = -6 < 0$ → **local maximum** at $(1\\,;\\,0)$
+Mark 4: At $x=3$: $f''(3) = 6 > 0$ → **local minimum** at $(3\\,;\\,-4)$`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-9-5",
+            label: "9.5",
+            questionText: "Sketch the graph of $f(x) = x^3 - 6x^2 + 9x - 4$. Show all intercepts and stationary points.",
+            marks: 4,
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q9-axes.png",
+            memoImageUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q9-memo.png",
+            memoText: `Mark scheme (4 marks):
+Mark 1: Correct cubic shape — positive leading coefficient
+Mark 2: $y$-intercept $(0\\,;\\,-4)$ and $x$-intercepts $(1\\,;\\,0)$ [touches] and $(4\\,;\\,0)$ [crosses] correctly plotted
+Mark 3: Local maximum $(1\\,;\\,0)$ clearly shown — curve turns at the $x$-axis
+Mark 4: Local minimum $(3\\,;\\,-4)$ clearly shown`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-9-6",
+            label: "9.6",
+            questionText: "Determine the values of $x$ for which $f(x) = x^3 - 6x^2 + 9x - 4$ is a **decreasing** function.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $f'(x) < 0$ when $3(x-1)(x-3) < 0$
+Mark 2: $f$ is decreasing for $1 < x < 3$`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 10,
+        title: "Calculus Application — Optimisation",
+        totalMarks: 8,
+        subQuestions: [
+          {
+            id: "a-10-1",
+            label: "10.1",
+            questionText: "A container has a cross-section consisting of a rectangle of width $2r$ metres and height $h$ metres with a semicircle of radius $r$ metres on top. The total perimeter of the cross-section is 20 metres.\n\nShow that $h = \\dfrac{20 - 2r - \\pi r}{2}$.",
+            marks: 2,
+            diagramUrl: "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q10.png",
+            memoText: `Mark scheme (2 marks):
+Mark 1: Write perimeter equation: $2h + 2r + \\pi r = 20$ (two sides of rectangle + diameter + semicircle arc)
+Mark 2: Solve for $h$: $2h = 20 - 2r - \\pi r \\Rightarrow h = \\dfrac{20 - 2r - \\pi r}{2}$ ✓`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-10-2",
+            label: "10.2",
+            questionText: "Show that the area of the cross-section is $A = 20r - 2r^2 - \\dfrac{\\pi r^2}{2}$.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: Area $= 2rh + \\dfrac{\\pi r^2}{2}$ (rectangle + semicircle)
+Mark 2: Substitute $h$: $A = 2r \\cdot \\dfrac{20-2r-\\pi r}{2} + \\dfrac{\\pi r^2}{2} = r(20-2r-\\pi r) + \\dfrac{\\pi r^2}{2} = 20r - 2r^2 - \\pi r^2 + \\dfrac{\\pi r^2}{2} = 20r - 2r^2 - \\dfrac{\\pi r^2}{2}$ ✓`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-10-3",
+            label: "10.3",
+            questionText: "Determine the value of $r$ for which the area of the cross-section is a maximum.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: $\\dfrac{dA}{dr} = 20 - 4r - \\pi r = 0$
+Mark 2: $r(4 + \\pi) = 20$
+Mark 3: $r = \\dfrac{20}{4 + \\pi} \\approx 2.80$ m`,
+            topic: "Calculus",
+          },
+          {
+            id: "a-10-4",
+            label: "10.4",
+            questionText: "Calculate the maximum area. Give your answer correct to ONE decimal place.",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $A_{\\max} = 20 \\times \\dfrac{20}{4+\\pi} - (2 + \\tfrac{\\pi}{2}) \\times \\left(\\dfrac{20}{4+\\pi}\\right)^2 = \\dfrac{200}{4+\\pi} \\approx 28.0$ m²`,
+            topic: "Calculus",
+          },
+        ],
+      },
+      {
+        number: 11,
+        title: "Probability and Counting",
+        totalMarks: 9,
+        subQuestions: [
+          {
+            id: "a-11-1-1",
+            label: "11.1.1",
+            questionText: "A bag contains 5 red, 3 blue and 2 green marbles. Two marbles are drawn one after the other **without replacement**.\n\nDetermine the probability that both marbles drawn are red.",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: $P(\\text{both red}) = \\dfrac{5}{10} \\times \\dfrac{4}{9} = \\dfrac{20}{90}$
+Mark 2: $= \\dfrac{2}{9}$`,
+            topic: "Probability",
+          },
+          {
+            id: "a-11-1-2",
+            label: "11.1.2",
+            questionText: "A bag contains 5 red, 3 blue and 2 green marbles. Two marbles are drawn without replacement.\n\nDetermine the probability that the two marbles drawn are of **different** colours.",
+            marks: 3,
+            memoText: `Mark scheme (3 marks):
+Mark 1: Find $P(\\text{same colour})$: $P(RR) + P(BB) + P(GG) = \\dfrac{20}{90} + \\dfrac{6}{90} + \\dfrac{2}{90} = \\dfrac{28}{90} = \\dfrac{14}{45}$
+Mark 2: $P(\\text{different}) = 1 - \\dfrac{14}{45}$
+Mark 3: $= \\dfrac{31}{45}$`,
+            topic: "Probability",
+          },
+          {
+            id: "a-11-2-1",
+            label: "11.2.1",
+            questionText: "How many different 4-digit numbers can be formed using the digits $\\{1, 2, 3, 4, 5, 6\\}$ if **repetition of digits is allowed**?",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $6 \\times 6 \\times 6 \\times 6 = 6^4 = 1\\,296$`,
+            topic: "Probability",
+          },
+          {
+            id: "a-11-2-2",
+            label: "11.2.2",
+            questionText: "How many different 4-digit numbers can be formed using the digits $\\{1, 2, 3, 4, 5, 6\\}$ if **repetition is NOT allowed**?",
+            marks: 1,
+            memoText: `Mark scheme (1 mark):
+Mark 1: $6 \\times 5 \\times 4 \\times 3 = 360$`,
+            topic: "Probability",
+          },
+          {
+            id: "a-11-2-3",
+            label: "11.2.3",
+            questionText: "How many 4-digit numbers greater than 3 000 can be formed using the digits $\\{1, 2, 3, 4, 5, 6\\}$ if **repetition is NOT allowed**?",
+            marks: 2,
+            memoText: `Mark scheme (2 marks):
+Mark 1: First digit must be from $\\{3, 4, 5, 6\\}$: 4 choices; remaining 3 positions: $5 \\times 4 \\times 3 = 60$ ways
+Mark 2: Total $= 4 \\times 60 = 240$`,
+            topic: "Probability",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "eng-hl-p1-may-jun-2023",
+    subject: "English Home Language",
+    paperCode: "P1",
+    year: 2023,
+    session: "May/June",
+    totalMarks: 70,
+    durationHours: 2,
+    questions: [
+      {
+        number: 1,
+        title: "READING FOR MEANING AND UNDERSTANDING",
+        totalMarks: 30,
+        subQuestions: [
+          {
+            id: "1-1",
+            label: "1.1",
+            questionText: "Refer to paragraph 1.\n\nWhat does the writer indicate about the behaviour of South Africans?",
+            marks: 2,
+            memoText: "Mark 1: The response of a South African is to lighten the tension through humour\nMark 2: when facing a crisis\n[Award 1 mark for lifting.]",
+            topic: "Comprehension",
+          },
+          {
+            id: "1-2",
+            label: "1.2",
+            questionText: "Refer to paragraph 2.\n\nExplain how social media has influenced the way people engage with the news.",
+            marks: 2,
+            memoText: "Mark 1–2: People have access to news around the world through social media platforms. / Social media allows people to find interesting ways to comment on the news.\n[Award 1 mark for lifting.]",
+            topic: "Comprehension",
+          },
+          {
+            id: "1-3",
+            label: "1.3",
+            questionText: "Refer to paragraph 3.\n\nSuggest why the writer starts the paragraph with a question.",
+            marks: 2,
+            memoText: "Mark 1–2: The use of a question at the beginning of the paragraph introduces the writer's argument / engages the reader's interest.\n[Award 2 marks for one idea.]",
+            topic: "Comprehension",
+          },
+          {
+            id: "1-4",
+            label: "1.4",
+            questionText: "Refer to paragraph 4.\n\nComment on the writer's objectivity in his discussion of 'pavement radio'.",
+            marks: 3,
+            memoText: "Mark 1–3: The writer presents a favourable (biased) view of 'pavement radio', where he suggests that it is an uncensored form of communication which challenges official information. This view ignores the possibility of misinformation being spread via unofficial channels.\nOR\nThe writer cites academic research on 'pavement radio' in the South African context which objectively presents this form of communication as an effective method of social and political commentary to counteract propaganda.\n[Award 3 marks only if a comment is made.]\n[Credit mixed responses.]",
+            topic: "Comprehension",
+          },
+          {
+            id: "1-5",
+            label: "1.5",
+            questionText: "Refer to paragraph 5.\n\nDiscuss the effect humour has on community building.",
+            marks: 3,
+            memoText: "Mark 1–3: Humour helps to build the community through integrating the traditional practices of storytelling and the communal interpretation of the narratives into the creation of humour. This practice unifies people in their common experience of enduring stressful situations.\n[Award 3 marks for two ideas well-discussed.]",
+            topic: "Comprehension",
+          },
+          {
+            id: "1-6",
+            label: "1.6",
+            questionText: "Refer to paragraph 6.\n\nDiscuss how the diction in this paragraph conveys the writer's attitude toward mainstream media.",
+            marks: 3,
+            memoText: "Mark 1: Award 1 mark for identification of attitude\nMark 2–3: Award 2 marks for any ONE example of diction well-discussed. The diction conveys the writer's distrust of the mainstream media. He refers to it as tainted: it is 'tightly controlled' by the authorities and 'compliant' which causes 'widespread distrust'. 'Widespread corruption' limits the credibility of the mainstream media and so generates a lack of respect on the part of the citizens.",
+            topic: "Comprehension",
+          },
+          {
+            id: "1-7",
+            label: "1.7",
+            questionText: "Comment critically on the impact of paragraph 7 on the reader.",
+            marks: 3,
+            memoText: "Mark 1: Award 1 mark for impact\nMark 2–3: Award 2 marks only if a critical comment is made. The paragraph underscores the writer's argument that the people were easily manipulated by mainstream media. It is a concise assertion that draws the reader in by showing empathy with the common plight of the man in the street / there is a distrust of official channels and humour is used as an antidote to disturbing issues.\n[Credit valid alternative responses.]",
+            topic: "Comprehension",
+          },
+          {
+            id: "1-8",
+            label: "1.8",
+            questionText: "Refer to paragraph 10.\n\nAssess the validity of the writer's conclusion.",
+            marks: 3,
+            memoText: "Mark 1–3: The conclusion is valid as the writer cautions us that we need to take 'pavement' media seriously. He further recommends that an understanding of this culture and how it functions will enable us to address the current problems more effectively. He ends off with the paradox that humour and jokes are actually deadly serious which suggests their immense impact as well as the serious issues they are addressing.\n[Award 3 marks only if two valid aspects are discussed.]\n[Credit valid alternative responses.]",
+            topic: "Comprehension",
+          },
+          {
+            id: "1-9",
+            label: "1.9",
+            questionText: "How does the depiction of the woman evoke sympathy?",
+            marks: 2,
+            memoText: "Mark 1–2: The woman is depicted as suffering hardship / being trapped by deadly forces / looking anxious / holding a begging bowl in her hand / carrying a baby on her back / wearing broken shoes / crying. These reveal her poverty and vulnerability.\n[Award 2 marks for two distinct points.]\n[Credit reference to the position of the woman in the cartoon.]",
+            topic: "Visual Literacy",
+          },
+          {
+            id: "1-10",
+            label: "1.10",
+            questionText: "Comment on how the visual and verbal cues convey the message of the cartoon.",
+            marks: 3,
+            memoText: "Mark 1–3: The poor character is hemmed in by the looming monster made up of Covid-19 viruses and the figure of the grim reaper (poverty and hunger) with outstretched arms and a scythe. The cemetery in the background represents death. These threats suggest that her situation is hopeless and she is caught between 'a rock and a hard place'. This captures the cartoonist's message that there is no way out of her dire situation.\n[Award 3 marks only if both the visual and verbal cues are commented on.]",
+            topic: "Visual Literacy",
+          },
+          {
+            id: "1-11",
+            label: "1.11",
+            questionText: "Critically discuss the extent to which TEXT B reinforces the writer's views presented in paragraph 9 of TEXT A.",
+            marks: 4,
+            memoText: "Mark 1–4: Paragraph 9 of Text A highlights the trauma and stresses caused by Covid-19 / racial and socio-economic inequalities. In Text B, the crises of poverty and hunger are presented alongside the deadly Covid-19 pandemic. 'The daily tally of the infected and dead' referred to in Text A, is represented by the cemetery in Text B. Text B depicts the seriousness of the situation in a graphic manner.\nOR\nParagraph 9 of Text A discusses how humour is used as 'a coping mechanism' for removing the 'sting' of the problems caused by Covid-19 / racial and socio-economic inequalities. However, Text B foregrounds the pain and suffering caused by Covid-19; it does not use humour as 'a coping mechanism'. Text B shows that there is nothing humorous that could alleviate the sense of anguish or diminish the harrowing situation which is represented.\n[Award 4 marks only if the candidate has made reference to both paragraph 9 of Text A and Text B.]\n[Credit a mixed response.]",
+            topic: "Comprehension",
+          },
+        ],
+      },
+      {
+        number: 2,
+        title: "SUMMARISING IN YOUR OWN WORDS",
+        totalMarks: 10,
+        subQuestions: [
+          {
+            id: "2-1",
+            label: "2",
+            questionText: "TEXT C discusses the mysteries of the teenage brain. Summarise, in your own words, how parents can better understand their teenage child.\n\n**NOTE:**\n1. Your summary should include SEVEN points and NOT exceed 90 words.\n2. You must write a fluent paragraph.\n3. You are NOT required to include a title for the summary.\n4. Indicate your word count at the end of your summary.",
+            marks: 10,
+            memoText: "Mark allocation:\n- 7 marks for 7 points (1 mark per main point)\n- 3 marks for language\n- Total marks: 10\n\nAccepted points:\n1. Teenagers do not have a fully developed brain.\n2. Teenagers engage in risky behaviour.\n3. Key areas of the brain which control actions, understanding and impulsivity are undeveloped until young adulthood.\n4. They are unable to act decisively in a tricky situation.\n5. Teenagers are impressionable and are more receptive to information.\n6. Their lack of discernment makes teenagers vulnerable.\n7. Teenagers respond positively to rewards due to the influence of the digital age.\n8. Teenagers are prone to harmful, addictive tendencies.\n9. Teenagers are drawn to scientific information, on their journey of self-discovery and identity-seeking.\n10. Parents who are overbearing cause rebellious behaviour from their teenager.\n11. Teenagers are being prepared for the real world.\n\nDistribution of language marks when candidate has not quoted verbatim:\n- 1–3 points correct: award 1 mark\n- 4–5 points correct: award 2 marks\n- 6–7 points correct: award 3 marks\n\nDistribution of language marks when candidate has quoted verbatim:\n- 6–7 quotations: award no language mark\n- 4–5 quotations: award 1 language mark\n- 2–3 quotations: award 2 language marks\n\nWord Count: Markers are required to verify the number of words used. Do not deduct any marks if the candidate fails to indicate the number of words used or if the number of words used is indicated incorrectly. If the word limit is exceeded, read up to the last sentence above the stipulated upper limit and ignore the rest of the summary.",
+            topic: "Summary",
+          },
+        ],
+      },
+      {
+        number: 3,
+        title: "ANALYSING ADVERTISING",
+        totalMarks: 10,
+        subQuestions: [
+          {
+            id: "3-1",
+            label: "3.1",
+            questionText: "Describe the service being advertised.",
+            marks: 2,
+            memoText: "Mark 1: Award 1 mark for the correct identification of the service\nMark 2: Award 1 mark for the description. It is a mail service that delivers post directly to clients. / It is a mail service that distributes promotional material.",
+            topic: "Advertising",
+          },
+          {
+            id: "3-2",
+            label: "3.2",
+            questionText: "Comment on the advertiser's claim about Direct Mail in:\n\n'This is the medium with no remote control. You can't zap it, mute it or change the channel.'",
+            marks: 3,
+            memoText: "Mark 1–3: The advertiser claims that advertising on a screen can be easily ignored by the viewer. However, direct mail is compelling and cannot be cast aside / ignored. This makes it a more aggressive / bolder medium of advertising and hence more effective.\n[Award 3 marks only if a comment is made.]",
+            topic: "Advertising",
+          },
+          {
+            id: "3-3",
+            label: "3.3",
+            questionText: "In your view, does the visual image effectively convey the message of the advertisement? Justify your response.",
+            marks: 3,
+            memoText: "Mark 1–3:\nYES: The advertiser is encouraging the consumer to use direct marketing to advertise as it promotes immediate marketing in real time. The woman in the picture is enjoying the experience one can have as a benefit of direct marketing ('in a one-on-one personal and measurable way'). The lollipop is foregrounded / is the focal point of the advertisement. The thought bubbles invite / entice the reader to 'imagine' the sensory experience as well.\nOR\nNO: The image has no direct relationship with the advertiser or the service being offered. Sweets are universally desirable and anticipated whereas the products which could be distributed via the Post Office's direct mail, could be spam or irrelevant to the customer, and so immediately discarded. There is no guarantee that the customer will be more engaged through this service than through electronic marketing.\n[Award 3 marks only if the candidate refers to both the visual image and the message of the advertisement.]\n[Credit a mixed response.]",
+            topic: "Advertising",
+          },
+          {
+            id: "3-4",
+            label: "3.4",
+            questionText: "What is the function of the ellipsis in 'imagine tasting this ad …'?",
+            marks: 1,
+            memoText: "Mark 1: The ellipsis is used to indicate ongoing thought / stimulate the imagination.",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "3-5",
+            label: "3.5",
+            questionText: "Give a suitable subject for this sentence without changing its meaning:\n\n'Start building real client relationships affordably, in a one-on-one personal and measurable way.'",
+            marks: 1,
+            memoText: "Mark 1: You (can) / He (can) / She (can) / We (can) / They (can) / One (can) / A customer (can) / Customers (can)\n[Credit the use of a person's name.]\n[Accept valid alternative responses.]",
+            topic: "Language Structures and Conventions",
+          },
+        ],
+      },
+      {
+        number: 4,
+        title: "UNDERSTANDING OTHER ASPECTS OF THE MEDIA",
+        totalMarks: 10,
+        subQuestions: [
+          {
+            id: "4-1",
+            label: "4.1",
+            questionText: "Explain how Charlie Brown's mood is conveyed in FRAME 3.",
+            marks: 2,
+            memoText: "Mark 1: Award 1 mark for the mood — Charlie Brown is happy / self-assured / excited\nMark 2: Award 1 mark for an explanation — as shown by his jaunty step / beaming smile / desire to change / outstretched arm showing the note / spoken words ('PROUD OF ME' / 'MY YEAR OF DECISION').",
+            topic: "Visual Literacy / Cartoon",
+          },
+          {
+            id: "4-2",
+            label: "4.2",
+            questionText: "Refer to FRAMES 4–6.\n\nDiscuss both characters' viewpoints with reference to the cartoonist's depiction of them.",
+            marks: 3,
+            memoText: "Mark 1–3: In FRAME 4, Charlie's viewpoint is that he is committed to being a better and more decisive person. This is shown by his self-satisfied smile and bold stance. The cartoonist places him in a frame of his own. Lucy, by contrast, has chosen to wallow in self-pity and regret. This is indicated by her despairing look and outstretched arms, in FRAME 5. This decision is further highlighted in FRAME 6 by her downturned mouth and folded arms. Her verbal retort ('I'm going to cry over spilt milk') reinforces this view.\n[Award 3 marks only if reference is made to the viewpoints and depiction of both characters.]",
+            topic: "Visual Literacy / Cartoon",
+          },
+          {
+            id: "4-3",
+            label: "4.3",
+            questionText: "Comment critically on the effectiveness of FRAME 10, in the context of the cartoon.",
+            marks: 3,
+            memoText: "Mark 1–3: Despite Charlie's initial optimism in the introductory frames, in FRAME 10, he abandons his decision to be a better person after being defeated by Lucy's fatalistic attitude. Charlie is unable to convince himself or Lucy by the end of the cartoon. His weakness adds to the anti-climax of the final frame.\nOR\nCharlie asks for validation from Lucy in FRAME 3, but is side-lined by Lucy's dominant and opinionated / self-absorbed personality. This leads to the ironic conclusion that Charlie becomes a victim of his own question and discards the paper in defeat.\n[Award 3 marks only if a critical comment is provided.]",
+            topic: "Visual Literacy / Cartoon",
+          },
+          {
+            id: "4-4",
+            label: "4.4",
+            questionText: "Refer to FRAME 5.\n\nRewrite the following sentence in indirect speech:\n\nLucy said, 'I'm going to spend this whole year regretting the past.'",
+            marks: 2,
+            memoText: "Mark 1: Lucy said (that) she was\nMark 2: going to spend that whole year regretting the past.",
+            topic: "Language Structures and Conventions",
+          },
+        ],
+      },
+      {
+        number: 5,
+        title: "USING LANGUAGE CORRECTLY",
+        totalMarks: 10,
+        subQuestions: [
+          {
+            id: "5-1",
+            label: "5.1",
+            questionText: "Rewrite the first sentence (paragraph 1) so that it is grammatically correct.",
+            marks: 1,
+            memoText: "Mark 1: A TikToker with the username @papirice shared a video of a gadget she/he encountered while at an Airbnb.\nOR\nA TikToker with the username @papirice shared a video of a gadget encountered while at an Airbnb.",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "5-2",
+            label: "5.2",
+            questionText: "Refer to lines 3–6: 'The digital screen … the rented room.'\n\nCorrect the single punctuation error in the above sentence.",
+            marks: 1,
+            memoText: "Mark 1: host's / hosts'",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "5-3",
+            label: "5.3",
+            questionText: "Using a suffix, change the word 'digital' (line 3) to an adverb.",
+            marks: 1,
+            memoText: "Mark 1: digitally",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "5-4",
+            label: "5.4",
+            questionText: "Write the word 'aircon' (line 4) out in full.",
+            marks: 1,
+            memoText: "Mark 1: air conditioner / air conditioning",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "5-5",
+            label: "5.5",
+            questionText: "Provide the superlative form of 'accountable' (line 5).",
+            marks: 1,
+            memoText: "Mark 1: most accountable",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "5-6",
+            label: "5.6",
+            questionText: "Explain the expression, 'to ruffle major feathers' (line 7).",
+            marks: 1,
+            memoText: "Mark 1: To upset someone considerably.\n[Accept valid alternative responses that indicate the severity of the expression.]",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "5-7",
+            label: "5.7",
+            questionText: "Refer to line 9.\n\nWhat is the root word of 'vacationers'?",
+            marks: 1,
+            memoText: "Mark 1: vacate / vacation",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "5-8",
+            label: "5.8",
+            questionText: "Give the antonym of 'boomed' (line 10) in the context of the sentence.",
+            marks: 1,
+            memoText: "Mark 1: declined / plummeted / dropped / dwindled\n[Accept valid alternative responses in context.]",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "5-9",
+            label: "5.9",
+            questionText: "Refer to paragraph 4.\n\nCreate a single sentence from the following two sentences:\n\n'With over 5,6 million active listings worldwide, Airbnb is filling a very important gap in the market. They offer rentals, perfect for flexible, adventure travellers looking for fuss-free bookings' (lines 11–13).",
+            marks: 1,
+            memoText: "Mark 1: With over 5.6 million active listings worldwide, Airbnb is filling a very important gap in the market, offering rentals perfect for flexible, adventure travellers looking for fuss-free bookings.\n[Accept valid alternative responses.]",
+            topic: "Language Structures and Conventions",
+          },
+          {
+            id: "5-10",
+            label: "5.10",
+            questionText: "Refer to line 12.\n\n'Airbnb is filling a very important gap in the market.'\n\nConvert the above sentence to the passive voice.",
+            marks: 1,
+            memoText: "Mark 1: A very important gap in the market is being filled by Airbnb.",
+            topic: "Language Structures and Conventions",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getFlatSubQuestions(paper: Paper): SubQuestion[] {
