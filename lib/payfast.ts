@@ -43,6 +43,29 @@ async function getPlanInfo(plan: string): Promise<{ amount: string; itemName: st
 // ── Signature helpers ─────────────────────────────────────────────────────────
 
 /**
+ * Signature for PayFast REST API calls (cancel, update, etc.)
+ * Unlike the checkout form, the REST API requires parameters sorted alphabetically.
+ */
+export function generateApiSignature(
+  params: Record<string, string>,
+  passphrase: string | undefined = PASSPHRASE,
+): string {
+  const sorted = Object.entries(params)
+    .filter(([k]) => k !== "signature")
+    .sort(([a], [b]) => a.localeCompare(b));
+
+  const str = sorted
+    .map(([k, v]) => `${k}=${encodeURIComponent(v).replace(/%20/g, "+")}`)
+    .join("&");
+
+  const toHash = passphrase
+    ? `${str}&passphrase=${encodeURIComponent(passphrase).replace(/%20/g, "+")}`
+    : str;
+
+  return crypto.createHash("md5").update(toHash).digest("hex");
+}
+
+/**
  * Build the signature string (key=urlEncoded(value) pairs joined with &)
  * then return its MD5 hash.  Order of `params` is preserved — do NOT sort.
  */

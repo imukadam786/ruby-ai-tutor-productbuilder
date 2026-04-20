@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { supabaseAdmin } from "@/lib/supabase-admin";
-import { PAYFAST_API_BASE, generateSignature } from "@/lib/payfast";
+import { PAYFAST_API_BASE, generateApiSignature } from "@/lib/payfast";
 
 export async function POST(request: NextRequest) {
   // Authenticate user
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
   const timestamp = new Date().toISOString().slice(0, 19);
 
   const signatureParams = { "merchant-id": merchantId, version, timestamp };
-  const signature = generateSignature(signatureParams, passphrase);
+  const signature = generateApiSignature(signatureParams, passphrase);
 
   // Call PayFast subscriptions cancel API
   const pfRes = await fetch(

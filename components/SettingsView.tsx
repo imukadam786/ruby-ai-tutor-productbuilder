@@ -172,29 +172,33 @@ function EditField({
 
 // ── Plan badge ────────────────────────────────────────────────────────────────
 
-const PLAN_INFO: Record<string, { label: string; color: string; features: string[]; price: string }> = {
+const PLAN_INFO: Record<string, { label: string; color: string; features: string[]; price: string; priceRands: number }> = {
   free: {
     label: "Free",
     color: "bg-gray-100 text-gray-600",
     price: "R0 / month",
+    priceRands: 0,
     features: ["General Homework Chat", "Basic Skill Tree", "Limited questions/day"],
   },
   starter: {
     label: "Starter",
     color: "bg-blue-100 text-blue-700",
     price: "R149 / month",
+    priceRands: 149,
     features: ["All Free features", "Maths Engine", "Reading Engine", "Progress Reports"],
   },
   pro: {
     label: "Pro",
     color: "bg-purple-100 text-purple-700",
     price: "R299 / month",
+    priceRands: 299,
     features: ["All Starter features", "Unlimited questions", "PDF Reports", "Priority support"],
   },
   ultimate: {
     label: "Ultimate",
     color: "bg-amber-100 text-amber-700",
     price: "R499 / month",
+    priceRands: 499,
     features: ["All Pro features", "Multiple learner profiles", "Parent dashboard", "Live tutor sessions"],
   },
 };
@@ -381,20 +385,18 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
     }
   }
 
-  // Computes the discounted price per plan from discount_type + discount_value
-  // so each plan gets its own correctly discounted price.
   function effectivePriceRands(planKey: string): number | null {
     if (!appliedVoucher) return null;
     const applies =
       appliedVoucher.applicable_plans.length === 0 ||
       appliedVoucher.applicable_plans.includes(planKey);
     if (!applies) return null;
-    const basePriceRands = parseInt(PLAN_INFO[planKey]?.price.replace(/[^0-9]/g, "") ?? "0", 10);
+    const base = PLAN_INFO[planKey]?.priceRands ?? 0;
     const dv = appliedVoucher.discount_value;
     const discounted =
       appliedVoucher.discount_type === "percentage"
-        ? basePriceRands * (1 - dv / 100)
-        : basePriceRands - dv;
+        ? base * (1 - dv / 100)
+        : base - dv;
     return Math.max(0, Math.round(discounted * 100) / 100);
   }
 
@@ -793,7 +795,6 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
             {/* Plan cards */}
             {(["starter", "pro", "ultimate"] as const).map((p) => {
               const info = PLAN_INFO[p];
-              const basePriceRands = parseInt(info.price.replace(/[^0-9]/g, ""), 10);
               const discounted = effectivePriceRands(p);
               const displayPrice = discounted !== null
                 ? `R${discounted % 1 === 0 ? discounted.toFixed(0) : discounted.toFixed(2)} / month`
@@ -807,7 +808,7 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
                     </span>
                     <div className="text-right">
                       {discounted !== null && (
-                        <span className="text-xs text-gray-400 line-through block">R{basePriceRands} / month</span>
+                        <span className="text-xs text-gray-400 line-through block">R{info.priceRands} / month</span>
                       )}
                       <span className={`text-sm font-bold ${discounted !== null ? "text-green-600" : "text-gray-800"}`}>
                         {displayPrice}
