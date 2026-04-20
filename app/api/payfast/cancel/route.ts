@@ -32,7 +32,8 @@ export async function POST(request: NextRequest) {
   const merchantId = process.env.PAYFAST_MERCHANT_ID!;
   const passphrase = process.env.PAYFAST_PASSPHRASE!;
   const version    = "v1";
-  const timestamp  = new Date().toISOString().replace("T", " ").substring(0, 19);
+  //const timestamp  = new Date().toISOString().replace("T", " ").substring(0, 19);
+  const timestamp = new Date().toISOString().slice(0, 19);
 
   const signatureParams = { "merchant-id": merchantId, version, timestamp };
   const signature = generateSignature(signatureParams, passphrase);
