@@ -12582,7 +12582,7 @@ Mark 2: Total $= 4 \\times 60 = 240$`,
   },
   {
     id: "eng-hl-p1-may-jun-2023",
-    subject: "English Home Language",
+    subject: "English",
     paperCode: "P1",
     year: 2023,
     session: "May/June",

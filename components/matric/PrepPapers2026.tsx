@@ -11,7 +11,7 @@ import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-type Phase = "select" | "mode" | "session" | "summary";
+type Phase = "subjects" | "papers" | "mode" | "session" | "summary";
 type SessionMode = "practice" | "guided";
 
 interface CoachMessage {
@@ -67,9 +67,33 @@ function MathMarkdown({ content }: { content: string }) {
 
 // ── Prep papers data ───────────────────────────────────────────────────────────
 
-const PREP_PAPERS = PAPERS.filter((p) =>
-  p.id === "math-p1-prep-2026a" || p.id === "math-p1-prep-2026b"
-);
+const PREP_PAPERS = PAPERS.filter((p) => p.session.startsWith("Prep"));
+
+const PREP_SUBJECTS = [
+  {
+    id: "mathematics",
+    name: "Mathematics",
+    thumbnail: "/thumbnails/mathematics.jpeg",
+    color: "from-[#BE1832] to-rose-700",
+    available: true,
+  },
+  {
+    id: "physical-science",
+    name: "Physical Science",
+    thumbnail: "/thumbnails/physical-science.jpeg",
+    color: "from-cyan-500 to-blue-600",
+    available: false,
+  },
+  {
+    id: "english",
+    name: "English",
+    thumbnail: "/thumbnails/english.jpeg",
+    color: "from-sky-400 to-blue-500",
+    available: false,
+  },
+] as const;
+
+type PrepSubjectId = (typeof PREP_SUBJECTS)[number]["id"];
 
 // ── Progress helpers ───────────────────────────────────────────────────────────
 
@@ -87,28 +111,105 @@ function savePaperProgress(paperId: string, status: "in_progress" | "completed",
   try { localStorage.setItem(`matric_progress_${paperId}`, JSON.stringify({ status, pct })); } catch {}
 }
 
-// ── Paper Select ──────────────────────────────────────────────────────────────
+// ── Subject Select ─────────────────────────────────────────────────────────────
 
-function PaperSelect({ onSelect }: { onSelect: (paper: Paper) => void }) {
+function SubjectSelect({ onSelect }: { onSelect: (subjectId: PrepSubjectId) => void }) {
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative max-w-2xl mx-auto px-5 py-10 space-y-8">
+      <div className="relative max-w-3xl mx-auto px-5 py-10 space-y-8">
         <div className="space-y-2">
           <div className="inline-flex items-center gap-2 bg-[#BE1832]/10 border border-[#BE1832]/20 text-[#BE1832] text-xs font-semibold px-3 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-[#BE1832]" />
             Predictive 2026
           </div>
           <h1 className="text-3xl font-extrabold text-gray-900">Prep Papers 2026</h1>
-          <p className="text-gray-500 text-sm">
-            Mathematics Paper 1 — Two predictive papers covering the full NSC curriculum. Work through each with step-by-step AI tutoring.
-          </p>
+          <p className="text-gray-500 text-sm">Predictive papers created by the Ruby AI Tutor team. Work through each with step-by-step AI tutoring.</p>
+        </div>
+
+        <div className="space-y-3">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a subject</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {PREP_SUBJECTS.map((subject) => (
+              <button
+                key={subject.id}
+                onClick={() => subject.available && onSelect(subject.id as PrepSubjectId)}
+                disabled={!subject.available}
+                className={`relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 ${
+                  subject.available
+                    ? "border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
+                    : "border-gray-200 opacity-60 cursor-not-allowed"
+                }`}
+              >
+                <div className="w-full aspect-square overflow-hidden">
+                  <img
+                    src={subject.thumbnail}
+                    alt={subject.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="px-3 py-2.5">
+                  <p className="font-bold text-gray-800 text-sm leading-snug">{subject.name}</p>
+                  {subject.available ? (
+                    <p className="text-xs text-[#BE1832] font-semibold mt-0.5">Papers available →</p>
+                  ) : (
+                    <p className="text-xs text-gray-400 mt-0.5">Coming soon</p>
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <p className="text-xs text-gray-400 text-center">
+          More subjects added as prep papers are released. All papers are original Ruby AI Tutor predictive papers.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ── Paper List ─────────────────────────────────────────────────────────────────
+
+function PaperList({
+  subjectId,
+  onSelect,
+  onBack,
+}: {
+  subjectId: PrepSubjectId;
+  onSelect: (paper: Paper) => void;
+  onBack: () => void;
+}) {
+  const subject = PREP_SUBJECTS.find((s) => s.id === subjectId)!;
+  const papers = PREP_PAPERS.filter(
+    (p) => p.subject.toLowerCase().replace(/\s+/g, "-") === subjectId
+  );
+
+  return (
+    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+      <EduBackground />
+      <div className="relative max-w-2xl mx-auto px-5 py-10 space-y-8">
+        <button onClick={onBack} className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 transition-colors">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          All subjects
+        </button>
+
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-md flex-shrink-0">
+            <img src={subject.thumbnail} alt={subject.name} className="w-full h-full object-cover" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-extrabold text-gray-900">{subject.name}</h1>
+            <p className="text-sm text-gray-400">{papers.length} prep {papers.length === 1 ? "paper" : "papers"} available</p>
+          </div>
         </div>
 
         <div className="space-y-3">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a paper</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {PREP_PAPERS.map((paper) => {
+            {papers.map((paper) => {
               const progress = getPaperProgress(paper.id);
               const variant = paper.session.replace("Prep ", "");
               return (
@@ -118,12 +219,12 @@ function PaperSelect({ onSelect }: { onSelect: (paper: Paper) => void }) {
                   className="text-left bg-white rounded-2xl border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#BE1832]/40 transition-all group p-6 space-y-4"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#BE1832] to-rose-700 flex items-center justify-center text-white font-extrabold text-lg flex-shrink-0">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${subject.color} flex items-center justify-center text-white font-extrabold text-lg flex-shrink-0`}>
                       {variant}
                     </div>
                     <div>
                       <p className="font-extrabold text-gray-900 text-lg">Paper {variant}</p>
-                      <p className="text-xs text-gray-400">Mathematics · P1 · {paper.totalMarks} marks · {paper.durationHours} hours</p>
+                      <p className="text-xs text-gray-400">{subject.name} · {paper.paperCode} · {paper.totalMarks} marks · {paper.durationHours} hours</p>
                     </div>
                   </div>
 
@@ -171,10 +272,6 @@ function PaperSelect({ onSelect }: { onSelect: (paper: Paper) => void }) {
             })}
           </div>
         </div>
-
-        <p className="text-xs text-gray-400 text-center">
-          Predictive papers created by the Ruby AI Tutor team to help you prepare for the 2026 NSC examinations.
-        </p>
       </div>
     </div>
   );
@@ -924,12 +1021,14 @@ function SummaryView({
 // ── Main Component ─────────────────────────────────────────────────────────────
 
 export default function PrepPapers2026() {
-  const [phase, setPhase] = useState<Phase>("select");
+  const [phase, setPhase] = useState<Phase>("subjects");
+  const [selectedSubject, setSelectedSubject] = useState<PrepSubjectId | null>(null);
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
   const [sessionMode, setSessionMode] = useState<SessionMode>("guided");
   const [language, setLanguage] = useState("English");
   const [finalAttempts, setFinalAttempts] = useState<Record<string, QuestionState> | null>(null);
 
+  const handleSubjectSelect = (subjectId: PrepSubjectId) => { setSelectedSubject(subjectId); setPhase("papers"); };
   const handlePaperSelect = (paper: Paper) => { setSelectedPaper(paper); setPhase("mode"); };
 
   const handleStart = (mode: SessionMode, lang: string) => {
@@ -949,11 +1048,12 @@ export default function PrepPapers2026() {
   };
 
   const handleRetry = () => { setFinalAttempts(null); setPhase("mode"); };
-  const handleBack = () => { setSelectedPaper(null); setFinalAttempts(null); setPhase("select"); };
-  const handleBackToPapers = () => { setSelectedPaper(null); setFinalAttempts(null); setPhase("select"); };
+  const handleBackToSubjects = () => { setSelectedSubject(null); setSelectedPaper(null); setFinalAttempts(null); setPhase("subjects"); };
+  const handleBackToPapers = () => { setSelectedPaper(null); setFinalAttempts(null); setPhase("papers"); };
 
-  if (phase === "select") return <PaperSelect onSelect={handlePaperSelect} />;
-  if (phase === "mode" && selectedPaper) return <ModeSelect paper={selectedPaper} onStart={handleStart} onBack={handleBack} />;
+  if (phase === "subjects") return <SubjectSelect onSelect={handleSubjectSelect} />;
+  if (phase === "papers" && selectedSubject) return <PaperList subjectId={selectedSubject} onSelect={handlePaperSelect} onBack={handleBackToSubjects} />;
+  if (phase === "mode" && selectedPaper) return <ModeSelect paper={selectedPaper} onStart={handleStart} onBack={handleBackToPapers} />;
   if (phase === "session" && selectedPaper) return <SessionView key={`${selectedPaper.id}-${sessionMode}-${language}`} paper={selectedPaper} mode={sessionMode} language={language} onFinish={handleFinish} onBack={handleBackToPapers} />;
   if (phase === "summary" && selectedPaper && finalAttempts) return <SummaryView paper={selectedPaper} attempts={finalAttempts} onRetry={handleRetry} onBack={handleBackToPapers} />;
   return null;
