@@ -229,7 +229,17 @@ export default function Sidebar({
 
               {/* Matric sub-items dropdown */}
               {id === "matric" && matricOpen && !collapsed && (
-                <div className="pl-1 pt-0.5">
+                <div className="pl-1 pt-0.5 space-y-0.5">
+                  <button
+                    onClick={() => handleNav("matric")}
+                    className={navItemClass(activeView === "matric")}
+                  >
+                    <span className="text-lg flex-shrink-0">📄</span>
+                    <div className="min-w-0">
+                      <div className="font-medium text-base">Past Papers</div>
+                      <div className={`text-sm truncate ${activeView === "matric" ? "text-white/90" : "text-white/55"}`}>NSC past exam papers</div>
+                    </div>
+                  </button>
                   <button
                     onClick={() => handleNav("prep-papers-2026")}
                     className={navItemClass(activeView === "prep-papers-2026")}
@@ -237,20 +247,29 @@ export default function Sidebar({
                     <span className="text-lg flex-shrink-0">🗓️</span>
                     <div className="min-w-0">
                       <div className="font-medium text-base">Prep Papers 2026</div>
-                      <div className={`text-sm truncate ${activeView === "prep-papers-2026" ? "text-white/90" : "text-white/55"}`}>Latest exam papers</div>
+                      <div className={`text-sm truncate ${activeView === "prep-papers-2026" ? "text-white/90" : "text-white/55"}`}>Coming soon</div>
                     </div>
                   </button>
                 </div>
               )}
               {/* Collapsed: show sub-items as flat icon buttons */}
               {id === "matric" && collapsed && (
-                <button
-                  onClick={() => handleNav("prep-papers-2026")}
-                  title="Prep Papers 2026"
-                  className={`${navItemClass(activeView === "prep-papers-2026")} justify-center px-0`}
-                >
-                  <span className="text-lg flex-shrink-0">🗓️</span>
-                </button>
+                <>
+                  <button
+                    onClick={() => handleNav("matric")}
+                    title="Past Papers"
+                    className={`${navItemClass(activeView === "matric")} justify-center px-0`}
+                  >
+                    <span className="text-lg flex-shrink-0">📄</span>
+                  </button>
+                  <button
+                    onClick={() => handleNav("prep-papers-2026")}
+                    title="Prep Papers 2026"
+                    className={`${navItemClass(activeView === "prep-papers-2026")} justify-center px-0`}
+                  >
+                    <span className="text-lg flex-shrink-0">🗓️</span>
+                  </button>
+                </>
               )}
             </div>
           ))}

@@ -17,7 +17,8 @@ const StudentDashboard     = dynamic(() => import("@/components/ruby/StudentDash
 const ReadingSession       = dynamic(() => import("@/components/reading/ReadingSession"),               { ssr: false });
 const ReadingSkillTreeView = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),         { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
-const MatricPastPapers     = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
+const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
+const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
 const WatchComingSoon      = dynamic(() => import("@/components/WatchComingSoon"),                      { ssr: false });
 const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerModal"),                  { ssr: false });
 const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
@@ -191,7 +192,7 @@ function AppContent() {
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "matric" && <MatricPastPapers />}
-        {activeView === "prep-papers-2026" && <MatricPastPapers />}
+        {activeView === "prep-papers-2026" && <PrepPapers2026 />}
         {activeView === "watch" && <WatchComingSoon />}
       </main>
 

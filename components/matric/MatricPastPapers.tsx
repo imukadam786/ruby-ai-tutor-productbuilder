@@ -101,7 +101,7 @@ const SUBJECTS = [
     name: "English",
     thumbnail: "/thumbnails/english.jpeg",
     color: "from-sky-400 to-blue-500",
-    available: false,
+    available: true,
   },
   {
     id: "geography",
