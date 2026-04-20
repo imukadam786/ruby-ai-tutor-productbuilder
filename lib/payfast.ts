@@ -44,25 +44,27 @@ async function getPlanInfo(plan: string): Promise<{ amount: string; itemName: st
 
 /**
  * Signature for PayFast REST API calls (cancel, update, etc.)
- * Unlike the checkout form, the REST API requires parameters sorted alphabetically.
+ * The REST API requires ALL parameters (including passphrase) sorted alphabetically
+ * before hashing — unlike the checkout form where passphrase is appended at the end.
+ *
+ * Correct sorted order: merchant-id → passphrase → timestamp → version
  */
 export function generateApiSignature(
   params: Record<string, string>,
   passphrase: string | undefined = PASSPHRASE,
 ): string {
-  const sorted = Object.entries(params)
-    .filter(([k]) => k !== "signature")
-    .sort(([a], [b]) => a.localeCompare(b));
+  const all: Record<string, string> = {
+    ...params,
+    ...(passphrase ? { passphrase } : {}),
+  };
 
-  const str = sorted
+  const str = Object.entries(all)
+    .filter(([k]) => k !== "signature")
+    .sort(([a], [b]) => a.localeCompare(b))
     .map(([k, v]) => `${k}=${encodeURIComponent(v).replace(/%20/g, "+")}`)
     .join("&");
 
-  const toHash = passphrase
-    ? `${str}&passphrase=${encodeURIComponent(passphrase).replace(/%20/g, "+")}`
-    : str;
-
-  return crypto.createHash("md5").update(toHash).digest("hex");
+  return crypto.createHash("md5").update(str).digest("hex");
 }
 
 /**
