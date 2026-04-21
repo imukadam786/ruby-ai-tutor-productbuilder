@@ -1,4 +1,4 @@
-export type MCQOptions = { A: string; B: string; C: string; D: string };
+export type MCQOptions = { A: string; B: string; C: string; D: string; E?: string };
 
 export interface SubQuestion {
   id: string;
@@ -52,11 +52,13 @@ export interface Paper {
 import { MATHS_PAPERS } from "./papers-maths";
 import { PHYSICS_PAPERS } from "./papers-physics";
 import { ENGLISH_PAPERS } from "./papers-english";
+import { AFRIKAANS_PAPERS } from "./papers-afrikaans";
 
 export const PAPERS: Paper[] = [
   ...MATHS_PAPERS,
   ...PHYSICS_PAPERS,
   ...ENGLISH_PAPERS,
+  ...AFRIKAANS_PAPERS,
 ];
 
 export function getFlatSubQuestions(paper: Paper): SubQuestion[] {

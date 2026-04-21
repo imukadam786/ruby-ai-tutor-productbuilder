@@ -94,7 +94,7 @@ const SUBJECTS = [
     name: "Afrikaans",
     thumbnail: "/thumbnails/afrikaans.jpeg",
     color: "from-orange-400 to-amber-500",
-    available: false,
+    available: true,
   },
   {
     id: "english",
