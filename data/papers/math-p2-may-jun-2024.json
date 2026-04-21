@@ -1,0 +1,504 @@
+{
+  "id": "math-p2-may-jun-2024",
+  "subject": "Mathematics",
+  "paperCode": "P2",
+  "year": 2024,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-papers/math-p2-may-jun-2024_qp.pdf",
+  "memoUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-papers/math-p2-may-jun-2024_memo.pdf",
+  "infoSheet": {
+    "title": "Info Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics — Scatter Plot & Regression",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q1.png",
+      "subQuestions": [
+        {
+          "id": "p2-24-1-1",
+          "label": "1.1",
+          "questionText": "The number of pages in ten A4 books and their corresponding weights (in grams) are given in the table below.\n\n| Number of pages (x) | 85 | 150 | 100 | 120 | 90 | 140 | 135 | 105 | 115 | 160 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| Weight in grams (y) | 165 | 325 | 200 | 250 | 180 | 285 | 250 | 170 | 230 | 340 |\n\nDetermine the equation of the least squares regression line.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: a = −43,72\nMark 2: b = 2,36\nMark 3: ŷ = −43,72 + 2,36x",
+          "topic": "Statistics"
+        },
+        {
+          "id": "p2-24-1-2",
+          "label": "1.2",
+          "questionText": "Draw the least squares regression line on the scatter plot provided in the answer book.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Any two correct points plotted on the regression line for x ∈ [85 ; 160]\nMark 2: Straight line joining the two points",
+          "topic": "Statistics"
+        },
+        {
+          "id": "p2-24-1-3",
+          "label": "1.3",
+          "questionText": "Predict the weight of an A4 book that has 110 pages.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitute x = 110 into ŷ = −43,72 + 2,36(110)\nMark 2: ŷ = 215,88 g  (OR 215,90 g using calculator directly)",
+          "topic": "Statistics"
+        },
+        {
+          "id": "p2-24-1-4",
+          "label": "1.4",
+          "questionText": "Calculate the percentage weight increase between a book with 110 pages and a book with 130 pages.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: y-value for 130 pages: ŷ = −43,72 + 2,36(130) = 263,08 g\nMark 2: Difference = 263,08 − 215,88 = 47,20 g\nMark 3: Percentage increase = (47,20 / 215,88) × 100 = 21,86%\n\nOR: Percentage = (263,08/215,88) × 100 − 100 = 21,86%",
+          "topic": "Statistics"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Statistics — Ogive & Frequency Distribution",
+      "totalMarks": 11,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q2.png",
+      "subQuestions": [
+        {
+          "id": "p2-24-2-1",
+          "label": "2.1",
+          "questionText": "Fifty athletes need to access suitable training facilities. The distances (in km) they travel are shown below.\n\n| Distance (x km) | Frequency |\n|---|---|\n| 0 ≤ x < 5 | 3 |\n| 5 ≤ x < 10 | 7 |\n| 10 ≤ x < 15 | 20 |\n| 15 ≤ x < 20 | 12 |\n| 20 ≤ x < 25 | 5 |\n| 25 ≤ x < 30 | 3 |\n\nComplete the cumulative frequency column for this data.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Second cumulative frequency value = 10 (i.e. 3 + 7)\nMark 2: All remaining values correct: 3, 10, 30, 42, 47, 50",
+          "topic": "Statistics"
+        },
+        {
+          "id": "p2-24-2-2",
+          "label": "2.2",
+          "questionText": "Draw a cumulative frequency graph (ogive) to represent the data.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Grounding — start at (0 ; 0) or plot from the lower boundary of first interval\nMark 2: Plot at least 3 correct cumulative frequency points at the upper limits of each interval: (5,3), (10,10), (15,30), (20,42), (25,47), (30,50)\nMark 3: Smooth, increasing curve through the plotted points",
+          "topic": "Statistics"
+        },
+        {
+          "id": "p2-24-2-3",
+          "label": "2.3",
+          "questionText": "Calculate the interquartile range (IQR) of the data.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Q₃ = 17,8 (accept between 17 and 19) and Q₁ = 11 (accept between 10 and 12,5)\nMark 2: IQR = Q₃ − Q₁ = 6,8 (accept between 5 and 9)",
+          "topic": "Statistics"
+        },
+        {
+          "id": "p2-24-2-4",
+          "label": "2.4",
+          "questionText": "The families of 4 of the athletes who stay between 15 and 20 km from a suitable training facility decide to move 10 kilometres closer to the facility.\n\nIn which interval will the number of athletes increase?",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: 5 ≤ x < 10\n(Moving 10 km closer takes them from the 15–20 km interval into the 5–10 km interval)",
+          "topic": "Statistics"
+        },
+        {
+          "id": "p2-24-2-5",
+          "label": "2.5",
+          "questionText": "Calculate the estimated mean distance that the fifty athletes need to travel **after** the 4 families have moved 10 kilometres closer to the facility. Clearly show ALL working.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: New frequencies: 5 ≤ x < 10 becomes 11 (7 + 4); 15 ≤ x < 20 becomes 8 (12 − 4)\nMark 2: Calculate Σfx using midpoints: 2,5(3) + 7,5(11) + 12,5(20) + 17,5(8) + 22,5(5) + 27,5(3) = 7,5 + 82,5 + 250 + 140 + 112,5 + 82,5 = 675\nMark 3: Estimated mean = 675/50 = 13,5 km",
+          "topic": "Statistics"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Analytical Geometry — Lines & Triangles",
+      "totalMarks": 22,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q3.png",
+      "subQuestions": [
+        {
+          "id": "p2-24-3-1",
+          "label": "3.1",
+          "questionText": "In the diagram, A(3 ; 4), B and C are vertices of △ABC. AB is produced to S. D and F are the x- and y-intercepts of AC respectively. F is the midpoint of AC and the angle of inclination of AC is α.\n\nThe equation of AB is $y = kx + 3$ and the equation of AC is $y = 2x − 2$.\n\nShow that $k = \\dfrac{1}{3}$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Substitute A(3 ; 4) into y = kx + 3:\n4 = k(3) + 3 → 3k = 1 → k = 1/3 ✓\n\nOR: y-intercept of AB is (0 ; 3); gradient = (4 − 3)/(3 − 0) = 1/3 ✓",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-3-2",
+          "label": "3.2",
+          "questionText": "Calculate the coordinates of B, the x-intercept of line AS.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Set y = 0 in y = 1/3x + 3: 0 = 1/3x + 3 → x = −9\nMark 2: B(−9 ; 0)",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-3-3",
+          "label": "3.3",
+          "questionText": "Calculate the coordinates of C.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: F is the y-intercept of AC (y = 2x − 2): F(0 ; −2)\nMark 2: F is the midpoint of AC, so use midpoint formula: F = ((3 + x_C)/2 ; (4 + y_C)/2)\nMark 3: (3 + x_C)/2 = 0 → x_C = −3\nMark 4: (4 + y_C)/2 = −2 → y_C = −8. Thus C(−3 ; −8)",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-3-4",
+          "label": "3.4",
+          "questionText": "Determine the equation of the line parallel to BC and passing through S(−15 ; −2). Write your answer in the form $y = mx + c$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Substitute B(−9 ; 0) and C(−3 ; −8) into gradient formula\nMark 2: m_BC = (−8 − 0)/(−3 − (−9)) = −8/6 = −4/3\nMark 3: Parallel line has same gradient: m_line = m_BC = −4/3\nMark 4: Substitute S(−15 ; −2): −2 = −4/3(−15) + c → c = −2 − 20 = −22\nMark 5: y = −4/3x − 22",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-3-5",
+          "label": "3.5",
+          "questionText": "Calculate the size of $\\hat{BAC}$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: tan α = m_AC = 2 (angle of inclination of AC)\nMark 2: α = 63,43°\nMark 3: tan(∠ABD) = m_AS = 1/3 (angle of inclination of line AS)\nMark 4: ∠ABD = 18,43°\nMark 5: ∠BAC = α − ∠ABD = 63,43° − 18,43° = 45°\n\nOR: Calculate using cosine rule with AB = 4√10, AD = 2√5, BD = 10; cos∠BAC = √2/2 → ∠BAC = 45°",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-3-6",
+          "label": "3.6",
+          "questionText": "If it is further given that the length of AC is $6\\sqrt{5}$ units, calculate the value of $\\dfrac{\\text{Area of } \\triangle ABD}{\\text{Area of } \\triangle ASC}$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: AS = √[(3−(−15))² + (4−(−2))²] = √(324 + 36) = √360 = 6√10\nMark 2: Area △ABD = ½(BD)(⊥h) = ½(10)(4) = 20 (using BD = 10 and height from A)\nMark 3: Area △ASC = ½(AS)(AC)sin∠BAC = ½(6√10)(6√5)sin 45°\nMark 4: Area △ASC = ½(6√10)(6√5)(√2/2) = 90\nMark 5: Ratio = 20/90 = 2/9",
+          "topic": "Analytical Geometry"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Analytical Geometry — Circles",
+      "totalMarks": 18,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q4.png",
+      "subQuestions": [
+        {
+          "id": "p2-24-4-1",
+          "label": "4.1",
+          "questionText": "In the diagram, the circle centred at C(2 ; p) is drawn. A(5 ; 1) and B(−3 ; −3) are points on the circle. E is the midpoint of AB.\n\nCalculate the coordinates of E, the midpoint of AB.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: x = (5 + (−3))/2 = 1\nMark 2: y = (1 + (−3))/2 = −1\nE(1 ; −1)",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-4-2",
+          "label": "4.2",
+          "questionText": "Calculate the length of AB. Leave your answer in surd form.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: AB = √[(5−(−3))² + (1−(−3))²] = √(64 + 16) = √80 = 4√5 units",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-4-3",
+          "label": "4.3",
+          "questionText": "Determine the equation of the perpendicular bisector of AB in the form $y = mx + c$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Gradient of AB: m_AB = (1 − (−3))/(5 − (−3)) = 4/8 = 1/2\nMark 2: Gradient of CE (perpendicular bisector): m_CE = −2\nMark 3: Equation through E(1 ; −1): y − (−1) = −2(x − 1)\nMark 4: y = −2x + 1",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-4-4",
+          "label": "4.4",
+          "questionText": "Show that $p = -3$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: C(2 ; p) lies on perpendicular bisector y = −2x + 1:\np = −2(2) + 1 = −3 ✓\n\nOR: m_CE = −2, so (p − (−1))/(2 − 1) = −2 → p + 1 = −2 → p = −3 ✓",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-4-5",
+          "label": "4.5",
+          "questionText": "Show, by calculation, that the equation of the circle is $x^2 + y^2 - 4x + 6y - 12 = 0$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: BC = r = √[(−3−2)² + (−3−(−3))²] = √25 = 5 units (radius)\nMark 2: Circle equation in standard form: (x − 2)² + (y + 3)² = 25\nMark 3: Expand: x² − 4x + 4 + y² + 6y + 9 = 25\nMark 4: x² + y² − 4x + 6y − 12 = 0 ✓",
+          "topic": "Analytical Geometry"
+        },
+        {
+          "id": "p2-24-4-6",
+          "label": "4.6",
+          "questionText": "Calculate the values of $t$ for which the straight line $y = tx + 8$ will NOT intersect the circle.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Substitute y = tx + 8 into circle equation x² + y² − 4x + 6y − 12 = 0\nMark 2: Bring to standard quadratic form in x (or use standard form (x−2)²+(y+3)²=25)\nMark 3: For no intersection: discriminant Δ < 0\nMark 4: Simplify discriminant: 84t² − 176t − 384 < 0 → 21t² − 44t − 96 < 0\nMark 5: Factorise: (7t − 24)(3t + 4) < 0 → critical values t = 24/7 and t = −4/3\nMark 6: Answer: t ∈ (−4/3 ; 24/7)  OR  −4/3 < t < 24/7",
+          "topic": "Analytical Geometry"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Trigonometry — Identities, Reduction & Equations",
+      "totalMarks": 26,
+      "subQuestions": [
+        {
+          "id": "p2-24-5-1-1",
+          "label": "5.1.1",
+          "questionText": "If $\\sin 40° = p$, write $\\sin 220°$ in terms of $p$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: sin 220° = sin(180° + 40°) = −sin 40°\nMark 2: = −p",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-5-1-2",
+          "label": "5.1.2",
+          "questionText": "If $\\sin 40° = p$, write $\\cos^2 50°$ in terms of $p$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: cos²50° = sin²40°  [since cos 50° = sin 40°]\nMark 2: = p²",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-5-1-3",
+          "label": "5.1.3",
+          "questionText": "If $\\sin 40° = p$, write $\\cos(-80°)$ in terms of $p$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: cos(−80°) = cos 80°  [cos is even]\nMark 2: cos 80° = 1 − 2sin²40°  [double angle: cos 2θ = 1 − 2sin²θ, with θ = 40°]\nMark 3: = 1 − 2p²\n\nOR: cos(−80°) = cos 80° = cos(30° + 50°) = cos30°cos50° − sin30°sin50°\n= (√3/2)·p − (1/2)·√(1−p²)  [also accepted]",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-5-2-1",
+          "label": "5.2.1",
+          "questionText": "Prove the identity:\n\n$$\\tan x(1 - \\cos^2 x) + \\cos^2 x = \\frac{(\\sin x + \\cos x)(1 - \\sin x \\cos x)}{\\cos x}$$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nLHS:\nMark 1: tan x · sin²x + cos²x  [since 1 − cos²x = sin²x]\nMark 2: = (sin x/cos x)·sin²x + cos²x = (sin³x + cos³x)/cos x\nMark 3: Factorise sum of cubes: (sin x + cos x)(sin²x − sin x cos x + cos²x)/cos x\nMark 4: = (sin x + cos x)(1 − sin x cos x)/cos x  [since sin²x + cos²x = 1]\nMark 5: = RHS ✓",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-5-2-2",
+          "label": "5.2.2",
+          "questionText": "For which values of $x$, in the interval $x \\in [-180° ; 180°]$, will the identity be undefined?",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: The identity is undefined where cos x = 0 OR where tan x is undefined\nMark 2: x = 90° + k·360° or x = 270° + k·360° in general, but restricted to [−180°; 180°]\nMark 3: x = 90° or x = −90°",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-5-3-1",
+          "label": "5.3.1",
+          "questionText": "Without using a calculator, simplify $\\dfrac{\\sin 150° + \\cos^2 x - 1}{2}$ to a single trigonometric term in terms of $\\cos 2x$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: sin 150° = sin 30° = 1/2\nMark 2: = (1/2 + cos²x − 1)/2\nMark 3: = (cos²x − 1/2)/2\nMark 4: = (1/2 − (1 − cos²x))/2 = (1/2 − sin²x)/2\nMark 5: = (1/2 − sin²x) × 1/2 = (1 − 2sin²x)/4\nMark 6: = cos 2x/4",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-5-3-2",
+          "label": "5.3.2",
+          "questionText": "Hence, determine the general solution of:\n\n$$\\frac{\\sin 150° + \\cos^2 x - 1}{2} = \\frac{1}{25}$$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: From 5.3.1: cos 2x/4 = 1/25 → cos 2x = 4/25\nMark 2: ref∠ = 80,79° (cos⁻¹(4/25))\nMark 3: 2x = 80,79° + k·360° or 2x = 279,20° + k·360°  (k ∈ Z)\nMark 4: x = 40,40° + k·180° or x = 139,60° + k·180°\nMark 5: + k·180° ; k ∈ Z",
+          "topic": "Trigonometry"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Trigonometry — Graphs",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q6.png",
+      "subQuestions": [
+        {
+          "id": "p2-24-6-1",
+          "label": "6.1",
+          "questionText": "In the diagram, the graphs of $f(x) = \\cos(x + a)$ and $g(x) = \\sin 2x$ are drawn for $x \\in [-180° ; 180°]$. The graphs intersect at N(−75° ; k), P(45° ; 1) and Q(165° ; k). P is also a turning point of both graphs.\n\nWrite down the period of $f$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Period of f = 360°",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-6-2",
+          "label": "6.2",
+          "questionText": "Write down the amplitude of $g$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Amplitude of g = 1",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-6-3",
+          "label": "6.3",
+          "questionText": "Write down the value of $a$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: P(45° ; 1) is a maximum of f, so cos(45° + a) = 1 → 45° + a = 0° → a = −45°",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-6-4",
+          "label": "6.4",
+          "questionText": "Calculate the value of $k$, the y-coordinate of N and Q, without the use of a calculator.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: k = sin 2(165°) = sin 330° = −sin 30°  OR  k = sin 2(−75°) = sin(−150°) = −sin 30°\nMark 2: k = −1/2",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-6-5",
+          "label": "6.5",
+          "questionText": "Calculate the value of $x$ if $g(x + 60°) = f(x + 60°)$ and $x \\in [-45° ; 0°]$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Points of intersection are translated 60° to the left → x = −15°",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-6-6",
+          "label": "6.6",
+          "questionText": "Without using a calculator, determine the number of solutions the equation $\\sqrt{2}\\sin 2x = \\sin x + \\cos x$ has in the interval $x \\in [-90° ; 90°]$. Clearly show ALL working.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Divide both sides by √2: sin 2x = (1/√2)sin x + (1/√2)cos x\nMark 2: sin 2x = sin 45°·sin x + cos 45°·cos x = cos(45° − x)  OR  sin 2x = cos(x − 45°)\nMark 3: sin 2x = cos(x − 45°) = sin(90° − (x − 45°)) = sin(135° − x)\nSo sin 2x = cos(x − 45°); using sin α = cos β → 2x + (x − 45°) = 90° or other relationships\nMark 4: Solve to find 2 roots in the interval x ∈ [−90° ; 90°]",
+          "topic": "Trigonometry"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Trigonometry — 2D Applications",
+      "totalMarks": 11,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q7.png",
+      "subQuestions": [
+        {
+          "id": "p2-24-7-1-1",
+          "label": "7.1.1",
+          "questionText": "In the diagram, △ABC is drawn. AD is drawn such that AD ⊥ BC.\n\nUse the diagram to determine AD in terms of $\\sin \\hat{B}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: In △ADB: sin B̂ = AD/AB\nMark 2: AD = AB sin B̂",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-7-1-2",
+          "label": "7.1.2",
+          "questionText": "Hence, prove that the area of $\\triangle ABC = \\dfrac{1}{2}(BC)(AB)\\sin \\hat{B}$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Area △ABC = ½(BC)(AD) = ½(BC)(AB sin B̂) = ½(BC)(AB)sin B̂ ✓",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-7-2-1",
+          "label": "7.2.1",
+          "questionText": "In the diagram, points B, C and D lie in the same horizontal plane. $\\hat{ADB} = \\hat{ACB} = \\alpha$, $\\hat{CDB} = \\theta$ and DC = k units. BD = BC.\n\nProve that AD = AC.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nIn △ADB and △ACB:\nMark 1: AB = AB [common side]; ÂDB = ÂCB = α [given]; ÂDB = ÂCB = 90° [given — B is right angle, since BD⊥AC... OR: BD = BC [given]]\nActual method: In △ADB and △ACB: AB = AB [common]; ÂDB = ÂCB [given]; ÂBD = ÂBC = 90° [given] → △ADB ≅ △ACB [S∠S or AAS]\nMark 2: ∴ AD = AC ✓",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-7-2-2",
+          "label": "7.2.2",
+          "questionText": "Prove that $BD = \\dfrac{k}{2\\cos\\theta}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: In △BDC: BD/sin(∠BCD) = DC/sin(∠DBC) where ∠DBC = 180° − 2θ [angle sum]\nBy sine rule: BD/sinθ = k/sin(180° − 2θ) = k/sin 2θ\nMark 2: BD = k sin θ/sin 2θ = k sin θ/(2 sin θ cos θ)\nMark 3: BD = k/(2 cos θ) ✓\n\nOR: Using cosine rule BC² = k² + BD² − 2k·BD·cosθ, with BD = BC: simplify to get same result",
+          "topic": "Trigonometry"
+        },
+        {
+          "id": "p2-24-7-2-3",
+          "label": "7.2.3",
+          "questionText": "Determine the area of △BCD in terms of $k$ and a single trigonometric ratio of $\\theta$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Area △BCD = ½(DC)(BD)sin(∠CDB) = ½(k)(k/(2cosθ))sinθ\nMark 2: = k²sinθ/(4cosθ)\nMark 3: = ¼k²tanθ",
+          "topic": "Trigonometry"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Euclidean Geometry — Circle Theorems",
+      "totalMarks": 11,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q8.png",
+      "subQuestions": [
+        {
+          "id": "p2-24-8-1",
+          "label": "8.1",
+          "questionText": "In the diagram, chords AB, BC and AC are drawn in a circle with centre O. DCE is a tangent to the circle at C.\n\nProve the theorem which states that the angle between the tangent to a circle and the chord drawn from the point of contact is equal to the angle in the alternate segment, i.e. $\\hat{BCE} = \\hat{A}$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nConstruction: Draw diameter CF and draw AF (or BF)\nMark 1 (construction): Draw diameter CF and connect AF\nMark 2 (S/R): F̂CE = 90° [tangent ⊥ radius]\nMark 3 (S/R): F̂AC = 90° [∠ in semi-circle]\nMark 4 (S/R): F̂AB = F̂CB [∠s in same segment]\nConclusion: ∴ B̂AC = B̂CE and ∴ B̂CE = Â ✓",
+          "topic": "Euclidean Geometry"
+        },
+        {
+          "id": "p2-24-8-2-1",
+          "label": "8.2.1",
+          "questionText": "In the diagram, PQRS is a cyclic quadrilateral with RQ = RS. ST is a tangent to the circle at S. SR is produced to N. $\\hat{R}_2 = 68°$.\n\nDetermine, with reasons, the size of $\\hat{P}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S): P̂ = R̂₂ = 68°\nMark 2 (R): [exterior ∠ of cyclic quadrilateral / buite ∠ van kv]",
+          "topic": "Euclidean Geometry"
+        },
+        {
+          "id": "p2-24-8-2-2",
+          "label": "8.2.2",
+          "questionText": "Determine, with reasons, the size of $\\hat{Q}_1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S): Q̂₁ = Ŝ₂  [∠s opp equal sides, since RQ = RS]\nQ̂₁ + Ŝ₂ = 68°  [exterior ∠ of △ = sum of interior opposite ∠s]\n∴ Q̂₁ = 34°\nMark 2 (S): Q̂₁ = 34°",
+          "topic": "Euclidean Geometry"
+        },
+        {
+          "id": "p2-24-8-2-3",
+          "label": "8.2.3",
+          "questionText": "Determine, with reasons, the size of $\\hat{S}_1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S): Ŝ₁ = Q̂₁ = 34°\nMark 2 (R): [tangent-chord theorem / ∠ between tangent and chord]",
+          "topic": "Euclidean Geometry"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Euclidean Geometry — Circle with Diameter",
+      "totalMarks": 12,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q9.png",
+      "subQuestions": [
+        {
+          "id": "p2-24-9-1",
+          "label": "9.1",
+          "questionText": "In the diagram, AB is a diameter of the circle with centre F. AB and CD intersect at G. FD and FC are drawn. BA bisects $\\hat{CAD}$ and $\\hat{D}_1 = 37°$.\n\nDetermine, giving reasons, any THREE other angles equal to $\\hat{D}_1$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1 (S/R): Â₂ = D̂₁ = 37°  [∠s in the same segment]\nMark 2: Â₁ = Â₂ = 37°  [BA bisects ĈAD]\nMark 3 (√√): Any other two correct statements with reasons:\n  D̂₃ = Â₁ = 37°  [∠s opp equal sides / ∠e teenoor gelyke sye]\n  Ĉ₂ = Â₂ = 37°  [∠s opp equal sides]\nAccept any 3 valid angles with correct reasons",
+          "topic": "Euclidean Geometry"
+        },
+        {
+          "id": "p2-24-9-2",
+          "label": "9.2",
+          "questionText": "Show that DG = GC.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1 (S/R): ÂDG = 53°  [∠ in semi-circle: AF is radius, so ∠DAB... use ∠DFA or ∠ sum]\nMark 2: Â₁ = 37°  [proved in 9.1]\nMark 3 (S): ∴ Ĝ₁ = 90°  [∠ sum in △ADG: 37° + 53° + Ĝ₁ = 180°]\nMark 4 (R): ∴ CG = DG  [line from centre ⊥ to chord bisects chord / lyn uit midpt ⊥ op koord]\n\nOR:\nF̂₂ = 2D̂₁ = 74°  [∠ at centre = 2 × ∠ at circumference]\nD̂₃ = 37° [proved]; ∴ D̂₂ = 16°  [∠ in semi-circle]; Ĉ₁ = D̂₂ = 16°\n∴ Ĝ₁ = 90°; ∴ CG = DG  [line from centre ⊥ chord bisects chord]",
+          "topic": "Euclidean Geometry"
+        },
+        {
+          "id": "p2-24-9-3",
+          "label": "9.3",
+          "questionText": "If it is further given that the radius of the circle is 20 units, calculate the length of BG.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: F̂₂ = 2D̂₁ = 74°  [∠ at centre = 2 × ∠ at circumference]\nMark 2: FG/20 = cos 74°  (trig ratio in △FDG) OR FG/20 = sin 16°\nMark 3: FG = 20 cos 74° = 5,51 units\nMark 4: BG = BF − FG = 20 − 5,51 = 14,49 units",
+          "topic": "Euclidean Geometry"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Euclidean Geometry — Complex Proof",
+      "totalMarks": 19,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p2-may-jun-2024_q10.png",
+      "subQuestions": [
+        {
+          "id": "p2-24-10-1",
+          "label": "10.1",
+          "questionText": "In the diagram, COD is the diameter of the circle with centre O. EA is a tangent to the circle at F. AO ⊥ CE. Diameter COD produced intersects the tangent to the circle at E. OB produced intersects the tangent to the circle at A. CF intersects OB in T. CB, BD, OF and FD are drawn.\n\nProve, with reasons, that TODF is a cyclic quadrilateral.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1 (S/R): Ô₁ = 90°  [given / AO ⊥ CE]\nMark 2: F̂₂ + F̂₃ = 90°  [∠ in semi-circle / ∠ in halwe sirkel]\nMark 3 (S): Ô₁ = F̂₂ + F̂₃ = 90°\nMark 4 (R): ∴ TODF is a cyclic quadrilateral  [exterior ∠ = interior opposite ∠ / converse ext ∠ of cyclic quad]\nOR: TODF is cyclic because Ô₁ + (F̂₂ + F̂₃) = 180° (opposite angles supplementary)",
+          "topic": "Euclidean Geometry"
+        },
+        {
+          "id": "p2-24-10-2",
+          "label": "10.2",
+          "questionText": "Prove, with reasons, that $\\hat{D}_3 = \\hat{T}_1$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1 (S/R): T̂₁ = T̂₃  [vert opp ∠s]\nMark 2 (S/R): D̂₃ = T̂₃  [ext ∠ of cyclic quad TODF = int opp ∠]\nMark 3: ∴ D̂₃ = T̂₁ ✓",
+          "topic": "Euclidean Geometry"
+        },
+        {
+          "id": "p2-24-10-3",
+          "label": "10.3",
+          "questionText": "Prove, with reasons, that $\\triangle TFO \\mid\\mid\\mid \\triangle DFE$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nIn △DFE and △TFO:\nMark 1 (S): D̂₃ = T̂₃  [ext ∠ of cyclic quad / proved in 10.2]\nMark 2 (S/R): F̂₄ = Ĉ₂  [tan-chord theorem]\n  but Ĉ₂ = F̂₂  [∠s opp equal sides]\nMark 3 (S): ∴ F̂₄ = F̂₂\nMark 4 (S): Ê = Ô₂  [3rd ∠ of △]\nMark 5: ∴ △TFO ||| △DFE  [∠∠∠]",
+          "topic": "Euclidean Geometry"
+        },
+        {
+          "id": "p2-24-10-4",
+          "label": "10.4",
+          "questionText": "If $\\hat{B}_2 = \\hat{E}$, prove that DB ∥ EA.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S/R): B̂₂ = D̂₁  [∠s opp equal sides / given B̂₂ = Ê and Ê = D̂₁... from context]\nActual method: B̂₂ = Ê [given]; Ê = D̂₁ [proved/given]; ∴ D̂₁ = B̂₂\nMark 2 (R): ∴ DB ∥ EA  [corresponding ∠s equal / ooreenkomstige ∠e gelyk]",
+          "topic": "Euclidean Geometry"
+        },
+        {
+          "id": "p2-24-10-5",
+          "label": "10.5",
+          "questionText": "Prove that $DO = \\dfrac{TO \\cdot FE}{AB}$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: DB ∥ EA [proved in 10.4]\nMark 2 (R): OD/DE = OB/BA  [line ∥ one side of △ / proportionality theorem; in △OEA]\nMark 3 (S): ∴ DE = DO·AB/OB\nMark 4 (S/R): FO/FE = TO/DE  [△TFO ||| △DFE from 10.3]\nMark 5 (S): ∴ DE = TO·FE/FO; combining: DO·AB/OB = TO·FE/FO; since OB = OF = DO (radii): DO = TO·FE/AB ✓",
+          "topic": "Euclidean Geometry"
+        }
+      ]
+    }
+  ]
+}

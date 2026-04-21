@@ -53,12 +53,14 @@ import { MATHS_PAPERS } from "./papers-maths";
 import { PHYSICS_PAPERS } from "./papers-physics";
 import { ENGLISH_PAPERS } from "./papers-english";
 import { AFRIKAANS_PAPERS } from "./papers-afrikaans";
+import { HISTORY_PAPERS } from "./papers-history";
 
 export const PAPERS: Paper[] = [
   ...MATHS_PAPERS,
   ...PHYSICS_PAPERS,
   ...ENGLISH_PAPERS,
   ...AFRIKAANS_PAPERS,
+  ...(HISTORY_PAPERS as unknown as Paper[]),
 ];
 
 export function getFlatSubQuestions(paper: Paper): SubQuestion[] {

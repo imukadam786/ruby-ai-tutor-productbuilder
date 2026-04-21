@@ -1,0 +1,555 @@
+{
+  "id": "math-p1-prep-2026b",
+  "subject": "Mathematics",
+  "paperCode": "P1",
+  "year": 2026,
+  "session": "Prep B",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "infoSheet": {
+    "title": "Info Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Algebra",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "b-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Solve for $x$:\n\n$$x^2 - 3x - 10 = 0$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct factorisation — $(x - 5)(x + 2) = 0$\nMark 2: $x = 5$\nMark 3: $x = -2$\nBoth values required for full marks. CA applies.",
+          "topic": "Algebra"
+        },
+        {
+          "id": "b-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Solve for $x$ (correct to TWO decimal places):\n\n$$3x^2 - x - 5 = 0$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct substitution into quadratic formula: $x = \\dfrac{1 \\pm \\sqrt{1 + 60}}{6} = \\dfrac{1 \\pm \\sqrt{61}}{6}$\nMark 2: $x \\approx 1.47$\nMark 3: $x \\approx -1.14$\nBoth values required. CA applies.",
+          "topic": "Algebra"
+        },
+        {
+          "id": "b-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Solve for $x$:\n\n$$(x - 2)(x + 3) < 0$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Critical values $x = 2$ and $x = -3$\nMark 2: Sign analysis — negative between the roots\nMark 3: $-3 < x < 2$",
+          "topic": "Algebra"
+        },
+        {
+          "id": "b-1-2",
+          "label": "1.2",
+          "questionText": "Solve simultaneously for $x$ and $y$:\n\n$$x - y = 1 \\quad \\text{and} \\quad x^2 + xy = 6$$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Express $x$ in terms of $y$: $x = y + 1$\nMark 2: Substitute into second equation — $(y+1)^2 + (y+1)y = 6$ → $2y^2 + 3y - 5 = 0$\nMark 3: Factorise — $(2y + 5)(y - 1) = 0$\nMark 4: $y = 1 \\Rightarrow x = 2$\nMark 5: $y = -\\tfrac{5}{2} \\Rightarrow x = -\\tfrac{3}{2}$\nBoth solution pairs required.",
+          "topic": "Algebra"
+        },
+        {
+          "id": "b-1-3",
+          "label": "1.3",
+          "questionText": "Solve for $x$ if:\n\n$$\\frac{3}{x+1} + x = 3 \\quad (x \\neq -1)$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Multiply through by $(x+1)$: $3 + x(x+1) = 3(x+1)$\nMark 2: Expand and simplify — $x^2 - 2x = 0$\nMark 3: Factorise — $x(x-2) = 0$\nMark 4: $x = 0$ or $x = 2$ (both values required)",
+          "topic": "Algebra"
+        },
+        {
+          "id": "b-1-4",
+          "label": "1.4",
+          "questionText": "Without using a calculator, simplify:\n\n$$\\frac{3^{2x+1} - 3^{2x}}{3^{2x} - 3^{2x-1}}$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Factorise numerator — $3^{2x}(3 - 1) = 2 \\cdot 3^{2x}$\nMark 2: Factorise denominator — $3^{2x-1}(3 - 1) = 2 \\cdot 3^{2x-1}$\nMark 3: Simplify — $\\dfrac{3^{2x}}{3^{2x-1}} = 3$",
+          "topic": "Algebra"
+        },
+        {
+          "id": "b-1-5",
+          "label": "1.5",
+          "questionText": "Show that $x^2 + 4x + 5 > 0$ for all real values of $x$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Complete the square — $x^2 + 4x + 5 = (x^2 + 4x + 4) + 1$\nMark 2: Write as $(x + 2)^2 + 1$\nMark 3: State $(x+2)^2 \\geq 0$ for all real $x$\nMark 4: Therefore $(x+2)^2 + 1 \\geq 1 > 0$ for all real $x$ (QED)",
+          "topic": "Algebra"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Arithmetic and Geometric Sequences",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "b-2-1",
+          "label": "2.1",
+          "questionText": "The arithmetic sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$ is given.\n\nWrite down the common difference.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $d = 3$",
+          "topic": "Sequences & Series"
+        },
+        {
+          "id": "b-2-2",
+          "label": "2.2",
+          "questionText": "Determine the general term $T_n$ of the sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Use $T_n = a + (n-1)d = 2 + (n-1)(3)$\nMark 2: $T_n = 3n - 1$",
+          "topic": "Sequences & Series"
+        },
+        {
+          "id": "b-2-3",
+          "label": "2.3",
+          "questionText": "Which term of the sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$ equals $101$?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Set $T_n = 101$: $3n - 1 = 101 \\Rightarrow 3n = 102$\nMark 2: $n = 34$ (the 34th term)",
+          "topic": "Sequences & Series"
+        },
+        {
+          "id": "b-2-4",
+          "label": "2.4",
+          "questionText": "Calculate $S_{30}$, the sum of the first 30 terms of the arithmetic sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct formula $S_n = \\dfrac{n}{2}(2a + (n-1)d)$\nMark 2: Correct substitution — $S_{30} = \\dfrac{30}{2}(4 + 29 \\times 3) = 15(91)$\nMark 3: $S_{30} = 1\\,365$",
+          "topic": "Sequences & Series"
+        },
+        {
+          "id": "b-2-5",
+          "label": "2.5",
+          "questionText": "Determine the minimum number of terms of the arithmetic sequence $2\\,;\\,5\\,;\\,8\\,;\\,11\\,;\\,\\ldots$ needed for the sum to exceed $500$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Set up inequality $S_n = \\dfrac{n(3n+1)}{2} > 500$ and solve: $n > 18.09$\nMark 2: Minimum $n = 19$ terms (verify: $S_{19} = 551 > 500$)",
+          "topic": "Sequences & Series"
+        },
+        {
+          "id": "b-2-6",
+          "label": "2.6",
+          "questionText": "A geometric sequence has first term $a = 4$ and common ratio $r = \\tfrac{1}{2}$.\n\nDetermine $S_\\infty$, the sum to infinity.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Correct formula $S_\\infty = \\dfrac{a}{1 - r}$\nMark 2: $S_\\infty = \\dfrac{4}{1 - \\frac{1}{2}} = \\dfrac{4}{\\frac{1}{2}} = 8$",
+          "topic": "Sequences & Series"
+        },
+        {
+          "id": "b-2-7",
+          "label": "2.7",
+          "questionText": "For the geometric sequence with $a = 4$ and $r = \\tfrac{1}{2}$, after how many terms does $S_n$ first exceed $7.5$?",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Write $S_n = 8\\left[1 - \\left(\\tfrac{1}{2}\\right)^n\\right] > 7.5$\nMark 2: Simplify to $\\left(\\tfrac{1}{2}\\right)^n < 0.0625 = \\tfrac{1}{16}$\nMark 3: Convert to $2^n > 16$, so $n > 4$\nMark 4: Minimum $n = 5$ terms (verify: $S_5 = 8(1 - \\tfrac{1}{32}) = 7.75 > 7.5$)",
+          "topic": "Sequences & Series"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Quadratic Sequence",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "b-3-1",
+          "label": "3.1",
+          "questionText": "The quadratic sequence $1\\,;\\,6\\,;\\,15\\,;\\,28\\,;\\,45\\,;\\,\\ldots$ is given.\n\nWrite down the second difference.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Second difference $= 4$\n(1st differences: 5; 9; 13; 17 — these increase by 4 each time)",
+          "topic": "Sequences & Series"
+        },
+        {
+          "id": "b-3-2",
+          "label": "3.2",
+          "questionText": "Determine the general term $T_n$ in the form $T_n = an^2 + bn + c$ for the sequence $1\\,;\\,6\\,;\\,15\\,;\\,28\\,;\\,45\\,;\\,\\ldots$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $2a = 4 \\Rightarrow a = 2$\nMark 2: $3a + b = 5 \\Rightarrow b = 5 - 6 = -1$\nMark 3: $a + b + c = 1 \\Rightarrow 2 - 1 + c = 1 \\Rightarrow c = 0$\nMark 4: $T_n = 2n^2 - n$",
+          "topic": "Sequences & Series"
+        },
+        {
+          "id": "b-3-3",
+          "label": "3.3",
+          "questionText": "Determine the value of $T_{20}$ for the sequence $1\\,;\\,6\\,;\\,15\\,;\\,28\\,;\\,45\\,;\\,\\ldots$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitute $n = 20$: $T_{20} = 2(20)^2 - 20 = 800 - 20$\nMark 2: $T_{20} = 780$",
+          "topic": "Sequences & Series"
+        },
+        {
+          "id": "b-3-4",
+          "label": "3.4",
+          "questionText": "Determine the values of $n$ for which $T_n > 100$ in the sequence $1\\,;\\,6\\,;\\,15\\,;\\,28\\,;\\,45\\,;\\,\\ldots$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Set up $2n^2 - n > 100 \\Rightarrow 2n^2 - n - 100 > 0$, solve to get $n > 7.32$\nMark 2: $T_n > 100$ for $n \\geq 8$ (verify: $T_7 = 91 < 100$, $T_8 = 120 > 100$)",
+          "topic": "Sequences & Series"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Functions — Hyperbola",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "b-4-1",
+          "label": "4.1",
+          "questionText": "The function $f(x) = \\dfrac{-4}{x+2} + 1$ is given.\n\nWrite down the equations of the asymptotes of $f$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Vertical asymptote — $x = -2$\nMark 2: Horizontal asymptote — $y = 1$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-4-2",
+          "label": "4.2",
+          "questionText": "Determine the $x$-intercept of $f(x) = \\dfrac{-4}{x+2} + 1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Set $y = 0$: $\\dfrac{-4}{x+2} + 1 = 0 \\Rightarrow \\dfrac{4}{x+2} = 1 \\Rightarrow x + 2 = 4$\nMark 2: $x$-intercept: $(2\\,;\\,0)$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-4-3",
+          "label": "4.3",
+          "questionText": "Determine the $y$-intercept of $f(x) = \\dfrac{-4}{x+2} + 1$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $f(0) = \\dfrac{-4}{2} + 1 = -2 + 1 = -1$; $y$-intercept: $(0\\,;\\,-1)$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-4-4",
+          "label": "4.4",
+          "questionText": "Sketch the graph of $f(x) = \\dfrac{-4}{x+2} + 1$ for $-5 \\leq x \\leq 5$, clearly showing all asymptotes and intercepts.",
+          "marks": 3,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q4-axes.png",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q4-memo.png",
+          "memoText": "Mark scheme (3 marks):\nMark 1: Both asymptotes correctly drawn as dashed lines: $x = -2$ (vertical) and $y = 1$ (horizontal)\nMark 2: Both intercepts correctly plotted: $x$-intercept $(2\\,;\\,0)$ and $y$-intercept $(0\\,;\\,-1)$\nMark 3: Two correct hyperbola branches — upper-left branch (above $y=1$, left of $x=-2$) and lower-right branch (below $y=1$, right of $x=-2$), passing through the labelled intercepts\n\nCorrect graph features: The function $f(x) = \\dfrac{-4}{x+2} + 1$ is a hyperbola with $a = -4$ (negative), so the upper branch is to the left and the lower branch is to the right.",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-4-5",
+          "label": "4.5",
+          "questionText": "Write down the equation of the axis of symmetry of $f(x) = \\dfrac{-4}{x+2} + 1$ with a **negative** gradient.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Axes of symmetry pass through the centre $(-2\\,;\\,1)$ with slopes $\\pm 1$\nMark 2: Negative gradient axis: $y - 1 = -(x + 2) \\Rightarrow y = -x - 1$",
+          "topic": "Functions"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Functions — Parabola and Line",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "b-5-1",
+          "label": "5.1",
+          "questionText": "$f(x) = -2x^2 + 4x + 6$ and $g(x) = 2x + 2$ are given.\n\nDetermine the coordinates of the turning point of $f$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Complete the square or use $x = -\\dfrac{b}{2a}$: $x = -\\dfrac{4}{2(-2)} = 1$\nMark 2: $f(1) = -2(1) + 4 + 6 = 8$\nMark 3: Turning point: $(1\\,;\\,8)$\n\nAlternatively via completing the square: $f(x) = -2(x^2 - 2x) + 6 = -2(x-1)^2 + 8$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-5-2",
+          "label": "5.2",
+          "questionText": "Write down the range of $f(x) = -2x^2 + 4x + 6$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $f$ has a maximum value of 8, so range is $y \\leq 8$ or $(-\\infty\\,;\\,8]$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-5-3",
+          "label": "5.3",
+          "questionText": "Determine the $x$-intercepts of $f(x) = -2x^2 + 4x + 6$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Set $f(x) = 0$: $-2x^2 + 4x + 6 = 0 \\Rightarrow x^2 - 2x - 3 = 0$\nMark 2: Factorise — $(x - 3)(x + 1) = 0$\nMark 3: $x$-intercepts: $(-1\\,;\\,0)$ and $(3\\,;\\,0)$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-5-4",
+          "label": "5.4",
+          "questionText": "Sketch $f$ and $g$ on the same system of axes. Label all intercepts and the turning point.\n\n$f(x) = -2x^2 + 4x + 6$ and $g(x) = 2x + 2$",
+          "marks": 3,
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q5-memo.png",
+          "memoText": "Mark scheme (3 marks):\nMark 1: $f$ correctly sketched — downward parabola with turning point $(1\\,;\\,8)$, $x$-intercepts $(-1\\,;\\,0)$ and $(3\\,;\\,0)$, $y$-intercept $(0\\,;\\,6)$\nMark 2: $g$ correctly sketched — straight line through $(0\\,;\\,2)$ and $(-1\\,;\\,0)$\nMark 3: All labelled intercepts and turning point clearly shown on both graphs",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-5-5",
+          "label": "5.5",
+          "questionText": "Determine the values of $x$ for which $f(x) \\geq g(x)$, where $f(x) = -2x^2 + 4x + 6$ and $g(x) = 2x + 2$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Set up $-2x^2 + 4x + 6 \\geq 2x + 2 \\Rightarrow -2x^2 + 2x + 4 \\geq 0 \\Rightarrow x^2 - x - 2 \\leq 0$\nMark 2: Factorise — $(x - 2)(x + 1) \\leq 0$\nMark 3: $-1 \\leq x \\leq 2$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-5-6",
+          "label": "5.6",
+          "questionText": "Determine the maximum vertical distance between $f$ and $g$ for $x \\in [-1\\,;\\,2]$, where $f(x) = -2x^2 + 4x + 6$ and $g(x) = 2x + 2$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Define $h(x) = f(x) - g(x) = -2x^2 + 4x + 6 - (2x + 2) = -2x^2 + 2x + 4$\nMark 2: Complete the square or differentiate: $h'(x) = -4x + 2 = 0 \\Rightarrow x = \\tfrac{1}{2}$\nMark 3: $h\\!\\left(\\tfrac{1}{2}\\right) = -2\\!\\left(\\tfrac{1}{4}\\right) + 1 + 4 = \\tfrac{9}{2} = 4.5$ units",
+          "topic": "Functions"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Functions — Exponential and Inverse",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "b-6-1",
+          "label": "6.1",
+          "questionText": "$f(x) = 2^{-x} + 1$ is given.\n\nWrite down the equation of the asymptote of $f$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: As $x \\to +\\infty$, $2^{-x} \\to 0$, so horizontal asymptote is $y = 1$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-6-2",
+          "label": "6.2",
+          "questionText": "Determine the $y$-intercept of $f(x) = 2^{-x} + 1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitute $x = 0$: $f(0) = 2^0 + 1 = 1 + 1$\nMark 2: $y$-intercept: $(0\\,;\\,2)$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-6-3",
+          "label": "6.3",
+          "questionText": "Determine the $x$-intercept of $f(x) = 2^{-x} + 1$, if it exists.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $2^{-x} + 1 = 0 \\Rightarrow 2^{-x} = -1$, which is impossible since $2^{-x} > 0$ for all $x$. No $x$-intercept exists.",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-6-4",
+          "label": "6.4",
+          "questionText": "Write down the equation of $f^{-1}(x)$ for $f(x) = 2^{-x} + 1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Write $y = 2^{-x} + 1$, so $y - 1 = 2^{-x}$, then $-x = \\log_2(y-1)$, giving $x = -\\log_2(y-1)$\nMark 2: Swap $x$ and $y$: $f^{-1}(x) = -\\log_2(x - 1)$",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-6-5",
+          "label": "6.5",
+          "questionText": "State, with a reason, whether $f(x) = 2^{-x} + 1$ is an increasing or decreasing function.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Correct conclusion — $f$ is a **decreasing** function\nMark 2: Valid reason — as $x$ increases, $-x$ decreases, so $2^{-x}$ decreases, therefore $f(x)$ decreases",
+          "topic": "Functions"
+        },
+        {
+          "id": "b-6-6",
+          "label": "6.6",
+          "questionText": "Sketch $f$ and $f^{-1}$ on the same system of axes, showing all intercepts and asymptotes.\n\n$f(x) = 2^{-x} + 1$ and $f^{-1}(x) = -\\log_2(x-1)$",
+          "marks": 2,
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q6-memo.png",
+          "memoText": "Mark scheme (2 marks):\nMark 1: $f$ correctly sketched — decreasing exponential curve through $(0\\,;\\,2)$, asymptote $y = 1$. $f^{-1}$ correctly sketched — through $(2\\,;\\,0)$, asymptote $x = 1$.\nMark 2: Both graphs are reflections of each other in the line $y = x$, with the line $y = x$ shown or implied. All asymptotes and intercepts labelled.",
+          "topic": "Functions"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Financial Mathematics",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "b-7-1",
+          "label": "7.1",
+          "questionText": "Zara invests R15 000 at an interest rate of 8.5% per annum compounded quarterly.\n\nDetermine the effective annual interest rate.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct formula — $i_{\\text{eff}} = \\left(1 + \\dfrac{i_{\\text{nom}}}{m}\\right)^m - 1$\nMark 2: Substitute correctly — $= \\left(1 + \\dfrac{0.085}{4}\\right)^4 - 1 = (1.02125)^4 - 1$\nMark 3: $i_{\\text{eff}} \\approx 0.0877 = 8.77\\%$ p.a.",
+          "topic": "Financial Mathematics"
+        },
+        {
+          "id": "b-7-2-1",
+          "label": "7.2.1",
+          "questionText": "A home loan of R250 000 is taken at 9% per annum compounded monthly. Monthly repayments are R3 200.\n\nCalculate the number of monthly repayments needed to settle the loan.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Correct formula — $PV = \\dfrac{x[1-(1+i)^{-n}]}{i}$\nMark 2: Substitute $i = \\dfrac{0.09}{12} = 0.0075$, $PV = 250\\,000$, $x = 3\\,200$\nMark 3: Solve for $(1.0075)^{-n} = 0.41406$\nMark 4: Apply logarithms — $-n\\ln(1.0075) = \\ln(0.41406)$\nMark 5: $n \\approx 117.97$, so $\\mathbf{118}$ monthly payments required",
+          "topic": "Financial Mathematics"
+        },
+        {
+          "id": "b-7-2-2",
+          "label": "7.2.2",
+          "questionText": "Determine the outstanding balance on the home loan of R250 000 (at 9% p.a. compounded monthly, R3 200 per month) immediately after the 36th payment.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Correct balance formula — Balance $= PV(1+i)^{36} - x\\dfrac{[(1+i)^{36}-1]}{i}$\nMark 2: $(1.0075)^{36} \\approx 1.30865$\nMark 3: $250\\,000 \\times 1.30865 = R327\\,162.50$\nMark 4: $3\\,200 \\times \\dfrac{(0.30865)}{0.0075} = R131\\,690.00$\nMark 5: Outstanding balance $= R327\\,162.50 - R131\\,690.00 = \\mathbf{R195\\,472.50}$",
+          "topic": "Financial Mathematics"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Differential Calculus",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "b-8-1",
+          "label": "8.1",
+          "questionText": "Determine $f'(x)$ from **first principles** if $f(x) = -x^2 + 4$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Write the definition — $f'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}$\nMark 2: Substitute — $= \\lim_{h \\to 0} \\dfrac{[-(x+h)^2 + 4] - [-x^2 + 4]}{h}$\nMark 3: Expand — $= \\lim_{h \\to 0} \\dfrac{-x^2 - 2xh - h^2 + 4 + x^2 - 4}{h}$\nMark 4: Simplify — $= \\lim_{h \\to 0} \\dfrac{-2xh - h^2}{h} = \\lim_{h \\to 0}(-2x - h)$\nMark 5: $f'(x) = -2x$",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-8-2-1",
+          "label": "8.2.1",
+          "questionText": "Determine $\\dfrac{dy}{dx}$ if $y = 3x^3 - 5x + \\dfrac{2}{x}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Rewrite $\\dfrac{2}{x} = 2x^{-1}$\nMark 2: Differentiate first two terms — $9x^2 - 5$\nMark 3: Differentiate last term — $-2x^{-2} = -\\dfrac{2}{x^2}$\nAnswer: $\\dfrac{dy}{dx} = 9x^2 - 5 - \\dfrac{2}{x^2}$",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-8-2-2",
+          "label": "8.2.2",
+          "questionText": "Determine $f'(x)$ if $f(x) = \\dfrac{x^2 + 1}{\\sqrt{x}}$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Rewrite — $f(x) = \\dfrac{x^2}{x^{1/2}} + \\dfrac{1}{x^{1/2}} = x^{3/2} + x^{-1/2}$\nMark 2: Differentiate first term — $\\dfrac{3}{2}x^{1/2}$\nMark 3: Differentiate second term — $-\\dfrac{1}{2}x^{-3/2}$\nMark 4: Final answer: $f'(x) = \\dfrac{3\\sqrt{x}}{2} - \\dfrac{1}{2x\\sqrt{x}}$",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-8-3-1",
+          "label": "8.3.1",
+          "questionText": "$p(x) = x^3 - 3x + k$ passes through the point $(2\\,;\\,3)$.\n\nDetermine the value of $k$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitute $(2\\,;\\,3)$: $p(2) = 8 - 6 + k = 3$\nMark 2: $k = 1$",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-8-3-2",
+          "label": "8.3.2",
+          "questionText": "For $p(x) = x^3 - 3x + 1$, determine the gradient of the tangent to $p$ at $x = -1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $p'(x) = 3x^2 - 3$; substitute $x = -1$: $p'(-1) = 3(1) - 3$\nMark 2: Gradient $= 0$ (horizontal tangent at $x = -1$)",
+          "topic": "Calculus"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Cubic Function",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "b-9-1",
+          "label": "9.1",
+          "questionText": "$f(x) = x^3 + 3x^2 - 9x + 5$ is given.\n\nShow that $(x - 1)$ is a factor of $f(x)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitute $x = 1$: $f(1) = 1 + 3 - 9 + 5$\nMark 2: $f(1) = 0$, therefore by the factor theorem $(x-1)$ is a factor ✓",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-9-2",
+          "label": "9.2",
+          "questionText": "Hence, factorise $f(x) = x^3 + 3x^2 - 9x + 5$ fully.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Perform polynomial division or inspection to get $f(x) = (x-1)(x^2 + 4x - 5)$\nMark 2: Factorise the quadratic factor — $(x^2 + 4x - 5) = (x-1)(x+5)$\nMark 3: $f(x) = (x-1)^2(x+5)$",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-9-3",
+          "label": "9.3",
+          "questionText": "Determine the $x$-intercept(s) and the $y$-intercept of $f(x) = x^3 + 3x^2 - 9x + 5$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $x$-intercepts from $(x-1)^2(x+5) = 0$: $x = 1$ (touches, double root) and $x = -5$ (crosses)\nMark 2: $x$-intercepts: $(1\\,;\\,0)$ and $(-5\\,;\\,0)$ — state which touches and which crosses\nMark 3: $y$-intercept: $f(0) = 5$, so $(0\\,;\\,5)$",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-9-4",
+          "label": "9.4",
+          "questionText": "Determine the coordinates of the stationary points of $f(x) = x^3 + 3x^2 - 9x + 5$. Clearly classify the nature of each stationary point.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $f'(x) = 3x^2 + 6x - 9 = 3(x+3)(x-1)$; set $f'(x) = 0$: $x = -3$ or $x = 1$\nMark 2: $f(-3) = -27 + 27 + 27 + 5 = 32$; stationary point $(-3\\,;\\,32)$\nMark 3: $f(1) = 0$; stationary point $(1\\,;\\,0)$\nMark 4: $f''(x) = 6x + 6$; at $x=-3$: $f''(-3) = -12 < 0$ → **local maximum**\nMark 5: At $x=1$: $f''(1) = 12 > 0$ → **local minimum**",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-9-5",
+          "label": "9.5",
+          "questionText": "Sketch the graph of $f(x) = x^3 + 3x^2 - 9x + 5$. Show all intercepts and stationary points.",
+          "marks": 4,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q9-axes.png",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q9-memo.png",
+          "memoText": "Mark scheme (4 marks):\nMark 1: Correct shape — cubic with positive leading coefficient\nMark 2: $y$-intercept $(0\\,;\\,5)$ and $x$-intercepts $(-5\\,;\\,0)$ and $(1\\,;\\,0)$ correctly plotted. At $(1\\,;\\,0)$ the curve touches (turns) the $x$-axis.\nMark 3: Local maximum $(-3\\,;\\,32)$ clearly shown\nMark 4: Local minimum $(1\\,;\\,0)$ clearly shown (this coincides with the $x$-axis touch point)",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-9-6",
+          "label": "9.6",
+          "questionText": "Determine the $x$-coordinate of the point of inflection of $f(x) = x^3 + 3x^2 - 9x + 5$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $f''(x) = 6x + 6 = 0 \\Rightarrow x = -1$",
+          "topic": "Calculus"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Calculus Application — Optimisation",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "b-10-1",
+          "label": "10.1",
+          "questionText": "An open box (no lid) is made from cardboard. It has a square base of side $x$ cm and height $h$ cm. The volume of the box is 500 cm³.\n\nShow that $h = \\dfrac{500}{x^2}$.",
+          "marks": 1,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026b_q10.png",
+          "memoText": "Mark scheme (1 mark):\nMark 1: Volume $= x^2 h = 500 \\Rightarrow h = \\dfrac{500}{x^2}$ ✓",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-10-2",
+          "label": "10.2",
+          "questionText": "Show that the total surface area of the open box is $A(x) = x^2 + \\dfrac{2\\,000}{x}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $A = x^2 + 4xh$ (base + 4 sides)\nMark 2: Substitute $h = \\dfrac{500}{x^2}$: $A = x^2 + 4x \\cdot \\dfrac{500}{x^2} = x^2 + \\dfrac{2\\,000}{x}$ ✓",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-10-3",
+          "label": "10.3",
+          "questionText": "Determine the value of $x$ for which the surface area of the open box is a minimum.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $A'(x) = 2x - \\dfrac{2\\,000}{x^2}$; set $A'(x) = 0$\nMark 2: $2x = \\dfrac{2\\,000}{x^2} \\Rightarrow x^3 = 1\\,000$\nMark 3: $x = 10$ cm",
+          "topic": "Calculus"
+        },
+        {
+          "id": "b-10-4",
+          "label": "10.4",
+          "questionText": "Calculate the minimum surface area of the open box (where $x = 10$ cm).",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitute $x = 10$: $A(10) = 100 + \\dfrac{2\\,000}{10} = 100 + 200$\nMark 2: Minimum surface area $= 300$ cm²",
+          "topic": "Calculus"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Probability and Counting",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "b-11-1",
+          "label": "11.1",
+          "questionText": "A committee of 4 people is chosen at random from 6 men and 4 women.\n\nCalculate the probability that exactly 2 women are chosen.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Total ways to choose 4 from 10: $\\binom{10}{4} = 210$\nMark 2: Ways with exactly 2 women: $\\binom{4}{2} \\times \\binom{6}{2} = 6 \\times 15 = 90$\nMark 3: $P(\\text{exactly 2 women}) = \\dfrac{90}{210} = \\dfrac{3}{7}$",
+          "topic": "Probability"
+        },
+        {
+          "id": "b-11-2-1",
+          "label": "11.2.1",
+          "questionText": "5 distinct letters A, B, C, D, E are arranged in a row.\n\nHow many different 3-letter arrangements can be formed from these 5 letters (no repetition)?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Use permutation — $P(5, 3) = 5 \\times 4 \\times 3$\nMark 2: $= 60$ arrangements",
+          "topic": "Probability"
+        },
+        {
+          "id": "b-11-2-2",
+          "label": "11.2.2",
+          "questionText": "Of the 3-letter arrangements of A, B, C, D, E (no repetition), how many have the letter B in the **middle**?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: B is fixed in the middle: _ B _; first position has 4 choices, last position has 3 choices\nMark 2: $4 \\times 3 = 12$ arrangements",
+          "topic": "Probability"
+        },
+        {
+          "id": "b-11-3",
+          "label": "11.3",
+          "questionText": "$P(A) = 0.4$ and $P(B) = 0.25$. Events $A$ and $B$ are independent.\n\nDetermine $P(A \\text{ or } B)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Since independent: $P(A \\cap B) = P(A) \\times P(B) = 0.4 \\times 0.25 = 0.1$\nMark 2: $P(A \\cup B) = 0.4 + 0.25 - 0.1 = 0.55$",
+          "topic": "Probability"
+        }
+      ]
+    }
+  ]
+}
