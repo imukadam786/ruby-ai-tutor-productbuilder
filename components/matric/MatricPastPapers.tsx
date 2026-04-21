@@ -115,7 +115,7 @@ const SUBJECTS = [
     name: "History",
     thumbnail: "/thumbnails/history.jpeg",
     color: "from-amber-500 to-yellow-600",
-    available: false,
+    available: true,
   },
   {
     id: "life-sciences",
