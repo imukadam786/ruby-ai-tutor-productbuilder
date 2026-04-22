@@ -28,9 +28,9 @@ const TrialExpiredScreen = dynamic(() => import("@/components/TrialExpiredScreen
 import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
-import { getProgress, incrementSession, clearAllUserData, PERSISTENT_USER_KEYS } from "@/lib/storage";
-import { getStudentProfile } from "@/lib/student-model";
-import { getReadingProfile } from "@/lib/reading-student-model";
+import { getProgress, incrementSession } from "@/lib/storage";
+import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
+import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
 import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
 
@@ -64,9 +64,10 @@ function AppContent() {
   };
 
   const refreshStats = useCallback(() => {
-    const progress = getProgress();
-    setStats({ lessonsCompleted: progress.lessonsCompleted });
-    setRubyProfile(getStudentProfile());
+    void getProgress().then((progress) => {
+      setStats({ lessonsCompleted: progress.lessonsCompleted });
+    });
+    void hydrateStudentProfileFromSupabase().then((profile) => setRubyProfile(profile));
   }, []);
 
   // Track chat engagement (at least one message sent this session)
@@ -112,10 +113,10 @@ function AppContent() {
     }
     setActiveView(view);
     if (view === "skill-tree" || view === "student-dashboard") {
-      setRubyProfile(getStudentProfile());
+      void hydrateStudentProfileFromSupabase().then((p) => setRubyProfile(p));
     }
     if (view === "reading" || view === "reading-skill-tree") {
-      setReadingProfile(getReadingProfile());
+      void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
     }
   };
 
@@ -260,7 +261,6 @@ export default function Home() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("reset") !== null) {
-      clearAllUserData();
       supabase.auth.signOut();
       window.history.replaceState({}, "", window.location.pathname);
       setAppState("onboarding");
@@ -270,24 +270,6 @@ export default function Home() {
     // Check for an existing valid session — if found, skip login entirely
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session) {
-        if (session.user.id) localStorage.setItem("current_user_id", session.user.id);
-        // Ensure onboardingData has the user's name — may be absent on a fresh device
-        try {
-          const raw = localStorage.getItem("onboardingData");
-          const existing = raw ? JSON.parse(raw) : {};
-          if (!existing.name) {
-            const fullName =
-              (session.user.user_metadata?.full_name as string | undefined) ||
-              (session.user.email?.split("@")[0] ?? "");
-            if (fullName) {
-              localStorage.setItem(
-                "onboardingData",
-                JSON.stringify({ ...existing, name: fullName })
-              );
-            }
-          }
-        } catch { /* ignore */ }
-
         // If returning from a PayFast payment, skip trial check — ITN will update DB async
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("payment") === "success") {
@@ -331,23 +313,9 @@ export default function Home() {
   }, []);
 
   const handleOnboardingComplete = (data: OnboardingData) => {
-    const storedUserId = localStorage.getItem("current_user_id");
-    const isDifferentUser = data.userId && storedUserId && storedUserId !== data.userId;
-
     if (data.plan === "existing") {
-      // Returning user — only wipe data if a DIFFERENT user is logging in on this device
-      if (isDifferentUser) {
-        PERSISTENT_USER_KEYS.forEach((k) => localStorage.removeItem(k));
-        localStorage.removeItem("current_user_id");
-      }
-      if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setAppState("app");
     } else {
-      // New signup — wipe any previous user's data, then restore fresh onboarding data
-      PERSISTENT_USER_KEYS.forEach((k) => localStorage.removeItem(k));
-      localStorage.removeItem("current_user_id");
-      localStorage.setItem("onboardingData", JSON.stringify(data));
-      if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setWelcomeName(data.name || "");
       setAppState("welcome");
     }

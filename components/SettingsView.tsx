@@ -262,47 +262,38 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   const [modal, setModal] = useState<string | null>(null);
 
   useEffect(() => {
-    try {
-      setHasMathsReport(!!localStorage.getItem("ruby_maths_report"));
-      setHasReadingReport(!!localStorage.getItem("ruby_reading_report"));
-    } catch { /* ignore */ }
+    (async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        const { data } = await supabase
+          .from("student_reports")
+          .select("subject")
+          .eq("user_id", user.id)
+          .in("subject", ["maths", "reading"]);
+        if (data) {
+          setHasMathsReport(data.some((r) => r.subject === "maths"));
+          setHasReadingReport(data.some((r) => r.subject === "reading"));
+        }
+      } catch { /* ignore */ }
+    })();
   }, []);
 
   useEffect(() => {
     const loadProfile = async () => {
-      let savedName = "";
-      let savedEmail = "";
-      let savedGrade = "";
-      try {
-        const raw = localStorage.getItem("onboardingData");
-        if (raw) {
-          const d = JSON.parse(raw);
-          savedName = d.name || "";
-          savedEmail = d.email || "";
-          savedGrade = d.grade || "";
-          setAccountLang(d.language || "English");
-          setLearnLang(d.language || "English");
-          setPlan(d.plan || "free");
-        }
-      } catch { /* ignore */ }
-
-      // Fill in name/email/grade from Supabase if not in localStorage
       const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        if (!savedName) savedName = (user.user_metadata?.full_name as string | undefined) || "";
-        if (!savedEmail) savedEmail = user.email || "";
-        if (!savedGrade) {
-          const { data: profile } = await supabase
-            .from("users")
-            .select("grade")
-            .eq("id", user.id)
-            .single();
-          savedGrade = profile?.grade || "";
-        }
-      }
-      setName(savedName);
-      setEmail(savedEmail);
-      setGrade(savedGrade);
+      if (!user) return;
+      const { data: profile } = await supabase
+        .from("users")
+        .select("full_name, grade, language, average_score")
+        .eq("id", user.id)
+        .single();
+      setName((profile?.full_name as string | undefined) || (user.user_metadata?.full_name as string | undefined) || "");
+      setEmail(user.email || "");
+      setGrade((profile?.grade as string | undefined) || "");
+      const lang = (profile?.language as string | undefined) || "English";
+      setAccountLang(lang);
+      setLearnLang(lang);
     };
     loadProfile();
   }, []);
@@ -340,18 +331,18 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   }, [paymentReturn, fetchSubscription]);
 
   const saveProfile = () => {
-    try {
-      const raw = localStorage.getItem("onboardingData");
-      const existing = raw ? JSON.parse(raw) : {};
-      localStorage.setItem("onboardingData", JSON.stringify({
-        ...existing,
-        name,
-        email,
-        language: accountLang,
-      }));
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
-    } catch { /* ignore */ }
+    void (async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        await supabase.from("users").update({
+          full_name: name,
+          language: accountLang,
+        }).eq("id", user.id);
+        setSaved(true);
+        setTimeout(() => setSaved(false), 2000);
+      } catch { /* ignore */ }
+    })();
   };
 
   const planInfo = PLAN_INFO[plan] || PLAN_INFO.free;

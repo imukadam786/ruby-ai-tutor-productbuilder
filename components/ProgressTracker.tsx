@@ -1,9 +1,12 @@
 "use client";
 
-import { useMemo } from "react";
-import { getProgress, getStreakData } from "@/lib/storage";
-import { getStudentProfile, getSkillById, getLevelById } from "@/lib/student-model";
-import { getReadingProfile, getReadingSkillById, getReadingLevelById } from "@/lib/reading-student-model";
+import { useEffect, useState } from "react";
+import { getProgress, getStreakData, StreakData } from "@/lib/storage";
+import { getSkillById, getLevelById, hydrateStudentProfileFromSupabase } from "@/lib/student-model";
+import { getReadingSkillById, getReadingLevelById, hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
+import { StudentProfile } from "@/types/ruby";
+import { ReadingStudentProfile } from "@/types/reading";
+import { ProgressData } from "@/types";
 import EduBackground from "@/components/EduBackground";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
@@ -62,9 +65,27 @@ function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
 }
 
 export default function ProgressTracker() {
-  const progress = useMemo(() => getProgress(), []);
-  const profile = useMemo(() => getStudentProfile(), []);
-  const streak = useMemo(() => getStreakData(), []);
+  const [progress, setProgress] = useState<ProgressData>({
+    totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
+    lessonsStarted: 0, sessionCount: 0, lastSession: "", subjectBreakdown: {},
+  });
+  const [profile, setProfile] = useState<StudentProfile | null>(null);
+  const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
+  const [streak, setStreak] = useState<StreakData>({ currentStreak: 0, bestStreak: 0, lastActiveDate: "", dailyActivity: {} });
+
+  useEffect(() => {
+    Promise.all([
+      getProgress(),
+      hydrateStudentProfileFromSupabase(),
+      hydrateReadingProfileFromSupabase(),
+      getStreakData(),
+    ]).then(([p, prof, readProf, s]) => {
+      setProgress(p);
+      setProfile(prof);
+      setReadingProfile(readProf);
+      setStreak(s);
+    });
+  }, []);
 
   const mastery = profile?.skill_mastery ?? {};
   const masteredEntries = Object.entries(mastery).filter(([, m]) => m.status === "mastered" || m.status === "assumed");
@@ -85,7 +106,6 @@ export default function ProgressTracker() {
     ? currentLevel.tiers.flatMap((t) => t.atomic_skills).length
     : 1;
 
-  const readingProfile = useMemo(() => getReadingProfile(), []);
   const readingMastery = readingProfile?.skill_mastery ?? {};
   const readingCurrentLevel = readingProfile ? getReadingLevelById(readingProfile.current_level) : null;
   const readingCurrentSkill = readingProfile ? getReadingSkillById(readingProfile.current_skill_id) : null;

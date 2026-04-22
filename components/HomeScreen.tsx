@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
-import { getProgress, getStreakData } from "@/lib/storage";
-import { getStudentProfile, hydrateStudentProfileFromSupabase } from "@/lib/student-model";
+import { getProgress, getStreakData, StreakData } from "@/lib/storage";
+import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
 import { StudentProfile } from "@/types/ruby";
+import { ProgressData } from "@/types";
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
-import { supabase } from "@/lib/supabase";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
@@ -43,21 +44,15 @@ interface Stats {
   studySessions: number;
 }
 
-function buildStats(profile: StudentProfile | null): Stats {
-  const progress = getProgress();
+function buildStats(profile: StudentProfile | null, progress: ProgressData): Stats {
   const mastery = profile?.skill_mastery ?? {};
   const values = Object.values(mastery);
   return {
     skillsMastered: values.filter((m) => m.status === "mastered" || m.status === "assumed").length,
     inProgress: values.filter((m) => m.status === "in_progress").length,
     lessonsDone: progress.lessonsCompleted,
-    // Fall back to profile.session_count when progress key is 0 — recovers cross-device
     studySessions: progress.sessionCount || (profile?.session_count ?? 0),
   };
-}
-
-function loadStats(): Stats {
-  return buildStats(getStudentProfile());
 }
 
 export default function HomeScreen({ onNavigate }: HomeScreenProps) {
@@ -125,38 +120,21 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
     lessonsDone: 0,
     studySessions: 0,
   });
-  const [streak, setStreak] = useState({ currentStreak: 0, bestStreak: 0 });
+  const [streak, setStreak] = useState<Pick<StreakData, "currentStreak" | "bestStreak">>({ currentStreak: 0, bestStreak: 0 });
 
   useEffect(() => {
-    // Load name — localStorage first, then Supabase session as fallback
-    const loadName = async () => {
-      try {
-        const raw = localStorage.getItem("onboardingData");
-        const saved = raw ? (JSON.parse(raw).name as string | undefined) : undefined;
-        if (saved?.trim()) {
-          setFirstName(saved.trim().split(/\s+/)[0]);
-          return;
-        }
-      } catch { /* ignore */ }
-      // Fallback: read from Supabase user metadata
-      const { data: { user } } = await supabase.auth.getUser();
-      const fullName = user?.user_metadata?.full_name as string | undefined;
-      const first = fullName?.trim().split(/\s+/)[0];
-      if (first) setFirstName(first);
+    const load = async () => {
+      const [auth, profile, progress, streakData] = await Promise.all([
+        fetchAuthorisedGrade(),
+        hydrateStudentProfileFromSupabase(),
+        getProgress(),
+        getStreakData(),
+      ]);
+      if (auth?.name) setFirstName(auth.name.split(" ")[0]);
+      setStats(buildStats(profile, progress));
+      setStreak({ currentStreak: streakData.currentStreak, bestStreak: streakData.bestStreak });
     };
-    loadName();
-
-    // Load stats from localStorage — instant render
-    const localProfile = getStudentProfile();
-    setStats(buildStats(localProfile));
-    setStreak(getStreakData());
-
-    // If profile is absent (new device / cleared browser), try Supabase restore
-    if (!localProfile) {
-      hydrateStudentProfileFromSupabase().then((restored) => {
-        if (restored) setStats(buildStats(restored));
-      });
-    }
+    load();
   }, []);
 
   return (

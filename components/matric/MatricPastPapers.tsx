@@ -8,6 +8,7 @@ import { apiFetch } from "@/lib/fetch";
 import EduBackground from "@/components/EduBackground";
 import { PAPERS, Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown } from "@/lib/matric/papers";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
+import { supabase } from "@/lib/supabase";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -210,20 +211,37 @@ function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void 
   );
 }
 
-// ── Progress helpers (localStorage) ───────────────────────────────────────────
+// ── Progress helpers (Supabase) ────────────────────────────────────────────────
 
 type PaperProgressStatus = "not_started" | "in_progress" | "completed";
 interface PaperProgress { status: PaperProgressStatus; pct?: number }
 
-function getPaperProgress(paperId: string): PaperProgress {
+async function getPaperProgress(paperId: string): Promise<PaperProgress> {
   try {
-    const raw = typeof window !== "undefined" ? localStorage.getItem(`matric_progress_${paperId}`) : null;
-    return raw ? (JSON.parse(raw) as PaperProgress) : { status: "not_started" };
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return { status: "not_started" };
+    const { data } = await supabase
+      .from("matric_paper_progress")
+      .select("status, pct")
+      .eq("user_id", user.id)
+      .eq("paper_id", paperId)
+      .single();
+    if (!data) return { status: "not_started" };
+    return { status: data.status as PaperProgressStatus, pct: data.pct ?? undefined };
   } catch { return { status: "not_started" }; }
 }
 
 function savePaperProgress(paperId: string, status: "in_progress" | "completed", pct?: number) {
-  try { localStorage.setItem(`matric_progress_${paperId}`, JSON.stringify({ status, pct })); } catch {}
+  void (async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      await supabase.from("matric_paper_progress").upsert(
+        { user_id: user.id, paper_id: paperId, status, pct: pct ?? null, updated_at: new Date().toISOString() },
+        { onConflict: "user_id,paper_id" }
+      );
+    } catch { /* non-critical */ }
+  })();
 }
 
 // ── Paper List ─────────────────────────────────────────────────────────────────
@@ -242,6 +260,27 @@ function PaperList({
   const subject = SUBJECTS.find((s) => s.id === subjectId)!;
   const papers = PAPERS.filter((p) => p.subject.toLowerCase().replace(/\s+/g, "-") === subjectId);
   const [expandedCode, setExpandedCode] = useState<"P1" | "P2" | null>("P1");
+  const [progressMap, setProgressMap] = useState<Record<string, PaperProgress>>({});
+
+  useEffect(() => {
+    (async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      const paperIds = papers.map((p) => p.id);
+      if (paperIds.length === 0) return;
+      const { data } = await supabase
+        .from("matric_paper_progress")
+        .select("paper_id, status, pct")
+        .eq("user_id", user.id)
+        .in("paper_id", paperIds);
+      if (!data) return;
+      const map: Record<string, PaperProgress> = {};
+      for (const row of data) {
+        map[row.paper_id as string] = { status: row.status as PaperProgressStatus, pct: row.pct ?? undefined };
+      }
+      setProgressMap(map);
+    })();
+  }, [subjectId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const papersByCode = (code: "P1" | "P2") =>
     papers.filter((p) => p.paperCode === code).sort((a, b) => b.year - a.year);
@@ -332,7 +371,7 @@ function PaperList({
                         );
                       }
 
-                      const progress = getPaperProgress(paper.id);
+                      const progress: PaperProgress = progressMap[paper.id] ?? { status: "not_started" };
 
                       return (
                         <button

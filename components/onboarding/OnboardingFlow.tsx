@@ -246,7 +246,6 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         plan: "existing",
         userId,
       };
-      localStorage.setItem("onboardingData", JSON.stringify(final));
       onComplete(final);
     } catch (err: unknown) {
       const raw = err instanceof Error ? err.message : "";
@@ -282,7 +281,6 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         language: final.language,
       });
     }
-    localStorage.setItem("onboardingData", JSON.stringify(final));
     onComplete(final);
   };
 

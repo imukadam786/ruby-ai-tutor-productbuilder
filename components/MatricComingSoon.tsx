@@ -53,18 +53,13 @@ export default function MatricComingSoon() {
     setError("");
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      const email = user?.email ?? null;
       await supabase.from("matric_waitlist").insert({
         user_id: user?.id ?? null,
-        email,
+        email: user?.email ?? null,
       });
       setSubmitted(true);
     } catch {
-      // Fallback to localStorage if table not yet created
-      const existing = JSON.parse(localStorage.getItem("matric_waitlist") || "[]");
-      existing.push({ ts: new Date().toISOString() });
-      localStorage.setItem("matric_waitlist", JSON.stringify(existing));
-      setSubmitted(true);
+      setError("Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
     }
