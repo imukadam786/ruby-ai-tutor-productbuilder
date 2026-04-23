@@ -7,13 +7,12 @@ import Sidebar from "@/components/Sidebar";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import BetaBanner from "@/components/beta/BetaBanner";
-import HomeworkTutorial from "@/components/tutorial/HomeworkTutorial";
-const MathsTutorial      = dynamic(() => import("@/components/tutorial/MathsTutorial"),      { ssr: false });
+import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
+const DiscoveryTutorial  = dynamic(() => import("@/components/tutorial/DiscoveryTutorial"),  { ssr: false });
 const ReadingTutorial    = dynamic(() => import("@/components/tutorial/ReadingTutorial"),    { ssr: false });
-const MatricTutorial     = dynamic(() => import("@/components/tutorial/MatricTutorial"),     { ssr: false });
-const ProgressTutorial   = dynamic(() => import("@/components/tutorial/ProgressTutorial"),   { ssr: false });
+const MathsTutorial      = dynamic(() => import("@/components/tutorial/MathsTutorial"),      { ssr: false });
 const SkillTreeTutorial  = dynamic(() => import("@/components/tutorial/SkillTreeTutorial"),  { ssr: false });
-const PrepPapersTutorial = dynamic(() => import("@/components/tutorial/PrepPapersTutorial"), { ssr: false });
+const MatricTutorial     = dynamic(() => import("@/components/tutorial/MatricTutorial"),     { ssr: false });
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
@@ -263,13 +262,12 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
 }
 
 const TUTORIAL_SEQUENCE = [
-  HomeworkTutorial,
-  MathsTutorial,
+  DiscoveryTutorial,
   ReadingTutorial,
-  MatricTutorial,
-  ProgressTutorial,
+  MathsTutorial,
+  HomeworkTutorial,
   SkillTreeTutorial,
-  PrepPapersTutorial,
+  MatricTutorial,
 ] as const;
 
 // ── App gate — checks session before showing onboarding ────────────────────────

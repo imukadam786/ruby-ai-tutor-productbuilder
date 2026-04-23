@@ -142,6 +142,54 @@ function MockupMarks({ isMobile }: { isMobile: boolean }) {
   );
 }
 
+// Reflects PrepPapers 2026: prediction chips + "2026" heading
+function MockupPrepPapers({ isMobile }: { isMobile: boolean }) {
+  const topics = ["Trigonometry", "Calculus", "Probability", "Algebra", "Statistics", "Geometry"];
+  return (
+    <div className="w-full h-full flex items-center justify-center p-4">
+      <div
+        className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col"
+        style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
+      >
+        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
+          <span className="text-sm font-semibold text-gray-800">Prep Papers 2026</span>
+          <span className="text-xs bg-amber-50 text-amber-600 font-semibold px-2 py-0.5 rounded-full border border-amber-200">Predicted</span>
+        </div>
+        <div className="flex-1 px-4 py-3 flex flex-col justify-between">
+          <div className="flex flex-col items-center gap-2">
+            <div
+              className="text-4xl font-black tracking-tight"
+              style={{
+                background: "linear-gradient(135deg, #B7182E 0%, #f59e0b 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              2026
+            </div>
+            <p className="text-[10px] text-gray-400 text-center font-medium">Based on 10 years of NSC exam data</p>
+            <div className="flex flex-wrap gap-1.5 justify-center">
+              {topics.map((topic) => (
+                <span
+                  key={topic}
+                  className="text-[10px] font-semibold px-2.5 py-1 rounded-full border"
+                  style={{ borderColor: "#B7182E", color: "#B7182E", backgroundColor: "#fff5f5" }}
+                >
+                  {topic}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 rounded-full bg-amber-500" />
+            <span className="text-[10px] text-amber-600 font-medium">Practise the topics most likely to appear</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const SLIDES: readonly SlideData[] = [
   {
     subtitle: "Real NSC papers. Real Understanding.",
@@ -157,6 +205,11 @@ const SLIDES: readonly SlideData[] = [
     subtitle: "Track your marks as you go",
     description: "See your score per question and your total as you work through the paper. Know where to focus.",
     Mockup: MockupMarks,
+  },
+  {
+    subtitle: "Look into the future",
+    description: "We've analysed data to predict what questions will appear in Matric exams for 2026.",
+    Mockup: MockupPrepPapers,
   },
 ];
 
