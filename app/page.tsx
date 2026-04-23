@@ -30,7 +30,8 @@ const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerMo
 const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
 const FloatingFeedback     = dynamic(() => import("@/components/beta/FloatingFeedback"),                { ssr: false });
 import ErrorBoundary from "@/components/ErrorBoundary";
-const TrialExpiredScreen = dynamic(() => import("@/components/TrialExpiredScreen"), { ssr: false });
+import PricingPlans from "@/components/PricingPlans";
+const UpgradeModal = dynamic(() => import("@/components/UpgradeModal"), { ssr: false });
 import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
@@ -106,6 +107,9 @@ function AppContent() {
     void hydrateStudentProfileFromSupabase().then((profile) => setRubyProfile(profile));
   }, []);
 
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  const [upgradeReason, setUpgradeReason] = useState<string | undefined>(undefined);
+
   // Track chat engagement (at least one message sent this session)
   const [chatEngaged, setChatEngaged] = useState(false);
   const chatMessageCountRef = useRef(0);
@@ -121,6 +125,16 @@ function AppContent() {
       // Clean URL without reload
       window.history.replaceState({}, "", "/");
     }
+  }, []);
+
+  useEffect(() => {
+    const onUpgradeNeeded = (e: Event) => {
+      const reason = (e as CustomEvent<{ reason?: string }>).detail?.reason;
+      setUpgradeReason(reason);
+      setShowUpgradeModal(true);
+    };
+    document.addEventListener("ruby-upgrade-needed", onUpgradeNeeded);
+    return () => document.removeEventListener("ruby-upgrade-needed", onUpgradeNeeded);
   }, []);
 
   useEffect(() => {
@@ -253,6 +267,13 @@ function AppContent() {
         />
       )}
 
+      {showUpgradeModal && (
+        <UpgradeModal
+          reason={upgradeReason}
+          onDismiss={() => { setShowUpgradeModal(false); setUpgradeReason(undefined); }}
+        />
+      )}
+
       <FloatingFeedback />
     </div>
   );
@@ -312,7 +333,7 @@ const TUTORIAL_SEQUENCE = [
 
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "tutorial" | "app" | "trial-expired">("loading");
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "tutorial" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
   const [tutorialStep, setTutorialStep] = useState(0);
 
@@ -389,8 +410,22 @@ export default function Home() {
     return (
       <WelcomeScreen
         name={welcomeName}
-        onStartLearning={() => setAppState("tutorial")}
+        onStartLearning={() => setAppState("plan-selection")}
       />
+    );
+  }
+
+  if (appState === "plan-selection") {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-4 overflow-y-auto">
+        <div className="bg-white rounded-3xl shadow-xl w-full max-w-4xl my-4 overflow-hidden">
+          <PricingPlans
+            mode="onboarding"
+            showHeader
+            onSelectFree={() => setAppState("tutorial")}
+          />
+        </div>
+      </div>
     );
   }
 
@@ -413,7 +448,18 @@ export default function Home() {
   }
 
   if (appState === "trial-expired") {
-    return <TrialExpiredScreen />;
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-4 overflow-y-auto">
+        <div className="bg-white rounded-3xl shadow-xl w-full max-w-2xl my-4 overflow-hidden">
+          <div className="text-center px-8 pt-8 pb-2">
+            <div className="text-5xl mb-3">⏰</div>
+            <h1 className="text-2xl font-bold text-[#1a2744]">Your 7-day trial has ended</h1>
+            <p className="text-gray-400 text-sm mt-1">Upgrade to keep learning</p>
+          </div>
+          <PricingPlans mode="upgrade" showHeader={false} />
+        </div>
+      </div>
+    );
   }
 
   return (
