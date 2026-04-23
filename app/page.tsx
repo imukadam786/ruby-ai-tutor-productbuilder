@@ -352,7 +352,13 @@ export default function Home() {
         // If returning from a PayFast payment, skip trial check — ITN will update DB async
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("payment") === "success") {
-          setAppState("app");
+          const pendingAfterPayment = localStorage.getItem("ruby_pending_step");
+          if (pendingAfterPayment === "plan-selection" || pendingAfterPayment === "tutorial") {
+            localStorage.setItem("ruby_pending_step", "tutorial");
+            setAppState("tutorial");
+          } else {
+            setAppState("app");
+          }
           return;
         }
 
@@ -377,7 +383,14 @@ export default function Home() {
         if (!hasActiveSub && trialExpired) {
           setAppState("trial-expired");
         } else {
-          setAppState("app");
+          const pendingStep = localStorage.getItem("ruby_pending_step");
+          if (pendingStep === "plan-selection") {
+            setAppState("plan-selection");
+          } else if (pendingStep === "tutorial") {
+            setAppState("tutorial");
+          } else {
+            setAppState("app");
+          }
         }
       } else {
         setAppState("onboarding");
@@ -395,6 +408,7 @@ export default function Home() {
     if (data.plan === "existing") {
       setAppState("app");
     } else {
+      localStorage.setItem("ruby_pending_step", "plan-selection");
       setWelcomeName(data.name || "");
       setAppState("welcome");
     }
@@ -422,7 +436,10 @@ export default function Home() {
           <PricingPlans
             mode="onboarding"
             showHeader
-            onSelectFree={() => setAppState("tutorial")}
+            onSelectFree={() => {
+              localStorage.setItem("ruby_pending_step", "tutorial");
+              setAppState("tutorial");
+            }}
           />
         </div>
       </div>
@@ -437,6 +454,7 @@ export default function Home() {
         <TutorialComponent
           onComplete={() => {
             if (isLast) {
+              localStorage.removeItem("ruby_pending_step");
               setAppState("app");
             } else {
               setTutorialStep((s) => s + 1);
