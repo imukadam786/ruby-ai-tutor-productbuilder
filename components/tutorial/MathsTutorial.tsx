@@ -2,42 +2,36 @@
 
 import FeatureTutorialShell, { SlideData } from "./FeatureTutorialShell";
 
+// Reflects actual QuestionCard: template badge + question text + text answer input
 function MockupDiscovery({ isMobile }: { isMobile: boolean }) {
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-[#B7182E] flex items-center justify-center text-white text-xs font-bold">R</div>
-            <span className="text-sm font-semibold text-gray-800">Maths Discovery</span>
-          </div>
-          <span className="text-xs bg-rose-50 text-rose-600 font-semibold px-2 py-0.5 rounded-full border border-rose-200">Grade 8</span>
+        {/* Template badge — matches actual QuestionCard */}
+        <div className="px-5 py-3 flex items-center gap-2 border-b border-gray-100 bg-orange-50 flex-shrink-0">
+          <span>🔢</span>
+          <span className="text-orange-700 text-sm font-medium">Symbolic</span>
+          <span className="ml-auto text-xs text-gray-400 bg-white px-2 py-0.5 rounded-full border border-gray-200">Grade 8 · Discovery</span>
         </div>
-        <div className="flex-1 px-4 py-3 flex flex-col justify-between">
-          <div>
-            <p className="text-xs text-gray-500 mb-2">Solve for x:</p>
-            <p className="text-base font-bold text-[#1a2744] mb-3">2x + 6 = 14</p>
-            <div className="grid grid-cols-2 gap-2">
-              {["x = 2", "x = 4", "x = 6", "x = 8"].map((opt, i) => (
-                <div
-                  key={opt}
-                  className={`py-2 px-3 rounded-xl border-2 text-xs font-medium text-center transition-all ${
-                    i === 1
-                      ? "border-rose-500 bg-rose-50 text-rose-600"
-                      : "border-gray-200 text-gray-600"
-                  }`}
-                >
-                  {opt}
-                </div>
-              ))}
-            </div>
+        {/* Question */}
+        <div className="px-5 py-4 flex-1">
+          <p className="text-gray-800 text-base leading-relaxed font-medium">
+            Solve for x: &nbsp; 2x + 6 = 14
+          </p>
+        </div>
+        {/* Answer input + submit — matches QuestionCard input row */}
+        <div className="px-5 pb-4 flex items-center gap-2 flex-shrink-0">
+          <div className="flex-1 border-2 border-gray-200 rounded-xl px-3 py-2 text-sm text-gray-400 bg-gray-50">
+            Your answer…
           </div>
-          <div className="flex items-center gap-1 mt-2">
-            <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
-            <span className="text-[10px] text-[#B7182E] font-medium">Ruby finds your exact starting point</span>
+          <div
+            className="px-4 py-2 rounded-xl bg-[#B7182E] text-white text-sm font-semibold"
+            style={{ boxShadow: "0 0 0 3px rgba(183,24,46,0.15)" }}
+          >
+            Submit
           </div>
         </div>
       </div>
@@ -45,32 +39,40 @@ function MockupDiscovery({ isMobile }: { isMobile: boolean }) {
   );
 }
 
+// Reflects actual FeedbackCard incorrect state: orange "Not quite" + reflection options
 function MockupFeedback({ isMobile }: { isMobile: boolean }) {
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="rounded-2xl border-2 border-orange-200 bg-orange-50 overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <div className="w-7 h-7 rounded-full bg-[#B7182E] flex items-center justify-center text-white text-xs font-bold">R</div>
-          <span className="text-sm font-semibold text-gray-800">Instant Feedback</span>
+        {/* Header — matches FeedbackCard "Not quite" */}
+        <div className="px-5 py-3 bg-orange-100 flex items-center gap-3 flex-shrink-0">
+          <span className="text-xl">🤔</span>
+          <div>
+            <p className="font-bold text-base text-orange-800">Not quite</p>
+            <p className="text-xs text-orange-600">What happened?</p>
+          </div>
         </div>
-        <div className="flex-1 px-4 py-3 flex flex-col gap-2.5 overflow-hidden">
-          <div className="flex items-center gap-2 py-1.5 px-3 rounded-xl bg-amber-50 border border-amber-200">
-            <span className="text-base">🤔</span>
-            <span className="text-xs font-semibold text-amber-700">Not quite — let&apos;s look at why</span>
-          </div>
-          <div
-            className="flex gap-2 items-start p-2.5 rounded-xl border-2 border-[#B7182E] bg-rose-50/40"
-            style={{ boxShadow: "0 0 0 3px rgba(183,24,46,0.1)" }}
-          >
-            <div className="w-5 h-5 rounded-full bg-[#B7182E] flex-shrink-0 flex items-center justify-center text-white text-[9px] font-bold mt-0.5">R</div>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              You subtracted 6 instead of dividing. Try: subtract 6 first, then divide both sides by 2.
-            </p>
-          </div>
-          <div className="flex items-center gap-1">
+        {/* Reflection options — matches actual REFLECTION_OPTIONS buttons */}
+        <div className="px-4 py-3 space-y-2 flex-1">
+          {[
+            "I didn't understand the question",
+            "I got partway through but got lost",
+          ].map((opt, i) => (
+            <div
+              key={i}
+              className={`w-full text-left px-4 py-2.5 rounded-xl border text-gray-800 text-xs font-medium ${
+                i === 1
+                  ? "border-orange-400 bg-orange-50"
+                  : "border-orange-200 bg-white"
+              }`}
+            >
+              {opt}
+            </div>
+          ))}
+          <div className="flex items-center gap-1 pt-1">
             <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
             <span className="text-[10px] text-[#B7182E] font-medium">Explained in your home language</span>
           </div>
@@ -80,39 +82,54 @@ function MockupFeedback({ isMobile }: { isMobile: boolean }) {
   );
 }
 
+// Reflects actual SkillTreeView: level rows with L-badge, progress bar, skill pills
 function MockupSkillTree({ isMobile }: { isMobile: boolean }) {
-  const nodes = [
-    "#22c55e","#22c55e","#22c55e","#22c55e",
-    "#22c55e","#f59e0b","#f59e0b","#d1d5db",
-    "#d1d5db","#d1d5db","#d1d5db","#d1d5db",
-  ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <span className="text-sm font-semibold text-gray-800">Your Skill Tree</span>
-          <span className="text-xs text-gray-400">72 Skills · 17 Levels</span>
+        <div className="px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
+          <p className="text-sm font-semibold text-gray-800">Maths Skill Tree</p>
         </div>
-        <div className="flex-1 px-4 py-3 flex flex-col justify-between">
-          <div className="grid grid-cols-4 gap-2">
-            {nodes.map((color, i) => (
-              <div key={i} className="flex flex-col items-center gap-1">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm"
-                  style={{ backgroundColor: color }}
-                >
-                  {color === "#22c55e" ? "✓" : color === "#f59e0b" ? "…" : ""}
-                </div>
+        <div className="flex-1 overflow-hidden px-4 py-3 space-y-3">
+          {/* Level 1 row — mastered */}
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">L1</span>
+                <span className="text-xs font-semibold text-gray-700">Number Sense</span>
               </div>
-            ))}
+              <span className="text-xs font-bold text-green-600">100%</span>
+            </div>
+            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div className="h-full bg-green-500 rounded-full w-full" />
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {["✅ Integers", "✅ Fractions", "✅ Decimals"].map((s) => (
+                <span key={s} className="px-2.5 py-1 rounded-lg border text-xs font-medium bg-green-50 text-green-700 border-green-200">{s}</span>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center gap-3 mt-2">
-            <div className="flex items-center gap-1"><div className="w-2.5 h-2.5 rounded-full bg-green-500" /><span className="text-[10px] text-gray-500">Mastered</span></div>
-            <div className="flex items-center gap-1"><div className="w-2.5 h-2.5 rounded-full bg-amber-400" /><span className="text-[10px] text-gray-500">In Progress</span></div>
-            <div className="flex items-center gap-1"><div className="w-2.5 h-2.5 rounded-full bg-gray-300" /><span className="text-[10px] text-gray-500">Locked</span></div>
+          {/* Level 2 row — in progress, with "Current" badge */}
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">L2</span>
+                <span className="text-xs font-semibold text-gray-700">Algebra Basics</span>
+                <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">Current</span>
+              </div>
+              <span className="text-xs font-bold text-gray-600">40%</span>
+            </div>
+            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div className="h-full bg-blue-500 rounded-full" style={{ width: "40%" }} />
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              <span className="px-2.5 py-1 rounded-lg border text-xs font-medium bg-green-50 text-green-700 border-green-200">✅ Expressions</span>
+              <span className="px-2.5 py-1 rounded-lg border text-xs font-medium bg-orange-50 text-orange-700 border-orange-200 ring-2 ring-blue-500 ring-offset-1">⚡ Linear Eq.</span>
+              <span className="px-2.5 py-1 rounded-lg border text-xs font-medium bg-gray-100 text-gray-400 border-gray-200">🔒 Quadratic</span>
+            </div>
           </div>
         </div>
       </div>

@@ -2,36 +2,45 @@
 
 import FeatureTutorialShell, { SlideData } from "./FeatureTutorialShell";
 
+// Reflects actual SubjectSelect: 2-col grid of white cards with thumbnail + name + "Papers available →"
 function MockupPapers({ isMobile }: { isMobile: boolean }) {
   const subjects = [
-    { name: "Mathematics", color: "#3b82f6", emoji: "📐" },
-    { name: "Physical Sciences", color: "#10b981", emoji: "⚗️" },
-    { name: "Life Sciences", color: "#f59e0b", emoji: "🧬" },
-    { name: "History", color: "#8b5cf6", emoji: "📜" },
+    { name: "Mathematics", available: true },
+    { name: "Physical Science", available: true },
+    { name: "History", available: true },
+    { name: "Afrikaans", available: true },
+    { name: "Life Sciences", available: false },
+    { name: "Accounting", available: false },
   ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="bg-[#F4F4F5] rounded-2xl overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <span className="text-sm font-semibold text-gray-800">NSC Past Papers</span>
-          <span className="text-xs text-gray-400">2017 – 2024</span>
+        <div className="px-4 py-3 flex-shrink-0">
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a subject</p>
         </div>
-        <div className="flex-1 px-4 py-3 flex flex-col gap-2 overflow-hidden">
-          {subjects.map((s) => (
-            <div key={s.name} className="flex items-center gap-3 py-1.5 px-3 rounded-xl border border-gray-100 bg-gray-50">
-              <span className="text-base">{s.emoji}</span>
-              <span className="text-xs font-semibold text-gray-700 flex-1">{s.name}</span>
-              <div className="text-[10px] font-medium px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: s.color }}>
-                Practice
+        <div className="flex-1 px-4 pb-3 overflow-hidden">
+          <div className="grid grid-cols-3 gap-2">
+            {subjects.map((s) => (
+              <div
+                key={s.name}
+                className={`rounded-xl text-left bg-white border-2 overflow-hidden ${
+                  s.available ? "border-gray-200 shadow-sm" : "border-gray-200 opacity-60"
+                }`}
+              >
+                <div className="w-full bg-gray-100" style={{ aspectRatio: "1/0.6" }} />
+                <div className="px-2 py-1.5">
+                  <p className="font-bold text-gray-800 text-[10px] leading-snug truncate">{s.name}</p>
+                  {s.available ? (
+                    <p className="text-[9px] text-[#BE1832] font-semibold">Papers available →</p>
+                  ) : (
+                    <p className="text-[9px] text-gray-400">Coming soon</p>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-          <div className="flex items-center gap-1 mt-1">
-            <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
-            <span className="text-[10px] text-[#B7182E] font-medium">50+ papers across all major subjects</span>
+            ))}
           </div>
         </div>
       </div>
@@ -39,34 +48,46 @@ function MockupPapers({ isMobile }: { isMobile: boolean }) {
   );
 }
 
-function MockupCoach({ isMobile }: { isMobile: boolean }) {
+// Reflects actual session layout: question on left + Ruby panel on right (guided mode)
+function MockupTutor({ isMobile }: { isMobile: boolean }) {
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <div className="w-7 h-7 rounded-full bg-[#B7182E] flex items-center justify-center text-white text-xs font-bold">R</div>
-          <span className="text-sm font-semibold text-gray-800">Maths · Paper 1 · Q3</span>
-          <span className="ml-auto text-xs bg-blue-50 text-blue-600 font-semibold px-2 py-0.5 rounded-full border border-blue-200">Practice</span>
-        </div>
-        <div className="flex-1 px-4 py-3 flex flex-col gap-2.5 overflow-hidden">
-          <p className="text-xs text-gray-600 leading-relaxed">
-            Given f(x) = 2x² − 3x + 1, determine f&apos;(x) using first principles.
-          </p>
-          <div
-            className="flex gap-2 items-start p-2.5 rounded-xl border-2 border-[#B7182E] bg-rose-50/40"
-            style={{ boxShadow: "0 0 0 3px rgba(183,24,46,0.1)" }}
-          >
-            <div className="w-5 h-5 rounded-full bg-[#B7182E] flex-shrink-0 flex items-center justify-center text-white text-[9px] font-bold mt-0.5">R</div>
+        {/* Left: question area */}
+        <div className="flex-1 flex flex-col border-r border-gray-100">
+          <div className="px-3 py-2.5 border-b border-gray-100 flex-shrink-0">
+            <p className="text-xs font-semibold text-gray-700">Mathematics · Paper 1 · Q3</p>
+          </div>
+          <div className="flex-1 px-3 py-3">
             <p className="text-xs text-gray-600 leading-relaxed">
-              Start with the definition: f&apos;(x) = lim(h→0) [f(x+h) − f(x)] / h. Expand f(x+h) first.
+              Given f(x) = 2x² − 3x + 1, determine f′(x) using first principles.
             </p>
           </div>
-          <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
-            <span className="text-[10px] text-[#B7182E] font-medium">Practice or Guide mode — your choice</span>
+          <div className="px-3 pb-3 flex-shrink-0">
+            <div className="border border-gray-200 rounded-xl px-2 py-1.5 text-[10px] text-gray-400 bg-gray-50">
+              Write your working…
+            </div>
+          </div>
+        </div>
+        {/* Right: Ruby tutor panel — matches actual right panel */}
+        <div className="w-[42%] flex flex-col bg-white">
+          <div className="flex items-center gap-1.5 px-3 py-2.5 border-b border-gray-100 flex-shrink-0">
+            <div className="w-6 h-6 rounded-full bg-[#B7182E] flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0">R</div>
+            <span className="text-xs font-semibold text-gray-700">Ruby</span>
+            <span className="text-[9px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-full">English</span>
+          </div>
+          <div className="flex-1 px-3 py-3">
+            <div className="bg-rose-50 border border-rose-100 rounded-xl px-3 py-2.5 space-y-2">
+              <p className="text-[10px] text-gray-700 leading-relaxed">
+                Start with the definition: f′(x) = lim(h→0) [f(x+h) − f(x)] / h. Expand f(x+h) first.
+              </p>
+              <div className="flex items-center gap-1.5 pt-1 border-t border-rose-100">
+                <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">2/5 marks</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -74,39 +95,44 @@ function MockupCoach({ isMobile }: { isMobile: boolean }) {
   );
 }
 
+// Reflects actual marks feedback badge styling from session
 function MockupMarks({ isMobile }: { isMobile: boolean }) {
   const questions = [
-    { q: "Q1", label: "Algebra", marks: "5/5", done: true },
-    { q: "Q2", label: "Calculus", marks: "3/5", partial: true },
-    { q: "Q3", label: "Geometry", marks: "—", done: false },
+    { label: "Q1 · Algebra", marks: "5/5", state: "full" },
+    { label: "Q2 · Calculus", marks: "3/5", state: "partial" },
+    { label: "Q3 · Geometry", marks: "—", state: "pending" },
   ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
         <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
           <span className="text-sm font-semibold text-gray-800">Marks Tracker</span>
           <span className="text-xs font-semibold text-[#B7182E]">8 / 15 so far</span>
         </div>
-        <div className="flex-1 px-4 py-3 flex flex-col gap-2.5 justify-center">
-          {questions.map((item) => (
-            <div key={item.q} className="flex items-center gap-3">
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
-                item.done ? "bg-green-100 text-green-700" : item.partial ? "bg-amber-100 text-amber-700" : "bg-gray-100 text-gray-400"
+        <div className="flex-1 px-4 py-4 space-y-3">
+          {questions.map((q) => (
+            <div key={q.label} className="flex items-center gap-3">
+              <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
+                q.state === "full" ? "bg-green-100 text-green-700" :
+                q.state === "partial" ? "bg-amber-100 text-amber-700" :
+                "bg-gray-100 text-gray-400"
               }`}>
-                {item.done ? "✓" : item.partial ? "~" : "?"}
+                {q.state === "full" ? "✓" : q.state === "partial" ? "~" : "?"}
               </div>
-              <div className="flex-1">
-                <span className="text-xs font-semibold text-gray-700">{item.q} · {item.label}</span>
-              </div>
-              <span className={`text-xs font-bold ${item.done ? "text-green-600" : item.partial ? "text-amber-600" : "text-gray-400"}`}>
-                {item.marks}
+              <span className="text-xs font-medium text-gray-700 flex-1">{q.label}</span>
+              <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                q.state === "full" ? "bg-green-100 text-green-700" :
+                q.state === "partial" ? "bg-amber-100 text-amber-700" :
+                "bg-gray-100 text-gray-400"
+              }`}>
+                {q.marks} {q.state === "full" ? "marks" : q.state === "partial" ? "marks" : ""}
               </span>
             </div>
           ))}
-          <div className="flex items-center gap-1 mt-1">
+          <div className="flex items-center gap-1 pt-1">
             <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
             <span className="text-[10px] text-[#B7182E] font-medium">Know where to focus your revision</span>
           </div>
@@ -123,9 +149,9 @@ const SLIDES: readonly SlideData[] = [
     Mockup: MockupPapers,
   },
   {
-    subtitle: "Work through it. Ruby coaches you.",
+    subtitle: "Work through it. Ruby tutors you.",
     description: "Submit your answer for any question and get personalised feedback in Practice or Guide mode — just like having a tutor in the room.",
-    Mockup: MockupCoach,
+    Mockup: MockupTutor,
   },
   {
     subtitle: "Track your marks as you go",

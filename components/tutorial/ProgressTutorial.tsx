@@ -2,35 +2,37 @@
 
 import FeatureTutorialShell, { SlideData } from "./FeatureTutorialShell";
 
+// Reflects actual ProgressTracker: 4 stat cards (2x2 grid) + streak card beneath
 function MockupStats({ isMobile }: { isMobile: boolean }) {
-  const cards = [
-    { label: "Skills Mastered", value: "12", color: "#22c55e", bg: "#f0fdf4" },
-    { label: "In Progress", value: "4", color: "#f59e0b", bg: "#fffbeb" },
-    { label: "Sessions Done", value: "24", color: "#3b82f6", bg: "#eff6ff" },
-    { label: "Accuracy", value: "78%", color: "#8b5cf6", bg: "#f5f3ff" },
-  ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <span className="text-sm font-semibold text-gray-800">My Progress</span>
-          <span className="ml-auto text-xs text-gray-400">Updated live</span>
+        <div className="px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
+          <p className="text-sm font-semibold text-gray-900">Progress</p>
+          <p className="text-xs text-gray-500">Your skill tree journey</p>
         </div>
-        <div className="flex-1 px-4 py-3 flex flex-col justify-between">
+        <div className="flex-1 px-4 py-3 space-y-2.5">
+          {/* 4 stat cards — matches actual layout */}
           <div className="grid grid-cols-2 gap-2">
-            {cards.map((c) => (
-              <div key={c.label} className="rounded-xl p-3 flex flex-col gap-0.5" style={{ backgroundColor: c.bg }}>
-                <span className="text-lg font-bold" style={{ color: c.color }}>{c.value}</span>
-                <span className="text-[10px] text-gray-500 font-medium">{c.label}</span>
-              </div>
-            ))}
-          </div>
-          <div className="flex items-center gap-1 mt-2">
-            <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
-            <span className="text-[10px] text-[#B7182E] font-medium">Tracked automatically as you learn</span>
+            <div className="bg-white rounded-2xl border border-gray-100 px-3 py-3 shadow-sm">
+              <p className="text-xs text-gray-500 mb-1">Skills Mastered</p>
+              <span className="text-xl font-bold text-blue-600">12</span>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-100 px-3 py-3 shadow-sm">
+              <p className="text-xs text-gray-500 mb-1">In Progress</p>
+              <span className="text-xl font-bold text-amber-500">4</span>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-100 px-3 py-3 shadow-sm">
+              <p className="text-xs text-gray-500 mb-1">Study Sessions</p>
+              <span className="text-xl font-bold text-purple-600">24</span>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-100 px-3 py-3 shadow-sm">
+              <p className="text-xs text-gray-500 mb-1">Accuracy</p>
+              <span className="text-xl font-bold text-green-600">78%</span>
+            </div>
           </div>
         </div>
       </div>
@@ -38,37 +40,38 @@ function MockupStats({ isMobile }: { isMobile: boolean }) {
   );
 }
 
+// Reflects actual streak card: orange-50 bg, flame icon, current + best streak
 function MockupStreak({ isMobile }: { isMobile: boolean }) {
-  const days = ["M", "T", "W", "T", "F", "S", "S"];
-  const active = [true, true, true, true, true, false, false];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <span className="text-sm font-semibold text-gray-800">Study Streak</span>
+        <div className="px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
+          <p className="text-sm font-semibold text-gray-900">Progress</p>
         </div>
-        <div className="flex-1 px-4 py-4 flex flex-col items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-4xl">🔥</span>
-            <div>
-              <p className="text-2xl font-bold text-[#1a2744]">5 days</p>
-              <p className="text-xs text-gray-400">Best streak: 14 days</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 w-full justify-center">
-            {days.map((d, i) => (
-              <div key={i} className="flex flex-col items-center gap-1">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
-                  active[i] ? "bg-[#B7182E] text-white" : "bg-gray-100 text-gray-400"
-                }`}>
-                  {active[i] ? "✓" : d}
-                </div>
-                <span className="text-[9px] text-gray-400">{d}</span>
+        <div className="flex-1 px-4 py-4 flex flex-col justify-center gap-3">
+          {/* Streak card — matches actual orange-50 streak component */}
+          <div className="bg-orange-50 border border-orange-100 rounded-2xl px-4 py-4 flex items-center justify-between shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-orange-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
+                </svg>
               </div>
-            ))}
+              <div>
+                <p className="text-xs text-orange-600 font-medium">Current Streak</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-2xl font-bold text-orange-600">5</span>
+                  <span className="text-sm text-orange-500">days</span>
+                </div>
+              </div>
+            </div>
+            <div className="text-right">
+              <p className="text-xs text-orange-400">Best</p>
+              <p className="text-lg font-bold text-orange-500">14 days</p>
+            </div>
           </div>
           <div className="flex items-center gap-1">
             <div className="w-2 h-2 rounded-full bg-[#B7182E]" />

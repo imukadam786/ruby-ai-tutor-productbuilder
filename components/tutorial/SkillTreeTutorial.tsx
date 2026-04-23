@@ -2,39 +2,54 @@
 
 import FeatureTutorialShell, { SlideData } from "./FeatureTutorialShell";
 
+// Reflects actual SkillTreeView: level rows with L-badge + title + progress bar + skill pills
 function MockupMap({ isMobile }: { isMobile: boolean }) {
-  const nodes = [
-    { color: "#22c55e", label: "L1" }, { color: "#22c55e", label: "L1" }, { color: "#22c55e", label: "L1" }, { color: "#22c55e", label: "L1" },
-    { color: "#22c55e", label: "L2" }, { color: "#22c55e", label: "L2" }, { color: "#f59e0b", label: "L2" }, { color: "#d1d5db", label: "L3" },
-    { color: "#d1d5db", label: "L3" }, { color: "#d1d5db", label: "L3" }, { color: "#d1d5db", label: "L3" }, { color: "#d1d5db", label: "L4" },
-  ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <span className="text-sm font-semibold text-gray-800">Skill Tree</span>
-          <span className="text-xs text-gray-400">72 skills · 17 levels</span>
+        <div className="px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
+          <p className="text-sm font-semibold text-gray-800">Skill Tree</p>
         </div>
-        <div className="flex-1 px-4 py-3 flex flex-col justify-between">
-          <div className="grid grid-cols-4 gap-2">
-            {nodes.map((node, i) => (
-              <div key={i} className="flex items-center justify-center">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white text-[9px] font-bold shadow-sm"
-                  style={{ backgroundColor: node.color }}
-                >
-                  {node.color === "#22c55e" ? "✓" : node.color === "#f59e0b" ? "…" : node.label}
-                </div>
+        <div className="flex-1 px-4 py-3 space-y-3 overflow-hidden">
+          {/* L1 — mastered */}
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">L1</span>
+                <span className="text-xs font-semibold text-gray-900">Number Sense</span>
               </div>
-            ))}
+              <span className="text-xs font-bold text-green-600">100%</span>
+            </div>
+            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div className="h-full bg-green-500 rounded-full w-full" />
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {["✅ Integers", "✅ Fractions", "✅ Ratios"].map((s) => (
+                <span key={s} className="px-2.5 py-1 rounded-lg border text-[10px] font-medium bg-green-50 text-green-700 border-green-200">{s}</span>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1"><div className="w-2.5 h-2.5 rounded-full bg-green-500" /><span className="text-[10px] text-gray-500">Mastered</span></div>
-            <div className="flex items-center gap-1"><div className="w-2.5 h-2.5 rounded-full bg-amber-400" /><span className="text-[10px] text-gray-500">Active</span></div>
-            <div className="flex items-center gap-1"><div className="w-2.5 h-2.5 rounded-full bg-gray-300" /><span className="text-[10px] text-gray-500">Locked</span></div>
+          {/* L2 — in progress, current */}
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">L2</span>
+                <span className="text-xs font-semibold text-gray-900">Algebra Basics</span>
+                <span className="text-[9px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full font-medium">Current</span>
+              </div>
+              <span className="text-xs font-bold text-gray-600">33%</span>
+            </div>
+            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div className="h-full bg-blue-500 rounded-full" style={{ width: "33%" }} />
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              <span className="px-2.5 py-1 rounded-lg border text-[10px] font-medium bg-green-50 text-green-700 border-green-200">✅ Expressions</span>
+              <span className="px-2.5 py-1 rounded-lg border text-[10px] font-medium bg-orange-50 text-orange-700 border-orange-200 ring-2 ring-blue-500 ring-offset-1">⚡ Linear Eq.</span>
+              <span className="px-2.5 py-1 rounded-lg border text-[10px] font-medium bg-gray-100 text-gray-400 border-gray-200">🔒 Quadratic</span>
+            </div>
           </div>
         </div>
       </div>
@@ -42,43 +57,51 @@ function MockupMap({ isMobile }: { isMobile: boolean }) {
   );
 }
 
+// Reflects how locked L3 looks when L2 is still in progress
 function MockupUnlock({ isMobile }: { isMobile: boolean }) {
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
+        className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <span className="text-sm font-semibold text-gray-800">Skills Unlock in Order</span>
+        <div className="px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
+          <p className="text-sm font-semibold text-gray-800">Skills unlock in order</p>
         </div>
-        <div className="flex-1 px-4 py-4 flex flex-col items-center justify-center gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-md">
-                <span className="text-white text-xl font-bold">✓</span>
-              </div>
-              <span className="text-[10px] text-gray-500 font-medium text-center">Linear<br />Equations</span>
+        <div className="flex-1 px-4 py-3 space-y-2 overflow-hidden">
+          {/* L2 in progress */}
+          <div className="rounded-xl border border-orange-200 bg-orange-50 px-3 py-2.5 space-y-1.5">
+            <div className="flex items-center gap-2">
+              <span className="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">L2</span>
+              <span className="text-xs font-semibold text-gray-800">Algebra Basics</span>
+              <span className="text-[9px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full font-medium ml-auto">Current</span>
             </div>
-            <div className="flex flex-col items-center gap-1 pb-5">
-              <svg className="w-6 h-6 text-[#B7182E]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-              <span className="text-[9px] text-[#B7182E] font-semibold">Unlocks</span>
+            <div className="h-1.5 bg-orange-100 rounded-full overflow-hidden">
+              <div className="h-full bg-blue-500 rounded-full" style={{ width: "33%" }} />
             </div>
-            <div className="flex flex-col items-center gap-1">
-              <div
-                className="w-14 h-14 rounded-full border-4 border-amber-400 bg-amber-50 flex items-center justify-center shadow-md"
-                style={{ boxShadow: "0 0 0 4px rgba(251,191,36,0.2)" }}
-              >
-                <span className="text-amber-500 text-xl font-bold">…</span>
-              </div>
-              <span className="text-[10px] text-gray-500 font-medium text-center">Quadratic<br />Equations</span>
+          </div>
+          {/* Arrow */}
+          <div className="flex justify-center">
+            <svg className="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+          {/* L3 locked */}
+          <div className="rounded-xl border border-gray-200 bg-gray-50 px-3 py-2.5 space-y-1.5 opacity-60">
+            <div className="flex items-center gap-2">
+              <span className="bg-gray-200 text-gray-500 text-[10px] font-bold px-2 py-0.5 rounded-full">L3</span>
+              <span className="text-xs font-semibold text-gray-500">Functions</span>
+              <span className="text-[9px] text-gray-400 ml-auto">Locked</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {["🔒 Linear Func.", "🔒 Parabola", "🔒 Hyperbola"].map((s) => (
+                <span key={s} className="px-2 py-0.5 rounded-lg border text-[10px] font-medium bg-gray-100 text-gray-400 border-gray-200">{s}</span>
+              ))}
             </div>
           </div>
           <div className="flex items-center gap-1">
             <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
-            <span className="text-[10px] text-[#B7182E] font-medium">Master one skill and the next opens automatically</span>
+            <span className="text-[10px] text-[#B7182E] font-medium">Master L2 to unlock L3 automatically</span>
           </div>
         </div>
       </div>

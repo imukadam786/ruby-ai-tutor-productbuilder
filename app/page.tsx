@@ -54,12 +54,6 @@ function AppContent() {
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
-  const [activeTutorial, setActiveTutorial] = useState<"maths" | "reading" | "matric" | "progress" | "skill-tree" | "prep-papers" | null>(null);
-
-  const dismissTutorial = (key: string) => {
-    localStorage.setItem(`tut_${key}_seen`, "1");
-    setActiveTutorial(null);
-  };
 
   const viewLabels: Record<ActiveView, string> = {
     home: t("sidebar.home"),
@@ -132,19 +126,6 @@ function AppContent() {
       void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
     }
 
-    // Show feature tutorial on first visit
-    const tutorialMap: Partial<Record<ActiveView, "maths" | "reading" | "matric" | "progress" | "skill-tree" | "prep-papers">> = {
-      ruby: "maths",
-      reading: "reading",
-      matric: "matric",
-      progress: "progress",
-      "skill-tree": "skill-tree",
-      "prep-papers-2026": "prep-papers",
-    };
-    const tutKey = tutorialMap[view];
-    if (tutKey && !localStorage.getItem(`tut_${tutKey}_seen`)) {
-      setActiveTutorial(tutKey);
-    }
   };
 
   return (
@@ -233,13 +214,6 @@ function AppContent() {
         />
       )}
 
-      {activeTutorial === "maths"       && <MathsTutorial      onComplete={() => dismissTutorial("maths")} />}
-      {activeTutorial === "reading"     && <ReadingTutorial     onComplete={() => dismissTutorial("reading")} />}
-      {activeTutorial === "matric"      && <MatricTutorial      onComplete={() => dismissTutorial("matric")} />}
-      {activeTutorial === "progress"    && <ProgressTutorial    onComplete={() => dismissTutorial("progress")} />}
-      {activeTutorial === "skill-tree"  && <SkillTreeTutorial   onComplete={() => dismissTutorial("skill-tree")} />}
-      {activeTutorial === "prep-papers" && <PrepPapersTutorial  onComplete={() => dismissTutorial("prep-papers")} />}
-
       <FloatingFeedback />
     </div>
   );
@@ -288,10 +262,21 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
   );
 }
 
+const TUTORIAL_SEQUENCE = [
+  HomeworkTutorial,
+  MathsTutorial,
+  ReadingTutorial,
+  MatricTutorial,
+  ProgressTutorial,
+  SkillTreeTutorial,
+  PrepPapersTutorial,
+] as const;
+
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
   const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "tutorial" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
+  const [tutorialStep, setTutorialStep] = useState(0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -372,9 +357,19 @@ export default function Home() {
   }
 
   if (appState === "tutorial") {
+    const TutorialComponent = TUTORIAL_SEQUENCE[tutorialStep];
+    const isLast = tutorialStep === TUTORIAL_SEQUENCE.length - 1;
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        <HomeworkTutorial onComplete={() => setAppState("app")} />
+        <TutorialComponent
+          onComplete={() => {
+            if (isLast) {
+              setAppState("app");
+            } else {
+              setTutorialStep((s) => s + 1);
+            }
+          }}
+        />
       </div>
     );
   }
