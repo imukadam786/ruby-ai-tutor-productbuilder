@@ -318,7 +318,7 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
       .select("plan, status, payfast_token")
       .eq("user_id", session.user.id)
       .single();
-    if (sub?.plan) setPlan(sub.plan);
+    if (sub?.plan && sub?.status === "active") setPlan(sub.plan);
     if (sub?.payfast_token) setPfToken(sub.payfast_token);
 
     const { data: history } = await supabase
