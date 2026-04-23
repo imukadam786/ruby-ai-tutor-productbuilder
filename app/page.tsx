@@ -40,6 +40,34 @@ import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
 import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
 
+// ── Placement guard shown when user navigates to a subject before Discovery ───
+function PlacementGuardScreen({
+  subject,
+  onGoToDiscover,
+}: {
+  subject: "maths" | "reading";
+  onGoToDiscover: () => void;
+}) {
+  return (
+    <div className="flex items-center justify-center h-full bg-gray-50">
+      <div className="bg-white rounded-2xl shadow-md p-8 max-w-sm w-full text-center space-y-4 mx-4">
+        <div className="text-5xl">🧭</div>
+        <h2 className="text-xl font-bold text-gray-800">Complete Discovery First</h2>
+        <p className="text-gray-500 text-sm leading-relaxed">
+          Take the Discovery Activity so Ruby can find the right starting point for your{" "}
+          {subject === "maths" ? "Maths" : "Reading"} journey.
+        </p>
+        <button
+          onClick={onGoToDiscover}
+          className="w-full py-3 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-base transition-colors"
+        >
+          Start Discovery Activity
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
 function AppContent() {
   const { t } = useT();
@@ -67,6 +95,8 @@ function AppContent() {
     settings: t("sidebar.settings"),
     matric: "Matric Preparation",
     "prep-papers-2026": "Prep Papers 2026",
+    "discover-maths": "Discover · Maths",
+    "discover-reading": "Discover · Reading",
   };
 
   const refreshStats = useCallback(() => {
@@ -118,10 +148,10 @@ function AppContent() {
       setChatEngaged(false);
     }
     setActiveView(view);
-    if (view === "skill-tree" || view === "student-dashboard") {
+    if (view === "skill-tree" || view === "student-dashboard" || view === "ruby" || view === "discover-maths") {
       void hydrateStudentProfileFromSupabase().then((p) => setRubyProfile(p));
     }
-    if (view === "reading" || view === "reading-skill-tree") {
+    if (view === "reading" || view === "reading-skill-tree" || view === "discover-reading") {
       void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
     }
 
@@ -144,7 +174,7 @@ function AppContent() {
           </svg>
         </button>
         <span className="flex-1 font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
-        {["chat", "ruby", "reading"].includes(activeView) ? (
+        {["chat", "ruby", "reading", "discover-maths", "discover-reading"].includes(activeView) ? (
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("ruby-action"))}
             className="p-2 rounded-lg text-gray-500 hover:text-gray-800 hover:bg-gray-100 transition-colors"
@@ -193,10 +223,20 @@ function AppContent() {
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { chatMessageCountRef.current += 1; if (chatMessageCountRef.current >= 3) incrementSession(); refreshStats(); setChatEngaged(true); }} />}
         {activeView === "progress" && <ProgressTracker />}
-        {activeView === "ruby" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
+        {activeView === "ruby" && (
+          rubyProfile !== null && !rubyProfile.placementCompleted
+            ? <PlacementGuardScreen subject="maths" onGoToDiscover={() => handleViewChange("discover-maths")} />
+            : <ErrorBoundary><DiagnosticSession /></ErrorBoundary>
+        )}
+        {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
-        {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
+        {activeView === "reading" && (
+          readingProfile !== null && !readingProfile.placementCompleted
+            ? <PlacementGuardScreen subject="reading" onGoToDiscover={() => handleViewChange("discover-reading")} />
+            : <ErrorBoundary><ReadingSession /></ErrorBoundary>
+        )}
+        {activeView === "discover-reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "matric" && <MatricPastPapers />}

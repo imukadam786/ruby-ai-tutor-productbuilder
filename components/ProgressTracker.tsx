@@ -8,6 +8,8 @@ import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
 import { ProgressData } from "@/types";
 import EduBackground from "@/components/EduBackground";
+import SkillTreeView from "@/components/ruby/SkillTreeView";
+import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 function TrophyIcon({ className }: { className?: string }) {
@@ -42,6 +44,16 @@ function FlameIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
       <path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z" />
+    </svg>
+  );
+}
+function ChevronDownIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`}
+      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
     </svg>
   );
 }
@@ -121,6 +133,9 @@ export default function ProgressTracker() {
 
   const isEmpty = !profile && progress.sessionCount === 0;
 
+  const [mathsTreeOpen, setMathsTreeOpen] = useState(false);
+  const [readingTreeOpen, setReadingTreeOpen] = useState(false);
+
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
@@ -194,78 +209,64 @@ export default function ProgressTracker() {
           </div>
 
           {/* ── Maths Skill Tree ───────────────────────────────────────── */}
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 shadow-sm space-y-3">
-            <h3 className="font-semibold text-blue-700 text-base">Maths Skill Tree</h3>
-            {profile && currentLevel ? (
-              <>
-                <div className="flex items-center gap-3">
-                  <span className="bg-blue-600 text-white text-sm font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
-                    L{profile.current_level}
-                  </span>
-                  <span className="text-gray-700 text-base font-medium">{currentLevel.title}</span>
-                </div>
-                {currentSkill && (
-                  <div className="bg-white rounded-xl px-4 py-3">
-                    <p className="text-sm text-blue-400 mb-0.5">Active skill</p>
-                    <p className="text-gray-800 text-base font-medium">{currentSkill.title}</p>
-                    {currentSkill.description && (
-                      <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{currentSkill.description}</p>
-                    )}
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl shadow-sm overflow-hidden">
+            <button
+              onClick={() => setMathsTreeOpen((v) => !v)}
+              className="w-full flex items-center justify-between px-5 py-4 text-left"
+            >
+              <div className="flex-1 min-w-0 space-y-1.5">
+                <h3 className="font-semibold text-blue-700 text-base">🧮 Maths Skill Tree</h3>
+                {profile && currentLevel ? (
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="bg-blue-600 text-white text-sm font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                      L{profile.current_level}
+                    </span>
+                    <span className="text-gray-600 text-sm">{currentLevel.title}</span>
+                    <span className="text-blue-400 text-sm">· {levelMastered}/{levelTotal} skills</span>
                   </div>
+                ) : (
+                  <p className="text-blue-400 text-sm">Start a Maths session to track your progress.</p>
                 )}
-                <div>
-                  <div className="flex justify-between text-sm text-blue-500 mb-1.5">
-                    <span>Level progress</span>
-                    <span>{levelMastered} / {levelTotal} skills</span>
-                  </div>
-                  <div className="h-2 bg-blue-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-blue-500 rounded-full transition-all duration-500"
-                      style={{ width: `${Math.round((levelMastered / levelTotal) * 100)}%` }}
-                    />
-                  </div>
-                </div>
-              </>
-            ) : (
-              <p className="text-blue-400 text-sm">Start a Maths session to track your progress here.</p>
+              </div>
+              <span className="ml-3 text-blue-400">
+                <ChevronDownIcon open={mathsTreeOpen} />
+              </span>
+            </button>
+            {mathsTreeOpen && (
+              <div className="border-t border-blue-200">
+                <SkillTreeView profile={profile} />
+              </div>
             )}
           </div>
 
           {/* ── Reading Skill Tree ─────────────────────────────────────── */}
-          <div className="bg-purple-50 border border-purple-200 rounded-2xl p-5 shadow-sm space-y-3">
-            <h3 className="font-semibold text-purple-700 text-base">Reading Skill Tree</h3>
-            {readingProfile && readingCurrentLevel ? (
-              <>
-                <div className="flex items-center gap-3">
-                  <span className="bg-purple-600 text-white text-sm font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
-                    L{readingProfile.current_level}
-                  </span>
-                  <span className="text-gray-700 text-base font-medium">{readingCurrentLevel.title}</span>
-                </div>
-                {readingCurrentSkill && (
-                  <div className="bg-white rounded-xl px-4 py-3">
-                    <p className="text-sm text-purple-400 mb-0.5">Active skill</p>
-                    <p className="text-gray-800 text-base font-medium">{readingCurrentSkill.title}</p>
-                    {readingCurrentSkill.description && (
-                      <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{readingCurrentSkill.description}</p>
-                    )}
+          <div className="bg-purple-50 border border-purple-200 rounded-2xl shadow-sm overflow-hidden">
+            <button
+              onClick={() => setReadingTreeOpen((v) => !v)}
+              className="w-full flex items-center justify-between px-5 py-4 text-left"
+            >
+              <div className="flex-1 min-w-0 space-y-1.5">
+                <h3 className="font-semibold text-purple-700 text-base">📖 Reading Skill Tree</h3>
+                {readingProfile && readingCurrentLevel ? (
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="bg-purple-600 text-white text-sm font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                      L{readingProfile.current_level}
+                    </span>
+                    <span className="text-gray-600 text-sm">{readingCurrentLevel.title}</span>
+                    <span className="text-purple-400 text-sm">· {readingLevelMastered}/{readingLevelTotal} skills</span>
                   </div>
+                ) : (
+                  <p className="text-purple-400 text-sm">Start a Reading session to track your progress.</p>
                 )}
-                <div>
-                  <div className="flex justify-between text-sm text-purple-500 mb-1.5">
-                    <span>Level progress</span>
-                    <span>{readingLevelMastered} / {readingLevelTotal} skills</span>
-                  </div>
-                  <div className="h-2 bg-purple-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-purple-500 rounded-full transition-all duration-500"
-                      style={{ width: `${Math.round((readingLevelMastered / readingLevelTotal) * 100)}%` }}
-                    />
-                  </div>
-                </div>
-              </>
-            ) : (
-              <p className="text-purple-400 text-sm">Start a Reading session to track your progress here.</p>
+              </div>
+              <span className="ml-3 text-purple-400">
+                <ChevronDownIcon open={readingTreeOpen} />
+              </span>
+            </button>
+            {readingTreeOpen && (
+              <div className="border-t border-purple-200">
+                <ReadingSkillTreeView profile={readingProfile} />
+              </div>
             )}
           </div>
 

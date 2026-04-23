@@ -57,12 +57,20 @@ export default function Sidebar({
       ],
     },
     {
+      key: "discover",
+      label: "Discover",
+      emoji: "🧭",
+      items: [
+        { id: "discover-maths" as ActiveView,   emoji: "🧮", label: "Maths",   desc: "Find your Maths level" },
+        { id: "discover-reading" as ActiveView, emoji: "📖", label: "Reading", desc: "Find your Reading level" },
+      ],
+    },
+    {
       key: "maths",
       label: t("sidebar.maths_engine"),
       emoji: "🧮",
       items: [
-        { id: "ruby" as ActiveView,       emoji: "🎯", label: t("sidebar.maths"),      desc: t("sidebar.maths_desc") },
-        { id: "skill-tree" as ActiveView, emoji: "🌳", label: t("sidebar.skill_tree"), desc: t("sidebar.skill_tree_desc") },
+        { id: "ruby" as ActiveView, emoji: "🎯", label: t("sidebar.maths"), desc: t("sidebar.maths_desc") },
       ],
     },
     {
@@ -70,14 +78,14 @@ export default function Sidebar({
       label: t("sidebar.reading_engine"),
       emoji: "📖",
       items: [
-        { id: "reading" as ActiveView,            emoji: "✏️", label: t("sidebar.reading"),    desc: t("sidebar.reading_desc") },
-        { id: "reading-skill-tree" as ActiveView, emoji: "🌳", label: t("sidebar.skill_tree"), desc: t("sidebar.reading_skill_tree_desc") },
+        { id: "reading" as ActiveView, emoji: "✏️", label: t("sidebar.reading"), desc: t("sidebar.reading_desc") },
       ],
     },
   ];
 
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     general: false,
+    discover: false,
     maths: false,
     reading: false,
   });
@@ -85,7 +93,7 @@ export default function Sidebar({
 
   useEffect(() => {
     if (isOpen) {
-      setOpenSections({ general: false, maths: false, reading: false });
+      setOpenSections({ general: false, discover: false, maths: false, reading: false });
     }
   }, [isOpen]);
 
