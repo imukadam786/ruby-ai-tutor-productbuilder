@@ -7,6 +7,7 @@ import Sidebar from "@/components/Sidebar";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import BetaBanner from "@/components/beta/BetaBanner";
+import HomeworkTutorial, { hasSeenHomeworkTutorial } from "@/components/tutorial/HomeworkTutorial";
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
@@ -70,6 +71,8 @@ function AppContent() {
     void hydrateStudentProfileFromSupabase().then((profile) => setRubyProfile(profile));
   }, []);
 
+  const [showHomeworkTutorial, setShowHomeworkTutorial] = useState(false);
+
   // Track chat engagement (at least one message sent this session)
   const [chatEngaged, setChatEngaged] = useState(false);
   const chatMessageCountRef = useRef(0);
@@ -102,6 +105,9 @@ function AppContent() {
   }, [refreshStats]);
 
   const handleViewChange = (view: ActiveView) => {
+    if (view === "chat" && !hasSeenHomeworkTutorial()) {
+      setShowHomeworkTutorial(true);
+    }
     // Chat: trigger survey when leaving chat after sending at least one message
     if (activeView === "chat" && chatEngaged) {
       const key = "survey_count_chat";
@@ -198,6 +204,10 @@ function AppContent() {
       </main>
 
       </div>{/* end inner row */}
+
+      {showHomeworkTutorial && (
+        <HomeworkTutorial onComplete={() => setShowHomeworkTutorial(false)} />
+      )}
 
       {survey && (
         <PostSessionSurvey
