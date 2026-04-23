@@ -7,7 +7,7 @@ import Sidebar from "@/components/Sidebar";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import BetaBanner from "@/components/beta/BetaBanner";
-import HomeworkTutorial, { hasSeenHomeworkTutorial } from "@/components/tutorial/HomeworkTutorial";
+import HomeworkTutorial from "@/components/tutorial/HomeworkTutorial";
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
@@ -71,8 +71,6 @@ function AppContent() {
     void hydrateStudentProfileFromSupabase().then((profile) => setRubyProfile(profile));
   }, []);
 
-  const [showHomeworkTutorial, setShowHomeworkTutorial] = useState(false);
-
   // Track chat engagement (at least one message sent this session)
   const [chatEngaged, setChatEngaged] = useState(false);
   const chatMessageCountRef = useRef(0);
@@ -105,9 +103,6 @@ function AppContent() {
   }, [refreshStats]);
 
   const handleViewChange = (view: ActiveView) => {
-    if (view === "chat" && !hasSeenHomeworkTutorial()) {
-      setShowHomeworkTutorial(true);
-    }
     // Chat: trigger survey when leaving chat after sending at least one message
     if (activeView === "chat" && chatEngaged) {
       const key = "survey_count_chat";
@@ -205,10 +200,6 @@ function AppContent() {
 
       </div>{/* end inner row */}
 
-      {showHomeworkTutorial && (
-        <HomeworkTutorial onComplete={() => setShowHomeworkTutorial(false)} />
-      )}
-
       {survey && (
         <PostSessionSurvey
           sessionType={survey.type}
@@ -265,7 +256,7 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
 
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "app" | "trial-expired">("loading");
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "tutorial" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
 
   useEffect(() => {
@@ -341,8 +332,16 @@ export default function Home() {
     return (
       <WelcomeScreen
         name={welcomeName}
-        onStartLearning={() => setAppState("app")}
+        onStartLearning={() => setAppState("tutorial")}
       />
+    );
+  }
+
+  if (appState === "tutorial") {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        <HomeworkTutorial onComplete={() => setAppState("app")} />
+      </div>
     );
   }
 
