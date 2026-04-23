@@ -8,6 +8,12 @@ import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import BetaBanner from "@/components/beta/BetaBanner";
 import HomeworkTutorial from "@/components/tutorial/HomeworkTutorial";
+const MathsTutorial      = dynamic(() => import("@/components/tutorial/MathsTutorial"),      { ssr: false });
+const ReadingTutorial    = dynamic(() => import("@/components/tutorial/ReadingTutorial"),    { ssr: false });
+const MatricTutorial     = dynamic(() => import("@/components/tutorial/MatricTutorial"),     { ssr: false });
+const ProgressTutorial   = dynamic(() => import("@/components/tutorial/ProgressTutorial"),   { ssr: false });
+const SkillTreeTutorial  = dynamic(() => import("@/components/tutorial/SkillTreeTutorial"),  { ssr: false });
+const PrepPapersTutorial = dynamic(() => import("@/components/tutorial/PrepPapersTutorial"), { ssr: false });
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
@@ -48,6 +54,12 @@ function AppContent() {
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
+  const [activeTutorial, setActiveTutorial] = useState<"maths" | "reading" | "matric" | "progress" | "skill-tree" | "prep-papers" | null>(null);
+
+  const dismissTutorial = (key: string) => {
+    localStorage.setItem(`tut_${key}_seen`, "1");
+    setActiveTutorial(null);
+  };
 
   const viewLabels: Record<ActiveView, string> = {
     home: t("sidebar.home"),
@@ -118,6 +130,20 @@ function AppContent() {
     }
     if (view === "reading" || view === "reading-skill-tree") {
       void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
+    }
+
+    // Show feature tutorial on first visit
+    const tutorialMap: Partial<Record<ActiveView, "maths" | "reading" | "matric" | "progress" | "skill-tree" | "prep-papers">> = {
+      ruby: "maths",
+      reading: "reading",
+      matric: "matric",
+      progress: "progress",
+      "skill-tree": "skill-tree",
+      "prep-papers-2026": "prep-papers",
+    };
+    const tutKey = tutorialMap[view];
+    if (tutKey && !localStorage.getItem(`tut_${tutKey}_seen`)) {
+      setActiveTutorial(tutKey);
     }
   };
 
@@ -206,6 +232,14 @@ function AppContent() {
           onClose={() => setSurvey(null)}
         />
       )}
+
+      {activeTutorial === "maths"       && <MathsTutorial      onComplete={() => dismissTutorial("maths")} />}
+      {activeTutorial === "reading"     && <ReadingTutorial     onComplete={() => dismissTutorial("reading")} />}
+      {activeTutorial === "matric"      && <MatricTutorial      onComplete={() => dismissTutorial("matric")} />}
+      {activeTutorial === "progress"    && <ProgressTutorial    onComplete={() => dismissTutorial("progress")} />}
+      {activeTutorial === "skill-tree"  && <SkillTreeTutorial   onComplete={() => dismissTutorial("skill-tree")} />}
+      {activeTutorial === "prep-papers" && <PrepPapersTutorial  onComplete={() => dismissTutorial("prep-papers")} />}
+
       <FloatingFeedback />
     </div>
   );
