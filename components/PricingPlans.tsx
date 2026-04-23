@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { supabase } from "@/lib/supabase";
 import type { VoucherValidateResponse } from "@/app/api/vouchers/validate/route";
 
@@ -109,6 +109,8 @@ interface PricingPlansProps {
 
 export default function PricingPlans({ onSelectFree, showHeader = true, mode = "onboarding" }: PricingPlansProps) {
   const [selected, setSelected] = useState<string | null>(mode === "onboarding" ? "freebie" : null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [voucherInput, setVoucherInput] = useState("");
@@ -120,6 +122,21 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
 
   const visiblePlans = mode === "upgrade" ? PLANS.filter((p) => !p.isFree) : PLANS;
   const selectedPlan = visiblePlans.find((p) => p.key === selected) ?? null;
+
+  const handleScroll = useCallback(() => {
+    const container = carouselRef.current;
+    if (!container) return;
+    const center = container.scrollLeft + container.offsetWidth / 2;
+    let closest = 0;
+    let minDist = Infinity;
+    Array.from(container.children).forEach((child, i) => {
+      const el = child as HTMLElement;
+      const dist = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    setActiveIndex(closest);
+    setSelected(visiblePlans[closest]?.key ?? null);
+  }, [visiblePlans]);
 
   function effectivePrice(plan: PricingPlan): number {
     if (plan.isFree) return 0;
@@ -222,8 +239,18 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
         </div>
       )}
 
-      {/* Plan cards */}
-      <div className={`grid grid-cols-1 gap-4 md:gap-5 ${mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
+      {/* Plan cards — carousel on mobile, grid on desktop */}
+      <div
+        ref={carouselRef}
+        onScroll={handleScroll}
+        className={`
+          flex md:grid gap-4 md:gap-5
+          overflow-x-auto md:overflow-visible
+          snap-x snap-mandatory md:snap-none
+          scrollbar-hide -mx-4 md:mx-0 px-4 md:px-0 pb-2 md:pb-0
+          ${mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}
+        `}
+      >
         {visiblePlans.map((plan) => {
           const isSelected = selected === plan.key;
           const final = effectivePrice(plan);
@@ -234,6 +261,7 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
               key={plan.key}
               onClick={() => setSelected(plan.key)}
               className={`relative border-2 rounded-2xl bg-white flex flex-col cursor-pointer transition-all duration-150 select-none
+                flex-shrink-0 w-[82vw] md:w-auto snap-center md:snap-align-none
                 ${isSelected ? plan.selectedRingClass + " shadow-lg" : plan.idleRingClass + " opacity-70 hover:opacity-100 hover:shadow-md"}`}
             >
               {/* Badge */}
@@ -304,6 +332,24 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
             </div>
           );
         })}
+      </div>
+
+      {/* Carousel dots — mobile only */}
+      <div className="flex md:hidden justify-center gap-2 mt-4">
+        {visiblePlans.map((plan, i) => (
+          <button
+            key={plan.key}
+            onClick={() => {
+              const container = carouselRef.current;
+              if (!container) return;
+              const card = container.children[i] as HTMLElement;
+              container.scrollTo({ left: card.offsetLeft - (container.offsetWidth - card.offsetWidth) / 2, behavior: "smooth" });
+              setActiveIndex(i);
+              setSelected(plan.key);
+            }}
+            className={`h-2 rounded-full transition-all duration-200 ${i === activeIndex ? "w-6 bg-rose-500" : "w-2 bg-gray-300"}`}
+          />
+        ))}
       </div>
 
       {/* Voucher */}
