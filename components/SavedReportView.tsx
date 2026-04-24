@@ -1,6 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import type { DiagnosticReportInput, ReportContent } from "@/lib/report-generator";
+import { supabase } from "@/lib/supabase";
 
 interface Props {
   subject: "maths" | "reading";
@@ -46,14 +48,41 @@ function BackButton({ onClick }: { onClick: () => void }) {
 }
 
 export default function SavedReportView({ subject, onBack }: Props) {
-  let reportData: { input: DiagnosticReportInput; content: ReportContent; generatedAt: number } | null = null;
-  try {
-    const key = subject === "maths" ? "ruby_maths_report" : "ruby_reading_report";
-    const raw = localStorage.getItem(key);
-    if (raw) reportData = JSON.parse(raw);
-  } catch { /* ignore */ }
+  const [reportData, setReportData] = useState<{ input: DiagnosticReportInput; content: ReportContent; generatedAt: number } | null | undefined>(undefined);
+
+  useEffect(() => {
+    (async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) { setReportData(null); return; }
+      const { data } = await supabase
+        .from("student_reports")
+        .select("input_data, content_data, generated_at")
+        .eq("user_id", user.id)
+        .eq("subject", subject)
+        .order("generated_at", { ascending: false })
+        .limit(1)
+        .single();
+      if (data) {
+        setReportData({
+          input: data.input_data as unknown as DiagnosticReportInput,
+          content: data.content_data as unknown as ReportContent,
+          generatedAt: new Date(data.generated_at as string).getTime(),
+        });
+      } else {
+        setReportData(null);
+      }
+    })();
+  }, [subject]);
 
   const subjectLabel = subject === "maths" ? "Maths" : "Reading";
+
+  if (reportData === undefined) {
+    return (
+      <div className="flex flex-col h-full bg-[#F4F4F5] items-center justify-center">
+        <p className="text-gray-400 text-sm">Loading report…</p>
+      </div>
+    );
+  }
 
   if (!reportData) {
     return (

@@ -28,6 +28,7 @@ import { getDomainForSkill, getDomain, getUsedRefs, markQuestionUsed, selectQues
 import { abilityLevel } from "@/lib/bkt";
 import { simplifyQuestion } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
+import { supabase } from "@/lib/supabase";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
 import { selectMathsTemplate } from "@/lib/template-selector";
@@ -248,7 +249,7 @@ export default function DiagnosticSession() {
             saveStudentProfile(updatedProfile);
             setProfile(updatedProfile);
           } catch {
-            // localStorage full or unavailable — continue without saving used ref
+            // DB unavailable — continue without saving used ref
           }
         }
 
@@ -485,7 +486,7 @@ export default function DiagnosticSession() {
   );
 
   const handlePlacementComplete = useCallback(
-    (result: MathsPlacementResult) => {
+    async (result: MathsPlacementResult) => {
       if (!profile) return;
       const updatedProfile = completeMathsPlacement(profile, result);
       setProfile(updatedProfile);
@@ -509,14 +510,20 @@ export default function DiagnosticSession() {
         current_level: updatedProfile.current_level,
       });
 
-      // Build and persist report to localStorage for parent viewing
+      // Build and persist report to Supabase for parent viewing
       try {
         const input = buildMathsReportInput(updatedProfile);
         const content = buildDeterministicReportContent(input);
-        localStorage.setItem(
-          "ruby_maths_report",
-          JSON.stringify({ input, content, generatedAt: Date.now() })
-        );
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          void supabase.from("student_reports").insert({
+            user_id: user.id,
+            subject: "maths",
+            input_data: input as unknown as Record<string, unknown>,
+            content_data: content as unknown as Record<string, unknown>,
+            generated_at: new Date().toISOString(),
+          });
+        }
       } catch (err) {
         console.error("[DiagnosticComplete] Report save failed:", err);
       }
@@ -526,7 +533,6 @@ export default function DiagnosticSession() {
 
   // Full reset — wipes everything, reruns placement with shuffled questions
   const resetToPlacement = () => {
-    localStorage.removeItem("ruby_student_profile");
     fetchAuthorisedGrade().then((authorised) => {
       const name  = authorised?.name  ?? "Student";
       const grade = authorised?.grade ?? 7;

@@ -246,7 +246,6 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         plan: "existing",
         userId,
       };
-      localStorage.setItem("onboardingData", JSON.stringify(final));
       onComplete(final);
     } catch (err: unknown) {
       const raw = err instanceof Error ? err.message : "";
@@ -282,7 +281,6 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         language: final.language,
       });
     }
-    localStorage.setItem("onboardingData", JSON.stringify(final));
     onComplete(final);
   };
 
@@ -291,7 +289,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
   return (
     // Fills the full locked viewport (html+body are h-full overflow-hidden)
-    <div className="h-full bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex flex-col py-8 px-4">
+    <div className="h-dvh bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex flex-col py-3 sm:py-8 px-4">
       <div className={`w-full ${outerMaxW} mx-auto flex-1 flex flex-col min-h-0`}>
         <div className="bg-white rounded-3xl shadow-xl flex-1 flex flex-col overflow-hidden min-h-0">
 
@@ -432,26 +430,28 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
           {/* ── Step 3: Grade ── */}
           {step === 3 && (
-            <div className="flex-1 flex flex-col p-6">
+            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
               <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-4 leading-snug">{t.step3Title}</h1>
-              <div className="flex-1 grid grid-cols-2 gap-2.5 content-start">
-                {GRADES.map(({ grade, emoji }) => (
-                  <button
-                    key={grade}
-                    onClick={() => select("grade", grade)}
-                    className={`flex items-center justify-center gap-3 py-2.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
-                      data.grade === grade
-                        ? "border-rose-500 bg-rose-50 text-rose-600"
-                        : "border-gray-200 text-gray-700 hover:border-gray-300"
-                    }`}
-                  >
-                    <span className="text-xl">{emoji}</span>
-                    <span>{grade}</span>
-                  </button>
-                ))}
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-4 leading-snug flex-shrink-0">{t.step3Title}</h1>
+              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
+                <div className="grid grid-cols-2 gap-2.5">
+                  {GRADES.map(({ grade, emoji }) => (
+                    <button
+                      key={grade}
+                      onClick={() => select("grade", grade)}
+                      className={`flex items-center justify-center gap-3 py-2.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
+                        data.grade === grade
+                          ? "border-rose-500 bg-rose-50 text-rose-600"
+                          : "border-gray-200 text-gray-700 hover:border-gray-300"
+                      }`}
+                    >
+                      <span className="text-xl">{emoji}</span>
+                      <span>{grade}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
-              <div className="pt-4">
+              <div className="pt-4 flex-shrink-0">
                 <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.grade} />
               </div>
             </div>

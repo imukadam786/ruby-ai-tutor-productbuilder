@@ -7,6 +7,12 @@ import Sidebar from "@/components/Sidebar";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import BetaBanner from "@/components/beta/BetaBanner";
+import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
+const DiscoveryTutorial  = dynamic(() => import("@/components/tutorial/DiscoveryTutorial"),  { ssr: false });
+const ReadingTutorial    = dynamic(() => import("@/components/tutorial/ReadingTutorial"),    { ssr: false });
+const MathsTutorial      = dynamic(() => import("@/components/tutorial/MathsTutorial"),      { ssr: false });
+const SkillTreeTutorial  = dynamic(() => import("@/components/tutorial/SkillTreeTutorial"),  { ssr: false });
+const MatricTutorial     = dynamic(() => import("@/components/tutorial/MatricTutorial"),     { ssr: false });
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
@@ -24,15 +30,44 @@ const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerMo
 const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
 const FloatingFeedback     = dynamic(() => import("@/components/beta/FloatingFeedback"),                { ssr: false });
 import ErrorBoundary from "@/components/ErrorBoundary";
-const TrialExpiredScreen = dynamic(() => import("@/components/TrialExpiredScreen"), { ssr: false });
+import PricingPlans from "@/components/PricingPlans";
+const UpgradeModal = dynamic(() => import("@/components/UpgradeModal"), { ssr: false });
 import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
-import { getProgress, incrementSession, clearAllUserData, PERSISTENT_USER_KEYS } from "@/lib/storage";
-import { getStudentProfile } from "@/lib/student-model";
-import { getReadingProfile } from "@/lib/reading-student-model";
+import { getProgress, incrementSession } from "@/lib/storage";
+import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
+import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
 import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
+
+// ── Placement guard shown when user navigates to a subject before Discovery ───
+function PlacementGuardScreen({
+  subject,
+  onGoToDiscover,
+}: {
+  subject: "maths" | "reading";
+  onGoToDiscover: () => void;
+}) {
+  return (
+    <div className="flex items-center justify-center h-full bg-gray-50">
+      <div className="bg-white rounded-2xl shadow-md p-8 max-w-sm w-full text-center space-y-4 mx-4">
+        <div className="text-5xl">🧭</div>
+        <h2 className="text-xl font-bold text-gray-800">Complete Discovery First</h2>
+        <p className="text-gray-500 text-sm leading-relaxed">
+          Take the Discovery Activity so Ruby can find the right starting point for your{" "}
+          {subject === "maths" ? "Maths" : "Reading"} journey.
+        </p>
+        <button
+          onClick={onGoToDiscover}
+          className="w-full py-3 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-base transition-colors"
+        >
+          Start Discovery Activity
+        </button>
+      </div>
+    </div>
+  );
+}
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
 function AppContent() {
@@ -61,13 +96,19 @@ function AppContent() {
     settings: t("sidebar.settings"),
     matric: "Matric Preparation",
     "prep-papers-2026": "Prep Papers 2026",
+    "discover-maths": "Discover · Maths",
+    "discover-reading": "Discover · Reading",
   };
 
   const refreshStats = useCallback(() => {
-    const progress = getProgress();
-    setStats({ lessonsCompleted: progress.lessonsCompleted });
-    setRubyProfile(getStudentProfile());
+    void getProgress().then((progress) => {
+      setStats({ lessonsCompleted: progress.lessonsCompleted });
+    });
+    void hydrateStudentProfileFromSupabase().then((profile) => setRubyProfile(profile));
   }, []);
+
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  const [upgradeReason, setUpgradeReason] = useState<string | undefined>(undefined);
 
   // Track chat engagement (at least one message sent this session)
   const [chatEngaged, setChatEngaged] = useState(false);
@@ -84,6 +125,16 @@ function AppContent() {
       // Clean URL without reload
       window.history.replaceState({}, "", "/");
     }
+  }, []);
+
+  useEffect(() => {
+    const onUpgradeNeeded = (e: Event) => {
+      const reason = (e as CustomEvent<{ reason?: string }>).detail?.reason;
+      setUpgradeReason(reason);
+      setShowUpgradeModal(true);
+    };
+    document.addEventListener("ruby-upgrade-needed", onUpgradeNeeded);
+    return () => document.removeEventListener("ruby-upgrade-needed", onUpgradeNeeded);
   }, []);
 
   useEffect(() => {
@@ -111,12 +162,13 @@ function AppContent() {
       setChatEngaged(false);
     }
     setActiveView(view);
-    if (view === "skill-tree" || view === "student-dashboard") {
-      setRubyProfile(getStudentProfile());
+    if (view === "skill-tree" || view === "student-dashboard" || view === "ruby" || view === "discover-maths") {
+      void hydrateStudentProfileFromSupabase().then((p) => setRubyProfile(p));
     }
-    if (view === "reading" || view === "reading-skill-tree") {
-      setReadingProfile(getReadingProfile());
+    if (view === "reading" || view === "reading-skill-tree" || view === "discover-reading") {
+      void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
     }
+
   };
 
   return (
@@ -136,7 +188,7 @@ function AppContent() {
           </svg>
         </button>
         <span className="flex-1 font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
-        {["chat", "ruby", "reading"].includes(activeView) ? (
+        {["chat", "ruby", "reading", "discover-maths", "discover-reading"].includes(activeView) ? (
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("ruby-action"))}
             className="p-2 rounded-lg text-gray-500 hover:text-gray-800 hover:bg-gray-100 transition-colors"
@@ -185,10 +237,20 @@ function AppContent() {
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { chatMessageCountRef.current += 1; if (chatMessageCountRef.current >= 3) incrementSession(); refreshStats(); setChatEngaged(true); }} />}
         {activeView === "progress" && <ProgressTracker />}
-        {activeView === "ruby" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
+        {activeView === "ruby" && (
+          rubyProfile !== null && !rubyProfile.placementCompleted
+            ? <PlacementGuardScreen subject="maths" onGoToDiscover={() => handleViewChange("discover-maths")} />
+            : <ErrorBoundary><DiagnosticSession /></ErrorBoundary>
+        )}
+        {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
-        {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
+        {activeView === "reading" && (
+          readingProfile !== null && !readingProfile.placementCompleted
+            ? <PlacementGuardScreen subject="reading" onGoToDiscover={() => handleViewChange("discover-reading")} />
+            : <ErrorBoundary><ReadingSession /></ErrorBoundary>
+        )}
+        {activeView === "discover-reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "matric" && <MatricPastPapers />}
@@ -204,6 +266,14 @@ function AppContent() {
           onClose={() => setSurvey(null)}
         />
       )}
+
+      {showUpgradeModal && (
+        <UpgradeModal
+          reason={upgradeReason}
+          onDismiss={() => { setShowUpgradeModal(false); setUpgradeReason(undefined); }}
+        />
+      )}
+
       <FloatingFeedback />
     </div>
   );
@@ -214,12 +284,6 @@ function AppContent() {
 const InstallPrompt = dynamic(() => import("@/components/InstallPrompt"), { ssr: false });
 
 function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearning: () => void }) {
-  const [showInstall, setShowInstall] = useState(false);
-
-  const handleStartLearning = () => {
-    setShowInstall(true);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
@@ -228,7 +292,6 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
         </h1>
         <p className="text-gray-500 text-base">Your account has been created and you&apos;re all set to start your learning journey.</p>
 
-        {/* Hero characters */}
         <div className="flex justify-center">
           <img
             src="/ruby-heroes.png"
@@ -238,29 +301,69 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
         </div>
 
         <button
-          onClick={handleStartLearning}
+          onClick={onStartLearning}
           className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg transition-colors shadow-md"
         >
-          Start Learning 🚀
+          Select Your Plan 🚀
         </button>
       </div>
+    </div>
+  );
+}
 
-      {showInstall && (
-        <InstallPrompt onDismiss={onStartLearning} />
-      )}
+const TUTORIAL_SEQUENCE = [
+  DiscoveryTutorial,
+  ReadingTutorial,
+  MathsTutorial,
+  HomeworkTutorial,
+  SkillTreeTutorial,
+  MatricTutorial,
+] as const;
+
+// ── Tutorial welcome screen — shown once before the feature walkthrough ────────
+function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSkip: () => void }) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+      <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
+        <h1 className="text-2xl font-bold text-[#1a2744]">
+          Let&apos;s show you around 👋
+        </h1>
+        <p className="text-gray-500 text-base leading-relaxed">
+          A quick tour of everything Ruby can do for you — Homework help, Maths, Reading, Past Papers, and more.
+        </p>
+        <div className="flex justify-center">
+          <img
+            src="/ruby-heroes.png"
+            alt="Ruby characters"
+            className="h-44 w-auto object-contain"
+          />
+        </div>
+        <button
+          onClick={onStart}
+          className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg transition-colors shadow-md"
+        >
+          Start Tutorial 🚀
+        </button>
+        <button
+          onClick={onSkip}
+          className="w-full py-2 text-sm text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          Skip tutorial
+        </button>
+      </div>
     </div>
   );
 }
 
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "app" | "trial-expired">("loading");
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "tutorial-welcome" | "tutorial" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
+  const [tutorialStep, setTutorialStep] = useState(0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("reset") !== null) {
-      clearAllUserData();
       supabase.auth.signOut();
       window.history.replaceState({}, "", window.location.pathname);
       setAppState("onboarding");
@@ -270,28 +373,16 @@ export default function Home() {
     // Check for an existing valid session — if found, skip login entirely
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session) {
-        if (session.user.id) localStorage.setItem("current_user_id", session.user.id);
-        // Ensure onboardingData has the user's name — may be absent on a fresh device
-        try {
-          const raw = localStorage.getItem("onboardingData");
-          const existing = raw ? JSON.parse(raw) : {};
-          if (!existing.name) {
-            const fullName =
-              (session.user.user_metadata?.full_name as string | undefined) ||
-              (session.user.email?.split("@")[0] ?? "");
-            if (fullName) {
-              localStorage.setItem(
-                "onboardingData",
-                JSON.stringify({ ...existing, name: fullName })
-              );
-            }
-          }
-        } catch { /* ignore */ }
-
         // If returning from a PayFast payment, skip trial check — ITN will update DB async
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("payment") === "success") {
-          setAppState("app");
+          const pendingAfterPayment = localStorage.getItem("ruby_pending_step");
+          if (pendingAfterPayment === "plan-selection" || pendingAfterPayment === "tutorial") {
+            localStorage.setItem("ruby_pending_step", "tutorial");
+            setAppState("tutorial");
+          } else {
+            setAppState("app");
+          }
           return;
         }
 
@@ -316,38 +407,34 @@ export default function Home() {
         if (!hasActiveSub && trialExpired) {
           setAppState("trial-expired");
         } else {
-          setAppState("app");
+          const pendingStep = localStorage.getItem("ruby_pending_step");
+          if (pendingStep === "plan-selection") {
+            setAppState("plan-selection");
+          } else if (pendingStep === "tutorial") {
+            setAppState("tutorial");
+          } else {
+            setAppState("app");
+          }
         }
       } else {
         setAppState("onboarding");
       }
     });
 
-    // Handle session loss (e.g. token expiry, logout from another tab)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) setAppState("onboarding");
+    // Only reset to onboarding on explicit sign-out — never interrupt an active onboarding flow
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_OUT" || (!session && event !== "INITIAL_SESSION")) {
+        setAppState("onboarding");
+      }
     });
     return () => subscription.unsubscribe();
   }, []);
 
   const handleOnboardingComplete = (data: OnboardingData) => {
-    const storedUserId = localStorage.getItem("current_user_id");
-    const isDifferentUser = data.userId && storedUserId && storedUserId !== data.userId;
-
     if (data.plan === "existing") {
-      // Returning user — only wipe data if a DIFFERENT user is logging in on this device
-      if (isDifferentUser) {
-        PERSISTENT_USER_KEYS.forEach((k) => localStorage.removeItem(k));
-        localStorage.removeItem("current_user_id");
-      }
-      if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setAppState("app");
     } else {
-      // New signup — wipe any previous user's data, then restore fresh onboarding data
-      PERSISTENT_USER_KEYS.forEach((k) => localStorage.removeItem(k));
-      localStorage.removeItem("current_user_id");
-      localStorage.setItem("onboardingData", JSON.stringify(data));
-      if (data.userId) localStorage.setItem("current_user_id", data.userId);
+      localStorage.setItem("ruby_pending_step", "plan-selection");
       setWelcomeName(data.name || "");
       setAppState("welcome");
     }
@@ -363,13 +450,82 @@ export default function Home() {
     return (
       <WelcomeScreen
         name={welcomeName}
-        onStartLearning={() => setAppState("app")}
+        onStartLearning={() => setAppState("plan-selection")}
       />
     );
   }
 
+  if (appState === "plan-selection") {
+    return (
+      <div className="h-dvh bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-4">
+        {/* White card is the scroll container — html+body are overflow:hidden */}
+        <div className="bg-white rounded-3xl shadow-xl w-full max-w-4xl h-full overflow-y-auto">
+          <PricingPlans
+            mode="onboarding"
+            showHeader
+            onSelectFree={() => {
+              localStorage.setItem("ruby_pending_step", "tutorial");
+              setAppState("tutorial-welcome");
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (appState === "tutorial-welcome") {
+    return (
+      <TutorialWelcomeScreen
+        onStart={() => setAppState("tutorial")}
+        onSkip={() => {
+          localStorage.removeItem("ruby_pending_step");
+          setAppState("app");
+        }}
+      />
+    );
+  }
+
+  if (appState === "tutorial") {
+    // Ensure localStorage is always set while the tutorial is active so any
+    // refresh lands back here rather than skipping to app.
+    localStorage.setItem("ruby_pending_step", "tutorial");
+    const TutorialComponent = TUTORIAL_SEQUENCE[tutorialStep];
+    const isLast = tutorialStep === TUTORIAL_SEQUENCE.length - 1;
+    return (
+      <LanguageProvider>
+        {/* HomeScreen shown as non-interactive background */}
+        <div className="relative h-dvh overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+            <HomeScreen onNavigate={() => {}} />
+          </div>
+          <TutorialComponent
+            onComplete={() => {
+              if (isLast) {
+                localStorage.removeItem("ruby_pending_step");
+                setAppState("app");
+              } else {
+                setTutorialStep((s) => s + 1);
+              }
+            }}
+          />
+        </div>
+      </LanguageProvider>
+    );
+  }
+
   if (appState === "trial-expired") {
-    return <TrialExpiredScreen />;
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-4 overflow-y-auto">
+        <div className="bg-white rounded-3xl shadow-xl w-full max-w-2xl my-4 overflow-hidden">
+          <div className="text-center px-8 pt-8 pb-2">
+            <div className="text-5xl mb-3">⏰</div>
+            <h1 className="text-2xl font-bold text-[#1a2744]">Your 7-day trial has ended</h1>
+            <p className="text-gray-400 text-sm mt-1">Upgrade to keep learning</p>
+          </div>
+          <PricingPlans mode="upgrade" showHeader={false} />
+        </div>
+      </div>
+    );
   }
 
   return (

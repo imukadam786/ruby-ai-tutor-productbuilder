@@ -54,6 +54,8 @@ import {
   trackSessionEnded,
   trackPlacementCompleted,
 } from "@/lib/analytics";
+import { supabase } from "@/lib/supabase";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 
 type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "stuck" | "complete";
 
@@ -123,29 +125,9 @@ function parseGrade(raw: unknown, fallback: number): number {
 
 async function readOnboardingWithFallback(): Promise<{ name: string; grade: number }> {
   try {
-    const raw = localStorage.getItem("onboardingData");
-    if (raw) {
-      const data = JSON.parse(raw);
-      const name = ((data.name as string) || "").split(" ")[0];
-      const grade = parseGrade(data.grade, 3);
-      if (name) return { name, grade };
-    }
+    const auth = await fetchAuthorisedGrade();
+    if (auth) return auth;
   } catch { /* fall through */ }
-
-  // Supabase fallback for returning users who skipped onboarding
-  try {
-    const { supabase } = await import("@/lib/supabase");
-    const { data: { user } } = await supabase.auth.getUser();
-    if (user) {
-      const { data } = await supabase.from("users").select("full_name, grade").eq("id", user.id).single();
-      if (data?.full_name) {
-        const name = (data.full_name as string).split(" ")[0];
-        const grade = parseGrade(data.grade, 3);
-        return { name, grade };
-      }
-    }
-  } catch { /* fall through */ }
-
   return { name: "Student", grade: 3 };
 }
 
@@ -309,7 +291,7 @@ export default function ReadingSession() {
   );
 
   const handlePlacementComplete = useCallback(
-    (result: DiagnosticPlacementResult) => {
+    async (result: DiagnosticPlacementResult) => {
       if (!profile) return;
       const updated = completeDiagnosticPlacement(profile, result);
       setProfile(updated);
@@ -332,14 +314,20 @@ export default function ReadingSession() {
         current_level: updated.current_level,
       });
 
-      // Build and persist report to localStorage for parent viewing
+      // Build and persist report to Supabase for parent viewing
       try {
         const rInput = buildReadingReportInput(updated, result);
         const rContent = buildDeterministicReportContent(rInput);
-        localStorage.setItem(
-          "ruby_reading_report",
-          JSON.stringify({ input: rInput, content: rContent, generatedAt: Date.now() })
-        );
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          void supabase.from("student_reports").insert({
+            user_id: user.id,
+            subject: "reading",
+            input_data: rInput as unknown as Record<string, unknown>,
+            content_data: rContent as unknown as Record<string, unknown>,
+            generated_at: new Date().toISOString(),
+          });
+        }
       } catch (err) {
         console.error("[ReadingPlacement] Report save failed:", err);
       }
@@ -572,19 +560,15 @@ export default function ReadingSession() {
 
   // Full reset — wipes everything, reruns placement with fresh questions
   const resetToPlacement = () => {
-    localStorage.removeItem("ruby_reading_profile");
-    let name = "Student", grade = 3;
-    try {
-      const raw = localStorage.getItem("onboardingData");
-      if (raw) { const d = JSON.parse(raw); name = ((d.name as string) || "").split(" ")[0] || "Student"; grade = parseInt(d.grade as string) || 3; }
-    } catch { /* ignore */ }
-    const freshProfile = createReadingProfile(name, grade);
-    setProfile(freshProfile);
-    setPhase("loading_question");
-    setSkillAttemptCount(0);
-    recentTemplatesRef.current = [];
-    setSessionCorrect(0);
-    setSessionAttempts(0);
+    readOnboardingWithFallback().then(({ name, grade }) => {
+      const freshProfile = createReadingProfile(name, grade);
+      setProfile(freshProfile);
+      setPhase("loading_question");
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setSessionCorrect(0);
+      setSessionAttempts(0);
+    });
   };
 
   // Skill-tree-only reset — keeps placement result, returns to entry point with fresh questions

@@ -19,7 +19,6 @@ import {
   transitForReadingLevel,
 } from "@/lib/bkt";
 
-const READING_STUDENT_KEY = "ruby_reading_profile";
 const DEFAULT_STARTING_SKILL = "R1.T1.A1";
 const DEFAULT_STARTING_LEVEL = 1;
 const DEFAULT_STARTING_TIER = "R1.T1";
@@ -27,19 +26,10 @@ const DEFAULT_STARTING_TIER = "R1.T1";
 // ─── Load / Save ──────────────────────────────────────────────────────────────
 
 export function getReadingProfile(): ReadingStudentProfile | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = localStorage.getItem(READING_STUDENT_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
-  }
+  return null;
 }
 
 export function saveReadingProfile(profile: ReadingStudentProfile): void {
-  if (typeof window === "undefined") return;
-  localStorage.setItem(READING_STUDENT_KEY, JSON.stringify(profile));
-  // Supabase sync with retry — localStorage is source of truth
   void retrySupabase(() => supabase.from("student_profiles").upsert({
     id: profile.id,
     subject: "reading",
@@ -86,9 +76,7 @@ export async function hydrateReadingProfileFromSupabase(): Promise<ReadingStuden
       .limit(1)
       .single();
     if (!data?.profile_data) return null;
-    const profile = data.profile_data as unknown as ReadingStudentProfile;
-    localStorage.setItem(READING_STUDENT_KEY, JSON.stringify(profile));
-    return profile;
+    return data.profile_data as unknown as ReadingStudentProfile;
   } catch {
     return null;
   }
