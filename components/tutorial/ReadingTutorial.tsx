@@ -57,38 +57,24 @@ function MockupPractice({ isMobile }: { isMobile: boolean }) {
         className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-100 flex-shrink-0">
-          <div className="w-7 h-7 rounded-full bg-purple-600 flex items-center justify-center text-white text-xs font-bold">R</div>
-          <span className="text-sm font-semibold text-gray-800">Reading Practice</span>
-        </div>
-        <div className="flex-1 px-4 py-3 flex flex-col justify-between">
+        <div className="flex-1 px-5 py-4 flex flex-col justify-between">
           <div>
-            <p className="text-xs text-gray-400 mb-2">Which word starts with the same sound as 🐱?</p>
-            <div className="grid grid-cols-3 gap-2 mb-3">
-              {["COW", "BAT", "CAR"].map((word, i) => (
-                <div
-                  key={word}
-                  className={`py-2.5 rounded-xl text-center text-sm font-bold border-2 ${
-                    i === 2
-                      ? "border-purple-500 bg-purple-50 text-purple-600"
-                      : "border-gray-200 text-gray-600"
-                  }`}
-                >
-                  {word}
-                </div>
-              ))}
+            <p className="text-sm font-semibold text-gray-800 mb-1.5">
+              Do &apos;cake&apos; and &apos;lake&apos; rhyme?
+            </p>
+            <button className="flex items-center gap-1.5 text-xs text-blue-500 font-medium mb-4">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+              Hear the question
+            </button>
+            <div className="rounded-2xl bg-blue-50 flex items-center justify-center py-5 px-4">
+              <span className="text-2xl font-bold text-blue-600 tracking-tight">
+                cake <span className="text-blue-400 mx-1">•</span> lake
+              </span>
             </div>
           </div>
-          <div
-            className="flex items-center gap-2 p-2 rounded-xl border-2 border-purple-400 bg-purple-50/50"
-            style={{ boxShadow: "0 0 0 3px rgba(147,51,234,0.1)" }}
-          >
-            <div className="w-7 h-7 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
-              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-              </svg>
-            </div>
-            <span className="text-xs text-purple-700 font-medium">Tap to answer with your voice</span>
+          <div className="grid grid-cols-2 gap-3 mt-4">
+            <div className="py-2.5 rounded-xl border-2 border-gray-200 text-center text-sm font-semibold text-gray-600">Yes</div>
+            <div className="py-2.5 rounded-xl border-2 border-gray-200 text-center text-sm font-semibold text-gray-600">No</div>
           </div>
         </div>
       </div>

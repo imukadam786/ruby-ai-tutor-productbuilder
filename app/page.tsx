@@ -320,9 +320,44 @@ const TUTORIAL_SEQUENCE = [
   MatricTutorial,
 ] as const;
 
+// ── Tutorial welcome screen — shown once before the feature walkthrough ────────
+function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSkip: () => void }) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+      <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
+        <h1 className="text-2xl font-bold text-[#1a2744]">
+          Let&apos;s show you around 👋
+        </h1>
+        <p className="text-gray-500 text-base leading-relaxed">
+          A quick tour of everything Ruby can do for you — Homework help, Maths, Reading, Past Papers, and more.
+        </p>
+        <div className="flex justify-center">
+          <img
+            src="/ruby-heroes.png"
+            alt="Ruby characters"
+            className="h-44 w-auto object-contain"
+          />
+        </div>
+        <button
+          onClick={onStart}
+          className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg transition-colors shadow-md"
+        >
+          Start Tutorial 🚀
+        </button>
+        <button
+          onClick={onSkip}
+          className="w-full py-2 text-sm text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          Skip tutorial
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "tutorial" | "app" | "trial-expired">("loading");
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "tutorial-welcome" | "tutorial" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
   const [tutorialStep, setTutorialStep] = useState(0);
 
@@ -430,11 +465,23 @@ export default function Home() {
             showHeader
             onSelectFree={() => {
               localStorage.setItem("ruby_pending_step", "tutorial");
-              setAppState("tutorial");
+              setAppState("tutorial-welcome");
             }}
           />
         </div>
       </div>
+    );
+  }
+
+  if (appState === "tutorial-welcome") {
+    return (
+      <TutorialWelcomeScreen
+        onStart={() => setAppState("tutorial")}
+        onSkip={() => {
+          localStorage.removeItem("ruby_pending_step");
+          setAppState("app");
+        }}
+      />
     );
   }
 
@@ -445,18 +492,24 @@ export default function Home() {
     const TutorialComponent = TUTORIAL_SEQUENCE[tutorialStep];
     const isLast = tutorialStep === TUTORIAL_SEQUENCE.length - 1;
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        <TutorialComponent
-          onComplete={() => {
-            if (isLast) {
-              localStorage.removeItem("ruby_pending_step");
-              setAppState("app");
-            } else {
-              setTutorialStep((s) => s + 1);
-            }
-          }}
-        />
-      </div>
+      <LanguageProvider>
+        {/* HomeScreen shown as non-interactive background */}
+        <div className="relative h-dvh overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+            <HomeScreen onNavigate={() => {}} />
+          </div>
+          <TutorialComponent
+            onComplete={() => {
+              if (isLast) {
+                localStorage.removeItem("ruby_pending_step");
+                setAppState("app");
+              } else {
+                setTutorialStep((s) => s + 1);
+              }
+            }}
+          />
+        </div>
+      </LanguageProvider>
     );
   }
 

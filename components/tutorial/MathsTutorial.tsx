@@ -39,42 +39,47 @@ function MockupDiscovery({ isMobile }: { isMobile: boolean }) {
   );
 }
 
-// Reflects actual FeedbackCard incorrect state: orange "Not quite" + reflection options
+// Reflects actual FeedbackCard incorrect state — matches mfeedback screenshot
 function MockupFeedback({ isMobile }: { isMobile: boolean }) {
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="rounded-2xl border-2 border-orange-200 bg-orange-50 overflow-hidden flex flex-col"
+        className="bg-[#FFF8EE] rounded-2xl border border-orange-200 overflow-hidden flex flex-col"
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
-        {/* Header — matches FeedbackCard "Not quite" */}
-        <div className="px-5 py-3 bg-orange-100 flex items-center gap-3 flex-shrink-0">
-          <span className="text-xl">🤔</span>
-          <div>
-            <p className="font-bold text-base text-orange-800">Not quite</p>
-            <p className="text-xs text-orange-600">What happened?</p>
+        {/* Header — pencil icon + "Not quite" + "Execution Slip" + Play */}
+        <div className="px-4 py-3 bg-[#FFF0D6] border-b border-orange-200 flex items-center gap-2 flex-shrink-0">
+          <span className="text-lg">✏️</span>
+          <div className="flex-1">
+            <p className="font-bold text-sm text-orange-900 leading-tight">Not quite</p>
+            <p className="text-xs text-orange-600">Execution Slip</p>
           </div>
+          <button className="flex items-center gap-1 text-xs text-orange-600 font-medium">
+            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+            Play
+          </button>
         </div>
-        {/* Reflection options — matches actual REFLECTION_OPTIONS buttons */}
-        <div className="px-4 py-3 space-y-2 flex-1">
-          {[
-            "I didn't understand the question",
-            "I got partway through but got lost",
-          ].map((opt, i) => (
-            <div
-              key={i}
-              className={`w-full text-left px-4 py-2.5 rounded-xl border text-gray-800 text-xs font-medium ${
-                i === 1
-                  ? "border-orange-400 bg-orange-50"
-                  : "border-orange-200 bg-white"
-              }`}
-            >
-              {opt}
+
+        {/* Feedback body */}
+        <div className="px-4 py-3 flex-1 flex flex-col justify-between">
+          <div className="space-y-2.5">
+            <div>
+              <p className="text-[10px] text-gray-400 uppercase tracking-wide font-semibold mb-0.5">Feedback</p>
+              <p className="text-sm text-gray-800 font-medium">Not quite — give it another try!</p>
             </div>
-          ))}
-          <div className="flex items-center gap-1 pt-1">
-            <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
-            <span className="text-[10px] text-[#B7182E] font-medium">Explained in your home language</span>
+            {/* Yellow learning box */}
+            <div className="rounded-xl border border-yellow-300 bg-yellow-50 px-3 py-2.5">
+              <p className="text-xs font-semibold text-yellow-800 mb-1">Let&apos;s learn from this</p>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                Physically remove and cover the subtracted objects. Count only what remains uncovered.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center justify-center gap-1.5 pt-2">
+            <span className="text-[11px] text-gray-400">Click for next question</span>
+            <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+            </svg>
           </div>
         </div>
       </div>

@@ -54,7 +54,7 @@ function MockupReport({ isMobile }: { isMobile: boolean }) {
         {/* Red header — matches DiagnosticReportView */}
         <div className="bg-[#B7182E] px-4 py-3 flex-shrink-0">
           <p className="text-[#F9A8B4] text-[9px] font-bold uppercase tracking-widest">ruby</p>
-          <h1 className="text-white text-sm font-bold leading-tight">Learning Checkup Report</h1>
+          <h1 className="text-white text-sm font-bold leading-tight">Discovery Report</h1>
           <p className="text-[#FDA4AF] text-[10px] mt-0.5">Maths · Diagnostic Placement</p>
           <div className="grid grid-cols-3 gap-2 mt-2">
             {[
@@ -111,7 +111,7 @@ const SLIDES: readonly SlideData[] = [
     Mockup: MockupDiscovery,
   },
   {
-    subtitle: "Your personalised Learning Checkup Report",
+    subtitle: "Your personalised Discovery Report",
     description: "After the Discovery, Ruby generates a full report showing your working level, strengths, and where to start — tailored to you.",
     Mockup: MockupReport,
   },

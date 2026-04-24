@@ -309,7 +309,7 @@ export default function HomeworkTutorial({ onComplete }: Props) {
 
           <button
             onClick={advance}
-            className="flex items-center gap-2 px-5 py-2 rounded-full bg-[#B7182E] text-white text-sm font-semibold hover:bg-[#9a1426] transition-colors active:scale-95"
+            className="flex items-center gap-2 px-5 py-2 rounded-full bg-green-600 text-white text-sm font-semibold hover:bg-green-700 transition-colors active:scale-95"
           >
             {isLast ? "Start Chatting" : "Next"}
             {!isLast && (
