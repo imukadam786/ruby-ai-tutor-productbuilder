@@ -422,16 +422,21 @@ export default function Home() {
 
   if (appState === "plan-selection") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-4 overflow-y-auto">
-        <div className="bg-white rounded-3xl shadow-xl w-full max-w-4xl my-4 overflow-hidden">
-          <PricingPlans
-            mode="onboarding"
-            showHeader
-            onSelectFree={() => {
-              localStorage.setItem("ruby_pending_step", "tutorial");
-              setAppState("tutorial");
-            }}
-          />
+      <div className="min-h-dvh relative">
+        {/* Fixed red background — never scrolls */}
+        <div className="fixed inset-0 bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080]" />
+        {/* Scrollable content layer */}
+        <div className="relative flex justify-center px-4 py-8">
+          <div className="bg-white rounded-3xl shadow-xl w-full max-w-4xl">
+            <PricingPlans
+              mode="onboarding"
+              showHeader
+              onSelectFree={() => {
+                localStorage.setItem("ruby_pending_step", "tutorial");
+                setAppState("tutorial");
+              }}
+            />
+          </div>
         </div>
       </div>
     );
