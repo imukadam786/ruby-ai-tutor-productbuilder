@@ -229,21 +229,15 @@ export default function PricingPlans({
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 py-8">
+    <div className="w-full max-w-4xl mx-auto px-4 pt-5 pb-4">
       {showHeader && (
-        <div className="text-center mb-8 space-y-2">
-          <p className="text-xs font-semibold tracking-widest text-rose-500 uppercase">
-            CAPS Aligned · South African Curriculum
-          </p>
-          <h1 className="text-3xl font-extrabold text-[#1a2744]">Choose your learning plan</h1>
-          <p className="text-gray-500 text-sm max-w-sm mx-auto">
-            Personalised tutoring that adapts to your child&apos;s pace — in any SA home language.
-          </p>
+        <div className="text-center mb-4">
+          <h1 className="text-2xl font-extrabold text-[#1a2744]">Choose your learning plan</h1>
         </div>
       )}
 
       {/* Voucher — top */}
-      <div className="max-w-sm mx-auto mb-6 space-y-2">
+      <div className="max-w-sm mx-auto mb-4 space-y-2">
         {appliedVoucher ? (
           <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-2xl px-4 py-3">
             <div>
@@ -324,23 +318,23 @@ export default function PricingPlans({
                 </div>
               )}
 
-              <div className="p-6 flex flex-col flex-1 gap-4">
+              <div className="p-4 flex flex-col flex-1 gap-3">
                 {/* Name + subtitle */}
                 <div>
-                  <h2 className="text-xl font-extrabold text-[#1a2744]">{plan.name}</h2>
+                  <h2 className="text-lg font-extrabold text-[#1a2744]">{plan.name}</h2>
                   <p className="text-xs text-gray-400 font-medium mt-0.5">{plan.subtitle}</p>
                 </div>
 
                 {/* Price */}
                 <div className="space-y-0.5">
                   {plan.isFree ? (
-                    <p className="text-3xl font-extrabold text-gray-700">Free</p>
+                    <p className="text-2xl font-extrabold text-gray-700">Free</p>
                   ) : (
                     <>
                       <div className="flex items-end gap-2">
-                        <span className="text-3xl font-extrabold text-[#1a2744]">
+                        <span className="text-2xl font-extrabold text-[#1a2744]">
                           R{voucherApplied ? final : plan.priceRands}
-                          <span className="text-base font-semibold text-gray-400">/mo</span>
+                          <span className="text-sm font-semibold text-gray-400">/mo</span>
                         </span>
                         {(plan.isLaunchOffer || voucherApplied) && (
                           <span className="text-sm text-gray-400 line-through mb-1">
@@ -363,9 +357,9 @@ export default function PricingPlans({
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-2 flex-1">
+                <ul className="space-y-1.5 flex-1">
                   {plan.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm">
+                    <li key={i} className="flex items-start gap-2 text-xs">
                       <span
                         className={`mt-0.5 flex-shrink-0 font-bold ${
                           f.highlight ? "text-amber-500" : "text-green-500"
@@ -389,11 +383,11 @@ export default function PricingPlans({
                   ))}
                 </ul>
 
-                {/* Per-plan CTA — centred at bottom of card */}
+                {/* Per-plan CTA */}
                 <button
                   onClick={() => { scrollToCard(index); handlePlanCTA(plan); }}
                   disabled={!!loadingPlan}
-                  className={`w-full py-3 rounded-xl text-sm font-bold transition-colors disabled:opacity-50 mt-2 ${plan.ctaClass}`}
+                  className={`w-full py-2.5 rounded-xl text-sm font-bold transition-colors disabled:opacity-50 ${plan.ctaClass}`}
                 >
                   {isLoading ? "Redirecting…" : plan.ctaLabel}
                 </button>
@@ -404,7 +398,7 @@ export default function PricingPlans({
       </div>
 
       {/* Carousel dots — mobile only */}
-      <div className="flex md:hidden justify-center gap-2 mt-4">
+      <div className="flex md:hidden justify-center gap-2 mt-3">
         {visiblePlans.map((plan, i) => (
           <button
             key={plan.key}
@@ -415,13 +409,13 @@ export default function PricingPlans({
       </div>
 
       {error && (
-        <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2 text-center mt-4">
+        <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2 text-center mt-3">
           {error}
         </p>
       )}
 
-      <p className="text-center text-xs text-gray-400 mt-6">
-        All plans include CAPS-aligned content · Cancel anytime · Secure payment via PayFast
+      <p className="text-center text-xs text-gray-400 mt-3">
+        Cancel anytime · Secure payment via PayFast
       </p>
     </div>
   );
