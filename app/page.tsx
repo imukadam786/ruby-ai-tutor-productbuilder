@@ -284,12 +284,6 @@ function AppContent() {
 const InstallPrompt = dynamic(() => import("@/components/InstallPrompt"), { ssr: false });
 
 function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearning: () => void }) {
-  const [showInstall, setShowInstall] = useState(false);
-
-  const handleStartLearning = () => {
-    setShowInstall(true);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
@@ -298,7 +292,6 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
         </h1>
         <p className="text-gray-500 text-base">Your account has been created and you&apos;re all set to start your learning journey.</p>
 
-        {/* Hero characters */}
         <div className="flex justify-center">
           <img
             src="/ruby-heroes.png"
@@ -308,16 +301,12 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
         </div>
 
         <button
-          onClick={handleStartLearning}
+          onClick={onStartLearning}
           className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg transition-colors shadow-md"
         >
-          Start Learning 🚀
+          Select Your Plan 🚀
         </button>
       </div>
-
-      {showInstall && (
-        <InstallPrompt onDismiss={onStartLearning} />
-      )}
     </div>
   );
 }
@@ -397,9 +386,11 @@ export default function Home() {
       }
     });
 
-    // Handle session loss (e.g. token expiry, logout from another tab)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) setAppState("onboarding");
+    // Only reset to onboarding on explicit sign-out — never interrupt an active onboarding flow
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_OUT" || (!session && event !== "INITIAL_SESSION")) {
+        setAppState("onboarding");
+      }
     });
     return () => subscription.unsubscribe();
   }, []);
@@ -447,6 +438,9 @@ export default function Home() {
   }
 
   if (appState === "tutorial") {
+    // Ensure localStorage is always set while the tutorial is active so any
+    // refresh lands back here rather than skipping to app.
+    localStorage.setItem("ruby_pending_step", "tutorial");
     const TutorialComponent = TUTORIAL_SEQUENCE[tutorialStep];
     const isLast = tutorialStep === TUTORIAL_SEQUENCE.length - 1;
     return (
