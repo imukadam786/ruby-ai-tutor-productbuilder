@@ -295,7 +295,7 @@ export default function PricingPlans({
           flex md:grid gap-4 md:gap-5
           overflow-x-auto md:overflow-visible
           snap-x snap-mandatory md:snap-none
-          scrollbar-hide -mx-4 md:mx-0 px-4 md:px-0 pb-2 md:pb-0
+          scrollbar-hide pb-2 md:pb-0
           pt-5 md:pt-0
           md:items-stretch
           ${mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}
