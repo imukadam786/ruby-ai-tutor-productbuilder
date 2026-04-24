@@ -19,10 +19,9 @@ interface PricingPlan {
   isLaunchOffer: boolean;
   badge: string | null;
   badgeClass: string;
-  selectedRingClass: string;
-  idleRingClass: string;
-  checkClass: string;
+  borderClass: string;
   ctaClass: string;
+  ctaLabel: string;
   isFree: boolean;
   features: Feature[];
 }
@@ -37,10 +36,9 @@ const PLANS: PricingPlan[] = [
     isLaunchOffer: false,
     badge: null,
     badgeClass: "",
-    selectedRingClass: "ring-2 ring-gray-700 border-gray-700",
-    idleRingClass: "border-gray-200",
-    checkClass: "bg-gray-700 text-white",
+    borderClass: "border-gray-200",
     ctaClass: "bg-gray-800 hover:bg-gray-900 text-white",
+    ctaLabel: "Get Started",
     isFree: true,
     features: [
       { text: "CAPS Aligned curriculum" },
@@ -62,10 +60,9 @@ const PLANS: PricingPlan[] = [
     isLaunchOffer: true,
     badge: "Most Popular",
     badgeClass: "bg-rose-600 text-white",
-    selectedRingClass: "ring-2 ring-rose-500 border-rose-500",
-    idleRingClass: "border-rose-300",
-    checkClass: "bg-rose-600 text-white",
+    borderClass: "border-rose-400",
     ctaClass: "bg-rose-600 hover:bg-rose-700 text-white",
+    ctaLabel: "Go Premium",
     isFree: false,
     features: [
       { text: "CAPS Aligned curriculum" },
@@ -87,10 +84,9 @@ const PLANS: PricingPlan[] = [
     isLaunchOffer: true,
     badge: "Grade 12 Edition",
     badgeClass: "bg-amber-500 text-white",
-    selectedRingClass: "ring-2 ring-amber-500 border-amber-500",
-    idleRingClass: "border-amber-300",
-    checkClass: "bg-amber-500 text-white",
+    borderClass: "border-amber-400",
     ctaClass: "bg-amber-500 hover:bg-amber-600 text-white",
+    ctaLabel: "Access Everything",
     isFree: false,
     features: [
       { text: "Everything in Scholar" },
@@ -112,9 +108,7 @@ export default function PricingPlans({
   showHeader = true,
   mode = "onboarding",
 }: PricingPlansProps) {
-  const defaultSelected = mode === "onboarding" ? "freebie" : null;
-  const [selected, setSelected] = useState<string | null>(defaultSelected);
-  const [loading, setLoading] = useState(false);
+  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [voucherInput, setVoucherInput] = useState("");
   const [voucherLoading, setVoucherLoading] = useState(false);
@@ -126,7 +120,6 @@ export default function PricingPlans({
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const visiblePlans = mode === "upgrade" ? PLANS.filter((p) => !p.isFree) : PLANS;
-  const selectedPlan = visiblePlans.find((p) => p.key === selected) ?? null;
 
   function effectivePrice(plan: PricingPlan): number {
     if (plan.isFree) return 0;
@@ -142,20 +135,6 @@ export default function PricingPlans({
         ? base * (1 - dv / 100)
         : base - dv;
     return Math.max(0, Math.round(discounted * 100) / 100);
-  }
-
-  function selectPlan(key: string, index: number) {
-    setSelected(key);
-    // Scroll the tapped card into view on mobile
-    const container = carouselRef.current;
-    if (!container) return;
-    const card = container.children[index] as HTMLElement | undefined;
-    if (card) {
-      container.scrollTo({
-        left: card.offsetLeft - (container.offsetWidth - card.offsetWidth) / 2,
-        behavior: "smooth",
-      });
-    }
   }
 
   async function applyVoucher() {
@@ -187,15 +166,12 @@ export default function PricingPlans({
     setVoucherError(null);
   }
 
-  async function handleContinue() {
-    if (!selectedPlan) return;
-
-    if (selectedPlan.isFree) {
+  async function handlePlanCTA(plan: PricingPlan) {
+    if (plan.isFree) {
       onSelectFree?.();
       return;
     }
-
-    setLoading(true);
+    setLoadingPlan(plan.key);
     setError(null);
     try {
       const {
@@ -212,7 +188,7 @@ export default function PricingPlans({
           Authorization: `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({
-          plan: selectedPlan.key,
+          plan: plan.key,
           ...(appliedVoucher ? { voucherCode: appliedVoucher.code } : {}),
         }),
       });
@@ -236,22 +212,26 @@ export default function PricingPlans({
     } catch {
       setError("Network error. Please try again.");
     } finally {
-      setLoading(false);
+      setLoadingPlan(null);
     }
   }
 
-  function continueLabel(): string {
-    if (!selectedPlan) return "Select a plan to continue";
-    if (loading) return "Redirecting to payment…";
-    if (selectedPlan.isFree) return "Continue with Freebie — it's free";
-    const price = effectivePrice(selectedPlan);
-    return `Continue with ${selectedPlan.name} — R${price}/mo`;
+  function scrollToCard(index: number) {
+    const container = carouselRef.current;
+    if (!container) return;
+    const card = container.children[index] as HTMLElement | undefined;
+    if (card) {
+      container.scrollTo({
+        left: card.offsetLeft - (container.offsetWidth - card.offsetWidth) / 2,
+        behavior: "smooth",
+      });
+    }
   }
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 py-8">
       {showHeader && (
-        <div className="text-center mb-10 space-y-2">
+        <div className="text-center mb-8 space-y-2">
           <p className="text-xs font-semibold tracking-widest text-rose-500 uppercase">
             CAPS Aligned · South African Curriculum
           </p>
@@ -262,133 +242,8 @@ export default function PricingPlans({
         </div>
       )}
 
-      {/* Cards — horizontal scroll on mobile, grid on desktop */}
-      <div
-        ref={carouselRef}
-        className={`
-          flex md:grid gap-4 md:gap-5
-          overflow-x-auto md:overflow-visible
-          snap-x snap-mandatory md:snap-none
-          scrollbar-hide -mx-4 md:mx-0 px-4 md:px-0 pb-2 md:pb-0
-          md:items-center
-          ${mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}
-        `}
-      >
-        {visiblePlans.map((plan, index) => {
-          const isSelected = selected === plan.key;
-          const final = effectivePrice(plan);
-          const voucherApplied = !plan.isFree && !!appliedVoucher && final < plan.priceRands;
-
-          return (
-            <div
-              key={plan.key}
-              onClick={() => selectPlan(plan.key, index)}
-              className={`
-                relative border-2 rounded-2xl bg-white flex flex-col cursor-pointer
-                transition-all duration-150 select-none
-                flex-shrink-0 w-[82vw] md:w-auto snap-center
-                ${isSelected
-                  ? plan.selectedRingClass + " shadow-lg"
-                  : plan.idleRingClass + " opacity-75 hover:opacity-100 hover:shadow-sm"}
-                ${plan.key === "scholar" ? "md:-mt-2 md:-mb-2" : ""}
-              `}
-            >
-              {/* Badge */}
-              {plan.badge && (
-                <div
-                  className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wide whitespace-nowrap ${plan.badgeClass}`}
-                >
-                  {plan.badge}
-                </div>
-              )}
-
-              {/* Checkmark when selected */}
-              {isSelected && (
-                <div
-                  className={`absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${plan.checkClass}`}
-                >
-                  ✓
-                </div>
-              )}
-
-              <div className="p-6 flex flex-col flex-1 gap-4">
-                <div>
-                  <h2 className="text-xl font-extrabold text-[#1a2744]">{plan.name}</h2>
-                  <p className="text-xs text-gray-400 font-medium mt-0.5">{plan.subtitle}</p>
-                </div>
-
-                <div className="space-y-0.5">
-                  {plan.isFree ? (
-                    <p className="text-3xl font-extrabold text-gray-700">Free</p>
-                  ) : (
-                    <>
-                      <div className="flex items-end gap-2">
-                        <span className="text-3xl font-extrabold text-[#1a2744]">
-                          R{voucherApplied ? final : plan.priceRands}
-                          <span className="text-base font-semibold text-gray-400">/mo</span>
-                        </span>
-                        {(plan.isLaunchOffer || voucherApplied) && (
-                          <span className="text-sm text-gray-400 line-through mb-1">
-                            R{voucherApplied ? plan.priceRands : plan.originalPrice}
-                          </span>
-                        )}
-                      </div>
-                      {plan.isLaunchOffer && !voucherApplied && (
-                        <span className="inline-block text-xs font-semibold bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full">
-                          Launch Offer — Save R{plan.originalPrice - plan.priceRands}/mo
-                        </span>
-                      )}
-                      {voucherApplied && (
-                        <span className="inline-block text-xs font-semibold bg-green-50 text-green-600 px-2 py-0.5 rounded-full">
-                          Voucher applied
-                        </span>
-                      )}
-                    </>
-                  )}
-                </div>
-
-                <ul className="space-y-2 flex-1">
-                  {plan.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm">
-                      <span
-                        className={`mt-0.5 flex-shrink-0 font-bold ${
-                          f.highlight ? "text-amber-500" : "text-green-500"
-                        }`}
-                      >
-                        ✓
-                      </span>
-                      <span>
-                        <span className={f.highlight ? "font-semibold text-gray-800" : "text-gray-700"}>
-                          {f.text}
-                        </span>
-                        {f.note && (
-                          <span className="text-gray-400 text-xs ml-1">({f.note})</span>
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Dot indicators — mobile only */}
-      <div className="flex md:hidden justify-center gap-2 mt-4">
-        {visiblePlans.map((plan, i) => (
-          <button
-            key={plan.key}
-            onClick={() => selectPlan(plan.key, i)}
-            className={`h-2 rounded-full transition-all duration-200 ${
-              selected === plan.key ? "w-6 bg-rose-500" : "w-2 bg-gray-300"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Voucher */}
-      <div className="mt-6 max-w-sm mx-auto space-y-2">
+      {/* Voucher — top */}
+      <div className="max-w-sm mx-auto mb-6 space-y-2">
         {appliedVoucher ? (
           <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-2xl px-4 py-3">
             <div>
@@ -433,25 +288,138 @@ export default function PricingPlans({
         {voucherError && <p className="text-xs text-red-500 px-1">{voucherError}</p>}
       </div>
 
+      {/* Plan cards — carousel on mobile, grid on desktop */}
+      <div
+        ref={carouselRef}
+        className={`
+          flex md:grid gap-4 md:gap-5
+          overflow-x-auto md:overflow-visible
+          snap-x snap-mandatory md:snap-none
+          scrollbar-hide -mx-4 md:mx-0 px-4 md:px-0 pb-2 md:pb-0
+          md:items-stretch
+          ${mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}
+        `}
+      >
+        {visiblePlans.map((plan, index) => {
+          const final = effectivePrice(plan);
+          const voucherApplied = !plan.isFree && !!appliedVoucher && final < plan.priceRands;
+          const isLoading = loadingPlan === plan.key;
+
+          return (
+            <div
+              key={plan.key}
+              className={`
+                relative border-2 rounded-2xl bg-white flex flex-col
+                flex-shrink-0 w-[82vw] md:w-auto snap-center
+                ${plan.borderClass}
+              `}
+            >
+              {/* Badge */}
+              {plan.badge && (
+                <div
+                  className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wide whitespace-nowrap ${plan.badgeClass}`}
+                >
+                  {plan.badge}
+                </div>
+              )}
+
+              <div className="p-6 flex flex-col flex-1 gap-4">
+                {/* Name + subtitle */}
+                <div>
+                  <h2 className="text-xl font-extrabold text-[#1a2744]">{plan.name}</h2>
+                  <p className="text-xs text-gray-400 font-medium mt-0.5">{plan.subtitle}</p>
+                </div>
+
+                {/* Price */}
+                <div className="space-y-0.5">
+                  {plan.isFree ? (
+                    <p className="text-3xl font-extrabold text-gray-700">Free</p>
+                  ) : (
+                    <>
+                      <div className="flex items-end gap-2">
+                        <span className="text-3xl font-extrabold text-[#1a2744]">
+                          R{voucherApplied ? final : plan.priceRands}
+                          <span className="text-base font-semibold text-gray-400">/mo</span>
+                        </span>
+                        {(plan.isLaunchOffer || voucherApplied) && (
+                          <span className="text-sm text-gray-400 line-through mb-1">
+                            R{voucherApplied ? plan.priceRands : plan.originalPrice}
+                          </span>
+                        )}
+                      </div>
+                      {plan.isLaunchOffer && !voucherApplied && (
+                        <span className="inline-block text-xs font-semibold bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full">
+                          Launch Offer — Save R{plan.originalPrice - plan.priceRands}/mo
+                        </span>
+                      )}
+                      {voucherApplied && (
+                        <span className="inline-block text-xs font-semibold bg-green-50 text-green-600 px-2 py-0.5 rounded-full">
+                          Voucher applied
+                        </span>
+                      )}
+                    </>
+                  )}
+                </div>
+
+                {/* Features */}
+                <ul className="space-y-2 flex-1">
+                  {plan.features.map((f, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      <span
+                        className={`mt-0.5 flex-shrink-0 font-bold ${
+                          f.highlight ? "text-amber-500" : "text-green-500"
+                        }`}
+                      >
+                        ✓
+                      </span>
+                      <span>
+                        <span
+                          className={
+                            f.highlight ? "font-semibold text-gray-800" : "text-gray-700"
+                          }
+                        >
+                          {f.text}
+                        </span>
+                        {f.note && (
+                          <span className="text-gray-400 text-xs ml-1">({f.note})</span>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Per-plan CTA — centred at bottom of card */}
+                <button
+                  onClick={() => { scrollToCard(index); handlePlanCTA(plan); }}
+                  disabled={!!loadingPlan}
+                  className={`w-full py-3 rounded-xl text-sm font-bold transition-colors disabled:opacity-50 mt-2 ${plan.ctaClass}`}
+                >
+                  {isLoading ? "Redirecting…" : plan.ctaLabel}
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Carousel dots — mobile only */}
+      <div className="flex md:hidden justify-center gap-2 mt-4">
+        {visiblePlans.map((plan, i) => (
+          <button
+            key={plan.key}
+            onClick={() => scrollToCard(i)}
+            className="h-2 w-2 rounded-full bg-gray-300 hover:bg-rose-400 transition-colors"
+          />
+        ))}
+      </div>
+
       {error && (
         <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2 text-center mt-4">
           {error}
         </p>
       )}
 
-      {/* Continue button */}
-      <div className="mt-6">
-        <button
-          onClick={handleContinue}
-          disabled={!selectedPlan || loading}
-          className={`w-full py-4 rounded-2xl font-bold text-base transition-all disabled:opacity-40 disabled:cursor-not-allowed
-            ${selectedPlan ? selectedPlan.ctaClass : "bg-gray-200 text-gray-500"}`}
-        >
-          {continueLabel()}
-        </button>
-      </div>
-
-      <p className="text-center text-xs text-gray-400 mt-4">
+      <p className="text-center text-xs text-gray-400 mt-6">
         All plans include CAPS-aligned content · Cancel anytime · Secure payment via PayFast
       </p>
     </div>
