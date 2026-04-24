@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef } from "react";
 import { supabase } from "@/lib/supabase";
 import type { VoucherValidateResponse } from "@/app/api/vouchers/validate/route";
 
@@ -107,10 +107,13 @@ interface PricingPlansProps {
   mode?: "onboarding" | "upgrade";
 }
 
-export default function PricingPlans({ onSelectFree, showHeader = true, mode = "onboarding" }: PricingPlansProps) {
-  const [selected, setSelected] = useState<string | null>(mode === "onboarding" ? "freebie" : null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
+export default function PricingPlans({
+  onSelectFree,
+  showHeader = true,
+  mode = "onboarding",
+}: PricingPlansProps) {
+  const defaultSelected = mode === "onboarding" ? "freebie" : null;
+  const [selected, setSelected] = useState<string | null>(defaultSelected);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [voucherInput, setVoucherInput] = useState("");
@@ -120,23 +123,10 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
     (VoucherValidateResponse & { valid: true; code: string }) | null
   >(null);
 
+  const carouselRef = useRef<HTMLDivElement>(null);
+
   const visiblePlans = mode === "upgrade" ? PLANS.filter((p) => !p.isFree) : PLANS;
   const selectedPlan = visiblePlans.find((p) => p.key === selected) ?? null;
-
-  const handleScroll = useCallback(() => {
-    const container = carouselRef.current;
-    if (!container) return;
-    const center = container.scrollLeft + container.offsetWidth / 2;
-    let closest = 0;
-    let minDist = Infinity;
-    Array.from(container.children).forEach((child, i) => {
-      const el = child as HTMLElement;
-      const dist = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
-      if (dist < minDist) { minDist = dist; closest = i; }
-    });
-    setActiveIndex(closest);
-    setSelected(visiblePlans[closest]?.key ?? null);
-  }, [visiblePlans]);
 
   function effectivePrice(plan: PricingPlan): number {
     if (plan.isFree) return 0;
@@ -154,6 +144,20 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
     return Math.max(0, Math.round(discounted * 100) / 100);
   }
 
+  function selectPlan(key: string, index: number) {
+    setSelected(key);
+    // Scroll the tapped card into view on mobile
+    const container = carouselRef.current;
+    if (!container) return;
+    const card = container.children[index] as HTMLElement | undefined;
+    if (card) {
+      container.scrollTo({
+        left: card.offsetLeft - (container.offsetWidth - card.offsetWidth) / 2,
+        behavior: "smooth",
+      });
+    }
+  }
+
   async function applyVoucher() {
     const code = voucherInput.trim().toUpperCase();
     if (!code) return;
@@ -161,7 +165,9 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
     setVoucherError(null);
     setAppliedVoucher(null);
     try {
-      const res = await fetch(`/api/vouchers/validate?code=${encodeURIComponent(code)}&plan=scholar`);
+      const res = await fetch(
+        `/api/vouchers/validate?code=${encodeURIComponent(code)}&plan=scholar`
+      );
       const data: VoucherValidateResponse = await res.json();
       if (!data.valid) {
         setVoucherError(data.error);
@@ -183,21 +189,37 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
 
   async function handleContinue() {
     if (!selectedPlan) return;
+
     if (selectedPlan.isFree) {
       onSelectFree?.();
       return;
     }
+
     setLoading(true);
     setError(null);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) { setError("Session expired. Please refresh."); return; }
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (!session) {
+        setError("Session expired. Please refresh.");
+        return;
+      }
       const res = await fetch("/api/payfast/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
-        body: JSON.stringify({ plan: selectedPlan.key, ...(appliedVoucher ? { voucherCode: appliedVoucher.code } : {}) }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({
+          plan: selectedPlan.key,
+          ...(appliedVoucher ? { voucherCode: appliedVoucher.code } : {}),
+        }),
       });
-      if (!res.ok) { setError("Could not start checkout. Please try again."); return; }
+      if (!res.ok) {
+        setError("Could not start checkout. Please try again.");
+        return;
+      }
       const { url, params } = await res.json();
       const form = document.createElement("form");
       form.method = "POST";
@@ -218,11 +240,12 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
     }
   }
 
-  function ctaLabel(): string {
+  function continueLabel(): string {
     if (!selectedPlan) return "Select a plan to continue";
+    if (loading) return "Redirecting to payment…";
     if (selectedPlan.isFree) return "Continue with Freebie — it's free";
     const price = effectivePrice(selectedPlan);
-    return loading ? "Redirecting to payment…" : `Continue with ${selectedPlan.name} — R${price}/mo`;
+    return `Continue with ${selectedPlan.name} — R${price}/mo`;
   }
 
   return (
@@ -239,53 +262,61 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
         </div>
       )}
 
-      {/* Plan cards — carousel on mobile, grid on desktop */}
+      {/* Cards — horizontal scroll on mobile, grid on desktop */}
       <div
         ref={carouselRef}
-        onScroll={handleScroll}
         className={`
           flex md:grid gap-4 md:gap-5
           overflow-x-auto md:overflow-visible
           snap-x snap-mandatory md:snap-none
           scrollbar-hide -mx-4 md:mx-0 px-4 md:px-0 pb-2 md:pb-0
+          md:items-center
           ${mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}
         `}
       >
-        {visiblePlans.map((plan) => {
+        {visiblePlans.map((plan, index) => {
           const isSelected = selected === plan.key;
           const final = effectivePrice(plan);
-          const voucherApplied = !plan.isFree && appliedVoucher && final < plan.priceRands;
+          const voucherApplied = !plan.isFree && !!appliedVoucher && final < plan.priceRands;
 
           return (
             <div
               key={plan.key}
-              onClick={() => setSelected(plan.key)}
-              className={`relative border-2 rounded-2xl bg-white flex flex-col cursor-pointer transition-all duration-150 select-none
-                flex-shrink-0 w-[82vw] md:w-auto snap-center md:snap-align-none
-                ${isSelected ? plan.selectedRingClass + " shadow-lg" : plan.idleRingClass + " opacity-70 hover:opacity-100 hover:shadow-md"}`}
+              onClick={() => selectPlan(plan.key, index)}
+              className={`
+                relative border-2 rounded-2xl bg-white flex flex-col cursor-pointer
+                transition-all duration-150 select-none
+                flex-shrink-0 w-[82vw] md:w-auto snap-center
+                ${isSelected
+                  ? plan.selectedRingClass + " shadow-lg"
+                  : plan.idleRingClass + " opacity-75 hover:opacity-100 hover:shadow-sm"}
+                ${plan.key === "scholar" ? "md:-mt-2 md:-mb-2" : ""}
+              `}
             >
               {/* Badge */}
               {plan.badge && (
-                <div className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wide whitespace-nowrap ${plan.badgeClass}`}>
+                <div
+                  className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wide whitespace-nowrap ${plan.badgeClass}`}
+                >
                   {plan.badge}
                 </div>
               )}
 
-              {/* Selected checkmark */}
+              {/* Checkmark when selected */}
               {isSelected && (
-                <div className={`absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${plan.checkClass}`}>
+                <div
+                  className={`absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${plan.checkClass}`}
+                >
                   ✓
                 </div>
               )}
 
               <div className="p-6 flex flex-col flex-1 gap-4">
-                {/* Name + subtitle */}
                 <div>
                   <h2 className="text-xl font-extrabold text-[#1a2744]">{plan.name}</h2>
                   <p className="text-xs text-gray-400 font-medium mt-0.5">{plan.subtitle}</p>
                 </div>
 
-                {/* Price */}
                 <div className="space-y-0.5">
                   {plan.isFree ? (
                     <p className="text-3xl font-extrabold text-gray-700">Free</p>
@@ -316,14 +347,23 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
                   )}
                 </div>
 
-                {/* Features */}
                 <ul className="space-y-2 flex-1">
                   {plan.features.map((f, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm">
-                      <span className={`mt-0.5 flex-shrink-0 font-bold ${f.highlight ? "text-amber-500" : "text-green-500"}`}>✓</span>
+                      <span
+                        className={`mt-0.5 flex-shrink-0 font-bold ${
+                          f.highlight ? "text-amber-500" : "text-green-500"
+                        }`}
+                      >
+                        ✓
+                      </span>
                       <span>
-                        <span className={f.highlight ? "font-semibold text-gray-800" : "text-gray-700"}>{f.text}</span>
-                        {f.note && <span className="text-gray-400 text-xs ml-1">({f.note})</span>}
+                        <span className={f.highlight ? "font-semibold text-gray-800" : "text-gray-700"}>
+                          {f.text}
+                        </span>
+                        {f.note && (
+                          <span className="text-gray-400 text-xs ml-1">({f.note})</span>
+                        )}
                       </span>
                     </li>
                   ))}
@@ -334,20 +374,15 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
         })}
       </div>
 
-      {/* Carousel dots — mobile only */}
+      {/* Dot indicators — mobile only */}
       <div className="flex md:hidden justify-center gap-2 mt-4">
         {visiblePlans.map((plan, i) => (
           <button
             key={plan.key}
-            onClick={() => {
-              const container = carouselRef.current;
-              if (!container) return;
-              const card = container.children[i] as HTMLElement;
-              container.scrollTo({ left: card.offsetLeft - (container.offsetWidth - card.offsetWidth) / 2, behavior: "smooth" });
-              setActiveIndex(i);
-              setSelected(plan.key);
-            }}
-            className={`h-2 rounded-full transition-all duration-200 ${i === activeIndex ? "w-6 bg-rose-500" : "w-2 bg-gray-300"}`}
+            onClick={() => selectPlan(plan.key, i)}
+            className={`h-2 rounded-full transition-all duration-200 ${
+              selected === plan.key ? "w-6 bg-rose-500" : "w-2 bg-gray-300"
+            }`}
           />
         ))}
       </div>
@@ -357,13 +392,24 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
         {appliedVoucher ? (
           <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-2xl px-4 py-3">
             <div>
-              <p className="text-sm font-semibold text-green-700">Voucher <span className="font-bold">{appliedVoucher.code}</span> applied</p>
+              <p className="text-sm font-semibold text-green-700">
+                Voucher <span className="font-bold">{appliedVoucher.code}</span> applied
+              </p>
               <p className="text-xs text-green-600">
-                {appliedVoucher.discount_type === "percentage" ? `${appliedVoucher.discount_value}% off` : `R${appliedVoucher.discount_value} off`}
-                {appliedVoucher.applicable_plans.length > 0 ? ` on ${appliedVoucher.applicable_plans.join(", ")}` : " on paid plans"}
+                {appliedVoucher.discount_type === "percentage"
+                  ? `${appliedVoucher.discount_value}% off`
+                  : `R${appliedVoucher.discount_value} off`}
+                {appliedVoucher.applicable_plans.length > 0
+                  ? ` on ${appliedVoucher.applicable_plans.join(", ")}`
+                  : " on paid plans"}
               </p>
             </div>
-            <button onClick={removeVoucher} className="text-green-500 hover:text-green-700 text-xs underline ml-3">Remove</button>
+            <button
+              onClick={removeVoucher}
+              className="text-green-500 hover:text-green-700 text-xs underline ml-3"
+            >
+              Remove
+            </button>
           </div>
         ) : (
           <div className="flex gap-2">
@@ -387,17 +433,21 @@ export default function PricingPlans({ onSelectFree, showHeader = true, mode = "
         {voucherError && <p className="text-xs text-red-500 px-1">{voucherError}</p>}
       </div>
 
-      {error && <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2 text-center mt-4">{error}</p>}
+      {error && (
+        <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2 text-center mt-4">
+          {error}
+        </p>
+      )}
 
-      {/* Single Continue button */}
+      {/* Continue button */}
       <div className="mt-6">
         <button
           onClick={handleContinue}
           disabled={!selectedPlan || loading}
           className={`w-full py-4 rounded-2xl font-bold text-base transition-all disabled:opacity-40 disabled:cursor-not-allowed
-            ${selectedPlan ? selectedPlan.ctaClass : "bg-gray-200 text-gray-400"}`}
+            ${selectedPlan ? selectedPlan.ctaClass : "bg-gray-200 text-gray-500"}`}
         >
-          {ctaLabel()}
+          {continueLabel()}
         </button>
       </div>
 
