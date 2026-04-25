@@ -327,6 +327,11 @@ export default function ReadingSession() {
             content_data: rContent as unknown as Record<string, unknown>,
             generated_at: new Date().toISOString(),
           });
+          void fetch("/api/reports/email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: user.id, subject: "reading", inputData: rInput, contentData: rContent }),
+          });
         }
       } catch (err) {
         console.error("[ReadingPlacement] Report save failed:", err);
