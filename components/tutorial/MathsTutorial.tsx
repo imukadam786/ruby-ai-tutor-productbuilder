@@ -144,19 +144,14 @@ function MockupSkillTree({ isMobile }: { isMobile: boolean }) {
 
 const SLIDES: readonly SlideData[] = [
   {
-    subtitle: "Ruby finds exactly where you are",
-    description: "We start with a short Discovery — Ruby places you at the right level, not too easy, not too hard.",
+    subtitle: "Skip what you already know and focus only on what will move you forward",
+    description: "A short Discovery places you at your exact level so every question is a productive challenge.",
     Mockup: MockupDiscovery,
   },
   {
-    subtitle: "Answer. Get feedback. Level up.",
-    description: "Each question has instant personalised feedback. Ruby explains in your home language what went wrong and why, so you actually understand.",
+    subtitle: "Turn every mistake into a skill you actually understand",
+    description: "Each question has instant personalised feedback. Ruby explains in your home language what went wrong and why, so you don't repeat it.",
     Mockup: MockupFeedback,
-  },
-  {
-    subtitle: "Watch your skills grow",
-    description: "Every skill you master unlocks the next. Your Skill Tree shows exactly where you are and where you're going.",
-    Mockup: MockupSkillTree,
   },
 ];
 

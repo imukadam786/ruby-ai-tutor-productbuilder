@@ -196,23 +196,18 @@ function MockupPrepPapers({ isMobile }: { isMobile: boolean }) {
 
 const SLIDES: readonly SlideData[] = [
   {
-    subtitle: "Real NSC papers. Real Understanding.",
-    description: "Practice over 50 exam papers across all major subjects.",
+    subtitle: "Build real exam confidence by practising on actual NSC papers",
+    description: "Work through past papers across all major subjects — the same papers used in real NSC exams.",
     Mockup: MockupPapers,
   },
   {
-    subtitle: "Work through it. Ruby tutors you.",
+    subtitle: "Understand every question, even the ones that stump you",
     description: "Submit your answer for any question and get personalised feedback in Practice or Guide mode — just like having a tutor in the room.",
     Mockup: MockupTutor,
   },
   {
-    subtitle: "Track your marks as you go",
-    description: "See your score per question and your total as you work through the paper. Know where to focus.",
-    Mockup: MockupMarks,
-  },
-  {
-    subtitle: "Look into the future",
-    description: "We've analysed data to predict what questions will appear in Matric exams for 2026.",
+    subtitle: "Walk into your exam already knowing which topics to focus on",
+    description: "We've analysed 10 years of NSC data to predict what's most likely to appear in your exam.",
     Mockup: MockupPrepPapers,
   },
 ];

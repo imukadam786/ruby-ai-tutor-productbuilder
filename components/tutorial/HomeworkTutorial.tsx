@@ -162,21 +162,21 @@ function MockupMore({ isMobile }: { isMobile: boolean }) {
 
 const SLIDES = [
   {
-    subtitle: "Ask Ruby Anything",
+    subtitle: "Get a clear explanation for any question in seconds",
     description:
-      "Type your homework question or tap + to upload a photo of your worksheet. Ruby will explain it step by step.",
+      "Type your homework question or tap + to upload a photo of your worksheet. Ruby explains it step by step.",
     Mockup: MockupAsk,
   },
   {
-    subtitle: "Get Clear Explanations",
+    subtitle: "Walk away understanding the concept, not just the answer",
     description:
-      "Ruby breaks down every answer clearly. Press Play to hear it read aloud, or tap Hint if you need a nudge without the full answer.",
+      "Ruby breaks down every answer clearly. Press Play to hear it read aloud, or tap Hint for a nudge without the full answer.",
     Mockup: MockupExplain,
   },
   {
-    subtitle: "More Ways to Learn",
+    subtitle: "Learn faster using your voice, your camera, or your keyboard",
     description:
-      "Tap the mic to ask by voice. Use the clear button at the top right to reset the conversation and start a fresh topic.",
+      "Tap the mic to ask by voice. Use the clear button at the top right to reset the conversation and start fresh.",
     Mockup: MockupMore,
   },
 ] as const;

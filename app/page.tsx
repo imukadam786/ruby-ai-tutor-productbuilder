@@ -70,6 +70,16 @@ function PlacementGuardScreen({
   );
 }
 
+// ── Maps each tutorial-eligible nav view to its localStorage seen-key ────────
+const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
+  chat:          "ruby_tut_chat",
+  discover:      "ruby_tut_discover",
+  ruby:          "ruby_tut_maths",
+  reading:       "ruby_tut_reading",
+  "skill-tree":  "ruby_tut_skill_tree",
+  matric:        "ruby_tut_matric",
+};
+
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
 function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView; onPostDiscovery?: () => void }) {
   const { t } = useT();
@@ -84,6 +94,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
+  const [activeTutorial, setActiveTutorial] = useState<ActiveView | null>(null);
 
   const viewLabels: Record<ActiveView, string> = {
     home: t("sidebar.home"),
@@ -179,6 +190,12 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
       void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
     }
 
+    // Show feature tutorial on first visit
+    const tutKey = FEATURE_TUTORIAL_KEYS[view];
+    if (tutKey && !localStorage.getItem(tutKey)) {
+      localStorage.setItem(tutKey, "1");
+      setActiveTutorial(view);
+    }
   };
 
   return (
@@ -248,11 +265,11 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
         {activeView === "chat" && <ChatInterface onMessageSent={() => { chatMessageCountRef.current += 1; if (chatMessageCountRef.current >= 3) incrementSession(); refreshStats(); setChatEngaged(true); }} />}
         {activeView === "progress" && <ProgressTracker />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
-        {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
+        {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
         {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
-        {activeView === "discover-reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
+        {activeView === "discover-reading" && <ErrorBoundary><ReadingSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
@@ -276,6 +293,14 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
           onDismiss={() => { setShowUpgradeModal(false); setUpgradeReason(undefined); }}
         />
       )}
+
+      {/* Contextual feature tutorials — shown first time user visits each feature */}
+      {activeTutorial === "discover"    && <DiscoveryTutorial  onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "ruby"        && <MathsTutorial      onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "reading"     && <ReadingTutorial    onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "chat"        && <HomeworkTutorial   onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "skill-tree"  && <SkillTreeTutorial  onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "matric"      && <MatricTutorial     onComplete={() => setActiveTutorial(null)} />}
 
       <FloatingFeedback />
     </div>
@@ -345,25 +370,16 @@ function DiscoveryPromptScreen({ name, onSelect }: { name: string; onSelect: (su
   );
 }
 
-const TUTORIAL_SEQUENCE = [
-  DiscoveryTutorial,
-  ReadingTutorial,
-  MathsTutorial,
-  HomeworkTutorial,
-  SkillTreeTutorial,
-  MatricTutorial,
-] as const;
-
-// ── Tutorial welcome screen — shown once before the feature walkthrough ────────
+// ── Tutorial welcome screen — shown once after onboarding + discovery ─────────
 function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSkip: () => void }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
         <h1 className="text-2xl font-bold text-[#1a2744]">
-          Let&apos;s show you around 👋
+          Let&apos;s show you what Ruby can do for you
         </h1>
         <p className="text-gray-500 text-base leading-relaxed">
-          A quick tour of everything Ruby can do for you — Homework help, Maths, Reading, Past Papers, and more.
+          As you explore each feature for the first time, Ruby will give you a quick tip to help you get the most out of it.
         </p>
         <div className="flex justify-center">
           <img
@@ -376,7 +392,7 @@ function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSki
           onClick={onStart}
           className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg transition-colors shadow-md"
         >
-          Start Tutorial 🚀
+          Let&apos;s go 🚀
         </button>
         <button
           onClick={onSkip}
@@ -391,9 +407,8 @@ function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSki
 
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "discovery-prompt" | "tutorial-welcome" | "tutorial" | "app" | "trial-expired">("loading");
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "discovery-prompt" | "tutorial-welcome" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
-  const [tutorialStep, setTutorialStep] = useState(0);
   const [pendingDiscovery, setPendingDiscovery] = useState<"maths" | "reading" | null>(null);
 
   useEffect(() => {
@@ -413,8 +428,8 @@ export default function Home() {
         if (urlParams.get("payment") === "success") {
           const pendingAfterPayment = localStorage.getItem("ruby_pending_step");
           if (pendingAfterPayment === "plan-selection" || pendingAfterPayment === "tutorial") {
-            localStorage.setItem("ruby_pending_step", "tutorial");
-            setAppState("tutorial");
+            localStorage.removeItem("ruby_pending_step");
+            setAppState("tutorial-welcome");
           } else {
             setAppState("app");
           }
@@ -445,8 +460,6 @@ export default function Home() {
           const pendingStep = localStorage.getItem("ruby_pending_step");
           if (pendingStep === "plan-selection") {
             setAppState("plan-selection");
-          } else if (pendingStep === "tutorial") {
-            setAppState("tutorial");
           } else {
             setAppState("app");
           }
@@ -487,7 +500,7 @@ export default function Home() {
         name={welcomeName}
         onSelect={(subject) => {
           setPendingDiscovery(subject);
-          setAppState("welcome");
+          setAppState("app");
         }}
       />
     );
@@ -511,7 +524,7 @@ export default function Home() {
             mode="onboarding"
             showHeader
             onSelectFree={() => {
-              localStorage.setItem("ruby_pending_step", "tutorial");
+              localStorage.removeItem("ruby_pending_step");
               setAppState("tutorial-welcome");
             }}
           />
@@ -523,41 +536,9 @@ export default function Home() {
   if (appState === "tutorial-welcome") {
     return (
       <TutorialWelcomeScreen
-        onStart={() => setAppState("tutorial")}
-        onSkip={() => {
-          localStorage.removeItem("ruby_pending_step");
-          setAppState("app");
-        }}
+        onStart={() => setAppState("app")}
+        onSkip={() => setAppState("app")}
       />
-    );
-  }
-
-  if (appState === "tutorial") {
-    // Ensure localStorage is always set while the tutorial is active so any
-    // refresh lands back here rather than skipping to app.
-    localStorage.setItem("ruby_pending_step", "tutorial");
-    const TutorialComponent = TUTORIAL_SEQUENCE[tutorialStep];
-    const isLast = tutorialStep === TUTORIAL_SEQUENCE.length - 1;
-    return (
-      <LanguageProvider>
-        {/* HomeScreen shown as non-interactive background */}
-        <div className="relative h-dvh overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-            <HomeScreen onNavigate={() => {}} />
-          </div>
-          <TutorialComponent
-            onComplete={() => {
-              if (isLast) {
-                localStorage.removeItem("ruby_pending_step");
-                setPendingDiscovery(null);
-                setAppState("app");
-              } else {
-                setTutorialStep((s) => s + 1);
-              }
-            }}
-          />
-        </div>
-      </LanguageProvider>
     );
   }
 
@@ -572,7 +553,7 @@ export default function Home() {
           initialView={discoveryView}
           onPostDiscovery={() => {
             setPendingDiscovery(null);
-            setAppState("tutorial-welcome");
+            setAppState("plan-selection");
           }}
         />
       </LanguageProvider>

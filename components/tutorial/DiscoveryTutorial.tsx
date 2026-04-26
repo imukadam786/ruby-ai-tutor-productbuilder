@@ -106,13 +106,13 @@ function MockupReport({ isMobile }: { isMobile: boolean }) {
 
 const SLIDES: readonly SlideData[] = [
   {
-    subtitle: "Ruby finds exactly where you are",
-    description: "We start with a short Discovery Activity — Ruby places you at the right level, not too easy, not too hard.",
+    subtitle: "Find your exact level in under 5 minutes",
+    description: "Answer a few short questions and Ruby pinpoints exactly where you are — not too easy, not too hard.",
     Mockup: MockupDiscovery,
   },
   {
-    subtitle: "Your personalised Discovery Report",
-    description: "After the Discovery, Ruby generates a full report showing your working level, strengths, and where to start — tailored to you.",
+    subtitle: "See every gap and strength you have, in one clear report",
+    description: "Ruby generates your personal Discovery Report — showing your level, what you're strong at, and where to start.",
     Mockup: MockupReport,
   },
 ];

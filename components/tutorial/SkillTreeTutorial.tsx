@@ -111,14 +111,9 @@ function MockupUnlock({ isMobile }: { isMobile: boolean }) {
 
 const SLIDES: readonly SlideData[] = [
   {
-    subtitle: "Your personal learning map",
-    description: "Every circle is a skill. Green means mastered, yellow means in progress, grey means locked — for now.",
+    subtitle: "See every skill you've mastered and what you're ready to unlock next",
+    description: "Every skill is shown on your personal map — green for mastered, orange for in progress, grey for locked.",
     Mockup: MockupMap,
-  },
-  {
-    subtitle: "Skills unlock in order",
-    description: "Ruby builds on what you know. Master one skill and the next one opens up automatically.",
-    Mockup: MockupUnlock,
   },
 ];
 
