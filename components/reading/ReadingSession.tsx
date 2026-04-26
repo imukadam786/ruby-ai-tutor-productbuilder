@@ -131,7 +131,7 @@ async function readOnboardingWithFallback(): Promise<{ name: string; grade: numb
   return { name: "Student", grade: 3 };
 }
 
-export default function ReadingSession() {
+export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => void }) {
   const { language } = useT();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<ReadingStudentProfile | null>(null);
@@ -679,7 +679,13 @@ export default function ReadingSession() {
       return (
         <DiagnosticReportView
           input={reportInput}
+          ctaLabel={onSelectPlan ? "Select Your Plan →" : "Start Learning 🚀"}
           onStartLearning={() => {
+            if (onSelectPlan) {
+              handlePlacementComplete(pendingPlacementResult);
+              onSelectPlan();
+              return;
+            }
             setShowReport(false);
             handlePlacementComplete(pendingPlacementResult);
           }}

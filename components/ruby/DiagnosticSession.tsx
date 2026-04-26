@@ -127,7 +127,7 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
 }
 
 
-export default function DiagnosticSession() {
+export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () => void }) {
   const { language } = useT();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<StudentProfile | null>(null);
@@ -655,7 +655,13 @@ export default function DiagnosticSession() {
       return (
         <DiagnosticReportView
           input={reportInput}
+          ctaLabel={onSelectPlan ? "Select Your Plan →" : "Start Learning 🚀"}
           onStartLearning={() => {
+            if (onSelectPlan) {
+              handlePlacementComplete(pendingPlacementResult);
+              onSelectPlan();
+              return;
+            }
             setShowReport(false);
             handlePlacementComplete(pendingPlacementResult);
           }}
