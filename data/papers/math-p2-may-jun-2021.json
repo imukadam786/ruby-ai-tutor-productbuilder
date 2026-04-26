@@ -23,7 +23,8 @@
           "questionText": "The data below shows the number of megabytes (MB) used by 11 learners on a particular day:\n\n15 ; 8 ; 32 ; 14 ; 25 ; 18 ; 42 ; 5 ; 19 ; 28 ; 44\n\nCalculate the mean of the data.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Sum = 15+8+32+14+25+18+42+5+19+28+44 = 250... wait, mean = 25 MB so sum = 275\nMark 2: Mean = 275/11 = 25 MB",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-1-2",
@@ -31,7 +32,8 @@
           "questionText": "Calculate the standard deviation of the data.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Correct deviations from mean calculated\nMark 2: σ = 17.65 (accept 17.6–17.7)",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-1-3",
@@ -39,7 +41,8 @@
           "questionText": "How many learners used data within one standard deviation of the mean?",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Range = (25−17.65; 25+17.65) = (7.35; 42.65)\nMark 2: Learners in range: 15,8(no),32,14(no),25,18,42,5(no),19,28,44(no) — values in range: 15,32,25,18,42,19,28 = but 8<7.35, 5<7.35, 14<7.35? 14>7.35 so 14 is in. 44>42.65 so not in. 8<7.35 not in. 5<7.35 not in.\nValues in (7.35; 42.65): 15,32,14,25,18,42,19,28 = 8... memo says 2 days... wait that seems too few.\nMemo says 2 days. Perhaps standard deviation is very large and the question context is different (wind data). Going with memo: 2 learners",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-1-4",
@@ -47,7 +50,8 @@
           "questionText": "Determine the maximum data usage for a learner to be in the top 25% of data users.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Top 25% means Q3 or upper quartile\nMark 2: Q3 = 225 MB (from the data context — noting dataset may be different from above)",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-1-5",
@@ -55,7 +59,8 @@
           "questionText": "The table below shows the wind speed (km/h) and temperature (°C) for a town over 8 days. Determine the equation of the least squares regression line for predicting temperature from wind speed.",
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1: Calculate x̄ (mean wind speed) and ȳ (mean temperature)\nMark 2: Calculate b = Σ(x−x̄)(y−ȳ) / Σ(x−x̄)² = −0.46\nMark 3: a = ȳ − bx̄ = 29.35\nMark 4: ŷ = 29.35 − 0.46x",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-1-6",
@@ -63,7 +68,8 @@
           "questionText": "Predict the temperature on a day when the wind speed is 9 km/h.",
           "marks": 1,
           "memoText": "Mark scheme (1 mark):\nMark 1: ŷ = 29.35 − 0.46(9) = 29.35 − 4.14 = 25.21°C",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-1-7",
@@ -71,7 +77,8 @@
           "questionText": "Comment on the relationship between wind speed and temperature based on the regression coefficient.",
           "marks": 1,
           "memoText": "Mark scheme (1 mark):\nMark 1: b = −0.46 < 0, so as wind speed increases, temperature decreases (negative/indirect relationship)",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         }
       ]
     },
@@ -87,7 +94,8 @@
           "questionText": "The data represents the number of days absent for learners. Write down the modal class.",
           "marks": 1,
           "memoText": "Mark scheme (1 mark):\nMark 1: Modal class = 10 ≤ x < 15 (highest frequency)",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-2-2",
@@ -95,7 +103,8 @@
           "questionText": "How many learners were absent for fewer than 20 days?",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Read cumulative frequency at x = 20 from ogive\nMark 2: 177 learners",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-2-3",
@@ -103,7 +112,8 @@
           "questionText": "How many learners are represented in the ogive?",
           "marks": 1,
           "memoText": "Mark scheme (1 mark):\nMark 1: Read the maximum cumulative frequency = 230 learners",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-2-4",
@@ -111,7 +121,8 @@
           "questionText": "Use the ogive to estimate the median number of days absent.",
           "marks": 3,
           "memoText": "Mark scheme (3 marks):\nMark 1: Median position = 230/2 = 115\nMark 2: Read x-value at cumulative frequency = 115 on the ogive\nMark 3: Median ≈ 12 days (accept 11.5–12.5)",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         },
         {
           "id": "p2-21-2-5",
@@ -119,7 +130,8 @@
           "questionText": "Is the data positively or negatively skewed? Give a reason.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Compare mean and median (or shape of ogive)\nMark 2: Positively skewed — the tail extends to the right / mean > median",
-          "topic": "Statistics"
+          "topic": "Statistics",
+          "type": "written"
         }
       ]
     },
@@ -135,7 +147,8 @@
           "questionText": "S(0; −16), Q(4; −8) and N(8; 0) are three points. Determine the coordinates of M, the midpoint of SN.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Midpoint formula M = ((0+8)/2; (−16+0)/2)\nMark 2: M = (4; −8) — but this equals Q! So M = (4;−8) = Q",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-3-2",
@@ -143,7 +156,8 @@
           "questionText": "Show that the gradient of NS is 2.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: m_NS = (0−(−16))/(8−0) = 16/8\nMark 2: = 2 ✓",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-3-3",
@@ -151,7 +165,8 @@
           "questionText": "Given that S, Q, N lie on a circle with equation x² + y² = r². Determine r.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Substitute N(8;0): 8²+0² = 64 ⟹ r² = 64... but memo says r²=256\nTry S(0;−16): 0+(−16)²=256. So r²=256, r=16\nMark 2: r = 16, equation x²+y² = 256",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-3-4",
@@ -159,7 +174,8 @@
           "questionText": "T is the y-intercept (other than S) of the circle. Write down the coordinates of T.",
           "marks": 1,
           "memoText": "Mark scheme (1 mark):\nMark 1: At x=0: y²=256 ⟹ y=±16. T=(0;16)? But memo says T=(0;−1).\nPerhaps the circle is not centred at origin. Let me re-read: if S(0;−16) is on the circle with equation x²+y²=r² (centred at origin), then r=16 and T=(0;16). Memo says T=(0;−1) which suggests a different circle. Trusting memo context: T = (0; −1)",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-3-5",
@@ -167,7 +183,8 @@
           "questionText": "Determine the ratio LS:RS where L and R are specific points on the diagram.",
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1–2: Set up ratio using section formula or similar triangles\nMark 3: LS/RS = 2/3\nMark 4: Therefore LS:RS = 2:3",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-3-6",
@@ -175,7 +192,8 @@
           "questionText": "Calculate the area of the relevant triangle formed by S, Q, N and T.",
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1–2: Area formula for triangle\nMark 3: Correct substitution\nMark 4: Area = 25 square units",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-3-7",
@@ -183,7 +201,8 @@
           "questionText": "Determine the equation of the tangent to the circle at N(8;0).",
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1: radius ON has gradient = (0−0)/(8−0) = 0 (horizontal)\nMark 2: Tangent ⊥ radius ⟹ tangent is vertical: x = 8\nMark 3–4: Equation: x = 8",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         }
       ]
     },
@@ -199,7 +218,8 @@
           "questionText": "The centre of a circle is P(−3; 4). The circle passes through Q(−3; −2). Determine the value of k, where another point on the circle is (k; 0).",
           "marks": 3,
           "memoText": "Mark scheme (3 marks):\nMark 1: r² = PQ² = (−3+3)²+(4+2)² = 0+36 = 36; r = 6... but memo says k = −2\nMark 2: At y=0, x-intercept: (x+3)²+(0−4)²=36 ⟹ (x+3)²=20 ⟹ x+3=±√20 ⟹ x=−3±2√5 ≈ −3±4.47\nSo x ≈ 1.47 or x ≈ −7.47. Memo: k=−2. Perhaps circle equation differs.\nAlternatively: if r²=(−3−k)²+(4−0)²=(−3+3)²+(4+2)²=36 ⟹ (k+3)²+16=36 ⟹ (k+3)²=20 ⟹ k=−3±2√5. Not −2.\nTrusting memo: k = −2",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-4-2",
@@ -207,7 +227,8 @@
           "questionText": "Calculate the length BC, where B and C are points on the circle defined in the question.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Use distance formula\nMark 2: BC = 2",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-4-3",
@@ -215,7 +236,8 @@
           "questionText": "Calculate α, the angle that the line makes with the positive x-axis.",
           "marks": 3,
           "memoText": "Mark scheme (3 marks):\nMark 1: Find gradient of relevant line\nMark 2: tan α = 1\nMark 3: α = 45°",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-4-4",
@@ -223,7 +245,8 @@
           "questionText": "Calculate VŴB, the angle at W in the figure.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Apply inscribed angle theorem or tangent-chord angle\nMark 2: VŴB = 45°",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-4-5",
@@ -231,7 +254,8 @@
           "questionText": "Write down the coordinates of Q, a point on the circle.",
           "marks": 1,
           "memoText": "Mark scheme (1 mark):\nMark 1: Q = (−3; −2)",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-4-6",
@@ -239,7 +263,8 @@
           "questionText": "Determine the equation of the circle with centre P(−3; 4) passing through Q(−3; −2).",
           "marks": 3,
           "memoText": "Mark scheme (3 marks):\nMark 1: r² = (−3+3)²+(4+2)² = 36\nMark 2: (x+3)²+(y−4)²=36... but memo says (x+3)²+(y+2)²=10\nRe-check with different centre: if centre is (−3;−2) (i.e. P=Q in memo's context) and r²=10, then equation is (x+3)²+(y+2)²=10. Going with memo.\nMark 3: (x+3)²+(y+2)²=10",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-4-7",
@@ -247,7 +272,8 @@
           "questionText": "Determine the x-coordinates where the circle intersects the x-axis.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Set y=0 in circle equation: (x+3)²+4=10 ⟹ (x+3)²=6 ⟹ x=−3±√6... memo says x=−2 or x=−4\nIf (x+3)²+(0+2)²=10 ⟹ (x+3)²=6 ⟹ not integers. Alternatively (x+3)²+(y+2)²=10 at y=0: same.\nFor x=−2: (1)²+(2)²=1+4=5≠10. For (x+3)²=6: x=−3±√6≈−0.55 or −5.45.\nMemo: x=−2 or x=−4. Going with memo.\nMark 2: x = −2 or x = −4",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-4-8",
@@ -255,7 +281,8 @@
           "questionText": "Determine the equation of the tangent to the circle at Q.",
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1: Gradient of radius to Q\nMark 2: Tangent ⊥ radius\nMark 3: Equation of tangent\nMark 4: Final equation in correct form",
-          "topic": "Analytical Geometry"
+          "topic": "Analytical Geometry",
+          "type": "written"
         }
       ]
     },
@@ -270,7 +297,8 @@
           "questionText": "Simplify the following expression to a single trigonometric ratio:\n\n$$\\frac{\\cos(90° + x) \\cdot \\tan(360° - x)}{\\sin(180° + x) \\cdot \\cos(-x)}$$",
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1: cos(90°+x) = −sin x\nMark 2: tan(360°−x) = −tan x = −sin x/cos x\nMark 3: sin(180°+x) = −sin x; cos(−x) = cos x\nMark 4: Expression = (−sinx)(−sinx/cosx)/[(−sinx)(cosx)] = sin²x/cosx ÷ (−sinx·cosx) = −sinx/cos²x = −tanx/cosx... Let me redo:\n= [(−sinx)(−sinx/cosx)] / [(−sinx)(cosx)]\n= [sin²x/cosx] / [−sinx·cosx]\n= sin²x / (cosx · (−sinx·cosx))\n= −sinx/cos²x\n= −tanx·secx\nActual simplified form: the answer simplifies to 1 (or to a clean ratio). Trusting that the simplification yields a neat answer.",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         },
         {
           "id": "p2-21-5-2",
@@ -278,7 +306,8 @@
           "questionText": "Given that cos 35° = m, express the following in terms of m:\n\n$\\sin 55° + \\cos 215°$",
           "marks": 3,
           "memoText": "Mark scheme (3 marks):\nMark 1: sin 55° = cos 35° = m\nMark 2: cos 215° = cos(180°+35°) = −cos 35° = −m\nMark 3: sin 55° + cos 215° = m + (−m) = 0",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         },
         {
           "id": "p2-21-5-3",
@@ -286,7 +315,8 @@
           "questionText": "Determine the general solution of:\n\n$2\\sin^2 x - 3\\cos x = 0$",
           "marks": 5,
           "memoText": "Mark scheme (5 marks):\nMark 1: Use sin²x = 1−cos²x: 2(1−cos²x)−3cosx=0\nMark 2: 2−2cos²x−3cosx=0 ⟹ 2cos²x+3cosx−2=0\nMark 3: (2cosx−1)(cosx+2)=0 ⟹ cosx=½ or cosx=−2 (rejected)\nMark 4: cosx=½ ⟹ x=60°+k·360° or x=−60°+k·360°\nMark 5: General solution: x = ±60° + k·360°, k∈ℤ",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         },
         {
           "id": "p2-21-5-4",
@@ -294,7 +324,8 @@
           "questionText": "Prove the identity:\n\n$$\\frac{1 - \\sin 2x}{\\cos 2x} = \\frac{1 - \\tan x}{1 + \\tan x}$$",
           "marks": 6,
           "memoText": "Mark scheme (6 marks):\nMark 1: LHS: 1−sin2x = 1−2sinxcosx; cos2x = cos²x−sin²x = (cosx−sinx)(cosx+sinx)\nMark 2: 1−sin2x = sin²x+cos²x−2sinxcosx = (cosx−sinx)²\nMark 3: LHS = (cosx−sinx)²/[(cosx−sinx)(cosx+sinx)] = (cosx−sinx)/(cosx+sinx)\nMark 4: RHS: divide numerator and denominator by cosx: (1−tanx)/(1+tanx)\nMark 5: = (cosx−sinx)/(cosx+sinx)\nMark 6: LHS = RHS ✓",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         }
       ]
     },
@@ -310,7 +341,8 @@
           "questionText": "Sketch the graphs of $f(x) = \\cos 2x$ and $g(x) = -\\sin x$ for $x \\in [-180°; 180°]$ on the same set of axes. Show all intercepts, turning points, and endpoints.",
           "marks": 6,
           "memoText": "Mark scheme (6 marks):\nMark 1: f(x)=cos2x: amplitude=1, period=180°; key points: (0°;1), (45°;0), (90°;−1), (135°;0), (180°;1), (−45°;0), (−90°;−1), (−135°;0), (−180°;1)\nMark 2: g(x)=−sinx: amplitude=1, period=360°; key points: (0°;0), (90°;−1), (180°;0), (−90°;1), (−180°;0)\nMark 3: Correct shapes for both\nMark 4: All x-intercepts correct\nMark 5: All turning points correct\nMark 6: Endpoints correctly marked",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         },
         {
           "id": "p2-21-6-2",
@@ -318,7 +350,8 @@
           "questionText": "Write down the period of $f(x) = \\cos 2x$.",
           "marks": 1,
           "memoText": "Mark scheme (1 mark):\nMark 1: Period = 180°",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         },
         {
           "id": "p2-21-6-3",
@@ -326,7 +359,8 @@
           "questionText": "Determine the values of x in [−180°; 180°] for which $f(x) > g(x)$.",
           "marks": 3,
           "memoText": "Mark scheme (3 marks):\nMark 1: Find intersection points of f and g\nMark 2: cos2x = −sinx ⟹ 1−2sin²x = −sinx ⟹ 2sin²x−sinx−1=0 ⟹ (2sinx+1)(sinx−1)=0\nMark 3: sinx=−½ (x=−30°,−150°) or sinx=1 (x=90°); from graph determine intervals where f>g",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         },
         {
           "id": "p2-21-6-4",
@@ -334,7 +368,8 @@
           "questionText": "Describe the transformation that maps $f$ onto $h$, where $h(x) = \\cos 2x - 1$.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: h(x) = f(x) − 1\nMark 2: Translation 1 unit downward (vertical shift of 1 unit down)",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         },
         {
           "id": "p2-21-6-5",
@@ -342,7 +377,8 @@
           "questionText": "Write down the range of $h(x) = \\cos 2x - 1$.",
           "marks": 1,
           "memoText": "Mark scheme (1 mark):\nMark 1: Range of h = [−2; 0]",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         }
       ]
     },
@@ -358,7 +394,8 @@
           "questionText": "In the figure, DC = BC and angle DBC = 2x. Prove that DC = BC/(4cos²x).",
           "marks": 5,
           "memoText": "Mark scheme (5 marks):\nMark 1: In triangle DBC, apply sine rule: DC/sin(DBC) = BC/sin(BDC)\nMark 2: angle BDC = 90°−x (or relevant angle derivation)\nMark 3: DC = BC·sin(DBC)/sin(BDC)\nMark 4: Substitute and simplify using double angle formula\nMark 5: DC = BC/(4cos²x) ✓",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         },
         {
           "id": "p2-21-7-2",
@@ -366,7 +403,8 @@
           "questionText": "Calculate the value of DC if BC = 12 cm and x = 30°.",
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1: Substitute BC=12 and x=30° into DC=BC/(4cos²x)\nMark 2: cos30°=√3/2; cos²30°=3/4\nMark 3: DC=12/(4·3/4)=12/3\nMark 4: DC=4 cm",
-          "topic": "Trigonometry"
+          "topic": "Trigonometry",
+          "type": "written"
         }
       ]
     },
@@ -382,7 +420,8 @@
           "questionText": "O is the centre of the circle. R̂₂ = 21°. Calculate Ô₁.",
           "marks": 3,
           "memoText": "Mark scheme (3 marks):\nMark 1: R̂₂ = 21° is an inscribed angle subtending arc\nMark 2: Central angle = 2 × inscribed angle\nMark 3: Ô₁ = 2 × 21° = 42°... but memo says Ô₁ = 138°. So Ô₁ is the reflex or the other central angle.\nMark 3: Ô₁ = 180°−42°=138°... or reflex angle. Trusting memo: Ô₁ = 138°",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-8-1-2",
@@ -390,7 +429,8 @@
           "questionText": "Calculate M̂₁.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Identify relevant theorem (tangent-chord or inscribed angle)\nMark 2: M̂₁ = 21°",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-8-1-3",
@@ -398,7 +438,8 @@
           "questionText": "Calculate M̂₂.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: Apply relevant theorem\nMark 2: M̂₂ = 48°",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-8-2-1",
@@ -407,7 +448,8 @@
           "marks": 4,
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-may-jun-2021_q8.png",
           "memoText": "Mark scheme (4 marks):\nMark 1–2: Set up equations using circle theorems\nMark 3: Solve for x\nMark 4: x = 20°",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-8-2-2",
@@ -416,7 +458,8 @@
           "marks": 5,
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-may-jun-2021_q8.png",
           "memoText": "Mark scheme (5 marks):\nMark 1: Calculate relevant angles using x=20°\nMark 2: Show that opposite angles are supplementary OR that an exterior angle equals the non-adjacent interior angle\nMark 3–4: Show all working\nMark 5: Conclude the quadrilateral is cyclic with reason",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         }
       ]
     },
@@ -432,7 +475,8 @@
           "questionText": "In the diagram, prove that triangle ABE ||| triangle ACD.",
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1: Â is common to both triangles\nMark 2: AÊB = AĈD (corresponding angles — from parallel lines or cyclic quad)\nMark 3: AB̂E = AĈD or third pair of angles equal\nMark 4: ΔABE ||| ΔACD (AA)",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-9-1-2",
@@ -440,7 +484,8 @@
           "questionText": "Hence prove that AB · AD = AE · AC.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1: From similarity: AB/AE = AC/AD (corresponding sides in proportion)\nMark 2: Cross-multiply: AB·AD = AE·AC ✓",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-9-2-1",
@@ -449,7 +494,8 @@
           "marks": 4,
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-may-jun-2021_q9.2.png",
           "memoText": "Mark scheme (4 marks):\nMark 1: Identify angles in the figure\nMark 2: Show that alternate or corresponding angles are equal\nMark 3: Apply relevant theorem\nMark 4: Conclude MN ∥ PQ with reason",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-9-2-2",
@@ -458,7 +504,8 @@
           "marks": 4,
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-may-jun-2021_q9.2.png",
           "memoText": "Mark scheme (4 marks):\nMark 1: Show the angle between MN and the chord = angle in alternate segment\nMark 2: Apply tangent-chord angle theorem (converse)\nMark 3: Use result from 9.2.1 (MN ∥ PQ)\nMark 4: Conclude MN is a tangent",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-9-2-3",
@@ -467,7 +514,8 @@
           "marks": 3,
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-may-jun-2021_q9.2.png",
           "memoText": "Mark scheme (3 marks):\nMark 1: Identify similar triangles (OMB and AMO or equivalent)\nMark 2: OM/AM = MB/OM (corresponding sides)\nMark 3: OM² = AM·MB ✓",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         }
       ]
     },
@@ -483,7 +531,8 @@
           "questionText": "State the proportionality theorem (Basic Proportionality Theorem / Midpoint Theorem variant) used in the proof below.",
           "marks": 1,
           "memoText": "Mark scheme (1 mark):\nMark 1: If a line is drawn parallel to one side of a triangle, it divides the other two sides proportionally.",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-10-2",
@@ -491,7 +540,8 @@
           "questionText": "Prove the theorem: If a line is drawn parallel to one side of a triangle, it divides the other two sides in equal proportions.",
           "marks": 6,
           "memoText": "Mark scheme (6 marks):\nMark 1: Draw height h₁ from D to AB and height h₂ from E to AB\nMark 2: Area ΔADE = ½·AD·h₁; Area ΔBDE = ½·BD·h₁\nMark 3: Area ΔADE/Area ΔBDE = AD/BD\nMark 4: Area ΔADE = ½·AE·h₂; Area ΔCDE = ½·CE·h₂\nMark 5: Area ΔADE/Area ΔCDE = AE/CE\nMark 6: ΔBDE and ΔCDE have same base DE and equal heights (DE ∥ BC) ⟹ areas equal ⟹ AD/BD = AE/CE ✓",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         },
         {
           "id": "p2-21-10-3",
@@ -499,7 +549,8 @@
           "questionText": "In the diagram, use the theorem to calculate the radius of the circle.",
           "marks": 8,
           "memoText": "Mark scheme (8 marks):\nMark 1–4: Set up proportional equation using parallel lines and the given lengths\nMark 5–7: Solve algebraically\nMark 8: Radius = 98/3 units",
-          "topic": "Euclidean Geometry"
+          "topic": "Euclidean Geometry",
+          "type": "written"
         }
       ]
     }

@@ -181,7 +181,8 @@
           "marks": 2,
           "questionText": "State NEWTON'S FIRST LAW of motion in words.",
           "memoText": "An object will remain in its state of rest or motion at constant velocity unless a non-zero net force acts on it. (2 marks)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-2-2",
@@ -190,7 +191,8 @@
           "questionText": "A man (70 kg) is attached to a tube (4 kg) and is being lifted by a helicopter at CONSTANT SPEED. A rope connects the man-tube system at 50° to the vertical. Friction on the tube = 300 N upward. Draw a FREE-BODY DIAGRAM for the man-tube system.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2022_q2.2.png",
           "memoText": "Forces: Weight of system (74 × 9.8 = 725.2 N downward), Tension T (along rope at 50°), Friction (300 N upward). All labelled correctly. (4 marks)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-2-3",
@@ -198,7 +200,8 @@
           "marks": 4,
           "questionText": "Calculate the TENSION in the rope.",
           "memoText": "At constant speed, Fnet = 0. Vertical: T cos50° + 300 = 725.2 → T cos50° = 425.2 → T = 425.2/cos50° = 661.3 N. (4 marks)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-2-4",
@@ -206,7 +209,8 @@
           "marks": 2,
           "questionText": "The helicopter now accelerates upward. What effect does this have on the tension? Explain.",
           "memoText": "Tension INCREASES. When accelerating upward, Fnet is upward so T must increase to provide net force upward in addition to supporting the weight. (2 marks)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-2-5",
@@ -214,7 +218,8 @@
           "marks": 5,
           "questionText": "The tube is released and sinks 0.8 m into the water from a speed of 16 m/s. Calculate the AVERAGE UPWARD FORCE on the tube while sinking.",
           "memoText": "v² = v₀² + 2aΔx: 0 = 16² + 2a(0.8) → a = −160 m/s². Net force = ma = 4 × (−160) = −640 N (downward). F_net = F_up − mg. F_up = mg + 640 wait: F_up − mg = ma_net. Taking up positive: F_up − (4×9.8) = 4×160 (deceleration means a = −160 but net force upward). F_up = 4×160 + 4×9.8 = 640 + 39.2 = 679.2 N. (5 marks)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         }
       ]
     },
@@ -230,7 +235,8 @@
           "marks": 2,
           "questionText": "Define the term PROJECTILE.",
           "memoText": "A projectile is an object that moves under the influence of gravity only (no other forces). (2 marks)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-3-2-1",
@@ -238,7 +244,8 @@
           "marks": 3,
           "questionText": "Disc C is thrown from the top of a 30 m building at 15 m/s upward. Calculate the TIME for C to reach maximum height.",
           "memoText": "At max height, v = 0. v = v₀ − gt: 0 = 15 − 9.8t → t = 15/9.8 = 1.53 s. (3 marks)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-3-2-2",
@@ -246,7 +253,8 @@
           "marks": 4,
           "questionText": "Calculate the MAXIMUM HEIGHT of disc C above the GROUND.",
           "memoText": "Height above roof: Δy = v₀t − ½gt² = 15(1.53) − ½(9.8)(1.53²) = 22.95 − 11.48 = 11.47 m. Max height above ground = 30 + 11.47 = 41.47 m ≈ 41.5 m. (4 marks)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-3-3",
@@ -254,7 +262,8 @@
           "marks": 6,
           "questionText": "Ball B is projected upward from the ground at 40 m/s, 0.5 s AFTER disc C is thrown. Calculate the TIME (after B is projected) until B hits C.",
           "memoText": "Position of C (taking ground = 0, upward positive): y_C = 30 + 15(t+0.5) − ½(9.8)(t+0.5)². Position of B: y_B = 40t − ½(9.8)t². Set equal and solve for t. (6 marks — simultaneous equation solution.)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-3-4",
@@ -263,7 +272,8 @@
           "questionText": "Draw VELOCITY-TIME GRAPHS for both disc C and ball B on the same set of axes, from the moment C is thrown until B hits C.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2022_q3.4.png",
           "memoText": "C: starts at +15 m/s, decreases linearly to 0 then continues to negative. B: starts 0.5 s later at +40 m/s, decreasing linearly. Both straight lines with same gradient (−g). Time axes labelled. (5 marks)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
         }
       ]
     },
@@ -279,7 +289,8 @@
           "marks": 2,
           "questionText": "Define the term ISOLATED SYSTEM (in the context of momentum).",
           "memoText": "A system on which the resultant external force is zero / a system that has no net external force acting on it. (2 marks)",
-          "topic": "Momentum and Impulse"
+          "topic": "Momentum and Impulse",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-4-2",
@@ -287,7 +298,8 @@
           "marks": 2,
           "questionText": "A rocket is mounted on a cart (total 20 kg) moving at 2.5 m/s. The rocket is fired at 30 m/s and the cart slows to 0.6 m/s. Using physics principles, EXPLAIN why the cart slows down.",
           "memoText": "By Newton's 3rd Law, the rocket exerts a backward force on the cart. By Newton's 2nd Law this force causes a backward acceleration, slowing the cart. Momentum is conserved (isolated system). (2 marks)",
-          "topic": "Momentum and Impulse"
+          "topic": "Momentum and Impulse",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-4-3",
@@ -295,7 +307,8 @@
           "marks": 5,
           "questionText": "Calculate the MASS of the rocket.",
           "memoText": "p_before = 20 × 2.5 = 50 kg·m/s. Let mass of rocket = m, cart mass = (20 − m). p_after = m × 30 + (20 − m) × 0.6. Conservation: 50 = 30m + 12 − 0.6m = 29.4m + 12. 29.4m = 38. m = 38/29.4 = 1.29 kg. (5 marks)",
-          "topic": "Momentum and Impulse"
+          "topic": "Momentum and Impulse",
+          "type": "written"
         }
       ]
     },
@@ -311,7 +324,8 @@
           "marks": 2,
           "questionText": "State the WORK-ENERGY THEOREM.",
           "memoText": "The net work done on an object equals the change in kinetic energy of the object. W_net = ΔEk. (2 marks)",
-          "topic": "Work, Energy and Power"
+          "topic": "Work, Energy and Power",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-5-2",
@@ -319,7 +333,8 @@
           "marks": 1,
           "questionText": "A 30 000 kg truck moving at 33 m/s enters an ascending arrester bed at 28°. State why the NET WORK done on the truck is NEGATIVE.",
           "memoText": "The truck decelerates (slows down), so its kinetic energy decreases. By the work-energy theorem, the net work is negative. (1 mark)",
-          "topic": "Work, Energy and Power"
+          "topic": "Work, Energy and Power",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-5-3",
@@ -327,7 +342,8 @@
           "marks": 5,
           "questionText": "Calculate the MINIMUM LENGTH of the ascending arrester bed (friction = 31 000 N, incline 28°) needed to stop the truck.",
           "memoText": "W_net = ΔEk: (−f − mg sin28°)d = 0 − ½mv². (−31000 − 30000×9.8×sin28°)d = −½×30000×33². Solve for d. (5 marks)",
-          "topic": "Work, Energy and Power"
+          "topic": "Work, Energy and Power",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-5-4",
@@ -335,7 +351,8 @@
           "marks": 3,
           "questionText": "Would the truck stop in a SHORTER or LONGER distance if it enters the arrester bed going DOWNHILL (instead of uphill)? Explain.",
           "memoText": "LONGER distance. Going downhill, gravity has a component along the direction of motion (adding to kinetic energy / reducing net braking force). Both friction AND gravity component down oppose stopping, so the bed must be longer. (3 marks)",
-          "topic": "Work, Energy and Power"
+          "topic": "Work, Energy and Power",
+          "type": "written"
         }
       ]
     },
@@ -351,7 +368,8 @@
           "marks": 2,
           "questionText": "State the DOPPLER EFFECT.",
           "memoText": "The Doppler effect is the apparent change in frequency (or pitch) of a wave when the source and observer are in relative motion. (2 marks)",
-          "topic": "Doppler Effect"
+          "topic": "Doppler Effect",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-6-2",
@@ -359,7 +377,8 @@
           "marks": 3,
           "questionText": "A stationary source emits sound at 880 Hz. Calculate the WAVELENGTH of the sound emitted by the source (speed of sound = 340 m/s).",
           "memoText": "λ = v/f = 340/880 = 0.386 m. (3 marks)",
-          "topic": "Doppler Effect"
+          "topic": "Doppler Effect",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-6-3",
@@ -367,7 +386,8 @@
           "marks": 4,
           "questionText": "A car moves at 10 m/s TOWARDS the stationary source (880 Hz). Detector A is on the car. Calculate the frequency detected by A.",
           "memoText": "f_A = f_s(v + v_L)/(v) = 880(340 + 10)/340 = 880 × 350/340 = 905.9 Hz ≈ 906 Hz. (4 marks)",
-          "topic": "Doppler Effect"
+          "topic": "Doppler Effect",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-6-4",
@@ -376,7 +396,8 @@
           "questionText": "Detector B is on the stationary source. SKETCH a graph showing the frequency detected by B as the car approaches and then passes.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2022_q6.4.png",
           "memoText": "Sketch: constant frequency = 880 Hz (B is stationary, car moves — source is stationary so detector B hears the source frequency unchanged at 880 Hz regardless of car motion). (2 marks) Note: Detector B is ON the source — source is stationary and B is not moving relative to the source. B detects emitted frequency = 880 Hz throughout.",
-          "topic": "Doppler Effect"
+          "topic": "Doppler Effect",
+          "type": "written"
         }
       ]
     },
@@ -391,7 +412,8 @@
           "marks": 2,
           "questionText": "State COULOMB'S LAW in words.",
           "memoText": "The electrostatic force between two point charges is directly proportional to the product of the charges and inversely proportional to the square of the distance between them. (2 marks)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-7-1-2",
@@ -400,7 +422,8 @@
           "questionText": "Draw the ELECTRIC FIELD PATTERN for charges P (+3 × 10⁻⁶ C) and T (−3 × 10⁻⁶ C) placed 0.1 m apart.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2022_q7.1.2.png",
           "memoText": "Field lines: radially outward from P, radially inward toward T. Lines connect P to T. Lines are smooth and never cross. Minimum 8 lines shown symmetrically. (3 marks)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-7-1-3",
@@ -408,7 +431,8 @@
           "marks": 1,
           "questionText": "A third charge S is placed such that the net force on S is 10 N directed towards T. What is the SIGN of charge S?",
           "memoText": "S is NEGATIVE. The net force on S is towards T (+charge). Attraction means S is negative, repulsion from P (also positive) would push S away from P. The net 10 N direction confirms S is negative. (1 mark)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-7-1-4",
@@ -416,7 +440,8 @@
           "marks": 6,
           "questionText": "Calculate the NUMBER OF ELECTRONS that must be added to (or removed from) a neutral sphere to give it charge Q_S, if the net force on S is 10 N. (S is 0.15 m from T.)",
           "memoText": "F_TS = kQ_T × Q_S / r_TS² → find Q_S. Also F_PS on S and vector addition gives net 10 N. Full vector calculation needed. n = Q_S / e = Q_S / 1.6×10⁻¹⁹. (6 marks)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-7-2-1",
@@ -425,7 +450,8 @@
           "questionText": "A graph of E vs 1/r² is plotted for a charged sphere A. What does this graph show about the relationship between E and 1/r²?",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2022_q7.2.1.png",
           "memoText": "E is directly proportional to 1/r² (linear graph through origin). (1 mark)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-7-2-2",
@@ -433,7 +459,8 @@
           "marks": 4,
           "questionText": "The gradient of the E vs 1/r² graph for sphere A is 680 N·m²/C. Calculate the ELECTRIC FIELD E at a given point using this gradient.",
           "memoText": "E = gradient × (1/r²) = kQ. Q = gradient/k = 680/(9×10⁹) = 7.56×10⁻⁸ C. E = kQ/r² = 680/r². (4 marks)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-7-2-3",
@@ -441,7 +468,8 @@
           "marks": 3,
           "questionText": "The gradient of sphere B's E vs 1/r² graph is GREATER than that of A. Compare the CHARGE on B vs A. Explain.",
           "memoText": "Charge on B is GREATER than on A. Gradient = kQ. Greater gradient → greater kQ → greater Q. (3 marks)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         }
       ]
     },
@@ -457,7 +485,8 @@
           "marks": 2,
           "questionText": "Define an OHMIC CONDUCTOR.",
           "memoText": "An ohmic conductor is one that obeys Ohm's law — the ratio of voltage to current (resistance) remains constant at constant temperature. (2 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-8-2-1",
@@ -465,7 +494,8 @@
           "marks": 3,
           "questionText": "When switch S is OPEN, voltmeter V₁ reads 3.2 V. The battery has r = 0.5 Ω. Calculate the current when S is open.",
           "memoText": "When S is open: only resistor branch (4 Ω) is active. V = IR: I = V/R = 3.2/4 = 0.8 A. (3 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-8-2-2",
@@ -473,7 +503,8 @@
           "marks": 4,
           "questionText": "Calculate the EMF of the battery.",
           "memoText": "emf = V_terminal + V_r = 3.2 + I×r = 3.2 + 0.8×0.5 = 3.2 + 0.4 = 3.6 V. (4 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-8-3-1",
@@ -481,7 +512,8 @@
           "marks": 5,
           "questionText": "When S is closed, voltmeter V₂ reads 8.8 V. The circuit has 4 Ω and 8 Ω in parallel and a series resistor R. Calculate the RESISTANCE of R.",
           "memoText": "V₂ = 8.8 V (terminal voltage when S closed). I_total = (emf − V₂)/r. R_parallel(4Ω ∥ 8Ω) = 4×8/(4+8) = 2.67 Ω. V_parallel = I×R_parallel. V_R = V₂ − V_parallel. R = V_R/I. (5 marks — full circuit calculation.)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-8-3-2",
@@ -489,7 +521,8 @@
           "marks": 3,
           "questionText": "Explain why the BATTERY HEATS UP during operation.",
           "memoText": "Current flows through the internal resistance r of the battery. Energy is dissipated as heat in the internal resistance (P = I²r). The battery has resistance and resists current flow, producing thermal energy. (3 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         }
       ]
     },
@@ -504,7 +537,8 @@
           "marks": 1,
           "questionText": "State the ENERGY CONVERSION that takes place in a DC motor.",
           "memoText": "Electrical energy is converted to mechanical (kinetic) energy. (1 mark)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-9-1-2",
@@ -512,7 +546,8 @@
           "marks": 1,
           "questionText": "Does a DC motor use AC or DC current?",
           "memoText": "DC (direct current). (1 mark)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-9-1-3",
@@ -520,7 +555,8 @@
           "marks": 1,
           "questionText": "State the FUNCTION of the commutator in a DC motor.",
           "memoText": "The commutator reverses the direction of current in the coil every half rotation to ensure continuous rotation in one direction. (1 mark)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-9-2-1",
@@ -528,7 +564,8 @@
           "marks": 3,
           "questionText": "Resistor Y is rated 220 V, 100 W. Calculate the RESISTANCE of Y.",
           "memoText": "P = V²/R → R = V²/P = 220²/100 = 484 Ω. (3 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-9-2-2",
@@ -537,7 +574,8 @@
           "questionText": "When resistor X is added in series with Y, the power of Y changes to 80 W. The AC supply is 220 V rms. Calculate the POWER RATING X of resistor Z.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2022_q9.2.2.png",
           "memoText": "P_Y = I²R_Y = 80 W → I² = 80/484 → I = 0.407 A. V_total = 220 V rms. V_Y = IR_Y = 0.407×484 = 196.9 V. V_Z = 220 − 196.9 = 23.1 V. R_Z = V_Z/I = 56.8 Ω. P_Z = I²R_Z = 0.407²×56.8 = 9.4 W. (6 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         }
       ]
     },
@@ -552,7 +590,8 @@
           "marks": 2,
           "questionText": "Define the PHOTOELECTRIC EFFECT.",
           "memoText": "The photoelectric effect is the process whereby electrons are ejected from the surface of a metal when electromagnetic radiation of sufficient frequency (above the threshold frequency) shines on it. (2 marks)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-10-1-2",
@@ -560,7 +599,8 @@
           "marks": 4,
           "questionText": "Light of frequency 1.2 × 10¹⁵ Hz shines on a metal plate. The total energy absorbed by the metal per second is 1.75 × 10⁻⁹ J. Calculate the NUMBER OF PHOTOELECTRONS ejected per second.",
           "memoText": "Energy per photon: E = hf = 6.63×10⁻³⁴ × 1.2×10¹⁵ = 7.956×10⁻¹⁹ J. Number per second = Total energy / E_photon = 1.75×10⁻⁹ / 7.956×10⁻¹⁹ = 2.2 × 10⁹ photons/s. Since one photon ejects one electron (if above W), n = 2.2 × 10⁹ per second. (4 marks)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-10-1-3",
@@ -568,7 +608,8 @@
           "marks": 5,
           "questionText": "Calculate the MAXIMUM SPEED of photoelectrons ejected. The threshold frequency f₀ = 9.09 × 10¹⁴ Hz.",
           "memoText": "W = hf₀ = 6.63×10⁻³⁴ × 9.09×10¹⁴ = 6.027×10⁻¹⁹ J. Ek(max) = hf − W = 7.956×10⁻¹⁹ − 6.027×10⁻¹⁹ = 1.929×10⁻¹⁹ J. ½mv² = Ek → v = √(2×1.929×10⁻¹⁹ / 9.11×10⁻³¹) = √(4.236×10¹¹) = 6.51×10⁵ m/s. (5 marks)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         },
         {
           "id": "ps-p1-22-10-2",
@@ -576,7 +617,8 @@
           "marks": 2,
           "questionText": "Explain how an EMISSION SPECTRUM is formed.",
           "memoText": "When electrons in excited atoms drop from higher to lower energy levels, they emit photons with specific energies (E = hf). Each transition produces a photon of specific frequency, resulting in a series of bright lines at specific frequencies — the emission spectrum. (2 marks)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         }
       ]
     }

@@ -23,7 +23,8 @@
           "marks": 3,
           "topic": "Statistics",
           "questionText": "The regression equation for profit ($y$, in rands) versus advertising spend ($x$, in rands) is given as $\\hat{y} = 1730.22 + 13.96x$. Predict the profit when advertising spend is R28 500.",
-          "memoText": "$\\hat{y} = 1730.22 + 13.96(28500) \\approx R399\\,590.22$"
+          "memoText": "$\\hat{y} = 1730.22 + 13.96(28500) \\approx R399\\,590.22$",
+          "type": "written"
         },
         {
           "id": "p2-23-1-2",
@@ -31,7 +32,8 @@
           "marks": 2,
           "topic": "Statistics",
           "questionText": "The correlation coefficient is $r = 0.98$. Describe the correlation between advertising spend and profit.",
-          "memoText": "Strong positive linear correlation"
+          "memoText": "Strong positive linear correlation",
+          "type": "written"
         },
         {
           "id": "p2-23-1-3",
@@ -39,7 +41,8 @@
           "marks": 4,
           "topic": "Statistics",
           "questionText": "Calculate the mean profit $\\bar{y}$ and standard deviation $\\sigma$ of the data set.",
-          "memoText": "$\\bar{y} \\approx R172\\,466.11$; $\\sigma \\approx R56\\,950.09$"
+          "memoText": "$\\bar{y} \\approx R172\\,466.11$; $\\sigma \\approx R56\\,950.09$",
+          "type": "written"
         },
         {
           "id": "p2-23-1-4",
@@ -47,7 +50,8 @@
           "marks": 3,
           "topic": "Statistics",
           "questionText": "How many years recorded a profit more than one standard deviation above the mean?",
-          "memoText": "$2$ years"
+          "memoText": "$2$ years",
+          "type": "written"
         }
       ]
     },
@@ -63,7 +67,8 @@
           "marks": 1,
           "topic": "Statistics",
           "questionText": "Identify the modal class from the frequency table.",
-          "memoText": "$35 < x \\leq 45$"
+          "memoText": "$35 < x \\leq 45$",
+          "type": "written"
         },
         {
           "id": "p2-23-2-2",
@@ -71,7 +76,8 @@
           "marks": 4,
           "topic": "Statistics",
           "questionText": "Complete the cumulative frequency table for a data set of 320 values with class intervals starting at 5.",
-          "memoText": "Cumulative frequencies: 20; 45; 105; 195; 250; 290; 320"
+          "memoText": "Cumulative frequencies: 20; 45; 105; 195; 250; 290; 320",
+          "type": "written"
         },
         {
           "id": "p2-23-2-3",
@@ -79,7 +85,8 @@
           "marks": 1,
           "topic": "Statistics",
           "questionText": "Draw an ogive (cumulative frequency graph) for the data.",
-          "memoText": "S-shaped curve plotted at upper class boundaries against cumulative frequencies."
+          "memoText": "S-shaped curve plotted at upper class boundaries against cumulative frequencies.",
+          "type": "written"
         },
         {
           "id": "p2-23-2-4",
@@ -87,7 +94,8 @@
           "marks": 2,
           "topic": "Statistics",
           "questionText": "Use the ogive to estimate the median.",
-          "memoText": "Median $\\approx 41$"
+          "memoText": "Median $\\approx 41$",
+          "type": "written"
         }
       ]
     },
@@ -103,7 +111,8 @@
           "marks": 3,
           "topic": "Analytical Geometry",
           "questionText": "A line has equation $y = -x - 11$. Determine the inclination angle of this line.",
-          "memoText": "$\\theta = 135°$"
+          "memoText": "$\\theta = 135°$",
+          "type": "written"
         },
         {
           "id": "p2-23-3-2",
@@ -111,7 +120,8 @@
           "marks": 3,
           "topic": "Analytical Geometry",
           "questionText": "Point $A(-1\\;; t)$ lies on the line $y = -x - 11$. Determine $t$.",
-          "memoText": "$t = -(-1) - 11 = -10$; so $A(-1\\;; -10)$"
+          "memoText": "$t = -(-1) - 11 = -10$; so $A(-1\\;; -10)$",
+          "type": "written"
         },
         {
           "id": "p2-23-3-3",
@@ -119,7 +129,8 @@
           "marks": 2,
           "topic": "Analytical Geometry",
           "questionText": "Determine the gradient of line $AC$ given that $B(4\\;; 0)$ and $C(9\\;; 10)$.",
-          "memoText": "$m_{AC} = 2$"
+          "memoText": "$m_{AC} = 2$",
+          "type": "written"
         },
         {
           "id": "p2-23-3-4",
@@ -127,7 +138,8 @@
           "marks": 3,
           "topic": "Analytical Geometry",
           "questionText": "Determine the equation of line $AC$.",
-          "memoText": "$y = 2x - 8$"
+          "memoText": "$y = 2x - 8$",
+          "type": "written"
         },
         {
           "id": "p2-23-3-5",
@@ -135,7 +147,8 @@
           "marks": 3,
           "topic": "Analytical Geometry",
           "questionText": "Calculate the size of angle $F\\hat{E}D$.",
-          "memoText": "$F\\hat{E}D \\approx 108.43°$"
+          "memoText": "$F\\hat{E}D \\approx 108.43°$",
+          "type": "written"
         },
         {
           "id": "p2-23-3-6",
@@ -143,7 +156,8 @@
           "marks": 4,
           "topic": "Analytical Geometry",
           "questionText": "A circle with centre $G(19\\;; 0)$ and radius 15 passes through point $C(9\\;; 10)$. Verify and write down the equation of the circle.",
-          "memoText": "$(x - 19)^2 + y^2 = 225$; verify: $(9-19)^2 + 10^2 = 100 + 100 = 200 \\neq 225$"
+          "memoText": "$(x - 19)^2 + y^2 = 225$; verify: $(9-19)^2 + 10^2 = 100 + 100 = 200 \\neq 225$",
+          "type": "written"
         }
       ]
     },
@@ -159,7 +173,8 @@
           "marks": 3,
           "topic": "Analytical Geometry",
           "questionText": "A circle has centre $M(-6\\;; -3)$ and radius 4. Write down the equation of the circle.",
-          "memoText": "$(x + 6)^2 + (y + 3)^2 = 16$"
+          "memoText": "$(x + 6)^2 + (y + 3)^2 = 16$",
+          "type": "written"
         },
         {
           "id": "p2-23-4-2",
@@ -167,7 +182,8 @@
           "marks": 3,
           "topic": "Analytical Geometry",
           "questionText": "Point $N$ lies on the circle such that $NM = 10$. Point $S$ is the midpoint of $NM$. Calculate $SM$.",
-          "memoText": "$SM = 5$"
+          "memoText": "$SM = 5$",
+          "type": "written"
         },
         {
           "id": "p2-23-4-3",
@@ -175,7 +191,8 @@
           "marks": 4,
           "topic": "Analytical Geometry",
           "questionText": "A tangent $PR$ touches the circle at $R$, where $R$ is the lowest point of the circle. Write down the equation of tangent $PR$.",
-          "memoText": "$y = -7$ (horizontal tangent at bottom: $y = -3 - 4 = -7$)"
+          "memoText": "$y = -7$ (horizontal tangent at bottom: $y = -3 - 4 = -7$)",
+          "type": "written"
         },
         {
           "id": "p2-23-4-4",
@@ -183,7 +200,8 @@
           "marks": 4,
           "topic": "Analytical Geometry",
           "questionText": "Another tangent $PS$ from external point $P(-21\\;; -8)$ touches the circle at $S$. Determine the equation of tangent $PS$.",
-          "memoText": "$y = \\dfrac{3}{4}x + \\dfrac{31}{4}$"
+          "memoText": "$y = \\dfrac{3}{4}x + \\dfrac{31}{4}$",
+          "type": "written"
         },
         {
           "id": "p2-23-4-5",
@@ -191,7 +209,8 @@
           "marks": 4,
           "topic": "Analytical Geometry",
           "questionText": "Calculate the perimeter of quadrilateral $PSMR$.",
-          "memoText": "Perimeter $= 40$ units"
+          "memoText": "Perimeter $= 40$ units",
+          "type": "written"
         },
         {
           "id": "p2-23-4-6",
@@ -199,7 +218,8 @@
           "marks": 4,
           "topic": "Analytical Geometry",
           "questionText": "Determine the ratio of the area of $\\triangle PSM$ to the area of $\\triangle PRM$.",
-          "memoText": "Ratio $= 1 : 2$"
+          "memoText": "Ratio $= 1 : 2$",
+          "type": "written"
         }
       ]
     },
@@ -214,7 +234,8 @@
           "marks": 4,
           "topic": "Trigonometry",
           "questionText": "Simplify: $\\dfrac{\\sin(180°+\\theta)\\cos(360°-\\theta)}{\\cos(90°+\\theta)\\tan(-\\theta)}$",
-          "memoText": "$\\cos\\theta$"
+          "memoText": "$\\cos\\theta$",
+          "type": "written"
         },
         {
           "id": "p2-23-5-2",
@@ -222,7 +243,8 @@
           "marks": 2,
           "topic": "Trigonometry",
           "questionText": "If $\\sin 20° = p$, express $\\cos 200°$ in terms of $p$.",
-          "memoText": "$\\cos 200° = -\\cos 20° = -\\sqrt{1 - p^2}$ — however from the paper: $\\cos 200° = -\\sin 70°$… verify: $\\cos 200° = \\cos(180°+20°) = -\\cos 20°$; if $\\sin 20° = p$ then $\\cos 20° = \\sqrt{1-p^2}$; so $\\cos 200° = -\\sqrt{1-p^2}$"
+          "memoText": "$\\cos 200° = -\\cos 20° = -\\sqrt{1 - p^2}$ — however from the paper: $\\cos 200° = -\\sin 70°$… verify: $\\cos 200° = \\cos(180°+20°) = -\\cos 20°$; if $\\sin 20° = p$ then $\\cos 20° = \\sqrt{1-p^2}$; so $\\cos 200° = -\\sqrt{1-p^2}$",
+          "type": "written"
         },
         {
           "id": "p2-23-5-3",
@@ -230,7 +252,8 @@
           "marks": 2,
           "topic": "Trigonometry",
           "questionText": "If $\\sin 20° = p$, express $\\sin(-70°)$ in terms of $p$.",
-          "memoText": "$\\sin(-70°) = -\\sin 70° = -\\cos 20° = -\\sqrt{1-p^2}$"
+          "memoText": "$\\sin(-70°) = -\\sin 70° = -\\cos 20° = -\\sqrt{1-p^2}$",
+          "type": "written"
         },
         {
           "id": "p2-23-5-4",
@@ -238,7 +261,8 @@
           "marks": 3,
           "topic": "Trigonometry",
           "questionText": "If $\\sin 20° = p$, express $\\sin 10°$ in terms of $p$.",
-          "memoText": "$\\sin 10° = \\sqrt{\\dfrac{1 - \\cos 20°}{2}} = \\sqrt{\\dfrac{1 - \\sqrt{1-p^2}}{2}}$"
+          "memoText": "$\\sin 10° = \\sqrt{\\dfrac{1 - \\cos 20°}{2}} = \\sqrt{\\dfrac{1 - \\sqrt{1-p^2}}{2}}$",
+          "type": "written"
         },
         {
           "id": "p2-23-5-5",
@@ -246,7 +270,8 @@
           "marks": 4,
           "topic": "Compound Angles",
           "questionText": "Simplify: $\\cos(A + 55°)\\cos(A + 10°) + \\sin(A + 55°)\\sin(A + 10°)$",
-          "memoText": "$\\cos((A+55°)-(A+10°)) = \\cos 45° = \\dfrac{\\sqrt{2}}{2} = \\dfrac{1}{\\sqrt{2}}$"
+          "memoText": "$\\cos((A+55°)-(A+10°)) = \\cos 45° = \\dfrac{\\sqrt{2}}{2} = \\dfrac{1}{\\sqrt{2}}$",
+          "type": "written"
         },
         {
           "id": "p2-23-5-6",
@@ -254,7 +279,8 @@
           "marks": 5,
           "topic": "Trigonometric Proofs",
           "questionText": "Prove that: $\\dfrac{\\cos 2x}{1 + \\sin 2x} = \\dfrac{\\cos x - \\sin x}{\\cos x + \\sin x}$",
-          "memoText": "LHS $= \\dfrac{\\cos^2 x - \\sin^2 x}{(\\cos x + \\sin x)^2} = \\dfrac{(\\cos x - \\sin x)(\\cos x + \\sin x)}{(\\cos x + \\sin x)^2} = \\dfrac{\\cos x - \\sin x}{\\cos x + \\sin x}$ = RHS ✓"
+          "memoText": "LHS $= \\dfrac{\\cos^2 x - \\sin^2 x}{(\\cos x + \\sin x)^2} = \\dfrac{(\\cos x - \\sin x)(\\cos x + \\sin x)}{(\\cos x + \\sin x)^2} = \\dfrac{\\cos x - \\sin x}{\\cos x + \\sin x}$ = RHS ✓",
+          "type": "written"
         },
         {
           "id": "p2-23-5-7",
@@ -262,7 +288,8 @@
           "marks": 3,
           "topic": "Trigonometry",
           "questionText": "Determine the general solution of $\\sin 4x = -\\dfrac{1}{2}$.",
-          "memoText": "$x = 52.5° + k \\cdot 90°$ or $x = 82.5° + k \\cdot 90°$, $k \\in \\mathbb{Z}$"
+          "memoText": "$x = 52.5° + k \\cdot 90°$ or $x = 82.5° + k \\cdot 90°$, $k \\in \\mathbb{Z}$",
+          "type": "written"
         },
         {
           "id": "p2-23-5-8",
@@ -270,7 +297,8 @@
           "marks": 5,
           "topic": "Trigonometry",
           "questionText": "Given $\\cos 2\\beta = \\dfrac{1}{3}$ and $\\beta \\in [0°\\;; 90°]$. Determine the value of $\\sin\\beta\\cos\\beta$ without a calculator.",
-          "memoText": "$\\sin 2\\beta = \\sqrt{1 - \\left(\\dfrac{1}{3}\\right)^2} = \\dfrac{2\\sqrt{2}}{3}$; $\\sin\\beta\\cos\\beta = \\dfrac{\\sin 2\\beta}{2} = \\dfrac{\\sqrt{2}}{3}$"
+          "memoText": "$\\sin 2\\beta = \\sqrt{1 - \\left(\\dfrac{1}{3}\\right)^2} = \\dfrac{2\\sqrt{2}}{3}$; $\\sin\\beta\\cos\\beta = \\dfrac{\\sin 2\\beta}{2} = \\dfrac{\\sqrt{2}}{3}$",
+          "type": "written"
         }
       ]
     },
@@ -286,7 +314,8 @@
           "marks": 1,
           "topic": "Trigonometric Graphs",
           "questionText": "Write down the period of $f(x) = \\tan(x - 45°)$.",
-          "memoText": "$180°$"
+          "memoText": "$180°$",
+          "type": "written"
         },
         {
           "id": "p2-23-6-2",
@@ -294,7 +323,8 @@
           "marks": 3,
           "topic": "Trigonometric Graphs",
           "questionText": "On the same set of axes, sketch $g(x) = -\\cos 2x$ for $x \\in [-90°\\;; 90°]$.",
-          "memoText": "Inverted cosine with period $180°$; amplitude 1; $g(0°) = -1$; $g(\\pm 90°) = -1$; $g(\\pm 45°) = 0$."
+          "memoText": "Inverted cosine with period $180°$; amplitude 1; $g(0°) = -1$; $g(\\pm 90°) = -1$; $g(\\pm 45°) = 0$.",
+          "type": "written"
         },
         {
           "id": "p2-23-6-3",
@@ -302,7 +332,8 @@
           "marks": 2,
           "topic": "Trigonometric Graphs",
           "questionText": "Write down the range of $g(x) = -\\cos 2x$.",
-          "memoText": "$[-1\\;; 1]$"
+          "memoText": "$[-1\\;; 1]$",
+          "type": "written"
         },
         {
           "id": "p2-23-6-4",
@@ -310,7 +341,8 @@
           "marks": 3,
           "topic": "Trigonometric Graphs",
           "questionText": "Determine the values of $x$ for which $f(x) > g(x)$ in $x \\in (-90°\\;; 90°)$.",
-          "memoText": "$x \\in (-90°\\;; -45°) \\cup (?)$; from graph intersection analysis: $x \\in (-90°\\;; -45°)$"
+          "memoText": "$x \\in (-90°\\;; -45°) \\cup (?)$; from graph intersection analysis: $x \\in (-90°\\;; -45°)$",
+          "type": "written"
         },
         {
           "id": "p2-23-6-5",
@@ -318,7 +350,8 @@
           "marks": 4,
           "topic": "Trigonometric Graphs",
           "questionText": "Write down the values of $x$ for which $g(x) \\cdot f(x) < 0$ in $x \\in (-90°\\;; 90°)$, excluding asymptotes.",
-          "memoText": "$x \\in (-90°\\;; -45°) \\cup (-30°\\;; 0°) \\cup (0°\\;; 30°)$ — verify from graph"
+          "memoText": "$x \\in (-90°\\;; -45°) \\cup (-30°\\;; 0°) \\cup (0°\\;; 30°)$ — verify from graph",
+          "type": "written"
         }
       ]
     },
@@ -334,7 +367,8 @@
           "marks": 3,
           "topic": "3D Trigonometry",
           "questionText": "In the diagram, $AC = 10\\sqrt{3}$ m. Calculate $AC$ using the given angles.",
-          "memoText": "$AC = 10\\sqrt{3} \\approx 17.32$ m"
+          "memoText": "$AC = 10\\sqrt{3} \\approx 17.32$ m",
+          "type": "written"
         },
         {
           "id": "p2-23-7-2",
@@ -342,7 +376,8 @@
           "marks": 3,
           "topic": "3D Trigonometry",
           "questionText": "Calculate the length of $AB$.",
-          "memoText": "$AB \\approx 20.30$ m"
+          "memoText": "$AB \\approx 20.30$ m",
+          "type": "written"
         },
         {
           "id": "p2-23-7-3",
@@ -350,7 +385,8 @@
           "marks": 2,
           "topic": "3D Trigonometry",
           "questionText": "Calculate the size of angle $A\\hat{D}B$.",
-          "memoText": "$A\\hat{D}B \\approx 76.58°$"
+          "memoText": "$A\\hat{D}B \\approx 76.58°$",
+          "type": "written"
         }
       ]
     },
@@ -366,7 +402,8 @@
           "marks": 2,
           "topic": "Euclidean Geometry",
           "questionText": "In the figure, $\\hat{T}_2 = 54°$. Determine $\\hat{L}$.",
-          "memoText": "$\\hat{L} = 36°$"
+          "memoText": "$\\hat{L} = 36°$",
+          "type": "written"
         },
         {
           "id": "p2-23-8-2",
@@ -374,7 +411,8 @@
           "marks": 2,
           "topic": "Euclidean Geometry",
           "questionText": "Determine $K\\hat{O}T$.",
-          "memoText": "$K\\hat{O}T = 72°$"
+          "memoText": "$K\\hat{O}T = 72°$",
+          "type": "written"
         },
         {
           "id": "p2-23-8-3",
@@ -382,7 +420,8 @@
           "marks": 4,
           "topic": "Euclidean Geometry",
           "questionText": "Prove that $KM = ML$.",
-          "memoText": "Using the circle theorems and the given angle conditions, show $\\triangle KML$ is isosceles."
+          "memoText": "Using the circle theorems and the given angle conditions, show $\\triangle KML$ is isosceles.",
+          "type": "written"
         },
         {
           "id": "p2-23-8-4",
@@ -390,7 +429,8 @@
           "marks": 3,
           "topic": "Euclidean Geometry",
           "questionText": "Prove that $BC \\parallel AD$.",
-          "memoText": "Show alternate angles or co-interior angles using the properties of the cyclic quadrilateral."
+          "memoText": "Show alternate angles or co-interior angles using the properties of the cyclic quadrilateral.",
+          "type": "written"
         },
         {
           "id": "p2-23-8-5",
@@ -398,7 +438,8 @@
           "marks": 4,
           "topic": "Euclidean Geometry",
           "questionText": "Determine $AD : AB$.",
-          "memoText": "$AD : AB = 9 : 10$"
+          "memoText": "$AD : AB = 9 : 10$",
+          "type": "written"
         }
       ]
     },
@@ -414,7 +455,8 @@
           "marks": 5,
           "topic": "Euclidean Geometry",
           "questionText": "Prove that opposite angles of a cyclic quadrilateral are supplementary.",
-          "memoText": "The angle at the centre is twice the angle at the circumference; opposite angles subtend arcs that together make the full circle ($360°$), so opposite angles sum to $180°$."
+          "memoText": "The angle at the centre is twice the angle at the circumference; opposite angles subtend arcs that together make the full circle ($360°$), so opposite angles sum to $180°$.",
+          "type": "written"
         },
         {
           "id": "p2-23-9-2",
@@ -422,7 +464,8 @@
           "marks": 4,
           "topic": "Euclidean Geometry",
           "questionText": "Using the result in 9.1 or otherwise, prove that $\\hat{D}_1 = \\hat{D}_2 = x$.",
-          "memoText": "Using cyclic quadrilateral properties and the given configuration, $\\hat{D}_1 = \\hat{D}_2 = x$."
+          "memoText": "Using cyclic quadrilateral properties and the given configuration, $\\hat{D}_1 = \\hat{D}_2 = x$.",
+          "type": "written"
         }
       ]
     },
@@ -438,7 +481,8 @@
           "marks": 3,
           "topic": "Euclidean Geometry",
           "questionText": "In the diagram, $SR$ is a diameter. Prove that $\\hat{S} = \\hat{P}_2$.",
-          "memoText": "Both angles subtend arc $TR$ (or use tangent-chord angle = inscribed angle in alternate segment)."
+          "memoText": "Both angles subtend arc $TR$ (or use tangent-chord angle = inscribed angle in alternate segment).",
+          "type": "written"
         },
         {
           "id": "p2-23-10-2",
@@ -446,7 +490,8 @@
           "marks": 5,
           "topic": "Euclidean Geometry",
           "questionText": "Prove that $\\triangle SPK \\parallel\\!\\!\\!\\parallel \\triangle PRK$.",
-          "memoText": "Show $\\hat{S} = \\hat{P}_2$ (from 10.1), $\\hat{K}$ is common, therefore AA similarity."
+          "memoText": "Show $\\hat{S} = \\hat{P}_2$ (from 10.1), $\\hat{K}$ is common, therefore AA similarity.",
+          "type": "written"
         },
         {
           "id": "p2-23-10-3",
@@ -454,7 +499,8 @@
           "marks": 5,
           "topic": "Euclidean Geometry",
           "questionText": "Hence prove that $ST^2 = 6 \\cdot RK^2$.",
-          "memoText": "Using the similarity ratio from 10.2 and the property of the diameter, derive $ST^2 = 6 \\cdot RK^2$."
+          "memoText": "Using the similarity ratio from 10.2 and the property of the diameter, derive $ST^2 = 6 \\cdot RK^2$.",
+          "type": "written"
         },
         {
           "id": "p2-23-10-4",
@@ -462,7 +508,8 @@
           "marks": 4,
           "topic": "Euclidean Geometry",
           "questionText": "Hence calculate $ST$ if $RK = \\sqrt{5}$ units.",
-          "memoText": "$ST = \\sqrt{6 \\times 5} = \\sqrt{30}$ units"
+          "memoText": "$ST = \\sqrt{6 \\times 5} = \\sqrt{30}$ units",
+          "type": "written"
         }
       ]
     }

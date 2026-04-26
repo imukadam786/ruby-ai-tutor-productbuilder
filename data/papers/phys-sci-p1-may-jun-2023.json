@@ -186,7 +186,8 @@
           "marks": 3,
           "questionText": "Block A (mass m) rests on a frictionless surface and is connected via a string over a pulley to block B (7.5 kg) which hangs vertically. Block B falls 1.5 m and strikes the ground at 3.41 m/s. SHOW that the acceleration of the system is 3.88 m/s².",
           "memoText": "v² = u² + 2as: 3.41² = 0 + 2a(1.5) → a = 3.41²/3 = 11.6281/3 = 3.876 ≈ 3.88 m/s². (3 marks)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-2-2",
@@ -194,7 +195,8 @@
           "marks": 2,
           "questionText": "Draw a FREE-BODY DIAGRAM showing all forces on block B while it accelerates downward.",
           "memoText": "Forces on B: Weight (m_B × g = 73.5 N downward), Tension T (upward). Fnet = m_B × g − T = m_B × a. (2 marks)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-2-3",
@@ -202,7 +204,8 @@
           "marks": 2,
           "questionText": "State NEWTON'S SECOND LAW of motion in words.",
           "memoText": "The net force acting on an object is equal to the rate of change of momentum of the object / Fnet = ma, in the direction of the net force. (2 marks)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-2-4",
@@ -210,7 +213,8 @@
           "marks": 5,
           "questionText": "Calculate the MASS m of block A.",
           "memoText": "For B: m_B × g − T = m_B × a → T = m_B(g − a) = 7.5(9.8 − 3.88) = 7.5 × 5.92 = 44.4 N. For A: T = m_A × a → m_A = T/a = 44.4/3.88 = 11.44 kg. (5 marks)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-2-5",
@@ -218,7 +222,8 @@
           "marks": 5,
           "questionText": "After B hits the ground, block A continues moving. Calculate the MAXIMUM HEIGHT block A reaches above its initial position.",
           "memoText": "Speed of A when B hits ground = 3.41 m/s. After B hits, only friction (none — frictionless) acts. Wait — surface is frictionless, so no force on A horizontally. A moves at constant velocity? But string goes over pulley — A is on horizontal surface. After B hits, A moves at 3.41 m/s horizontally with no net horizontal force → constant speed. No max height unless... if A runs off the table. Reconsider: if the string pulls A up and over the pulley after B hits ground — A may have inertia and the string goes slack. A continues at 3.41 m/s horizontally, eventually reaching the table edge and... OR pulley is at table edge. After B hits, string slack, A decelerates only due to friction (but frictionless). In context: A may swing up. More likely: A shoots off table edge and becomes projectile. (5 marks — context-dependent.)",
-          "topic": "Newton's Laws"
+          "topic": "Newton's Laws",
+          "type": "written"
         }
       ]
     },
@@ -234,7 +239,8 @@
           "marks": 2,
           "questionText": "Define FREE FALL.",
           "memoText": "Free fall is the motion of an object under the influence of gravitational force only (no air resistance). (2 marks)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-3-2-1",
@@ -242,7 +248,8 @@
           "marks": 3,
           "questionText": "Ball A is dropped from a height of 15.2 m. Calculate the TIME for A to hit the ground.",
           "memoText": "h = ½gt²: 15.2 = ½(9.8)t² → t² = 3.102 → t = 1.76 s. (3 marks)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-3-2-2",
@@ -250,7 +257,8 @@
           "marks": 5,
           "questionText": "Ball B is projected upward from the ground after A has fallen 3.2 m, such that both balls hit the ground at the same time. Calculate the velocity at which B was projected.",
           "memoText": "Time for A to fall 3.2 m: 3.2 = ½(9.8)t₁² → t₁ = 0.808 s. Time remaining for A to hit ground: 1.76 − 0.808 = 0.952 s. B must hit ground in 0.952 s. For B (upward then down from ground): 0 = v_B × 0.952 − ½(9.8)(0.952²) → v_B = ½(9.8)(0.952) = 4.665 m/s. Wait — B hits ground (ground level) so displacement = 0: 0 = v_B t − ½gt² → v_B = ½gt = ½(9.8)(0.952) = 4.66 m/s. (5 marks)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-3-3",
@@ -259,7 +267,8 @@
           "questionText": "Draw POSITION-TIME GRAPHS for both ball A and ball B on the same axes, from the moment A is dropped until both hit the ground.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2023_q3.3.png",
           "memoText": "A: starts at y = 15.2 m, curves downward (parabola) to y = 0. B: starts at y = 0 (0.808 s after A is dropped), curves upward then back down to y = 0 at same time as A. Both correctly shaped with labels. (5 marks)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
         }
       ]
     },
@@ -275,7 +284,8 @@
           "marks": 2,
           "questionText": "State the CONSERVATION OF LINEAR MOMENTUM.",
           "memoText": "The total linear momentum of an isolated system remains constant (is conserved). (2 marks)",
-          "topic": "Momentum and Impulse"
+          "topic": "Momentum and Impulse",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-4-2-1",
@@ -283,7 +293,8 @@
           "marks": 3,
           "questionText": "Trolley A (7.2 kg) moves at 0.4 m/s towards stationary trolley B (5.3 kg). They collide and LOCK TOGETHER. Calculate the VELOCITY after the collision.",
           "memoText": "p_before = 7.2 × 0.4 = 2.88 kg·m/s. p_after = (7.2 + 5.3)v = 12.5v. 12.5v = 2.88 → v = 0.23 m/s in the original direction. (3 marks)",
-          "topic": "Momentum and Impulse"
+          "topic": "Momentum and Impulse",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-4-2-2",
@@ -291,7 +302,8 @@
           "marks": 3,
           "questionText": "Calculate the AVERAGE NET FORCE A exerts on B during the collision if the collision lasts 0.02 s.",
           "memoText": "Δp_B = m_B × (v_f − v_i) = 5.3 × (0.23 − 0) = 1.219 kg·m/s. F_avg = Δp/Δt = 1.219/0.02 = 60.95 N ≈ 61 N in direction of motion. (3 marks)",
-          "topic": "Momentum and Impulse"
+          "topic": "Momentum and Impulse",
+          "type": "written"
         }
       ]
     },
@@ -307,7 +319,8 @@
           "marks": 2,
           "questionText": "Define a NON-CONSERVATIVE force.",
           "memoText": "A non-conservative force is one for which the work done depends on the path taken between two points / the work done is not recoverable as mechanical energy. (2 marks)",
-          "topic": "Work, Energy and Power"
+          "topic": "Work, Energy and Power",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-5-2",
@@ -315,7 +328,8 @@
           "marks": 5,
           "questionText": "A 20 kg crate is pulled from A up an 18° incline to C (AC = 15.6 m) by a motor exerting 96.8 N. Friction = 13.5 N. Calculate the SPEED at C (starts from rest).",
           "memoText": "W_net = ΔEk. W_motor = 96.8 × 15.6 = 1510.1 J. W_friction = −13.5 × 15.6 = −210.6 J. W_gravity = −mgh = −20 × 9.8 × 15.6 × sin18° = −20 × 9.8 × 4.822 = −945.1 J. W_net = 1510.1 − 210.6 − 945.1 = 354.4 J = ½mv². v² = 2 × 354.4/20 = 35.44. v = 5.95 m/s. (5 marks)",
-          "topic": "Work, Energy and Power"
+          "topic": "Work, Energy and Power",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-5-3",
@@ -323,7 +337,8 @@
           "marks": 3,
           "questionText": "Calculate the MINIMUM AVERAGE POWER of the motor to pull the crate from A to C.",
           "memoText": "W_motor = 1510.1 J (from 5.2). Need time: use kinematics with work-energy. Or use P_avg = W/t. Need t from kinematics: v² = 2as → a = v²/(2×15.6) = 35.44/31.2 = 1.136 m/s². t = v/a = 5.95/1.136 = 5.24 s. P = W/t = 1510.1/5.24 = 288 W. (3 marks)",
-          "topic": "Work, Energy and Power"
+          "topic": "Work, Energy and Power",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-5-4",
@@ -331,7 +346,8 @@
           "marks": 3,
           "questionText": "Draw a FREE-BODY DIAGRAM for the crate when it slides BACK DOWN after the motor is switched off.",
           "memoText": "Forces: Weight component along incline (mg sin18° = 60.4 N, down the slope), Normal force N (perpendicular to incline, upward), Friction force (up the slope, opposing downward motion = 13.5 N). (3 marks)",
-          "topic": "Work, Energy and Power"
+          "topic": "Work, Energy and Power",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-5-5",
@@ -340,7 +356,8 @@
           "questionText": "Sketch a VELOCITY-TIME GRAPH for the entire motion of the crate (up the incline and back down).",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2023_q5.5.png",
           "memoText": "Going up: v increases from 0 to 5.95 m/s (positive acceleration while motor on). Sliding back down: constant acceleration downward (slope). Graph shows: increase then decrease through zero and increase in negative direction. Specific gradients for each phase. (4 marks)",
-          "topic": "Work, Energy and Power"
+          "topic": "Work, Energy and Power",
+          "type": "written"
         }
       ]
     },
@@ -355,7 +372,8 @@
           "marks": 2,
           "questionText": "State the DOPPLER EFFECT.",
           "memoText": "The Doppler effect is the apparent change in frequency of a wave due to the relative motion between the source and observer. (2 marks)",
-          "topic": "Doppler Effect"
+          "topic": "Doppler Effect",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-6-1-2",
@@ -363,7 +381,8 @@
           "marks": 6,
           "questionText": "A car moves at 22 m/s towards a stationary device that emits sound at 24 000 Hz. The sound reflects off the car and returns to the device. Calculate the FREQUENCY of the reflected sound detected by the device. (Speed of sound = 340 m/s.)",
           "memoText": "Step 1: Frequency detected by car (moving observer towards stationary source): f₁ = f_s(v + v_car)/v = 24000(340 + 22)/340 = 24000 × 362/340 = 25 553 Hz. Step 2: Car acts as new source at f₁, moving towards stationary device: f_detected = f₁ × v/(v − v_car) = 25553 × 340/(340 − 22) = 25553 × 340/318 = 27 322 Hz. (6 marks)",
-          "topic": "Doppler Effect"
+          "topic": "Doppler Effect",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-6-2",
@@ -371,7 +390,8 @@
           "marks": 2,
           "questionText": "A star is moving AWAY from Earth. How does the frequency of light from this star compare to if it were stationary? Explain.",
           "memoText": "The frequency observed is LOWER than the actual frequency (red shift). When the source moves away, the wavelength of waves received is longer (stretched), so frequency is lower. (2 marks)",
-          "topic": "Doppler Effect"
+          "topic": "Doppler Effect",
+          "type": "written"
         }
       ]
     },
@@ -387,7 +407,8 @@
           "marks": 2,
           "questionText": "State COULOMB'S LAW in words.",
           "memoText": "The electrostatic force between two point charges is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance between them. (2 marks)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-7-2",
@@ -396,7 +417,8 @@
           "questionText": "X has charge −7.2 × 10⁻⁹ C and Y has charge +7.2 × 10⁻⁹ C, placed 0.03 m apart. A positive charge Z is placed 0.01 m to the LEFT of X. Draw the NET ELECTRIC FIELD PATTERN for the three charges.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2023_q7.2.png",
           "memoText": "Electric field lines: from Y (+) outward; towards X (−); from Z (+) outward. Lines between X and Y connect. At Z, lines emerge outward. Combined pattern shows field lines from Y and Z towards X. (3 marks)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-7-3",
@@ -404,7 +426,8 @@
           "marks": 3,
           "questionText": "Calculate the FORCE Y exerts on X.",
           "memoText": "F = kQ_X Q_Y/r² = (9×10⁹)(7.2×10⁻⁹)(7.2×10⁻⁹)/(0.03²) = (9×10⁹)(5.184×10⁻¹⁷)/(9×10⁻⁴) = 5.184×10⁻⁷ N. Wait: = 9×10⁹ × 5.184×10⁻¹⁷ / 9×10⁻⁴ = 5.184×10⁻⁴ N. (3 marks) Direction: Y is positive, X is negative — force on X is TOWARDS Y (attractive, to the right).",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-7-4",
@@ -413,7 +436,8 @@
           "questionText": "Draw a VECTOR DIAGRAM showing all electric forces acting on X.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2023_q7.4.png",
           "memoText": "Force by Y on X: attractive, to the right. Force by Z on X: Z is positive, X is negative → attractive, to the LEFT (towards Z). Both vectors drawn with correct directions and approximate magnitudes. (2 marks)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-7-5",
@@ -421,7 +445,8 @@
           "marks": 5,
           "questionText": "The resultant electric field at point X is 4.91 × 10⁵ N/C directed to the RIGHT. Calculate the MAGNITUDE of charge Z.",
           "memoText": "E_net at X due to Y and Z. E_Y at X = kQ_Y/r_YX² = (9×10⁹)(7.2×10⁻⁹)/(0.03²) = 72000 N/C (toward Y = rightward). E_Z at X = kQ_Z/r_ZX² = (9×10⁹)(Q_Z)/(0.01²) = 9×10¹³ Q_Z (toward Z = leftward). E_net = E_Y − E_Z = 4.91×10⁵ (rightward). 72000 − 9×10¹³ Q_Z = 491000. Hmm: 72000 − 9×10¹³Q_Z = 491000 gives negative Q_Z. Reconsider directions: E_Y on X is toward Y (+, to right) = 72 kN/C. E_Z on X toward Z (negative X is attracted to + Z, to left). E_net = E_Y − E_Z = 491000 would require E_Z negative. OR E_net rightward means E_Y + E_Z both rightward if Z is also to the right... but Z is to LEFT of X. Re-examine: resultant 4.91×10⁵ N/C to right. E_Y (from Y on X) = rightward. E_Z (from Z on X) = leftward. E_net = E_Y − E_Z = 4.91×10⁵. With E_Y = 72000: 72000 − E_Z = 491000 → E_Z < 0. Reconsider: 9×10⁹ × 7.2×10⁻⁹/0.03² = 64800/0.0009 = 72,000,000 N/C. Recalculate: r = 0.03 m, r² = 9×10⁻⁴. E = (9×10⁹)(7.2×10⁻⁹)/(9×10⁻⁴) = 64.8/9×10⁻⁴ = 72000 N/C = 7.2×10⁴ N/C. E_net = 4.91×10⁵. E_Z = E_net − E_Y or E_Y + E_Z = E_net → 7.2×10⁴ + E_Z = 4.91×10⁵ → E_Z = 4.19×10⁵. kQ_Z/r_ZX² = 4.19×10⁵. Q_Z = 4.19×10⁵×(0.01²)/(9×10⁹) = 4.19×10⁵×10⁻⁴/9×10⁹ = 4.66×10⁻⁹ C. (5 marks)",
-          "topic": "Electrostatics"
+          "topic": "Electrostatics",
+          "type": "written"
         }
       ]
     },
@@ -437,7 +462,8 @@
           "marks": 2,
           "questionText": "State OHM'S LAW.",
           "memoText": "The current through a conductor is directly proportional to the potential difference across it, provided temperature remains constant. (2 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-8-2-1",
@@ -445,7 +471,8 @@
           "marks": 3,
           "questionText": "The circuit has a 3 Ω, 2 Ω and 5 Ω resistor with switches S1 and S2. Ammeter A1 reads 1.5 A (S1 closed, S2 closed). Calculate the VOLTMETER reading.",
           "memoText": "V_3Ω = I × R = 1.5 × 3 = 4.5 V. Voltmeter reads potential difference across the 3 Ω resistor (or across the parallel combination, depending on circuit). (3 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-8-2-2",
@@ -453,7 +480,8 @@
           "marks": 4,
           "questionText": "Calculate the reading on ammeter A2 when both switches are closed.",
           "memoText": "From circuit: A2 reads current through the parallel branch (2Ω ∥ 5Ω or separate branch). V_parallel = V_total − V_3Ω. I_A2 = V_parallel/R_branch. (4 marks — circuit-dependent.)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-8-2-3",
@@ -461,7 +489,8 @@
           "marks": 3,
           "questionText": "Calculate the POWER dissipated in the 3 Ω resistor.",
           "memoText": "P = I²R = (1.5)² × 3 = 6.75 W. (3 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-8-3",
@@ -469,7 +498,8 @@
           "marks": 5,
           "questionText": "When S1 is open and S2 is closed, ammeter A2 reads 3.64 A. Calculate the EMF of the battery.",
           "memoText": "S1 open: 3 Ω is disconnected (or a branch is open). Circuit simplifies. emf = V_terminal + V_r = I(R_ext + r). From A2 = 3.64 A and remaining circuit resistance: emf = 3.64 × (R_ext + r). (5 marks — full calculation.)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-8-4",
@@ -477,7 +507,8 @@
           "marks": 4,
           "questionText": "Explain what happens to the VOLTMETER reading when S2 is opened (S1 remains closed).",
           "memoText": "When S2 opens, the 5 Ω branch is disconnected. Total external resistance increases. Current decreases. V_r = Ir decreases. V_terminal = emf − V_r increases. Therefore voltmeter reading INCREASES. (4 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         }
       ]
     },
@@ -493,7 +524,8 @@
           "marks": 1,
           "questionText": "The coil of an AC generator is in the horizontal position. The current flows from X to Y. Which pole (NORTH or SOUTH) is labelled A?",
           "memoText": "Use Fleming's right-hand rule for generators. With X to Y current direction and clockwise rotation, pole A is NORTH (or SOUTH — accept either with correct justification from diagram). (1 mark)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-9-1-2",
@@ -501,7 +533,8 @@
           "marks": 1,
           "questionText": "What is the direction of current flow in the coil after the coil has rotated 180°?",
           "memoText": "The current direction REVERSES — from Y to X (opposite to original). (1 mark)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-9-1-3",
@@ -510,7 +543,8 @@
           "questionText": "Sketch an EMF-TIME GRAPH for TWO complete rotations of the coil.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2023_q9.1.3.png",
           "memoText": "Sinusoidal wave with 2 complete cycles. Peaks and troughs at correct intervals. V_max labelled. Period T shown. (3 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-9-2-1",
@@ -518,7 +552,8 @@
           "marks": 4,
           "questionText": "The generator produces V_rms = 200 V and maximum current I_max = 6 A. Calculate the RESISTANCE of the appliance connected.",
           "memoText": "I_rms = I_max/√2 = 6/√2 = 4.243 A. R = V_rms/I_rms = 200/4.243 = 47.1 Ω. (4 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-9-2-2",
@@ -526,7 +561,8 @@
           "marks": 4,
           "questionText": "Calculate the ENERGY dissipated in the appliance in 2 hours.",
           "memoText": "P = V_rms × I_rms = 200 × 4.243 = 848.6 W. E = Pt = 848.6 × 2 × 3600 = 6 109 920 J ≈ 6.11 × 10⁶ J. (4 marks)",
-          "topic": "Electric Circuits"
+          "topic": "Electric Circuits",
+          "type": "written"
         }
       ]
     },
@@ -542,7 +578,8 @@
           "marks": 1,
           "questionText": "From the Ek(max) vs frequency graph for metals A and B, what is the VALUE of the gradient?",
           "memoText": "Gradient = h = 6.63 × 10⁻³⁴ J·s (Planck's constant). (1 mark)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-10-2",
@@ -550,7 +587,8 @@
           "marks": 2,
           "questionText": "Define WORK FUNCTION.",
           "memoText": "The work function is the minimum energy required to eject an electron from the surface of a metal. (2 marks)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-10-3-1",
@@ -558,7 +596,8 @@
           "marks": 3,
           "questionText": "The threshold frequency for metal A is 5 × 10¹⁴ Hz. Calculate the WORK FUNCTION of metal A.",
           "memoText": "W = hf₀ = 6.63×10⁻³⁴ × 5×10¹⁴ = 3.315×10⁻¹⁹ J. (3 marks)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-10-3-2",
@@ -566,7 +605,8 @@
           "marks": 4,
           "questionText": "From the graph, determine the value X of Ek(max) for metal A at f = 12.54 × 10¹⁴ Hz.",
           "memoText": "Ek(max) = hf − W = 6.63×10⁻³⁴ × 12.54×10¹⁴ − 3.315×10⁻¹⁹ = 8.314×10⁻¹⁹ − 3.315×10⁻¹⁹ = 4.999×10⁻¹⁹ J ≈ 5.0×10⁻¹⁹ J. (4 marks)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-10-4-1",
@@ -574,7 +614,8 @@
           "marks": 1,
           "questionText": "If the INTENSITY of the light is increased at the same frequency, what is the effect on X (Ek max)?",
           "memoText": "No effect — Ek(max) remains the same. Intensity does not affect the maximum kinetic energy of photoelectrons; it only affects the number of electrons ejected. (1 mark)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-10-4-2",
@@ -582,7 +623,8 @@
           "marks": 1,
           "questionText": "What is the effect of increased intensity on the NUMBER OF PHOTOELECTRONS ejected per unit time?",
           "memoText": "The number of photoelectrons per unit time INCREASES. Higher intensity means more photons per second, so more electrons are ejected per second. (1 mark)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         },
         {
           "id": "ps-p1-23-10-5",
@@ -591,7 +633,8 @@
           "questionText": "On the same graph, sketch the Ek(max) vs frequency line for METAL B, which has a LARGER work function than metal A.",
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physics-p1-may-jun-2023_q10.5.png",
           "memoText": "Metal B line: same gradient (h) as A but x-intercept (threshold frequency f₀) is shifted to the RIGHT (higher threshold frequency). Line parallel to A, intersecting x-axis at higher f. (2 marks)",
-          "topic": "Photoelectric Effect and Emission/Absorption Spectra"
+          "topic": "Photoelectric Effect and Emission/Absorption Spectra",
+          "type": "written"
         }
       ]
     }

@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
 import { getProgress, getStreakData, StreakData } from "@/lib/storage";
 import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
+import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
 import { StudentProfile } from "@/types/ruby";
+import { ReadingStudentProfile } from "@/types/reading";
 import { ProgressData } from "@/types";
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import SavedReportView from "@/components/SavedReportView";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
@@ -121,26 +124,39 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
     studySessions: 0,
   });
   const [streak, setStreak] = useState<Pick<StreakData, "currentStreak" | "bestStreak">>({ currentStreak: 0, bestStreak: 0 });
+  const [mathsDone, setMathsDone] = useState(false);
+  const [readingDone, setReadingDone] = useState(false);
+  const [viewReport, setViewReport] = useState<"maths" | "reading" | null>(null);
 
   useEffect(() => {
     const load = async () => {
-      const [auth, profile, progress, streakData] = await Promise.all([
+      const [auth, profile, readingProfile, progress, streakData] = await Promise.all([
         fetchAuthorisedGrade(),
         hydrateStudentProfileFromSupabase(),
+        hydrateReadingProfileFromSupabase(),
         getProgress(),
         getStreakData(),
       ]);
       if (auth?.name) setFirstName(auth.name.split(" ")[0]);
       setStats(buildStats(profile, progress));
       setStreak({ currentStreak: streakData.currentStreak, bestStreak: streakData.bestStreak });
+      setMathsDone(profile?.placementCompleted ?? false);
+      setReadingDone((readingProfile as ReadingStudentProfile | null)?.placementCompleted ?? false);
     };
     load();
   }, []);
 
+  if (viewReport) {
+    return (
+      <div className="h-full overflow-hidden">
+        <SavedReportView subject={viewReport} onBack={() => setViewReport(null)} />
+      </div>
+    );
+  }
+
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
-      {/* Wider container: max-w-4xl ≈ 896px, generous side padding */}
       <div className="relative max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
 
         {/* ── Hero ─────────────────────────────────────────────────────── */}
@@ -151,6 +167,69 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
             <p className="text-gray-500 text-base mt-0.5">Ready to keep learning?</p>
           </div>
         </div>
+
+        {/* ── Discovery CTAs ────────────────────────────────────────────── */}
+        <section className="mb-6 space-y-3">
+          {/* Maths Discovery */}
+          {mathsDone ? (
+            <button
+              onClick={() => setViewReport("maths")}
+              className="w-full bg-white border-2 border-rose-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">🧮</span>
+                <div>
+                  <p className="font-semibold text-gray-800">Maths Discovery Report</p>
+                  <p className="text-sm text-gray-400 mt-0.5">View your placement results</p>
+                </div>
+              </div>
+              <span className="text-rose-600 font-semibold text-sm">View →</span>
+            </button>
+          ) : (
+            <div className="bg-white border-2 border-rose-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">🧮</span>
+                <p className="font-semibold text-gray-800">Start Maths Discovery</p>
+              </div>
+              <button
+                onClick={() => onNavigate("discover-maths")}
+                className="bg-rose-600 hover:bg-rose-700 text-white font-semibold text-sm px-4 py-2 rounded-full transition-colors flex items-center gap-1.5 active:scale-[0.97]"
+              >
+                Go! 👉
+              </button>
+            </div>
+          )}
+
+          {/* Reading Discovery */}
+          {readingDone ? (
+            <button
+              onClick={() => setViewReport("reading")}
+              className="w-full bg-white border-2 border-amber-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">📖</span>
+                <div>
+                  <p className="font-semibold text-gray-800">Reading Discovery Report</p>
+                  <p className="text-sm text-gray-400 mt-0.5">View your placement results</p>
+                </div>
+              </div>
+              <span className="text-amber-600 font-semibold text-sm">View →</span>
+            </button>
+          ) : (
+            <div className="bg-white border-2 border-amber-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">📖</span>
+                <p className="font-semibold text-gray-800">Start Reading Discovery</p>
+              </div>
+              <button
+                onClick={() => onNavigate("discover-reading")}
+                className="bg-amber-500 hover:bg-amber-600 text-white font-semibold text-sm px-4 py-2 rounded-full transition-colors flex items-center gap-1.5 active:scale-[0.97]"
+              >
+                Go! 👉
+              </button>
+            </div>
+          )}
+        </section>
 
         {/* ── Progress Stats ────────────────────────────────────────────── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ActiveView } from "@/types";
 import { useT } from "@/lib/i18n";
 
@@ -39,66 +39,7 @@ export default function Sidebar({
   onOpenLangPicker,
 }: SidebarProps) {
   const { t } = useT();
-
-  const topItems: { id: ActiveView; emoji: string; label: string; desc: string }[] = [
-    { id: "home",     emoji: "🏠", label: t("sidebar.home"),     desc: t("sidebar.home_desc") },
-    { id: "progress", emoji: "📊", label: t("sidebar.progress"), desc: t("sidebar.progress_desc") },
-    { id: "matric",   emoji: "🎓", label: "Matric Prep",         desc: "Past papers · Exam guidance" },
-  ];
-
-  const collapsibleSections = [
-    {
-      key: "general",
-      label: t("sidebar.general_tutor"),
-      emoji: "💬",
-      items: [
-        { id: "chat" as ActiveView,  emoji: "📚", label: t("sidebar.homework"), desc: t("sidebar.homework_desc") },
-        { id: "watch" as ActiveView, emoji: "▶️",  label: t("sidebar.watch"),    desc: t("sidebar.watch_desc") },
-      ],
-    },
-    {
-      key: "discover",
-      label: "Discover",
-      emoji: "🧭",
-      items: [
-        { id: "discover-maths" as ActiveView,   emoji: "🧮", label: "Maths",   desc: "Find your Maths level" },
-        { id: "discover-reading" as ActiveView, emoji: "📖", label: "Reading", desc: "Find your Reading level" },
-      ],
-    },
-    {
-      key: "maths",
-      label: t("sidebar.maths_engine"),
-      emoji: "🧮",
-      items: [
-        { id: "ruby" as ActiveView, emoji: "🎯", label: t("sidebar.maths"), desc: t("sidebar.maths_desc") },
-      ],
-    },
-    {
-      key: "reading",
-      label: t("sidebar.reading_engine"),
-      emoji: "📖",
-      items: [
-        { id: "reading" as ActiveView, emoji: "✏️", label: t("sidebar.reading"), desc: t("sidebar.reading_desc") },
-      ],
-    },
-  ];
-
-  const [openSections, setOpenSections] = useState<Record<string, boolean>>({
-    general: false,
-    discover: false,
-    maths: false,
-    reading: false,
-  });
   const [matricOpen, setMatricOpen] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      setOpenSections({ general: false, discover: false, maths: false, reading: false });
-    }
-  }, [isOpen]);
-
-  const toggleSection = (key: string) =>
-    setOpenSections((prev) => ({ ...prev, [key]: !prev[key] }));
 
   const handleNav = (view: ActiveView) => {
     onViewChange(view);
@@ -111,6 +52,16 @@ export default function Sidebar({
         ? "bg-white/25 text-white shadow-lg shadow-black/10"
         : "text-white/90 hover:bg-white/15 hover:text-white"
     }`;
+
+  // All top-level nav items (flat list after changes)
+  const navItems: { id: ActiveView; emoji: string; label: string; desc?: string }[] = [
+    { id: "home",     emoji: "🏠", label: t("sidebar.home"),           desc: t("sidebar.home_desc") },
+    { id: "progress", emoji: "📊", label: t("sidebar.progress"),       desc: t("sidebar.progress_desc") },
+    { id: "chat",     emoji: "💬", label: t("sidebar.general_tutor"),  desc: "Chat with Ruby" },
+    { id: "discover", emoji: "🧭", label: "Discover",                  desc: "Maths & Reading placement" },
+    { id: "ruby",     emoji: "🧮", label: t("sidebar.maths_engine"),   desc: t("sidebar.maths_desc") },
+    { id: "reading",  emoji: "📖", label: t("sidebar.reading_engine"), desc: t("sidebar.reading_desc") },
+  ];
 
   return (
     <>
@@ -200,140 +151,99 @@ export default function Sidebar({
         {/* Navigation */}
         <nav className={`flex-1 overflow-y-auto py-4 space-y-1 ${collapsed ? "px-1" : "px-4"}`}>
 
-          {/* Top-level items */}
-          {topItems.map(({ id, emoji, label }) => (
-            <div key={id}>
-              {id === "matric" && !collapsed ? (
-                /* Matric Prep — split: main click navigates, chevron toggles sub-menu */
-                <div className="flex items-center gap-0.5">
-                  <button
-                    onClick={() => handleNav(id)}
-                    className={`${navItemClass(activeView === id)} flex-1`}
-                  >
-                    <span className="text-lg flex-shrink-0">{emoji}</span>
-                    <div className="font-medium text-base">{label}</div>
-                  </button>
-                  <button
-                    onClick={() => setMatricOpen((v) => !v)}
-                    className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/15 transition-colors flex-shrink-0"
-                    aria-label="Toggle Matric sub-menu"
-                  >
-                    <ChevronIcon open={matricOpen} />
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={() => {
-                    handleNav(id);
-                    if (id === "matric") setMatricOpen((v) => !v);
-                  }}
-                  title={collapsed ? label : undefined}
-                  className={`${navItemClass(activeView === id)} ${collapsed ? "justify-center px-0" : ""}`}
-                >
-                  <span className="text-lg flex-shrink-0">{emoji}</span>
-                  {!collapsed && <div className="font-medium text-base">{label}</div>}
-                </button>
-              )}
-
-              {/* Matric sub-items dropdown */}
-              {id === "matric" && matricOpen && !collapsed && (
-                <div className="pl-1 pt-0.5 space-y-0.5">
-                  <button
-                    onClick={() => handleNav("matric")}
-                    className={navItemClass(activeView === "matric")}
-                  >
-                    <span className="text-lg flex-shrink-0">📄</span>
-                    <div className="min-w-0">
-                      <div className="font-medium text-base">Past Papers</div>
-                      <div className={`text-sm truncate ${activeView === "matric" ? "text-white/90" : "text-white/55"}`}>NSC past exam papers</div>
-                    </div>
-                  </button>
-                  <button
-                    onClick={() => handleNav("prep-papers-2026")}
-                    className={navItemClass(activeView === "prep-papers-2026")}
-                  >
-                    <span className="text-lg flex-shrink-0">🗓️</span>
-                    <div className="min-w-0">
-                      <div className="font-medium text-base">Prep Papers 2026</div>
-                      <div className={`text-sm truncate ${activeView === "prep-papers-2026" ? "text-white/90" : "text-white/55"}`}>Coming soon</div>
-                    </div>
-                  </button>
+          {/* Flat nav items */}
+          {navItems.map(({ id, emoji, label, desc }) => (
+            <button
+              key={id}
+              onClick={() => handleNav(id)}
+              title={collapsed ? label : undefined}
+              className={`${navItemClass(activeView === id)} ${collapsed ? "justify-center px-0" : ""}`}
+            >
+              <span className="text-lg flex-shrink-0">{emoji}</span>
+              {!collapsed && (
+                <div className="min-w-0">
+                  <div className="font-medium text-base">{label}</div>
+                  {desc && <div className={`text-sm truncate ${activeView === id ? "text-white/90" : "text-white/55"}`}>{desc}</div>}
                 </div>
               )}
-              {/* Collapsed: show sub-items as flat icon buttons */}
-              {id === "matric" && collapsed && (
-                <>
-                  <button
-                    onClick={() => handleNav("matric")}
-                    title="Past Papers"
-                    className={`${navItemClass(activeView === "matric")} justify-center px-0`}
-                  >
-                    <span className="text-lg flex-shrink-0">📄</span>
-                  </button>
-                  <button
-                    onClick={() => handleNav("prep-papers-2026")}
-                    title="Prep Papers 2026"
-                    className={`${navItemClass(activeView === "prep-papers-2026")} justify-center px-0`}
-                  >
-                    <span className="text-lg flex-shrink-0">🗓️</span>
-                  </button>
-                </>
-              )}
-            </div>
+            </button>
           ))}
 
-          {!collapsed && <div className="pt-2" />}
+          {!collapsed && <div className="pt-1" />}
 
-          {/* Collapsible sections — hidden when sidebar is collapsed, show flat emoji buttons instead */}
-          {collapsed ? (
-            <>
-              {collapsibleSections.flatMap((section) =>
-                section.items.map(({ id, emoji, label }) => (
-                  <button
-                    key={id}
-                    onClick={() => handleNav(id)}
-                    title={label}
-                    className={`${navItemClass(activeView === id)} justify-center px-0`}
-                  >
-                    <span className="text-lg flex-shrink-0">{emoji}</span>
-                  </button>
-                ))
-              )}
-            </>
-          ) : (
-            collapsibleSections.map((section) => (
-              <div key={section.key} className="space-y-1">
+          {/* Matric Prep — split: main click navigates, chevron toggles sub-menu */}
+          <div>
+            {!collapsed ? (
+              <div className="flex items-center gap-0.5">
                 <button
-                  onClick={() => toggleSection(section.key)}
-                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-white/90 hover:text-white hover:bg-white/15 transition-colors"
+                  onClick={() => handleNav("matric")}
+                  className={`${navItemClass(activeView === "matric" || activeView === "prep-papers-2026")} flex-1`}
                 >
-                  <div className="flex items-center gap-3 min-w-0 mr-1">
-                    <span className="text-lg flex-shrink-0">{section.emoji}</span>
-                    <span className="text-base font-medium leading-tight">{section.label}</span>
+                  <span className="text-lg flex-shrink-0">🎓</span>
+                  <div className="min-w-0">
+                    <div className="font-medium text-base">Matric Prep</div>
+                    <div className={`text-sm truncate ${activeView === "matric" || activeView === "prep-papers-2026" ? "text-white/90" : "text-white/55"}`}>Past papers · Exam guidance</div>
                   </div>
-                  <ChevronIcon open={openSections[section.key]} />
                 </button>
-
-                {openSections[section.key] && (
-                  <div className="space-y-1 pl-1">
-                    {section.items.map(({ id, emoji, label, desc }) => (
-                      <button
-                        key={id + label}
-                        onClick={() => handleNav(id)}
-                        className={navItemClass(activeView === id)}
-                      >
-                        <span className="text-lg flex-shrink-0">{emoji}</span>
-                        <div className="min-w-0">
-                          <div className="font-medium text-base">{label}</div>
-                          <div className={`text-sm truncate ${activeView === id ? "text-white/90" : "text-white/55"}`}>{desc}</div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
+                <button
+                  onClick={() => setMatricOpen((v) => !v)}
+                  className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/15 transition-colors flex-shrink-0"
+                  aria-label="Toggle Matric sub-menu"
+                >
+                  <ChevronIcon open={matricOpen} />
+                </button>
               </div>
-            ))
-          )}
+            ) : (
+              <>
+                <button
+                  onClick={() => handleNav("matric")}
+                  title="Matric Prep"
+                  className={`${navItemClass(activeView === "matric")} justify-center px-0`}
+                >
+                  <span className="text-lg flex-shrink-0">🎓</span>
+                </button>
+                <button
+                  onClick={() => handleNav("matric")}
+                  title="Past Papers"
+                  className={`${navItemClass(activeView === "matric")} justify-center px-0`}
+                >
+                  <span className="text-lg flex-shrink-0">📄</span>
+                </button>
+                <button
+                  onClick={() => handleNav("prep-papers-2026")}
+                  title="Prep Papers 2026"
+                  className={`${navItemClass(activeView === "prep-papers-2026")} justify-center px-0`}
+                >
+                  <span className="text-lg flex-shrink-0">🗓️</span>
+                </button>
+              </>
+            )}
+
+            {/* Matric sub-items */}
+            {matricOpen && !collapsed && (
+              <div className="pl-1 pt-0.5 space-y-0.5">
+                <button
+                  onClick={() => handleNav("matric")}
+                  className={navItemClass(activeView === "matric")}
+                >
+                  <span className="text-lg flex-shrink-0">📄</span>
+                  <div className="min-w-0">
+                    <div className="font-medium text-base">Past Papers</div>
+                    <div className={`text-sm truncate ${activeView === "matric" ? "text-white/90" : "text-white/55"}`}>NSC past exam papers</div>
+                  </div>
+                </button>
+                <button
+                  onClick={() => handleNav("prep-papers-2026")}
+                  className={navItemClass(activeView === "prep-papers-2026")}
+                >
+                  <span className="text-lg flex-shrink-0">🗓️</span>
+                  <div className="min-w-0">
+                    <div className="font-medium text-base">Prep Papers 2026</div>
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Footer */}

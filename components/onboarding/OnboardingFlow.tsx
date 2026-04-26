@@ -38,35 +38,6 @@ const GRADES = [
   { grade: "11", emoji: "🎓" }, { grade: "12", emoji: "🎓" },
 ];
 
-const SCORES: { label: string; bars: number[] }[] = [
-  { label: "30 – 40", bars: [4, 5, 4] },
-  { label: "40 – 50", bars: [5, 7, 6] },
-  { label: "50 – 60", bars: [7, 9, 8] },
-  { label: "60 – 70", bars: [9, 11, 10] },
-  { label: "70 – 80", bars: [11, 13, 12] },
-  { label: "80+",     bars: [13, 16, 14] },
-];
-
-const BAR_COLOURS = ["#f59e0b", "#3b82f6", "#10b981"];
-
-function ScoreChart({ bars }: { bars: number[] }) {
-  return (
-    <svg width="22" height="16" viewBox="0 0 22 16" fill="none" className="flex-shrink-0">
-      {bars.map((h, i) => (
-        <rect
-          key={i}
-          x={i * 7}
-          y={16 - h}
-          width="5"
-          height={h}
-          rx="1"
-          fill={BAR_COLOURS[i]}
-        />
-      ))}
-    </svg>
-  );
-}
-
 const CURRICULA: { label: string; flag: string }[] = [
   { label: "CAPS",                    flag: "🇿🇦" },
   { label: "IEB",                     flag: "🇿🇦" },
@@ -118,8 +89,8 @@ const PLANS = [
   },
 ];
 
-// Steps: 1=create_account, 2=language, 3=grade, 4=score, 5=curriculum
-const TOTAL_STEPS = 5;
+// Steps: 1=create_account, 2=language, 3=grade, 4=curriculum
+const TOTAL_STEPS = 4;
 
 function BackButton({ onClick }: { onClick: () => void }) {
   return (
@@ -457,38 +428,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
             </div>
           )}
 
-          {/* ── Step 4: Average Score ── */}
+          {/* ── Step 4: Curriculum ── */}
           {step === 4 && (
-            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">{t.step4Title}</h1>
-              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step4Sub}</p>
-              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
-                <div className="grid grid-cols-2 gap-3">
-                  {SCORES.map(({ label, bars }) => (
-                    <button
-                      key={label}
-                      onClick={() => select("averageScore", label)}
-                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
-                        data.averageScore === label
-                          ? "border-rose-500 bg-rose-50 text-rose-600"
-                          : "border-gray-200 text-gray-700 hover:border-gray-300"
-                      }`}
-                    >
-                      <ScoreChart bars={bars} />
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 5: Curriculum ── */}
-          {step === 5 && (
             <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
               <BackButton onClick={back} />
               <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which curriculum do you follow?</h1>

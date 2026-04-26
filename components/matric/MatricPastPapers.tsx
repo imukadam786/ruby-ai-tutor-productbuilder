@@ -176,7 +176,7 @@ function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void 
                 className={`relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 ${
                   subject.available
                     ? "border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
-                    : "border-gray-200 opacity-60 cursor-not-allowed"
+                    : "border-gray-200 opacity-40 cursor-not-allowed"
                 }`}
               >
                 {/* Thumbnail image */}
@@ -191,11 +191,6 @@ function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void 
                 {/* Label strip */}
                 <div className="px-3 py-2.5">
                   <p className="font-bold text-gray-800 text-sm leading-snug">{subject.name}</p>
-                  {subject.available ? (
-                    <p className="text-xs text-[#BE1832] font-semibold mt-0.5">Papers available →</p>
-                  ) : (
-                    <p className="text-xs text-gray-400 mt-0.5">Coming soon</p>
-                  )}
                 </div>
               </button>
             ))}

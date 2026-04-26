@@ -60,10 +60,26 @@ export interface HistoryPaper extends Omit<Paper, "questions"> {
 
 // ── Papers ────────────────────────────────────────────────────────────────────
 
+import histP1_2025 from "@/data/papers/hist-p1-may-jun-2025.json";
+import histP2_2025 from "@/data/papers/hist-p2-may-jun-2025.json";
 import histP1_2024 from "@/data/papers/hist-p1-may-jun-2024.json";
 import histP2_2024 from "@/data/papers/hist-p2-may-jun-2024.json";
+import histP1_2023 from "@/data/papers/hist-p1-may-jun-2023.json";
+import histP2_2023 from "@/data/papers/hist-p2-may-jun-2023.json";
+import histP1_2022 from "@/data/papers/hist-p1-may-jun-2022.json";
+import histP2_2022 from "@/data/papers/hist-p2-may-jun-2022.json";
+import histP1_2021 from "@/data/papers/hist-p1-may-jun-2021.json";
+import histP2_2021 from "@/data/papers/hist-p2-may-jun-2021.json";
 
 export const HISTORY_PAPERS: HistoryPaper[] = [
+  histP1_2025 as unknown as HistoryPaper,
+  histP2_2025 as unknown as HistoryPaper,
   histP1_2024 as unknown as HistoryPaper,
   histP2_2024 as unknown as HistoryPaper,
+  histP1_2023 as unknown as HistoryPaper,
+  histP2_2023 as unknown as HistoryPaper,
+  histP1_2022 as unknown as HistoryPaper,
+  histP2_2022 as unknown as HistoryPaper,
+  histP1_2021 as unknown as HistoryPaper,
+  histP2_2021 as unknown as HistoryPaper,
 ];

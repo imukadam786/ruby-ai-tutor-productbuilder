@@ -25,6 +25,7 @@ const ReadingSkillTreeView = dynamic(() => import("@/components/reading/ReadingS
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
+const DiscoverHub              = dynamic(() => import("@/components/DiscoverHub"),                         { ssr: false });
 const WatchComingSoon      = dynamic(() => import("@/components/WatchComingSoon"),                      { ssr: false });
 const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerModal"),                  { ssr: false });
 const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
@@ -70,10 +71,11 @@ function PlacementGuardScreen({
 }
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
-function AppContent() {
+function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView; onPostDiscovery?: () => void }) {
   const { t } = useT();
 
-  const [activeView, setActiveView] = useState<ActiveView>("home");
+  const [activeView, setActiveView] = useState<ActiveView>(initialView ?? "home");
+  const postDiscoveryFiredRef = useRef(false);
   const [paymentReturn, setPaymentReturn] = useState<"success" | "cancelled" | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -98,6 +100,7 @@ function AppContent() {
     "prep-papers-2026": "Prep Papers 2026",
     "discover-maths": "Discover · Maths",
     "discover-reading": "Discover · Reading",
+    "discover": "Discover",
   };
 
   const refreshStats = useCallback(() => {
@@ -145,11 +148,18 @@ function AppContent() {
       const type = (e as CustomEvent).detail?.type as "maths" | "reading";
       if (!type) return;
       incrementSession();
+      // If this is the post-onboarding discovery flow, fire the callback once
+      if (onPostDiscovery && !postDiscoveryFiredRef.current) {
+        postDiscoveryFiredRef.current = true;
+        // Small delay so the report view renders first before we transition
+        setTimeout(() => onPostDiscovery(), 3500);
+        return;
+      }
       setSurvey({ type });
     };
     document.addEventListener("ruby-skill-mastered", onSkillMastered);
     return () => document.removeEventListener("ruby-skill-mastered", onSkillMastered);
-  }, [refreshStats]);
+  }, [refreshStats, onPostDiscovery]);
 
   const handleViewChange = (view: ActiveView) => {
     // Chat: trigger survey when leaving chat after sending at least one message
@@ -188,7 +198,7 @@ function AppContent() {
           </svg>
         </button>
         <span className="flex-1 font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
-        {["chat", "ruby", "reading", "discover-maths", "discover-reading"].includes(activeView) ? (
+        {["chat", "ruby", "reading", "discover-maths", "discover-reading", "discover"].includes(activeView) ? (
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("ruby-action"))}
             className="p-2 rounded-lg text-gray-500 hover:text-gray-800 hover:bg-gray-100 transition-colors"
@@ -253,6 +263,7 @@ function AppContent() {
         {activeView === "discover-reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
+        {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "matric" && <MatricPastPapers />}
         {activeView === "prep-papers-2026" && <PrepPapers2026 />}
         {activeView === "watch" && <WatchComingSoon />}
@@ -311,6 +322,37 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
   );
 }
 
+// ── Post-onboarding discovery prompt ──────────────────────────────────────────
+function DiscoveryPromptScreen({ name, onSelect }: { name: string; onSelect: (subject: "maths" | "reading") => void }) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-6">
+      <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
+        <div className="text-5xl">🧭</div>
+        <h1 className="text-2xl font-bold text-[#1a2744]">
+          Welcome, {name}! Let&apos;s find your level
+        </h1>
+        <p className="text-gray-500 text-base leading-relaxed">
+          Take a quick Discovery Activity so Ruby knows exactly where to start your learning journey.
+        </p>
+        <div className="space-y-3 pt-1">
+          <button
+            onClick={() => onSelect("maths")}
+            className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
+          >
+            <span>🧮</span> Start Maths Discovery
+          </button>
+          <button
+            onClick={() => onSelect("reading")}
+            className="w-full py-4 rounded-full bg-amber-500 hover:bg-amber-600 text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
+          >
+            <span>📖</span> Start Reading Discovery
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const TUTORIAL_SEQUENCE = [
   DiscoveryTutorial,
   ReadingTutorial,
@@ -357,9 +399,10 @@ function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSki
 
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "tutorial-welcome" | "tutorial" | "app" | "trial-expired">("loading");
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "discovery-prompt" | "tutorial-welcome" | "tutorial" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
   const [tutorialStep, setTutorialStep] = useState(0);
+  const [pendingDiscovery, setPendingDiscovery] = useState<"maths" | "reading" | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -436,7 +479,7 @@ export default function Home() {
     } else {
       localStorage.setItem("ruby_pending_step", "plan-selection");
       setWelcomeName(data.name || "");
-      setAppState("welcome");
+      setAppState("discovery-prompt");
     }
   };
 
@@ -444,6 +487,18 @@ export default function Home() {
 
   if (appState === "onboarding") {
     return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+  }
+
+  if (appState === "discovery-prompt") {
+    return (
+      <DiscoveryPromptScreen
+        name={welcomeName}
+        onSelect={(subject) => {
+          setPendingDiscovery(subject);
+          setAppState("welcome");
+        }}
+      />
+    );
   }
 
   if (appState === "welcome") {
@@ -502,6 +557,7 @@ export default function Home() {
             onComplete={() => {
               if (isLast) {
                 localStorage.removeItem("ruby_pending_step");
+                setPendingDiscovery(null);
                 setAppState("app");
               } else {
                 setTutorialStep((s) => s + 1);
@@ -509,6 +565,24 @@ export default function Home() {
             }}
           />
         </div>
+      </LanguageProvider>
+    );
+  }
+
+  // ── Post-onboarding in-app discovery flow ──────────────────────────────────
+  // Renders the full app UI with the discovery view pre-selected. After the
+  // placement completes the user views the report, then is guided to the tutorial.
+  if (pendingDiscovery && appState === "app") {
+    const discoveryView: ActiveView = pendingDiscovery === "maths" ? "discover-maths" : "discover-reading";
+    return (
+      <LanguageProvider>
+        <AppContent
+          initialView={discoveryView}
+          onPostDiscovery={() => {
+            setPendingDiscovery(null);
+            setAppState("tutorial-welcome");
+          }}
+        />
       </LanguageProvider>
     );
   }
@@ -530,7 +604,7 @@ export default function Home() {
 
   return (
     <LanguageProvider>
-      <AppContent />
+      <AppContent initialView={undefined} onPostDiscovery={undefined} />
     </LanguageProvider>
   );
 }
