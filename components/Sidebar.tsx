@@ -169,8 +169,6 @@ export default function Sidebar({
             </button>
           ))}
 
-          {!collapsed && <div className="pt-1" />}
-
           {/* Matric Prep — split: main click navigates, chevron toggles sub-menu */}
           <div>
             {!collapsed ? (

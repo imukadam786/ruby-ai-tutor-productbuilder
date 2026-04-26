@@ -44,7 +44,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
     <div className="h-full flex flex-col overflow-hidden bg-[#F4F4F5]">
 
       {/* ── Maths Discovery (top half) ──────────────────────────────── */}
-      <div className="flex-1 min-h-0 flex flex-col bg-gradient-to-br from-[#BE1832] to-[#E8305A] relative overflow-hidden">
+      <div className="flex-1 min-h-0 flex flex-col bg-gradient-to-br from-emerald-500 to-teal-600 relative overflow-hidden">
         {/* Decorative circles */}
         <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white/5 pointer-events-none" />
@@ -76,7 +76,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
               <>
                 <button
                   onClick={() => setViewReport("maths")}
-                  className="bg-white text-[#BE1832] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-white/90 transition-colors active:scale-[0.97]"
+                  className="bg-white text-emerald-600 font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-white/90 transition-colors active:scale-[0.97]"
                 >
                   View Report
                 </button>
@@ -91,7 +91,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
               <button
                 onClick={() => onNavigate("discover-maths")}
                 disabled={loading}
-                className="bg-white text-[#BE1832] font-bold text-sm px-6 py-2.5 rounded-full hover:bg-white/90 transition-colors active:scale-[0.97] disabled:opacity-50"
+                className="bg-white text-emerald-600 font-bold text-sm px-6 py-2.5 rounded-full hover:bg-white/90 transition-colors active:scale-[0.97] disabled:opacity-50"
               >
                 Start Maths Discovery 👉
               </button>
@@ -104,7 +104,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
       <div className="h-px bg-white/20 flex-shrink-0" />
 
       {/* ── Reading Discovery (bottom half) ─────────────────────────── */}
-      <div className="flex-1 min-h-0 flex flex-col bg-gradient-to-br from-amber-500 to-orange-500 relative overflow-hidden">
+      <div className="flex-1 min-h-0 flex flex-col bg-gradient-to-br from-sky-400 to-blue-600 relative overflow-hidden">
         {/* Decorative circles */}
         <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-white/10 pointer-events-none" />
         <div className="absolute top-0 left-0 w-24 h-24 rounded-full bg-white/5 pointer-events-none" />
@@ -136,7 +136,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
               <>
                 <button
                   onClick={() => setViewReport("reading")}
-                  className="bg-white text-amber-600 font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-white/90 transition-colors active:scale-[0.97]"
+                  className="bg-white text-blue-600 font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-white/90 transition-colors active:scale-[0.97]"
                 >
                   View Report
                 </button>
@@ -151,7 +151,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
               <button
                 onClick={() => onNavigate("discover-reading")}
                 disabled={loading}
-                className="bg-white text-amber-600 font-bold text-sm px-6 py-2.5 rounded-full hover:bg-white/90 transition-colors active:scale-[0.97] disabled:opacity-50"
+                className="bg-white text-blue-600 font-bold text-sm px-6 py-2.5 rounded-full hover:bg-white/90 transition-colors active:scale-[0.97] disabled:opacity-50"
               >
                 Start Reading Discovery 👉
               </button>

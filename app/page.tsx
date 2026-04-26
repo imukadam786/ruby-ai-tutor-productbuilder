@@ -247,19 +247,11 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { chatMessageCountRef.current += 1; if (chatMessageCountRef.current >= 3) incrementSession(); refreshStats(); setChatEngaged(true); }} />}
         {activeView === "progress" && <ProgressTracker />}
-        {activeView === "ruby" && (
-          rubyProfile !== null && !rubyProfile.placementCompleted
-            ? <PlacementGuardScreen subject="maths" onGoToDiscover={() => handleViewChange("discover-maths")} />
-            : <ErrorBoundary><DiagnosticSession /></ErrorBoundary>
-        )}
+        {activeView === "ruby" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
-        {activeView === "reading" && (
-          readingProfile !== null && !readingProfile.placementCompleted
-            ? <PlacementGuardScreen subject="reading" onGoToDiscover={() => handleViewChange("discover-reading")} />
-            : <ErrorBoundary><ReadingSession /></ErrorBoundary>
-        )}
+        {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
         {activeView === "discover-reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
