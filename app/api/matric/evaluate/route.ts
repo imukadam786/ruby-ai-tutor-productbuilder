@@ -34,6 +34,10 @@ export async function POST(req: NextRequest) {
     const hasImage = !!imageData;
     const showFullSolution = mode === "practice" || attemptCount >= 3;
 
+    // Safeguard: memoText is per-question and should be small, but cap it to
+    // prevent any accidentally large value from inflating the request.
+    const safeMemo = memoText.length > 3000 ? memoText.slice(0, 3000) + "\n[memo truncated]" : memoText;
+
     const systemPrompt = `You are Ruby, an AI exam coach helping a Grade 12 student work through a South African National Senior Certificate (NSC/Matric) past paper.
 
 Your role:
@@ -68,7 +72,7 @@ The feedback field must be a single-line JSON string (escape newlines as \\n).`;
 ${questionText}
 
 OFFICIAL MARK SCHEME (confidential — do not reproduce verbatim to student):
-${memoText}
+${safeMemo}
 
 MODE: ${mode === "guided" ? "GUIDED" : "PRACTICE"}
 ATTEMPT NUMBER: ${attemptCount + 1}

@@ -1,0 +1,685 @@
+Attach the memo PDF for this paper. Fill in memoText for every sub-question using the memo. Also set type to "written" on every sub-question that does not already have a type, and "mcq" on any that are multiple choice with A/B/C/D options.
+
+Rules:
+- Match each sub-question by its label to the memo
+- Copy memoText exactly from the memo, do not summarise
+- Do not change any other fields
+- Return the complete updated JSON only, no explanation
+
+JSON:
+{
+  "id": "hist-p2-may-jun-2025",
+  "subject": "History",
+  "paperCode": "P2",
+  "year": 2025,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "HOW EFFECTIVE WERE THE STRATEGIES OF THE BLACK SASH IN MOBILISING AGAINST THE APARTHEID REGIME IN THE 1980s?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "1A",
+          "title": "Source 1A",
+          "type": "text",
+          "content": "The extract below, taken from an article titled 'The Conscience of White South Africa: Celebrating the Black Sash, 60 Years Later', written by M Thamm, a journalist, appeared in the Daily Maverick Newspaper on 14 May 2015. It focuses on the formation and strategies of the Black Sash.\n\nThe Black Sash started on 19 May 1955, over a cup of tea by six middle-class white women outraged (angered) by the then government attempts at removing 'coloured' citizens from the voter's roll. The Black Sash developed into a powerful force for protest and change that served as a visible prod (push) to the conscience of those who implemented and benefitted from an unjust system. Jean Sinclair, Ruth Folley, Elizabeth Mclaren, Tertia Pybus, Jean Bosazza and Helen Newton-Thompson launched the Women's Defence of the Constitution League*. The organisation held a conference in Port Elizabeth.\n\nStrategies employed by this 'silent sisterhood' included 'black-sashing' – or the wearing of a black sash – during silent protest from the public gallery in Parliament. The withering stares (side eye) of the women no doubt served to unsettle ministers in the ruling National Party regime, who detested (disliked) this group of apparently well dressed, genteel (well-mannered) and mostly English-speaking white women who used their position to challenge them.\n\nIn the 1980s the various advice offices of the Black Sash ran across the country and staffed by volunteers, became crucial points of resistance for the black majority in terms of challenging apartheid legislation, mass arrests, access to information and sometimes simply to enable the provision of food and other emergencies. The advice offices offered free services also with regard to issues of employment, housing, pensions and access to health. The Black Sash were also an invaluable (a helpful) source of information for newspapers operating in difficult circumstances with constant harassment by the state, bringing vital (important) news to the attention of journalists.\n\n[From Daily Maverick newspaper, 14 May 2015]\n\n*Women's Defence of the Constitution League: The official title of the Black Sash",
+          "imageUrl": null
+        },
+        {
+          "id": "1B",
+          "title": "Source 1B",
+          "type": "image",
+          "content": "A photograph that appeared in The Observation Post – South African Military History publication, on 3 October 2015. It depicts members of the Black Sash in support of the Mass Democratic Movement (MDM) defiance campaign with anti-apartheid placards, in Cape Town, in August 1989. The protesters are carrying and wearing placards with slogans including: 'DEFIANCE IS THE RIGHT TO PEACEFUL PROTEST' (on a large banner), 'ONE PERSON ONE VOTE', 'ABOLISH APARTHEID LEGISLATION', 'LET'S LEARN FROM HISTORY', 'FREE THE PRESS TO TELL THE TRUTH', 'DON'T JAIL OBJECTORS – CONSCRIPTS NEED ALTERNATIVES', and 'UNBAN RESTRICTED ORGANIZATIONS'. The members are wearing black sashes across their clothing. Labels overlaid on the image identify key placards: 'ONE PERSON ONE VOTE', 'UNBAN RESTRICTED ORGANIZATIONS', 'DEFIANCE IS THE RIGHT TO PEACEFUL PROTEST', and 'BLACK SASH'.\n\n[From The Observation Post – South African Military History, 3 October 2015]",
+          "imageUrl": null
+        },
+        {
+          "id": "1C",
+          "title": "Source 1C",
+          "type": "text",
+          "content": "The extract below is from a letter, titled 'Persecution of children' by Marie Dyer, a representative of the Association for Rural Advancement (AFRA) and constant writer for the Natal Midlands Black Sash (NMBS). It was written to the local press (The Natal Witness) in support of the Free the Children Campaign that was launched by the Black Sash on 10 December 1986.\n\nWhite South Africans often feel aggrieved (upset) that in this brutal and violent world our own regime is singled out among all other tyrannies (oppressors) for general condemnation …\n\nBut lately that has been an aspect of South African oppression that in itself seems not to be exceeded or matched in other regimes that white South Africans loudly condemn. I refer to the deliberate campaign against children, which was intensified during the state of emergency and is still continuing.\n\nThe state of emergency is officially over; but children in many places continue to be the specific targets of official persecution (torture) and harassment. Furthermore, the damage inflicted by their experiences will remain with them – and us – for the rest of their lives.\n\nThe Black Sash proposes to observe 1 June, this year (1987), as a national children's day when South Africans will be asked to consider the nature and implications of these events. In tolerating them our 'Western Christian' society has surely lost its claim to being ordinarily civilised.\n\n[From STANDING ON STREET CORNERS – A History of the Natal Midlands Region of the Black Sash by M Kleinenberg and C Merrett]",
+          "imageUrl": null
+        },
+        {
+          "id": "1D",
+          "title": "Source 1D",
+          "type": "text",
+          "content": "The extract below is from a book published in 1991. The book, titled Black Sash, The Beginning of a Bridge in South Africa, by K Spink, chronicled (reported) women's human rights abuses for the Black Sash. It outlines how PW Botha's government reacted to the leaders of the Black Sash.\n\nThe policy of the Black Sash as an organisation was to uphold (maintain) the rule of law with its absolute commitment to lawful and peaceful protest, rather than being a burden to the government. One Black Sash member went to prison for refusing to make a statement about a visit to Winnie Mandela, another was jailed rather than dismiss a domestic worker who could not be registered. Others had deliberately taken part in illegal gatherings and marches.\n\nOn 12 June 1986 Annica van Gylswyk, chairperson of the Black Sash Pretoria branch, was arrested in her own home in the early hours of the morning. She was kept in solitary confinement in the Pretoria prison for several weeks and then taken to police cells, where she was interrogated. The arrival of security police in Janet Small's office took her completely by surprise. She was told to pack a bag and taken to prison almost immediately. Because there were no other white women in detention, and because the prison authorities were very strict about racial segregation, she found herself in solitary confinement for three months.\n\nOn her release she was given a restriction order, which was not unusual, but which she found particularly difficult because it restricted her, not to the house where she had been living in Grahamstown but to Cape Town and her parents' home, where she should be in the house, each night, between the hours 6 p.m. and 5 a.m. She was not allowed to work for the Black Sash anymore. She was not supposed to speak to journalists or write for publication.\n\n[From Black Sash, The Beginning of a Bridge in South Africa by K Spink]",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "According to the source, what action by the apartheid government led to the establishment of the Black Sash in 1955?",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Define the term voter's roll in your own words.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A"],
+          "questionType": "define"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "Name any TWO women in the source who launched the Women's Defence of the Constitution League (Black Sash) in 1955.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-1-4",
+          "label": "1.1.4",
+          "questionText": "Using the information in the source and your own knowledge, explain why the National Party regime disliked the Black Sash.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-1-5",
+          "label": "1.1.5",
+          "questionText": "Explain the implication of the statement, '… various advice offices of the Black Sash … became crucial points of resistance for the black majority …', in the context of challenging apartheid legislation.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-2-1",
+          "label": "1.2.1",
+          "questionText": "Comment on the importance of the words on the banner, 'DEFIANCE IS THE RIGHT TO PEACEFUL PROTEST', in the context of the Black Sash's strategies to resist apartheid legislation.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1B"],
+          "questionType": "comment"
+        },
+        {
+          "id": "1-2-2",
+          "label": "1.2.2",
+          "questionText": "Using the information in the source and your own knowledge, explain why the Black Sash displayed a placard that read, 'ONE PERSON ONE VOTE'.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-3",
+          "label": "1.3",
+          "questionText": "Refer to Sources 1A and 1B. Explain how the information in Source 1A supports the evidence in Source 1B regarding the strategies used by the Black Sash against the apartheid legislation.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A", "1B"],
+          "questionType": "compare"
+        },
+        {
+          "id": "1-4-1",
+          "label": "1.4.1",
+          "questionText": "According to the source, how did white South Africans respond to their own regime being singled out for general condemnation?",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-4-2",
+          "label": "1.4.2",
+          "questionText": "Identify TWO concerns raised in the source about the treatment of children by the apartheid regime.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-4-3",
+          "label": "1.4.3",
+          "questionText": "Quote a phrase from the source indicating how the author proposes to consider the nature and implication of the treatment of children.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1C"],
+          "questionType": "quote"
+        },
+        {
+          "id": "1-4-4",
+          "label": "1.4.4",
+          "questionText": "Explain what Marie Dyer means by the statement, 'our \"Western Christian\" society has surely lost its claim to being ordinarily civilised' towards children.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-5-1",
+          "label": "1.5.1",
+          "questionText": "According to the source, what was the Black Sash's policy as an organisation, in relation to protests against the apartheid government? Give ONE response.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-5-2",
+          "label": "1.5.2",
+          "questionText": "Explain the term solitary confinement in the context of the policy advocated by the apartheid government in dealing with anti-apartheid protestors.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-5-3",
+          "label": "1.5.3",
+          "questionText": "Why do you think Janet Small was banned from speaking to journalists or writing for publication, after being released from prison?",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-5-4",
+          "label": "1.5.4",
+          "questionText": "Comment on the usefulness of the source to a historian researching the treatment of leaders of the Black Sash by PW Botha's government.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1D"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "1-6",
+          "label": "1.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining how effective the strategies of the Black Sash were in mobilising against the apartheid regime in the 1980s.",
+          "marks": 8,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A", "1B", "1C", "1D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "WHY WAS THE MOHAPI FAMILY DISSATISFIED WITH THE MANNER IN WHICH THE TRUTH AND RECONCILIATION COMMISSION (TRC) DEALT WITH THE DEATH OF MAPETLA MOHAPI IN 1976?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "2A",
+          "title": "Source 2A",
+          "type": "text",
+          "content": "The source below is from a book titled COMING TO TERMS – SOUTH AFRICA'S SEARCH FOR TRUTH by M Meredith. It highlights Mapetla Mohapi's political life until his death in 1976.\n\nMapetla Frank Mohapi was born in the rural village of Jozanashoek, Sterkspruit, in the former Transkei (now the Eastern Cape) on 2 September 1947. He studied at the University of the North (Turfloop) – today the University of Limpopo, where he graduated with a degree in social work in the early 1970s.\n\nWhile studying at Turfloop, he was drawn to the philosophy of Black Consciousness and became active in the South African Students Organisation (SASO) as a regional secretary in the Eastern Cape. After students at several black universities held pro-FRELIMO* rallies in October 1974 to celebrate the independence of Mozambique, Mohapi, together with several other leaders of SASO and the Black People's Convention, were detained in November 1974. He was released in … 1975 without charge.\n\nIn 1973 he married Nonhle. Then in 1974, whilst Nonhle was expecting their daughter, Mohapi was detained for eight months. In September 1975, Mohapi was banned under the Internal Security Act and restricted to King William's Town, where he was later employed as an administrator of the Zimele Trust Fund, established to assist released political prisoners.\n\nA month after the start of the 1976 Soweto Uprising, in a swoop (rounding up) of Black Consciousness activists, Mapetla was again detained without charge on 16 July. Twenty days later, on 5 August 1976, Mohapi died in police custody.\n\n[From COMING TO TERMS – SOUTH AFRICA'S SEARCH FOR TRUTH by M Meredith]\n\n*FRELIMO: Mozambique Liberation Front",
+          "imageUrl": null
+        },
+        {
+          "id": "2B",
+          "title": "Source 2B",
+          "type": "text",
+          "content": "The extract below is from the TRC hearing on human rights violations of Mapetla Mohapi, held on 15 April 1996. The TRC's Human Rights Violations Committee was represented by Tiny Miya – who posed questions and the Mohapi family was represented by his wife – Nonhle Mohapi. It highlights the reasons why Nonhle Mohapi requested the TRC to investigate how Mapetla Mohapi died after having previously opened a civil case that went up to the Supreme Court in 1979, but was unsuccessful.\n\nMS MAYA: We see you before the Truth Commission this morning Mrs Nonhle (Mohapi). Can you please tell us why you are here, just before we start with our proceedings.\n\nMRS MOHAPI: As I've already mentioned I was never happy in the 20 years about the matter of Mapetla, but now, even now, I'm sure that he was never killed in any other way. After hearing about the TRC I told myself, I want to come and give evidence about the hurt that I felt. I want to tell the Commission so that they can assist me in finding out what happened to him because he never killed himself.\n\nMS MAYA: What did they say was the reason for his suicide?\n\nMRS MOHAPI: The letters which were available during the inquest, there was one amongst them of which it was said to be the suicide letter. The writing was very exclusive (different) and it did not belong to Mapetla. But this one was also written on toilet paper as my husband previously did write, and the experts who looked at the writing confirmed that the writing in the suicide note is very exclusive. They tried their best and tried to make a good scrutiny (investigation). We waited for the response.\n\nMS MAYA: What was the inquest?\n\nMRS MOHAPI: We were surprised about the inquest, that still nobody was accused about this. There was a civil court at Grahamstown, these also went on in Grahamstown and there was a policeman who took out some letters to give testimony about the crime and he confirmed that this man (Mohapi) would never take his life.\n\nMS MAYA: What was the result?\n\nMRS MOHAPI: In the Supreme Court it was also said that nobody could be blamed about what happened. … we were told that we have lost the case and we have to pay the costs. We went home where I received a letter from the court stating that the account which I'm owing was about R250 000. They also wrote to find out how they can liquidate* me and I would have to write a list of everything, my house included.\n\n[From The Truth and Reconciliation Commission Report, Vol. 3, 1998]\n\n*Liquidate: when property and household items are sold to raise money to pay for debts owed",
+          "imageUrl": null
+        },
+        {
+          "id": "2C",
+          "title": "Source 2C",
+          "type": "image",
+          "content": "A photograph taken by Zolani Mabusela, a spokesperson for the Black Consciousness Movement (BCM) in 2017. It appeared in an article titled 'Honouring the Legacy of Mapetla Mohapi: A Martyr in the Struggle Against Oppression!', published by the Amandla newspaper, 41 years after Mapetla Mohapi's death. The photograph depicts the Mohapi family members, from the left: Motheba Mohapi, Mizuki Gugushe (8 years), Nohle Mohapi (wife), Konehali Mohapi-Gugushe, and Naledi Gugushe (10 years), posing together outside the Kei Road Police Station. A sign reading 'KEI ROAD POLICE STATION TEL: 043 782 0606' is visible on the brick wall behind them. The family had travelled 400 kilometres from Port Elizabeth, but the station commander denied them access to the cell where the former activist Mapetla Mohapi had died in 1976. A label overlaid on the image reads 'KEI ROAD POLICE STATION'.\n\n[From Amandla newspaper, 5 August 2024]",
+          "imageUrl": null
+        },
+        {
+          "id": "2D",
+          "title": "Source 2D",
+          "type": "text",
+          "content": "The extract below is from a review by Gcina Ntsaluba, an investigative journalist, of the book titled Now You Know How Mapetla Died: The Story of a Black Consciousness Martyr, a historian, by Z Valela. It criticised the TRC for not doing justice to Mohapi's case and the government for not doing anything to pursue the case further.\n\nTwenty years elapsed between Mohapi's murder and the deliberations of the Truth and Reconciliation Commission (TRC). Valela has some harsh words for its modus operandi (the TRC's method of operation) that echoes the Azanian People's Organisation (AZAPO's) standpoint and some may find it unreasonable. Where she (Valela) is on firm ground, however, is to question exactly how the TRC has served justice in Mohapi's case. No one came forward to seek amnesty and the government did nothing to pursue the known suspects. Not only is accountability unfulfilled, but the original inquest verdict is still part of the judicial record, and historical truth remains incomplete.\n\nAs Valela points out, where inquests have been successfully re-opened this has been due to private initiative and resources. Ironically, Mohapi was awarded a post-apartheid honour, but so far has been denied the dignity of re-examination of the circumstances of his death. This can be ascribed (explained by) to the general state of corrupt inertia (inaction) in government.\n\nPerhaps this book will alter a shameful state of affairs. But even if it has no effect on this particular case, it serves as a telling warning of the extreme dangers of a police state operating outside the bounds of the rule of law. Given the contempt (disrespect) displayed by major sections of the present-day ANC for the latter, a return to such circumstances is not impossible.\n\n[From Mail & Guardian, 29 May 2022]",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "2-1-1",
+          "label": "2.1.1",
+          "questionText": "According to the source, in which village was Mapetla Mohapi born?",
+          "marks": 1,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-1-2",
+          "label": "2.1.2",
+          "questionText": "Quote a reason from the source why Mohapi and other leaders of SASO and the BPC were detained in November 1974.",
+          "marks": 2,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2A"],
+          "questionType": "quote"
+        },
+        {
+          "id": "2-1-3",
+          "label": "2.1.3",
+          "questionText": "Why do you think Mohapi was restricted to King William's Town in September 1975?",
+          "marks": 2,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-1-4",
+          "label": "2.1.4",
+          "questionText": "What conclusion could be drawn from the fact that Mapetla died 20 days after he was detained in police custody?",
+          "marks": 2,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2A"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-2-1",
+          "label": "2.2.1",
+          "questionText": "Identify THREE reasons in the source why Mrs Mohapi attended the TRC Human Rights Violations hearings on 15 April 1996.",
+          "marks": 3,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-2-2",
+          "label": "2.2.2",
+          "questionText": "Define the term inquest in your own words.",
+          "marks": 2,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2B"],
+          "questionType": "define"
+        },
+        {
+          "id": "2-2-3",
+          "label": "2.2.3",
+          "questionText": "Comment on the implication of the statement, '… there was a policeman who … confirmed that this man (Mohapi) would never take his life …', in the context of Mapetla Mohapi's death.",
+          "marks": 2,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2B"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-2-4",
+          "label": "2.2.4",
+          "questionText": "Explain why Nonhle Mohapi was surprised at losing the case in the Supreme Court of Law.",
+          "marks": 2,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-2-5",
+          "label": "2.2.5",
+          "questionText": "Explain why a historian would regard this source as reliable when researching how the TRC dealt with the Mohapi case.",
+          "marks": 4,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2B"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "2-3-1",
+          "label": "2.3.1",
+          "questionText": "Why might the Mohapi family want to visit the cell in which Mapetla died?",
+          "marks": 4,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-3-2",
+          "label": "2.3.2",
+          "questionText": "Using the information in the source and your own knowledge, explain why this photograph appeared in the Amandla newspaper 41 years after Mapetla Mohapi's death.",
+          "marks": 2,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-4-1",
+          "label": "2.4.1",
+          "questionText": "Quote FOUR pieces of evidence from the source, indicating why Valela had some harsh words for the TRC.",
+          "marks": 4,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2D"],
+          "questionType": "quote"
+        },
+        {
+          "id": "2-4-2",
+          "label": "2.4.2",
+          "questionText": "Identify TWO reasons in the source that explain why some inquests have been successfully re-opened.",
+          "marks": 2,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-4-3",
+          "label": "2.4.3",
+          "questionText": "Explain the term post-apartheid honour in the context of people who fought against apartheid.",
+          "marks": 2,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-4-4",
+          "label": "2.4.4",
+          "questionText": "Using the information in the source and your own knowledge, comment on what the source refers to as 'a shameful state of affairs' regarding Mohapi's death.",
+          "marks": 4,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2D"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-5",
+          "label": "2.5",
+          "questionText": "Refer to Sources 2B and 2D. Explain how the information in Source 2D supports the evidence in Source 2B regarding the challenges faced by the family in pursuing Mapetla Mohapi's case.",
+          "marks": 4,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2B", "2D"],
+          "questionType": "compare"
+        },
+        {
+          "id": "2-6",
+          "label": "2.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining why the Mohapi family was dissatisfied with the manner in which the TRC dealt with the death of Mapetla Mohapi in 1976.",
+          "marks": 8,
+          "topic": "TRC and Mohapi",
+          "requiredSources": ["2A", "2B", "2C", "2D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "HOW DID TRADE RELATIONS BETWEEN CHINA AND AFRICA EVOLVE BETWEEN THE 1970s AND 2023?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "3A",
+          "title": "Source 3A",
+          "type": "text",
+          "content": "The extract below is taken from a paper titled 'Globalisation and sustainable Africa-China trade: what role play the African regional organisations' by D Cissé and was published by a Swedish-based research institute. It highlights how trade relations between China and Africa have developed since the 1970s.\n\nChina's trade liberalisation and openness to the world since the 1970s have boosted its foreign trade. Economic shifts, particularly based on trade, industrial reforms and later the manufacture of products to sell abroad, have increased China's trade relationships with developed and developing countries. China's push to liberalise goes hand in hand with long-term strategies to establish ties with developing countries, including those in Africa.\n\nThrough its growing position in the world economic arena, China aims to shape the world political economy. Africa has had long-term engagement with China. While in the past, this engagement was aid-driven, today it is more economic-driven and underpinned by trade and investment. The diversification of trade partners among African countries by looking East meets China's long-term strategy for resources and markets.\n\nAlongside globalisation, China has developed strategic ties with African countries for strong economic cooperation based on non-interference in domestic affairs and mutual benefit or win-win cooperation. China's 'go out' policy of the late 1990s, the establishment of the Forum on China-Africa Cooperation (FOCAC) in 2000, and the release of the White Paper on China's Africa policy in 2006 demonstrate China's interest in Africa.\n\n[From 'Globalisation and sustainable Africa-China trade: what role play the African regional organisations' by D Cissé]",
+          "imageUrl": null
+        },
+        {
+          "id": "3B",
+          "title": "Source 3B",
+          "type": "text",
+          "content": "The extract below is taken from a keynote speech delivered by China's President Xi Jinping at the opening ceremony of the Beijing Summit of the Forum on China-Africa Cooperation (FOCAC) at the Great Hall of the People in Beijing, on 3 September 2018. It highlights China's commitment to contributing to the development of Africa.\n\nFirst, China will launch an industrial promotion initiative. We have decided to open a China-Africa economic and trade expo in China; we encourage Chinese companies to increase investment in Africa, and will build and upgrade a number of economic and trade cooperation zones in Africa. We will support Africa in achieving general food security by 2030, work with Africa to formulate and implement a programme of action to promote China-Africa cooperation on agricultural modernisation.\n\nWe will implement 50 agricultural assistance programmes, provide RMB* 1 billion (approximately R2,47 billion) of emergency humanitarian food assistance to African countries affected by natural disasters, send 500 senior agriculture experts to Africa, and train young researchers in agriscience and entrepreneurs in agribusiness. We will support Chinese companies in Africa to forge (build) alliance of corporate social responsibilities. We will continue to strengthen cooperation with African countries in local currency settlement and make good use of the China-Africa Development Fund, the China-Africa Fund for Industrial Cooperation and the Special Loan for the Development of African Small-Medium Enterprises (SMEs).\n\nWe will work with Africa to undertake a number of key connectivity projects. We will support Africa in developing the Single African Air Transport Market and open more direct flights between China and Africa. On the basis of following multilateral rules and procedures, we will support African countries in making better use of financing resources of the Asian Infrastructure Investment Bank, the New Development Bank, and the Silk Road Fund.\n\n[From China Daily, 4 September 2018]\n\n*RMB = RENMINBI (The official Chinese currency)",
+          "imageUrl": null
+        },
+        {
+          "id": "3C",
+          "title": "Source 3C",
+          "type": "image",
+          "content": "A cartoon published in the Hustle East Africa magazine on 6 August 2018. It highlights a view on the China-Africa economic relationship. The cartoon depicts a large cow labelled 'AFRICA' eating from a trough labelled '$12 BILLION INVESTMENT', while a figure wearing a cap labelled 'CHINA' sits on a stool milking the cow from behind, collecting the milk into a pail. In the background, a figure dressed in a top hat and suit – representing the USA – stands watching, appearing surprised and alarmed at the scene. A label overlaid on the image reads 'USA'.\n\n[From Hustle East Africa magazine, 6 August 2018]",
+          "imageUrl": null
+        },
+        {
+          "id": "3D",
+          "title": "Source 3D",
+          "type": "text",
+          "content": "The extract below, taken from A Roadmap for Strategically Countering China's Development Influence in Africa, written by J Malobisky, was published by the New Lines Institute of the George Washington University on 18 January 2024. It highlights the challenges created by China's expansion into Africa.\n\nWhile the Belt and Road Initiative (BRI) infrastructure investments appear to offer attractive development opportunities, the initiative has created challenges for African countries that have been unable to pay back the programme's high-interest loans and are now caught in a debt trap. Continued exploitation under neo-colonialism in Africa has contributed to a wealth gap that contributes to some countries' inability to make payments on Chinese infrastructure loans, forcing these states to borrow additional money. China, which rarely cancels these debts, has used debt traps to expand its influence over African countries by forcing states to restructure their debt with long-term repayment plans that cede (give up) mining and natural resource rights to China under the guise of collecting collateral (security) for debt owed.\n\nNevertheless, African countries have continued to seek Chinese infrastructural investment money. In October, Beijing hosted its annual Belt and Road Initiative Forum, where President Xi Jinping announced $100 billion of new funding for physical infrastructure and green energy projects. The attendance of leaders from Kenya, Ethiopia, Nigeria, and the Republic of the Congo signals that many African states continue to prefer working with China to Western countries. Across the continent, there continues to be a positive perception of China because of its willingness to sponsor infrastructure projects in any African country. However, there is also concern among Africans that their governments are too deeply indebted (financially dependent) to China. This widespread concern can provide an opportunity for the United States to engage with the continent and provide an alternative form of development that does not create a debt burden.\n\n[From the New Lines Institute: A Roadmap for Strategically Countering China's Development Influence in Africa by J Malobisky, 18 January 2024]",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "3-1-1",
+          "label": "3.1.1",
+          "questionText": "According to the source, what has boosted China's foreign trade since the 1970s? Give TWO responses.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-1-2",
+          "label": "3.1.2",
+          "questionText": "List THREE factors in the source on which the economic shifts that have increased China's trade relationships with developed and developing countries were based.",
+          "marks": 3,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-1-3",
+          "label": "3.1.3",
+          "questionText": "Explain how trade liberalisation contributed to China's expansion into other parts of the world.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-1-4",
+          "label": "3.1.4",
+          "questionText": "In the context of China-African relations, comment on the implication of the statement, 'While in the past, this (China's) engagement was aid-driven, today it is more economic-driven and underpinned by trade and investment.'",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3A"],
+          "questionType": "comment"
+        },
+        {
+          "id": "3-1-5",
+          "label": "3.1.5",
+          "questionText": "Define the term globalisation in your own words.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3A"],
+          "questionType": "define"
+        },
+        {
+          "id": "3-2-1",
+          "label": "3.2.1",
+          "questionText": "According to President Xi Jinping, state THREE aspects of the industrial promotion initiative that China will implement to strengthen cooperation with Africa.",
+          "marks": 3,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-2-2",
+          "label": "3.2.2",
+          "questionText": "Explain the concept agricultural modernisation in the context of cooperation between China and Africa.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-2-3",
+          "label": "3.2.3",
+          "questionText": "Why do you think China was keen to provide agricultural support to African countries?",
+          "marks": 4,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-2-4",
+          "label": "3.2.4",
+          "questionText": "Comment on how China showed commitment to strengthening cooperation with Africa.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3B"],
+          "questionType": "comment"
+        },
+        {
+          "id": "3-2-5",
+          "label": "3.2.5",
+          "questionText": "Explain the limitations of this source for a historian researching the trade relations between China and Africa.",
+          "marks": 4,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3B"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Refer to Sources 3A and 3B. Explain how the information in Source 3B supports the evidence in Source 3A regarding policies promoting trade relations between China and Africa.",
+          "marks": 4,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3A", "3B"],
+          "questionType": "compare"
+        },
+        {
+          "id": "3-4-1a",
+          "label": "3.4.1 (a)",
+          "questionText": "Explain the symbolic representation of the animal trough with a $12 billion investment, eaten by the African cow, in the cartoon.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-4-1b",
+          "label": "3.4.1 (b)",
+          "questionText": "Explain the symbolic representation of the milking of the African cow by China in the cartoon.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-4-2",
+          "label": "3.4.2",
+          "questionText": "Comment on why the USA is portrayed as surprised and shocked in the cartoon.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3C"],
+          "questionType": "comment"
+        },
+        {
+          "id": "3-5-1",
+          "label": "3.5.1",
+          "questionText": "Select TWO challenges from the source that the Belt and Road Initiative (BRI) infrastructure investment have created for African countries.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-5-2",
+          "label": "3.5.2",
+          "questionText": "Explain the implication of the statement, '… (China) used debt traps to expand its influence over African countries …,' in the context of China-Africa relations.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-5-3",
+          "label": "3.5.3",
+          "questionText": "Identify any TWO African countries in the source that attended the annual Belt and Road Initiative Forum in Beijing.",
+          "marks": 2,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-6",
+          "label": "3.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining how trade relations between China and Africa evolved between the 1970s and 2023.",
+          "marks": 8,
+          "topic": "China-Africa Trade Relations",
+          "requiredSources": ["3A", "3B", "3C", "3D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "CIVIL RESISTANCE, 1970s TO 1980s: SOUTH AFRICA: THE CRISIS OF APARTHEID IN THE 1980s",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4",
+          "questionText": "Political liberation of black South Africans was the only focus of the Black Consciousness Movement.\n\nCritically discuss this statement with reference to the philosophy and actions of the Black Consciousness Movement during the late 1960s and 1970s. Support your line of argument with relevant historical evidence.",
+          "marks": 50,
+          "topic": "Civil Resistance",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "THE COMING OF DEMOCRACY TO SOUTH AFRICA AND COMING TO TERMS WITH THE PAST",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "5-1",
+          "label": "5",
+          "questionText": "Explain to what extent the political will and determination of leaders from various political parties during the negotiation process led to a democratic South Africa in 1994.\n\nSupport your line of argument with relevant historical evidence.",
+          "marks": 50,
+          "topic": "Coming of Democracy",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "THE END OF THE COLD WAR AND A NEW WORLD ORDER: THE EVENTS OF 1989",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6",
+          "questionText": "Mikhail Gorbachev's policies from the mid-1980s contributed to the emergence of a new political dispensation in South Africa.\n\nDo you agree with this statement? Use relevant historical evidence to support your line of argument.",
+          "marks": 50,
+          "topic": "Cold War and New World Order",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    }
+  ]
+}

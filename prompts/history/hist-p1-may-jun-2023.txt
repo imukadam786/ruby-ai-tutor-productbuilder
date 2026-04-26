@@ -1,0 +1,676 @@
+Attach the memo PDF for this paper. Fill in memoText for every sub-question using the memo. Also set type to "written" on every sub-question that does not already have a type, and "mcq" on any that are multiple choice with A/B/C/D options.
+
+Rules:
+- Match each sub-question by its label to the memo
+- Copy memoText exactly from the memo, do not summarise
+- Do not change any other fields
+- Return the complete updated JSON only, no explanation
+
+JSON:
+{
+  "id": "hist-p1-may-jun-2023",
+  "subject": "History",
+  "paperCode": "P1",
+  "year": 2023,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "HOW DID GREECE BECOME A FOCAL POINT IN COLD WAR TENSIONS BETWEEN THE UNITED STATES OF AMERICA (USA) AND THE SOVIET UNION AT THE END OF THE SECOND WORLD WAR IN 1945?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "1A",
+          "title": "Source 1A",
+          "type": "text",
+          "content": "The source below has been taken from an article titled 'The Greek Inflation and the Flight from the Drachma, 1940–1948' by AJ Kondonassis and it was published in Economy and History Volume XX (1977).\n\nDuring that period (Second World War years) the foundations were laid for the continuing price level inflation which plagued (affected) Greece after the formal end of World War II. The administrative, monetary (financial) and productive machinery of the Greek economy were unable to function effectively during the occupation period. Fear, uncertainty, political and economic chaos prevailed.\n\nThe occupation forces appropriated (took) the largest possible volume of Greek commodities for their own use and also for export to their respective homelands. Allied aid was largely non-existent, the internal transportation system deteriorated, and domestic production levels fell substantially (greatly) below the pre-war levels. Commodity hoarding (storing) became common practice and black markets developed rapidly. Simultaneously, the puppet (false) Bank of Greece was compelled, by the occupation forces and the puppet Greek government, to issue more and more bank notes to provide the occupation forces and their governments with the means of payments needed for their respective operations. The interaction of these non-monetary (non-financial) and monetary developments resulted in continuous deterioration of the purchasing power of the drachma (Greek currency) and in deterioration of the drachma's foreign exchange value in terms of gold, which in turn led to loss of confidence in the drachma and a rise in the velocity (speed) of circulation of money.\n\nGreece (however) received some form of economic assistance from the United Kingdom (UK), United Nations Relief and Rehabilitation Administration (UNRRA) and the United States of America (USA).\n\n[From 'The Greek Inflation and the Flight from the Drachma 1940–1948' by AJ Kondonassis]",
+          "imageUrl": null
+        },
+        {
+          "id": "1B",
+          "title": "Source 1B",
+          "type": "text",
+          "content": "The source below explains how the Greek Civil War (GCW) was shaped by the Cold War tension between the USSR and USA post Second World War.\n\nWhen the Second World War ended in 1945 and the rest of Europe was beginning to rebuild itself, Greece entered into a second war, more vicious than that fought against the Axis powers. The Greek Civil War (GCW) was not only a bitter internal struggle between two ideologically irreconcilable Greek camps – the 'monarchofascists' (government army) and the 'bandits' (communist rebels).\n\nThe communists were veterans of guerrilla warfare and fought well. They received limited support from the USSR and Yugoslavia. Marshall Tito (of Yugoslavia) supplied the rebels with thousands of rifles, machine guns, anti-tank weapons and land mines. The communists lacked basic supplies like food, clothing and especially transport, however, they had just enough to carry on resistance, but not nearly enough to exert control.\n\nPresident Harry Truman offered equipment and training to the Greek national army. Bolstered by this, the Greek government forces methodically pushed the rebels deeper into the mountains. American equipment and especially aircraft supported these operations. Some 158 000 Greeks may have died altogether as a result of the civil war. Greek economic devastation also was total …, but the Marshall Plan would plant seeds of revival and healing – still incomplete – from the 20th century's most brutal civil wars.\n\n[From https://nationalww2museum.org/war/articles/greek-civil-war-1944-1949. Accessed on 5 October 2022.]",
+          "imageUrl": null
+        },
+        {
+          "id": "1C",
+          "title": "Source 1C",
+          "type": "text",
+          "content": "The source below has been taken from an article titled 'Special Message to the Congress on Greece and Turkey: The Truman Doctrine' published in Voices of Democracy: The US Oratory Project by DM Bostdorff (2009). It explains how President Truman persuaded the USA Congress to support Greece politically and economically.\n\nFirst, the USA President H Truman needed to convince Congress and American citizens that Greece was in a state of crisis and deserving of $250 million in aid.\n\nTruman told listeners that Greece was an 'industrious (hard-working), peace-loving country' that had 'suffered invasion, four years of cruel enemy occupation, and bitter internal strife'. According to the President, the Germans had destroyed the nation's infrastructure as they retreated (withdrew) and burned more than a thousand villages.\n\nHe gravely stated that at the war's end, 'Eighty‐five per cent of the children were tubercular (had tuberculosis). Livestock, poultry, and draft (domestic) animals had almost disappeared. Inflation had wiped out practically all savings'. Furthermore, Truman warned, a 'militant minority' had chosen to exploit the situation, undermining (challenging) the economic recovery and political stability of the country.\n\nThe President (Truman) did not discuss the Greek government's own complicity (involvement), or the fact that the nation was in a state of civil war, which would have raised questions about the appropriateness of USA involvement. However, he did concede (admit) that the Greek government had not always acted wisely. According to Truman, the Greek government was 'not perfect', but it represented '85 per cent of the members of the Greek Parliament who were chosen in an election last year', overseen by international observers, including nearly 700 Americans. The President also excused some of the (Greek) government's 'mistakes' by emphasising that it was 'operating in an atmosphere of chaos and extremism (activism)'. Furthermore, he distanced his administration from the Greek government's most odious (horrible) acts by noting 'the extension of aid by this country does not mean that the USA condones (ignores) everything that the Greek government has done or will do'.\n\n[From Voices of Democracy: The US Oratory Project by DM Bostdorff]",
+          "imageUrl": null
+        },
+        {
+          "id": "1D",
+          "title": "Source 1D",
+          "type": "image",
+          "content": "A cartoon by John Latrides, published in the Journal of Modern Greek Studies in 2007 during the commemoration of the 60th anniversary of the Truman Doctrine (1947). It depicts Greece as a figure lying helplessly across a railway track while two trains are on a collision course, one approaching from each direction. The train on the left carries a Dollar Flag (representing the USA), while the train on the right carries a Hammer and Sickle Flag (representing the Soviet Union/USSR). Greece is shown trapped between the two oncoming superpowers, unable to escape. Key labels: DOLLAR FLAG; GREECE ON THE RAIL TRACK; HAMMER AND SICKLE FLAG.",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "List THREE components of the Greek economy that were unable to function effectively during the occupation period.",
+          "marks": 3,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "What do you think led to a poor internal transportation system in Greece after the Second World War?",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "According to the source, why was the Bank of Greece compelled to issue more and more bank notes?",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-1-4",
+          "label": "1.1.4",
+          "questionText": "In the context of the Cold War, explain why the USA offered some form of economic assistance to Greece.",
+          "marks": 4,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-2-1",
+          "label": "1.2.1",
+          "questionText": "According to the source, what was the second war that started in Greece after the Second World War had ended in 1945?",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-2-2",
+          "label": "1.2.2",
+          "questionText": "Explain the concept communists in the context of the Greek Civil War.",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-2-3",
+          "label": "1.2.3",
+          "questionText": "According to the source, what support did President Truman offer to the Greek national army during the civil war? Give TWO responses.",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-3-1",
+          "label": "1.3.1",
+          "questionText": "Give THREE reasons stated in the source why President Truman had to convince Congress and American citizens that Greece deserved aid.",
+          "marks": 3,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-3-2",
+          "label": "1.3.2",
+          "questionText": "Explain the implication of the statement, 'Eighty‐five per cent of the children were tubercular', in the context of socio-economic conditions in Greece at the end of the war.",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1C"],
+          "questionType": "comment"
+        },
+        {
+          "id": "1-3-3",
+          "label": "1.3.3",
+          "questionText": "Define the concept civil war in your own words.",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1C"],
+          "questionType": "define"
+        },
+        {
+          "id": "1-3-4",
+          "label": "1.3.4",
+          "questionText": "Why do you think it was important for President Truman to indicate that Americans were observers during the Greek elections?",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-4",
+          "label": "1.4",
+          "questionText": "Consult Source 1B and Source 1C. Comment on how the two sources support each other regarding the conditions in Greece after the Second World War.",
+          "marks": 4,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1B", "1C"],
+          "questionType": "compare"
+        },
+        {
+          "id": "1-5-1",
+          "label": "1.5.1",
+          "questionText": "Explain the messages conveyed by the cartoonist regarding Greece in 1947.",
+          "marks": 4,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-5-2a",
+          "label": "1.5.2 (a)",
+          "questionText": "Which country is represented by the dollar flag?",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-5-2b",
+          "label": "1.5.2 (b)",
+          "questionText": "Which country is represented by the hammer and sickle flag?",
+          "marks": 2,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-5-3",
+          "label": "1.5.3",
+          "questionText": "Comment on the limitations of the source for a historian researching the Cold War in Greece.",
+          "marks": 4,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1D"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "1-6",
+          "label": "1.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining how Greece became a focal point in Cold War tensions between the United States of America (USA) and the Soviet Union at the end of the Second World War in 1945.",
+          "marks": 8,
+          "topic": "Cold War Origins – Greece",
+          "requiredSources": ["1A", "1B", "1C", "1D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "WHY DID FOREIGN POWERS BECOME INVOLVED IN ANGOLA DURING THE BATTLE OF CUITO CUANAVALE IN THE 1980s?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "2A",
+          "title": "Source 2A",
+          "type": "text",
+          "content": "Below is an extract from an article titled 'Cuito Cuanavale, Angola's 25th Anniversary of a Historical Battle' by Ronnie Kasrils. It was published in the Monthly Review – An Independent Socialist Magazine in 2013. It explains why the Soviet Union, South Africa and Cuba were involved in the Battle of Cuito Cuanavale between 1987 and 1988.\n\nThe prelude (run-up) to the Battle of Cuito Cuanavale started in July 1987 when Angolan government forces, the People's Armed Forces of Liberation of Angola (FAPLA), under the guidance of Soviet military officers, attempted to advance on Jonas Savimbi's National Union for the Total Independence of Angola (UNITA) stronghold at Mavinga. This was the strategic key to his base at Jamba near the Caprivi Strip – a long finger of land, under South African military control, stretching as far as Zambia. At first the offensive progressed well and FAPLA gained the upper hand, inflicting (causing) heavy casualties on UNITA and driving them south towards Mavinga. Then, in October, FAPLA's advancing 47th Brigade, forty kilometres southeast of Cuito at the Lomba River, was all but destroyed in an attack by the South African Defence Force (SADF) hastening (rushing) from Namibia to UNITA's rescue. Catastrophe (disaster) followed as several other FAPLA brigades wilted (disappeared) under heavy bombardment, and bedraggled (messy) stragglers (idlers) retreated to Cuito Cuanavale. The situation could not have been graver (bleak). Cuito could have been overrun then and there by the SADF, changing the strategic situation overnight. The interior of the country would have been opened up to domination by UNITA, resulting in Angola being split in half – something Pretoria and Savimbi had been aiming at for years. But the SADF failed to seize the initiative. This allowed an initial contingent (group) of 120 Cuban troops to rush to the town from Menongue, 150 kilometres to the northwest, and help organise the defences. As the ferocious (violent) siege (barricade) developed, Pretoria's generals and Western diplomats predicted Cuito's imminent (forthcoming) fall.\n\n[From Monthly Review – An Independent Socialist Magazine, 1 April 2013]",
+          "imageUrl": null
+        },
+        {
+          "id": "2B",
+          "title": "Source 2B",
+          "type": "text",
+          "content": "The extract below, written by a historian, Edward George, and taken from a book titled The Cuban Intervention in Angola from Che Guavara to Cuito Cuanavale, explains Cuba's strategic intervention in Angola during the Battle of Cuito Cuanavale in 1987.\n\nThe decision to launch Operation Maniobra XXXI Aniversario was taken at a joint meeting of the Politburo, Revolutionary Armed Forces (FAR) and the Ministry of Interior (MININT), and involved an initial reinforcement of 3 000 Cuban troops to bolster Cuito Cuanavale's defences. It comprised one armoured brigade, several self-propelled air-to-air (AA missiles) units, including surface-to-air missiles (SAM-8s), one rapid response unit, and a contingent (group) of the (MININT) Special Forces which Castro offered personally.\n\nThe choice of Cuito Cuanavale for a final stand against the South Africans was as much pre-emptive (preventive) – to prevent the fall of Menongue – as it was symbolic. The Siege of Cuito Cuanavale would perform another essential function, however, providing Castro with the crucial showdown with the South Africans he needed before withdrawing his forces from Angola, and over the next two months he would override repeated requests from his officers in Angola to withdraw from Cuito Cuanavale. Like its predecessor, Operation Carlota, Maniobra XXXI Aniversario also had long-term objectives beyond the defence of Cuito Cuanavale.\n\nWhile reinforcements raced to Cuando Cubango, Castro secretly started building up a large force in Lubango in preparation for a move into southwest Angola. The FAR's elite 50th Division – Castro's personal division which guarded the American base in Guantánamo (Cuba) – was dispatched to Angola to spearhead (lead) this manoeuvre (plan), and by early January 1988 the first 3 500 Cuban troops had moved into Cunene.\n\nBut it was a major provocation (cause of trouble) to the SADF which had operated free of Cuban interference in the area for nearly eight years, and would provide both sides with an alternative theatre for the bloody climax of the war in late June.\n\n[From The Cuban Intervention in Angola from Che Guavara to Cuito Cuanavale by E George]",
+          "imageUrl": null
+        },
+        {
+          "id": "2C",
+          "title": "Source 2C",
+          "type": "text",
+          "content": "The extract below, written by Major Jayson N Williams of the United States Army, was taken from Contested Narratives: South African and Cuban Military Action in Angola (1987–1988) A Monograph. It explains South Africa's involvement in the Battle of Cuito Cuanavale through Operation Modular against the Soviet-backed FAPLA.\n\nFrom the Republic of South Africa's (RSA) perspective, Operation Modular, while appearing offensive in practice, was primarily defensive in purpose. UNITA's failure to stop the Soviet-Angolan offensive had forced the RSA to intervene to save its ally. The SADF had two principle objectives for the operation. The first objective was to halt FAPLA's attack to defeat UNITA in Angola. The SADF perceived that FAPLA's operational objective was to seize the city of Jamba, UNITA's headquarters, with intermediate objectives that included crossing the Lomba River and seizing Mavinga in order to allow that operation.\n\nAfter accomplishing the first objective, the SADF's second objective was to destroy FAPLA east of the Cuito River or, failing to accomplish that, at least push FAPLA west of that linear water obstacle. Success would create space for UNITA to defend against future attacks and force FAPLA to consider the tactical cost of conducting a contested river crossing before reinitiating offensive operations against UNITA.\n\nIf Operation Modular helped stop the Soviet-backed FAPLA offensive to retake south-eastern Angola, the RSA could maintain the buffer zone that UNITA provided to Namibia and South Africa. Operation Modular promised 'the long-awaited breakthrough in the prevailing political, diplomatic, and military deadlock in the Angolan-SWA/Namibian conflict'. Further military success could support favourable negotiations with the MPLA. If the SADF were to threaten the defeat of FAPLA or make significant territorial gains inside of Angola, the RSA could have a significant advantage during these talks.\n\n[From Contested Narratives: South African and Cuban Military Action in Angola (1987–1988) A Monograph by Major Jayson N Williams]",
+          "imageUrl": null
+        },
+        {
+          "id": "2D",
+          "title": "Source 2D",
+          "type": "image",
+          "content": "A cartoon titled 'THE THREE AMIGOS', drawn by Alberto Mourato. It depicts the leaders Bush (USA President), Botha (South African President) and Savimbi (UNITA leader) standing together as allies on the soil of Namibia and Angola during the Battle of Cuito Cuanavale between 1987 and 1988. In the background, the outline of Angola is visible with Luanda labelled. A small boat in the top-left corner sails away with the word 'ADIOS!!!' (meaning Goodbye), suggesting the departure of opposing forces. The three figures are labelled BUSH, BOTHA and SAVIMBI respectively, and Savimbi is shown carrying weapons. Key labels: ADIOS – Goodbye; AMIGOS – Friends; LUANDA; ANGOLA; NAMIBIA; BUSH; BOTHA; SAVIMBI.",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "2-1-1",
+          "label": "2.1.1",
+          "questionText": "According to the source, when did the Battle of Cuito Cuanavale start?",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-1-2",
+          "label": "2.1.2",
+          "questionText": "Identify any TWO armies in the source who fought in the Battle of Cuito Cuanavale.",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-1-3",
+          "label": "2.1.3",
+          "questionText": "Using the information in the source and your own knowledge, explain why Mavinga was targeted by FAPLA during the Battle of Cuito Cuanavale.",
+          "marks": 4,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-1-4",
+          "label": "2.1.4",
+          "questionText": "Comment on why the Cubans became involved in the Battle of Cuito Cuanavale.",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2A"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-2-1",
+          "label": "2.2.1",
+          "questionText": "Give TWO Cuban government organs that took part in a joint meeting that decided to launch Operation Maniobra XXXI Aniversario.",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-2-2",
+          "label": "2.2.2",
+          "questionText": "Operation Maniobra XXXI Aniversario comprised a number of artillery/armed units for its effectiveness. Identify any TWO that are named in the source.",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-2-3",
+          "label": "2.2.3",
+          "questionText": "Explain what is meant when it is said that Cuba's decision to be involved in Cuito Cuanavale was 'symbolic'.",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-2-4",
+          "label": "2.2.4",
+          "questionText": "Explain the term Siege of Cuito Cuanavale in its historical context.",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-2-5",
+          "label": "2.2.5",
+          "questionText": "According to the source, why did the dispatch of the FAR's elite 50th Division to Angola become a major provocation to the SADF?",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-3-1",
+          "label": "2.3.1",
+          "questionText": "Quote TWO objectives from the source that the SADF wanted to achieve through Operation Modular.",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2C"],
+          "questionType": "quote"
+        },
+        {
+          "id": "2-3-2",
+          "label": "2.3.2",
+          "questionText": "What is the implication of the statement, 'Operation Modular promised \"the long-awaited breakthrough in the prevailing political, diplomatic, and military deadlock in the Angolan-SWA/Namibian conflict\"'?",
+          "marks": 4,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2C"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-3-3",
+          "label": "2.3.3",
+          "questionText": "Define the concept negotiations in your own words.",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2C"],
+          "questionType": "define"
+        },
+        {
+          "id": "2-3-4",
+          "label": "2.3.4",
+          "questionText": "Explain the usefulness of this source to a historian researching the Battle of Cuito Cuanavale.",
+          "marks": 4,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2C"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "2-4-1",
+          "label": "2.4.1",
+          "questionText": "Explain the messages conveyed by the cartoon regarding the involvement of foreign powers in the Battle of Cuito Cuanavale.",
+          "marks": 4,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-4-2",
+          "label": "2.4.2",
+          "questionText": "Comment on the caption 'THE THREE AMIGOS' in the context of the Battle of Cuito Cuanavale.",
+          "marks": 2,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2D"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-5",
+          "label": "2.5",
+          "questionText": "Refer to Sources 2C and 2D. Explain how the information in Source 2C supports the evidence in Source 2D regarding the involvement of foreign powers in the Battle of Cuito Cuanavale.",
+          "marks": 4,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2C", "2D"],
+          "questionType": "compare"
+        },
+        {
+          "id": "2-6",
+          "label": "2.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining why foreign powers became involved in Angola during the Battle of Cuito Cuanavale in the 1980s.",
+          "marks": 8,
+          "topic": "Angola – Battle of Cuito Cuanavale",
+          "requiredSources": ["2A", "2B", "2C", "2D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "WHAT CHALLENGES WERE EXPERIENCED BY CIVIL RIGHTS ACTIVISTS WHO PARTICIPATED IN THE FIRST MARCH FROM SELMA TO MONTGOMERY IN 1965?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "3A",
+          "title": "Source 3A",
+          "type": "text",
+          "content": "This source, taken from the book, Eyes on the Prize: America's Civil Rights Years: 1954–1965 by J Williams, explains why the Alabama activists led the voter registration drives and also decided to march from Selma to Montgomery.\n\nYears of bigotry (racism), discrimination and intimidation left the black population of Alabama disenfranchised (excluded from voting) and politically marginalised (side-lined); in Dallas County, where Selma is located, fewer than ten per cent of eligible blacks (those who qualified) were registered to vote.\n\nIn 1964, the Student Non-Violent Coordinating Committee (SNCC) and local activists intensified (strengthened) the voter registration drive, hoping to dismantle Alabama's white supremacist (racist) political system. Early in 1965, Alabama activists invited the Southern Christian Leadership Conference (SCLC) and Reverend Dr Martin Luther King Jr, to bolster (strengthen) the campaign.\n\nWhile Selma was chosen as the focal point, similar voter registration activities were held in nearby towns and counties (districts). Tensions reached fever pitch in February 1965, when police killed Jimmie Lee Jackson, a 26-year-old army veteran, at a demonstration in Marion, twenty miles northwest of Selma. Outraged by this latest police act of violence, activists decided to march from Selma to Montgomery, the state capital, in protest and honour of Jackson.\n\nSome SNCC members, however, voiced concerns that the 40–50 mile march entailed (involved) too much risk for too little gain. Despite opposition from within his organisation, SNCC chairman, John Lewis, decided to lead the march with the SCLC's field director Hosea Williams. Together they led marchers to face two of the state's most dangerous men: George Wallace, Alabama's arch-segregationist governor and Jim Clark, a police sheriff known for his hot temper and unusual brutality.\n\n[From Eyes on the Prize: America's Civil Rights Years: 1954–1965 by J Williams]",
+          "imageUrl": null
+        },
+        {
+          "id": "3B",
+          "title": "Source 3B",
+          "type": "text",
+          "content": "The source below is an eyewitness account by Reverend James Bevel, a Southern Christian Leadership Conference (SCLC) strategist (planner) of the First March from Selma to Montgomery that took place on 7 March 1965. It highlights the challenges experienced by the civil rights activists as they were crossing the Edmund Pettus Bridge on their way to Montgomery.\n\nWhen we arrived at the apex (top) of the Edmund Pettus Bridge, we saw a sea of blue: Alabama State Troopers. Six hundred of us were walking in twos. It was a very peaceful, orderly protest.\n\nThe moment we got within shouting distance of the State Troopers, we heard one State Trooper identify himself. He said, 'I'm Major John Cloud, the commander in charge. This is an unlawful march. It will not be allowed to continue. I'll give you three minutes to disperse and go back to your church.' In about a minute and a half he said, 'Troopers advance,' and we saw the State Troopers and members of Sheriff Clark's posse (group) on horseback. The State Troopers came towards us with billy clubs (bats), tear gas, bullwhips, trampling us with horses.\n\nI felt like it was the last demonstration, the last protest on my part, like I was going to take my last breath from the teargas. I saw people screaming and hollering (shouting). We couldn't proceed forward. If we tried to go forward we would've gone into the heat of battle. We couldn't go to the side, to the left or the right, because we would have been going into the Alabama River, so we were beaten back down the streets of Selma, back to the church. By the time the attack was over, nearly 60 marchers were treated for injuries at a local hospital; of those, 17 were hospitalised, including John Lewis, whose skull had been fractured.\n\n[From The Selma Campaign: Martin Luther King Jr, Jimmie Lee Jackson and the Defining Struggle of the Civil Rights Era by C Swanson]",
+          "imageUrl": null
+        },
+        {
+          "id": "3C",
+          "title": "Source 3C",
+          "type": "image",
+          "content": "A black-and-white photograph depicting Civil Rights Movement activists being attacked by Alabama State Troopers after crossing the Edmund Pettus Bridge during the First Selma to Montgomery March on 7 March 1965. The photograph shows troopers in helmets using force against unarmed marchers, with some activists falling to the ground. Cars and a road sign (speed limit 30) are visible in the background. A label identifies the EDMUND PETTUS BRIDGE. The scene captures the violent crackdown now known as 'Bloody Sunday'.\n\n[From The Light of Ours – Activist Photographs of the Civil Rights Movement by L Kelea]",
+          "imageUrl": null
+        },
+        {
+          "id": "3D",
+          "title": "Source 3D",
+          "type": "text",
+          "content": "The source below has been taken from a newspaper article in The New York Times of 8 March 1965 – the day after 7 March 1965. It highlights how the demonstrators were attacked by State Troopers with most of them suffering serious injuries and ending in hospital.\n\nOn 7 March 1965, State Troopers and a sheriff's posse (group) in Selma, Alabama, attacked 525 civil rights demonstrators taking part in a march between Selma and Montgomery, the state capital. The march was organised to promote black voter registration and to protest the killing of a young black man, Jimmie Lee Jackson, by a State Trooper during an 18 February voter registration march in a nearby city.\n\nAs the demonstrators crossed the Edmund Pettus Bridge in Selma, they were ordered by the police to disperse. When they stood in place, the State Troopers charged at them.\n\n'The first 10 or 20 Negroes were swept to the ground screaming, arms and legs flying and packs and bags went skittering (flying) across the grassy divider strip and on to the pavement on both sides.' 'Those still on their feet retreated. The State Troopers continued pushing, using both the force of their bodies and the prodding (knocking) of their nightsticks.'\n\nThe police also fired tear gas at the crowd and charged on horseback. More than 50 demonstrators were injured. There was a makeshift hospital near the local church.\n\n'Negroes lay on the floors and chairs, many weeping and moaning. A girl in red slacks was carried from the house screaming.' Amelia Boynton lay semiconscious on a table. 'From the hospital came a report that the victims had suffered fractures of ribs, heads, arms and legs, in addition to cuts and bruises.'\n\nThe day of violence, which became known as Bloody Sunday, was covered in newspapers across the country and broadcast on national news, outraging many Americans. A photo of Mrs Boynton lying unconscious on the bridge became the most enduring image of the day.\n\n[From The New York Times, 8 March 1965]\n\nNegroes – A derogatory word for African Americans",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "3-1-1",
+          "label": "3.1.1",
+          "questionText": "Give THREE reasons in the source why the black population in Alabama was left disenfranchised and politically marginalised.",
+          "marks": 3,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-1-2",
+          "label": "3.1.2",
+          "questionText": "Why do you think the Alabama activists believed that by inviting Reverend Martin Luther King Jr, their campaign would be strengthened?",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-1-3",
+          "label": "3.1.3",
+          "questionText": "According to the source, why did the civil rights activists decide to march from Selma to Montgomery in 1965?",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-1-4",
+          "label": "3.1.4",
+          "questionText": "Explain why some of the activists believed the march would entail too much risk for too little gain.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-1-5",
+          "label": "3.1.5",
+          "questionText": "Define the concept segregationist in your own words.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3A"],
+          "questionType": "define"
+        },
+        {
+          "id": "3-2-1",
+          "label": "3.2.1",
+          "questionText": "Quote evidence from the source which suggests that the march that took place on 7 March 1965 was non-violent.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3B"],
+          "questionType": "quote"
+        },
+        {
+          "id": "3-2-2",
+          "label": "3.2.2",
+          "questionText": "Explain Major John Cloud's attitude towards the demonstrators.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-2-3",
+          "label": "3.2.3",
+          "questionText": "Comment on what is meant by Bevel's statement, 'I felt like it was the last demonstration … last breath from the teargas,' regarding how the activists were treated by the State Troopers on 7 March 1965.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3B"],
+          "questionType": "comment"
+        },
+        {
+          "id": "3-2-4",
+          "label": "3.2.4",
+          "questionText": "Explain why a historian would consider this source reliable when studying the events of the First March from Selma to Montgomery in 1965.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3B"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "3-3-1",
+          "label": "3.3.1",
+          "questionText": "Explain why you think this photograph was taken during the First March from Selma to Montgomery in 1965.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-3-2",
+          "label": "3.3.2",
+          "questionText": "Using the information in the source and your own knowledge, comment on why State Troopers used force against protestors during the First March from Selma to Montgomery in 1965.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3C"],
+          "questionType": "comment"
+        },
+        {
+          "id": "3-4-1",
+          "label": "3.4.1",
+          "questionText": "Give TWO reasons, stated in the source, why the march of 7 March 1965 was organised.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-4-2",
+          "label": "3.4.2",
+          "questionText": "Explain the term demonstrators in the context of the Selma to Montgomery March in 1965.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-4-3",
+          "label": "3.4.3",
+          "questionText": "Quote THREE pieces of evidence from the source which show that the State Troopers used excessive force against the demonstrators.",
+          "marks": 3,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3D"],
+          "questionType": "quote"
+        },
+        {
+          "id": "3-4-4",
+          "label": "3.4.4",
+          "questionText": "Explain the impact Bloody Sunday had on the Civil Rights Movement.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-5",
+          "label": "3.5",
+          "questionText": "Refer to Sources 3C and 3D. Explain how these sources support each other regarding the reaction of the State Troopers to the First March from Selma to Montgomery on 7 March 1965.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3C", "3D"],
+          "questionType": "compare"
+        },
+        {
+          "id": "3-6",
+          "label": "3.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining challenges experienced by civil rights protestors who participated in the First March from Selma to Montgomery in 1965.",
+          "marks": 8,
+          "topic": "US Civil Rights Movement – Selma March",
+          "requiredSources": ["3A", "3B", "3C", "3D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "THE EXTENSION OF THE COLD WAR: CASE STUDY – VIETNAM",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4",
+          "questionText": "The tactics used by the United States of America (USA) against the Viet Cong between 1960 and 1975 did not help to defeat them during the Vietnamese war.\n\nDo you agree with the statement? Use relevant evidence to support your line of argument.",
+          "marks": 50,
+          "topic": "Vietnam War",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "INDEPENDENT AFRICA: CASE STUDY – THE CONGO",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "5-1",
+          "label": "5",
+          "questionText": "Mobutu Sese Seko's political and economic policies, introduced by the newly independent Congo in the early 1960s, were welcomed by all the Congolese.\n\nUsing relevant evidence to support your response, critically discuss this statement.",
+          "marks": 50,
+          "topic": "Independent Africa – The Congo",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "CIVIL SOCIETY PROTESTS FROM THE 1950s TO THE 1970s: THE BLACK POWER MOVEMENT",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6",
+          "questionText": "Explain to what extent the Black Power philosophy instilled confidence amongst African Americans to challenge discrimination in the United States of America (USA) from the 1960s to 1970s.\n\nUse relevant evidence to support your line of argument.",
+          "marks": 50,
+          "topic": "Black Power Movement",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    }
+  ]
+}
