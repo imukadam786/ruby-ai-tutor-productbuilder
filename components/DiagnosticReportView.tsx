@@ -93,9 +93,11 @@ function BulletItem({ text }: { text: string }) {
 export default function DiagnosticReportView({
   input,
   onStartLearning,
+  ctaLabel = "Start Learning 🚀",
 }: {
   input: DiagnosticReportInput;
   onStartLearning: () => void;
+  ctaLabel?: string;
 }) {
   const content = buildDeterministicReportContent(input);
   const subject = input.subject === "maths" ? "Maths" : "Reading";
@@ -270,7 +272,7 @@ export default function DiagnosticReportView({
           onClick={onStartLearning}
           className="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-base transition-all hover:bg-green-700 shadow-md"
         >
-          Start Learning 🚀
+          {ctaLabel}
         </button>
       </div>
     </div>
