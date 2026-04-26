@@ -15,6 +15,8 @@ import {
   saveStudentProfile,
   getSkillById,
   getNextSkillId,
+  getTierById,
+  getLevelById,
   advanceToSkill,
   recordAttempt,
   completeMathsPlacement,
@@ -51,7 +53,15 @@ import {
   trackPlacementCompleted,
 } from "@/lib/analytics";
 
-type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "stuck" | "complete";
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "tier_complete" | "level_up" | "stuck" | "complete";
+
+function classifyTransition(fromId: string, toId: string): "same_tier" | "tier_complete" | "level_up" {
+  const fromParts = fromId.split(".");
+  const toParts = toId.split(".");
+  if (fromParts[0] !== toParts[0]) return "level_up";
+  if (fromParts[1] !== toParts[1]) return "tier_complete";
+  return "same_tier";
+}
 
 // ─── Report input builder ─────────────────────────────────────────────────────
 // Constructs DiagnosticReportInput from the completed student profile.
@@ -148,6 +158,11 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
 
   // Needs-review: skill ID of a stale mastered skill to probe before main practice
   const [pendingReviewSkillId, setPendingReviewSkillId] = useState<string | null>(null);
+
+  // Celebration state — next skill to advance to after tier/level celebration is dismissed
+  const [pendingNextSkillId, setPendingNextSkillId] = useState<string | null>(null);
+  // Track whether the last feedback was a needs-review question answered correctly
+  const [wasReviewCorrect, setWasReviewCorrect] = useState(false);
 
   // Recent templates — used by selectMathsTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<QuestionTemplate[]>([]);
@@ -350,6 +365,7 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
         ? stampMathsReviewedAt(profileAfterAttempt, currentQuestion.skill_id)
         : profileAfterAttempt;
       if (isReviewQuestion) setPendingReviewSkillId(null);
+      setWasReviewCorrect(isReviewQuestion && result.is_correct);
       setProfile(updatedProfile);
 
       if (updatedMastery.status === "mastered") {
@@ -463,16 +479,40 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
       const nextSkillId = getNextSkillId(profile.current_skill_id);
       if (nextSkillId) {
         trackSkillAdvanced({ subject: "maths", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
-        const updated = advanceToSkill(profile, nextSkillId);
-        setProfile(updated);
-        setSkillAttemptCount(0);
-        recentTemplatesRef.current = [];
-        setPhase("loading_question");
+        const transition = classifyTransition(profile.current_skill_id, nextSkillId);
+        if (transition === "level_up") {
+          setPendingNextSkillId(nextSkillId);
+          setPhase("level_up");
+        } else if (transition === "tier_complete") {
+          setPendingNextSkillId(nextSkillId);
+          setPhase("tier_complete");
+        } else {
+          const updated = advanceToSkill(profile, nextSkillId);
+          setProfile(updated);
+          setSkillAttemptCount(0);
+          recentTemplatesRef.current = [];
+          setPhase("loading_question");
+        }
       } else {
         setPhase("complete");
       }
     } catch (err) {
       console.error("[handleNextAfterMastered] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
+    }
+  };
+
+  const handleAdvanceAfterCelebration = () => {
+    if (!profile || !pendingNextSkillId) return;
+    try {
+      const updated = advanceToSkill(profile, pendingNextSkillId);
+      setProfile(updated);
+      setPendingNextSkillId(null);
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase("loading_question");
+    } catch (err) {
+      console.error("[handleAdvanceAfterCelebration] unexpected error:", err);
       setStatusMessage("Something went wrong. Please try again.");
     }
   };
@@ -767,6 +807,7 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
               onNext={handleNextAfterFeedback}
               nextLabel={nextLabels[currentResult.next_action] || "Continue"}
               grade={profile?.grade}
+              wasReviewCorrect={wasReviewCorrect}
               questionContext={currentQuestion ? {
                 skill_id: currentQuestion.skill_id,
                 question: currentQuestion.question,
@@ -801,6 +842,57 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
               className="w-full bg-green-500 hover:bg-green-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md mt-2"
             >
               Keep going →
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (phase === "tier_complete") {
+    const currentTierId = profile ? `${profile.current_skill_id.split(".")[0]}.${profile.current_skill_id.split(".")[1]}` : null;
+    const tier = currentTierId ? getTierById(currentTierId) : null;
+    return (
+      <div className="flex flex-col h-full bg-gray-50">
+        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <div className="flex-1 flex items-center justify-center p-6">
+          <div className="bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
+            <div className="text-5xl">🎯</div>
+            <h3 className="text-2xl font-bold text-blue-800">Topic Complete!</h3>
+            <p className="text-blue-700 text-lg">
+              You finished <strong>{tier?.title ?? "this topic"}</strong>!
+            </p>
+            <button
+              onClick={handleAdvanceAfterCelebration}
+              className="w-full bg-blue-500 hover:bg-blue-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md"
+            >
+              Next topic →
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (phase === "level_up") {
+    const nextLevelNum = pendingNextSkillId ? parseInt(pendingNextSkillId.split(".")[0].replace("L", "")) : null;
+    const nextLevel = nextLevelNum ? getLevelById(nextLevelNum) : null;
+    const levelName = nextLevel?.title ?? (nextLevelNum ? LEVEL_LABEL[nextLevelNum] : null) ?? "the next level";
+    return (
+      <div className="flex flex-col h-full bg-gradient-to-br from-yellow-50 to-orange-50">
+        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <div className="flex-1 flex items-center justify-center p-6">
+          <div className="bg-white border-2 border-yellow-300 rounded-2xl p-8 shadow-xl max-w-md w-full text-center space-y-4">
+            <div className="text-6xl">🏆</div>
+            <h3 className="text-3xl font-bold text-yellow-800">Level Up!</h3>
+            <p className="text-yellow-700 text-xl">
+              You unlocked <strong>{levelName}</strong>!
+            </p>
+            <button
+              onClick={handleAdvanceAfterCelebration}
+              className="w-full bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 active:scale-95 text-white py-4 rounded-xl font-bold text-xl transition-all shadow-lg"
+            >
+              Keep going! →
             </button>
           </div>
         </div>

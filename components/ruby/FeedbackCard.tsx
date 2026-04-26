@@ -19,6 +19,7 @@ interface FeedbackCardProps {
   nextLabel?: string;
   grade?: number;
   questionContext?: QuestionContext;
+  wasReviewCorrect?: boolean;
 }
 
 const errorLabels: Record<ErrorType, { label: string; color: string; icon: string }> = {
@@ -48,12 +49,16 @@ export default function FeedbackCard({
   grade = 1,
   questionContext,
   nextLabel: _nextLabel,
+  wasReviewCorrect = false,
 }: FeedbackCardProps) {
   const { language } = useT();
   const errorInfo = errorLabels[result.error_type];
   const isCorrect = result.is_correct;
   const touchStartY = useRef(0);
   const { playing, speak, stop } = useTTS();
+
+  const isFirstCorrect = isCorrect && typeof window !== "undefined" && !sessionStorage.getItem("first_correct_shown");
+  if (isFirstCorrect && typeof window !== "undefined") sessionStorage.setItem("first_correct_shown", "1");
 
   // Reflection state — only used on first wrong answer for grade ≥ REFLECTION_MIN_GRADE
   const showReflection =
@@ -123,8 +128,14 @@ export default function FeedbackCard({
             ))}
           </div>
         </div>
-        <div className="px-6 py-5">
+        <div className="px-6 py-5 space-y-2">
           <p className="text-gray-800 leading-relaxed">{result.feedback}</p>
+          {isFirstCorrect && (
+            <p className="text-sm font-semibold text-green-700 animate-pulse">Great start! ⭐</p>
+          )}
+          {wasReviewCorrect && (
+            <p className="text-sm font-semibold text-blue-700">You still remember this! 🧠</p>
+          )}
         </div>
         <div
           className="px-6 pb-6 pt-2 flex flex-col items-center gap-1 cursor-pointer select-none"

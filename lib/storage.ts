@@ -213,5 +213,8 @@ export function recordDailyActivity(): void {
       },
       { onConflict: "user_id" }
     );
+    if (data.lastActiveDate !== today && typeof document !== "undefined") {
+      document.dispatchEvent(new CustomEvent("ruby-streak-updated", { detail: { streak: currentStreak } }));
+    }
   })();
 }

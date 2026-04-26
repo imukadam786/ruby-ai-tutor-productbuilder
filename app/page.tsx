@@ -123,6 +123,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
 
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [upgradeReason, setUpgradeReason] = useState<string | undefined>(undefined);
+  const [streakToast, setStreakToast] = useState<number | null>(null);
 
   // Track chat engagement (at least one message sent this session)
   const [chatEngaged, setChatEngaged] = useState(false);
@@ -169,7 +170,24 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
       setSurvey({ type });
     };
     document.addEventListener("ruby-skill-mastered", onSkillMastered);
-    return () => document.removeEventListener("ruby-skill-mastered", onSkillMastered);
+
+    // Streak milestone toast — fires when a new-day streak update happens
+    const STREAK_MILESTONES = [3, 7, 14, 30];
+    const onStreakUpdated = (e: Event) => {
+      const newStreak = (e as CustomEvent<{ streak: number }>).detail?.streak;
+      if (!newStreak) return;
+      const key = `streak_milestone_${newStreak}_shown`;
+      if (STREAK_MILESTONES.includes(newStreak) && !localStorage.getItem(key)) {
+        localStorage.setItem(key, "1");
+        setStreakToast(newStreak);
+      }
+    };
+    document.addEventListener("ruby-streak-updated", onStreakUpdated);
+
+    return () => {
+      document.removeEventListener("ruby-skill-mastered", onSkillMastered);
+      document.removeEventListener("ruby-streak-updated", onStreakUpdated);
+    };
   }, [refreshStats, onPostDiscovery]);
 
   const handleViewChange = (view: ActiveView) => {
@@ -201,6 +219,26 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
   return (
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
       <BetaBanner />
+
+      {/* ── Streak milestone toast ──────────────────────────────────────── */}
+      {streakToast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-gradient-to-r from-orange-500 to-amber-400 text-white rounded-2xl px-6 py-4 shadow-xl flex items-center gap-3 max-w-sm w-[calc(100%-2rem)] animate-bounce-once">
+          <span className="text-3xl">🔥</span>
+          <div className="flex-1">
+            <p className="font-bold text-base">{streakToast}-day streak!</p>
+            <p className="text-orange-100 text-sm">You&apos;re on a roll — keep it up!</p>
+          </div>
+          <button
+            onClick={() => setStreakToast(null)}
+            className="text-white/70 hover:text-white transition-colors flex-shrink-0"
+            aria-label="Dismiss"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      )}
 
       {/* Mobile top bar — in normal flow so banner shows above it */}
       <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm z-30">

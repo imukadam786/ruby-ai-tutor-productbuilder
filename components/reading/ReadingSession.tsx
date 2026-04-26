@@ -23,6 +23,8 @@ import {
   createReadingProfile,
   getReadingSkillById,
   getNextReadingSkillId,
+  getReadingTierById,
+  getReadingLevelById,
   advanceToReadingSkill,
   recordReadingAttempt,
   updateSessionHistory,
@@ -57,7 +59,15 @@ import {
 import { supabase } from "@/lib/supabase";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 
-type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "stuck" | "complete";
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "tier_complete" | "level_up" | "stuck" | "complete";
+
+function classifyTransition(fromId: string, toId: string): "same_tier" | "tier_complete" | "level_up" {
+  const fromParts = fromId.split(".");
+  const toParts = toId.split(".");
+  if (fromParts[0] !== toParts[0]) return "level_up";
+  if (fromParts[1] !== toParts[1]) return "tier_complete";
+  return "same_tier";
+}
 
 // ─── Reading report input builder ─────────────────────────────────────────────
 
@@ -151,6 +161,11 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
 
   // Needs-review: skill ID of a stale mastered skill to probe before main practice
   const [pendingReviewSkillId, setPendingReviewSkillId] = useState<string | null>(null);
+
+  // Celebration state — next skill to advance to after tier/level celebration is dismissed
+  const [pendingNextSkillId, setPendingNextSkillId] = useState<string | null>(null);
+  // Track whether the last feedback was a needs-review question answered correctly
+  const [wasReviewCorrect, setWasReviewCorrect] = useState(false);
 
   // Recent templates — used by selectReadingTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<ReadingTemplate[]>([]);
@@ -386,6 +401,7 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
         : profileAfterAttempt;
       setProfile(profileAfterReview);
       if (isReviewQuestion) setPendingReviewSkillId(null);
+      setWasReviewCorrect(isReviewQuestion && result.is_correct);
 
       const newSessionAttempts = sessionAttempts + 1;
       const newSessionCorrect = sessionCorrect + (result.is_correct ? 1 : 0);
@@ -544,16 +560,40 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
       const nextSkillId = getNextReadingSkillId(profile.current_skill_id);
       if (nextSkillId) {
         trackSkillAdvanced({ subject: "reading", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
-        const updated = advanceToReadingSkill(profile, nextSkillId);
-        setProfile(updated);
-        setSkillAttemptCount(0);
-        recentTemplatesRef.current = [];
-        setPhase("loading_question");
+        const transition = classifyTransition(profile.current_skill_id, nextSkillId);
+        if (transition === "level_up") {
+          setPendingNextSkillId(nextSkillId);
+          setPhase("level_up");
+        } else if (transition === "tier_complete") {
+          setPendingNextSkillId(nextSkillId);
+          setPhase("tier_complete");
+        } else {
+          const updated = advanceToReadingSkill(profile, nextSkillId);
+          setProfile(updated);
+          setSkillAttemptCount(0);
+          recentTemplatesRef.current = [];
+          setPhase("loading_question");
+        }
       } else {
         setPhase("complete");
       }
     } catch (err) {
       console.error("[handleNextAfterMastered] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
+    }
+  };
+
+  const handleAdvanceAfterCelebration = () => {
+    if (!profile || !pendingNextSkillId) return;
+    try {
+      const updated = advanceToReadingSkill(profile, pendingNextSkillId);
+      setProfile(updated);
+      setPendingNextSkillId(null);
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase("loading_question");
+    } catch (err) {
+      console.error("[handleAdvanceAfterCelebration] unexpected error:", err);
       setStatusMessage("Something went wrong. Please try again.");
     }
   };
@@ -795,6 +835,7 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
               onNext={handleNextAfterFeedback}
               nextLabel={nextLabels[currentResult.next_action] || "Continue"}
               language={language}
+              wasReviewCorrect={wasReviewCorrect}
             />
           </div>
         </div>
@@ -825,6 +866,61 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
               className="w-full bg-green-500 hover:bg-green-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md mt-2"
             >
               Keep going →
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ─── Tier complete ────────────────────────────────────────────────────────────
+
+  if (phase === "tier_complete") {
+    const currentTierId = profile ? `${profile.current_skill_id.split(".")[0]}.${profile.current_skill_id.split(".")[1]}` : null;
+    const tier = currentTierId ? getReadingTierById(currentTierId) : null;
+    return (
+      <div className="flex flex-col h-full bg-gray-50">
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <div className="flex-1 flex items-center justify-center p-6">
+          <div className="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
+            <div className="text-5xl">🎯</div>
+            <h3 className="text-2xl font-bold text-purple-800">Topic Complete!</h3>
+            <p className="text-purple-700 text-lg">
+              You finished <strong>{tier?.title ?? "this topic"}</strong>!
+            </p>
+            <button
+              onClick={handleAdvanceAfterCelebration}
+              className="w-full bg-purple-500 hover:bg-purple-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md"
+            >
+              Next topic →
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ─── Level up ─────────────────────────────────────────────────────────────────
+
+  if (phase === "level_up") {
+    const nextLevelNum = pendingNextSkillId ? parseInt(pendingNextSkillId.split(".")[0].replace("R", "")) : null;
+    const nextLevel = nextLevelNum ? getReadingLevelById(nextLevelNum) : null;
+    const levelName = nextLevel?.title ?? `Reading Level ${nextLevelNum}`;
+    return (
+      <div className="flex flex-col h-full bg-gradient-to-br from-amber-50 to-orange-50">
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <div className="flex-1 flex items-center justify-center p-6">
+          <div className="bg-white border-2 border-amber-300 rounded-2xl p-8 shadow-xl max-w-md w-full text-center space-y-4">
+            <div className="text-6xl">🏆</div>
+            <h3 className="text-3xl font-bold text-amber-800">Level Up!</h3>
+            <p className="text-amber-700 text-xl">
+              You unlocked <strong>{levelName}</strong>!
+            </p>
+            <button
+              onClick={handleAdvanceAfterCelebration}
+              className="w-full bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 active:scale-95 text-white py-4 rounded-xl font-bold text-xl transition-all shadow-lg"
+            >
+              Keep going! →
             </button>
           </div>
         </div>
@@ -1330,16 +1426,20 @@ const ERROR_LABELS: Record<string, string> = {
 function ReadingFeedbackCard({
   result,
   onNext,
+  wasReviewCorrect = false,
 }: {
   result: ReadingDiagnosticResult;
   onNext: () => void;
   nextLabel?: string;
   language?: string;
+  wasReviewCorrect?: boolean;
 }) {
   const touchStartY = useRef(0);
   const [ttsPlaying, setTtsPlaying] = useState(false);
   const cancelTTSRef = useRef<(() => void) | null>(null);
   const feedbackText = [result.feedback, result.recovery_explanation].filter(Boolean).join(". ");
+  const isFirstCorrect = result.is_correct && typeof window !== "undefined" && !sessionStorage.getItem("first_correct_shown");
+  if (isFirstCorrect && typeof window !== "undefined") sessionStorage.setItem("first_correct_shown", "1");
 
   const handlePlay = () => {
     if (ttsPlaying) {
@@ -1371,6 +1471,13 @@ function ReadingFeedbackCard({
           </p>
         </div>
       </div>
+
+      {isFirstCorrect && (
+        <p className="text-sm font-semibold text-green-700 animate-pulse">Great start! ⭐</p>
+      )}
+      {wasReviewCorrect && (
+        <p className="text-sm font-semibold text-blue-700">You still remember this! 🧠</p>
+      )}
 
       <div className="flex items-start justify-between gap-3">
         <p className="text-gray-700 text-base leading-relaxed flex-1">{result.feedback}</p>
