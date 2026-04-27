@@ -171,13 +171,8 @@ function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void 
             {SUBJECTS.map((subject) => (
               <button
                 key={subject.id}
-                onClick={() => subject.available && onSelect(subject.id as SubjectId)}
-                disabled={!subject.available}
-                className={`relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 ${
-                  subject.available
-                    ? "border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
-                    : "border-gray-200 opacity-40 cursor-not-allowed"
-                }`}
+                onClick={() => onSelect(subject.id as SubjectId)}
+                className="relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
               >
                 {/* Thumbnail image */}
                 <div className="w-full aspect-square overflow-hidden">
@@ -186,11 +181,6 @@ function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void 
                     alt={subject.name}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                </div>
-
-                {/* Label strip */}
-                <div className="px-3 py-2.5">
-                  <p className="font-bold text-gray-800 text-sm leading-snug">{subject.name}</p>
                 </div>
               </button>
             ))}
@@ -779,10 +769,22 @@ function SessionView({
     return init;
   });
 
-  // Reset hint level when question changes
+  const [mobileTab, setMobileTab] = useState<"question" | "feedback">("question");
+  const wasEvaluating = useRef(false);
+
+  // Reset hint level and mobile tab when question changes
   useEffect(() => {
     setHintLevel(0);
+    setMobileTab("question");
   }, [currentIdx]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Auto-switch to feedback tab on mobile after evaluation completes
+  useEffect(() => {
+    if (wasEvaluating.current && !isEvaluating && mode === "guided") {
+      setMobileTab("feedback");
+    }
+    wasEvaluating.current = isEvaluating;
+  }, [isEvaluating, mode]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const coachEndRef = useRef<HTMLDivElement>(null);
@@ -1151,10 +1153,36 @@ function SessionView({
         </div>
       )}
 
+      {/* Mobile tab bar — guided mode only */}
+      {mode === "guided" && (
+        <div className="sm:hidden flex-shrink-0 flex border-b border-gray-100 bg-white">
+          <button
+            onClick={() => setMobileTab("question")}
+            className={`flex-1 py-2.5 text-xs font-semibold transition-colors border-b-2 ${
+              mobileTab === "question" ? "text-[#BE1832] border-[#BE1832]" : "text-gray-400 border-transparent"
+            }`}
+          >
+            Question
+          </button>
+          <button
+            onClick={() => setMobileTab("feedback")}
+            className={`flex-1 py-2.5 text-xs font-semibold transition-colors border-b-2 ${
+              mobileTab === "feedback" ? "text-[#BE1832] border-[#BE1832]" : "text-gray-400 border-transparent"
+            }`}
+          >
+            Ruby Feedback
+          </button>
+        </div>
+      )}
+
       {/* Split screen (guided) / Full screen (practice) */}
       <div className="flex-1 flex flex-col sm:flex-row overflow-hidden min-h-0">
         {/* ── LEFT PANEL: Question + Working ── */}
-        <div className={`${mode === "practice" ? "flex-1" : "flex-1 sm:w-[60%] sm:flex-none"} flex flex-col border-b sm:border-b-0 sm:border-r border-gray-200 overflow-hidden`}>
+        <div className={`flex flex-col border-b sm:border-b-0 sm:border-r border-gray-200 overflow-hidden ${
+          mode === "practice"
+            ? "flex-1"
+            : `flex-1 sm:w-[60%] sm:flex-none ${mobileTab === "feedback" ? "hidden sm:flex" : ""}`
+        }`}>
           {/* Content area — no scroll, flex column */}
           <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
             {/* Question text + diagram (scrollable together) */}
@@ -1580,7 +1608,7 @@ function SessionView({
         </div>
 
         {/* ── RIGHT PANEL: AI Coach (guided mode only) ── */}
-        {mode === "guided" && <div className="h-[38%] sm:h-auto sm:w-[40%] flex flex-col overflow-hidden bg-white border-t sm:border-t-0">
+        {mode === "guided" && <div className={`flex flex-col overflow-hidden bg-white border-t sm:border-t-0 sm:w-[40%] ${mobileTab === "question" ? "hidden sm:flex" : "flex-1 sm:flex-none"}`}>
           <div className="flex-shrink-0 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
