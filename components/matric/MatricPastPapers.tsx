@@ -592,7 +592,7 @@ function ModeSelect({
             <span className="text-lg">🌍</span>
             <div>
               <label className="text-sm font-bold text-gray-800">Response language</label>
-              <p className="text-xs text-gray-500 mt-0.5">Ruby will give you feedback in this language — choose your home language for the best experience.</p>
+              <p className="text-xs text-gray-500 mt-0.5">Ruby will give you feedback in this language, choose your home language for the best experience.</p>
             </div>
           </div>
           <select
@@ -1100,7 +1100,7 @@ function SessionView({
             className="border border-gray-200 rounded-lg px-2 py-1 text-xs font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[120px] flex-shrink-0"
           >
             {paper.questions.map((q, i) => (
-              <option key={q.number} value={i}>Q{q.number} — {q.title}</option>
+              <option key={q.number} value={i}>Q{q.number}: {q.title}</option>
             ))}
           </select>
         </div>
@@ -1116,7 +1116,7 @@ function SessionView({
             className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[260px]"
           >
             {paper.questions.map((q, i) => (
-              <option key={q.number} value={i}>Q{q.number} — {q.title}</option>
+              <option key={q.number} value={i}>Q{q.number}: {q.title}</option>
             ))}
           </select>
         </div>

@@ -65,7 +65,7 @@ function MockupFeedback({ isMobile }: { isMobile: boolean }) {
           <div className="space-y-2.5">
             <div>
               <p className="text-[10px] text-gray-400 uppercase tracking-wide font-semibold mb-0.5">Feedback</p>
-              <p className="text-sm text-gray-800 font-medium">Not quite — give it another try!</p>
+              <p className="text-sm text-gray-800 font-medium">Not quite, give it another try!</p>
             </div>
             {/* Yellow learning box */}
             <div className="rounded-xl border border-yellow-300 bg-yellow-50 px-3 py-2.5">

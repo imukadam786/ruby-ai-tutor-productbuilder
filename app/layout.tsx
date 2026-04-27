@@ -3,7 +3,7 @@ import "./globals.css";
 import { PostHogProvider } from "@/components/PostHogProvider";
 
 export const metadata: Metadata = {
-  title: "Ruby — AI Tutor",
+  title: "Ruby AI Tutor",
   description: "Your personal AI tutor for Maths and Reading",
   manifest: "/manifest.json",
   appleWebApp: {

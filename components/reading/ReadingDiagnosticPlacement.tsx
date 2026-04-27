@@ -814,7 +814,7 @@ export default function ReadingDiagnosticPlacement({
             <p className="text-gray-600 mt-3 leading-relaxed text-base">
               Before we start, let&apos;s do a short discovery activity so I can find your perfect starting point!
             </p>
-            <p className="text-blue-600 font-medium mt-2 text-base">No pressure — just do your best 😊</p>
+            <p className="text-blue-600 font-medium mt-2 text-base">No pressure, just do your best 😊</p>
           </div>
           <div className="grid grid-cols-3 gap-2 text-sm text-gray-600">
             {[{ icon: "🎯", text: `${TASKS.length} activities` }, { icon: "⏱️", text: "10–15 min" }, { icon: "🏆", text: "Find your level" }].map(({ icon, text }) => (
@@ -1019,7 +1019,7 @@ export default function ReadingDiagnosticPlacement({
                 {flashVisible ? (
                   <p className="text-5xl font-bold text-blue-700 animate-pulse">{task.flashWord}</p>
                 ) : flashDone ? (
-                  <p className="text-gray-400 text-base">The word has disappeared — now choose below!</p>
+                  <p className="text-gray-400 text-base">The word has disappeared, now choose below!</p>
                 ) : (
                   <p className="text-gray-400 text-base">Get ready… the word is about to appear!</p>
                 )}
@@ -1105,7 +1105,7 @@ export default function ReadingDiagnosticPlacement({
                         {speaking ? <span className="text-gray-400">⏳ Listen to the question first…</span>
                           : listening ? <span className="text-gray-400">🔴 Listening… tap to stop</span>
                           : !micEnabled ? <span className="text-gray-400">⏳ Getting ready…</span>
-                          : sttHavingTrouble ? <span className="text-orange-500">Having trouble hearing you — tap to try again</span>
+                          : sttHavingTrouble ? <span className="text-orange-500">Having trouble hearing you, tap to try again</span>
                           : <span className="text-gray-400">Tap the mic to speak</span>}
                       </p>
                     </div>

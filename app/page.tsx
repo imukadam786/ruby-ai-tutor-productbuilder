@@ -13,6 +13,7 @@ const ReadingTutorial    = dynamic(() => import("@/components/tutorial/ReadingTu
 const MathsTutorial      = dynamic(() => import("@/components/tutorial/MathsTutorial"),      { ssr: false });
 const SkillTreeTutorial  = dynamic(() => import("@/components/tutorial/SkillTreeTutorial"),  { ssr: false });
 const MatricTutorial     = dynamic(() => import("@/components/tutorial/MatricTutorial"),     { ssr: false });
+const SubjectsTutorial   = dynamic(() => import("@/components/tutorial/SubjectsTutorial"),   { ssr: false });
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
@@ -26,6 +27,7 @@ const SettingsView         = dynamic(() => import("@/components/SettingsView"), 
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
 const DiscoverHub              = dynamic(() => import("@/components/DiscoverHub"),                         { ssr: false });
+const SubjectsHub              = dynamic(() => import("@/components/SubjectsHub"),                         { ssr: false });
 const WatchComingSoon      = dynamic(() => import("@/components/WatchComingSoon"),                      { ssr: false });
 const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerModal"),                  { ssr: false });
 const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
@@ -73,6 +75,7 @@ function PlacementGuardScreen({
 // ── Maps each tutorial-eligible nav view to its localStorage seen-key ────────
 const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
   chat:          "ruby_tut_chat",
+  subjects:      "ruby_tut_subjects",
   discover:      "ruby_tut_discover",
   ruby:          "ruby_tut_maths",
   reading:       "ruby_tut_reading",
@@ -112,6 +115,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
     "discover-maths": "Discover · Maths",
     "discover-reading": "Discover · Reading",
     "discover": "Discover",
+    subjects: "Subjects",
   };
 
   const refreshStats = useCallback(() => {
@@ -226,7 +230,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
           <span className="text-3xl">🔥</span>
           <div className="flex-1">
             <p className="font-bold text-base">{streakToast}-day streak!</p>
-            <p className="text-orange-100 text-sm">You&apos;re on a roll — keep it up!</p>
+            <p className="text-orange-100 text-sm">You&apos;re on a roll, keep it up!</p>
           </div>
           <button
             onClick={() => setStreakToast(null)}
@@ -253,7 +257,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
           </svg>
         </button>
         <span className="flex-1 font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
-        {["chat", "ruby", "reading", "discover-maths", "discover-reading", "discover"].includes(activeView) ? (
+        {["chat", "ruby", "reading", "discover-maths", "discover-reading", "discover", "subjects"].includes(activeView) ? (
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("ruby-action"))}
             className="p-2 rounded-lg text-gray-500 hover:text-gray-800 hover:bg-gray-100 transition-colors"
@@ -311,6 +315,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
+        {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
         {activeView === "matric" && <MatricPastPapers />}
         {activeView === "prep-papers-2026" && <PrepPapers2026 />}
         {activeView === "watch" && <WatchComingSoon />}
@@ -333,6 +338,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
       )}
 
       {/* Contextual feature tutorials — shown first time user visits each feature */}
+      {activeTutorial === "subjects"    && <SubjectsTutorial   onComplete={() => setActiveTutorial(null)} />}
       {activeTutorial === "discover"    && <DiscoveryTutorial  onComplete={() => setActiveTutorial(null)} />}
       {activeTutorial === "ruby"        && <MathsTutorial      onComplete={() => setActiveTutorial(null)} />}
       {activeTutorial === "reading"     && <ReadingTutorial    onComplete={() => setActiveTutorial(null)} />}
@@ -408,6 +414,29 @@ function DiscoveryPromptScreen({ name, onSelect }: { name: string; onSelect: (su
   );
 }
 
+// ── Post-discovery bridge — shown after Discovery completes, before plan selection ──
+function PostDiscoveryScreen({ onContinue }: { onContinue: () => void }) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+      <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
+        <div className="text-5xl">🎉</div>
+        <h1 className="text-2xl font-bold text-[#1a2744]">
+          Discovery complete!
+        </h1>
+        <p className="text-gray-500 text-base leading-relaxed">
+          Ruby now knows your starting level. To unlock your full personalised learning journey, choose a plan that works for you.
+        </p>
+        <button
+          onClick={onContinue}
+          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg transition-colors shadow-md"
+        >
+          Choose a Plan
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ── Tutorial welcome screen — shown once after onboarding + discovery ─────────
 function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSkip: () => void }) {
   return (
@@ -445,7 +474,7 @@ function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSki
 
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "discovery-prompt" | "tutorial-welcome" | "app" | "trial-expired">("loading");
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "discovery-prompt" | "post-discovery" | "tutorial-welcome" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
   const [pendingDiscovery, setPendingDiscovery] = useState<"maths" | "reading" | null>(null);
 
@@ -591,10 +620,18 @@ export default function Home() {
           initialView={discoveryView}
           onPostDiscovery={() => {
             setPendingDiscovery(null);
-            setAppState("plan-selection");
+            setAppState("post-discovery");
           }}
         />
       </LanguageProvider>
+    );
+  }
+
+  if (appState === "post-discovery") {
+    return (
+      <PostDiscoveryScreen
+        onContinue={() => setAppState("plan-selection")}
+      />
     );
   }
 

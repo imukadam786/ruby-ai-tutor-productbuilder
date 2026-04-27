@@ -197,12 +197,12 @@ function MockupPrepPapers({ isMobile }: { isMobile: boolean }) {
 const SLIDES: readonly SlideData[] = [
   {
     subtitle: "Build real exam confidence by practising on actual NSC papers",
-    description: "Work through past papers across all major subjects — the same papers used in real NSC exams.",
+    description: "Work through past papers across all major subjects, the same papers used in real NSC exams.",
     Mockup: MockupPapers,
   },
   {
     subtitle: "Understand every question, even the ones that stump you",
-    description: "Submit your answer for any question and get personalised feedback in Practice or Guide mode — just like having a tutor in the room.",
+    description: "Submit your answer for any question and get personalised feedback in Practice or Guide mode, just like having a tutor in the room.",
     Mockup: MockupTutor,
   },
   {

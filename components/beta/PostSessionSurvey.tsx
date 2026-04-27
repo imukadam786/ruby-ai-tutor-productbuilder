@@ -103,7 +103,7 @@ export default function PostSessionSurvey({ sessionType, onClose }: Props) {
             <p className="text-center font-bold text-[#1a2744] text-base mb-1">
               How was that {SESSION_LABELS[sessionType]}?
             </p>
-            <p className="text-center text-gray-400 text-xs mb-6">Takes 2 seconds — it really helps us improve!</p>
+            <p className="text-center text-gray-400 text-xs mb-6">Takes 2 seconds, it really helps us improve!</p>
             <div className="flex justify-between px-2">
               {EMOJIS.map(({ value, emoji, label }) => (
                 <button
@@ -172,7 +172,7 @@ export default function PostSessionSurvey({ sessionType, onClose }: Props) {
             </p>
             <p className="text-gray-400 text-sm">
               {selected && selected >= 4
-                ? "Keep it up — you're doing great."
+                ? "Keep it up, you're doing great."
                 : "We'll use this to make Ruby better for you."}
             </p>
             <button

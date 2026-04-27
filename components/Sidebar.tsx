@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { ActiveView } from "@/types";
 import { useT } from "@/lib/i18n";
 
@@ -16,17 +16,6 @@ interface SidebarProps {
   onOpenLangPicker?: () => void;
 }
 
-function ChevronIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      className={`w-3 h-3 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`}
-      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
-  );
-}
-
 export default function Sidebar({
   activeView,
   onViewChange,
@@ -39,7 +28,6 @@ export default function Sidebar({
   onOpenLangPicker,
 }: SidebarProps) {
   const { t } = useT();
-  const [matricOpen, setMatricOpen] = useState(false);
 
   const handleNav = (view: ActiveView) => {
     onViewChange(view);
@@ -53,14 +41,24 @@ export default function Sidebar({
         : "text-white/90 hover:bg-white/15 hover:text-white"
     }`;
 
-  // All top-level nav items (flat list after changes)
-  const navItems: { id: ActiveView; emoji: string; label: string; desc?: string }[] = [
-    { id: "home",     emoji: "🏠", label: t("sidebar.home"),           desc: t("sidebar.home_desc") },
-    { id: "progress", emoji: "📊", label: t("sidebar.progress"),       desc: t("sidebar.progress_desc") },
-    { id: "chat",     emoji: "💬", label: t("sidebar.general_tutor"),  desc: "Chat with Ruby" },
-    { id: "discover", emoji: "🧭", label: "Discover",                  desc: "Maths & Reading placement" },
-    { id: "ruby",     emoji: "🧮", label: t("sidebar.maths_engine"),   desc: t("sidebar.maths_desc") },
-    { id: "reading",  emoji: "📖", label: t("sidebar.reading_engine"), desc: t("sidebar.reading_desc") },
+  // Subjects view is active when on the subjects screen OR any sub-view reached via subjects
+  const subjectsActive =
+    activeView === "subjects" ||
+    activeView === "discover" ||
+    activeView === "discover-maths" ||
+    activeView === "discover-reading" ||
+    activeView === "ruby" ||
+    activeView === "skill-tree" ||
+    activeView === "reading" ||
+    activeView === "reading-skill-tree" ||
+    activeView === "matric" ||
+    activeView === "prep-papers-2026";
+
+  const navItems: { id: ActiveView; emoji: string; label: string }[] = [
+    { id: "home",     emoji: "🏠", label: t("sidebar.home") },
+    { id: "progress", emoji: "📊", label: t("sidebar.progress") },
+    { id: "chat",     emoji: "💬", label: t("sidebar.homework") },
+    { id: "subjects", emoji: "📚", label: "Subjects" },
   ];
 
   return (
@@ -80,6 +78,7 @@ export default function Sidebar({
           bg-gradient-to-b from-[#BE1832] to-[#E8305A]
           flex flex-col h-full shadow-xl
           transition-all duration-300 ease-in-out
+          overflow-x-hidden
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
           ${collapsed ? "md:w-14" : "w-64"}
         `}
@@ -122,7 +121,6 @@ export default function Sidebar({
                 <span className="text-xl leading-none">🌍</span>
               </button>
             )}
-            {/* Desktop collapse/expand toggle */}
             <button
               onClick={onToggleCollapse}
               className="hidden md:flex p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/15 transition-colors"
@@ -149,99 +147,23 @@ export default function Sidebar({
         </div>
 
         {/* Navigation */}
-        <nav className={`flex-1 overflow-y-auto py-4 space-y-1 ${collapsed ? "px-1" : "px-4"}`}>
-
-          {/* Flat nav items */}
-          {navItems.map(({ id, emoji, label, desc }) => (
-            <button
-              key={id}
-              onClick={() => handleNav(id)}
-              title={collapsed ? label : undefined}
-              className={`${navItemClass(activeView === id)} ${collapsed ? "justify-center px-0" : ""}`}
-            >
-              <span className="text-lg flex-shrink-0">{emoji}</span>
-              {!collapsed && (
-                <div className="min-w-0">
-                  <div className="font-medium text-base">{label}</div>
-                  {desc && <div className={`text-sm truncate ${activeView === id ? "text-white/90" : "text-white/55"}`}>{desc}</div>}
-                </div>
-              )}
-            </button>
-          ))}
-
-          {/* Matric Prep — split: main click navigates, chevron toggles sub-menu */}
-          <div>
-            {!collapsed ? (
-              <div className="flex items-center gap-0.5">
-                <button
-                  onClick={() => handleNav("matric")}
-                  className={`${navItemClass(activeView === "matric" || activeView === "prep-papers-2026")} flex-1`}
-                >
-                  <span className="text-lg flex-shrink-0">🎓</span>
-                  <div className="min-w-0">
-                    <div className="font-medium text-base">Matric Prep</div>
-                    <div className={`text-sm truncate ${activeView === "matric" || activeView === "prep-papers-2026" ? "text-white/90" : "text-white/55"}`}>Past papers · Exam guidance</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => setMatricOpen((v) => !v)}
-                  className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/15 transition-colors flex-shrink-0"
-                  aria-label="Toggle Matric sub-menu"
-                >
-                  <ChevronIcon open={matricOpen} />
-                </button>
-              </div>
-            ) : (
-              <>
-                <button
-                  onClick={() => handleNav("matric")}
-                  title="Matric Prep"
-                  className={`${navItemClass(activeView === "matric")} justify-center px-0`}
-                >
-                  <span className="text-lg flex-shrink-0">🎓</span>
-                </button>
-                <button
-                  onClick={() => handleNav("matric")}
-                  title="Past Papers"
-                  className={`${navItemClass(activeView === "matric")} justify-center px-0`}
-                >
-                  <span className="text-lg flex-shrink-0">📄</span>
-                </button>
-                <button
-                  onClick={() => handleNav("prep-papers-2026")}
-                  title="Prep Papers 2026"
-                  className={`${navItemClass(activeView === "prep-papers-2026")} justify-center px-0`}
-                >
-                  <span className="text-lg flex-shrink-0">🗓️</span>
-                </button>
-              </>
-            )}
-
-            {/* Matric sub-items */}
-            {matricOpen && !collapsed && (
-              <div className="pl-1 pt-0.5 space-y-0.5">
-                <button
-                  onClick={() => handleNav("matric")}
-                  className={navItemClass(activeView === "matric")}
-                >
-                  <span className="text-lg flex-shrink-0">📄</span>
-                  <div className="min-w-0">
-                    <div className="font-medium text-base">Past Papers</div>
-                    <div className={`text-sm truncate ${activeView === "matric" ? "text-white/90" : "text-white/55"}`}>NSC past exam papers</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => handleNav("prep-papers-2026")}
-                  className={navItemClass(activeView === "prep-papers-2026")}
-                >
-                  <span className="text-lg flex-shrink-0">🗓️</span>
-                  <div className="min-w-0">
-                    <div className="font-medium text-base">Prep Papers 2026</div>
-                  </div>
-                </button>
-              </div>
-            )}
-          </div>
+        <nav className={`flex-1 overflow-y-auto overflow-x-hidden py-4 space-y-1 ${collapsed ? "px-1" : "px-4"}`}>
+          {navItems.map(({ id, emoji, label }) => {
+            const active = id === "subjects" ? subjectsActive : activeView === id;
+            return (
+              <button
+                key={id}
+                onClick={() => handleNav(id)}
+                title={collapsed ? label : undefined}
+                className={`${navItemClass(active)} ${collapsed ? "justify-center px-0" : ""}`}
+              >
+                <span className="text-lg flex-shrink-0">{emoji}</span>
+                {!collapsed && (
+                  <span className="font-medium text-base">{label}</span>
+                )}
+              </button>
+            );
+          })}
         </nav>
 
         {/* Footer */}
@@ -252,7 +174,7 @@ export default function Sidebar({
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-white/90 hover:bg-white/15 hover:text-white ${collapsed ? "justify-center px-0" : ""}`}
           >
             <span className="text-lg flex-shrink-0">⚙️</span>
-            {!collapsed && <div className="font-medium text-base">{t("sidebar.settings")}</div>}
+            {!collapsed && <span className="font-medium text-base">{t("sidebar.settings")}</span>}
           </button>
 
           <button
@@ -261,7 +183,7 @@ export default function Sidebar({
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left text-white/90 hover:bg-white/15 hover:text-white ${collapsed ? "justify-center px-0" : ""}`}
           >
             <span className="text-lg flex-shrink-0">🚪</span>
-            {!collapsed && <div className="font-medium text-base">{t("sidebar.logout")}</div>}
+            {!collapsed && <span className="font-medium text-base">{t("sidebar.logout")}</span>}
           </button>
 
           {!collapsed && <p className="text-white/50 text-sm text-center pt-2">Powered by Hula</p>}

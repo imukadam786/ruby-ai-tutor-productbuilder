@@ -19,7 +19,7 @@ export default function UpgradeModal({ onDismiss, reason }: UpgradeModalProps) {
           <div>
             <h2 className="font-extrabold text-[#1a2744] text-lg">Unlock full access</h2>
             <p className="text-xs text-gray-400 mt-0.5">
-              {reason ?? "You've reached your daily limit — upgrade to continue"}
+              {reason ?? "You've reached your daily limit, upgrade to continue"}
             </p>
           </div>
           <button

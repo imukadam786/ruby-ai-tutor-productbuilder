@@ -125,12 +125,12 @@ function MockupReadingTree({ isMobile }: { isMobile: boolean }) {
 const SLIDES: readonly SlideData[] = [
   {
     subtitle: "Build real reading skills from exactly where you are right now",
-    description: "Ruby starts at the right skill level for you — whether that's sounds, words, or full passages.",
+    description: "Ruby starts at the right skill level for you, whether that's sounds, words, or full passages.",
     Mockup: MockupPlacement,
   },
   {
     subtitle: "Practise reading in a way that feels natural and easy",
-    description: "Questions use your voice, flash cards, and choices to build real reading skill — not just guessing.",
+    description: "Questions use your voice, flash cards, and choices to build real reading skill, not just guessing.",
     Mockup: MockupPractice,
   },
 ];

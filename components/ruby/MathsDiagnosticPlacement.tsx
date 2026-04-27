@@ -537,7 +537,7 @@ export default function MathsDiagnosticPlacement({
             <p className="text-gray-600 mt-3 leading-relaxed text-base">
               Before we start, let&apos;s do a short discovery activity so I can find your perfect starting point!
             </p>
-            <p className="text-emerald-600 font-medium mt-2 text-base">No pressure — just do your best 😊</p>
+            <p className="text-emerald-600 font-medium mt-2 text-base">No pressure, just do your best 😊</p>
           </div>
           <div className="grid grid-cols-3 gap-2 text-sm text-gray-600">
             {[

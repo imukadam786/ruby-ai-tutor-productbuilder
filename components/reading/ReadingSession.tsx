@@ -474,7 +474,7 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
       }
     } catch (e) {
       console.error(e);
-      setStatusMessage("Something went wrong — please try submitting again.");
+      setStatusMessage("Something went wrong, please try submitting again.");
       setPhase("question");
     }
   };

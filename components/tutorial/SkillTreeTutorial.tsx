@@ -112,7 +112,7 @@ function MockupUnlock({ isMobile }: { isMobile: boolean }) {
 const SLIDES: readonly SlideData[] = [
   {
     subtitle: "See every skill you've mastered and what you're ready to unlock next",
-    description: "Every skill is shown on your personal map — green for mastered, orange for in progress, grey for locked.",
+    description: "Every skill is shown on your personal map, green for mastered, orange for in progress, grey for locked.",
     Mockup: MockupMap,
   },
 ];

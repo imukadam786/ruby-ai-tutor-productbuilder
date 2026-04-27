@@ -165,7 +165,7 @@ export default function FloatingFeedback() {
 
         {/* Beta label */}
         <div className="px-5 pb-4 flex justify-center">
-          <span className="text-xs text-gray-300">Ruby Beta — your feedback matters 💙</span>
+          <span className="text-xs text-gray-300">Ruby Beta, your feedback matters 💙</span>
         </div>
       </div>
     </div>

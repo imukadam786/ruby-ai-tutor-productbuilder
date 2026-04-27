@@ -179,7 +179,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
               <span className="text-2xl">👋</span>
               <div>
                 <p className="font-bold text-white text-base">Welcome back, {firstName}!</p>
-                <p className="text-indigo-100 text-sm">Great to see you again — let&apos;s pick up where you left off.</p>
+                <p className="text-indigo-100 text-sm">Great to see you again, let&apos;s pick up where you left off.</p>
               </div>
             </div>
             <button
@@ -209,60 +209,62 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
           {mathsDone ? (
             <button
               onClick={() => setViewReport("maths")}
-              className="w-full bg-white border-2 border-rose-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
             >
               <div className="flex items-center gap-3">
                 <span className="text-2xl">🧮</span>
                 <div>
-                  <p className="font-semibold text-gray-800">Maths Discovery Report</p>
-                  <p className="text-sm text-gray-400 mt-0.5">View your placement results</p>
+                  <p className="font-semibold text-white">Maths Discovery</p>
+                  <p className="text-sm text-blue-100 mt-0.5">View your placement results</p>
                 </div>
               </div>
-              <span className="text-rose-600 font-semibold text-sm">View →</span>
+              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">View →</span>
             </button>
           ) : (
-            <div className="bg-white border-2 border-rose-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
+            <button
+              onClick={() => onNavigate("discover-maths")}
+              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+            >
               <div className="flex items-center gap-3">
                 <span className="text-2xl">🧮</span>
-                <p className="font-semibold text-gray-800">Start Maths Discovery</p>
+                <div>
+                  <p className="font-semibold text-white">Start Maths Discovery</p>
+                  <p className="text-sm text-blue-100 mt-0.5">Find your Maths level</p>
+                </div>
               </div>
-              <button
-                onClick={() => onNavigate("discover-maths")}
-                className="bg-rose-600 hover:bg-rose-700 text-white font-semibold text-sm px-4 py-2 rounded-full transition-colors flex items-center gap-1.5 active:scale-[0.97]"
-              >
-                Go! 👉
-              </button>
-            </div>
+              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">Start →</span>
+            </button>
           )}
 
           {/* Reading Discovery */}
           {readingDone ? (
             <button
               onClick={() => setViewReport("reading")}
-              className="w-full bg-white border-2 border-amber-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              className="w-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
             >
               <div className="flex items-center gap-3">
                 <span className="text-2xl">📖</span>
                 <div>
-                  <p className="font-semibold text-gray-800">Reading Discovery Report</p>
-                  <p className="text-sm text-gray-400 mt-0.5">View your placement results</p>
+                  <p className="font-semibold text-white">Reading Discovery</p>
+                  <p className="text-sm text-purple-100 mt-0.5">View your placement results</p>
                 </div>
               </div>
-              <span className="text-amber-600 font-semibold text-sm">View →</span>
+              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">View →</span>
             </button>
           ) : (
-            <div className="bg-white border-2 border-amber-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
+            <button
+              onClick={() => onNavigate("discover-reading")}
+              className="w-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+            >
               <div className="flex items-center gap-3">
                 <span className="text-2xl">📖</span>
-                <p className="font-semibold text-gray-800">Start Reading Discovery</p>
+                <div>
+                  <p className="font-semibold text-white">Start Reading Discovery</p>
+                  <p className="text-sm text-purple-100 mt-0.5">Find your Reading level</p>
+                </div>
               </div>
-              <button
-                onClick={() => onNavigate("discover-reading")}
-                className="bg-amber-500 hover:bg-amber-600 text-white font-semibold text-sm px-4 py-2 rounded-full transition-colors flex items-center gap-1.5 active:scale-[0.97]"
-              >
-                Go! 👉
-              </button>
-            </div>
+              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">Start →</span>
+            </button>
           )}
         </section>
 

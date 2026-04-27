@@ -212,7 +212,7 @@ export default function FeedbackCard({
         </div>
         <div className="px-6 py-5">
           <p className="text-gray-800 leading-relaxed">
-            Good — you know the method. Go back through your working carefully and check each step. Small errors are easy to fix once you spot them.
+            Good, you know the method. Go back through your working carefully and check each step. Small errors are easy to fix once you spot them.
           </p>
         </div>
         <div

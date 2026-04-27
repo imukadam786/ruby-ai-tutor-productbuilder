@@ -30,7 +30,7 @@ const PLANS: PricingPlan[] = [
   {
     key: "freebie",
     name: "Freebie",
-    subtitle: "Try it out — no card needed",
+    subtitle: "Try it out, no card needed",
     priceRands: 0,
     originalPrice: 0,
     isLaunchOffer: false,
@@ -344,7 +344,7 @@ export default function PricingPlans({
                       </div>
                       {plan.isLaunchOffer && !voucherApplied && (
                         <span className="inline-block text-xs font-semibold bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full">
-                          Launch Offer — Save R{plan.originalPrice - plan.priceRands}/mo
+                          Launch Offer, Save R{plan.originalPrice - plan.priceRands}/mo
                         </span>
                       )}
                       {voucherApplied && (

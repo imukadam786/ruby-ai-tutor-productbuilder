@@ -86,7 +86,7 @@ function MockupStreak({ isMobile }: { isMobile: boolean }) {
 const SLIDES: readonly SlideData[] = [
   {
     subtitle: "Everything in one place",
-    description: "Your skills mastered, sessions done, and accuracy — all tracked automatically as you learn.",
+    description: "Your skills mastered, sessions done, and accuracy, all tracked automatically as you learn.",
     Mockup: MockupStats,
   },
   {

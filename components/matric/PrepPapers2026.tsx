@@ -697,7 +697,7 @@ function SessionView({
             onChange={(e) => { const idx = questionStartIndices[Number(e.target.value)]; if (idx >= 0) setCurrentIdx(idx); }}
             className="border border-gray-200 rounded-lg px-2 py-1 text-xs font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[120px] flex-shrink-0"
           >
-            {paper.questions.map((q, i) => <option key={q.number} value={i}>Q{q.number} — {q.title}</option>)}
+            {paper.questions.map((q, i) => <option key={q.number} value={i}>Q{q.number}: {q.title}</option>)}
           </select>
         </div>
         <div className="hidden sm:flex items-center gap-2 pb-2">
@@ -706,7 +706,7 @@ function SessionView({
             onChange={(e) => { const idx = questionStartIndices[Number(e.target.value)]; if (idx >= 0) setCurrentIdx(idx); }}
             className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[260px]"
           >
-            {paper.questions.map((q, i) => <option key={q.number} value={i}>Q{q.number} — {q.title}</option>)}
+            {paper.questions.map((q, i) => <option key={q.number} value={i}>Q{q.number}: {q.title}</option>)}
           </select>
         </div>
       </div>

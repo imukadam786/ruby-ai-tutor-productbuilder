@@ -818,7 +818,7 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
                     disabled={upgrading}
                     className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white py-2 rounded-xl text-sm font-medium transition-colors"
                   >
-                    {upgrading ? "Redirecting to PayFast…" : `Subscribe — ${displayPrice}`}
+                    {upgrading ? "Redirecting to PayFast…" : `Subscribe, ${displayPrice}`}
                   </button>
                 </div>
               );
@@ -843,7 +843,7 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
           <div className="space-y-3">
             {[
               { q: "How does Ruby teach maths?", a: "Ruby uses an adaptive skill tree with 72 atomic skills to diagnose and target gaps." },
-              { q: "Can I change the learning language?", a: "Yes — go to Learning Settings and choose your preferred language." },
+              { q: "Can I change the learning language?", a: "Yes, go to Learning Settings and choose your preferred language." },
               { q: "Is my data safe?", a: "All progress is stored locally on your device and never shared without consent." },
             ].map(({ q, a }) => (
               <div key={q} className="bg-gray-50 rounded-xl px-4 py-3">

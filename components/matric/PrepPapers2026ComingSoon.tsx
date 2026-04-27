@@ -21,14 +21,14 @@ export default function PrepPapers2026ComingSoon() {
         <div className="space-y-3">
           <h1 className="text-3xl font-extrabold text-gray-900">Prep Papers 2026</h1>
           <p className="text-gray-500 text-base leading-relaxed max-w-md mx-auto">
-            The 2026 prep papers are on their way. Check back very soon — they'll be available here with full AI-guided tutoring support.
+            The 2026 prep papers are on their way. Check back very soon, they&apos;ll be available here with full AI-guided tutoring support.
           </p>
         </div>
 
         <div className="bg-white border border-gray-100 rounded-2xl px-6 py-5 shadow-sm max-w-sm w-full space-y-2">
           <p className="text-sm font-semibold text-gray-700">In the meantime, try:</p>
           <p className="text-sm text-gray-500">
-            <span className="font-medium text-[#BE1832]">Past Papers</span> — work through real NSC exam papers from previous years with step-by-step AI coaching.
+            <span className="font-medium text-[#BE1832]">Past Papers</span>, work through real NSC exam papers from previous years with step-by-step AI coaching.
           </p>
         </div>
 
