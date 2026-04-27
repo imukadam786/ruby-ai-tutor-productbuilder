@@ -346,7 +346,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                     </svg>
                   )}
-                  {loginMode ? "Log in" : "Start Free Beta"}
+                  {loginMode ? "Log in" : "Go! 🚀"}
                 </button>
                 {loginMode ? (
                   <button onClick={() => { setLoginMode(false); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
