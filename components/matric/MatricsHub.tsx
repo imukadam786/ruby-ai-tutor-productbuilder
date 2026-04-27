@@ -10,42 +10,42 @@ interface MatricsHubProps {
 interface MatricCardProps {
   emoji: string;
   label: string;
+  caption: string;
   badge?: string;
   badgeColor?: string;
   accentFrom: string;
   accentTo: string;
-  disabled?: boolean;
   onClick: () => void;
 }
 
 function MatricCard({
   emoji,
   label,
+  caption,
   badge,
   badgeColor = "bg-gray-100 text-gray-600",
   accentFrom,
   accentTo,
-  disabled,
   onClick,
 }: MatricCardProps) {
   return (
     <button
       onClick={onClick}
-      disabled={disabled}
-      className={`rounded-2xl overflow-hidden shadow-sm bg-white border border-gray-100 flex flex-col text-left transition-all ${disabled ? "opacity-60 cursor-not-allowed" : "active:opacity-80 hover:shadow-md"}`}
+      className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col text-left transition-all active:opacity-80 hover:shadow-xl hover:-translate-y-1"
     >
-      {/* Gradient header with large emoji — 4:3 ratio to match SubjectsHub */}
+      {/* Square gradient header with large emoji */}
       <div
         className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center flex-shrink-0`}
-        style={{ aspectRatio: "4 / 3" }}
+        style={{ aspectRatio: "1 / 1" }}
       >
-        <span className="text-6xl">{emoji}</span>
+        <span style={{ fontSize: "5rem", lineHeight: 1 }}>{emoji}</span>
       </div>
-      {/* Label + badge stacked */}
-      <div className="px-4 pt-3 pb-4 flex flex-col items-start gap-2">
-        <span className="font-bold text-gray-900 text-base">{label}</span>
+      {/* Label + caption + badge */}
+      <div className="px-5 pt-4 pb-5 flex flex-col items-start gap-1.5">
+        <span className="font-bold text-gray-900 text-xl">{label}</span>
+        <span className="text-sm text-gray-500 leading-snug">{caption}</span>
         {badge && (
-          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap ${badgeColor}`}>
+          <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap mt-2 ${badgeColor}`}>
             {badge}
           </span>
         )}
@@ -57,16 +57,17 @@ function MatricCard({
 const CARDS: {
   view: ActiveView;
   label: string;
+  caption: string;
   emoji: string;
   accentFrom: string;
   accentTo: string;
   badge?: string;
   badgeColor?: string;
-  disabled?: boolean;
 }[] = [
   {
     view: "matric",
     label: "Past Papers",
+    caption: "Full NSC papers with detailed memos",
     emoji: "📝",
     accentFrom: "from-[#BE1832]",
     accentTo: "to-[#C94060]",
@@ -74,19 +75,18 @@ const CARDS: {
   {
     view: "prep-papers-2026",
     label: "Prep Papers",
+    caption: "2026 preparation papers and solutions",
     emoji: "📋",
     accentFrom: "from-blue-600",
     accentTo: "to-blue-700",
   },
   {
-    view: "matric",
+    view: "study-guides",
     label: "Study Guides",
+    caption: "In-depth subject guides and summaries",
     emoji: "📚",
     accentFrom: "from-purple-600",
     accentTo: "to-purple-700",
-    badge: "Coming Soon",
-    badgeColor: "bg-gray-100 text-gray-500",
-    disabled: true,
   },
 ];
 
@@ -96,7 +96,7 @@ export default function MatricsHub({ onNavigate }: MatricsHubProps) {
       <EduBackground />
 
       <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-lg mx-auto px-5 sm:px-8 pt-8 pb-6">
+        <div className="max-w-4xl mx-auto px-6 sm:px-10 pt-8 pb-8">
 
           {/* Back button */}
           <button
@@ -109,23 +109,23 @@ export default function MatricsHub({ onNavigate }: MatricsHubProps) {
             <span className="text-sm font-medium">Back</span>
           </button>
 
-          <div className="mb-6">
+          <div className="mb-8">
             <h1 className="text-2xl font-bold text-gray-900">Matrics</h1>
             <p className="text-gray-500 text-sm mt-1">Prepare for your matric exams with real papers and guides.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {CARDS.map((card) => (
               <MatricCard
                 key={card.label}
                 emoji={card.emoji}
                 label={card.label}
+                caption={card.caption}
                 badge={card.badge}
                 badgeColor={card.badgeColor}
                 accentFrom={card.accentFrom}
                 accentTo={card.accentTo}
-                disabled={card.disabled}
-                onClick={() => !card.disabled && onNavigate(card.view)}
+                onClick={() => onNavigate(card.view)}
               />
             ))}
           </div>

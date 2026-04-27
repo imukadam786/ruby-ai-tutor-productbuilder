@@ -16,6 +16,7 @@ interface SubjectCardProps {
   thumbnail?: string;
   placeholderEmoji?: string;
   label: string;
+  caption: string;
   badge?: string;
   badgeColor?: string;
   accentFrom: string;
@@ -27,6 +28,7 @@ function SubjectCard({
   thumbnail,
   placeholderEmoji,
   label,
+  caption,
   badge,
   badgeColor = "bg-gray-100 text-gray-600",
   accentFrom,
@@ -36,24 +38,25 @@ function SubjectCard({
   return (
     <button
       onClick={onClick}
-      className="rounded-2xl overflow-hidden shadow-sm bg-white border border-gray-100 flex flex-col active:opacity-80 transition-all text-left hover:shadow-md"
+      className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col active:opacity-80 transition-all text-left hover:shadow-xl hover:-translate-y-1"
     >
-      {/* Coloured header with thumbnail — 4:3 ratio for larger, squarer icons */}
+      {/* Square gradient header */}
       <div
         className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center overflow-hidden flex-shrink-0`}
-        style={{ aspectRatio: "4 / 3" }}
+        style={{ aspectRatio: "1 / 1" }}
       >
         {thumbnail ? (
           <img src={thumbnail} alt={label} className="w-full h-full object-cover" />
         ) : (
-          <span className="text-6xl">{placeholderEmoji}</span>
+          <span style={{ fontSize: "5rem", lineHeight: 1 }}>{placeholderEmoji}</span>
         )}
       </div>
-      {/* Label + badge stacked */}
-      <div className="px-4 pt-3 pb-4 flex flex-col items-start gap-2">
-        <span className="font-bold text-gray-900 text-base">{label}</span>
+      {/* Label + caption + badge */}
+      <div className="px-5 pt-4 pb-5 flex flex-col items-start gap-1.5">
+        <span className="font-bold text-gray-900 text-xl">{label}</span>
+        <span className="text-sm text-gray-500 leading-snug">{caption}</span>
         {badge && (
-          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap ${badgeColor}`}>
+          <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap mt-2 ${badgeColor}`}>
             {badge}
           </span>
         )}
@@ -119,18 +122,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       <EduBackground />
 
       <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-lg mx-auto px-5 sm:px-8 pt-8 pb-6">
+        <div className="max-w-4xl mx-auto px-6 sm:px-10 pt-8 pb-8">
 
-          <div className="mb-6">
+          <div className="mb-8">
             <h1 className="text-2xl font-bold text-gray-900">Subjects</h1>
             <p className="text-gray-500 text-sm mt-1">Choose what to work on today.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {/* Discover */}
             <SubjectCard
               placeholderEmoji="🧭"
               label="Discover"
+              caption="Take the placement and find your starting point"
               badge={discoverBadge}
               badgeColor={discoverBadgeColor}
               accentFrom="from-slate-600"
@@ -142,6 +146,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             <SubjectCard
               thumbnail="/thumbnails/mathematics.jpeg"
               label="Maths"
+              caption="Personalised lessons that adapt to your level"
               badge={mathsBadge}
               badgeColor={mathsBadgeColor}
               accentFrom="from-blue-600"
@@ -153,6 +158,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             <SubjectCard
               thumbnail="/thumbnails/english.jpeg"
               label="Reading"
+              caption="Improve comprehension with AI-powered practice"
               badge={readingBadge}
               badgeColor={readingBadgeColor}
               accentFrom="from-purple-600"
