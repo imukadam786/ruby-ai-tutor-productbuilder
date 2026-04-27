@@ -1499,26 +1499,35 @@ function SessionView({
                     </button>
                   </div>
                 ) : (
-                  <button
-                    onClick={handleSubmitWorking}
-                    disabled={
-                      isEvaluating ||
-                      (currentSQ.type === "mcq"
-                        ? !currentAttempt.selectedOption
-                        : !currentAttempt.textWorking.trim() && !currentAttempt.imageFile)
-                    }
-                    className="flex-shrink-0 w-full py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-                  >
-                    {isEvaluating ? (
-                      <>
-                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                        </svg>
-                        Evaluating…
-                      </>
-                    ) : currentSQ.type === "mcq" ? "Submit answer" : "Submit working"}
-                  </button>
+                  <div className="flex gap-2 flex-shrink-0">
+                    <button
+                      onClick={() => goTo(currentIdx + 1)}
+                      disabled={currentIdx === totalQuestions - 1}
+                      className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors"
+                    >
+                      Skip
+                    </button>
+                    <button
+                      onClick={handleSubmitWorking}
+                      disabled={
+                        isEvaluating ||
+                        (currentSQ.type === "mcq"
+                          ? !currentAttempt.selectedOption
+                          : !currentAttempt.textWorking.trim() && !currentAttempt.imageFile)
+                      }
+                      className="flex-1 py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                    >
+                      {isEvaluating ? (
+                        <>
+                          <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                          </svg>
+                          Evaluating…
+                        </>
+                      ) : currentSQ.type === "mcq" ? "Submit answer" : "Submit working"}
+                    </button>
+                  </div>
                 )
               ) : (
                 /* Practice mode — prev / save & next / skip */
@@ -1573,8 +1582,8 @@ function SessionView({
                     </button>
                   </div>
                 )}
-                {/* Sub-question pills — hidden for Mathematics */}
-                {paper.subject !== "Mathematics" && (
+                {/* Sub-question pills — hidden for Mathematics and guided mode */}
+                {paper.subject !== "Mathematics" && mode !== "guided" && (
                   <div className="flex flex-wrap gap-1.5">
                     {subQsForQ.map((sq) => {
                       const flatIdx = flatQuestions.findIndex((f) => f.id === sq.id);
