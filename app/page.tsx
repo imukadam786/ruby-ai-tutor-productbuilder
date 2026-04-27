@@ -6,7 +6,6 @@ import dynamic from "next/dynamic";
 import Sidebar from "@/components/Sidebar";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
-import BetaBanner from "@/components/beta/BetaBanner";
 import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
 const DiscoveryTutorial  = dynamic(() => import("@/components/tutorial/DiscoveryTutorial"),  { ssr: false });
 const ReadingTutorial    = dynamic(() => import("@/components/tutorial/ReadingTutorial"),    { ssr: false });
@@ -222,8 +221,6 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
 
   return (
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
-      <BetaBanner />
-
       {/* ── Streak milestone toast ──────────────────────────────────────── */}
       {streakToast && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-gradient-to-r from-orange-500 to-amber-400 text-white rounded-2xl px-6 py-4 shadow-xl flex items-center gap-3 max-w-sm w-[calc(100%-2rem)] animate-bounce-once">
