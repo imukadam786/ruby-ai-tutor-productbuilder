@@ -13,6 +13,11 @@ import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import MathsJourneyRail from "@/components/ruby/MathsJourneyRail";
 import ReadingJourneyRail from "@/components/reading/ReadingJourneyRail";
 
+// ── Demo data shown when user has no real activity yet ────────────────────────
+const DEMO_STATS = { skillsMastered: 16, inProgress: 3, lessonsDone: 40, studySessions: 40 };
+const DEMO_STREAK = { currentStreak: 28, bestStreak: 31 };
+const DEMO_DAILY = [8, 6, 7, 5, 9, 4, 2];
+
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 function TrophyIcon({ className }: { className?: string }) {
   return (
@@ -35,17 +40,10 @@ function CalendarIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-function TargetIcon({ className }: { className?: string }) {
+function CheckIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
-    </svg>
-  );
-}
-function FlameIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-      <path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   );
 }
@@ -67,7 +65,7 @@ function toDateStr(d: Date): string {
 
 function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
   const today = new Date();
-  const dayOfWeek = today.getDay(); // 0=Sun
+  const dayOfWeek = today.getDay();
   const monday = new Date(today);
   monday.setDate(today.getDate() - ((dayOfWeek + 6) % 7));
   const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -78,6 +76,12 @@ function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
   });
 }
 
+function buildDemoActivity(weekDays: { date: string }[]): Record<string, number> {
+  const out: Record<string, number> = {};
+  weekDays.forEach(({ date }, i) => { if (DEMO_DAILY[i]) out[date] = DEMO_DAILY[i]; });
+  return out;
+}
+
 export default function ProgressTracker() {
   const [progress, setProgress] = useState<ProgressData>({
     totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
@@ -86,6 +90,7 @@ export default function ProgressTracker() {
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [streak, setStreak] = useState<StreakData>({ currentStreak: 0, bestStreak: 0, lastActiveDate: "", dailyActivity: {} });
+  const [hasRealData, setHasRealData] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -98,6 +103,7 @@ export default function ProgressTracker() {
       setProfile(prof);
       setReadingProfile(readProf);
       setStreak(s);
+      setHasRealData(!!(prof || p.sessionCount > 0 || s.currentStreak > 0));
     });
   }, []);
 
@@ -105,13 +111,20 @@ export default function ProgressTracker() {
   const masteredEntries = Object.entries(mastery).filter(([, m]) => m.status === "mastered" || m.status === "assumed");
   const inProgressEntries = Object.entries(mastery).filter(([, m]) => m.status === "in_progress");
 
-  const accuracy =
-    profile && profile.total_attempts > 0
-      ? Math.round((profile.total_correct / profile.total_attempts) * 100)
-      : null;
+  const realStats = {
+    skillsMastered: masteredEntries.length,
+    inProgress: inProgressEntries.length,
+    lessonsDone: progress.lessonsCompleted,
+    studySessions: progress.sessionCount,
+  };
+  const displayStats = hasRealData ? realStats : DEMO_STATS;
+  const displayStreak = hasRealData
+    ? { currentStreak: streak.currentStreak, bestStreak: streak.bestStreak }
+    : DEMO_STREAK;
 
   const weekDays = getCurrentWeek();
-  const maxActivity = Math.max(...weekDays.map((d) => streak.dailyActivity[d.date] || 0), 1);
+  const activity = hasRealData ? (streak.dailyActivity ?? {}) : buildDemoActivity(weekDays);
+  const maxActivity = Math.max(...weekDays.map((d) => activity[d.date] || 0), 1);
 
   const isEmpty = !profile && progress.sessionCount === 0;
 
@@ -121,7 +134,6 @@ export default function ProgressTracker() {
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
-      {/* Content sits above pattern */}
       {/* Header */}
       <div className="relative hidden md:block bg-white border-b border-gray-100 px-6 py-4">
         <h2 className="text-gray-900 font-semibold text-xl">Progress</h2>
@@ -133,58 +145,114 @@ export default function ProgressTracker() {
 
           {/* ── 4 Stat Cards ──────────────────────────────────────────── */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {/* Skills Mastered */}
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-500">Skills Mastered</span>
-                <TrophyIcon className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <TrophyIcon className="w-5 h-5 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-blue-600">{masteredEntries.length}</span>
+              <span className="text-2xl font-bold text-blue-600">{displayStats.skillsMastered}</span>
             </div>
 
-            {/* In Progress */}
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-500">In Progress</span>
                 <ChartIcon className="w-5 h-5 text-amber-500 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-amber-500">{inProgressEntries.length}</span>
+              <span className="text-2xl font-bold text-amber-500">{displayStats.inProgress}</span>
             </div>
 
-            {/* Study Sessions */}
+            <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-gray-500">Lessons Done</span>
+                <CheckIcon className="w-5 h-5 text-green-600 flex-shrink-0" />
+              </div>
+              <span className="text-2xl font-bold text-green-600">{displayStats.lessonsDone}</span>
+            </div>
+
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-500">Study Sessions</span>
                 <CalendarIcon className="w-5 h-5 text-purple-600 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-purple-600">{progress.sessionCount}</span>
-            </div>
-
-            {/* Accuracy */}
-            <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-500">Accuracy</span>
-                <TargetIcon className="w-5 h-5 text-green-600 flex-shrink-0" />
-              </div>
-              <span className="text-2xl font-bold text-green-600">{accuracy !== null ? `${accuracy}%` : "—"}</span>
+              <span className="text-2xl font-bold text-purple-600">{displayStats.studySessions}</span>
             </div>
           </div>
 
-          {/* ── Current Streak Card ────────────────────────────────────── */}
-          <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl flex-shrink-0">🔥</span>
-              <div>
-                <p className="text-sm text-orange-600 font-medium">Current Streak</p>
-                <div className="flex items-baseline gap-1.5 mt-0.5">
-                  <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
-                  <span className="text-base text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
+          {/* ── Streak + Weekly Graph side by side ──────────────────────── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Streak */}
+            <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl flex-shrink-0">🔥</span>
+                <div>
+                  <p className="text-sm text-orange-600 font-medium">Current Streak</p>
+                  <div className="flex items-baseline gap-1.5 mt-0.5">
+                    <span className="text-2xl font-bold text-orange-600">{displayStreak.currentStreak}</span>
+                    <span className="text-base text-orange-500">day{displayStreak.currentStreak !== 1 ? "s" : ""}</span>
+                  </div>
                 </div>
               </div>
+              <div className="text-right">
+                <p className="text-sm text-orange-400">Best</p>
+                <p className="text-xl font-bold text-orange-500">{displayStreak.bestStreak} days</p>
+              </div>
             </div>
-            <div className="text-right">
-              <p className="text-sm text-orange-400">Best</p>
-              <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
+
+            {/* Weekly graph */}
+            <div className="bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm">
+              <p className="text-sm font-semibold text-gray-700 mb-3">This Week</p>
+              <div className="flex items-end justify-between gap-1 h-12">
+                {weekDays.map(({ date, label, isToday }) => {
+                  const count = activity[date] || 0;
+                  const heightPct = count > 0 ? Math.max(12, Math.round((count / maxActivity) * 100)) : 0;
+                  return (
+                    <div key={date} className="flex-1 flex flex-col items-center gap-1">
+                      <div className="w-full flex items-end justify-center" style={{ height: "36px" }}>
+                        {count > 0 ? (
+                          <div
+                            className={`w-full rounded-t-md transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
+                            style={{ height: `${heightPct}%` }}
+                          />
+                        ) : (
+                          <div className="w-full rounded-t-md bg-gray-100" style={{ height: "4px" }} />
+                        )}
+                      </div>
+                      <span className={`text-xs font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
+                        {label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* ── Full Weekly Activity (larger graph) ────────────────────── */}
+          <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
+            <div className="flex items-end justify-between gap-1.5 h-24">
+              {weekDays.map(({ date, label, isToday }) => {
+                const count = activity[date] || 0;
+                const heightPct = count > 0 ? Math.max(10, Math.round((count / maxActivity) * 100)) : 0;
+                return (
+                  <div key={date} className="flex-1 flex flex-col items-center gap-1.5">
+                    <div className="w-full flex items-end justify-center" style={{ height: "72px" }}>
+                      {count > 0 ? (
+                        <div
+                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
+                          style={{ height: `${heightPct}%` }}
+                          title={`${count} session${count !== 1 ? "s" : ""}`}
+                        />
+                      ) : (
+                        <div className="w-full rounded-t-lg bg-gray-100" style={{ height: "6px" }} />
+                      )}
+                    </div>
+                    <span className={`text-sm font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
+                      {label}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -232,35 +300,6 @@ export default function ProgressTracker() {
                 <ReadingSkillTreeView profile={readingProfile} />
               </div>
             )}
-          </div>
-
-          {/* ── Weekly Study Activity ──────────────────────────────────── */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
-            <div className="flex items-end justify-between gap-1.5 h-24">
-              {weekDays.map(({ date, label, isToday }) => {
-                const count = streak.dailyActivity[date] || 0;
-                const heightPct = count > 0 ? Math.max(10, Math.round((count / maxActivity) * 100)) : 0;
-                return (
-                  <div key={date} className="flex-1 flex flex-col items-center gap-1.5">
-                    <div className="w-full flex items-end justify-center" style={{ height: "72px" }}>
-                      {count > 0 ? (
-                        <div
-                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
-                          style={{ height: `${heightPct}%` }}
-                          title={`${count} action${count !== 1 ? "s" : ""}`}
-                        />
-                      ) : (
-                        <div className="w-full rounded-t-lg bg-gray-100" style={{ height: "6px" }} />
-                      )}
-                    </div>
-                    <span className={`text-sm font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
-                      {label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
           </div>
 
           {/* ── In Progress Skills ─────────────────────────────────────── */}
