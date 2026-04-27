@@ -5,9 +5,8 @@ import FeatureTutorialShell, { SlideData } from "./FeatureTutorialShell";
 function MockupSubjects({ isMobile }: { isMobile: boolean }) {
   const items = [
     { emoji: "🧭", label: "Discover", badge: "Find your level", color: "from-slate-600 to-slate-700" },
-    { emoji: "🧮", label: "Maths",    badge: "12 mastered",    color: "from-blue-500 to-blue-600" },
-    { emoji: "📖", label: "English",  badge: "Not started",    color: "from-purple-500 to-purple-600" },
-    { emoji: "🎓", label: "Matrics",  badge: "Past Papers",    color: "from-rose-700 to-rose-800" },
+    { emoji: "🧮", label: "Maths",    badge: "12 mastered",    color: "from-blue-600 to-blue-700" },
+    { emoji: "📖", label: "Reading",  badge: "Not started",    color: "from-purple-600 to-purple-700" },
   ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
@@ -34,44 +33,11 @@ function MockupSubjects({ isMobile }: { isMobile: boolean }) {
   );
 }
 
-function MockupMatrics({ isMobile }: { isMobile: boolean }) {
-  const opts = ["Matric Past Papers", "Prep Papers 2026", "Study Guides"];
-  return (
-    <div className="w-full h-full flex items-center justify-center p-4">
-      <div
-        className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col"
-        style={{ width: isMobile ? "100%" : 360, height: isMobile ? 200 : 240 }}
-      >
-        <div className="bg-gradient-to-r from-rose-700 to-rose-800 px-4 py-3 flex items-center gap-2">
-          <span className="text-lg">🎓</span>
-          <span className="text-white font-bold">Matrics</span>
-          <svg className="w-3 h-3 text-white ml-auto rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
-        {opts.map((opt) => (
-          <div key={opt} className="px-5 py-3 flex items-center justify-between border-b border-gray-50 last:border-0">
-            <span className="font-medium text-gray-700 text-sm">{opt}</span>
-            <svg className="w-3.5 h-3.5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 const SLIDES: readonly SlideData[] = [
   {
     subtitle: "Everything in one place",
-    description: "Subjects brings together Discovery, Maths, English, and Matric resources. Your progress badge is shown on each card so you can see where you are at a glance.",
+    description: "Subjects brings together Discovery, Maths, and Reading. Your progress badge is shown on each card so you can see where you are at a glance.",
     Mockup: MockupSubjects,
-  },
-  {
-    subtitle: "Matric resources at your fingertips",
-    description: "Tap Matrics to expand Past Papers, Prep Papers 2026, and Study Guides without leaving the screen.",
-    Mockup: MockupMatrics,
   },
 ];
 

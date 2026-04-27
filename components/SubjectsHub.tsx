@@ -28,7 +28,7 @@ function SubjectCard({
   placeholderEmoji,
   label,
   badge,
-  badgeColor = "bg-white/20 text-white",
+  badgeColor = "bg-gray-100 text-gray-600",
   accentFrom,
   accentTo,
   onClick,
@@ -36,27 +36,32 @@ function SubjectCard({
   return (
     <button
       onClick={onClick}
-      className={`w-full rounded-2xl overflow-hidden shadow-sm bg-gradient-to-r ${accentFrom} ${accentTo} flex items-center justify-between px-5 py-4 transition-opacity active:opacity-80`}
+      className="rounded-2xl overflow-hidden shadow-sm bg-white border border-gray-100 flex flex-col active:opacity-80 transition-all text-left"
     >
-      <div className="flex items-center gap-3">
+      {/* Coloured header with thumbnail */}
+      <div
+        className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center overflow-hidden flex-shrink-0`}
+        style={{ aspectRatio: "16 / 9" }}
+      >
         {thumbnail ? (
-          <div className="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0 border-2 border-white/30">
-            <img src={thumbnail} alt={label} className="w-full h-full object-cover" />
-          </div>
+          <img src={thumbnail} alt={label} className="w-full h-full object-cover" />
         ) : (
-          <span className="text-2xl">{placeholderEmoji}</span>
+          <span className="text-5xl">{placeholderEmoji}</span>
         )}
-        <span className="font-bold text-lg text-white">{label}</span>
       </div>
-      <div className="flex items-center gap-2">
-        {badge && (
-          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${badgeColor}`}>
-            {badge}
-          </span>
-        )}
-        <svg className="w-4 h-4 text-white opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+      {/* Label + badge */}
+      <div className="px-4 py-3 flex items-center justify-between gap-2">
+        <span className="font-bold text-gray-900 text-base">{label}</span>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {badge && (
+            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap ${badgeColor}`}>
+              {badge}
+            </span>
+          )}
+          <svg className="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
       </div>
     </button>
   );
@@ -94,7 +99,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     : 0;
 
   const discoverBadge = loading
-    ? "Loading..."
+    ? "..."
     : mathsDone && readingDone
     ? "Both done"
     : mathsDone || readingDone
@@ -109,55 +114,57 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       ? "bg-green-100 text-green-700"
       : mathsDone || readingDone
       ? "bg-amber-100 text-amber-700"
-      : "bg-white/20 text-white";
+      : "bg-gray-100 text-gray-600";
 
-  const mathsBadgeColor = mathsDone ? "bg-blue-100 text-blue-700" : "bg-white/20 text-white";
-  const readingBadgeColor = readingDone ? "bg-purple-100 text-purple-700" : "bg-white/20 text-white";
+  const mathsBadgeColor = mathsDone ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600";
+  const readingBadgeColor = readingDone ? "bg-purple-100 text-purple-700" : "bg-gray-100 text-gray-600";
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
 
       <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-lg mx-auto px-5 py-8 sm:px-8 sm:py-10 space-y-3">
+        <div className="max-w-lg mx-auto px-5 sm:px-8 min-h-full flex flex-col justify-center py-10">
 
           <div className="mb-6">
             <h1 className="text-2xl font-bold text-gray-900">Subjects</h1>
             <p className="text-gray-500 text-sm mt-1">Choose what to work on today.</p>
           </div>
 
-          {/* Discover */}
-          <SubjectCard
-            placeholderEmoji="🧭"
-            label="Discover"
-            badge={discoverBadge}
-            badgeColor={discoverBadgeColor}
-            accentFrom="from-slate-600"
-            accentTo="to-slate-700"
-            onClick={() => onNavigate("discover")}
-          />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {/* Discover */}
+            <SubjectCard
+              placeholderEmoji="🧭"
+              label="Discover"
+              badge={discoverBadge}
+              badgeColor={discoverBadgeColor}
+              accentFrom="from-slate-600"
+              accentTo="to-slate-700"
+              onClick={() => onNavigate("discover")}
+            />
 
-          {/* Maths */}
-          <SubjectCard
-            thumbnail="/thumbnails/mathematics.jpeg"
-            label="Maths"
-            badge={mathsBadge}
-            badgeColor={mathsBadgeColor}
-            accentFrom="from-blue-600"
-            accentTo="to-blue-700"
-            onClick={() => onNavigate("ruby")}
-          />
+            {/* Maths */}
+            <SubjectCard
+              thumbnail="/thumbnails/mathematics.jpeg"
+              label="Maths"
+              badge={mathsBadge}
+              badgeColor={mathsBadgeColor}
+              accentFrom="from-blue-600"
+              accentTo="to-blue-700"
+              onClick={() => onNavigate("ruby")}
+            />
 
-          {/* Reading */}
-          <SubjectCard
-            thumbnail="/thumbnails/english.jpeg"
-            label="Reading"
-            badge={readingBadge}
-            badgeColor={readingBadgeColor}
-            accentFrom="from-purple-600"
-            accentTo="to-purple-700"
-            onClick={() => onNavigate("reading")}
-          />
+            {/* Reading */}
+            <SubjectCard
+              thumbnail="/thumbnails/english.jpeg"
+              label="Reading"
+              badge={readingBadge}
+              badgeColor={readingBadgeColor}
+              accentFrom="from-purple-600"
+              accentTo="to-purple-700"
+              onClick={() => onNavigate("reading")}
+            />
+          </div>
 
         </div>
       </div>

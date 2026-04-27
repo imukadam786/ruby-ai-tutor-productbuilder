@@ -695,7 +695,7 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
       return (
         <DiagnosticReportView
           input={reportInput}
-          ctaLabel="Continue learning"
+          ctaLabel="Continue Learning 🚀"
           onStartLearning={() => {
             if (onSelectPlan) {
               handlePlacementComplete(pendingPlacementResult);

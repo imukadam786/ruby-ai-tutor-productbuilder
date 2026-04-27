@@ -2,15 +2,15 @@
 
 import FeatureTutorialShell, { SlideData } from "./FeatureTutorialShell";
 
-// Reflects actual SubjectSelect UI — matches prepui screenshot
+// Reflects actual SubjectSelect UI — uses real paper thumbnails
 function MockupPapers({ isMobile }: { isMobile: boolean }) {
   const subjects = [
-    { name: "Mathematics", available: true, color: "#1e40af", emoji: "📐" },
-    { name: "Physical Science", available: true, color: "#15803d", emoji: "⚗️" },
-    { name: "History", available: true, color: "#92400e", emoji: "📜" },
-    { name: "Afrikaans", available: true, color: "#7c3aed", emoji: "🗣️" },
-    { name: "Life Sciences", available: false, color: "#6b7280", emoji: "🌿" },
-    { name: "Accounting", available: false, color: "#6b7280", emoji: "📊" },
+    { name: "Mathematics",     available: true,  thumbnail: "/thumbnails/mathematics.jpeg" },
+    { name: "Physical Science",available: true,  thumbnail: "/thumbnails/physical-science.jpeg" },
+    { name: "History",         available: true,  thumbnail: "/thumbnails/history.jpeg" },
+    { name: "Afrikaans",       available: true,  thumbnail: "/thumbnails/afrikaans.jpeg" },
+    { name: "Life Sciences",   available: false, thumbnail: "/thumbnails/life-sciences.jpeg" },
+    { name: "Accounting",      available: false, thumbnail: "/thumbnails/accounting.jpeg" },
   ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
@@ -28,12 +28,8 @@ function MockupPapers({ isMobile }: { isMobile: boolean }) {
                 key={s.name}
                 className={`rounded-xl text-left bg-white border border-gray-200 overflow-hidden shadow-sm ${!s.available ? "opacity-50" : ""}`}
               >
-                {/* Coloured thumbnail */}
-                <div
-                  className="w-full flex items-center justify-center text-xl"
-                  style={{ backgroundColor: s.color, aspectRatio: "1/0.55" }}
-                >
-                  {s.emoji}
+                <div className="w-full overflow-hidden" style={{ aspectRatio: "1/0.55" }}>
+                  <img src={s.thumbnail} alt={s.name} className="w-full h-full object-cover" />
                 </div>
                 <div className="px-2 py-1.5">
                   <p className="font-bold text-gray-800 text-[9px] leading-snug truncate">{s.name}</p>

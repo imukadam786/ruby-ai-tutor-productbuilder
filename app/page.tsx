@@ -398,13 +398,13 @@ function DiscoveryPromptScreen({ name, onSelect }: { name: string; onSelect: (su
         <div className="space-y-3 pt-1">
           <button
             onClick={() => onSelect("maths")}
-            className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
+            className="w-full py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
           >
             <span>🧮</span> Start Maths Discovery
           </button>
           <button
             onClick={() => onSelect("reading")}
-            className="w-full py-4 rounded-full bg-amber-500 hover:bg-amber-600 text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
+            className="w-full py-4 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
           >
             <span>📖</span> Start Reading Discovery
           </button>
