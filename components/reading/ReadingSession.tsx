@@ -720,14 +720,14 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
         <DiagnosticReportView
           input={reportInput}
           ctaLabel="Continue Learning 🚀"
-          onStartLearning={() => {
+          onStartLearning={async () => {
             if (onSelectPlan) {
-              handlePlacementComplete(pendingPlacementResult);
+              await handlePlacementComplete(pendingPlacementResult);
               onSelectPlan();
               return;
             }
             setShowReport(false);
-            handlePlacementComplete(pendingPlacementResult);
+            await handlePlacementComplete(pendingPlacementResult);
           }}
         />
       );

@@ -2,47 +2,19 @@
 
 import FeatureTutorialShell, { SlideData } from "./FeatureTutorialShell";
 
-// Reflects actual SubjectSelect UI — uses real paper thumbnails
+// Uses the actual subject selection screenshot for an authentic preview
 function MockupPapers({ isMobile }: { isMobile: boolean }) {
-  const subjects = [
-    { name: "Mathematics",     available: true,  thumbnail: "/thumbnails/mathematics.jpeg" },
-    { name: "Physical Science",available: true,  thumbnail: "/thumbnails/physical-science.jpeg" },
-    { name: "History",         available: true,  thumbnail: "/thumbnails/history.jpeg" },
-    { name: "Afrikaans",       available: true,  thumbnail: "/thumbnails/afrikaans.jpeg" },
-    { name: "Life Sciences",   available: false, thumbnail: "/thumbnails/life-sciences.jpeg" },
-    { name: "Accounting",      available: false, thumbnail: "/thumbnails/accounting.jpeg" },
-  ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-[#F4F4F5] rounded-2xl overflow-hidden flex flex-col"
-        style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
+        className="rounded-2xl overflow-hidden shadow-sm"
+        style={{ width: isMobile ? "100%" : 420, maxHeight: isMobile ? 240 : 280 }}
       >
-        <div className="px-4 py-2.5 flex-shrink-0">
-          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a subject</p>
-        </div>
-        <div className="flex-1 px-4 pb-3 overflow-hidden">
-          <div className="grid grid-cols-3 gap-2">
-            {subjects.map((s) => (
-              <div
-                key={s.name}
-                className={`rounded-xl text-left bg-white border border-gray-200 overflow-hidden shadow-sm ${!s.available ? "opacity-50" : ""}`}
-              >
-                <div className="w-full overflow-hidden" style={{ aspectRatio: "1/0.55" }}>
-                  <img src={s.thumbnail} alt={s.name} className="w-full h-full object-cover" />
-                </div>
-                <div className="px-2 py-1.5">
-                  <p className="font-bold text-gray-800 text-[9px] leading-snug truncate">{s.name}</p>
-                  {s.available ? (
-                    <p className="text-[8px] text-[#BE1832] font-semibold">Papers available →</p>
-                  ) : (
-                    <p className="text-[8px] text-gray-400">Coming soon</p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <img
+          src="/matric-subjects-preview.png"
+          alt="Choose a subject"
+          className="w-full h-full object-contain"
+        />
       </div>
     </div>
   );

@@ -30,14 +30,20 @@ export function getReadingProfile(): ReadingStudentProfile | null {
 }
 
 export function saveReadingProfile(profile: ReadingStudentProfile): void {
-  void retrySupabase(() => supabase.from("student_profiles").upsert({
-    id: profile.id,
-    subject: "reading",
-    name: profile.name,
-    grade: profile.grade,
-    profile_data: profile as unknown as Record<string, unknown>,
-    updated_at: new Date().toISOString(),
-  }, { onConflict: "id" }));
+  void (async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      void retrySupabase(() => supabase.from("student_profiles").upsert({
+        id: profile.id,
+        subject: "reading",
+        name: profile.name,
+        grade: profile.grade,
+        ...(user?.id ? { auth_user_id: user.id } : {}),
+        profile_data: profile as unknown as Record<string, unknown>,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: "id" }));
+    } catch { /* non-critical */ }
+  })();
 }
 
 /**

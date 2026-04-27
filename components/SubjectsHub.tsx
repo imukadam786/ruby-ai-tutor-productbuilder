@@ -36,32 +36,27 @@ function SubjectCard({
   return (
     <button
       onClick={onClick}
-      className="rounded-2xl overflow-hidden shadow-sm bg-white border border-gray-100 flex flex-col active:opacity-80 transition-all text-left"
+      className="rounded-2xl overflow-hidden shadow-sm bg-white border border-gray-100 flex flex-col active:opacity-80 transition-all text-left hover:shadow-md"
     >
-      {/* Coloured header with thumbnail */}
+      {/* Coloured header with thumbnail — 4:3 ratio for larger, squarer icons */}
       <div
         className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center overflow-hidden flex-shrink-0`}
-        style={{ aspectRatio: "16 / 9" }}
+        style={{ aspectRatio: "4 / 3" }}
       >
         {thumbnail ? (
           <img src={thumbnail} alt={label} className="w-full h-full object-cover" />
         ) : (
-          <span className="text-5xl">{placeholderEmoji}</span>
+          <span className="text-6xl">{placeholderEmoji}</span>
         )}
       </div>
-      {/* Label + badge */}
-      <div className="px-4 py-3 flex items-center justify-between gap-2">
+      {/* Label + badge stacked */}
+      <div className="px-4 pt-3 pb-4 flex flex-col items-start gap-2">
         <span className="font-bold text-gray-900 text-base">{label}</span>
-        <div className="flex items-center gap-2 flex-shrink-0">
-          {badge && (
-            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap ${badgeColor}`}>
-              {badge}
-            </span>
-          )}
-          <svg className="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
+        {badge && (
+          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap ${badgeColor}`}>
+            {badge}
+          </span>
+        )}
       </div>
     </button>
   );
@@ -124,7 +119,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       <EduBackground />
 
       <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-lg mx-auto px-5 sm:px-8 min-h-full flex flex-col justify-center py-10">
+        <div className="max-w-lg mx-auto px-5 sm:px-8 pt-8 pb-6">
 
           <div className="mb-6">
             <h1 className="text-2xl font-bold text-gray-900">Subjects</h1>

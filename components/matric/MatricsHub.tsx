@@ -7,31 +7,86 @@ interface MatricsHubProps {
   onNavigate: (view: ActiveView) => void;
 }
 
-const CARDS = [
+interface MatricCardProps {
+  emoji: string;
+  label: string;
+  badge?: string;
+  badgeColor?: string;
+  accentFrom: string;
+  accentTo: string;
+  disabled?: boolean;
+  onClick: () => void;
+}
+
+function MatricCard({
+  emoji,
+  label,
+  badge,
+  badgeColor = "bg-gray-100 text-gray-600",
+  accentFrom,
+  accentTo,
+  disabled,
+  onClick,
+}: MatricCardProps) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`rounded-2xl overflow-hidden shadow-sm bg-white border border-gray-100 flex flex-col text-left transition-all ${disabled ? "opacity-60 cursor-not-allowed" : "active:opacity-80 hover:shadow-md"}`}
+    >
+      {/* Gradient header with large emoji — 4:3 ratio to match SubjectsHub */}
+      <div
+        className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center flex-shrink-0`}
+        style={{ aspectRatio: "4 / 3" }}
+      >
+        <span className="text-6xl">{emoji}</span>
+      </div>
+      {/* Label + badge stacked */}
+      <div className="px-4 pt-3 pb-4 flex flex-col items-start gap-2">
+        <span className="font-bold text-gray-900 text-base">{label}</span>
+        {badge && (
+          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap ${badgeColor}`}>
+            {badge}
+          </span>
+        )}
+      </div>
+    </button>
+  );
+}
+
+const CARDS: {
+  view: ActiveView;
+  label: string;
+  emoji: string;
+  accentFrom: string;
+  accentTo: string;
+  badge?: string;
+  badgeColor?: string;
+  disabled?: boolean;
+}[] = [
   {
-    view: "matric" as ActiveView,
-    title: "Past Papers",
-    description: "Work through real NSC past exams with AI tutoring",
+    view: "matric",
+    label: "Past Papers",
     emoji: "📝",
-    from: "from-[#BE1832]",
-    to: "to-[#C94060]",
+    accentFrom: "from-[#BE1832]",
+    accentTo: "to-[#C94060]",
   },
   {
-    view: "prep-papers-2026" as ActiveView,
-    title: "Prep Papers",
-    description: "Practice with 2026 preparation papers",
+    view: "prep-papers-2026",
+    label: "Prep Papers",
     emoji: "📋",
-    from: "from-blue-600",
-    to: "to-blue-700",
+    accentFrom: "from-blue-600",
+    accentTo: "to-blue-700",
   },
   {
-    view: "matric" as ActiveView,
-    title: "Study Guides",
-    description: "Structured guides for every topic",
+    view: "matric",
+    label: "Study Guides",
     emoji: "📚",
-    from: "from-purple-600",
-    to: "to-purple-700",
-    comingSoon: true,
+    accentFrom: "from-purple-600",
+    accentTo: "to-purple-700",
+    badge: "Coming Soon",
+    badgeColor: "bg-gray-100 text-gray-500",
+    disabled: true,
   },
 ];
 
@@ -41,7 +96,7 @@ export default function MatricsHub({ onNavigate }: MatricsHubProps) {
       <EduBackground />
 
       <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 min-h-full flex flex-col justify-center py-10">
+        <div className="max-w-lg mx-auto px-5 sm:px-8 pt-8 pb-6">
 
           {/* Back button */}
           <button
@@ -54,27 +109,24 @@ export default function MatricsHub({ onNavigate }: MatricsHubProps) {
             <span className="text-sm font-medium">Back</span>
           </button>
 
-          <div className="mb-8">
+          <div className="mb-6">
             <h1 className="text-2xl font-bold text-gray-900">Matrics</h1>
             <p className="text-gray-500 text-sm mt-1">Prepare for your matric exams with real papers and guides.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {CARDS.map((card) => (
-              <button
-                key={card.title}
-                onClick={() => !card.comingSoon && onNavigate(card.view)}
-                className={`relative rounded-2xl bg-gradient-to-br ${card.from} ${card.to} p-6 text-left shadow-sm hover:shadow-lg transition-all active:scale-[0.98] ${card.comingSoon ? "opacity-70 cursor-not-allowed" : ""}`}
-              >
-                {card.comingSoon && (
-                  <span className="absolute top-3 right-3 bg-white/20 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
-                    Soon
-                  </span>
-                )}
-                <span className="text-3xl mb-3 block">{card.emoji}</span>
-                <p className="font-bold text-white text-lg leading-tight">{card.title}</p>
-                <p className="text-white/75 text-sm mt-1 leading-relaxed">{card.description}</p>
-              </button>
+              <MatricCard
+                key={card.label}
+                emoji={card.emoji}
+                label={card.label}
+                badge={card.badge}
+                badgeColor={card.badgeColor}
+                accentFrom={card.accentFrom}
+                accentTo={card.accentTo}
+                disabled={card.disabled}
+                onClick={() => !card.disabled && onNavigate(card.view)}
+              />
             ))}
           </div>
 

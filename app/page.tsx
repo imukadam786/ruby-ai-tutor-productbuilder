@@ -165,13 +165,9 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
       const type = (e as CustomEvent).detail?.type as "maths" | "reading";
       if (!type) return;
       incrementSession();
-      // If this is the post-onboarding discovery flow, fire the callback once
-      if (onPostDiscovery && !postDiscoveryFiredRef.current) {
-        postDiscoveryFiredRef.current = true;
-        // Small delay so the report view renders first before we transition
-        setTimeout(() => onPostDiscovery(), 3500);
-        return;
-      }
+      // During onboarding discovery, skip the survey — onSelectPlan in the
+      // session component handles the transition to PostDiscoveryScreen.
+      if (onPostDiscovery) return;
       setSurvey({ type });
     };
     document.addEventListener("ruby-skill-mastered", onSkillMastered);
