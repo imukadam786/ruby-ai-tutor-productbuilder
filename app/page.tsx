@@ -27,6 +27,7 @@ const MatricPastPapers         = dynamic(() => import("@/components/matric/Matri
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
 const DiscoverHub              = dynamic(() => import("@/components/DiscoverHub"),                         { ssr: false });
 const SubjectsHub              = dynamic(() => import("@/components/SubjectsHub"),                         { ssr: false });
+const MatricsHub               = dynamic(() => import("@/components/matric/MatricsHub"),                    { ssr: false });
 const WatchComingSoon      = dynamic(() => import("@/components/WatchComingSoon"),                      { ssr: false });
 const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerModal"),                  { ssr: false });
 const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
@@ -115,6 +116,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
     "discover-reading": "Discover · Reading",
     "discover": "Discover",
     subjects: "Subjects",
+    matrics: "Matrics",
   };
 
   const refreshStats = useCallback(() => {
@@ -313,6 +315,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
+        {activeView === "matrics" && <MatricsHub onNavigate={handleViewChange} />}
         {activeView === "matric" && <MatricPastPapers />}
         {activeView === "prep-papers-2026" && <PrepPapers2026 />}
         {activeView === "watch" && <WatchComingSoon />}

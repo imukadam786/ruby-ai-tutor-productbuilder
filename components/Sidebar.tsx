@@ -50,7 +50,10 @@ export default function Sidebar({
     activeView === "ruby" ||
     activeView === "skill-tree" ||
     activeView === "reading" ||
-    activeView === "reading-skill-tree" ||
+    activeView === "reading-skill-tree";
+
+  const matricsActive =
+    activeView === "matrics" ||
     activeView === "matric" ||
     activeView === "prep-papers-2026";
 
@@ -59,6 +62,7 @@ export default function Sidebar({
     { id: "progress", emoji: "📊", label: t("sidebar.progress") },
     { id: "chat",     emoji: "💬", label: t("sidebar.homework") },
     { id: "subjects", emoji: "📚", label: "Subjects" },
+    { id: "matrics",  emoji: "🎓", label: "Matrics" },
   ];
 
   return (
@@ -149,7 +153,10 @@ export default function Sidebar({
         {/* Navigation */}
         <nav className={`flex-1 overflow-y-auto overflow-x-hidden py-4 space-y-1 ${collapsed ? "px-1" : "px-4"}`}>
           {navItems.map(({ id, emoji, label }) => {
-            const active = id === "subjects" ? subjectsActive : activeView === id;
+            const active =
+              id === "subjects" ? subjectsActive :
+              id === "matrics"  ? matricsActive :
+              activeView === id;
             return (
               <button
                 key={id}

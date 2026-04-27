@@ -6,87 +6,59 @@ import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
+import EduBackground from "@/components/EduBackground";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
 }
 
 interface SubjectCardProps {
-  emoji: string;
+  thumbnail?: string;
+  placeholderEmoji?: string;
   label: string;
   badge?: string;
   badgeColor?: string;
   accentFrom: string;
   accentTo: string;
-  textColor: string;
   onClick: () => void;
-  subOptions?: { label: string; onClick: () => void }[];
-  expanded?: boolean;
-  onToggle?: () => void;
 }
 
 function SubjectCard({
-  emoji,
+  thumbnail,
+  placeholderEmoji,
   label,
   badge,
   badgeColor = "bg-white/20 text-white",
   accentFrom,
   accentTo,
-  textColor,
   onClick,
-  subOptions,
-  expanded,
-  onToggle,
 }: SubjectCardProps) {
   return (
-    <div className="rounded-2xl overflow-hidden shadow-sm">
-      <button
-        onClick={subOptions ? onToggle : onClick}
-        className={`w-full bg-gradient-to-r ${accentFrom} ${accentTo} flex items-center justify-between px-5 py-4 transition-opacity active:opacity-80`}
-      >
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">{emoji}</span>
-          <span className={`font-bold text-lg ${textColor}`}>{label}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          {badge && (
-            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${badgeColor}`}>
-              {badge}
-            </span>
-          )}
-          {subOptions && (
-            <svg
-              className={`w-4 h-4 ${textColor} transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          )}
-          {!subOptions && (
-            <svg className={`w-4 h-4 ${textColor} opacity-60`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          )}
-        </div>
-      </button>
-
-      {subOptions && expanded && (
-        <div className="bg-white border border-gray-100 divide-y divide-gray-50">
-          {subOptions.map((opt) => (
-            <button
-              key={opt.label}
-              onClick={opt.onClick}
-              className="w-full flex items-center justify-between px-6 py-3.5 text-left hover:bg-gray-50 transition-colors active:bg-gray-100"
-            >
-              <span className="font-medium text-gray-700 text-base">{opt.label}</span>
-              <svg className="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
+    <button
+      onClick={onClick}
+      className={`w-full rounded-2xl overflow-hidden shadow-sm bg-gradient-to-r ${accentFrom} ${accentTo} flex items-center justify-between px-5 py-4 transition-opacity active:opacity-80`}
+    >
+      <div className="flex items-center gap-3">
+        {thumbnail ? (
+          <div className="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0 border-2 border-white/30">
+            <img src={thumbnail} alt={label} className="w-full h-full object-cover" />
+          </div>
+        ) : (
+          <span className="text-2xl">{placeholderEmoji}</span>
+        )}
+        <span className="font-bold text-lg text-white">{label}</span>
+      </div>
+      <div className="flex items-center gap-2">
+        {badge && (
+          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${badgeColor}`}>
+            {badge}
+          </span>
+        )}
+        <svg className="w-4 h-4 text-white opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    </button>
   );
 }
 
@@ -94,7 +66,6 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [loading, setLoading] = useState(true);
-  const [matricExpanded, setMatricExpanded] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -144,67 +115,51 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const readingBadgeColor = readingDone ? "bg-purple-100 text-purple-700" : "bg-white/20 text-white";
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5]">
-      <div className="max-w-lg mx-auto px-5 py-8 sm:px-8 sm:py-10 space-y-3">
+    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
+      <EduBackground />
 
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Subjects</h1>
-          <p className="text-gray-500 text-sm mt-1">Choose what to work on today.</p>
+      <div className="relative flex-1 overflow-y-auto">
+        <div className="max-w-lg mx-auto px-5 py-8 sm:px-8 sm:py-10 space-y-3">
+
+          <div className="mb-6">
+            <h1 className="text-2xl font-bold text-gray-900">Subjects</h1>
+            <p className="text-gray-500 text-sm mt-1">Choose what to work on today.</p>
+          </div>
+
+          {/* Discover */}
+          <SubjectCard
+            placeholderEmoji="🧭"
+            label="Discover"
+            badge={discoverBadge}
+            badgeColor={discoverBadgeColor}
+            accentFrom="from-slate-600"
+            accentTo="to-slate-700"
+            onClick={() => onNavigate("discover")}
+          />
+
+          {/* Maths */}
+          <SubjectCard
+            thumbnail="/thumbnails/mathematics.jpeg"
+            label="Maths"
+            badge={mathsBadge}
+            badgeColor={mathsBadgeColor}
+            accentFrom="from-blue-600"
+            accentTo="to-blue-700"
+            onClick={() => onNavigate("ruby")}
+          />
+
+          {/* Reading */}
+          <SubjectCard
+            thumbnail="/thumbnails/english.jpeg"
+            label="Reading"
+            badge={readingBadge}
+            badgeColor={readingBadgeColor}
+            accentFrom="from-purple-600"
+            accentTo="to-purple-700"
+            onClick={() => onNavigate("reading")}
+          />
+
         </div>
-
-        {/* Discover */}
-        <SubjectCard
-          emoji="🧭"
-          label="Discover"
-          badge={discoverBadge}
-          badgeColor={discoverBadgeColor}
-          accentFrom="from-slate-600"
-          accentTo="to-slate-700"
-          textColor="text-white"
-          onClick={() => onNavigate("discover")}
-        />
-
-        {/* Maths */}
-        <SubjectCard
-          emoji="🧮"
-          label="Maths"
-          badge={mathsBadge}
-          badgeColor={mathsBadgeColor}
-          accentFrom="from-blue-500"
-          accentTo="to-blue-600"
-          textColor="text-white"
-          onClick={() => onNavigate("ruby")}
-        />
-
-        {/* English */}
-        <SubjectCard
-          emoji="📖"
-          label="English"
-          badge={readingBadge}
-          badgeColor={readingBadgeColor}
-          accentFrom="from-purple-500"
-          accentTo="to-purple-600"
-          textColor="text-white"
-          onClick={() => onNavigate("reading")}
-        />
-
-        {/* Matrics */}
-        <SubjectCard
-          emoji="🎓"
-          label="Matrics"
-          accentFrom="from-[#BE1832]"
-          accentTo="to-[#C94060]"
-          textColor="text-white"
-          onClick={() => {}}
-          subOptions={[
-            { label: "Matric Past Papers",     onClick: () => onNavigate("matric") },
-            { label: "Prep Papers 2026",        onClick: () => onNavigate("prep-papers-2026") },
-            { label: "Study Guides",            onClick: () => onNavigate("matric") },
-          ]}
-          expanded={matricExpanded}
-          onToggle={() => setMatricExpanded((v) => !v)}
-        />
-
       </div>
     </div>
   );

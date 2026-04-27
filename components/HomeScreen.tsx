@@ -80,35 +80,6 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
     },
   ];
 
-  const quickActions = [
-    {
-      id: "continue",
-      title: t("home.continue_learning"),
-      subtitle: t("home.continue_desc"),
-      view: "chat" as ActiveView,
-      bg: "bg-rose-600",
-      hover: "hover:bg-rose-700",
-      icon: (
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      ),
-    },
-    {
-      id: "challenge",
-      title: t("home.daily_challenge"),
-      subtitle: t("home.daily_desc"),
-      view: "ruby" as ActiveView,
-      bg: "bg-orange-500",
-      hover: "hover:bg-orange-600",
-      icon: (
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
-        </svg>
-      ),
-    },
-  ];
-
   const learningModes = [
     { id: "chat"    as ActiveView, title: t("home.homework_title"), subtitle: t("home.homework_mode_desc"), iconBg: "bg-purple-100", emoji: "📚" },
     { id: "ruby"    as ActiveView, title: t("home.maths_title"),    subtitle: t("home.maths_mode_desc"),    iconBg: "bg-green-100",  emoji: "🎯" },
@@ -168,179 +139,160 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
   }
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
 
-        {/* ── Welcome back banner ───────────────────────────────────────── */}
-        {showWelcomeBack && (
-          <div className="mb-5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-md">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl">👋</span>
-              <div>
-                <p className="font-bold text-white text-base">Welcome back, {firstName}!</p>
-                <p className="text-indigo-100 text-sm">Great to see you again, let&apos;s pick up where you left off.</p>
+      <div className="relative flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
+
+          {/* ── Welcome back banner ───────────────────────────────────────── */}
+          {showWelcomeBack && (
+            <div className="mb-5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-md">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">👋</span>
+                <div>
+                  <p className="font-bold text-white text-base">Welcome back, {firstName}!</p>
+                  <p className="text-indigo-100 text-sm">Great to see you again, let&apos;s pick up where you left off.</p>
+                </div>
               </div>
+              <button
+                onClick={() => setShowWelcomeBack(false)}
+                className="text-white/70 hover:text-white ml-3 flex-shrink-0 transition-colors"
+                aria-label="Dismiss"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-            <button
-              onClick={() => setShowWelcomeBack(false)}
-              className="text-white/70 hover:text-white ml-3 flex-shrink-0 transition-colors"
-              aria-label="Dismiss"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        )}
-
-        {/* ── Hero ─────────────────────────────────────────────────────── */}
-        <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
-          <RubyAvatar size="w-14 h-14" />
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">Hi {firstName} 👋</h1>
-            <p className="text-gray-500 text-base mt-0.5">Ready to keep learning?</p>
-          </div>
-        </div>
-
-        {/* ── Discovery CTAs ────────────────────────────────────────────── */}
-        <section className="mb-6 space-y-3">
-          {/* Maths Discovery */}
-          {mathsDone ? (
-            <button
-              onClick={() => setViewReport("maths")}
-              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-            >
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">🧮</span>
-                <div>
-                  <p className="font-semibold text-white">Maths Discovery</p>
-                  <p className="text-sm text-blue-100 mt-0.5">View your placement results</p>
-                </div>
-              </div>
-              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">View →</span>
-            </button>
-          ) : (
-            <button
-              onClick={() => onNavigate("discover-maths")}
-              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-            >
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">🧮</span>
-                <div>
-                  <p className="font-semibold text-white">Start Maths Discovery</p>
-                  <p className="text-sm text-blue-100 mt-0.5">Find your Maths level</p>
-                </div>
-              </div>
-              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">Start →</span>
-            </button>
           )}
 
-          {/* Reading Discovery */}
-          {readingDone ? (
-            <button
-              onClick={() => setViewReport("reading")}
-              className="w-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-            >
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">📖</span>
-                <div>
-                  <p className="font-semibold text-white">Reading Discovery</p>
-                  <p className="text-sm text-purple-100 mt-0.5">View your placement results</p>
-                </div>
-              </div>
-              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">View →</span>
-            </button>
-          ) : (
-            <button
-              onClick={() => onNavigate("discover-reading")}
-              className="w-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-            >
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">📖</span>
-                <div>
-                  <p className="font-semibold text-white">Start Reading Discovery</p>
-                  <p className="text-sm text-purple-100 mt-0.5">Find your Reading level</p>
-                </div>
-              </div>
-              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">Start →</span>
-            </button>
-          )}
-        </section>
-
-        {/* ── Progress Stats ────────────────────────────────────────────── */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-          {statDefs.map((s) => (
-            <div key={s.key} className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-500">{s.label}</span>
-                {s.icon}
-              </div>
-              <span className={`text-2xl font-bold ${s.color}`}>{stats[s.key]}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Current Streak ────────────────────────────────────────────── */}
-        <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm mb-8">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl flex-shrink-0">🔥</span>
+          {/* ── Hero ─────────────────────────────────────────────────────── */}
+          <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
+            <RubyAvatar size="w-14 h-14" />
             <div>
-              <p className="text-sm text-orange-600 font-medium">Current Streak</p>
-              <div className="flex items-baseline gap-1.5 mt-0.5">
-                <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
-                <span className="text-base text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
-              </div>
+              <h1 className="text-3xl font-bold text-gray-900">Hi {firstName} 👋</h1>
+              <p className="text-gray-500 text-base mt-0.5">Ready to keep learning?</p>
             </div>
           </div>
-          <div className="text-right">
-            <p className="text-sm text-orange-400">Best</p>
-            <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
+
+          {/* ── Progress Stats ────────────────────────────────────────────── */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+            {statDefs.map((s) => (
+              <div key={s.key} className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-gray-500">{s.label}</span>
+                  {s.icon}
+                </div>
+                <span className={`text-2xl font-bold ${s.color}`}>{stats[s.key]}</span>
+              </div>
+            ))}
           </div>
+
+          {/* ── Current Streak ────────────────────────────────────────────── */}
+          <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm mb-6">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl flex-shrink-0">🔥</span>
+              <div>
+                <p className="text-sm text-orange-600 font-medium">Current Streak</p>
+                <div className="flex items-baseline gap-1.5 mt-0.5">
+                  <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
+                  <span className="text-base text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
+                </div>
+              </div>
+            </div>
+            <div className="text-right">
+              <p className="text-sm text-orange-400">Best</p>
+              <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
+            </div>
+          </div>
+
+          {/* ── Discovery CTAs ────────────────────────────────────────────── */}
+          <section className="mb-8 space-y-3">
+            {/* Maths Discovery */}
+            {mathsDone ? (
+              <button
+                onClick={() => setViewReport("maths")}
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">🧮</span>
+                  <div>
+                    <p className="font-semibold text-white">Maths Discovery</p>
+                    <p className="text-sm text-blue-100 mt-0.5">View your placement results</p>
+                  </div>
+                </div>
+                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">View →</span>
+              </button>
+            ) : (
+              <button
+                onClick={() => onNavigate("discover-maths")}
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">🧮</span>
+                  <div>
+                    <p className="font-semibold text-white">Start Maths Discovery</p>
+                    <p className="text-sm text-blue-100 mt-0.5">Find your Maths level</p>
+                  </div>
+                </div>
+                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">Start →</span>
+              </button>
+            )}
+
+            {/* Reading Discovery */}
+            {readingDone ? (
+              <button
+                onClick={() => setViewReport("reading")}
+                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">📖</span>
+                  <div>
+                    <p className="font-semibold text-white">Reading Discovery</p>
+                    <p className="text-sm text-purple-100 mt-0.5">View your placement results</p>
+                  </div>
+                </div>
+                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">View →</span>
+              </button>
+            ) : (
+              <button
+                onClick={() => onNavigate("discover-reading")}
+                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">📖</span>
+                  <div>
+                    <p className="font-semibold text-white">Start Reading Discovery</p>
+                    <p className="text-sm text-purple-100 mt-0.5">Find your Reading level</p>
+                  </div>
+                </div>
+                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">Start →</span>
+              </button>
+            )}
+          </section>
+
+          {/* ── Learning Modes ────────────────────────────────────────────── */}
+          <section>
+            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Learning Modes</h2>
+            <div className="grid grid-cols-2 gap-3">
+              {learningModes.map((mode) => (
+                <button
+                  key={mode.id + mode.title}
+                  onClick={() => onNavigate(mode.id)}
+                  className="bg-white rounded-2xl p-5 flex flex-col gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
+                >
+                  <span className="text-2xl">{mode.emoji}</span>
+                  <div>
+                    <p className="font-semibold text-gray-800 text-base">{mode.title}</p>
+                    <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{mode.subtitle}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
+
         </div>
-
-        {/* ── Quick Actions ─────────────────────────────────────────────── */}
-        <section className="mb-8">
-          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Quick Actions</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {quickActions.map((action) => (
-              <button
-                key={action.id}
-                onClick={() => onNavigate(action.view)}
-                className={`${action.bg} ${action.hover} rounded-2xl p-5 flex items-center gap-4 text-left transition-colors active:scale-[0.98]`}
-              >
-                <div className="flex-shrink-0">
-                  {action.icon}
-                </div>
-                <div>
-                  <p className="text-white font-semibold text-base">{action.title}</p>
-                  <p className="text-white/75 text-sm mt-0.5">{action.subtitle}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        {/* ── Learning Modes ────────────────────────────────────────────── */}
-        <section>
-          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Learning Modes</h2>
-          <div className="grid grid-cols-2 gap-3">
-            {learningModes.map((mode) => (
-              <button
-                key={mode.id + mode.title}
-                onClick={() => onNavigate(mode.id)}
-                className="bg-white rounded-2xl p-5 flex flex-col gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
-              >
-                <span className="text-2xl">{mode.emoji}</span>
-                <div>
-                  <p className="font-semibold text-gray-800 text-base">{mode.title}</p>
-                  <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{mode.subtitle}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-        </section>
-
       </div>
     </div>
   );

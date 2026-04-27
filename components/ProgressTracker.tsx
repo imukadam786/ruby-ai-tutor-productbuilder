@@ -191,9 +191,7 @@ export default function ProgressTracker() {
           {/* ── Current Streak Card ────────────────────────────────────── */}
           <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
             <div className="flex items-center gap-3">
-              <span className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <FlameIcon className="w-5 h-5 text-orange-500" />
-              </span>
+              <span className="text-2xl flex-shrink-0">🔥</span>
               <div>
                 <p className="text-sm text-orange-600 font-medium">Current Streak</p>
                 <div className="flex items-baseline gap-1.5 mt-0.5">
