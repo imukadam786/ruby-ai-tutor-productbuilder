@@ -145,7 +145,7 @@ export default function PricingPlans({
     setAppliedVoucher(null);
     try {
       const res = await fetch(
-        `/api/vouchers/validate?code=${encodeURIComponent(code)}&plan=scholar`
+        `/api/vouchers/validate?code=${encodeURIComponent(code)}`
       );
       const data: VoucherValidateResponse = await res.json();
       if (!data.valid) {

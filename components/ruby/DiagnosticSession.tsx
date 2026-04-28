@@ -563,6 +563,11 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
             content_data: content as unknown as Record<string, unknown>,
             generated_at: new Date().toISOString(),
           });
+          void fetch("/api/reports/email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: user.id, subject: "maths", inputData: input, contentData: content }),
+          });
         }
       } catch (err) {
         console.error("[DiagnosticComplete] Report save failed:", err);

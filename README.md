@@ -1,2 +1,2 @@
 Ruby AI Tutor
-Adding random for dev deployment x2
+Adding random for dev deployment x7

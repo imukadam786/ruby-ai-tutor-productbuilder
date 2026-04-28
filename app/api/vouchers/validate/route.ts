@@ -12,7 +12,7 @@ export type VoucherValidateResponse =
       discount_type: "percentage" | "fixed";
       discount_value: number;
       applicable_plans: string[]; // empty = all paid plans
-      discounted_price: number;   // final price in rands after discount
+      discounted_price?: number;  // final price in rands after discount (omitted when no plan supplied)
     }
   | { valid: false; error: string };
 
@@ -27,9 +27,9 @@ export async function GET(request: NextRequest) {
   const code = (searchParams.get("code") ?? "").trim().toUpperCase();
   const plan = (searchParams.get("plan") ?? "").trim();
 
-  if (!code || !plan) {
+  if (!code) {
     return NextResponse.json<VoucherValidateResponse>(
-      { valid: false, error: "code and plan are required" },
+      { valid: false, error: "code is required" },
       { status: 400 },
     );
   }
@@ -57,43 +57,52 @@ export async function GET(request: NextRequest) {
     return NextResponse.json<VoucherValidateResponse>({ valid: false, error: "Voucher has reached its usage limit" });
   }
 
-  // Check plan applicability — empty array means valid for all paid plans
   const applicablePlans: string[] = voucher.applicable_plans ?? [];
-  if (applicablePlans.length > 0 && !applicablePlans.includes(plan)) {
+  const discountValue: number = parseFloat(voucher.discount_value);
+
+  // If a specific plan was supplied, validate applicability and compute discounted price
+  if (plan) {
+    if (applicablePlans.length > 0 && !applicablePlans.includes(plan)) {
+      return NextResponse.json<VoucherValidateResponse>({
+        valid: false,
+        error: `Voucher is not valid for the ${plan} plan`,
+      });
+    }
+
+    const { data: planData, error: pErr } = await supabase
+      .from("plans")
+      .select("price_rands")
+      .eq("key", plan)
+      .eq("is_active", true)
+      .single();
+
+    if (pErr || !planData) {
+      return NextResponse.json<VoucherValidateResponse>({ valid: false, error: "Plan not found" });
+    }
+
+    const basePrice: number = parseFloat(planData.price_rands);
+    let discountedPrice: number;
+    if (voucher.discount_type === "percentage") {
+      discountedPrice = basePrice * (1 - discountValue / 100);
+    } else {
+      discountedPrice = basePrice - discountValue;
+    }
+    discountedPrice = Math.max(0, Math.round(discountedPrice * 100) / 100);
+
     return NextResponse.json<VoucherValidateResponse>({
-      valid: false,
-      error: `Voucher is not valid for the ${plan} plan`,
+      valid: true,
+      discount_type: voucher.discount_type,
+      discount_value: discountValue,
+      applicable_plans: applicablePlans,
+      discounted_price: discountedPrice,
     });
   }
 
-  // Fetch the plan's base price
-  const { data: planData, error: pErr } = await supabase
-    .from("plans")
-    .select("price_rands")
-    .eq("key", plan)
-    .eq("is_active", true)
-    .single();
-
-  if (pErr || !planData) {
-    return NextResponse.json<VoucherValidateResponse>({ valid: false, error: "Plan not found" });
-  }
-
-  const basePrice: number = parseFloat(planData.price_rands);
-  const discountValue: number = parseFloat(voucher.discount_value);
-
-  let discountedPrice: number;
-  if (voucher.discount_type === "percentage") {
-    discountedPrice = basePrice * (1 - discountValue / 100);
-  } else {
-    discountedPrice = basePrice - discountValue;
-  }
-  discountedPrice = Math.max(0, Math.round(discountedPrice * 100) / 100);
-
+  // No plan supplied — return voucher details only (UI computes per-plan prices itself)
   return NextResponse.json<VoucherValidateResponse>({
     valid: true,
     discount_type: voucher.discount_type,
     discount_value: discountValue,
     applicable_plans: applicablePlans,
-    discounted_price: discountedPrice,
   });
 }
