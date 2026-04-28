@@ -1,4 +1,4 @@
-export type MCQOptions = { A: string; B: string; C: string; D: string; E?: string };
+export type MCQOptions = { A: string; B?: string; C?: string; D?: string; E?: string };
 
 export interface SubQuestion {
   id: string;
@@ -10,10 +10,13 @@ export interface SubQuestion {
   diagramUrl?: string;
   /** Completed sketch shown to student after submission (memo version of diagram) */
   memoImageUrl?: string;
-  /** "mcq" renders A/B/C/D option cards. Defaults to "written" if omitted. */
-  type?: "written" | "mcq";
+  /** Input layout variant. Defaults to "written" if omitted. */
+  type?: "written" | "mcq" | "calculation" | "two-column";
   /** Required when type === "mcq" */
   options?: MCQOptions;
+  /** Column labels for type === "two-column" (col1 defaults to "Workings", col2 defaults to "Answer") */
+  col1Label?: string;
+  col2Label?: string;
 }
 
 export interface PaperQuestion {
@@ -56,6 +59,7 @@ import { AFRIKAANS_PAPERS } from "./papers-afrikaans";
 import { HISTORY_PAPERS } from "./papers-history";
 import { GEO_PAPERS } from "./papers-geo";
 import { LIFE_SCI_PAPERS } from "./papers-life-sci";
+import { ACC_PAPERS } from "./papers-acc";
 
 export const PAPERS: Paper[] = [
   ...MATHS_PAPERS,
@@ -65,6 +69,7 @@ export const PAPERS: Paper[] = [
   ...(HISTORY_PAPERS as unknown as Paper[]),
   ...GEO_PAPERS,
   ...LIFE_SCI_PAPERS,
+  ...ACC_PAPERS,
 ];
 
 export function getFlatSubQuestions(paper: Paper): SubQuestion[] {

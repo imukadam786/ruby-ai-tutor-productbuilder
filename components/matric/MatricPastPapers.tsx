@@ -24,6 +24,8 @@ interface CoachMessage {
 
 interface QuestionState {
   textWorking: string;
+  calcAnswer: string;    // "calculation" type: final answer field
+  col2Working: string;   // "two-column" type: right column
   selectedOption?: string; // MCQ: "A" | "B" | "C" | "D"
   imageFile?: File;
   imagePreviewUrl?: string;
@@ -88,7 +90,7 @@ const SUBJECTS = [
     name: "Accounting",
     thumbnail: "/thumbnails/accounting.jpeg",
     color: "from-emerald-500 to-teal-600",
-    available: false,
+    available: true,
   },
   {
     id: "afrikaans",
@@ -747,6 +749,8 @@ function SessionView({
     flatQuestions.forEach((sq) => {
       init[sq.id] = {
         textWorking: "",
+        calcAnswer: "",
+        col2Working: "",
         submitted: false,
         marksEarned: 0,
         coachMessages: [],
@@ -861,15 +865,24 @@ function SessionView({
     async (sq: SubQuestion, attempt: QuestionState, finalMode?: "practice") => {
       const isFinal = finalMode === "practice";
       const isMCQ = sq.type === "mcq" && sq.options;
+      const isCalc = sq.type === "calculation";
+      const isTwoCol = sq.type === "two-column";
 
-      // For MCQ: embed options into the question text so AI has full context
+      // Embed options into question text for MCQ so the AI has full context
       const questionText = isMCQ
-        ? `${sq.questionText}\n\nA) ${sq.options!.A}\nB) ${sq.options!.B}\nC) ${sq.options!.C}\nD) ${sq.options!.D}`
+        ? `${sq.questionText}\n\n${(["A", "B", "C", "D", "E"] as const)
+            .filter((l) => sq.options![l] !== undefined)
+            .map((l) => `${l}) ${sq.options![l]}`)
+            .join("\n")}`
         : sq.questionText;
 
-      // For MCQ: student "working" is just the selected letter
+      // Build studentText based on input type
       const studentText = isMCQ
         ? `Student selected: ${attempt.selectedOption ?? "(no answer selected)"}`
+        : isCalc
+        ? `WORKINGS:\n${attempt.textWorking}\n\nFINAL ANSWER: ${attempt.calcAnswer}`
+        : isTwoCol
+        ? `${sq.col1Label ?? "Column 1"}:\n${attempt.textWorking}\n\n${sq.col2Label ?? "Column 2"}:\n${attempt.col2Working}`
         : attempt.textWorking;
 
       let imageData: string | undefined;
@@ -917,7 +930,16 @@ function SessionView({
 
   const handleSubmitWorking = async () => {
     const isMCQ = currentSQ.type === "mcq";
-    if (isMCQ ? !currentAttempt.selectedOption : (!currentAttempt.textWorking.trim() && !currentAttempt.imageFile)) return;
+    const isCalc = currentSQ.type === "calculation";
+    const isTwoCol = currentSQ.type === "two-column";
+    const hasAnswer = isMCQ
+      ? !!currentAttempt.selectedOption
+      : isCalc
+      ? !!(currentAttempt.textWorking.trim() || currentAttempt.calcAnswer.trim())
+      : isTwoCol
+      ? !!(currentAttempt.textWorking.trim() || currentAttempt.col2Working.trim())
+      : !!(currentAttempt.textWorking.trim() || currentAttempt.imageFile);
+    if (!hasAnswer) return;
     setIsEvaluating(true);
 
     try {
@@ -956,6 +978,8 @@ function SessionView({
     updateAttempt(currentSQ.id, {
       submitted: false,
       textWorking: "",
+      calcAnswer: "",
+      col2Working: "",
       imageFile: undefined,
       imagePreviewUrl: undefined,
       imageData: undefined,
@@ -977,7 +1001,13 @@ function SessionView({
     for (let i = 0; i < flatQuestions.length; i++) {
       const sq = flatQuestions[i];
       const attempt = updatedAttempts[sq.id];
-      const hasAnswer = sq.type === "mcq" ? !!attempt.selectedOption : !!(attempt.textWorking.trim() || attempt.imageFile);
+      const hasAnswer = sq.type === "mcq"
+        ? !!attempt.selectedOption
+        : sq.type === "calculation"
+        ? !!(attempt.textWorking.trim() || attempt.calcAnswer.trim())
+        : sq.type === "two-column"
+        ? !!(attempt.textWorking.trim() || attempt.col2Working.trim())
+        : !!(attempt.textWorking.trim() || attempt.imageFile);
       if (!hasAnswer) {
         setSubmitProgress(i + 1);
         continue;
@@ -1010,7 +1040,11 @@ function SessionView({
 
   const answeredCount = Object.entries(attempts).filter(([id, a]) => {
     const sq = flatQuestions.find((q) => q.id === id);
-    return sq?.type === "mcq" ? !!a.selectedOption : !!(a.textWorking.trim() || a.imageFile);
+    if (!sq) return false;
+    if (sq.type === "mcq") return !!a.selectedOption;
+    if (sq.type === "calculation") return !!(a.textWorking.trim() || a.calcAnswer.trim());
+    if (sq.type === "two-column") return !!(a.textWorking.trim() || a.col2Working.trim());
+    return !!(a.textWorking.trim() || a.imageFile);
   }).length;
   const submittedCount = Object.values(attempts).filter((a) => a.submitted).length;
 
@@ -1241,8 +1275,8 @@ function SessionView({
               {currentSQ.type === "mcq" && currentSQ.options ? (
                 /* ── MCQ Option Cards ── */
                 <div className="flex-1 overflow-y-auto space-y-2 min-h-0">
-                  {(["A", "B", "C", "D"] as const).map((letter) => {
-                    const text = currentSQ.options![letter];
+                  {(["A", "B", "C", "D", "E"] as const).filter((l) => currentSQ.options![l] !== undefined).map((letter) => {
+                    const text = currentSQ.options![letter]!;
                     const isSelected = currentAttempt.selectedOption === letter;
                     return (
                       <button
@@ -1264,6 +1298,59 @@ function SessionView({
                       </button>
                     );
                   })}
+                </div>
+              ) : currentSQ.type === "calculation" ? (
+                /* ── Calculation: Workings textarea + Answer field ── */
+                <div className="flex-1 flex flex-col gap-2 min-h-0">
+                  <div className="flex-1 flex flex-col min-h-0">
+                    <label className="text-xs font-semibold text-gray-500 mb-1">WORKINGS</label>
+                    <textarea
+                      value={currentAttempt.textWorking}
+                      onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
+                      placeholder="Show all your working steps here…"
+                      disabled={currentAttempt.submitted}
+                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
+                    />
+                  </div>
+                  <div className="flex-shrink-0">
+                    <label className="text-xs font-semibold text-gray-500 mb-1 block">FINAL ANSWER</label>
+                    <input
+                      type="text"
+                      value={currentAttempt.calcAnswer}
+                      onChange={(e) => updateAttempt(currentSQ.id, { calcAnswer: e.target.value })}
+                      placeholder="e.g. R 1 234 500"
+                      disabled={currentAttempt.submitted}
+                      className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] disabled:opacity-60"
+                    />
+                  </div>
+                </div>
+              ) : currentSQ.type === "two-column" ? (
+                /* ── Two-column: side-by-side labelled textareas ── */
+                <div className="flex-1 flex gap-2 min-h-0">
+                  <div className="flex-1 flex flex-col min-h-0">
+                    <label className="text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">
+                      {currentSQ.col1Label ?? "Column 1"}
+                    </label>
+                    <textarea
+                      value={currentAttempt.textWorking}
+                      onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
+                      placeholder={`Enter ${currentSQ.col1Label ?? "column 1"} here…`}
+                      disabled={currentAttempt.submitted}
+                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none disabled:opacity-60"
+                    />
+                  </div>
+                  <div className="flex-1 flex flex-col min-h-0">
+                    <label className="text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">
+                      {currentSQ.col2Label ?? "Column 2"}
+                    </label>
+                    <textarea
+                      value={currentAttempt.col2Working}
+                      onChange={(e) => updateAttempt(currentSQ.id, { col2Working: e.target.value })}
+                      placeholder={`Enter ${currentSQ.col2Label ?? "column 2"} here…`}
+                      disabled={currentAttempt.submitted}
+                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none disabled:opacity-60"
+                    />
+                  </div>
                 </div>
               ) : isMaths ? (
                 /* ── Maths: Step-by-step inputs ── */
@@ -1510,10 +1597,12 @@ function SessionView({
                     <button
                       onClick={handleSubmitWorking}
                       disabled={
-                        isEvaluating ||
-                        (currentSQ.type === "mcq"
-                          ? !currentAttempt.selectedOption
-                          : !currentAttempt.textWorking.trim() && !currentAttempt.imageFile)
+                        isEvaluating || (() => {
+                          if (currentSQ.type === "mcq") return !currentAttempt.selectedOption;
+                          if (currentSQ.type === "calculation") return !currentAttempt.textWorking.trim() && !currentAttempt.calcAnswer.trim();
+                          if (currentSQ.type === "two-column") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
+                          return !currentAttempt.textWorking.trim() && !currentAttempt.imageFile;
+                        })()
                       }
                       className="flex-1 py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                     >
