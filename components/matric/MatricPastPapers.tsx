@@ -769,14 +769,11 @@ function SessionView({
   const STEP_LABELS = ["Step 1", "Step 2", "Step 3", "Step 4", "Final Answer"];
 
   const MATH_SYMBOLS: { label: string; insert: string }[] = [
-    { label: "x²", insert: "²" }, { label: "x³", insert: "³" }, { label: "x⁴", insert: "⁴" }, { label: "xⁿ", insert: "ⁿ" },
-    { label: "√", insert: "√" }, { label: "∛", insert: "∛" },
+    { label: "x²", insert: "²" }, { label: "x³", insert: "³" },
+    { label: "√", insert: "√" },
     { label: "×", insert: "×" }, { label: "÷", insert: "÷" }, { label: "±", insert: "±" },
-    { label: "≤", insert: "≤" }, { label: "≥", insert: "≥" }, { label: "≠", insert: "≠" }, { label: "≈", insert: "≈" },
-    { label: "π", insert: "π" }, { label: "∞", insert: "∞" }, { label: "Σ", insert: "Σ" },
-    { label: "°", insert: "°" }, { label: "∠", insert: "∠" }, { label: "△", insert: "△" }, { label: "∥", insert: "∥" }, { label: "⊥", insert: "⊥" },
-    { label: "∈", insert: "∈" }, { label: "∉", insert: "∉" }, { label: "∪", insert: "∪" }, { label: "∩", insert: "∩" }, { label: "∅", insert: "∅" }, { label: "ℝ", insert: "ℝ" },
-    { label: "x₀", insert: "₀" }, { label: "x₁", insert: "₁" }, { label: "x₂", insert: "₂" }, { label: "x₃", insert: "₃" },
+    { label: "≤", insert: "≤" }, { label: "≥", insert: "≥" }, { label: "≠", insert: "≠" },
+    { label: "π", insert: "π" }, { label: "°", insert: "°" },
   ];
 
   const [mathsSteps, setMathsSteps] = useState<Record<string, string[]>>(() => {
