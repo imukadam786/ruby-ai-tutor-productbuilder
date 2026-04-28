@@ -13,11 +13,6 @@ import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import MathsJourneyRail from "@/components/ruby/MathsJourneyRail";
 import ReadingJourneyRail from "@/components/reading/ReadingJourneyRail";
 
-// ── Demo data shown when user has no real activity yet ────────────────────────
-const DEMO_STATS = { skillsMastered: 16, inProgress: 3, lessonsDone: 40, studySessions: 40 };
-const DEMO_STREAK = { currentStreak: 28, bestStreak: 31 };
-const DEMO_DAILY = [8, 6, 7, 5, 9, 4, 2];
-
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 function TrophyIcon({ className }: { className?: string }) {
   return (
@@ -76,12 +71,6 @@ function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
   });
 }
 
-function buildDemoActivity(weekDays: { date: string }[]): Record<string, number> {
-  const out: Record<string, number> = {};
-  weekDays.forEach(({ date }, i) => { if (DEMO_DAILY[i]) out[date] = DEMO_DAILY[i]; });
-  return out;
-}
-
 export default function ProgressTracker() {
   const [progress, setProgress] = useState<ProgressData>({
     totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
@@ -90,7 +79,6 @@ export default function ProgressTracker() {
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [streak, setStreak] = useState<StreakData>({ currentStreak: 0, bestStreak: 0, lastActiveDate: "", dailyActivity: {} });
-  const [hasRealData, setHasRealData] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -103,7 +91,6 @@ export default function ProgressTracker() {
       setProfile(prof);
       setReadingProfile(readProf);
       setStreak(s);
-      setHasRealData(!!(prof || p.sessionCount > 0 || s.currentStreak > 0));
     });
   }, []);
 
@@ -117,13 +104,8 @@ export default function ProgressTracker() {
     lessonsDone: progress.lessonsCompleted,
     studySessions: progress.sessionCount,
   };
-  const displayStats = hasRealData ? realStats : DEMO_STATS;
-  const displayStreak = hasRealData
-    ? { currentStreak: streak.currentStreak, bestStreak: streak.bestStreak }
-    : DEMO_STREAK;
-
   const weekDays = getCurrentWeek();
-  const activity = hasRealData ? (streak.dailyActivity ?? {}) : buildDemoActivity(weekDays);
+  const activity = streak.dailyActivity ?? {};
   const maxActivity = Math.max(...weekDays.map((d) => activity[d.date] || 0), 1);
 
   const isEmpty = !profile && progress.sessionCount === 0;
@@ -150,7 +132,7 @@ export default function ProgressTracker() {
                 <span className="text-sm text-gray-500">Skills Mastered</span>
                 <TrophyIcon className="w-5 h-5 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-blue-600">{displayStats.skillsMastered}</span>
+              <span className="text-2xl font-bold text-blue-600">{realStats.skillsMastered}</span>
             </div>
 
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
@@ -158,7 +140,7 @@ export default function ProgressTracker() {
                 <span className="text-sm text-gray-500">In Progress</span>
                 <ChartIcon className="w-5 h-5 text-amber-500 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-amber-500">{displayStats.inProgress}</span>
+              <span className="text-2xl font-bold text-amber-500">{realStats.inProgress}</span>
             </div>
 
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
@@ -166,7 +148,7 @@ export default function ProgressTracker() {
                 <span className="text-sm text-gray-500">Lessons Done</span>
                 <CheckIcon className="w-5 h-5 text-green-600 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-green-600">{displayStats.lessonsDone}</span>
+              <span className="text-2xl font-bold text-green-600">{realStats.lessonsDone}</span>
             </div>
 
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
@@ -174,56 +156,25 @@ export default function ProgressTracker() {
                 <span className="text-sm text-gray-500">Study Sessions</span>
                 <CalendarIcon className="w-5 h-5 text-purple-600 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-purple-600">{displayStats.studySessions}</span>
+              <span className="text-2xl font-bold text-purple-600">{realStats.studySessions}</span>
             </div>
           </div>
 
-          {/* ── Streak + Weekly Graph side by side ──────────────────────── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {/* Streak */}
-            <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl flex-shrink-0">🔥</span>
-                <div>
-                  <p className="text-sm text-orange-600 font-medium">Current Streak</p>
-                  <div className="flex items-baseline gap-1.5 mt-0.5">
-                    <span className="text-2xl font-bold text-orange-600">{displayStreak.currentStreak}</span>
-                    <span className="text-base text-orange-500">day{displayStreak.currentStreak !== 1 ? "s" : ""}</span>
-                  </div>
+          {/* ── Streak ──────────────────────────────────────────────────── */}
+          <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl flex-shrink-0">🔥</span>
+              <div>
+                <p className="text-sm text-orange-600 font-medium">Current Streak</p>
+                <div className="flex items-baseline gap-1.5 mt-0.5">
+                  <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
+                  <span className="text-base text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
                 </div>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-orange-400">Best</p>
-                <p className="text-xl font-bold text-orange-500">{displayStreak.bestStreak} days</p>
-              </div>
             </div>
-
-            {/* Weekly graph */}
-            <div className="bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm">
-              <p className="text-sm font-semibold text-gray-700 mb-3">This Week</p>
-              <div className="flex items-end justify-between gap-1 h-12">
-                {weekDays.map(({ date, label, isToday }) => {
-                  const count = activity[date] || 0;
-                  const heightPct = count > 0 ? Math.max(12, Math.round((count / maxActivity) * 100)) : 0;
-                  return (
-                    <div key={date} className="flex-1 flex flex-col items-center gap-1">
-                      <div className="w-full flex items-end justify-center" style={{ height: "36px" }}>
-                        {count > 0 ? (
-                          <div
-                            className={`w-full rounded-t-md transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
-                            style={{ height: `${heightPct}%` }}
-                          />
-                        ) : (
-                          <div className="w-full rounded-t-md bg-gray-100" style={{ height: "4px" }} />
-                        )}
-                      </div>
-                      <span className={`text-xs font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
-                        {label}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="text-right">
+              <p className="text-sm text-orange-400">Best</p>
+              <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
             </div>
           </div>
 
