@@ -131,6 +131,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   const [data, setData] = useState<Partial<OnboardingData>>(initialData || { language: "English" });
   const [name, setName] = useState(initialData?.name || "");
   const [email, setEmail] = useState(initialData?.email || "");
+  const [parentEmail, setParentEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [authLoading, setAuthLoading] = useState(false);
@@ -173,6 +174,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           id: authData.user.id,
           email,
           full_name: name,
+          parent_email: parentEmail || null,
           grade: data.grade || null,
           curriculum: data.curriculum || null,
           language: data.language || "English",
@@ -295,7 +297,9 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               <div className="flex flex-col gap-2.5 mb-2.5">
                 {!loginMode && (
                   <div>
-                    <label className="block text-sm font-semibold text-gray-800 mb-1">{t.nameLabel}</label>
+                    <label className="block text-sm font-semibold text-gray-800 mb-1">
+                      {t.nameLabel}<span className="text-red-500 ml-0.5">*</span>
+                    </label>
                     <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
                       <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -305,7 +309,9 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                   </div>
                 )}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-800 mb-1">{t.emailLabel}</label>
+                  <label className="block text-sm font-semibold text-gray-800 mb-1">
+                    {loginMode ? t.emailLabel : <>Student Email<span className="text-red-500 ml-0.5">*</span></>}
+                  </label>
                   <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
                     <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -313,6 +319,19 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     <input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
                   </div>
                 </div>
+                {!loginMode && (
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-800 mb-1">
+                      Parent Email <span className="text-gray-400 font-normal">(optional)</span>
+                    </label>
+                    <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
+                      <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <input type="email" placeholder="parent@example.com" value={parentEmail} onChange={(e) => setParentEmail(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
+                    </div>
+                  </div>
+                )}
                 <div>
                   <label className="block text-sm font-semibold text-gray-800 mb-1">{t.passwordLabel}</label>
                   <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
@@ -353,20 +372,18 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     Create Account
                   </button>
                 ) : (
-                  <button
-                    onClick={() => {
-                      setAuthError("");
-                      if (email && password) {
+                  <p className="text-center text-sm text-gray-500 mt-1">
+                    Already have an account?{" "}
+                    <button
+                      onClick={() => {
+                        setAuthError("");
                         setLoginMode(true);
-                        handleLogin();
-                      } else {
-                        setLoginMode(true);
-                      }
-                    }}
-                    className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors"
-                  >
-                    Log In
-                  </button>
+                      }}
+                      className="text-[#1a2744] font-bold underline hover:text-rose-600 transition-colors"
+                    >
+                      Log In
+                    </button>
+                  </p>
                 )}
               </div>
             </div>
