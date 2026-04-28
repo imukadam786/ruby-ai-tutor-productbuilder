@@ -10,8 +10,6 @@ import { ProgressData } from "@/types";
 import EduBackground from "@/components/EduBackground";
 import SkillTreeView from "@/components/ruby/SkillTreeView";
 import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
-import MathsJourneyRail from "@/components/ruby/MathsJourneyRail";
-import ReadingJourneyRail from "@/components/reading/ReadingJourneyRail";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 function TrophyIcon({ className }: { className?: string }) {
@@ -110,8 +108,8 @@ export default function ProgressTracker() {
 
   const isEmpty = !profile && progress.sessionCount === 0;
 
-  const [mathsTreeOpen, setMathsTreeOpen] = useState(false);
-  const [readingTreeOpen, setReadingTreeOpen] = useState(false);
+  const [mathsTreeOpen, setMathsTreeOpen] = useState(true);
+  const [readingTreeOpen, setReadingTreeOpen] = useState(true);
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -178,46 +176,14 @@ export default function ProgressTracker() {
             </div>
           </div>
 
-          {/* ── Full Weekly Activity (larger graph) ────────────────────── */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
-            <div className="flex items-end justify-between gap-1.5 h-24">
-              {weekDays.map(({ date, label, isToday }) => {
-                const count = activity[date] || 0;
-                const heightPct = count > 0 ? Math.max(10, Math.round((count / maxActivity) * 100)) : 0;
-                return (
-                  <div key={date} className="flex-1 flex flex-col items-center gap-1.5">
-                    <div className="w-full flex items-end justify-center" style={{ height: "72px" }}>
-                      {count > 0 ? (
-                        <div
-                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
-                          style={{ height: `${heightPct}%` }}
-                          title={`${count} session${count !== 1 ? "s" : ""}`}
-                        />
-                      ) : (
-                        <div className="w-full rounded-t-lg bg-gray-100" style={{ height: "6px" }} />
-                      )}
-                    </div>
-                    <span className={`text-sm font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
-                      {label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* ── Maths Journey Rail ─────────────────────────────────────── */}
-          <MathsJourneyRail profile={profile} />
-
-          {/* Collapsible full Maths skill list */}
+          {/* ── Maths Skill Tree ───────────────────────────────────────── */}
           <div className="bg-blue-50 border border-blue-100 rounded-2xl shadow-sm overflow-hidden">
             <button
               onClick={() => setMathsTreeOpen((v) => !v)}
               className="w-full flex items-center justify-between px-5 py-3.5 text-left"
             >
               <span className="text-sm font-medium text-blue-600">
-                🧮 See full Maths skill list
+                🧮 Maths Skill Tree
               </span>
               <span className="ml-3 text-blue-400">
                 <ChevronDownIcon open={mathsTreeOpen} />
@@ -230,17 +196,14 @@ export default function ProgressTracker() {
             )}
           </div>
 
-          {/* ── Reading Journey Rail ────────────────────────────────────── */}
-          <ReadingJourneyRail profile={readingProfile} />
-
-          {/* Collapsible full Reading skill list */}
+          {/* ── Reading Skill Tree ─────────────────────────────────────── */}
           <div className="bg-purple-50 border border-purple-100 rounded-2xl shadow-sm overflow-hidden">
             <button
               onClick={() => setReadingTreeOpen((v) => !v)}
               className="w-full flex items-center justify-between px-5 py-3.5 text-left"
             >
               <span className="text-sm font-medium text-purple-600">
-                📖 See full Reading skill list
+                📖 Reading Skill Tree
               </span>
               <span className="ml-3 text-purple-400">
                 <ChevronDownIcon open={readingTreeOpen} />
@@ -274,6 +237,35 @@ export default function ProgressTracker() {
               </div>
             </div>
           )}
+
+          {/* ── Weekly Study Activity (bottom) ─────────────────────────── */}
+          <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
+            <div className="flex items-end justify-between gap-1.5 h-24">
+              {weekDays.map(({ date, label, isToday }) => {
+                const count = activity[date] || 0;
+                const heightPct = count > 0 ? Math.max(10, Math.round((count / maxActivity) * 100)) : 0;
+                return (
+                  <div key={date} className="flex-1 flex flex-col items-center gap-1.5">
+                    <div className="w-full flex items-end justify-center" style={{ height: "72px" }}>
+                      {count > 0 ? (
+                        <div
+                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
+                          style={{ height: `${heightPct}%` }}
+                          title={`${count} session${count !== 1 ? "s" : ""}`}
+                        />
+                      ) : (
+                        <div className="w-full rounded-t-lg bg-gray-100" style={{ height: "6px" }} />
+                      )}
+                    </div>
+                    <span className={`text-sm font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
+                      {label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
           {/* ── Empty State ────────────────────────────────────────────── */}
           {isEmpty && (
