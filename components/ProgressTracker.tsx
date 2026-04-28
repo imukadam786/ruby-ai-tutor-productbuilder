@@ -178,37 +178,8 @@ export default function ProgressTracker() {
             </div>
           </div>
 
-          {/* ── Full Weekly Activity (larger graph) ────────────────────── */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
-            <div className="flex items-end justify-between gap-1.5 h-24">
-              {weekDays.map(({ date, label, isToday }) => {
-                const count = activity[date] || 0;
-                const heightPct = count > 0 ? Math.max(10, Math.round((count / maxActivity) * 100)) : 0;
-                return (
-                  <div key={date} className="flex-1 flex flex-col items-center gap-1.5">
-                    <div className="w-full flex items-end justify-center" style={{ height: "72px" }}>
-                      {count > 0 ? (
-                        <div
-                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
-                          style={{ height: `${heightPct}%` }}
-                          title={`${count} session${count !== 1 ? "s" : ""}`}
-                        />
-                      ) : (
-                        <div className="w-full rounded-t-lg bg-gray-100" style={{ height: "6px" }} />
-                      )}
-                    </div>
-                    <span className={`text-sm font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
-                      {label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
           {/* ── Maths Journey Rail ─────────────────────────────────────── */}
-          <MathsJourneyRail profile={profile} />
+          <MathsJourneyRail profile={profile} dailyActivity={activity} />
 
           {/* Collapsible full Maths skill list */}
           <div className="bg-blue-50 border border-blue-100 rounded-2xl shadow-sm overflow-hidden">
@@ -231,7 +202,7 @@ export default function ProgressTracker() {
           </div>
 
           {/* ── Reading Journey Rail ────────────────────────────────────── */}
-          <ReadingJourneyRail profile={readingProfile} />
+          <ReadingJourneyRail profile={readingProfile} dailyActivity={activity} />
 
           {/* Collapsible full Reading skill list */}
           <div className="bg-purple-50 border border-purple-100 rounded-2xl shadow-sm overflow-hidden">
@@ -274,6 +245,35 @@ export default function ProgressTracker() {
               </div>
             </div>
           )}
+
+          {/* ── Weekly Study Activity (bottom) ─────────────────────────── */}
+          <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
+            <div className="flex items-end justify-between gap-1.5 h-24">
+              {weekDays.map(({ date, label, isToday }) => {
+                const count = activity[date] || 0;
+                const heightPct = count > 0 ? Math.max(10, Math.round((count / maxActivity) * 100)) : 0;
+                return (
+                  <div key={date} className="flex-1 flex flex-col items-center gap-1.5">
+                    <div className="w-full flex items-end justify-center" style={{ height: "72px" }}>
+                      {count > 0 ? (
+                        <div
+                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
+                          style={{ height: `${heightPct}%` }}
+                          title={`${count} session${count !== 1 ? "s" : ""}`}
+                        />
+                      ) : (
+                        <div className="w-full rounded-t-lg bg-gray-100" style={{ height: "6px" }} />
+                      )}
+                    </div>
+                    <span className={`text-sm font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
+                      {label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
           {/* ── Empty State ────────────────────────────────────────────── */}
           {isEmpty && (

@@ -3,9 +3,11 @@
 import { useMemo } from "react";
 import skillTreeData from "@/data/skill-tree.json";
 import { StudentProfile, Level } from "@/types/ruby";
+import LearningForecastGraph from "@/components/LearningForecastGraph";
 
 interface Props {
   profile: StudentProfile | null;
+  dailyActivity?: Record<string, number>;
 }
 
 type LevelState = "skipped" | "earned" | "active" | "coming_up";
@@ -41,7 +43,7 @@ function NodeCircle({ state, levelId }: { state: LevelState; levelId: number }) 
   );
 }
 
-export default function MathsJourneyRail({ profile }: Props) {
+export default function MathsJourneyRail({ profile, dailyActivity = {} }: Props) {
   const { levelInfos, totalSkills, masteredCount, entryLevel, skippedCount } = useMemo(() => {
     const autoIds = new Set(profile?.placement?.autoCompletedSkillIds ?? []);
     const mastery = profile?.skill_mastery ?? {};
@@ -106,6 +108,10 @@ export default function MathsJourneyRail({ profile }: Props) {
 
   const remaining = totalSkills - masteredCount;
 
+  const activeIdx = levelInfos.findIndex((l) => l.state === "active");
+  const activeLevel = activeIdx >= 0 ? levelInfos[activeIdx] : null;
+  const nextLevel = activeIdx >= 0 ? levelInfos[activeIdx + 1] : null;
+
   const skippedLabel =
     skippedCount > 1
       ? `Levels 1–${skippedCount}`
@@ -125,7 +131,7 @@ export default function MathsJourneyRail({ profile }: Props) {
       </div>
 
       {/* ── Plain-language summary ── */}
-      <p className="text-sm text-gray-500 mb-4">
+      <p className="text-sm text-gray-500 mb-3">
         You&apos;ve mastered{" "}
         <span className="font-semibold text-green-600">
           {masteredCount} skill{masteredCount !== 1 ? "s" : ""}
@@ -136,6 +142,17 @@ export default function MathsJourneyRail({ profile }: Props) {
         </span>{" "}
         still to unlock.
       </p>
+
+      {/* ── Forecast graph ── */}
+      {activeLevel && (
+        <LearningForecastGraph
+          masteredInLevel={activeLevel.masteredInLevel}
+          totalInLevel={activeLevel.totalInLevel}
+          nextLevelName={nextLevel?.level.title}
+          dailyActivity={dailyActivity}
+          color="blue"
+        />
+      )}
 
       {/* ── Direction labels ── */}
       <div className="flex justify-between text-xs text-gray-300 font-medium mb-2 px-0.5">

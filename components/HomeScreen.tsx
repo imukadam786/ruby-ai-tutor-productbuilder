@@ -17,11 +17,6 @@ interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
 }
 
-// ── Demo data shown when user has no real activity yet ────────────────────────
-const DEMO_STATS = { skillsMastered: 16, inProgress: 3, lessonsDone: 40, studySessions: 40 };
-const DEMO_STREAK = { currentStreak: 28, bestStreak: 31 };
-const DEMO_DAILY = [8, 6, 7, 5, 9, 4, 2]; // Mon→Sun activity counts
-
 function getRubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   return (
     <div className={`${size} flex-shrink-0 rounded-full overflow-hidden bg-white`}>
@@ -84,12 +79,6 @@ function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
   });
 }
 
-function buildDemoActivity(weekDays: { date: string }[]): Record<string, number> {
-  const out: Record<string, number> = {};
-  weekDays.forEach(({ date }, i) => { if (DEMO_DAILY[i]) out[date] = DEMO_DAILY[i]; });
-  return out;
-}
-
 export default function HomeScreen({ onNavigate }: HomeScreenProps) {
   const { t } = useT();
 
@@ -120,10 +109,9 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
   ];
 
   const [firstName, setFirstName] = useState("there");
-  const [rawStats, setRawStats] = useState<DisplayStats>({ skillsMastered: 0, inProgress: 0, lessonsDone: 0, studySessions: 0 });
-  const [rawStreak, setRawStreak] = useState<Pick<StreakData, "currentStreak" | "bestStreak">>({ currentStreak: 0, bestStreak: 0 });
-  const [rawActivity, setRawActivity] = useState<Record<string, number>>({});
-  const [hasRealData, setHasRealData] = useState(false);
+  const [stats, setStats] = useState<DisplayStats>({ skillsMastered: 0, inProgress: 0, lessonsDone: 0, studySessions: 0 });
+  const [streak, setStreak] = useState<Pick<StreakData, "currentStreak" | "bestStreak">>({ currentStreak: 0, bestStreak: 0 });
+  const [activity, setActivity] = useState<Record<string, number>>({});
   const [showWelcomeBack, setShowWelcomeBack] = useState(false);
   const [mathsDone, setMathsDone] = useState(false);
   const [readingDone, setReadingDone] = useState(false);
@@ -141,12 +129,9 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
         getStreakData(),
       ]);
       if (auth?.name) setFirstName(auth.name.split(" ")[0]);
-      const s = buildStats(profile, progress);
-      setRawStats(s);
-      setRawStreak({ currentStreak: streakData.currentStreak, bestStreak: streakData.bestStreak });
-      setRawActivity(streakData.dailyActivity ?? {});
-      const hasActivity = !!(profile || progress.sessionCount > 0 || streakData.currentStreak > 0);
-      setHasRealData(hasActivity);
+      setStats(buildStats(profile, progress));
+      setStreak({ currentStreak: streakData.currentStreak, bestStreak: streakData.bestStreak });
+      setActivity(streakData.dailyActivity ?? {});
       setMathsDone(profile?.placementCompleted ?? false);
       setReadingDone((readingProfile as ReadingStudentProfile | null)?.placementCompleted ?? false);
 
@@ -165,9 +150,6 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
     load();
   }, []);
 
-  const stats = hasRealData ? rawStats : DEMO_STATS;
-  const streak = hasRealData ? rawStreak : DEMO_STREAK;
-  const activity = hasRealData ? rawActivity : buildDemoActivity(weekDays);
   const maxActivity = Math.max(...weekDays.map((d) => activity[d.date] || 0), 1);
 
   if (viewReport) {
@@ -229,9 +211,8 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
             ))}
           </div>
 
-          {/* ── Streak + Weekly Graph ─────────────────────────────────────── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-            {/* Streak */}
+          {/* ── Streak ───────────────────────────────────────────────────── */}
+          <div className="mb-6">
             <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
               <div className="flex items-center gap-3">
                 <span className="text-2xl flex-shrink-0">🔥</span>
@@ -246,34 +227,6 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
               <div className="text-right">
                 <p className="text-sm text-orange-400">Best</p>
                 <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
-              </div>
-            </div>
-
-            {/* Weekly graph */}
-            <div className="bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm">
-              <p className="text-sm font-semibold text-gray-700 mb-3">This Week</p>
-              <div className="flex items-end justify-between gap-1 h-12">
-                {weekDays.map(({ date, label, isToday }) => {
-                  const count = activity[date] || 0;
-                  const heightPct = count > 0 ? Math.max(12, Math.round((count / maxActivity) * 100)) : 0;
-                  return (
-                    <div key={date} className="flex-1 flex flex-col items-center gap-1">
-                      <div className="w-full flex items-end justify-center" style={{ height: "36px" }}>
-                        {count > 0 ? (
-                          <div
-                            className={`w-full rounded-t-md transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
-                            style={{ height: `${heightPct}%` }}
-                          />
-                        ) : (
-                          <div className="w-full rounded-t-md bg-gray-100" style={{ height: "4px" }} />
-                        )}
-                      </div>
-                      <span className={`text-xs font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
-                        {label}
-                      </span>
-                    </div>
-                  );
-                })}
               </div>
             </div>
           </div>
@@ -342,7 +295,7 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
           </section>
 
           {/* ── Learning Modes ────────────────────────────────────────────── */}
-          <section>
+          <section className="mb-6">
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Learning Modes</h2>
             <div className="grid grid-cols-2 gap-3">
               {learningModes.map((mode) => (
@@ -360,6 +313,34 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
               ))}
             </div>
           </section>
+
+          {/* ── Weekly Study Activity (bottom) ────────────────────────────── */}
+          <div className="bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm">
+            <p className="text-sm font-semibold text-gray-700 mb-3">Weekly Study Activity</p>
+            <div className="flex items-end justify-between gap-1 h-12">
+              {weekDays.map(({ date, label, isToday }) => {
+                const count = activity[date] || 0;
+                const heightPct = count > 0 ? Math.max(12, Math.round((count / maxActivity) * 100)) : 0;
+                return (
+                  <div key={date} className="flex-1 flex flex-col items-center gap-1">
+                    <div className="w-full flex items-end justify-center" style={{ height: "36px" }}>
+                      {count > 0 ? (
+                        <div
+                          className={`w-full rounded-t-md transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
+                          style={{ height: `${heightPct}%` }}
+                        />
+                      ) : (
+                        <div className="w-full rounded-t-md bg-gray-100" style={{ height: "4px" }} />
+                      )}
+                    </div>
+                    <span className={`text-xs font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
+                      {label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
         </div>
       </div>
