@@ -54,6 +54,33 @@ function ChevronDownIcon({ open }: { open: boolean }) {
 }
 // ─────────────────────────────────────────────────────────────────────────────
 
+const DEMO_MODE = true;
+
+const DEMO_STATS = { skillsMastered: 16, inProgress: 3, lessonsDone: 40, studySessions: 24 };
+// Sessions per day: Mon–Sun (sums to 24+ to feel realistic)
+const DEMO_WEEK_COUNTS = [4, 6, 2, 8, 5, 3, 4];
+const DEMO_STREAK = { currentStreak: 7, bestStreak: 15, lastActiveDate: "", dailyActivity: {} };
+
+// One colour per weekday bar (Mon → Sun)
+const BAR_COLORS = [
+  "bg-violet-500",
+  "bg-blue-500",
+  "bg-cyan-500",
+  "bg-emerald-500",
+  "bg-amber-500",
+  "bg-orange-500",
+  "bg-rose-500",
+];
+const BAR_COLORS_DIM = [
+  "bg-violet-200",
+  "bg-blue-200",
+  "bg-cyan-200",
+  "bg-emerald-200",
+  "bg-amber-200",
+  "bg-orange-200",
+  "bg-rose-200",
+];
+
 function toDateStr(d: Date): string {
   return d.toISOString().split("T")[0];
 }
@@ -104,11 +131,18 @@ export default function ProgressTracker() {
     lessonsDone: progress.lessonsCompleted,
     studySessions: progress.sessionCount,
   };
+
+  const displayStats = DEMO_MODE ? DEMO_STATS : realStats;
+  const displayStreak = DEMO_MODE ? DEMO_STREAK : streak;
+
   const weekDays = getCurrentWeek();
-  const activity = streak.dailyActivity ?? {};
+
+  const activity = DEMO_MODE
+    ? Object.fromEntries(weekDays.map((d, i) => [d.date, DEMO_WEEK_COUNTS[i]]))
+    : (streak.dailyActivity ?? {});
   const maxActivity = Math.max(...weekDays.map((d) => activity[d.date] || 0), 1);
 
-  const isEmpty = !profile && progress.sessionCount === 0;
+  const isEmpty = !DEMO_MODE && !profile && progress.sessionCount === 0;
 
   const [mathsTreeOpen, setMathsTreeOpen] = useState(false);
   const [readingTreeOpen, setReadingTreeOpen] = useState(false);
@@ -132,7 +166,7 @@ export default function ProgressTracker() {
                 <span className="text-sm text-gray-500">Skills Mastered</span>
                 <TrophyIcon className="w-5 h-5 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-blue-600">{realStats.skillsMastered}</span>
+              <span className="text-2xl font-bold text-blue-600">{displayStats.skillsMastered}</span>
             </div>
 
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
@@ -140,7 +174,7 @@ export default function ProgressTracker() {
                 <span className="text-sm text-gray-500">In Progress</span>
                 <ChartIcon className="w-5 h-5 text-amber-500 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-amber-500">{realStats.inProgress}</span>
+              <span className="text-2xl font-bold text-amber-500">{displayStats.inProgress}</span>
             </div>
 
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
@@ -148,7 +182,7 @@ export default function ProgressTracker() {
                 <span className="text-sm text-gray-500">Lessons Done</span>
                 <CheckIcon className="w-5 h-5 text-green-600 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-green-600">{realStats.lessonsDone}</span>
+              <span className="text-2xl font-bold text-green-600">{displayStats.lessonsDone}</span>
             </div>
 
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
@@ -156,7 +190,7 @@ export default function ProgressTracker() {
                 <span className="text-sm text-gray-500">Study Sessions</span>
                 <CalendarIcon className="w-5 h-5 text-purple-600 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-purple-600">{realStats.studySessions}</span>
+              <span className="text-2xl font-bold text-purple-600">{displayStats.studySessions}</span>
             </div>
           </div>
 
@@ -167,14 +201,14 @@ export default function ProgressTracker() {
               <div>
                 <p className="text-sm text-orange-600 font-medium">Current Streak</p>
                 <div className="flex items-baseline gap-1.5 mt-0.5">
-                  <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
-                  <span className="text-base text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
+                  <span className="text-2xl font-bold text-orange-600">{displayStreak.currentStreak}</span>
+                  <span className="text-base text-orange-500">day{displayStreak.currentStreak !== 1 ? "s" : ""}</span>
                 </div>
               </div>
             </div>
             <div className="text-right">
               <p className="text-sm text-orange-400">Best</p>
-              <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
+              <p className="text-xl font-bold text-orange-500">{displayStreak.bestStreak} days</p>
             </div>
           </div>
 
@@ -250,15 +284,17 @@ export default function ProgressTracker() {
           <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
             <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
             <div className="flex items-end justify-between gap-1.5 h-24">
-              {weekDays.map(({ date, label, isToday }) => {
+              {weekDays.map(({ date, label, isToday }, i) => {
                 const count = activity[date] || 0;
                 const heightPct = count > 0 ? Math.max(10, Math.round((count / maxActivity) * 100)) : 0;
+                const colorFull = BAR_COLORS[i];
+                const colorDim  = BAR_COLORS_DIM[i];
                 return (
                   <div key={date} className="flex-1 flex flex-col items-center gap-1.5">
                     <div className="w-full flex items-end justify-center" style={{ height: "72px" }}>
                       {count > 0 ? (
                         <div
-                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
+                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? colorFull : colorDim}`}
                           style={{ height: `${heightPct}%` }}
                           title={`${count} session${count !== 1 ? "s" : ""}`}
                         />
