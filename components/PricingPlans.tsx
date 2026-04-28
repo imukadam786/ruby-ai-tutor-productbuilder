@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import type { VoucherValidateResponse } from "@/app/api/vouchers/validate/route";
 
@@ -118,8 +118,28 @@ export default function PricingPlans({
   >(null);
 
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeCard, setActiveCard] = useState(0);
 
   const visiblePlans = mode === "upgrade" ? PLANS.filter((p) => !p.isFree) : PLANS;
+
+  useEffect(() => {
+    const container = carouselRef.current;
+    if (!container) return;
+    const handleScroll = () => {
+      const children = Array.from(container.children) as HTMLElement[];
+      const containerCenter = container.scrollLeft + container.offsetWidth / 2;
+      let closest = 0;
+      let closestDist = Infinity;
+      children.forEach((child, i) => {
+        const childCenter = child.offsetLeft + child.offsetWidth / 2;
+        const dist = Math.abs(childCenter - containerCenter);
+        if (dist < closestDist) { closestDist = dist; closest = i; }
+      });
+      setActiveCard(closest);
+    };
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
 
   function effectivePrice(plan: PricingPlan): number {
     if (plan.isFree) return 0;
@@ -229,15 +249,15 @@ export default function PricingPlans({
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 pt-5 pb-4">
+    <div className="w-full max-w-4xl mx-auto pt-5 pb-4">
       {showHeader && (
-        <div className="text-center mb-4">
+        <div className="text-center mb-4 px-4">
           <h1 className="text-2xl font-extrabold text-[#1a2744]">Choose your learning plan</h1>
         </div>
       )}
 
       {/* Voucher — top */}
-      <div className="max-w-sm mx-auto mb-4 space-y-2">
+      <div className="max-w-sm mx-auto mb-4 space-y-2 px-4">
         {appliedVoucher ? (
           <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-2xl px-4 py-3">
             <div>
@@ -282,16 +302,16 @@ export default function PricingPlans({
         {voucherError && <p className="text-xs text-red-500 px-1">{voucherError}</p>}
       </div>
 
-      {/* Plan cards — carousel on mobile, grid on desktop */}
+      {/* Plan cards — full-width carousel on mobile, grid on desktop */}
       <div
         ref={carouselRef}
         className={`
-          flex md:grid gap-4 md:gap-5
+          flex md:grid gap-0 md:gap-5
           overflow-x-auto md:overflow-visible
           snap-x snap-mandatory md:snap-none
           scrollbar-hide pb-2 md:pb-0
           pt-5 md:pt-0
-          md:items-stretch
+          md:items-stretch md:px-4
           ${mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}
         `}
       >
@@ -305,7 +325,7 @@ export default function PricingPlans({
               key={plan.key}
               className={`
                 relative border-2 rounded-2xl bg-white flex flex-col
-                flex-shrink-0 w-[78vw] md:w-auto snap-center
+                flex-shrink-0 w-[calc(100vw-2rem)] mx-4 md:mx-0 md:w-auto snap-center snap-always
                 ${plan.borderClass}
               `}
             >
@@ -398,23 +418,25 @@ export default function PricingPlans({
       </div>
 
       {/* Carousel dots — mobile only */}
-      <div className="flex md:hidden justify-center gap-2 mt-3">
+      <div className="flex md:hidden justify-center gap-2 mt-4 px-4">
         {visiblePlans.map((plan, i) => (
           <button
             key={plan.key}
             onClick={() => scrollToCard(i)}
-            className="h-2 w-2 rounded-full bg-gray-300 hover:bg-rose-400 transition-colors"
+            className={`h-2 rounded-full transition-all duration-300 ${
+              activeCard === i ? "w-5 bg-rose-500" : "w-2 bg-gray-300"
+            }`}
           />
         ))}
       </div>
 
       {error && (
-        <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2 text-center mt-3">
+        <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2 text-center mt-3 mx-4">
           {error}
         </p>
       )}
 
-      <p className="text-center text-xs text-gray-400 mt-3">
+      <p className="text-center text-xs text-gray-400 mt-3 px-4">
         Cancel anytime · Secure payment via PayFast
       </p>
     </div>

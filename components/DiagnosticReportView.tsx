@@ -114,12 +114,12 @@ export default function DiagnosticReportView({
         {/* ── Header — white panel ── */}
         <div className="bg-white px-5 py-5 border-b border-gray-100 shadow-sm">
           <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">ruby</p>
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex-1 min-w-0">
+          <div className="flex flex-col gap-3">
+            <div>
               <h1 className="text-gray-900 text-xl font-bold leading-tight">Discovery Report</h1>
               <p className="text-gray-400 text-sm mt-0.5">{subject} · Discovery Placement · {today}</p>
             </div>
-            <div className="flex gap-4 flex-shrink-0">
+            <div className="grid grid-cols-3 gap-3 border-t border-gray-100 pt-3">
               <div>
                 <p className="text-gray-400 text-[10px] font-semibold uppercase tracking-wide">Student</p>
                 <p className="text-gray-900 font-bold text-sm">{input.studentName}</p>
@@ -127,7 +127,7 @@ export default function DiagnosticReportView({
               </div>
               <div>
                 <p className="text-gray-400 text-[10px] font-semibold uppercase tracking-wide">Working Level</p>
-                <p className="text-gray-900 font-bold text-sm">{input.workingLevel}</p>
+                <p className="text-gray-900 font-bold text-sm leading-snug">{input.workingLevel}</p>
                 <p className="text-gray-400 text-xs">
                   {input.gradeLevelGap < 0
                     ? `${Math.abs(input.gradeLevelGap)} level${Math.abs(input.gradeLevelGap) !== 1 ? "s" : ""} ahead`
