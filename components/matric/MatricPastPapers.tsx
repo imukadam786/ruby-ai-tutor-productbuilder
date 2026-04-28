@@ -767,6 +767,18 @@ function SessionView({
   const [expandedDiagramUrl, setExpandedDiagramUrl] = useState<string | null>(null);
   const isMaths = paper.subject === "Mathematics";
   const STEP_LABELS = ["Step 1", "Step 2", "Step 3", "Step 4", "Final Answer"];
+
+  const MATH_SYMBOLS: { label: string; insert: string }[] = [
+    { label: "x²", insert: "²" }, { label: "x³", insert: "³" }, { label: "x⁴", insert: "⁴" }, { label: "xⁿ", insert: "ⁿ" },
+    { label: "√", insert: "√" }, { label: "∛", insert: "∛" },
+    { label: "×", insert: "×" }, { label: "÷", insert: "÷" }, { label: "±", insert: "±" },
+    { label: "≤", insert: "≤" }, { label: "≥", insert: "≥" }, { label: "≠", insert: "≠" }, { label: "≈", insert: "≈" },
+    { label: "π", insert: "π" }, { label: "∞", insert: "∞" }, { label: "Σ", insert: "Σ" },
+    { label: "°", insert: "°" }, { label: "∠", insert: "∠" }, { label: "△", insert: "△" }, { label: "∥", insert: "∥" }, { label: "⊥", insert: "⊥" },
+    { label: "∈", insert: "∈" }, { label: "∉", insert: "∉" }, { label: "∪", insert: "∪" }, { label: "∩", insert: "∩" }, { label: "∅", insert: "∅" }, { label: "ℝ", insert: "ℝ" },
+    { label: "x₀", insert: "₀" }, { label: "x₁", insert: "₁" }, { label: "x₂", insert: "₂" }, { label: "x₃", insert: "₃" },
+  ];
+
   const [mathsSteps, setMathsSteps] = useState<Record<string, string[]>>(() => {
     const init: Record<string, string[]> = {};
     flatQuestions.forEach((sq) => { init[sq.id] = ["", "", "", "", ""]; });
@@ -792,6 +804,8 @@ function SessionView({
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const coachEndRef = useRef<HTMLDivElement>(null);
+  const mathsInputRefs = useRef<Record<string, HTMLTextAreaElement | null>>({});
+  const activeMathsKey = useRef<string | null>(null);
 
   const currentSQ = flatQuestions[currentIdx];
   const currentAttempt = attempts[currentSQ.id];
@@ -841,6 +855,32 @@ function SessionView({
     },
     []
   );
+
+  const insertMathSymbol = useCallback((sym: string) => {
+    const key = activeMathsKey.current;
+    if (!key) return;
+    const el = mathsInputRefs.current[key];
+    if (!el) return;
+    const [sqId, stepIdxStr] = key.split("::") as [string, string];
+    const stepIdx = parseInt(stepIdxStr, 10);
+    const start = el.selectionStart ?? el.value.length;
+    const end = el.selectionEnd ?? el.value.length;
+    const newVal = el.value.slice(0, start) + sym + el.value.slice(end);
+    const steps = mathsSteps[sqId] ?? ["", "", "", "", ""];
+    const updated = [...steps];
+    updated[stepIdx] = newVal;
+    setMathsSteps((prev) => ({ ...prev, [sqId]: updated }));
+    updateAttempt(sqId, {
+      textWorking: updated
+        .map((v, j) => (v.trim() ? `${STEP_LABELS[j]}: ${v.trim()}` : ""))
+        .filter(Boolean)
+        .join("\n"),
+    });
+    requestAnimationFrame(() => {
+      el.focus();
+      el.setSelectionRange(start + sym.length, start + sym.length);
+    });
+  }, [mathsSteps, updateAttempt]);
 
   const handleImageSelected = (file: File) => {
     const previewUrl = URL.createObjectURL(file);
@@ -1353,15 +1393,32 @@ function SessionView({
                   </div>
                 </div>
               ) : isMaths ? (
-                /* ── Maths: Step-by-step inputs ── */
+                /* ── Maths: Symbol toolbar + Step-by-step inputs ── */
                 <>
+                  {/* Symbol toolbar */}
+                  {!currentAttempt.submitted && (
+                    <div className="flex-shrink-0 flex gap-1 overflow-x-auto pb-1 scrollbar-none">
+                      {MATH_SYMBOLS.map(({ label, insert }) => (
+                        <button
+                          key={label}
+                          onMouseDown={(e) => { e.preventDefault(); insertMathSymbol(insert); }}
+                          className="flex-shrink-0 h-8 min-w-[2rem] px-2 rounded-lg border border-gray-200 bg-white text-gray-700 text-sm font-mono hover:border-[#BE1832] hover:text-[#BE1832] hover:bg-rose-50 active:scale-95 transition-all"
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                   <div className="flex-1 overflow-y-auto min-h-0 space-y-1.5 pr-0.5">
                     {STEP_LABELS.map((label, i) => {
                       const steps = mathsSteps[currentSQ.id] ?? ["", "", "", "", ""];
+                      const refKey = `${currentSQ.id}::${i}`;
                       return (
                         <div key={label} className="flex items-start gap-2">
                           <span className="flex-shrink-0 text-xs font-semibold text-gray-400 mt-2 w-14 sm:w-20 text-right">{label}</span>
                           <textarea
+                            ref={(el) => { mathsInputRefs.current[refKey] = el; }}
+                            onFocus={() => { activeMathsKey.current = refKey; }}
                             value={steps[i]}
                             disabled={currentAttempt.submitted}
                             onChange={(e) => {
