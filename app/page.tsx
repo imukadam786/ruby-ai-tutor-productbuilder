@@ -314,8 +314,8 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
         {activeView === "matrics" && <MatricsHub onNavigate={handleViewChange} />}
-        {activeView === "matric" && <MatricPastPapers />}
-        {activeView === "prep-papers-2026" && <PrepPapers2026 />}
+        {activeView === "matric" && <MatricPastPapers onBack={() => handleViewChange("matrics")} />}
+        {activeView === "prep-papers-2026" && <PrepPapers2026 onBack={() => handleViewChange("matrics")} />}
         {activeView === "watch" && <WatchComingSoon />}
         {activeView === "study-guides" && <StudyGuides onBack={() => handleViewChange("matrics")} />}
       </main>

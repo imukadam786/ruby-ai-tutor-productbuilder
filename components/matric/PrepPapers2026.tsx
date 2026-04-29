@@ -116,11 +116,21 @@ function savePaperProgress(paperId: string, status: "in_progress" | "completed",
 
 // ── Subject Select ─────────────────────────────────────────────────────────────
 
-function SubjectSelect({ onSelect }: { onSelect: (subjectId: PrepSubjectId) => void }) {
+function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubjectId) => void; onBack: () => void }) {
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
       <div className="relative max-w-3xl mx-auto px-5 py-10 space-y-8">
+        {/* Back button */}
+        <button
+          onClick={onBack}
+          className="flex items-center gap-1.5 text-gray-500 hover:text-gray-700 transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          <span className="text-sm font-medium">Back</span>
+        </button>
         <div className="space-y-2">
           <div className="inline-flex items-center gap-2 bg-[#BE1832]/10 border border-[#BE1832]/20 text-[#BE1832] text-xs font-semibold px-3 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-[#BE1832]" />
@@ -1070,7 +1080,7 @@ function SummaryView({
 
 // ── Main Component ─────────────────────────────────────────────────────────────
 
-export default function PrepPapers2026() {
+export default function PrepPapers2026({ onBack }: { onBack?: () => void }) {
   const [phase, setPhase] = useState<Phase>("subjects");
   const [selectedSubject, setSelectedSubject] = useState<PrepSubjectId | null>(null);
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
@@ -1101,7 +1111,7 @@ export default function PrepPapers2026() {
   const handleBackToSubjects = () => { setSelectedSubject(null); setSelectedPaper(null); setFinalAttempts(null); setPhase("subjects"); };
   const handleBackToPapers = () => { setSelectedPaper(null); setFinalAttempts(null); setPhase("papers"); };
 
-  if (phase === "subjects") return <SubjectSelect onSelect={handleSubjectSelect} />;
+  if (phase === "subjects") return <SubjectSelect onSelect={handleSubjectSelect} onBack={onBack ?? (() => {})} />;
   if (phase === "papers" && selectedSubject) return <PaperList subjectId={selectedSubject} onSelect={handlePaperSelect} onBack={handleBackToSubjects} />;
   if (phase === "mode" && selectedPaper) return <ModeSelect paper={selectedPaper} onStart={handleStart} onBack={handleBackToPapers} />;
   if (phase === "session" && selectedPaper) return <SessionView key={`${selectedPaper.id}-${sessionMode}-${language}`} paper={selectedPaper} mode={sessionMode} language={language} onFinish={handleFinish} onBack={handleBackToPapers} />;

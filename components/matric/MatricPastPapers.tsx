@@ -154,12 +154,22 @@ type SubjectId = (typeof SUBJECTS)[number]["id"];
 
 // ── Subject Select ─────────────────────────────────────────────────────────────
 
-function SubjectSelect({ onSelect }: { onSelect: (subjectId: SubjectId) => void }) {
+function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: SubjectId) => void; onBack: () => void }) {
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
 
       <div className="relative max-w-3xl mx-auto px-5 py-10 space-y-8">
+        {/* Back button */}
+        <button
+          onClick={onBack}
+          className="flex items-center gap-1.5 text-gray-500 hover:text-gray-700 transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          <span className="text-sm font-medium">Back</span>
+        </button>
         {/* Header */}
         <div className="space-y-2">
           <h1 className="text-3xl font-extrabold text-gray-900">Matric Exam Prep</h1>
@@ -1954,7 +1964,7 @@ function SummaryView({
 
 // ── Main Component ─────────────────────────────────────────────────────────────
 
-export default function MatricPastPapers() {
+export default function MatricPastPapers({ onBack }: { onBack?: () => void }) {
   const [phase, setPhase] = useState<Phase>("subjects");
   const [selectedSubject, setSelectedSubject] = useState<SubjectId | null>(null);
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
@@ -2011,7 +2021,7 @@ export default function MatricPastPapers() {
   };
 
   if (phase === "subjects") {
-    return <SubjectSelect onSelect={handleSubjectSelect} />;
+    return <SubjectSelect onSelect={handleSubjectSelect} onBack={onBack ?? (() => {})} />;
   }
 
   if (phase === "papers" && selectedSubject) {

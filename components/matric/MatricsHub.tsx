@@ -8,24 +8,20 @@ interface MatricsHubProps {
 }
 
 interface MatricCardProps {
-  emoji: string;
+  image: string;
   label: string;
   caption: string;
   badge?: string;
   badgeColor?: string;
-  accentFrom: string;
-  accentTo: string;
   onClick: () => void;
 }
 
 function MatricCard({
-  emoji,
+  image,
   label,
   caption,
   badge,
   badgeColor = "bg-gray-100 text-gray-600",
-  accentFrom,
-  accentTo,
   onClick,
 }: MatricCardProps) {
   return (
@@ -33,12 +29,9 @@ function MatricCard({
       onClick={onClick}
       className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col text-left transition-all active:opacity-80 hover:shadow-xl hover:-translate-y-1"
     >
-      {/* Square gradient header with large emoji */}
-      <div
-        className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center flex-shrink-0`}
-        style={{ aspectRatio: "1 / 1" }}
-      >
-        <span style={{ fontSize: "5rem", lineHeight: 1 }}>{emoji}</span>
+      {/* Square image header */}
+      <div className="w-full flex-shrink-0" style={{ aspectRatio: "1 / 1" }}>
+        <img src={image} alt={label} className="w-full h-full object-cover" />
       </div>
       {/* Label + caption + badge */}
       <div className="px-5 pt-4 pb-5 flex flex-col items-start gap-1.5">
@@ -58,9 +51,7 @@ const CARDS: {
   view: ActiveView;
   label: string;
   caption: string;
-  emoji: string;
-  accentFrom: string;
-  accentTo: string;
+  image: string;
   badge?: string;
   badgeColor?: string;
 }[] = [
@@ -68,25 +59,19 @@ const CARDS: {
     view: "matric",
     label: "Past Papers",
     caption: "Full NSC papers with detailed memos",
-    emoji: "📝",
-    accentFrom: "from-[#BE1832]",
-    accentTo: "to-[#C94060]",
+    image: "/matric/past-papers.jpeg",
   },
   {
     view: "prep-papers-2026",
     label: "Prep Papers",
     caption: "2026 preparation papers and solutions",
-    emoji: "📋",
-    accentFrom: "from-blue-600",
-    accentTo: "to-blue-700",
+    image: "/matric/prep-papers.jpeg",
   },
   {
     view: "study-guides",
     label: "Study Guides",
     caption: "In-depth subject guides and summaries",
-    emoji: "📚",
-    accentFrom: "from-purple-600",
-    accentTo: "to-purple-700",
+    image: "/matric/study-guides.jpeg",
   },
 ];
 
@@ -118,13 +103,11 @@ export default function MatricsHub({ onNavigate }: MatricsHubProps) {
             {CARDS.map((card) => (
               <MatricCard
                 key={card.label}
-                emoji={card.emoji}
+                image={card.image}
                 label={card.label}
                 caption={card.caption}
                 badge={card.badge}
                 badgeColor={card.badgeColor}
-                accentFrom={card.accentFrom}
-                accentTo={card.accentTo}
                 onClick={() => onNavigate(card.view)}
               />
             ))}
