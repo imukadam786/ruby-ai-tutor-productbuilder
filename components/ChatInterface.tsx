@@ -99,17 +99,18 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   const uploadMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const saved = getMessages();
-    if (saved.length > 0) {
-      setMessages(saved);
-    } else {
-      setMessages([{
-        id: "welcome",
-        role: "assistant",
-        content: WELCOME_MSG,
-        timestamp: new Date().toISOString(),
-      }]);
-    }
+    getMessages().then((saved) => {
+      if (saved.length > 0) {
+        setMessages(saved);
+      } else {
+        setMessages([{
+          id: "welcome",
+          role: "assistant",
+          content: WELCOME_MSG,
+          timestamp: new Date().toISOString(),
+        }]);
+      }
+    });
   }, []);
 
   // Scroll messages container without affecting page scroll (fixes mobile push-up)

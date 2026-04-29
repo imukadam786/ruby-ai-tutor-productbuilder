@@ -3,7 +3,6 @@ import skillTreeData from "@/data/skill-tree.json";
 import { supabase } from "@/lib/supabase";
 import { retrySupabase } from "@/lib/supabase-retry";
 
-const STUDENT_KEY = "ruby_student_profile";
 const DEFAULT_STARTING_SKILL = "L1.T1.A1";
 const DEFAULT_STARTING_LEVEL = 1;
 const DEFAULT_STARTING_TIER = "L1.T1";
@@ -11,27 +10,24 @@ const DEFAULT_STARTING_TIER = "L1.T1";
 // ─── Load / Save ──────────────────────────────────────────────────────────────
 
 export function getStudentProfile(): StudentProfile | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = localStorage.getItem(STUDENT_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
-  }
+  return null;
 }
 
 export function saveStudentProfile(profile: StudentProfile): void {
-  if (typeof window === "undefined") return;
-  localStorage.setItem(STUDENT_KEY, JSON.stringify(profile));
-  // Supabase sync with retry — localStorage is source of truth
-  void retrySupabase(() => supabase.from("student_profiles").upsert({
-    id: profile.id,
-    subject: "maths",
-    name: profile.name,
-    grade: profile.grade,
-    profile_data: profile as unknown as Record<string, unknown>,
-    updated_at: new Date().toISOString(),
-  }, { onConflict: "id" }));
+  void (async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      void retrySupabase(() => supabase.from("student_profiles").upsert({
+        id: profile.id,
+        subject: "maths",
+        name: profile.name,
+        grade: profile.grade,
+        ...(user?.id ? { auth_user_id: user.id } : {}),
+        profile_data: profile as unknown as Record<string, unknown>,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: "id" }));
+    } catch { /* non-critical */ }
+  })();
 }
 
 /**
@@ -70,9 +66,7 @@ export async function hydrateStudentProfileFromSupabase(): Promise<StudentProfil
       .limit(1)
       .single();
     if (!data?.profile_data) return null;
-    const profile = data.profile_data as unknown as StudentProfile;
-    localStorage.setItem(STUDENT_KEY, JSON.stringify(profile));
-    return profile;
+    return data.profile_data as unknown as StudentProfile;
   } catch {
     return null;
   }

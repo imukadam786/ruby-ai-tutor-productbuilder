@@ -1,0 +1,692 @@
+{
+  "id": "phys-sci-p1-pred-b-2026",
+  "subject": "Physical Science",
+  "subjectCode": "phys-sci",
+  "paperCode": "P1",
+  "year": 2026,
+  "session": "Predictive 2026 — Paper B",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "infoSheet": {
+    "title": "Data Sheet",
+    "formulaSheetVariant": "physics-p1"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-1",
+          "label": "1.1",
+          "questionText": "A book lies on a table. The reaction force to the weight of the book (Newton's 3rd law pair) is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "The normal force from the table",
+            "B": "The gravitational force the book exerts on Earth",
+            "C": "The weight of the table",
+            "D": "The normal force on the table"
+          },
+          "memoText": "Correct answer: B — The gravitational force the book exerts on Earth (2 marks)\nNewton's 3rd law: gravitational force pairs are between the two interacting bodies (Earth and book). The reaction to Earth pulling the book is the book pulling the Earth.",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-2",
+          "label": "1.2",
+          "questionText": "An object slides down a frictionless inclined plane. The net force on it equals:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "mg",
+            "B": "mg sinθ",
+            "C": "mg cosθ",
+            "D": "zero"
+          },
+          "memoText": "Correct answer: B — $mg\\sin\\theta$ (2 marks)\nThe component of gravity parallel to (along) the frictionless slope is $mg\\sin\\theta$, which is the net force.",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-3",
+          "label": "1.3",
+          "questionText": "A ball is thrown upward and caught at the same height. During the flight, which quantity remains constant?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "speed",
+            "B": "velocity",
+            "C": "acceleration",
+            "D": "kinetic energy"
+          },
+          "memoText": "Correct answer: C — acceleration (2 marks)\nThroughout the flight, $g = 10$ m·s⁻² downward. Speed, velocity and KE all change continuously.",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-4",
+          "label": "1.4",
+          "questionText": "The law of conservation of momentum states that in a collision:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "kinetic energy is always conserved",
+            "B": "total momentum is conserved if no external net force acts",
+            "C": "total momentum always increases",
+            "D": "momentum is transferred to heat"
+          },
+          "memoText": "Correct answer: B — total momentum is conserved if no external net force acts (2 marks)\nThis is the standard statement of conservation of linear momentum for an isolated system.",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-5",
+          "label": "1.5",
+          "questionText": "A car decelerates uniformly from 30 m·s⁻¹ to rest over 150 m. The deceleration is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "1 m·s⁻²",
+            "B": "2 m·s⁻²",
+            "C": "3 m·s⁻²",
+            "D": "5 m·s⁻²"
+          },
+          "memoText": "Correct answer: C — 3 m·s⁻² (2 marks)\nUsing $v^2 = u^2 + 2as$: $0 = 900 - 2a(150) \\Rightarrow a = 900/300 = 3$ m·s⁻².",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-6",
+          "label": "1.6",
+          "questionText": "An ambulance moves away from a stationary person. The person hears the siren at a frequency that is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "higher than emitted",
+            "B": "lower than emitted",
+            "C": "the same as emitted",
+            "D": "zero"
+          },
+          "memoText": "Correct answer: B — lower than emitted (2 marks)\nDoppler effect: source moving away → wavefronts stretched → observed frequency is lower.",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-7",
+          "label": "1.7",
+          "questionText": "The electric field strength at a distance r from a point charge Q is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "kQ/r²",
+            "B": "kQ²/r",
+            "C": "kQ/r",
+            "D": "kQ²/r²"
+          },
+          "memoText": "Correct answer: A — $kQ/r^2$ (2 marks)\nDefinition: $E = F/q = kQ/r^2$ for a point charge.",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-8",
+          "label": "1.8",
+          "questionText": "In a circuit, the terminal voltage of a battery equals the emf when:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "the external resistance is very small",
+            "B": "no current flows",
+            "C": "the internal resistance is very large",
+            "D": "the circuit is short-circuited"
+          },
+          "memoText": "Correct answer: B — no current flows (2 marks)\n$V_{terminal} = \\varepsilon - Ir$; when $I = 0$, $V_{terminal} = \\varepsilon$.",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-9",
+          "label": "1.9",
+          "questionText": "Which phenomenon provides evidence that light has a particle nature?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "Diffraction",
+            "B": "Interference",
+            "C": "Photoelectric effect",
+            "D": "Polarisation"
+          },
+          "memoText": "Correct answer: C — Photoelectric effect (2 marks)\nThe photoelectric effect demonstrates the particle (photon) nature of light. Diffraction, interference and polarisation are wave phenomena.",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-1-10",
+          "label": "1.10",
+          "questionText": "The threshold frequency of a metal is f₀. If light of frequency 2f₀ shines on the surface, the maximum kinetic energy of emitted electrons is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "hf₀",
+            "B": "2hf₀",
+            "C": "h(2f₀ − f₀) = hf₀",
+            "D": "zero"
+          },
+          "memoText": "Correct answer: C — $hf_0$ (2 marks)\n$E_K = hf - W_0 = h(2f_0) - hf_0 = hf_0$.",
+          "topic": "Photoelectric Effect"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Newton's Laws and Forces",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-2-1",
+          "label": "2.1",
+          "questionText": "Block A (8 kg) rests on a rough horizontal surface and is connected by a light inextensible string over a frictionless pulley to Block B (3 kg) which hangs freely. The coefficient of kinetic friction between A and the surface is 0.25. Take g = 10 m·s⁻². The system is released from rest. Draw a labelled free body diagram for Block A (showing all forces). (Refer to the diagram in the question paper.)",
+          "marks": 4,
+          "type": "diagram",
+          "diagramUrl": null,
+          "memoText": "FBD for Block A must show:\nMark 1: Weight $W_A = m_A g = 80$ N downward.\nMark 2: Normal force $N = 80$ N upward (perpendicular to the horizontal surface).\nMark 3: Tension $T$ rightward (toward the pulley).\nMark 4: Kinetic friction $f_k = \\mu_k N$ leftward (opposing motion).",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-2-2",
+          "label": "2.2",
+          "questionText": "Calculate the tension T in the string.",
+          "marks": 5,
+          "type": "written",
+          "memoText": "Apply Newton's 2nd law to system (A + B move with the same acceleration):\nMark 1: Net driving force on system $= m_B g - f_k = m_B g - \\mu_k m_A g = 3 \\times 10 - 0.25 \\times 8 \\times 10 = 30 - 20 = 10$ N\nMark 2: Total mass $= 8 + 3 = 11$ kg → $a = 10/11 = 0.909$ m·s⁻²\nMark 3: For Block B: $m_B g - T = m_B a$\nMark 4: $T = m_B(g - a) = 3(10 - 0.909) = 3 \\times 9.091$\nMark 5: $T = 27.27$ N",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-2-3",
+          "label": "2.3",
+          "questionText": "Calculate the acceleration of the system.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $a = F_{net}/m_{total}$\nMark 2: $a = 10/11$\nMark 3: $a = 0.91$ m·s⁻² (downward for B; along surface for A)",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-2-4",
+          "label": "2.4",
+          "questionText": "State Newton's Third Law of Motion in words.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: When object A exerts a force on object B, then object B exerts a force on object A...\nMark 2: ...equal in magnitude but opposite in direction. (Forces always occur in equal-and-opposite pairs acting on different bodies.)",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-2-5",
+          "label": "2.5",
+          "questionText": "Give the Newton's Third Law force pair to the tension T on Block A.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The tension $T$ acts ON Block A by the string (rightward, toward pulley).\nMark 2: The Newton's 3rd law pair: Block A exerts a force of equal magnitude on the string in the opposite direction (leftward, away from the pulley).",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-2-6",
+          "label": "2.6",
+          "questionText": "A lubricant is applied to the surface (friction coefficient → 0). How does the acceleration of the system change? Explain.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: With $f_k \\to 0$, net force on system $= m_B g = 30$ N → $a = 30/11 = 2.73$ m·s⁻². Acceleration INCREASES.",
+          "topic": "Newton's Laws"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Vertical Projectile Motion",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-3-1",
+          "label": "3.1",
+          "questionText": "A ball is thrown vertically upward from the edge of a cliff 45 m high with an initial velocity of 20 m·s⁻¹. The ball eventually lands at the base of the cliff. Take upward as positive. g = 10 m·s⁻². Calculate the maximum height of the ball above the ground.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: At max height $v = 0$; cliff height $y_0 = 45$ m. Use $v^2 = v_0^2 + 2a\\Delta y$: $0 = (20)^2 + 2(-10)\\Delta y$\nMark 2: $\\Delta y = 400/20 = 20$ m above the cliff.\nMark 3: Max height above ground $= 45 + 20 = 65$ m",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-3-2",
+          "label": "3.2",
+          "questionText": "Calculate the time taken to reach maximum height.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $v = v_0 + at$: $0 = 20 - 10t$\nMark 2: $t = 2.0$ s",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-3-3",
+          "label": "3.3",
+          "questionText": "Calculate the total time of flight until the ball hits the ground.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $y = y_0 + v_0 t - \\tfrac{1}{2}gt^2$; set $y = 0$ (ground): $0 = 45 + 20t - 5t^2$\nMark 2: $5t^2 - 20t - 45 = 0 \\Rightarrow t^2 - 4t - 9 = 0 \\Rightarrow t = (4 + \\sqrt{52})/2 = (4 + 7.211)/2$\nMark 3: $t = 5.61$ s (total time of flight)",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-3-4",
+          "label": "3.4",
+          "questionText": "Calculate the velocity of the ball when it hits the ground.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $v^2 = v_0^2 + 2a\\Delta y = (20)^2 + 2(-10)(0 - 45) = 400 + 900 = 1300$\nMark 2: $v = -\\sqrt{1300} = -36.06$ m·s⁻¹ → speed on impact $= 36.06$ m·s⁻¹ DOWNWARD",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-3-5",
+          "label": "3.5",
+          "questionText": "Draw the position-time graph (y vs t) for the entire flight. Use the axes provided. Label key values clearly. (Refer to the blank y-t axes in the question paper.)",
+          "marks": 4,
+          "type": "diagram",
+          "diagramUrl": null,
+          "memoText": "y-t graph: parabolic shape (downward-opening parabola).\nMark 1: Correct starting height: ball begins at $(0; 45)$ m.\nMark 2: Maximum at $(2; 65)$ m clearly indicated.\nMark 3: Ends at the ground: $(5.61; 0)$.\nMark 4: Smooth parabolic curve (not straight lines); axes labelled correctly.",
+          "topic": "Vertical Projectile Motion"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Momentum and Impulse",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-4-1",
+          "label": "4.1",
+          "questionText": "A 0.15 kg cricket ball travelling at 30 m·s⁻¹ horizontally is hit by a bat. The ball leaves at 40 m·s⁻¹ in the opposite direction. Calculate the change in momentum of the ball.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Take direction ball travels initially as positive ($+30$ m·s⁻¹).\nMark 1: $\\Delta p = m(v_f - v_i) = 0.15(-40 - 30)$\nMark 2: $\\Delta p = 0.15 \\times (-70)$\nMark 3: $\\Delta p = -10.5$ kg·m·s⁻¹ (magnitude $= 10.5$ kg·m·s⁻¹, direction opposite to initial velocity)",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-4-2",
+          "label": "4.2",
+          "questionText": "The bat is in contact with the ball for 0.005 s. Calculate the average force exerted by the bat on the ball.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $F = \\Delta p/\\Delta t$\nMark 2: $F = 10.5/0.005$\nMark 3: $F = 2100$ N",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-4-3",
+          "label": "4.3",
+          "questionText": "State the direction of this force.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: The force is in the direction opposite to the initial velocity of the ball (i.e., in the direction the ball travels after being hit).",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-4-4",
+          "label": "4.4",
+          "questionText": "A 4 kg trolley A moving east at 6 m·s⁻¹ collides with a stationary 2 kg trolley B. After collision they move together. Calculate the velocity of the combined trolleys after the collision.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Conservation of momentum: $m_A v_A = (m_A + m_B) v_f$\nMark 2: $4 \\times 6 = (4 + 2) v_f \\Rightarrow 24 = 6 v_f$\nMark 3: $v_f = 4$ m·s⁻¹ EAST",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-4-5",
+          "label": "4.5",
+          "questionText": "Calculate the kinetic energy lost in this collision.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $E_{Ki} = \\tfrac{1}{2}(4)(6^2) = 72$ J\nMark 2: $E_{Kf} = \\tfrac{1}{2}(6)(4^2) = 48$ J\nMark 3: $\\Delta E_K$ lost $= 72 - 48 = 24$ J",
+          "topic": "Momentum and Impulse"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Work, Energy and Power",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-5-1",
+          "label": "5.1",
+          "questionText": "A 2 000 kg car engine delivers a driving force of 5 000 N. The car experiences a constant frictional force of 1 200 N. Take g = 10 m·s⁻². Calculate the net force on the car.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: $F_{net} = F_{drive} - F_{friction} = 5000 - 1200 = 3800$ N (forward)",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-5-2",
+          "label": "5.2",
+          "questionText": "Calculate the acceleration of the car.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $a = F_{net}/m = 3800/2000$\nMark 2: $a = 1.9$ m·s⁻²",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-5-3",
+          "label": "5.3",
+          "questionText": "The car accelerates from rest. Calculate the speed after travelling 400 m.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $v^2 = u^2 + 2as = 0 + 2(1.9)(400) = 1520$\nMark 2: $v = \\sqrt{1520}$\nMark 3: $v = 38.99$ m·s⁻¹ ≈ 39 m·s⁻¹",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-5-4",
+          "label": "5.4",
+          "questionText": "Calculate the work done by the engine over this 400 m.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $W_{engine} = F_{drive} \\times d = 5000 \\times 400$\nMark 2: $W_{engine} = 2\\,000\\,000$ J $= 2$ MJ",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-5-5",
+          "label": "5.5",
+          "questionText": "Calculate the work done against friction over 400 m.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: $W_{friction} = f \\times d = 1200 \\times 400 = 480\\,000$ J $= 480$ kJ",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-5-6",
+          "label": "5.6",
+          "questionText": "Verify using the work-energy theorem that your answer in 5.3 is correct.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $W_{net} = W_{engine} - W_{friction} = 2\\,000\\,000 - 480\\,000 = 1\\,520\\,000$ J\nMark 2: $\\Delta E_K = \\tfrac{1}{2}mv^2 - 0 = \\tfrac{1}{2} \\times 2000 \\times 1520 = 1\\,520\\,000$ J\nMark 3: $W_{net} = \\Delta E_K$ ✓ — work-energy theorem verified.",
+          "topic": "Work, Energy and Power"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Doppler Effect",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-6-1",
+          "label": "6.1",
+          "questionText": "A train horn emits a sound of frequency 850 Hz. The speed of sound is 340 m·s⁻¹. The train travels at 25 m·s⁻¹ toward a station. Calculate the frequency heard by a person standing on the platform as the train approaches.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $f_L = \\dfrac{v}{v - v_s} \\cdot f_s = \\dfrac{340}{340 - 25} \\times 850$\nMark 2: $= \\dfrac{340}{315} \\times 850$\nMark 3: $f_L = 917.46$ Hz",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-6-2",
+          "label": "6.2",
+          "questionText": "Calculate the frequency heard by the person as the train moves away at the same speed.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $f_L = \\dfrac{v}{v + v_s} \\cdot f_s = \\dfrac{340}{340 + 25} \\times 850$\nMark 2: $= \\dfrac{340}{365} \\times 850$\nMark 3: $f_L = 791.78$ Hz",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-6-3",
+          "label": "6.3",
+          "questionText": "How does the wavelength of the sound in FRONT of the approaching train compare to the wavelength of the emitted sound? Explain.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The wavelength is SHORTER in front of the approaching train.\nMark 2: The train 'catches up' to the waves it emits, compressing them: $\\lambda = (v - v_s)/f < v/f$.",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-6-4",
+          "label": "6.4",
+          "questionText": "Give ONE application of the Doppler effect used by traffic authorities.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1-2: Speed traps / radar guns — traffic police use Doppler radar to measure the speed of moving vehicles by comparing the frequency of emitted and reflected radio waves.",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-6-5",
+          "label": "6.5",
+          "questionText": "A learner says: \"The Doppler shift occurs because the speed of sound changes.\" Is this correct? Explain.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: No, this is incorrect. The speed of sound in a given medium is constant. It is the wavelength (and hence the observed frequency) that changes — not the speed of the wave.",
+          "topic": "Doppler Effect"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Electrostatics",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-7-1",
+          "label": "7.1",
+          "questionText": "Two point charges: Q₁ = +5 × 10⁻⁶ C and Q₂ = +5 × 10⁻⁶ C are placed 0.4 m apart. k = 9 × 10⁹ N·m²·C⁻². Calculate the electrostatic force between Q₁ and Q₂. State whether attractive or repulsive.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: $F = \\dfrac{kQ_1Q_2}{r^2}$\nMark 2: $F = \\dfrac{9\\times 10^9 \\times 5\\times 10^{-6} \\times 5\\times 10^{-6}}{(0.4)^2} = \\dfrac{225 \\times 10^{-3}}{0.16}$\nMark 3: $F = 1.406$ N\nMark 4: REPULSIVE (both charges are positive)",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-7-2",
+          "label": "7.2",
+          "questionText": "A third charge Q₃ = −2 × 10⁻⁶ C is placed midway between Q₁ and Q₂. Calculate the net force on Q₃. State the direction.",
+          "marks": 5,
+          "type": "written",
+          "memoText": "Q₃ is 0.2 m from each charge.\nMark 1: $F_1$ on Q₃ from Q₁ $= \\dfrac{9\\times 10^9 \\times 5\\times 10^{-6} \\times 2\\times 10^{-6}}{(0.2)^2} = \\dfrac{90\\times 10^{-3}}{0.04} = 2.25$ N (attractive toward Q₁)\nMark 2: $F_2$ on Q₃ from Q₂ $= 2.25$ N (attractive toward Q₂)\nMark 3: Forces equal in magnitude...\nMark 4: ...but opposite in direction (Q₃ pulled equally to left and right).\nMark 5: Net force on Q₃ $= 2.25 - 2.25 = 0$ N (by symmetry).",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-7-3",
+          "label": "7.3",
+          "questionText": "Calculate the electric field strength at the midpoint between Q₁ and Q₂ due to Q₁ only.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $E = \\dfrac{kQ_1}{r^2} = \\dfrac{9\\times 10^9 \\times 5\\times 10^{-6}}{(0.2)^2}$\nMark 2: $E = 45\\,000/0.04$\nMark 3: $E = 1.125 \\times 10^6$ N·C⁻¹, directed away from Q₁ (toward Q₂)",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-7-4",
+          "label": "7.4",
+          "questionText": "Draw and describe the electric field pattern around Q₁ alone.",
+          "marks": 3,
+          "type": "diagram",
+          "diagramUrl": null,
+          "memoText": "Mark 1: Field lines radiate outward in all directions from the positive charge Q₁.\nMark 2: Lines point away from the positive charge (correct direction shown with arrows).\nMark 3: Field is stronger closer to Q₁ (lines denser near the charge); lines do not cross.",
+          "topic": "Electrostatics"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Electric Circuits",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-8-1",
+          "label": "8.1",
+          "questionText": "A battery with emf 9 V and internal resistance 1 Ω is connected to an external circuit. R₁ = 3 Ω is in series with the parallel combination of R₂ = 4 Ω and R₃ = 6 Ω. A voltmeter is connected across the battery. (Refer to the circuit diagram in the question paper.) Calculate the equivalent resistance of R₂ and R₃ in parallel.",
+          "marks": 2,
+          "type": "written",
+          "diagramUrl": null,
+          "memoText": "Mark 1: $\\dfrac{1}{R_p} = \\dfrac{1}{R_2} + \\dfrac{1}{R_3} = \\dfrac{1}{4} + \\dfrac{1}{6} = \\dfrac{3}{12} + \\dfrac{2}{12} = \\dfrac{5}{12}$\nMark 2: $R_p = 12/5 = 2.4$ Ω",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-8-2",
+          "label": "8.2",
+          "questionText": "Calculate the total external resistance.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $R_{ext} = R_1 + R_p$\nMark 2: $R_{ext} = 3 + 2.4 = 5.4$ Ω",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-8-3",
+          "label": "8.3",
+          "questionText": "Calculate the current from the battery.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $I = \\dfrac{\\varepsilon}{R_{ext} + r}$\nMark 2: $I = \\dfrac{9}{5.4 + 1} = \\dfrac{9}{6.4}$\nMark 3: $I = 1.406$ A (unrounded $1.40625$ A)",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-8-4",
+          "label": "8.4",
+          "questionText": "Calculate the reading on the voltmeter.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "The voltmeter reads the terminal voltage.\nMark 1: $V_{terminal} = \\varepsilon - Ir$\nMark 2: $V_{terminal} = 9 - 1.406 \\times 1$\nMark 3: $V_{terminal} = 7.59$ V",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-8-5",
+          "label": "8.5",
+          "questionText": "Calculate the potential difference across the parallel combination.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $V_p = I \\times R_p$ — using the unrounded current $I = 1.40625$ A: $V_p = 1.40625 \\times 2.4 = 3.375$ V\nMark 2: $V_p \\approx 3.38$ V",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-8-6",
+          "label": "8.6",
+          "questionText": "Calculate the current through R₃.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $I_3 = V_p/R_3$\nMark 2: $I_3 = 3.375/6$\nMark 3: $I_3 = 0.5625$ A ≈ $0.56$ A",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-8-7",
+          "label": "8.7",
+          "questionText": "Calculate the power delivered by the battery.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $P = \\varepsilon I = 9 \\times 1.406$\nMark 2: $P = 12.65$ W",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-8-8",
+          "label": "8.8",
+          "questionText": "If R₁ is increased, what happens to the terminal voltage? Explain.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: If R₁ increases → $R_{total}$ increases → current $I$ decreases.\nMark 2: 'Lost voltage' across the internal resistance ($Ir$) decreases.\nMark 3: Terminal voltage $V = \\varepsilon - Ir$ INCREASES (gets closer to $\\varepsilon = 9$ V).",
+          "topic": "Circuits"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Electromagnetic Induction",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-9-1",
+          "label": "9.1",
+          "questionText": "A rectangular coil of 400 turns has an area of 0.05 m². It rotates in a uniform magnetic field of 0.8 T at 50 revolutions per second. State Lenz's Law.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The induced current flows in a direction such that the magnetic field it creates...\nMark 2: ...opposes the change in magnetic flux that caused it.",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-9-2",
+          "label": "9.2",
+          "questionText": "Calculate the peak (maximum) induced EMF.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $\\varepsilon_{peak} = NBA\\omega$ where $\\omega = 2\\pi f = 2\\pi \\times 50 = 100\\pi$ rad·s⁻¹\nMark 2: $\\varepsilon_{peak} = 400 \\times 0.8 \\times 0.05 \\times 100\\pi = 400 \\times 0.8 \\times 0.05 \\times 314.16$\nMark 3: $\\varepsilon_{peak} \\approx 5026.5$ V (≈ 5027 V)",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-9-3",
+          "label": "9.3",
+          "questionText": "Calculate the rms EMF.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $\\varepsilon_{rms} = \\varepsilon_{peak}/\\sqrt{2} = 5026.5/1.4142$\nMark 2: $\\varepsilon_{rms} = 3554$ V",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-9-4",
+          "label": "9.4",
+          "questionText": "A bar magnet is thrust quickly into a coil connected to a galvanometer. The galvanometer deflects. Explain why, using Faraday's Law.",
+          "marks": 3,
+          "type": "diagram",
+          "diagramUrl": null,
+          "memoText": "Mark 1: As the magnet moves into the coil, the magnetic flux through the coil increases (changes with time).\nMark 2: By Faraday's Law, this changing flux induces an EMF in the coil ($\\varepsilon = -N\\,d\\Phi/dt$).\nMark 3: This induced EMF drives a current through the circuit (coil + galvanometer), causing the galvanometer to deflect.",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-9-5",
+          "label": "9.5",
+          "questionText": "The magnet is then held stationary inside the coil. Explain what happens to the galvanometer reading and why.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: When the magnet is stationary, the magnetic flux through the coil is not changing ($d\\Phi/dt = 0$).\nMark 2: By Faraday's Law, no EMF is induced → no current flows → galvanometer reads zero.",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-9-6",
+          "label": "9.6",
+          "questionText": "State ONE way to increase the induced EMF in the coil.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1-2 (any one valid method): Increase the number of turns $N$; OR increase the magnetic field strength $B$ (use a stronger magnet); OR increase the area $A$ of the coil; OR increase the angular speed $\\omega$ (rotate faster).",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-9-7",
+          "label": "9.7",
+          "questionText": "Compare a step-up transformer to a step-down transformer. Give ONE difference.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: Step-up transformer — output voltage > input voltage ($N_s > N_p$); output current < input current. Step-down transformer — output voltage < input voltage ($N_s < N_p$); output current > input current.",
+          "topic": "Electromagnetic Induction"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Photoelectric Effect",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-b-2026-10-1",
+          "label": "10.1",
+          "questionText": "The graph below shows maximum kinetic energy (Ek) of emitted photoelectrons vs the frequency of incident light for a metal surface. The threshold frequency is read as 1.04 × 10¹⁵ Hz. Planck's constant h = 6.63 × 10⁻³⁴ J·s. (Refer to the Ek vs f graph in the question paper.) Explain what the threshold frequency represents in terms of the photoelectric effect.",
+          "marks": 2,
+          "type": "written",
+          "diagramUrl": null,
+          "memoText": "Mark 1: The threshold frequency is the minimum frequency of incident light required to emit electrons from the metal surface. Below this frequency, no photoelectrons are emitted regardless of intensity.\nMark 2: It corresponds to the frequency at which $hf = W_0$ (photon energy equals work function).",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-10-2",
+          "label": "10.2",
+          "questionText": "Read from the graph and calculate the work function W₀ of this metal.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: From graph: $f_0 = 1.04 \\times 10^{15}$ Hz (where $E_K = 0$).\nMark 2: $W_0 = hf_0 = 6.63 \\times 10^{-34} \\times 1.04 \\times 10^{15}$\nMark 3: $W_0 = 6.90 \\times 10^{-19}$ J",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-10-3",
+          "label": "10.3",
+          "questionText": "From the graph, determine the value of Planck's constant. Show your method clearly (use the gradient of the graph).",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Method: gradient of $E_K$ vs $f$ graph $= h$.\nMark 1: Choose two points on the graph, e.g. $(1.5\\times 10^{15}; 3.07\\times 10^{-19})$ and $(1.04\\times 10^{15}; 0)$.\nMark 2: Gradient $= \\Delta E_K / \\Delta f = (3.07\\times 10^{-19} - 0)/(1.5\\times 10^{15} - 1.04\\times 10^{15})$\nMark 3: $= 3.07\\times 10^{-19}/0.46\\times 10^{15} = 6.67 \\times 10^{-34}$ J·s\nMark 4: $h \\approx 6.63 \\times 10^{-34}$ J·s ✓ (consistent with Planck's constant)",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-b-2026-10-4",
+          "label": "10.4",
+          "questionText": "Light of wavelength 200 nm is shone on the metal surface. (Speed of light c = 3 × 10⁸ m·s⁻¹). Calculate the maximum kinetic energy of the emitted photoelectrons.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: $f = c/\\lambda = (3\\times 10^8)/(200\\times 10^{-9}) = 1.5 \\times 10^{15}$ Hz\nMark 2: $E_{photon} = hf = 6.63\\times 10^{-34} \\times 1.5\\times 10^{15} = 9.945 \\times 10^{-19}$ J\nMark 3: $E_{K(max)} = E_{photon} - W_0 = 9.945\\times 10^{-19} - 6.895\\times 10^{-19}$\nMark 4: $E_{K(max)} = 3.05 \\times 10^{-19}$ J",
+          "topic": "Photoelectric Effect"
+        }
+      ]
+    }
+  ]
+}

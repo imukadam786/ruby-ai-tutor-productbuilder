@@ -269,9 +269,9 @@ function parseDotArray(stimulus: string): number | null {
 function DotArray({ count }: { count: number }) {
   const dots = Array.from({ length: count }, (_, i) => i);
   return (
-    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 flex flex-wrap gap-3 justify-center items-center min-h-[100px]">
+    <div className="bg-gradient-to-br from-blue-50 to-blue-50 rounded-2xl p-5 flex flex-wrap gap-3 justify-center items-center min-h-[100px]">
       {dots.map((i) => (
-        <div key={i} className="w-8 h-8 rounded-full bg-teal-600 shadow-sm flex-shrink-0" />
+        <div key={i} className="w-8 h-8 rounded-full bg-blue-600 shadow-sm flex-shrink-0" />
       ))}
     </div>
   );
@@ -281,8 +281,8 @@ function StimulusDisplay({ stimulus }: { stimulus: string }) {
   const dotCount = parseDotArray(stimulus);
   if (dotCount !== null) return <DotArray count={dotCount} />;
   return (
-    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 text-center">
-      <p className="text-3xl sm:text-4xl font-bold text-teal-700 tracking-wide whitespace-pre-line">
+    <div className="bg-gradient-to-br from-blue-50 to-blue-50 rounded-2xl p-5 text-center">
+      <p className="text-3xl sm:text-4xl font-bold text-blue-700 tracking-wide whitespace-pre-line">
         {stimulus}
       </p>
     </div>
@@ -527,9 +527,9 @@ export default function MathsDiagnosticPlacement({
 
   if (phase === "welcome") {
     return (
-      <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100 items-center justify-center p-6">
+      <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-blue-100 items-center justify-center p-6">
         <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
-          <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-4xl mx-auto">
+          <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-4xl mx-auto">
             🔢
           </div>
           <div>
@@ -537,7 +537,7 @@ export default function MathsDiagnosticPlacement({
             <p className="text-gray-600 mt-3 leading-relaxed text-base">
               Before we start, let&apos;s do a short discovery activity so I can find your perfect starting point!
             </p>
-            <p className="text-emerald-600 font-medium mt-2 text-base">No pressure — just do your best 😊</p>
+            <p className="text-blue-600 font-medium mt-2 text-base">No pressure, just do your best 😊</p>
           </div>
           <div className="grid grid-cols-3 gap-2 text-sm text-gray-600">
             {[
@@ -545,7 +545,7 @@ export default function MathsDiagnosticPlacement({
               { icon: "⏱️", text: "~5 min" },
               { icon: "🏆", text: "Find your level" },
             ].map(({ icon, text }) => (
-              <div key={text} className="bg-emerald-50 rounded-xl p-2">
+              <div key={text} className="bg-blue-50 rounded-xl p-2">
                 <div className="text-xl mb-0.5">{icon}</div>
                 <p className="font-medium">{text}</p>
               </div>
@@ -553,7 +553,7 @@ export default function MathsDiagnosticPlacement({
           </div>
           <button
             onClick={loadBank}
-            className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-100"
+            className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-100"
           >
             Let&apos;s go! 🚀
           </button>
@@ -566,9 +566,9 @@ export default function MathsDiagnosticPlacement({
 
   if (phase === "loading") {
     return (
-      <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100 items-center justify-center">
+      <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-blue-100 items-center justify-center">
         <div className="text-4xl animate-spin">⚙️</div>
-        <p className="mt-4 text-teal-700 font-medium">Preparing your questions…</p>
+        <p className="mt-4 text-blue-700 font-medium">Preparing your questions…</p>
       </div>
     );
   }
@@ -602,7 +602,7 @@ export default function MathsDiagnosticPlacement({
     const totalCount = placementResult.tasks.length;
 
     return (
-      <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100 overflow-y-auto">
+      <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-blue-100 overflow-y-auto">
         <div className="max-w-lg mx-auto w-full p-4 sm:p-6 space-y-4">
           <div className="bg-white rounded-3xl shadow-md p-6 text-center space-y-3">
             <div className="text-5xl">🎉</div>
@@ -618,11 +618,11 @@ export default function MathsDiagnosticPlacement({
                 </p>
               </div>
             )}
-            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl px-4 py-3">
-              <p className="text-emerald-400 text-sm font-semibold uppercase tracking-wide mb-1">
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl px-4 py-3">
+              <p className="text-blue-400 text-sm font-semibold uppercase tracking-wide mb-1">
                 You&apos;re starting at
               </p>
-              <p className="text-emerald-800 font-bold text-xl">{entryLabel}</p>
+              <p className="text-blue-800 font-bold text-xl">{entryLabel}</p>
             </div>
           </div>
 
@@ -667,16 +667,16 @@ export default function MathsDiagnosticPlacement({
   const encouragements = ["Keep going! 💪", "Brilliant! ⭐", "You've got this! 🎯", "Fantastic! 🌟", "Amazing! 🏆"];
 
   return (
-    <div className="flex flex-col h-full bg-gradient-to-br from-emerald-50 to-teal-100">
+    <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-blue-100">
       {/* Progress bar */}
       <div className="bg-white border-b border-gray-100 px-5 py-3 flex-shrink-0">
         <div className="flex justify-between items-center mb-1.5 text-sm text-gray-400">
-          <span className="font-semibold text-teal-600">{phaseLabel}</span>
+          <span className="font-semibold text-blue-600">{phaseLabel}</span>
           <span>Q {Math.min(primaryCompleted + 1, TOTAL_QUESTIONS)} of {TOTAL_QUESTIONS}</span>
         </div>
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full transition-all duration-700"
+            className="h-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-700"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -686,7 +686,7 @@ export default function MathsDiagnosticPlacement({
         <div className="max-w-md mx-auto space-y-4">
           {/* Domain badge */}
           <div className="flex items-center gap-2">
-            <span className="bg-teal-100 text-teal-700 text-sm font-semibold px-3 py-1 rounded-full">
+            <span className="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">
               {task.domainTitle}
             </span>
           </div>
@@ -710,10 +710,10 @@ export default function MathsDiagnosticPlacement({
                     disabled={submitting || !!selectedChoice}
                     className={`px-4 py-5 rounded-2xl border-2 text-base font-bold text-center transition-all active:scale-95 ${
                       selectedChoice === c.value
-                        ? "bg-emerald-500 border-emerald-500 text-white shadow-lg scale-105"
+                        ? "bg-blue-500 border-blue-500 text-white shadow-lg scale-105"
                         : selectedChoice
                         ? "opacity-40 border-gray-200 text-gray-400 cursor-not-allowed"
-                        : "border-gray-200 text-gray-700 hover:border-emerald-300 hover:bg-emerald-50 cursor-pointer"
+                        : "border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50 cursor-pointer"
                     }`}
                   >
                     {c.label}
@@ -733,12 +733,12 @@ export default function MathsDiagnosticPlacement({
                   ref={answerInputRef}
                   disabled={submitting}
                   placeholder={task.answerMode === "numeric" ? "Type your answer…" : "Write your answer…"}
-                  className="w-full border-2 border-gray-200 rounded-2xl px-4 py-4 text-xl text-gray-800 font-semibold focus:outline-none focus:border-teal-400 transition-colors placeholder:text-gray-300 text-center"
+                  className="w-full border-2 border-gray-200 rounded-2xl px-4 py-4 text-xl text-gray-800 font-semibold focus:outline-none focus:border-blue-400 transition-colors placeholder:text-gray-300 text-center"
                 />
                 <button
                   onClick={handleSubmit}
                   disabled={submitting || !hasAnswers}
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg disabled:opacity-40 transition-all hover:shadow-md active:scale-98"
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-2xl font-bold text-lg disabled:opacity-40 transition-all hover:shadow-md active:scale-98"
                 >
                   Submit ✓
                 </button>
@@ -771,7 +771,7 @@ export default function MathsDiagnosticPlacement({
                             type="button"
                             onClick={() => updatePart("sign", "+")}
                             disabled={submitting}
-                            className={`px-3 py-2 font-bold text-lg leading-none transition-colors ${parts.sign === "+" ? "bg-teal-500 text-white" : "bg-gray-50 text-gray-400 hover:bg-gray-100"}`}
+                            className={`px-3 py-2 font-bold text-lg leading-none transition-colors ${parts.sign === "+" ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-400 hover:bg-gray-100"}`}
                           >+</button>
                           <button
                             type="button"
@@ -794,7 +794,7 @@ export default function MathsDiagnosticPlacement({
                           ref={i === 0 ? answerInputRef : undefined}
                           disabled={submitting}
                           placeholder="  ?"
-                          className="w-20 border-2 border-gray-200 rounded-xl px-2 py-2 text-xl font-bold text-center text-gray-800 focus:outline-none focus:border-teal-400 transition-colors placeholder:text-gray-300"
+                          className="w-20 border-2 border-gray-200 rounded-xl px-2 py-2 text-xl font-bold text-center text-gray-800 focus:outline-none focus:border-blue-400 transition-colors placeholder:text-gray-300"
                         />
                         <span className="text-gray-700 font-mono text-xl font-semibold select-none">)</span>
                       </div>
@@ -804,7 +804,7 @@ export default function MathsDiagnosticPlacement({
                 <button
                   onClick={handleSubmit}
                   disabled={submitting || !hasAnswers}
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg disabled:opacity-40 transition-all hover:shadow-md active:scale-98"
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-2xl font-bold text-lg disabled:opacity-40 transition-all hover:shadow-md active:scale-98"
                 >
                   Submit ✓
                 </button>
@@ -833,14 +833,14 @@ export default function MathsDiagnosticPlacement({
                       ref={i === 0 ? answerInputRef : undefined}
                       disabled={submitting}
                       placeholder={field.hint ?? "Your answer…"}
-                      className="w-full border-2 border-gray-200 rounded-2xl px-4 py-3 text-base text-gray-800 font-medium focus:outline-none focus:border-teal-400 transition-colors placeholder:text-gray-300"
+                      className="w-full border-2 border-gray-200 rounded-2xl px-4 py-3 text-base text-gray-800 font-medium focus:outline-none focus:border-blue-400 transition-colors placeholder:text-gray-300"
                     />
                   </div>
                 ))}
                 <button
                   onClick={handleSubmit}
                   disabled={submitting || !hasAnswers}
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg disabled:opacity-40 transition-all hover:shadow-md active:scale-98"
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-2xl font-bold text-lg disabled:opacity-40 transition-all hover:shadow-md active:scale-98"
                 >
                   Submit ✓
                 </button>
@@ -871,7 +871,7 @@ export default function MathsDiagnosticPlacement({
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
                     disabled={submitting}
-                    className="w-full border-2 border-dashed border-gray-200 rounded-xl py-6 flex flex-col items-center justify-center gap-2 text-gray-400 hover:border-teal-400 hover:text-teal-400 transition-colors bg-gray-50 hover:bg-teal-50"
+                    className="w-full border-2 border-dashed border-gray-200 rounded-xl py-6 flex flex-col items-center justify-center gap-2 text-gray-400 hover:border-blue-400 hover:text-blue-400 transition-colors bg-gray-50 hover:bg-blue-50"
                   >
                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
@@ -893,8 +893,8 @@ export default function MathsDiagnosticPlacement({
             )}
 
             {showEncouragement && (
-              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-3 text-center">
-                <p className="text-emerald-700 font-semibold text-base">
+              <div className="bg-blue-50 border border-blue-200 rounded-2xl p-3 text-center">
+                <p className="text-blue-700 font-semibold text-base">
                   {encouragements[primaryCompleted % encouragements.length]}
                 </p>
               </div>

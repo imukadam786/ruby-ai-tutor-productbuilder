@@ -15,7 +15,11 @@ export async function POST(req: NextRequest) {
 
         const hasImage = !!imageData;
 
-        const openaiMessages: any[] = messages.slice(0, -1).map((m) => ({
+        // Cap history at 20 messages (10 turns) to keep token cost bounded.
+        // The system prompt is a stable 4 500-token prefix — OpenAI auto-caches
+        // identical prefixes >1 024 tokens, so those tokens cost 50 % less after
+        // the first request.
+        const openaiMessages: any[] = messages.slice(0, -1).slice(-20).map((m) => ({
             role: m.role,
             content: m.content,
         }));
@@ -51,6 +55,7 @@ export async function POST(req: NextRequest) {
             model: "gpt-4o-mini",
             stream: true,
             max_tokens: 2048,
+            store: true,
             messages: [
                 {
                     role: "system",

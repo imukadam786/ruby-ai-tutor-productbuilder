@@ -97,7 +97,7 @@ export default function InstallPrompt({ onDismiss }: { onDismiss: () => void }) 
           <div className="px-5 py-4 space-y-3">
             <Step n={1} icon="⬆️" text={<>Tap the <strong>Share</strong> button at the bottom of your browser</>} />
             <Step n={2} icon="➕" text={<>Scroll down and tap <strong>Add to Home Screen</strong></>} />
-            <Step n={3} icon="💎" text={<>Tap <strong>Add</strong> — Ruby will appear on your home screen</>} />
+            <Step n={3} icon="💎" text={<>Tap <strong>Add</strong> and Ruby will appear on your home screen</>} />
           </div>
 
           <div className="px-5 pb-5">
@@ -105,7 +105,7 @@ export default function InstallPrompt({ onDismiss }: { onDismiss: () => void }) 
               onClick={onDismiss}
               className="w-full py-3.5 rounded-xl bg-[#B7182E] text-white font-bold text-base shadow-md"
             >
-              Got it — I&apos;ll add it now
+              Got it, I&apos;ll add it now
             </button>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function InstallPrompt({ onDismiss }: { onDismiss: () => void }) 
         </div>
 
         <div className="px-5 py-5 space-y-3">
-          <Feature icon="⚡" text="Loads instantly — no browser needed" />
+          <Feature icon="⚡" text="Loads instantly, no browser needed" />
           <Feature icon="📶" text="Lesson content works offline" />
           <Feature icon="📱" text="Full-screen, distraction-free learning" />
         </div>

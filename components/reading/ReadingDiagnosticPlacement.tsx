@@ -343,6 +343,28 @@ function levenshtein(a: string, b: string): number {
   return prev[n];
 }
 
+/** Soundex encoding — catches STT homophones like "gaze"→"gays", "peat"→"Pete" */
+function soundex(s: string): string {
+  const upper = s.toUpperCase().replace(/[^A-Z]/g, "");
+  if (!upper) return "";
+  const map: Record<string, string> = {
+    B: "1", F: "1", P: "1", V: "1",
+    C: "2", G: "2", J: "2", K: "2", Q: "2", S: "2", X: "2", Z: "2",
+    D: "3", T: "3",
+    L: "4",
+    M: "5", N: "5",
+    R: "6",
+  };
+  let code = upper[0];
+  let prev = map[upper[0]] ?? "0";
+  for (let i = 1; i < upper.length && code.length < 4; i++) {
+    const c = map[upper[i]] ?? "0";
+    if (c !== "0" && c !== prev) code += c;
+    prev = c;
+  }
+  return code.padEnd(4, "0");
+}
+
 function scoreVoiceResponse(transcript: string, expected: string): { correct: boolean; score: number } {
   const t = normalize(transcript);
   const e = normalize(expected);
@@ -354,6 +376,11 @@ function scoreVoiceResponse(transcript: string, expected: string): { correct: bo
   const words = transcript.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(Boolean);
   // Exact word match
   if (words.some((w) => normalize(w) === e)) return { correct: true, score: 1 };
+  // Phonetic match — catches STT homophones (e.g. "gaze"→"gays", "peat"→"Pete")
+  const ePhonetic = soundex(e);
+  if (ePhonetic && words.some((w) => soundex(normalize(w)) === ePhonetic)) {
+    return { correct: true, score: 0.9 };
+  }
   // Best Levenshtein similarity across all transcript words
   let bestSim = 0;
   for (const word of words) {
@@ -769,7 +796,7 @@ export default function ReadingDiagnosticPlacement({
   // ── Loading (tasks not yet fetched) ──────────────────────────────────────────
   if (TASKS.length === 0) {
     return (
-      <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-indigo-100 items-center justify-center">
+      <div className="flex flex-col h-full bg-gradient-to-br from-purple-50 to-purple-100 items-center justify-center">
         <div className="text-5xl animate-bounce mb-4">📚</div>
         <p className="text-gray-600 text-base font-medium">Loading your activities…</p>
       </div>
@@ -779,19 +806,19 @@ export default function ReadingDiagnosticPlacement({
   // ── Welcome ──────────────────────────────────────────────────────────────────
   if (phase === "welcome") {
     return (
-      <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-indigo-100 items-center justify-center p-6">
+      <div className="flex flex-col h-full bg-gradient-to-br from-purple-50 to-purple-100 items-center justify-center p-6">
         <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
-          <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-4xl mx-auto">🌟</div>
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-4xl mx-auto">🌟</div>
           <div>
             <h2 className="text-3xl font-bold text-gray-900">Hi {studentName}!</h2>
             <p className="text-gray-600 mt-3 leading-relaxed text-base">
               Before we start, let&apos;s do a short discovery activity so I can find your perfect starting point!
             </p>
-            <p className="text-blue-600 font-medium mt-2 text-base">No pressure — just do your best 😊</p>
+            <p className="text-purple-600 font-medium mt-2 text-base">No pressure, just do your best 😊</p>
           </div>
           <div className="grid grid-cols-3 gap-2 text-sm text-gray-600">
             {[{ icon: "🎯", text: `${TASKS.length} activities` }, { icon: "⏱️", text: "10–15 min" }, { icon: "🏆", text: "Find your level" }].map(({ icon, text }) => (
-              <div key={text} className="bg-blue-50 rounded-xl p-2">
+              <div key={text} className="bg-purple-50 rounded-xl p-2">
                 <div className="text-xl mb-0.5">{icon}</div>
                 <p className="font-medium">{text}</p>
               </div>
@@ -799,7 +826,7 @@ export default function ReadingDiagnosticPlacement({
           </div>
           <button
             onClick={() => setPhase("task")}
-            className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-100"
+            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-100"
           >
             Let&apos;s go! 🚀
           </button>
@@ -811,7 +838,7 @@ export default function ReadingDiagnosticPlacement({
   // ── Calculating ───────────────────────────────────────────────────────────────
   if (phase === "calculating") {
     return (
-      <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-indigo-100 items-center justify-center p-6">
+      <div className="flex flex-col h-full bg-gradient-to-br from-purple-50 to-purple-100 items-center justify-center p-6">
         <div className="text-center space-y-5">
           <div className="text-7xl animate-bounce">🌍</div>
           <h3 className="text-2xl font-bold text-gray-800">Working out your perfect learning path…</h3>
@@ -842,7 +869,7 @@ export default function ReadingDiagnosticPlacement({
     const getState = (id: string) => id === placementResult.entrySkillId ? "active" : placementResult.autoCompletedSkillIds.includes(id) ? "mastered" : "locked";
 
     return (
-      <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-indigo-100 overflow-y-auto">
+      <div className="flex flex-col h-full bg-gradient-to-br from-purple-50 to-purple-100 overflow-y-auto">
         <div className="max-w-lg mx-auto w-full p-4 sm:p-6 space-y-4">
           <div className="bg-white rounded-3xl shadow-md p-6 text-center space-y-3">
             <div className="text-5xl">🎉</div>
@@ -853,9 +880,9 @@ export default function ReadingDiagnosticPlacement({
                 <p className="text-green-700 font-bold text-lg">You already know {autoCount} skill{autoCount !== 1 ? "s" : ""}! ✅</p>
               </div>
             )}
-            <div className="bg-blue-50 border border-blue-200 rounded-2xl px-4 py-3">
-              <p className="text-blue-400 text-sm font-semibold uppercase tracking-wide mb-1">You&apos;re starting at</p>
-              <p className="text-blue-800 font-bold text-xl">{entryName}</p>
+            <div className="bg-purple-50 border border-purple-200 rounded-2xl px-4 py-3">
+              <p className="text-purple-400 text-sm font-semibold uppercase tracking-wide mb-1">You&apos;re starting at</p>
+              <p className="text-purple-800 font-bold text-xl">{entryName}</p>
             </div>
           </div>
 
@@ -875,7 +902,7 @@ export default function ReadingDiagnosticPlacement({
                         const s = getState(id);
                         return (
                           <div key={id} className={`w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold ${
-                            s === "mastered" ? "bg-green-400 text-white" : s === "active" ? "bg-blue-500 text-white ring-2 ring-blue-300 ring-offset-1 scale-110" : "bg-gray-200 text-gray-400"
+                            s === "mastered" ? "bg-green-400 text-white" : s === "active" ? "bg-purple-500 text-white ring-2 ring-purple-300 ring-offset-1 scale-110" : "bg-gray-200 text-gray-400"
                           }`}>
                             {s === "mastered" ? "✓" : s === "active" ? "★" : "·"}
                           </div>
@@ -888,7 +915,7 @@ export default function ReadingDiagnosticPlacement({
             </div>
             <div className="flex gap-4 mt-3 pt-3 border-t border-gray-100 text-sm text-gray-400">
               <span className="flex items-center gap-1"><span className="w-3 h-3 bg-green-400 rounded inline-block" />Mastered</span>
-              <span className="flex items-center gap-1"><span className="w-3 h-3 bg-blue-500 rounded inline-block" />Start here</span>
+              <span className="flex items-center gap-1"><span className="w-3 h-3 bg-purple-500 rounded inline-block" />Start here</span>
               <span className="flex items-center gap-1"><span className="w-3 h-3 bg-gray-200 rounded inline-block" />Locked</span>
             </div>
           </div>
@@ -927,7 +954,7 @@ export default function ReadingDiagnosticPlacement({
   const canSubmitVoice = task.answerMode === "voice" && !submitting;
 
   return (
-    <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="flex flex-col h-full bg-gradient-to-br from-purple-50 to-purple-100">
       {/* Top bar */}
       <div className="bg-white border-b border-gray-100 px-5 py-3 flex-shrink-0">
         <div className="flex justify-between items-center mb-1.5 text-sm text-gray-400">
@@ -935,7 +962,7 @@ export default function ReadingDiagnosticPlacement({
           <span>{taskIndex + 1} of {TASKS.length}</span>
         </div>
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full transition-all duration-700" style={{ width: `${progress}%` }} />
+          <div className="h-full bg-gradient-to-r from-purple-400 to-purple-500 rounded-full transition-all duration-700" style={{ width: `${progress}%` }} />
         </div>
       </div>
 
@@ -944,8 +971,8 @@ export default function ReadingDiagnosticPlacement({
 
           {/* Domain badge */}
           <div className="flex items-center gap-2">
-            <span className="bg-indigo-100 text-indigo-700 text-sm font-semibold px-3 py-1 rounded-full">{task.domain}</span>
-            {speaking && <span className="text-sm text-blue-400 flex items-center gap-1"><span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" />Reading aloud…</span>}
+            <span className="bg-purple-100 text-purple-700 text-sm font-semibold px-3 py-1 rounded-full">{task.domain}</span>
+            {speaking && <span className="text-sm text-purple-400 flex items-center gap-1"><span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" />Reading aloud…</span>}
           </div>
 
           {/* Question card */}
@@ -964,7 +991,7 @@ export default function ReadingDiagnosticPlacement({
                 cancelSpeech.current = speakText(task.question, () => setSpeaking(false));
                 setSpeaking(true);
               }}
-              className="flex items-center gap-1.5 text-sm text-blue-400 hover:text-blue-600 transition-colors"
+              className="flex items-center gap-1.5 text-sm text-purple-400 hover:text-purple-600 transition-colors"
             >
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
               Hear the question
@@ -972,8 +999,8 @@ export default function ReadingDiagnosticPlacement({
 
             {/* ── Large word display ── */}
             {task.displayWord && !isFlashTask && (
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 text-center">
-                <p className="text-5xl sm:text-6xl font-bold text-blue-700 tracking-wider">
+              <div className="bg-gradient-to-br from-purple-50 to-purple-50 rounded-2xl p-6 text-center">
+                <p className="text-5xl sm:text-6xl font-bold text-purple-700 tracking-wider">
                   {task.displayWord}
                 </p>
               </div>
@@ -988,11 +1015,11 @@ export default function ReadingDiagnosticPlacement({
 
             {/* ── Flash mechanic (D11) ── */}
             {isFlashTask && (
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 text-center min-h-[100px] flex items-center justify-center">
+              <div className="bg-gradient-to-br from-purple-50 to-purple-50 rounded-2xl p-8 text-center min-h-[100px] flex items-center justify-center">
                 {flashVisible ? (
-                  <p className="text-5xl font-bold text-blue-700 animate-pulse">{task.flashWord}</p>
+                  <p className="text-5xl font-bold text-purple-700 animate-pulse">{task.flashWord}</p>
                 ) : flashDone ? (
-                  <p className="text-gray-400 text-base">The word has disappeared — now choose below!</p>
+                  <p className="text-gray-400 text-base">The word has disappeared, now choose below!</p>
                 ) : (
                   <p className="text-gray-400 text-base">Get ready… the word is about to appear!</p>
                 )}
@@ -1013,10 +1040,10 @@ export default function ReadingDiagnosticPlacement({
                     disabled={submitting || !!selectedChoice}
                     className={`px-4 py-4 rounded-2xl border-2 text-base font-semibold text-left transition-all select-none ${
                       selectedChoice === c.value
-                        ? "bg-blue-500 border-blue-500 text-white shadow-lg scale-105"
+                        ? "bg-purple-500 border-purple-500 text-white shadow-lg scale-105"
                         : selectedChoice
                         ? "opacity-40 border-gray-200 text-gray-400 cursor-not-allowed pointer-events-none"
-                        : "border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50 active:scale-95"
+                        : "border-gray-200 text-gray-700 hover:border-purple-300 hover:bg-purple-50 active:scale-95"
                     }`}
                   >
                     {c.label}
@@ -1030,7 +1057,7 @@ export default function ReadingDiagnosticPlacement({
               <div className="flex items-center justify-center py-4">
                 <div className="flex gap-1">
                   {[0,1,2].map(i => (
-                    <span key={i} className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: `${i*150}ms` }} />
+                    <span key={i} className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: `${i*150}ms` }} />
                   ))}
                 </div>
               </div>
@@ -1063,7 +1090,7 @@ export default function ReadingDiagnosticPlacement({
                             ? "bg-gray-300 text-gray-400 cursor-not-allowed"
                             : sttHavingTrouble
                             ? "bg-orange-500 text-white hover:bg-orange-600"
-                            : "bg-blue-500 text-white hover:bg-blue-600"
+                            : "bg-purple-500 text-white hover:bg-purple-600"
                         }`}
                       >
                         {listening ? (
@@ -1078,7 +1105,7 @@ export default function ReadingDiagnosticPlacement({
                         {speaking ? <span className="text-gray-400">⏳ Listen to the question first…</span>
                           : listening ? <span className="text-gray-400">🔴 Listening… tap to stop</span>
                           : !micEnabled ? <span className="text-gray-400">⏳ Getting ready…</span>
-                          : sttHavingTrouble ? <span className="text-orange-500">Having trouble hearing you — tap to try again</span>
+                          : sttHavingTrouble ? <span className="text-orange-500">Having trouble hearing you, tap to try again</span>
                           : <span className="text-gray-400">Tap the mic to speak</span>}
                       </p>
                     </div>
@@ -1096,7 +1123,7 @@ export default function ReadingDiagnosticPlacement({
                       <button
                         onClick={handleVoiceSubmit}
                         disabled={(!transcript && !listening) || submitting}
-                        className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                        className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                       >
                         {submitting ? (
                           <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Saving…</>
@@ -1124,10 +1151,10 @@ export default function ReadingDiagnosticPlacement({
                       disabled={submitting}
                       className={`flex flex-col items-center justify-center gap-2 py-5 rounded-2xl border-2 font-bold transition-all active:scale-95 ${
                         selectedChoice === choiceKey
-                          ? "bg-blue-500 border-blue-500 text-white shadow-lg scale-105"
+                          ? "bg-purple-500 border-purple-500 text-white shadow-lg scale-105"
                           : playingChoiceValue === choiceKey
-                          ? "bg-blue-50 border-blue-400 text-blue-700"
-                          : "border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50"
+                          ? "bg-purple-50 border-purple-400 text-purple-700"
+                          : "border-gray-200 text-gray-700 hover:border-purple-300 hover:bg-purple-50"
                       }`}
                     >
                       {playingChoiceValue === choiceKey ? (
@@ -1146,7 +1173,7 @@ export default function ReadingDiagnosticPlacement({
                   <button
                     onClick={handleAudioTapSubmit}
                     disabled={submitting || !submitReady}
-                    className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                   >
                     {submitting ? (
                       <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Saving…</>

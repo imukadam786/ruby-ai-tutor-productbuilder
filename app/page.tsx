@@ -6,7 +6,13 @@ import dynamic from "next/dynamic";
 import Sidebar from "@/components/Sidebar";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
-import BetaBanner from "@/components/beta/BetaBanner";
+import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
+const DiscoveryTutorial  = dynamic(() => import("@/components/tutorial/DiscoveryTutorial"),  { ssr: false });
+const ReadingTutorial    = dynamic(() => import("@/components/tutorial/ReadingTutorial"),    { ssr: false });
+const MathsTutorial      = dynamic(() => import("@/components/tutorial/MathsTutorial"),      { ssr: false });
+const SkillTreeTutorial  = dynamic(() => import("@/components/tutorial/SkillTreeTutorial"),  { ssr: false });
+const MatricTutorial     = dynamic(() => import("@/components/tutorial/MatricTutorial"),     { ssr: false });
+const SubjectsTutorial   = dynamic(() => import("@/components/tutorial/SubjectsTutorial"),   { ssr: false });
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
@@ -17,34 +23,82 @@ const StudentDashboard     = dynamic(() => import("@/components/ruby/StudentDash
 const ReadingSession       = dynamic(() => import("@/components/reading/ReadingSession"),               { ssr: false });
 const ReadingSkillTreeView = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),         { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
-const MatricComingSoon     = dynamic(() => import("@/components/MatricComingSoon"),                     { ssr: false });
+const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
+const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
+const StudyGuides              = dynamic(() => import("@/components/matric/StudyGuides"),                   { ssr: false });
+const DiscoverHub              = dynamic(() => import("@/components/DiscoverHub"),                         { ssr: false });
+const SubjectsHub              = dynamic(() => import("@/components/SubjectsHub"),                         { ssr: false });
+const MatricsHub               = dynamic(() => import("@/components/matric/MatricsHub"),                    { ssr: false });
 const WatchComingSoon      = dynamic(() => import("@/components/WatchComingSoon"),                      { ssr: false });
 const LanguagePickerModal  = dynamic(() => import("@/components/LanguagePickerModal"),                  { ssr: false });
 const PostSessionSurvey    = dynamic(() => import("@/components/beta/PostSessionSurvey"),               { ssr: false });
 const FloatingFeedback     = dynamic(() => import("@/components/beta/FloatingFeedback"),                { ssr: false });
 import ErrorBoundary from "@/components/ErrorBoundary";
-const TrialExpiredScreen = dynamic(() => import("@/components/TrialExpiredScreen"), { ssr: false });
+import PricingPlans from "@/components/PricingPlans";
+const UpgradeModal = dynamic(() => import("@/components/UpgradeModal"), { ssr: false });
 import { supabase } from "@/lib/supabase";
 import { ActiveView } from "@/types";
 import { LanguageProvider, useT } from "@/lib/i18n";
-import { getProgress, incrementSession, clearAllUserData, PERSISTENT_USER_KEYS } from "@/lib/storage";
-import { getStudentProfile } from "@/lib/student-model";
-import { getReadingProfile } from "@/lib/reading-student-model";
+import { getProgress, incrementSession } from "@/lib/storage";
+import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
+import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
 import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
 
+// ── Placement guard shown when user navigates to a subject before Discovery ───
+function PlacementGuardScreen({
+  subject,
+  onGoToDiscover,
+}: {
+  subject: "maths" | "reading";
+  onGoToDiscover: () => void;
+}) {
+  return (
+    <div className="flex items-center justify-center h-full bg-gray-50">
+      <div className="bg-white rounded-2xl shadow-md p-8 max-w-sm w-full text-center space-y-4 mx-4">
+        <div className="text-5xl">🧭</div>
+        <h2 className="text-xl font-bold text-gray-800">Complete Discovery First</h2>
+        <p className="text-gray-500 text-sm leading-relaxed">
+          Take the Discovery Activity so Ruby can find the right starting point for your{" "}
+          {subject === "maths" ? "Maths" : "Reading"} journey.
+        </p>
+        <button
+          onClick={onGoToDiscover}
+          className="w-full py-3 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-base transition-colors"
+        >
+          Start Discovery Activity
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── Maps each tutorial-eligible nav view to its localStorage seen-key ────────
+const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
+  chat:          "ruby_tut_chat",
+  subjects:      "ruby_tut_subjects",
+  discover:      "ruby_tut_discover",
+  ruby:          "ruby_tut_maths",
+  reading:       "ruby_tut_reading",
+  "skill-tree":  "ruby_tut_skill_tree",
+  matric:        "ruby_tut_matric",
+};
+
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
-function AppContent() {
+function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView; onPostDiscovery?: () => void }) {
   const { t } = useT();
 
-  const [activeView, setActiveView] = useState<ActiveView>("home");
+  const [activeView, setActiveView] = useState<ActiveView>(initialView ?? "home");
+  const postDiscoveryFiredRef = useRef(false);
   const [paymentReturn, setPaymentReturn] = useState<"success" | "cancelled" | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [stats, setStats] = useState({ lessonsCompleted: 0 });
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
+  const [activeTutorial, setActiveTutorial] = useState<ActiveView | null>(null);
 
   const viewLabels: Record<ActiveView, string> = {
     home: t("sidebar.home"),
@@ -58,13 +112,25 @@ function AppContent() {
     "reading-skill-tree": t("nav.reading_skill_tree"),
     settings: t("sidebar.settings"),
     matric: "Matric Preparation",
+    "prep-papers-2026": "Prep Papers 2026",
+    "discover-maths": "Discover · Maths",
+    "discover-reading": "Discover · Reading",
+    "discover": "Discover",
+    subjects: "Subjects",
+    matrics: "Matrics",
+    "study-guides": "Study Guides",
   };
 
   const refreshStats = useCallback(() => {
-    const progress = getProgress();
-    setStats({ lessonsCompleted: progress.lessonsCompleted });
-    setRubyProfile(getStudentProfile());
+    void getProgress().then((progress) => {
+      setStats({ lessonsCompleted: progress.lessonsCompleted });
+    });
+    void hydrateStudentProfileFromSupabase().then((profile) => setRubyProfile(profile));
   }, []);
+
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  const [upgradeReason, setUpgradeReason] = useState<string | undefined>(undefined);
+  const [streakToast, setStreakToast] = useState<number | null>(null);
 
   // Track chat engagement (at least one message sent this session)
   const [chatEngaged, setChatEngaged] = useState(false);
@@ -84,6 +150,16 @@ function AppContent() {
   }, []);
 
   useEffect(() => {
+    const onUpgradeNeeded = (e: Event) => {
+      const reason = (e as CustomEvent<{ reason?: string }>).detail?.reason;
+      setUpgradeReason(reason);
+      setShowUpgradeModal(true);
+    };
+    document.addEventListener("ruby-upgrade-needed", onUpgradeNeeded);
+    return () => document.removeEventListener("ruby-upgrade-needed", onUpgradeNeeded);
+  }, []);
+
+  useEffect(() => {
     refreshStats();
 
     // Maths + reading: count session + trigger survey after each micro skill is mastered
@@ -91,11 +167,31 @@ function AppContent() {
       const type = (e as CustomEvent).detail?.type as "maths" | "reading";
       if (!type) return;
       incrementSession();
+      // During onboarding discovery, skip the survey — onSelectPlan in the
+      // session component handles the transition to PostDiscoveryScreen.
+      if (onPostDiscovery) return;
       setSurvey({ type });
     };
     document.addEventListener("ruby-skill-mastered", onSkillMastered);
-    return () => document.removeEventListener("ruby-skill-mastered", onSkillMastered);
-  }, [refreshStats]);
+
+    // Streak milestone toast — fires when a new-day streak update happens
+    const STREAK_MILESTONES = [3, 7, 14, 30];
+    const onStreakUpdated = (e: Event) => {
+      const newStreak = (e as CustomEvent<{ streak: number }>).detail?.streak;
+      if (!newStreak) return;
+      const key = `streak_milestone_${newStreak}_shown`;
+      if (STREAK_MILESTONES.includes(newStreak) && !localStorage.getItem(key)) {
+        localStorage.setItem(key, "1");
+        setStreakToast(newStreak);
+      }
+    };
+    document.addEventListener("ruby-streak-updated", onStreakUpdated);
+
+    return () => {
+      document.removeEventListener("ruby-skill-mastered", onSkillMastered);
+      document.removeEventListener("ruby-streak-updated", onStreakUpdated);
+    };
+  }, [refreshStats, onPostDiscovery]);
 
   const handleViewChange = (view: ActiveView) => {
     // Chat: trigger survey when leaving chat after sending at least one message
@@ -108,17 +204,42 @@ function AppContent() {
       setChatEngaged(false);
     }
     setActiveView(view);
-    if (view === "skill-tree" || view === "student-dashboard") {
-      setRubyProfile(getStudentProfile());
+    if (view === "skill-tree" || view === "student-dashboard" || view === "ruby" || view === "discover-maths") {
+      void hydrateStudentProfileFromSupabase().then((p) => setRubyProfile(p));
     }
-    if (view === "reading" || view === "reading-skill-tree") {
-      setReadingProfile(getReadingProfile());
+    if (view === "reading" || view === "reading-skill-tree" || view === "discover-reading") {
+      void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
+    }
+
+    // Show feature tutorial on first visit
+    const tutKey = FEATURE_TUTORIAL_KEYS[view];
+    if (tutKey && !localStorage.getItem(tutKey)) {
+      localStorage.setItem(tutKey, "1");
+      setActiveTutorial(view);
     }
   };
 
   return (
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
-      <BetaBanner />
+      {/* ── Streak milestone toast ──────────────────────────────────────── */}
+      {streakToast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-gradient-to-r from-orange-500 to-amber-400 text-white rounded-2xl px-6 py-4 shadow-xl flex items-center gap-3 max-w-sm w-[calc(100%-2rem)] animate-bounce-once">
+          <span className="text-3xl">🔥</span>
+          <div className="flex-1">
+            <p className="font-bold text-base">{streakToast}-day streak!</p>
+            <p className="text-orange-100 text-sm">You&apos;re on a roll, keep it up!</p>
+          </div>
+          <button
+            onClick={() => setStreakToast(null)}
+            className="text-white/70 hover:text-white transition-colors flex-shrink-0"
+            aria-label="Dismiss"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      )}
 
       {/* Mobile top bar — in normal flow so banner shows above it */}
       <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm z-30">
@@ -133,7 +254,7 @@ function AppContent() {
           </svg>
         </button>
         <span className="flex-1 font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
-        {["chat", "ruby", "reading"].includes(activeView) ? (
+        {["chat", "ruby", "reading", "discover-maths", "discover-reading", "discover", "subjects"].includes(activeView) ? (
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("ruby-action"))}
             className="p-2 rounded-lg text-gray-500 hover:text-gray-800 hover:bg-gray-100 transition-colors"
@@ -162,9 +283,10 @@ function AppContent() {
       <Sidebar
         activeView={activeView}
         onViewChange={handleViewChange}
-  
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        collapsed={sidebarCollapsed}
+        onToggleCollapse={() => setSidebarCollapsed((v) => !v)}
         onSettings={() => handleViewChange("settings")}
         onOpenLangPicker={() => setShowLangPicker(true)}
         onLogout={async () => {
@@ -182,13 +304,20 @@ function AppContent() {
         {activeView === "chat" && <ChatInterface onMessageSent={() => { chatMessageCountRef.current += 1; if (chatMessageCountRef.current >= 3) incrementSession(); refreshStats(); setChatEngaged(true); }} />}
         {activeView === "progress" && <ProgressTracker />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
+        {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
         {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
+        {activeView === "discover-reading" && <ErrorBoundary><ReadingSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
-        {activeView === "matric" && <MatricComingSoon />}
+        {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
+        {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
+        {activeView === "matrics" && <MatricsHub onNavigate={handleViewChange} />}
+        {activeView === "matric" && <MatricPastPapers onBack={() => handleViewChange("matrics")} />}
+        {activeView === "prep-papers-2026" && <PrepPapers2026 onBack={() => handleViewChange("matrics")} />}
         {activeView === "watch" && <WatchComingSoon />}
+        {activeView === "study-guides" && <StudyGuides onBack={() => handleViewChange("matrics")} />}
       </main>
 
       </div>{/* end inner row */}
@@ -199,6 +328,23 @@ function AppContent() {
           onClose={() => setSurvey(null)}
         />
       )}
+
+      {showUpgradeModal && (
+        <UpgradeModal
+          reason={upgradeReason}
+          onDismiss={() => { setShowUpgradeModal(false); setUpgradeReason(undefined); }}
+        />
+      )}
+
+      {/* Contextual feature tutorials — shown first time user visits each feature */}
+      {activeTutorial === "subjects"    && <SubjectsTutorial   onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "discover"    && <DiscoveryTutorial  onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "ruby"        && <MathsTutorial      onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "reading"     && <ReadingTutorial    onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "chat"        && <HomeworkTutorial   onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "skill-tree"  && <SkillTreeTutorial  onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "matric"      && <MatricTutorial     onComplete={() => setActiveTutorial(null)} />}
+
       <FloatingFeedback />
     </div>
   );
@@ -209,12 +355,6 @@ function AppContent() {
 const InstallPrompt = dynamic(() => import("@/components/InstallPrompt"), { ssr: false });
 
 function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearning: () => void }) {
-  const [showInstall, setShowInstall] = useState(false);
-
-  const handleStartLearning = () => {
-    setShowInstall(true);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
@@ -223,7 +363,6 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
         </h1>
         <p className="text-gray-500 text-base">Your account has been created and you&apos;re all set to start your learning journey.</p>
 
-        {/* Hero characters */}
         <div className="flex justify-center">
           <img
             src="/ruby-heroes.png"
@@ -233,29 +372,114 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
         </div>
 
         <button
-          onClick={handleStartLearning}
+          onClick={onStartLearning}
           className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg transition-colors shadow-md"
         >
-          Start Learning 🚀
+          Select Your Plan 🚀
         </button>
       </div>
+    </div>
+  );
+}
 
-      {showInstall && (
-        <InstallPrompt onDismiss={onStartLearning} />
-      )}
+// ── Post-onboarding discovery prompt ──────────────────────────────────────────
+function DiscoveryPromptScreen({ name, onSelect }: { name: string; onSelect: (subject: "maths" | "reading") => void }) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-6">
+      <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
+        <div className="text-5xl">🧭</div>
+        <h1 className="text-2xl font-bold text-[#1a2744]">
+          Welcome, {name}! Let&apos;s find your level
+        </h1>
+        <p className="text-gray-500 text-base leading-relaxed">
+          Take a quick Discovery Activity so Ruby knows exactly where to start your learning journey.
+        </p>
+        <div className="space-y-3 pt-1">
+          <button
+            onClick={() => onSelect("maths")}
+            className="w-full py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
+          >
+            <span>🧮</span> Start Maths Discovery
+          </button>
+          <button
+            onClick={() => onSelect("reading")}
+            className="w-full py-4 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
+          >
+            <span>📖</span> Start Reading Discovery
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Post-discovery bridge — shown after Discovery completes, before plan selection ──
+function PostDiscoveryScreen({ onContinue }: { onContinue: () => void }) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+      <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
+        <div className="text-5xl">🎉</div>
+        <h1 className="text-2xl font-bold text-[#1a2744]">
+          Discovery complete!
+        </h1>
+        <p className="text-gray-500 text-base leading-relaxed">
+          Ruby now knows your starting level. To unlock your full personalised learning journey, choose a plan that works for you.
+        </p>
+        <button
+          onClick={onContinue}
+          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg transition-colors shadow-md"
+        >
+          Choose a Plan
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── Tutorial welcome screen — shown once after onboarding + discovery ─────────
+function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSkip: () => void }) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+      <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
+        <h1 className="text-2xl font-bold text-[#1a2744]">
+          Let&apos;s show you what Ruby can do for you
+        </h1>
+        <p className="text-gray-500 text-base leading-relaxed">
+          As you explore each feature for the first time, Ruby will give you a quick tip to help you get the most out of it.
+        </p>
+        <div className="flex justify-center">
+          <img
+            src="/ruby-heroes.png"
+            alt="Ruby characters"
+            className="h-44 w-auto object-contain"
+          />
+        </div>
+        <button
+          onClick={onStart}
+          className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg transition-colors shadow-md"
+        >
+          Let&apos;s go 🚀
+        </button>
+        <button
+          onClick={onSkip}
+          className="w-full py-2 text-sm text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          Skip tutorial
+        </button>
+      </div>
     </div>
   );
 }
 
 // ── App gate — checks session before showing onboarding ────────────────────────
 export default function Home() {
-  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "app" | "trial-expired">("loading");
+  const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "discovery-prompt" | "post-discovery" | "tutorial-welcome" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
+  const [pendingDiscovery, setPendingDiscovery] = useState<"maths" | "reading" | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("reset") !== null) {
-      clearAllUserData();
       supabase.auth.signOut();
       window.history.replaceState({}, "", window.location.pathname);
       setAppState("onboarding");
@@ -265,28 +489,16 @@ export default function Home() {
     // Check for an existing valid session — if found, skip login entirely
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session) {
-        if (session.user.id) localStorage.setItem("current_user_id", session.user.id);
-        // Ensure onboardingData has the user's name — may be absent on a fresh device
-        try {
-          const raw = localStorage.getItem("onboardingData");
-          const existing = raw ? JSON.parse(raw) : {};
-          if (!existing.name) {
-            const fullName =
-              (session.user.user_metadata?.full_name as string | undefined) ||
-              (session.user.email?.split("@")[0] ?? "");
-            if (fullName) {
-              localStorage.setItem(
-                "onboardingData",
-                JSON.stringify({ ...existing, name: fullName })
-              );
-            }
-          }
-        } catch { /* ignore */ }
-
         // If returning from a PayFast payment, skip trial check — ITN will update DB async
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("payment") === "success") {
-          setAppState("app");
+          const pendingAfterPayment = localStorage.getItem("ruby_pending_step");
+          if (pendingAfterPayment === "plan-selection" || pendingAfterPayment === "tutorial") {
+            localStorage.removeItem("ruby_pending_step");
+            setAppState("tutorial-welcome");
+          } else {
+            setAppState("app");
+          }
           return;
         }
 
@@ -311,40 +523,34 @@ export default function Home() {
         if (!hasActiveSub && trialExpired) {
           setAppState("trial-expired");
         } else {
-          setAppState("app");
+          const pendingStep = localStorage.getItem("ruby_pending_step");
+          if (pendingStep === "plan-selection") {
+            setAppState("plan-selection");
+          } else {
+            setAppState("app");
+          }
         }
       } else {
         setAppState("onboarding");
       }
     });
 
-    // Handle session loss (e.g. token expiry, logout from another tab)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) setAppState("onboarding");
+    // Only reset to onboarding on explicit sign-out — never interrupt an active onboarding flow
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_OUT" || (!session && event !== "INITIAL_SESSION")) {
+        setAppState("onboarding");
+      }
     });
     return () => subscription.unsubscribe();
   }, []);
 
   const handleOnboardingComplete = (data: OnboardingData) => {
-    const storedUserId = localStorage.getItem("current_user_id");
-    const isDifferentUser = data.userId && storedUserId && storedUserId !== data.userId;
-
     if (data.plan === "existing") {
-      // Returning user — only wipe data if a DIFFERENT user is logging in on this device
-      if (isDifferentUser) {
-        PERSISTENT_USER_KEYS.forEach((k) => localStorage.removeItem(k));
-        localStorage.removeItem("current_user_id");
-      }
-      if (data.userId) localStorage.setItem("current_user_id", data.userId);
       setAppState("app");
     } else {
-      // New signup — wipe any previous user's data, then restore fresh onboarding data
-      PERSISTENT_USER_KEYS.forEach((k) => localStorage.removeItem(k));
-      localStorage.removeItem("current_user_id");
-      localStorage.setItem("onboardingData", JSON.stringify(data));
-      if (data.userId) localStorage.setItem("current_user_id", data.userId);
+      localStorage.setItem("ruby_pending_step", "plan-selection");
       setWelcomeName(data.name || "");
-      setAppState("welcome");
+      setAppState("discovery-prompt");
     }
   };
 
@@ -354,22 +560,98 @@ export default function Home() {
     return <OnboardingFlow onComplete={handleOnboardingComplete} />;
   }
 
+  if (appState === "discovery-prompt") {
+    return (
+      <DiscoveryPromptScreen
+        name={welcomeName}
+        onSelect={(subject) => {
+          setPendingDiscovery(subject);
+          setAppState("app");
+        }}
+      />
+    );
+  }
+
   if (appState === "welcome") {
     return (
       <WelcomeScreen
         name={welcomeName}
-        onStartLearning={() => setAppState("app")}
+        onStartLearning={() => setAppState("plan-selection")}
+      />
+    );
+  }
+
+  if (appState === "plan-selection") {
+    return (
+      <div className="h-dvh bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-4">
+        {/* White card is the scroll container — html+body are overflow:hidden */}
+        <div className="bg-white rounded-3xl shadow-xl w-full max-w-4xl h-full overflow-y-auto">
+          <PricingPlans
+            mode="onboarding"
+            showHeader
+            onSelectFree={() => {
+              localStorage.removeItem("ruby_pending_step");
+              setAppState("tutorial-welcome");
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (appState === "tutorial-welcome") {
+    return (
+      <TutorialWelcomeScreen
+        onStart={() => setAppState("app")}
+        onSkip={() => setAppState("app")}
+      />
+    );
+  }
+
+  // ── Post-onboarding in-app discovery flow ──────────────────────────────────
+  // Renders the full app UI with the discovery view pre-selected. After the
+  // placement completes the user views the report, then is guided to the tutorial.
+  if (pendingDiscovery && appState === "app") {
+    const discoveryView: ActiveView = pendingDiscovery === "maths" ? "discover-maths" : "discover-reading";
+    return (
+      <LanguageProvider>
+        <AppContent
+          initialView={discoveryView}
+          onPostDiscovery={() => {
+            setPendingDiscovery(null);
+            setAppState("post-discovery");
+          }}
+        />
+      </LanguageProvider>
+    );
+  }
+
+  if (appState === "post-discovery") {
+    return (
+      <PostDiscoveryScreen
+        onContinue={() => setAppState("plan-selection")}
       />
     );
   }
 
   if (appState === "trial-expired") {
-    return <TrialExpiredScreen />;
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-4 overflow-y-auto">
+        <div className="bg-white rounded-3xl shadow-xl w-full max-w-2xl my-4 overflow-hidden">
+          <div className="text-center px-8 pt-8 pb-2">
+            <div className="text-5xl mb-3">⏰</div>
+            <h1 className="text-2xl font-bold text-[#1a2744]">Your 7-day trial has ended</h1>
+            <p className="text-gray-400 text-sm mt-1">Upgrade to keep learning</p>
+          </div>
+          <PricingPlans mode="upgrade" showHeader={false} />
+        </div>
+      </div>
+    );
   }
 
   return (
     <LanguageProvider>
-      <AppContent />
+      <AppContent initialView={undefined} onPostDiscovery={undefined} />
     </LanguageProvider>
   );
 }

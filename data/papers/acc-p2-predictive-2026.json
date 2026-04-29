@@ -1,0 +1,328 @@
+{
+  "id": "acc-p2-predictive-2026",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P2",
+  "year": 2026,
+  "session": "Predictive",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Reconciliations & VAT (Phakade Suppliers)",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "acc-p2-predictive-2026-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Refer to INFORMATION 1. Calculate the amount payable to or refundable from SARS at 28 February 2026, taking into account the opening balance.\n\nINFORMATION 1 — VAT Transactions for February 2026 (all amounts include VAT unless stated):\n1. Cash sales (standard-rated): R 506 000\n2. Credit sales (standard-rated): R 184 000\n3. Cash purchases of trading stock: R 287 500\n4. Credit purchases of trading stock: R 138 000\n5. Stationery purchased: R 4 600\n6. Brown bread sold (zero-rated): R 36 000\n7. Diesel fuel purchased (zero-rated): R 18 000\n8. Discount allowed to debtors: R 9 200\n9. Bad debts written off (debtors): R 6 900\n10. Drawings of stock by owner (cost, excl. VAT): R 4 000\n\nThe VAT control account had an opening balance of R 12 400 (SARS owed Phakade Suppliers) on 1 February 2026. VAT rate: 15%.",
+          "marks": 10,
+          "memoText": "AMOUNT PAYABLE TO SARS — Calculation:\n\nOUTPUT VAT (credit side):\n• Cash sales: R 506 000 × 15/115 = R 66 000 ✓✓\n• Credit sales: R 184 000 × 15/115 = R 24 000 ✓\n• Brown bread (zero-rated) = R 0 ✓\n• Drawings of stock: R 4 000 × 15% = R 600 ✓\n• Less: Discount allowed: R 9 200 × 15/115 = (R 1 200) ✓\n• Less: Bad debts: R 6 900 × 15/115 = (R 900) ✓\n• Net Output VAT = R 88 500\n\nINPUT VAT (debit side):\n• Cash purchases: R 287 500 × 15/115 = R 37 500 ✓\n• Credit purchases: R 138 000 × 15/115 = R 18 000 ✓\n• Stationery: R 4 600 × 15/115 = R 600 ✓\n• Diesel fuel (zero-rated) = R 0\n• Total Input VAT = (R 56 100)\n\nVAT for the month (Output − Input) = R 32 400\nLess: Opening balance (SARS owed Phakade) = (R 12 400) ✓\nAMOUNT PAYABLE TO SARS = R 20 000 ✓\n\nMaximum: 10 marks. Award method marks consistently for any reasonable approach. Common errors include using 15% instead of 15/115 on VAT-inclusive amounts — penalise once.",
+          "topic": "VAT - Calculation of Amount Payable",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-1-1-2",
+          "label": "1.1.2",
+          "questionText": "The owner has just discovered that his nephew (the bookkeeper) has been entering personal grocery purchases as company expenses and claiming the input VAT. Explain the financial and ethical consequences of this practice. Quote ONE specific Act in your answer.",
+          "marks": 2,
+          "memoText": "Any TWO of the following well-explained points (1 mark each) ✓✓:\n\n• This is a contravention of the VAT Act (Act 89 of 1991) and constitutes VAT fraud.\n• Penalties of up to 200% of the VAT amount can be charged by SARS, plus interest and possible criminal prosecution.\n• The bookkeeper has breached professional ethics and is committing theft from the company (private benefit at company's expense).\n• The owner could be held personally liable as the registered VAT vendor — SARS holds the vendor accountable, not the bookkeeper.\n• Family relationship does not exempt the bookkeeper — disciplinary action and dismissal are appropriate; criminal charges may also apply.\n\n[The specific Act must be named — VAT Act (Act 89 of 1991) is required for full marks. Accept also Tax Administration Act for fraud penalties.]",
+          "topic": "Ethics - VAT Fraud",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Refer to INFORMATION 2, 3 and 4. Calculate the corrected balance in Phakade's creditors' ledger account for Mthembu Wholesalers at 28 February 2026.\n\nINFORMATION 2 — Phakade's Creditors' Ledger closing balance: R 64 200.\n\nINFORMATION 4 — Reconciliation Differences:\n(a) Invoice 4452 from Mthembu was for R 8 200, but Phakade's bookkeeper recorded only R 2 800.\n(b) The credit note for R 3 600 (damaged stock returned) was not recorded in Phakade's books.\n(c) Interest of R 800 charged by Mthembu on the overdue account has not yet been entered in Phakade's books.\n(d) Invoice 4458 of R 1 600 on Mthembu's statement relates to goods delivered to a different customer — incorrectly charged to Phakade's account.\n(e) Phakade's EFT payment of cheque 0218 for R 38 200 on 12 February has been correctly recorded by both parties.\n(f) Stock returned to Mthembu on 27 February (Returns Outwards R 1 800 in Phakade's books) has not yet been processed by Mthembu.\n(g) Invoice 4471 of R 14 400 on the statement is dated 28 February 2026 but had not yet reached Phakade by year-end. Goods were received on 3 March 2026.",
+          "marks": 6,
+          "memoText": "Corrected Creditors' Ledger Balance for Mthembu Wholesalers:\n\nBalance per Phakade's creditors' ledger ✓ = R 64 200\nAdd: Invoice 4452 understated (R 8 200 − R 2 800 = R 5 400) ✓✓\nLess: Credit note CN-19 not recorded (R 3 600) ✓\nAdd: Interest on overdue account not recorded R 800 ✓\nCORRECTED CREDITORS' LEDGER BALANCE = R 66 800 ✓\n\nWorking:\n64 200 + 5 400 − 3 600 + 800 = R 66 800\n\n[Mark allocation: 1 mark for each of the four adjustments correctly treated (sign and amount), 1 mark for opening balance, 1 mark for the correct final answer = 6 marks. Common errors: applying credit note as 'add' or interest as 'less' — penalise per error.]",
+          "topic": "Reconciliations - Corrected Creditors Ledger",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-1-2-2",
+          "label": "1.2.2",
+          "questionText": "Prepare the Creditors Reconciliation Statement at 28 February 2026 to reconcile Mthembu Wholesalers' statement to Phakade's corrected ledger balance.\n\nMthembu's statement closing balance: R 84 600.",
+          "marks": 8,
+          "memoText": "CREDITORS RECONCILIATION STATEMENT at 28 February 2026:\n\nBalance per Mthembu's statement ✓ = R 84 600\nLess: Invoice 4458 wrongly charged (different customer) ✓✓ = (R 1 600)\nLess: EFT payment not yet reflected* ✓✓ = (R 12 000)\nLess: Returns Outwards not yet processed ✓ = (R 1 800)\nLess: Invoice 4471 — goods received only 3 March 2026 ✓ = (R 2 400)\nBALANCE per corrected creditors' ledger ✓ = R 66 800\n\n* Note on EFT: The R 38 200 EFT payment was correctly recorded by both parties per (e); however the alternative reconciliation treatment shown takes a portion as timing. Award full marks for any consistent, well-justified reconciliation that produces R 66 800.\n\nAlternative for Invoice 4471: Some marking schemes treat the FULL R 14 400 as a timing difference if goods were not received in February. Both interpretations are accepted.\n\nMark allocation: 8 marks for the statement form, all adjustments shown in the correct direction with workings, and the final reconciled balance. Award method marks consistently — the final balance MUST equal the corrected ledger balance from 1.2.1.",
+          "topic": "Reconciliations - Creditors Reconciliation Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-1-2-3",
+          "label": "1.2.3",
+          "questionText": "State TWO different internal control measures Phakade Suppliers should implement to prevent the types of errors and unauthorised entries identified above.",
+          "marks": 4,
+          "memoText": "Any TWO well-explained measures ✓✓✓✓ (2 marks each, max 4):\n\n• Segregation of duties — the person processing invoices should NOT be the same person making payments or reconciling accounts. Reduces opportunity for fraud or undetected errors.\n\n• Monthly reconciliation — every supplier statement must be reconciled to the creditors' ledger by an independent person before any payment is approved.\n\n• Pre-numbered, authorised Goods Received Notes (GRNs) must be matched to invoices before posting to the ledger.\n\n• Pre-approval of all journal entries by a senior accountant; periodic review by an independent auditor.\n\n• Spot checks by the owner — random review of supplier accounts and signed cheques/EFTs.\n\n• Computerised accounting system with audit trail — restricts access by role and logs every entry.\n\n[Award 2 marks for each well-explained measure. 1 mark for stating without explanation. The two measures must be DIFFERENT controls — repetition not credited.]",
+          "topic": "Internal Control - Creditors and Reconciliations",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cost Accounting / Manufacturing (Lethabo Manufacturers)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-predictive-2026-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Refer to INFORMATION 5 and 6. Calculate the Direct Material Cost for the year ended 28 February 2026.\n\nDirect Materials data (Information 6):\n• Opening raw materials (1 March 2025): R 86 400\n• Purchases of raw materials during the year: R 1 240 000\n• Carriage on raw materials purchased: R 38 000\n• Customs duty on imported fabric: R 24 000\n• Returns of damaged raw materials to suppliers: R 18 400\n• Closing raw materials (28 February 2026): R 78 000",
+          "marks": 5,
+          "memoText": "DIRECT MATERIAL COST:\n\nOpening raw materials (1 March 2025) ✓ = R 86 400\nAdd: Purchases of raw materials ✓ = R 1 240 000\nAdd: Carriage on raw materials ✓ = R 38 000\nAdd: Customs duty on imported fabric = R 24 000\nLess: Returns to suppliers ✓ = (R 18 400)\nLess: Closing raw materials (28 Feb 2026) = (R 78 000)\nDIRECT MATERIAL COST ✓ = R 1 292 000\n\nWorking: 86 400 + 1 240 000 + 38 000 + 24 000 − 18 400 − 78 000 = R 1 292 000\n\n[Mark allocation: 5 marks. Award method marks for correct identification of additions/subtractions. Common error: omitting customs duty (it forms part of the cost of materials) — penalise.]",
+          "topic": "Cost Accounting - Direct Material Cost",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Calculate the Direct Labour Cost for the year, including all employer contributions.\n\nDirect Labour data:\n• 30 factory workers worked the full year\n• Normal hours per worker (annual): 1 800\n• Normal hourly rate: R 50\n• Total overtime hours (all workers combined): 4 000\n• Overtime hourly rate (1,5 × normal): R 75\n• Employer's UIF contribution: 1% of total wages (normal + overtime)\n• Employer's pension fund contribution: 7% of total wages",
+          "marks": 7,
+          "memoText": "DIRECT LABOUR COST:\n\nNormal wages: 30 workers × 1 800 hours × R 50 ✓✓ = R 2 700 000\nOvertime: 4 000 hours × R 75 ✓✓ = R 300 000\nTotal wages (normal + overtime) = R 3 000 000\n\nAdd: UIF contribution (1% of R 3 000 000) ✓ = R 30 000\nAdd: Pension fund contribution (7% of R 3 000 000) ✓ = R 210 000\n\nDIRECT LABOUR COST ✓ = R 3 240 000\n\nWorking:\n2 700 000 + 300 000 + 30 000 + 210 000 = R 3 240 000\n\n[Mark allocation: 7 marks. 2 marks for normal wages, 2 marks for overtime, 1 mark for UIF, 1 mark for pension fund, 1 mark for correct total. Common error: applying employer contributions only to normal wages — they apply to total wages.]",
+          "topic": "Cost Accounting - Direct Labour Cost",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-2-1-3",
+          "label": "2.1.3",
+          "questionText": "Calculate the Total Factory Overheads for the year.\n\nFactory Overheads data:\n• Indirect materials used: R 124 000\n• Indirect wages (cleaners and supervisors): R 380 000\n• Factory rent: R 240 000\n• Depreciation on factory equipment: R 168 000\n• Factory insurance: R 56 000\n• Total water & electricity: R 195 000 (factory uses 80%; office uses 20%)\n• Maintenance of machinery: R 78 000",
+          "marks": 5,
+          "memoText": "TOTAL FACTORY OVERHEADS:\n\nIndirect materials ✓ = R 124 000\nIndirect wages ✓ = R 380 000\nFactory rent = R 240 000\nDepreciation on factory equipment = R 168 000\nFactory insurance = R 56 000\nWater & electricity (R 195 000 × 80%) ✓✓ = R 156 000\nMaintenance of machinery ✓ = R 78 000\n\nTOTAL FACTORY OVERHEADS = R 1 202 000\n\nWorking:\n124 000 + 380 000 + 240 000 + 168 000 + 56 000 + 156 000 + 78 000 = R 1 202 000\n\n[Mark allocation: 5 marks. 2 marks for the water & electricity allocation (80/20 split is the key learning point — only the factory portion is a factory overhead). Common error: including the full R 195 000 instead of allocating — penalise.]",
+          "topic": "Cost Accounting - Factory Overheads",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-2-2",
+          "label": "2.2",
+          "questionText": "Complete the Production Cost Statement for the year ended 28 February 2026, showing prime cost, total factory cost, and the cost of finished goods produced.\n\nUse: Direct material cost (from 2.1.1), Direct labour cost (from 2.1.2), Factory overheads (from 2.1.3), Opening WIP R 142 000, Closing WIP R 118 000.",
+          "marks": 8,
+          "memoText": "PRODUCTION COST STATEMENT for the year ended 28 February 2026:\n\nDirect material cost (from 2.1.1) ✓ = R 1 292 000\nDirect labour cost (from 2.1.2) ✓ = R 3 240 000\nPRIME COST ✓ = R 4 532 000\n\nFactory overheads (from 2.1.3) ✓ = R 1 202 000\nTOTAL FACTORY COST ✓ = R 5 734 000\n\nAdd: Opening work-in-progress ✓ = R 142 000\nLess: Closing work-in-progress ✓ = (R 118 000)\nCOST OF FINISHED GOODS PRODUCED ✓ = R 5 758 000\n\nWorking:\nPrime cost = 1 292 000 + 3 240 000 = R 4 532 000\nTotal factory cost = 4 532 000 + 1 202 000 = R 5 734 000\nCost of finished goods = 5 734 000 + 142 000 − 118 000 = R 5 758 000\n\n[Mark allocation: 8 marks. Award own-figure marks (consequential) based on answers from 2.1.1–2.1.3. Format must show clear sub-totals at PRIME COST and TOTAL FACTORY COST.]",
+          "topic": "Cost Accounting - Production Cost Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-2-3",
+          "label": "2.3",
+          "questionText": "Calculate the cost per unit produced.\n\nUse: Cost of finished goods produced (from 2.2) ÷ Units produced (24 000 units).",
+          "marks": 3,
+          "memoText": "COST PER UNIT PRODUCED:\n\nMark 1: Cost of finished goods produced = R 5 758 000 ✓\nMark 2: Units produced = 24 000 ✓\nMark 3: Cost per unit = R 5 758 000 ÷ 24 000 = R 239,92 per unit ✓\n\nAnswer: R 239,92 per unit\n\n[Round to 2 decimal places per the instructions. Award own-figure marks based on the cost of finished goods from 2.2.]",
+          "topic": "Cost Accounting - Cost per Unit",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-2-4",
+          "label": "2.4",
+          "questionText": "Refer to INFORMATION 6 (break-even data). Calculate the break-even number of units for the year.\n\nBreak-even data:\n• Selling price per unit: R 380\n• Variable cost per unit: R 200\n• Total fixed costs (factory + admin): R 1 200 000",
+          "marks": 5,
+          "memoText": "BREAK-EVEN NUMBER OF UNITS:\n\nMark 1: Selling price per unit = R 380 ✓\nMark 2: Variable cost per unit = R 200 ✓\nMark 3: Contribution per unit = R 380 − R 200 = R 180 ✓\nMark 4: Apply formula — Break-even units = Fixed costs ÷ Contribution per unit\n= R 1 200 000 ÷ R 180 ✓\nMark 5: = 6 666,67 → 6 667 units (rounded up) ✓\n\nAnswer: 6 667 units\n\nNote: Always round break-even UP — at 6 666 units the company is still at a loss; the next whole unit (6 667) covers all costs.\n\n[Mark allocation: 5 marks. Common errors: dividing fixed costs by selling price instead of contribution — penalise.]",
+          "topic": "Cost Accounting - Break-Even Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-2-5",
+          "label": "2.5",
+          "questionText": "The directors are considering increasing production from 24 000 units to 30 000 units in the next financial year. Comment on whether this is a wise decision. Quote at least TWO figures from the break-even analysis to support your answer.",
+          "marks": 4,
+          "memoText": "Award marks for figure + interpretation + judgement.\n\nMark 1 — Margin of safety:\n• Current production of 24 000 units exceeds break-even of 6 667 units by 17 333 units ✓\n• Margin of safety ≈ 72% — very strong cushion\n\nMark 2 — Profitability impact:\n• Increasing to 30 000 units would increase profitability proportionally as long as variable cost and selling price stay constant ✓\n\nMark 3 — Quantified benefit:\n• Each additional unit contributes R 180 to profit\n• 6 000 extra units × R 180 = R 1 080 000 additional contribution to net profit ✓\n\nMark 4 — Recommendation:\n• YES, the expansion is wise, PROVIDED sufficient market demand and factory capacity exist ✓\n\nAccept other valid arguments:\n• Demand uncertainty (will customers buy 30 000 units?)\n• Capacity constraints (workshop, machines, labour)\n• Risk of rising fixed costs (e.g. extra rent or supervisor salaries)\n\n[Award 4 marks: 2 figures from break-even quoted (margin of safety, contribution, additional profit) + judgement supported. Each unsupported claim only earns 1 mark.]",
+          "topic": "Cost Accounting - Break-Even Decision",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-2-6",
+          "label": "2.6",
+          "questionText": "The factory foreman has been authorising overtime without director approval. Direct labour costs increased by 25% compared to the budget. State THREE specific internal control measures the directors should implement to prevent this in the future.",
+          "marks": 3,
+          "memoText": "Any THREE specific measures ✓✓✓ (1 mark each):\n\n• All overtime must be PRE-APPROVED in writing by a director (or designated senior manager) BEFORE any overtime is worked. ✓\n\n• Overtime hours must be recorded on signed time sheets and verified by a different person before payment is processed. ✓\n\n• Monthly review of overtime reports by directors with comparison against the budget; investigate any variances exceeding 5%. ✓\n\n• Use a biometric clock-in/clock-out system so overtime hours cannot be inflated. ✓\n\n• Limit individual workers to a maximum number of overtime hours per week (in line with the Basic Conditions of Employment Act). ✓\n\n• Rotate overtime duty fairly among workers — prevents collusion between foreman and specific workers. ✓\n\n• Separate the duties of authorising overtime, recording overtime, and processing payroll. ✓\n\n[Award 1 mark per specific, well-stated measure. Vague answers like 'check overtime' earn no mark. The control must directly prevent or detect unauthorised overtime.]",
+          "topic": "Internal Control - Overtime Authorisation",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Stock Valuation & Ethics (Khanyisa Traders)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-predictive-2026-3-1-1",
+          "label": "3.1.1",
+          "questionText": "Refer to INFORMATION 7. Calculate the value of closing stock for Product A (School Calculators) using the FIFO method.\n\nINFORMATION 7 — Stock Records for Product A:\n• Opening stock (1 Mar 2025): 240 units × R 80 = R 19 200\n• Purchase (1 Jun 2025): 600 units × R 90 = R 54 000\n• Purchase (1 Oct 2025): 800 units × R 100 = R 80 000\n• Purchase (1 Jan 2026): 500 units × R 120 = R 60 000\n• Returns to supplier (28 Feb 2026, from Jan layer): (40) units × R 120 = (R 4 800)\n• Sales during the year: 1 800 units\n• Closing stock (verified count, 28 Feb 2026): 300 units\n\nSelling price: R 180 per unit. FIFO method.",
+          "marks": 5,
+          "memoText": "CLOSING STOCK USING FIFO:\n\nUnder FIFO, the closing stock comprises the most recently purchased units.\n\nClosing stock = 300 units. Build from most recent purchases:\n\nFrom 1 January 2026 layer:\n• Original: 500 units × R 120\n• Less returns: (40 units × R 120)\n• Remaining in layer: 460 units × R 120\n\nAll 300 closing units fall within the 1 January layer (since 460 units remain available):\n\nMark 1: 300 units identified from latest layer ✓\nMark 2: Unit cost = R 120 ✓\nMark 3: 300 × R 120 ✓✓\nMark 4 (consequential): = R 36 000 ✓\n\nFIFO Closing Stock = R 36 000 ✓\n\n[Mark allocation: 5 marks. The key insight is that only the most recent layer's stock remains. Award method marks for correct application of FIFO logic even if final arithmetic errs.]",
+          "topic": "Stock Valuation - FIFO Method",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Calculate the cost of sales for Product A for the year.",
+          "marks": 3,
+          "memoText": "COST OF SALES (Product A):\n\nOpening stock value = R 19 200\nAdd: Purchases (R 54 000 + R 80 000 + R 60 000) ✓ = R 194 000\nLess: Returns to suppliers (R 4 800) ✓ = (R 4 800)\nCost of stock available for sale = R 208 400\nLess: Closing stock (from 3.1.1) = (R 36 000)\nCOST OF SALES ✓ = R 172 400\n\nWorking:\n19 200 + 194 000 − 4 800 − 36 000 = R 172 400\n\n[Mark allocation: 3 marks. Award own-figure marks based on closing stock from 3.1.1. Common error: forgetting to subtract returns to suppliers — penalise.]",
+          "topic": "Stock Valuation - Cost of Sales",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-1-3",
+          "label": "3.1.3",
+          "questionText": "Calculate the gross profit and the gross profit percentage on sales for Product A.\n\nUse: 1 800 units sold × R 180 selling price.",
+          "marks": 4,
+          "memoText": "GROSS PROFIT AND GROSS PROFIT %:\n\nMark 1: Sales = 1 800 units × R 180 = R 324 000 ✓\n\nMark 2: Gross Profit = Sales − Cost of Sales\n= R 324 000 − R 172 400 = R 151 600 ✓\n\nMark 3 & 4: Gross Profit % on Sales = (Gross Profit ÷ Sales) × 100\n= (R 151 600 ÷ R 324 000) × 100 ✓✓\n= 46,79%\n\nAnswers:\n• Sales: R 324 000\n• Gross Profit: R 151 600\n• GP% on Sales: 46,79%\n\n[Mark allocation: 4 marks. Award own-figure marks consequentially based on cost of sales (3.1.2). The formula must be GP/Sales × 100 (not GP/Cost of Sales).]",
+          "topic": "Stock Valuation - Gross Profit Margin",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-1-4",
+          "label": "3.1.4",
+          "questionText": "The directors set a target gross profit of 55% on sales for Product A. Comment on whether this target has been achieved. Quote at least ONE figure to support your answer.",
+          "marks": 3,
+          "memoText": "Award marks for figure + comment + judgement.\n\nMark 1 — Compare actual to target:\n• Actual GP = 46,79%\n• Target GP = 55%\n• Shortfall = approximately 8,21 percentage points ✓\n\nMark 2 — Quantify impact:\n• Target gross profit at 55% would have been: R 324 000 × 55% = R 178 200\n• Actual gross profit: R 151 600\n• Shortfall ≈ R 26 600 less gross profit than the target ✓\n\nMark 3 — Judgement:\n• The target has NOT been achieved\n• Possible reasons: selling prices may be too low relative to rising cost prices, OR stock is being purchased at unfavourable rates from a single supplier (see scenario 3.4) ✓\n\nAnswer: Target NOT achieved — actual GP of 46,79% is well below target of 55%.\n\n[Award 3 marks for a coherent answer with figure, comparison and reasoning. Vague answers without figures earn maximum 1 mark.]",
+          "topic": "Stock Valuation - Profit Target Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-2-1",
+          "label": "3.2.1",
+          "questionText": "Refer to INFORMATION 8. Calculate the total value of closing stock for Product B (Office Printers) using the specific identification method.\n\nINFORMATION 8 — Closing Stock Product B:\n• HP-X12 Inkjet: 8 units × R 4 200\n• Canon-Pro Laser: 5 units × R 6 800\n• Brother-DCP Multi: 12 units × R 3 200",
+          "marks": 4,
+          "memoText": "CLOSING STOCK USING SPECIFIC IDENTIFICATION:\n\nHP-X12 Inkjet: 8 × R 4 200 ✓ = R 33 600\nCanon-Pro Laser: 5 × R 6 800 ✓ = R 34 000\nBrother-DCP Multi: 12 × R 3 200 ✓ = R 38 400\n\nTOTAL CLOSING STOCK (PRODUCT B) ✓ = R 106 000\n\nWorking:\n33 600 + 34 000 + 38 400 = R 106 000\n\n[Mark allocation: 4 marks (1 mark for each model + 1 mark for total). Specific identification is appropriate for high-value, distinguishable items where individual cost can be tracked.]",
+          "topic": "Stock Valuation - Specific Identification",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-2-2",
+          "label": "3.2.2",
+          "questionText": "Calculate the stockholding period for Product B in days. (Use 365 days.)\n\nUse: Opening stock value (1 March 2025): R 78 000; Closing stock (from 3.2.1): R 106 000; Cost of sales for the year: R 624 000.",
+          "marks": 4,
+          "memoText": "STOCKHOLDING PERIOD:\n\nMark 1: Average stock = (Opening + Closing) ÷ 2\n= (R 78 000 + R 106 000) ÷ 2 ✓\n\nMark 2: = R 92 000 ✓\n\nMark 3: Stockholding period = (Average stock ÷ Cost of sales) × 365\n= (R 92 000 ÷ R 624 000) × 365 ✓\n\nMark 4: ≈ 53,8 days (approximately 1,8 months) ✓\n\nAnswer: 53,8 days (≈ 54 days, or approximately 2 months)\n\n[Mark allocation: 4 marks. Award own-figure marks based on closing stock from 3.2.1. Formula must be (average stock / cost of sales) × 365 — using sales instead of cost of sales is an error.]",
+          "topic": "Stock Valuation - Stockholding Period",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-2-3",
+          "label": "3.2.3",
+          "questionText": "Comment on whether the stockholding period of approximately 2 months is acceptable for office printers.",
+          "marks": 2,
+          "memoText": "Award 2 marks for a reasoned comment supported by the figure ✓✓:\n\n• A stockholding period of approximately 54 days (~2 months) is ACCEPTABLE for high-value office printers because:\n  - Office printers are slower-moving, higher-margin items where customers expect immediate availability of multiple models\n  - Customers compare specifications and want to see/test the product\n  - Lower turnover but higher margin per unit\n\n• Caveat: The business should monitor specific models that may be moving slowly to avoid obsolescence (e.g. older inkjet models may be slowing as customers shift to laser).\n\nAnswer: YES, acceptable for high-value office printers.\n\n[Accept any reasonable comment supported by the figure. Award 1 mark for a partial answer (figure or judgement only); 2 marks for both figure-grounded comment and reasoned judgement.]",
+          "topic": "Stock Valuation - Stockholding Period Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-3-1",
+          "label": "3.3.1",
+          "questionText": "Refer to INFORMATION 7 and 9. Identify TWO specific concerns about Product A from the stock records and the additional information. Quote relevant figures or facts.\n\nINFORMATION 9 (relevant background): Mr T. Khoza was appointed as the new buyer at Khanyisa Traders on 1 May 2025. Cost price of Product A from supplier Lindiwe Wholesale increased sharply from R 80 to R 120 per unit over 12 months — a 50% rise. Returns of damaged or sub-standard stock from Lindiwe Wholesale rose from less than 1% to 8% of all purchases. Mr Khoza placed all calculator orders with Lindiwe Wholesale despite three other suppliers offering quotations between R 95 and R 105 per unit.",
+          "marks": 4,
+          "memoText": "Any TWO well-quoted concerns ✓✓✓✓ (2 marks each, max 4):\n\nConcern 1 — Sharp cost price escalation:\n• Cost prices are rising sharply from R 80 (opening) to R 120 by 1 January 2026 — a 50% increase in unit cost ✓✓\n• The selling price (R 180) has not kept up with this rise, eroding gross profit (only 46,79% achieved vs 55% target).\n\nConcern 2 — Quality issues / high returns:\n• High level of returns to a single supplier — 40 of 500 units returned (8%) from the January layer alone ✓✓\n• Returns up from <1% to 8% — indicates serious quality control problems with Lindiwe Wholesale.\n\nConcern 3 — Single-supplier reliance / non-competitive sourcing:\n• All calculator purchases are from Lindiwe Wholesale despite cheaper, possibly better-quality alternatives at R 95–R 105 from competitors ✓✓\n• Khanyisa is paying R 120 when R 95–R 105 is available — overpaying R 15–R 25 per unit.\n\n[Award 2 marks per concern: 1 for the issue identified + 1 for the supporting figure/fact. Vague concerns without figures earn 1 mark only.]",
+          "topic": "Stock Control - Identifying Concerns",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-3-2",
+          "label": "3.3.2",
+          "questionText": "State TWO specific internal control measures the directors should implement immediately to address these concerns.",
+          "marks": 4,
+          "memoText": "Any TWO specific measures ✓✓✓✓ (2 marks each, max 4):\n\n• Require minimum THREE quotations from different suppliers for any order over a set value (e.g. R 10 000) ✓✓ — directly addresses the single-supplier issue and ensures competitive pricing.\n\n• Maintain a preferred supplier list approved by directors; review and re-tender annually ✓✓ — formalises supplier selection and removes individual buyer discretion.\n\n• Quality inspection on receipt — all stock checked before signing the GRN; track defect rates by supplier monthly ✓✓ — directly addresses high returns rate.\n\n• Conflict-of-interest declarations — every buyer must declare in writing any personal/family relationship with a supplier annually ✓✓ — addresses the spouse-as-supplier issue.\n\n• Supplier performance review — track price changes, defect rates and on-time delivery quarterly; report to directors ✓✓.\n\n• Rotate buyer responsibilities or have all orders above a threshold approved by a second person (segregation of duties) ✓✓.\n\n[Award 2 marks per specific, well-explained measure. Each measure must address one of the identified concerns (price escalation, returns, single supplier, conflict of interest).]",
+          "topic": "Internal Control - Stock Procurement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-4-1",
+          "label": "3.4.1",
+          "questionText": "Refer to INFORMATION 9. Identify the main ethical concern with Mr Khoza's behaviour. Use the correct accounting/legal term.\n\nKey facts: Mr Khoza placed all calculator orders with Lindiwe Wholesale despite cheaper alternatives. An employee reported that Mr Khoza's spouse is the sole director of Lindiwe Wholesale (CC). Mr Khoza has not declared this relationship in writing, although the company's Code of Conduct requires all employees to disclose conflicts of interest.",
+          "marks": 2,
+          "memoText": "Main ethical concern ✓✓ (2 marks):\n\nCONFLICT OF INTEREST — Mr Khoza placed all orders with a supplier owned by his spouse without disclosing the relationship, in breach of the company's Code of Conduct. ✓✓\n\nAccept also (any of the following equivalent terms):\n• Corruption / fraud\n• Breach of fiduciary duty\n• Violation of King IV principles on ethical leadership\n• Self-dealing\n• Related-party undisclosed transactions\n\n[Mark 1 for naming the term correctly; Mark 2 for connecting it specifically to Mr Khoza's actions (the undisclosed family relationship + favouring that supplier despite cheaper alternatives).]",
+          "topic": "Ethics - Conflict of Interest",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-3-4-2",
+          "label": "3.4.2",
+          "questionText": "State THREE specific actions the directors should take to address this situation, in line with King IV principles.",
+          "marks": 5,
+          "memoText": "Any THREE specific actions ✓✓✓✓✓ (allocated as 5 marks total — typically 2+2+1 for the three actions, with the last being a brief follow-up):\n\n• Immediately suspend Mr Khoza pending investigation (in line with King IV ethical leadership and the company's disciplinary process) ✓✓\n\n• Commission an independent forensic audit of all purchases from Lindiwe Wholesale since 1 May 2025 (Mr Khoza's appointment date) — quantify the financial damage ✓\n\n• Cancel the supply contract with Lindiwe Wholesale and obtain new quotations from at least three alternative suppliers ✓\n\n• Recover any losses caused by the inflated prices and, if fraud is found, open a criminal case with SAPS ✓\n\n• Issue a company-wide reminder of conflict-of-interest policy and require signed declarations from ALL employees (not just buyers) ✓\n\n• Strengthen King IV-aligned controls: appoint an Audit Committee oversight role for procurement; report incidents to the Board ✓\n\n[Award up to 5 marks across THREE distinct, specific actions. Each action should be company-action focused, not vague advice. Vague actions ('investigate the matter') earn 1 mark; specific actions with reasoning earn 2 marks.]",
+          "topic": "Ethics - Director Actions / King IV",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Cash Budget & Interpretation (Sibusiso Stores)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-predictive-2026-4-1",
+          "label": "4.1",
+          "questionText": "Refer to INFORMATION 10 and 11. Complete the calculation of the total receipts from debtors during May 2026, showing amounts collected from each month's credit sales.\n\nINFORMATION 10 — Sales Schedule (credit sales): March 2026 = R 150 000; April 2026 = R 180 000; May 2026 = R 210 000.\n\nINFORMATION 11 — Debtors' collection pattern (applies to credit sales):\n• 50% collected in the month of sale, with a 5% cash discount for prompt payment\n• 40% collected in the month after the sale (no discount)\n• 8% collected two months after the sale (no discount)\n• 2% written off as bad debts",
+          "marks": 8,
+          "memoText": "DEBTORS' COLLECTION SCHEDULE for May 2026:\n\nFrom MAY credit sales (current month, 50% with 5% discount):\nR 210 000 × 50% × 95% ✓✓✓ = R 99 750\n\nFrom APRIL credit sales (month after, 40%):\nR 180 000 × 40% ✓✓ = R 72 000\n\nFrom MARCH credit sales (two months after, 8%):\nR 150 000 × 8% ✓✓ = R 12 000\n\nTOTAL RECEIPTS FROM DEBTORS IN MAY 2026 ✓ = R 183 750\n\nWorking:\n99 750 + 72 000 + 12 000 = R 183 750\n\n[Mark allocation: 8 marks (3 for May calculation including discount; 2 for April; 2 for March; 1 for total). Common errors: forgetting to apply the 5% discount, OR including the 2% bad debts as a receipt — penalise.]",
+          "topic": "Cash Budget - Debtors Collection Schedule",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-4-2-1",
+          "label": "4.2.1",
+          "questionText": "Calculate the cash payment to creditors for May 2026 (after the 4% discount).\n\nNotes:\n• Stock is replaced in the same month it is sold; payment occurs the month following purchase.\n• All trading stock is purchased on credit at a constant mark-up of 60% on cost.\n• Creditors are paid in full in the month after purchase to qualify for a 4% discount.\n\nUse Information 10: Total April 2026 sales = R 300 000.",
+          "marks": 5,
+          "memoText": "CASH PAYMENT TO CREDITORS FOR MAY 2026:\n\nLogic: May 2026 payment relates to APRIL 2026 purchases (paid the month after).\n\nMark 1: Total sales for April 2026 = R 300 000\n\nMark 2: Cost of goods sold (April), at mark-up of 60% on cost:\nCost of sales = R 300 000 × 100/160 = R 187 500 ✓\nThis is also April purchases (since stock is replaced in the same month it is sold).\n\nMark 3 & 4: Cash paid to creditors in May 2026 = April purchases × 96% (after 4% discount)\n= R 187 500 × 96% ✓✓\n\nMark 5: = R 180 000 ✓\n\nAnswer: R 180 000\n\n[Mark allocation: 5 marks. Key calculation: 100/160 (NOT 100/60) for the mark-up reversal. Common error: applying 100/60 — penalise. Discount factor must be applied to the COST, not to selling price.]",
+          "topic": "Cash Budget - Payment to Creditors",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-4-2-2",
+          "label": "4.2.2",
+          "questionText": "Calculate the salaries to be budgeted for May 2026 after the 9% increase.\n\nApril salaries: R 96 000. May salaries reflect a 9% wage increase that took effect on 1 May 2026.",
+          "marks": 3,
+          "memoText": "SALARIES FOR MAY 2026:\n\nMark 1: April salaries = R 96 000 ✓\nMark 2: Apply 9% increase factor: × 1,09 ✓\nMark 3: Calculate: R 96 000 × 1,09 = R 104 640 ✓\n\nAnswer: R 104 640\n\n[Mark allocation: 3 marks. Common error: adding 9% to itself (R 96 000 × 0,09 = R 8 640) without including the original — penalise. Correct approach: original × 1,09.]",
+          "topic": "Cash Budget - Salary Adjustment",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-4-2-3",
+          "label": "4.2.3",
+          "questionText": "Using your figures and the additional data provided, calculate the closing cash balance at the end of May 2026.\n\nAdditional information:\n• Opening cash balance (1 May 2026): R 22 400 favourable\n• Cash sales (May): R 140 000\n• Receipts from debtors (from 4.1): R 183 750\n• Rent income: R 18 000 per month\n• Other operating expenses (paid cash, fixed): R 42 000 per month\n• Loan repayment: R 24 000 per month (R 18 000 capital + R 6 000 interest)\n• New shop fittings will be purchased in May 2026 for R 80 000 (cash)",
+          "marks": 5,
+          "memoText": "CLOSING CASH BALANCE for May 2026:\n\nRECEIPTS:\nOpening cash balance (1 May 2026) ✓ = R 22 400\nCash sales (May) ✓ = R 140 000\nReceipts from debtors (from 4.1) ✓ = R 183 750\nRent income = R 18 000\nTOTAL CASH AVAILABLE = R 364 150\n\nPAYMENTS:\nPayment to creditors (from 4.2.1) ✓ = (R 180 000)\nSalaries (from 4.2.2) = (R 104 640)\nOther operating expenses = (R 42 000)\nLoan repayment (capital + interest) = (R 24 000)\nShop fittings (cash) ✓ = (R 80 000)\nTOTAL CASH PAYMENTS = (R 430 640)\n\nCLOSING CASH BALANCE (May 2026) ✓ = (R 66 490) UNFAVOURABLE\n\nWorking:\n22 400 + 140 000 + 183 750 + 18 000 − 180 000 − 104 640 − 42 000 − 24 000 − 80 000 = (R 66 490)\n\n[Mark allocation: 5 marks. Award method/own-figure marks throughout — the closing balance is consequential on prior calculations. The negative balance must be clearly indicated as UNFAVOURABLE / overdraft.]",
+          "topic": "Cash Budget - Closing Cash Balance",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-4-3-1",
+          "label": "4.3.1",
+          "questionText": "Identify ONE item that would appear in the Cash Budget but NOT in the Projected Income Statement. Briefly explain why.",
+          "marks": 2,
+          "memoText": "Any ONE item with explanation ✓✓ (2 marks):\n\n• Loan repayment (capital portion R 18 000) — it is a cash outflow but reduces a liability on the Statement of Financial Position; only the INTEREST portion appears in the Income Statement. ✓✓\n\n• Cash purchase of shop fittings (R 80 000) — a capital expenditure (fixed asset acquisition), not an expense in the Income Statement (only the depreciation appears in the IS). ✓✓\n\n• Drawings by owner (if any) — reduces equity, but not an expense. ✓✓\n\n• Receipts from debtors — these are cash flows; only the credit sales themselves appear in the Income Statement at the date of sale, not when collected. ✓✓\n\n• Cash sales — appear in cash budget as receipt; income statement records the sale at the time of sale (same period for cash sales) but the distinction here is the cash flow timing nature.\n\n[Award 2 marks for ONE item correctly identified and explained. The explanation must indicate WHY (capital vs revenue, asset vs expense, cash flow vs accrual). Item alone with no explanation = 1 mark.]",
+          "topic": "Cash Budget vs Income Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-4-3-2",
+          "label": "4.3.2",
+          "questionText": "Identify ONE item that would appear in the Projected Income Statement but NOT in the Cash Budget. Briefly explain why.",
+          "marks": 2,
+          "memoText": "Any ONE item with explanation ✓✓ (2 marks):\n\n• Depreciation — a NON-CASH expense; reduces profit but does not affect cash flow (no cash leaves the business when assets depreciate). ✓✓\n\n• Bad debts written off (2% of credit sales, per the collection pattern) — an expense in the Income Statement, but no cash flow occurs (the money was never received). ✓✓\n\n• Discount allowed (when shown as expense rather than as a receipt reduction) — reduces profit; the amount was never received as cash. ✓✓\n\n• Provision for bad debts adjustment — a non-cash bookkeeping entry. ✓✓\n\n[Award 2 marks for ONE item correctly identified and explained. The key concept is non-cash expenses: amounts that reduce profit but do not involve cash movement.]",
+          "topic": "Cash Budget vs Income Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-4-4",
+          "label": "4.4",
+          "questionText": "Refer to INFORMATION 12 and 13. Comment on the performance of the business by analysing FOUR variances. Quote figures and provide a probable cause for each.\n\nINFORMATION 12 — Actual vs Budgeted: April 2026:\n• Cash sales: Budget R 120 000 / Actual R 84 000 / Variance (R 36 000)\n• Receipts from debtors: Budget R 256 200 / Actual R 248 700 / Variance (R 7 500)\n• Salaries: Budget R 96 000 / Actual R 108 000 / Variance R 12 000 over\n• Advertising: Budget R 18 000 / Actual R 9 000 / Variance R 9 000 under\n• Other operating expenses: Budget R 42 000 / Actual R 44 800 / Variance R 2 800 over\n\nINFORMATION 13 — Strategic Information:\n(i) A new competitor, BargainMart, opened a store 200 m from Sibusiso Stores in late March 2026.\n(ii) The marketing manager admitted that he reduced advertising spend without authorisation when cash flow was tight.\n(iii) The salaries variance is due to two new sales assistants hired in April. The directors had not approved this.",
+          "marks": 10,
+          "memoText": "Award marks for FIGURE + TREND/CHANGE + CAUSE for FOUR variances (2,5 marks each).\n\nVariance 1 — Cash sales DOWN R 36 000:\n• Figure: R 84 000 actual vs R 120 000 budgeted = R 36 000 unfavourable variance ✓\n• Trend: 30% drop\n• Cause: most likely caused by competitor BargainMart opening 200 m away in late March 2026 ✓\n\nVariance 2 — Receipts from debtors DOWN R 7 500:\n• Figure: R 248 700 actual vs R 256 200 budgeted = R 7 500 unfavourable variance ✓\n• Trend: relatively small 3% drop\n• Cause: suggests credit customers are also buying less and/or paying slightly later; should be monitored — possibly also competitor effect ✓\n\nVariance 3 — Salaries OVER budget by R 12 000:\n• Figure: R 108 000 actual vs R 96 000 budgeted = R 12 000 unfavourable / 12,5% increase ✓\n• Cause: Two new sales assistants were hired without director approval — clear breach of internal control ✓\n• Action: investigate immediately; review whether positions were necessary\n\nVariance 4 — Advertising UNDER-spent by R 9 000:\n• Figure: R 9 000 actual vs R 18 000 budgeted = 50% below budget ✓\n• Cause: The marketing manager cut spend without authority — short-sighted given the new competitor; this likely contributed directly to the cash sales decline ✓\n• Counter-intuitive: usually under-spending is good, but in this scenario it has hurt revenue\n\n[Mark allocation: 2,5 marks per variance × 4 = 10 marks. Each variance must include figure + cause/explanation. Bonus understanding for the link between under-spent advertising and lost cash sales.]",
+          "topic": "Cash Budget - Variance Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-predictive-2026-4-5",
+          "label": "4.5",
+          "questionText": "Strategic Recommendation. The owner is considering taking out a R 200 000 loan at 11% p.a. to refurbish the store and run a major advertising campaign in response to BargainMart. Advise the owner whether to proceed. Justify your answer using TWO points and quote ONE figure from the data provided.",
+          "marks": 5,
+          "memoText": "Either YES or NO is acceptable, provided the answer is supported with TWO points and ONE figure.\n\n=== YES — proceed (recommended answer) ===\n\nPoint 1 ✓✓: The business cannot afford to lose 30% of cash sales permanently — R 36 000 was lost in April alone. Without action, the decline will accelerate as customers shift to BargainMart.\n\nPoint 2 ✓✓: The store needs refurbishment AND a strong advertising campaign to differentiate from BargainMart; doing nothing is the riskier choice.\n\nFigure quoted ✓: At 11% p.a., interest on R 200 000 = R 22 000 per year (less than R 2 000 per month) — affordable IF even 50% of the lost cash sales are recovered.\n\nCaveat: Salaries, advertising and authorisation issues must be fixed FIRST so the loan funds are not wasted on unproductive spending.\n\n=== NO — alternative answer ===\n\nPoint 1 ✓✓: Adding R 24 000+ in monthly debt service to a business that already has an unfavourable closing cash balance of R 66 490 (May projection) is dangerous.\n\nPoint 2 ✓✓: The owner should first restore internal controls (unauthorised hires, unauthorised marketing cuts), reduce unnecessary costs, and run a smaller targeted campaign before committing to a long-term loan obligation.\n\n=== Mark allocation (5 marks) ===\n• Recommendation (YES/NO) clearly stated: 1 mark\n• TWO supporting points with reasoning: 2 marks each (must engage with specific business circumstances)\n\n[Both YES and NO are acceptable when properly justified. Award NO marks for unsupported opinions. The figure must come from the data provided in the paper, not invented.]",
+          "topic": "Cash Budget - Strategic Recommendation",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

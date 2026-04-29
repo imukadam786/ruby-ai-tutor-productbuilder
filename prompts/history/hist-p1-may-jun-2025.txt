@@ -1,0 +1,685 @@
+Attach the memo PDF for this paper. Fill in memoText for every sub-question using the memo. Also set type to "written" on every sub-question that does not already have a type, and "mcq" on any that are multiple choice with A/B/C/D options.
+
+Rules:
+- Match each sub-question by its label to the memo
+- Copy memoText exactly from the memo, do not summarise
+- Do not change any other fields
+- Return the complete updated JSON only, no explanation
+
+JSON:
+{
+  "id": "hist-p1-may-jun-2025",
+  "subject": "History",
+  "paperCode": "P1",
+  "year": 2025,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "HOW DID THE SPREAD OF COMMUNISM IN EUROPE AFTER THE SECOND WORLD WAR (1945) LEAD TO COLD WAR TENSIONS BETWEEN THE UNITED STATES OF AMERICA (USA) AND THE SOVIET UNION (USSR)?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "1A",
+          "title": "Source 1A",
+          "type": "text",
+          "content": "The extract below is from the 'Iron Curtain' speech delivered by British Prime Minister, Winston Churchill, at Westminster College in Fulton, Missouri, on 5 March 1946. It focuses on the threat that Soviet expansionism was posing in Europe.\n\nNobody knows what Soviet Russia and its communist international organisation intend to do in the immediate future, or what are the limits, if any, to their expansive (growing bigger) tendencies.\n\nFrom Stettin in the Baltic to Trieste in the Adriatic an Iron Curtain has descended across the continent. Behind that line lie all the capitals of the ancient states of Central and Eastern Europe. Warsaw, Berlin, Prague, Vienna, Budapest, Belgrade, Bucharest and Sofia, all these famous cities and the populations around them lie in what I must call the Soviet sphere and all are subject, in one form or another, not only to Soviet influence, but to a very high and, in some cases, increasing measure of control from Moscow.\n\nAthens alone – Greece with its immortal (eternal) glories – is free to decide its future at an election under British, American and French observation. The Russian-dominated Polish government has been encouraged to make enormous and wrongful inroads into Germany and mass expulsions (removal) of millions of Germans, on a scale grievous (critical) and undreamed of, are now taking place. The communist parties, which were very small in all these eastern states of Europe, have been raised to pre-eminence (domination) and power far beyond their numbers and are seeking everywhere to obtain totalitarian control.\n\n[From Book of Great Speeches by A Burnet]",
+          "imageUrl": null
+        },
+        {
+          "id": "1B",
+          "title": "Source 1B",
+          "type": "image",
+          "content": "A cartoon by the British cartoonist Illingworth, published in The Daily Mail on 16 June 1947. It depicts Stalin's policy of expansion in Eastern Europe. The cartoon shows a large caricature of Stalin, represented as a giant menacing figure, leaning over a detailed map of Europe and the Middle East, with his hand or arm extended as if reaching westward and southward. The map clearly labels many European countries including Iceland, Norway, Finland, Denmark, British Isles, Germany, France, Spain, Italy, Greece, Turkey, and countries further east. A legend in the top right corner uses different shadings to categorise countries as: Soviet Russia; Countries in Soviet Political Economic and Strategic Bloc; Countries with Communist or Communist-Influenced Governments; Countries under Strong Soviet Political Pressure; and Countries Not Yet Decided (marked with a question mark). Key labels: GREECE; TURKEY; FRANCE; SOVIET RUSSIA; COUNTRIES IN SOVIET POLITICAL ECONOMIC AND STRATEGIC BLOC; COUNTRIES WITH COMMUNIST OR COMMUNIST-INFLUENCED GOVERNMENTS; COUNTRIES UNDER STRONG SOVIET POLITICAL PRESSURE; COUNTRIES NOT YET DECIDED.\n\n[From The Daily Mail, 16 June 1947]",
+          "imageUrl": null
+        },
+        {
+          "id": "1C",
+          "title": "Source 1C",
+          "type": "text",
+          "content": "The source below is from an article titled 'Kissinger and Acheson: The Secretary of State and the Cold War' by W Lafeber, published in 1977. It highlights the role that Dean Acheson, Deputy Secretary of State during George Marshall's administration, played in influencing the United States to stop the spread of communism into Europe.\n\nIn early 1947, with Byrnes out and George Marshall in as the Secretary of State, the anti-communist governments of Turkey and Greece claimed to be under severe Soviet pressure and could not guarantee their own survival. Convinced that the United States must help the Turkish and Greek governments, the administration nevertheless faced the difficult task of persuading a fiscally (financially) careful Congress to provide the aid needed to support these governments.\n\nOn 27 February Truman called a meeting between administration officials and a handful of leading senators and members of Congress in the hope of winning over the legislators. Dean Acheson described this encounter as 'Armageddon' (a term used to describe the end of the world). Marshall spoke first, emphasising the need for the United States to act because it was the right thing to do and because no one else would help. The legislators seemed unmoved. Was it America's fight? Was the bill (cost) likely to be enormous (huge)? Acheson asked to speak.\n\nImmediately he changed the terms of the debate. The crisis in south-eastern Europe, he said, was no local dust-up (small fight) but one that involved the two Cold War powers. The Soviets were pressuring Turkey and Greece. At stake was a vast portion of the Free World, for if Greece went communist, the corruption of Greece would infect (influence) all to the east. It would also carry the infection to Africa through Asia Minor and Europe through Italy and France. Only the United States stood in the way of a communist onslaught (attack) that would, if successful, snuff out freedom and destroy all hope of economic recovery in parts of three continents.\n\n[Adapted from 'Kissinger and Acheson: The Secretary of State and the Cold War' by W Lafeber]",
+          "imageUrl": null
+        },
+        {
+          "id": "1D",
+          "title": "Source 1D",
+          "type": "text",
+          "content": "The extract below is from The Oxford Illustrated History of Modern Europe, edited by TCW Blanning in 1996. It focuses on how the Soviet Union created the Cominform as a reaction to the Marshall Plan and to also strengthen its sphere of influence over Eastern Europe.\n\nThe Russians sent an eighty-strong delegation to Paris, where the European Recovery Programme (Marshall Plan) was outlined and East European countries, like Czechoslovakia and Poland, expressed keen interest. But Stalin saw the American offer as a challenge to his sphere of influence. He warned the Czechs and others against participating and withdrew the Soviet delegation.\n\nThat autumn he declared ideological war on Western capitalism, creating the Cominform (Communist Information Bureau) to orchestrate (set up) foreign communist parties and to replace the coalitionist (work together) strategy in France and Italy with strikes intended to bring down the governments. In the East, Soviet influence now became Soviet domination. The coup in Czechoslovakia in February 1948 was followed by the 'Stalinisation' of much of the region. All but communists were proscribed (prohibited), those independent of Moscow were purged (got rid of), agriculture and heavy industry were brought under state control, and civil and political liberties systematically abolished.\n\nThe Czech coup and the Berlin Crisis did much to damage the Soviet image in Europe, even in France where the Communist Party was still picking up about a quarter of the vote in elections. Equally important, well-advertised Marshall Aid was winning hearts and minds. Between 1948 and 1951 the United States put into Western Europe about $13 billion …\n\n[From The Oxford Illustrated History of Modern Europe, edited by TCW Blanning]",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "What, according to the source, was British Prime Minister Winston Churchill concerned about regarding the intentions of the Soviet Union and its communist international organisation?",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Define the concept Iron Curtain in your own words.",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1A"],
+          "questionType": "define"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "Identify any TWO famous cities in the source that lie under the Soviet sphere of influence.",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-1-4",
+          "label": "1.1.4",
+          "questionText": "Comment on why you think British Prime Minister Churchill was worried about the rise and domination of communist parties in the eastern states of Europe.",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1A"],
+          "questionType": "comment"
+        },
+        {
+          "id": "1-1-5",
+          "label": "1.1.5",
+          "questionText": "Explain why a historian would consider this source reliable in understanding the threat posed by Soviet expansionism in Europe.",
+          "marks": 4,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1A"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "1-2-1",
+          "label": "1.2.1",
+          "questionText": "Comment on how Stalin has been portrayed in the cartoon.",
+          "marks": 4,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1B"],
+          "questionType": "comment"
+        },
+        {
+          "id": "1-2-2a",
+          "label": "1.2.2 (a)",
+          "questionText": "Using the evidence in the source and your own knowledge, explain why communism had not expanded into Greece and Turkey.",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-2-2b",
+          "label": "1.2.2 (b)",
+          "questionText": "Using the evidence in the source and your own knowledge, explain why communism had not expanded into France.",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-3-1",
+          "label": "1.3.1",
+          "questionText": "Who, according to the source, replaced Byrnes as the US Secretary of State in 1947?",
+          "marks": 1,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-3-2",
+          "label": "1.3.2",
+          "questionText": "Identify TWO reasons in the source that the anti-communist governments of Turkey and Greece put forward for USA's help.",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-3-3",
+          "label": "1.3.3",
+          "questionText": "Comment on why Acheson regarded the session of the Congress to take a decision on providing aid to Turkey and Greece, as 'Armageddon'.",
+          "marks": 4,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1C"],
+          "questionType": "comment"
+        },
+        {
+          "id": "1-3-4",
+          "label": "1.3.4",
+          "questionText": "Give TWO reasons, according to the source, that Acheson advanced when he changed the terms of the debate on the need to assist Greece and Turkey.",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-4",
+          "label": "1.4",
+          "questionText": "Use Source 1A and Source 1C. Comment on how the information in Source 1A supports the evidence in Source 1C regarding the spread of communism in Europe after the Second World War.",
+          "marks": 4,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1A", "1C"],
+          "questionType": "compare"
+        },
+        {
+          "id": "1-5-1",
+          "label": "1.5.1",
+          "questionText": "Name TWO East European countries in the source that showed a keen interest in the European Recovery Programme.",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-5-2",
+          "label": "1.5.2",
+          "questionText": "According to the source, why did Stalin warn the Czechs and others against participating in the European Recovery Programme?",
+          "marks": 1,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-5-3",
+          "label": "1.5.3",
+          "questionText": "Explain the concept Stalinisation in the context of the Cold War in Eastern Europe.",
+          "marks": 2,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-5-4",
+          "label": "1.5.4",
+          "questionText": "Using the information in the source and your own knowledge, comment on how the coup in Czechoslovakia and the Berlin Crisis 'damage(d) the Soviet image in Europe'.",
+          "marks": 4,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1D"],
+          "questionType": "comment"
+        },
+        {
+          "id": "1-6",
+          "label": "1.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining how the spread of communism in Europe after the Second World War (1945) led to Cold War tensions between the United States of America (USA) and the Soviet Union (USSR).",
+          "marks": 8,
+          "topic": "Cold War Origins – Spread of Communism",
+          "requiredSources": ["1A", "1B", "1C", "1D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "WHAT IMPACT DID REGIONAL ETHNIC DIVISIONS IN ANGOLA HAVE ON THE CIVIL WAR DURING THE 1970s?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "2A",
+          "title": "Source 2A",
+          "type": "text",
+          "content": "The source below, titled South African Intervention in the Angolan Civil War, 1975–1976: Motivations and Implications, is taken from research conducted by J Nerys in 2002. It explains that, due to the ineffectiveness of anticolonial movements in Angola, Portugal was able to have total control of Angola until 1975.\n\nThe military ineffectiveness of the anticolonial movements was considered to be partly responsible for the stagnation (inactivity) of the anticolonial war in Angola. This relative failure can be attributed (linked) to a number of factors, not least of which is the very fact that the nationalist forces were divided into three, separate, rival movements. According to an ex-member of the Popular Movement for the Liberation of Angola (MPLA), the military weakness of this movement was more than apparent in the face of Portuguese counterinsurgency (revolutionary) operations. Despite the presence of its units on Angolan soil, there is little evidence to support the MPLA's claims that there existed 'liberated' territory: the Portuguese army controlled the borders and was free to move anywhere in the country. The other movements, the National Union for the Total Independence of Angola (UNITA) and the National Liberation Front of Angola (FNLA), had not fared any better.\n\nThrough the deployment of its armed forces the Portuguese regime had managed to retain effective as well as nominal (minimal) sovereignty of the colony, despite the anticolonial challenge. All this changed on 25 April 1974. Overall, the development of political and economic forces in Portugal had outgrown the structure of authority so well-maintained for 40 years by Salazar (Portuguese dictator). His successor, Marcello Caetano, had promised change but did (or could) not deliver it fast enough.\n\n[From South African Intervention in the Angolan Civil War, 1975–1976: Motivations and Implications by J Nerys]",
+          "imageUrl": null
+        },
+        {
+          "id": "2B",
+          "title": "Source 2B",
+          "type": "text",
+          "content": "The source below is from a book Politics and Society in Contemporary Africa by N Chazan, published in 1999. It focuses on the ethnic composition of the three main liberation movements in Angola and how the Organisation of African Unity (OAU) tried to prevent the looming civil war among them.\n\nThe three parties with distinctive social bases in Angola had organised in the 1950s to oppose Portuguese colonial rule. The Popular Movement for the Liberation of Angola (MPLA) was an urban movement, Marxist in intellectual orientation, multiracial, but Mbundu in its ethnic base. The National Liberation Front of Angola (FNLA), by contrast, was rural, ethno-populist (promoting one ethnic group), uniracial (one ethnic/race) and ethnically Bakongo, and the largest, Ovimbundu, that formed the National Union for the Total Independence of Angola (UNITA). Even before the insurrection (uprising), the leaders of both groups [FNLA and UNITA] were well known outside Angola, having attended the various anticolonial gatherings, such as the All-African People's Conference.\n\nThe question of who would govern Angola fitted into the structure of continental alliances and ideological affinities (similarities). Each liberation movement had its preference if a nationalist coalition (alliance) should prove impossible, but the Organisation of African Unity (OAU) sought first to achieve Angolan unity and brought together Neto, Roberto and Savimbi to negotiate a common front in January 1975. They indeed signed the tri-lateral accord (Alvor Agreement) and then proceeded to negotiate an agreement with Portugal that fixed the date of the Angolan independence.\n\nIn June, the OAU once again tried to avert (prevent) the looming (forthcoming) civil war by bringing the three parties to the bargaining table. This temporary détente (agreement) was shattered in July when the FNLA, assisted by Zaire (Congo), began an offensive (attack). An OAU summit deplored (condemned) the bloodshed and appointed a commission to work for a coalition government. All African governments adhered to this posture right up to the appointed Independence Day in November 1975.\n\n[From Politics and Society in Contemporary Africa by N Chazan]",
+          "imageUrl": null
+        },
+        {
+          "id": "2C",
+          "title": "Source 2C",
+          "type": "image",
+          "content": "A map showing the division of Angola into three main ethnic regions, namely Bakongo (north), Mbundu (north-central) and Ovimbundu (central-south). Each ethnic region is associated with one of the three liberation movements: FNLA (Bakongo), MPLA (Mbundu) and UNITA (Ovimbundu). The map labels the capital Luanda in the northwest coastal area, with an arrow indicating its location. Zaire (DRC) is marked to the northeast, and the Atlantic Ocean to the west. The three regions are shaded differently to distinguish them. A legend below the map explains the foreign powers that aided each group: Bakongo/FNLA aided by the United States and Zaire (DRC); Mbundu/MPLA aided by Cuba and the Soviet Union; Ovimbundu/UNITA aided by the United States and South Africa. Key labels: BAKONGO; MBUNDU; OVIMBUNDU; ANGOLA; ZAIRE (DRC); ATLANTIC OCEAN; LUANDA; FNLA; MPLA; UNITA.\n\n[From https://www.historynet.com/author/ron-soodalter/. Accessed on 12 August 2024.]",
+          "imageUrl": null
+        },
+        {
+          "id": "2D",
+          "title": "Source 2D",
+          "type": "text",
+          "content": "The source below is an article titled 'Accusation and Legitimacy in the Civil War in Angola' by I Dulley. It explains how the Angolan regional ethnic rivalry grew and aligned to ideological differences of the Cold War era.\n\nThe civil war in Angola can be attributed (linked) to the action of the Portuguese government, which sought to open and maintain social and ethnic divisions among the nationalists, always establishing accords with one movement in detriment (disadvantage) to the other, whenever possible, thus fuelling the rivalry between them.\n\nThe ideological antagonism (hatred) characteristic of the support given to the movements by the Soviet Union, China and the United States during the Cold War, is a fact that internal factors related to the local socio-political and historical formation also played a central role in the conflict. In the struggle for liberation and the civil war, there were conflicts, an absence of cooperation and claims of pioneers (founders) made by the movements, which were based on antagonisms (hatred) and divisions of areas of operation.\n\nThe continuation of the contradictions already present in the struggles for liberation was reflected in the projection (plan), by both the FNLA and UNITA, of an enemy to be combatted (fought) after the colonial period as part of their construction of a narrative about themselves. The accusations made by the leaders of the movements depict the enemy as a continuation of the colonial system by accusing them of reproducing the distinctions (divisions) of race, ethnicity, regionality and class that characterised Portuguese rule in Angola.\n\n[From 'Accusation and Legitimacy in the Civil War in Angola' by I Dulley, January 2020]",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "2-1-1",
+          "label": "2.1.1",
+          "questionText": "What, according to the source, was partly responsible for the stagnation of the anticolonial war in Angola?",
+          "marks": 1,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-1-2",
+          "label": "2.1.2",
+          "questionText": "Define the concept nationalist forces in your own words.",
+          "marks": 2,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2A"],
+          "questionType": "define"
+        },
+        {
+          "id": "2-1-3",
+          "label": "2.1.3",
+          "questionText": "Comment on what is implied by the statement, 'the Portuguese army controlled the borders and was free to move anywhere in the country', in the context of the impact of anticolonial movements.",
+          "marks": 4,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2A"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-1-4",
+          "label": "2.1.4",
+          "questionText": "Quote TWO pieces of evidence from the source which suggest that the Portuguese policy of colonialism changed on 25 April 1974.",
+          "marks": 2,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2A"],
+          "questionType": "quote"
+        },
+        {
+          "id": "2-2-1",
+          "label": "2.2.1",
+          "questionText": "Identify THREE Angolan parties in the source that opposed Portuguese colonial rule in the 1950s.",
+          "marks": 3,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-2-2",
+          "label": "2.2.2",
+          "questionText": "In the context of a coalition government in Angola, comment on what is implied by the statement, 'Each liberation movement had its preference if a nationalist coalition (alliance) should prove impossible'.",
+          "marks": 4,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2B"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-2-3",
+          "label": "2.2.3",
+          "questionText": "State any TWO steps in the source taken by the Organisation of African Unity (OAU) before the date of the Angolan independence could be fixed.",
+          "marks": 2,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-2-4",
+          "label": "2.2.4",
+          "questionText": "Explain the term coalition government in the context of the Angolan government in 1975.",
+          "marks": 2,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-3-1",
+          "label": "2.3.1",
+          "questionText": "With reference to the evidence in the source and your own knowledge, explain why you think that among the three liberation movements, it would be easy for the MPLA to take control of Luanda and form the government of Angola.",
+          "marks": 4,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-3-2",
+          "label": "2.3.2",
+          "questionText": "Using the evidence in the source and your own knowledge, explain why it was convenient for Zaire (the Congo) to support the FNLA.",
+          "marks": 2,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-3-3",
+          "label": "2.3.3",
+          "questionText": "Comment on the usefulness of this source for a historian researching the Angolan Civil War of 1975.",
+          "marks": 4,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2C"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "2-4",
+          "label": "2.4",
+          "questionText": "Refer to Sources 2B and 2C. Explain how the information in Source 2B supports the evidence in Source 2C regarding the regional ethnic divisions that existed during the Angolan Civil War.",
+          "marks": 4,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2B", "2C"],
+          "questionType": "compare"
+        },
+        {
+          "id": "2-5-1",
+          "label": "2.5.1",
+          "questionText": "Identify TWO pieces of evidence in the source that indicate how the Portuguese government fuelled the rivalry amongst liberation movements during the civil war in Angola.",
+          "marks": 2,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-5-2",
+          "label": "2.5.2",
+          "questionText": "Using the information in the source and your own knowledge, comment on how the civil war in Angola escalated into a Cold War.",
+          "marks": 2,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2D"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-5-3",
+          "label": "2.5.3",
+          "questionText": "According to the source, conflicts and absence of cooperation among the three Angolan liberation movements were based on TWO factors. Name these factors.",
+          "marks": 2,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-5-4",
+          "label": "2.5.4",
+          "questionText": "Explain why the FNLA and UNITA depicted their enemy (MPLA) as a continuation of the colonial system that continued to reproduce distinctions of race and class in Angola.",
+          "marks": 2,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-6",
+          "label": "2.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining the impact that regional ethnic divisions in Angola had on the civil war during the 1970s.",
+          "marks": 8,
+          "topic": "Angola Civil War – Ethnic Divisions",
+          "requiredSources": ["2A", "2B", "2C", "2D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "HOW DID STATE AUTHORITIES IN ALABAMA DEAL WITH THE NON-VIOLENT CHILDREN'S MARCH DURING THE BIRMINGHAM CAMPAIGN IN 1963?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "3A",
+          "title": "Source 3A",
+          "type": "text",
+          "content": "The source below, from The Civil Rights Movement – An Illustrated History by B Wilkinson, explains the events that took place in Birmingham, Alabama in 1963 following the release of Dr Martin Luther King Jr from jail.\n\nBirmingham, Alabama's largest city, had the reputation among civil rights activists as the 'worst big city in the USA'. Eighteen unsolved bombings in black neighbourhoods between the late 1950s and 1963 gave it its nickname, Bombingham. The protests began in downtown Birmingham on 3 April 1963 under the baleful (threatening) eye of Police Commissioner 'Bull' Connor, who held his fire for several weeks during which Dr King was imprisoned and kept in solitary confinement for three days. During this period, he (Dr King) wrote the powerful 'Letter from Birmingham Jail' drafted on 16 April on scraps of paper.\n\n… several days after King was released on bail, all hell broke loose in the city. Hundreds of adolescents and younger children had been recruited by 2 May 1963, and they took to the streets with enthusiasm (Children's March). More than 900 of them were arrested that day. The next day the march to the City Hall was aborted (cancelled) when police barricaded (blocked) the Sixteenth Street Baptist Church with a thousand protestors inside. Those who attempted to leave were assaulted with fire hoses set to pressure that would strip off tree bark, clubbed (beaten) indiscriminately (randomly) and attacked by police dogs. The carnage (bloodshed) shocked the nation as scenes from the war in Vietnam would do soon afterwards.\n\nYoung black men in the city's poorest sections repudiated (rejected) non-violence and rioted against their oppressors. White merchants faced a sea of black picketers (demonstrators) and protestors who discouraged patronage (support) of their stores.\n\n[From The Civil Rights Movement – An Illustrated History by B Wilkinson]",
+          "imageUrl": null
+        },
+        {
+          "id": "3B",
+          "title": "Source 3B",
+          "type": "image",
+          "content": "A black-and-white photograph from the Black History Buff podcast, taken on 2 May 1963 during the Children's March in Birmingham, Alabama. The photograph shows Martin Luther King Jr walking alongside children and youth participants in the march. The children are holding hand-made protest placards. Visible signs read: 'SEGREGATION MUST GO' (associated with the SCLC), 'The City Officials WON'T TALK To Us CHILDREN', and 'DON'T BUY IN SEGREGATED St. John County'. Martin Luther King Jr is visible on the right side of the image, dressed in a white shirt and dark tie. The march takes place on a street with parked cars and buildings in the background. Key labels: DON'T BUY IN SEGREGATED St. John County; SEGREGATION MUST GO; SCLC; The City Officials WON'T TALK To Us CHILDREN.\n\n[From https://steadyhq.com/en/blackhistory/posts/19bc41d7-0297-4f98-abf4-a17bea49bff3. Accessed on 27 July 2024.]",
+          "imageUrl": null
+        },
+        {
+          "id": "3C",
+          "title": "Source 3C",
+          "type": "text",
+          "content": "The source below is an interview conducted in 1995 by B Wilkinson with Audrey Faye Hendriks who was 9 years old at the time of the Children's March. In the interview she describes how they were interrogated by the police in Birmingham.\n\nAudrey Faye Hendriks, nine years old and in the third grade, was one of the children arrested on 2 May. Later, she would recall, 'I wasn't nervous or scared. We started at the Sixteenth Street Church. We always sang when we left the church. The singing was like a jubilance (overjoyed). It was release … it also gave you calmness and reassurance. We went down … by Kelly Ingram Park and marched about half a block. Then the police put us in paddy wagons. There were lots of kids, but I think I must have been the youngest child in there.'\n\nThe policemen later separated Audrey Faye to interrogate (question) her about the march. They pressed for details of the plans and suggested that she had been forced to participate. 'I was nervous when they first called me in,' she remembers. 'The worst thing I thought was that they might kill me. After they started asking me questions, I calmed down a little and thought, maybe they're not going to do anything. But it crossed my mind. It was a room of five or six men. All white. And I was little …'\n\nAfter being questioned, Audrey was finally returned to her cell, where she remained jailed with other children for seven days. 'We slept in little rooms with bunk beds … about twelve of us to a room. We called ourselves Freedom Fighters. The food wasn't home cooking. I remember some grits (ground maizemeal porridge) and they weren't good. My parents couldn't get word to me for seven days.' As demonstrations continued, news came that the cells were full and the police were now forced to take students to the fairgrounds to house them. 'I felt like I was helping to gain freedom.'\n\n[From The Civil Rights Movement – An Illustrated History by B Wilkinson]",
+          "imageUrl": null
+        },
+        {
+          "id": "3D",
+          "title": "Source 3D",
+          "type": "text",
+          "content": "The extract below is from a book, I Have a Dream – The Life and Works of Martin Luther King Jr, written by J Haskins. It explains the steps taken by the US government to introduce changes to the Constitution after the Birmingham Campaign.\n\nThe shocking images from Birmingham stunned (shocked) the nation and the world. On college campuses, progressive white students couldn't believe the injustice that was occurring in their country. Gloria Clark remembered Bull Connor being interviewed on television, 'I've never forgotten this line, \"We can take care of our own negroes* ourselves …\" And I said no way is he going to define how people are treated in this country I live in. No way do I want a man like that defining it.'\n\nAt the urging of the US Attorney-General Robert Kennedy, the Southern Christian Leadership Conference (SCLC) and Birmingham businesses brokered (came to) an agreement on 10 May. The latter agreed to desegregate lunch counters and certain other facilities and to improve hiring practices for black citizens. Governor George Wallace would denounce the deal and on 11 May bombs exploded at the homes of AD King (Dr Martin Luther King's brother) and at the Gaston Motel where Dr King had been staying. Following the violence in Birmingham, which outraged most of his colleagues in Washington, Kennedy believed it was time to put civil rights at the forefront of his agenda – and soon because events were happening quickly.\n\nOn 20 May the US Supreme Court declared the city segregation ordinances (orders) were unconstitutional. In Jackson, Mississippi, sit-in activists were being abused by segregationists. Two days later King sent a telegram to the president requesting a meeting. King hoped that he could persuade Kennedy to issue an executive order against segregation.\n\n[From I Have a Dream – The Life and Works of Martin Luther King Jr by J Haskins]\n\n∗Negroes – a derogatory word from the period of the slave trade that was used for African Americans",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "3-1-1",
+          "label": "3.1.1",
+          "questionText": "According to the source, why was Birmingham nicknamed 'Bombingham'?",
+          "marks": 1,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-1-2",
+          "label": "3.1.2",
+          "questionText": "Define the term civil rights activists in your own words.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3A"],
+          "questionType": "define"
+        },
+        {
+          "id": "3-1-3",
+          "label": "3.1.3",
+          "questionText": "Using the information in the source and your own knowledge, explain why Dr King was imprisoned.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-1-4",
+          "label": "3.1.4",
+          "questionText": "Quote any TWO ways from the source indicating how the police dealt with the protestors during the Children's March.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3A"],
+          "questionType": "quote"
+        },
+        {
+          "id": "3-1-5",
+          "label": "3.1.5",
+          "questionText": "Identify TWO ways in the source in which young black men in the city's poorest section retaliated to being assaulted and attacked by the police.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-2-1",
+          "label": "3.2.1",
+          "questionText": "State any TWO demands in the source that the protestors made during the Children's March of the Birmingham campaign.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-2-2",
+          "label": "3.2.2",
+          "questionText": "Explain why the presence of Martin Luther King Jr at the Children's March could have given it some credibility.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Refer to Sources 3A and 3B. Explain how these sources support each other regarding the protests of the Children's March during the Birmingham campaign in 1963.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3A", "3B"],
+          "questionType": "compare"
+        },
+        {
+          "id": "3-4-1",
+          "label": "3.4.1",
+          "questionText": "According to the source, what did Audrey Faye Hendriks recall about the Children's March? Give TWO responses.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-4-2",
+          "label": "3.4.2",
+          "questionText": "Comment on why policemen suggested to Audrey Faye that 'she had been forced to participate' in the Children's March.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3C"],
+          "questionType": "comment"
+        },
+        {
+          "id": "3-4-3",
+          "label": "3.4.3",
+          "questionText": "Identify evidence in the source which suggests that conditions for the children who were placed in police cells were not good for their health.",
+          "marks": 1,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-4-4",
+          "label": "3.4.4",
+          "questionText": "Explain the limitations of the source for a historian researching the Children's March during the Birmingham campaign in 1963.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3C"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "3-5-1",
+          "label": "3.5.1",
+          "questionText": "According to the source, who was stunned by the shocking images of the Birmingham campaign? Give TWO responses.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-5-2",
+          "label": "3.5.2",
+          "questionText": "Comment on what Gloria Clark implied by the words, 'And I said no way is he going to define how people are treated in this country I live in' in the context of how protestors were dealt with during the Birmingham campaign.",
+          "marks": 4,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3D"],
+          "questionType": "comment"
+        },
+        {
+          "id": "3-5-3",
+          "label": "3.5.3",
+          "questionText": "Explain the term desegregate in the context of changes to discriminatory laws in the US in the 1960s.",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-5-4",
+          "label": "3.5.4",
+          "questionText": "What conclusion can you draw from the statement, '… Kennedy believed it was time to put civil rights at the forefront of his agenda …' in the context of the impact of the Birmingham campaign?",
+          "marks": 2,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3D"],
+          "questionType": "comment"
+        },
+        {
+          "id": "3-6",
+          "label": "3.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining how state authorities in Alabama dealt with the non-violent Children's March during the Birmingham campaign in 1963.",
+          "marks": 8,
+          "topic": "US Civil Rights Movement – Birmingham Campaign",
+          "requiredSources": ["3A", "3B", "3C", "3D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "THE EXTENSION OF THE COLD WAR: CASE STUDY – VIETNAM",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4",
+          "questionText": "Military strategies adopted by the US army were unable to defeat a small dedicated army of Viet Cong guerrillas in the Vietnam War between 1962 and 1973.\n\nDo you agree with the statement? Substantiate your answer with relevant historical evidence.",
+          "marks": 50,
+          "topic": "Vietnam War",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "INDEPENDENT AFRICA: CASE STUDY – THE CONGO",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "5-1",
+          "label": "5",
+          "questionText": "Critically discuss the effectiveness of Mobutu Sese Seko's political and economic policies in developing the Congo after attaining independence from Belgian colonial rule in the 1960s.",
+          "marks": 50,
+          "topic": "Independent Africa – The Congo",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "CIVIL SOCIETY PROTESTS FROM THE 1950s TO THE 1970s: THE BLACK POWER MOVEMENT",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6",
+          "questionText": "Explain to what extent the Black Power philosophy successfully instilled self-pride and courage among African Americans in confronting segregation and police brutality in the United States of America during the 1960s and the 1970s.\n\nSupport your line of argument with relevant historical evidence.",
+          "marks": 50,
+          "topic": "Black Power Movement",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    }
+  ]
+}

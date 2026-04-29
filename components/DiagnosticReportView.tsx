@@ -8,6 +8,7 @@
 import { buildDeterministicReportContent, } from "@/lib/report-content-builder";
 import { describeError } from "@/lib/report-generator";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
+import EduBackground from "@/components/EduBackground";
 
 // ─── Colour helpers ───────────────────────────────────────────────────────────
 
@@ -93,46 +94,53 @@ function BulletItem({ text }: { text: string }) {
 export default function DiagnosticReportView({
   input,
   onStartLearning,
+  ctaLabel = "Continue Learning 🚀",
 }: {
   input: DiagnosticReportInput;
   onStartLearning: () => void;
+  ctaLabel?: string;
 }) {
   const content = buildDeterministicReportContent(input);
   const subject = input.subject === "maths" ? "Maths" : "Reading";
   const today = new Date().toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
 
   return (
-    <div className="flex flex-col h-full bg-gray-50 overflow-hidden">
+    <div className="flex flex-col h-full bg-[#F4F4F5] overflow-hidden relative">
+      <EduBackground />
+
       {/* ── Scrollable body ── */}
-      <div className="flex-1 overflow-y-auto pb-4">
+      <div className="relative flex-1 overflow-y-auto pb-4">
 
-        {/* ── Header ── */}
-        <div className="bg-[#B7182E] px-5 py-6 print:py-8">
-          <p className="text-[#F9A8B4] text-xs font-bold uppercase tracking-widest mb-1">ruby</p>
-          <h1 className="text-white text-2xl font-bold leading-tight">Learning Checkup Report</h1>
-          <p className="text-[#FDA4AF] text-sm mt-1">{subject} · Diagnostic Placement · {today}</p>
-
-          <div className="grid grid-cols-3 gap-3 mt-5">
+        {/* ── Header — white panel ── */}
+        <div className="bg-white px-5 py-5 border-b border-gray-100 shadow-sm">
+          <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">ruby</p>
+          <div className="flex flex-col gap-3">
             <div>
-              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Student</p>
-              <p className="text-white font-bold text-base">{input.studentName}</p>
-              <p className="text-[#FDA4AF] text-xs">Grade {input.studentGrade}</p>
+              <h1 className="text-gray-900 text-xl font-bold leading-tight">Discovery Report</h1>
+              <p className="text-gray-400 text-sm mt-0.5">{subject} · Discovery Placement · {today}</p>
             </div>
-            <div>
-              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Working Level</p>
-              <p className="text-white font-bold text-base">{input.workingLevel}</p>
-              <p className="text-[#FDA4AF] text-xs">
-                {input.gradeLevelGap < 0
-                  ? `${Math.abs(input.gradeLevelGap)} level${Math.abs(input.gradeLevelGap) !== 1 ? "s" : ""} ahead of expected`
-                  : input.gradeLevelGap === 0
-                  ? "At expected starting point"
-                  : `${input.gradeLevelGap} level${input.gradeLevelGap !== 1 ? "s" : ""} before expected`}
-              </p>
-            </div>
-            <div>
-              <p className="text-[#FDA4AF] text-[10px] font-semibold uppercase tracking-wide">Score</p>
-              <p className="text-white font-bold text-base">{input.correctCount}/{input.questionsAnalysed}</p>
-              <p className="text-[#FDA4AF] text-xs">Placement reliable</p>
+            <div className="grid grid-cols-3 gap-3 border-t border-gray-100 pt-3">
+              <div>
+                <p className="text-gray-400 text-[10px] font-semibold uppercase tracking-wide">Student</p>
+                <p className="text-gray-900 font-bold text-sm">{input.studentName}</p>
+                <p className="text-gray-400 text-xs">Grade {input.studentGrade}</p>
+              </div>
+              <div>
+                <p className="text-gray-400 text-[10px] font-semibold uppercase tracking-wide">Working Level</p>
+                <p className="text-gray-900 font-bold text-sm leading-snug">{input.workingLevel}</p>
+                <p className="text-gray-400 text-xs">
+                  {input.gradeLevelGap < 0
+                    ? `${Math.abs(input.gradeLevelGap)} level${Math.abs(input.gradeLevelGap) !== 1 ? "s" : ""} ahead`
+                    : input.gradeLevelGap === 0
+                    ? "At expected"
+                    : `${input.gradeLevelGap} level${input.gradeLevelGap !== 1 ? "s" : ""} before expected`}
+                </p>
+              </div>
+              <div>
+                <p className="text-gray-400 text-[10px] font-semibold uppercase tracking-wide">Score</p>
+                <p className="text-gray-900 font-bold text-sm">{input.correctCount}/{input.questionsAnalysed}</p>
+                <p className="text-gray-400 text-xs">Placement reliable</p>
+              </div>
             </div>
           </div>
         </div>
@@ -264,14 +272,16 @@ export default function DiagnosticReportView({
         </div>
       </div>
 
-      {/* ── Bottom bar — stays inside the report panel ── */}
-      <div className="bg-white border-t border-gray-200 px-4 py-3 shadow-lg flex-shrink-0">
-        <button
-          onClick={onStartLearning}
-          className="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-base transition-all hover:bg-green-700 shadow-md"
-        >
-          Start Learning 🚀
-        </button>
+      {/* ── Bottom bar — constrained to match report content width ── */}
+      <div className="relative bg-white border-t border-gray-200 py-3 flex-shrink-0">
+        <div className="max-w-xl mx-auto px-4">
+          <button
+            onClick={onStartLearning}
+            className="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-base transition-all hover:bg-green-700 shadow-md"
+          >
+            {ctaLabel}
+          </button>
+        </div>
       </div>
     </div>
   );

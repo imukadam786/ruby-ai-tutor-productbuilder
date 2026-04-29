@@ -171,29 +171,33 @@ function EditField({
 
 // ── Plan badge ────────────────────────────────────────────────────────────────
 
-const PLAN_INFO: Record<string, { label: string; color: string; features: string[]; price: string }> = {
+const PLAN_INFO: Record<string, { label: string; color: string; features: string[]; price: string; priceRands: number }> = {
   free: {
     label: "Free",
     color: "bg-gray-100 text-gray-600",
     price: "R0 / month",
+    priceRands: 0,
     features: ["General Homework Chat", "Basic Skill Tree", "Limited questions/day"],
   },
   starter: {
     label: "Starter",
     color: "bg-blue-100 text-blue-700",
     price: "R149 / month",
+    priceRands: 149,
     features: ["All Free features", "Maths Engine", "Reading Engine", "Progress Reports"],
   },
   pro: {
     label: "Pro",
     color: "bg-purple-100 text-purple-700",
     price: "R299 / month",
+    priceRands: 299,
     features: ["All Starter features", "Unlimited questions", "PDF Reports", "Priority support"],
   },
   ultimate: {
     label: "Ultimate",
     color: "bg-amber-100 text-amber-700",
     price: "R499 / month",
+    priceRands: 499,
     features: ["All Pro features", "Multiple learner profiles", "Parent dashboard", "Live tutor sessions"],
   },
 };
@@ -240,7 +244,6 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   // Subscription state
   const [supaUser, setSupaUser] = useState<{ id: string; email?: string } | null>(null);
   const [pfToken, setPfToken] = useState<string | null>(null);
-  const [upgrading, setUpgrading] = useState(false);
   const [cancelling, setCancelling] = useState(false);
   const [subError, setSubError] = useState<string | null>(null);
 
@@ -251,47 +254,38 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   const [modal, setModal] = useState<string | null>(null);
 
   useEffect(() => {
-    try {
-      setHasMathsReport(!!localStorage.getItem("ruby_maths_report"));
-      setHasReadingReport(!!localStorage.getItem("ruby_reading_report"));
-    } catch { /* ignore */ }
+    (async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        const { data } = await supabase
+          .from("student_reports")
+          .select("subject")
+          .eq("user_id", user.id)
+          .in("subject", ["maths", "reading"]);
+        if (data) {
+          setHasMathsReport(data.some((r) => r.subject === "maths"));
+          setHasReadingReport(data.some((r) => r.subject === "reading"));
+        }
+      } catch { /* ignore */ }
+    })();
   }, []);
 
   useEffect(() => {
     const loadProfile = async () => {
-      let savedName = "";
-      let savedEmail = "";
-      let savedGrade = "";
-      try {
-        const raw = localStorage.getItem("onboardingData");
-        if (raw) {
-          const d = JSON.parse(raw);
-          savedName = d.name || "";
-          savedEmail = d.email || "";
-          savedGrade = d.grade || "";
-          setAccountLang(d.language || "English");
-          setLearnLang(d.language || "English");
-          setPlan(d.plan || "free");
-        }
-      } catch { /* ignore */ }
-
-      // Fill in name/email/grade from Supabase if not in localStorage
       const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        if (!savedName) savedName = (user.user_metadata?.full_name as string | undefined) || "";
-        if (!savedEmail) savedEmail = user.email || "";
-        if (!savedGrade) {
-          const { data: profile } = await supabase
-            .from("users")
-            .select("grade")
-            .eq("id", user.id)
-            .single();
-          savedGrade = profile?.grade || "";
-        }
-      }
-      setName(savedName);
-      setEmail(savedEmail);
-      setGrade(savedGrade);
+      if (!user) return;
+      const { data: profile } = await supabase
+        .from("users")
+        .select("full_name, grade, language, average_score")
+        .eq("id", user.id)
+        .single();
+      setName((profile?.full_name as string | undefined) || (user.user_metadata?.full_name as string | undefined) || "");
+      setEmail(user.email || "");
+      setGrade((profile?.grade as string | undefined) || "");
+      const lang = (profile?.language as string | undefined) || "English";
+      setAccountLang(lang);
+      setLearnLang(lang);
     };
     loadProfile();
   }, []);
@@ -307,8 +301,8 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
       .select("plan, status, payfast_token")
       .eq("user_id", session.user.id)
       .single();
-    if (sub?.plan) setPlan(sub.plan);
-    if (sub?.payfast_token) setPfToken(sub.payfast_token);
+    if (sub?.plan && sub?.status === "active") setPlan(sub.plan);
+    if (sub?.payfast_token && sub?.status === "active") setPfToken(sub.payfast_token);
 
     const { data: history } = await supabase
       .from("payments")
@@ -329,57 +323,26 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   }, [paymentReturn, fetchSubscription]);
 
   const saveProfile = () => {
-    try {
-      const raw = localStorage.getItem("onboardingData");
-      const existing = raw ? JSON.parse(raw) : {};
-      localStorage.setItem("onboardingData", JSON.stringify({
-        ...existing,
-        name,
-        email,
-        language: accountLang,
-      }));
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
-    } catch { /* ignore */ }
+    void (async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        await supabase.from("users").update({
+          full_name: name,
+          language: accountLang,
+        }).eq("id", user.id);
+        setSaved(true);
+        setTimeout(() => setSaved(false), 2000);
+      } catch { /* ignore */ }
+    })();
   };
 
   const planInfo = PLAN_INFO[plan] || PLAN_INFO.free;
 
-  const close = () => { setModal(null); setSubError(null); };
-
-  async function startCheckout(targetPlan: string) {
-    if (!supaUser) { setSubError("Please sign in to upgrade."); return; }
-    setUpgrading(true);
+  const close = () => {
+    setModal(null);
     setSubError(null);
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      const res = await fetch("/api/payfast/checkout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session?.access_token}`,
-        },
-        body: JSON.stringify({ plan: targetPlan }),
-      });
-      if (!res.ok) { setSubError("Could not start checkout. Try again."); return; }
-      const { url, params } = await res.json();
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = url;
-      Object.entries(params as Record<string, string>).forEach(([k, v]) => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = k;
-        input.value = v;
-        form.appendChild(input);
-      });
-      document.body.appendChild(form);
-      form.submit();
-    } catch {
-      setSubError("Network error. Please try again.");
-      setUpgrading(false);
-    }
-  }
+  };
 
   async function cancelSubscription() {
     if (!supaUser) return;
@@ -509,7 +472,7 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
 
                 <Row icon={icons.star}       label={t("settings.plan_features")}      onClick={() => setModal("planFeatures")} />
                 {planInfo.label === "Free" && (
-                  <Row icon={icons.star} label="Upgrade plan" onClick={() => setModal("upgradePlan")} />
+                  <Row icon={icons.star} label="Upgrade plan" onClick={() => document.dispatchEvent(new CustomEvent("ruby-upgrade-needed", { detail: { reason: "Choose a plan to unlock full access" } }))} />
                 )}
                 {pfToken && (
                   <Row icon={icons.creditCard} label={t("settings.update_payment")} onClick={() => setModal("payment")} />
@@ -681,43 +644,6 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
         </Modal>
       )}
 
-      {modal === "upgradePlan" && (
-        <Modal title="Upgrade your plan" onClose={close}>
-          <div className="space-y-3">
-            {subError && (
-              <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2">{subError}</p>
-            )}
-            {(["starter", "pro", "ultimate"] as const).map((p) => {
-              const info = PLAN_INFO[p];
-              return (
-                <div key={p} className="border border-gray-100 rounded-2xl p-4 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${info.color}`}>
-                      {info.label}
-                    </span>
-                    <span className="text-sm font-bold text-gray-800">{info.price}</span>
-                  </div>
-                  <ul className="space-y-1 pb-1">
-                    {info.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-xs text-gray-500">
-                        <span className="text-green-500 flex-shrink-0">✓</span>{f}
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={() => startCheckout(p)}
-                    disabled={upgrading}
-                    className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white py-2 rounded-xl text-sm font-medium transition-colors"
-                  >
-                    {upgrading ? "Redirecting to PayFast…" : `Subscribe — ${info.price}`}
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-        </Modal>
-      )}
-
       {modal === "downloadPDF" && (
         <Modal title="Download progress report" onClose={close}>
           <div className="space-y-4">
@@ -734,7 +660,7 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
           <div className="space-y-3">
             {[
               { q: "How does Ruby teach maths?", a: "Ruby uses an adaptive skill tree with 72 atomic skills to diagnose and target gaps." },
-              { q: "Can I change the learning language?", a: "Yes — go to Learning Settings and choose your preferred language." },
+              { q: "Can I change the learning language?", a: "Yes, go to Learning Settings and choose your preferred language." },
               { q: "Is my data safe?", a: "All progress is stored locally on your device and never shared without consent." },
             ].map(({ q, a }) => (
               <div key={q} className="bg-gray-50 rounded-xl px-4 py-3">

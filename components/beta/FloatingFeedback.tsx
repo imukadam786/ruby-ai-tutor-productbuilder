@@ -45,13 +45,11 @@ export default function FloatingFeedback() {
     setSubmitting(true);
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      // Try to get name from onboarding data first, fall back to auth metadata
-      let fullName: string | null = null;
-      try {
-        const raw = localStorage.getItem("onboardingData");
-        if (raw) fullName = JSON.parse(raw).name ?? null;
-      } catch { /* ignore */ }
-      if (!fullName) fullName = user?.user_metadata?.full_name ?? null;
+      let fullName: string | null = user?.user_metadata?.full_name ?? null;
+      if (!fullName && user) {
+        const { data: profile } = await supabase.from("users").select("full_name").eq("id", user.id).single();
+        fullName = (profile?.full_name as string | undefined) ?? null;
+      }
 
       await supabase.from("feedback").insert({
         user_id: user?.id ?? null,
@@ -61,12 +59,7 @@ export default function FloatingFeedback() {
         text: text.trim(),
         url: window.location.href,
       });
-    } catch {
-      // Fallback to localStorage if DB unavailable
-      const existing = JSON.parse(localStorage.getItem("beta_feedback") || "[]");
-      existing.push({ category, text: text.trim(), url: window.location.href, ts: new Date().toISOString() });
-      localStorage.setItem("beta_feedback", JSON.stringify(existing));
-    }
+    } catch { /* ignore — feedback loss is acceptable */ }
     setSubmitting(false);
     setStep("done");
   };
@@ -172,7 +165,7 @@ export default function FloatingFeedback() {
 
         {/* Beta label */}
         <div className="px-5 pb-4 flex justify-center">
-          <span className="text-xs text-gray-300">Ruby Beta — your feedback matters 💙</span>
+          <span className="text-xs text-gray-300">Ruby Beta, your feedback matters 💙</span>
         </div>
       </div>
     </div>

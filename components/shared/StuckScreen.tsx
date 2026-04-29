@@ -43,7 +43,7 @@ export default function StuckScreen({
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed">
               You&apos;ve worked hard on <span className="font-medium text-gray-700">{skillTitle}</span> ({attemptCount} attempts).
-              Sometimes a skill needs more time to click — that&apos;s completely normal.
+              Sometimes a skill needs more time to click, that&apos;s completely normal.
             </p>
           </div>
 
@@ -65,14 +65,14 @@ export default function StuckScreen({
             >
               <p className="font-semibold text-base">Keep trying</p>
               <p className="text-sm text-gray-500 mt-0.5">
-                Stay on this skill — I&apos;ll keep showing different questions.
+                Stay on this skill, I&apos;ll keep showing different questions.
               </p>
             </button>
           </div>
 
           {/* Reassurance footer */}
           <p className="text-center text-xs text-gray-400">
-            Moving on doesn&apos;t mean giving up — it means learning strategically.
+            Moving on doesn&apos;t mean giving up, it means learning strategically.
           </p>
 
         </div>

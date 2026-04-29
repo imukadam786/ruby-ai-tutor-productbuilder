@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import { createClient } from "@supabase/supabase-js";
 
 // ── Config ────────────────────────────────────────────────────────────────────
 
@@ -16,15 +17,55 @@ export const PAYFAST_API_BASE = isSandbox
   ? "https://api.sandbox.payfast.co.za"
   : "https://api.payfast.co.za";
 
-// ── Plan catalogue ────────────────────────────────────────────────────────────
+// ── Plan lookup (from DB) ─────────────────────────────────────────────────────
 
-export const PLAN_PRICES: Record<string, { amount: string; itemName: string }> = {
-  starter:  { amount: "149.00", itemName: "Ruby AI Tutor – Starter"  },
-  pro:      { amount: "299.00", itemName: "Ruby AI Tutor – Pro"      },
-  ultimate: { amount: "499.00", itemName: "Ruby AI Tutor – Ultimate" },
-};
+async function getPlanInfo(plan: string): Promise<{ amount: string; itemName: string }> {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  );
+
+  const { data, error } = await supabase
+    .from("plans")
+    .select("price_rands, label")
+    .eq("key", plan)
+    .eq("is_active", true)
+    .single();
+
+  if (error || !data) throw new Error(`Unknown or inactive plan: ${plan}`);
+
+  return {
+    amount:   data.price_rands.toFixed(2),
+    itemName: `Ruby AI Tutor – ${data.label}`,
+  };
+}
 
 // ── Signature helpers ─────────────────────────────────────────────────────────
+
+/**
+ * Signature for PayFast REST API calls (cancel, update, etc.)
+ * The REST API requires ALL parameters (including passphrase) sorted alphabetically
+ * before hashing — unlike the checkout form where passphrase is appended at the end.
+ *
+ * Correct sorted order: merchant-id → passphrase → timestamp → version
+ */
+export function generateApiSignature(
+  params: Record<string, string>,
+  passphrase: string | undefined = PASSPHRASE,
+): string {
+  const all: Record<string, string> = {
+    ...params,
+    ...(passphrase ? { passphrase } : {}),
+  };
+
+  const str = Object.entries(all)
+    .filter(([k]) => k !== "signature")
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([k, v]) => `${k}=${encodeURIComponent(v).replace(/%20/g, "+")}`)
+    .join("&");
+
+  return crypto.createHash("md5").update(str).digest("hex");
+}
 
 /**
  * Build the signature string (key=urlEncoded(value) pairs joined with &)
@@ -68,13 +109,15 @@ export function verifyITNSignature(data: Record<string, string>): boolean {
 
 // ── Checkout params builder ───────────────────────────────────────────────────
 
-export function buildCheckoutParams({
+export async function buildCheckoutParams({
   userId,
   plan,
   firstName,
   lastName,
   email,
   baseUrl,
+  amountOverride,
+  voucherCode,
 }: {
   userId: string;
   plan: string;
@@ -82,9 +125,13 @@ export function buildCheckoutParams({
   lastName: string;
   email: string;
   baseUrl: string;
-}): Record<string, string> {
-  const planInfo = PLAN_PRICES[plan];
-  if (!planInfo) throw new Error(`Unknown plan: ${plan}`);
+  /** Pre-discounted amount in rands — omit to use the plan's full price. */
+  amountOverride?: string;
+  /** Voucher code passed through to ITN via custom_str2 for redemption tracking. */
+  voucherCode?: string;
+}): Promise<Record<string, string>> {
+  const planInfo = await getPlanInfo(plan);
+  const amount = amountOverride ?? planInfo.amount;
 
   // First billing date = today + 30 days (PayFast max is 30 days from today)
   const billingDay = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
@@ -101,12 +148,13 @@ export function buildCheckoutParams({
     name_last:         lastName  || "User",
     email_address:     email,
     m_payment_id:      userId,          // referenced in ITN
-    amount:            planInfo.amount,
+    amount,
     item_name:         planInfo.itemName,
     custom_str1:       plan,            // passed through ITN
+    ...(voucherCode ? { custom_str2: voucherCode } : {}),
     subscription_type: "1",
     billing_date:      billingDate,
-    recurring_amount:  planInfo.amount,
+    recurring_amount:  amount,
     frequency:         "3",             // 3 = monthly
     cycles:            "0",             // 0 = indefinite
   };
