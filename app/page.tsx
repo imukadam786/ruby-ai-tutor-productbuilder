@@ -134,6 +134,10 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
 
   // Track chat engagement (at least one message sent this session)
   const [chatEngaged, setChatEngaged] = useState(false);
+  const [showInstall, setShowInstall] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return sessionStorage.getItem("installPromptDismissed") !== "1";
+  });
   const chatMessageCountRef = useRef(0);
 
   // Handle PayFast return redirect — navigate to settings and show result
@@ -240,6 +244,8 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
           </button>
         </div>
       )}
+
+      {showInstall && <InstallPrompt onDismiss={() => setShowInstall(false)} />}
 
       {/* Mobile top bar — in normal flow so banner shows above it */}
       <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm z-30">
