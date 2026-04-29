@@ -83,14 +83,14 @@ const PREP_SUBJECTS = [
     name: "Physical Science",
     thumbnail: "/thumbnails/physical-science.jpeg",
     color: "from-cyan-500 to-blue-600",
-    available: false,
+    available: true,
   },
   {
     id: "english",
     name: "English",
     thumbnail: "/thumbnails/english.jpeg",
     color: "from-sky-400 to-blue-500",
-    available: false,
+    available: true,
   },
 ] as const;
 

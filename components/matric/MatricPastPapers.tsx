@@ -111,7 +111,7 @@ const SUBJECTS = [
     name: "Geography",
     thumbnail: "/thumbnails/geography.jpeg",
     color: "from-lime-500 to-green-600",
-    available: false,
+    available: true,
   },
   {
     id: "history",
@@ -125,7 +125,7 @@ const SUBJECTS = [
     name: "Life Sciences",
     thumbnail: "/thumbnails/life-sciences.jpeg",
     color: "from-pink-500 to-rose-600",
-    available: false,
+    available: true,
   },
   {
     id: "mathematics",
