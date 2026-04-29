@@ -82,6 +82,38 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Accounting",
+    thumbnail: "/thumbnails/accounting.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Accounting Concepts",
+        description: "Financial statements, ledgers and accounting concepts",
+        filename: "acc-p1-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Financial Reporting",
+        description: "Partnerships, companies and cash flow statements",
+        filename: "acc-p2-may-jun-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
+    label: "Life Sciences",
+    thumbnail: "/thumbnails/life-sciences.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Life at the Molecular Level",
+        description: "DNA, genetics, meiosis and evolution",
+        filename: "lifesci-p1-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Life at the Systems Level",
+        description: "Human biology, ecology and environmental studies",
+        filename: "lifesci-p2-may-jun-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
     label: "History",
     thumbnail: "/thumbnails/history.jpeg",
     guides: [
