@@ -68,7 +68,7 @@ function MathMarkdown({ content }: { content: string }) {
 
 // ── Prep papers data ───────────────────────────────────────────────────────────
 
-const PREP_PAPERS = PAPERS.filter((p) => p.session.startsWith("Prep"));
+const PREP_PAPERS = PAPERS.filter((p) => p.session.startsWith("Prep") || p.session.startsWith("Predictive"));
 
 const PREP_SUBJECTS = [
   {
@@ -120,7 +120,7 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubject
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative max-w-3xl mx-auto px-5 py-10 space-y-8">
+      <div className="relative max-w-5xl mx-auto px-5 py-6 space-y-6">
         {/* Back button */}
         <button
           onClick={onBack}
@@ -131,7 +131,7 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubject
           </svg>
           <span className="text-sm font-medium">Back</span>
         </button>
-        <div className="space-y-2">
+        <div className="space-y-1">
           <div className="inline-flex items-center gap-2 bg-[#BE1832]/10 border border-[#BE1832]/20 text-[#BE1832] text-xs font-semibold px-3 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-[#BE1832]" />
             Predictive 2026
@@ -142,19 +142,22 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubject
 
         <div className="space-y-3">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a subject</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {PREP_SUBJECTS.map((subject) => (
               <button
                 key={subject.id}
                 onClick={() => onSelect(subject.id as PrepSubjectId)}
                 className="relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
               >
-                <div className="w-full aspect-square overflow-hidden">
+                <div className="w-full aspect-[4/3] overflow-hidden">
                   <img
                     src={subject.thumbnail}
                     alt={subject.name}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                </div>
+                <div className="px-3 py-2.5">
+                  <p className="font-semibold text-gray-800 text-sm">{subject.name}</p>
                 </div>
               </button>
             ))}
@@ -315,7 +318,7 @@ function ModeSelect({
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative z-10 max-w-2xl mx-auto px-5 py-10 space-y-8">
+      <div className="relative z-10 max-w-2xl mx-auto px-5 py-5 space-y-5">
         <button onClick={onBack} className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 transition-colors">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
