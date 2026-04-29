@@ -13,6 +13,8 @@ const MathsTutorial      = dynamic(() => import("@/components/tutorial/MathsTuto
 const SkillTreeTutorial  = dynamic(() => import("@/components/tutorial/SkillTreeTutorial"),  { ssr: false });
 const MatricTutorial     = dynamic(() => import("@/components/tutorial/MatricTutorial"),     { ssr: false });
 const SubjectsTutorial   = dynamic(() => import("@/components/tutorial/SubjectsTutorial"),   { ssr: false });
+const PrepPapersTutorial = dynamic(() => import("@/components/tutorial/PrepPapersTutorial"), { ssr: false });
+const ProgressTutorial   = dynamic(() => import("@/components/tutorial/ProgressTutorial"),   { ssr: false });
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
@@ -350,6 +352,8 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
       {activeTutorial === "chat"        && <HomeworkTutorial   onComplete={() => setActiveTutorial(null)} />}
       {activeTutorial === "skill-tree"  && <SkillTreeTutorial  onComplete={() => setActiveTutorial(null)} />}
       {activeTutorial === "matric"      && <MatricTutorial     onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "prep-papers-2026" && <PrepPapersTutorial onComplete={() => setActiveTutorial(null)} />}
+      {activeTutorial === "progress"    && <ProgressTutorial   onComplete={() => setActiveTutorial(null)} />}
 
       <FloatingFeedback />
     </div>
