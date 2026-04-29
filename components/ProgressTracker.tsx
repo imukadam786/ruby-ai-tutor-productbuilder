@@ -52,7 +52,7 @@ function ChevronDownIcon({ open }: { open: boolean }) {
 }
 // ─────────────────────────────────────────────────────────────────────────────
 
-const DEMO_MODE = true;
+const DEMO_MODE = false;
 
 const DEMO_STATS = { skillsMastered: 16, inProgress: 3, lessonsDone: 40, studySessions: 24 };
 // Sessions per day: Mon–Sun (sums to 24+ to feel realistic)

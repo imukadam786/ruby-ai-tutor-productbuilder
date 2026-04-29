@@ -17,10 +17,6 @@ interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
 }
 
-// ── Demo data shown when user has no real activity yet ────────────────────────
-const DEMO_STATS = { skillsMastered: 16, inProgress: 3, lessonsDone: 40, studySessions: 40 };
-const DEMO_STREAK = { currentStreak: 28, bestStreak: 31 };
-const DEMO_DAILY = [8, 6, 7, 5, 9, 4, 2]; // Mon→Sun activity counts
 
 function getRubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   return (
@@ -82,12 +78,6 @@ function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
     d.setDate(monday.getDate() + i);
     return { date: toDateStr(d), label, isToday: toDateStr(d) === toDateStr(today) };
   });
-}
-
-function buildDemoActivity(weekDays: { date: string }[]): Record<string, number> {
-  const out: Record<string, number> = {};
-  weekDays.forEach(({ date }, i) => { if (DEMO_DAILY[i]) out[date] = DEMO_DAILY[i]; });
-  return out;
 }
 
 export default function HomeScreen({ onNavigate }: HomeScreenProps) {
@@ -165,9 +155,9 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
     load();
   }, []);
 
-  const stats = hasRealData ? rawStats : DEMO_STATS;
-  const streak = hasRealData ? rawStreak : DEMO_STREAK;
-  const activity = hasRealData ? rawActivity : buildDemoActivity(weekDays);
+  const stats = rawStats;
+  const streak = rawStreak;
+  const activity = rawActivity;
   const maxActivity = Math.max(...weekDays.map((d) => activity[d.date] || 0), 1);
 
   if (viewReport) {
