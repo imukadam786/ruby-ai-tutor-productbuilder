@@ -556,13 +556,14 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
         const content = buildDeterministicReportContent(input);
         const { data: { user } } = await supabase.auth.getUser();
         if (user) {
-          void supabase.from("student_reports").insert({
+          const { error: reportError } = await supabase.from("student_reports").insert({
             user_id: user.id,
             subject: "maths",
             input_data: input as unknown as Record<string, unknown>,
             content_data: content as unknown as Record<string, unknown>,
             generated_at: new Date().toISOString(),
           });
+          if (reportError) console.error("[DiagnosticComplete] student_reports insert failed:", reportError);
           void fetch("/api/reports/email", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -703,8 +704,8 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
           ctaLabel="Continue Learning 🚀"
           onStartLearning={async () => {
             if (onSelectPlan) {
-              await handlePlacementComplete(pendingPlacementResult);
               onSelectPlan();
+              handlePlacementComplete(pendingPlacementResult);
               return;
             }
             setShowReport(false);
