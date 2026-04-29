@@ -1,0 +1,638 @@
+{
+  "id": "phys-sci-p2-pred-b-2026",
+  "subject": "Physical Science",
+  "subjectCode": "phys-sci",
+  "paperCode": "P2",
+  "year": 2026,
+  "session": "Predictive 2026 — Paper B",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "infoSheet": {
+    "title": "Data Sheet",
+    "formulaSheetVariant": "physics-p2"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-1",
+          "label": "1.1",
+          "questionText": "Which compound is a secondary alcohol?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "CH₃OH",
+            "B": "CH₃CH₂OH",
+            "C": "CH₃CH(OH)CH₃",
+            "D": "(CH₃)₃COH"
+          },
+          "memoText": "Correct answer: C — CH₃CH(OH)CH₃ (propan-2-ol) (2 marks)\nA secondary alcohol has the –OH on a carbon bonded to TWO other carbons. In CH₃CH(OH)CH₃, the central C bears –OH and is bonded to two methyl groups. (CH₃OH is primary, CH₃CH₂OH is primary, (CH₃)₃COH is tertiary.)",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-2",
+          "label": "1.2",
+          "questionText": "The functional group ─COOH is called a:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "hydroxyl group",
+            "B": "carboxyl group",
+            "C": "ester group",
+            "D": "carbonyl group"
+          },
+          "memoText": "Correct answer: B — carboxyl group (2 marks)\n–COOH is the carboxyl group, the characteristic functional group of carboxylic acids.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-3",
+          "label": "1.3",
+          "questionText": "Which type of reaction converts an alkene to an alkane?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "elimination",
+            "B": "substitution",
+            "C": "addition",
+            "D": "condensation"
+          },
+          "memoText": "Correct answer: C — addition (2 marks)\nAn alkene plus H₂ (with a Pt/Ni catalyst) gives an alkane: H atoms ADD across the C=C double bond. This is hydrogenation, an addition reaction.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-4",
+          "label": "1.4",
+          "questionText": "In which reaction is water a by-product?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "hydrogenation",
+            "B": "hydration",
+            "C": "esterification",
+            "D": "cracking"
+          },
+          "memoText": "Correct answer: C — esterification (2 marks)\nIn esterification, a carboxylic acid reacts with an alcohol to give an ester plus water as the by-product.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-5",
+          "label": "1.5",
+          "questionText": "For the equilibrium: 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) ΔH = −198 kJ·mol⁻¹, decreasing temperature will:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "decrease the yield of SO₃",
+            "B": "increase the yield of SO₃",
+            "C": "not change the yield",
+            "D": "increase Kc only"
+          },
+          "memoText": "Correct answer: B — increase the yield of SO₃ (2 marks)\nThe forward reaction is exothermic ($\\Delta H < 0$). By Le Chatelier's principle, lowering the temperature favours the exothermic (forward) direction → more SO₃ is produced.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-6",
+          "label": "1.6",
+          "questionText": "The pH of a 0.001 mol·dm⁻³ HCl solution is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+          },
+          "memoText": "Correct answer: C — pH = 3 (2 marks)\nHCl is a strong acid that fully dissociates: $[H^+] = 0.001 = 10^{-3}$ mol·dm⁻³. $pH = -\\log(10^{-3}) = 3$.",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-7",
+          "label": "1.7",
+          "questionText": "Which pair forms a conjugate acid-base pair?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "HCl and NaOH",
+            "B": "H₂O and OH⁻",
+            "C": "NH₃ and NH₄⁺",
+            "D": "H₂SO₄ and SO₄²⁻"
+          },
+          "memoText": "Correct answer: C — NH₃ and NH₄⁺ (2 marks)\nA conjugate acid-base pair differs by exactly one proton (H⁺). $NH_3 + H^+ \\rightleftharpoons NH_4^+$. (H₂O / OH⁻ also differs by one H⁺ and is technically a valid pair, but the standard textbook example pair is NH₃/NH₄⁺. H₂SO₄ and SO₄²⁻ differ by two protons, so they are NOT a single conjugate pair.)",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-8",
+          "label": "1.8",
+          "questionText": "During electrolysis of concentrated NaCl, what is produced at the ANODE?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "H₂",
+            "B": "O₂",
+            "C": "Cl₂",
+            "D": "Na"
+          },
+          "memoText": "Correct answer: C — Cl₂ (2 marks)\nIn concentrated brine, Cl⁻ ions are oxidised at the anode in preference to water: $2Cl^-(aq) \\to Cl_2(g) + 2e^-$. Hydrogen is produced at the cathode.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-9",
+          "label": "1.9",
+          "questionText": "Which cell converts chemical energy to electrical energy?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "electrolytic cell",
+            "B": "galvanic cell",
+            "C": "fuel cell",
+            "D": "both B and C"
+          },
+          "memoText": "Correct answer: D — both B and C (2 marks)\nGalvanic cells (e.g. Zn/Cu) and fuel cells (e.g. hydrogen-oxygen) both produce electrical energy from spontaneous redox reactions. Electrolytic cells do the opposite — they use electrical energy to drive non-spontaneous reactions.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-1-10",
+          "label": "1.10",
+          "questionText": "The standard electrode potential of Fe²⁺/Fe is −0.44 V and Ag⁺/Ag is +0.80 V. Which statement is correct?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "Fe is reduced and Ag is oxidised",
+            "B": "Fe is oxidised and Ag is reduced",
+            "C": "Both are oxidised",
+            "D": "E°cell = −1.24 V"
+          },
+          "memoText": "Correct answer: B — Fe is oxidised and Ag is reduced (2 marks)\nThe more negative reduction potential (Fe²⁺/Fe at −0.44 V) is more easily oxidised → Fe is oxidised at the anode. The more positive reduction potential (Ag⁺/Ag at +0.80 V) is more easily reduced → Ag⁺ is reduced at the cathode.",
+          "topic": "Electrochemistry"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Organic Chemistry — Naming, Isomerism and Properties",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-b-2026-2-1",
+          "label": "2.1",
+          "questionText": "The compound below is given: CH₃─CH₂─C(=O)─OH (propanoic acid). Write down the functional group of this compound and its name.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Functional group: –COOH.\nMark 2: Name of functional group: carboxyl (carboxylic acid) group.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-2-2",
+          "label": "2.2",
+          "questionText": "To which homologous series does this compound belong?",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: Carboxylic acids (alkanoic acids).",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-2-3",
+          "label": "2.3",
+          "questionText": "Write the general formula for this homologous series.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: $C_nH_{2n+1}COOH$ (or equivalent $C_nH_{2n}O_2$).",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-2-4",
+          "label": "2.4",
+          "questionText": "Write down the molecular formula of propanoic acid.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: $C_3H_6O_2$.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-2-5",
+          "label": "2.5",
+          "questionText": "Give the IUPAC name and draw the structural formula of the NEXT member of the same homologous series.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: IUPAC name: butanoic acid.\nMark 2: Correct molecular composition (4 carbons, –COOH on C1) — molecular formula $C_4H_8O_2$.\nMark 3: Structural formula drawn with all bonds shown: $CH_3{-}CH_2{-}CH_2{-}C(=O){-}OH$ (or condensed: $CH_3CH_2CH_2COOH$).",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-2-6",
+          "label": "2.6",
+          "questionText": "Draw the structural formula of a FUNCTIONAL GROUP ISOMER of propanoic acid (C₃H₆O₂) and name it.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "A functional-group isomer has the same molecular formula ($C_3H_6O_2$) but a different functional group.\nMark 1: Correct ester structure drawn — must show the ester linkage –COO– clearly. Acceptable example: methyl ethanoate $CH_3{-}C(=O){-}O{-}CH_3$ (or $CH_3COOCH_3$).\nMark 2: All bonds drawn correctly; molecular formula matches $C_3H_6O_2$.\nMark 3: Correct IUPAC name (e.g. methyl ethanoate). [Also accept methyl methanoate $HCOOCH_2CH_3$? — that is $C_3H_6O_2$ as well; or ethyl methanoate $HCOOCH_2CH_3$.]",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-2-7",
+          "label": "2.7",
+          "questionText": "Propanoic acid reacts with methanol (CH₃OH). Write a balanced equation for this reaction, name the ester formed, and state the conditions required.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Reactants on the left written correctly: $CH_3CH_2COOH + CH_3OH$.\nMark 2: Balanced equation as a reversible (equilibrium) reaction with water as by-product: $CH_3CH_2COOH + CH_3OH \\rightleftharpoons CH_3CH_2COOCH_3 + H_2O$.\nMark 3: Ester name: methyl propanoate.\nMark 4: Conditions — concentrated $H_2SO_4$ catalyst, heat gently / under reflux.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-2-8",
+          "label": "2.8",
+          "questionText": "Compare the boiling points of propanoic acid and propan-1-ol. Explain in terms of intermolecular forces.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Propanoic acid has a HIGHER boiling point than propan-1-ol.\nMark 2: Both molecules form hydrogen bonds, but propanoic acid forms cyclic DIMERS — two propanoic acid molecules pair up via two hydrogen bonds between their –COOH groups, effectively doubling the molecular size.\nMark 3: This more extensive H-bonding requires more energy to overcome → higher boiling point than propan-1-ol, which forms only a single H-bond per –OH.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-2-9",
+          "label": "2.9",
+          "questionText": "Write the IUPAC name of: CH₃CH₂CH₂CH₂COOH",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: 5-carbon chain identified with –COOH on C1.\nMark 2: IUPAC name: pentanoic acid.",
+          "topic": "Organic Chemistry"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Intermolecular Forces and Physical Properties",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-b-2026-3-1",
+          "label": "3.1",
+          "questionText": "Consider these four substances: methane (CH₄), ammonia (NH₃), butane (C₄H₁₀), methanol (CH₃OH). Classify the intermolecular forces present in each substance.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: $CH_4$ — London/dispersion forces only (non-polar).\nMark 2: $NH_3$ — hydrogen bonding (plus dipole-dipole and London forces).\nMark 3: $C_4H_{10}$ — London/dispersion forces only (non-polar; larger surface area than $CH_4$ so London forces are stronger than in $CH_4$).\nMark 4: $CH_3OH$ — hydrogen bonding (plus dipole-dipole and London forces).",
+          "topic": "Intermolecular Forces"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-3-2",
+          "label": "3.2",
+          "questionText": "List the four substances in order of INCREASING vapour pressure at room temperature. Explain your reasoning.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Vapour pressure is INVERSELY related to the strength of intermolecular forces (stronger IMFs → lower vapour pressure).\nMark 1: Order of increasing vapour pressure: $CH_3OH < NH_3 < C_4H_{10} < CH_4$.\nMark 2: $CH_3OH$ — strong H-bonds → lowest vapour pressure.\nMark 3: $NH_3$ — H-bonds present but $NH_3$ is a smaller molecule than methanol; H-bonds slightly weaker overall.\nMark 4: $C_4H_{10}$ has stronger London forces than $CH_4$ (larger molecule, more surface contact) but no H-bonding; $CH_4$ has only weak London forces → highest vapour pressure.",
+          "topic": "Intermolecular Forces"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-3-3",
+          "label": "3.3",
+          "questionText": "Explain why ammonia (NH₃) has a higher boiling point than phosphine (PH₃), even though PH₃ has a higher molar mass.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Nitrogen is highly electronegative and small (high charge density on N).\nMark 2: $NH_3$ molecules form strong hydrogen bonds (N–H···N) between molecules.\nMark 3: Phosphorus is much less electronegative than nitrogen → the P–H bond is essentially non-polar; $PH_3$ does NOT form hydrogen bonds, only weak London/dispersion forces.\nMark 4: The hydrogen bonds in $NH_3$ are much stronger than the London forces in $PH_3$, so more energy is needed to separate $NH_3$ molecules → $NH_3$ has the higher boiling point despite its lower molar mass.",
+          "topic": "Intermolecular Forces"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Organic Reactions",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-b-2026-4-1",
+          "label": "4.1",
+          "questionText": "Write a balanced equation for the substitution reaction of 1-chloropropane (CH₃CH₂CH₂Cl) with NaOH(aq). Name the organic product.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "This is a nucleophilic substitution reaction (–OH replaces –Cl).\nMark 1: Reactants on the left correctly: $CH_3CH_2CH_2Cl + NaOH$.\nMark 2: Balanced equation: $CH_3CH_2CH_2Cl + NaOH(aq) \\to CH_3CH_2CH_2OH + NaCl$.\nMark 3: Organic product name: propan-1-ol.\nMark 4: Conditions — aqueous NaOH (or KOH), heat / reflux.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-4-2",
+          "label": "4.2",
+          "questionText": "Describe the cracking of decane (C₁₀H₂₂) into octane and ethene. Write a balanced equation and state the type of cracking (thermal or catalytic) and conditions.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Reactant and products correct: decane → octane + ethene.\nMark 2: Balanced equation: $C_{10}H_{22} \\to C_8H_{18} + C_2H_4$.\nMark 3: State type of cracking — thermal OR catalytic.\nMark 4: Conditions — Thermal cracking: high temperature (700–1000 °C) and high pressure, no catalyst; OR Catalytic cracking: moderate temperature (~450 °C), zeolite catalyst, lower pressure.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-4-3",
+          "label": "4.3",
+          "questionText": "Draw the structural formula of the monomer used to produce poly(ethene). Write a balanced equation showing the polymerisation of 3 monomer units.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Monomer: ethene, structural formula $CH_2{=}CH_2$ (showing the C=C double bond).\nMark 2: Identification as addition polymerisation (no by-product formed).\nMark 3: General polymerisation equation: $nCH_2{=}CH_2 \\to {-(}CH_2{-}CH_2{)}_n{-}$.\nMark 4: Balanced equation for 3 units: $3CH_2{=}CH_2 \\to {-}CH_2{-}CH_2{-}CH_2{-}CH_2{-}CH_2{-}CH_2{-}$ (a 6-carbon repeating segment, all single bonds).",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-4-4",
+          "label": "4.4",
+          "questionText": "Ethanol can be produced by the fermentation of glucose (C₆H₁₂O₆). Write a balanced equation for this reaction and state TWO conditions.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Balanced equation: $C_6H_{12}O_6 \\to 2C_2H_5OH + 2CO_2$.\nMark 2: Condition 1 — yeast (provides the enzyme zymase as catalyst).\nMark 3: Condition 2 — anaerobic conditions (absence of oxygen). [Also accept: warm temperature ~25–37 °C.]",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-4-5",
+          "label": "4.5",
+          "questionText": "Name the type of reaction and identify the reagents needed to convert propan-1-ol into propanoic acid.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Type of reaction — oxidation (a primary alcohol is oxidised to a carboxylic acid).\nMark 2: Reagent — acidified potassium permanganate ($KMnO_4/H_2SO_4$) OR acidified potassium dichromate ($K_2Cr_2O_7/H_2SO_4$).\nMark 3: Conditions/heat under reflux to drive complete oxidation through the aldehyde intermediate to propanoic acid.",
+          "topic": "Organic Chemistry"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Rates of Reaction",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-b-2026-5-1",
+          "label": "5.1",
+          "questionText": "Magnesium ribbon reacts with hydrochloric acid: Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g). The graphs in the question paper show the effect of concentration on rate. Explain why BOTH curves end at the same final volume of gas. What does this tell you? (Refer to the gas-volume-vs-time and rate-vs-concentration graphs in the question paper.)",
+          "marks": 3,
+          "type": "written",
+          "diagramUrl": null,
+          "memoText": "Mark 1: Both reactions use the same mass (and therefore same number of moles) of Mg, which is the limiting reagent in both cases.\nMark 2: The total amount of $H_2$ produced is determined by the moles of limiting reagent (Mg), not by the concentration of HCl, so both curves plateau at the same final volume.\nMark 3: This shows that concentration affects the RATE of reaction (how fast the gas is produced) but not the YIELD (total amount of product formed).",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-5-2",
+          "label": "5.2",
+          "questionText": "Explain, using collision theory, why the higher concentration curve is steeper initially.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: At higher [HCl], there are more HCl particles per unit volume.\nMark 2: This increases the collision frequency between HCl and Mg particles → more collisions per second between reactant particles.\nMark 3: A greater number of those collisions have $E \\geq E_a$ (since the proportion of effective collisions is unchanged but the total collision rate is higher), so more successful collisions occur per second → faster initial rate → steeper curve at the start.",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-5-3",
+          "label": "5.3",
+          "questionText": "State the effect on the reaction rate of: (a) increasing surface area of Mg, (b) adding a catalyst. Explain each using collision theory.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: (a) Increasing surface area of Mg (using powder/smaller pieces) — rate INCREASES.\nMark 2: More Mg surface is exposed → more Mg atoms accessible for collision with HCl ions → greater collision frequency → more successful collisions per second → faster rate.\nMark 3: (b) Adding a catalyst — rate INCREASES.\nMark 4: A catalyst provides an alternative reaction pathway with LOWER activation energy ($E_a$). At the same temperature, a greater fraction of collisions have $E \\geq E_a$ → more successful collisions per second → faster rate.",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-5-4",
+          "label": "5.4",
+          "questionText": "The rate of reaction is measured as 0.024 mol·dm⁻³·s⁻¹ at t = 0. Describe how the rate changes over time and explain why.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: The rate DECREASES over time (initial rate is the maximum; rate falls to zero at completion).\nMark 2: As the reaction proceeds, HCl is consumed, so [HCl] decreases over time. The amount of Mg available also decreases.\nMark 3: With fewer HCl particles per unit volume, the collision frequency drops → fewer successful collisions per second → slower rate. The reaction rate reaches zero when either the Mg or the HCl is fully consumed.",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-5-5",
+          "label": "5.5",
+          "questionText": "Define \"activation energy\" and explain its role in determining reaction rate.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Definition: Activation energy ($E_a$) is the MINIMUM energy that colliding particles must possess for a successful (productive) collision to occur.\nMark 2: Only collisions in which the colliding particles have kinetic energy $\\geq E_a$ result in a chemical reaction.\nMark 3: A LOWER $E_a$ means more particles have sufficient energy at a given temperature → more successful collisions per second → faster reaction rate.\nMark 4: A HIGHER $E_a$ means fewer particles qualify → fewer successful collisions per second → slower reaction rate. (This is why catalysts, which lower $E_a$, speed up reactions.)",
+          "topic": "Reaction Rate"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Chemical Equilibrium",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-b-2026-6-1",
+          "label": "6.1",
+          "questionText": "Consider the equilibrium: H₂(g) + I₂(g) ⇌ 2HI(g) ΔH = +26 kJ·mol⁻¹. (Refer to the concentration-vs-time graph showing the effect of a temperature increase in the question paper.) Write the expression for Kc for this equilibrium.",
+          "marks": 2,
+          "type": "written",
+          "diagramUrl": null,
+          "memoText": "Mark 1: Numerator (products) raised to the correct stoichiometric power: $[HI]^2$.\nMark 2: Denominator (reactants) with correct powers: $[H_2][I_2]$.\n$K_c = \\dfrac{[HI]^2}{[H_2][I_2]}$",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-6-2",
+          "label": "6.2",
+          "questionText": "At a certain temperature, the equilibrium concentrations are: [H₂] = 0.40 mol·dm⁻³, [I₂] = 0.40 mol·dm⁻³, [HI] = 1.60 mol·dm⁻³. Calculate Kc.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $K_c = \\dfrac{(1.60)^2}{(0.40)(0.40)}$\nMark 2: $= \\dfrac{2.56}{0.16}$\nMark 3: $K_c = 16$ (dimensionless — moles of gas are equal on both sides)",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-6-3",
+          "label": "6.3",
+          "questionText": "Use your Kc value to comment on whether products or reactants are favoured at equilibrium.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $K_c = 16$, which is greater than 1 → products are favoured at equilibrium.\nMark 2: This means [HI] is significantly greater than the concentrations of $H_2$ and $I_2$ at equilibrium — the equilibrium position lies well to the right.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-6-4",
+          "label": "6.4",
+          "questionText": "The graph shows the effect of increasing temperature on the equilibrium. Explain the shift in terms of Le Chatelier's Principle.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: The forward reaction is endothermic ($\\Delta H = +26$ kJ·mol⁻¹).\nMark 2: By Le Chatelier's principle, when temperature is increased, the system shifts in the endothermic direction (forward reaction here) to absorb the added heat.\nMark 3: Therefore the equilibrium shifts to the RIGHT — [HI] increases while $[H_2]$ and $[I_2]$ decrease (consistent with the graph).",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-6-5",
+          "label": "6.5",
+          "questionText": "Explain the effect on Kc when temperature is INCREASED for this reaction.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Since the forward reaction is endothermic, raising temperature favours the forward reaction → at the new equilibrium $[HI]$ is higher and $[H_2]$, $[I_2]$ are lower.\nMark 2: Substituting into $K_c = [HI]^2 / ([H_2][I_2])$: numerator increases, denominator decreases → $K_c$ INCREASES.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-6-6",
+          "label": "6.6",
+          "questionText": "A small amount of catalyst is added to the equilibrium mixture. State the effect on: (a) the position of equilibrium, (b) Kc, (c) the time to reach equilibrium.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: (a) Position of equilibrium — NO change. A catalyst does not shift the equilibrium position.\nMark 2: (b) $K_c$ — NO change. $K_c$ depends only on temperature; a catalyst does not alter it.\nMark 3: (c) Time to reach equilibrium — DECREASES. A catalyst speeds up both the forward and reverse reactions equally, so equilibrium is reached more quickly.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-6-7",
+          "label": "6.7",
+          "questionText": "Increasing the pressure of this system has no effect on the yield. Explain why.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: For $H_2(g) + I_2(g) \\rightleftharpoons 2HI(g)$, there are 2 moles of gas on each side of the equation.\nMark 2: Increasing pressure favours the side with FEWER moles of gas (Le Chatelier).\nMark 3: Since both sides of this equilibrium have the SAME number of gas moles (2 mol each), there is no preferred direction → the equilibrium does not shift, and the yield of HI is unchanged.",
+          "topic": "Chemical Equilibrium"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Acids and Bases",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-b-2026-7-1",
+          "label": "7.1",
+          "questionText": "30.0 cm³ of 0.15 mol·dm⁻³ H₂SO₄ is titrated with 0.20 mol·dm⁻³ NaOH. Define a base according to the Brønsted-Lowry theory.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: A Brønsted-Lowry base is a proton ($H^+$) acceptor...\nMark 2: ...i.e. a substance that accepts a proton from another substance (the acid).",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-7-2",
+          "label": "7.2",
+          "questionText": "Write the balanced molecular equation for the reaction between H₂SO₄ and NaOH.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Correct reactants and products: $H_2SO_4 + NaOH \\to Na_2SO_4 + H_2O$.\nMark 2: Balanced equation with correct stoichiometry: $H_2SO_4(aq) + 2NaOH(aq) \\to Na_2SO_4(aq) + 2H_2O(\\ell)$.",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-7-3",
+          "label": "7.3",
+          "questionText": "Calculate the volume of NaOH needed to exactly neutralise the H₂SO₄.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: $n(H_2SO_4) = c \\times V = 0.15 \\times 0.030 = 0.0045$ mol\nMark 2: Mole ratio $H_2SO_4 : NaOH = 1 : 2$ → $n(NaOH) = 2 \\times 0.0045 = 0.009$ mol\nMark 3: $V(NaOH) = n/c = 0.009/0.20 = 0.045$ dm³\nMark 4: $V(NaOH) = 45.0$ cm³",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-7-4",
+          "label": "7.4",
+          "questionText": "Calculate the pH of 0.050 mol·dm⁻³ H₂SO₄. (Assume full dissociation; Kw = 1 × 10⁻¹⁴)",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $H_2SO_4$ is a diprotic strong acid that fully dissociates: each mole gives 2 moles of $H^+$ → $[H^+] = 2 \\times 0.050 = 0.10$ mol·dm⁻³.\nMark 2: $pH = -\\log[H^+] = -\\log(0.10)$\nMark 3: $pH = 1.00$",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-7-5",
+          "label": "7.5",
+          "questionText": "A solution has a pH of 11. Calculate [H⁺] and [OH⁻] in this solution.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: $pH = 11 \\Rightarrow [H^+] = 10^{-11}$ mol·dm⁻³.\nMark 2: $K_w = [H^+][OH^-] = 1 \\times 10^{-14}$.\nMark 3: $[OH^-] = K_w/[H^+] = 10^{-14}/10^{-11} = 10^{-3}$ mol·dm⁻³.\nMark 4: Final answers stated with units: $[H^+] = 1 \\times 10^{-11}$ mol·dm⁻³ and $[OH^-] = 1 \\times 10^{-3}$ mol·dm⁻³.",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-7-6",
+          "label": "7.6",
+          "questionText": "Identify the conjugate acid-base pairs in the following reaction: NH₃(aq) + H₂O(l) ⇌ NH₄⁺(aq) + OH⁻(aq)",
+          "marks": 4,
+          "type": "written",
+          "memoText": "A conjugate acid-base pair differs by exactly one proton ($H^+$).\nMark 1: Conjugate pair 1 — base: $NH_3$; conjugate acid: $NH_4^+$ (differ by $H^+$).\nMark 2: $NH_3$ acts as the base (proton acceptor); $NH_4^+$ is its conjugate acid.\nMark 3: Conjugate pair 2 — acid: $H_2O$; conjugate base: $OH^-$ (differ by $H^+$).\nMark 4: $H_2O$ acts as the acid (proton donor); $OH^-$ is its conjugate base.",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-7-7",
+          "label": "7.7",
+          "questionText": "Explain why a solution of sodium ethanoate (CH₃COONa) is basic (pH > 7).",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $CH_3COONa$ is the salt of a weak acid ($CH_3COOH$) and a strong base ($NaOH$). In water it dissociates completely: $CH_3COONa \\to CH_3COO^- + Na^+$.\nMark 2: The ethanoate ion $CH_3COO^-$ is the conjugate base of a weak acid; it hydrolyses water: $CH_3COO^-(aq) + H_2O(\\ell) \\rightleftharpoons CH_3COOH(aq) + OH^-(aq)$.\nMark 3: This produces $OH^-$ ions in solution, making $[OH^-] > [H^+]$ → the solution is basic ($pH > 7$). ($Na^+$ does not hydrolyse and has no acid-base effect.)",
+          "topic": "Acids and Bases"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Electrochemistry — Galvanic Cells",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-b-2026-8-1",
+          "label": "8.1",
+          "questionText": "A galvanic cell is set up using iron (Fe) and silver (Ag) electrodes. E°(Fe²⁺/Fe) = −0.44 V; E°(Ag⁺/Ag) = +0.80 V. (Refer to the cell diagram in the question paper.) Identify the anode and cathode. Give reasons for your choice.",
+          "marks": 3,
+          "type": "written",
+          "diagramUrl": null,
+          "memoText": "Mark 1: Anode — IRON (Fe). Reason: lower (more negative) reduction potential ($-0.44$ V) → more easily oxidised → loses electrons.\nMark 2: Cathode — SILVER (Ag). Reason: higher (more positive) reduction potential ($+0.80$ V) → more easily reduced → gains electrons.\nMark 3: General principle stated: in a galvanic cell, the electrode with the lower $E^\\circ$ is the anode (oxidation) and the one with the higher $E^\\circ$ is the cathode (reduction).",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-8-2",
+          "label": "8.2",
+          "questionText": "Write the half-reaction at each electrode.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Anode (oxidation) — reactants and products: $Fe \\to Fe^{2+}$.\nMark 2: Anode half-reaction balanced: $Fe(s) \\to Fe^{2+}(aq) + 2e^-$.\nMark 3: Cathode (reduction) — reactants and products: $Ag^+ \\to Ag$.\nMark 4: Cathode half-reaction balanced: $Ag^+(aq) + e^- \\to Ag(s)$. [To balance electrons in the overall cell reaction, multiply the cathode half-reaction by 2: $2Ag^+ + 2e^- \\to 2Ag$.]",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-8-3",
+          "label": "8.3",
+          "questionText": "Calculate E°cell. Will this cell operate spontaneously? Explain.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $E^\\circ_{cell} = E^\\circ_{cathode} - E^\\circ_{anode} = 0.80 - (-0.44)$\nMark 2: $E^\\circ_{cell} = +1.24$ V\nMark 3: $E^\\circ_{cell}$ is positive, so the cell reaction is spontaneous → YES, the cell operates spontaneously and produces electrical energy.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-8-4",
+          "label": "8.4",
+          "questionText": "Write the overall net cell reaction.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Reactants and products correctly identified (electrons cancel): $Fe(s) + 2Ag^+(aq) \\to Fe^{2+}(aq) + 2Ag(s)$.\nMark 2: Equation balanced — atoms and charges balance on both sides.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-8-5",
+          "label": "8.5",
+          "questionText": "What change would you observe at the iron electrode over time? Explain.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The iron electrode DECREASES in mass (gets thinner / corrodes / dissolves).\nMark 2: Iron atoms are oxidised at the anode: $Fe(s) \\to Fe^{2+}(aq) + 2e^-$. The $Fe^{2+}$ ions go into solution, so the solid iron electrode loses mass.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-8-6",
+          "label": "8.6",
+          "questionText": "Write the cell notation (cell diagram) for this galvanic cell.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Anode side written on the left, cathode side on the right.\nMark 2: Use of single line for phase boundaries within a half-cell and double line for the salt bridge.\nMark 3: Correct full notation: $Fe(s) \\,|\\, Fe^{2+}(aq) \\,||\\, Ag^+(aq) \\,|\\, Ag(s)$.",
+          "topic": "Electrochemistry"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Electrolysis",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-b-2026-9-1",
+          "label": "9.1",
+          "questionText": "Concentrated sodium chloride solution (brine) is electrolysed using graphite electrodes. (Refer to the diagram of the electrolytic cell in the question paper.) Write the half-reaction at the ANODE. Name the gas produced.",
+          "marks": 3,
+          "type": "written",
+          "diagramUrl": null,
+          "memoText": "Mark 1: Anode is the positive electrode in electrolysis; oxidation of $Cl^-$ ions occurs (in concentrated brine, $Cl^-$ is oxidised in preference to water).\nMark 2: Half-reaction balanced: $2Cl^-(aq) \\to Cl_2(g) + 2e^-$.\nMark 3: Gas produced: chlorine ($Cl_2$) — a yellow-green gas with a sharp choking smell.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-9-2",
+          "label": "9.2",
+          "questionText": "Write the half-reaction at the CATHODE. Name the gas produced.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: At the cathode (negative electrode), water is reduced in preference to $Na^+$ (since $Na^+$ has a much more negative reduction potential than water).\nMark 2: Half-reaction balanced: $2H_2O(\\ell) + 2e^- \\to H_2(g) + 2OH^-(aq)$. [Also accept the simplified $2H^+(aq) + 2e^- \\to H_2(g)$.]\nMark 3: Gas produced: hydrogen ($H_2$) — colourless and flammable.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-b-2026-9-3",
+          "label": "9.3",
+          "questionText": "Name this industrial process and state ONE major commercial use for each product.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Industrial process: the chlor-alkali process (electrolysis of brine).\nMark 2: One commercial use of EACH product:\n- $Cl_2$: water disinfection (chlorination of drinking water and swimming pools); OR manufacture of PVC and bleach.\n- $H_2$: fuel for hydrogen fuel cells; OR feedstock for ammonia synthesis (Haber process).\n- $NaOH$ (also produced in solution): manufacture of soap, paper, and cleaning products.\n[Award the second mark provided one valid use is given for both $Cl_2$ and $H_2$.]",
+          "topic": "Electrochemistry"
+        }
+      ]
+    }
+  ]
+}

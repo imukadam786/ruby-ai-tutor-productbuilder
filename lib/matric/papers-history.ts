@@ -60,6 +60,8 @@ export interface HistoryPaper extends Omit<Paper, "questions"> {
 
 // ── Papers ────────────────────────────────────────────────────────────────────
 
+import histP1_pred_2026 from "@/data/papers/hist-p1-pred-a-2026.json";
+import histP2_pred_2026 from "@/data/papers/hist-p2-pred-a-2026.json";
 import histP1_2025 from "@/data/papers/hist-p1-may-jun-2025.json";
 import histP2_2025 from "@/data/papers/hist-p2-may-jun-2025.json";
 import histP1_2024 from "@/data/papers/hist-p1-may-jun-2024.json";
@@ -72,6 +74,8 @@ import histP1_2021 from "@/data/papers/hist-p1-may-jun-2021.json";
 import histP2_2021 from "@/data/papers/hist-p2-may-jun-2021.json";
 
 export const HISTORY_PAPERS: HistoryPaper[] = [
+  histP1_pred_2026 as unknown as HistoryPaper,
+  histP2_pred_2026 as unknown as HistoryPaper,
   histP1_2025 as unknown as HistoryPaper,
   histP2_2025 as unknown as HistoryPaper,
   histP1_2024 as unknown as HistoryPaper,
