@@ -102,11 +102,6 @@ const SUBJECTS: Subject[] = [
       },
     ],
   },
-  { emoji: "➕", label: "Mathematics",     color: "bg-blue-50 text-blue-600 border-blue-100" },
-  { emoji: "🧬", label: "Life Sciences",    color: "bg-emerald-50 text-emerald-600 border-emerald-100" },
-  { emoji: "🌍", label: "Geography",        color: "bg-amber-50 text-amber-600 border-amber-100" },
-  { emoji: "💰", label: "Accounting",       color: "bg-rose-50 text-rose-600 border-rose-100" },
-  { emoji: "📊", label: "Business Studies", color: "bg-indigo-50 text-indigo-600 border-indigo-100" },
 ];
 
 interface StudyGuidesProps {
@@ -181,33 +176,19 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
         {/* Subject grid */}
         {!selectedSubject && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {SUBJECTS.map((s) => {
-              const available = !!s.guides;
-              return (
-                <div
-                  key={s.label}
-                  onClick={() => handleSubjectClick(s)}
-                  className={[
-                    "rounded-2xl border p-5 flex flex-col items-center gap-3 text-center transition-all",
-                    available
-                      ? "bg-white cursor-pointer hover:shadow-md hover:-translate-y-0.5 active:scale-95"
-                      : "bg-white opacity-50 cursor-not-allowed select-none",
-                  ].join(" ")}
-                >
-                  <span className="text-4xl">{s.emoji}</span>
-                  <span className="font-semibold text-gray-700 text-sm leading-snug">{s.label}</span>
-                  {available ? (
-                    <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${s.color}`}>
-                      {s.guides!.length} guide{s.guides!.length !== 1 ? "s" : ""}
-                    </span>
-                  ) : (
-                    <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${s.color}`}>
-                      Coming soon
-                    </span>
-                  )}
-                </div>
-              );
-            })}
+            {SUBJECTS.filter((s) => !!s.guides).map((s) => (
+              <div
+                key={s.label}
+                onClick={() => handleSubjectClick(s)}
+                className="rounded-2xl border bg-white p-5 flex flex-col items-center gap-3 text-center cursor-pointer hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all"
+              >
+                <span className="text-4xl">{s.emoji}</span>
+                <span className="font-semibold text-gray-700 text-sm leading-snug">{s.label}</span>
+                <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${s.color}`}>
+                  {s.guides!.length} guide{s.guides!.length !== 1 ? "s" : ""}
+                </span>
+              </div>
+            ))}
           </div>
         )}
 
