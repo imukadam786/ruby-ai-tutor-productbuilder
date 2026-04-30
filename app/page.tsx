@@ -77,13 +77,15 @@ function PlacementGuardScreen({
 
 // ── Maps each tutorial-eligible nav view to its localStorage seen-key ────────
 const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
-  chat:          "ruby_tut_chat",
-  subjects:      "ruby_tut_subjects",
-  discover:      "ruby_tut_discover",
-  ruby:          "ruby_tut_maths",
-  reading:       "ruby_tut_reading",
-  "skill-tree":  "ruby_tut_skill_tree",
-  matric:        "ruby_tut_matric",
+  chat:              "ruby_tut_chat",
+  subjects:          "ruby_tut_subjects",
+  discover:          "ruby_tut_discover",
+  ruby:              "ruby_tut_maths",
+  reading:           "ruby_tut_reading",
+  "skill-tree":      "ruby_tut_skill_tree",
+  matric:            "ruby_tut_matric",
+  "prep-papers-2026": "ruby_tut_prep_papers",
+  progress:          "ruby_tut_progress",
 };
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
@@ -505,7 +507,7 @@ export default function Home() {
           const pendingAfterPayment = localStorage.getItem("ruby_pending_step");
           if (pendingAfterPayment === "plan-selection" || pendingAfterPayment === "tutorial") {
             localStorage.removeItem("ruby_pending_step");
-            setAppState("tutorial-welcome");
+            setAppState("app");
           } else {
             setAppState("app");
           }
@@ -558,9 +560,12 @@ export default function Home() {
     if (data.plan === "existing") {
       setAppState("app");
     } else {
+      // Clear any stale tutorial-seen keys so this new account always gets fresh tutorials
+      Object.values(FEATURE_TUTORIAL_KEYS).forEach((k) => localStorage.removeItem(k));
       localStorage.setItem("ruby_pending_step", "plan-selection");
       setWelcomeName(data.name || "");
-      setAppState("discovery-prompt");
+      // Show tutorial-welcome immediately — before discovery — so it's never skipped
+      setAppState("tutorial-welcome");
     }
   };
 
@@ -601,7 +606,7 @@ export default function Home() {
             showHeader
             onSelectFree={() => {
               localStorage.removeItem("ruby_pending_step");
-              setAppState("tutorial-welcome");
+              setAppState("app");
             }}
           />
         </div>
@@ -612,8 +617,8 @@ export default function Home() {
   if (appState === "tutorial-welcome") {
     return (
       <TutorialWelcomeScreen
-        onStart={() => setAppState("app")}
-        onSkip={() => setAppState("app")}
+        onStart={() => setAppState("discovery-prompt")}
+        onSkip={() => setAppState("discovery-prompt")}
       />
     );
   }

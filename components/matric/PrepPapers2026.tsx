@@ -92,6 +92,41 @@ const PREP_SUBJECTS = [
     color: "from-sky-400 to-blue-500",
     available: true,
   },
+  {
+    id: "life-sciences",
+    name: "Life Sciences",
+    thumbnail: "/thumbnails/life-sciences.jpeg",
+    color: "from-green-500 to-emerald-600",
+    available: true,
+  },
+  {
+    id: "geography",
+    name: "Geography",
+    thumbnail: "/thumbnails/geography.jpeg",
+    color: "from-teal-500 to-green-600",
+    available: true,
+  },
+  {
+    id: "accounting",
+    name: "Accounting",
+    thumbnail: "/thumbnails/accounting.jpeg",
+    color: "from-violet-500 to-purple-600",
+    available: true,
+  },
+  {
+    id: "history",
+    name: "History",
+    thumbnail: "/thumbnails/history.jpeg",
+    color: "from-amber-500 to-orange-600",
+    available: true,
+  },
+  {
+    id: "afrikaans",
+    name: "Afrikaans",
+    thumbnail: "/thumbnails/afrikaans.jpeg",
+    color: "from-orange-400 to-amber-500",
+    available: true,
+  },
 ] as const;
 
 type PrepSubjectId = (typeof PREP_SUBJECTS)[number]["id"];
@@ -596,7 +631,11 @@ function SessionView({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ questionLabel: sq.label, questionText, memoText: sq.memoText, studentText, imageData, imageMimeType, language, mode: isFinal ? "practice" : mode, attemptCount: attempt.attemptCount }),
     });
-    if (!res.ok) throw new Error("Evaluation failed");
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      console.error("[evaluate] HTTP", res.status, body);
+      throw new Error(`HTTP ${res.status}`);
+    }
     const data = await res.json() as { marksEarned?: number; totalMarks?: number; allCorrect?: boolean; feedback?: string };
     return { marksEarned: data.marksEarned ?? 0, totalMarks: data.totalMarks ?? sq.marks, allCorrect: data.allCorrect ?? false, feedback: data.feedback ?? "Evaluation complete." };
   }, [language, mode]);
@@ -613,8 +652,10 @@ function SessionView({
         imageData: currentAttempt.imageFile ? await fileToBase64(currentAttempt.imageFile) : undefined,
         imageMimeType: currentAttempt.imageFile?.type,
       });
-    } catch {
-      updateAttempt(currentSQ.id, { coachMessages: [...currentAttempt.coachMessages, { type: "system", content: "Something went wrong. Please try again." }] });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "unknown error";
+      console.error("[handleSubmitWorking] caught:", err);
+      updateAttempt(currentSQ.id, { coachMessages: [...currentAttempt.coachMessages, { type: "system", content: `Something went wrong (${msg}). Please try again.` }] });
     } finally { setIsEvaluating(false); }
   };
 

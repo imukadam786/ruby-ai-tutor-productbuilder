@@ -956,7 +956,11 @@ function SessionView({
         }),
       });
 
-      if (!res.ok) throw new Error("Evaluation failed");
+      if (!res.ok) {
+        const body = await res.text().catch(() => "");
+        console.error("[evaluate] HTTP", res.status, body);
+        throw new Error(`HTTP ${res.status}`);
+      }
 
       const data = await res.json() as {
         marksEarned?: number;
@@ -1009,11 +1013,13 @@ function SessionView({
           : undefined,
         imageMimeType: currentAttempt.imageFile?.type,
       });
-    } catch {
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "unknown error";
+      console.error("[handleSubmitWorking] caught:", err);
       updateAttempt(currentSQ.id, {
         coachMessages: [
           ...currentAttempt.coachMessages,
-          { type: "system", content: "Something went wrong. Please try again." },
+          { type: "system", content: `Something went wrong (${msg}). Please try again.` },
         ],
       });
     } finally {
