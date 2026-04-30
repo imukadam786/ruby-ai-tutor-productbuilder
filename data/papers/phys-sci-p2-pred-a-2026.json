@@ -354,7 +354,7 @@
           "questionText": "Marble chips (CaCO₃) react with hydrochloric acid: CaCO₃(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l) + CO₂(g). The graphs in the question paper show the effect of conditions on the rate. Define the term \"reaction rate\". (Refer to the concentration-vs-time and Maxwell-Boltzmann graphs in the question paper.)",
           "marks": 2,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q5.png",
           "memoText": "Mark 1: Reaction rate is the change in concentration of a reactant or product per unit time.\nMark 2: Stated mathematically as $\\text{rate} = \\Delta[\\text{concentration}]/\\Delta t$, with units mol·dm⁻³·s⁻¹.",
           "topic": "Reaction Rate"
         },
@@ -391,9 +391,10 @@
           "questionText": "Sketch the Maxwell-Boltzmann distribution and show how adding a catalyst shifts the effective threshold. Label axes.",
           "marks": 4,
           "type": "diagram",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q5.png",
           "memoText": "Mark 1: Axes correctly labelled — x-axis: energy (E); y-axis: number of particles (or fraction of particles).\nMark 2: Bell-shaped Maxwell-Boltzmann curve drawn (rising from origin, peak, then long tail to the right).\nMark 3: Vertical dashed line marking the activation energy $E_a$ (without catalyst), and a SECOND vertical dashed line for $E_a$ (with catalyst) shifted to the LEFT of the original.\nMark 4: Shaded area under the curve to the right of $E_a$ — clearly LARGER for the catalysed $E_a$ (more particles have $E \\geq E_a$ when a catalyst is present).",
-          "topic": "Reaction Rate"
+          "topic": "Reaction Rate",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q5-memo.png"
         }
       ]
     },
@@ -408,7 +409,7 @@
           "questionText": "Consider the following equilibrium reaction at 400°C: N₂(g) + 3H₂(g) ⇌ 2NH₃(g) ΔH = −92 kJ·mol⁻¹. (Refer to the concentration-vs-time graph in the question paper.) Write the expression for the equilibrium constant Kc for this reaction.",
           "marks": 2,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q6.PNG",
           "memoText": "Mark 1: Numerator (products) raised to correct stoichiometric power: $[NH_3]^2$.\nMark 2: Denominator (reactants) with correct powers: $[N_2][H_2]^3$.\n$K_c = \\dfrac{[NH_3]^2}{[N_2][H_2]^3}$",
           "topic": "Chemical Equilibrium"
         },
@@ -540,7 +541,7 @@
           "questionText": "A galvanic cell is constructed using zinc (Zn) and copper (Cu) electrodes. Standard electrode potentials: Zn²⁺/Zn = −0.76 V; Cu²⁺/Cu = +0.34 V. (Refer to the cell diagram in the question paper.) Write down the half-reaction at the ANODE. State whether this is oxidation or reduction.",
           "marks": 3,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q8.png",
           "memoText": "Mark 1: Anode is zinc (more negative $E^\\circ$, so it is oxidised).\nMark 2: Half-reaction: $Zn(s) \\to Zn^{2+}(aq) + 2e^-$.\nMark 3: This is OXIDATION (loss of electrons).",
           "topic": "Electrochemistry"
         },
@@ -611,7 +612,7 @@
           "questionText": "Copper(II) sulfate solution (CuSO₄) is electrolysed using copper electrodes. (Refer to the electrolytic cell diagram in the question paper.) Write the half-reaction at the ANODE.",
           "marks": 2,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q9.png",
           "memoText": "Mark 1: Identify oxidation of the copper electrode at the anode (positive electrode in electrolysis).\nMark 2: $Cu(s) \\to Cu^{2+}(aq) + 2e^-$ (oxidation).",
           "topic": "Electrochemistry"
         },
@@ -631,7 +632,8 @@
           "marks": 2,
           "type": "written",
           "memoText": "Mark 1: Anode — copper electrode DECREASES in mass (dissolves into the solution as $Cu^{2+}$ ions are formed by oxidation).\nMark 2: Cathode — copper electrode INCREASES in mass (solid Cu deposited from reduction of $Cu^{2+}$). The concentration of $CuSO_4$ remains essentially constant because $Cu^{2+}$ produced at the anode equals $Cu^{2+}$ consumed at the cathode.",
-          "topic": "Electrochemistry"
+          "topic": "Electrochemistry",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q9-memo.png"
         },
         {
           "id": "phys-sci-p2-pred-a-2026-9-4",

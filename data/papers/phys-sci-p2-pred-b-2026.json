@@ -354,7 +354,7 @@
           "questionText": "Magnesium ribbon reacts with hydrochloric acid: Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g). The graphs in the question paper show the effect of concentration on rate. Explain why BOTH curves end at the same final volume of gas. What does this tell you? (Refer to the gas-volume-vs-time and rate-vs-concentration graphs in the question paper.)",
           "marks": 3,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2b-may-jun-2026-q5.png",
           "memoText": "Mark 1: Both reactions use the same mass (and therefore same number of moles) of Mg, which is the limiting reagent in both cases.\nMark 2: The total amount of $H_2$ produced is determined by the moles of limiting reagent (Mg), not by the concentration of HCl, so both curves plateau at the same final volume.\nMark 3: This shows that concentration affects the RATE of reaction (how fast the gas is produced) but not the YIELD (total amount of product formed).",
           "topic": "Reaction Rate"
         },
@@ -383,7 +383,8 @@
           "marks": 3,
           "type": "written",
           "memoText": "Mark 1: The rate DECREASES over time (initial rate is the maximum; rate falls to zero at completion).\nMark 2: As the reaction proceeds, HCl is consumed, so [HCl] decreases over time. The amount of Mg available also decreases.\nMark 3: With fewer HCl particles per unit volume, the collision frequency drops → fewer successful collisions per second → slower rate. The reaction rate reaches zero when either the Mg or the HCl is fully consumed.",
-          "topic": "Reaction Rate"
+          "topic": "Reaction Rate",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2b-may-jun-2026-q5-memo.png"
         },
         {
           "id": "phys-sci-p2-pred-b-2026-5-5",
@@ -407,7 +408,7 @@
           "questionText": "Consider the equilibrium: H₂(g) + I₂(g) ⇌ 2HI(g) ΔH = +26 kJ·mol⁻¹. (Refer to the concentration-vs-time graph showing the effect of a temperature increase in the question paper.) Write the expression for Kc for this equilibrium.",
           "marks": 2,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2b-may-jun-2026-q6.png",
           "memoText": "Mark 1: Numerator (products) raised to the correct stoichiometric power: $[HI]^2$.\nMark 2: Denominator (reactants) with correct powers: $[H_2][I_2]$.\n$K_c = \\dfrac{[HI]^2}{[H_2][I_2]}$",
           "topic": "Chemical Equilibrium"
         },
@@ -436,7 +437,8 @@
           "marks": 3,
           "type": "written",
           "memoText": "Mark 1: The forward reaction is endothermic ($\\Delta H = +26$ kJ·mol⁻¹).\nMark 2: By Le Chatelier's principle, when temperature is increased, the system shifts in the endothermic direction (forward reaction here) to absorb the added heat.\nMark 3: Therefore the equilibrium shifts to the RIGHT — [HI] increases while $[H_2]$ and $[I_2]$ decrease (consistent with the graph).",
-          "topic": "Chemical Equilibrium"
+          "topic": "Chemical Equilibrium",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2b-may-jun-2026-q6-memo.png"
         },
         {
           "id": "phys-sci-p2-pred-b-2026-6-5",
@@ -465,7 +467,8 @@
           "memoText": "Mark 1: For $H_2(g) + I_2(g) \\rightleftharpoons 2HI(g)$, there are 2 moles of gas on each side of the equation.\nMark 2: Increasing pressure favours the side with FEWER moles of gas (Le Chatelier).\nMark 3: Since both sides of this equilibrium have the SAME number of gas moles (2 mol each), there is no preferred direction → the equilibrium does not shift, and the yield of HI is unchanged.",
           "topic": "Chemical Equilibrium"
         }
-      ]
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2b-may-jun-2026-q6.png"
     },
     {
       "number": 7,
@@ -548,7 +551,7 @@
           "questionText": "A galvanic cell is set up using iron (Fe) and silver (Ag) electrodes. E°(Fe²⁺/Fe) = −0.44 V; E°(Ag⁺/Ag) = +0.80 V. (Refer to the cell diagram in the question paper.) Identify the anode and cathode. Give reasons for your choice.",
           "marks": 3,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2b-may-jun-2026-q8.png",
           "memoText": "Mark 1: Anode — IRON (Fe). Reason: lower (more negative) reduction potential ($-0.44$ V) → more easily oxidised → loses electrons.\nMark 2: Cathode — SILVER (Ag). Reason: higher (more positive) reduction potential ($+0.80$ V) → more easily reduced → gains electrons.\nMark 3: General principle stated: in a galvanic cell, the electrode with the lower $E^\\circ$ is the anode (oxidation) and the one with the higher $E^\\circ$ is the cathode (reduction).",
           "topic": "Electrochemistry"
         },
@@ -595,7 +598,8 @@
           "marks": 3,
           "type": "written",
           "memoText": "Mark 1: Anode side written on the left, cathode side on the right.\nMark 2: Use of single line for phase boundaries within a half-cell and double line for the salt bridge.\nMark 3: Correct full notation: $Fe(s) \\,|\\, Fe^{2+}(aq) \\,||\\, Ag^+(aq) \\,|\\, Ag(s)$.",
-          "topic": "Electrochemistry"
+          "topic": "Electrochemistry",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2b-may-jun-2026-q8-memo.png"
         }
       ]
     },
@@ -610,7 +614,7 @@
           "questionText": "Concentrated sodium chloride solution (brine) is electrolysed using graphite electrodes. (Refer to the diagram of the electrolytic cell in the question paper.) Write the half-reaction at the ANODE. Name the gas produced.",
           "marks": 3,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2b-may-jun-2026-q9.png",
           "memoText": "Mark 1: Anode is the positive electrode in electrolysis; oxidation of $Cl^-$ ions occurs (in concentrated brine, $Cl^-$ is oxidised in preference to water).\nMark 2: Half-reaction balanced: $2Cl^-(aq) \\to Cl_2(g) + 2e^-$.\nMark 3: Gas produced: chlorine ($Cl_2$) — a yellow-green gas with a sharp choking smell.",
           "topic": "Electrochemistry"
         },
@@ -630,7 +634,8 @@
           "marks": 2,
           "type": "written",
           "memoText": "Mark 1: Industrial process: the chlor-alkali process (electrolysis of brine).\nMark 2: One commercial use of EACH product:\n- $Cl_2$: water disinfection (chlorination of drinking water and swimming pools); OR manufacture of PVC and bleach.\n- $H_2$: fuel for hydrogen fuel cells; OR feedstock for ammonia synthesis (Haber process).\n- $NaOH$ (also produced in solution): manufacture of soap, paper, and cleaning products.\n[Award the second mark provided one valid use is given for both $Cl_2$ and $H_2$.]",
-          "topic": "Electrochemistry"
+          "topic": "Electrochemistry",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2b-may-jun-2026-q9-memo.png"
         }
       ]
     }

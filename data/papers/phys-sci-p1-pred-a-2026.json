@@ -180,7 +180,7 @@
           "questionText": "A 5 kg block is placed on a rough inclined plane making an angle of 30° with the horizontal. A force of 40 N is applied parallel to and up the incline. The coefficient of kinetic friction is 0.2. Take g = 10 m·s⁻². Draw a labelled free body diagram (FBD) for the block showing all forces acting on it. (Refer to the diagram in the question paper.)",
           "marks": 4,
           "type": "diagram",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q2.png",
           "memoText": "FBD must show four forces acting on the block:\nMark 1: Weight $W = mg = 50$ N directed vertically downward.\nMark 2: Normal force $N$ perpendicular to slope (upward from slope surface).\nMark 3: Applied force $F = 40$ N up the slope (parallel to incline).\nMark 4: Kinetic friction $f$ down the slope (opposing motion up the slope).\n[Award marks for correct labelling and direction of each force.]",
           "topic": "Newton's Laws"
         },
@@ -269,9 +269,10 @@
           "questionText": "Draw a velocity-time (v-t) graph for the full motion of the ball. Use the axes provided below. Label all key values. (Refer to the blank v-t axes in the question paper.)",
           "marks": 4,
           "type": "diagram",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q3.png",
           "memoText": "v-t graph: a straight line of negative gradient $-10$ m·s⁻²\nMark 1: Starts at $(0; +25)$ m·s⁻¹\nMark 2: Crosses zero at $t = 2.5$ s\nMark 3: Ends at $(5; -25)$ m·s⁻¹\nMark 4: Axes correctly labelled with key values (0, 25, 2.5, 5, −25)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q3-memo.png"
         },
         {
           "id": "phys-sci-p1-pred-a-2026-3-5",
@@ -496,7 +497,7 @@
           "questionText": "A battery with emf 12 V and internal resistance 0.5 Ω is connected to an external circuit. R₁ = 4 Ω is connected in series, and R₂ = 6 Ω and R₃ = 3 Ω are connected in parallel with each other and in series with R₁. (Refer to the circuit diagram in the question paper.) Calculate the equivalent resistance of R₂ and R₃ in parallel.",
           "marks": 2,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q8.png",
           "memoText": "Mark 1: $\\dfrac{1}{R_p} = \\dfrac{1}{R_2} + \\dfrac{1}{R_3} = \\dfrac{1}{6} + \\dfrac{1}{3} = \\dfrac{1}{6} + \\dfrac{2}{6} = \\dfrac{3}{6} = \\dfrac{1}{2}$\nMark 2: $R_p = 2$ Ω",
           "topic": "Circuits"
         },
@@ -631,7 +632,8 @@
           "marks": 2,
           "type": "written",
           "memoText": "Mark 1: AC generator uses slip rings; current alternates direction (AC output).\nMark 2: DC generator uses a split-ring commutator; current always flows in one direction (DC output).",
-          "topic": "Electromagnetic Induction"
+          "topic": "Electromagnetic Induction",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q9-memo.png"
         }
       ]
     },
@@ -685,7 +687,8 @@
           "memoText": "Mark 1: (a) Number of photoelectrons INCREASES — more photons per second strike the surface, so more electrons are ejected (provided $f \\geq f_0$).\nMark 2: (b) Maximum kinetic energy is UNCHANGED — $E_{K(max)} = hf - W_0$ depends only on frequency, not intensity.",
           "topic": "Photoelectric Effect"
         }
-      ]
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q10.png"
     }
   ]
 }

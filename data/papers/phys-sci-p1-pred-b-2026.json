@@ -180,7 +180,7 @@
           "questionText": "Block A (8 kg) rests on a rough horizontal surface and is connected by a light inextensible string over a frictionless pulley to Block B (3 kg) which hangs freely. The coefficient of kinetic friction between A and the surface is 0.25. Take g = 10 m·s⁻². The system is released from rest. Draw a labelled free body diagram for Block A (showing all forces). (Refer to the diagram in the question paper.)",
           "marks": 4,
           "type": "diagram",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1b-may-jun-2026-q2.png",
           "memoText": "FBD for Block A must show:\nMark 1: Weight $W_A = m_A g = 80$ N downward.\nMark 2: Normal force $N = 80$ N upward (perpendicular to the horizontal surface).\nMark 3: Tension $T$ rightward (toward the pulley).\nMark 4: Kinetic friction $f_k = \\mu_k N$ leftward (opposing motion).",
           "topic": "Newton's Laws"
         },
@@ -278,9 +278,10 @@
           "questionText": "Draw the position-time graph (y vs t) for the entire flight. Use the axes provided. Label key values clearly. (Refer to the blank y-t axes in the question paper.)",
           "marks": 4,
           "type": "diagram",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1b-may-jun-2026-q3.png",
           "memoText": "y-t graph: parabolic shape (downward-opening parabola).\nMark 1: Correct starting height: ball begins at $(0; 45)$ m.\nMark 2: Maximum at $(2; 65)$ m clearly indicated.\nMark 3: Ends at the ground: $(5.61; 0)$.\nMark 4: Smooth parabolic curve (not straight lines); axes labelled correctly.",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1b-may-jun-2026-q3-memo.png"
         }
       ]
     },
@@ -504,7 +505,7 @@
           "questionText": "A battery with emf 9 V and internal resistance 1 Ω is connected to an external circuit. R₁ = 3 Ω is in series with the parallel combination of R₂ = 4 Ω and R₃ = 6 Ω. A voltmeter is connected across the battery. (Refer to the circuit diagram in the question paper.) Calculate the equivalent resistance of R₂ and R₃ in parallel.",
           "marks": 2,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1b-may-jun-2026-q8.png",
           "memoText": "Mark 1: $\\dfrac{1}{R_p} = \\dfrac{1}{R_2} + \\dfrac{1}{R_3} = \\dfrac{1}{4} + \\dfrac{1}{6} = \\dfrac{3}{12} + \\dfrac{2}{12} = \\dfrac{5}{12}$\nMark 2: $R_p = 12/5 = 2.4$ Ω",
           "topic": "Circuits"
         },
@@ -611,7 +612,7 @@
           "questionText": "A bar magnet is thrust quickly into a coil connected to a galvanometer. The galvanometer deflects. Explain why, using Faraday's Law.",
           "marks": 3,
           "type": "diagram",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1b-may-jun-2026-q9.png",
           "memoText": "Mark 1: As the magnet moves into the coil, the magnetic flux through the coil increases (changes with time).\nMark 2: By Faraday's Law, this changing flux induces an EMF in the coil ($\\varepsilon = -N\\,d\\Phi/dt$).\nMark 3: This induced EMF drives a current through the circuit (coil + galvanometer), causing the galvanometer to deflect.",
           "topic": "Electromagnetic Induction"
         },
@@ -655,7 +656,7 @@
           "questionText": "The graph below shows maximum kinetic energy (Ek) of emitted photoelectrons vs the frequency of incident light for a metal surface. The threshold frequency is read as 1.04 × 10¹⁵ Hz. Planck's constant h = 6.63 × 10⁻³⁴ J·s. (Refer to the Ek vs f graph in the question paper.) Explain what the threshold frequency represents in terms of the photoelectric effect.",
           "marks": 2,
           "type": "written",
-          "diagramUrl": null,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1b-may-jun-2026-q10.png",
           "memoText": "Mark 1: The threshold frequency is the minimum frequency of incident light required to emit electrons from the metal surface. Below this frequency, no photoelectrons are emitted regardless of intensity.\nMark 2: It corresponds to the frequency at which $hf = W_0$ (photon energy equals work function).",
           "topic": "Photoelectric Effect"
         },
