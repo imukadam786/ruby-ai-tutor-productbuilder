@@ -10,15 +10,15 @@ export function requireApiSecret(req: NextRequest): NextResponse | null {
   if (!secret) {
     // Secret not configured — fail closed in production, warn in dev
     if (process.env.NODE_ENV === "production") {
-      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+      return NextResponse.json({ error: "Secret not configured on server" }, { status: 403 });
     }
     console.warn("[api-auth] RUBY_API_SECRET not set — skipping check in dev");
     return null;
   }
 
   const header = req.headers.get("x-ruby-secret");
-  if (header !== secret) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (header?.trim() !== secret.trim()) {
+    return NextResponse.json({ error: `Secret mismatch (server len=${secret.trim().length}, client len=${header?.trim().length ?? 0})` }, { status: 403 });
   }
 
   return null; // null = request is authorised, continue
