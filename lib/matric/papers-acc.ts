@@ -10,6 +10,8 @@ import accP1_mayJun_2023 from "@/data/papers/acc-p1-may-jun-2023-combined.json";
 import accP2_mayJun_2023 from "@/data/papers/acc-p2-may-jun-2023-combined.json";
 import accP1_mayJun_2022 from "@/data/papers/acc-p1-may-jun-2022-combined.json";
 import accP2_mayJun_2022 from "@/data/papers/acc-p2-may-jun-2022-combined.json";
+import accP1_mayJun_2021 from "@/data/papers/acc-p1-may-jun-2021-combined.json";
+import accP2_mayJun_2021 from "@/data/papers/acc-p2-may-jun-2021-combined.json";
 
 export const ACC_PAPERS: Paper[] = [
   accP1_pred_2026 as unknown as Paper,
@@ -22,4 +24,6 @@ export const ACC_PAPERS: Paper[] = [
   accP2_mayJun_2023 as unknown as Paper,
   accP1_mayJun_2022 as unknown as Paper,
   accP2_mayJun_2022 as unknown as Paper,
+  accP1_mayJun_2021 as unknown as Paper,
+  accP2_mayJun_2021 as unknown as Paper,
 ];
