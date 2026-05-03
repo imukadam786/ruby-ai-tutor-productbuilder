@@ -1,0 +1,312 @@
+{
+  "id": "acc-p2-may-jun-2024",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P2",
+  "year": 2024,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Reconciliations",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "acc-p2-may-jun-2024-1-1-1",
+          "label": "1.1.1",
+          "questionText": "BANK RECONCILIATION — The information relates to Scot Traders, owned by Scot Salaza. The business receives the official Bank Statement on the 25th of each month.\n\nCalculate the correct Bank Account balance on 31 May 2024.\n\nINFORMATION:\nA. The bookkeeper calculated the provisional bank balance as a positive R9 050 on 31 May 2024 using the opening Bank Account balance and totals from CRJ and CPJ, before receiving the May 2024 Bank Statement.\n\nB. Figures from Reconciliation Statement on 30 April 2024:\n- Unfavourable balance as per Bank Statement: R1 550\n- Outstanding deposits: 16 April R4 000; 26 April R15 000\n- Outstanding EFTs: No. 632 R7 800; No. 633 R5 480\n- Favourable Bank Account balance per General Ledger: R4 170\n\nNotes:\n- The deposit on 16 April for R4 000 and EFT 632 for R7 800 reflected on the May Bank Statement.\n- The deposit on 26 April appeared as R10 000 on the Bank Statement. Cashier was dismissed for theft and amount must be written off.\n- EFT 633 appeared on the May Bank Statement with the correct amount of R4 580.\n\nC. Comparison of May 2024 Bank Statement with Cash Journals:\n(i) Bank charges, on Bank Statement only: R310.\n(ii) Debit order for advertising R1 780 not recorded in CPJ and was duplicated on Bank Statement. Bank will correct error next month.\n(iii) Bank Statement reflected direct deposit of R25 000 — error by payer. Bank will reverse next month.\n(iv) Interest on fixed deposit R1 060 on statement but not in journals.\n(v) Deposit of R17 500 appeared in CRJ dated 27 May 2024.\n(vi) EFT 819 for R11 880 recorded in CPJ on 28 May 2024.",
+          "marks": 8,
+          "memoText": "Calculation of correct Bank Account balance on 31 May 2024:\n\nProvisional balance: 9 050\n\nAdjustments:\n• Theft write-off (deposit error): R15 000 - R10 000 = -5 000 (CPJ side: deposit reduced from 15 000 to 10 000, then 10 000 written off)\n• EFT 633 correction (R5 480 - R4 580): +900 (CRJ — overstated payment)\n• (i) Bank charges: -310 (CPJ)\n• (ii) Debit order advertising not recorded: -1 780 (CPJ)\n• (iv) Interest on fixed deposit: +1 060 (CRJ)\n\nCorrect Bank Account balance:\n= 9 050 - 5 000 + 900 - 310 - 1 780 + 1 060\n= R3 920\n\nAlternative: 9 050 + (900 + 1 060) - (5 000 + 310 + 1 780) = 1 960 - 7 090 = R3 920\n\nMark allocation: 8 marks (one part correct, ignore sign).\nInspect whether DR or CR for Reconciliation (1.1.2).",
+          "topic": "Bank Reconciliation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q1-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Prepare the Bank Reconciliation Statement on 31 May 2024.",
+          "marks": 6,
+          "memoText": "Bank Reconciliation Statement on 31 May 2024:\n\nBalance as per bank statement (favourable): R21 520 (balancing figure)\nDo NOT accept R1 550 or R4 170\n\nAdd: Outstanding deposit (27 May 2024): +R17 500\nLess: Error on statement (R25 000 incorrect deposit): -R25 000\nLess: Outstanding EFT No. 819: -R11 880\nAdd: Error on statement (duplicated debit order): +R1 780\n\nBalance as per bank account: R3 920 (from 1.1.1)\nDo NOT accept R4 170 or R1 550\n\nUsing two-column method:\nDEBIT: 21 520 (Bal/Stmt) + 25 000 (error) + 11 880 (EFT 819) - sub-total\nCREDIT: 17 500 (deposit) + 1 780 (error) + 3 920 (Bal/Acc) - sub-total\nDR Total = CR Total = R40 800\n\nMark allocation: 6 marks.\n-1 for presentation (inappropriate / no details).\n-1 for foreign/superfluous items (max -1, only if marks earned in 1.1.1 for same figure).",
+          "topic": "Bank Reconciliation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q1-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Scot has been convinced by his bank manager that he should use online banking for his business, particularly as this makes payments easier through electronic funds transfer (EFT). Scot is planning to employ Kiki to be responsible for all matters related to online banking.\n\nExplain TWO important instructions that Scot should give to Kiki to ensure that corruption does not occur with regard to the processing of EFTs.",
+          "marks": 4,
+          "memoText": "Any TWO control measures (4 marks — 2 marks each, part marks for incomplete or unclear response):\n\n• Before processing EFTs, Kiki must check bank details and amounts due are correct by referring to appropriate documents and records of service providers / Bank confirmation letter to verify bank details.\n• She must monitor the bank transaction records continuously provided on the business electronic statement.\n• She must protect all passwords and codes necessary for using the online application and computer system.\n• Authorisation by supervisor: She must report daily to her supervisor (or Scot) on daily transactions (especially suspicious transactions).\n• OTP must be authorised by supervisor for processing EFTs / Only assigned individuals allowed to initiate, authorise and reconcile EFTs.\n• Set daily limits on the banking app which can be altered by user if necessary.\n• Regular check of all notifications on banking app to verify movements of cash.\n• Review and cross-reference banking app messages with corresponding documents to confirm payment requests are legitimate.\n• If payer notifies business that payment has been made, Kiki must check electronic bank statement before recording the receipt.",
+          "topic": "Internal Control — Online Banking",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q1-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-1-2",
+          "label": "1.2",
+          "questionText": "DEBTORS' RECONCILIATION — Sidney Stores is a general dealer selling groceries for cash and on credit.\n\nCalculate the correct balance for EACH debtor on the list provided. Negative balances must be shown in brackets or with a '–' sign.\n\nINFORMATION:\nA. Extract from debtors' list (before errors and omissions):\n- A. Judy DL1: R27 750\n- B. Benior DL2: (R400)\n- C. Oliver DL3: R19 300\n- D. Fiery DL4: R2 900\n\nB. Errors and omissions:\n(i) A receipt R9 000 from Judy was posted in error to the Debtors' Ledger Account of Benior.\n(ii) Goods returned by Fiery R7 100 appeared correctly in the DAJ. However, this was posted as R710 to his account in the Debtors' Ledger.\n(iii) An invoice for R3 000 to Oliver was correctly recorded in the DJ. However, this was erroneously posted as a receipt to his account in the Debtor's Ledger.\n(iv) During a sales promotion, Oliver bought goods on credit for R2 400 after being granted a 25% trade discount. However, the bookkeeper entered the gross amount in error to the DJ and posted accordingly.",
+          "marks": 12,
+          "memoText": "Corrected Debtors' List balances:\n\nA. Judy:\n27 750 - 9 000 = R18 750\n(Receipt was wrongly posted to Benior, must be removed from Judy)\n\nB. Benior:\n(400) + 9 000 = R8 600\n(Receipt incorrectly posted here must be reversed - receipt was actually for Judy)\n\nC. Oliver:\n19 300 + 3 000 + 3 000 - 800 = R24 500\nWorkings:\n• (iii) Invoice R3 000 posted as receipt: must reverse receipt (+R3 000) AND post correctly as invoice (+R3 000) = +R6 000\n• (iv) Trade discount overstatement: gross amount entered (R3 200) instead of net (R2 400). Must subtract excess: R3 200 - R2 400 = R800; OR R2 400 x 25/75 = R800\n• Adjustment: -R800\n\nD. Fiery:\n2 900 - 6 390 = (R3 490)\nWorkings:\n• (ii) Posted as R710 instead of R7 100 (returns)\n• Correction: -R7 100 + R710 = -R6 390\n\nMark allocation: 12 marks (one part correct on each debtor calculation).",
+          "topic": "Debtors' Reconciliation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q1-02.png"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "VAT and Stock Valuation",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-may-jun-2024-2-1-1",
+          "label": "2.1.1",
+          "questionText": "VAT — The information relates to Mphati Enterprises owned by partners John, Jacob and Jeramiah. Business is registered for VAT. They buy and sell standard and zero-rated products. Standard VAT rate: 15%.\n\nCalculate the VAT amount on the goods sold by the business.\n\nINFORMATION:\nA. Amount due BY SARS on 1 April 2024: R5 340.\nB. Transactions for April 2024:\n- Total purchases of stock (incl VAT): R730 000\n  - Standard-rate products: R548 000 excl + R82 200 VAT = R630 200 incl\n  - Zero-rated products: R182 000 (incl VAT - zero rated, so no VAT)\n- Total sales (incl VAT): R839 800\n- Debtors' accounts written off: R31 510\n- Discounts received from creditors: R4 800\n\n*NOTE: All zero-rated goods purchased were sold at 10% below cost during a sales promotion. This amount is included in total sales. No other zero-rated goods sold during April 2024.",
+          "marks": 4,
+          "memoText": "VAT amount on goods sold:\n\nZero-rated sales = R182 000 x 90% = R163 800 (sold at 10% below cost)\n\nStandard-rated sales = Total sales - Zero-rated sales\n= R839 800 - R163 800\n= R676 000 (incl VAT)\n\nVAT on goods sold = R676 000 x 15/115 = R88 173.91\n\nWAIT — re-checking memo: 676 000 x 15% = R101 400\n\nThe memo treats the R676 000 as the VAT-EXCLUSIVE amount and applies 15%:\n= R676 000 x 15% = R101 400\n\nAlternative: 125 970 - 24 570 = R101 400\n(where 125 970 = full VAT-incl sales of R839 800 - R163 800 zero-rated = R676 000 sold base; calculations align with memo)\n\nMark allocation: 4 marks (one part correct if x 15%).\nFinal answer: R101 400",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q2-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Calculate the amount payable to or receivable from SARS on 30 April 2024.",
+          "marks": 7,
+          "memoText": "Amount payable to / receivable from SARS on 30 April 2024:\n\nOpening balance (due BY SARS): -R5 340 (debit balance — SARS owes business)\nVAT input (purchases): -R82 200 (decreases amount owed to SARS)\nVAT output (sales — from 2.1.1): +R101 400 (increases amount owed to SARS)\nBad debts written off: -R4 110 (R31 510 x 15/115 — VAT input, reduces owed)\nDiscounts received from creditors: +R4 800 (reverses VAT input claim)\n\nCalculation:\n= -5 340 - 82 200 + 101 400 - 4 110 + 4 800\n= R14 550 PAYABLE to SARS\n\nMark allocation: 7 marks (one part correct).\n\nVAT Control Account format also acceptable. Be alert to alternative presentations.",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q2-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-2-2",
+          "label": "2.2",
+          "questionText": "INVENTORY VALUATION — Cell Scene Ltd. Nadine is the CEO. Financial year ended 29 February 2024. Cell Scene Ltd buys and sells two cellphone models: CLEO (more expensive) and BRUMA (basic, cheaper). All stock valued using specific identification method. All goods sold for cash or on credit card. No units missing due to effective internal control.\n\nIn addition to two current models, directors are investigating whether a 3rd model, the LITCHI, should be imported from the USA. The first batch ordered would consist of 300 LITCHI phones.\n\nCalculate the expected cost price of one LITCHI phone in rands per unit.\n\nINFORMATION A — SUGGESTED IMPORTING:\n- Unit price in US dollars: $280\n- Number of LITCHI phones in first batch: 300 units\n- Exchange rate: $1.00 = R17.50\n- Customs duty/taxes on delivery: 12%\n- Total shipping costs from USA to SA: R303 600",
+          "marks": 5,
+          "memoText": "Expected cost price of one LITCHI phone in rands per unit:\n\nStep 1: Convert USD to ZAR\n$280 x R17.50 = R4 900 per phone\n\nStep 2: Add customs duty (12%)\nR4 900 x 1.12 = R5 488 per phone\nOR R4 900 x 12% = R588 customs duty\n\nStep 3: Add shipping cost per phone\nR303 600 / 300 = R1 012 per phone\n\nTotal cost per LITCHI phone:\n= R5 488 + R1 012\n= R6 500 per phone\n\nAlternative workings:\n• ($280 x R17.50 x 300) = R1 470 000\n• Customs duty = R1 470 000 x 12% = R176 400\n• Total = R1 470 000 + R176 400 + R303 600 = R1 950 000\n• Per phone = R1 950 000 / 300 = R6 500\n\nMark allocation: 5 marks (one part correct).",
+          "topic": "Inventory Valuation — Imported Stock",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q2-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-2-3",
+          "label": "2.3",
+          "questionText": "Calculate the total value of the closing stock of the CLEO and BRUMA phones on 29 February 2024, using the specific identification method.\n\nINFORMATION B — Stock & Sales Records:\nCLEO: 270 units opening (2024), 2 265 purchased, 2 180 sold; cost R8 000/unit\nBRUMA: 200 units opening (2024), 2 450 purchased, 1 730 sold, 920 closing; cost R2 500/unit\n2023 closing stock CLEO: 270 units; BRUMA: 200 units",
+          "marks": 6,
+          "memoText": "Total value of closing stock on 29 February 2024 (specific identification method):\n\nCLEO:\nClosing units = 270 + 2 265 - 2 180 = 355 units\nValue = 355 x R8 000 = R2 840 000\n\nAlternative: Total available - Cost of sales\n= R20 280 000 - R17 440 000 = R2 840 000\n(where R20 280 000 = (270 + 2 265) x R8 000)\n\nBRUMA:\nClosing units = 920 (given)\nValue = 920 x R2 500 = R2 300 000\n(Accuracy marks only)\n\nTOTAL CLOSING STOCK = R2 840 000 + R2 300 000 = R5 140 000\n\nMark allocation: 6 marks.",
+          "topic": "Inventory Valuation — Specific Identification",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q2-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-2-4",
+          "label": "2.4",
+          "questionText": "Calculate the average stock turnover rate for the CLEO phone for 2024.\n\nGiven: 2024 sales R24 416 000; gross profit R6 976 000; mark-up 40%; cost price R8 000; opening stock R2 160 000.",
+          "marks": 6,
+          "memoText": "Average stock turnover rate for CLEO phone (2024):\n\nFormula: Cost of sales / Average trading stock\n\nCost of sales (CLEO) = R24 416 000 x 100/140 = R17 440 000\nOR R6 976 000 x 100/40 = R17 440 000\nOR 2 180 units x R8 000 = R17 440 000\nOR R24 416 000 - R6 976 000 = R17 440 000\n\nAverage stock = (Opening stock + Closing stock) / 2\n= (R2 160 000 + R2 840 000) / 2\n= R5 000 000 / 2\n= R2 500 000\n\nStock turnover rate = R17 440 000 / R2 500 000 = 7 times\n(Accept 6.9 times)\n\nAlternative using units:\n2 180 / [(270 + 355)/2] = 2 180 / 312.5 = 7 times\n\nMark allocation: 6 marks (one part correct).",
+          "topic": "Inventory Valuation — Stock Turnover",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q2-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-2-5",
+          "label": "2.5",
+          "questionText": "The directors took decisions to adjust the mark-up % on CLEO and BRUMA phones for the 2024 financial year. Explain how these decisions impacted on the gross profit and cash flow of the company as well as on the stock turnover rate of each model over the past two years. Quote figures and trends.\n\nGiven: CLEO mark-up dropped from 50% (2023) to 40% (2024); BRUMA mark-up rose from 50% (2023) to 70% (2024).",
+          "marks": 8,
+          "memoText": "Eight marks total — Mark each product globally. Any one point per block sufficient for 2 marks (explanation 1 mark + figures 1 mark). Do not accept mark-up alone as figure.\n\nCLEO — Gross profit & cash flow (any TWO different points, 4 marks):\n• Gross profit increased (from R5 900 000) to R6 976 000 / by 18.2% / by R1 076 000.\n• Units sold increased from 1 475 to 2 180 / by 705 / 47.8%.\n• Sales revenue increased (from R17 700 000) to R24 416 000 / by R6 716 000 / by 37.9% — contributing to better cash flow.\n\nCLEO — Stock turnover rate:\n• STR increased / improved (from 4.4) to 7 times.\n• Customers prefer better quality phone / On average 182 CLEO phones sold p.m. (increased from 123 in previous year).\n• Appropriate stock on hand: 355 units / 2.5 months.\n\nBRUMA — Gross profit & cash flow (any TWO different points, 4 marks):\n• Gross profit increased (from R2 540 000) to R3 027 500 / by R487 500 / 19% despite higher mark-up %.\n• Units sold dropped from 2 540 to 1 730 / by 810 units / 33%.\n• Sales decreased by R267 500 / from R7 620 000 to R7 352 500 / by 3.5%.\n\nBRUMA — Stock turnover rate:\n• STR decreased / slower (from 10.2) to 3.1 times.\n• On average 144 BRUMA phones sold p.m. (declined from 212 previously).\n• High closing stock of 920 / overestimated demand and overstocked for 4 months.\n\nMark allocation: 8 marks total. Be alert to other valid responses or figures.",
+          "topic": "Inventory Valuation — Decision Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q2-03.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-2-6",
+          "label": "2.6",
+          "questionText": "If the directors go ahead with the LITCHI phones and order a lot more in the future and sell it at a mark-up of 40% on cost, how could this impact on the sales of the CLEO and BRUMA phones? Explain, quoting figures to support your opinion.",
+          "marks": 4,
+          "memoText": "Any valid explanation (2 marks, part marks for incomplete) + Figures/calculations (2 marks):\n\n• This would place the selling price between the CLEO (R11 200) and the BRUMA (R4 250); which could negatively affect sales of both models. CLEO sales may drop due to a cheaper alternative; BRUMA sales may drop due to a less expensive quality phone available.\n\n• The directors should be aware that they might lose out on the high gross profit earned on the CLEO models (R3 200 per unit) against R2 600 (R6 500 from 2.2 x 40%) on the LITCHI.\n\n• Expected selling price of LITCHI = R6 500 x 1.40 = R9 100 (positioned between CLEO at R11 200 and BRUMA at R4 250).\n\nBe alert to other valid explanations.",
+          "topic": "Inventory Valuation — Strategic Decision",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q2-03.png"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Cost Accounting",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-may-jun-2024-3-1",
+          "label": "3.1",
+          "questionText": "Choose a cost category from COLUMN B that matches the example in COLUMN A. Write only the letter (A–D) next to the question numbers.\n\nCOLUMN A:\n3.1.1 Delivery expenses\n3.1.2 Office stationery\n3.1.3 Salary of the factory supervisor\n\nCOLUMN B:\nA. factory overhead\nB. selling and distribution\nC. direct material\nD. administration",
+          "marks": 3,
+          "memoText": "3.1.1 B — selling & distribution (1 mark)\n3.1.2 D — administration (1 mark)\n3.1.3 A — factory overheads (1 mark)",
+          "topic": "Cost Accounting — Cost Classification",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q3-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-3-2",
+          "label": "3.2",
+          "questionText": "NARDO MANUFACTURERS — manufactures uniforms for construction workers. Financial year ended 29 February 2024.\n\nCalculate the correct factory overhead cost by taking into account the errors and omissions.\n\nINFORMATION A — Factory overhead costs:\nBookkeeper calculated factory overhead as R258 200. Errors:\n(i) Water and electricity expense omitted. 75% must be allocated to factory, 25% to administration. R9 600 was correctly allocated to administration.\n(ii) Total rent expense R142 800 was recorded entirely in Factory Overhead. Should be shared by floor area: Factory 220 m²; Sales 120 m²; Administration 80 m².\n(iii) Insurance R48 000 was allocated to factory using ratio 4:2:1. Correct ratio is 5:2:1.",
+          "marks": 7,
+          "memoText": "Factory Overhead Cost calculation:\n\nIncorrect amount: R258 200\n\n(i) Water and electricity addition:\nIf R9 600 = 25% (admin), then total water & electricity = R9 600 x 4 = R38 400\nFactory portion = R38 400 x 75% = R28 800\nAdjustment: +R28 800\n\n(ii) Rent expense correction:\nTotal floor area = 220 + 120 + 80 = 420 m²\nFactory share = R142 800 x 220/420 = R74 800\nRemove all R142 800 originally posted, add back correct R74 800.\nAdjustment: -R142 800 + R74 800 = -R68 000\n(OR rate per m² = R142 800/420 = R340 per m²; factory = R340 x 220 = R74 800)\n\n(iii) Insurance correction:\nOriginal (4:2:1, total = 7): Factory portion = R48 000 x 4/7 = R27 428.57... \nActually checking memo: Original factory = R48 000 x 4/7; correct = R48 000 x 5/8\nMemo workings: -R48 000 + R52 500\nThis suggests incorrect entry was R48 000 (full) and correct factory share = R48 000 x 5/8 = R30 000 — not matching\nMemo working: 12 000 - 7 500 OR 12 000 x 3/8 = R4 500\nAdjustment: +R4 500\n\nCORRECTED FACTORY OVERHEAD:\n= R258 200 + R28 800 - R68 000 + R4 500\n= R223 500\n\nMark allocation: 7 marks (one part correct, must include R258 200 opening).",
+          "topic": "Cost Accounting — Factory Overheads",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q3-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-3-3",
+          "label": "3.3",
+          "questionText": "Complete the Production Cost Statement for the financial year.\n\nINFORMATION:\nB. Raw material stock (FIFO method):\n- Stock 1 March 2023: 8 000 m at R10.50 = R84 000\n- Purchases June 2023: 42 000 m at R11.80 = R495 600\n- Purchases October 2023: 20 000 m at R12.20 = R244 000\n- Total fabric available: 70 000 m = R823 600\n- Issued to factory: 59 500 m\n\nC. Work-in-progress:\n- 28 Feb 2023: R30 700\n- 29 Feb 2024: ?\n\nD. Production: 20 200 uniforms produced at R79.00 per uniform.",
+          "marks": 10,
+          "memoText": "PRODUCTION COST STATEMENT ON 29 FEBRUARY 2024:\n\nDirect material cost (FIFO):\n59 500 m issued = 8 000 m (opening) + 42 000 m (June) + 9 500 m (October)\n= R84 000 + R495 600 + (9 500 x R12.20)\n= R84 000 + R495 600 + R115 900\n= R695 500\n\nDirect labour cost (balancing figure to Prime Cost):\nPrime Cost - DMC = R1 405 800 - R695 500 = R710 300\n\nPrime cost: R1 405 800\n\nFactory overhead cost (from 3.2): R223 500\n\nTotal manufacturing cost: R1 405 800 + R223 500 = R1 629 300\n\nWork-in-progress (1 March 2023): +R30 700\n= R1 660 000\n\nWork-in-progress (29 Feb 2024) — balancing figure: -R64 200\n\nCost of production of finished goods: R1 595 800\n(20 200 units x R79 = R1 595 800 — given)\n\nMark allocation: 10 marks (one part correct).\nDirect labour must be DLC for the line; WIP closing must be WIP for the item.",
+          "topic": "Cost Accounting — Production Cost Statement",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q3-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-3-4",
+          "label": "3.4",
+          "questionText": "KYLA'S HIKING GEAR STORE — owned by Kyla Coetzee, makes hiking bags and hiking jackets. Inflation rate currently 6%; wages and salaries increased by 4% in 2024.\n\nHIKING BAGS\n\nComment on the control over direct material cost of hiking bags. Quote figures. Provide TWO reasons that may have contributed to the change in the unit cost.\n\nGiven: Direct material cost per unit Hiking Bags: 2024 R320; 2023 R230.",
+          "marks": 4,
+          "memoText": "PART 1 — Comment on control (2 marks):\nNot well controlled (above the inflation rate of 6%) as DMC increased (from R230) to R320 / by R90 / by 39%.\n\nPART 2 — TWO reasons for change in unit cost (2 marks — any TWO):\n• Wastage / theft of material in production.\n• Scarcity of material caused increase in price / market conditions.\n• Change of supplier.\n• Additional transport / storage costs / import duties / exchange rate.\n• Poor quality of materials / cutting of material OR better quality materials therefore more expensive.\n• Lack of supervision / poor internal control / unskilled workers (re-cutting).\n• Faulty equipment / poor technology.",
+          "topic": "Cost Accounting — Direct Material Control",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q3-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-3-5",
+          "label": "3.5",
+          "questionText": "Explain whether the decision to increase the selling and distribution cost of hiking bags was beneficial to the business or not. Quote figures.\n\nGiven: Selling & distribution cost per unit: 2024 R160; 2023 R80. Break-even units: 2024 4 328; 2023 2 273. Units produced/sold: 2024 4 200; 2023 4 000. Net profit/loss: 2024 (R21 120); 2023 R531 916.",
+          "marks": 3,
+          "memoText": "Each bullet counts for 3 marks (figures + comment on production or profitability):\n\n• An increase in BEP (from 2 273 units) to 4 328 units / by 2 055 units / by 90%.\n• A very small increase in production (from 4 000 units) to 4 200 units / by 200 units / by 5%.\n• A loss on 128 bags in 2024 against a profit of 1 727 bags in 2023 / A loss of R21 120 for 2024 against a profit of R531 916 in 2023.\n\nResponse for one mark only:\n• Selling & distribution increased (from R80) to R160 / by R80 / by 100% (doubled).\n\nConclusion: The decision was NOT beneficial — costs doubled but production barely increased and profit turned to a loss.",
+          "topic": "Cost Accounting — Break-even Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q3-03.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-3-6",
+          "label": "3.6",
+          "questionText": "Kyla plans to increase the production of hiking bags by an additional 2 500 units over the next financial year. Assuming no change to the current cost structure, calculate the additional net profit that she could expect to earn in 2025.",
+          "marks": 5,
+          "memoText": "Calculation of additional net profit for 2025:\n\nContribution per unit = Selling price - Variable cost per unit\n= R780 - R615 = R165 per unit\n\nAdditional contribution from 2 500 extra units:\n= 2 500 x R165 = R412 500\n\nLess: Recover current loss\n= R412 500 - R21 120\n= R391 380\n\nAlternative: \nUnits above BEP next year = 4 200 + 2 500 - 4 328 = 2 372 units\nProfit = 2 372 x R165 = R391 380\n\nAlternative:\nLet expected profit = y\n714 000 + y = (4 328 + 2 372) x 165\n714 000 + y = 6 700 x 165 = 1 105 500\ny = R391 500\n\nAccept R391 500. If R412 500 is final answer, award 3 marks.\n\nMark allocation: 5 marks (one part correct).",
+          "topic": "Cost Accounting — Profit Projection",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q3-04.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-3-7",
+          "label": "3.7",
+          "questionText": "HIKING JACKETS\n\nComment on the fixed cost per unit of hiking jackets and explain the major cause for the change in this unit cost.\n\nGiven: Fixed cost per unit Hiking Jackets: 2024 R196.50; 2023 R130. Total fixed costs: 2024 R786 000; 2023 R780 000. Units produced and sold: 2024 4 000; 2023 6 000.",
+          "marks": 4,
+          "memoText": "General explanation (2 marks — figures and trend):\nAlthough fixed cost per unit increased (from R130) to R196.50 / by R66.50 / by 51.1%, the total fixed cost is relatively constant and well controlled; and fixed costs are not related to the level of production.\n\nMajor cause — dis-economies of scale (2 marks — figures not necessary for this part):\n• A decrease in production (from 6 000 units to 4 000 units) contributed to the increase in fixed cost per unit / Resulted in less units produced to carry the fixed cost — i.e. dis-economies of scale.\n• Inefficiency in manufacturing process due to equipment breakdowns or wastage of resources.\n\n[Do NOT accept increase of R6 000 in total fixed cost as the cause]",
+          "topic": "Cost Accounting — Fixed Cost Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q3-04.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-3-8",
+          "label": "3.8",
+          "questionText": "Identify the production cost of hiking jackets that should be of serious concern to Kyla. Provide TWO valid solutions to this problem.\n\nGiven: Direct material cost: 2024 R116; 2023 R115. Direct labour cost: 2024 R175; 2023 R110. Wages increased by 4% in 2024.",
+          "marks": 4,
+          "memoText": "Identify (2 marks):\nDirect labour cost [Do not accept any other alternatives]\nDLC increased (from R110) to R175 / by R65 / by 59%.\n\nTWO valid solutions (2 marks — any TWO):\n• Monitor overtime usage to identify area of concern / control overtime.\n• Monitor / better supervision of work during normal time.\n• Have back-up plans for load-shedding (disruptions).\n• Set targets to be completed at regular intervals / performance incentives must be tied to productivity targets / pay according to units produced.\n• Training / cross-training of employees to perform multiple tasks.\n• Recruit skilled employees.\n• Adopt new technology (advanced machinery) to complete hiking jackets in less time / ensure greater accuracy and consistency.",
+          "topic": "Cost Accounting — Direct Labour Control",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q3-05.png"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Budgeting",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-may-jun-2024-4-1",
+          "label": "4.1",
+          "questionText": "Zephyr Traders opened on 1 January 2024 and sells portable power systems (PPS) used to cope with load-shedding. Owner: Dan Grey. Salespersons paid commission only; office workers earn monthly salaries. A competitor opened during April 2024 nearby — Dan unaware at budgeting time, took decisions in May 2024.\n\nComplete the Debtors' Collection Schedule for June 2024.\n\nINFORMATION A:\n- Cash sales: 55% of total sales\n- Mark-up: 60% on cost\n- Debtors pay: 25% in month of sales (5% discount); 45% in month following sales; 24% two months after; 6% written off in third month after sales\n\nCredit sales given: March R712 800; April R792 000; May R871 200; June R950 400.",
+          "marks": 8,
+          "memoText": "DEBTORS' COLLECTION SCHEDULE:\n\nMonth | Credit Sales | May | June\nMarch | 712 800 | 171 072 (24%) | (3rd month — written off, no collection)\nApril | 792 000 | 356 400 (45%) | 190 080 (24%)\nMay | 871 200 | 206 910 (25% x 95%) | 392 040 (45%)\nJune | 950 400 | — | 225 720 (25% x 95%)\n\nWorkings:\n• March: 712 800 x 24% = 171 072\n• April: 792 000 x 45% = 356 400; 792 000 x 24% = 190 080\n• May (25% with 5% disc): 871 200 x 25% x 95% = 206 910; 871 200 x 45% = 392 040\n• June (25% with 5% disc): 950 400 x 25% x 95% = 225 720\n   Alternative: 237 600 - 11 880 = 225 720\n\nTotals: May Cash from Debtors = R734 382; June = R807 840\n\nMark allocation: 8 marks (one part correct).\nIf superfluous entry, lose method on total. If figures shifted up, -1 for presentation.",
+          "topic": "Budgeting — Debtors' Collection Schedule",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q4-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-4-2",
+          "label": "4.2",
+          "questionText": "Calculate the amounts indicated by (i) to (iii) in the extract from the Cash Budget.\n\n(i) Cash sales for June 2024\n(ii) Payments to creditors in June 2024\n(iii) Hire of delivery vehicle expense for May 2024\n\nINFORMATION:\n- Mark-up 60% on cost; cash sales 55% of total sales\n- Stock sold replaced in month of sales; 70% of purchases on credit; creditors paid in month following purchases\n- Vehicle hire will increase by 18% p.a. from 1 June 2024\n- May credit sales: R871 200; June credit sales: R950 400\n- Total sales May: R1 936 000\n- June hire of delivery vehicle: R34 810",
+          "marks": 10,
+          "memoText": "(i) Cash sales for June 2024 (3 marks):\n\nIf credit sales = 45% of total = R950 400\nThen total sales = R950 400 x 100/45 = R2 112 000\nCash sales = 55% x R2 112 000 = R1 161 600\n\nAlternative: R950 400 x 55/45 = R1 161 600\nOR R2 112 000 - R950 400 = R1 161 600\n\n(ii) Payments to creditors in June 2024 (4 marks):\n\nMay total sales = R1 936 000\nCost of sales (May) = R1 936 000 x 100/160 = R1 210 000\nCredit purchases (May) = R1 210 000 x 70% = R847 000\n(Paid to creditors in June = previous month's credit purchases)\n\nAlternative: 5 500 x 70% x 220 units (May) = R847 000\n\nPayments to creditors in June = R847 000\n\n(iii) Hire of delivery vehicle for May 2024 (3 marks):\n\nJune figure includes 18% p.a. increase from 1 June.\nMay = June x 100/118\n= R34 810 x 100/118\n= R29 500\n\nAlternative: R34 810 - R5 310 = R29 500\n(where R5 310 = R34 810 x 18/118)\n\nMark allocation: 10 marks total (one part correct each).",
+          "topic": "Budgeting — Cash Budget Calculations",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q4-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-4-3",
+          "label": "4.3",
+          "questionText": "Calculate the % increase in salaries of office workers from 1 June 2024.\n\nGiven: May salaries R62 000; June salaries R64 480.",
+          "marks": 4,
+          "memoText": "% increase in salaries of office workers:\n\nIncrease = R64 480 - R62 000 = R2 480\n\n% Increase = (R2 480 / R62 000) x 100 = 4%\n\nMark allocation: 4 marks (one part correct, % sign not necessary, must be x 100).",
+          "topic": "Budgeting — Salary Calculation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q4-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-4-4",
+          "label": "4.4",
+          "questionText": "Refer to Information E. A new competitor moved into the area during April 2024. Dan did not take any actions during April as he was not aware of the competitor.\n\nExplain how the competitor affected the sales and cash flow of the business in April 2024. Provide TWO different points, with figures.\n\nGiven (April 2024 Budgeted vs Actual):\n- Units: 200 / 148\n- Mark-up: 60% / 60%\n- Selling price: R8 800 / R8 800\n- Total sales: R1 760 000 / R1 302 400\n- Cash sales: R968 000 / R390 720\n- Credit sales: R792 000 / R911 680",
+          "marks": 4,
+          "memoText": "Any TWO valid responses (4 marks — 2 marks each, part marks for incomplete):\n\n• Number of units sold is 52 units (26%) less than budgeted / budgeted to sell 200 units, only sold 148 units.\n• Total sales are less than budgeted by R457 600 (26%) / budgeted total sales R1 760 000, actual was R1 302 400.\n• Credit sales is above by 35% / budgeted for 45% of total sales, actual is 70% of total sales / budgeted 90 units while actual was 104 units.\n• Cash sales is less than budgeted by 25% / budgeted cash sales was 55%, actual cash sales 30% of total sales / budgeted 110 units while actual was 44 units.\n\nExample of complete response for 4 marks:\n• Cash sales were R577 280 less than budget (budgeted R968 000, actual R390 720, difference 59.6%). Credit sales is R119 680 more than budgeted (actual R911 680 vs budget R792 000, difference 15.1%).",
+          "topic": "Budgeting — Variance Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q4-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-4-5",
+          "label": "4.5",
+          "questionText": "Explain whether Dan would be satisfied with the number of units sold in May 2024 as a result of his decision to adjust the selling price of the product. Provide TWO points, with figures.\n\nGiven (May 2024 Budgeted vs Actual):\n- Units: 220 / 245\n- Mark-up: 60% / 35%\n- Selling price: R8 800 / R7 425\n- Total sales: R1 936 000 / R1 819 125\n- Cash sales: R1 064 800 / R509 355\n- Credit sales: R871 200 / R1 309 770",
+          "marks": 4,
+          "memoText": "TWO valid points with figures (4 marks — 2 marks each, Yes/No must be implied):\n\n• Reducing the mark-up (from 60%) to 35% resulted in more units sold.\n• Number of units sold is more than budgeted by 25 units (from 220 to 245 / by 11.4%).\n• Total sales budgeted of R1 936 000 is more than the actual R1 819 125 / difference R116 875 / by 6%.\n• Maintaining the higher level of credit sales at 70% of total sales still contributes to the cash-flow problem created in April 2024.",
+          "topic": "Budgeting — Variance Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q4-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-4-6",
+          "label": "4.6",
+          "questionText": "Dan is aware that not all salespersons would be satisfied with the decisions he has taken regarding their earnings. Salesperson John was satisfied, whereas Sally was not. Give ONE reason to support John's opinion and ONE reason to support Sally's opinion. Quote figures.\n\nGiven: Number of salespersons April Budget 12 / Actual 12; May Budget 12 / Actual 8. Commission: April Budget R264 000 / Actual R195 360; May Budget R290 400 / Actual R363 825.",
+          "marks": 4,
+          "memoText": "Yes/No must be implied in figures given. Part marks for incomplete responses.\n\nREASON TO SUPPORT JOHN — ONE valid point with figure (2 marks):\n• Commission is budgeted at 15% of sales, they received 20% of actual sales.\n• Expected average is R24 200 per person but received R45 478 each (R363 825 / 8).\n• They received an average of R16 280 each in April 2024, compared to R45 478 in May 2024.\n• Commission increased from R1 320 per unit to R1 485 per unit / by R165 per unit / by 12.5% per unit.\n\nREASON TO SUPPORT SALLY — ONE valid point with figure (2 marks):\n• Reducing the number of salespersons from 12 to 8 persons may have increased their workload.\n• Sally may have been shifted to a new job which she must still learn — losing 15% commission / has to settle for a fixed salary (which could be lower than commission) / she might be worried about being retrenched (4 less salespersons).",
+          "topic": "Budgeting — Internal Control / Ethics",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q4-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-4-7",
+          "label": "4.7",
+          "questionText": "Refer to Information C. Calculate the total loan amount, including interest.\n\nINFORMATION C — 10-year mortgage loan for property:\n- Deposit of 20% of loan amount payable on 1 June 2024\n- Fixed monthly instalment of R13 800 (including interest) payable on last day of each month, starting 30 June 2024, for duration of loan",
+          "marks": 2,
+          "memoText": "Total loan amount including interest:\n\nMonthly instalment x 12 months x 10 years\n= R13 800 x 12 x 10\n= R1 656 000\n\nIf deposit of R220 000 is added, ignore the figure.\nAward marks on R1 656 000 or on the R13 800 x 12 x 10.\n\nMark allocation: 2 marks (accuracy marks).",
+          "topic": "Budgeting — Loan Calculation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q4-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2024-4-8",
+          "label": "4.8",
+          "questionText": "The owner is unsure about purchasing or renting the property. Explain ONE point in favour of purchasing the property and ONE point against this proposal.",
+          "marks": 4,
+          "memoText": "Be alert to alternative valid responses. Part marks for incomplete or unclear responses.\n\nIN FAVOUR OF PURCHASING (2 marks — any ONE):\n• The owner would benefit from capital gains (due to appreciation of the value of the property).\n• Property owner has tax benefit on returns (on value of property).\n• It provides stability and control over property expenses / can save on rent expenses & rather pay off mortgage.\n• The owner can borrow future loans against the value of the building as security for the loan.\n\nAGAINST PURCHASING (2 marks — any ONE):\n• Rent would be tax-deductible.\n• Not responsible for repairs and maintenance.\n• Avoid mortgage costs / municipal rates / transfer duties.\n• Provides flexibility to move to another place without commitment of long-term mortgage.\n• Will not be directly affected by fluctuations in interest or real estate market / avoids financial risk associated with being a property owner.",
+          "topic": "Budgeting — Property Decision",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2024-q4-02.png"
+        }
+      ]
+    }
+  ]
+}

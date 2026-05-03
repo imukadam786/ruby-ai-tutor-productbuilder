@@ -1277,37 +1277,75 @@ function SessionView({
               <div className="text-base text-gray-800 leading-relaxed">
                 <MathMarkdown content={currentSQ.questionText} />
               </div>
-              {/* Diagram — thumbnail with tap-to-expand */}
+              {/* Sources (History) + Diagram */}
               {(() => {
                 const parentQ = paper.questions.find((q) =>
                   q.subQuestions.some((sq) => sq.id === currentSQ.id)
                 );
-                const diagramUrl = currentSQ.diagramUrl ?? parentQ?.diagramUrl;
-                return diagramUrl ? (
-                  <div className="mt-3 flex justify-center">
-                    <button
-                      onClick={() => setExpandedDiagramUrl(diagramUrl)}
-                      className="relative group block rounded-xl overflow-hidden border border-gray-200 bg-gray-50 max-w-[220px]"
-                      title="Tap to expand"
-                    >
-                      <img
-                        src={diagramUrl}
-                        alt={`Diagram for ${currentSQ.label}`}
-                        className="w-full object-contain max-h-28"
-                      />
-                      <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span className="text-[10px] font-semibold bg-black/60 text-white px-2 py-0.5 rounded-full">
-                          Tap to expand
-                        </span>
+                const diagramUrl = currentSQ.diagramUrl ?? (parentQ as any)?.diagramUrl;
+
+                // History: pull required sources for this sub-question
+                const requiredIds: string[] = (currentSQ as any).requiredSources ?? [];
+                const allSources: any[] = (parentQ as any)?.sources ?? [];
+                const neededSources = allSources.filter((s) => requiredIds.includes(s.id));
+
+                return (
+                  <>
+                    {neededSources.map((source) => (
+                      <div key={source.id} className="mt-3 rounded-xl border border-amber-200 bg-amber-50 overflow-hidden">
+                        <div className="px-3 py-1.5 bg-amber-100 border-b border-amber-200">
+                          <span className="text-xs font-bold text-amber-900">{source.title}</span>
+                        </div>
+                        {source.type === "text" && source.content && (
+                          <p className="px-3 py-2 text-xs text-gray-700 leading-relaxed whitespace-pre-wrap">
+                            {source.content}
+                          </p>
+                        )}
+                        {source.type === "image" && source.imageUrl && (
+                          <div className="p-2 flex justify-center">
+                            <button
+                              onClick={() => setExpandedDiagramUrl(source.imageUrl)}
+                              className="relative group block rounded-lg overflow-hidden border border-gray-200 bg-gray-50 max-w-[200px]"
+                              title="Tap to expand"
+                            >
+                              <img
+                                src={source.imageUrl}
+                                alt={source.title}
+                                className="w-full object-contain max-h-28"
+                              />
+                              <div className="absolute inset-0 flex items-end justify-center pb-1.5 opacity-100 group-hover:opacity-0 transition-opacity pointer-events-none">
+                                <span className="text-[10px] font-semibold bg-black/40 text-white px-2 py-0.5 rounded-full">Tap to expand</span>
+                              </div>
+                            </button>
+                          </div>
+                        )}
                       </div>
-                      <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-100 group-hover:opacity-0 transition-opacity pointer-events-none">
-                        <span className="text-[10px] font-semibold bg-black/40 text-white px-2 py-0.5 rounded-full">
-                          Tap to expand
-                        </span>
+                    ))}
+
+                    {/* Regular diagram (non-History) */}
+                    {diagramUrl && (
+                      <div className="mt-3 flex justify-center">
+                        <button
+                          onClick={() => setExpandedDiagramUrl(diagramUrl)}
+                          className="relative group block rounded-xl overflow-hidden border border-gray-200 bg-gray-50 max-w-[220px]"
+                          title="Tap to expand"
+                        >
+                          <img
+                            src={diagramUrl}
+                            alt={`Diagram for ${currentSQ.label}`}
+                            className="w-full object-contain max-h-28"
+                          />
+                          <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="text-[10px] font-semibold bg-black/60 text-white px-2 py-0.5 rounded-full">Tap to expand</span>
+                          </div>
+                          <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-100 group-hover:opacity-0 transition-opacity pointer-events-none">
+                            <span className="text-[10px] font-semibold bg-black/40 text-white px-2 py-0.5 rounded-full">Tap to expand</span>
+                          </div>
+                        </button>
                       </div>
-                    </button>
-                  </div>
-                ) : null;
+                    )}
+                  </>
+                );
               })()}
               {currentAttempt.submitted && mode === "guided" && (
                 <div className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold">
