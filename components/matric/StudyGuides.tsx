@@ -35,12 +35,33 @@ const SUBJECTS: Subject[] = [
       {
         label: "Paper 2 — Literature",
         description: "Poetry, drama, novel and short stories",
-        filename: "eng-p2-may-jun-2026-studyguide2_compressed.pdf",
+        filename: "eng-hl-p2-may-jun-2026-studyguide2_compressed.pdf",
       },
       {
         label: "Paper 3 — Writing",
         description: "Essays, transactional writing and creative tasks",
-        filename: "eng-p3-may-jun-2026-studyguide3_compressed.pdf",
+        filename: "eng-hl-p3-may-jun-2026-studyguide3_compressed.pdf",
+      },
+    ],
+  },
+  {
+    label: "English FAL",
+    thumbnail: "/thumbnails/english.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Comprehension & Language",
+        description: "Reading comprehension, summary and language in context",
+        filename: "eng-fal-p1-may-jun-2026-studyguide1_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Literature",
+        description: "Poetry, drama, novel and short stories",
+        filename: "eng-fal-p2-may-jun-2026-studyguide2_compressed.pdf",
+      },
+      {
+        label: "Paper 3 — Writing",
+        description: "Essays, transactional writing and creative tasks",
+        filename: "eng-fal-p3-may-jun-2026-studyguide3_compressed.pdf",
       },
     ],
   },
@@ -51,17 +72,17 @@ const SUBJECTS: Subject[] = [
       {
         label: "Paper 1 — Comprehension & Language",
         description: "Begripstoets, opsomming en taalstrukture",
-        filename: "afri-p1-may-jun-2026-studyguide_compressed.pdf",
+        filename: "afri-fal-p1-may-jun-2026-studyguide_compressed.pdf",
       },
       {
         label: "Paper 2 — Literature",
         description: "Poësie, drama en prosa",
-        filename: "afri-p2-may-jun-2026-studyguide_compressed.pdf",
+        filename: "afri-fal-p2-may-jun-2026-studyguide_compressed.pdf",
       },
       {
         label: "Paper 3 — Writing",
         description: "Opstel en transaksionele skryfwerk",
-        filename: "afr-p3-may-jun-2026-studyguide_compressed.pdf",
+        filename: "afr-fal-p3-may-jun-2026-studyguide_compressed.pdf",
       },
     ],
   },
@@ -126,6 +147,22 @@ const SUBJECTS: Subject[] = [
         label: "Paper 2 — World History",
         description: "Cold War, decolonisation and global change",
         filename: "his-pp2-may-jun-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
+    label: "Maths Literacy",
+    thumbnail: "/thumbnails/maths-literacy.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Basic Skills & Applications",
+        description: "Number, finance, measurement and maps",
+        filename: "mathslit-p1-may-jun-2026-studyguide1_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Applications in Context",
+        description: "Data handling, probability and integrated contexts",
+        filename: "mathslit-p2-may-jun-2026-studyguide2_compressed.pdf",
       },
     ],
   },

@@ -179,6 +179,36 @@ const DIAGRAM_MAP = {
   "acc-p2-may-jun-2025-2-2-3": dotUrl(2, 2025, "q2.2.2c"),
   "acc-p2-may-jun-2025-2-2-4": dotUrl(2, 2025, "q2.2.2d"),
 
+  // ── acc-p2-may-jun-2023 ─────────────────────────────────────────────────────
+  // Q1 — Bank Reconciliation (Violet Stores): 4 images (q1.2a–q1.2d)
+  "acc-p2-may-jun-2023-1-2-1": dotUrl(2, 2023, "q1.2a"),
+  "acc-p2-may-jun-2023-1-2-2": dotUrl(2, 2023, "q1.2b"),
+  "acc-p2-may-jun-2023-1-2-3": dotUrl(2, 2023, "q1.2c"),
+  "acc-p2-may-jun-2023-1-2-4": dotUrl(2, 2023, "q1.2d"),
+
+  // Q2 — Inventory Valuation (Arctic, Pacific, Caspian TVs): 3 images
+  "acc-p2-may-jun-2023-2-1-1": dotUrl(2, 2023, "q2.1"),
+  "acc-p2-may-jun-2023-2-1-2": dotUrl(2, 2023, "q2.1"),
+  "acc-p2-may-jun-2023-2-2-1": dotUrl(2, 2023, "q2.2.1a"),
+  "acc-p2-may-jun-2023-2-2-2": dotUrl(2, 2023, "q2.2.1a"),
+  "acc-p2-may-jun-2023-2-2-3": dotUrl(2, 2023, "q2.2.1b"),
+  "acc-p2-may-jun-2023-2-2-4": dotUrl(2, 2023, "q2.2.1b"),
+  "acc-p2-may-jun-2023-2-2-5": dotUrl(2, 2023, "q2.2.1b"),
+
+  // Q3 — Cost Accounting (Ladoo + Stylz Maker): 4 images
+  "acc-p2-may-jun-2023-3-1-1": dotUrl(2, 2023, "q3.1"),
+  "acc-p2-may-jun-2023-3-1-2": dotUrl(2, 2023, "q3.1"),
+  "acc-p2-may-jun-2023-3-2-1": dotUrl(2, 2023, "q3.2.1a"),
+  "acc-p2-may-jun-2023-3-2-2": dotUrl(2, 2023, "q3.2.1b"),
+  "acc-p2-may-jun-2023-3-2-3": dotUrl(2, 2023, "q3.2.1c"),
+  "acc-p2-may-jun-2023-3-2-4": dotUrl(2, 2023, "q3.2.1c"),
+
+  // Q4 — Budgeting (Alice Furnishers): 4 images (q4.2a–q4.2d)
+  "acc-p2-may-jun-2023-4-2-1": dotUrl(2, 2023, "q4.2a"),
+  "acc-p2-may-jun-2023-4-2-2": dotUrl(2, 2023, "q4.2b"),
+  "acc-p2-may-jun-2023-4-2-3": dotUrl(2, 2023, "q4.2c"),
+  "acc-p2-may-jun-2023-4-2-4": dotUrl(2, 2023, "q4.2d"),
+
   // ── acc-p1-may-jun-2023 ─────────────────────────────────────────────────────
   // Q1 — Statement of Comprehensive Income and Current Assets (Starlight Ltd): 4 images
   "acc-p1-may-jun-2023-1-1-1":  url(1, 2023, 1, 1),
@@ -226,6 +256,7 @@ const PAPER_FILES = [
   "acc-p1-may-jun-2024-combined.json",
   "acc-p2-may-jun-2024-combined.json",
   "acc-p1-may-jun-2023-combined.json",
+  "acc-p2-may-jun-2023-combined.json",
 ];
 
 let totalWired = 0;
