@@ -300,7 +300,7 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
       .from("subscriptions")
       .select("plan, status, payfast_token")
       .eq("user_id", session.user.id)
-      .single();
+      .maybeSingle();
     if (sub?.plan && sub?.status === "active") setPlan(sub.plan);
     if (sub?.payfast_token && sub?.status === "active") setPfToken(sub.payfast_token);
 

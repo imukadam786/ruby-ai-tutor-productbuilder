@@ -525,7 +525,7 @@ export default function Home() {
           .from("subscriptions")
           .select("status")
           .eq("user_id", session.user.id)
-          .single();
+          .maybeSingle();
 
         const hasActiveSub = subData?.status === "active";
         const trialExpired = userData?.trial_expires_at
