@@ -15,11 +15,23 @@ export async function POST(request: NextRequest) {
     data[key] = value.toString();
   });
 
+  console.log("[PayFast ITN] received", {
+    payment_status: data.payment_status,
+    m_payment_id: data.m_payment_id,
+    custom_str1: data.custom_str1,
+    pf_payment_id: data.pf_payment_id,
+    amount_gross: data.amount_gross,
+  });
+
   // 1. Verify signature
   if (!verifyITNSignature(data)) {
-    console.error("[PayFast ITN] Signature mismatch", data);
+    console.error("[PayFast ITN] Signature mismatch — check PAYFAST_PASSPHRASE in env vars", {
+      received_signature: data.signature,
+    });
     return new NextResponse("Invalid signature", { status: 400 });
   }
+
+  console.log("[PayFast ITN] Signature verified OK");
 
   const {
     payment_status,
