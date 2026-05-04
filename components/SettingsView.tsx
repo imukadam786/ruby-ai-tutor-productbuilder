@@ -200,6 +200,27 @@ const PLAN_INFO: Record<string, { label: string; color: string; features: string
     priceRands: 499,
     features: ["All Pro features", "Multiple learner profiles", "Parent dashboard", "Live tutor sessions"],
   },
+  scholar: {
+    label: "Scholar",
+    color: "bg-green-100 text-green-700",
+    price: "R149 / month",
+    priceRands: 149,
+    features: ["All Starter features", "Maths Engine", "Reading Engine", "Progress Reports"],
+  },
+  master: {
+    label: "Master",
+    color: "bg-indigo-100 text-indigo-700",
+    price: "R299 / month",
+    priceRands: 299,
+    features: ["All Pro features", "Unlimited questions", "PDF Reports", "Priority support"],
+  },
+  school: {
+    label: "School",
+    color: "bg-teal-100 text-teal-700",
+    price: "Custom",
+    priceRands: 0,
+    features: ["School-wide access", "Teacher dashboard", "Progress tracking", "Dedicated support"],
+  },
 };
 
 const LANGUAGES = [
@@ -301,8 +322,17 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
       .select("plan, status, payfast_token")
       .eq("user_id", session.user.id)
       .maybeSingle();
-    if (sub?.plan && sub?.status === "active") setPlan(sub.plan);
-    if (sub?.payfast_token && sub?.status === "active") setPfToken(sub.payfast_token);
+    if (sub?.plan && sub?.status === "active") {
+      setPlan(sub.plan);
+      if (sub.payfast_token) setPfToken(sub.payfast_token);
+    } else {
+      const { data: userData } = await supabase
+        .from("users")
+        .select("plan")
+        .eq("id", session.user.id)
+        .maybeSingle();
+      if (userData?.plan) setPlan(userData.plan);
+    }
 
     const { data: history } = await supabase
       .from("payments")
