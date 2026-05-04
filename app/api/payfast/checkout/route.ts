@@ -76,10 +76,9 @@ export async function POST(request: NextRequest) {
   }
 
   const nameParts = (profile?.full_name || "").trim().split(/\s+/);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
+  const baseUrl = `${request.nextUrl.protocol}//${request.nextUrl.host}`;
+
+  console.log("[PayFast checkout] notify_url will be:", `${baseUrl}/api/payfast/notify`);
 
   let params: Record<string, string>;
   try {

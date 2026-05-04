@@ -81,12 +81,14 @@ export async function POST(request: NextRequest) {
 
     if (payErr) console.error("[PayFast ITN] payment insert error", payErr);
 
-    const { error: userErr } = await supabaseAdmin
+    const { data: updatedUsers, error: userErr } = await supabaseAdmin
       .from("users")
       .update({ plan: plan || "starter" })
-      .eq("id", userId);
+      .eq("id", userId)
+      .select("id, plan");
 
     if (userErr) console.error("[PayFast ITN] user plan update error", userErr);
+    else console.log("[PayFast ITN] user plan update result", { rowsUpdated: updatedUsers?.length, updatedUsers });
 
     // Record voucher redemption if a voucher was used
     if (voucherCode) {
