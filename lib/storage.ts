@@ -72,7 +72,7 @@ export async function getProgress(): Promise<ProgressData> {
     .from("progress")
     .select("*")
     .eq("user_id", user.id)
-    .single();
+    .maybeSingle();
   if (!data) return { ...DEFAULT_PROGRESS };
   return {
     totalMessages: (data.total_messages as number) ?? 0,
@@ -171,7 +171,7 @@ export async function getStreakData(): Promise<StreakData> {
     .from("user_streaks")
     .select("*")
     .eq("user_id", user.id)
-    .single();
+    .maybeSingle();
   if (!data) return { ...EMPTY_STREAK };
   return {
     currentStreak: (data.current_streak as number) ?? 0,

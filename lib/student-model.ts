@@ -64,7 +64,7 @@ export async function hydrateStudentProfileFromSupabase(): Promise<StudentProfil
       .eq("subject", "maths")
       .order("updated_at", { ascending: false })
       .limit(1)
-      .single();
+      .maybeSingle();
     if (!data?.profile_data) return null;
     return data.profile_data as unknown as StudentProfile;
   } catch {

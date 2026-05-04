@@ -61,7 +61,7 @@ export default function SavedReportView({ subject, onBack }: Props) {
         .eq("subject", subject)
         .order("generated_at", { ascending: false })
         .limit(1)
-        .single();
+        .maybeSingle();
       if (data) {
         setReportData({
           input: data.input_data as unknown as DiagnosticReportInput,
