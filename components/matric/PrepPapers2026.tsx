@@ -811,22 +811,46 @@ function SessionView({
         }`}>
           <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
             <div className="flex-shrink-0 overflow-y-auto px-3 sm:px-5 py-2 sm:py-3 border-b border-gray-100 max-h-[30%] sm:max-h-[45%]">
-              <div className="text-base text-gray-800 leading-relaxed">
-                <MathMarkdown content={currentSQ.questionText} />
-              </div>
               {(() => {
                 const parentQ = paper.questions.find((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id));
-                const diagramUrl = currentSQ.diagramUrl ?? parentQ?.diagramUrl;
-                return diagramUrl ? (
-                  <div className="mt-3 flex justify-center">
-                    <button onClick={() => setExpandedDiagramUrl(diagramUrl)} className="relative group block rounded-xl overflow-hidden border border-gray-200 bg-gray-50 max-w-[220px]" title="Tap to expand">
-                      <img src={diagramUrl} alt={`Diagram for ${currentSQ.label}`} className="w-full object-contain max-h-28" />
-                      <div className="absolute inset-0 flex items-end justify-center pb-2">
-                        <span className="text-[10px] font-semibold bg-black/40 text-white px-2 py-0.5 rounded-full">Tap to expand</span>
+                const sqIndex = parentQ?.subQuestions.findIndex((sq) => sq.id === currentSQ.id) ?? -1;
+                let passageText: string | undefined = parentQ?.passageText;
+                if (parentQ && sqIndex >= 0) {
+                  for (let i = 0; i <= sqIndex; i++) {
+                    if (parentQ.subQuestions[i].passageText) passageText = parentQ.subQuestions[i].passageText;
+                  }
+                }
+                const diagramUrls: string[] = (() => {
+                  if (currentSQ.diagramUrls?.length) return currentSQ.diagramUrls;
+                  if (currentSQ.diagramUrl) return [currentSQ.diagramUrl];
+                  if (parentQ?.diagramUrls?.length) return parentQ.diagramUrls;
+                  if (parentQ?.diagramUrl) return [parentQ.diagramUrl];
+                  return [];
+                })();
+                return (
+                  <>
+                    {passageText && (
+                      <div className="mb-3 px-3 py-2.5 bg-stone-50 border-l-4 border-stone-300 rounded-r-md">
+                        <p className="text-sm text-gray-700 whitespace-pre-wrap font-serif leading-relaxed">{passageText}</p>
                       </div>
-                    </button>
-                  </div>
-                ) : null;
+                    )}
+                    <div className="text-base text-gray-800 leading-relaxed">
+                      <MathMarkdown content={currentSQ.questionText} />
+                    </div>
+                    {diagramUrls.length > 0 && (
+                      <div className="mt-3 flex flex-col items-center gap-2">
+                        {diagramUrls.map((url, i) => (
+                          <button key={i} onClick={() => setExpandedDiagramUrl(url)} className="relative group block rounded-xl overflow-hidden border border-gray-200 bg-gray-50 max-w-[220px]" title="Tap to expand">
+                            <img src={url} alt={`Diagram ${diagramUrls.length > 1 ? i + 1 : ""} for ${currentSQ.label}`} className="w-full object-contain max-h-28" />
+                            <div className="absolute inset-0 flex items-end justify-center pb-2">
+                              <span className="text-[10px] font-semibold bg-black/40 text-white px-2 py-0.5 rounded-full">Tap to expand</span>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                );
               })()}
               {currentAttempt.submitted && mode === "guided" && (
                 <div className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold">

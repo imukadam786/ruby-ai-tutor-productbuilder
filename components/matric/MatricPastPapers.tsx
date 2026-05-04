@@ -1282,7 +1282,14 @@ function SessionView({
                 const parentQ = paper.questions.find((q) =>
                   q.subQuestions.some((sq) => sq.id === currentSQ.id)
                 );
-                const diagramUrl = currentSQ.diagramUrl ?? (parentQ as any)?.diagramUrl;
+                const diagramUrls: string[] = (() => {
+                  if (currentSQ.diagramUrls?.length) return currentSQ.diagramUrls;
+                  if (currentSQ.diagramUrl) return [currentSQ.diagramUrl];
+                  const pq = parentQ as any;
+                  if (pq?.diagramUrls?.length) return pq.diagramUrls;
+                  if (pq?.diagramUrl) return [pq.diagramUrl];
+                  return [];
+                })();
 
                 // History: pull required sources for this sub-question
                 const requiredIds: string[] = (currentSQ as any).requiredSources ?? [];
@@ -1322,26 +1329,29 @@ function SessionView({
                       </div>
                     ))}
 
-                    {/* Regular diagram (non-History) */}
-                    {diagramUrl && (
-                      <div className="mt-3 flex justify-center">
-                        <button
-                          onClick={() => setExpandedDiagramUrl(diagramUrl)}
-                          className="relative group block rounded-xl overflow-hidden border border-gray-200 bg-gray-50 max-w-[220px]"
-                          title="Tap to expand"
-                        >
-                          <img
-                            src={diagramUrl}
-                            alt={`Diagram for ${currentSQ.label}`}
-                            className="w-full object-contain max-h-28"
-                          />
-                          <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <span className="text-[10px] font-semibold bg-black/60 text-white px-2 py-0.5 rounded-full">Tap to expand</span>
-                          </div>
-                          <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-100 group-hover:opacity-0 transition-opacity pointer-events-none">
-                            <span className="text-[10px] font-semibold bg-black/40 text-white px-2 py-0.5 rounded-full">Tap to expand</span>
-                          </div>
-                        </button>
+                    {/* Regular diagram(s) (non-History) */}
+                    {diagramUrls.length > 0 && (
+                      <div className="mt-3 flex flex-col items-center gap-2">
+                        {diagramUrls.map((url, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setExpandedDiagramUrl(url)}
+                            className="relative group block rounded-xl overflow-hidden border border-gray-200 bg-gray-50 max-w-[220px]"
+                            title="Tap to expand"
+                          >
+                            <img
+                              src={url}
+                              alt={`Diagram ${diagramUrls.length > 1 ? i + 1 : ""} for ${currentSQ.label}`}
+                              className="w-full object-contain max-h-28"
+                            />
+                            <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                              <span className="text-[10px] font-semibold bg-black/60 text-white px-2 py-0.5 rounded-full">Tap to expand</span>
+                            </div>
+                            <div className="absolute inset-0 flex items-end justify-center pb-2 opacity-100 group-hover:opacity-0 transition-opacity pointer-events-none">
+                              <span className="text-[10px] font-semibold bg-black/40 text-white px-2 py-0.5 rounded-full">Tap to expand</span>
+                            </div>
+                          </button>
+                        ))}
                       </div>
                     )}
                   </>

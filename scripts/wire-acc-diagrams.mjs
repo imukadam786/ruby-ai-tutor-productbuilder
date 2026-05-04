@@ -250,7 +250,124 @@ const DIAGRAM_MAP = {
   "acc-p1-may-jun-2023-4-3b":  url(1, 2023, 4, 2),
 };
 
+// ── acc-p2-may-jun-2022 ─────────────────────────────────────────────────────
+// Q1 — VAT and Creditors' Reconciliation: 2 images (q1.1, q1.2)
+// Q2 — Cost Accounting: q2.1 + q2.1a shown together (two reference tables)
+// Q3 — Inventory Valuation: q3.2 + q3.2a shown together; 3-1 has no image
+// Q4 — Budgeting: q4.1 for 4.1.x, q4.2 for 4.2.x
+const P2_2022 = dotUrl.bind(null, 2, 2022);
+Object.assign(DIAGRAM_MAP, {
+  "acc-p2-may-jun-2022-1-1-1":  P2_2022("q1.1"),
+  "acc-p2-may-jun-2022-1-1-2":  P2_2022("q1.1"),
+  "acc-p2-may-jun-2022-1-1-3":  P2_2022("q1.1"),
+  "acc-p2-may-jun-2022-1-2-1":  P2_2022("q1.2"),
+  "acc-p2-may-jun-2022-1-2-2a": P2_2022("q1.2"),
+  "acc-p2-may-jun-2022-1-2-2b": P2_2022("q1.2"),
+  "acc-p2-may-jun-2022-2-1-1a": [P2_2022("q2.1"), P2_2022("q2.1a")],
+  "acc-p2-may-jun-2022-2-1-1b": [P2_2022("q2.1"), P2_2022("q2.1a")],
+  "acc-p2-may-jun-2022-2-1-1c": [P2_2022("q2.1"), P2_2022("q2.1a")],
+  "acc-p2-may-jun-2022-2-1-2":  [P2_2022("q2.1"), P2_2022("q2.1a")],
+  "acc-p2-may-jun-2022-2-2-1":  P2_2022("q2.2"),
+  "acc-p2-may-jun-2022-2-2-2":  P2_2022("q2.2"),
+  "acc-p2-may-jun-2022-2-2-3":  P2_2022("q2.2"),
+  "acc-p2-may-jun-2022-3-2-1":  [P2_2022("q3.2"), P2_2022("q3.2a")],
+  "acc-p2-may-jun-2022-3-2-2a": [P2_2022("q3.2"), P2_2022("q3.2a")],
+  "acc-p2-may-jun-2022-3-2-2b": [P2_2022("q3.2"), P2_2022("q3.2a")],
+  "acc-p2-may-jun-2022-3-2-3":  [P2_2022("q3.2"), P2_2022("q3.2a")],
+  "acc-p2-may-jun-2022-3-2-4":  [P2_2022("q3.2"), P2_2022("q3.2a")],
+  "acc-p2-may-jun-2022-3-2-5":  [P2_2022("q3.2"), P2_2022("q3.2a")],
+  "acc-p2-may-jun-2022-3-2-6a": [P2_2022("q3.2"), P2_2022("q3.2a")],
+  "acc-p2-may-jun-2022-3-2-6b": [P2_2022("q3.2"), P2_2022("q3.2a")],
+  "acc-p2-may-jun-2022-4-1-1":  P2_2022("q4.1"),
+  "acc-p2-may-jun-2022-4-1-2":  P2_2022("q4.1"),
+  "acc-p2-may-jun-2022-4-1-3a": P2_2022("q4.1"),
+  "acc-p2-may-jun-2022-4-1-3b": P2_2022("q4.1"),
+  "acc-p2-may-jun-2022-4-2-1a": P2_2022("q4.2"),
+  "acc-p2-may-jun-2022-4-2-1b": P2_2022("q4.2"),
+  "acc-p2-may-jun-2022-4-2-2a": P2_2022("q4.2"),
+  "acc-p2-may-jun-2022-4-2-2b": P2_2022("q4.2"),
+  "acc-p2-may-jun-2022-4-2-3":  P2_2022("q4.2"),
+});
+
+// ── acc-p1-may-jun-2022 ─────────────────────────────────────────────────────
+// Q1 — SFP & Notes (Prudence Ltd): q1.1.1/2/3 exact per subq; q1.2a+q1.2b together
+// Q2 — Fixed Assets/CF/Indicators (Jantjes Ltd): 2.1.x no image; q2.2a+q2.2b together
+// Q3 — Interpretation: single q3 image for all subqs
+// Q4 — Corporate Governance: single q4 image for all subqs
+const P1_2022 = dotUrl.bind(null, 1, 2022);
+Object.assign(DIAGRAM_MAP, {
+  "acc-p1-may-jun-2022-1-1-1":  P1_2022("q1.1.1"),
+  "acc-p1-may-jun-2022-1-1-2":  P1_2022("q1.1.2"),
+  "acc-p1-may-jun-2022-1-1-3":  P1_2022("q1.1.3"),
+  "acc-p1-may-jun-2022-1-2-1a": [P1_2022("q1.2a"), P1_2022("q1.2b")],
+  "acc-p1-may-jun-2022-1-2-1b": [P1_2022("q1.2a"), P1_2022("q1.2b")],
+  "acc-p1-may-jun-2022-1-2-2":  [P1_2022("q1.2a"), P1_2022("q1.2b")],
+  "acc-p1-may-jun-2022-2-2-1":  [P1_2022("q2.2a"), P1_2022("q2.2b")],
+  "acc-p1-may-jun-2022-2-2-2":  [P1_2022("q2.2a"), P1_2022("q2.2b")],
+  "acc-p1-may-jun-2022-2-2-3":  [P1_2022("q2.2a"), P1_2022("q2.2b")],
+  "acc-p1-may-jun-2022-2-2-4":  [P1_2022("q2.2a"), P1_2022("q2.2b")],
+  "acc-p1-may-jun-2022-3-1":    P1_2022("q3"),
+  "acc-p1-may-jun-2022-3-2-1":  P1_2022("q3"),
+  "acc-p1-may-jun-2022-3-2-2":  P1_2022("q3"),
+  "acc-p1-may-jun-2022-3-3":    P1_2022("q3"),
+  "acc-p1-may-jun-2022-3-4":    P1_2022("q3"),
+  "acc-p1-may-jun-2022-3-5":    P1_2022("q3"),
+  "acc-p1-may-jun-2022-3-6-1":  P1_2022("q3"),
+  "acc-p1-may-jun-2022-3-6-2":  P1_2022("q3"),
+  "acc-p1-may-jun-2022-4-1":    P1_2022("q4"),
+  "acc-p1-may-jun-2022-4-2-1":  P1_2022("q4"),
+  "acc-p1-may-jun-2022-4-2-2":  P1_2022("q4"),
+  "acc-p1-may-jun-2022-4-2-3":  P1_2022("q4"),
+});
+
+// ── acc-p1-may-jun-2021 ─────────────────────────────────────────────────────
+// Q1 — Transaction Analysis & Audit Report: q1 for 1.1.x, q1.2 for 1.2.x, q1.3 for 1.3.x
+// Q2 — SCI & Retained Income Note: 6 images for sq 2-1; q2.2+q2.2a for sq 2-2 and 2-3
+// Q3 — Financial Indicators & Cash Flow: q3.1 for 3.1.x; q3a+q3b for 3.2.x; specific for 3.3.x
+// Q4 — Interpretation & Corp Gov: q4.1.x exact for 4.1.x; q4.2/q4.2a/q4.2b/q4.3 for 4.2.x
+const P1_2021 = dotUrl.bind(null, 1, 2021);
+Object.assign(DIAGRAM_MAP, {
+  // Q1
+  "acc-p1-may-jun-2021-1-1-1": P1_2021("q1"),
+  "acc-p1-may-jun-2021-1-1-2": P1_2021("q1"),
+  "acc-p1-may-jun-2021-1-1-3": P1_2021("q1"),
+  "acc-p1-may-jun-2021-1-2-1": P1_2021("q1.2"),
+  "acc-p1-may-jun-2021-1-2-2": P1_2021("q1.2"),
+  "acc-p1-may-jun-2021-1-2-3": P1_2021("q1.2"),
+  "acc-p1-may-jun-2021-1-3-1": P1_2021("q1.3"),
+  "acc-p1-may-jun-2021-1-3-2": P1_2021("q1.3"),
+  "acc-p1-may-jun-2021-1-3-3": P1_2021("q1.3"),
+  // Q2
+  "acc-p1-may-jun-2021-2-1": [P1_2021("q2.1.1"), P1_2021("q2.1.2"), P1_2021("q2.1.3"), P1_2021("q2.1a"), P1_2021("q2.1b"), P1_2021("q2.1c")],
+  "acc-p1-may-jun-2021-2-2": [P1_2021("q2.2"), P1_2021("q2.2a")],
+  "acc-p1-may-jun-2021-2-3": [P1_2021("q2.2"), P1_2021("q2.2a")],
+  // Q3
+  "acc-p1-may-jun-2021-3-1-1": P1_2021("q3.1"),
+  "acc-p1-may-jun-2021-3-1-2": P1_2021("q3.1"),
+  "acc-p1-may-jun-2021-3-1-3": P1_2021("q3.1"),
+  "acc-p1-may-jun-2021-3-1-4": P1_2021("q3.1"),
+  "acc-p1-may-jun-2021-3-2-1": [P1_2021("q3a"), P1_2021("q3b")],
+  "acc-p1-may-jun-2021-3-2-2": [P1_2021("q3a"), P1_2021("q3b")],
+  "acc-p1-may-jun-2021-3-3-1": P1_2021("q3.2.3"),
+  "acc-p1-may-jun-2021-3-3-2": [P1_2021("q3.2.4"), P1_2021("q3.2.4a")],
+  "acc-p1-may-jun-2021-3-3-3": P1_2021("q3.2.4"),
+  "acc-p1-may-jun-2021-3-3-4": P1_2021("q3.2.4a"),
+  // Q4
+  "acc-p1-may-jun-2021-4-1-1": P1_2021("q4.1.1"),
+  "acc-p1-may-jun-2021-4-1-2": P1_2021("q4.1.2"),
+  "acc-p1-may-jun-2021-4-1-3": P1_2021("q4.1.3"),
+  "acc-p1-may-jun-2021-4-2-1": P1_2021("q4.2"),
+  "acc-p1-may-jun-2021-4-2-2": [P1_2021("q4.2a"), P1_2021("q4.2b")],
+  "acc-p1-may-jun-2021-4-2-3": [P1_2021("q4.2a"), P1_2021("q4.2b")],
+  "acc-p1-may-jun-2021-4-2-4": P1_2021("q4.3"),
+  "acc-p1-may-jun-2021-4-2-5": P1_2021("q4.3"),
+  "acc-p1-may-jun-2021-4-2-6": P1_2021("q4.3"),
+});
+
 const PAPER_FILES = [
+  "acc-p2-may-jun-2022-combined.json",
+  "acc-p1-may-jun-2022-combined.json",
+  "acc-p1-may-jun-2021-combined.json",
   "acc-p1-may-jun-2025-combined.json",
   "acc-p2-may-jun-2025-combined.json",
   "acc-p1-may-jun-2024-combined.json",
@@ -274,16 +391,20 @@ for (const filename of PAPER_FILES) {
   let wired = 0;
   for (const question of data.questions) {
     for (const sq of question.subQuestions) {
-      const diagramUrl = DIAGRAM_MAP[sq.id];
-      if (diagramUrl && sq.diagramUrl !== diagramUrl) {
-        sq.diagramUrl = diagramUrl;
+      const entry = DIAGRAM_MAP[sq.id];
+      if (!entry) continue;
+      if (Array.isArray(entry)) {
+        sq.diagramUrls = entry;
+        wired++;
+      } else if (sq.diagramUrl !== entry) {
+        sq.diagramUrl = entry;
         wired++;
       }
     }
   }
 
   writeFileSync(filePath, JSON.stringify(data, null, 2) + "\n", "utf-8");
-  console.log(`✓ ${filename}: wired ${wired} diagramUrl(s)`);
+  console.log(`✓ ${filename}: wired ${wired} diagram(s)`);
   totalWired += wired;
 }
 

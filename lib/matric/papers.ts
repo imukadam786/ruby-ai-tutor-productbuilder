@@ -7,7 +7,11 @@ export interface SubQuestion {
   marks: number;
   memoText: string;
   topic: string;
+  /** Passage text (poem, extract) shown as a blockquote above the question. Cascades: overrides question-level passageText for this subQ and all following ones until the next override. */
+  passageText?: string;
   diagramUrl?: string;
+  /** Multiple reference images shown stacked (e.g. financial statement A + B for the same question) */
+  diagramUrls?: string[];
   /** Completed sketch shown to student after submission (memo version of diagram) */
   memoImageUrl?: string;
   /** Input layout variant. Defaults to "written" if omitted. */
@@ -23,7 +27,10 @@ export interface PaperQuestion {
   number: number;
   title: string;
   totalMarks: number;
+  /** Passage text (poem, extract A) shown as a blockquote. Overridden per-subQuestion for subsequent extracts. */
+  passageText?: string;
   diagramUrl?: string;
+  diagramUrls?: string[];
   subQuestions: SubQuestion[];
 }
 
