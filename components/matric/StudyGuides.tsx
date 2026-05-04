@@ -24,44 +24,18 @@ interface Subject {
 
 const SUBJECTS: Subject[] = [
   {
-    label: "English HL",
-    thumbnail: "/thumbnails/english.jpeg",
+    label: "Accounting",
+    thumbnail: "/thumbnails/accounting.jpeg",
     guides: [
       {
-        label: "Paper 1 — Comprehension & Language",
-        description: "Reading comprehension, summary and language in context",
-        filename: "eng-p1-may-jun-2026-studyguide1_compressed.pdf",
+        label: "Paper 1 — Accounting Concepts",
+        description: "Financial statements, ledgers and accounting concepts",
+        filename: "acc-p1-may-jun-2026-studyguide_compressed.pdf",
       },
       {
-        label: "Paper 2 — Literature",
-        description: "Poetry, drama, novel and short stories",
-        filename: "eng-hl-p2-may-jun-2026-studyguide2_compressed.pdf",
-      },
-      {
-        label: "Paper 3 — Writing",
-        description: "Essays, transactional writing and creative tasks",
-        filename: "eng-hl-p3-may-jun-2026-studyguide3_compressed.pdf",
-      },
-    ],
-  },
-  {
-    label: "English FAL",
-    thumbnail: "/thumbnails/english.jpeg",
-    guides: [
-      {
-        label: "Paper 1 — Comprehension & Language",
-        description: "Reading comprehension, summary and language in context",
-        filename: "eng-fal-p1-may-jun-2026-studyguide1_compressed.pdf",
-      },
-      {
-        label: "Paper 2 — Literature",
-        description: "Poetry, drama, novel and short stories",
-        filename: "eng-fal-p2-may-jun-2026-studyguide2_compressed.pdf",
-      },
-      {
-        label: "Paper 3 — Writing",
-        description: "Essays, transactional writing and creative tasks",
-        filename: "eng-fal-p3-may-jun-2026-studyguide3_compressed.pdf",
+        label: "Paper 2 — Financial Reporting",
+        description: "Partnerships, companies and cash flow statements",
+        filename: "acc-p2-may-jun-2026-studyguide_compressed.pdf",
       },
     ],
   },
@@ -87,50 +61,44 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
-    label: "Physical Sciences",
-    thumbnail: "/thumbnails/physical-science.jpeg",
+    label: "English FAL",
+    thumbnail: "/thumbnails/english.jpeg",
     guides: [
       {
-        label: "Paper 1 — Physics",
-        description: "Mechanics, waves, electricity and magnetism",
-        filename: "physics-pp1-may-jun-studyguide-2026 (1)_compressed.pdf",
+        label: "Paper 1 — Comprehension & Language",
+        description: "Reading comprehension, summary and language in context",
+        filename: "eng-fal-p1-may-jun-2026-studyguide1_compressed.pdf",
       },
       {
-        label: "Paper 2 — Chemistry",
-        description: "Matter & materials, chemical change and solutions",
-        filename: "physics-pp2-may-jun-studyguide-2026_compressed.pdf",
+        label: "Paper 2 — Literature",
+        description: "Poetry, drama, novel and short stories",
+        filename: "eng-fal-p2-may-jun-2026-studyguide2_compressed.pdf",
+      },
+      {
+        label: "Paper 3 — Writing",
+        description: "Essays, transactional writing and creative tasks",
+        filename: "eng-fal-p3-may-jun-2026-studyguide3_compressed.pdf",
       },
     ],
   },
   {
-    label: "Accounting",
-    thumbnail: "/thumbnails/accounting.jpeg",
+    label: "English HL",
+    thumbnail: "/thumbnails/english.jpeg",
     guides: [
       {
-        label: "Paper 1 — Accounting Concepts",
-        description: "Financial statements, ledgers and accounting concepts",
-        filename: "acc-p1-may-jun-2026-studyguide_compressed.pdf",
+        label: "Paper 1 — Comprehension & Language",
+        description: "Reading comprehension, summary and language in context",
+        filename: "eng-p1-may-jun-2026-studyguide1_compressed.pdf",
       },
       {
-        label: "Paper 2 — Financial Reporting",
-        description: "Partnerships, companies and cash flow statements",
-        filename: "acc-p2-may-jun-2026-studyguide_compressed.pdf",
-      },
-    ],
-  },
-  {
-    label: "Life Sciences",
-    thumbnail: "/thumbnails/life-sciences.jpeg",
-    guides: [
-      {
-        label: "Paper 1 — Life at the Molecular Level",
-        description: "DNA, genetics, meiosis and evolution",
-        filename: "lifesci-p1-may-jun-2026-studyguide_compressed.pdf",
+        label: "Paper 2 — Literature",
+        description: "Poetry, drama, novel and short stories",
+        filename: "eng-hl-p2-may-jun-2026-studyguide2_compressed.pdf",
       },
       {
-        label: "Paper 2 — Life at the Systems Level",
-        description: "Human biology, ecology and environmental studies",
-        filename: "lifesci-p2-may-jun-2026-studyguide_compressed.pdf",
+        label: "Paper 3 — Writing",
+        description: "Essays, transactional writing and creative tasks",
+        filename: "eng-hl-p3-may-jun-2026-studyguide3_compressed.pdf",
       },
     ],
   },
@@ -151,6 +119,22 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Life Sciences",
+    thumbnail: "/thumbnails/life-sciences.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Life at the Molecular Level",
+        description: "DNA, genetics, meiosis and evolution",
+        filename: "lifesci-p1-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Life at the Systems Level",
+        description: "Human biology, ecology and environmental studies",
+        filename: "lifesci-p2-may-jun-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
     label: "Maths Literacy",
     thumbnail: "/thumbnails/maths-literacy.jpeg",
     guides: [
@@ -163,6 +147,22 @@ const SUBJECTS: Subject[] = [
         label: "Paper 2 — Applications in Context",
         description: "Data handling, probability and integrated contexts",
         filename: "mathslit-p2-may-jun-2026-studyguide2_compressed.pdf",
+      },
+    ],
+  },
+  {
+    label: "Physical Sciences",
+    thumbnail: "/thumbnails/physical-science.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Physics",
+        description: "Mechanics, waves, electricity and magnetism",
+        filename: "physics-pp1-may-jun-studyguide-2026 (1)_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Chemistry",
+        description: "Matter & materials, chemical change and solutions",
+        filename: "physics-pp2-may-jun-studyguide-2026_compressed.pdf",
       },
     ],
   },
