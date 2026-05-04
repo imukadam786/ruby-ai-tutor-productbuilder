@@ -222,7 +222,7 @@ async function getPaperProgress(paperId: string): Promise<PaperProgress> {
       .select("status, pct")
       .eq("user_id", user.id)
       .eq("paper_id", paperId)
-      .single();
+      .maybeSingle();
     if (!data) return { status: "not_started" };
     return { status: data.status as PaperProgressStatus, pct: data.pct ?? undefined };
   } catch { return { status: "not_started" }; }
