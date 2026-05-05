@@ -4,7 +4,11 @@ import { buildCheckoutParams, PAYFAST_PROCESS_URL } from "@/lib/payfast";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { plan, voucherCode } = body as { plan: string; voucherCode?: string };
+  const { plan, voucherCode, paymentType = "subscription" } = body as {
+    plan: string;
+    voucherCode?: string;
+    paymentType?: "subscription" | "once-off";
+  };
 
   if (!plan) {
     return NextResponse.json({ error: "Plan is required" }, { status: 400 });
@@ -91,6 +95,7 @@ export async function POST(request: NextRequest) {
       baseUrl,
       amountOverride,
       voucherCode: resolvedVoucherCode,
+      paymentType,
     });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Invalid plan";

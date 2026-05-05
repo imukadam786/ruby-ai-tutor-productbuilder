@@ -23,6 +23,7 @@ interface PricingPlan {
   ctaClass: string;
   ctaLabel: string;
   isFree: boolean;
+  paymentType: "subscription" | "once-off";
   features: Feature[];
 }
 
@@ -40,6 +41,7 @@ const PLANS: PricingPlan[] = [
     ctaClass: "bg-gray-800 hover:bg-gray-900 text-white",
     ctaLabel: "Get Started",
     isFree: true,
+    paymentType: "subscription",
     features: [
       { text: "CAPS Aligned curriculum" },
       { text: "1× Discovery Activity", note: "Maths or Reading" },
@@ -64,6 +66,7 @@ const PLANS: PricingPlan[] = [
     ctaClass: "bg-rose-600 hover:bg-rose-700 text-white",
     ctaLabel: "Go Premium",
     isFree: false,
+    paymentType: "subscription",
     features: [
       { text: "CAPS Aligned curriculum" },
       { text: "2× Discovery Activities", note: "Maths & Reading" },
@@ -73,6 +76,28 @@ const PLANS: PricingPlan[] = [
       { text: "Unlimited hints" },
       { text: "Home Language Feedback" },
       { text: "Unlimited Audio Playback" },
+    ],
+  },
+  {
+    key: "matric-pack",
+    name: "Matric Exam Pack",
+    subtitle: "Grade 12",
+    priceRands: 99,
+    originalPrice: 199,
+    isLaunchOffer: true,
+    badge: "New",
+    badgeClass: "bg-blue-500 text-white",
+    borderClass: "border-blue-400",
+    ctaClass: "bg-blue-500 hover:bg-blue-600 text-white",
+    ctaLabel: "Own It",
+    isFree: false,
+    paymentType: "once-off",
+    features: [
+      { text: "50+ Matric Past Papers", note: "Practice & Guide Mode", highlight: true },
+      { text: "10+ Matric Study Guides", note: "Major Subjects", highlight: true },
+      { text: "15+ Matric 2026 Prep Papers", note: "Major Subjects", highlight: true },
+      { text: "Unlimited AI Feedback in 11 Languages" },
+      { text: "Unlimited Access between 1 May – 30 June 2026" },
     ],
   },
   {
@@ -88,6 +113,7 @@ const PLANS: PricingPlan[] = [
     ctaClass: "bg-amber-500 hover:bg-amber-600 text-white",
     ctaLabel: "Access Everything",
     isFree: false,
+    paymentType: "subscription",
     features: [
       { text: "Everything in Scholar" },
       { text: "50+ Matric Past Papers", note: "Practice & Guide Mode", highlight: true },
@@ -212,6 +238,7 @@ export default function PricingPlans({
         },
         body: JSON.stringify({
           plan: plan.key,
+          paymentType: plan.paymentType,
           ...(appliedVoucher ? { voucherCode: appliedVoucher.code } : {}),
         }),
       });
@@ -315,7 +342,7 @@ export default function PricingPlans({
           scrollbar-hide pb-2 md:pb-0
           pt-5 md:pt-0
           md:items-stretch md:px-4
-          ${mode === "matric" ? "md:grid-cols-1 md:max-w-sm md:mx-auto" : mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}
+          ${mode === "matric" ? "md:grid-cols-1 md:max-w-sm md:mx-auto" : mode === "upgrade" ? "md:grid-cols-3" : "md:grid-cols-4"}
         `}
       >
         {visiblePlans.map((plan, index) => {
@@ -357,7 +384,9 @@ export default function PricingPlans({
                       <div className="flex items-end gap-2">
                         <span className="text-2xl font-extrabold text-[#1a2744]">
                           R{voucherApplied ? final : plan.priceRands}
-                          <span className="text-sm font-semibold text-gray-400">/mo</span>
+                          {plan.paymentType === "subscription" && (
+                            <span className="text-sm font-semibold text-gray-400">/mo</span>
+                          )}
                         </span>
                         {(plan.isLaunchOffer || voucherApplied) && (
                           <span className="text-sm text-gray-400 line-through mb-1">
@@ -440,7 +469,7 @@ export default function PricingPlans({
       )}
 
       <p className="text-center text-xs text-gray-400 mt-3 px-4">
-        Cancel anytime · Secure payment via PayFast
+        Subscriptions cancel anytime · Once-off payments are non-refundable · Secure payment via PayFast
       </p>
     </div>
   );

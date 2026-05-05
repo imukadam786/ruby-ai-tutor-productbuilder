@@ -221,6 +221,13 @@ const PLAN_INFO: Record<string, { label: string; color: string; features: string
     priceRands: 0,
     features: ["School-wide access", "Teacher dashboard", "Progress tracking", "Dedicated support"],
   },
+  "matric-pack": {
+    label: "Matric Exam Pack",
+    color: "bg-blue-100 text-blue-700",
+    price: "R99 once-off",
+    priceRands: 99,
+    features: ["50+ Matric Past Papers", "10+ Study Guides", "15+ Prep Papers 2026", "Unlimited AI Feedback"],
+  },
 };
 
 const LANGUAGES = [
