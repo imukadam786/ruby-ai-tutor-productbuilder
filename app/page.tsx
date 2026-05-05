@@ -89,7 +89,7 @@ const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
 };
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
-function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView; onPostDiscovery?: () => void }) {
+function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { initialView?: ActiveView; onPostDiscovery?: () => void; showUpgradeOnMount?: boolean }) {
   const { t } = useT();
 
   const [activeView, setActiveView] = useState<ActiveView>(initialView ?? "home");
@@ -135,6 +135,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
 
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [upgradeReason, setUpgradeReason] = useState<string | undefined>(undefined);
+  const [upgradeMatricOnly, setUpgradeMatricOnly] = useState(false);
   const [streakToast, setStreakToast] = useState<number | null>(null);
 
   // Track chat engagement (at least one message sent this session)
@@ -160,12 +161,21 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
 
   useEffect(() => {
     const onUpgradeNeeded = (e: Event) => {
-      const reason = (e as CustomEvent<{ reason?: string }>).detail?.reason;
-      setUpgradeReason(reason);
+      const detail = (e as CustomEvent<{ reason?: string; matricOnly?: boolean }>).detail;
+      setUpgradeReason(detail?.reason);
+      setUpgradeMatricOnly(detail?.matricOnly ?? false);
       setShowUpgradeModal(true);
     };
     document.addEventListener("ruby-upgrade-needed", onUpgradeNeeded);
     return () => document.removeEventListener("ruby-upgrade-needed", onUpgradeNeeded);
+  }, []);
+
+  useEffect(() => {
+    if (showUpgradeOnMount) {
+      setUpgradeMatricOnly(true);
+      setShowUpgradeModal(true);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -218,10 +228,13 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
 
   const handleViewChange = (view: ActiveView) => {
     // Gate matric features — only accessible on Master plan
-    if (MATRIC_VIEWS.includes(view) && userPlan !== "master") {
+    if (MATRIC_VIEWS.includes(view) && userPlan !== null && userPlan !== "master") {
       document.dispatchEvent(
         new CustomEvent("ruby-upgrade-needed", {
-          detail: { reason: "Matric Past Papers, Study Guides and Prep Papers are only available on the Master plan (Grade 12)." },
+          detail: {
+            reason: "Matric Past Papers, Study Guides and Prep Papers require the Master plan.",
+            matricOnly: true,
+          },
         })
       );
       return;
@@ -368,7 +381,8 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
       {showUpgradeModal && (
         <UpgradeModal
           reason={upgradeReason}
-          onDismiss={() => { setShowUpgradeModal(false); setUpgradeReason(undefined); }}
+          matricOnly={upgradeMatricOnly}
+          onDismiss={() => { setShowUpgradeModal(false); setUpgradeReason(undefined); setUpgradeMatricOnly(false); }}
         />
       )}
 
@@ -730,8 +744,9 @@ export default function Home() {
   return (
     <LanguageProvider>
       <AppContent
-        initialView={matricPrepPending ? "matrics" : undefined}
+        initialView={undefined}
         onPostDiscovery={undefined}
+        showUpgradeOnMount={matricPrepPending}
       />
     </LanguageProvider>
   );

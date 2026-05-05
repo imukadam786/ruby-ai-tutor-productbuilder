@@ -2,6 +2,26 @@
 
 import { useState, useRef, useCallback } from "react";
 import { apiFetch } from "@/lib/fetch";
+import { supabase } from "@/lib/supabase";
+
+/**
+ * Check the user's TTS daily limit and increment if allowed.
+ * Returns true if playback is allowed, false if limit reached.
+ * Call this before speakViaAPI — prefetchTTS skips this check intentionally.
+ */
+export async function checkTTSLimit(): Promise<boolean> {
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) return true; // unauthenticated — allow, server won't count it
+    const res = await apiFetch("/api/usage/tts", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    });
+    return res.ok;
+  } catch {
+    return true; // on network error, allow playback
+  }
+}
 
 // ── TTS prefetch cache ─────────────────────────────────────────────────────────
 // Keyed by cleaned text.
