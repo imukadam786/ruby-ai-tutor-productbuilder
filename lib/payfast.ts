@@ -118,6 +118,7 @@ export async function buildCheckoutParams({
   baseUrl,
   amountOverride,
   voucherCode,
+  paymentType = "subscription",
 }: {
   userId: string;
   plan: string;
@@ -129,13 +130,11 @@ export async function buildCheckoutParams({
   amountOverride?: string;
   /** Voucher code passed through to ITN via custom_str2 for redemption tracking. */
   voucherCode?: string;
+  /** "subscription" for recurring billing, "once-off" for a single charge. */
+  paymentType?: "subscription" | "once-off";
 }): Promise<Record<string, string>> {
   const planInfo = await getPlanInfo(plan);
   const amount = amountOverride ?? planInfo.amount;
-
-  // First billing date = today + 30 days (PayFast max is 30 days from today)
-  const billingDay = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
-  const billingDate = billingDay.toISOString().split("T")[0]; // YYYY-MM-DD
 
   // Keep insertion order — PayFast signature is order-sensitive
   const params: Record<string, string> = {
@@ -147,17 +146,24 @@ export async function buildCheckoutParams({
     name_first:        firstName || "Ruby",
     name_last:         lastName  || "User",
     email_address:     email,
-    m_payment_id:      userId,          // referenced in ITN
+    m_payment_id:      userId,
     amount,
     item_name:         planInfo.itemName,
-    custom_str1:       plan,            // passed through ITN
+    custom_str1:       plan,
     ...(voucherCode ? { custom_str2: voucherCode } : {}),
-    subscription_type: "1",
-    billing_date:      billingDate,
-    recurring_amount:  amount,
-    frequency:         "3",             // 3 = monthly
-    cycles:            "0",             // 0 = indefinite
+    custom_str3:       paymentType,
   };
+
+  if (paymentType === "subscription") {
+    // First billing date = today + 30 days (PayFast max is 30 days from today)
+    const billingDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+      .toISOString().split("T")[0];
+    params.subscription_type = "1";
+    params.billing_date      = billingDate;
+    params.recurring_amount  = amount;
+    params.frequency         = "3"; // monthly
+    params.cycles            = "0"; // indefinite
+  }
 
   params.signature = generateSignature(params);
   return params;

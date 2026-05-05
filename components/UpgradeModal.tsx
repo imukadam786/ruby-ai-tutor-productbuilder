@@ -45,7 +45,7 @@ export default function UpgradeModal({ onDismiss, reason, matricOnly }: UpgradeM
             onClick={onDismiss}
             className="text-xs text-gray-400 hover:text-gray-600 transition-colors underline"
           >
-            {matricOnly ? "Maybe later" : "Continue with Freebie"}
+            Maybe later
           </button>
         </div>
       </div>
