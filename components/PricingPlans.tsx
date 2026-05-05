@@ -22,38 +22,12 @@ interface PricingPlan {
   borderClass: string;
   ctaClass: string;
   ctaLabel: string;
-  isFree: boolean;
   paymentType: "subscription" | "once-off";
   savingsLabel?: string;
   features: Feature[];
 }
 
 const PLANS: PricingPlan[] = [
-  {
-    key: "freebie",
-    name: "Freebie",
-    subtitle: "Try it out, no card needed",
-    priceRands: 0,
-    originalPrice: 0,
-    isLaunchOffer: false,
-    badge: null,
-    badgeClass: "",
-    borderClass: "border-gray-200",
-    ctaClass: "bg-gray-800 hover:bg-gray-900 text-white",
-    ctaLabel: "Get Started",
-    isFree: true,
-    paymentType: "subscription",
-    features: [
-      { text: "CAPS Aligned curriculum" },
-      { text: "1× Discovery Activity", note: "Maths or Reading" },
-      { text: "1× Discovery Report" },
-      { text: "5 Personalised Skills Worksheets" },
-      { text: "5 AI Homework Questions per day" },
-      { text: "5 hints per day" },
-      { text: "Home Language Feedback" },
-      { text: "5 Audio Playbacks per day" },
-    ],
-  },
   {
     key: "scholar",
     name: "Scholar",
@@ -66,7 +40,7 @@ const PLANS: PricingPlan[] = [
     borderClass: "border-rose-400",
     ctaClass: "bg-rose-600 hover:bg-rose-700 text-white",
     ctaLabel: "Go Premium",
-    isFree: false,
+
     paymentType: "subscription",
     features: [
       { text: "CAPS Aligned curriculum" },
@@ -91,7 +65,7 @@ const PLANS: PricingPlan[] = [
     borderClass: "border-blue-400",
     ctaClass: "bg-blue-500 hover:bg-blue-600 text-white",
     ctaLabel: "Own It",
-    isFree: false,
+
     paymentType: "once-off",
     savingsLabel: "Launch Offer — Save R99",
     features: [
@@ -114,7 +88,7 @@ const PLANS: PricingPlan[] = [
     borderClass: "border-amber-400",
     ctaClass: "bg-amber-500 hover:bg-amber-600 text-white",
     ctaLabel: "Access Everything",
-    isFree: false,
+
     paymentType: "subscription",
     features: [
       { text: "Everything in Scholar" },
@@ -126,13 +100,11 @@ const PLANS: PricingPlan[] = [
 ];
 
 interface PricingPlansProps {
-  onSelectFree?: () => void;
   showHeader?: boolean;
   mode?: "onboarding" | "upgrade" | "matric";
 }
 
 export default function PricingPlans({
-  onSelectFree,
   showHeader = true,
   mode = "onboarding",
 }: PricingPlansProps) {
@@ -150,7 +122,6 @@ export default function PricingPlans({
 
   const visiblePlans =
     mode === "matric" ? PLANS.filter((p) => p.key === "master") :
-    mode === "upgrade" ? PLANS.filter((p) => !p.isFree) :
     PLANS;
 
   useEffect(() => {
@@ -173,7 +144,6 @@ export default function PricingPlans({
   }, []);
 
   function effectivePrice(plan: PricingPlan): number {
-    if (plan.isFree) return 0;
     const base = plan.priceRands;
     if (!appliedVoucher) return base;
     const applies =
@@ -218,10 +188,6 @@ export default function PricingPlans({
   }
 
   async function handlePlanCTA(plan: PricingPlan) {
-    if (plan.isFree) {
-      onSelectFree?.();
-      return;
-    }
     setLoadingPlan(plan.key);
     setError(null);
     try {
@@ -349,7 +315,7 @@ export default function PricingPlans({
       >
         {visiblePlans.map((plan, index) => {
           const final = effectivePrice(plan);
-          const voucherApplied = !plan.isFree && !!appliedVoucher && final < plan.priceRands;
+          const voucherApplied = !!appliedVoucher && final < plan.priceRands;
           const isLoading = loadingPlan === plan.key;
 
           return (
@@ -379,34 +345,28 @@ export default function PricingPlans({
 
                 {/* Price */}
                 <div className="space-y-0.5">
-                  {plan.isFree ? (
-                    <p className="text-2xl font-extrabold text-gray-700">Free</p>
-                  ) : (
-                    <>
-                      <div className="flex items-end gap-2">
-                        <span className="text-2xl font-extrabold text-[#1a2744]">
-                          R{voucherApplied ? final : plan.priceRands}
-                          {plan.paymentType === "subscription" && (
-                            <span className="text-sm font-semibold text-gray-400">/mo</span>
-                          )}
-                        </span>
-                        {(plan.isLaunchOffer || voucherApplied) && (
-                          <span className="text-sm text-gray-400 line-through mb-1">
-                            R{voucherApplied ? plan.priceRands : plan.originalPrice}
-                          </span>
-                        )}
-                      </div>
-                      {plan.isLaunchOffer && !voucherApplied && (
-                        <span className="inline-block text-xs font-semibold bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full">
-                          {plan.savingsLabel ?? `Launch Offer, Save R${plan.originalPrice - plan.priceRands}/mo`}
-                        </span>
+                  <div className="flex items-end gap-2">
+                    <span className="text-2xl font-extrabold text-[#1a2744]">
+                      R{voucherApplied ? final : plan.priceRands}
+                      {plan.paymentType === "subscription" && (
+                        <span className="text-sm font-semibold text-gray-400">/mo</span>
                       )}
-                      {voucherApplied && (
-                        <span className="inline-block text-xs font-semibold bg-green-50 text-green-600 px-2 py-0.5 rounded-full">
-                          Voucher applied
-                        </span>
-                      )}
-                    </>
+                    </span>
+                    {(plan.isLaunchOffer || voucherApplied) && (
+                      <span className="text-sm text-gray-400 line-through mb-1">
+                        R{voucherApplied ? plan.priceRands : plan.originalPrice}
+                      </span>
+                    )}
+                  </div>
+                  {plan.isLaunchOffer && !voucherApplied && (
+                    <span className="inline-block text-xs font-semibold bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full">
+                      {plan.savingsLabel ?? `Launch Offer, Save R${plan.originalPrice - plan.priceRands}/mo`}
+                    </span>
+                  )}
+                  {voucherApplied && (
+                    <span className="inline-block text-xs font-semibold bg-green-50 text-green-600 px-2 py-0.5 rounded-full">
+                      Voucher applied
+                    </span>
                   )}
                 </div>
 
@@ -471,7 +431,7 @@ export default function PricingPlans({
       )}
 
       <p className="text-center text-xs text-gray-400 mt-3 px-4">
-        Subscriptions cancel anytime · Once-off payments are non-refundable · Secure payment via PayFast
+        Subscriptions cancel anytime · Secure payment via PayFast
       </p>
     </div>
   );

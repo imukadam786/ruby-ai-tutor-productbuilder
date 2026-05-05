@@ -681,10 +681,6 @@ export default function Home() {
           <PricingPlans
             mode="onboarding"
             showHeader
-            onSelectFree={() => {
-              localStorage.removeItem("ruby_pending_step");
-              setAppState("app");
-            }}
           />
         </div>
       </div>
