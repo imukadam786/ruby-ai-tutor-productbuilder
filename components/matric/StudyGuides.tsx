@@ -61,6 +61,27 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Afrikaans HL",
+    thumbnail: "/thumbnails/afrikaans.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Begrip & Taal",
+        description: "Begripstoets, opsomming en taalstrukture",
+        filename: "afr-hl-p1-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Letterkunde",
+        description: "Poësie, drama en prosa",
+        filename: "afri-hl-p2-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 3 — Skryfwerk",
+        description: "Opstel en transaksionele skryfwerk",
+        filename: "afr-hl-p3-may-jun-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
     label: "English FAL",
     thumbnail: "/thumbnails/english.jpeg",
     guides: [
@@ -163,6 +184,33 @@ const SUBJECTS: Subject[] = [
         label: "Paper 2 — Chemistry",
         description: "Matter & materials, chemical change and solutions",
         filename: "physics-pp2-may-jun-studyguide-2026_compressed.pdf",
+      },
+    ],
+  },
+  {
+    label: "Business Studies",
+    thumbnail: "/thumbnails/business-studies.svg",
+    guides: [
+      {
+        label: "Paper 1 — Business Environments",
+        description: "Business environments, entrepreneurship and business roles",
+        filename: "busistd-p1-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Management & Operations",
+        description: "Business functions, financial management and human resources",
+        filename: "busistd-p2-may-jun-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
+    label: "Economics",
+    thumbnail: "/thumbnails/economics.svg",
+    guides: [
+      {
+        label: "Paper 1 — Macroeconomics & Microeconomics",
+        description: "Economic systems, markets, growth and development",
+        filename: "eco-p1-may-jun-2026-studyguide_compressed.pdf",
       },
     ],
   },

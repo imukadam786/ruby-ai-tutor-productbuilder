@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)" rx="0"/>
+  <!-- Briefcase icon -->
+  <rect x="100" y="170" width="200" height="140" rx="16" fill="none" stroke="white" stroke-width="16" stroke-opacity="0.9"/>
+  <path d="M150 170 L150 140 Q150 120 170 120 L230 120 Q250 120 250 140 L250 170" fill="none" stroke="white" stroke-width="16" stroke-opacity="0.9"/>
+  <line x1="100" y1="225" x2="300" y2="225" stroke="white" stroke-width="12" stroke-opacity="0.5"/>
+  <rect x="185" y="213" width="30" height="24" rx="4" fill="white" opacity="0.9"/>
+  <!-- Text -->
+  <text x="200" y="345" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" opacity="0.95">Business Studies</text>
+</svg>
