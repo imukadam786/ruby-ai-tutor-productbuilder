@@ -24,6 +24,7 @@ interface PricingPlan {
   ctaLabel: string;
   isFree: boolean;
   paymentType: "subscription" | "once-off";
+  savingsLabel?: string;
   features: Feature[];
 }
 
@@ -92,6 +93,7 @@ const PLANS: PricingPlan[] = [
     ctaLabel: "Own It",
     isFree: false,
     paymentType: "once-off",
+    savingsLabel: "Launch Offer — Save R99",
     features: [
       { text: "50+ Matric Past Papers", note: "Practice & Guide Mode", highlight: true },
       { text: "10+ Matric Study Guides", note: "Major Subjects", highlight: true },
@@ -396,7 +398,7 @@ export default function PricingPlans({
                       </div>
                       {plan.isLaunchOffer && !voucherApplied && (
                         <span className="inline-block text-xs font-semibold bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full">
-                          Launch Offer, Save R{plan.originalPrice - plan.priceRands}/mo
+                          {plan.savingsLabel ?? `Launch Offer, Save R${plan.originalPrice - plan.priceRands}/mo`}
                         </span>
                       )}
                       {voucherApplied && (
