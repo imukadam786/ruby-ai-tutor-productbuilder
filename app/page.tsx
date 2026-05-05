@@ -681,6 +681,7 @@ export default function Home() {
           <PricingPlans
             mode="onboarding"
             showHeader
+            onSelectFree={() => setAppState("app")}
           />
         </div>
       </div>

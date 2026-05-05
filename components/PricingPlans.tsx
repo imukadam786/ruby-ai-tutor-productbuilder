@@ -17,6 +17,7 @@ interface PricingPlan {
   priceRands: number;
   originalPrice: number;
   isLaunchOffer: boolean;
+  isFree?: boolean;
   badge: string | null;
   badgeClass: string;
   borderClass: string;
@@ -28,6 +29,31 @@ interface PricingPlan {
 }
 
 const PLANS: PricingPlan[] = [
+  {
+    key: "freebie",
+    name: "Freebie",
+    subtitle: "Try it out — no card needed",
+    priceRands: 0,
+    originalPrice: 0,
+    isLaunchOffer: false,
+    isFree: true,
+    badge: null,
+    badgeClass: "",
+    borderClass: "border-gray-200",
+    ctaClass: "bg-gray-100 hover:bg-gray-200 text-gray-700",
+    ctaLabel: "Get Started",
+    paymentType: "subscription",
+    features: [
+      { text: "CAPS Aligned curriculum" },
+      { text: "1× Discovery Activity", note: "Maths or Reading" },
+      { text: "1× Discovery Report" },
+      { text: "5 Personalised Skills Worksheets" },
+      { text: "5 AI Homework Questions per day" },
+      { text: "5 hints per day" },
+      { text: "Home Language Feedback" },
+      { text: "5 Audio Playbacks per day" },
+    ],
+  },
   {
     key: "scholar",
     name: "Scholar",
@@ -102,11 +128,13 @@ const PLANS: PricingPlan[] = [
 interface PricingPlansProps {
   showHeader?: boolean;
   mode?: "onboarding" | "upgrade" | "matric";
+  onSelectFree?: () => void;
 }
 
 export default function PricingPlans({
   showHeader = true,
   mode = "onboarding",
+  onSelectFree,
 }: PricingPlansProps) {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -122,6 +150,7 @@ export default function PricingPlans({
 
   const visiblePlans =
     mode === "matric" ? PLANS.filter((p) => p.key === "master") :
+    mode === "upgrade" ? PLANS.filter((p) => !p.isFree) :
     PLANS;
 
   useEffect(() => {
@@ -188,6 +217,10 @@ export default function PricingPlans({
   }
 
   async function handlePlanCTA(plan: PricingPlan) {
+    if (plan.isFree) {
+      onSelectFree?.();
+      return;
+    }
     setLoadingPlan(plan.key);
     setError(null);
     try {
@@ -347,18 +380,22 @@ export default function PricingPlans({
                 <div className="space-y-0.5">
                   <div className="flex items-end gap-2">
                     <span className="text-2xl font-extrabold text-[#1a2744]">
-                      R{voucherApplied ? final : plan.priceRands}
-                      {plan.paymentType === "subscription" && (
-                        <span className="text-sm font-semibold text-gray-400">/mo</span>
+                      {plan.isFree ? "Free" : (
+                        <>
+                          R{voucherApplied ? final : plan.priceRands}
+                          {plan.paymentType === "subscription" && (
+                            <span className="text-sm font-semibold text-gray-400">/mo</span>
+                          )}
+                        </>
                       )}
                     </span>
-                    {(plan.isLaunchOffer || voucherApplied) && (
+                    {!plan.isFree && (plan.isLaunchOffer || voucherApplied) && (
                       <span className="text-sm text-gray-400 line-through mb-1">
                         R{voucherApplied ? plan.priceRands : plan.originalPrice}
                       </span>
                     )}
                   </div>
-                  {plan.isLaunchOffer && !voucherApplied && (
+                  {!plan.isFree && plan.isLaunchOffer && !voucherApplied && (
                     <span className="inline-block text-xs font-semibold bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full">
                       {plan.savingsLabel ?? `Launch Offer, Save R${plan.originalPrice - plan.priceRands}/mo`}
                     </span>
