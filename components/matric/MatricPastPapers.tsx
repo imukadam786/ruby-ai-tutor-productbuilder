@@ -953,6 +953,7 @@ function SessionView({
           language,
           mode: isFinal ? "practice" : mode,
           attemptCount: attempt.attemptCount,
+          questionType: sq.type,
         }),
       });
 

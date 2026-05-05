@@ -103,6 +103,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
   const [activeTutorial, setActiveTutorial] = useState<ActiveView | null>(null);
+  const [userPlan, setUserPlan] = useState<string | null>(null);
 
   const viewLabels: Record<ActiveView, string> = {
     home: t("sidebar.home"),
@@ -201,7 +202,31 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
     };
   }, [refreshStats, onPostDiscovery]);
 
+  useEffect(() => {
+    supabase.auth.getUser().then(async ({ data: { user } }) => {
+      if (!user) return;
+      const { data } = await supabase
+        .from("subscriptions")
+        .select("plan, status")
+        .eq("user_id", user.id)
+        .single();
+      setUserPlan(data?.status === "active" ? (data?.plan ?? "freebie") : "freebie");
+    });
+  }, []);
+
+  const MATRIC_VIEWS: ActiveView[] = ["matrics", "matric", "prep-papers-2026", "study-guides"];
+
   const handleViewChange = (view: ActiveView) => {
+    // Gate matric features — only accessible on Master plan
+    if (MATRIC_VIEWS.includes(view) && userPlan !== "master") {
+      document.dispatchEvent(
+        new CustomEvent("ruby-upgrade-needed", {
+          detail: { reason: "Matric Past Papers, Study Guides and Prep Papers are only available on the Master plan (Grade 12)." },
+        })
+      );
+      return;
+    }
+
     // Chat: trigger survey when leaving chat after sending at least one message
     if (activeView === "chat" && chatEngaged) {
       const key = "survey_count_chat";
@@ -299,6 +324,7 @@ function AppContent({ initialView, onPostDiscovery }: { initialView?: ActiveView
         onToggleCollapse={() => setSidebarCollapsed((v) => !v)}
         onSettings={() => handleViewChange("settings")}
         onOpenLangPicker={() => setShowLangPicker(true)}
+        userPlan={userPlan}
         onLogout={async () => {
           // Do NOT wipe localStorage on logout — data belongs to this user and
           // must still be visible when they log back in on the same device.
@@ -395,7 +421,19 @@ function WelcomeScreen({ name, onStartLearning }: { name: string; onStartLearnin
 }
 
 // ── Post-onboarding discovery prompt ──────────────────────────────────────────
-function DiscoveryPromptScreen({ name, onSelect }: { name: string; onSelect: (subject: "maths" | "reading") => void }) {
+function DiscoveryPromptScreen({
+  name,
+  grade,
+  onSelect,
+  onMatricPrep,
+}: {
+  name: string;
+  grade?: string;
+  onSelect: (subject: "maths" | "reading") => void;
+  onMatricPrep?: () => void;
+}) {
+  const isGrade12 = grade === "12";
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-5">
@@ -404,9 +442,26 @@ function DiscoveryPromptScreen({ name, onSelect }: { name: string; onSelect: (su
           Welcome, {name}! Let&apos;s find your level
         </h1>
         <p className="text-gray-500 text-base leading-relaxed">
-          Take a quick Discovery Activity so Ruby knows exactly where to start your learning journey.
+          {isGrade12
+            ? "Jump straight into Matric Prep, or take a Discovery Activity so Ruby knows where to start."
+            : "Take a quick Discovery Activity so Ruby knows exactly where to start your learning journey."}
         </p>
         <div className="space-y-3 pt-1">
+          {isGrade12 && onMatricPrep && (
+            <button
+              onClick={onMatricPrep}
+              className="w-full py-4 rounded-full bg-amber-500 hover:bg-amber-600 text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
+            >
+              <span>🎓</span> Go to Matric Prep
+            </button>
+          )}
+          {isGrade12 && (
+            <div className="flex items-center gap-3 py-1">
+              <div className="flex-1 h-px bg-gray-200" />
+              <span className="text-xs text-gray-400 font-medium">or take a Discovery first</span>
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
+          )}
           <button
             onClick={() => onSelect("maths")}
             className="w-full py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
@@ -487,7 +542,9 @@ function TutorialWelcomeScreen({ onStart, onSkip }: { onStart: () => void; onSki
 export default function Home() {
   const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "discovery-prompt" | "post-discovery" | "tutorial-welcome" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
+  const [welcomeGrade, setWelcomeGrade] = useState("");
   const [pendingDiscovery, setPendingDiscovery] = useState<"maths" | "reading" | null>(null);
+  const [matricPrepPending, setMatricPrepPending] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -564,6 +621,7 @@ export default function Home() {
       Object.values(FEATURE_TUTORIAL_KEYS).forEach((k) => localStorage.removeItem(k));
       localStorage.setItem("ruby_pending_step", "plan-selection");
       setWelcomeName(data.name || "");
+      setWelcomeGrade(data.grade || "");
       // Show tutorial-welcome immediately — before discovery — so it's never skipped
       setAppState("tutorial-welcome");
     }
@@ -579,8 +637,13 @@ export default function Home() {
     return (
       <DiscoveryPromptScreen
         name={welcomeName}
+        grade={welcomeGrade}
         onSelect={(subject) => {
           setPendingDiscovery(subject);
+          setAppState("app");
+        }}
+        onMatricPrep={() => {
+          setMatricPrepPending(true);
           setAppState("app");
         }}
       />
@@ -666,7 +729,10 @@ export default function Home() {
 
   return (
     <LanguageProvider>
-      <AppContent initialView={undefined} onPostDiscovery={undefined} />
+      <AppContent
+        initialView={matricPrepPending ? "matrics" : undefined}
+        onPostDiscovery={undefined}
+      />
     </LanguageProvider>
   );
 }
