@@ -7,6 +7,7 @@ import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import SavedReportView from "@/components/SavedReportView";
+import { supabase } from "@/lib/supabase";
 
 interface DiscoverHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -17,14 +18,27 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [viewReport, setViewReport] = useState<"maths" | "reading" | null>(null);
+  const [userPlan, setUserPlan] = useState<string>("freebie");
 
   useEffect(() => {
+    const planPromise = supabase.auth.getUser().then(async ({ data: { user } }) => {
+      if (!user) return "freebie";
+      const { data } = await supabase
+        .from("subscriptions")
+        .select("plan, status")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      return data?.status === "active" && data?.plan ? data.plan : "freebie";
+    });
+
     Promise.all([
       hydrateStudentProfileFromSupabase(),
       hydrateReadingProfileFromSupabase(),
-    ]).then(([mp, rp]) => {
+      planPromise,
+    ]).then(([mp, rp, plan]) => {
       setMathsProfile(mp);
       setReadingProfile(rp as ReadingStudentProfile | null);
+      setUserPlan(plan as string);
       setLoading(false);
     });
   }, []);
@@ -39,6 +53,25 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
 
   const mathsDone = mathsProfile?.placementCompleted ?? false;
   const readingDone = readingProfile?.placementCompleted ?? false;
+
+  // Freebie allows only 1 discovery total. If one is done, lock the other.
+  const isFreebie = userPlan === "freebie";
+  const mathsLocked = isFreebie && !mathsDone && readingDone;
+  const readingLocked = isFreebie && !readingDone && mathsDone;
+
+  const upgradePrompt = (
+    <div className="flex flex-col gap-3">
+      <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
+        Your Freebie plan includes 1 Discovery Activity. Upgrade to Scholar or Master to unlock both.
+      </p>
+      <button
+        onClick={() => document.dispatchEvent(new CustomEvent("ruby-upgrade-needed", { detail: { reason: "Upgrade to unlock both Maths and Reading Discovery Activities." } }))}
+        className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm py-3 rounded-xl transition-colors"
+      >
+        Upgrade Plan 🔓
+      </button>
+    </div>
+  );
 
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5]">
@@ -71,19 +104,12 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
           </div>
 
           <div className="px-5 py-4">
-            {mathsDone ? (
-              <p className="text-sm text-gray-500 mb-4">
-                Ruby has found your starting Maths level. View your report or retake to update your placement.
-              </p>
-            ) : (
-              <p className="text-sm text-gray-500 mb-4">
-                A short adaptive quiz that finds your exact Maths level, no guessing, just the right fit.
-              </p>
-            )}
-
-            <div className="flex gap-2">
-              {mathsDone ? (
-                <>
+            {mathsLocked ? upgradePrompt : mathsDone ? (
+              <>
+                <p className="text-sm text-gray-500 mb-4">
+                  Ruby has found your starting Maths level. View your report or retake to update your placement.
+                </p>
+                <div className="flex gap-2">
                   <button
                     onClick={() => setViewReport("maths")}
                     className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold text-sm py-2.5 rounded-xl transition-colors active:scale-[0.97]"
@@ -96,8 +122,13 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                   >
                     Retake
                   </button>
-                </>
-              ) : (
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="text-sm text-gray-500 mb-4">
+                  A short adaptive quiz that finds your exact Maths level, no guessing, just the right fit.
+                </p>
                 <button
                   onClick={() => onNavigate("discover-maths")}
                   disabled={loading}
@@ -105,8 +136,8 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                 >
                   Start Maths Discovery
                 </button>
-              )}
-            </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -126,19 +157,12 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
           </div>
 
           <div className="px-5 py-4">
-            {readingDone ? (
-              <p className="text-sm text-gray-500 mb-4">
-                Ruby has found your reading level. View your report or retake to update your placement.
-              </p>
-            ) : (
-              <p className="text-sm text-gray-500 mb-4">
-                A short adaptive quiz that finds your exact Reading level, personalising your journey from the very first session.
-              </p>
-            )}
-
-            <div className="flex gap-2">
-              {readingDone ? (
-                <>
+            {readingLocked ? upgradePrompt : readingDone ? (
+              <>
+                <p className="text-sm text-gray-500 mb-4">
+                  Ruby has found your reading level. View your report or retake to update your placement.
+                </p>
+                <div className="flex gap-2">
                   <button
                     onClick={() => setViewReport("reading")}
                     className="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-semibold text-sm py-2.5 rounded-xl transition-colors active:scale-[0.97]"
@@ -151,8 +175,13 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                   >
                     Retake
                   </button>
-                </>
-              ) : (
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="text-sm text-gray-500 mb-4">
+                  A short adaptive quiz that finds your exact Reading level, personalising your journey from the very first session.
+                </p>
                 <button
                   onClick={() => onNavigate("discover-reading")}
                   disabled={loading}
@@ -160,8 +189,8 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                 >
                   Start Reading Discovery
                 </button>
-              )}
-            </div>
+              </>
+            )}
           </div>
         </div>
 

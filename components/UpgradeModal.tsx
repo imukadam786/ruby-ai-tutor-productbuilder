@@ -5,9 +5,10 @@ import PricingPlans from "./PricingPlans";
 interface UpgradeModalProps {
   onDismiss: () => void;
   reason?: string;
+  matricOnly?: boolean;
 }
 
-export default function UpgradeModal({ onDismiss, reason }: UpgradeModalProps) {
+export default function UpgradeModal({ onDismiss, reason, matricOnly }: UpgradeModalProps) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm"
@@ -17,9 +18,13 @@ export default function UpgradeModal({ onDismiss, reason }: UpgradeModalProps) {
         {/* Header */}
         <div className="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-start justify-between rounded-t-3xl z-10">
           <div>
-            <h2 className="font-extrabold text-[#1a2744] text-lg">Unlock full access</h2>
+            <h2 className="font-extrabold text-[#1a2744] text-lg">
+              {matricOnly ? "🎓 Unlock Matric Access" : "Unlock full access"}
+            </h2>
             <p className="text-xs text-gray-400 mt-0.5">
-              {reason ?? "You've reached your daily limit, upgrade to continue"}
+              {reason ?? (matricOnly
+                ? "Matric Past Papers, Study Guides and Prep Papers require the Master plan."
+                : "You've reached your daily limit, upgrade to continue")}
             </p>
           </div>
           <button
@@ -33,14 +38,14 @@ export default function UpgradeModal({ onDismiss, reason }: UpgradeModalProps) {
           </button>
         </div>
 
-        <PricingPlans mode="upgrade" showHeader={false} />
+        <PricingPlans mode={matricOnly ? "matric" : "upgrade"} showHeader={false} />
 
         <div className="pb-6 text-center">
           <button
             onClick={onDismiss}
             className="text-xs text-gray-400 hover:text-gray-600 transition-colors underline"
           >
-            Continue with Freebie
+            {matricOnly ? "Maybe later" : "Continue with Freebie"}
           </button>
         </div>
       </div>

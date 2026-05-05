@@ -74,7 +74,8 @@ function RubyAvatar({ size = "w-16 h-16" }: { size?: string }) {
   );
 }
 
-import { speakViaAPI } from "@/lib/tts";
+import { speakViaAPI, checkTTSLimit } from "@/lib/tts";
+import { supabase } from "@/lib/supabase";
 
 // Alias so all call sites remain unchanged
 const speakNaturally = speakViaAPI;
@@ -89,6 +90,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   const [attachedFile, setAttachedFile] = useState<File | null>(null);
   const [attachedPreview, setAttachedPreview] = useState<string | null>(null);
   const [showUploadMenu, setShowUploadMenu] = useState(false);
+  const [ttsLimited, setTtsLimited] = useState(false);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const cancelSpeechRef = useRef<(() => void) | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -156,7 +158,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   };
 
   const sendMessage = useCallback(
-    async (text: string) => {
+    async (text: string, isHint = false) => {
       const hasAttachment = !!attachedFile;
       const isImage = hasAttachment && attachedFile!.type.startsWith("image/");
       const messageText = text.trim() || (hasAttachment ? "" : "");
@@ -204,16 +206,26 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
           imageMimeType = capturedFile.type;
         }
 
+        const { data: { session } } = await supabase.auth.getSession();
+        const headers: Record<string, string> = { "Content-Type": "application/json" };
+        if (session) headers["Authorization"] = `Bearer ${session.access_token}`;
+
         const response = await apiFetch("/api/chat", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers,
           body: JSON.stringify({
             messages: updatedMessages,
             imageData,
             imageMimeType,
+            isHint,
           }),
         });
 
+        if (response.status === 429) {
+          const body = await response.json().catch(() => ({}));
+          const type = body?.type === "hint" ? "hint" : "question";
+          throw Object.assign(new Error("limit_reached"), { limitType: type });
+        }
         if (!response.ok) throw new Error("Failed to fetch");
 
         const reader = response.body!.getReader();
@@ -237,12 +249,16 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
 
         // Clean up preview URL after sending
         if (previewUrl) URL.revokeObjectURL(previewUrl);
-      } catch {
+      } catch (err: unknown) {
+        const limitType = (err as { limitType?: string })?.limitType;
+        const limitMsg = limitType === "hint"
+          ? "You've used all 5 of your daily hints. Upgrade to Scholar or Master for unlimited hints. 🔓"
+          : limitType === "question"
+          ? "You've used all 5 of your daily questions. Upgrade to Scholar or Master for unlimited access. 🔓"
+          : "Sorry, something went wrong. Please try again.";
         setMessages((prev) =>
           prev.map((m) =>
-            m.id === assistantMessage.id
-              ? { ...m, content: "Sorry, something went wrong. Please try again." }
-              : m
+            m.id === assistantMessage.id ? { ...m, content: limitMsg } : m
           )
         );
       } finally {
@@ -321,11 +337,20 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     setPlayingMsgId(null);
   };
 
-  const togglePlay = (msgId: string, text: string) => {
-    // If this message is already playing, stop it
+  const togglePlay = async (msgId: string, text: string) => {
     if (playingMsgId === msgId) { stopSpeaking(); return; }
-    // Stop any other playing message first
     stopSpeaking();
+
+    // Unlock iOS audio context synchronously within the user gesture handler
+    try { new Audio().play().catch(() => {}); } catch {}
+
+    const allowed = await checkTTSLimit();
+    if (!allowed) {
+      setTtsLimited(true);
+      setTimeout(() => setTtsLimited(false), 4000);
+      return;
+    }
+
     cancelSpeechRef.current = speakNaturally(
       text.slice(0, 1200),
       () => setPlayingMsgId(msgId),
@@ -427,7 +452,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
                   {msg.id === [...messages].reverse().find(m => m.role === "assistant")?.id &&
                     msg.content && !msg.content.includes("▌") && !isLoading && (
                     <button
-                      onClick={() => sendMessage("hint")}
+                      onClick={() => sendMessage("hint", true)}
                       className="flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all text-amber-500 hover:text-amber-600 hover:bg-amber-50"
                       title="Get a hint"
                     >
@@ -453,6 +478,13 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         )}
         </div>
       </div>
+
+      {/* TTS limit toast */}
+      {ttsLimited && (
+        <div className="mx-4 mb-2 sm:mx-8 px-4 py-2.5 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-700 text-center">
+          You&apos;ve used all 5 audio playbacks for today. Upgrade for unlimited. 🔓
+        </div>
+      )}
 
       {/* Input area */}
       <div className="px-4 pb-4 pt-2 sm:px-8 sm:pb-6 bg-white">

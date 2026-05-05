@@ -100,7 +100,7 @@ const PLANS: PricingPlan[] = [
 interface PricingPlansProps {
   onSelectFree?: () => void;
   showHeader?: boolean;
-  mode?: "onboarding" | "upgrade";
+  mode?: "onboarding" | "upgrade" | "matric";
 }
 
 export default function PricingPlans({
@@ -120,7 +120,10 @@ export default function PricingPlans({
   const carouselRef = useRef<HTMLDivElement>(null);
   const [activeCard, setActiveCard] = useState(0);
 
-  const visiblePlans = mode === "upgrade" ? PLANS.filter((p) => !p.isFree) : PLANS;
+  const visiblePlans =
+    mode === "matric" ? PLANS.filter((p) => p.key === "master") :
+    mode === "upgrade" ? PLANS.filter((p) => !p.isFree) :
+    PLANS;
 
   useEffect(() => {
     const container = carouselRef.current;
@@ -312,7 +315,7 @@ export default function PricingPlans({
           scrollbar-hide pb-2 md:pb-0
           pt-5 md:pt-0
           md:items-stretch md:px-4
-          ${mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}
+          ${mode === "matric" ? "md:grid-cols-1 md:max-w-sm md:mx-auto" : mode === "upgrade" ? "md:grid-cols-2" : "md:grid-cols-3"}
         `}
       >
         {visiblePlans.map((plan, index) => {
