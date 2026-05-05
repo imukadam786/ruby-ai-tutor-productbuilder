@@ -156,6 +156,22 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Mathematics",
+    thumbnail: "/thumbnails/mathematics.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Algebra, Calculus & Functions",
+        description: "Sequences, functions, calculus, finance and probability",
+        filename: "maths-p1-may-jun-2026-studyguide",
+      },
+      {
+        label: "Paper 2 — Geometry, Trigonometry & Stats",
+        description: "Euclidean geometry, trigonometry, analytical geometry and statistics",
+        filename: "maths-p2-may-jun-2026-studyguide",
+      },
+    ],
+  },
+  {
     label: "Maths Literacy",
     thumbnail: "/thumbnails/maths-literacy.jpeg",
     guides: [
