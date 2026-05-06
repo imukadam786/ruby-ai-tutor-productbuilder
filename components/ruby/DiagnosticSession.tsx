@@ -531,7 +531,8 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
       try {
         const input = buildMathsReportInput(updatedProfile);
         const content = buildDeterministicReportContent(input);
-        const { data: { user } } = await supabase.auth.getUser();
+        const { data: { session } } = await supabase.auth.getSession();
+        const user = session?.user;
         if (user) {
           const { error: reportError } = await supabase.from("student_reports").insert({
             user_id: user.id,
