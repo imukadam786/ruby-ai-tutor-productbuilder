@@ -158,6 +158,8 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
   // Report state — shown after placement, before learning begins
   const [pendingPlacementResult, setPendingPlacementResult] = useState<import("@/types/reading").DiagnosticPlacementResult | null>(null);
   const [showReport, setShowReport] = useState(false);
+  // Holds the profile saved in handleViewReport so handlePlacementComplete can reuse it
+  const savedPlacementRef = useRef<ReadingStudentProfile | null>(null);
 
   // Needs-review: skill ID of a stale mastered skill to probe before main practice
   const [pendingReviewSkillId, setPendingReviewSkillId] = useState<string | null>(null);
@@ -298,17 +300,45 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
   }, [phase, profile, skillAttemptCount, currentResult, loadQuestion]);
 
   const handleViewReport = useCallback(
-    (result: DiagnosticPlacementResult) => {
+    async (result: DiagnosticPlacementResult) => {
+      if (!profile) return;
       setPendingPlacementResult(result);
       setShowReport(true);
+      // Persist immediately so the report is viewable from home/settings
+      // even if the user navigates away before clicking "Continue Learning"
+      const updated = completeDiagnosticPlacement(profile, result);
+      savedPlacementRef.current = updated;
+      try {
+        const rInput = buildReadingReportInput(updated, result);
+        const rContent = buildDeterministicReportContent(rInput);
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          const { error: reportError } = await supabase.from("student_reports").insert({
+            user_id: user.id,
+            subject: "reading",
+            input_data: rInput as unknown as Record<string, unknown>,
+            content_data: rContent as unknown as Record<string, unknown>,
+            generated_at: new Date().toISOString(),
+          });
+          if (reportError) console.error("[ReadingViewReport] student_reports insert failed:", reportError);
+          void fetch("/api/reports/email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: user.id, subject: "reading", inputData: rInput, contentData: rContent }),
+          });
+        }
+      } catch (err) {
+        console.error("[ReadingViewReport] Report save failed:", err);
+      }
     },
-    []
+    [profile]
   );
 
   const handlePlacementComplete = useCallback(
     async (result: DiagnosticPlacementResult) => {
       if (!profile) return;
-      const updated = completeDiagnosticPlacement(profile, result);
+      // Reuse the profile already saved in handleViewReport; fall back if called directly
+      const updated = savedPlacementRef.current ?? completeDiagnosticPlacement(profile, result);
       setProfile(updated);
       setPhase("loading_question");
 
@@ -328,30 +358,6 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
         current_skill_id: updated.current_skill_id,
         current_level: updated.current_level,
       });
-
-      // Build and persist report to Supabase for parent viewing
-      try {
-        const rInput = buildReadingReportInput(updated, result);
-        const rContent = buildDeterministicReportContent(rInput);
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
-          const { error: reportError } = await supabase.from("student_reports").insert({
-            user_id: user.id,
-            subject: "reading",
-            input_data: rInput as unknown as Record<string, unknown>,
-            content_data: rContent as unknown as Record<string, unknown>,
-            generated_at: new Date().toISOString(),
-          });
-          if (reportError) console.error("[ReadingPlacement] student_reports insert failed:", reportError);
-          void fetch("/api/reports/email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId: user.id, subject: "reading", inputData: rInput, contentData: rContent }),
-          });
-        }
-      } catch (err) {
-        console.error("[ReadingPlacement] Report save failed:", err);
-      }
     },
     [profile]
   );
