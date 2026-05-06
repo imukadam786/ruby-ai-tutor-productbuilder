@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
       .from("users")
       .select("email, full_name")
       .eq("id", userId)
-      .single();
+      .maybeSingle();
 
     if (userErr || !user?.email) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
 
     // Send via Resend
     const { error: sendErr } = await resend.emails.send({
-      from: "Ruby AI Tutor <reports@rubytutors.co.za>",
+      from: "Ruby AI Tutor <reports@rubyaitutor.com>",
       to: user.email,
       subject: `${studentName}'s ${subjectLabel} Diagnostic Report — Ruby AI Tutor`,
       html: buildEmailHtml(studentName, subjectLabel),
