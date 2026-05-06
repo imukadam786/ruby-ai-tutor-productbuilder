@@ -231,6 +231,31 @@ export default function PricingPlans({
         setError("Session expired. Please refresh.");
         return;
       }
+
+      const finalPrice = effectivePrice(plan);
+
+      if (finalPrice === 0) {
+        // Zero-cost (voucher covers full amount) — activate directly, skip PayFast
+        const res = await fetch("/api/plans/activate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session.access_token}`,
+          },
+          body: JSON.stringify({
+            plan: plan.key,
+            paymentType: plan.paymentType,
+            ...(appliedVoucher ? { voucherCode: appliedVoucher.code } : {}),
+          }),
+        });
+        if (!res.ok) {
+          setError("Could not activate plan. Please try again.");
+          return;
+        }
+        window.location.href = "/?payment=success";
+        return;
+      }
+
       const res = await fetch("/api/payfast/checkout", {
         method: "POST",
         headers: {
