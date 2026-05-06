@@ -184,7 +184,7 @@ export async function buildReportPDF(
   for (const bullet of content.experienceBullets) {
     const bLines = wrapText(bullet, fontNormal, 9, CONTENT_W - 16);
     checkSpace(bLines.length * 12 + 4);
-    page.drawText("•", { x: MARGIN, y, size: 10, font: fontNormal, color: C.grayText });
+    page.drawText("-", { x: MARGIN, y, size: 10, font: fontNormal, color: C.grayText });
     let by = y;
     for (const l of bLines) { page.drawText(l, { x: MARGIN + 12, y: by, size: 9, font: fontNormal, color: C.grayText }); by -= 12; }
     y = by - 3;
@@ -212,7 +212,7 @@ export async function buildReportPDF(
   page.drawText("What to expect", { x: MARGIN + 16, y: y - 15, size: 10, font: fontBold, color: C.greenDark });
   ty = y - 29;
   for (const o of content.expectedOutcomes) {
-    page.drawText(`✓  ${o}`, { x: MARGIN + 16, y: ty, size: 9, font: fontNormal, color: C.greenDark });
+    page.drawText(`>  ${o}`, { x: MARGIN + 16, y: ty, size: 9, font: fontBold, color: C.greenDark });
     ty -= 14;
   }
   y -= outcomeH + 10;
