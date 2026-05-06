@@ -1,353 +1,236 @@
-// ─── lib/report-pdf.ts ────────────────────────────────────────────────────────
-// Builds the branded PDF using pdfmake (pure Node.js).
-// Note: spec called for Python/ReportLab, but Python is not available in this
-// environment. pdfmake produces an equivalent result server-side.
-//
-// Layout mirrors Liam_Ruby_Diagnostic_Report.pdf:
-//   Crimson header → placement banner → domain cards → strengths →
-//   root cause → learning plan → experience bullets → parent guidance →
-//   outcomes → next-session banner → footer
-
+import { PDFDocument, PDFFont, StandardFonts, rgb } from "pdf-lib";
 import type { DiagnosticReportInput, ReportContent } from "./report-generator";
 
-// pdfmake is required lazily inside buildReportPDF to avoid module-level
-// initialisation errors during Next.js build (no env vars available at build time).
-
-// ─── Brand colours ────────────────────────────────────────────────────────────
+type Color = ReturnType<typeof rgb>;
 
 const C = {
-  crimson:       "#B7182E",
-  pink:          "#E94663",
-  greenDark:     "#166534",
-  greenLight:    "#DCFCE7",
-  greenBar:      "#22C55E",
-  amberDark:     "#92400E",
-  amberLight:    "#FEF3C7",
-  amberBar:      "#F59E0B",
-  blueDark:      "#1E40AF",
-  blueLight:     "#EFF6FF",
-  blueBar:       "#3B82F6",
-  grayBg:        "#F3F4F6",
-  grayText:      "#374151",
-  grayLighter:   "#F9FAFB",
-  white:         "#FFFFFF",
-  footerText:    "#9CA3AF",
+  crimson:    rgb(0.718, 0.094, 0.180),
+  pink:       rgb(0.914, 0.275, 0.388),
+  greenDark:  rgb(0.086, 0.396, 0.204),
+  greenLight: rgb(0.863, 0.988, 0.871),
+  greenBar:   rgb(0.133, 0.773, 0.369),
+  amberDark:  rgb(0.573, 0.251, 0.055),
+  amberLight: rgb(0.996, 0.953, 0.780),
+  amberBar:   rgb(0.961, 0.620, 0.043),
+  blueDark:   rgb(0.118, 0.251, 0.686),
+  blueLight:  rgb(0.937, 0.965, 1.000),
+  blueBar:    rgb(0.231, 0.510, 0.965),
+  grayBg:     rgb(0.953, 0.957, 0.965),
+  grayText:   rgb(0.216, 0.255, 0.318),
+  white:      rgb(1, 1, 1),
+  footerText: rgb(0.612, 0.639, 0.675),
+  barEmpty:   rgb(0.898, 0.906, 0.922),
+  pinkLabel:  rgb(0.988, 0.639, 0.678),
+  muted:      rgb(0.420, 0.447, 0.502),
 };
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+const PAGE_W = 595.28;
+const PAGE_H = 841.89;
+const MARGIN = 40;
+const CONTENT_W = PAGE_W - MARGIN * 2;
 
-function sectionTitle(text: string): object {
-  return {
-    text,
-    fontSize: 13,
-    bold: true,
-    color: C.grayText,
-    margin: [0, 0, 0, 8],
-  };
+function wrapText(text: string, font: PDFFont, size: number, maxWidth: number): string[] {
+  const words = text.split(" ");
+  const lines: string[] = [];
+  let line = "";
+  for (const word of words) {
+    const test = line ? `${line} ${word}` : word;
+    if (font.widthOfTextAtSize(test, size) > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = test;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
 }
-
-function card(content: object | object[], fillColor: string, margin = [0, 0, 0, 12]): object {
-  return {
-    table: {
-      widths: ["*"],
-      body: [[Array.isArray(content) ? { stack: content } : content]],
-    },
-    layout: { fillColor: () => fillColor, hLineWidth: () => 0, vLineWidth: () => 0, paddingLeft: () => 16, paddingRight: () => 16, paddingTop: () => 14, paddingBottom: () => 14 },
-    margin,
-  };
-}
-
-function labelColor(label: "strong" | "practice" | "building"): { bar: string; bg: string; text: string } {
-  if (label === "strong")   return { bar: C.greenBar,  bg: C.greenLight,  text: C.greenDark  };
-  if (label === "building") return { bar: C.amberBar,  bg: C.amberLight,  text: C.amberDark  };
-  return                           { bar: C.blueBar,   bg: C.blueLight,   text: C.blueDark   };
-}
-
-function progressBar(score: number, label: "strong" | "practice" | "building"): object {
-  const col = labelColor(label);
-  const filled = Math.max(1, Math.round(score));
-  const empty  = 100 - filled;
-  return {
-    table: {
-      widths: [`${filled}%`, `${empty}%`],
-      body: [[{ text: "", fillColor: col.bar, border: [false, false, false, false] }, { text: "", fillColor: "#E5E7EB", border: [false, false, false, false] }]],
-    },
-    layout: { hLineWidth: () => 0, vLineWidth: () => 0, paddingLeft: () => 0, paddingRight: () => 0, paddingTop: () => 0, paddingBottom: () => 0 },
-    margin: [0, 3, 0, 2],
-    heights: 8,
-  };
-}
-
-function domainCard(d: DiagnosticReportInput["domainScores"][0]): object {
-  const col = labelColor(d.label);
-  return {
-    table: {
-      widths: ["*"],
-      body: [[{
-        stack: [
-          { text: d.domain, fontSize: 9, bold: true, color: C.grayText, margin: [0, 0, 0, 2] },
-          progressBar(d.score, d.label),
-          {
-            columns: [
-              { text: `${d.score}%`, fontSize: 8, bold: true, color: col.text, width: "auto" },
-              { text: d.label.charAt(0).toUpperCase() + d.label.slice(1), fontSize: 8, color: col.text, alignment: "right" },
-            ],
-            margin: [0, 1, 0, 0],
-          },
-          ...(d.errorNote ? [{ text: d.errorNote, fontSize: 7, color: "#6B7280", margin: [0, 3, 0, 0], italics: true }] : []),
-        ],
-        fillColor: col.bg,
-        border: [false, false, false, false],
-      }]],
-    },
-    layout: { hLineWidth: () => 0, vLineWidth: () => 0, paddingLeft: () => 10, paddingRight: () => 10, paddingTop: () => 10, paddingBottom: () => 10 },
-    margin: [0, 0, 0, 6],
-  };
-}
-
-function stepBadge(n: number): object {
-  return {
-    canvas: [
-      { type: "ellipse", x: 12, y: 12, r1: 12, r2: 12, color: C.pink },
-    ],
-    width: 24,
-    margin: [0, 0, 10, 0],
-  };
-}
-
-function learningStep(step: ReportContent["learningPlan"][0]): object {
-  return {
-    columns: [
-      {
-        stack: [
-          { canvas: [{ type: "ellipse", x: 12, y: 12, r1: 12, r2: 12, color: C.pink }] },
-          { text: String(step.stepNumber), fontSize: 10, bold: true, color: C.white, relativePosition: { x: 8, y: -18 } },
-        ],
-        width: 30,
-      },
-      {
-        stack: [
-          { text: step.title, fontSize: 11, bold: true, color: C.grayText, margin: [0, 0, 0, 3] },
-          { text: step.description, fontSize: 9, color: C.grayText, margin: [0, 0, 0, 4] },
-          { text: step.estimate, fontSize: 8, color: "#6B7280", italics: true },
-        ],
-        width: "*",
-      },
-    ],
-    columnGap: 0,
-    margin: [0, 0, 0, 14],
-  };
-}
-
-function checkBullet(text: string): object {
-  return {
-    columns: [
-      { text: "✓", fontSize: 10, bold: true, color: C.greenDark, width: 16 },
-      { text, fontSize: 10, color: C.greenDark },
-    ],
-    margin: [0, 0, 0, 5],
-  };
-}
-
-function dotBullet(text: string): object {
-  return {
-    columns: [
-      { text: "•", fontSize: 12, color: C.grayText, width: 14 },
-      { text, fontSize: 10, color: C.grayText },
-    ],
-    margin: [0, 0, 0, 5],
-  };
-}
-
-// ─── Main builder ─────────────────────────────────────────────────────────────
 
 export async function buildReportPDF(
   input: DiagnosticReportInput,
-  content: ReportContent
+  content: ReportContent,
 ): Promise<Buffer> {
-  // eval('require') prevents webpack from statically analysing and bundling
-  // pdfmake — it must be loaded natively at runtime in Node.js.
-  /* eslint-disable @typescript-eslint/no-require-imports, no-eval */
-  const _require = eval("require") as NodeRequire;
-  const PdfPrinter = _require("pdfmake");
-  const vfsFontsModule = _require("pdfmake/build/vfs_fonts");
+  const doc = await PDFDocument.create();
+  const fontNormal = await doc.embedFont(StandardFonts.Helvetica);
+  const fontBold   = await doc.embedFont(StandardFonts.HelveticaBold);
 
-  // vfs_fonts is a browser-targeted bundle that may assign to `this`, `window`,
-  // or return the object directly depending on the environment.
-  const vfs: Record<string, string> =
-    vfsFontsModule?.pdfMake?.vfs ??
-    vfsFontsModule?.vfs ??
-    vfsFontsModule ?? {};
+  let page = doc.addPage([PAGE_W, PAGE_H]);
+  let y = PAGE_H;
 
-  if (!vfs["Roboto-Regular.ttf"]) {
-    throw new Error("[report-pdf] pdfmake vfs fonts failed to load — Roboto-Regular.ttf missing");
+  function checkSpace(needed: number): void {
+    if (y - needed < MARGIN + 20) {
+      page = doc.addPage([PAGE_W, PAGE_H]);
+      y = PAGE_H - MARGIN;
+    }
   }
 
-  const FONTS = {
-    Roboto: {
-      normal:      Buffer.from(vfs["Roboto-Regular.ttf"],      "base64"),
-      bold:        Buffer.from(vfs["Roboto-Medium.ttf"],       "base64"),
-      italics:     Buffer.from(vfs["Roboto-Italic.ttf"],       "base64"),
-      bolditalics: Buffer.from(vfs["Roboto-MediumItalic.ttf"], "base64"),
-    },
-  };
-  const printer = new PdfPrinter(FONTS);
-  const docDef = buildDocDefinition(input, content);
+  function drawCard(cardY: number, height: number, fill: Color): void {
+    page.drawRectangle({ x: MARGIN, y: cardY, width: CONTENT_W, height, color: fill });
+  }
 
-  return new Promise<Buffer>((resolve, reject) => {
-    const pdfDoc = printer.createPdfKitDocument(docDef);
-    const chunks: Buffer[] = [];
-    pdfDoc.on("data", (chunk: Buffer) => chunks.push(chunk));
-    pdfDoc.on("end", () => resolve(Buffer.concat(chunks)));
-    pdfDoc.on("error", reject);
-    pdfDoc.end();
-  });
-}
+  function drawWrapped(
+    text: string, x: number, startY: number,
+    font: PDFFont, size: number, color: Color, maxW: number, lineH: number,
+  ): number {
+    const lines = wrapText(text, font, size, maxW);
+    let cy = startY;
+    for (const l of lines) {
+      page.drawText(l, { x, y: cy, size, font, color });
+      cy -= lineH;
+    }
+    return cy;
+  }
 
-function buildDocDefinition(
-  input: DiagnosticReportInput,
-  content: ReportContent
-): object {
   const subject = input.subject === "maths" ? "Maths" : "Reading";
-  const generatedDate = new Date().toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
+  const studentName = input.studentName ?? "Student";
+  const generatedDate = new Date().toLocaleDateString("en-ZA", {
+    day: "numeric", month: "long", year: "numeric",
+  });
 
-  // ── Section 1: Header ──────────────────────────────────────────────────────
-  const header = {
-    table: {
-      widths: ["*"],
-      body: [[{
-        stack: [
-          // Logo + title
-          { text: "ruby", fontSize: 28, bold: true, color: C.white, margin: [0, 0, 0, 2] },
-          { text: `${subject} Diagnostic Report`, fontSize: 13, color: "#F9A8B4", margin: [0, 0, 0, 18] },
-          // 3 meta columns
-          {
-            columns: [
-              { stack: [{ text: "STUDENT", fontSize: 7, color: "#FDA4AF", bold: true }, { text: input.studentName, fontSize: 13, bold: true, color: C.white }], width: "*" },
-              { stack: [{ text: "WORKING LEVEL", fontSize: 7, color: "#FDA4AF", bold: true }, { text: input.workingLevel, fontSize: 13, bold: true, color: C.white }], width: "*" },
-              { stack: [{ text: "QUESTIONS ANALYSED", fontSize: 7, color: "#FDA4AF", bold: true }, { text: String(input.questionsAnalysed), fontSize: 13, bold: true, color: C.white }], width: "*" },
-            ],
-          },
-        ],
-        fillColor: C.crimson,
-        border: [false, false, false, false],
-      }]],
-    },
-    layout: { hLineWidth: () => 0, vLineWidth: () => 0, paddingLeft: () => 24, paddingRight: () => 24, paddingTop: () => 24, paddingBottom: () => 20 },
-    margin: [0, 0, 0, 0],
-  };
+  // ── 1. Header ───────────────────────────────────────────────────────────────
+  const headerH = 110;
+  page.drawRectangle({ x: 0, y: PAGE_H - headerH, width: PAGE_W, height: headerH, color: C.crimson });
+  page.drawText("ruby", { x: MARGIN, y: PAGE_H - 36, size: 26, font: fontBold, color: C.white });
+  page.drawText(`${subject} Diagnostic Report`, { x: MARGIN, y: PAGE_H - 54, size: 10.5, font: fontNormal, color: C.pinkLabel });
 
-  // ── Section 2: Placement banner ────────────────────────────────────────────
-  const placementBanner = card(
-    [
-      { text: "📍  Where " + input.studentName + " starts", fontSize: 11, bold: true, color: C.greenDark, margin: [0, 0, 0, 6] },
-      { text: content.placementSummary, fontSize: 10, color: C.greenDark },
-    ],
-    C.greenLight
-  );
+  const metaY = PAGE_H - 78;
+  const colW = CONTENT_W / 3;
+  [
+    { label: "STUDENT",            value: studentName },
+    { label: "WORKING LEVEL",      value: input.workingLevel },
+    { label: "QUESTIONS ANALYSED", value: String(input.questionsAnalysed) },
+  ].forEach(({ label, value }, i) => {
+    const x = MARGIN + i * colW;
+    page.drawText(label, { x, y: metaY,      size: 7,  font: fontBold,   color: C.pinkLabel });
+    page.drawText(value, { x, y: metaY - 14, size: 10, font: fontBold,   color: C.white });
+  });
+  y = PAGE_H - headerH - 14;
 
-  // ── Section 3: Domain performance ─────────────────────────────────────────
-  const domainCards = {
-    stack: [
-      sectionTitle(`How ${input.studentName} performed across each area`),
-      ...input.domainScores.map((d) => domainCard(d)),
-    ],
-    margin: [0, 0, 0, 4],
-  };
+  // ── 2. Placement banner ─────────────────────────────────────────────────────
+  const placementLines = wrapText(content.placementSummary, fontNormal, 9.5, CONTENT_W - 32);
+  const placementH = 34 + placementLines.length * 13;
+  checkSpace(placementH);
+  drawCard(y - placementH, placementH, C.greenLight);
+  page.drawText(`Where ${studentName} starts`, { x: MARGIN + 16, y: y - 16, size: 10, font: fontBold, color: C.greenDark });
+  let ty = y - 30;
+  for (const l of placementLines) { page.drawText(l, { x: MARGIN + 16, y: ty, size: 9.5, font: fontNormal, color: C.greenDark }); ty -= 13; }
+  y -= placementH + 12;
 
-  // ── Section 4: Strengths ──────────────────────────────────────────────────
-  const strengthsSection = card(
-    [
-      { text: "★  Strengths", fontSize: 11, bold: true, color: C.greenDark, margin: [0, 0, 0, 6] },
-      { text: content.strengthsNote, fontSize: 10, color: C.greenDark },
-    ],
-    C.greenLight
-  );
+  // ── 3. Domain performance ───────────────────────────────────────────────────
+  checkSpace(20);
+  page.drawText(`How ${studentName} performed across each area`, { x: MARGIN, y, size: 11, font: fontBold, color: C.grayText });
+  y -= 14;
 
-  // ── Section 5: Root cause ─────────────────────────────────────────────────
-  const rootCauseSection = card(
-    [
-      { text: "▸  What to focus on", fontSize: 11, bold: true, color: C.grayText, margin: [0, 0, 0, 6] },
-      { text: content.rootCauseSummary, fontSize: 10, color: C.grayText },
-    ],
-    C.grayBg
-  );
+  for (const d of input.domainScores) {
+    const domH = 52;
+    checkSpace(domH + 6);
+    const barColor  = d.label === "strong" ? C.greenBar  : d.label === "building" ? C.amberBar  : C.blueBar;
+    const bgColor   = d.label === "strong" ? C.greenLight : d.label === "building" ? C.amberLight : C.blueLight;
+    const textColor = d.label === "strong" ? C.greenDark  : d.label === "building" ? C.amberDark  : C.blueDark;
+    drawCard(y - domH, domH, bgColor);
+    page.drawText(d.domain, { x: MARGIN + 10, y: y - 13, size: 8.5, font: fontBold, color: C.grayText });
+    const barW = CONTENT_W - 20;
+    const filled = Math.max(2, Math.round((d.score / 100) * barW));
+    page.drawRectangle({ x: MARGIN + 10, y: y - 26, width: filled,        height: 7, color: barColor });
+    page.drawRectangle({ x: MARGIN + 10 + filled, y: y - 26, width: barW - filled, height: 7, color: C.barEmpty });
+    page.drawText(`${d.score}%  ·  ${d.label.charAt(0).toUpperCase() + d.label.slice(1)}`, { x: MARGIN + 10, y: y - 40, size: 7.5, font: fontBold, color: textColor });
+    y -= domH + 5;
+  }
+  y -= 6;
 
-  // ── Section 6: Learning plan ──────────────────────────────────────────────
-  const learningPlanSection = card(
-    [
-      { text: "Learning Plan", fontSize: 13, bold: true, color: C.grayText, margin: [0, 0, 0, 12] },
-      ...content.learningPlan.map((step) => learningStep(step)),
-    ],
-    C.white
-  );
+  // ── 4. Strengths ────────────────────────────────────────────────────────────
+  const strengthLines = wrapText(content.strengthsNote, fontNormal, 9.5, CONTENT_W - 32);
+  const strengthH = 34 + strengthLines.length * 13;
+  checkSpace(strengthH);
+  drawCard(y - strengthH, strengthH, C.greenLight);
+  page.drawText("Strengths", { x: MARGIN + 16, y: y - 16, size: 10, font: fontBold, color: C.greenDark });
+  ty = y - 30;
+  for (const l of strengthLines) { page.drawText(l, { x: MARGIN + 16, y: ty, size: 9.5, font: fontNormal, color: C.greenDark }); ty -= 13; }
+  y -= strengthH + 10;
 
-  // ── Section 7: What the student will experience ───────────────────────────
-  const experienceSection = card(
-    [
-      { text: `What ${input.studentName} will experience on Ruby`, fontSize: 11, bold: true, color: C.grayText, margin: [0, 0, 0, 8] },
-      ...content.experienceBullets.map((b) => dotBullet(b)),
-    ],
-    C.grayLighter
-  );
+  // ── 5. Root cause ───────────────────────────────────────────────────────────
+  const rootLines = wrapText(content.rootCauseSummary, fontNormal, 9.5, CONTENT_W - 32);
+  const rootH = 34 + rootLines.length * 13;
+  checkSpace(rootH);
+  drawCard(y - rootH, rootH, C.grayBg);
+  page.drawText("What to focus on", { x: MARGIN + 16, y: y - 16, size: 10, font: fontBold, color: C.grayText });
+  ty = y - 30;
+  for (const l of rootLines) { page.drawText(l, { x: MARGIN + 16, y: ty, size: 9.5, font: fontNormal, color: C.grayText }); ty -= 13; }
+  y -= rootH + 10;
 
-  // ── Section 8: Parent guidance ────────────────────────────────────────────
-  const parentGuidanceSection = card(
-    [
-      { text: "For Parents", fontSize: 13, bold: true, color: C.grayText, margin: [0, 0, 0, 10] },
-      { text: "What you may notice", fontSize: 10, bold: true, color: C.grayText, margin: [0, 0, 0, 4] },
-      { text: content.parentGuidance.whatYouMayNotice, fontSize: 10, color: C.grayText, margin: [0, 0, 0, 12] },
-      { canvas: [{ type: "line", x1: 0, y1: 0, x2: 515 - 32, y2: 0, lineWidth: 1, lineColor: "#E5E7EB" }], margin: [0, 0, 0, 12] },
-      { text: "How you can help this week", fontSize: 10, bold: true, color: C.grayText, margin: [0, 0, 0, 4] },
-      { text: content.parentGuidance.howYouCanHelp, fontSize: 10, color: C.grayText },
-    ],
-    C.white
-  );
+  // ── 6. Learning plan ────────────────────────────────────────────────────────
+  checkSpace(24);
+  page.drawText("Learning Plan", { x: MARGIN, y, size: 12, font: fontBold, color: C.grayText });
+  y -= 18;
 
-  // ── Section 9: Expected outcomes ──────────────────────────────────────────
-  const outcomesSection = card(
-    [
-      { text: "What to expect", fontSize: 11, bold: true, color: C.greenDark, margin: [0, 0, 0, 8] },
-      ...content.expectedOutcomes.map((o) => checkBullet(o)),
-    ],
-    C.greenLight
-  );
+  for (const step of content.learningPlan) {
+    const descLines = wrapText(step.description, fontNormal, 9, CONTENT_W - 50);
+    const stepH = 16 + descLines.length * 12 + 16;
+    checkSpace(stepH);
+    page.drawEllipse({ x: MARGIN + 12, y: y - 10, xScale: 10, yScale: 10, color: C.pink });
+    page.drawText(String(step.stepNumber), { x: MARGIN + (step.stepNumber < 10 ? 9 : 6), y: y - 14, size: 8, font: fontBold, color: C.white });
+    page.drawText(step.title, { x: MARGIN + 30, y: y - 8, size: 10, font: fontBold, color: C.grayText });
+    let sy = y - 20;
+    for (const l of descLines) { page.drawText(l, { x: MARGIN + 30, y: sy, size: 9, font: fontNormal, color: C.grayText }); sy -= 12; }
+    page.drawText(step.estimate, { x: MARGIN + 30, y: sy, size: 8, font: fontNormal, color: C.muted });
+    y -= stepH;
+  }
+  y -= 8;
 
-  // ── Section 10: Next session banner ───────────────────────────────────────
-  const nextSessionBanner = card(
-    [
-      { text: "What's next", fontSize: 11, bold: true, color: C.blueDark, margin: [0, 0, 0, 5] },
-      { text: content.nextSessionHook, fontSize: 10, color: C.blueDark },
-    ],
-    C.blueLight
-  );
+  // ── 7. Experience bullets ───────────────────────────────────────────────────
+  checkSpace(20);
+  page.drawText(`What ${studentName} will experience on Ruby`, { x: MARGIN, y, size: 10, font: fontBold, color: C.grayText });
+  y -= 14;
+  for (const bullet of content.experienceBullets) {
+    const bLines = wrapText(bullet, fontNormal, 9, CONTENT_W - 16);
+    checkSpace(bLines.length * 12 + 4);
+    page.drawText("•", { x: MARGIN, y, size: 10, font: fontNormal, color: C.grayText });
+    let by = y;
+    for (const l of bLines) { page.drawText(l, { x: MARGIN + 12, y: by, size: 9, font: fontNormal, color: C.grayText }); by -= 12; }
+    y = by - 3;
+  }
+  y -= 8;
 
-  // ── Section 11: Footer ────────────────────────────────────────────────────
-  const footer = {
-    text: `Generated by Ruby AI Tutor  ·  ${generatedDate}`,
-    fontSize: 8,
-    color: C.footerText,
-    alignment: "center",
-    margin: [0, 8, 0, 0],
-  };
+  // ── 8. Parent guidance ──────────────────────────────────────────────────────
+  checkSpace(24);
+  page.drawText("For Parents", { x: MARGIN, y, size: 12, font: fontBold, color: C.grayText });
+  y -= 16;
+  page.drawText("What you may notice", { x: MARGIN, y, size: 9.5, font: fontBold, color: C.grayText });
+  y -= 13;
+  y = drawWrapped(content.parentGuidance.whatYouMayNotice, MARGIN, y, fontNormal, 9, C.grayText, CONTENT_W, 12);
+  y -= 8;
+  checkSpace(14);
+  page.drawText("How you can help this week", { x: MARGIN, y, size: 9.5, font: fontBold, color: C.grayText });
+  y -= 13;
+  y = drawWrapped(content.parentGuidance.howYouCanHelp, MARGIN, y, fontNormal, 9, C.grayText, CONTENT_W, 12);
+  y -= 10;
 
-  return {
-    pageSize: "A4",
-    pageMargins: [40, 40, 40, 40],
-    defaultStyle: { font: "Roboto" },
-    content: [
-      header,
-      { text: "", margin: [0, 0, 0, 12] },
-      placementBanner,
-      domainCards,
-      strengthsSection,
-      rootCauseSection,
-      learningPlanSection,
-      experienceSection,
-      parentGuidanceSection,
-      outcomesSection,
-      nextSessionBanner,
-      footer,
-    ],
-  };
+  // ── 9. Expected outcomes ────────────────────────────────────────────────────
+  const outcomeH = 22 + content.expectedOutcomes.length * 14;
+  checkSpace(outcomeH);
+  drawCard(y - outcomeH, outcomeH, C.greenLight);
+  page.drawText("What to expect", { x: MARGIN + 16, y: y - 15, size: 10, font: fontBold, color: C.greenDark });
+  ty = y - 29;
+  for (const o of content.expectedOutcomes) {
+    page.drawText(`✓  ${o}`, { x: MARGIN + 16, y: ty, size: 9, font: fontNormal, color: C.greenDark });
+    ty -= 14;
+  }
+  y -= outcomeH + 10;
+
+  // ── 10. Next session ────────────────────────────────────────────────────────
+  const nextLines = wrapText(content.nextSessionHook, fontNormal, 9.5, CONTENT_W - 32);
+  const nextH = 34 + nextLines.length * 13;
+  checkSpace(nextH);
+  drawCard(y - nextH, nextH, C.blueLight);
+  page.drawText("What's next", { x: MARGIN + 16, y: y - 16, size: 10, font: fontBold, color: C.blueDark });
+  ty = y - 30;
+  for (const l of nextLines) { page.drawText(l, { x: MARGIN + 16, y: ty, size: 9.5, font: fontNormal, color: C.blueDark }); ty -= 13; }
+  y -= nextH + 12;
+
+  // ── 11. Footer ──────────────────────────────────────────────────────────────
+  const footerText = `Generated by Ruby AI Tutor  ·  ${generatedDate}`;
+  const footerX = (PAGE_W - fontNormal.widthOfTextAtSize(footerText, 8)) / 2;
+  page.drawText(footerText, { x: footerX, y: Math.max(y - 10, MARGIN), size: 8, font: fontNormal, color: C.footerText });
+
+  return Buffer.from(await doc.save());
 }
