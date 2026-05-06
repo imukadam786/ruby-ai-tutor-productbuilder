@@ -95,14 +95,14 @@ const SUBJECTS = [
   {
     id: "business-studies",
     name: "Business Studies",
-    thumbnail: "/thumbnails/business-studies.svg",
+    thumbnail: "/thumbnails/business-studies.jpeg",
     color: "from-blue-500 to-indigo-600",
     available: true,
   },
   {
     id: "afrikaans",
     name: "Afrikaans",
-    thumbnail: "/thumbnails/afrikaans.jpeg",
+    thumbnail: "/thumbnails/afrikaans-fal.jpeg",
     color: "from-orange-400 to-amber-500",
     available: true,
   },
@@ -158,7 +158,7 @@ const SUBJECTS = [
   {
     id: "tourism",
     name: "Tourism",
-    thumbnail: "/thumbnails/tourism.png",
+    thumbnail: "/thumbnails/tourism.jpeg",
     color: "from-teal-400 to-cyan-600",
     available: true,
   },

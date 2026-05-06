@@ -81,7 +81,7 @@ const PREP_SUBJECTS = [
   {
     id: "afrikaans",
     name: "Afrikaans",
-    thumbnail: "/thumbnails/afrikaans.jpeg",
+    thumbnail: "/thumbnails/afrikaans-fal.jpeg",
     color: "from-orange-400 to-amber-500",
     available: true,
   },

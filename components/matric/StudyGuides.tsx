@@ -41,7 +41,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Afrikaans FAL",
-    thumbnail: "/thumbnails/afrikaans.jpeg",
+    thumbnail: "/thumbnails/afrikaans-fal.jpeg",
     guides: [
       {
         label: "Paper 1 — Comprehension & Language",
@@ -83,7 +83,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "English FAL",
-    thumbnail: "/thumbnails/english.jpeg",
+    thumbnail: "/thumbnails/english-fal.png",
     guides: [
       {
         label: "Paper 1 — Comprehension & Language",
@@ -205,7 +205,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Business Studies",
-    thumbnail: "/thumbnails/business-studies.svg",
+    thumbnail: "/thumbnails/business-studies.jpeg",
     guides: [
       {
         label: "Paper 1 — Business Environments",
