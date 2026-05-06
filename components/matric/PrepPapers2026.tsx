@@ -9,7 +9,6 @@ import EduBackground from "@/components/EduBackground";
 import { PAPERS, Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown } from "@/lib/matric/papers";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
-import { BUS_STUD_PAPERS } from "@/lib/matric/papers-bus-stud";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -69,10 +68,7 @@ function MathMarkdown({ content }: { content: string }) {
 
 // ── Prep papers data ───────────────────────────────────────────────────────────
 
-const PREP_PAPERS = [
-  ...PAPERS.filter((p) => p.session.startsWith("Prep") || p.session.startsWith("Predictive")),
-  ...BUS_STUD_PAPERS,
-];
+const PREP_PAPERS = PAPERS.filter((p) => p.session.startsWith("Prep") || p.session.startsWith("Predictive"));
 
 const PREP_SUBJECTS = [
   {
