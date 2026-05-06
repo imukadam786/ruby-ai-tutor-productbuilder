@@ -68,6 +68,7 @@ import { GEO_PAPERS } from "./papers-geo";
 import { LIFE_SCI_PAPERS } from "./papers-life-sci";
 import { ACC_PAPERS } from "./papers-acc";
 import { TOURISM_PAPERS } from "./papers-tourism";
+import { BUS_STUD_PAPERS } from "./papers-bus-stud";
 
 export const PAPERS: Paper[] = [
   ...MATHS_PAPERS,
@@ -79,6 +80,7 @@ export const PAPERS: Paper[] = [
   ...LIFE_SCI_PAPERS,
   ...ACC_PAPERS,
   ...TOURISM_PAPERS,
+  ...BUS_STUD_PAPERS,
 ];
 
 export function getFlatSubQuestions(paper: Paper): SubQuestion[] {
