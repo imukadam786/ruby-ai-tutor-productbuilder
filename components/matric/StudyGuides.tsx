@@ -221,12 +221,17 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Economics",
-    thumbnail: "/thumbnails/economics.svg",
+    thumbnail: "/thumbnails/economics.jpeg",
     guides: [
       {
         label: "Paper 1 — Macroeconomics & Microeconomics",
         description: "Economic systems, markets, growth and development",
         filename: "eco-p1-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Economic Pursuits",
+        description: "Labour markets, public sector, foreign exchange and economic history",
+        filename: "eco-p2-may-jun-2026-studyguide_compressed.pdf",
       },
     ],
   },
