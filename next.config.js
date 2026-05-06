@@ -59,6 +59,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverExternalPackages: ["pdfmake"],
   webpack: (config) => {
     // pdfjs-dist uses canvas in Node environments; alias it out for the browser build
     config.resolve.alias.canvas = false;
