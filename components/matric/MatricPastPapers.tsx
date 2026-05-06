@@ -100,6 +100,13 @@ const SUBJECTS = [
     available: true,
   },
   {
+    id: "economics",
+    name: "Economics",
+    thumbnail: "/thumbnails/economics.jpeg",
+    color: "from-green-600 to-emerald-700",
+    available: true,
+  },
+  {
     id: "afrikaans",
     name: "Afrikaans",
     thumbnail: "/thumbnails/afrikaans-fal.jpeg",
@@ -146,7 +153,7 @@ const SUBJECTS = [
     name: "Maths Literacy",
     thumbnail: "/thumbnails/maths-literacy.jpeg",
     color: "from-violet-500 to-purple-600",
-    available: false,
+    available: true,
   },
   {
     id: "physical-science",

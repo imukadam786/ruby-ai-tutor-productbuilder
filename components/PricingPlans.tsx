@@ -149,7 +149,7 @@ export default function PricingPlans({
   const [activeCard, setActiveCard] = useState(0);
 
   const visiblePlans =
-    mode === "matric" ? PLANS.filter((p) => p.key === "master") :
+    mode === "matric" ? PLANS.filter((p) => p.key === "matric-pack" || p.key === "master") :
     mode === "upgrade" ? PLANS.filter((p) => !p.isFree) :
     PLANS;
 
@@ -231,6 +231,31 @@ export default function PricingPlans({
         setError("Session expired. Please refresh.");
         return;
       }
+
+      const finalPrice = effectivePrice(plan);
+
+      if (finalPrice === 0) {
+        // Zero-cost (voucher covers full amount) — activate directly, skip PayFast
+        const res = await fetch("/api/plans/activate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session.access_token}`,
+          },
+          body: JSON.stringify({
+            plan: plan.key,
+            paymentType: plan.paymentType,
+            ...(appliedVoucher ? { voucherCode: appliedVoucher.code } : {}),
+          }),
+        });
+        if (!res.ok) {
+          setError("Could not activate plan. Please try again.");
+          return;
+        }
+        window.location.href = "/?payment=success";
+        return;
+      }
+
       const res = await fetch("/api/payfast/checkout", {
         method: "POST",
         headers: {
@@ -343,7 +368,7 @@ export default function PricingPlans({
           scrollbar-hide pb-2 md:pb-0
           pt-5 md:pt-0
           md:items-stretch md:px-4
-          ${mode === "matric" ? "md:grid-cols-1 md:max-w-sm md:mx-auto" : mode === "upgrade" ? "md:grid-cols-3" : "md:grid-cols-4"}
+          ${mode === "matric" ? "md:grid-cols-2" : mode === "upgrade" ? "md:grid-cols-3" : "md:grid-cols-4"}
         `}
       >
         {visiblePlans.map((plan, index) => {

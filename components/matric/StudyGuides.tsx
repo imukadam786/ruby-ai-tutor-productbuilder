@@ -300,15 +300,13 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
                 <button
                   key={s.label}
                   onClick={() => setSelectedSubject(s)}
-                  className="relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
+                  className="relative aspect-square rounded-2xl transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
                 >
-                  <div className="w-full aspect-square overflow-hidden">
-                    <img
-                      src={s.thumbnail}
-                      alt={s.label}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
+                  <img
+                    src={s.thumbnail}
+                    alt={s.label}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </button>
               ))}
             </div>

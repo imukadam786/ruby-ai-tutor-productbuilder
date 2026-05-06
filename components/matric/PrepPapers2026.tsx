@@ -86,6 +86,13 @@ const PREP_SUBJECTS = [
     available: true,
   },
   {
+    id: "business-studies",
+    name: "Business Studies",
+    thumbnail: "/thumbnails/business-studies.jpeg",
+    color: "from-blue-500 to-indigo-600",
+    available: true,
+  },
+  {
     id: "english",
     name: "English",
     thumbnail: "/thumbnails/english.jpeg",
