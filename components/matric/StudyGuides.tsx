@@ -162,12 +162,12 @@ const SUBJECTS: Subject[] = [
       {
         label: "Paper 1 — Algebra, Calculus & Functions",
         description: "Sequences, functions, calculus, finance and probability",
-        filename: "maths-p1-may-jun-2026-studyguide",
+        filename: "maths-p1-may-jun-2026-studyguide.pdf",
       },
       {
         label: "Paper 2 — Geometry, Trigonometry & Stats",
         description: "Euclidean geometry, trigonometry, analytical geometry and statistics",
-        filename: "maths-p2-may-jun-2026-studyguide",
+        filename: "maths-p2-may-jun-2026-studyguide.pdf",
       },
     ],
   },
@@ -232,6 +232,17 @@ const SUBJECTS: Subject[] = [
         label: "Paper 2 — Economic Pursuits",
         description: "Labour markets, public sector, foreign exchange and economic history",
         filename: "eco-p2-may-jun-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
+    label: "Tourism",
+    thumbnail: "/thumbnails/tourism.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Tourism Study Guide",
+        description: "Tourism sectors, responsible tourism, sustainable development and travel services",
+        filename: "tourism-p1-may-jun-2026-studyguide.pdf",
       },
     ],
   },
