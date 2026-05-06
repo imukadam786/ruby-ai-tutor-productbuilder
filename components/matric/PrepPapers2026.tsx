@@ -9,6 +9,7 @@ import EduBackground from "@/components/EduBackground";
 import { PAPERS, Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown } from "@/lib/matric/papers";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
+import { BUS_STUD_PAPERS } from "@/lib/matric/papers-bus-stud";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -68,7 +69,10 @@ function MathMarkdown({ content }: { content: string }) {
 
 // ── Prep papers data ───────────────────────────────────────────────────────────
 
-const PREP_PAPERS = PAPERS.filter((p) => p.session.startsWith("Prep") || p.session.startsWith("Predictive"));
+const PREP_PAPERS = [
+  ...PAPERS.filter((p) => p.session.startsWith("Prep") || p.session.startsWith("Predictive")),
+  ...BUS_STUD_PAPERS,
+];
 
 const PREP_SUBJECTS = [
   {
@@ -83,6 +87,13 @@ const PREP_SUBJECTS = [
     name: "Afrikaans",
     thumbnail: "/thumbnails/afrikaans-fal.jpeg",
     color: "from-orange-400 to-amber-500",
+    available: true,
+  },
+  {
+    id: "business-studies",
+    name: "Business Studies",
+    thumbnail: "/thumbnails/business-studies.jpeg",
+    color: "from-blue-500 to-indigo-600",
     available: true,
   },
   {
