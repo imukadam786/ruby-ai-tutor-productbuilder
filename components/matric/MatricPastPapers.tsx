@@ -153,7 +153,7 @@ const SUBJECTS = [
     name: "Maths Literacy",
     thumbnail: "/thumbnails/maths-literacy.jpeg",
     color: "from-violet-500 to-purple-600",
-    available: false,
+    available: true,
   },
   {
     id: "physical-science",
