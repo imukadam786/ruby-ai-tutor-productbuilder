@@ -23,7 +23,7 @@ export default function UpgradeModal({ onDismiss, reason, matricOnly }: UpgradeM
             </h2>
             <p className="text-xs text-gray-400 mt-0.5">
               {reason ?? (matricOnly
-                ? "Matric Past Papers, Study Guides and Prep Papers require the Master plan."
+                ? "Choose between the Matric Exam Pack (once-off) or Master plan (monthly) to unlock all matric content."
                 : "You've reached your daily limit, upgrade to continue")}
             </p>
           </div>

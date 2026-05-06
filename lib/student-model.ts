@@ -16,7 +16,8 @@ export function getStudentProfile(): StudentProfile | null {
 export function saveStudentProfile(profile: StudentProfile): void {
   void (async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { session } } = await supabase.auth.getSession();
+      const user = session?.user;
       void retrySupabase(() => supabase.from("student_profiles").upsert({
         id: profile.id,
         subject: "maths",
@@ -37,7 +38,8 @@ export function saveStudentProfile(profile: StudentProfile): void {
  */
 export async function linkStudentProfileToAuth(profileId: string): Promise<void> {
   try {
-    const { data: { user } } = await supabase.auth.getUser();
+    const { data: { session } } = await supabase.auth.getSession();
+    const user = session?.user;
     if (!user) return;
     void retrySupabase(() =>
       supabase.from("student_profiles")
@@ -55,7 +57,8 @@ export async function linkStudentProfileToAuth(profileId: string): Promise<void>
  */
 export async function hydrateStudentProfileFromSupabase(): Promise<StudentProfile | null> {
   try {
-    const { data: { user } } = await supabase.auth.getUser();
+    const { data: { session } } = await supabase.auth.getSession();
+    const user = session?.user;
     if (!user) return null;
     const { data } = await supabase
       .from("student_profiles")
