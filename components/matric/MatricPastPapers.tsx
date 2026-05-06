@@ -148,6 +148,13 @@ const SUBJECTS = [
     color: "from-cyan-500 to-blue-600",
     available: true,
   },
+  {
+    id: "tourism",
+    name: "Tourism",
+    thumbnail: "/thumbnails/tourism.png",
+    color: "from-teal-400 to-cyan-600",
+    available: true,
+  },
 ] as const;
 
 type SubjectId = (typeof SUBJECTS)[number]["id"];
