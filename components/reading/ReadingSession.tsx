@@ -311,7 +311,8 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
       try {
         const rInput = buildReadingReportInput(updated, result);
         const rContent = buildDeterministicReportContent(rInput);
-        const { data: { user } } = await supabase.auth.getUser();
+        const { data: { session } } = await supabase.auth.getSession();
+        const user = session?.user;
         if (user) {
           const { error: reportError } = await supabase.from("student_reports").insert({
             user_id: user.id,
