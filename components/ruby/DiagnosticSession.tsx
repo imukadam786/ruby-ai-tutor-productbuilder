@@ -155,6 +155,8 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
   // Report state — shown after placement before learning begins
   const [pendingPlacementResult, setPendingPlacementResult] = useState<MathsPlacementResult | null>(null);
   const [showReport, setShowReport] = useState(false);
+  // Holds the profile saved in handleViewReport so handlePlacementComplete can reuse it
+  const savedPlacementRef = useRef<StudentProfile | null>(null);
 
   // Needs-review: skill ID of a stale mastered skill to probe before main practice
   const [pendingReviewSkillId, setPendingReviewSkillId] = useState<string | null>(null);
@@ -518,21 +520,48 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
   };
 
   const handleViewReport = useCallback(
-    (result: MathsPlacementResult) => {
+    async (result: MathsPlacementResult) => {
+      if (!profile) return;
       setPendingPlacementResult(result);
       setShowReport(true);
+      // Persist immediately so the report is viewable from home/settings
+      // even if the user navigates away before clicking "Continue Learning"
+      const updatedProfile = completeMathsPlacement(profile, result);
+      savedPlacementRef.current = updatedProfile;
+      try {
+        const input = buildMathsReportInput(updatedProfile);
+        const content = buildDeterministicReportContent(input);
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          const { error: reportError } = await supabase.from("student_reports").insert({
+            user_id: user.id,
+            subject: "maths",
+            input_data: input as unknown as Record<string, unknown>,
+            content_data: content as unknown as Record<string, unknown>,
+            generated_at: new Date().toISOString(),
+          });
+          if (reportError) console.error("[DiagnosticViewReport] student_reports insert failed:", reportError);
+          void fetch("/api/reports/email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: user.id, subject: "maths", inputData: input, contentData: content }),
+          });
+        }
+      } catch (err) {
+        console.error("[DiagnosticViewReport] Report save failed:", err);
+      }
     },
-    []
+    [profile]
   );
 
   const handlePlacementComplete = useCallback(
     async (result: MathsPlacementResult) => {
       if (!profile) return;
-      const updatedProfile = completeMathsPlacement(profile, result);
+      // Reuse the profile already saved in handleViewReport; fall back if called directly
+      const updatedProfile = savedPlacementRef.current ?? completeMathsPlacement(profile, result);
       setProfile(updatedProfile);
       setPhase("loading_question");
 
-      // Track placement completion
       trackPlacementCompleted({
         subject: "maths",
         grade: profile.grade,
@@ -549,30 +578,6 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
         current_skill_id: updatedProfile.current_skill_id,
         current_level: updatedProfile.current_level,
       });
-
-      // Build and persist report to Supabase for parent viewing
-      try {
-        const input = buildMathsReportInput(updatedProfile);
-        const content = buildDeterministicReportContent(input);
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
-          const { error: reportError } = await supabase.from("student_reports").insert({
-            user_id: user.id,
-            subject: "maths",
-            input_data: input as unknown as Record<string, unknown>,
-            content_data: content as unknown as Record<string, unknown>,
-            generated_at: new Date().toISOString(),
-          });
-          if (reportError) console.error("[DiagnosticComplete] student_reports insert failed:", reportError);
-          void fetch("/api/reports/email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId: user.id, subject: "maths", inputData: input, contentData: content }),
-          });
-        }
-      } catch (err) {
-        console.error("[DiagnosticComplete] Report save failed:", err);
-      }
     },
     [profile]
   );
