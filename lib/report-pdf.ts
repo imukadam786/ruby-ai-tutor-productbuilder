@@ -165,9 +165,12 @@ export async function buildReportPDF(
   input: DiagnosticReportInput,
   content: ReportContent
 ): Promise<Buffer> {
-  /* eslint-disable @typescript-eslint/no-require-imports */
-  const PdfPrinter = require("pdfmake");
-  const vfsFontsModule = require("pdfmake/build/vfs_fonts");
+  // eval('require') prevents webpack from statically analysing and bundling
+  // pdfmake — it must be loaded natively at runtime in Node.js.
+  /* eslint-disable @typescript-eslint/no-require-imports, no-eval */
+  const _require = eval("require") as NodeRequire;
+  const PdfPrinter = _require("pdfmake");
+  const vfsFontsModule = _require("pdfmake/build/vfs_fonts");
 
   // vfs_fonts is a browser-targeted bundle that may assign to `this`, `window`,
   // or return the object directly depending on the environment.
