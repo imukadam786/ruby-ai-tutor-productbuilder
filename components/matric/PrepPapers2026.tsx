@@ -184,15 +184,12 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubject
                 onClick={() => onSelect(subject.id as PrepSubjectId)}
                 className="relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
               >
-                <div className="w-full aspect-[4/3] overflow-hidden">
+                <div className="w-full aspect-square overflow-hidden">
                   <img
                     src={subject.thumbnail}
                     alt={subject.name}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                </div>
-                <div className="px-3 py-2.5">
-                  <p className="font-semibold text-gray-800 text-sm">{subject.name}</p>
                 </div>
               </button>
             ))}
