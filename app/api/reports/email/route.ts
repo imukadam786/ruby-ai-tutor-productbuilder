@@ -4,6 +4,8 @@ import { Resend } from "resend";
 import { buildReportPDF } from "@/lib/report-pdf";
 import type { DiagnosticReportInput, ReportContent } from "@/lib/report-generator";
 
+export const runtime = "nodejs";
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const supabaseAdmin = createClient(
@@ -21,32 +23,46 @@ export async function POST(request: NextRequest) {
       contentData: ReportContent;
     };
 
+    console.log("[report/email] received request", { userId, subject });
+
     if (!userId || !subject || !inputData || !contentData) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Fetch the user's email from the users table
-    const { data: user, error: userErr } = await supabaseAdmin
+    // Prefer parent_email from users table; fall back to auth email
+    const { data: userRow } = await supabaseAdmin
       .from("users")
-      .select("email, full_name")
+      .select("parent_email")
       .eq("id", userId)
       .maybeSingle();
 
-    if (userErr || !user?.email) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
+    let email = userRow?.parent_email as string | null | undefined;
+    console.log("[report/email] parent_email lookup", { parent_email: email });
+
+    if (!email) {
+      const { data: authUser, error: authErr } = await supabaseAdmin.auth.admin.getUserById(userId);
+      email = authUser?.user?.email;
+      console.log("[report/email] auth fallback lookup", { email, authErr: authErr?.message });
+    }
+
+    if (!email) {
+      return NextResponse.json({ error: "User email not found" }, { status: 404 });
     }
 
     // Build the PDF
+    console.log("[report/email] building PDF...");
     const pdfBuffer = await buildReportPDF(inputData, contentData);
+    console.log("[report/email] PDF built, size:", pdfBuffer.length);
 
     const subjectLabel = subject === "maths" ? "Maths" : "Reading";
     const studentName = inputData.studentName ?? "your child";
     const fileName = `Ruby_${subjectLabel}_Report_${studentName.replace(/\s+/g, "_")}.pdf`;
 
     // Send via Resend
-    const { error: sendErr } = await resend.emails.send({
+    console.log("[report/email] sending via Resend to", email);
+    const { data: sendData, error: sendErr } = await resend.emails.send({
       from: "Ruby AI Tutor <reports@rubyaitutor.com>",
-      to: user.email,
+      to: email,
       subject: `${studentName}'s ${subjectLabel} Diagnostic Report — Ruby AI Tutor`,
       html: buildEmailHtml(studentName, subjectLabel),
       attachments: [
@@ -62,6 +78,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 
+    console.log("[report/email] sent successfully", { id: sendData?.id });
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[report/email] Unexpected error:", err);

@@ -167,13 +167,25 @@ export async function buildReportPDF(
 ): Promise<Buffer> {
   /* eslint-disable @typescript-eslint/no-require-imports */
   const PdfPrinter = require("pdfmake");
-  const vfsFonts = require("pdfmake/build/vfs_fonts");
+  const vfsFontsModule = require("pdfmake/build/vfs_fonts");
+
+  // vfs_fonts is a browser-targeted bundle that may assign to `this`, `window`,
+  // or return the object directly depending on the environment.
+  const vfs: Record<string, string> =
+    vfsFontsModule?.pdfMake?.vfs ??
+    vfsFontsModule?.vfs ??
+    vfsFontsModule ?? {};
+
+  if (!vfs["Roboto-Regular.ttf"]) {
+    throw new Error("[report-pdf] pdfmake vfs fonts failed to load — Roboto-Regular.ttf missing");
+  }
+
   const FONTS = {
     Roboto: {
-      normal:      Buffer.from(vfsFonts.pdfMake.vfs["Roboto-Regular.ttf"],      "base64"),
-      bold:        Buffer.from(vfsFonts.pdfMake.vfs["Roboto-Medium.ttf"],       "base64"),
-      italics:     Buffer.from(vfsFonts.pdfMake.vfs["Roboto-Italic.ttf"],       "base64"),
-      bolditalics: Buffer.from(vfsFonts.pdfMake.vfs["Roboto-MediumItalic.ttf"], "base64"),
+      normal:      Buffer.from(vfs["Roboto-Regular.ttf"],      "base64"),
+      bold:        Buffer.from(vfs["Roboto-Medium.ttf"],       "base64"),
+      italics:     Buffer.from(vfs["Roboto-Italic.ttf"],       "base64"),
+      bolditalics: Buffer.from(vfs["Roboto-MediumItalic.ttf"], "base64"),
     },
   };
   const printer = new PdfPrinter(FONTS);
