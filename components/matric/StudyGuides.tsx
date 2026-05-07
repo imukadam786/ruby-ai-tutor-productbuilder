@@ -93,6 +93,38 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Business Studies",
+    thumbnail: "/thumbnails/business-studies.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Business Environments",
+        description: "Business environments, entrepreneurship and business roles",
+        filename: "busistd-p1-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Management & Operations",
+        description: "Business functions, financial management and human resources",
+        filename: "busistd-p2-may-jun-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
+    label: "Economics",
+    thumbnail: "/thumbnails/economics.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Macroeconomics & Microeconomics",
+        description: "Economic systems, markets, growth and development",
+        filename: "eco-p1-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Economic Pursuits",
+        description: "Labour markets, public sector, foreign exchange and economic history",
+        filename: "eco-p2-may-jun-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
     label: "English FAL",
     thumbnail: "/thumbnails/english-fal.png",
     guides: [
@@ -215,38 +247,6 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
-    label: "Business Studies",
-    thumbnail: "/thumbnails/business-studies.jpeg",
-    guides: [
-      {
-        label: "Paper 1 — Business Environments",
-        description: "Business environments, entrepreneurship and business roles",
-        filename: "busistd-p1-may-jun-2026-studyguide_compressed.pdf",
-      },
-      {
-        label: "Paper 2 — Management & Operations",
-        description: "Business functions, financial management and human resources",
-        filename: "busistd-p2-may-jun-2026-studyguide_compressed.pdf",
-      },
-    ],
-  },
-  {
-    label: "Economics",
-    thumbnail: "/thumbnails/economics.jpeg",
-    guides: [
-      {
-        label: "Paper 1 — Macroeconomics & Microeconomics",
-        description: "Economic systems, markets, growth and development",
-        filename: "eco-p1-may-jun-2026-studyguide_compressed.pdf",
-      },
-      {
-        label: "Paper 2 — Economic Pursuits",
-        description: "Labour markets, public sector, foreign exchange and economic history",
-        filename: "eco-p2-may-jun-2026-studyguide_compressed.pdf",
-      },
-    ],
-  },
-  {
     label: "Tourism",
     thumbnail: "/thumbnails/tourism.jpeg",
     guides: [
@@ -322,13 +322,15 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
                 <button
                   key={s.label}
                   onClick={() => setSelectedSubject(s)}
-                  className="relative aspect-square rounded-2xl transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
+                  className="relative rounded-2xl transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
                 >
-                  <img
-                    src={s.thumbnail}
-                    alt={s.label}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+                  <div className="w-full aspect-square overflow-hidden">
+                    <img
+                      src={s.thumbnail}
+                      alt={s.label}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
                 </button>
               ))}
             </div>
