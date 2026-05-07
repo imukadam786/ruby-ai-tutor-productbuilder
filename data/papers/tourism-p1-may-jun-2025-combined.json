@@ -417,11 +417,26 @@
         {
           "id": "tourism-may-jun-2025-1-4",
           "label": "1.4",
-          "questionText": "Choose the host city (cities) from COLUMN B that match(es) the travel trade show in COLUMN A. Write only the letter (A–F) next to the question numbers (1.4.1 to 1.4.5).\n\nCOLUMN A:\n1.4.1 WTM (World Travel Market)\n1.4.2 ITB (Internationale Tourismus-Börse)\n1.4.3 Getaway Show\n1.4.4 Africa's Travel Indaba\n1.4.5 WTM Africa (World Travel Market Africa)\n\nCOLUMN B:\nA Durban\nB Cape Town and Johannesburg\nC Los Angeles\nD London\nE Berlin\nF Cape Town",
+          "questionText": "Choose the host city (cities) from COLUMN B that match(es) the travel trade show in COLUMN A. Write only the letter (A–F) next to the question numbers (1.4.1 to 1.4.5).",
           "marks": 5,
           "memoText": "Expected answers (1 mark each):\n1.4.1 D / London\n1.4.2 E / Berlin\n1.4.3 B / Cape Town and Johannesburg (also accept F / Cape Town)\n1.4.4 A / Durban\n1.4.5 F / Cape Town",
           "topic": "Marketing",
-          "type": "written",
+          "type": "match-group",
+          "matchRows": [
+            { "label": "1.4.1", "term": "WTM (World Travel Market)" },
+            { "label": "1.4.2", "term": "ITB (Internationale Tourismus-Börse)" },
+            { "label": "1.4.3", "term": "Getaway Show" },
+            { "label": "1.4.4", "term": "Africa's Travel Indaba" },
+            { "label": "1.4.5", "term": "WTM Africa (World Travel Market Africa)" }
+          ],
+          "matchOptions": {
+            "A": "Durban",
+            "B": "Cape Town and Johannesburg",
+            "C": "Los Angeles",
+            "D": "London",
+            "E": "Berlin",
+            "F": "Cape Town"
+          },
           "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/tour-p1-may-jun-2025-q1.4.png"
         },
         {

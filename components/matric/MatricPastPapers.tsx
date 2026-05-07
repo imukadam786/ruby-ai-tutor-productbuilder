@@ -27,6 +27,7 @@ interface QuestionState {
   calcAnswer: string;    // "calculation" type: final answer field
   col2Working: string;   // "two-column" type: right column
   selectedOption?: string; // MCQ: "A" | "B" | "C" | "D"
+  matchAnswers?: Record<string, string>; // match-group: row label → selected letter
   imageFile?: File;
   imagePreviewUrl?: string;
   imageData?: string;
@@ -942,18 +943,23 @@ function SessionView({
       const isMCQ = sq.type === "mcq" && sq.options;
       const isCalc = sq.type === "calculation";
       const isTwoCol = sq.type === "two-column";
+      const isMatchGroup = sq.type === "match-group" && sq.matchRows && sq.matchOptions;
 
-      // Embed options into question text for MCQ so the AI has full context
+      // Embed options into question text for MCQ / match-group so the AI has full context
       const questionText = isMCQ
         ? `${sq.questionText}\n\n${(["A", "B", "C", "D", "E"] as const)
             .filter((l) => sq.options![l] !== undefined)
             .map((l) => `${l}) ${sq.options![l]}`)
             .join("\n")}`
+        : isMatchGroup
+        ? `${sq.questionText}\n\nCOLUMN A:\n${sq.matchRows!.map((r) => `${r.label} — ${r.term}`).join("\n")}\n\nCOLUMN B:\n${Object.entries(sq.matchOptions!).map(([l, v]) => `${l} — ${v}`).join("\n")}`
         : sq.questionText;
 
       // Build studentText based on input type
       const studentText = isMCQ
         ? `Student selected: ${attempt.selectedOption ?? "(no answer selected)"}`
+        : isMatchGroup
+        ? sq.matchRows!.map((r) => `${r.label}: ${attempt.matchAnswers?.[r.label] ?? "(no answer)"}`).join("\n")
         : isCalc
         ? `WORKINGS:\n${attempt.textWorking}\n\nFINAL ANSWER: ${attempt.calcAnswer}`
         : isTwoCol
@@ -1012,8 +1018,11 @@ function SessionView({
     const isMCQ = currentSQ.type === "mcq";
     const isCalc = currentSQ.type === "calculation";
     const isTwoCol = currentSQ.type === "two-column";
+    const isMatchGroup = currentSQ.type === "match-group";
     const hasAnswer = isMCQ
       ? !!currentAttempt.selectedOption
+      : isMatchGroup
+      ? Object.keys(currentAttempt.matchAnswers ?? {}).length > 0
       : isCalc
       ? !!(currentAttempt.textWorking.trim() || currentAttempt.calcAnswer.trim())
       : isTwoCol
@@ -1062,6 +1071,7 @@ function SessionView({
       textWorking: "",
       calcAnswer: "",
       col2Working: "",
+      matchAnswers: {},
       imageFile: undefined,
       imagePreviewUrl: undefined,
       imageData: undefined,
@@ -1085,6 +1095,8 @@ function SessionView({
       const attempt = updatedAttempts[sq.id];
       const hasAnswer = sq.type === "mcq"
         ? !!attempt.selectedOption
+        : sq.type === "match-group"
+        ? Object.keys(attempt.matchAnswers ?? {}).length > 0
         : sq.type === "calculation"
         ? !!(attempt.textWorking.trim() || attempt.calcAnswer.trim())
         : sq.type === "two-column"
@@ -1124,6 +1136,7 @@ function SessionView({
     const sq = flatQuestions.find((q) => q.id === id);
     if (!sq) return false;
     if (sq.type === "mcq") return !!a.selectedOption;
+    if (sq.type === "match-group") return Object.keys(a.matchAnswers ?? {}).length > 0;
     if (sq.type === "calculation") return !!(a.textWorking.trim() || a.calcAnswer.trim());
     if (sq.type === "two-column") return !!(a.textWorking.trim() || a.col2Working.trim());
     return !!(a.textWorking.trim() || a.imageFile);
@@ -1482,6 +1495,59 @@ function SessionView({
                     />
                   </div>
                 </div>
+              ) : currentSQ.type === "match-group" && currentSQ.matchRows && currentSQ.matchOptions ? (
+                /* ── Match-group: COLUMN B reference + per-row letter selectors ── */
+                <div className="flex-1 flex flex-col gap-2 min-h-0 overflow-y-auto">
+                  {/* COLUMN B reference panel */}
+                  <div className="flex-shrink-0 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Column B</p>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1">
+                      {Object.entries(currentSQ.matchOptions).map(([letter, value]) => (
+                        <span key={letter} className="text-xs text-gray-700">
+                          <span className="font-bold text-gray-900">{letter}</span> — {value}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Per-row selectors */}
+                  <div className="flex-1 space-y-2">
+                    {currentSQ.matchRows.map((row) => {
+                      const selected = currentAttempt.matchAnswers?.[row.label];
+                      return (
+                        <div key={row.label} className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-3 py-2.5">
+                          <div className="flex-1 min-w-0">
+                            <span className="text-xs font-semibold text-gray-400 mr-1.5">{row.label}</span>
+                            <span className="text-sm text-gray-800">{row.term}</span>
+                          </div>
+                          <div className="flex-shrink-0 flex gap-1.5 flex-wrap justify-end">
+                            {Object.keys(currentSQ.matchOptions!).map((letter) => {
+                              const isChosen = selected === letter;
+                              return (
+                                <button
+                                  key={letter}
+                                  disabled={currentAttempt.submitted}
+                                  onClick={() => {
+                                    const next = { ...(currentAttempt.matchAnswers ?? {}) };
+                                    if (isChosen) { delete next[row.label]; }
+                                    else { next[row.label] = letter; }
+                                    updateAttempt(currentSQ.id, { matchAnswers: next });
+                                  }}
+                                  className={`w-8 h-8 rounded-lg text-sm font-bold border-2 transition-all ${
+                                    isChosen
+                                      ? "bg-[#BE1832] border-[#BE1832] text-white"
+                                      : "bg-white border-gray-200 text-gray-500 hover:border-gray-400"
+                                  } disabled:cursor-default`}
+                                >
+                                  {letter}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               ) : isMaths ? (
                 /* ── Maths: Symbol toolbar + Step-by-step inputs ── */
                 <>
@@ -1716,7 +1782,7 @@ function SessionView({
               {mode === "guided" ? (
                 currentAttempt.submitted ? (
                   <div className="flex gap-2 flex-shrink-0">
-                    {currentSQ.type !== "mcq" && (
+                    {currentSQ.type !== "mcq" && currentSQ.type !== "match-group" && (
                       <button
                         onClick={handleRetry}
                         className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
@@ -1746,6 +1812,7 @@ function SessionView({
                       disabled={
                         isEvaluating || (() => {
                           if (currentSQ.type === "mcq") return !currentAttempt.selectedOption;
+                          if (currentSQ.type === "match-group") return Object.keys(currentAttempt.matchAnswers ?? {}).length === 0;
                           if (currentSQ.type === "calculation") return !currentAttempt.textWorking.trim() && !currentAttempt.calcAnswer.trim();
                           if (currentSQ.type === "two-column") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
                           return !currentAttempt.textWorking.trim() && !currentAttempt.imageFile;

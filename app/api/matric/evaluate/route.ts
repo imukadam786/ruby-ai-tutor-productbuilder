@@ -38,7 +38,8 @@ export async function POST(req: NextRequest) {
     const showWorkedExample =
       mode === "guided" &&
       attemptCount === 1 &&
-      questionType !== "mcq";
+      questionType !== "mcq" &&
+      questionType !== "match-group";
 
     // Safeguard: memoText is per-question and should be small, but cap it to
     // prevent any accidentally large value from inflating the request.
