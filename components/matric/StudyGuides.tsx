@@ -82,6 +82,17 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Agricultural Science",
+    thumbnail: "/thumbnails/geography.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Agricultural Science",
+        description: "Plant production, animal production and agricultural management",
+        filename: "agrisci-p1-may-jun-2026-studyguide1.pdf",
+      },
+    ],
+  },
+  {
     label: "English FAL",
     thumbnail: "/thumbnails/english-fal.png",
     guides: [
