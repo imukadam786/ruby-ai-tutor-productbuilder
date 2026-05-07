@@ -20,10 +20,10 @@ export interface SubQuestion {
   /** Completed sketch shown to student after submission (memo version of diagram) */
   memoImageUrl?: string;
   /** Input layout variant. Defaults to "written" if omitted. */
-  type?: "written" | "mcq" | "calculation" | "two-column" | "match-group";
+  type?: "written" | "mcq" | "calculation" | "two-column" | "match-group" | "answer-book";
   /** Required when type === "mcq" */
   options?: MCQOptions;
-  /** Column labels for type === "two-column" (col1 defaults to "Workings", col2 defaults to "Answer") */
+  /** Column labels for type === "two-column". For "answer-book" overrides section labels (defaults: "Workings" / "Statement (R)") */
   col1Label?: string;
   col2Label?: string;
   /** Required when type === "match-group": the COLUMN A rows */

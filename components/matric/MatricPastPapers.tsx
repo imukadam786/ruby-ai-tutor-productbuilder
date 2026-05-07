@@ -1005,6 +1005,7 @@ function SessionView({
       const isMCQ = sq.type === "mcq" && sq.options;
       const isCalc = sq.type === "calculation";
       const isTwoCol = sq.type === "two-column";
+      const isAnswerBook = sq.type === "answer-book";
       const isMatchGroup = sq.type === "match-group" && sq.matchRows && sq.matchOptions;
 
       // Embed options into question text for MCQ / match-group so the AI has full context
@@ -1026,6 +1027,8 @@ function SessionView({
         ? `WORKINGS:\n${attempt.textWorking}\n\nFINAL ANSWER: ${attempt.calcAnswer}`
         : isTwoCol
         ? `${sq.col1Label ?? "Column 1"}:\n${attempt.textWorking}\n\n${sq.col2Label ?? "Column 2"}:\n${attempt.col2Working}`
+        : isAnswerBook
+        ? `${sq.col1Label ?? "WORKINGS"}:\n${attempt.textWorking}\n\n${sq.col2Label ?? "STATEMENT"}:\n${attempt.col2Working}`
         : attempt.textWorking;
 
       let imageData: string | undefined;
@@ -1080,6 +1083,7 @@ function SessionView({
     const isMCQ = currentSQ.type === "mcq";
     const isCalc = currentSQ.type === "calculation";
     const isTwoCol = currentSQ.type === "two-column";
+    const isAnswerBook = currentSQ.type === "answer-book";
     const isMatchGroup = currentSQ.type === "match-group";
     const hasAnswer = isMCQ
       ? !!currentAttempt.selectedOption
@@ -1087,7 +1091,7 @@ function SessionView({
       ? Object.keys(currentAttempt.matchAnswers ?? {}).length > 0
       : isCalc
       ? !!(currentAttempt.textWorking.trim() || currentAttempt.calcAnswer.trim())
-      : isTwoCol
+      : isTwoCol || isAnswerBook
       ? !!(currentAttempt.textWorking.trim() || currentAttempt.col2Working.trim())
       : !!(currentAttempt.textWorking.trim() || currentAttempt.imageFile);
     if (!hasAnswer) return;
@@ -1161,7 +1165,7 @@ function SessionView({
         ? Object.keys(attempt.matchAnswers ?? {}).length > 0
         : sq.type === "calculation"
         ? !!(attempt.textWorking.trim() || attempt.calcAnswer.trim())
-        : sq.type === "two-column"
+        : sq.type === "two-column" || sq.type === "answer-book"
         ? !!(attempt.textWorking.trim() || attempt.col2Working.trim())
         : !!(attempt.textWorking.trim() || attempt.imageFile);
       if (!hasAnswer) {
@@ -1200,7 +1204,7 @@ function SessionView({
     if (sq.type === "mcq") return !!a.selectedOption;
     if (sq.type === "match-group") return Object.keys(a.matchAnswers ?? {}).length > 0;
     if (sq.type === "calculation") return !!(a.textWorking.trim() || a.calcAnswer.trim());
-    if (sq.type === "two-column") return !!(a.textWorking.trim() || a.col2Working.trim());
+    if (sq.type === "two-column" || sq.type === "answer-book") return !!(a.textWorking.trim() || a.col2Working.trim());
     return !!(a.textWorking.trim() || a.imageFile);
   }).length;
   const submittedCount = Object.values(attempts).filter((a) => a.submitted).length;
@@ -1320,26 +1324,28 @@ function SessionView({
 
       {/* Diagram lightbox */}
       {expandedDiagramUrl && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setExpandedDiagramUrl(null)}
-        >
-          <div className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center">
-            <button
-              onClick={() => setExpandedDiagramUrl(null)}
-              className="absolute -top-10 right-0 text-white/80 hover:text-white p-1"
-              title="Close"
-            >
-              <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <img
-              src={expandedDiagramUrl}
-              alt="Diagram"
-              className="max-h-[85vh] max-w-full object-contain rounded-xl"
-              onClick={(e) => e.stopPropagation()}
-            />
+        <div className="fixed inset-0 z-50 flex justify-end">
+          <div className="absolute inset-0 bg-black/30" onClick={() => setExpandedDiagramUrl(null)} />
+          <div className="relative bg-white w-full sm:max-w-[580px] h-full flex flex-col shadow-2xl">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
+              <span className="font-bold text-sm text-gray-800">Reference</span>
+              <button
+                onClick={() => setExpandedDiagramUrl(null)}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                title="Close"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-4">
+              <img
+                src={expandedDiagramUrl}
+                alt="Reference diagram"
+                className="w-full object-contain rounded-xl border border-gray-200"
+              />
+            </div>
           </div>
         </div>
       )}
@@ -1573,6 +1579,34 @@ function SessionView({
                       placeholder={`Enter ${currentSQ.col2Label ?? "column 2"} here…`}
                       disabled={currentAttempt.submitted}
                       className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none disabled:opacity-60"
+                    />
+                  </div>
+                </div>
+              ) : currentSQ.type === "answer-book" ? (
+                /* ── Answer Book: Workings (top) + Statement (bottom) ── */
+                <div className="flex-1 flex flex-col gap-2 min-h-0">
+                  <div className="flex flex-col min-h-0" style={{ flex: "0 0 38%" }}>
+                    <label className="text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">
+                      {currentSQ.col1Label ?? "Workings"}
+                    </label>
+                    <textarea
+                      value={currentAttempt.textWorking}
+                      onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
+                      placeholder="Show all your calculations here…"
+                      disabled={currentAttempt.submitted}
+                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
+                    />
+                  </div>
+                  <div className="flex-1 flex flex-col min-h-0">
+                    <label className="text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">
+                      {currentSQ.col2Label ?? "Statement (R)"}
+                    </label>
+                    <textarea
+                      value={currentAttempt.col2Working}
+                      onChange={(e) => updateAttempt(currentSQ.id, { col2Working: e.target.value })}
+                      placeholder="Prepare your financial statement here…"
+                      disabled={currentAttempt.submitted}
+                      className="flex-1 min-h-0 w-full border border-amber-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono bg-amber-50/20 disabled:opacity-60"
                     />
                   </div>
                 </div>
@@ -1895,7 +1929,7 @@ function SessionView({
                           if (currentSQ.type === "mcq") return !currentAttempt.selectedOption;
                           if (currentSQ.type === "match-group") return Object.keys(currentAttempt.matchAnswers ?? {}).length === 0;
                           if (currentSQ.type === "calculation") return !currentAttempt.textWorking.trim() && !currentAttempt.calcAnswer.trim();
-                          if (currentSQ.type === "two-column") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
+                          if (currentSQ.type === "two-column" || currentSQ.type === "answer-book") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
                           return !currentAttempt.textWorking.trim() && !currentAttempt.imageFile;
                         })()
                       }
@@ -2199,6 +2233,7 @@ function SummaryView({
                 const studentAnswer = (() => {
                   if (sq.type === "mcq") return attempt?.selectedOption ? `Option ${attempt.selectedOption}` : null;
                   if (sq.type === "two-column") return attempt?.col2Working?.trim() || null;
+                  if (sq.type === "answer-book") return [attempt?.textWorking?.trim(), attempt?.col2Working?.trim()].filter(Boolean).join("\n\n") || null;
                   return attempt?.textWorking?.trim() || null;
                 })();
 

@@ -830,14 +830,24 @@ function SessionView({
       {showInfoSheet && paper.infoSheet && <InfoSheetModal sheet={paper.infoSheet} onClose={() => setShowInfoSheet(false)} />}
 
       {expandedDiagramUrl && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" onClick={() => setExpandedDiagramUrl(null)}>
-          <div className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center">
-            <button onClick={() => setExpandedDiagramUrl(null)} className="absolute -top-10 right-0 text-white/80 hover:text-white p-1">
-              <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <img src={expandedDiagramUrl} alt="Diagram" className="max-h-[85vh] max-w-full object-contain rounded-xl" onClick={(e) => e.stopPropagation()} />
+        <div className="fixed inset-0 z-50 flex justify-end">
+          <div className="absolute inset-0 bg-black/30" onClick={() => setExpandedDiagramUrl(null)} />
+          <div className="relative bg-white w-full sm:max-w-[580px] h-full flex flex-col shadow-2xl">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
+              <span className="font-bold text-sm text-gray-800">Reference</span>
+              <button
+                onClick={() => setExpandedDiagramUrl(null)}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                title="Close"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-4">
+              <img src={expandedDiagramUrl} alt="Reference diagram" className="w-full object-contain rounded-xl border border-gray-200" />
+            </div>
           </div>
         </div>
       )}
