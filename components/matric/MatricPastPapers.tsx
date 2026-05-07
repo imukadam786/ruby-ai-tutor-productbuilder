@@ -201,22 +201,29 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: SubjectId) 
         <div className="space-y-3">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a subject</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {SUBJECTS.map((subject) => (
-              <button
-                key={subject.id}
-                onClick={() => onSelect(subject.id as SubjectId)}
-                className="relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
-              >
-                {/* Thumbnail image */}
-                <div className="w-full aspect-square overflow-hidden">
-                  <img
-                    src={subject.thumbnail}
-                    alt={subject.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-              </button>
-            ))}
+            {SUBJECTS.map((subject) => {
+              const needsScale = ["business-studies", "economics", "afrikaans", "tourism"].includes(subject.id);
+              return (
+                <button
+                  key={subject.id}
+                  onClick={() => onSelect(subject.id as SubjectId)}
+                  className="relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
+                >
+                  {/* Thumbnail image */}
+                  <div className="w-full aspect-square overflow-hidden">
+                    <img
+                      src={subject.thumbnail}
+                      alt={subject.name}
+                      className={`w-full h-full object-cover transition-transform duration-300 ${
+                        needsScale
+                          ? "scale-[0.82] group-hover:scale-[0.88]"
+                          : "group-hover:scale-105"
+                      }`}
+                    />
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
 
