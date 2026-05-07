@@ -856,19 +856,79 @@ function SessionView({
   const currentSQ = flatQuestions[currentIdx];
   const currentAttempt = attempts[currentSQ.id];
 
-  // Derive 3-level hints from memoText for the current question
-  const buildHints = (memoText: string, marks: number): [string, string, string] => {
-    const lines = memoText.split("\n").filter((l) => l.trim().startsWith("Mark"));
-    const markCount = lines.length;
-    const nudge = `This question is worth ${marks} mark${marks !== 1 ? "s" : ""}. There ${markCount > 1 ? `are ${markCount} mark steps` : "is 1 mark step"} — identify each one before writing your answer.`;
-    const process = lines[0]
-      ? `First mark: ${lines[0].replace(/^Mark \d+:\s*/i, "").trim()}`
-      : "Start by identifying what the question is asking for, then apply the relevant formula or method.";
-    const worked = lines.slice(0, 2).join(" → ").replace(/Mark \d+:\s*/gi, "").trim() ||
-      "See the memo for the full worked solution.";
-    return [nudge, process, worked];
+  // Derive 3-level hints from memoText — progressively more revealing, no AI call needed
+  const buildHints = (memoText: string, marks: number, type?: string): [string, string, string] => {
+    const text = memoText.trim();
+    const marksLabel = `${marks} mark${marks !== 1 ? "s" : ""}`;
+
+    // MCQ — detect by question type or memo pattern
+    const mcqMatch = text.match(/correct answer:\s*([A-E])/i);
+    if (type === "mcq" || mcqMatch) {
+      const letter = mcqMatch?.[1]?.toUpperCase();
+      const explanationLines = text.split("\n").map(l => l.trim()).filter(l => l && !l.match(/correct answer:/i));
+      const explanation = explanationLines.join(" ").trim();
+      return [
+        `Multiple choice — read each option carefully and eliminate the ones that are clearly wrong. This question is worth ${marksLabel}.`,
+        explanation ? `Think about this: ${explanation}` : "Consider what the question is really testing, then match it to the correct concept.",
+        letter ? `The correct answer is ${letter}.${explanation ? ` ${explanation}` : ""}` : explanation || "Review the options again carefully.",
+      ];
+    }
+
+    // Mark scheme format — "Mark 1: ...", "Mark 2: ..."
+    const markLines = text.split("\n").filter(l => l.trim().match(/^mark \d+:/i));
+    if (markLines.length > 0) {
+      const clean = (line: string) => line.replace(/^mark \d+:\s*/i, "").trim();
+      const steps = markLines.slice(0, 3).map(clean);
+      return [
+        `This question is worth ${marksLabel} across ${markLines.length} step${markLines.length !== 1 ? "s" : ""}. Plan your answer to cover each step.`,
+        `Start with: ${steps[0]}`,
+        steps.map((s, i) => `Step ${i + 1}: ${s}`).join("\n"),
+      ];
+    }
+
+    // Calculation format — has "Working:" or "Answer:" sections
+    const workingMatch = text.match(/working:?\s*([^\n]+)/i);
+    const answerMatch = text.match(/answer:?\s*([^\n]+)/i);
+    const teachingMatch = text.match(/teaching point:?\s*([^\n]+)/i);
+    if (workingMatch || answerMatch) {
+      const working = workingMatch?.[1]?.trim();
+      const answer = answerMatch?.[1]?.trim();
+      const teaching = teachingMatch?.[1]?.trim();
+      return [
+        `Show all working — each correct step earns marks. This question is worth ${marksLabel}.`,
+        working ? `Approach: ${working}` : (teaching || "Write down your formula first, then substitute your values step by step."),
+        [working && `Working: ${working}`, answer && `Answer: ${answer}`].filter(Boolean).join("\n") || teaching || text.substring(0, 150),
+      ];
+    }
+
+    // Short/simple answer (1–3 lines, no mark structure)
+    const lines = text.split("\n").map(l => l.trim()).filter(Boolean);
+    if (lines.length <= 3 && !text.match(/any other relevant/i)) {
+      const answer = lines[0];
+      const words = answer.split(/\s+/);
+      const partial = words.length <= 2
+        ? `It starts with "${words[0].charAt(0)}…"`
+        : answer.substring(0, Math.ceil(answer.length * 0.45)) + "…";
+      return [
+        `This question is worth ${marksLabel}. Think about the specific term or concept being asked for.`,
+        partial,
+        answer,
+      ];
+    }
+
+    // Narrative/essay format (history, long answers)
+    const contentLines = lines.filter(l => !l.match(/any other relevant|^\(\d|\(\d\s*x\s*\d/i));
+    const hint2 = contentLines[0]
+      ? `Your answer should include: "${contentLines[0].substring(0, 100)}${contentLines[0].length > 100 ? "…" : ""}"`
+      : "Recall the key facts and evidence related to this topic.";
+    const hint3 = contentLines.slice(0, 2).map(l => `• ${l.substring(0, 90)}${l.length > 90 ? "…" : ""}`).join("\n") || text.substring(0, 150);
+    return [
+      `This question is worth ${marksLabel}. Use specific facts, examples, or evidence in your answer.`,
+      hint2,
+      hint3,
+    ];
   };
-  const [hint1, hint2, hint3] = buildHints(currentSQ.memoText, currentSQ.marks);
+  const [hint1, hint2, hint3] = buildHints(currentSQ.memoText, currentSQ.marks, currentSQ.type);
 
   // Scroll coach panel to bottom when new messages arrive
   useEffect(() => {
