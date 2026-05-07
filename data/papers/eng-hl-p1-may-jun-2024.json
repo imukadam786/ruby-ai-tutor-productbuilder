@@ -18,8 +18,7 @@
           "questionText": "Provide a definition of the word humility (line 1).",
           "marks": 1,
           "memoText": "Humility could be defined as being humble/modest/having a lack of pride.",
-          "topic": "Comprehension",
-          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/eng-hl-p1-may-jun-2024-q1-text-a-1.png"
+          "topic": "Comprehension"
         },
         {
           "id": "1-2",
@@ -53,12 +52,12 @@
           "memoText": "C – assertive",
           "topic": "Comprehension",
           "type": "mcq",
-          "options": [
-            "A forceful.",
-            "B argumentative.",
-            "C assertive.",
-            "D persistent."
-          ]
+          "options": {
+            "A": "forceful.",
+            "B": "argumentative.",
+            "C": "assertive.",
+            "D": "persistent."
+          }
         },
         {
           "id": "1-6",
@@ -278,12 +277,12 @@
           "memoText": "D – complex-compound sentence",
           "topic": "Language Structures and Conventions",
           "type": "mcq",
-          "options": [
-            "A complex sentence.",
-            "B simple sentence.",
-            "C compound sentence.",
-            "D complex-compound sentence."
-          ]
+          "options": {
+            "A": "complex sentence.",
+            "B": "simple sentence.",
+            "C": "compound sentence.",
+            "D": "complex-compound sentence."
+          }
         },
         {
           "id": "5-4",

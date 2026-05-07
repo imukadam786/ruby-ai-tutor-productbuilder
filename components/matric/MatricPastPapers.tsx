@@ -838,10 +838,20 @@ function SessionView({
     wasEvaluating.current = isEvaluating;
   }, [isEvaluating, mode]);
 
+  // Show scroll hint when question panel content overflows (mobile)
+  useEffect(() => {
+    const el = questionPanelRef.current;
+    if (!el) return;
+    el.scrollTop = 0;
+    setShowScrollHint(el.scrollHeight > el.clientHeight + 8);
+  }, [currentIdx]);
+
   const fileInputRef = useRef<HTMLInputElement>(null);
   const coachEndRef = useRef<HTMLDivElement>(null);
   const mathsInputRefs = useRef<Record<string, HTMLTextAreaElement | null>>({});
   const activeMathsKey = useRef<string | null>(null);
+  const questionPanelRef = useRef<HTMLDivElement>(null);
+  const [showScrollHint, setShowScrollHint] = useState(false);
 
   const currentSQ = flatQuestions[currentIdx];
   const currentAttempt = attempts[currentSQ.id];
@@ -1315,7 +1325,14 @@ function SessionView({
           {/* Content area — no scroll, flex column */}
           <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
             {/* Question text + diagram (scrollable together) */}
-            <div className="flex-shrink-0 overflow-y-auto px-3 sm:px-5 py-2 sm:py-3 border-b border-gray-100 max-h-[30%] sm:max-h-[45%]">
+            <div
+              ref={questionPanelRef}
+              onScroll={(e) => {
+                const el = e.currentTarget;
+                setShowScrollHint(el.scrollHeight - el.scrollTop > el.clientHeight + 20);
+              }}
+              className="relative flex-shrink-0 overflow-y-auto px-3 sm:px-5 py-2 sm:py-3 border-b border-gray-100 max-h-[30%] sm:max-h-[45%]"
+            >
               <div className="text-base text-gray-800 leading-relaxed">
                 <MathMarkdown content={currentSQ.questionText} />
               </div>
@@ -1408,6 +1425,18 @@ function SessionView({
                       {currentAttempt.marksEarned}/{currentSQ.marks} marks earned
                     </span>
                   )}
+                </div>
+              )}
+
+              {/* Mobile scroll hint — only shown when content is clipped */}
+              {showScrollHint && (
+                <div className="sm:hidden sticky bottom-0 left-0 right-0 -mx-3 px-3 pt-4 pb-1.5 pointer-events-none bg-gradient-to-t from-white via-white/90 to-transparent flex justify-center">
+                  <span className="animate-bounce flex items-center gap-1 text-[11px] font-semibold text-gray-400">
+                    Scroll for more
+                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
                 </div>
               )}
             </div>
@@ -2009,6 +2038,7 @@ function SummaryView({
   onRetry: () => void;
   onBack: () => void;
 }) {
+  const [showReview, setShowReview] = useState(false);
   const flatQuestions = getFlatSubQuestions(paper);
   const totalEarned = flatQuestions.reduce(
     (sum, sq) => sum + (attempts[sq.id]?.marksEarned ?? 0),
@@ -2091,6 +2121,82 @@ function SummaryView({
             </p>
           </div>
         )}
+
+        {/* Answer review */}
+        <div className="space-y-3">
+          <button
+            onClick={() => setShowReview((v) => !v)}
+            className="w-full flex items-center justify-between bg-white rounded-2xl border border-gray-100 shadow-sm px-5 py-4 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
+          >
+            <span>Review your answers</span>
+            <svg
+              className={`w-4 h-4 text-gray-400 transition-transform ${showReview ? "rotate-180" : ""}`}
+              fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {showReview && (
+            <div className="space-y-3">
+              {flatQuestions.map((sq) => {
+                const attempt = attempts[sq.id];
+                const earned = attempt?.marksEarned ?? 0;
+                const isCorrect = earned >= sq.marks;
+                const isPartial = earned > 0 && earned < sq.marks;
+                const studentAnswer = (() => {
+                  if (sq.type === "mcq") return attempt?.selectedOption ? `Option ${attempt.selectedOption}` : null;
+                  if (sq.type === "two-column") return attempt?.col2Working?.trim() || null;
+                  return attempt?.textWorking?.trim() || null;
+                })();
+
+                return (
+                  <div
+                    key={sq.id}
+                    className={`bg-white rounded-2xl border shadow-sm overflow-hidden ${
+                      isCorrect ? "border-green-200" : isPartial ? "border-amber-200" : "border-red-100"
+                    }`}
+                  >
+                    {/* Header row */}
+                    <div className={`flex items-center justify-between px-4 py-2.5 ${
+                      isCorrect ? "bg-green-50" : isPartial ? "bg-amber-50" : "bg-red-50"
+                    }`}>
+                      <span className="text-xs font-bold text-gray-700">Question {sq.label}</span>
+                      <span className={`text-xs font-bold ${
+                        isCorrect ? "text-green-700" : isPartial ? "text-amber-700" : "text-red-600"
+                      }`}>
+                        {earned}/{sq.marks} marks
+                      </span>
+                    </div>
+
+                    <div className="px-4 py-3 space-y-2.5 text-xs text-gray-700">
+                      {/* Question text */}
+                      <p className="font-medium text-gray-500 leading-relaxed line-clamp-3">{sq.questionText}</p>
+
+                      {/* Student answer */}
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400 mb-0.5">Your answer</p>
+                        {attempt?.submitted ? (
+                          <p className="leading-relaxed whitespace-pre-wrap">
+                            {studentAnswer ?? <em className="text-gray-400">No answer recorded</em>}
+                          </p>
+                        ) : (
+                          <p className="text-gray-400 italic">Not attempted</p>
+                        )}
+                      </div>
+
+                      {/* Correct answer */}
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400 mb-0.5">Correct answer</p>
+                        <p className="leading-relaxed whitespace-pre-wrap text-gray-700">{sq.memoText}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3">

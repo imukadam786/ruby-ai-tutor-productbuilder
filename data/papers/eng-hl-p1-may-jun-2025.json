@@ -18,8 +18,7 @@
           "questionText": "Provide the meaning of the expression, 'thumbing it' in paragraph 1.",
           "marks": 1,
           "memoText": "'Thumbing it' means asking for a lift/hitching a ride/hitchhiking.",
-          "topic": "Comprehension",
-          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/eng-hl-p1-may-jun-2025-q1-text-a-1.png"
+          "topic": "Comprehension"
         },
         {
           "id": "1-2",
@@ -110,12 +109,12 @@
           "memoText": "D – irony",
           "topic": "Visual Literacy",
           "type": "mcq",
-          "options": [
-            "A litotes.",
-            "B metaphor.",
-            "C hyperbole.",
-            "D irony."
-          ]
+          "options": {
+            "A": "litotes.",
+            "B": "metaphor.",
+            "C": "hyperbole.",
+            "D": "irony."
+          }
         },
         {
           "id": "1-12-2",
@@ -261,12 +260,12 @@
           "memoText": "C – Mrs Wilson said (to Mr Wilson) that Dennis had been picking a Christmas present for him.",
           "topic": "Language Structures and Conventions",
           "type": "mcq",
-          "options": [
-            "A Mrs Wilson said (to Mr Wilson) that Dennis had been picking a Christmas present for himself.",
-            "B Mrs Wilson said (to Mr Wilson) that Dennis was picking a Christmas present for him.",
-            "C Mrs Wilson said (to Mr Wilson) that Dennis had been picking a Christmas present for him.",
-            "D Mrs Wilson said (to Mr Wilson) that Dennis had picked a Christmas present for you."
-          ]
+          "options": {
+            "A": "Mrs Wilson said (to Mr Wilson) that Dennis had been picking a Christmas present for himself.",
+            "B": "Mrs Wilson said (to Mr Wilson) that Dennis was picking a Christmas present for him.",
+            "C": "Mrs Wilson said (to Mr Wilson) that Dennis had been picking a Christmas present for him.",
+            "D": "Mrs Wilson said (to Mr Wilson) that Dennis had picked a Christmas present for you."
+          }
         }
       ],
       "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/eng-hl-p1-may-jun-2025-q4-text-e.png"
