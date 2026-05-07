@@ -83,7 +83,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Agricultural Science",
-    thumbnail: "/thumbnails/geography.jpeg",
+    thumbnail: "/thumbnails/agricultural-science.png",
     guides: [
       {
         label: "Paper 1 — Agricultural Science",
