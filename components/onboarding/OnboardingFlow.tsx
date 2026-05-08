@@ -278,7 +278,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
           {/* ── Step 1: Create Account / Login ── */}
           {step === 1 && (
-            <div className="flex-1 flex flex-col p-5">
+            <div className="flex-1 flex flex-col p-5 overflow-y-auto min-h-0">
               <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-1">
                 {loginMode ? "Welcome back" : t.step7Title}
               </h1>
@@ -289,7 +289,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                   <img
                     src="/ruby-heroes.png"
                     alt="Ruby superheroes"
-                    className="h-36 w-auto object-contain"
+                    className="h-24 sm:h-36 w-auto object-contain"
                   />
                 </div>
               )}
@@ -350,7 +350,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 </div>
               </div>
 
-              <div className="md:mt-auto md:pt-4">
+              <div className="mt-auto pt-4">
                 {authError && (
                   <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
                 )}
