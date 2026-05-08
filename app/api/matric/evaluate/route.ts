@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { requireApiSecret } from "@/lib/api-auth";
-import { checkLanguage } from "@/lib/language-utils";
 
 export async function POST(req: NextRequest) {
   const authError = requireApiSecret(req);
@@ -46,12 +45,16 @@ export async function POST(req: NextRequest) {
     // prevent any accidentally large value from inflating the request.
     const safeMemo = memoText.length > 3000 ? memoText.slice(0, 3000) + "\n[memo truncated]" : memoText;
 
+    // Always generate the structured response in English first for maximum
+    // pedagogical accuracy (content completeness, correct guiding questions,
+    // no paraphrasing). If the target language is not English, the feedback
+    // field is translated in a separate dedicated call below.
     const systemPrompt = `You are Ruby, an AI exam coach helping a Grade 12 student work through a South African National Senior Certificate (NSC/Matric) past paper.
 
 Your role:
 - Evaluate the student's working step by step against the official mark scheme
 - Award marks for each correct step
-- Give targeted feedback in the student's chosen home language: ${language}
+- Give targeted feedback in English
 - In GUIDED mode (attempt 1): Socratic only — acknowledge what the student did, ask one specific question about a mistake or gap, give one gentle nudge toward the right approach. Do NOT show a worked example. Do NOT name both methods. Let the student think first.
 - In GUIDED mode (attempt 2, calculation/written only): Explain + Example — acknowledge what they tried, point out the specific gap, then: (a) explain the concept in plain everyday language with no jargon, (b) show a brief worked example using completely different numbers or context that demonstrates the method step by step, (c) explicitly ask the student to now apply that same method to their own question. Do NOT solve the student's actual question.
 - In GUIDED mode (attempt 2, MCQ): Same as attempt 1 — Socratic only.
@@ -64,8 +67,6 @@ Attempt 2 sequence for guided mode (calculation/written):
 3. Explain the underlying concept in plain, everyday language (imagine explaining to a 14-year-old with no subject background)
 4. Show a short worked example with DIFFERENT numbers/context — label it clearly (e.g. "Here is a similar example:")
 5. End with a prompt like "Now use this method on your question."
-
-CRITICAL: Always respond in ${language}. If the language is not English, write your full response in ${language}. Mathematical expressions can stay in standard notation.
 
 RESPONSE FORMAT — you must return valid JSON only, no markdown wrapper:
 {
@@ -93,7 +94,7 @@ SHOW WORKED EXAMPLE: ${showWorkedExample ? "YES — explain the concept in plain
 STUDENT'S WORKING:
 ${studentText || "(No text provided — see image below)"}
 
-Evaluate the student's working against the mark scheme. Award marks for each correct step. Respond in ${language}.`;
+Evaluate the student's working against the mark scheme. Award marks for each correct step. Respond in English.`;
 
     userContent.push({ type: "text", text: promptText });
 
@@ -133,23 +134,30 @@ Evaluate the student's working against the mark scheme. Award marks for each cor
     }
 
     if (language !== "English" && parsed.feedback) {
-      const langOk = await checkLanguage(parsed.feedback, language);
-      if (!langOk) {
-        const retrySystem = systemPrompt + `\n\nABSOLUTE REQUIREMENT: Every single word of your feedback must be written in ${language}. No English at all. The student only reads ${language}.`;
-        const retryResp = await openai.chat.completions.create({
-          model: "gpt-4o",
-          max_tokens: 1500,
-          response_format: { type: "json_object" },
-          messages: [
-            { role: "system", content: retrySystem },
-            { role: "user", content: userContent },
-          ],
-        });
-        try {
-          const retryParsed = JSON.parse(retryResp.choices[0]?.message?.content ?? "{}");
-          if (retryParsed.feedback) parsed = retryParsed;
-        } catch { /* keep original */ }
-      }
+      const translationResp = await openai.chat.completions.create({
+        model: "gpt-4o",
+        max_tokens: 1500,
+        messages: [
+          {
+            role: "system",
+            content: `You are a faithful translator for South African educational content. Translate the following English tutoring feedback into ${language}.
+
+TRANSLATION RULES — follow these exactly:
+1. Translate every sentence faithfully — do not paraphrase, shorten, or omit anything. Every hint, named term, and guiding question in the English must appear in your translation.
+2. Keep ALL scientific and technical subject terms in English (e.g. follicle, corpus luteum, ovulation, mitosis, photosynthesis, covalent bond, gradient, hypothesis) — South African schools use English terminology in all languages. Wrap them naturally in ${language} sentence structure.
+3. The final guiding question is the most critical sentence — translate it exactly so the student is asked the same thing, not a related but different question.
+4. Mathematical notation and expressions stay as-is.
+5. Do not add any information not in the original.
+6. Return only the translated text, no preamble or explanation.`,
+          },
+          {
+            role: "user",
+            content: parsed.feedback,
+          },
+        ],
+      });
+      const translated = translationResp.choices[0]?.message?.content?.trim();
+      if (translated) parsed.feedback = translated;
     }
 
     return NextResponse.json(parsed);
