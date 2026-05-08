@@ -226,13 +226,15 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
   const MATRIC_VIEWS: ActiveView[] = ["matrics", "matric", "prep-papers-2026", "study-guides"];
 
+  const MATRIC_PLANS = ["master", "matric-pack"];
+
   const handleViewChange = (view: ActiveView) => {
-    // Gate matric features — only accessible on Master plan
-    if (MATRIC_VIEWS.includes(view) && userPlan !== null && userPlan !== "master") {
+    // Gate matric features — accessible on Master and Matric Pack plans
+    if (MATRIC_VIEWS.includes(view) && userPlan !== null && !MATRIC_PLANS.includes(userPlan)) {
       document.dispatchEvent(
         new CustomEvent("ruby-upgrade-needed", {
           detail: {
-            reason: "Matric Past Papers, Study Guides and Prep Papers require the Master plan.",
+            reason: "Matric Past Papers, Study Guides and Prep Papers require the Matric Exam Pack or Master plan.",
             matricOnly: true,
           },
         })
