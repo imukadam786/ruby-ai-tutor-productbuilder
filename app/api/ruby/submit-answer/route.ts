@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL, OPENAI_SMART_MODEL } from "@/lib/anthropic";
+import { checkLanguage } from "@/lib/language-utils";
 import { getSkillById } from "@/lib/student-model";
 import {
   checkAnswerCorrectness,
@@ -100,8 +101,21 @@ export async function POST(req: NextRequest) {
     };
 
     if (isCorrect) {
-      // Tier 1 — no LLM call
-      const praise = selectPraise(submission.grade ?? 5, submission.difficulty ?? 2);
+      // Tier 1 — translate praise if needed, otherwise no LLM call
+      let praise = selectPraise(submission.grade ?? 5, submission.difficulty ?? 2);
+      if (submission.language && submission.language !== "English") {
+        try {
+          const praiseResp = await getOpenAI().chat.completions.create({
+            model: OPENAI_MODEL,
+            max_tokens: 60,
+            messages: [{
+              role: "user",
+              content: `Translate this short praise sentence into ${submission.language} for a school student. Return only the translated sentence, nothing else: "${praise}"`,
+            }],
+          }, { signal: AbortSignal.timeout(8_000) });
+          praise = praiseResp.choices[0]?.message?.content?.trim() || praise;
+        } catch { /* keep English on failure */ }
+      }
       aiDiagnosis = {
         is_correct: true,
         error_type: "correct",
@@ -162,6 +176,24 @@ export async function POST(req: NextRequest) {
           feedback: `Let's work through this together. ${skill.recovery_strategy}`,
           recovery_explanation: skill.recovery_strategy,
         };
+      }
+
+      if (submission.language && submission.language !== "English" && aiDiagnosis.feedback) {
+        const langOk = await checkLanguage(aiDiagnosis.feedback, submission.language);
+        if (!langOk) {
+          const retryPrompt = diagnosticPrompt + `\n\nCRITICAL OVERRIDE: Your "feedback" and "recovery_explanation" MUST be written entirely in ${submission.language}. Not a single English word in those two fields.`;
+          try {
+            const retryResp = await openai.chat.completions.create({
+              model: OPENAI_MODEL,
+              max_tokens: 1024,
+              messages: [{ role: "user", content: retryPrompt }],
+            }, { signal: AbortSignal.timeout(20_000) });
+            const retryText = retryResp.choices[0]?.message?.content ?? "";
+            const retryMatch = retryText.match(/\{[\s\S]*\}/);
+            const retryParsed = JSON.parse(retryMatch ? retryMatch[0] : retryText);
+            if (retryParsed.feedback) aiDiagnosis = { ...aiDiagnosis, ...retryParsed };
+          } catch { /* keep original */ }
+        }
       }
     }
 
