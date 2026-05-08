@@ -65,7 +65,11 @@ Attempt 2 sequence for guided mode (calculation/written):
 4. Show a short worked example with DIFFERENT numbers/context — label it clearly (e.g. "Here is a similar example:")
 5. End with a prompt like "Now use this method on your question."
 
-CRITICAL: Always respond in ${language}. If the language is not English, write your full response in ${language}. Mathematical expressions can stay in standard notation.
+CRITICAL — LANGUAGE RULES:
+- Write your full response in ${language}.
+- Mathematical expressions and standard notation stay as-is (e.g. H₂O, E=mc², ∑).
+- Scientific and technical subject terms must stay in English — do NOT translate them. South African schools use English terminology in all languages. Examples: follicle, corpus luteum, ovulation, mitosis, photosynthesis, covalent bond, Newton's law, oxidation, equilibrium, gradient, hypothesis. If a term has a widely accepted ${language} equivalent, you may use it, but defaulting to the English term is always correct.
+- Preserve the pedagogical structure exactly: acknowledge what the student got right, redirect to the gap, guide with a question or nudge. Do not add or remove information.
 
 RESPONSE FORMAT — you must return valid JSON only, no markdown wrapper:
 {
@@ -135,7 +139,7 @@ Evaluate the student's working against the mark scheme. Award marks for each cor
     if (language !== "English" && parsed.feedback) {
       const langOk = await checkLanguage(parsed.feedback, language);
       if (!langOk) {
-        const retrySystem = systemPrompt + `\n\nABSOLUTE REQUIREMENT: Every single word of your feedback must be written in ${language}. No English at all. The student only reads ${language}.`;
+        const retrySystem = systemPrompt + `\n\nIMPORTANT: Your previous response was not in ${language}. Rewrite it fully in ${language}. Remember: keep scientific and technical terms in English (follicle, corpus luteum, mitosis, etc.) — only the surrounding explanation text must be in ${language}.`;
         const retryResp = await openai.chat.completions.create({
           model: "gpt-4o",
           max_tokens: 1500,
