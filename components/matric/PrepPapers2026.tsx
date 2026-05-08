@@ -449,7 +449,11 @@ function ModeSelect({
             onChange={(e) => setLanguage(e.target.value)}
             className="w-full border-2 border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] focus:border-[#BE1832]"
           >
-            {SA_LANGUAGES.map((l) => <option key={l} value={l}>{l}</option>)}
+            {SA_LANGUAGES.map((l) => (
+              <option key={l} value={l}>
+                {l}{l !== "English" && l !== "Afrikaans" ? " (beta)" : ""}
+              </option>
+            ))}
           </select>
         </div>
 
