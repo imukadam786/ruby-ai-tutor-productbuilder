@@ -34,10 +34,10 @@ END $$;
 -- Add updated constraints (NOT VALID skips scanning existing rows)
 ALTER TABLE public.subscriptions
   ADD CONSTRAINT subscriptions_plan_check
-  CHECK (plan IN ('free', 'starter', 'pro', 'ultimate', 'school', 'scholar', 'master'))
+  CHECK (plan IN ('free', 'starter', 'pro', 'ultimate', 'school', 'scholar', 'master', 'matric-pack'))
   NOT VALID;
 
 ALTER TABLE public.users
   ADD CONSTRAINT users_plan_check
-  CHECK (plan IN ('free', 'starter', 'pro', 'ultimate', 'school', 'scholar', 'master'))
+  CHECK (plan IN ('free', 'starter', 'pro', 'ultimate', 'school', 'scholar', 'master', 'matric-pack'))
   NOT VALID;

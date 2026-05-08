@@ -408,8 +408,10 @@ export default function PricingPlans({
                       {plan.isFree ? "Free" : (
                         <>
                           R{voucherApplied ? final : plan.priceRands}
-                          {plan.paymentType === "subscription" && (
+                          {plan.paymentType === "subscription" ? (
                             <span className="text-sm font-semibold text-gray-400">/mo</span>
+                          ) : (
+                            <span className="text-sm font-semibold text-blue-500">once-off</span>
                           )}
                         </>
                       )}
