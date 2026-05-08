@@ -22,6 +22,13 @@ interface Subject {
   guides: Guide[];
 }
 
+const CONTAIN_THUMBNAILS = new Set([
+  "/thumbnails/afrikaans-fal.jpeg",
+  "/thumbnails/business-studies.jpeg",
+  "/thumbnails/economics.jpeg",
+  "/thumbnails/tourism.jpeg",
+]);
+
 const SUBJECTS: Subject[] = [
   {
     label: "Accounting",
@@ -328,7 +335,7 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
                     <img
                       src={s.thumbnail}
                       alt={s.label}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${CONTAIN_THUMBNAILS.has(s.thumbnail) ? "object-contain p-3" : "object-cover"}`}
                     />
                   </div>
                 </button>
