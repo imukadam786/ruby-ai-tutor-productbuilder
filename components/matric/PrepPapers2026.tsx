@@ -68,6 +68,11 @@ function MathMarkdown({ content }: { content: string }) {
 
 // ── Prep papers data ───────────────────────────────────────────────────────────
 
+const CONTAIN_THUMBNAILS = new Set([
+  "/thumbnails/afrikaans-fal.jpeg",
+  "/thumbnails/business-studies.jpeg",
+]);
+
 const PREP_PAPERS = PAPERS.filter((p) => p.session.startsWith("Prep") || p.session.startsWith("Predictive"));
 
 const PREP_SUBJECTS = [
@@ -184,7 +189,7 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubject
 
         <div className="space-y-3">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a subject</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {PREP_SUBJECTS.map((subject) => (
               <button
                 key={subject.id}
@@ -195,7 +200,7 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubject
                   <img
                     src={subject.thumbnail}
                     alt={subject.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${CONTAIN_THUMBNAILS.has(subject.thumbnail) ? "object-contain p-3" : "object-cover"}`}
                   />
                 </div>
               </button>
