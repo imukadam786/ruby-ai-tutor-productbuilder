@@ -1,5 +1,10 @@
 export type MCQOptions = { A: string; B?: string; C?: string; D?: string; E?: string };
 
+export interface MatchRow {
+  label: string;  // e.g. "1.4.1"
+  term: string;   // the COLUMN A term
+}
+
 export interface SubQuestion {
   id: string;
   label: string;
@@ -15,12 +20,16 @@ export interface SubQuestion {
   /** Completed sketch shown to student after submission (memo version of diagram) */
   memoImageUrl?: string;
   /** Input layout variant. Defaults to "written" if omitted. */
-  type?: "written" | "mcq" | "calculation" | "two-column";
+  type?: "written" | "mcq" | "calculation" | "two-column" | "match-group" | "answer-book";
   /** Required when type === "mcq" */
   options?: MCQOptions;
-  /** Column labels for type === "two-column" (col1 defaults to "Workings", col2 defaults to "Answer") */
+  /** Column labels for type === "two-column". For "answer-book" overrides section labels (defaults: "Workings" / "Statement (R)") */
   col1Label?: string;
   col2Label?: string;
+  /** Required when type === "match-group": the COLUMN A rows */
+  matchRows?: MatchRow[];
+  /** Required when type === "match-group": the COLUMN B options keyed by letter */
+  matchOptions?: Record<string, string>;
 }
 
 export interface PaperQuestion {

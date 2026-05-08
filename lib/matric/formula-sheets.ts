@@ -1,9 +1,11 @@
 // Formula sheet content for each variant, rendered with MathMarkdown (KaTeX)
-// "standard"    — Maths info sheet with regression (P1 2024, P1 2025, P2 2025)
-// "p2-2024"     — Maths info sheet without regression line formulas (P2 May/June 2024)
-// "physics-p1"  — Physical Sciences P1 data sheet (mechanics, waves, electricity, modern physics)
+// "standard"      — Maths info sheet with regression (P1 2024, P1 2025, P2 2025)
+// "p2-2024"       — Maths info sheet without regression line formulas (P2 May/June 2024)
+// "physics-p1"    — Physical Sciences P1 data sheet (mechanics, waves, electricity, modern physics)
+// "accounting-p1" — Accounting P1 financial indicator formula sheet
+// "accounting-p2" — Accounting P2 financial indicator formula sheet (identical to P1)
 
-export type FormulaSheetVariant = "standard" | "p2-2024" | "physics-p1";
+export type FormulaSheetVariant = "standard" | "p2-2024" | "physics-p1" | "accounting-p1" | "accounting-p2";
 
 export const FORMULA_SHEETS: Record<FormulaSheetVariant, string> = {
   standard: `
@@ -212,5 +214,137 @@ $$P = \\frac{W}{\\Delta t} = VI = I^2 R = \\frac{V^2}{R}$$
 **Alternating Current**
 
 $$I_{\\text{rms}} = \\frac{I_{\\text{max}}}{\\sqrt{2}} \\qquad V_{\\text{rms}} = \\frac{V_{\\text{max}}}{\\sqrt{2}} \\qquad P_{\\text{avg}} = V_{\\text{rms}}\\,I_{\\text{rms}} = \\tfrac{1}{2}V_{\\text{max}}\\,I_{\\text{max}}$$
+`.trim(),
+
+  "accounting-p1": `
+## Financial Indicator Formula Sheet
+
+**Profitability**
+
+$$\\frac{\\text{Gross profit}}{\\text{Sales}} \\times 100 \\qquad \\frac{\\text{Gross profit}}{\\text{Cost of sales}} \\times 100$$
+
+$$\\frac{\\text{Net profit before tax}}{\\text{Sales}} \\times 100 \\qquad \\frac{\\text{Net profit after tax}}{\\text{Sales}} \\times 100$$
+
+$$\\frac{\\text{Operating expenses}}{\\text{Sales}} \\times 100 \\qquad \\frac{\\text{Operating profit}}{\\text{Sales}} \\times 100$$
+
+---
+
+**Liquidity & Solvency**
+
+$$\\text{Total assets : Total liabilities} \\qquad \\text{Current assets : Current liabilities}$$
+
+$$\\text{(Current assets} - \\text{Inventories) : Current liabilities} \\qquad \\text{Non-current liabilities : Shareholders' equity}$$
+
+$$\\text{(Trade \\& other receivables} + \\text{Cash \\& cash equivalents) : Current liabilities}$$
+
+---
+
+**Efficiency**
+
+$$\\frac{\\text{Average trading stock} \\times 365}{\\text{Cost of sales}} \\quad \\text{(Note 1)} \\qquad \\frac{\\text{Cost of sales}}{\\text{Average trading stock}}$$
+
+$$\\frac{\\text{Average debtors} \\times 365}{\\text{Credit sales}} \\qquad \\frac{\\text{Average creditors} \\times 365}{\\text{Cost of sales}} \\quad \\text{(Note 2)}$$
+
+---
+
+**Return on Equity / Investment**
+
+$$\\frac{\\text{Net income after tax}}{\\text{Average shareholders' equity}} \\times 100 \\qquad \\frac{\\text{Net income after tax}}{\\text{Number of issued shares}} \\times 100 \\quad \\text{(Note 3)}$$
+
+$$\\frac{\\text{Net income before tax} + \\text{Interest on loans}}{\\text{Average shareholders' equity} + \\text{Average non-current liabilities}} \\times 100$$
+
+---
+
+**Per Share**
+
+$$\\frac{\\text{Shareholders' equity}}{\\text{Number of issued shares}} \\times 100 \\qquad \\frac{\\text{Dividends for the year}}{\\text{Number of issued shares}} \\times 100$$
+
+$$\\frac{\\text{Interim dividends}}{\\text{Number of issued shares}} \\times 100 \\qquad \\frac{\\text{Final dividends}}{\\text{Number of issued shares}} \\times 100$$
+
+---
+
+**Dividend Ratios**
+
+$$\\frac{\\text{Dividends per share}}{\\text{Earnings per share}} \\times 100 \\qquad \\frac{\\text{Dividends for the year}}{\\text{Net income after tax}} \\times 100$$
+
+---
+
+**Break-even**
+
+$$\\frac{\\text{Total fixed costs}}{\\text{Selling price per unit} - \\text{Variable costs per unit}}$$
+
+---
+
+**Note 1:** Trading stock at end of financial year may be used if required. 365 days applicable only if relevant to whole year.
+
+**Note 2:** Credit purchases may be used instead of cost of sales (figures will be the same if stock is constant).
+
+**Note 3:** If there is a change in number of issued shares during a financial year, the weighted-average number of shares is used.
+`.trim(),
+
+  "accounting-p2": `
+## Financial Indicator Formula Sheet
+
+**Profitability**
+
+$$\\frac{\\text{Gross profit}}{\\text{Sales}} \\times 100 \\qquad \\frac{\\text{Gross profit}}{\\text{Cost of sales}} \\times 100$$
+
+$$\\frac{\\text{Net profit before tax}}{\\text{Sales}} \\times 100 \\qquad \\frac{\\text{Net profit after tax}}{\\text{Sales}} \\times 100$$
+
+$$\\frac{\\text{Operating expenses}}{\\text{Sales}} \\times 100 \\qquad \\frac{\\text{Operating profit}}{\\text{Sales}} \\times 100$$
+
+---
+
+**Liquidity & Solvency**
+
+$$\\text{Total assets : Total liabilities} \\qquad \\text{Current assets : Current liabilities}$$
+
+$$\\text{(Current assets} - \\text{Inventories) : Current liabilities} \\qquad \\text{Non-current liabilities : Shareholders' equity}$$
+
+$$\\text{(Trade \\& other receivables} + \\text{Cash \\& cash equivalents) : Current liabilities}$$
+
+---
+
+**Efficiency**
+
+$$\\frac{\\text{Average trading stock} \\times 365}{\\text{Cost of sales}} \\quad \\text{(Note 1)} \\qquad \\frac{\\text{Cost of sales}}{\\text{Average trading stock}}$$
+
+$$\\frac{\\text{Average debtors} \\times 365}{\\text{Credit sales}} \\qquad \\frac{\\text{Average creditors} \\times 365}{\\text{Cost of sales}} \\quad \\text{(Note 2)}$$
+
+---
+
+**Return on Equity / Investment**
+
+$$\\frac{\\text{Net income after tax}}{\\text{Average shareholders' equity}} \\times 100 \\qquad \\frac{\\text{Net income after tax}}{\\text{Number of issued shares}} \\times 100 \\quad \\text{(Note 3)}$$
+
+$$\\frac{\\text{Net income before tax} + \\text{Interest on loans}}{\\text{Average shareholders' equity} + \\text{Average non-current liabilities}} \\times 100$$
+
+---
+
+**Per Share**
+
+$$\\frac{\\text{Shareholders' equity}}{\\text{Number of issued shares}} \\times 100 \\qquad \\frac{\\text{Dividends for the year}}{\\text{Number of issued shares}} \\times 100$$
+
+$$\\frac{\\text{Interim dividends}}{\\text{Number of issued shares}} \\times 100 \\qquad \\frac{\\text{Final dividends}}{\\text{Number of issued shares}} \\times 100$$
+
+---
+
+**Dividend Ratios**
+
+$$\\frac{\\text{Dividends per share}}{\\text{Earnings per share}} \\times 100 \\qquad \\frac{\\text{Dividends for the year}}{\\text{Net income after tax}} \\times 100$$
+
+---
+
+**Break-even**
+
+$$\\frac{\\text{Total fixed costs}}{\\text{Selling price per unit} - \\text{Variable costs per unit}}$$
+
+---
+
+**Note 1:** Trading stock at end of financial year may be used if required. 365 days applicable only if relevant to whole year.
+
+**Note 2:** Credit purchases may be used instead of cost of sales (figures will be the same if stock is constant).
+
+**Note 3:** If there is a change in number of issued shares during a financial year, the weighted-average number of shares is used.
 `.trim(),
 };

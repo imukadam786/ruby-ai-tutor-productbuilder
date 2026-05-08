@@ -25,8 +25,9 @@ interface CoachMessage {
 interface QuestionState {
   textWorking: string;
   calcAnswer: string;    // "calculation" type: final answer field
-  col2Working: string;   // "two-column" type: right column
+  col2Working: string;   // "two-column" / "answer-book": right column (answer-book stores JSON StatementRowData[])
   selectedOption?: string; // MCQ: "A" | "B" | "C" | "D"
+  matchAnswers?: Record<string, string>; // match-group: row label → selected letter
   imageFile?: File;
   imagePreviewUrl?: string;
   imageData?: string;
@@ -35,6 +36,32 @@ interface QuestionState {
   marksEarned: number;
   coachMessages: CoachMessage[];
   attemptCount: number;
+}
+
+interface StatementRowData { desc: string; amount: string }
+
+function formatStatementForEvaluator(raw: string, label: string): string {
+  if (!raw.trim()) return `${label}: (no statement provided)`;
+  try {
+    const rows = JSON.parse(raw) as StatementRowData[];
+    if (Array.isArray(rows)) {
+      const lines = rows
+        .filter(r => r.desc?.trim() || r.amount?.trim())
+        .map(r => `${(r.desc ?? "").padEnd(45)} ${r.amount ?? ""}`)
+        .join("\n");
+      return `${label}:\n${lines || "(no entries)"}`;
+    }
+  } catch { /* not JSON — use raw */ }
+  return `${label}:\n${raw}`;
+}
+
+function hasStatementContent(raw: string): boolean {
+  if (!raw.trim()) return false;
+  try {
+    const rows = JSON.parse(raw) as StatementRowData[];
+    if (Array.isArray(rows)) return rows.some(r => r.desc?.trim() || r.amount?.trim());
+  } catch { /* not JSON */ }
+  return true;
 }
 
 const SA_LANGUAGES = [
@@ -93,6 +120,13 @@ const SUBJECTS = [
     available: true,
   },
   {
+    id: "afrikaans",
+    name: "Afrikaans",
+    thumbnail: "/thumbnails/afrikaans-fal.jpeg",
+    color: "from-orange-400 to-amber-500",
+    available: true,
+  },
+  {
     id: "business-studies",
     name: "Business Studies",
     thumbnail: "/thumbnails/business-studies.jpeg",
@@ -104,13 +138,6 @@ const SUBJECTS = [
     name: "Economics",
     thumbnail: "/thumbnails/economics.jpeg",
     color: "from-green-600 to-emerald-700",
-    available: true,
-  },
-  {
-    id: "afrikaans",
-    name: "Afrikaans",
-    thumbnail: "/thumbnails/afrikaans-fal.jpeg",
-    color: "from-orange-400 to-amber-500",
     available: true,
   },
   {
@@ -193,7 +220,7 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: SubjectId) 
         </button>
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-3xl font-extrabold text-gray-900">Matric Exam Prep</h1>
+          <h1 className="text-3xl font-extrabold text-gray-900">Past Papers</h1>
           <p className="text-gray-500 text-sm">Work through real past papers with step-by-step AI tutoring. Get feedback in your home language.</p>
         </div>
 
@@ -207,7 +234,6 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: SubjectId) 
                 onClick={() => onSelect(subject.id as SubjectId)}
                 className="relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
               >
-                {/* Thumbnail image */}
                 <div className="w-full aspect-square overflow-hidden">
                   <img
                     src={subject.thumbnail}
@@ -830,27 +856,97 @@ function SessionView({
     wasEvaluating.current = isEvaluating;
   }, [isEvaluating, mode]);
 
+  // Show scroll hint when question panel content overflows (mobile)
+  useEffect(() => {
+    const el = questionPanelRef.current;
+    if (!el) return;
+    el.scrollTop = 0;
+    setShowScrollHint(el.scrollHeight > el.clientHeight + 8);
+  }, [currentIdx]);
+
   const fileInputRef = useRef<HTMLInputElement>(null);
   const coachEndRef = useRef<HTMLDivElement>(null);
   const mathsInputRefs = useRef<Record<string, HTMLTextAreaElement | null>>({});
   const activeMathsKey = useRef<string | null>(null);
+  const questionPanelRef = useRef<HTMLDivElement>(null);
+  const [showScrollHint, setShowScrollHint] = useState(false);
 
   const currentSQ = flatQuestions[currentIdx];
   const currentAttempt = attempts[currentSQ.id];
 
-  // Derive 3-level hints from memoText for the current question
-  const buildHints = (memoText: string, marks: number): [string, string, string] => {
-    const lines = memoText.split("\n").filter((l) => l.trim().startsWith("Mark"));
-    const markCount = lines.length;
-    const nudge = `This question is worth ${marks} mark${marks !== 1 ? "s" : ""}. There ${markCount > 1 ? `are ${markCount} mark steps` : "is 1 mark step"} — identify each one before writing your answer.`;
-    const process = lines[0]
-      ? `First mark: ${lines[0].replace(/^Mark \d+:\s*/i, "").trim()}`
-      : "Start by identifying what the question is asking for, then apply the relevant formula or method.";
-    const worked = lines.slice(0, 2).join(" → ").replace(/Mark \d+:\s*/gi, "").trim() ||
-      "See the memo for the full worked solution.";
-    return [nudge, process, worked];
+  // Derive 3-level hints from memoText — progressively more revealing, no AI call needed
+  const buildHints = (memoText: string, marks: number, type?: string): [string, string, string] => {
+    const text = memoText.trim();
+    const marksLabel = `${marks} mark${marks !== 1 ? "s" : ""}`;
+
+    // MCQ — detect by question type or memo pattern
+    const mcqMatch = text.match(/correct answer:\s*([A-E])/i);
+    if (type === "mcq" || mcqMatch) {
+      const letter = mcqMatch?.[1]?.toUpperCase();
+      const explanationLines = text.split("\n").map(l => l.trim()).filter(l => l && !l.match(/correct answer:/i));
+      const explanation = explanationLines.join(" ").trim();
+      return [
+        `Multiple choice — read each option carefully and eliminate the ones that are clearly wrong. This question is worth ${marksLabel}.`,
+        explanation ? `Think about this: ${explanation}` : "Consider what the question is really testing, then match it to the correct concept.",
+        letter ? `The correct answer is ${letter}.${explanation ? ` ${explanation}` : ""}` : explanation || "Review the options again carefully.",
+      ];
+    }
+
+    // Mark scheme format — "Mark 1: ...", "Mark 2: ..."
+    const markLines = text.split("\n").filter(l => l.trim().match(/^mark \d+:/i));
+    if (markLines.length > 0) {
+      const clean = (line: string) => line.replace(/^mark \d+:\s*/i, "").trim();
+      const steps = markLines.slice(0, 3).map(clean);
+      return [
+        `This question is worth ${marksLabel} across ${markLines.length} step${markLines.length !== 1 ? "s" : ""}. Plan your answer to cover each step.`,
+        `Start with: ${steps[0]}`,
+        steps.map((s, i) => `Step ${i + 1}: ${s}`).join("\n"),
+      ];
+    }
+
+    // Calculation format — has "Working:" or "Answer:" sections
+    const workingMatch = text.match(/working:?\s*([^\n]+)/i);
+    const answerMatch = text.match(/answer:?\s*([^\n]+)/i);
+    const teachingMatch = text.match(/teaching point:?\s*([^\n]+)/i);
+    if (workingMatch || answerMatch) {
+      const working = workingMatch?.[1]?.trim();
+      const answer = answerMatch?.[1]?.trim();
+      const teaching = teachingMatch?.[1]?.trim();
+      return [
+        `Show all working — each correct step earns marks. This question is worth ${marksLabel}.`,
+        working ? `Approach: ${working}` : (teaching || "Write down your formula first, then substitute your values step by step."),
+        [working && `Working: ${working}`, answer && `Answer: ${answer}`].filter(Boolean).join("\n") || teaching || text.substring(0, 150),
+      ];
+    }
+
+    // Short/simple answer (1–3 lines, no mark structure)
+    const lines = text.split("\n").map(l => l.trim()).filter(Boolean);
+    if (lines.length <= 3 && !text.match(/any other relevant/i)) {
+      const answer = lines[0];
+      const words = answer.split(/\s+/);
+      const partial = words.length <= 2
+        ? `It starts with "${words[0].charAt(0)}…"`
+        : answer.substring(0, Math.ceil(answer.length * 0.45)) + "…";
+      return [
+        `This question is worth ${marksLabel}. Think about the specific term or concept being asked for.`,
+        partial,
+        answer,
+      ];
+    }
+
+    // Narrative/essay format (history, long answers)
+    const contentLines = lines.filter(l => !l.match(/any other relevant|^\(\d|\(\d\s*x\s*\d/i));
+    const hint2 = contentLines[0]
+      ? `Your answer should include: "${contentLines[0].substring(0, 100)}${contentLines[0].length > 100 ? "…" : ""}"`
+      : "Recall the key facts and evidence related to this topic.";
+    const hint3 = contentLines.slice(0, 2).map(l => `• ${l.substring(0, 90)}${l.length > 90 ? "…" : ""}`).join("\n") || text.substring(0, 150);
+    return [
+      `This question is worth ${marksLabel}. Use specific facts, examples, or evidence in your answer.`,
+      hint2,
+      hint3,
+    ];
   };
-  const [hint1, hint2, hint3] = buildHints(currentSQ.memoText, currentSQ.marks);
+  const [hint1, hint2, hint3] = buildHints(currentSQ.memoText, currentSQ.marks, currentSQ.type);
 
   // Scroll coach panel to bottom when new messages arrive
   useEffect(() => {
@@ -935,22 +1031,30 @@ function SessionView({
       const isMCQ = sq.type === "mcq" && sq.options;
       const isCalc = sq.type === "calculation";
       const isTwoCol = sq.type === "two-column";
+      const isAnswerBook = sq.type === "answer-book";
+      const isMatchGroup = sq.type === "match-group" && sq.matchRows && sq.matchOptions;
 
-      // Embed options into question text for MCQ so the AI has full context
+      // Embed options into question text for MCQ / match-group so the AI has full context
       const questionText = isMCQ
         ? `${sq.questionText}\n\n${(["A", "B", "C", "D", "E"] as const)
             .filter((l) => sq.options![l] !== undefined)
             .map((l) => `${l}) ${sq.options![l]}`)
             .join("\n")}`
+        : isMatchGroup
+        ? `${sq.questionText}\n\nCOLUMN A:\n${sq.matchRows!.map((r) => `${r.label} — ${r.term}`).join("\n")}\n\nCOLUMN B:\n${Object.entries(sq.matchOptions!).map(([l, v]) => `${l} — ${v}`).join("\n")}`
         : sq.questionText;
 
       // Build studentText based on input type
       const studentText = isMCQ
         ? `Student selected: ${attempt.selectedOption ?? "(no answer selected)"}`
+        : isMatchGroup
+        ? sq.matchRows!.map((r) => `${r.label}: ${attempt.matchAnswers?.[r.label] ?? "(no answer)"}`).join("\n")
         : isCalc
         ? `WORKINGS:\n${attempt.textWorking}\n\nFINAL ANSWER: ${attempt.calcAnswer}`
         : isTwoCol
         ? `${sq.col1Label ?? "Column 1"}:\n${attempt.textWorking}\n\n${sq.col2Label ?? "Column 2"}:\n${attempt.col2Working}`
+        : isAnswerBook
+        ? formatStatementForEvaluator(attempt.col2Working, sq.col2Label ?? "STATEMENT")
         : attempt.textWorking;
 
       let imageData: string | undefined;
@@ -1005,12 +1109,18 @@ function SessionView({
     const isMCQ = currentSQ.type === "mcq";
     const isCalc = currentSQ.type === "calculation";
     const isTwoCol = currentSQ.type === "two-column";
+    const isAnswerBook = currentSQ.type === "answer-book";
+    const isMatchGroup = currentSQ.type === "match-group";
     const hasAnswer = isMCQ
       ? !!currentAttempt.selectedOption
+      : isMatchGroup
+      ? Object.keys(currentAttempt.matchAnswers ?? {}).length > 0
       : isCalc
       ? !!(currentAttempt.textWorking.trim() || currentAttempt.calcAnswer.trim())
       : isTwoCol
       ? !!(currentAttempt.textWorking.trim() || currentAttempt.col2Working.trim())
+      : isAnswerBook
+      ? hasStatementContent(currentAttempt.col2Working)
       : !!(currentAttempt.textWorking.trim() || currentAttempt.imageFile);
     if (!hasAnswer) return;
     setIsEvaluating(true);
@@ -1055,6 +1165,7 @@ function SessionView({
       textWorking: "",
       calcAnswer: "",
       col2Working: "",
+      matchAnswers: {},
       imageFile: undefined,
       imagePreviewUrl: undefined,
       imageData: undefined,
@@ -1078,10 +1189,14 @@ function SessionView({
       const attempt = updatedAttempts[sq.id];
       const hasAnswer = sq.type === "mcq"
         ? !!attempt.selectedOption
+        : sq.type === "match-group"
+        ? Object.keys(attempt.matchAnswers ?? {}).length > 0
         : sq.type === "calculation"
         ? !!(attempt.textWorking.trim() || attempt.calcAnswer.trim())
         : sq.type === "two-column"
         ? !!(attempt.textWorking.trim() || attempt.col2Working.trim())
+        : sq.type === "answer-book"
+        ? hasStatementContent(attempt.col2Working)
         : !!(attempt.textWorking.trim() || attempt.imageFile);
       if (!hasAnswer) {
         setSubmitProgress(i + 1);
@@ -1117,8 +1232,10 @@ function SessionView({
     const sq = flatQuestions.find((q) => q.id === id);
     if (!sq) return false;
     if (sq.type === "mcq") return !!a.selectedOption;
+    if (sq.type === "match-group") return Object.keys(a.matchAnswers ?? {}).length > 0;
     if (sq.type === "calculation") return !!(a.textWorking.trim() || a.calcAnswer.trim());
     if (sq.type === "two-column") return !!(a.textWorking.trim() || a.col2Working.trim());
+    if (sq.type === "answer-book") return hasStatementContent(a.col2Working);
     return !!(a.textWorking.trim() || a.imageFile);
   }).length;
   const submittedCount = Object.values(attempts).filter((a) => a.submitted).length;
@@ -1155,9 +1272,8 @@ function SessionView({
 
   return (
     <div className="h-full flex flex-col overflow-hidden relative">
-      {/* Top bar — two rows on mobile, single row on desktop */}
+      {/* Compact header: back + current Q info + info sheet */}
       <div className="flex-shrink-0 bg-white border-b border-gray-100 px-3 sm:px-4">
-        {/* Row 1: back · question label · marks · % · info sheet */}
         <div className="flex items-center gap-2 py-2">
           <button
             onClick={onBack}
@@ -1169,22 +1285,22 @@ function SessionView({
             <span className="hidden sm:inline">Back</span>
           </button>
 
-          {/* Question label */}
-          <span className="text-sm font-bold text-gray-800 whitespace-nowrap">{currentSQ.label}</span>
-          <span className="text-gray-300 text-xs">·</span>
-          <span className="text-xs font-semibold text-[#BE1832] whitespace-nowrap">
-            {currentSQ.marks} {currentSQ.marks === 1 ? "mk" : "mks"}
-          </span>
-          <span className="text-gray-300 text-xs hidden sm:inline">·</span>
-          <span className="text-xs text-gray-500 whitespace-nowrap hidden sm:inline">{pctComplete}% done</span>
-          <div className="hidden sm:block w-10 h-1.5 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
-            <div className="h-full bg-[#BE1832] rounded-full transition-all" style={{ width: `${pctComplete}%` }} />
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-bold text-gray-800 leading-tight">
+              {currentSQ.label}
+              <span className="ml-1.5 text-xs font-semibold text-[#BE1832]">
+                · {currentSQ.marks} {currentSQ.marks === 1 ? "mk" : "mks"}
+              </span>
+            </p>
+            <p className="text-[11px] text-gray-400 truncate hidden sm:block leading-tight mt-0.5">
+              {paper.questions.find((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))?.title ?? ""}
+            </p>
           </div>
 
           {paper.infoSheet && (
             <button
               onClick={() => setShowInfoSheet(true)}
-              className="ml-auto flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]"
+              className="flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]"
             >
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -1194,40 +1310,49 @@ function SessionView({
           )}
         </div>
 
-        {/* Row 2 (mobile only): progress bar + % + question selector */}
-        <div className="flex items-center gap-2 pb-2 sm:hidden">
-          <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div className="h-full bg-[#BE1832] rounded-full transition-all" style={{ width: `${pctComplete}%` }} />
+        {/* Question progress dots — scrollable, grouped by parent question */}
+        <div className="overflow-x-auto pb-2.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex items-end gap-2 w-max">
+            {paper.questions.map((q, qi) => (
+              <React.Fragment key={q.number}>
+                {qi > 0 && <div className="w-px h-4 bg-gray-200 self-center flex-shrink-0" />}
+                <div className="flex flex-col items-start gap-1 flex-shrink-0">
+                  <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wide leading-none px-0.5">
+                    Q{q.number}
+                  </span>
+                  <div className="flex items-center gap-1">
+                    {q.subQuestions.map((sq) => {
+                      const flatIdx = flatQuestions.findIndex((f) => f.id === sq.id);
+                      const attempt = attempts[sq.id];
+                      const isActive = flatIdx === currentIdx;
+                      const isSubmitted = attempt?.submitted ?? false;
+                      const isAnswered = (() => {
+                        if (!attempt) return false;
+                        if (sq.type === "mcq") return !!attempt.selectedOption;
+                        if (sq.type === "match-group") return Object.keys(attempt.matchAnswers ?? {}).length > 0;
+                        if (sq.type === "calculation") return !!(attempt.textWorking.trim() || attempt.calcAnswer.trim());
+                        if (sq.type === "answer-book") return hasStatementContent(attempt.col2Working);
+                        if (sq.type === "two-column") return !!(attempt.textWorking.trim() || attempt.col2Working.trim());
+                        return !!(attempt.textWorking.trim() || attempt.imageFile);
+                      })();
+                      return (
+                        <button
+                          key={sq.id}
+                          onClick={() => setCurrentIdx(flatIdx)}
+                          title={`${sq.label} · ${sq.marks} ${sq.marks === 1 ? "mk" : "mks"}`}
+                          className={`flex-shrink-0 rounded-full transition-all duration-150 ${
+                            isActive ? "w-5 h-5 ring-2 ring-[#BE1832] ring-offset-1" : "w-4 h-4 hover:scale-110"
+                          } ${
+                            isSubmitted ? "bg-[#BE1832]" : isAnswered ? "bg-amber-400" : "bg-gray-200"
+                          }`}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </React.Fragment>
+            ))}
           </div>
-          <span className="text-[11px] text-gray-500 whitespace-nowrap flex-shrink-0">{pctComplete}% done</span>
-          <select
-            value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
-            onChange={(e) => {
-              const idx = questionStartIndices[Number(e.target.value)];
-              if (idx >= 0) setCurrentIdx(idx);
-            }}
-            className="border border-gray-200 rounded-lg px-2 py-1 text-xs font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[120px] flex-shrink-0"
-          >
-            {paper.questions.map((q, i) => (
-              <option key={q.number} value={i}>Q{q.number}: {q.title}</option>
-            ))}
-          </select>
-        </div>
-
-        {/* Desktop-only: question select in row 1 area — shown inline above via sm: */}
-        <div className="hidden sm:flex items-center gap-2 pb-2">
-          <select
-            value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
-            onChange={(e) => {
-              const idx = questionStartIndices[Number(e.target.value)];
-              if (idx >= 0) setCurrentIdx(idx);
-            }}
-            className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[260px]"
-          >
-            {paper.questions.map((q, i) => (
-              <option key={q.number} value={i}>Q{q.number}: {q.title}</option>
-            ))}
-          </select>
         </div>
       </div>
 
@@ -1236,30 +1361,38 @@ function SessionView({
         <InfoSheetModal sheet={paper.infoSheet} onClose={() => setShowInfoSheet(false)} />
       )}
 
-      {/* Diagram lightbox */}
+      {/* Diagram panel — bottom sheet on mobile, right side panel on desktop (non-blocking) */}
       {expandedDiagramUrl && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setExpandedDiagramUrl(null)}
-        >
-          <div className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center">
-            <button
-              onClick={() => setExpandedDiagramUrl(null)}
-              className="absolute -top-10 right-0 text-white/80 hover:text-white p-1"
-              title="Close"
-            >
-              <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <img
-              src={expandedDiagramUrl}
-              alt="Diagram"
-              className="max-h-[85vh] max-w-full object-contain rounded-xl"
-              onClick={(e) => e.stopPropagation()}
-            />
+        <>
+          {/* Mobile-only dim backdrop; desktop has no backdrop so working area stays interactive */}
+          <div
+            className="sm:hidden fixed inset-0 z-[39] bg-black/20"
+            onClick={() => setExpandedDiagramUrl(null)}
+          />
+          <div className="fixed z-40 flex flex-col bg-white shadow-2xl
+            bottom-0 left-0 right-0 h-[55%] rounded-t-2xl
+            sm:top-0 sm:bottom-0 sm:left-auto sm:right-0 sm:h-full sm:w-[min(560px,45%)] sm:rounded-none">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 flex-shrink-0">
+              <span className="font-bold text-sm text-gray-800">Reference</span>
+              <button
+                onClick={() => setExpandedDiagramUrl(null)}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                title="Close"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-4">
+              <img
+                src={expandedDiagramUrl}
+                alt="Reference diagram"
+                className="w-full object-contain rounded-xl border border-gray-200"
+              />
+            </div>
           </div>
-        </div>
+        </>
       )}
 
       {/* Mobile tab bar — guided mode only */}
@@ -1295,10 +1428,24 @@ function SessionView({
           {/* Content area — no scroll, flex column */}
           <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
             {/* Question text + diagram (scrollable together) */}
-            <div className="flex-shrink-0 overflow-y-auto px-3 sm:px-5 py-2 sm:py-3 border-b border-gray-100 max-h-[30%] sm:max-h-[45%]">
-              <div className="text-base text-gray-800 leading-relaxed">
-                <MathMarkdown content={currentSQ.questionText} />
+            <div
+              ref={questionPanelRef}
+              onScroll={(e) => {
+                const el = e.currentTarget;
+                setShowScrollHint(el.scrollHeight - el.scrollTop > el.clientHeight + 20);
+              }}
+              className="relative flex-shrink-0 overflow-y-auto border-b border-gray-100 max-h-[30%] sm:max-h-[45%] bg-rose-50/20"
+            >
+              {/* "QUESTION" badge — clear visual separator from answer area */}
+              <div className="sticky top-0 z-10 flex items-center gap-2 px-3 sm:px-5 pt-2 pb-1 bg-rose-50/90 backdrop-blur-sm border-b border-rose-100/60">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#BE1832]/70">Question</span>
+                <span className="text-[10px] text-gray-400">·</span>
+                <span className="text-[10px] font-semibold text-gray-500">{currentSQ.label}</span>
               </div>
+              <div className="px-3 sm:px-5 py-2 sm:py-3">
+                <div className="text-sm text-gray-800 leading-relaxed">
+                  <MathMarkdown content={currentSQ.questionText} />
+                </div>
               {/* Sources (History) + Diagram */}
               {(() => {
                 const parentQ = paper.questions.find((q) =>
@@ -1390,10 +1537,26 @@ function SessionView({
                   )}
                 </div>
               )}
-            </div>
+
+              {/* Mobile scroll hint — only shown when content is clipped */}
+              {showScrollHint && (
+                <div className="sm:hidden sticky bottom-0 left-0 right-0 -mx-3 px-3 pt-4 pb-1.5 pointer-events-none bg-gradient-to-t from-rose-50 via-rose-50/90 to-transparent flex justify-center">
+                  <span className="animate-bounce flex items-center gap-1 text-[11px] font-semibold text-gray-400">
+                    Scroll for more
+                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                </div>
+              )}
+            </div>{/* end inner padding div */}
+            </div>{/* end question panel */}
 
             {/* Working area — grows to fill remaining space */}
-            <div className="flex-1 flex flex-col min-h-0 px-3 sm:px-5 py-2 sm:py-3 gap-1.5 sm:gap-2">
+            <div className="flex-1 flex flex-col min-h-0 px-3 sm:px-5 pt-2 pb-2 sm:pt-2.5 sm:pb-3 gap-1.5 sm:gap-2">
+              <div className="flex-shrink-0 flex items-center gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Your answer</span>
+              </div>
 
               {currentSQ.type === "mcq" && currentSQ.options ? (
                 /* ── MCQ Option Cards ── */
@@ -1473,6 +1636,138 @@ function SessionView({
                       disabled={currentAttempt.submitted}
                       className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none disabled:opacity-60"
                     />
+                  </div>
+                </div>
+              ) : currentSQ.type === "answer-book" ? (
+                /* ── Answer Book: Statement table only (no workings) ── */
+                (() => {
+                  const statementRows: StatementRowData[] = (() => {
+                    const raw = currentAttempt.col2Working;
+                    if (!raw.trim()) return [{ desc: "", amount: "" }];
+                    try {
+                      const parsed = JSON.parse(raw) as StatementRowData[];
+                      if (Array.isArray(parsed) && parsed.length) return parsed;
+                    } catch { /* not JSON */ }
+                    return [{ desc: raw, amount: "" }];
+                  })();
+
+                  const updateRows = (rows: StatementRowData[]) => {
+                    updateAttempt(currentSQ.id, { col2Working: JSON.stringify(rows) });
+                  };
+
+                  return (
+                    <div className="flex-1 flex flex-col min-h-0">
+                      <label className="text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wide flex-shrink-0">
+                        {currentSQ.col2Label ?? "Statement (R)"}
+                      </label>
+                      <div className="flex-1 min-h-0 flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white">
+                        {/* Table header */}
+                        <div className="flex-shrink-0 flex border-b border-gray-200 bg-gray-50">
+                          <div className="flex-1 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                            Description
+                          </div>
+                          <div className="w-32 sm:w-40 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-400 border-l border-gray-200 text-right">
+                            Amount (R)
+                          </div>
+                        </div>
+                        {/* Editable rows */}
+                        <div className="flex-1 overflow-y-auto divide-y divide-gray-100">
+                          {statementRows.map((row, i) => (
+                            <div key={i} className="flex items-stretch min-h-[36px]">
+                              <input
+                                value={row.desc}
+                                onChange={(e) => {
+                                  const next = statementRows.map((r, j) =>
+                                    j === i ? { ...r, desc: e.target.value } : r
+                                  );
+                                  updateRows(next);
+                                }}
+                                disabled={currentAttempt.submitted}
+                                placeholder={i === 0 ? "e.g. Revenue / Sales" : "Line item…"}
+                                className="flex-1 px-3 py-2 text-sm font-mono text-gray-800 placeholder-gray-300 focus:outline-none focus:bg-blue-50/30 disabled:opacity-60 bg-transparent"
+                              />
+                              <input
+                                value={row.amount}
+                                onChange={(e) => {
+                                  const next = statementRows.map((r, j) =>
+                                    j === i ? { ...r, amount: e.target.value } : r
+                                  );
+                                  updateRows(next);
+                                }}
+                                disabled={currentAttempt.submitted}
+                                placeholder="0"
+                                className="w-32 sm:w-40 px-3 py-2 text-sm font-mono text-gray-800 placeholder-gray-300 border-l border-gray-200 focus:outline-none focus:bg-blue-50/30 disabled:opacity-60 bg-transparent text-right"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                        {/* Add row button */}
+                        {!currentAttempt.submitted && (
+                          <button
+                            onClick={() => updateRows([...statementRows, { desc: "", amount: "" }])}
+                            className="flex-shrink-0 w-full py-2 text-xs text-gray-400 hover:text-[#BE1832] hover:bg-rose-50 transition-colors border-t border-gray-100 flex items-center justify-center gap-1"
+                          >
+                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                            </svg>
+                            Add row
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })()
+              ) : currentSQ.type === "match-group" && currentSQ.matchRows && currentSQ.matchOptions ? (
+                /* ── Match-group: COLUMN B reference + per-row letter selectors ── */
+                <div className="flex-1 flex flex-col gap-2 min-h-0 overflow-y-auto">
+                  {/* COLUMN B reference panel */}
+                  <div className="flex-shrink-0 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Column B</p>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1">
+                      {Object.entries(currentSQ.matchOptions).map(([letter, value]) => (
+                        <span key={letter} className="text-xs text-gray-700">
+                          <span className="font-bold text-gray-900">{letter}</span> — {value}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Per-row selectors */}
+                  <div className="flex-1 space-y-2">
+                    {currentSQ.matchRows.map((row) => {
+                      const selected = currentAttempt.matchAnswers?.[row.label];
+                      return (
+                        <div key={row.label} className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-3 py-2.5">
+                          <div className="flex-1 min-w-0">
+                            <span className="text-xs font-semibold text-gray-400 mr-1.5">{row.label}</span>
+                            <span className="text-sm text-gray-800">{row.term}</span>
+                          </div>
+                          <div className="flex-shrink-0 flex gap-1.5 flex-wrap justify-end">
+                            {Object.keys(currentSQ.matchOptions!).map((letter) => {
+                              const isChosen = selected === letter;
+                              return (
+                                <button
+                                  key={letter}
+                                  disabled={currentAttempt.submitted}
+                                  onClick={() => {
+                                    const next = { ...(currentAttempt.matchAnswers ?? {}) };
+                                    if (isChosen) { delete next[row.label]; }
+                                    else { next[row.label] = letter; }
+                                    updateAttempt(currentSQ.id, { matchAnswers: next });
+                                  }}
+                                  className={`w-8 h-8 rounded-lg text-sm font-bold border-2 transition-all ${
+                                    isChosen
+                                      ? "bg-[#BE1832] border-[#BE1832] text-white"
+                                      : "bg-white border-gray-200 text-gray-500 hover:border-gray-400"
+                                  } disabled:cursor-default`}
+                                >
+                                  {letter}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               ) : isMaths ? (
@@ -1709,7 +2004,7 @@ function SessionView({
               {mode === "guided" ? (
                 currentAttempt.submitted ? (
                   <div className="flex gap-2 flex-shrink-0">
-                    {currentSQ.type !== "mcq" && (
+                    {currentSQ.type !== "mcq" && currentSQ.type !== "match-group" && (
                       <button
                         onClick={handleRetry}
                         className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
@@ -1739,8 +2034,9 @@ function SessionView({
                       disabled={
                         isEvaluating || (() => {
                           if (currentSQ.type === "mcq") return !currentAttempt.selectedOption;
+                          if (currentSQ.type === "match-group") return Object.keys(currentAttempt.matchAnswers ?? {}).length === 0;
                           if (currentSQ.type === "calculation") return !currentAttempt.textWorking.trim() && !currentAttempt.calcAnswer.trim();
-                          if (currentSQ.type === "two-column") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
+                          if (currentSQ.type === "two-column" || currentSQ.type === "answer-book") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
                           return !currentAttempt.textWorking.trim() && !currentAttempt.imageFile;
                         })()
                       }
@@ -1935,6 +2231,7 @@ function SummaryView({
   onRetry: () => void;
   onBack: () => void;
 }) {
+  const [showReview, setShowReview] = useState(false);
   const flatQuestions = getFlatSubQuestions(paper);
   const totalEarned = flatQuestions.reduce(
     (sum, sq) => sum + (attempts[sq.id]?.marksEarned ?? 0),
@@ -2017,6 +2314,83 @@ function SummaryView({
             </p>
           </div>
         )}
+
+        {/* Answer review */}
+        <div className="space-y-3">
+          <button
+            onClick={() => setShowReview((v) => !v)}
+            className="w-full flex items-center justify-between bg-white rounded-2xl border border-gray-100 shadow-sm px-5 py-4 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
+          >
+            <span>Review your answers</span>
+            <svg
+              className={`w-4 h-4 text-gray-400 transition-transform ${showReview ? "rotate-180" : ""}`}
+              fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {showReview && (
+            <div className="space-y-3">
+              {flatQuestions.map((sq) => {
+                const attempt = attempts[sq.id];
+                const earned = attempt?.marksEarned ?? 0;
+                const isCorrect = earned >= sq.marks;
+                const isPartial = earned > 0 && earned < sq.marks;
+                const studentAnswer = (() => {
+                  if (sq.type === "mcq") return attempt?.selectedOption ? `Option ${attempt.selectedOption}` : null;
+                  if (sq.type === "two-column") return attempt?.col2Working?.trim() || null;
+                  if (sq.type === "answer-book") return [attempt?.textWorking?.trim(), attempt?.col2Working?.trim()].filter(Boolean).join("\n\n") || null;
+                  return attempt?.textWorking?.trim() || null;
+                })();
+
+                return (
+                  <div
+                    key={sq.id}
+                    className={`bg-white rounded-2xl border shadow-sm overflow-hidden ${
+                      isCorrect ? "border-green-200" : isPartial ? "border-amber-200" : "border-red-100"
+                    }`}
+                  >
+                    {/* Header row */}
+                    <div className={`flex items-center justify-between px-4 py-2.5 ${
+                      isCorrect ? "bg-green-50" : isPartial ? "bg-amber-50" : "bg-red-50"
+                    }`}>
+                      <span className="text-xs font-bold text-gray-700">Question {sq.label}</span>
+                      <span className={`text-xs font-bold ${
+                        isCorrect ? "text-green-700" : isPartial ? "text-amber-700" : "text-red-600"
+                      }`}>
+                        {earned}/{sq.marks} marks
+                      </span>
+                    </div>
+
+                    <div className="px-4 py-3 space-y-2.5 text-xs text-gray-700">
+                      {/* Question text */}
+                      <p className="font-medium text-gray-500 leading-relaxed line-clamp-3">{sq.questionText}</p>
+
+                      {/* Student answer */}
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400 mb-0.5">Your answer</p>
+                        {attempt?.submitted ? (
+                          <p className="leading-relaxed whitespace-pre-wrap">
+                            {studentAnswer ?? <em className="text-gray-400">No answer recorded</em>}
+                          </p>
+                        ) : (
+                          <p className="text-gray-400 italic">Not attempted</p>
+                        )}
+                      </div>
+
+                      {/* Correct answer */}
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400 mb-0.5">Correct answer</p>
+                        <p className="leading-relaxed whitespace-pre-wrap text-gray-700">{sq.memoText}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3">
