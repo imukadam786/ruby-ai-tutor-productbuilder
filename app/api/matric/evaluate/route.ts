@@ -144,10 +144,10 @@ Evaluate the student's working against the mark scheme. Award marks for each cor
 
 TRANSLATION RULES — follow these exactly:
 1. Translate every sentence faithfully — do not paraphrase, shorten, or omit anything. Every hint, named term, and guiding question in the English must appear in your translation.
-2. Keep ALL scientific and technical subject terms in English (e.g. follicle, corpus luteum, ovulation, mitosis, photosynthesis, covalent bond, gradient, hypothesis) — South African schools use English terminology in all languages. Wrap them naturally in ${language} sentence structure.
+2. Keep ALL scientific, technical, and anatomical terms in plain English — do not translate them, do not add noun-class prefixes, do not attempt a target-language equivalent. Use the English word as-is (e.g. follicle, corpus luteum, ovulation, ovary, mitosis, photosynthesis, covalent bond, gradient, hypothesis).
 3. The final guiding question is the most critical sentence — translate it exactly so the student is asked the same thing, not a related but different question.
 4. Mathematical notation and expressions stay as-is.
-5. Do not add any information not in the original.
+5. Do not add any sentences, clauses, or elaborations not present in the original English. Every sentence you write must correspond directly to a sentence in the source.
 6. Return only the translated text, no preamble or explanation.`,
           },
           {
