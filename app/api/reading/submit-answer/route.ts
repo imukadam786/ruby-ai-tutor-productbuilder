@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
+import { checkLanguage } from "@/lib/language-utils";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import {
   ReadingAnswerSubmission,
@@ -225,6 +226,24 @@ Respond in this exact JSON format (no markdown, raw JSON only):
           feedback: "Not quite — give it another try!",
           recovery_explanation: "Read each sound carefully from left to right, then blend them together.",
         };
+      }
+
+      if (lang !== "English" && aiDiagnosis.feedback) {
+        const langOk = await checkLanguage(aiDiagnosis.feedback, lang);
+        if (!langOk) {
+          const retryPrompt = prompt + `\n\nCRITICAL OVERRIDE: Your "feedback" and "recovery_explanation" MUST be written entirely in ${lang}. Not a single English word in those two fields.`;
+          const retryResp = await getOpenAI().chat.completions.create({
+            model: OPENAI_MODEL,
+            max_tokens: 300,
+            messages: [{ role: "user", content: retryPrompt }],
+          }, { signal: AbortSignal.timeout(15_000) });
+          try {
+            const retryText = retryResp.choices[0]?.message?.content ?? "";
+            const retryMatch = retryText.match(/\{[\s\S]*\}/);
+            const retryParsed = JSON.parse(retryMatch ? retryMatch[0] : retryText);
+            if (retryParsed.feedback) aiDiagnosis = { ...aiDiagnosis, ...retryParsed };
+          } catch { /* keep original */ }
+        }
       }
     }
 

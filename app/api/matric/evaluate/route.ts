@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { requireApiSecret } from "@/lib/api-auth";
+import { checkLanguage } from "@/lib/language-utils";
 
 export async function POST(req: NextRequest) {
   const authError = requireApiSecret(req);
@@ -129,6 +130,26 @@ Evaluate the student's working against the mark scheme. Award marks for each cor
       parsed = JSON.parse(raw);
     } catch {
       parsed = { marksEarned: 0, totalMarks: 0, allCorrect: false, feedback: raw };
+    }
+
+    if (language !== "English" && parsed.feedback) {
+      const langOk = await checkLanguage(parsed.feedback, language);
+      if (!langOk) {
+        const retrySystem = systemPrompt + `\n\nABSOLUTE REQUIREMENT: Every single word of your feedback must be written in ${language}. No English at all. The student only reads ${language}.`;
+        const retryResp = await openai.chat.completions.create({
+          model: "gpt-4o",
+          max_tokens: 1500,
+          response_format: { type: "json_object" },
+          messages: [
+            { role: "system", content: retrySystem },
+            { role: "user", content: userContent },
+          ],
+        });
+        try {
+          const retryParsed = JSON.parse(retryResp.choices[0]?.message?.content ?? "{}");
+          if (retryParsed.feedback) parsed = retryParsed;
+        } catch { /* keep original */ }
+      }
     }
 
     return NextResponse.json(parsed);
