@@ -29,7 +29,7 @@ export default function Sidebar({
   onOpenLangPicker,
   userPlan,
 }: SidebarProps) {
-  const matricLocked = userPlan !== "master";
+  const matricLocked = userPlan !== "master" && userPlan !== "matric-pack";
   const { t } = useT();
 
   const handleNav = (view: ActiveView) => {
@@ -165,20 +165,12 @@ export default function Sidebar({
               <button
                 key={id}
                 onClick={() => handleNav(id)}
-                title={collapsed ? (isLockedMatric ? "Matrics — Master plan required" : label) : undefined}
-                className={`${navItemClass(active)} ${collapsed ? "justify-center px-0" : ""} ${isLockedMatric && collapsed ? "relative" : ""}`}
+                title={collapsed ? label : undefined}
+                className={`${navItemClass(active)} ${collapsed ? "justify-center px-0" : ""}`}
               >
                 <span className="text-lg flex-shrink-0">{emoji}</span>
                 {!collapsed && (
                   <span className="font-medium text-base flex-1">{label}</span>
-                )}
-                {isLockedMatric && !collapsed && (
-                  <span className="text-xs bg-amber-400 text-amber-900 font-semibold px-1.5 py-0.5 rounded-full flex-shrink-0">
-                    Master
-                  </span>
-                )}
-                {isLockedMatric && collapsed && (
-                  <span className="absolute -top-0.5 -right-0.5 text-[10px] leading-none">🔒</span>
                 )}
               </button>
             );

@@ -97,6 +97,11 @@ const SUBJECTS: Subject[] = [
         description: "Plant production, animal production and agricultural management",
         filename: "agrisci-p1-may-jun-2026-studyguide1.pdf",
       },
+      {
+        label: "Paper 2 — Agricultural Science",
+        description: "Animal production, animal health and agricultural management",
+        filename: "agrisci-p2-may-jun-2026-studyguide.pdf",
+      },
     ],
   },
   {
