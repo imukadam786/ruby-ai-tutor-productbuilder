@@ -167,7 +167,7 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubject
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative max-w-5xl mx-auto px-5 py-6 space-y-6">
+      <div className="relative max-w-3xl mx-auto px-5 py-10 space-y-8">
         {/* Back button */}
         <button
           onClick={onBack}
@@ -178,7 +178,7 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubject
           </svg>
           <span className="text-sm font-medium">Back</span>
         </button>
-        <div className="space-y-1">
+        <div className="space-y-2">
           <div className="inline-flex items-center gap-2 bg-[#BE1832]/10 border border-[#BE1832]/20 text-[#BE1832] text-xs font-semibold px-3 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-[#BE1832]" />
             Predictive 2026
@@ -362,7 +362,7 @@ function ModeSelect({
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative z-10 max-w-2xl mx-auto px-5 py-5 space-y-5">
+      <div className="relative z-10 max-w-2xl mx-auto px-5 py-10 space-y-8">
         <button onClick={onBack} className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 transition-colors">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
