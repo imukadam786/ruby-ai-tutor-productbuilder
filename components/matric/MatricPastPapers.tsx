@@ -1045,9 +1045,10 @@ function SessionView({
 
       // Embed options into question text for MCQ / match-group so the AI has full context
       const questionText = isMCQ
-        ? `${sq.questionText}\n\n${(["A", "B", "C", "D", "E"] as const)
-            .filter((l) => sq.options![l] !== undefined)
-            .map((l) => `${l}) ${sq.options![l]}`)
+        ? `${sq.questionText}\n\n${Object.keys(sq.options!)
+            .sort()
+            .filter((l) => sq.options![l as keyof typeof sq.options] !== undefined)
+            .map((l) => `${l}) ${sq.options![l as keyof typeof sq.options]}`)
             .join("\n")}`
         : isMatchGroup
         ? `${sq.questionText}\n\nCOLUMN A:\n${sq.matchRows!.map((r) => `${r.label} — ${r.term}`).join("\n")}\n\nCOLUMN B:\n${Object.entries(sq.matchOptions!).map(([l, v]) => `${l} — ${v}`).join("\n")}`
@@ -1570,8 +1571,8 @@ function SessionView({
               {currentSQ.type === "mcq" && currentSQ.options ? (
                 /* ── MCQ Option Cards ── */
                 <div className="flex-1 overflow-y-auto space-y-2 min-h-0">
-                  {(["A", "B", "C", "D", "E"] as const).filter((l) => currentSQ.options![l] !== undefined).map((letter) => {
-                    const text = currentSQ.options![letter]!;
+                  {Object.keys(currentSQ.options!).sort().map((letter) => {
+                    const text = currentSQ.options![letter as keyof typeof currentSQ.options]!;
                     const isSelected = currentAttempt.selectedOption === letter;
                     return (
                       <button
@@ -1889,6 +1890,74 @@ function SessionView({
                       </button>
                     </div>
                   )}
+                  {hintLevel > 0 && (
+                    <div className={`flex-shrink-0 rounded-xl px-4 py-3 border flex items-start gap-2.5 ${
+                      hintLevel === 1 ? "bg-yellow-50 border-yellow-200" :
+                      hintLevel === 2 ? "bg-orange-50 border-orange-200" :
+                                        "bg-blue-50 border-blue-200"
+                    }`}>
+                      <span className="text-base leading-none flex-shrink-0 mt-0.5">💡</span>
+                      <p className={`text-sm leading-relaxed ${
+                        hintLevel === 1 ? "text-yellow-800" :
+                        hintLevel === 2 ? "text-orange-800" :
+                                          "text-blue-800"
+                      }`}>
+                        <span className="font-semibold">
+                          {hintLevel === 1 ? "Hint: " : hintLevel === 2 ? "More help: " : "First step: "}
+                        </span>
+                        {hintLevel === 1 ? hint1 : hintLevel === 2 ? hint2 : hint3}
+                      </p>
+                    </div>
+                  )}
+                </>
+              ) : currentSQ.wordBank ? (
+                /* ── Word bank: tappable chips ── */
+                <>
+                  <div className="flex-1 flex flex-col gap-3 min-h-0 overflow-y-auto">
+                    <div className="flex flex-wrap gap-2">
+                      {currentSQ.wordBank.map((word) => {
+                        const isSelected = currentAttempt.textWorking === word;
+                        return (
+                          <button
+                            key={word}
+                            disabled={currentAttempt.submitted}
+                            onClick={() =>
+                              updateAttempt(currentSQ.id, {
+                                textWorking: isSelected ? "" : word,
+                              })
+                            }
+                            className={`px-3 py-1.5 rounded-lg border-2 text-sm font-medium transition-all ${
+                              isSelected
+                                ? "border-[#BE1832] bg-rose-50 text-[#BE1832]"
+                                : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
+                            } disabled:cursor-default`}
+                          >
+                            {word}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    {currentAttempt.textWorking && (
+                      <p className="text-sm text-gray-500 flex-shrink-0">
+                        Selected: <span className="font-semibold text-gray-800">{currentAttempt.textWorking}</span>
+                      </p>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-center flex-shrink-0">
+                    {hintLevel < 3 && (
+                      <button
+                        onClick={() => setHintLevel((p) => Math.min(p + 1, 3))}
+                        className={`flex items-center gap-1.5 text-sm transition-colors ${
+                          hintLevel === 0 ? "text-yellow-500 hover:text-yellow-700" :
+                          hintLevel === 1 ? "text-orange-500 hover:text-orange-700" :
+                                            "text-blue-500 hover:text-blue-700"
+                        }`}
+                      >
+                        <span className="text-base leading-none">💡</span>
+                        {hintLevel === 0 ? "Get a hint" : hintLevel === 1 ? "A bit more help" : "Show me the first step"}
+                      </button>
+                    )}
+                  </div>
                   {hintLevel > 0 && (
                     <div className={`flex-shrink-0 rounded-xl px-4 py-3 border flex items-start gap-2.5 ${
                       hintLevel === 1 ? "bg-yellow-50 border-yellow-200" :

@@ -1,4 +1,8 @@
-export type MCQOptions = { A: string; B?: string; C?: string; D?: string; E?: string };
+export type MCQOptions = {
+  A: string;
+  B?: string; C?: string; D?: string; E?: string;
+  F?: string; G?: string; H?: string; I?: string; J?: string;
+};
 
 export interface MatchRow {
   label: string;  // e.g. "1.4.1"
@@ -23,6 +27,8 @@ export interface SubQuestion {
   type?: "written" | "mcq" | "calculation" | "two-column" | "match-group" | "answer-book";
   /** Required when type === "mcq" */
   options?: MCQOptions;
+  /** Word bank for fill-in-the-blank questions — renders as tappable chips instead of a textarea */
+  wordBank?: string[];
   /** Column labels for type === "two-column". For "answer-book" overrides section labels (defaults: "Workings" / "Statement (R)") */
   col1Label?: string;
   col2Label?: string;
