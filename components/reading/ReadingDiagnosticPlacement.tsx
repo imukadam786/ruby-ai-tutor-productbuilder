@@ -451,6 +451,7 @@ function buildReadingReportInput(
     dominantErrors: placement.dominantErrors ?? [],
     placementSkill: SKILL_NAME_MAP[placement.entrySkillId] ?? placement.entrySkillId,
     skillsCompleted: placement.autoCompletedSkillIds.length,
+    hardGateBlocked: !placement.hardGatePassed,
   };
 }
 

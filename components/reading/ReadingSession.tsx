@@ -125,6 +125,7 @@ function buildReadingReportInput(
     dominantErrors,
     placementSkill: result.entrySkillId,
     skillsCompleted: result.autoCompletedSkillIds.length,
+    hardGateBlocked: !result.hardGatePassed,
   };
 }
 
@@ -291,7 +292,7 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
         currentResult && !currentResult.is_correct && currentResult.error_type !== "correct"
           ? currentResult.error_type
           : null;
-      const template = selectReadingTemplate(prevCorrect, errorType, null, recentTemplatesRef.current);
+      const template = selectReadingTemplate(prevCorrect ? "advance" : "reteach", errorType, null, recentTemplatesRef.current);
       recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
       // If a stale mastered skill needs a retention probe, load that first
       const skillIdToLoad = pendingReviewSkillId ?? profile.current_skill_id;
@@ -430,6 +431,7 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
         is_correct: result.is_correct,
         used_hint: usedHint,
         attempt_number: skillAttemptCount + 1,
+        decision: updatedMastery.status === "mastered" ? "advance" : result.is_correct ? "practice" : "reteach",
       });
 
       if (updatedMastery.status === "mastered") {
@@ -460,7 +462,7 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
           const nextSkillId = profileAfterReview.current_skill_id;
           const nextUsedRefs = getReadingUsedRefs(profileAfterReview, nextSkillId);
           const nextErrorType = !result.is_correct && result.error_type !== "correct" ? result.error_type : null;
-          const nextTemplate = selectReadingTemplate(result.is_correct, nextErrorType, null, recentTemplatesRef.current);
+          const nextTemplate = selectReadingTemplate(result.is_correct ? "advance" : "reteach", nextErrorType, null, recentTemplatesRef.current);
           void apiFetch("/api/reading/generate-question", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

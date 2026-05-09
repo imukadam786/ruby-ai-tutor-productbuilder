@@ -12,6 +12,7 @@ export type DiagnosticReportInput = {
   workingLevel: string;       // e.g. "Level 13 — Algebra, Patterns and Variables"
   gradeLevelGap: number;      // expected entry level minus actual entry level (0 = on track, positive = behind)
   questionsAnalysed: number;  // actual count from placement.tasks.length
+  correctCount: number;       // number of correct answers in the placement
   domainScores: {
     domain: string;           // human-readable domain title
     score: number;            // 0–100
