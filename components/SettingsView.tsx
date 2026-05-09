@@ -1,13 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useT } from "@/lib/i18n";
 import SpinningGlobe from "@/components/SpinningGlobe";
 import EduBackground from "@/components/EduBackground";
 import { supabase } from "@/lib/supabase";
+import SavedReportView from "@/components/SavedReportView";
 
 interface SettingsViewProps {
   onBack: () => void;
+  paymentReturn?: "success" | "cancelled" | null;
 }
 
 // ── Small reusable pieces ─────────────────────────────────────────────────────
@@ -169,432 +171,248 @@ function EditField({
 
 // ── Plan badge ────────────────────────────────────────────────────────────────
 
-const PLAN_INFO: Record<string, { label: string; color: string; features: string[]; price: string }> = {
+const PLAN_INFO: Record<string, { label: string; color: string; features: string[]; price: string; priceRands: number }> = {
   free: {
     label: "Free",
     color: "bg-gray-100 text-gray-600",
     price: "R0 / month",
+    priceRands: 0,
     features: ["General Homework Chat", "Basic Skill Tree", "Limited questions/day"],
   },
   starter: {
     label: "Starter",
     color: "bg-blue-100 text-blue-700",
     price: "R149 / month",
+    priceRands: 149,
     features: ["All Free features", "Maths Engine", "Reading Engine", "Progress Reports"],
   },
   pro: {
     label: "Pro",
     color: "bg-purple-100 text-purple-700",
     price: "R299 / month",
+    priceRands: 299,
     features: ["All Starter features", "Unlimited questions", "PDF Reports", "Priority support"],
   },
   ultimate: {
     label: "Ultimate",
     color: "bg-amber-100 text-amber-700",
     price: "R499 / month",
+    priceRands: 499,
     features: ["All Pro features", "Multiple learner profiles", "Parent dashboard", "Live tutor sessions"],
   },
+  scholar: {
+    label: "Scholar",
+    color: "bg-green-100 text-green-700",
+    price: "R149 / month",
+    priceRands: 149,
+    features: ["All Starter features", "Maths Engine", "Reading Engine", "Progress Reports"],
+  },
+  master: {
+    label: "Master",
+    color: "bg-indigo-100 text-indigo-700",
+    price: "R299 / month",
+    priceRands: 299,
+    features: ["All Pro features", "Unlimited questions", "PDF Reports", "Priority support"],
+  },
+  school: {
+    label: "School",
+    color: "bg-teal-100 text-teal-700",
+    price: "Custom",
+    priceRands: 0,
+    features: ["School-wide access", "Teacher dashboard", "Progress tracking", "Dedicated support"],
+  },
+  "matric-pack": {
+    label: "Matric Exam Pack",
+    color: "bg-blue-100 text-blue-700",
+    price: "R99 once-off",
+    priceRands: 99,
+    features: ["50+ Matric Past Papers", "10+ Study Guides", "15+ Prep Papers 2026", "Unlimited AI Feedback"],
+  },
 };
 
-const CONTINENTS: {
-  key: string;
-  label: string;
-  color: string;
-  textColor: string;
-  languages: string[];
-}[] = [
-  {
-    key: "africa",
-    label: "Africa",
-    color: "#C9A62B",
-    textColor: "#fff",
-    languages: ["Afrikaans","Arabic","English","French","Portuguese","Somali","Swahili","Xhosa","Yoruba","Zulu"],
-  },
-  {
-    key: "asia",
-    label: "Asia",
-    color: "#7B68EE",
-    textColor: "#fff",
-    languages: ["Arabic","Armenian","Azerbaijani","Bengali","Chinese (Mandarin)","Georgian","Hebrew","Hindi","Indonesian","Japanese","Javanese","Kazakh","Korean","Kurdish","Lao","Malay","Malayalam","Marathi","Mongolian","Nepali","Pashto","Persian (Farsi)","Punjabi","Sinhala","Tamil","Thai","Turkish","Urdu","Uzbek","Vietnamese"],
-  },
-  {
-    key: "europe",
-    label: "Europe",
-    color: "#8B8B4A",
-    textColor: "#fff",
-    languages: ["Catalan","Croatian","Dutch","English","French","German","Greek","Italian","Norwegian","Polish","Portuguese","Romanian","Russian","Serbian","Slovak","Slovenian","Spanish","Swedish","Ukrainian"],
-  },
-  {
-    key: "north-america",
-    label: "North America",
-    color: "#C0392B",
-    textColor: "#fff",
-    languages: ["English","French","Spanish"],
-  },
-  {
-    key: "south-america",
-    label: "South America",
-    color: "#27AE60",
-    textColor: "#fff",
-    languages: ["English","French","Portuguese","Spanish"],
-  },
+const LANGUAGES = [
+  "English",
+  "Afrikaans",
+  "Arabic",
+  "French",
+  "German",
+  "isiNdebele",
+  "isiXhosa",
+  "isiZulu",
+  "Sepedi",
+  "Sesotho",
+  "Setswana",
+  "siSwati",
+  "Spanish",
+  "Tshivenda",
+  "Xitsonga",
 ];
-
-// ── Bug Report Flow ───────────────────────────────────────────────────────────
-
-type BugCategory = {
-  id: string;
-  emoji: string;
-  label: string;
-  accent: string;        // Tailwind bg class for card
-  borderActive: string;  // Tailwind border class when selected
-  issues: string[];
-};
-
-const BUG_CATEGORIES: BugCategory[] = [
-  {
-    id: "payments",
-    emoji: "💳",
-    label: "Payments & Billing",
-    accent: "bg-green-50 hover:bg-green-100",
-    borderActive: "border-green-400",
-    issues: [
-      "Subscription not activating",
-      "Wrong amount charged",
-      "Last billing cycle not showing",
-      "Payment method not saving",
-      "Cancellation not processing",
-      "Invoice / receipt missing",
-    ],
-  },
-  {
-    id: "language",
-    emoji: "🌍",
-    label: "Language",
-    accent: "bg-blue-50 hover:bg-blue-100",
-    borderActive: "border-blue-400",
-    issues: [
-      "Language not changing",
-      "Translation is incorrect",
-      "Missing translations on a page",
-      "Wrong language set by default",
-    ],
-  },
-  {
-    id: "maths",
-    emoji: "🎯",
-    label: "Maths Engine",
-    accent: "bg-purple-50 hover:bg-purple-100",
-    borderActive: "border-purple-400",
-    issues: [
-      "Questions not loading",
-      "Correct answer marked wrong",
-      "Placement test not working",
-      "Skill tree not advancing",
-      "Same questions repeating",
-      "Progress not saving",
-    ],
-  },
-  {
-    id: "reading",
-    emoji: "✏️",
-    label: "Reading Engine",
-    accent: "bg-amber-50 hover:bg-amber-100",
-    borderActive: "border-amber-400",
-    issues: [
-      "Questions not loading",
-      "Reading passage not showing",
-      "Correct answer marked wrong",
-      "Skill level not advancing",
-      "Progress not saving",
-    ],
-  },
-  {
-    id: "homework",
-    emoji: "📚",
-    label: "Homework Chat",
-    accent: "bg-teal-50 hover:bg-teal-100",
-    borderActive: "border-teal-400",
-    issues: [
-      "Ruby not responding",
-      "Incorrect answers given",
-      "Image upload not working",
-      "Voice input not working",
-      "Chat history lost",
-    ],
-  },
-  {
-    id: "progress",
-    emoji: "📊",
-    label: "Progress Tracker",
-    accent: "bg-orange-50 hover:bg-orange-100",
-    borderActive: "border-orange-400",
-    issues: [
-      "Stats not updating after a session",
-      "Incorrect data showing",
-      "Session history missing",
-      "Skills not displayed correctly",
-    ],
-  },
-  {
-    id: "account",
-    emoji: "👤",
-    label: "Account & Profile",
-    accent: "bg-indigo-50 hover:bg-indigo-100",
-    borderActive: "border-indigo-400",
-    issues: [
-      "Can't update my name or email",
-      "Password reset not working",
-      "Profile not saving",
-      "Can't log in",
-      "Wrong plan showing on my account",
-    ],
-  },
-  {
-    id: "performance",
-    emoji: "⚡",
-    label: "App Performance",
-    accent: "bg-red-50 hover:bg-red-100",
-    borderActive: "border-red-400",
-    issues: [
-      "App loading very slowly",
-      "App freezing or crashing",
-      "Not working on my device",
-      "Pages not loading / blank screen",
-    ],
-  },
-  {
-    id: "other",
-    emoji: "💬",
-    label: "Something else",
-    accent: "bg-gray-50 hover:bg-gray-100",
-    borderActive: "border-gray-400",
-    issues: ["Other issue not listed above"],
-  },
-];
-
-function BugReportFlow({ onClose }: { onClose: () => void }) {
-  const [step, setStep] = useState<"category" | "issue" | "describe" | "done">("category");
-  const [category, setCategory] = useState<BugCategory | null>(null);
-  const [issue, setIssue] = useState<string | null>(null);
-  const [description, setDescription] = useState("");
-  const [replyEmail, setReplyEmail] = useState("");
-
-  const pickCategory = (c: BugCategory) => { setCategory(c); setIssue(null); setStep("issue"); };
-  const pickIssue = (i: string) => { setIssue(i); setStep("describe"); };
-  const submit = () => setStep("done");
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
-      <div className="bg-white rounded-2xl w-full max-w-md shadow-xl overflow-hidden">
-        {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-          <div className="flex items-center gap-2">
-            {step !== "category" && step !== "done" && (
-              <button
-                onClick={() => setStep(step === "describe" ? "issue" : "category")}
-                className="text-gray-400 hover:text-gray-600 p-1 -ml-1 rounded-lg transition-colors"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-            )}
-            <h3 className="font-semibold text-gray-900 text-base">
-              {step === "category" && "Report an Error"}
-              {step === "issue" && category?.label}
-              {step === "describe" && "Describe the Error"}
-              {step === "done" && "Report Sent"}
-            </h3>
-          </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 p-1 rounded-lg transition-colors">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Content */}
-        <div className="px-5 py-4">
-
-          {/* Step 1 — Category grid */}
-          {step === "category" && (
-            <div>
-              <p className="text-xs text-gray-400 mb-4">What area is the issue in?</p>
-              <div className="grid grid-cols-3 gap-2.5">
-                {BUG_CATEGORIES.map((c) => (
-                  <button
-                    key={c.id}
-                    onClick={() => pickCategory(c)}
-                    className={`flex flex-col items-center gap-1.5 p-3 rounded-2xl border-2 border-transparent transition-all active:scale-95 ${c.accent}`}
-                  >
-                    <span className="text-2xl">{c.emoji}</span>
-                    <span className="text-xs font-medium text-gray-700 text-center leading-tight">{c.label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Step 2 — Specific issue */}
-          {step === "issue" && category && (
-            <div>
-              {/* Breadcrumb */}
-              <div className="flex items-center gap-1.5 mb-4">
-                <span className="text-lg">{category.emoji}</span>
-                <span className="text-xs text-gray-400 font-medium">{category.label}</span>
-              </div>
-              <p className="text-xs text-gray-400 mb-3">What specifically went wrong?</p>
-              <div className="flex flex-col gap-2 max-h-64 overflow-y-auto pr-0.5">
-                {category.issues.map((iss) => (
-                  <button
-                    key={iss}
-                    onClick={() => pickIssue(iss)}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-gray-50 hover:bg-gray-100 text-sm text-gray-700 font-medium text-left transition-colors active:scale-[0.99]"
-                  >
-                    {iss}
-                    <svg className="w-4 h-4 text-gray-300 flex-shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Step 3 — Describe */}
-          {step === "describe" && category && issue && (
-            <div className="space-y-4">
-              {/* Breadcrumb */}
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-base">{category.emoji}</span>
-                <span className="text-xs text-gray-400">{category.label}</span>
-                <svg className="w-3 h-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-                <span className="text-xs text-gray-600 font-medium">{issue}</span>
-              </div>
-              <textarea
-                rows={4}
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="Tell us more so we can fix it quickly — e.g. what you were doing when it happened, what device you're using..."
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-50 placeholder-gray-300"
-              />
-              <div className="space-y-1.5">
-                <label className="text-xs font-medium text-gray-400">Reply email (optional)</label>
-                <input
-                  type="email"
-                  value={replyEmail}
-                  onChange={(e) => setReplyEmail(e.target.value)}
-                  placeholder="you@example.com"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-50 placeholder-gray-300"
-                />
-              </div>
-              <button
-                onClick={submit}
-                disabled={!description.trim()}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-40 text-white py-3 rounded-xl text-sm font-semibold transition-colors"
-              >
-                Send Report
-              </button>
-            </div>
-          )}
-
-          {/* Step 4 — Done */}
-          {step === "done" && (
-            <div className="flex flex-col items-center py-6 gap-4 text-center">
-              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-3xl">✓</div>
-              <div>
-                <p className="font-semibold text-gray-900 text-base mb-1">Report sent!</p>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Thank you — our team will look into <span className="font-medium text-gray-700">{issue}</span> and fix it as quickly as possible.
-                  {replyEmail && " We'll reply to you by email."}
-                </p>
-              </div>
-              <button
-                onClick={onClose}
-                className="mt-2 px-6 py-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium transition-colors"
-              >
-                Close
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // ── Main component ────────────────────────────────────────────────────────────
 
-export default function SettingsView({ onBack }: SettingsViewProps) {
+export default function SettingsView({ onBack, paymentReturn }: SettingsViewProps) {
   const { t, setLanguage, isTranslating } = useT();
 
   // Profile state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [grade, setGrade] = useState("");
   const [accountLang, setAccountLang] = useState("English");
   const [learnLang, setLearnLang] = useState("English");
   const [plan, setPlan] = useState("free");
   const [saved, setSaved] = useState(false);
 
+  // Report availability
+  const [hasMathsReport, setHasMathsReport] = useState(false);
+  const [hasReadingReport, setHasReadingReport] = useState(false);
+
+  // Internal page state — null = main settings, "maths" / "reading" = report view
+  const [reportPage, setReportPage] = useState<"maths" | "reading" | null>(null);
+
+  // Subscription state
+  const [supaUser, setSupaUser] = useState<{ id: string; email?: string } | null>(null);
+  const [pfToken, setPfToken] = useState<string | null>(null);
+  const [cancelling, setCancelling] = useState(false);
+  const [subError, setSubError] = useState<string | null>(null);
+
+  // Billing history
+  const [payments, setPayments] = useState<{ id: string; paid_at: string; amount: number; plan: string; status: string }[]>([]);
+
   // Active modal
   const [modal, setModal] = useState<string | null>(null);
-  const [selectedContinent, setSelectedContinent] = useState<string | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        const { data } = await supabase
+          .from("student_reports")
+          .select("subject")
+          .eq("user_id", user.id)
+          .in("subject", ["maths", "reading"]);
+        if (data) {
+          setHasMathsReport(data.some((r) => r.subject === "maths"));
+          setHasReadingReport(data.some((r) => r.subject === "reading"));
+        }
+      } catch { /* ignore */ }
+    })();
+  }, []);
 
   useEffect(() => {
     const loadProfile = async () => {
-      let savedName = "";
-      let savedEmail = "";
-      try {
-        const raw = localStorage.getItem("onboardingData");
-        if (raw) {
-          const d = JSON.parse(raw);
-          savedName = d.name || "";
-          savedEmail = d.email || "";
-          setPhone(d.phone || "");
-          setAccountLang(d.language || "English");
-          setLearnLang(d.language || "English");
-          setPlan(d.plan || "free");
-        }
-      } catch { /* ignore */ }
-
-      // Fill in name/email from Supabase session if not in localStorage
-      if (!savedName || !savedEmail) {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
-          if (!savedName) savedName = (user.user_metadata?.full_name as string | undefined) || "";
-          if (!savedEmail) savedEmail = user.email || "";
-        }
-      }
-      setName(savedName);
-      setEmail(savedEmail);
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      const { data: profile } = await supabase
+        .from("users")
+        .select("full_name, grade, language, average_score")
+        .eq("id", user.id)
+        .single();
+      setName((profile?.full_name as string | undefined) || (user.user_metadata?.full_name as string | undefined) || "");
+      setEmail(user.email || "");
+      setGrade((profile?.grade as string | undefined) || "");
+      const lang = (profile?.language as string | undefined) || "English";
+      setAccountLang(lang);
+      setLearnLang(lang);
     };
     loadProfile();
   }, []);
 
+  // Load live subscription from Supabase
+  const fetchSubscription = useCallback(async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session?.user) return;
+    setSupaUser(session.user as { id: string; email?: string });
+
+    const { data: sub } = await supabase
+      .from("subscriptions")
+      .select("plan, status, payfast_token")
+      .eq("user_id", session.user.id)
+      .maybeSingle();
+    if (sub?.plan && sub?.status === "active") {
+      setPlan(sub.plan);
+      if (sub.payfast_token) setPfToken(sub.payfast_token);
+    } else {
+      const { data: userData } = await supabase
+        .from("users")
+        .select("plan")
+        .eq("id", session.user.id)
+        .maybeSingle();
+      if (userData?.plan) setPlan(userData.plan);
+    }
+
+    const { data: history } = await supabase
+      .from("payments")
+      .select("id, paid_at, amount, plan, status")
+      .eq("user_id", session.user.id)
+      .order("paid_at", { ascending: false })
+      .limit(12);
+    if (history) setPayments(history);
+  }, []);
+
+  useEffect(() => { fetchSubscription(); }, [fetchSubscription]);
+
+  // On return from PayFast, re-fetch after 3 s to let the ITN webhook settle
+  useEffect(() => {
+    if (paymentReturn !== "success") return;
+    const timer = setTimeout(() => fetchSubscription(), 3000);
+    return () => clearTimeout(timer);
+  }, [paymentReturn, fetchSubscription]);
 
   const saveProfile = () => {
-    try {
-      const raw = localStorage.getItem("onboardingData");
-      const existing = raw ? JSON.parse(raw) : {};
-      localStorage.setItem("onboardingData", JSON.stringify({
-        ...existing,
-        name,
-        email,
-        phone,
-        language: accountLang,
-      }));
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
-    } catch { /* ignore */ }
+    void (async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        await supabase.from("users").update({
+          full_name: name,
+          language: accountLang,
+        }).eq("id", user.id);
+        setSaved(true);
+        setTimeout(() => setSaved(false), 2000);
+      } catch { /* ignore */ }
+    })();
   };
 
   const planInfo = PLAN_INFO[plan] || PLAN_INFO.free;
 
-  const close = () => setModal(null);
+  const close = () => {
+    setModal(null);
+    setSubError(null);
+  };
+
+  async function cancelSubscription() {
+    if (!supaUser) return;
+    setCancelling(true);
+    setSubError(null);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const res = await fetch("/api/payfast/cancel", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${session?.access_token}` },
+      });
+      if (res.ok) {
+        setPlan("free");
+        setPfToken(null);
+        close();
+      } else {
+        const { error } = await res.json();
+        setSubError(error || "Cancellation failed. Contact support.");
+      }
+    } catch {
+      setSubError("Network error. Please try again.");
+    } finally {
+      setCancelling(false);
+    }
+  }
+
+  if (reportPage) {
+    return <SavedReportView subject={reportPage} onBack={() => setReportPage(null)} />;
+  }
+
+  if (reportPage) {
+    return <SavedReportView subject={reportPage} onBack={() => setReportPage(null)} />;
+  }
 
   return (
     <>
@@ -625,10 +443,13 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
               />
               <Card>
                 <Row icon={icons.user}    label={t("settings.full_name")}        value={name || "Not set"}    onClick={() => setModal("name")} />
-                <Row icon={icons.email}   label={t("settings.email")}            value={email || "Not set"}   onClick={() => setModal("email")} />
-                <Row icon={icons.phone}   label={t("settings.phone")}            value={phone || "Not set"}   onClick={() => setModal("phone")} />
-                <Row icon={icons.lock}    label={t("settings.change_password")}                               onClick={() => setModal("password")} />
-                <Row icon={icons.trash}   label={t("settings.delete_account")}   danger                       onClick={() => setModal("deleteAccount")} />
+                <Row icon={icons.email}   label={t("settings.email")}            value={email || "Not set"}   rightEl={<span />} />
+                <Row
+                  icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>}
+                  label="Grade"
+                  value={grade || "Not set"}
+                  rightEl={<span />}
+                />
               </Card>
             </section>
 
@@ -643,9 +464,28 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                   icon={icons.book}
                   label={t("settings.preferred_lang")}
                   value={learnLang}
-                  onClick={() => { setSelectedContinent(null); setModal("learnLang"); }}
+                  onClick={() => setModal("learnLang")}
                 />
-                <Row icon={icons.download} label={t("settings.download_report")} onClick={() => setModal("downloadPDF")} />
+                <Row
+                  icon={icons.book}
+                  label="Maths Discovery Report"
+                  onClick={hasMathsReport ? () => setReportPage("maths") : undefined}
+                  rightEl={
+                    hasMathsReport
+                      ? <RowChevron />
+                      : <span className="text-xs text-gray-300">Complete diagnostic to unlock</span>
+                  }
+                />
+                <Row
+                  icon={icons.book}
+                  label="Reading Discovery Report"
+                  onClick={hasReadingReport ? () => setReportPage("reading") : undefined}
+                  rightEl={
+                    hasReadingReport
+                      ? <RowChevron />
+                      : <span className="text-xs text-gray-300">Complete diagnostic to unlock</span>
+                  }
+                />
               </Card>
             </section>
 
@@ -665,13 +505,19 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
                       {planInfo.label}
                     </span>
                   }
-                />
+                              />
+
                 <Row icon={icons.star}       label={t("settings.plan_features")}      onClick={() => setModal("planFeatures")} />
-                <Row icon={icons.receipt}    label={t("settings.billing_cycle")}       value="Monthly"       onClick={() => setModal("billing")} />
-                <Row icon={icons.creditCard} label={t("settings.payment_method")}      value="•••• 4242"    onClick={() => setModal("payment")} />
-                <Row icon={icons.creditCard} label={t("settings.update_payment")}                            onClick={() => setModal("payment")} />
+                {planInfo.label === "Free" && (
+                  <Row icon={icons.star} label="Upgrade plan" onClick={() => document.dispatchEvent(new CustomEvent("ruby-upgrade-needed", { detail: { reason: "Choose a plan to unlock full access" } }))} />
+                )}
+                {pfToken && (
+                  <Row icon={icons.creditCard} label={t("settings.update_payment")} onClick={() => setModal("payment")} />
+                )}
                 <Row icon={icons.receipt}    label={t("settings.billing_history")}                           onClick={() => setModal("invoices")} />
-                <Row icon={icons.xCircle}    label={t("settings.cancel_sub")}          danger                onClick={() => setModal("cancelSub")} />
+                {pfToken && (
+                  <Row icon={icons.xCircle} label={t("settings.cancel_sub")} danger onClick={() => setModal("cancelSub")} />
+                )}
               </Card>
             </section>
 
@@ -721,26 +567,15 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
         </Modal>
       )}
 
-      {modal === "phone" && (
-        <Modal title="Phone number" onClose={close}>
-          <div className="space-y-4">
-            <EditField label="Phone" value={phone} onChange={setPhone} type="tel" placeholder="+27 000 000 0000" />
-            <button onClick={() => { saveProfile(); close(); }}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
-              {t("settings.save")}
-            </button>
-          </div>
-        </Modal>
-      )}
-
       {modal === "accountLang" && (
         <Modal title="Account language" onClose={close}>
-          <div className="space-y-1.5">
-            {Array.from(new Set(CONTINENTS.flatMap(c => c.languages))).sort().map((l) => (
+          <div className="space-y-1.5 max-h-72 overflow-y-auto pr-1">
+            {LANGUAGES.map((l) => (
               <button key={l} onClick={() => { setAccountLang(l); saveProfile(); close(); }}
                 className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                  accountLang === l ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-                }`}>
+                  accountLang === l ? "text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                }`}
+                style={accountLang === l ? { backgroundColor: "#B7182E" } : {}}>
                 {l}
               </button>
             ))}
@@ -749,80 +584,20 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
       )}
 
       {modal === "learnLang" && (
-        <Modal
-          title={selectedContinent ? CONTINENTS.find(c => c.key === selectedContinent)!.label : "Preferred System Language"}
-          onClose={() => { setSelectedContinent(null); close(); }}
-        >
-          {!selectedContinent ? (
-            /* Step 1: pick continent */
-            <div className="grid grid-cols-2 gap-3">
-              {CONTINENTS.map((c) => (
-                <button
-                  key={c.key}
-                  onClick={() => setSelectedContinent(c.key)}
-                  className="flex flex-col items-center gap-2 p-4 rounded-2xl transition-all hover:scale-[1.03] active:scale-[0.98]"
-                  style={{ backgroundColor: c.color }}
-                >
-                  <span className="text-3xl">
-                    {c.key === "africa" ? "🌍" : c.key === "asia" ? "🌏" : c.key === "europe" ? "🌍" : "🌎"}
-                  </span>
-                  <span className="text-xs font-bold text-white text-center leading-tight">{c.label}</span>
-                </button>
-              ))}
-            </div>
-          ) : (
-            /* Step 2: pick language */
-            <div className="flex flex-col">
+        <Modal title="Preferred System Language" onClose={close}>
+          <div className="space-y-1.5 max-h-72 overflow-y-auto pr-1">
+            {LANGUAGES.map((l) => (
               <button
-                onClick={() => setSelectedContinent(null)}
-                className="flex items-center gap-1.5 text-xs text-blue-500 mb-3 font-medium flex-shrink-0"
+                key={l}
+                onClick={async () => { setLearnLang(l); await setLanguage(l); close(); }}
+                className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                  learnLang === l ? "text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                }`}
+                style={learnLang === l ? { backgroundColor: "#B7182E" } : {}}
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to continents
+                {l}
               </button>
-              <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
-                {CONTINENTS.find(c => c.key === selectedContinent)!.languages.map((l) => (
-                  <button key={l} onClick={async () => { setLearnLang(l); setSelectedContinent(null); await setLanguage(l); close(); }}
-                    className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                      learnLang === l ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-                    }`}>
-                    {l}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </Modal>
-      )}
-
-      {modal === "password" && (
-        <Modal title="Change password" onClose={close}>
-          <div className="space-y-4">
-            <EditField label="Current password" value="" onChange={() => {}} type="password" placeholder="••••••••" />
-            <EditField label="New password" value="" onChange={() => {}} type="password" placeholder="••••••••" />
-            <EditField label="Confirm new password" value="" onChange={() => {}} type="password" placeholder="••••••••" />
-            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Update password
-            </button>
-          </div>
-        </Modal>
-      )}
-
-      {modal === "deleteAccount" && (
-        <Modal title="Delete account" onClose={close}>
-          <div className="space-y-4">
-            <div className="bg-red-50 border border-red-100 rounded-xl p-4">
-              <p className="text-red-700 text-sm font-medium mb-1">This action is permanent</p>
-              <p className="text-red-600 text-sm">All your progress, skills, and data will be permanently deleted. This cannot be undone.</p>
-            </div>
-            <button onClick={close} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Keep my account
-            </button>
-            <button className="w-full bg-red-500 hover:bg-red-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Yes, delete everything
-            </button>
+            ))}
           </div>
         </Modal>
       )}
@@ -843,32 +618,22 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
         </Modal>
       )}
 
-      {modal === "billing" && (
-        <Modal title="Billing cycle" onClose={close}>
-          <div className="space-y-3">
-            {["Monthly", "Annually (save 20%)"].map((cycle) => (
-              <button key={cycle}
-                className="w-full text-left px-4 py-3 rounded-xl bg-gray-50 hover:bg-gray-100 text-sm text-gray-700 font-medium transition-colors">
-                {cycle}
-              </button>
-            ))}
-          </div>
-        </Modal>
-      )}
 
-      {modal === "payment" && (
-        <Modal title="Payment method" onClose={close}>
+      {modal === "payment" && pfToken && (
+        <Modal title="Update payment method" onClose={close}>
           <div className="space-y-4">
-            <div className="bg-gray-50 rounded-xl px-4 py-3 flex items-center gap-3">
-              <span className="text-2xl">💳</span>
-              <div>
-                <p className="text-sm font-medium text-gray-800">Visa ending in 4242</p>
-                <p className="text-xs text-gray-400">Expires 08/27</p>
-              </div>
-            </div>
-            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Update payment details
-            </button>
+            <p className="text-sm text-gray-500">
+              Your payment details are securely managed by PayFast. Click below to update your card on their secure page.
+            </p>
+            <a
+              href={`${process.env.NEXT_PUBLIC_PAYFAST_BASE_URL || "https://sandbox.payfast.co.za"}/eng/recurring/update/${pfToken}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors text-center"
+              onClick={close}
+            >
+              Update payment details on PayFast
+            </a>
           </div>
         </Modal>
       )}
@@ -876,19 +641,21 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
       {modal === "invoices" && (
         <Modal title="Billing history" onClose={close}>
           <div className="space-y-2">
-            {[
-              { date: "1 Mar 2026", amount: planInfo.price, status: "Paid" },
-              { date: "1 Feb 2026", amount: planInfo.price, status: "Paid" },
-              { date: "1 Jan 2026", amount: planInfo.price, status: "Paid" },
-            ].map((inv) => (
-              <div key={inv.date} className="flex items-center justify-between px-4 py-3 bg-gray-50 rounded-xl">
-                <div>
-                  <p className="text-sm font-medium text-gray-800">{inv.date}</p>
-                  <p className="text-xs text-gray-400">{inv.amount}</p>
+            {payments.length === 0 ? (
+              <p className="text-sm text-gray-400 text-center py-4">No payments yet.</p>
+            ) : (
+              payments.map((p) => (
+                <div key={p.id} className="flex items-center justify-between px-4 py-3 bg-gray-50 rounded-xl">
+                  <div>
+                    <p className="text-sm font-medium text-gray-800">
+                      {new Date(p.paid_at).toLocaleDateString("en-ZA", { day: "numeric", month: "short", year: "numeric" })}
+                    </p>
+                    <p className="text-xs text-gray-400 capitalize">{p.plan} — R{Number(p.amount).toFixed(2)}</p>
+                  </div>
+                  <span className="text-xs bg-green-100 text-green-700 font-semibold px-2.5 py-0.5 rounded-full capitalize">{p.status}</span>
                 </div>
-                <span className="text-xs bg-green-100 text-green-700 font-semibold px-2.5 py-0.5 rounded-full">{inv.status}</span>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </Modal>
       )}
@@ -897,11 +664,18 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
         <Modal title="Cancel subscription" onClose={close}>
           <div className="space-y-4">
             <p className="text-sm text-gray-600">You&apos;ll lose access to all premium features at the end of your billing cycle. Your progress data will be kept.</p>
+            {subError && (
+              <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2">{subError}</p>
+            )}
             <button onClick={close} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
               Keep subscription
             </button>
-            <button className="w-full bg-red-500 hover:bg-red-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Cancel subscription
+            <button
+              onClick={cancelSubscription}
+              disabled={cancelling}
+              className="w-full bg-red-500 hover:bg-red-600 disabled:opacity-50 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
+            >
+              {cancelling ? "Cancelling…" : "Cancel subscription"}
             </button>
           </div>
         </Modal>
@@ -923,7 +697,7 @@ export default function SettingsView({ onBack }: SettingsViewProps) {
           <div className="space-y-3">
             {[
               { q: "How does Ruby teach maths?", a: "Ruby uses an adaptive skill tree with 72 atomic skills to diagnose and target gaps." },
-              { q: "Can I change the learning language?", a: "Yes — go to Learning Settings and choose your preferred language." },
+              { q: "Can I change the learning language?", a: "Yes, go to Learning Settings and choose your preferred language." },
               { q: "Is my data safe?", a: "All progress is stored locally on your device and never shared without consent." },
             ].map(({ q, a }) => (
               <div key={q} className="bg-gray-50 rounded-xl px-4 py-3">

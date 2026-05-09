@@ -6,12 +6,19 @@ import {
   ReadingAtomicSkill,
   ReadingMasteryStatus,
   ReadingTemplate,
-  ReadingDecision,
   DiagnosticPlacementResult,
 } from "@/types/reading";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
+import { supabase } from "@/lib/supabase";
+import { retrySupabase } from "@/lib/supabase-retry";
+import {
+  initBKT,
+  updateBKT,
+  isMastered as bktIsMastered,
+  DEFAULT_BKT_PARAMS,
+  transitForReadingLevel,
+} from "@/lib/bkt";
 
-const READING_STUDENT_KEY = "ruby_reading_profile";
 const DEFAULT_STARTING_SKILL = "R1.T1.A1";
 const DEFAULT_STARTING_LEVEL = 1;
 const DEFAULT_STARTING_TIER = "R1.T1";
@@ -19,23 +26,74 @@ const DEFAULT_STARTING_TIER = "R1.T1";
 // ─── Load / Save ──────────────────────────────────────────────────────────────
 
 export function getReadingProfile(): ReadingStudentProfile | null {
-  if (typeof window === "undefined") return null;
+  return null;
+}
+
+export function saveReadingProfile(profile: ReadingStudentProfile): void {
+  void (async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const user = session?.user;
+      void retrySupabase(() => supabase.from("student_profiles").upsert({
+        id: profile.id,
+        subject: "reading",
+        name: profile.name,
+        grade: profile.grade,
+        ...(user?.id ? { auth_user_id: user.id } : {}),
+        profile_data: profile as unknown as Record<string, unknown>,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: "id" }));
+    } catch { /* non-critical */ }
+  })();
+}
+
+/**
+ * Links this profile to the currently authenticated Supabase user.
+ * Called fire-and-forget on init — enables hydrateReadingProfileFromSupabase() to work.
+ * No-op if not authenticated.
+ */
+export async function linkReadingProfileToAuth(profileId: string): Promise<void> {
   try {
-    const raw = localStorage.getItem(READING_STUDENT_KEY);
-    return raw ? JSON.parse(raw) : null;
+    const { data: { session } } = await supabase.auth.getSession();
+    const user = session?.user;
+    if (!user) return;
+    void retrySupabase(() =>
+      supabase.from("student_profiles")
+        .update({ auth_user_id: user.id })
+        .eq("id", profileId)
+    );
+  } catch { /* non-critical */ }
+}
+
+/**
+ * When localStorage is empty (e.g. browser data cleared), queries Supabase
+ * for the most recent reading profile linked to the authenticated user,
+ * restores it to localStorage, and returns it.
+ * Returns null if not authenticated or no profile found.
+ */
+export async function hydrateReadingProfileFromSupabase(): Promise<ReadingStudentProfile | null> {
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    const user = session?.user;
+    if (!user) return null;
+    const { data } = await supabase
+      .from("student_profiles")
+      .select("profile_data")
+      .eq("auth_user_id", user.id)
+      .eq("subject", "reading")
+      .order("updated_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    if (!data?.profile_data) return null;
+    return data.profile_data as unknown as ReadingStudentProfile;
   } catch {
     return null;
   }
 }
 
-export function saveReadingProfile(profile: ReadingStudentProfile): void {
-  if (typeof window === "undefined") return;
-  localStorage.setItem(READING_STUDENT_KEY, JSON.stringify(profile));
-}
-
 export function createReadingProfile(name: string, grade: number): ReadingStudentProfile {
   const profile: ReadingStudentProfile = {
-    id: `reading_${Date.now()}`,
+    id: crypto.randomUUID(),
     name,
     grade,
     current_level: DEFAULT_STARTING_LEVEL,
@@ -49,8 +107,10 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
     last_active: new Date().toISOString(),
     error_history: {
       ERR_PHONEME_CONF: 0,
+      ERR_SYLLABLE_BREAK: 0,
       ERR_SOUND_RECALL: 0,
       ERR_BLEND_FAIL: 0,
+      ERR_ENCODE_BLEND: 0,
       ERR_SOUND_OMIT: 0,
       ERR_SOUND_INSERT: 0,
       ERR_VOWEL_CONF: 0,
@@ -66,6 +126,7 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
     placement: null,
     errorPatterns: {},
     sessionHistory: {},
+    used_questions: {},
   };
   saveReadingProfile(profile);
   return profile;
@@ -76,8 +137,7 @@ export function createReadingProfile(name: string, grade: number): ReadingStuden
 export function recordReadingAttempt(
   profile: ReadingStudentProfile,
   attempt: ReadingSkillAttempt,
-  updatedMastery: ReadingSkillMastery,
-  decision?: string
+  updatedMastery: ReadingSkillMastery
 ): ReadingStudentProfile {
   const errorKey = attempt.error_type as ReadingErrorType;
   const existing = profile.errorPatterns[attempt.skill_id];
@@ -99,13 +159,24 @@ export function recordReadingAttempt(
       [attempt.skill_id]: {
         type: errorKey,
         count: (existing?.count ?? 0) + 1,
-        retaughtCount: decision === "RETEACH"
+        retaughtCount: !attempt.is_correct
           ? (existing?.retaughtCount ?? 0) + 1
           : (existing?.retaughtCount ?? 0),
       },
     },
   };
   saveReadingProfile(updated);
+  // Supabase sync with retry
+  void retrySupabase(() => supabase.from("skill_attempts").insert({
+    student_id: profile.id,
+    subject: "reading",
+    skill_id: attempt.skill_id,
+    is_correct: attempt.is_correct,
+    error_type: attempt.error_type ?? null,
+    template: attempt.template ?? null,
+    scaffolded: attempt.scaffolded ?? false,
+    p_learned: updatedMastery.p_learned ?? null,
+  }));
   return updated;
 }
 
@@ -139,29 +210,51 @@ export function initReadingSkillMastery(skillId: string): ReadingSkillMastery {
     scaffolded_attempts: 0,
     last_attempted: new Date().toISOString(),
     attempts: [],
+    p_learned: initBKT(DEFAULT_BKT_PARAMS),
   };
 }
 
+// ─── Grade-adjusted mastery threshold ─────────────────────────────────────────
+// Grade 1: −0.15 (0.95 → 0.80)   Grade 2: −0.05 (0.95 → 0.90)   Grade 3+: 0.95
+// Floor at 0.50 to prevent trivial mastery.
+function gradeAdjustedIsMastered(p_learned: number, grade: number): boolean {
+  const base = 0.95;
+  const adjustment = grade <= 1 ? -0.15 : grade === 2 ? -0.05 : 0;
+  const threshold = Math.max(0.50, base + adjustment);
+  return p_learned >= threshold;
+}
+
+const MASTERY_MIN_ATTEMPTS = 5;
+
 export function evaluateReadingMastery(
   attempts: ReadingSkillAttempt[],
-  skill: ReadingAtomicSkill
+  p_learned: number,
+  grade?: number
 ): ReadingMasteryStatus {
-  const { correct_required, formats_required, allow_scaffolding } = skill.mastery_criteria;
-  const valid = allow_scaffolding ? attempts : attempts.filter((a) => !a.scaffolded);
-  const correct = valid.filter((a) => a.is_correct);
-  const formats = new Set<ReadingTemplate>(correct.map((a) => a.template));
-  if (correct.length >= correct_required && formats.size >= formats_required) return "mastered";
-  if (attempts.length > 0) return "in_progress";
-  return "locked";
+  if (attempts.length === 0) return "locked";
+  if (attempts.length < MASTERY_MIN_ATTEMPTS) return "in_progress";
+  const mastered = grade !== undefined
+    ? gradeAdjustedIsMastered(p_learned, grade)
+    : bktIsMastered(p_learned);
+  return mastered ? "mastered" : "in_progress";
 }
 
 export function updateReadingSkillMastery(
   existing: ReadingSkillMastery,
   attempt: ReadingSkillAttempt,
-  skill: ReadingAtomicSkill
+  grade?: number
 ): ReadingSkillMastery {
   const updatedAttempts = [...existing.attempts, attempt];
-  const newStatus = evaluateReadingMastery(updatedAttempts, skill);
+
+  // ── BKT update ────────────────────────────────────────────────────────────
+  // Level-banded p_transit: phonics skills are acquired faster than comprehension.
+  const levelMatch = attempt.skill_id.match(/^R(\d+)/);
+  const skillLevel = levelMatch ? parseInt(levelMatch[1], 10) : 3;
+  const bktParams = { ...DEFAULT_BKT_PARAMS, p_transit: transitForReadingLevel(skillLevel) };
+  const currentP = existing.p_learned ?? initBKT(DEFAULT_BKT_PARAMS);
+  const updatedP = updateBKT(currentP, attempt.is_correct, bktParams);
+
+  const newStatus = evaluateReadingMastery(updatedAttempts, updatedP, grade);
   const formatsUsed = Array.from(
     new Set([...existing.formats_used, attempt.template])
   ) as ReadingTemplate[];
@@ -175,6 +268,7 @@ export function updateReadingSkillMastery(
     formats_used: formatsUsed,
     last_attempted: attempt.timestamp,
     status: newStatus,
+    p_learned: updatedP,
     mastered_at:
       newStatus === "mastered" && existing.status !== "mastered"
         ? new Date().toISOString()
@@ -282,109 +376,89 @@ export function getReadingSkillStatus(
   if (!skill) return "locked";
   if (skill.prerequisites.length === 0) return "available";
   const allMet = skill.prerequisites.every(
-    (p) => profile.skill_mastery[p]?.status === "mastered"
+    (p) => profile.skill_mastery[p]?.status === "mastered" || profile.skill_mastery[p]?.status === "assumed"
   );
   return allMet ? "available" : "locked";
 }
 
-export function determineNextReadingAction(
-  mastery: ReadingSkillMastery,
-  recentAttempts: ReadingSkillAttempt[]
-): "continue_skill" | "advance_skill" | "advance_tier" | "advance_level" | "review_prerequisite" {
-  if (mastery.status === "mastered") return "advance_skill";
-  if (recentAttempts.length >= 3) {
-    const lastThree = recentAttempts.slice(-3);
-    if (lastThree.every((a) => !a.is_correct)) return "review_prerequisite";
-  }
-  return "continue_skill";
-}
+// ─── Needs Review Scan ────────────────────────────────────────────────────────
+// Skills mastered more than NEEDS_REVIEW_DAYS ago without recent practice are
+// flagged for a one-question retention probe at the start of the next session.
 
-// ─── Decision Engine (Section 10 + Section 11) ────────────────────────────────
+export const NEEDS_REVIEW_DAYS = 7;
 
-export function determineReadingDecision(
-  skillId: string,
-  profile: ReadingStudentProfile,
-  latestResult: { is_correct: boolean; error_type: ReadingErrorType }
-): ReadingDecision {
-  const mastery = profile.skill_mastery[skillId];
-  const skill = getReadingSkillById(skillId);
+/**
+ * Scans all mastered skills and marks stale ones as "needs_review".
+ * A skill is stale if the most recent of mastered_at / last_reviewed_at /
+ * last_attempted is older than NEEDS_REVIEW_DAYS.
+ * Returns the profile unchanged if no skills need flagging.
+ */
+export function scanAndMarkNeedsReview(
+  profile: ReadingStudentProfile
+): ReadingStudentProfile {
+  const cutoff = Date.now() - NEEDS_REVIEW_DAYS * 24 * 60 * 60 * 1000;
+  let changed = false;
+  const updatedMastery = { ...profile.skill_mastery };
 
-  // Get recent attempts (last 5)
-  const attempts = mastery?.attempts ?? [];
-  const last5 = attempts.slice(-5);
-  const recentAccuracy = last5.length > 0
-    ? last5.filter((a) => a.is_correct).length / last5.length
-    : 0;
-
-  // Session history for stability check
-  const sessions = profile.sessionHistory[skillId] ?? [];
-  const passedSessions = sessions.reduce<number[]>((acc, passed, i) => {
-    if (passed) acc.push(i);
-    return acc;
-  }, []);
-  // Session stability: passed in 2+ non-consecutive sessions
-  const isSessionStable = passedSessions.length >= 2 && (passedSessions[passedSessions.length - 1] - passedSessions[0]) >= 2;
-
-  // Error pattern tracking
-  const errorPattern = profile.errorPatterns[skillId];
-  const errorType = latestResult.error_type;
-  const retaughtCount = errorPattern?.retaughtCount ?? 0;
-  const errorCount = errorPattern?.count ?? 0;
-
-  // ACCELERATE: >90% accuracy in last 5 + 2+ formats + no errors
-  if (last5.length >= 5 && recentAccuracy > 0.9 && latestResult.is_correct) {
-    const formatsUsed = new Set(last5.map((a) => a.template));
-    if (formatsUsed.size >= 2) {
-      return "ACCELERATE";
+  for (const [skillId, mastery] of Object.entries(updatedMastery)) {
+    if (mastery.status !== "mastered") continue;
+    // Use the most recent activity timestamp for this skill
+    const timestamps = [
+      mastery.last_attempted,
+      mastery.mastered_at,
+      mastery.last_reviewed_at,
+    ].filter(Boolean).map((t) => new Date(t!).getTime());
+    const mostRecent = Math.max(...timestamps);
+    if (mostRecent < cutoff) {
+      updatedMastery[skillId] = { ...mastery, status: "needs_review" };
+      changed = true;
     }
   }
 
-  // ADVANCE: mastered + session stable
-  const correctRequired = skill?.mastery_criteria.correct_required ?? 3;
-  const isMastered = (mastery?.correct_count ?? 0) >= correctRequired;
-  if (isMastered && isSessionStable && latestResult.is_correct) {
-    return "ADVANCE";
-  }
+  if (!changed) return profile;
+  const updated = { ...profile, skill_mastery: updatedMastery };
+  saveReadingProfile(updated);
+  return updated;
+}
 
-  // Apply Section 11 error routing table
-  if (errorType !== "correct") {
-    // BACKTRACK conditions per error type
-    if (errorType === "ERR_PHONEME_CONF" && retaughtCount >= 3) return "BACKTRACK";
-    if (errorType === "ERR_SOUND_RECALL" && errorCount >= 2) return "BACKTRACK";
-    if (errorType === "ERR_BLEND_FAIL" && retaughtCount >= 1 && recentAccuracy < 0.5) return "BACKTRACK";
-    if (errorType === "ERR_SOUND_OMIT" && errorCount >= 3) return "BACKTRACK";
-    if (errorType === "ERR_SOUND_INSERT" && retaughtCount >= 2) return "BACKTRACK";
-    if (errorType === "ERR_VOWEL_CONF" && errorCount >= 2) return "BACKTRACK";
-    if (errorType === "ERR_ORTHO_GUESS" && retaughtCount >= 1 && recentAccuracy < 0.6) return "BACKTRACK";
-    if (errorType === "ERR_MULTI_BREAK" && retaughtCount >= 1 && recentAccuracy < 0.5) return "BACKTRACK";
-    if (errorType === "ERR_MEANING_BLIND" && errorCount >= 2) return "BACKTRACK";
-    if (errorType === "ERR_SELF_MON" && recentAccuracy < 0.3 && errorCount >= 3) return "BACKTRACK";
+/**
+ * Returns up to one "needs_review" skill ID, prioritising the most stale
+ * (longest since any activity). Returns null if none pending.
+ */
+export function pickNeedsReviewSkill(profile: ReadingStudentProfile): string | null {
+  const candidates = Object.values(profile.skill_mastery).filter(
+    (m) => m.status === "needs_review"
+  );
+  if (candidates.length === 0) return null;
+  candidates.sort((a, b) => {
+    const tA = new Date(a.last_reviewed_at ?? a.last_attempted).getTime();
+    const tB = new Date(b.last_reviewed_at ?? b.last_attempted).getTime();
+    return tA - tB; // oldest first
+  });
+  return candidates[0].skill_id;
+}
 
-    // BACKTRACK for accuracy < 60% despite reteach
-    if (recentAccuracy < 0.6 && retaughtCount >= 2) return "BACKTRACK";
-
-    // PRACTICE conditions (first occurrence for these types)
-    if (errorType === "ERR_SIGHT_MISS" && errorCount <= 1) return "PRACTICE";
-    if (errorType === "ERR_FLUENCY_HES" && errorCount <= 1) return "PRACTICE";
-
-    // Sight word miss > 30% after 3 PRACTICE → RETEACH
-    if (errorType === "ERR_SIGHT_MISS" && errorCount > 3 && recentAccuracy < 0.7) return "RETEACH";
-    // Fluency: no improvement after 3 → RETEACH
-    if (errorType === "ERR_FLUENCY_HES" && errorCount > 3) return "RETEACH";
-
-    // Default: RETEACH for consistent errors
-    if (errorCount >= 2) return "RETEACH";
-
-    // First occurrence of most errors → RETEACH
-    return "RETEACH";
-  }
-
-  // No errors — check accuracy thresholds
-  if (recentAccuracy >= 0.75 && !isMastered) return "PRACTICE";
-  if (recentAccuracy >= 0.75 && isMastered && !isSessionStable) return "PRACTICE";
-  if (recentAccuracy < 0.75 && last5.length >= 2) return "RETEACH";
-
-  return "PRACTICE";
+/**
+ * After a review question is answered, stamps last_reviewed_at and sets
+ * status back to "mastered" (if BKT still high) or leaves "in_progress".
+ * The BKT update in updateReadingSkillMastery already handles the status —
+ * this just stamps the review timestamp.
+ */
+export function stampReviewedAt(
+  profile: ReadingStudentProfile,
+  skillId: string
+): ReadingStudentProfile {
+  const mastery = profile.skill_mastery[skillId];
+  if (!mastery) return profile;
+  const updated = {
+    ...profile,
+    skill_mastery: {
+      ...profile.skill_mastery,
+      [skillId]: { ...mastery, last_reviewed_at: new Date().toISOString() },
+    },
+  };
+  saveReadingProfile(updated);
+  return updated;
 }
 
 // ─── Diagnostic Placement ─────────────────────────────────────────────────────
@@ -393,20 +467,19 @@ export function completeDiagnosticPlacement(
   profile: ReadingStudentProfile,
   result: DiagnosticPlacementResult
 ): ReadingStudentProfile {
-  // Mark all auto-completed skills as mastered
+  // Mark all auto-completed skills as assumed — inferred from diagnostic, not demonstrated
   const updatedMastery = { ...profile.skill_mastery };
   for (const skillId of result.autoCompletedSkillIds) {
-    const skill = getReadingSkillById(skillId);
     updatedMastery[skillId] = {
       skill_id: skillId,
-      status: "mastered",
-      correct_count: skill?.mastery_criteria.correct_required ?? 3,
-      attempt_count: skill?.mastery_criteria.correct_required ?? 3,
-      formats_used: ["oral"],
+      status: "assumed",
+      correct_count: 0,
+      attempt_count: 0,
+      formats_used: [],
       scaffolded_attempts: 0,
       last_attempted: new Date().toISOString(),
-      mastered_at: new Date().toISOString(),
       attempts: [],
+      p_learned: 0.70,
     };
   }
 
@@ -426,6 +499,17 @@ export function completeDiagnosticPlacement(
     last_active: new Date().toISOString(),
   };
   saveReadingProfile(updated);
+  // Supabase sync with retry
+  void retrySupabase(() => supabase.from("diagnostic_results").insert({
+    student_id: profile.id,
+    subject: "reading",
+    entry_skill_id: result.entrySkillId,
+    entry_level: levelId,
+    auto_completed_skill_ids: result.autoCompletedSkillIds,
+    dominant_errors: result.dominantErrors ?? [],
+    hard_gate_passed: result.hardGatePassed ?? true,
+    completed_at: new Date(result.completedAt).toISOString(),
+  }));
   return updated;
 }
 
@@ -434,6 +518,31 @@ export function getReadingLevelProgress(
   masteryMap: Record<string, ReadingSkillMastery>
 ): number {
   if (skillIds.length === 0) return 0;
-  const mastered = skillIds.filter((id) => masteryMap[id]?.status === "mastered").length;
+  const mastered = skillIds.filter((id) => masteryMap[id]?.status === "mastered" || masteryMap[id]?.status === "assumed").length;
   return Math.round((mastered / skillIds.length) * 100);
+}
+
+// ─── Used-question tracking ───────────────────────────────────────────────────
+
+/** Returns the list of pool refs already served for a skill this session. */
+export function getReadingUsedRefs(profile: ReadingStudentProfile, skillId: string): string[] {
+  return profile.used_questions?.[skillId] ?? [];
+}
+
+/** Adds a ref to the used list for a skill, saves the profile, and returns the updated profile. */
+export function markReadingQuestionUsed(
+  profile: ReadingStudentProfile,
+  skillId: string,
+  ref: string
+): ReadingStudentProfile {
+  const existing = profile.used_questions?.[skillId] ?? [];
+  const updated: ReadingStudentProfile = {
+    ...profile,
+    used_questions: {
+      ...(profile.used_questions ?? {}),
+      [skillId]: [...existing, ref],
+    },
+  };
+  saveReadingProfile(updated);
+  return updated;
 }

@@ -1,7 +1,8 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { Message } from "@/types";
 import { TUTOR_SYSTEM_PROMPT } from "@/lib/anthropic";
+import { verifyToken, getUserPlan, checkAndIncrement } from "@/lib/server-usage";
 
 export async function POST(req: NextRequest) {
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
@@ -10,12 +11,34 @@ export async function POST(req: NextRequest) {
             messages,
             imageData,
             imageMimeType,
-        }: { messages: Message[]; imageData?: string; imageMimeType?: string } =
+            isHint,
+        }: { messages: Message[]; imageData?: string; imageMimeType?: string; isHint?: boolean } =
             await req.json();
+
+        // Enforce daily limits for authenticated users
+        const token = req.headers.get("authorization")?.replace("Bearer ", "").trim();
+        if (token) {
+            const userId = await verifyToken(token);
+            if (userId) {
+                const usageType = isHint ? "hint" : "chat";
+                const plan = await getUserPlan(userId);
+                const result = await checkAndIncrement(userId, usageType, plan);
+                if (!result.allowed) {
+                    return NextResponse.json(
+                        { error: "limit_reached", type: usageType, limit: result.limit },
+                        { status: 429 },
+                    );
+                }
+            }
+        }
 
         const hasImage = !!imageData;
 
-        const openaiMessages: any[] = messages.slice(0, -1).map((m) => ({
+        // Cap history at 20 messages (10 turns) to keep token cost bounded.
+        // The system prompt is a stable 4 500-token prefix — OpenAI auto-caches
+        // identical prefixes >1 024 tokens, so those tokens cost 50 % less after
+        // the first request.
+        const openaiMessages: any[] = messages.slice(0, -1).slice(-20).map((m) => ({
             role: m.role,
             content: m.content,
         }));
@@ -51,6 +74,7 @@ export async function POST(req: NextRequest) {
             model: "gpt-4o-mini",
             stream: true,
             max_tokens: 2048,
+            store: true,
             messages: [
                 {
                     role: "system",
@@ -58,7 +82,7 @@ export async function POST(req: NextRequest) {
                 },
                 ...openaiMessages,
             ],
-        });
+        }, { signal: AbortSignal.timeout(30_000) });
 
         const encoder = new TextEncoder();
 

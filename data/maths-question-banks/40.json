@@ -252,11 +252,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+7"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+8"
       }
     ],
     "expectedAnswer": "(x + 7)(x + 8)",
@@ -383,5 +385,140 @@
       "ERR_CONTEXT_IGNORE"
     ],
     "passThreshold": 0.75
+  },
+  {
+    "id": "20.40",
+    "domain": "M020",
+    "domainTitle": "Two-Digit Addition",
+    "gate": "A",
+    "stimulus": "25 + 35 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 60,
+    "errorSignals": [
+      "ERR_ADD_TENS",
+      "ERR_PLACE_VALUE"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "29.40",
+    "domain": "M029",
+    "domainTitle": "Fractions — Number Line and Equivalence",
+    "gate": "B",
+    "stimulus": "1/4 = ___/24",
+    "question": "Fill in the missing number to make an equivalent fraction.",
+    "answerMode": "numeric",
+    "expectedAnswer": 6,
+    "errorSignals": [
+      "ERR_EQUIV_MULT",
+      "ERR_DENOM_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "31.40",
+    "domain": "M031",
+    "domainTitle": "Percentages",
+    "gate": "B",
+    "stimulus": "50% of 14",
+    "question": "Work out this percentage.",
+    "answerMode": "numeric",
+    "expectedAnswer": 7,
+    "errorSignals": [
+      "ERR_PCT_DECIMAL",
+      "ERR_PCT_OF_AMOUNT"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "32.40",
+    "domain": "M032",
+    "domainTitle": "Negative Number Operations",
+    "gate": "C",
+    "stimulus": "15 ÷ (−3) = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": -5,
+    "errorSignals": [
+      "ERR_INTEGER_SIGN",
+      "ERR_NEG_DIV"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "33.NP40",
+    "domain": "M033",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
+    "gate": "C",
+    "stimulus": "42, 36, 30, 24, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 18,
+    "errorSignals": [
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "28.40",
+    "domain": "M028",
+    "domainTitle": "Division Strategies",
+    "gate": "B",
+    "stimulus": "27 ÷ 9 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 3,
+    "errorSignals": [
+      "ERR_DIV_MULT",
+      "ERR_REMAINDER"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "34.40",
+    "domain": "M034",
+    "domainTitle": "Advanced Linear Equations",
+    "gate": "C",
+    "stimulus": "9x + 10 = 82",
+    "question": "Solve for x. Type the value of x.",
+    "answerMode": "numeric",
+    "expectedAnswer": 8,
+    "errorSignals": [
+      "ERR_STEP_SKIP",
+      "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.40",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "Two angles on a straight line. One angle is 63°.",
+    "question": "What is the other angle? Type the answer in degrees.",
+    "answerMode": "numeric",
+    "expectedAnswer": 117,
+    "errorSignals": [
+      "ERR_SUPP_ANGLE",
+      "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.40",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "4/5 - 1/5",
+    "question": "Subtract these fractions. Type the answer as a fraction.",
+    "answerMode": "fraction",
+    "expectedAnswer": "3/5",
+    "errorSignals": [
+      "ERR_SUB_FRAC",
+      "ERR_COMMON_DENOM"
+    ],
+    "passThreshold": 0.8
   }
 ]

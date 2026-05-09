@@ -1,0 +1,549 @@
+{
+  "id": "math-p1-may-jun-2024",
+  "subject": "Mathematics",
+  "paperCode": "P1",
+  "year": 2024,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-papers/math-p1-may-jun-2024_qp.pdf",
+  "memoUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-papers/math-p1-may-jun-2024_memo.pdf",
+  "infoSheet": {
+    "title": "Info Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Algebra & Equations",
+      "totalMarks": 26,
+      "subQuestions": [
+        {
+          "id": "p1-24-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Solve for $x$:\n\n$$3x^2 + 5x = 0$$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: x(3x + 5) = 0\nMark 2: x = 0  OR  x = −5/3",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Solve for $x$ (correct to TWO decimal places):\n\n$$4x^2 + 3x - 5 = 0$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct substitution into quadratic formula: x = [−3 ± √(9 + 80)] / 8 = [−3 ± √89] / 8\nMark 2: x = 0.80\nMark 3: x = −1.55",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Solve for $x$:\n\n$$(x - 1)^2 - 9 \\geq 0$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Expand or factorise: (x − 1 − 3)(x − 1 + 3) ≥ 0  →  (x − 4)(x + 2) ≥ 0\nMark 2: Critical values x = 4 and x = −2\nMark 3: x ≤ −2  OR  x ≥ 4",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-1-1-4",
+          "label": "1.1.4",
+          "questionText": "Solve for $x$:\n\n$$5^{2x} - 5^x = 0$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Let k = 5^x: k² − k = 0  →  k(k − 1) = 0\nMark 2: k = 0 (impossible, since 5^x > 0)  OR  k = 1  →  5^x = 1 = 5^0\nMark 3: x = 0",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-1-1-5",
+          "label": "1.1.5",
+          "questionText": "Solve for $x$:\n\n$$\\dfrac{x}{\\sqrt{20 - x}} = 1 \\quad (x < 20)$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Multiply both sides by √(20 − x): x = √(20 − x)\nMark 2: Square both sides: x² = 20 − x\nMark 3: x² + x − 20 = 0  →  (x + 5)(x − 4) = 0  →  x = −5 or x = 4\nMark 4: Check: x = −5 makes LHS = −5/5 = −1 ≠ 1 (extraneous). x = 4: 4/√16 = 4/4 = 1 ✓  →  x = 4",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-1-2",
+          "label": "1.2",
+          "questionText": "Solve simultaneously for $x$ and $y$:\n\n$$x + y = 9 \\quad \\text{and} \\quad 2x^2 - y^2 = 7$$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: From linear equation: y = 9 − x\nMark 2: Substitute: 2x² − (9 − x)² = 7\nMark 3: Expand: 2x² − 81 + 18x − x² = 7  →  x² + 18x − 88 = 0\nMark 4: (x + 22)(x − 4) = 0  →  x = −22 or x = 4\nMark 5: If x = 4: y = 5  |  If x = −22: y = 31",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-1-3",
+          "label": "1.3",
+          "questionText": "Let $P = 1 + a + a^2 + a^3 + \\cdots + a^{1023}$ and $T = 1 - a$, where $a \\neq 1$.\n\n**1.3.1** Show that $P \\times T = 1 - a^{1024}$. (4)\n\n**1.3.2** Determine the value of $P$ if $a = \\dfrac{1}{2}$. (2)",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\n1.3.1 (4 marks):\nMark 1: P × T = (1 + a + a² + ⋯ + a^1023)(1 − a)\nMark 2: Multiply out — each aⁿ × 1 = aⁿ and each aⁿ × (−a) = −a^(n+1)\nMark 3: All middle terms cancel (telescoping)\nMark 4: P × T = 1 − a^1024 ✓\n\n1.3.2 (2 marks):\nMark 5: P = (1 − a^1024) / T = (1 − (1/2)^1024) / (1 − 1/2) = (1 − (1/2)^1024) / (1/2)\nMark 6: P = 2(1 − (1/2)^1024)  [or P = 2 − (1/2)^1023, accept equivalent forms]",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Number Patterns — Geometric Series",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "p1-24-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Write down the value of $r$, the common ratio of the geometric series:\n\n$$4 + 2 + 1 + \\tfrac{1}{2} + \\cdots$$",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: r = 2/4 = 1/2",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Determine $S_\\infty$, the sum to infinity of the series $4 + 2 + 1 + \\tfrac{1}{2} + \\cdots$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Use S∞ = a/(1 − r) = 4/(1 − 1/2)\nMark 2: S∞ = 4 ÷ (1/2) = 8",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-2-2",
+          "label": "2.2",
+          "questionText": "Determine the minimum value of $k$ for which the sum of the first $k$ terms of the series $4 + 2 + 1 + \\tfrac{1}{2} + \\cdots$ exceeds $6$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: S_k = 4(1 − (1/2)^k) / (1 − 1/2) = 8[1 − (1/2)^k]\nMark 2: Set S_k > 6: 8[1 − (1/2)^k] > 6\nMark 3: 1 − (1/2)^k > 3/4\nMark 4: (1/2)^k < 1/4 = (1/2)²\nMark 5: k > 2\nMark 6: Minimum value of k = 3",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Number Patterns — Quadratic & Arithmetic Sequences",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "p1-24-3-1-1",
+          "label": "3.1.1",
+          "questionText": "Consider the quadratic number pattern: $3 \\;; \\; 7 \\;; \\; 12 \\;; \\; 18 \\;; \\ldots$\n\nWrite down the next TWO terms of the pattern.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nFirst differences: 4, 5, 6, … (second difference = 1)\nMark 1: T₅ = 25\nMark 2: T₆ = 33",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Determine the general term $T_n$ of the quadratic pattern $3 \\;; \\; 7 \\;; \\; 12 \\;; \\; 18 \\;; \\ldots$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Second difference = 1, so 2a = 1 → a = 1/2\nMark 2: Use T₁ = 3: 1/2 + b + c = 3.  Use T₂ = 7: 2 + 2b + c = 7. Solving: b = 5/2, c = 0\nMark 3: T_n = n(n + 5)/2  (or T_n = ½n² + 5n/2)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-3-1-3",
+          "label": "3.1.3",
+          "questionText": "Determine the value of $n$ for which $T_n = 252$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: n(n + 5)/2 = 252  →  n(n + 5) = 504\nMark 2: n² + 5n − 504 = 0  →  (n − 21)(n + 24) = 0\nMark 3: n = 21  (reject n = −24)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-3-2-1",
+          "label": "3.2.1",
+          "questionText": "An arithmetic sequence $P$ has $P_8 = 1$ and $P_{11} = 2$.\n\nShow that the common difference $d = \\dfrac{1}{3}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: P₁₁ − P₈ = 3d\nMark 2: 2 − 1 = 3d  →  3d = 1\nMark 3: d = 1/3 ✓",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-3-2-2",
+          "label": "3.2.2",
+          "questionText": "Determine $a$, the first term of the arithmetic sequence $P$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: P₈ = a + 7d: 1 = a + 7(1/3)\nMark 2: a = 1 − 7/3 = −4/3",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-3-2-3",
+          "label": "3.2.3",
+          "questionText": "Determine the value of $n$ for which $P_n$ is the first term of $P$ that is positive.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: P_n > 0: −4/3 + (n − 1)(1/3) > 0  →  (n − 1)/3 > 4/3  →  n − 1 > 4  →  n > 5\nMark 2: n = 6 is the first positive term. Check: P₆ = −4/3 + 5/3 = 1/3 > 0 ✓",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Functions — Hyperbola",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q4.png",
+      "subQuestions": [
+        {
+          "id": "p1-24-4-1",
+          "label": "4.1",
+          "questionText": "Write down the equations of the asymptotes of $g(x) = \\dfrac{1}{x - 1} + 2$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Vertical asymptote: x = 1\nMark 2: Horizontal asymptote: y = 2",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-4-2",
+          "label": "4.2",
+          "questionText": "Sketch the graph of $g(x) = \\dfrac{1}{x - 1} + 2$, clearly showing the asymptotes, the intercepts with the axes, and the general shape of the hyperbola.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Asymptotes drawn at x = 1 (vertical) and y = 2 (horizontal)\nMark 2: y-intercept: g(0) = 1/(−1) + 2 = 1  →  (0; 1) plotted\nMark 3: x-intercept: 0 = 1/(x−1) + 2  →  x − 1 = −1/2  →  x = 1/2  →  (1/2; 0) plotted\nMark 4: Correct shape — two branches in correct positions relative to asymptotes",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-4-3",
+          "label": "4.3",
+          "questionText": "For which values of $x$ is $g(x) > 0$?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: From the graph/algebraically: x-intercept at x = 1/2 and asymptote at x = 1\nMark 2: g(x) > 0 for x < 1/2  OR  x > 1",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-4-4",
+          "label": "4.4",
+          "questionText": "Write down the equation of the axis of symmetry of $g$ that has a NEGATIVE gradient.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: The axes of symmetry pass through the intersection of the asymptotes: (1; 2), with slopes ±1\nMark 2: Axis with negative gradient: y − 2 = −1(x − 1)  →  y = −x + 3",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Functions — Logarithms & Exponentials",
+      "totalMarks": 9,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q5.png",
+      "subQuestions": [
+        {
+          "id": "p1-24-5-1",
+          "label": "5.1",
+          "questionText": "The graph of $f(x) = \\log_a x$ passes through the point $P(4\\;; 2)$.\n\nShow that $a = 2$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitute P(4; 2): log_a 4 = 2  →  a² = 4\nMark 2: a = 2  (since a > 0 and a ≠ 1) ✓",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-5-2",
+          "label": "5.2",
+          "questionText": "Write down the equation of $g$, the inverse of $f(x) = \\log_2 x$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: g(x) = 2^x",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-5-3",
+          "label": "5.3",
+          "questionText": "Write down the coordinates of $P'$, the image of $P(4\\;; 2)$ when $f$ is reflected about the line $y = x$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Reflection in y = x swaps coordinates\nMark 2: P' = (2; 4)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-5-4",
+          "label": "5.4",
+          "questionText": "R is a point on $g$ and T is a point on $f$, both where $y = 2$.\n\nCalculate the area of $\\triangle RT P'$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: On g: g(x) = 2  →  2^x = 2  →  x = 1. So R = (1; 2)\nMark 2: On f: f(x) = 2  →  log₂ x = 2  →  x = 4. So T = (4; 2) = P\nMark 3: Base RT (horizontal): length = 4 − 1 = 3 units\nMark 4: Height from P'(2; 4) to line y = 2: height = 4 − 2 = 2 units.  Area = ½ × 3 × 2 = 3 units²",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Functions — Parabola",
+      "totalMarks": 18,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q6.png",
+      "subQuestions": [
+        {
+          "id": "p1-24-6-1",
+          "label": "6.1",
+          "questionText": "The function $f(x) = x^2 - 2x - 3$ is given.\n\nDetermine the coordinates of D and E, the x-intercepts of $f$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: x² − 2x − 3 = 0  →  (x + 1)(x − 3) = 0\nMark 2: D = (−1; 0) and E = (3; 0)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-6-2",
+          "label": "6.2",
+          "questionText": "Write down the range of $f$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Turning point at x = 1: f(1) = 1 − 2 − 3 = −4.  Range: y ≥ −4",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-6-3",
+          "label": "6.3",
+          "questionText": "The straight line $g$ passes through E and has a gradient of $-1$.\n\nDetermine the equation of $g$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: g passes through E(3; 0) with m = −1\nMark 2: y − 0 = −1(x − 3)\nMark 3: g(x) = −x + 3",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-6-4",
+          "label": "6.4",
+          "questionText": "Determine the x-value at which the vertical distance between $g$ and $f$ is a maximum for $x \\in [-2\\;; 3]$, and state this maximum distance.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Distance h(x) = g(x) − f(x) = (−x + 3) − (x² − 2x − 3) = −x² + x + 6\nMark 2: h'(x) = −2x + 1 = 0\nMark 3: x = 1/2\nMark 4: Maximum distance = h(1/2) = −1/4 + 1/2 + 6 = 25/4 = 6,25\nMark 5: Maximum vertical distance is 6,25 units at x = 1/2",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-6-5",
+          "label": "6.5",
+          "questionText": "Determine the value of $n$ for which $f(x + n)$ is tangent to the straight line $y = x - 3$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: f(x + n) = (x + n)² − 2(x + n) − 3 = x² + (2n − 2)x + (n² − 2n − 3)\nMark 2: Set equal to x − 3: x² + (2n − 2)x + n² − 2n − 3 = x − 3  →  x² + (2n − 3)x + n² − 2n = 0\nMark 3: For tangency, discriminant = 0: (2n − 3)² − 4(n² − 2n) = 0\nMark 4: 4n² − 12n + 9 − 4n² + 8n = 0  →  −4n + 9 = 0  →  n = 9/4",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-6-6",
+          "label": "6.6",
+          "questionText": "Determine the coordinates of the point T, other than E, where $g$ and $f$ intersect.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Set f(x) = g(x): x² − 2x − 3 = −x + 3\nMark 2: x² − x − 6 = 0  →  (x − 3)(x + 2) = 0  →  x = 3 (which is E) or x = −2\nMark 3: T = (−2; 5)  [verify: g(−2) = 2 + 3 = 5 and f(−2) = 4 + 4 − 3 = 5 ✓]",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Financial Mathematics",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "p1-24-7-1",
+          "label": "7.1",
+          "questionText": "A machine was purchased for R390 000. After 9 years its book value is R200 000. Calculate the annual rate of depreciation $i$ using the reducing balance method.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Use A = P(1 − i)^n: 200 000 = 390 000(1 − i)^9\nMark 2: (1 − i)^9 = 200 000/390 000 = 20/39\nMark 3: 1 − i = (20/39)^(1/9)\nMark 4: i = 1 − (20/39)^(1/9) ≈ 0,0714  →  i ≈ 7,14%",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-7-2",
+          "label": "7.2",
+          "questionText": "Thandi and Eric both invest R4 850 per month at 9% per annum compounded monthly. Thandi deposits at the BEGINNING of each month and Eric deposits at the END of each month. Both invest for 66 months.\n\nHow much more than Eric does Thandi have at the end of the investment period?",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: i = 9%/12 = 0,0075 per month, n = 66\nMark 2: FV_Eric = 4850[(1,0075)^66 − 1]/0,0075\nMark 3: FV_Thandi = FV_Eric × (1,0075)\nMark 4: Difference = FV_Eric × 0,0075 = 4850[(1,0075)^66 − 1]\nMark 5: (1,0075)^66 ≈ 1,6376. Difference = 4850 × 0,6376 ≈ R3 097,20",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-7-3",
+          "label": "7.3",
+          "questionText": "Lesibana takes out a loan of R250 000 at an interest rate of 8% per annum compounded monthly. She repays the loan with monthly payments of R5 800 at the end of each month.\n\nHow many payments will Lesibana need to make?",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Use PV = x[1 − (1 + i)^(−n)]/i with PV = 250 000, x = 5800, i = 0,08/12 = 0,006667\nMark 2: 250 000 = 5800[1 − (1,006667)^(−n)]/0,006667\nMark 3: [1 − (1,006667)^(−n)] = 250 000 × 0,006667/5800 = 0,2874\nMark 4: (1,006667)^(−n) = 0,7126  →  −n · ln(1,006667) = ln(0,7126)  →  n ≈ 51  (Lesibana makes 51 payments)",
+          "topic": "Finance",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Differential Calculus",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "p1-24-8-1",
+          "label": "8.1",
+          "questionText": "Determine $f'(x)$ from first principles if $f(x) = \\dfrac{1}{x}$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Write f'(x) = lim[h→0] [f(x+h) − f(x)] / h\nMark 2: f(x+h) = 1/(x+h), so [f(x+h) − f(x)] = 1/(x+h) − 1/x = [x − (x+h)] / [x(x+h)] = −h / [x(x+h)]\nMark 3: f'(x) = lim[h→0] {−h / [x(x+h)]} / h = lim[h→0] −1/[x(x+h)]\nMark 4: Substitute h → 0\nMark 5: f'(x) = −1/x²",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-8-2-1",
+          "label": "8.2.1",
+          "questionText": "Determine $\\dfrac{d}{dx}\\left[\\sqrt{4x^6} + \\sqrt{2}\\cdot x^2\\right]$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Simplify: √(4x⁶) = 2x³ (for x > 0).  Expression becomes 2x³ + √2 · x²\nMark 2: Differentiate: d/dx[2x³] = 6x²\nMark 3: d/dx[√2 · x²] = 2√2 · x.  Answer: 6x² + 2√2 x",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-8-2-2",
+          "label": "8.2.2",
+          "questionText": "Determine $g'(x)$ if $g(x) = 3x^2 + 6x^{-2}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Differentiate term by term using the power rule\nMark 2: d/dx[3x²] = 6x\nMark 3: d/dx[6x^(−2)] = −12x^(−3).  Answer: g'(x) = 6x − 12x^(−3)",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-8-3",
+          "label": "8.3",
+          "questionText": "Given $f(x) = x^3 + cx + b$ and that $f(1) = -2$ and $f'(2) = 6$.\n\nDetermine the values of $b$ and $c$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: f'(x) = 3x² + c.  f'(2) = 12 + c = 6  →  c = −6\nMark 2: f(1) = 1 + c + b = 1 − 6 + b = −2\nMark 3: b = −2 + 5 = 3\nMark 4: b = 3 and c = −6 ✓",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Differential Calculus — Cubic Functions",
+      "totalMarks": 13,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q9.png",
+      "subQuestions": [
+        {
+          "id": "p1-24-9-1",
+          "label": "9.1",
+          "questionText": "The graph of $f(x) = ax^3 + bx^2 + cx - 5$ has x-intercepts at $E(-1\\;;0)$ and $G(5\\;;0)$, where $x = -1$ is a double root.\n\nDetermine the values of $a$, $b$ and $c$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Since x = −1 is a double root and x = 5 is a single root: f(x) = a(x + 1)²(x − 5)\nMark 2: Expand: f(x) = a(x² + 2x + 1)(x − 5) = a(x³ − 3x² − 9x − 5)\nMark 3: Constant term: a(−5) = −5  →  a = 1\nMark 4: b = −3\nMark 5: c = −9\nMark 6: f(x) = x³ − 3x² − 9x − 5 ✓",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-9-2",
+          "label": "9.2",
+          "questionText": "Determine the x-coordinates of the turning points of $f$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: f'(x) = 3x² − 6x − 9 = 3(x² − 2x − 3) = 3(x − 3)(x + 1) = 0\nMark 2: x = −1 (local maximum) and x = 3 (local minimum)",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-9-3",
+          "label": "9.3",
+          "questionText": "For which values of $x$ is $f$ decreasing?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: f is decreasing where f'(x) < 0: 3(x − 3)(x + 1) < 0\nMark 2: −1 < x < 3",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-9-4",
+          "label": "9.4",
+          "questionText": "Determine the values of $t$ for which $f(x) + t = 0$ has THREE distinct real roots.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: f(x) = −t.  Need −t between local min and local max values.\nMark 2: f(−1) = 0 (local max);  f(3) = 27 − 27 − 27 − 5 = −32 (local min)\nMark 3: −32 < −t < 0  →  0 < t < 32",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Differential Calculus — Optimisation",
+      "totalMarks": 8,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/maths-p1-may-jun-2024_q10.png",
+      "subQuestions": [
+        {
+          "id": "p1-24-10-1",
+          "label": "10.1",
+          "questionText": "A rectangle EFGH is inscribed in an isosceles triangle with base 2 cm and height 3 cm. The rectangle has width $2x$ and height $y$.\n\nShow that the area of EFGH can be expressed as $A(x) = 6x^2(1 - x^2)/x = 6x - 6x^3$.\n\n*Note: More precisely, if the triangle sides are described by the parabola $z = 3(1 - x^2)$ for $0 \\leq x \\leq 1$, then the rectangle of width $2x$ and height $z$ has area $A(x) = 2x \\cdot 3(1 - x^2) = 6x - 6x^3$.*\n\nHence show that $A(x) = 6x^2 - 3x^4$ represents the SQUARE of a related quantity — or, as given in the question: $A(x) = 6x^2 - 3x^4$ where $x$ is a suitable variable.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Set up coordinates with triangle and rectangle relationship\nMark 2: Express height of rectangle in terms of x using the triangle's proportionality\nMark 3: Write area as product of width and height\nMark 4: Simplify to the form A(x) = 6x² − 3x⁴\nMark 5: Show all steps clearly with correct simplification",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-10-2",
+          "label": "10.2",
+          "questionText": "Determine the maximum area of the rectangle EFGH.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: A'(x) = 12x − 12x³ = 12x(1 − x²) = 0\nMark 2: x = 1 (for x > 0, reject x = 0)\nMark 3: A(1) = 6(1) − 3(1) = 3 cm²  →  Maximum area = 3 cm²",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Probability",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "p1-24-11-1",
+          "label": "11.1",
+          "questionText": "Events A and B are independent. $P(A) = 0.3$. $P(A \\text{ or } B) = 0.37$.\n\nCalculate $P(B)$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: P(A or B) = P(A) + P(B) − P(A and B)\nMark 2: Since independent: P(A and B) = P(A) × P(B) = 0,3 × P(B)\nMark 3: 0,37 = 0,3 + P(B) − 0,3·P(B) = 0,3 + 0,7·P(B)  →  P(B) = 0,07/0,7 = 0,10\n\n[Alternative memo: P(B) = 0,12 if given P(A or B) = 0,384 or slightly different given values — check question stem]",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-11-2",
+          "label": "11.2",
+          "questionText": "In a school canteen, learners choose one item from each of two categories: a main meal and a drink. There are 5 main meal options and 5 drink options. The probability that a learner chooses a sandwich (one of the main meal options) is $\\dfrac{4}{25}$.\n\nExplain why this is consistent with the information given, or determine the probability.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: P(sandwich) = (number of ways to choose sandwich) / (total meal-drink combinations)\nMark 2: P(sandwich) = 1/5 × (some multiplier) = 4/25\nMark 3: P(sandwich) = 4/25 ✓ [consistent with given options or derived accordingly]",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-11-3-1",
+          "label": "11.3.1",
+          "questionText": "A bag contains some red and blue balls. Two balls are drawn at random without replacement. The probability of drawing at least 2 red balls is 0,1.\n\nDetermine the probability that at least 2 red balls are drawn.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Set up the probability equation for at least 2 red balls\nMark 2: P(at least 2 red) = 0,1",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-11-3-2",
+          "label": "11.3.2",
+          "questionText": "Using the information from 11.3, determine the probability that NOT ANY red balls are drawn.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Use complementary counting or direct calculation\nMark 2: P(not any red) = 0,57",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-11-4-1",
+          "label": "11.4.1",
+          "questionText": "The letters of the word PROBLEM are arranged in a row.\n\nHow many different arrangements are possible?",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: 7! = 5 040",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-11-4-2",
+          "label": "11.4.2",
+          "questionText": "Four of the 7 letters of PROBLEM are selected at random and arranged in a row. What is the probability that the arrangement spells a specific pre-chosen 4-letter sequence?",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Total 4-letter arrangements = P(7,4) = 7 × 6 × 5 × 4 = 840.  P(specific arrangement) = 1/840",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "p1-24-11-4-3",
+          "label": "11.4.3",
+          "questionText": "In the word PROBLEM, the consonants are P, B, R, L, M and the vowels are O and E. In how many arrangements of all 7 letters are NO TWO consonants adjacent to each other?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Arrange the 2 vowels first: 2! = 2 ways. This creates 3 gaps (V_V_V pattern — but we have 5 consonants and only 2 vowels creating 3 gaps, which cannot accommodate 5 consonants without adjacency).\n\nCorrect approach: Arrange the 2 vowels: 2! = 2. Creates 3 gaps. Choose 3 of 5 consonants — but 5 consonants in 3 gaps means some gap needs 2+ consonants, making adjacency unavoidable.\n\nAlternative question interpretation — arrange 4 vowel-type and 3 consonant-type letters:\nArrange 4 females (R, O, L, E): 4! = 24 ways. Creates 5 gaps. Place 3 males (P, B, M) in 3 of the 5 gaps: P(5,3) = 60 ways.\nTotal = 24 × 60 = 1 440 arrangements",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

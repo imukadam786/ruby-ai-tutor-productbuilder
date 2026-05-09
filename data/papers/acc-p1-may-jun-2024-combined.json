@@ -1,0 +1,372 @@
+{
+  "id": "acc-p1-may-jun-2024",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P1",
+  "year": 2024,
+  "session": "May-June",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Company Financial Statements — DBN Ltd",
+      "totalMarks": 55,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2024-1-1i",
+          "label": "1.1(i)",
+          "questionText": "DBN Ltd sells household products. The financial year ended on 29 February 2024.\n\nThe bookkeeper has recorded all the entries regarding fixed assets in the books. Refer to the Fixed Asset Note below and calculate the amount denoted by (i): Cost price of buildings at the beginning of the year.\n\nFIXED ASSET NOTE:\n| Item | Buildings (R) | Vehicles (R) | Equipment (R) |\n| Carrying value (01/03/2023) | | 249 850 | |\n| Cost | (i) | 436 000 | |\n| Accumulated depreciation | | | |\n| Movements: | | | |\n| Additions (at cost) | 0 | 260 000 | 0 |\n| Disposals (at carrying value) | (420 000) | 0 | (iii) |\n| Depreciation | | (ii) | (32 000) |\n| Carrying value (29/02/2024) | 9 421 300 | | |\n| Cost | | 786 000 | 356 000 |\n| Accumulated depreciation | | | |\n\nDepreciation is calculated as follows:\n- Vehicles: 15% p.a. on cost\n- Equipment: 20% on the diminishing-balance method\n\nA new vehicle was bought on 1 October 2023.",
+          "marks": 2,
+          "memoText": "WORKINGS:\nClosing carrying value of buildings + Disposal at carrying value\n= 9 421 300 ✓ + 420 000 ✓\n\nANSWER: R9 841 300\n\nTeaching point: Because no buildings were added or depreciated, the opening cost equals the closing carrying value PLUS the carrying value of the building disposed of during the year. Buildings are typically not depreciated in this paper.\n\nConcession: 9 421 300 + 420 000 (one mark) for candidates who did not provide a final answer.",
+          "topic": "Fixed Assets — Cost reconstruction",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q1.1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-1-1ii",
+          "label": "1.1(ii)",
+          "questionText": "DBN Ltd — same Fixed Asset Note as 1.1(i).\n\nCalculate the amount denoted by (ii): Depreciation on vehicles for the year ended 29 February 2024.\n\nKey data:\n- Vehicles cost at 01/03/2023: R436 000\n- Closing vehicles cost at 29/02/2024: R786 000\n- Additions during year: R260 000 (one new vehicle bought on 1 October 2023)\n- Depreciation rate: 15% p.a. on cost",
+          "marks": 6,
+          "memoText": "WORKINGS:\nOld vehicles: (786 000 − 260 000) = 526 000 ✓✓\n  Old depreciation: 526 000 × 15% × 12/12 ✓ = 78 900 ✓✓✓\n\nNew vehicle: 260 000 ✓ × 15% × 5/12 ✓ = 16 250 ✓✓\n  (1 Oct 2023 to 28 Feb 2024 = 5 months)\n\nTotal depreciation = 78 900 + 16 250\n\nANSWER: R95 150 (one part correct, both parts to be added)\n\nTeaching point: When an asset is purchased mid-year, depreciation is calculated pro-rata for the months held. The new vehicle (1 Oct 2023 – 28 Feb 2024) is held for 5 months, while the old vehicles are depreciated for the full 12 months. Always split the calculation between old and new assets when there are additions.",
+          "topic": "Fixed Assets — Depreciation on vehicles",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q1.1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-1-1iii",
+          "label": "1.1(iii)",
+          "questionText": "DBN Ltd — same Fixed Asset Note as 1.1(i).\n\nCalculate the amount denoted by (iii): Carrying value on equipment sold.\n\nExtract from the Fixed Assets Register in respect of equipment sold:\nKINOPA MWALIMU 234\n- Cost price: R80 000\n- Date purchased: 1 September 2021\n- Date sold: 31 May 2023\n- Sold for: R53 000\n\nCARRYING VALUE\n- 28 February 2022: R72 000\n- 28 February 2023: R57 600\n- 31 May 2023: ?\n\nDepreciation on equipment: 20% on the diminishing-balance method.",
+          "marks": 4,
+          "memoText": "WORKINGS:\nDepreciation from 1 March 2023 to 31 May 2023 (3 months):\n57 600 × 20% × 3/12 = 2 880 ✓\n\nCarrying value at 31 May 2023:\n57 600 ✓ − 2 880 ✓ = 54 720 ✓ (one part correct)\n\nOR (Alternative method):\nAccumulated depreciation = 8 000 + 14 400 + 2 880 = 25 280\n80 000 − 25 280 = 54 720\n\nANSWER: R54 720\n\nTeaching point: With the diminishing-balance method, depreciation is calculated on the carrying value (not original cost). For an item sold partway through the year, depreciate only for the months held in the current year (3 months: Mar, Apr, May).",
+          "topic": "Fixed Assets — Carrying value of asset sold",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q1.1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-1-2",
+          "label": "1.2",
+          "questionText": "DBN Ltd — Refer to information C and D.\n\nCalculate the correct net profit after tax for the year ended 29 February 2024. Indicate (+) for increase and (−) for decrease, next to each amount.\n\nINFORMATION C: The bookkeeper has calculated the net profit before tax as R1 150 000.\nThe pre-adjustment balances to be adjusted are:\n- Audit fees: R144 000\n- Trading stock: R1 064 200\n- Rent income: R287 300\n- Directors' fees: R852 800\n\nOnly the adjustments listed below must still be taken into account:\n\n(i) Audit fees of R45 600 were still owing on 29 February 2024.\n\n(ii) A donation of 100 blankets was made to a children's hospital, but the donation has not been recorded. The business uses the weighted-average method for valuing blankets. The stock records for blankets reflect the following:\n| | Quantity (units) | Unit price | Total cost |\n| Purchases during the year: | 1 500 | | R603 000 |\n| 15 April 2023 | 600 | R330,00 | 198 000 |\n| 22 June 2023 | 900 | R450,00 | 405 000 |\n| Sales | 1 220 | | |\n| Stock on hand: 29 Feb 2024 | 280 | | |\n\n(iii) Rent was increased by R1 300 per month from 1 January 2024. Only the rent for the period 1 March 2023 to 31 January 2024 was received and recorded.\n\n(iv) The company had one director, Jenny, at the beginning of the financial year. Jenny had been paid in advance for two months. A second director, Frank, was appointed on 1 December 2023. His monthly fee is 20% lower than that of Jenny. Frank received the fees due to him.\n\nINFORMATION D: The assessment from SARS indicated total income tax for the financial year as R351 000, after all adjustments had been made.",
+          "marks": 13,
+          "memoText": "CALCULATION:\nIncorrect net profit before tax: 1 150 000\n\nAdjustment 1 — Audit fees (accrued): −45 600 ✓\n  R45 600 owing increases the expense.\n\nAdjustment 2 — Donation of 100 blankets: −40 200\n  Weighted average price = R603 000 ÷ 1 500 = R402 ✓✓\n  100 blankets × R402 = R40 200 ✓\n  Donation is an expense (or stock loss) — reduces profit.\n\nAdjustment 3 — Rent income earned but not received: +27 300\n  Rent received: 11 months (March–January) at old rate\n  Rent earned must include 12 months. February rent receivable.\n  R287 300 received covers 11 months. Original rate (before increase) = 287 300 / 11 = R26 000 + (R26 000 + R1 300) = need to compute Feb rent\n  Feb rent = R26 000 + R1 300 = R27 300 ✓✓✓\n  This is rent earned but not yet received → income increases.\n\nAdjustment 4 — Directors' fees: +104 000\n  Jenny's monthly fee: 852 800 × (200 / 1 640) (or equivalent)\n  Method: Total recorded R852 800 includes Jenny's 12 months + 2 months prepaid + Frank's 3 months at 80% of Jenny's rate.\n  Jenny's monthly fee = R52 000\n  Prepaid (2 months × R52 000) = R104 000 must be REMOVED from expense → +104 000 ✓✓✓✓✓✓\n  Alternative: 852 800 × (2 ÷ 16,4) OR 83 200 × (100 ÷ 80) OR 52 000 × 2\n\nNet profit before tax = 1 150 000 − 45 600 − 40 200 + 27 300 + 104 000\n  = R1 195 500 ✓ (operation, one part correct; must include R1 150 000)\n\nIncome tax: −351 000 ✓ (accept if no brackets)\n\nNET PROFIT AFTER TAX = 1 195 500 − 351 000 = R844 500 ✓ (NPbT − Income tax)\n\nTeaching point: \n• Audit fees owing = accrued expense → reduces profit.\n• Donation of stock at weighted-average cost = expense.\n• Rent: only the portion EARNED in the financial year is income. Receipts that don't cover the full year mean income is accrued (add). Receipts that cover beyond year-end mean income is received in advance (subtract).\n• Directors' fees paid in advance must be removed from the expense (add back to profit).\n\nDo not accept: pre-adjustment figures shown as final figures without working.",
+          "topic": "Net profit calculation with adjustments",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q1.2.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-1-3",
+          "label": "1.3",
+          "questionText": "DBN Ltd — Complete the Statement of Financial Position on 29 February 2024.\n\nINFORMATION B — Balances on 29 February 2024:\n- Fixed assets at carrying value: R9 952 480\n- Ordinary share capital: ?\n- Retained income: ?\n- Loan: PTA Bank: ?\n- Fixed deposit: R425 000\n- Trading stock: R1 064 200\n- Net trade debtors: R744 900\n- Creditors' control: R518 950\n- SARS: Income tax (provisional tax payments): R322 800\n\nINFORMATION C (adjustments) — same as 1.2:\n(i) Audit fees of R45 600 still owing.\n(ii) Donation of 100 blankets at weighted-average R402 each (R40 200) — reduces stock.\n(iii) Rent receivable for February at R27 300.\n(iv) Directors' fees paid in advance: R104 000 (Jenny's 2 months).\n\nINFORMATION D: Total income tax for the year: R351 000. Provisional tax payments to date: R322 800.\n\nINFORMATION E — Share capital and dividends:\n| Date | Details |\n| 1 March 2023 | 2 120 000 shares in issue |\n| 30 June 2023 | 230 000 shares repurchased: average share price was R5,90 at the date of repurchase |\n| 29 February 2024 | 1 890 000 shares in issue |\n- Interim dividends were not declared during the financial year.\n- Final dividends of 25c per share were declared on 29 February 2024 to all shares in the share register.\n\nINFORMATION F — Transfer of debtor's balance to Creditors' Ledger:\nA debtor with a debit balance of R8 400 in the Debtors' Ledger must still be transferred to his account in the Creditors' Ledger.\n\nINFORMATION G — Loan: PTA Bank:\n- Balance on 1 March 2023: R1 400 000\n- Repayments for the financial year (including interest): ?\n- Interest capitalised: R168 000\n- Balance on 29 February 2024: R1 004 000\n- All entries for the repayments and interest have been made.\n- Directors expect to maintain the capital repayments made this year, during the next financial year.\n\nNet profit after tax (from 1.2): R844 500.",
+          "marks": 30,
+          "memoText": "STATEMENT OF FINANCIAL POSITION ON 29 FEBRUARY 2024\n\nASSETS\nNON-CURRENT ASSETS                              10 377 480\n  Fixed assets                                   9 952 480\n  Investment: Fixed deposit                        425 000\n\nCURRENT ASSETS (operation, one part correct)     3 848 020\n  Inventories: 1 064 200 − 40 200 ✓ ✓             1 024 000 *\n    (R40 200 donation reduces stock)\n  Trade and other receivables:                      867 800 *\n    744 900 ✓ + 27 300 ✓ + 104 000 ✓ − 8 400 ✓\n    (Net debtors + Rent receivable + Directors' prepaid + Transfer)\n  Cash and cash equivalents                      1 956 220\n\nTOTAL ASSETS (NCA + CA) ✓                       14 225 500\n\nEQUITY AND LIABILITIES\nORDINARY SHAREHOLDERS' EQUITY                   12 164 650\n  (= TE&L − CL − NCL)\n  Ordinary share capital                        11 151 000 ✓\n  Retained income (balancing figure) ✓✓✓✓        1 013 650\n    (accept negative amount)\n\nNON-CURRENT LIABILITIES                            608 000\n  Loan: PTA Bank: 1 004 000 − 396 000 ✓✓✓         608 000 *\n    (Closing loan less current portion)\n\nCURRENT LIABILITIES (operation)                  1 452 850 *\n  Trade and other payables:                        556 150 *\n    518 950 ✓ + 45 600 ✓ (audit fees) − 8 400 ✓\n  Shareholders for dividends:                      472 500\n    (1 890 000 × 25c)\n  Current portion of loan (see NCL):               396 000\n  SARS: Income tax: 351 000 − 322 800              28 200\n\nTOTAL EQUITY AND LIABILITIES ✓                  14 225 500\n  (See Total Assets)\n\nTeaching points:\n• Inventories: Donation of R40 200 reduces stock.\n• Trade and other receivables: Add accrued income (rent R27 300) and prepaid expenses (directors' fees R104 000), and remove the debtor R8 400 transferred to creditors.\n• Trade and other payables: Add accrued expense (audit fees R45 600) and add the same R8 400 (now a creditor).\n• Current portion of loan: Capital repayment for the year is the same as next year's expected repayment.\n  Capital repaid this year = (1 400 000 + 168 000 interest) − 1 004 000 = R564 000? \n  Per memo: Loan working = 1 004 000 − 396 000 ✓✓✓ where 396 000 is the current portion.\n  The R396 000 current portion is the expected capital repayment for next year.\n• Shareholders for dividends: 1 890 000 shares × 25c = R472 500.\n• SARS Income tax: Owing = R351 000 − R322 800 paid = R28 200 (liability).\n• Retained income is a BALANCING FIGURE.\n\nPenalty notes:\n• −1 for foreign item (max −2 per Q).\n• Presentation −1 (max −1).\n• Misplaced items: award marks for workings only.",
+          "topic": "Statement of Financial Position",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q1.2d.png"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cash Flow Statement and Financial Indicators — Jingle Ltd",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2024-2-1i",
+          "label": "2.1.1",
+          "questionText": "Choose the correct word from those given in brackets.\n\nThe current ratio is a financial indicator which is relevant to the (liquidity/solvency) of a company.",
+          "marks": 1,
+          "memoText": "ANSWER: Liquidity ✓\n\nTeaching point: Liquidity refers to a company's ability to pay short-term debts as they fall due. The current ratio (Current assets : Current liabilities) measures this. Solvency, by contrast, measures whether total assets exceed total liabilities (long-term financial health).",
+          "topic": "Financial indicators — terminology",
+          "type": "mcq",
+          "options": {
+            "A": "liquidity",
+            "B": "solvency"
+          },
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-1ii",
+          "label": "2.1.2",
+          "questionText": "Choose the correct word from those given in brackets.\n\nAn increase in a fixed deposit will lead to an (inflow/outflow) of cash in the Cash Flow Statement.",
+          "marks": 1,
+          "memoText": "ANSWER: Outflow ✓\n\nTeaching point: When a company places more money into a fixed deposit, cash leaves the business. In the Cash Flow Statement this is shown under investing activities as an outflow (negative amount in brackets).",
+          "topic": "Cash Flow Statement — concepts",
+          "type": "mcq",
+          "options": {
+            "A": "inflow",
+            "B": "outflow"
+          },
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-1iii",
+          "label": "2.1.3",
+          "questionText": "Choose the correct word from those given in brackets.\n\nA decrease in inventories will lead to an (inflow/outflow) of cash in the Cash Flow Statement.",
+          "marks": 1,
+          "memoText": "ANSWER: Inflow ✓\n\nTeaching point: When inventory decreases, less cash is tied up in stock — effectively cash is released. In the indirect method this appears as a positive adjustment when calculating cash generated from operations.",
+          "topic": "Cash Flow Statement — concepts",
+          "type": "mcq",
+          "options": {
+            "A": "inflow",
+            "B": "outflow"
+          },
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-2",
+          "label": "2.2",
+          "questionText": "Jingle Ltd — Prepare the Retained Income Note for the financial year ended 29 February 2024.\n\nINFORMATION A — Share capital:\n| Number of shares | Details |\n| 1 450 000 | Shares in issue on 1 March 2023 |\n| 30 000 | Shares repurchased on 1 June 2023, at R3,70 above the average share price |\n| 250 000 | Shares issued on 1 November 2023, at R17,20 per share |\n| 1 670 000 | Shares in issue on 29 February 2024 |\n\nINFORMATION B — Dividends:\n- Interim dividends were paid on 31 August 2023 to all shares in the share register.\n- A final dividend was declared on 29 February 2024.\n\nINFORMATION C — Extract from Statement of Comprehensive Income for year ended 29 February 2024:\n- Depreciation: R1 620 000\n- Operating profit: R4 826 000\n- Interest on loans: R966 000\n- Income tax (at a tax rate of 30%): R1 950 000\n\nINFORMATION D — Extract from Statement of Financial Position on 28/29 February:\n| Item | 2024 | 2023 |\n| Shareholders' equity | 28 248 000 | 25 729 000 |\n| Ordinary share capital | ? | 22 910 000 |\n| Retained income | ? | 2 819 000 |\n\nNote 2 — Items included under Current liabilities:\n| Item | 2024 | 2023 |\n| Shareholders for dividends | 2 338 000 | 2 320 000 |\n\nDuring the year, 30 000 shares were repurchased — the price paid was R3,70 above the average share price (use to compute the buy-back portion charged to retained income).",
+          "marks": 8,
+          "memoText": "RETAINED INCOME NOTE (one part correct)\n\nBalance at the beginning of the year                2 819 000\nNet profit after tax                                4 550 000 *\n  (1 950 000 × 70/30) OR (6 500 000 − 1 950 000)\nBuy back of shares (ignore brackets)                 (111 000) ✓\n  (30 000 × R3,70 above average)\nDividends (Int Div + Final Div, ignore brackets)   (5 746 000)\n  Interim dividend: 5 728 000 − 2 320 000 = 3 408 000 *\n    (Total dividends paid less last year's final declared)\n  Final dividend: 2 338 000\nBalance at the end of the year                      1 512 000 *\n  (Inspect operation from top; must subtract SBB and OSD)\n\nWorkings shown:\n• Net profit after tax = Income tax × (70/30) = 1 950 000 × 70/30 = R4 550 000\n  (Tax rate 30%, so NPAT = NPBT × 70%, and NPBT = Tax ÷ 30%)\n• Share buy-back premium: 30 000 shares × R3,70 = R111 000 charged to retained income\n  (The R3,70 above average represents the premium paid above the weighted average issue price.)\n• Interim dividends paid = Total dividends paid in cash flow (5 728 000) − opening Shareholders for Dividends (2 320 000)\n  = R3 408 000\n\nTeaching points:\n• When tax rate is 30%, NPAT = (1 − 0,30) × NPBT, so NPAT = Income tax × (70/30).\n• Share buy-back at a price ABOVE average: the premium (price − average) × number of shares is charged to RETAINED INCOME (not share capital).\n• Interim dividends paid = total dividends paid during the year minus the prior year's final dividend (which was the opening Shareholders for Dividends).",
+          "topic": "Retained Income Note",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-02.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-3i",
+          "label": "2.3(i)",
+          "questionText": "Jingle Ltd — Calculate (i): Income tax paid in the Cash Flow Statement for the year ended 29 February 2024.\n\nUse the following information:\n\nINFORMATION C — Statement of Comprehensive Income extract:\n- Income tax: R1 950 000\n\nINFORMATION D — SFP extracts (Current liabilities — SARS: Income tax):\n| | 2024 | 2023 |\n| SARS: Income tax | 115 000 (CL) | 86 000 (CL) |\n\n(Both balances are liabilities — amounts owed to SARS at year end.)",
+          "marks": 4,
+          "memoText": "WORKINGS:\nIncome tax paid = Opening balance owed + Current year tax − Closing balance owed\n= 86 000 ✓ + 1 950 000 ✓ − 115 000 ✓\n\nOR (alternative form): − 86 000 − 1 950 000 + 115 000\n\nANSWER: (R1 921 000) ✓ — shown in brackets (outflow)\n  *One part correct and in brackets; if no brackets, award marks to workings only.\n\nTeaching point: Tax paid = Opening tax liability + Tax for the year − Closing tax liability.\nIf the closing tax balance is a liability, it is subtracted (still owed, not yet paid). If it were an asset (SARS owes the company), it would be added.\nALWAYS show outflows in brackets in a Cash Flow Statement.",
+          "topic": "Cash Flow Statement — Income tax paid",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-02.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-3ii",
+          "label": "2.3(ii)",
+          "questionText": "Jingle Ltd — Calculate (ii): Fixed assets purchased during the year for the Cash Flow Statement.\n\nINFORMATION C: Depreciation R1 620 000.\n\nINFORMATION D — Extract from SFP on 28/29 February:\n| Item | 2024 | 2023 |\n| Fixed assets at carrying value | 43 095 000 | 39 365 000 |\n\nINFORMATION E — Fixed assets:\n- A vehicle was sold at carrying value (proceeds R232 000).\n- Fixed assets were also purchased during the financial year.",
+          "marks": 5,
+          "memoText": "WORKINGS:\nFixed assets purchased = Closing CV + Disposal at CV + Depreciation − Opening CV\n= 43 095 000 ✓ + 232 000 ✓ + 1 620 000 ✓ − 39 365 000 ✓\n\nOR (alternative): − 43 095 000 − 232 000 − 1 620 000 + 39 365 000\n\nANSWER: (R5 582 000) ✓ — shown in brackets (outflow)\n  *One part correct and in brackets.\n\nTeaching point: Reconstruct movements on Fixed Assets at carrying value:\nOpening CV − Depreciation − Disposal at CV + Purchases = Closing CV\nTherefore: Purchases = Closing CV − Opening CV + Depreciation + Disposal at CV.\nThe R232 000 disposal proceeds equal carrying value (no profit/loss), so the same R232 000 represents the carrying value disposed of.",
+          "topic": "Cash Flow Statement — Fixed assets purchased",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-02.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-3iii",
+          "label": "2.3(iii)",
+          "questionText": "Jingle Ltd — Calculate (iii): Proceeds of shares issued during the year.\n\nINFORMATION A — Share capital:\n- 250 000 shares were issued on 1 November 2023 at R17,20 per share.",
+          "marks": 2,
+          "memoText": "WORKINGS:\n250 000 × R17,20\n\nANSWER: R4 300 000 ✓✓\n\nTeaching point: Proceeds from issue of shares = Number of shares issued × Issue price per share.\nThis is shown as a positive amount (inflow) under cash effects of financing activities.",
+          "topic": "Cash Flow Statement — Proceeds of shares issued",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-02.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-3iv",
+          "label": "2.3(iv)",
+          "questionText": "Jingle Ltd — Calculate (iv): Shares repurchased (cash effect) for the Cash Flow Statement.\n\nINFORMATION A — Share capital:\n- 30 000 shares were repurchased on 1 June 2023, at R3,70 above the average share price.\n- Buy-back amount charged to retained income: R111 000 (from Retained Income Note).\n\nNote: The total cash paid for the repurchase = (average share price × shares) + premium charged to RI.\nFrom 2.2: Buy-back charged to RI = R111 000 (= 30 000 × R3,70).",
+          "marks": 4,
+          "memoText": "WORKINGS:\nShares repurchased (cash paid) = (Average price × shares) + Premium\n  Average price portion = 474 000 ✓✓ (from share capital reduction)\n  Premium = 111 000 ✓ (see 2.2)\n  Total cash paid = 474 000 + 111 000 = 585 000\n\nOR: 30 000 × R19,50 = R585 000 (where R19,50 = average + R3,70)\n  Average share price = 22 910 000 ÷ 1 450 000 = R15,80\n  Repurchase price = 15,80 + 3,70 = R19,50\n  30 000 × R19,50 = R585 000 ✓✓✓\n\nANSWER: (R585 000) ✓ — shown in brackets (outflow)\n  *One part correct.\n\nTeaching point: When shares are repurchased above the average issue price, the cash paid is split:\n• The average-price portion reduces Ordinary Share Capital.\n• The premium (excess above average) is debited to Retained Income.\nIn the Cash Flow Statement, the TOTAL CASH paid (both portions combined) is shown as an outflow under financing activities.",
+          "topic": "Cash Flow Statement — Shares repurchased",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-03.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-3v",
+          "label": "2.3(v)",
+          "questionText": "Jingle Ltd — Calculate (v): Cash and cash equivalents on 29 February 2024.\n\nINFORMATION D — extracts:\n| Item | 2024 | 2023 |\n| Cash & cash equivalents (under CA) | 55 000 | 1 030 000 |\n| Bank overdraft (under CL) | 3 274 000 | 0 |",
+          "marks": 2,
+          "memoText": "WORKINGS:\nCash & cash equivalents on 29 Feb 2024 = 55 000 − 3 274 000\n\nANSWER: (R3 219 000) — shown in brackets (negative)\n  One mark if figure correct but no brackets.\n\nTeaching point: For the Cash Flow Statement, 'Cash and cash equivalents' includes the BANK OVERDRAFT as a negative item. So the closing balance = Cash on hand + Bank balance − Bank overdraft. A net overdraft position is shown as a negative (in brackets).",
+          "topic": "Cash Flow Statement — Closing cash balance",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-03.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-4a",
+          "label": "2.4a",
+          "questionText": "Jingle Ltd — Calculate the Acid-test ratio for the financial year ended 29 February 2024.\n\nINFORMATION D — extracts:\n| Item | 2024 |\n| Current assets | 9 623 000 |\n| Current liabilities | 18 310 000 |\n| Inventories (within CA) | 4 190 000 |",
+          "marks": 4,
+          "memoText": "WORKINGS:\nAcid-test ratio = (Current assets − Inventories) : Current liabilities\n= (9 623 000 − 4 190 000) ✓✓ : 18 310 000 ✓\n= 5 433 000 : 18 310 000\n\nANSWER: 0,3 : 1 ✓ (one part correct, in the form x : 1; accept 0,29 : 1)\n\nTeaching point: The acid-test (quick) ratio measures whether a company can pay its short-term debts WITHOUT selling inventory. A ratio below 1 : 1 indicates the company would struggle to pay current liabilities from quick assets alone. Always express in the form x : 1.",
+          "topic": "Financial indicators — Acid-test ratio",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-04.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-4b",
+          "label": "2.4b",
+          "questionText": "Jingle Ltd — Calculate the Interim dividend per share (in cents) for the financial year ended 29 February 2024.\n\nUse interim dividends paid (R3 408 000 — see Retained Income Note 2.2).\n\nNumber of shares used for interim dividend (paid 31 August 2023, AFTER the buy-back of 30 000 shares on 1 June 2023):\n- Opening shares: 1 450 000\n- Less: shares repurchased 1 June 2023: 30 000\n- Shares in issue on 31 August 2023: 1 420 000",
+          "marks": 4,
+          "memoText": "WORKINGS:\nInterim dividend per share = (Interim dividends ÷ Shares in issue at interim date) × 100\n= 3 408 000 ✓ × 100 ÷ 1 420 000 ✓✓\n  (1 450 000 − 30 000)\n\nANSWER: 240 cents ✓ (one part correct; cents is not necessary; accept R2,40)\n\nTeaching point: Interim dividends are paid only to shares in issue at the interim payment date. Since the 30 000 shares were repurchased on 1 June 2023 (BEFORE the interim payment on 31 August 2023), they do NOT receive the interim dividend. The 250 000 new shares issued on 1 November 2023 also did NOT exist at the interim date.",
+          "topic": "Financial indicators — Interim dividend per share",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-04.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-2-4c",
+          "label": "2.4c",
+          "questionText": "Jingle Ltd — Calculate the % return on average shareholders' equity (ROSHE) for the financial year ended 29 February 2024.\n\nUse:\n- Net profit after tax: R4 550 000 (from Retained Income Note 2.2)\n- Shareholders' equity 2024: R28 248 000\n- Shareholders' equity 2023: R25 729 000",
+          "marks": 4,
+          "memoText": "WORKINGS:\n% ROSHE = (Net profit after tax ÷ Average shareholders' equity) × 100\n\nAverage shareholders' equity = ½ × (28 248 000 ✓ + 25 729 000 ✓)\n  = 53 977 000 ÷ 2\n  = 26 988 500 ✓✓\n\n% ROSHE = 4 550 000 ✓ × 100 ÷ 26 988 500\n\nANSWER: 16,9% ✓ (one part correct; must use average ½)\n  Accept 17%; do NOT accept 0,169 or 0,17.\n  % sign not necessary.\n\nTeaching points:\n• ROSHE shows the return generated for shareholders relative to their average investment.\n• Always use AVERAGE shareholders' equity (½ × opening + closing) — this accounts for changes in equity during the year.\n• Compare ROSHE to the rate offered by alternative investments (e.g. interest rates) to judge whether the return is satisfactory.\n• The '× 100' is not 'one part correct'.\n• Do not award marks for operations done to stand-alone figures (e.g. nothing else added to R4 550 000).",
+          "topic": "Financial indicators — ROSHE",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q2-04.png"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Interpretation of Financial Information — Britesun Ltd",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2024-3-1",
+          "label": "3.1",
+          "questionText": "Britesun Ltd sells high-quality solar panels to businesses and homeowners to generate electricity. The financial year ends on 28/29 February.\n\nMARK-UP PERCENTAGE:\nExplain how the customers reacted to the change in the mark-up percentage and whether this benefited the company or not.\n\nNOTE: Where comments or explanations are required, you must:\n- Quote financial indicators and trends, with figures\n- Give a reason or an explanation on the relevant financial indicators\n\nRelevant data (Information A):\n| Indicator | 29 Feb 2024 | 28 Feb 2023 |\n| % mark-up | 60% | 40% |\n| Number of customers | 245 | 280 |\n| Average sales per customer | R160 000 | R120 000 |\n| % net profit after tax on sales | 13,5% | 8,8% |\n\n(Sales 2024: 245 × R160 000 = R39,2m; Sales 2023: 280 × R120 000 = R33,6m)",
+          "marks": 4,
+          "memoText": "TWO valid points (with figures) ✓✓ ✓✓ — part marks for incomplete or unclear response.\n\nAcceptable points:\n• Average spending of clients increased (from R120 000) to R160 000 / by R40 000.\n• Sales revenue increased (from R33,6m) to R39,2m.\n• Customers still supported the business although the % mark-up increased (from 40%) to 60%.\n• Drop in customer numbers (from 280) to 245 / by 35 / by 12,5%.\n\nOverall benefit: The increased mark-up did benefit the company because, despite losing some customers, total sales revenue and net profit % both increased significantly.\n\nTeaching point: When a company increases its mark-up, customers may react in different ways: some leave (lower volume) but those who stay may spend more on quality. The overall test is whether revenue and profit improved. In this case, fewer but more valuable customers led to higher sales — a positive outcome.",
+          "topic": "Interpretation — Mark-up and customer behaviour",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-3-2",
+          "label": "3.2",
+          "questionText": "Britesun Ltd — PROFITABILITY AND OPERATING EFFICIENCY:\nComment on the operating efficiency of the company over the past two years. Quote TWO financial indicators.\n\nRelevant data (Information A):\n| Indicator | 29 Feb 2024 | 28 Feb 2023 |\n| % operating expenses on sales | 22,0% | 28,0% |\n| % operating profit on sales | 15,6% | 10,2% |\n| % net profit after tax on sales | 13,5% | 8,8% |\n| % mark-up | 60% | 40% |",
+          "marks": 4,
+          "memoText": "TWO financial indicators ✓ ✓ + figures and trends ✓ ✓\n\nAcceptable points:\n• % operating expenses on sales improved/decreased (from 28%) to 22% / by 6 percentage points / by 21,4%. (Better cost control.)\n• % operating profit on sales improved/increased (from 10,2%) to 15,6% / by 5,4 percentage points / by 52,9%.\n• % net profit on sales improved/increased from 8,8% to 13,5% / by 4,7 percentage points / by 53,4%.\n\nDo NOT accept mark-up % (this is profitability, not operating efficiency).\n\nTeaching point: Operating efficiency measures how well a business controls its operating costs relative to sales. A FALL in operating expenses % combined with a RISE in operating profit % indicates the company is running more efficiently — generating more profit per rand of sales.",
+          "topic": "Interpretation — Operating efficiency",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-3-3a",
+          "label": "3.3.1",
+          "questionText": "Britesun Ltd — FINANCIAL RISK AND GEARING:\nOne of the shareholders cannot understand why the debt-equity ratio decreased in 2024 (from 0,3 : 1 to 0,2 : 1) despite the increase in the loan. Provide him with an explanation.\n\nRelevant data (Information A & B):\n| Indicator | 29 Feb 2024 | 28 Feb 2023 |\n| Debt-equity ratio | 0,2 : 1 | 0,3 : 1 |\n\nFrom Cash Flow extracts (Information B):\n- Increase in loan: R1 000 000 (2024); R4 000 000 (2023)\n- Proceeds of shares issued: R2 800 000 (2024); R0 (2023)",
+          "marks": 2,
+          "memoText": "REASON ✓✓\n\nThe company increased the share capital (issued new shares for R2 800 000), which increased equity proportionally MORE than the increase in the loan.\nOR: The company increased BOTH the loan and equity, but equity grew faster, so the ratio (debt ÷ equity) fell.\n\nTeaching point: Debt-equity ratio = Non-current liabilities : Shareholders' equity. The ratio can fall even when the loan grows IF equity grows by a larger proportion. Issuing new shares is a quick way to strengthen equity and reduce gearing.",
+          "topic": "Interpretation — Debt-equity ratio explanation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-3-3b",
+          "label": "3.3.2",
+          "questionText": "Britesun Ltd — The chief financial officer (CFO) is of the opinion that the increase in the loan was a good decision. Apart from the debt-equity ratio, provide TWO points to support his opinion, including ONE relevant financial indicator.\n\nRelevant data (Information A):\n| Indicator | 29 Feb 2024 | 28 Feb 2023 |\n| % return on total capital employed (ROTCE) | 19,7% | 11,0% |\n| % interest rate on loans | 13% | 13% |\n| Debt-equity ratio | 0,2 : 1 | 0,3 : 1 |",
+          "marks": 4,
+          "memoText": "Financial indicator ✓ + figures and trend ✓ + explanation (comparing interest) ✓ ✓\n\nPOINT 1 (with indicator):\n• % ROTCE improved/increased from 11% to 19,7% / by 8,7 percentage points / by 79%.\n\nPOINT 2:\n• The degree of gearing has moved (from negative) to positive — ROTCE (19,7%) now exceeds the interest rate on loans (13% p.a.).\n• This means the loan is earning more than it costs — every rand borrowed contributes positively to shareholder returns.\n\nTeaching point: Positive gearing exists when ROTCE > interest rate on loans. Borrowing then magnifies shareholder returns. Negative gearing (interest > ROTCE) destroys shareholder value. Britesun moved from negative to positive gearing — a strong signal that taking on the loan was beneficial.",
+          "topic": "Interpretation — Gearing benefit",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-3-4a",
+          "label": "3.4.1",
+          "questionText": "Britesun Ltd — RETURNS, EARNINGS AND DIVIDENDS:\nComment on whether the shareholders should be satisfied with the return on their investment. Provide TWO points, including ONE financial indicator.\n\nRelevant data (Information A):\n| Indicator | 29 Feb 2024 | 28 Feb 2023 |\n| % return on average equity (ROSHE) | 15,6% | 8,0% |\n| % interest rate on investments | 7% | 7% |",
+          "marks": 4,
+          "memoText": "Financial indicator ✓ + figures and trend ✓ + explanation comparing alternative investment ✓ ✓\n\nPOINT 1 (indicator):\n• % ROSHE improved significantly from 8% to 15,6% / by 7,6 percentage points / by 95%.\n\nPOINT 2:\n• This greatly exceeds the returns on most other investments (alternative interest rate of 7% p.a.).\n• Shareholders earn more than double what they would receive from a fixed deposit.\n\nConclusion: Shareholders should be VERY satisfied — the return has nearly doubled and is well above safer alternatives.\n\nTeaching point: Always compare ROSHE to a benchmark (typically the interest rate available on a fixed deposit). If ROSHE > interest rate, shareholders are being rewarded for the additional risk of equity investment.",
+          "topic": "Interpretation — Return on investment",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-02.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-3-4b",
+          "label": "3.4.2",
+          "questionText": "Britesun Ltd — Comment on the earnings per share (EPS) and explain its impact on the dividend pay-out policy adopted by directors.\n\nRelevant data (Information A):\n| Indicator | 29 Feb 2024 | 28 Feb 2023 |\n| Earnings per share (EPS) | 224 cents | 113 cents |\n| Dividends per share (DPS) | 90 cents | 90 cents |\n| Dividend pay-out rate | 40% | 80% |",
+          "marks": 4,
+          "memoText": "EPS: figures and trend ✓ + explanation on EPS ✓\nDPR: figures and trend ✓ + explanation on DPR ✓\n\nEARNINGS PER SHARE:\n• EPS increased (from 113 cents) to 224 cents / by 111 cents / by 98%.\n• This shows improved profits in the company — each share is generating significantly more earnings.\n\nDIVIDEND PAY-OUT POLICY:\n• The dividend pay-out rate decreased from 80% to 40% / by 40 percentage points / by 50%.\n• The business retained more earnings (60% retained vs 20% before). These retained earnings can be reinvested to grow the business in the future.\n\nTeaching point: When EPS rises but DPS stays the same, the dividend pay-out rate falls. This is a STRATEGIC choice: directors are signalling that they prefer to reinvest profits rather than pay them out. Shareholders may not receive higher dividends now, but the share price should rise as retained earnings grow the business.",
+          "topic": "Interpretation — EPS and dividend pay-out policy",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-02.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-3-5",
+          "label": "3.5",
+          "questionText": "Britesun Ltd — SHARE PRICE ON THE STOCK EXCHANGE:\nComment on the performance of the share price on the stock exchange (JSE). Provide TWO points, with figures and trends.\n\nRelevant data (Information A):\n| Indicator | 29 Feb 2024 | 28 Feb 2023 |\n| Net asset value per share (NAV) | 1 543 cents | 1 413 cents |\n| Market price of shares on JSE | 1 610 cents | 1 342 cents |",
+          "marks": 4,
+          "memoText": "TWO points ✓ ✓ ✓ ✓ (with figures and trends)\n\nPOINT 1:\n• The market price of the share improved from 1 342c to 1 610c / by 268c (or by 20%).\n• This is due to the good returns earned / positive image of the company.\n\nPOINT 2:\n• In 2024 the market price (1 610c) exceeded the NAV (1 543c) by 67c — indicates good demand for shares.\n  OR\n• In 2023 NAV (1 413c) was higher than the market price (1 342c) by 71c — indicates poor demand for shares at that time, which has now reversed.\n\nNB: Do NOT award marks if only the NAV for both years was compared (NAV alone does not show JSE performance).\n\nTeaching point: When market price > NAV, investors are willing to pay more than the company's book value per share — a sign of confidence and demand. When market price < NAV, the share is trading at a discount, suggesting weak demand. The shift from below-NAV to above-NAV indicates strong improvement in market sentiment.",
+          "topic": "Interpretation — Share price performance",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-02.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-3-6a",
+          "label": "3.6.1",
+          "questionText": "Britesun Ltd — SHAREHOLDING OF ALLAN ASHWIN:\nAllan Ashwin owns shares in Britesun Ltd. He is pleased with his investment in the shares of this company. Provide TWO points, with figures or calculations, to support his opinion.\n\nRelevant data (Information A & C):\n| Indicator | 29 Feb 2024 | 28 Feb 2023 |\n| Dividends per share (DPS) | 90 cents | 90 cents |\n| % return on average equity (ROSHE) | 15,6% | 8,0% |\n| Market price of shares on JSE | 1 610 cents | 1 342 cents |\n\nC. Allan Ashwin's shareholding:\n- Shares in issue on 29 February 2024: 700 000\n- Number of shares owned by Ashwin: 360 000\n- Purchase price per share paid by Ashwin: 780 cents\n- Dividends earned per share: 90 cents",
+          "marks": 4,
+          "memoText": "TWO valid points ✓ ✓ + with figures ✓ ✓ — part marks for incomplete or unclear response. Be aware of combined explanation with figures/calculations.\n\nPOINT 1 — Return on his original investment:\n• His return (dividends) is 11,5% of the price he paid for the shares; (90 ÷ 780).\n• OR: He earned R324 000 dividends (360 000 × 90 cents).\n\nPOINT 2 — Capital growth:\n• He paid 780c per share that is now worth 1 610c. This is 830c more than he paid / 106,4% increase. Significant capital gain.\n• OR: His % ROSHE return increased from 8% to 15,6% / by 7,6 percentage points / by 95%.\n\nNOTE: Contact the DBE IMs if candidates used Dividend Yield (DPS/MP) as an answer.\n\nTeaching point: When evaluating an investment, consider BOTH:\n1. Income return (dividends received as a % of price paid).\n2. Capital growth (current market price vs purchase price).\nAllan benefits from both — his shares more than doubled in value and he receives an 11,5% dividend yield on his original cost.",
+          "topic": "Interpretation — Investor's return",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-03.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-3-6b",
+          "label": "3.6.2",
+          "questionText": "Britesun Ltd — The company plans to issue additional new shares equal to 20% of the issued share capital, in the next financial year to existing shareholders. Allan has indicated that he will not take up this offer. Explain how this decision will affect his % shareholding. Provide a calculation or figures to support your explanation.\n\nRelevant data (Information C):\n- Total shares in issue on 29 February 2024: 700 000\n- Number of shares owned by Ashwin: 360 000\n- Additional issue: 20% of 700 000 = 140 000 new shares (NOT taken by Allan)\n- New total: 700 000 + 140 000 = 840 000 shares",
+          "marks": 6,
+          "memoText": "CALCULATION (figures or calculation) ✓✓ ✓✓\n• Currently a majority shareholder: 360 000 ÷ 700 000 = 51,4% ✓✓ of the shares.\n• His % shareholding will drop to 360 000 ÷ 840 000 = 42,9% ✓✓.\n\nEXPLANATION (any ONE point) ✓✓ — be alert to valid explanations in calculations column. Part marks for incomplete or unclear response.\n• He will no longer be the majority shareholder in the company.\n• He cannot fully influence decision-making in the company.\n• He cannot make a difference in the company anymore.\n• He loses voting control / cannot pass resolutions on his own.\n\nTeaching point: A shareholder owning more than 50% has majority control — they can pass ordinary resolutions alone. By NOT taking up his rights in a new share issue, Allan's stake is DILUTED. He drops below 50% and loses majority control, even though he still owns the same NUMBER of shares as before.",
+          "topic": "Interpretation — Share dilution and shareholding",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-03.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-3-7",
+          "label": "3.7",
+          "questionText": "Britesun Ltd — BONUSES FOR DIRECTORS AND OTHER EMPLOYEES:\nBonuses for directors and other employees are included in the company's budget. Shareholders will be required to vote at the AGM on whether these bonuses should be paid or not.\n\nApart from the points provided above, state TWO different factors that will influence shareholders to vote IN FAVOUR of approving such bonuses.\n\nRelevant data (Information A & B):\n| Indicator | 29 Feb 2024 | 28 Feb 2023 |\n| Current ratio | 1,8 : 1 | 4,3 : 1 |\n| Acid-test ratio | 0,9 : 1 | 2,5 : 1 |\n| Number of directors and other employees | 38 | 43 |\n\nCash flow extract: Cash generated from operations: R6 785 000 (2024) vs R3 863 500 (2023). Fixed assets sold (unproductive): R1 100 000 (2024).",
+          "marks": 4,
+          "memoText": "Any TWO valid points ✓ ✓ ✓ ✓ — part marks for incomplete or unclear response. Figures not required.\n\nAcceptable points:\n• Liquidity / working capital is more efficiently controlled (CR moved from 4,3:1 to 1,8:1; ATR from 2,5:1 to 0,9:1 — funds no longer tied up unproductively).\n• Unproductive fixed assets were sold (R1 100 000), which will improve cash flow in the company.\n• Cash generated from operations has improved (by R2 921 500 / by 75,6%) — strong cash position to fund bonuses.\n• Performance of the company improved with FEWER employees and directors compared to 2023 (from 43 to 38) — staff are working harder and deserve recognition.\n• Profits and ROSHE have improved significantly — the company can afford it.\n• Bonuses motivate staff and retain key talent for future growth.\n\nTeaching point: Shareholders evaluate proposed bonuses against:\n1. Affordability (cash flow, profits).\n2. Justification (improved performance, productivity gains).\n3. Long-term value (motivation, retention).\nAll three factors are positive at Britesun, supporting approval.",
+          "topic": "Interpretation — Voting on directors' bonuses",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q3-03.png"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Corporate Governance — Gadram Ltd (Insider Trading)",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2024-4-1",
+          "label": "4.1",
+          "questionText": "Refer to the media article 'SOCIAL MEDIA LIFTS THE LID ON MAJOR INSIDER TRADING' relating to Gadram Ltd.\n\nParagraph 4 states:\n'In deciding on the fine, the FSCA noted that on 10 April 2023 Loma had sent the message and on 13 April 2023, the three board members, Loma and the two directors, sold their shares on the JSE at R105,00 per share. The subsequent rapid decline to R8,00 per share in the market price of the shares occurred in the following two days.'\n\nThe three board members implicated in this case each own 150 000 shares.\n\nCalculate the loss that Loma and the two directors were each able to avoid by selling their shares on 13 April 2023.",
+          "marks": 3,
+          "memoText": "WORKINGS:\nPrice difference per share = R105 − R8 = R97 ✓\nLoss avoided per director = 150 000 × R97 ✓✓\n\nOR: 15 750 000 − 1 200 000\nOR: (47 250 000 − 3 600 000) ÷ 3\n\nANSWER: R14 550 000 (R14,55 million) ✓\n\nBe alert to alternative arrangements for workings.\n\nTeaching point: Insider trading uses non-public information to gain an unfair advantage. Each director avoided losing R97 per share × 150 000 shares = R14,55 million. This is precisely WHY insider trading is illegal — those with privileged information can avoid losses (or make gains) at the expense of ordinary investors who lack that information.",
+          "topic": "Corporate Governance — Insider trading loss calculation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q4-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-4-2-1",
+          "label": "4.2.1",
+          "questionText": "Refer to Paragraph 3 of the article:\n'The incriminating message from Loma read: \"You always ask for my opinion. It will take a long time for Gadram to get rid of all the bad news. Sell your shares immediately at the current price. Delete this message now and don't tell anyone.\"'\n\nExplain why the text message is so important to the investigators.",
+          "marks": 2,
+          "memoText": "Any valid point ✓✓ — part marks for incomplete or unclear response.\n\nAcceptable answers:\n• It provided evidence that a crime had been committed.\n• They would know which directors to charge.\n• The person who leaked the information can be easily traced.\n• It will provide evidence of parties involved.\n• Investigators will establish the intent (knowledge of wrongdoing).\n• It provides consistency between different sources of evidence which strengthens the case against individuals implicated.\n• The instruction to 'delete this message' shows knowledge of guilt.\n\nTeaching point: In insider-trading cases, prosecutors must prove (1) that the person had non-public information, (2) that they used it to trade, and (3) that they knew it was wrong. The text message provides direct documentary evidence of all three elements — particularly the instruction to 'delete this message' and 'don't tell anyone', which proves intent.",
+          "topic": "Corporate Governance — Importance of evidence",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q4-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-4-2-2",
+          "label": "4.2.2",
+          "questionText": "Refer to Paragraph 3 of the article (text message from Loma to two directors warning them to sell their Gadram shares immediately).\n\nExplain why you think this crime is referred to as 'insider trading'.",
+          "marks": 2,
+          "memoText": "Any valid point ✓✓ — part marks for incomplete or unclear response.\n\nAcceptable answers:\n• Because it is fraud based on private information regarding the trading (buying / selling) of shares which is not yet known to others who are affected.\n• The directors (insiders) had access to this privileged information that the public did not.\n• Using of sensitive information to one's benefit — abuse of power.\n• 'Insiders' are people inside the company (directors, officers, employees) who have access to information not yet released to the market.\n• They 'traded' (sold) shares using that inside information.\n\nTeaching point: 'Insider trading' = trading by insiders. An 'insider' is someone with access to material non-public information about a company (directors, executives, employees, advisors). 'Trading' means buying or selling shares. The crime is using the information advantage to trade BEFORE the public learns the news, harming uninformed investors who buy or sell at unfair prices.",
+          "topic": "Corporate Governance — Definition of insider trading",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q4-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-4-3",
+          "label": "4.3",
+          "questionText": "Refer to the article on Gadram Ltd. Bizmiz News reported on the disclaimer audit report received by Gadram Ltd and that a police investigation into the false financial statements had begun. The market price subsequently dropped from R105 to R8 per share.\n\nExplain how the rapid decline in the share price and the fraudulent financial statements are likely to affect the existing shareholders and its workers.",
+          "marks": 4,
+          "memoText": "Part marks for incomplete or unclear response.\n\nEXISTING SHAREHOLDERS ✓ ✓ (any 2 valid points):\n• They will lose their investment in the company / loss of life savings (financial loss).\n• Loss of dividends.\n• Will be likely to sell their shares (if they can).\n• There may not be a demand for shares (no buyers willing to buy at any reasonable price).\n• Their portfolio value plummets — from R105 to R8 represents a 92% loss.\n\nWORKERS ✓ ✓ (any 2 valid points):\n• Employees would be retrenched / lose their jobs / no job security (job insecurity).\n• Increase in unemployment in the country.\n• Employees' morale and productivity drop.\n• Change in compensation and benefits (reduced salary / benefits / bonus).\n• Cost-cutting measures (layoffs).\n• Loss of pension/retirement contributions if linked to the company.\n\nTeaching point: Corporate fraud has wide-ranging consequences beyond the directors who committed it. Innocent shareholders lose their investment, and innocent employees lose their livelihoods. This is why corporate governance (King IV, Companies Act) is so important — it tries to prevent these abuses through controls, audits, and director accountability.",
+          "topic": "Corporate Governance — Impact of fraud",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q4-01.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2024-4-4",
+          "label": "4.4",
+          "questionText": "If you were a shareholder in Gadram Ltd, what other questions would you raise at the AGM? Explain TWO points.\n\nThe context: The company received a disclaimer audit report; financial statements were found to be false; a police investigation is underway; the CEO and two directors engaged in insider trading; the share price collapsed from R105 to R8.",
+          "marks": 4,
+          "memoText": "Any TWO valid points ✓ ✓ ✓ ✓ — part marks for incomplete or unclear response.\n\nAcceptable points:\n• Were any background checks done on the culprits before they were appointed to the Board?\n• What disciplinary action will be taken by the company or the Board against the culprits?\n• Is it possible to rescue the company / who will take over the running of the company?\n• Is there any way the losses can be recovered from the culprits (e.g. confiscate and sell their possessions)?\n• How will the board intervene to rectify this situation?\n• What action will be taken against the directors?\n• How will this impact the image of the company and the share price in the long term?\n• Will the matter be reported to the relevant professional bodies for disciplinary action against these directors?\n• What specific actions is the company taking to address the allegations of false financial statements / disclaimer report?\n• Can the board provide a detailed explanation of the circumstances leading to the disclaimer report?\n• What measures are being implemented to ensure the accuracy and transparency of future financial reporting?\n• Can shareholders expect timely and transparent communication regarding the investigation's progress and findings?\n• What impact, if any, do the allegations and investigation have on the company's long-term strategic plan?\n• Will internal controls and audit committee composition be reviewed?\n• What will happen to the auditor — will a new firm be appointed?\n\nTeaching point: At an AGM, shareholders use questions to hold directors accountable. After fraud, key concerns are: ACCOUNTABILITY (who is being punished?), RECOVERY (can losses be recouped?), PREVENTION (what controls will be put in place?), and FUTURE (can the company survive?).",
+          "topic": "Corporate Governance — AGM questions",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2024-q4-01.png"
+        }
+      ]
+    }
+  ]
+}

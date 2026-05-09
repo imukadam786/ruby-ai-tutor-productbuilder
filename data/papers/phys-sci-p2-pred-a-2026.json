@@ -1,0 +1,650 @@
+{
+  "id": "phys-sci-p2-pred-a-2026",
+  "subject": "Physical Science",
+  "subjectCode": "phys-sci",
+  "paperCode": "P2",
+  "year": 2026,
+  "session": "Predictive 2026 — Paper A",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "infoSheet": {
+    "title": "Data Sheet",
+    "pdfUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/Physical%20Science%20Info%20Sheet.pdf"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-1",
+          "label": "1.1",
+          "questionText": "The IUPAC name of CH₃CH₂CH₂CH₂OH is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "butan-4-ol",
+            "B": "butan-1-ol",
+            "C": "butanol",
+            "D": "1-butanol"
+          },
+          "memoText": "Correct answer: B — butan-1-ol (2 marks)\n4-carbon chain (butan-) with –OH on C1; the principal chain is numbered to give the OH the lowest locant.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-2",
+          "label": "1.2",
+          "questionText": "Which of the following compounds has the HIGHEST boiling point?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "pentan-1-ol",
+            "B": "pentane",
+            "C": "pentanoic acid",
+            "D": "pentan-1-amine"
+          },
+          "memoText": "Correct answer: C — pentanoic acid (2 marks)\nThe –COOH group enables strong hydrogen bonding (and, in carboxylic acids, dimer formation) plus dipole-dipole interactions, giving the highest boiling point of the four.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-3",
+          "label": "1.3",
+          "questionText": "The functional group of an ester is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "─OH",
+            "B": "─COOH",
+            "C": "─COO─",
+            "D": "─CHO"
+          },
+          "memoText": "Correct answer: C — ─COO─ (2 marks)\nThe ester linkage forms between a carboxylic acid and an alcohol (R–COO–R′).",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-4",
+          "label": "1.4",
+          "questionText": "In the reaction CH₃CH₂OH → CH₂=CH₂ + H₂O, the type of reaction is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "addition",
+            "B": "substitution",
+            "C": "elimination",
+            "D": "esterification"
+          },
+          "memoText": "Correct answer: C — elimination (2 marks)\nA hydrogen and a hydroxyl group are removed from adjacent carbons of ethanol to form an alkene plus water (dehydration).",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-5",
+          "label": "1.5",
+          "questionText": "According to Le Chatelier's Principle, increasing pressure in the equilibrium N₂ + 3H₂ ⇌ 2NH₃ will:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "shift equilibrium to the left",
+            "B": "shift equilibrium to the right",
+            "C": "have no effect",
+            "D": "decrease Kc"
+          },
+          "memoText": "Correct answer: B — shift equilibrium to the right (2 marks)\nThe right-hand side has fewer moles of gas (2 mol NH₃ vs 4 mol of N₂ + H₂); increased pressure favours the side with fewer gas moles.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-6",
+          "label": "1.6",
+          "questionText": "A buffer solution resists changes in pH because it contains:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "a weak acid only",
+            "B": "a strong acid and its salt",
+            "C": "a weak acid and its conjugate base",
+            "D": "water"
+          },
+          "memoText": "Correct answer: C — a weak acid and its conjugate base (2 marks)\nA buffer contains a weak acid/conjugate base pair (or weak base/conjugate acid) which neutralises small additions of either H⁺ or OH⁻.",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-7",
+          "label": "1.7",
+          "questionText": "In an electrochemical cell, oxidation occurs at the:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "cathode",
+            "B": "anode",
+            "C": "salt bridge",
+            "D": "positive terminal"
+          },
+          "memoText": "Correct answer: B — anode (2 marks)\nDefinition: oxidation (loss of electrons) always occurs at the anode in any electrochemical cell.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-8",
+          "label": "1.8",
+          "questionText": "The standard electrode potential (E°) of Cu²⁺/Cu is +0.34 V and Zn²⁺/Zn is −0.76 V. The E°cell is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "−0.42 V",
+            "B": "+0.42 V",
+            "C": "+1.10 V",
+            "D": "−1.10 V"
+          },
+          "memoText": "Correct answer: C — +1.10 V (2 marks)\n$E^\\circ_{cell} = E^\\circ_{cathode} - E^\\circ_{anode} = 0.34 - (-0.76) = +1.10$ V.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-9",
+          "label": "1.9",
+          "questionText": "During the electrolysis of dilute H₂SO₄, the gas produced at the cathode is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "O₂",
+            "B": "H₂",
+            "C": "SO₂",
+            "D": "Cl₂"
+          },
+          "memoText": "Correct answer: B — H₂ (2 marks)\nReduction at the cathode: $2H^+ + 2e^- \\to H_2$. Oxygen is produced at the anode.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-1-10",
+          "label": "1.10",
+          "questionText": "Which of the following is a STRONG acid?",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "CH₃COOH",
+            "B": "H₂CO₃",
+            "C": "HNO₃",
+            "D": "NH₄⁺"
+          },
+          "memoText": "Correct answer: C — HNO₃ (2 marks)\nNitric acid fully (≈100%) dissociates in water. The other three are weak acids that only partially dissociate.",
+          "topic": "Acids and Bases"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Organic Chemistry — Naming, Isomerism and Properties",
+      "totalMarks": 21,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-1",
+          "label": "2.1",
+          "questionText": "The following compound is given: CH₃─CH₂─CH₂─CH₂─CH₂─OH. Write the IUPAC name of this compound.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: 5-carbon straight chain with –OH on carbon 1.\nMark 2: IUPAC name: pentan-1-ol.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-2",
+          "label": "2.2",
+          "questionText": "Write down the name of the functional group.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: Hydroxyl group (–OH).",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-3",
+          "label": "2.3",
+          "questionText": "To which homologous series does this compound belong?",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: Alcohols (alkanols) / primary alcohols.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-4",
+          "label": "2.4",
+          "questionText": "Write down the general formula for this homologous series.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: $C_nH_{2n+1}OH$ (or equivalent $C_nH_{2n+2}O$).",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-5",
+          "label": "2.5",
+          "questionText": "Write down the molecular formula of this compound.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: $C_5H_{12}O$.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-6",
+          "label": "2.6",
+          "questionText": "Draw the structural formula of a CHAIN ISOMER of this compound.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "A correct chain isomer must be drawn — same molecular formula ($C_5H_{12}O$) but a different (branched) carbon skeleton, still containing –OH.\nMark 1: Branched 5-carbon chain (different skeleton).\nMark 2: Correct number of H atoms (saturated, no double bonds).\nMark 3: –OH group present and shown clearly.\nAcceptable examples: 2-methylbutan-1-ol — $CH_3CH(CH_3)CH_2CH_2OH$; 3-methylbutan-1-ol — $(CH_3)_2CHCH_2CH_2OH$; 2,2-dimethylpropan-1-ol — $(CH_3)_3CCH_2OH$.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-7",
+          "label": "2.7",
+          "questionText": "Draw the structural formula of a POSITIONAL ISOMER of this compound.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "A correct positional isomer — same straight 5-carbon chain but with –OH on a different carbon.\nMark 1: Straight 5-carbon chain (same skeleton as pentan-1-ol).\nMark 2: –OH attached to C2 or C3 (not C1).\nMark 3: All bonds drawn correctly (full structural formula).\nAcceptable examples: pentan-2-ol — $CH_3CH(OH)CH_2CH_2CH_3$; pentan-3-ol — $CH_3CH_2CH(OH)CH_2CH_3$.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-8",
+          "label": "2.8",
+          "questionText": "Write down the IUPAC name of each isomer you drew in 2.6 and 2.7.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Correct IUPAC name for the chain isomer in 2.6 (e.g. 2-methylbutan-1-ol or 3-methylbutan-1-ol or 2,2-dimethylpropan-1-ol).\nMark 2: Correct IUPAC name for the positional isomer in 2.7 (e.g. pentan-2-ol or pentan-3-ol).\n[Names must match the structures drawn.]",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-9",
+          "label": "2.9",
+          "questionText": "Which compound has the higher boiling point — this compound or its chain isomer? Explain your answer in terms of intermolecular forces.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Pentan-1-ol (the straight-chain compound) has the HIGHER boiling point.\nMark 2: Both compounds have the same types of intermolecular forces (hydrogen bonding via –OH plus London/dispersion forces) and the same molar mass.\nMark 3: Pentan-1-ol has a longer, unbranched chain → larger surface area for contact between molecules → stronger London/dispersion forces.\nMark 4: The branched chain isomer has a more compact shape → smaller contact surface → weaker London forces → lower boiling point.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-2-10",
+          "label": "2.10",
+          "questionText": "Write a balanced equation for the complete combustion of this compound.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Reactants and products correctly identified: $C_5H_{12}O + O_2 \\to CO_2 + H_2O$.\nMark 2: Correct stoichiometry: $2C_5H_{12}O + 15O_2 \\to 10CO_2 + 12H_2O$ (or equivalent fractional form $C_5H_{12}O + \\tfrac{15}{2}O_2 \\to 5CO_2 + 6H_2O$).\nMark 3: Equation fully balanced (atoms balanced on both sides).",
+          "topic": "Organic Chemistry"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Intermolecular Forces and Physical Properties",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-a-2026-3-1",
+          "label": "3.1",
+          "questionText": "Consider the following substances: water (H₂O), hydrogen sulfide (H₂S), ethane (C₂H₆), and ethanol (C₂H₅OH). Identify the type(s) of intermolecular forces present in: (a) water, (b) ethane, (c) ethanol.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1 (a) Water: hydrogen bonding (plus dipole-dipole and London/dispersion forces).\nMark 2 (b) Ethane: London/dispersion forces ONLY (non-polar molecule).\nMark 3 (c) Ethanol: hydrogen bonding (plus dipole-dipole and London/dispersion forces).\nMark 4: Awarded for correctly distinguishing that only the molecules containing –OH (water, ethanol) exhibit hydrogen bonding, while ethane (purely non-polar C–C and C–H bonds) does not.",
+          "topic": "Intermolecular Forces"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-3-2",
+          "label": "3.2",
+          "questionText": "Arrange the following in order of INCREASING boiling point: H₂S, H₂O, CH₄. Explain your reasoning.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Order of increasing boiling point: $CH_4 < H_2S < H_2O$.\nMark 2: $CH_4$ — non-polar; only weak London/dispersion forces → lowest boiling point (≈ −161 °C).\nMark 3: $H_2S$ — polar; dipole-dipole + London forces (intermediate strength) → intermediate boiling point (≈ −60 °C).\nMark 4: $H_2O$ — strong hydrogen bonding → highest boiling point (+100 °C). Despite $H_2O$ having a lower molar mass than $H_2S$, hydrogen bonds are much stronger than dipole-dipole forces.",
+          "topic": "Intermolecular Forces"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-3-3",
+          "label": "3.3",
+          "questionText": "Explain why ethanol is miscible with water but hexane is not.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Ethanol contains an –OH group and is polar; it forms hydrogen bonds with water molecules → fully miscible with water.\n‘Like dissolves like’ — both ethanol and water are polar and can form similar IMFs.\nMark 2: Hexane is non-polar (only London/dispersion forces between molecules).\nMark 3: Hexane cannot form hydrogen bonds with water and the energy released from hexane–water interactions is too small to overcome the strong water–water hydrogen bonds → hexane is immiscible with water.",
+          "topic": "Intermolecular Forces"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Organic Reactions",
+      "totalMarks": 19,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-a-2026-4-1",
+          "label": "4.1",
+          "questionText": "Write the IUPAC names and structural formulae of the TWO products when butan-1-ol undergoes an elimination reaction (dehydration). State the conditions required.",
+          "marks": 6,
+          "type": "written",
+          "memoText": "Elimination/dehydration of butan-1-ol gives a mixture of alkenes:\nMark 1: Product 1 structure: $CH_3CH_2CH=CH_2$\nMark 2: Product 1 name: but-1-ene\nMark 3: Product 2 structure: $CH_3CH=CHCH_3$\nMark 4: Product 2 name: but-2-ene\nMark 5: Conditions — concentrated $H_2SO_4$ (or $H_3PO_4$) as acid catalyst.\nMark 6: Conditions — heat, approximately 170 °C.\n[Water $(H_2O)$ is also produced as a by-product.]",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-4-2",
+          "label": "4.2",
+          "questionText": "Write a balanced equation for the esterification reaction between ethanol (C₂H₅OH) and propanoic acid (CH₃CH₂COOH). Name the ester formed and state the conditions.",
+          "marks": 5,
+          "type": "written",
+          "memoText": "Mark 1: Correct reactants on the left of the equation: $C_2H_5OH + CH_3CH_2COOH$.\nMark 2: Correct ester product: $CH_3CH_2COOC_2H_5$.\nMark 3: Water as second product and equation written as a reversible equilibrium: $C_2H_5OH + CH_3CH_2COOH \\rightleftharpoons CH_3CH_2COOC_2H_5 + H_2O$.\nMark 4: Ester name: ethyl propanoate.\nMark 5: Conditions — concentrated $H_2SO_4$ catalyst, heat gently / under reflux.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-4-3",
+          "label": "4.3",
+          "questionText": "Bromine water is added to two test tubes — one containing hexane and one containing hex-1-ene. Describe and explain what is observed in each test tube.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Hexane: NO change — bromine water remains orange/brown (or red-brown).\nMark 2: Reason: hexane is a saturated alkane (no C=C double bond) and does not react with $Br_2$ under these conditions.\nMark 3: Hex-1-ene: bromine water DECOLOURISES (turns colourless).\nMark 4: Reason: $Br_2$ adds across the C=C double bond in an addition reaction: $CH_2=CH–R + Br_2 \\to CH_2Br–CHBr–R$. This is the standard test that distinguishes alkenes from alkanes.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-4-4",
+          "label": "4.4",
+          "questionText": "Write a balanced equation for the addition reaction of HBr with propene (CH₃CH=CH₂). Name the product.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Reactants and products written: $CH_3CH=CH_2 + HBr \\to$ product.\nMark 2: Major product structure (Markovnikov's rule — H adds to the C with more H's, Br to the more substituted C): $CH_3CHBrCH_3$.\nMark 3: Equation balanced: $CH_3CH=CH_2 + HBr \\to CH_3CHBrCH_3$.\nMark 4: Major product name: 2-bromopropane.\n[Accept 1-bromopropane $(CH_3CH_2CH_2Br)$ as the minor anti-Markovnikov product if clearly identified.]",
+          "topic": "Organic Chemistry"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Rates of Reaction",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-a-2026-5-1",
+          "label": "5.1",
+          "questionText": "Marble chips (CaCO₃) react with hydrochloric acid: CaCO₃(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l) + CO₂(g). The graphs in the question paper show the effect of conditions on the rate. Define the term \"reaction rate\". (Refer to the concentration-vs-time and Maxwell-Boltzmann graphs in the question paper.)",
+          "marks": 2,
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q5.png",
+          "memoText": "Mark 1: Reaction rate is the change in concentration of a reactant or product per unit time.\nMark 2: Stated mathematically as $\\text{rate} = \\Delta[\\text{concentration}]/\\Delta t$, with units mol·dm⁻³·s⁻¹.",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-5-2",
+          "label": "5.2",
+          "questionText": "Explain, using collision theory, why increasing temperature increases reaction rate.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Higher temperature → particles have greater (average) kinetic energy and move faster.\nMark 2: A greater proportion of collisions have energy greater than or equal to the activation energy ($E_a$).\nMark 3: The collision frequency also increases. Therefore the number of effective (successful) collisions per second increases → reaction rate increases.",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-5-3",
+          "label": "5.3",
+          "questionText": "A catalyst is added to the reaction. What is the effect on: (a) the activation energy, and (b) the value of ΔH? Explain.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: (a) Activation energy DECREASES.\nMark 2: A catalyst provides an alternative reaction pathway with a lower activation energy, so a greater fraction of particles have sufficient energy to react.\nMark 3: (b) $\\Delta H$ is UNCHANGED.\nMark 4: A catalyst does not alter the energy of the reactants or products — it only lowers the energy barrier between them; therefore the enthalpy difference $\\Delta H = H_\\text{products} - H_\\text{reactants}$ is unaffected.",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-5-4",
+          "label": "5.4",
+          "questionText": "State TWO other ways to increase the rate of this reaction and explain each using collision theory.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Any TWO valid methods (other than catalyst/temperature):\nMethod 1 — Increase concentration of HCl (Marks 1–2): More acid particles per unit volume → more frequent collisions per second → more successful collisions per second → faster rate.\nMethod 2 — Increase surface area of $CaCO_3$ (use powder instead of chips) (Marks 3–4): Greater surface exposed to acid → more $CaCO_3$ particles available for collision → more frequent collisions → faster rate.\n[Other acceptable answers: stirring (improves contact between reactants).]",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-5-5",
+          "label": "5.5",
+          "questionText": "Sketch the Maxwell-Boltzmann distribution and show how adding a catalyst shifts the effective threshold. Label axes.",
+          "marks": 4,
+          "type": "diagram",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q5.png",
+          "memoText": "Mark 1: Axes correctly labelled — x-axis: energy (E); y-axis: number of particles (or fraction of particles).\nMark 2: Bell-shaped Maxwell-Boltzmann curve drawn (rising from origin, peak, then long tail to the right).\nMark 3: Vertical dashed line marking the activation energy $E_a$ (without catalyst), and a SECOND vertical dashed line for $E_a$ (with catalyst) shifted to the LEFT of the original.\nMark 4: Shaded area under the curve to the right of $E_a$ — clearly LARGER for the catalysed $E_a$ (more particles have $E \\geq E_a$ when a catalyst is present).",
+          "topic": "Reaction Rate",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q5-memo.png"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Chemical Equilibrium",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-a-2026-6-1",
+          "label": "6.1",
+          "questionText": "Consider the following equilibrium reaction at 400°C: N₂(g) + 3H₂(g) ⇌ 2NH₃(g) ΔH = −92 kJ·mol⁻¹. (Refer to the concentration-vs-time graph in the question paper.) Write the expression for the equilibrium constant Kc for this reaction.",
+          "marks": 2,
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q6.PNG",
+          "memoText": "Mark 1: Numerator (products) raised to correct stoichiometric power: $[NH_3]^2$.\nMark 2: Denominator (reactants) with correct powers: $[N_2][H_2]^3$.\n$K_c = \\dfrac{[NH_3]^2}{[N_2][H_2]^3}$",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-6-2",
+          "label": "6.2",
+          "questionText": "The equilibrium concentrations are: [N₂] = 0.50 mol·dm⁻³, [H₂] = 1.50 mol·dm⁻³, [NH₃] = 0.80 mol·dm⁻³. Calculate Kc.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: $K_c = \\dfrac{(0.80)^2}{(0.50)(1.50)^3}$\nMark 2: $= \\dfrac{0.64}{0.50 \\times 3.375}$\nMark 3: $= \\dfrac{0.64}{1.6875}$\nMark 4: $K_c = 0.38$ mol⁻²·dm⁶",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-6-3",
+          "label": "6.3",
+          "questionText": "State Le Chatelier's Principle.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: When a system at equilibrium is subjected to a change (in concentration, temperature or pressure)...\nMark 2: ...the system will shift in the direction that opposes/counteracts the change and re-establishes equilibrium.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-6-4-1",
+          "label": "6.4.1",
+          "questionText": "State the effect of increasing the temperature on the equilibrium yield of NH₃. Explain.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Equilibrium shifts to the LEFT (toward reactants); yield of $NH_3$ DECREASES.\nMark 2: The forward reaction is exothermic ($\\Delta H = -92$ kJ·mol⁻¹). Increasing temperature favours the endothermic (reverse) direction to absorb the added heat.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-6-4-2",
+          "label": "6.4.2",
+          "questionText": "State the effect of increasing the pressure on the equilibrium yield of NH₃. Explain.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Equilibrium shifts to the RIGHT (toward products); yield of $NH_3$ INCREASES.\nMark 2: The right-hand side has fewer moles of gas (2 mol) than the left (4 mol). By Le Chatelier's principle, increased pressure favours the side with fewer moles of gas.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-6-4-3",
+          "label": "6.4.3",
+          "questionText": "State the effect of adding a catalyst on the equilibrium yield of NH₃. Explain.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: NO change in the equilibrium position or in the yield of $NH_3$.\nMark 2: A catalyst speeds up both the forward and reverse reactions equally, so equilibrium is reached FASTER but the same $K_c$ (and hence yield) applies.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-6-5",
+          "label": "6.5",
+          "questionText": "Explain why an increase in temperature causes the value of Kc for this reaction to DECREASE.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: The forward reaction is exothermic, so increasing temperature favours the endothermic reverse reaction (Le Chatelier).\nMark 2: This shifts the equilibrium to the LEFT — at the new equilibrium $[NH_3]$ is lower while $[N_2]$ and $[H_2]$ are higher.\nMark 3: Since $K_c = [NH_3]^2 / ([N_2][H_2]^3)$, the numerator decreases and the denominator increases, so $K_c$ DECREASES.",
+          "topic": "Chemical Equilibrium"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Acids and Bases",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-a-2026-7-1",
+          "label": "7.1",
+          "questionText": "25.0 cm³ of 0.20 mol·dm⁻³ NaOH is titrated with 0.10 mol·dm⁻³ HCl. Define an acid according to the Brønsted-Lowry theory.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: A Brønsted-Lowry acid is a proton ($H^+$) donor...\nMark 2: ...i.e. a substance that donates a proton to another substance (the base).",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-7-2",
+          "label": "7.2",
+          "questionText": "Write the balanced ionic equation for the neutralisation reaction between NaOH and HCl.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Correct reactant ions: $H^+(aq) + OH^-(aq)$.\nMark 2: Correct product and balanced equation: $H^+(aq) + OH^-(aq) \\to H_2O(\\ell)$.\n[Accept also $H_3O^+(aq) + OH^-(aq) \\to 2H_2O(\\ell)$.]",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-7-3",
+          "label": "7.3",
+          "questionText": "Calculate the volume of HCl needed to exactly neutralise the NaOH.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: $n(NaOH) = c \\times V = 0.20 \\times 0.025 = 0.005$ mol\nMark 2: Mole ratio NaOH : HCl = 1 : 1, so $n(HCl)$ required $= 0.005$ mol.\nMark 3: $V(HCl) = n/c = 0.005/0.10 = 0.05$ dm³\nMark 4: $V(HCl) = 50.0$ cm³",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-7-4",
+          "label": "7.4",
+          "questionText": "Calculate the pH of the 0.10 mol·dm⁻³ HCl solution. (Kw = 1 × 10⁻¹⁴)",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: HCl is a strong acid → fully dissociates: $[H^+] = 0.10$ mol·dm⁻³.\nMark 2: $pH = -\\log[H^+] = -\\log(0.10)$\nMark 3: $pH = 1.00$",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-7-5",
+          "label": "7.5",
+          "questionText": "20.0 cm³ of 0.20 mol·dm⁻³ HCl reacts with 20.0 cm³ of 0.10 mol·dm⁻³ NaOH. Calculate the pH of the resulting solution.",
+          "marks": 5,
+          "type": "written",
+          "memoText": "Mark 1: $n(HCl) = 0.20 \\times 0.020 = 0.004$ mol; $n(NaOH) = 0.10 \\times 0.020 = 0.002$ mol.\nMark 2: HCl is in excess: $n(HCl)$ remaining $= 0.004 - 0.002 = 0.002$ mol.\nMark 3: Total volume after mixing $= 0.020 + 0.020 = 0.040$ dm³.\nMark 4: $[H^+] = n/V = 0.002/0.040 = 0.05$ mol·dm⁻³.\nMark 5: $pH = -\\log(0.05) = 1.30$.",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-7-6",
+          "label": "7.6",
+          "questionText": "Explain the difference between a strong acid and a weak acid. Give ONE example of each.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Strong acid — fully (completely) dissociates/ionises in water.\nMark 2: Example of strong acid: HCl (also accept $HNO_3$ or $H_2SO_4$).\nMark 3: Weak acid — only partially dissociates/ionises in water; exists in equilibrium with its undissociated form.\nMark 4: Example of weak acid: $CH_3COOH$ (acetic acid) (also accept $H_2CO_3$, HF, $HCOOH$ etc.).",
+          "topic": "Acids and Bases"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Electrochemistry — Galvanic Cells",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-a-2026-8-1",
+          "label": "8.1",
+          "questionText": "A galvanic cell is constructed using zinc (Zn) and copper (Cu) electrodes. Standard electrode potentials: Zn²⁺/Zn = −0.76 V; Cu²⁺/Cu = +0.34 V. (Refer to the cell diagram in the question paper.) Write down the half-reaction at the ANODE. State whether this is oxidation or reduction.",
+          "marks": 3,
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q8.png",
+          "memoText": "Mark 1: Anode is zinc (more negative $E^\\circ$, so it is oxidised).\nMark 2: Half-reaction: $Zn(s) \\to Zn^{2+}(aq) + 2e^-$.\nMark 3: This is OXIDATION (loss of electrons).",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-8-2",
+          "label": "8.2",
+          "questionText": "Write down the half-reaction at the CATHODE. State whether this is oxidation or reduction.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Cathode is copper (more positive $E^\\circ$, so it is reduced).\nMark 2: Half-reaction: $Cu^{2+}(aq) + 2e^- \\to Cu(s)$.\nMark 3: This is REDUCTION (gain of electrons).",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-8-3",
+          "label": "8.3",
+          "questionText": "Calculate the standard cell potential (E°cell) for this cell.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $E^\\circ_{cell} = E^\\circ_{cathode} - E^\\circ_{anode} = E^\\circ(Cu^{2+}/Cu) - E^\\circ(Zn^{2+}/Zn) = +0.34 - (-0.76)$\nMark 2: $E^\\circ_{cell} = +1.10$ V",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-8-4",
+          "label": "8.4",
+          "questionText": "Write the overall (net) cell reaction.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Reactants and products correct: $Zn(s) + Cu^{2+}(aq) \\to Zn^{2+}(aq) + Cu(s)$.\nMark 2: Equation balanced (electrons cancel; atoms and charges balance).",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-8-5",
+          "label": "8.5",
+          "questionText": "State the function of the salt bridge.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The salt bridge maintains electrical neutrality in both half-cells.\nMark 2: It does so by allowing the migration of ions between the two solutions (e.g. $K^+$ ions move into the cathode compartment and $NO_3^-$ ions move into the anode compartment) to balance any charge build-up. It also completes the circuit.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-8-6",
+          "label": "8.6",
+          "questionText": "In which direction do electrons flow in the external circuit? Explain.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Electrons flow from the ZINC electrode (anode) through the external circuit to the COPPER electrode (cathode).\nMark 2: Electrons flow from the electrode with the lower (more negative) reduction potential (Zn, $E^\\circ = -0.76$ V) to the electrode with the higher (more positive) reduction potential (Cu, $E^\\circ = +0.34$ V).",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-8-7",
+          "label": "8.7",
+          "questionText": "What change would you observe at the copper electrode over time? Explain.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: The copper electrode INCREASES in mass / appears thicker over time.\nMark 2: $Cu^{2+}$ ions in solution accept electrons (reduction): $Cu^{2+}(aq) + 2e^- \\to Cu(s)$.\nMark 3: Solid copper is deposited on the cathode, so its mass increases. (The blue colour of $CuSO_4$ solution gradually fades as $[Cu^{2+}]$ decreases.)",
+          "topic": "Electrochemistry"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Electrolysis",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p2-pred-a-2026-9-1",
+          "label": "9.1",
+          "questionText": "Copper(II) sulfate solution (CuSO₄) is electrolysed using copper electrodes. (Refer to the electrolytic cell diagram in the question paper.) Write the half-reaction at the ANODE.",
+          "marks": 2,
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q9.png",
+          "memoText": "Mark 1: Identify oxidation of the copper electrode at the anode (positive electrode in electrolysis).\nMark 2: $Cu(s) \\to Cu^{2+}(aq) + 2e^-$ (oxidation).",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-9-2",
+          "label": "9.2",
+          "questionText": "Write the half-reaction at the CATHODE.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Identify reduction of $Cu^{2+}$ ions at the cathode (negative electrode in electrolysis).\nMark 2: $Cu^{2+}(aq) + 2e^- \\to Cu(s)$ (reduction).",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-9-3",
+          "label": "9.3",
+          "questionText": "What would you observe at each electrode during electrolysis? Explain.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Anode — copper electrode DECREASES in mass (dissolves into the solution as $Cu^{2+}$ ions are formed by oxidation).\nMark 2: Cathode — copper electrode INCREASES in mass (solid Cu deposited from reduction of $Cu^{2+}$). The concentration of $CuSO_4$ remains essentially constant because $Cu^{2+}$ produced at the anode equals $Cu^{2+}$ consumed at the cathode.",
+          "topic": "Electrochemistry",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp2a-may-jun-2026-q9-memo.png"
+        },
+        {
+          "id": "phys-sci-p2-pred-a-2026-9-4",
+          "label": "9.4",
+          "questionText": "Give ONE industrial application of copper electrolysis.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1-2 (any one valid example): Electrorefining (purification) of impure copper to produce high-purity copper for electrical wiring; OR electroplating of metal objects with a thin layer of copper.",
+          "topic": "Electrochemistry"
+        }
+      ]
+    }
+  ]
+}

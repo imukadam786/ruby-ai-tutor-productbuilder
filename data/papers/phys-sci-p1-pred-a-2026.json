@@ -1,0 +1,694 @@
+{
+  "id": "phys-sci-p1-pred-a-2026",
+  "subject": "Physical Science",
+  "subjectCode": "phys-sci",
+  "paperCode": "P1",
+  "year": 2026,
+  "session": "Predictive 2026 — Paper A",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "infoSheet": {
+    "title": "Data Sheet",
+    "formulaSheetVariant": "physics-p1"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-1",
+          "label": "1.1",
+          "questionText": "A ball is thrown vertically upward. At its highest point, the net force on the ball is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "zero",
+            "B": "downward",
+            "C": "upward",
+            "D": "equal to the weight"
+          },
+          "memoText": "Correct answer: B — downward (2 marks)\nAt the highest point velocity is zero but gravity still acts, so the net force on the ball is the weight, directed downward.",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-2",
+          "label": "1.2",
+          "questionText": "Two forces of 3 N and 4 N act perpendicularly on an object. The resultant force is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "1 N",
+            "B": "5 N",
+            "C": "7 N",
+            "D": "12 N"
+          },
+          "memoText": "Correct answer: B — 5 N (2 marks)\nBy Pythagoras: $\\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$ N.",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-3",
+          "label": "1.3",
+          "questionText": "The change in momentum of an object equals:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "the net force on it",
+            "B": "the impulse on it",
+            "C": "the work done on it",
+            "D": "its kinetic energy"
+          },
+          "memoText": "Correct answer: B — the impulse on it (2 marks)\nImpulse $= F\\Delta t = \\Delta p$ (impulse-momentum theorem).",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-4",
+          "label": "1.4",
+          "questionText": "An object moving with velocity v has kinetic energy E. If its velocity doubles, its kinetic energy becomes:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "E/2",
+            "B": "2E",
+            "C": "4E",
+            "D": "$\\sqrt{2}E$"
+          },
+          "memoText": "Correct answer: C — 4E (2 marks)\n$E_K \\propto v^2$; if $v$ doubles, $E_K \\times 2^2 = 4E$.",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-5",
+          "label": "1.5",
+          "questionText": "A source of sound moves toward a stationary observer. The frequency heard by the observer compared to emitted frequency is:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "higher",
+            "B": "lower",
+            "C": "the same",
+            "D": "zero"
+          },
+          "memoText": "Correct answer: A — higher (2 marks)\nDoppler effect: a source approaching the observer compresses the wavefronts, raising the observed frequency.",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-6",
+          "label": "1.6",
+          "questionText": "Two point charges Q and 2Q are separated by a distance r. The electrostatic force between them is F. If the distance is doubled, the force becomes:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "F/4",
+            "B": "F/2",
+            "C": "2F",
+            "D": "4F"
+          },
+          "memoText": "Correct answer: A — F/4 (2 marks)\n$F \\propto 1/r^2$; if $r$ doubles, $F \\times 1/4$.",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-7",
+          "label": "1.7",
+          "questionText": "In an electric circuit, a voltmeter should be connected:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "in series with the component",
+            "B": "in parallel with the component",
+            "C": "in series with the battery",
+            "D": "between the battery terminals only"
+          },
+          "memoText": "Correct answer: B — in parallel with the component (2 marks)\nA voltmeter has very high resistance and measures potential difference across a component, so it must be connected in parallel.",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-8",
+          "label": "1.8",
+          "questionText": "The rms voltage of an AC supply is 220 V. The peak voltage is approximately:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "155 V",
+            "B": "220 V",
+            "C": "311 V",
+            "D": "440 V"
+          },
+          "memoText": "Correct answer: C — 311 V (2 marks)\n$V_{peak} = V_{rms} \\times \\sqrt{2} = 220 \\times 1.414 \\approx 311$ V.",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-9",
+          "label": "1.9",
+          "questionText": "The photoelectric effect is best explained by treating light as:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "a wave",
+            "B": "a particle (photon)",
+            "C": "neither wave nor particle",
+            "D": "an electron stream"
+          },
+          "memoText": "Correct answer: B — a particle (photon) (2 marks)\nThe photoelectric effect is explained by Einstein's photon model: light is quantised into discrete particles (photons) of energy $E = hf$.",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-1-10",
+          "label": "1.10",
+          "questionText": "A photon has energy E. If the frequency of the photon is doubled, its energy becomes:",
+          "marks": 2,
+          "type": "mcq",
+          "options": {
+            "A": "E/2",
+            "B": "E",
+            "C": "2E",
+            "D": "4E"
+          },
+          "memoText": "Correct answer: C — 2E (2 marks)\n$E = hf$ — energy is directly proportional to frequency, so doubling $f$ doubles $E$.",
+          "topic": "Photoelectric Effect"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Newton's Laws and Forces",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-2-1",
+          "label": "2.1",
+          "questionText": "A 5 kg block is placed on a rough inclined plane making an angle of 30° with the horizontal. A force of 40 N is applied parallel to and up the incline. The coefficient of kinetic friction is 0.2. Take g = 10 m·s⁻². Draw a labelled free body diagram (FBD) for the block showing all forces acting on it. (Refer to the diagram in the question paper.)",
+          "marks": 4,
+          "type": "diagram",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q2.png",
+          "memoText": "FBD must show four forces acting on the block:\nMark 1: Weight $W = mg = 50$ N directed vertically downward.\nMark 2: Normal force $N$ perpendicular to slope (upward from slope surface).\nMark 3: Applied force $F = 40$ N up the slope (parallel to incline).\nMark 4: Kinetic friction $f$ down the slope (opposing motion up the slope).\n[Award marks for correct labelling and direction of each force.]",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-2-2",
+          "label": "2.2",
+          "questionText": "Calculate the normal force N acting on the block.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Resolve perpendicular to incline: $N - W\\cos 30° = 0$\nMark 2: $N = mg\\cos 30° = 5 \\times 10 \\times \\cos 30° = 50 \\times 0.866$\nMark 3: $N = 43.30$ N",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-2-3",
+          "label": "2.3",
+          "questionText": "Calculate the magnitude of the frictional force acting on the block.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $f_k = \\mu_k N = 0.2 \\times 43.30$\nMark 2: $f_k = 8.66$ N (directed down the slope, opposing motion)",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-2-4",
+          "label": "2.4",
+          "questionText": "Calculate the acceleration of the block.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Net force up slope: $F_{net} = F - f_k - mg\\sin 30°$\nMark 2: $F_{net} = 40 - 8.66 - 50 \\times 0.5 = 40 - 8.66 - 25$\nMark 3: $F_{net} = 6.34$ N (up the slope)\nMark 4: $a = F_{net}/m = 6.34/5 = 1.27$ m·s⁻² up the slope",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-2-5",
+          "label": "2.5",
+          "questionText": "State Newton's Second Law of Motion in words.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The net (resultant) force acting on an object is equal to the product of the mass of the object and its acceleration ($F_{net} = ma$).\nMark 2: The acceleration is in the same direction as the net force.\n[Award 2 marks for full statement; deduct 1 if direction not mentioned.]",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-2-6",
+          "label": "2.6",
+          "questionText": "A second identical block is placed on top of the first. How does this affect the acceleration of the system? Explain your answer.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1 (per official memo): Acceleration is UNCHANGED. Reasoning given in memo: $N$ doubles, so friction doubles; $mg\\sin 30°$ doubles; $F$ unchanged. Total mass doubles so net force per unit mass stays the same → acceleration unchanged.\n[Note for marker: the memo's reasoning is internally inconsistent because the applied force $F = 40$ N does NOT scale with mass, only the gravity-derived forces do. A rigorous calculation gives a different result. Award the mark per the official memo answer (UNCHANGED).]",
+          "topic": "Newton's Laws"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Vertical Projectile Motion",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-3-1",
+          "label": "3.1",
+          "questionText": "A ball is thrown vertically upward from the ground with an initial velocity of 25 m·s⁻¹. Ignore air resistance. Take upward as positive. g = 10 m·s⁻² (downward). Calculate the maximum height reached by the ball.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: At max height $v = 0$; use $v^2 = v_0^2 + 2a\\Delta y$\nMark 2: $0 = (25)^2 + 2(-10)(\\Delta y)$\nMark 3: $\\Delta y = 625/20 = 31.25$ m",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-3-2",
+          "label": "3.2",
+          "questionText": "Calculate the time taken to reach maximum height.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $v = v_0 + at$; $0 = 25 - 10t$\nMark 2: $t = 2.5$ s",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-3-3",
+          "label": "3.3",
+          "questionText": "Calculate the total time of flight (from launch until it returns to the ground).",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: By symmetry, total time $= 2 \\times$ time to top $= 2 \\times 2.5$\nMark 2: Total flight time $= 5.0$ s",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-3-4",
+          "label": "3.4",
+          "questionText": "Draw a velocity-time (v-t) graph for the full motion of the ball. Use the axes provided below. Label all key values. (Refer to the blank v-t axes in the question paper.)",
+          "marks": 4,
+          "type": "diagram",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q3.png",
+          "memoText": "v-t graph: a straight line of negative gradient $-10$ m·s⁻²\nMark 1: Starts at $(0; +25)$ m·s⁻¹\nMark 2: Crosses zero at $t = 2.5$ s\nMark 3: Ends at $(5; -25)$ m·s⁻¹\nMark 4: Axes correctly labelled with key values (0, 25, 2.5, 5, −25)",
+          "topic": "Vertical Projectile Motion",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q3-memo.png"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-3-5",
+          "label": "3.5",
+          "questionText": "At what time(s) is the speed of the ball equal to 15 m·s⁻¹? Show all calculations.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Speed $= 15$ m·s⁻¹ means $v = +15$ or $v = -15$\nMark 2: Case 1 (going up): $15 = 25 - 10t \\Rightarrow t = 1.0$ s\nMark 3: Case 2 (coming down): $-15 = 25 - 10t \\Rightarrow t = 4.0$ s\nMark 4: Speed equals 15 m·s⁻¹ at $t = 1.0$ s (going up) and $t = 4.0$ s (coming down)",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-3-6",
+          "label": "3.6",
+          "questionText": "A second ball is dropped from rest from the same maximum height at the instant the first ball begins its downward journey. Calculate the height above the ground when the two balls meet.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: At $t = 2.5$ s, Ball 1 is at max height ($y_0 = 31.25$ m) with $v = 0$. Ball 2 is released from $31.25$ m with $v = 0$ at the same instant. Both have identical equations of motion: $y = 31.25 - 5\\tau^2$.\nMark 2: They share the same position and velocity at every instant — they meet immediately at $h = 31.25$ m (at the highest point).",
+          "topic": "Vertical Projectile Motion"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Momentum and Impulse",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-4-1",
+          "label": "4.1",
+          "questionText": "A 1 200 kg car travelling east at 20 m·s⁻¹ collides with a 800 kg car travelling west at 15 m·s⁻¹. After the collision, the 1 200 kg car continues east at 5 m·s⁻¹. Calculate the velocity of the 800 kg car after the collision. State the direction of your answer.",
+          "marks": 5,
+          "type": "written",
+          "memoText": "Take east as positive.\nMark 1: $p_i = m_1 v_{1i} + m_2 v_{2i} = 1200(+20) + 800(-15)$\nMark 2: $p_i = 24\\,000 - 12\\,000 = 12\\,000$ kg·m·s⁻¹\nMark 3: Conservation of momentum: $p_i = p_f$ → $12\\,000 = 1200(+5) + 800 v_{2f}$\nMark 4: $12\\,000 = 6000 + 800 v_{2f} \\Rightarrow v_{2f} = 6000/800$\nMark 5: $v_{2f} = 7.5$ m·s⁻¹ EAST",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-4-2",
+          "label": "4.2",
+          "questionText": "Is this collision elastic or inelastic? Show calculations to support your answer.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: $E_{Ki} = \\frac{1}{2}(1200)(20^2) + \\frac{1}{2}(800)(15^2) = 240\\,000 + 90\\,000 = 330\\,000$ J\nMark 2: $E_{Kf} = \\frac{1}{2}(1200)(5^2) + \\frac{1}{2}(800)(7.5^2) = 15\\,000 + 22\\,500 = 37\\,500$ J\nMark 3: $E_{Kf} < E_{Ki}$ — kinetic energy is NOT conserved.\nMark 4: Therefore the collision is INELASTIC.",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-4-3",
+          "label": "4.3",
+          "questionText": "Calculate the impulse experienced by the 800 kg car during the collision.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Impulse $= \\Delta p = m(v_f - v_i)$\nMark 2: $= 800(7.5 - (-15)) = 800 \\times 22.5$\nMark 3: Impulse $= 18\\,000$ N·s eastward",
+          "topic": "Momentum and Impulse"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Work, Energy and Power",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-5-1",
+          "label": "5.1",
+          "questionText": "A 60 kg skier starts from rest at the top of a ski slope 80 m high. At the bottom of the slope her speed is 35 m·s⁻¹. Take g = 10 m·s⁻². Calculate the gravitational potential energy of the skier at the top of the slope.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $E_P = mgh = 60 \\times 10 \\times 80$\nMark 2: $E_P = 48\\,000$ J $= 48$ kJ",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-5-2",
+          "label": "5.2",
+          "questionText": "Calculate the kinetic energy of the skier at the bottom of the slope.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $E_K = \\frac{1}{2}mv^2 = \\frac{1}{2} \\times 60 \\times 35^2$\nMark 2: $E_K = 36\\,750$ J $= 36.75$ kJ",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-5-3",
+          "label": "5.3",
+          "questionText": "Calculate the magnitude of the work done by friction on the skier.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: Energy conservation: $E_P(\\text{top}) = E_K(\\text{bottom}) + |W_{friction}|$\nMark 2: $48\\,000 = 36\\,750 + |W_{friction}|$\nMark 3: $|W_{friction}| = 11\\,250$ J",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-5-4",
+          "label": "5.4",
+          "questionText": "State the work-energy theorem.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The net work done on an object equals the change in the kinetic energy of the object.\nMark 2: $W_{net} = \\Delta E_K = E_{Kf} - E_{Ki}$",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-5-5",
+          "label": "5.5",
+          "questionText": "The skier travels 200 m along the slope from top to bottom. Calculate the average frictional force acting on the skier.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $W_{friction} = f \\times d \\Rightarrow 11\\,250 = f \\times 200$\nMark 2: $f = 56.25$ N",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-5-6",
+          "label": "5.6",
+          "questionText": "The skier reaches the bottom of the slope in 8 seconds. Calculate the average power output of the motor tow-lift that would bring her back to the top (same 200 m, taking 40 s). Ignore friction on the way up.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: Work to lift skier $= mgh = 48\\,000$ J\nMark 2: $P = W/t = 48\\,000/40 = 1200$ W $= 1.2$ kW",
+          "topic": "Work, Energy and Power"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Doppler Effect",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-6-1",
+          "label": "6.1",
+          "questionText": "An ambulance siren emits a sound with a frequency of 1 200 Hz. The speed of sound in air is 340 m·s⁻¹. A stationary observer stands by the roadside. State the Doppler effect.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The Doppler effect is the change in frequency (or pitch) of a wave...\nMark 2: ...experienced by an observer when the source of the wave and the observer are in relative motion.",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-6-2",
+          "label": "6.2",
+          "questionText": "The ambulance approaches the observer at 30 m·s⁻¹. Calculate the frequency heard by the observer.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $f_L = \\dfrac{v}{v - v_s} \\cdot f_s$ (source approaching)\nMark 2: $f_L = \\dfrac{340}{340 - 30} \\times 1200 = \\dfrac{340}{310} \\times 1200$\nMark 3: $f_L \\approx 1316$ Hz",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-6-3",
+          "label": "6.3",
+          "questionText": "The ambulance passes the observer and moves away at the same speed. Calculate the frequency now heard by the observer.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $f_L = \\dfrac{v}{v + v_s} \\cdot f_s$ (source moving away)\nMark 2: $f_L = \\dfrac{340}{340 + 30} \\times 1200 = \\dfrac{340}{370} \\times 1200$\nMark 3: $f_L \\approx 1103$ Hz",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-6-4",
+          "label": "6.4",
+          "questionText": "How would a graph of observed frequency vs. time look as the ambulance passes the observer? Sketch and describe.",
+          "marks": 2,
+          "type": "diagram",
+          "diagramUrl": null,
+          "memoText": "Mark 1: Frequency vs time graph shows a step-down: high frequency (≈1316 Hz) while approaching, sudden drop at the moment of passing.\nMark 2: Lower constant frequency (≈1103 Hz) after passing as the ambulance moves away.\n[Accept any sketch with: high horizontal section, sharp drop at passing point, lower horizontal section.]",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-6-5",
+          "label": "6.5",
+          "questionText": "Give ONE application of the Doppler effect in medicine.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1-2 (any one valid example): Doppler ultrasound to measure blood flow velocity (echocardiography); OR measuring the foetal heartbeat using Doppler ultrasound; OR detecting blocked arteries using Doppler scan.",
+          "topic": "Doppler Effect"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Electrostatics",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-7-1",
+          "label": "7.1",
+          "questionText": "Three point charges are placed in a line: charge Q₁ = +4 × 10⁻⁶ C at point A, charge Q₂ = −6 × 10⁻⁶ C at point B (0.3 m from A), and point C is 0.2 m to the right of B. k = 9 × 10⁹ N·m²·C⁻². State Coulomb's Law.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The magnitude of the electrostatic force between two point charges is directly proportional to the product of the magnitudes of the charges...\nMark 2: ...and inversely proportional to the square of the distance between them. ($F = kQ_1Q_2/r^2$)",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-7-2",
+          "label": "7.2",
+          "questionText": "Calculate the magnitude of the electrostatic force between Q₁ and Q₂.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $F = \\dfrac{kQ_1Q_2}{r^2} = \\dfrac{9\\times 10^9 \\times 4\\times 10^{-6} \\times 6\\times 10^{-6}}{(0.3)^2}$\nMark 2: $F = \\dfrac{216\\times 10^{-3}}{0.09}$\nMark 3: $F = 2.4$ N (attractive — opposite charges)",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-7-3",
+          "label": "7.3",
+          "questionText": "A small positive test charge Q₃ = +1 × 10⁻⁶ C is placed at C. Calculate the net force on Q₃. State the direction.",
+          "marks": 5,
+          "type": "written",
+          "memoText": "C is 0.2 m from Q₂ and 0.5 m from Q₁.\nMark 1: $F_1$ from Q₁ on Q₃: $F_1 = \\dfrac{9\\times 10^9 \\times 4\\times 10^{-6} \\times 1\\times 10^{-6}}{(0.5)^2} = 0.144$ N (repulsive: rightward)\nMark 2: $F_2$ from Q₂ on Q₃: $F_2 = \\dfrac{9\\times 10^9 \\times 6\\times 10^{-6} \\times 1\\times 10^{-6}}{(0.2)^2} = 1.35$ N (attractive: leftward toward Q₂)\nMark 3: Forces in opposite directions along the line\nMark 4: Net force $= F_2 - F_1 = 1.35 - 0.144 = 1.206$ N\nMark 5: Net force $\\approx 1.21$ N to the LEFT (toward Q₂)",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-7-4",
+          "label": "7.4",
+          "questionText": "Draw the electric field pattern between Q₁ and Q₂. Show direction of field lines.",
+          "marks": 4,
+          "type": "diagram",
+          "diagramUrl": null,
+          "memoText": "Mark 1: Field lines start at positive Q₁ and end at negative Q₂.\nMark 2: Lines point from Q₁ (+) toward Q₂ (−).\nMark 3: Lines are denser near Q₂ (larger magnitude charge).\nMark 4: Lines do not cross; lines curve smoothly between the charges (typical dipole-style pattern).",
+          "topic": "Electrostatics"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Electric Circuits",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-8-1",
+          "label": "8.1",
+          "questionText": "A battery with emf 12 V and internal resistance 0.5 Ω is connected to an external circuit. R₁ = 4 Ω is connected in series, and R₂ = 6 Ω and R₃ = 3 Ω are connected in parallel with each other and in series with R₁. (Refer to the circuit diagram in the question paper.) Calculate the equivalent resistance of R₂ and R₃ in parallel.",
+          "marks": 2,
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q8.png",
+          "memoText": "Mark 1: $\\dfrac{1}{R_p} = \\dfrac{1}{R_2} + \\dfrac{1}{R_3} = \\dfrac{1}{6} + \\dfrac{1}{3} = \\dfrac{1}{6} + \\dfrac{2}{6} = \\dfrac{3}{6} = \\dfrac{1}{2}$\nMark 2: $R_p = 2$ Ω",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-8-2",
+          "label": "8.2",
+          "questionText": "Calculate the total resistance in the external circuit.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $R_{ext} = R_1 + R_p$\nMark 2: $R_{ext} = 4 + 2 = 6$ Ω",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-8-3",
+          "label": "8.3",
+          "questionText": "Calculate the current delivered by the battery.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $I = \\dfrac{\\varepsilon}{R_{ext} + r}$\nMark 2: $I = \\dfrac{12}{6 + 0.5} = \\dfrac{12}{6.5}$\nMark 3: $I = 1.85$ A",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-8-4",
+          "label": "8.4",
+          "questionText": "Calculate the terminal voltage of the battery.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $V_{terminal} = \\varepsilon - Ir$\nMark 2: $V_{terminal} = 12 - 1.85 \\times 0.5 = 12 - 0.923$\nMark 3: $V_{terminal} = 11.08$ V",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-8-5",
+          "label": "8.5",
+          "questionText": "Calculate the potential difference across the parallel combination (R₂ ∥ R₃).",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $V_p = I \\times R_p$\nMark 2: $V_p = 1.85 \\times 2$\nMark 3: $V_p = 3.69$ V",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-8-6",
+          "label": "8.6",
+          "questionText": "Calculate the current through R₂.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $I_2 = V_p/R_2$\nMark 2: $I_2 = 3.69/6$\nMark 3: $I_2 = 0.62$ A",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-8-7",
+          "label": "8.7",
+          "questionText": "Calculate the power dissipated in R₁.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $P_1 = I^2 R_1 = (1.85)^2 \\times 4 = 3.4225 \\times 4$\nMark 2: $P_1 = 13.69$ W",
+          "topic": "Circuits"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-8-8",
+          "label": "8.8",
+          "questionText": "How does the brightness of R₁ change if R₃ is disconnected? Explain.",
+          "marks": 4,
+          "type": "written",
+          "memoText": "Mark 1: Disconnecting R₃ increases $R_p$ (from 2 Ω to 6 Ω, since only R₂ remains).\nMark 2: Therefore $R_{total}$ increases (from 6.5 Ω to 10.5 Ω).\nMark 3: Total current $I$ decreases → voltage across R₁ ($IR_1$) decreases → power dissipated in R₁ decreases.\nMark 4: Therefore R₁ becomes DIMMER.",
+          "topic": "Circuits"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Electromagnetic Induction and AC",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-9-1",
+          "label": "9.1",
+          "questionText": "An AC generator produces an alternating EMF described by e = 200 sin(100πt) volts, where t is in seconds. State Faraday's Law of electromagnetic induction.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The magnitude of the induced EMF across the ends of a conductor is...\nMark 2: ...proportional to the rate of change of the magnetic flux linkage through the conductor. ($\\varepsilon = -N\\dfrac{d\\Phi}{dt}$)",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-9-2",
+          "label": "9.2",
+          "questionText": "Write down the peak (maximum) EMF.",
+          "marks": 1,
+          "type": "written",
+          "memoText": "Mark 1: $\\varepsilon_{peak} = 200$ V (the amplitude of $e = 200\\sin(100\\pi t)$).",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-9-3",
+          "label": "9.3",
+          "questionText": "Calculate the rms EMF of the generator.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $\\varepsilon_{rms} = \\varepsilon_{peak}/\\sqrt{2} = 200/\\sqrt{2}$\nMark 2: $\\varepsilon_{rms} = 141.42$ V",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-9-4",
+          "label": "9.4",
+          "questionText": "Calculate the frequency of the AC.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $\\omega = 100\\pi$ rad·s⁻¹ and $\\omega = 2\\pi f \\Rightarrow f = \\omega/(2\\pi) = 100\\pi/(2\\pi)$\nMark 2: $f = 50$ Hz",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-9-5",
+          "label": "9.5",
+          "questionText": "A resistor of 50 Ω is connected to this generator. Calculate the rms current through the resistor.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $I_{rms} = \\varepsilon_{rms}/R = 141.42/50$\nMark 2: $I_{rms} = 2.83$ A",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-9-6",
+          "label": "9.6",
+          "questionText": "Calculate the average power dissipated by the resistor.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $P_{ave} = I_{rms} \\times \\varepsilon_{rms} = 2.83 \\times 141.42$\nMark 2: $P_{ave} = 400$ W (or $P = \\varepsilon_{rms}^2/R = 20\\,000/50 = 400$ W)",
+          "topic": "Electromagnetic Induction"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-9-7",
+          "label": "9.7",
+          "questionText": "Compare an AC generator and a DC generator. State ONE difference.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: AC generator uses slip rings; current alternates direction (AC output).\nMark 2: DC generator uses a split-ring commutator; current always flows in one direction (DC output).",
+          "topic": "Electromagnetic Induction",
+          "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q9-memo.png"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Photoelectric Effect",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "phys-sci-p1-pred-a-2026-10-1",
+          "label": "10.1",
+          "questionText": "Light of frequency 8.0 × 10¹⁴ Hz shines on a zinc metal surface. The work function of zinc is 6.88 × 10⁻¹⁹ J. Planck's constant h = 6.63 × 10⁻³⁴ J·s. Define the term \"work function\" of a metal.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: The work function ($W_0$) of a metal is the minimum energy required to remove an electron from the surface of that metal.\nMark 2: It is the binding energy of the most loosely bound electron at the surface.",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-10-2",
+          "label": "10.2",
+          "questionText": "Calculate the energy of ONE photon of the incident light.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $E = hf = 6.63 \\times 10^{-34} \\times 8.0 \\times 10^{14}$\nMark 2: $E = 5.30 \\times 10^{-19}$ J",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-10-3",
+          "label": "10.3",
+          "questionText": "Calculate the maximum kinetic energy of the emitted photoelectrons.",
+          "marks": 3,
+          "type": "written",
+          "memoText": "Mark 1: $E_{K(max)} = E - W_0 = 5.304 \\times 10^{-19} - 6.88 \\times 10^{-19}$\nMark 2: $E_{K(max)} = -1.58 \\times 10^{-19}$ J (negative result)\nMark 3: Since $E_{K(max)} < 0$, NO photoelectrons are emitted — the incident frequency is below the threshold frequency of zinc.",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-10-4",
+          "label": "10.4",
+          "questionText": "Calculate the threshold frequency of zinc.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: $f_0 = W_0/h = (6.88 \\times 10^{-19})/(6.63 \\times 10^{-34})$\nMark 2: $f_0 = 1.04 \\times 10^{15}$ Hz",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-sci-p1-pred-a-2026-10-5",
+          "label": "10.5",
+          "questionText": "If the intensity of the light is doubled but the frequency remains the same, explain the effect on: (a) the number of photoelectrons emitted, and (b) the maximum kinetic energy of each photoelectron.",
+          "marks": 2,
+          "type": "written",
+          "memoText": "Mark 1: (a) Number of photoelectrons INCREASES — more photons per second strike the surface, so more electrons are ejected (provided $f \\geq f_0$).\nMark 2: (b) Maximum kinetic energy is UNCHANGED — $E_{K(max)} = hf - W_0$ depends only on frequency, not intensity.",
+          "topic": "Photoelectric Effect"
+        }
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/predictive-papers/physics-pp1-may-jun-2026-q10.png"
+    }
+  ]
+}

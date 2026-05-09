@@ -2,17 +2,23 @@
 
 import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
-import { getProgress, getStreakData } from "@/lib/storage";
-import { getStudentProfile } from "@/lib/student-model";
+import { getProgress, getStreakData, StreakData } from "@/lib/storage";
+import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
+import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
+import { StudentProfile } from "@/types/ruby";
+import { ReadingStudentProfile } from "@/types/reading";
+import { ProgressData } from "@/types";
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
-import { supabase } from "@/lib/supabase";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import SavedReportView from "@/components/SavedReportView";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
 }
 
-function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
+
+function getRubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   return (
     <div className={`${size} flex-shrink-0`}>
       <img
@@ -35,24 +41,43 @@ function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   );
 }
 
-interface Stats {
+function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
+  return getRubyAvatar({ size });
+}
+
+interface DisplayStats {
   skillsMastered: number;
   inProgress: number;
   lessonsDone: number;
   studySessions: number;
 }
 
-function loadStats(): Stats {
-  const progress = getProgress();
-  const profile = getStudentProfile();
+function buildStats(profile: StudentProfile | null, progress: ProgressData): DisplayStats {
   const mastery = profile?.skill_mastery ?? {};
   const values = Object.values(mastery);
   return {
     skillsMastered: values.filter((m) => m.status === "mastered").length,
     inProgress: values.filter((m) => m.status === "in_progress").length,
     lessonsDone: progress.lessonsCompleted,
-    studySessions: progress.sessionCount,
+    studySessions: progress.sessionCount || (profile?.session_count ?? 0),
   };
+}
+
+function toDateStr(d: Date): string {
+  return d.toISOString().split("T")[0];
+}
+
+function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
+  const today = new Date();
+  const dayOfWeek = today.getDay();
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - ((dayOfWeek + 6) % 7));
+  const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  return labels.map((label, i) => {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    return { date: toDateStr(d), label, isToday: toDateStr(d) === toDateStr(today) };
+  });
 }
 
 export default function HomeScreen({ onNavigate }: HomeScreenProps) {
@@ -77,209 +102,256 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
     },
   ];
 
-  const quickActions = [
-    {
-      id: "continue",
-      title: t("home.continue_learning"),
-      subtitle: t("home.continue_desc"),
-      view: "chat" as ActiveView,
-      bg: "bg-rose-600",
-      hover: "hover:bg-rose-700",
-      icon: (
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      ),
-    },
-    {
-      id: "challenge",
-      title: t("home.daily_challenge"),
-      subtitle: t("home.daily_desc"),
-      view: "ruby" as ActiveView,
-      bg: "bg-orange-500",
-      hover: "hover:bg-orange-600",
-      icon: (
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
-        </svg>
-      ),
-    },
-  ];
-
   const learningModes = [
-    {
-      id: "chat" as ActiveView,
-      title: t("home.homework_title"),
-      subtitle: t("home.homework_mode_desc"),
-      iconBg: "bg-purple-100",
-      iconColor: "text-purple-500",
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z" />
-        </svg>
-      ),
-    },
-    {
-      id: "ruby" as ActiveView,
-      title: t("home.maths_title"),
-      subtitle: t("home.maths_mode_desc"),
-      iconBg: "bg-green-100",
-      iconColor: "text-green-600",
-      icon: (
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19V5a1 1 0 011-1h14a1 1 0 011 1v14a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
-        </svg>
-      ),
-    },
-    {
-      id: "reading" as ActiveView,
-      title: t("home.reading_title"),
-      subtitle: t("home.reading_mode_desc"),
-      iconBg: "bg-amber-100",
-      iconColor: "text-amber-600",
-      icon: (
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      ),
-    },
-    {
-      id: "watch" as ActiveView,
-      title: t("home.watch_title"),
-      subtitle: t("home.watch_mode_desc"),
-      iconBg: "bg-blue-100",
-      iconColor: "text-blue-500",
-      icon: (
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-      ),
-    },
+    { id: "chat"    as ActiveView, title: t("home.homework_title"), subtitle: t("home.homework_mode_desc"), iconBg: "bg-purple-100", emoji: "📚" },
+    { id: "ruby"    as ActiveView, title: t("home.maths_title"),    subtitle: t("home.maths_mode_desc"),    iconBg: "bg-green-100",  emoji: "🎯" },
+    { id: "reading" as ActiveView, title: t("home.reading_title"),  subtitle: t("home.reading_mode_desc"),  iconBg: "bg-amber-100",  emoji: "✏️" },
+    { id: "watch"   as ActiveView, title: t("home.watch_title"),    subtitle: t("home.watch_mode_desc"),    iconBg: "bg-blue-100",   emoji: "▶️" },
   ];
 
   const [firstName, setFirstName] = useState("there");
-  const [stats, setStats] = useState<Stats>({
-    skillsMastered: 0,
-    inProgress: 0,
-    lessonsDone: 0,
-    studySessions: 0,
-  });
-  const [streak, setStreak] = useState({ currentStreak: 0, bestStreak: 0 });
+  const [rawStats, setRawStats] = useState<DisplayStats>({ skillsMastered: 0, inProgress: 0, lessonsDone: 0, studySessions: 0 });
+  const [rawStreak, setRawStreak] = useState<Pick<StreakData, "currentStreak" | "bestStreak">>({ currentStreak: 0, bestStreak: 0 });
+  const [rawActivity, setRawActivity] = useState<Record<string, number>>({});
+  const [hasRealData, setHasRealData] = useState(false);
+  const [showWelcomeBack, setShowWelcomeBack] = useState(false);
+  const [mathsDone, setMathsDone] = useState(false);
+  const [readingDone, setReadingDone] = useState(false);
+  const [viewReport, setViewReport] = useState<"maths" | "reading" | null>(null);
+
+  const weekDays = getCurrentWeek();
 
   useEffect(() => {
-    // Load name — localStorage first, then Supabase session as fallback
-    const loadName = async () => {
-      try {
-        const raw = localStorage.getItem("onboardingData");
-        const saved = raw ? (JSON.parse(raw).name as string | undefined) : undefined;
-        if (saved?.trim()) {
-          setFirstName(saved.trim().split(/\s+/)[0]);
-          return;
-        }
-      } catch { /* ignore */ }
-      // Fallback: read from Supabase user metadata
-      const { data: { user } } = await supabase.auth.getUser();
-      const fullName = user?.user_metadata?.full_name as string | undefined;
-      const first = fullName?.trim().split(/\s+/)[0];
-      if (first) setFirstName(first);
-    };
-    loadName();
+    const load = async () => {
+      const [auth, profile, readingProfile, progress, streakData] = await Promise.all([
+        fetchAuthorisedGrade(),
+        hydrateStudentProfileFromSupabase(),
+        hydrateReadingProfileFromSupabase(),
+        getProgress(),
+        getStreakData(),
+      ]);
+      if (auth?.name) setFirstName(auth.name.split(" ")[0]);
+      const s = buildStats(profile, progress);
+      setRawStats(s);
+      setRawStreak({ currentStreak: streakData.currentStreak, bestStreak: streakData.bestStreak });
+      setRawActivity(streakData.dailyActivity ?? {});
+      const hasActivity = !!(profile || progress.sessionCount > 0 || streakData.currentStreak > 0);
+      setHasRealData(hasActivity);
+      setMathsDone(profile?.placementCompleted ?? false);
+      setReadingDone((readingProfile as ReadingStudentProfile | null)?.placementCompleted ?? false);
 
-    // Load stats
-    setStats(loadStats());
-    setStreak(getStreakData());
+      const today = new Date().toISOString().split("T")[0];
+      const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
+      if (
+        streakData.lastActiveDate &&
+        streakData.lastActiveDate !== today &&
+        streakData.lastActiveDate !== yesterday &&
+        !sessionStorage.getItem("welcome_back_shown")
+      ) {
+        sessionStorage.setItem("welcome_back_shown", "1");
+        setShowWelcomeBack(true);
+      }
+    };
+    load();
   }, []);
 
+  const stats = rawStats;
+  const streak = rawStreak;
+  const activity = rawActivity;
+  const maxActivity = Math.max(...weekDays.map((d) => activity[d.date] || 0), 1);
+
+  if (viewReport) {
+    return (
+      <div className="h-full overflow-hidden">
+        <SavedReportView subject={viewReport} onBack={() => setViewReport(null)} />
+      </div>
+    );
+  }
+
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
-      {/* Wider container: max-w-4xl ≈ 896px, generous side padding */}
-      <div className="relative max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
 
-        {/* ── Hero ─────────────────────────────────────────────────────── */}
-        <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
-          <RubyAvatar size="w-14 h-14" />
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">Hi {firstName} 👋</h1>
-            <p className="text-gray-500 text-base mt-0.5">Ready to keep learning?</p>
-          </div>
-        </div>
+      <div className="relative flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
 
-        {/* ── Progress Stats ────────────────────────────────────────────── */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-          {statDefs.map((s) => (
-            <div key={s.key} className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-500">{s.label}</span>
-                {s.icon}
+          {/* ── Welcome back banner ───────────────────────────────────────── */}
+          {showWelcomeBack && (
+            <div className="mb-5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-md">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">👋</span>
+                <div>
+                  <p className="font-bold text-white text-base">Welcome back, {firstName}!</p>
+                  <p className="text-indigo-100 text-sm">Great to see you again, let&apos;s pick up where you left off.</p>
+                </div>
               </div>
-              <span className={`text-2xl font-bold ${s.color}`}>{stats[s.key]}</span>
+              <button
+                onClick={() => setShowWelcomeBack(false)}
+                className="text-white/70 hover:text-white ml-3 flex-shrink-0 transition-colors"
+                aria-label="Dismiss"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-          ))}
-        </div>
+          )}
 
-        {/* ── Current Streak ────────────────────────────────────────────── */}
-        <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm mb-8">
-          <div className="flex items-center gap-3">
-            <span className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0 text-xl">🔥</span>
+          {/* ── Hero ─────────────────────────────────────────────────────── */}
+          <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
+            <RubyAvatar size="w-14 h-14" />
             <div>
-              <p className="text-sm text-orange-600 font-medium">Current Streak</p>
-              <div className="flex items-baseline gap-1.5 mt-0.5">
-                <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
-                <span className="text-base text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
+              <h1 className="text-3xl font-bold text-gray-900">Hi {firstName} 👋</h1>
+              <p className="text-gray-500 text-base mt-0.5">Ready to keep learning?</p>
+            </div>
+          </div>
+
+          {/* ── Progress Stats ────────────────────────────────────────────── */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+            {statDefs.map((s) => (
+              <div key={s.key} className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-gray-500">{s.label}</span>
+                  {s.icon}
+                </div>
+                <span className={`text-2xl font-bold ${s.color}`}>{stats[s.key]}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* ── Streak + Weekly Graph ─────────────────────────────────────── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+            {/* Streak */}
+            <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl flex-shrink-0">🔥</span>
+                <div>
+                  <p className="text-sm text-orange-600 font-medium">Current Streak</p>
+                  <div className="flex items-baseline gap-1.5 mt-0.5">
+                    <span className="text-2xl font-bold text-orange-600">{streak.currentStreak}</span>
+                    <span className="text-base text-orange-500">day{streak.currentStreak !== 1 ? "s" : ""}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-sm text-orange-400">Best</p>
+                <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
+              </div>
+            </div>
+
+            {/* Weekly graph */}
+            <div className="bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm">
+              <p className="text-sm font-semibold text-gray-700 mb-3">This Week</p>
+              <div className="flex items-end justify-between gap-1 h-12">
+                {weekDays.map(({ date, label, isToday }) => {
+                  const count = activity[date] || 0;
+                  const heightPct = count > 0 ? Math.max(12, Math.round((count / maxActivity) * 100)) : 0;
+                  return (
+                    <div key={date} className="flex-1 flex flex-col items-center gap-1">
+                      <div className="w-full flex items-end justify-center" style={{ height: "36px" }}>
+                        {count > 0 ? (
+                          <div
+                            className={`w-full rounded-t-md transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
+                            style={{ height: `${heightPct}%` }}
+                          />
+                        ) : (
+                          <div className="w-full rounded-t-md bg-gray-100" style={{ height: "4px" }} />
+                        )}
+                      </div>
+                      <span className={`text-xs font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
+                        {label}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
-          <div className="text-right">
-            <p className="text-sm text-orange-400">Best</p>
-            <p className="text-xl font-bold text-orange-500">{streak.bestStreak} days</p>
-          </div>
+
+          {/* ── Discovery CTAs ────────────────────────────────────────────── */}
+          <section className="mb-8 space-y-3">
+            {mathsDone ? (
+              <button
+                onClick={() => setViewReport("maths")}
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">🧮</span>
+                  <div>
+                    <p className="font-semibold text-white">Maths Discovery</p>
+                    <p className="text-sm text-blue-100 mt-0.5">View your placement results</p>
+                  </div>
+                </div>
+                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">View →</span>
+              </button>
+            ) : (
+              <button
+                onClick={() => onNavigate("discover-maths")}
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">🧮</span>
+                  <div>
+                    <p className="font-semibold text-white">Start Maths Discovery</p>
+                    <p className="text-sm text-blue-100 mt-0.5">Find your Maths level</p>
+                  </div>
+                </div>
+                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">Start →</span>
+              </button>
+            )}
+
+            {readingDone ? (
+              <button
+                onClick={() => setViewReport("reading")}
+                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">📖</span>
+                  <div>
+                    <p className="font-semibold text-white">Reading Discovery</p>
+                    <p className="text-sm text-purple-100 mt-0.5">View your placement results</p>
+                  </div>
+                </div>
+                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">View →</span>
+              </button>
+            ) : (
+              <button
+                onClick={() => onNavigate("discover-reading")}
+                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">📖</span>
+                  <div>
+                    <p className="font-semibold text-white">Start Reading Discovery</p>
+                    <p className="text-sm text-purple-100 mt-0.5">Find your Reading level</p>
+                  </div>
+                </div>
+                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">Start →</span>
+              </button>
+            )}
+          </section>
+
+          {/* ── Learning Modes ────────────────────────────────────────────── */}
+          <section>
+            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Learning Modes</h2>
+            <div className="grid grid-cols-2 gap-3">
+              {learningModes.map((mode) => (
+                <button
+                  key={mode.id + mode.title}
+                  onClick={() => onNavigate(mode.id)}
+                  className="bg-white rounded-2xl p-5 flex flex-col gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
+                >
+                  <span className="text-2xl">{mode.emoji}</span>
+                  <div>
+                    <p className="font-semibold text-gray-800 text-base">{mode.title}</p>
+                    <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{mode.subtitle}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
+
         </div>
-
-        {/* ── Quick Actions ─────────────────────────────────────────────── */}
-        <section className="mb-8">
-          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Quick Actions</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {quickActions.map((action) => (
-              <button
-                key={action.id}
-                onClick={() => onNavigate(action.view)}
-                className={`${action.bg} ${action.hover} rounded-2xl p-5 flex items-center gap-4 text-left transition-colors active:scale-[0.98]`}
-              >
-                <div className="w-11 h-11 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  {action.icon}
-                </div>
-                <div>
-                  <p className="text-white font-semibold text-base">{action.title}</p>
-                  <p className="text-white/75 text-sm mt-0.5">{action.subtitle}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        {/* ── Learning Modes ────────────────────────────────────────────── */}
-        <section>
-          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Learning Modes</h2>
-          <div className="grid grid-cols-2 gap-3">
-            {learningModes.map((mode) => (
-              <button
-                key={mode.id + mode.title}
-                onClick={() => onNavigate(mode.id)}
-                className="bg-white rounded-2xl p-5 flex flex-col gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
-              >
-                <div className={`w-10 h-10 ${mode.iconBg} ${mode.iconColor} rounded-xl flex items-center justify-center`}>
-                  {mode.icon}
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800 text-base">{mode.title}</p>
-                  <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{mode.subtitle}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-        </section>
-
       </div>
     </div>
   );

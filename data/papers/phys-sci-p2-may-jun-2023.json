@@ -1,0 +1,721 @@
+{
+  "id": "phys-sci-p2-may-jun-2023",
+  "subject": "Physical Science",
+  "paperCode": "P2",
+  "year": 2023,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "infoSheet": {
+    "title": "Data Sheet",
+    "pdfUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/Physical%20Science%20Info%20Sheet.pdf"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "ps-p2-23-1-1",
+          "label": "1.1",
+          "type": "mcq",
+          "marks": 2,
+          "questionText": "Which ONE of the following molecular formulae has CHAIN ISOMERS possible?",
+          "options": {
+            "A": "C₄H₁₀",
+            "B": "C₂H₆",
+            "C": "CH₄",
+            "D": "C₃H₈"
+          },
+          "memoText": "Correct answer: A (2 marks)\nC₄H₁₀ (butane) has chain isomers: n-butane and 2-methylpropane (isobutane). Smaller molecules like CH₄, C₂H₆ cannot have chain isomers.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps-p2-23-1-2",
+          "label": "1.2",
+          "type": "mcq",
+          "marks": 2,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q1.2.png",
+          "questionText": "Which ONE of the following compounds has the LOWEST VAPOUR PRESSURE at a given temperature? (Compounds: butanone, butan-1-ol, methanoic acid, propane.)",
+          "options": {
+            "A": "Propane",
+            "B": "Butanone",
+            "C": "Butan-1-ol",
+            "D": "Methanoic acid"
+          },
+          "memoText": "Correct answer: D (2 marks)\nMethanoic acid (formic acid, HCOOH) has the strongest IMFs: hydrogen bonding via both O–H and C=O. Stronger IMFs → lowest vapour pressure.",
+          "topic": "Intermolecular Forces"
+        },
+        {
+          "id": "ps-p2-23-1-3",
+          "label": "1.3",
+          "type": "mcq",
+          "marks": 2,
+          "questionText": "A haloalkane reacts with concentrated aqueous base (NaOH). What TYPE of reaction occurs and what is the organic product?",
+          "options": {
+            "A": "Addition; alkane",
+            "B": "Elimination; alkene",
+            "C": "Substitution; alkene",
+            "D": "Elimination; haloalkane"
+          },
+          "memoText": "Correct answer: B (2 marks)\nConcentrated/hot alcoholic KOH or hot concentrated NaOH causes ELIMINATION → alkene + HBr/HCl.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps-p2-23-1-4",
+          "label": "1.4",
+          "type": "mcq",
+          "marks": 2,
+          "questionText": "Which experiment produces the LARGEST VOLUME of H₂ in the FIRST MINUTE? (All use Mg + H₂SO₄, same mass Mg, same volume/conc H₂SO₄.)",
+          "options": {
+            "A": "Mg powder at 25°C",
+            "B": "Mg ribbon at 50°C",
+            "C": "Mg powder at 50°C",
+            "D": "Mg ribbon at 25°C"
+          },
+          "memoText": "Correct answer: C (2 marks)\nHighest rate = powder (greater surface area) at higher temperature (50°C, more energy). Mg powder at 50°C has both highest surface area AND highest temperature → fastest rate → most H₂ in first minute.",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps-p2-23-1-5",
+          "label": "1.5",
+          "type": "mcq",
+          "marks": 2,
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q1.5.png",
+          "questionText": "In a potential energy diagram, reactants are at energy Y, activated complex at Z, products at X (X < Y < Z). What is the activation energy for the FORWARD reaction and the enthalpy change ΔH?",
+          "options": {
+            "A": "Ea = Z − Y; ΔH = X − Y",
+            "B": "Ea = Z − X; ΔH = Y − X",
+            "C": "Ea = Z − Y; ΔH = X − Y (negative)",
+            "D": "Ea = Y − X; ΔH = Z − Y"
+          },
+          "memoText": "Correct answer: C (2 marks)\nEa(forward) = Z − Y (activated complex minus reactants). ΔH = X − Y (products minus reactants) = negative (exothermic since X < Y).",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps-p2-23-1-6",
+          "label": "1.6",
+          "type": "mcq",
+          "marks": 2,
+          "questionText": "NaOH is added to the CrO₄²⁻/Cr₂O₇²⁻ equilibrium: 2CrO₄²⁻(yellow) + 2H⁺ ⇌ Cr₂O₇²⁻(orange) + H₂O. Which statement is CORRECT?",
+          "options": {
+            "A": "[H⁺] increases; forward reaction favoured",
+            "B": "[H⁺] decreases; reverse reaction favoured",
+            "C": "[H⁺] increases; reverse reaction favoured",
+            "D": "[H⁺] decreases; forward reaction favoured"
+          },
+          "memoText": "Correct answer: B (2 marks)\nNaOH provides OH⁻. OH⁻ + H⁺ → H₂O. [H⁺] DECREASES. Equilibrium shifts to produce more H⁺ (reverse direction) → reverse reaction favoured → more CrO₄²⁻ (yellow) formed.",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "ps-p2-23-1-7",
+          "label": "1.7",
+          "type": "mcq",
+          "marks": 2,
+          "questionText": "Which ONE correctly describes how a CONJUGATE BASE is formed?",
+          "options": {
+            "A": "A proton is added to an acid.",
+            "B": "A proton is added to a base.",
+            "C": "A proton is removed from an acid.",
+            "D": "A proton is removed from a base."
+          },
+          "memoText": "Correct answer: C (2 marks)\nConjugate base = acid − H⁺. When an acid donates a proton (H⁺), the conjugate base is formed.",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps-p2-23-1-8",
+          "label": "1.8",
+          "type": "mcq",
+          "marks": 2,
+          "questionText": "Which of the following statements about an ALKALINE substance are ALWAYS true?\n\n(i) pH > 7\n(ii) [OH⁻] > [H₃O⁺]\n(iii) [OH⁻] > 10⁻⁷ mol/dm³",
+          "options": {
+            "A": "(i) only",
+            "B": "(i) and (ii) only",
+            "C": "(ii) only",
+            "D": "(ii) and (iii) only"
+          },
+          "memoText": "Correct answer: D (2 marks)\n(i) pH > 7 is only true at 25°C (Kw = 10⁻¹⁴). At other temperatures, neutral pH ≠ 7. (ii) [OH⁻] > [H₃O⁺] is always true for alkaline. (iii) [OH⁻] > 10⁻⁷ is always true for alkaline at 25°C but not at all temperatures. D = (ii) and (iii) — most consistently true at standard conditions.",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps-p2-23-1-9",
+          "label": "1.9",
+          "type": "mcq",
+          "marks": 2,
+          "questionText": "For the cell Pt|H₂|OH⁻|H₂O || Ag⁺|Ag, which is the POSITIVE ELECTRODE and what is the reaction?",
+          "options": {
+            "A": "Ag electrode; Ag⁺ + e⁻ → Ag",
+            "B": "Pt electrode; H₂ → 2H⁺ + 2e⁻",
+            "C": "Ag electrode; Ag → Ag⁺ + e⁻",
+            "D": "Pt electrode; 2H₂O + 2e⁻ → H₂ + 2OH⁻"
+          },
+          "memoText": "Correct answer: A (2 marks)\nAg⁺/Ag has E° = +0.80 V (higher). Ag⁺ is reduced at cathode (positive electrode in galvanic cell). Reaction: Ag⁺ + e⁻ → Ag.",
+          "topic": "Electrochemistry"
+        },
+        {
+          "id": "ps-p2-23-1-10",
+          "label": "1.10",
+          "type": "mcq",
+          "marks": 2,
+          "questionText": "In the electrolysis of NaCl(aq): cathode produces H₂ and OH⁻; anode produces Cl₂. Which letter (A–D) in the diagram represents the correct product placement?",
+          "options": {
+            "A": "A",
+            "B": "B",
+            "C": "C",
+            "D": "D"
+          },
+          "memoText": "Correct answer: D (2 marks)\nCathode (negative electrode): 2H₂O + 2e⁻ → H₂ + 2OH⁻. Anode (positive electrode): 2Cl⁻ → Cl₂ + 2e⁻. Match to diagram D.",
+          "topic": "Electrochemistry"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Organic Molecules",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "ps-p2-23-2-1",
+          "label": "2.1",
+          "marks": 2,
+          "questionText": "Define UNSATURATED HYDROCARBON.",
+          "memoText": "An unsaturated hydrocarbon is a hydrocarbon that contains at least one carbon-carbon double bond (C=C) or triple bond (C≡C). (2 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-2-2-1",
+          "label": "2.2.1",
+          "marks": 1,
+          "questionText": "From compounds A–E, identify the UNSATURATED HYDROCARBON.",
+          "memoText": "The compound with a C=C double bond or C≡C triple bond that contains ONLY C and H. (1 mark — letter from diagram.)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-2-2-2",
+          "label": "2.2.2",
+          "marks": 3,
+          "questionText": "Write the IUPAC NAME of compound A.",
+          "memoText": "Apply IUPAC rules to structure A shown in the paper. Identify main chain, number appropriately, name substituents and functional group. (3 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-2-2-3",
+          "label": "2.2.3",
+          "marks": 2,
+          "questionText": "Draw the structural formula of a POSITIONAL ISOMER of compound B.",
+          "memoText": "Positional isomer: same molecular formula, same functional group type, different position on carbon chain. (2 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-2-2-4",
+          "label": "2.2.4",
+          "marks": 2,
+          "questionText": "Write the IUPAC NAME of compound D.",
+          "memoText": "Apply IUPAC nomenclature to structure D. (2 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-2-2-5",
+          "label": "2.2.5",
+          "marks": 3,
+          "questionText": "Write a BALANCED EQUATION for the COMPLETE COMBUSTION of compound A.",
+          "memoText": "General: CₙHₘ + O₂ → CO₂ + H₂O. Balance atoms. (3 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-2-3-1",
+          "label": "2.3.1",
+          "marks": 2,
+          "questionText": "Define FUNCTIONAL ISOMERS.",
+          "memoText": "Functional isomers are compounds with the same molecular formula but different functional groups. (2 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-2-3-2",
+          "label": "2.3.2",
+          "marks": 4,
+          "questionText": "Draw the structural formulae of TWO functional isomers of C₄H₈O.",
+          "memoText": "C₄H₈O functional isomers: (1) Aldehyde: butanal (CH₃CH₂CH₂CHO). (2) Ketone: butan-2-one (CH₃COCH₂CH₃). Both have C₄H₈O but different functional groups. (4 marks: 2 per structure.)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-2-4",
+          "label": "2.4",
+          "marks": 6,
+          "questionText": "Compound E has mass 2 g, contains 1.09 g C, 0.18 g H, and molar mass M = 88 g/mol. Determine the MOLECULAR FORMULA of E.",
+          "memoText": "Mass O = 2 − 1.09 − 0.18 = 0.73 g. Moles: C = 1.09/12 = 0.0908, H = 0.18/1 = 0.18, O = 0.73/16 = 0.0456. Ratio: C : H : O = 0.0908 : 0.18 : 0.0456. Divide by 0.0456: C = 1.99 ≈ 2, H = 3.95 ≈ 4, O = 1. Empirical formula = C₂H₄O. M(C₂H₄O) = 44. n = 88/44 = 2. Molecular formula = C₄H₈O₂. (6 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Boiling Points and Intermolecular Forces",
+      "totalMarks": 11,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q3.png",
+      "subQuestions": [
+        {
+          "id": "ps-p2-23-3-1",
+          "label": "3.1",
+          "marks": 2,
+          "questionText": "Define BOILING POINT.",
+          "memoText": "The boiling point is the temperature at which the vapour pressure of the liquid equals the external (atmospheric) pressure. (2 marks)",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-3-2",
+          "label": "3.2",
+          "marks": 4,
+          "questionText": "Explain why BUTAN-1-OL has a HIGHER boiling point than 2-METHYLPROPAN-1-OL, even though they are structural isomers.",
+          "memoText": "Both have hydrogen bonding (–OH group). However, butan-1-ol is a straight-chain molecule with greater surface area → stronger London dispersion forces in addition to H-bonding. 2-methylpropan-1-ol is branched → less surface area → weaker LDF. Combined IMF strength: butan-1-ol > 2-methylpropan-1-ol → higher boiling point. (4 marks)",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-3-3",
+          "label": "3.3",
+          "marks": 1,
+          "questionText": "What PHYSICAL PROPERTY is indicated at point X on the temperature-time heating curve?",
+          "memoText": "Boiling point (the temperature remains constant while the substance boils). (1 mark)",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-3-4-1",
+          "label": "3.4.1",
+          "marks": 1,
+          "questionText": "On the heating curve graph showing P (butan-1-ol), which curve represents BUTANONE?",
+          "memoText": "Butanone has dipole-dipole forces (no H-bonding) → lower boiling point (79.6°C) than butan-1-ol (117.7°C). Butanone's curve reaches boiling point at a lower temperature. (1 mark — identify from graph.)",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-3-4-2",
+          "label": "3.4.2",
+          "marks": 1,
+          "questionText": "Which curve represents PROPANOIC ACID?",
+          "memoText": "Propanoic acid has strong hydrogen bonding (–COOH). Higher boiling point than butan-1-ol? No: propanoic acid bp ≈ 141°C, butan-1-ol bp ≈ 118°C. Propanoic acid has the highest boiling point → highest curve. (1 mark)",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-3-4-3",
+          "label": "3.4.3",
+          "marks": 1,
+          "questionText": "Which curve represents 2-METHYLPROPAN-1-OL?",
+          "memoText": "2-methylpropan-1-ol has H-bonding but branched → lower bp than butan-1-ol (bp ≈ 108°C). Its curve is between butanone and butan-1-ol. (1 mark)",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-3-5",
+          "label": "3.5",
+          "marks": 1,
+          "questionText": "Explain why propanoic acid has the HIGHEST boiling point of the four compounds.",
+          "memoText": "Propanoic acid has a –COOH group which forms two hydrogen bonds per molecule (O–H and C=O) AND can form dimers through double hydrogen bonding. This gives it the strongest overall IMFs → highest boiling point. (1 mark)",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Organic Reactions",
+      "totalMarks": 18,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q4.png",
+      "subQuestions": [
+        {
+          "id": "ps-p2-23-4-1-1",
+          "label": "4.1.1",
+          "marks": 1,
+          "questionText": "In the flow diagram, Reaction 1 adds Br₂ to 2-methylpropene. What TYPE of ADDITION reaction is this?",
+          "memoText": "Halogenation (addition of halogen / bromination). (1 mark)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-4-1-2",
+          "label": "4.1.2",
+          "marks": 1,
+          "questionText": "State the OBSERVABLE CHANGE when Br₂ reacts with the alkene.",
+          "memoText": "The bromine (orange/brown) is DECOLOURISED (the solution becomes colourless). (1 mark)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-4-1-3",
+          "label": "4.1.3",
+          "marks": 2,
+          "questionText": "Draw the STRUCTURAL FORMULA of compound Q (the product of Reaction 2: haloalkane + HCl).",
+          "memoText": "Q is formed by addition of HCl to 2-methylpropene: CH₃C(CH₃)=CH₂ + HCl → CH₃CCl(CH₃)CH₃ (2-chloro-2-methylpropane) by Markovnikov's rule. Draw structural formula. (2 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-4-1-4",
+          "label": "4.1.4",
+          "marks": 2,
+          "questionText": "Write the IUPAC NAME of compound R formed from 1,2-dibromo-2-methylpropane.",
+          "memoText": "Name the dibromo compound from the structure. 1,2-dibromo-2-methylpropane = the IUPAC name provided or derived from the structure. (2 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-4-1-5",
+          "label": "4.1.5",
+          "marks": 6,
+          "questionText": "Write a BALANCED EQUATION using structural formulae for Reaction 3 (elimination of 1,2-dibromo-2-methylpropane with alcoholic KOH to give alkyne).",
+          "memoText": "1,2-dibromo-2-methylpropane + 2KOH(alc) → 2-methylpropyne + 2KBr + 2H₂O. Draw all structural formulae. (6 marks: correct reactants, products, conditions, balancing.)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-4-1-6",
+          "label": "4.1.6",
+          "marks": 2,
+          "questionText": "Write the IUPAC NAME of alcohol P (formed from 2-methylpropene via Reaction 4: hydration).",
+          "memoText": "Hydration (addition of water) to 2-methylpropene: CH₃C(CH₃)=CH₂ + H₂O → CH₃C(CH₃)(OH)CH₃ = 2-methylpropan-2-ol. (2 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-4-1-7",
+          "label": "4.1.7",
+          "marks": 1,
+          "questionText": "What TYPE of ELIMINATION reaction converts alcohol P back to 2-methylpropene?",
+          "memoText": "Dehydration (elimination of water using concentrated H₂SO₄ at 170°C). (1 mark)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-4-2-1",
+          "label": "4.2.1",
+          "marks": 1,
+          "questionText": "What TYPE of reaction occurs when butan-1-ol reacts with propanoic acid?",
+          "memoText": "Esterification (condensation reaction). (1 mark)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-4-2-2",
+          "label": "4.2.2",
+          "marks": 2,
+          "questionText": "Write the IUPAC NAME of the ester product.",
+          "memoText": "Butan-1-ol + propanoic acid → butyl propanoate + H₂O. IUPAC name: butyl propanoate. (2 marks)",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Reaction Rate",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "ps-p2-23-5-1",
+          "label": "5.1",
+          "marks": 1,
+          "questionText": "For the reaction 2N₂O₅(g) → 4NO₂(g) + O₂(g), the concentration-time graph shows curves A (NO₂) and B (N₂O₅). Why does curve A represent NO₂?",
+          "memoText": "NO₂ is a PRODUCT — its concentration INCREASES over time (curve rises then levels off). N₂O₅ (reactant) decreases. (1 mark)",
+          "topic": "Reaction Rate",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-5-2",
+          "label": "5.2",
+          "marks": 2,
+          "questionText": "Determine whether the following statement is TRUE or FALSE and explain: 'The rate of decrease of [N₂O₅] is twice the rate of increase of [NO₂].'",
+          "memoText": "FALSE (or re-examine). From stoichiometry: 2 mol N₂O₅ → 4 mol NO₂. Rate of decrease of N₂O₅ = −Δ[N₂O₅]/Δt. Rate of increase of NO₂ = Δ[NO₂]/Δt. Ratio: Δ[NO₂]/Δ[N₂O₅] = −4/2 = −2. So rate of increase [NO₂] = 2 × rate of decrease [N₂O₅]. Statement is WRONG about which is twice the other. (2 marks)",
+          "topic": "Reaction Rate",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-5-3-1",
+          "label": "5.3.1",
+          "marks": 4,
+          "questionText": "Calculate the MASS of NO₂ at t = 400 s. (Read [N₂O₅] from graph, use stoichiometry, volume = 2 dm³.)",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q5.3.png",
+          "memoText": "From graph: [N₂O₅] at t=0 = c₀, at t=400s = c₁. Δ[N₂O₅] = c₀ − c₁. Δ[NO₂] = 2 × Δ[N₂O₅] (stoichiometric ratio 4:2 = 2:1). Moles NO₂ = Δ[NO₂] × 2 dm³. Mass = moles × 46. (4 marks)",
+          "topic": "Reaction Rate",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-5-3-2",
+          "label": "5.3.2",
+          "marks": 4,
+          "questionText": "Calculate the AVERAGE RATE of production of O₂ over 700 s. (Use graph values.)",
+          "memoText": "From graph: moles O₂ produced at 700 s = ½ × moles N₂O₅ consumed (stoichiometry 2:1). [O₂] = ½ × Δ[N₂O₅]. Rate = [O₂]/700 s = Δ[N₂O₅]/(2×700). (4 marks)",
+          "topic": "Reaction Rate",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-5-4-1",
+          "label": "5.4.1",
+          "marks": 2,
+          "questionText": "Sketch Maxwell-Boltzmann curves P (initial concentration) and Q (higher concentration) on the same axes. Label the activation energy.",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q5.4.png",
+          "memoText": "Curves P and Q have the SAME SHAPE (concentration doesn't change the Maxwell-Boltzmann distribution of speeds at constant T). Both curves are identical. Ea is the same vertical line for both. (2 marks)",
+          "topic": "Reaction Rate",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-5-4-2",
+          "label": "5.4.2",
+          "marks": 3,
+          "questionText": "Explain whether the rate at higher concentration is higher, lower, or equal. Use your sketch.",
+          "memoText": "Rate at HIGHER concentration is GREATER. Even though the Maxwell-Boltzmann distribution is the same (same T), there are MORE molecules per unit volume. Therefore more molecules with energy ≥ Ea → more collisions per unit time → more effective collisions per unit time → higher rate. (3 marks)",
+          "topic": "Reaction Rate",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Chemical Equilibrium",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "ps-p2-23-6-1",
+          "label": "6.1",
+          "marks": 2,
+          "questionText": "State LE CHATELIER'S PRINCIPLE.",
+          "memoText": "When the equilibrium of a system is disturbed by a change in conditions, the system will shift to counteract the change and restore equilibrium. (2 marks)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-6-2-1",
+          "label": "6.2.1",
+          "marks": 1,
+          "questionText": "For 2HI(g) ⇌ H₂(g) + I₂(g) at 721 K with Kc = 0.02. At equilibrium: [H₂] = 0.04 mol/dm³. State the MOLES of H₂ if volume = 1 dm³.",
+          "memoText": "Moles H₂ = [H₂] × V = 0.04 × 1 = 0.04 mol. (1 mark)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-6-2-2",
+          "label": "6.2.2",
+          "marks": 1,
+          "questionText": "State the MOLES of HI at equilibrium.",
+          "memoText": "Kc = [H₂][I₂]/[HI]² = 0.02. [H₂] = [I₂] = 0.04. 0.02 = (0.04)²/[HI]² → [HI]² = 0.0016/0.02 = 0.08 → [HI] = 0.283 mol/dm³. Moles = 0.283 mol. (1 mark)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-6-3-1",
+          "label": "6.3.1",
+          "marks": 1,
+          "questionText": "Kc at 721 K = 0.02 and at 850 K = 0.09. Is the forward reaction EXOTHERMIC or ENDOTHERMIC?",
+          "memoText": "ENDOTHERMIC. Kc increases with temperature → increasing temperature shifts equilibrium to products → forward reaction absorbs heat → endothermic. (1 mark)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-6-3-2",
+          "label": "6.3.2",
+          "marks": 3,
+          "questionText": "EXPLAIN why Kc increases from 721 K to 850 K.",
+          "memoText": "The forward reaction (2HI → H₂ + I₂) is endothermic. Increasing temperature provides more thermal energy. By Le Chatelier's principle, the system absorbs this energy by shifting the equilibrium to the RIGHT (towards products). More products are formed relative to reactants → Kc increases. (3 marks)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-6-3-3",
+          "label": "6.3.3",
+          "marks": 8,
+          "questionText": "At 850 K (Kc = 0.09), calculate the MASS of HI at equilibrium if the initial amount is 2 mol in a 1 dm³ container.",
+          "memoText": "ICE: 2HI → H₂ + I₂. I: [HI]=2, [H₂]=0, [I₂]=0. C: −2x, +x, +x. E: (2−2x), x, x. Kc = x²/(2−2x)² = 0.09. √0.09 = x/(2−2x) = 0.3. x = 0.3(2−2x) = 0.6 − 0.6x. 1.6x = 0.6. x = 0.375. [HI]_eq = 2 − 0.75 = 1.25 mol/dm³. Moles HI = 1.25. Mass = 1.25 × 128 = 160 g. (8 marks)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Acids and Bases",
+      "totalMarks": 21,
+      "subQuestions": [
+        {
+          "id": "ps-p2-23-7-1-1",
+          "label": "7.1.1",
+          "marks": 2,
+          "questionText": "Define ELECTROLYTE.",
+          "memoText": "An electrolyte is a substance that dissolves in water to form a solution that can conduct electricity (it produces ions in solution). (2 marks)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-7-1-2",
+          "label": "7.1.2",
+          "marks": 2,
+          "questionText": "Which bulb is BRIGHTER: A (H₂SO₄) or B (HNO₃), both at the same concentration? Explain.",
+          "memoText": "Both H₂SO₄ and HNO₃ are strong acids. H₂SO₄ produces 2 H⁺ per molecule while HNO₃ produces 1 H⁺. At same concentration, H₂SO₄ has higher [H⁺] → more ions → better conductor → brighter bulb. Bulb A is brighter. (2 marks)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-7-1-3",
+          "label": "7.1.3",
+          "marks": 2,
+          "questionText": "Which bulb is BRIGHTER: B (HNO₃, strong acid) or C (CH₃COOH, weak acid), same concentration? Explain.",
+          "memoText": "Bulb B (HNO₃) is brighter. HNO₃ is a strong acid (fully ionised) → more ions → better conductor. CH₃COOH is a weak acid (partially ionised) → fewer ions → poorer conductor → dimmer. (2 marks)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-7-2-1",
+          "label": "7.2.1",
+          "marks": 3,
+          "questionText": "From a Na₂CO₃ titration, calculate the CONCENTRATION of HCl.",
+          "memoText": "Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂. n(Na₂CO₃) = c × V. n(HCl) = 2 × n(Na₂CO₃). [HCl] = n(HCl)/V(HCl). (3 marks — values from titration data.)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-7-2-2",
+          "label": "7.2.2",
+          "marks": 2,
+          "questionText": "If water is accidentally added to the burette before HCl, what effect does this have on the calculated concentration of HCl?",
+          "memoText": "The calculated [HCl] would be LOWER than the actual value. Water dilutes the HCl → more volume needed to neutralise → calculation gives lower concentration. (2 marks)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-7-2-3",
+          "label": "7.2.3",
+          "marks": 7,
+          "questionText": "ChemClean contains ammonia (NH₃). A 20 cm³ sample is titrated with the HCl solution. Calculate the MASS of NH₃ in 1 dm³ of ChemClean.",
+          "memoText": "NH₃ + HCl → NH₄Cl. n(HCl) = c × V(titre). n(NH₃) = n(HCl). [NH₃] in 20cm³ sample = n/0.020. Mass NH₃ per dm³ = [NH₃] × 1 × M(NH₃) = [NH₃] × 17. (7 marks — full calculation.)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-7-2-4",
+          "label": "7.2.4",
+          "marks": 3,
+          "questionText": "What is the pH AT THE END POINT of the ChemClean titration with HCl?",
+          "memoText": "NH₃ (weak base) + HCl → NH₄Cl (salt of weak base and strong acid). At equivalence point, NH₄Cl solution is slightly ACIDIC (pH < 7). NH₄⁺ hydrolyses: NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺. (3 marks — calculate pH from Ka/Kb relationship.)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Electrochemistry",
+      "totalMarks": 14,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/phys-sci-p2-may-jun-2023_q8.png",
+      "subQuestions": [
+        {
+          "id": "ps-p2-23-8-1",
+          "label": "8.1",
+          "marks": 3,
+          "questionText": "State the STANDARD CONDITIONS for measuring standard electrode potentials.",
+          "memoText": "Temperature = 25°C (298 K), concentration of all solutions = 1 mol/dm³, pressure of all gases = 101.3 kPa (1 atm). (3 marks)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-8-2",
+          "label": "8.2",
+          "marks": 1,
+          "questionText": "State the FUNCTION of component Y (salt bridge) in the electrochemical cell.",
+          "memoText": "The salt bridge maintains electrical neutrality in both half-cells by allowing ions to flow between them / completes the circuit by allowing ion flow while preventing mixing of solutions. (1 mark)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-8-3",
+          "label": "8.3",
+          "marks": 5,
+          "questionText": "Electrode X gains mass during operation. The EMF = 1.20 V. The standard hydrogen electrode is used. IDENTIFY metal X.",
+          "memoText": "X gains mass → X is the cathode (reduced). E°_cell = E°_cathode − E°_anode. 1.20 = E°_X − 0 (SHE). E°_X = +1.20 V. From standard electrode potential table: Pt²⁺/Pt or similar... Actually E°(Pt²⁺/Pt) = +1.20 V. X = Platinum. Accept any metal with E° = +1.20 V. (5 marks — check table.)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-8-4",
+          "label": "8.4",
+          "marks": 2,
+          "questionText": "Write the OXIDATION HALF-REACTION at the other electrode.",
+          "memoText": "H₂ → 2H⁺ + 2e⁻ (oxidation at the hydrogen electrode, which is the anode). (2 marks)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-8-5",
+          "label": "8.5",
+          "marks": 3,
+          "questionText": "Arrange X²⁺, Au³⁺ and H⁺ as OXIDISING AGENTS from strongest to weakest. (E°(Au³⁺/Au) = +1.50 V; E°_cell for Au cell = 1.50 V.)",
+          "memoText": "Stronger oxidising agent = higher E° (more positive = more easily reduced). E°(Au³⁺) = +1.50 V, E°(X²⁺) ≈ +1.20 V, E°(H⁺/H₂) = 0 V. Order strongest to weakest: Au³⁺ > X²⁺ > H⁺. (3 marks)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Electroplating",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "ps-p2-23-9-1",
+          "label": "9.1",
+          "marks": 2,
+          "questionText": "Define ELECTROLYTIC CELL.",
+          "memoText": "An electrolytic cell is one in which electrical energy is used to drive a non-spontaneous chemical reaction (forced by external power supply). (2 marks)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-9-2",
+          "label": "9.2",
+          "marks": 2,
+          "questionText": "In the zinc electroplating of a spring using Zn(NO₃)₂ electrolyte, which electrode is the ANODE?",
+          "memoText": "The ZINC electrode (not the spring being plated) is the anode. At the anode: Zn → Zn²⁺ + 2e⁻ (oxidation, zinc dissolves). The spring is the cathode (zinc deposits on it). (2 marks)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-9-3-1",
+          "label": "9.3.1",
+          "marks": 2,
+          "questionText": "Write the HALF-REACTION at the METAL SPRING (cathode).",
+          "memoText": "Zn²⁺ + 2e⁻ → Zn (reduction: zinc deposits on the spring). (2 marks)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-9-3-2",
+          "label": "9.3.2",
+          "marks": 1,
+          "questionText": "Which metal should electrode R be made of?",
+          "memoText": "Zinc (Zn). Electrode R is the anode (dissolves) and must be made of the same metal being deposited (zinc) to replenish Zn²⁺ ions in solution. (1 mark)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        },
+        {
+          "id": "ps-p2-23-9-4",
+          "label": "9.4",
+          "marks": 2,
+          "questionText": "Explain why R must be made of this material.",
+          "memoText": "If R is made of zinc, it oxidises (dissolves) at the anode: Zn → Zn²⁺ + 2e⁻. This replenishes the Zn²⁺ ions consumed at the cathode, maintaining the [Zn²⁺] in the electrolyte constant. If R were inert, [Zn²⁺] would decrease and plating would become inefficient. (2 marks)",
+          "topic": "Electrochemistry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

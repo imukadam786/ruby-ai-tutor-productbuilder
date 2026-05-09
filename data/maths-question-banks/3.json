@@ -188,13 +188,12 @@
     "domain": "M010",
     "domainTitle": "Integer Operations and BODMAS",
     "gate": "B",
-    "stimulus": "−3 + 8",
+    "stimulus": "(2 + 6) ÷ 4",
     "question": "Evaluate this expression. Be careful about the order of operations.",
     "answerMode": "numeric",
-    "expectedAnswer": 5,
+    "expectedAnswer": 2,
     "errorSignals": [
       "ERR_BODMAS_ORDER",
-      "ERR_INTEGER_SIGN",
       "ERR_BRACKET_IGNORE"
     ],
     "passThreshold": 0.8
@@ -252,11 +251,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x-2"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x-3"
       }
     ],
     "expectedAnswer": "(x − 2)(x − 3)",
@@ -383,5 +384,140 @@
       "ERR_CONTEXT_IGNORE"
     ],
     "passThreshold": 0.75
+  },
+  {
+    "id": "20.3",
+    "domain": "M020",
+    "domainTitle": "Two-Digit Addition",
+    "gate": "A",
+    "stimulus": "11 + 11 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 22,
+    "errorSignals": [
+      "ERR_ADD_TENS",
+      "ERR_PLACE_VALUE"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "29.3",
+    "domain": "M029",
+    "domainTitle": "Fractions — Number Line and Equivalence",
+    "gate": "B",
+    "stimulus": "2/3 = ___/6",
+    "question": "Fill in the missing number to make an equivalent fraction.",
+    "answerMode": "numeric",
+    "expectedAnswer": 4,
+    "errorSignals": [
+      "ERR_EQUIV_MULT",
+      "ERR_DENOM_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "31.3",
+    "domain": "M031",
+    "domainTitle": "Percentages",
+    "gate": "B",
+    "stimulus": "25% of 4",
+    "question": "Work out this percentage.",
+    "answerMode": "numeric",
+    "expectedAnswer": 1,
+    "errorSignals": [
+      "ERR_PCT_DECIMAL",
+      "ERR_PCT_OF_AMOUNT"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "32.3",
+    "domain": "M032",
+    "domainTitle": "Negative Number Operations",
+    "gate": "C",
+    "stimulus": "−1 − (−1) = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 0,
+    "errorSignals": [
+      "ERR_INTEGER_SIGN",
+      "ERR_NEG_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "33.NP3",
+    "domain": "M033",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
+    "gate": "C",
+    "stimulus": "10, 8, 6, 4, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 2,
+    "errorSignals": [
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "28.3",
+    "domain": "M028",
+    "domainTitle": "Division Strategies",
+    "gate": "B",
+    "stimulus": "6 ÷ 3 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 2,
+    "errorSignals": [
+      "ERR_DIV_MULT",
+      "ERR_REMAINDER"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "34.3",
+    "domain": "M034",
+    "domainTitle": "Advanced Linear Equations",
+    "gate": "C",
+    "stimulus": "4x + 3 = 19",
+    "question": "Solve for x. Type the value of x.",
+    "answerMode": "numeric",
+    "expectedAnswer": 4,
+    "errorSignals": [
+      "ERR_STEP_SKIP",
+      "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.3",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "A right-angled triangle has one angle of 30°.",
+    "question": "What is the third angle? Type the answer in degrees.",
+    "answerMode": "numeric",
+    "expectedAnswer": 60,
+    "errorSignals": [
+      "ERR_ANGLE_SUM",
+      "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.3",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "1/4 x 8",
+    "question": "Multiply the fraction by the whole number. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 2,
+    "errorSignals": [
+      "ERR_FRAC_WHOLE_MULT",
+      "ERR_SIMPLIFY"
+    ],
+    "passThreshold": 0.8
   }
 ]

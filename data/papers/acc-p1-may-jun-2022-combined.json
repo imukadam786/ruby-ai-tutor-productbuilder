@@ -1,0 +1,332 @@
+{
+  "id": "acc-p1-may-jun-2022",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P1",
+  "year": 2022,
+  "session": "May-June",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statement of Financial Position and Notes — Prudence Ltd",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2022-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Choose the correct word from those given in brackets.\n\n'The day-to-day financial affairs of a company are managed by the (shareholders / directors).'\n\nWord list: shareholders | directors",
+          "marks": 1,
+          "memoText": "ANSWER: directors ✓\n\nTeaching point: Directors are appointed by shareholders to run the company on a daily basis. Shareholders are the OWNERS of the company — they elect directors at the AGM but do not manage operations. Directors are accountable to shareholders for the company's performance.",
+          "topic": "Concepts — Corporate roles",
+          "type": "mcq",
+          "options": {
+            "A": "shareholders",
+            "B": "directors"
+          },
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q1.1.1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Choose the correct word from those given in brackets.\n\n'An independent opinion on the fairness of the financial statements is provided by the (internal auditors / external auditors).'\n\nWord list: internal auditors | external auditors",
+          "marks": 1,
+          "memoText": "ANSWER: external auditors ✓\n\nTeaching point: External auditors are INDEPENDENT professionals appointed by shareholders to audit the financial statements. They are NOT employees of the company. Internal auditors are employees who set up and review internal control procedures — they cannot provide an independent opinion because they work for the company.",
+          "topic": "Concepts — Auditing roles",
+          "type": "mcq",
+          "options": {
+            "A": "internal auditors",
+            "B": "external auditors"
+          },
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q1.1.2.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Choose the correct word from those given in brackets.\n\n'The (internal auditors / shareholders) of a company are responsible for establishing effective internal control procedures within the organisation.'\n\nWord list: internal auditors | shareholders",
+          "marks": 1,
+          "memoText": "ANSWER: internal auditors ✓\n\nTeaching point: Internal auditors are employees of the company tasked with designing, implementing, and monitoring internal controls (e.g., segregation of duties, authorisation procedures, stock controls). Shareholders do not manage internal controls — they are the passive owners who appoint directors and external auditors.",
+          "topic": "Concepts — Internal control",
+          "type": "mcq",
+          "options": {
+            "A": "internal auditors",
+            "B": "shareholders"
+          },
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q1.1.3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-1-2-1a",
+          "label": "1.2.1a",
+          "questionText": "PRUDENCE LTD — Financial year ended 28 February 2022.\n\nPrepare NOTE 7: ORDINARY SHARE CAPITAL for the year ended 28 February 2022.\n\nSHARE INFORMATION:\n- Shares in issue on 1 March 2021: 1 000 000 ordinary shares at an average issue price of R3,60 each.\n- 1 July 2021: 200 000 new ordinary shares were issued at R4,20 each.\n- 1 October 2021: The company repurchased 100 000 shares at R4,50 each. These shares were immediately cancelled.\n- Authorised share capital: 2 000 000 ordinary shares.\n\nNOTE: Show the number of shares AND the rand amount for each movement. For the repurchased shares, only the AVERAGE-PRICE PORTION reduces the Share Capital account (the premium is charged to Retained Income).",
+          "marks": 7,
+          "memoText": "NOTE 7: ORDINARY SHARE CAPITAL\n\nAUTHORISED: 2 000 000 ordinary shares\n\nISSUED:\n| | Number of shares | Amount (R) |\n|---|---|---|\n| Balance 1 March 2021 | 1 000 000 ✓ | 3 600 000 ✓ |\n| Issued 1 July 2021 at R4,20 per share | 200 000 ✓ | 840 000 ✓ |\n| Repurchased 1 October 2021 (at average price) | (100 000) ✓ | (370 000) ✓ |\n| Balance 28 February 2022 | 1 100 000 | 4 070 000 ✓ |\n\nWORKINGS:\nShares in issue after July issue = 1 000 000 + 200 000 = 1 200 000\nTotal Share Capital after issue = R3 600 000 + R840 000 = R4 440 000\nAverage price = R4 440 000 ÷ 1 200 000 = R3,70 per share\nCapital portion of repurchase = 100 000 × R3,70 = R370 000\nPremium on repurchase = 100 000 × (R4,50 − R3,70) = R80 000 → charged to Retained Income (see Note 8)\n\nTeaching points:\n• When shares are repurchased ABOVE the average issue price, the AVERAGE-PRICE PORTION reduces Share Capital and the PREMIUM (excess) is charged to Retained Income.\n• Average price must be recalculated AFTER each new issue.\n• The closing number of shares is 1 100 000 (1 200 000 − 100 000 repurchased and cancelled).",
+          "topic": "Note 7 — Ordinary Share Capital",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q1.2a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q1.2b.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2022-1-2-1b",
+          "label": "1.2.1b",
+          "questionText": "PRUDENCE LTD — Prepare NOTE 8: RETAINED INCOME for the year ended 28 February 2022.\n\nADDITIONAL INFORMATION:\n- Opening retained income on 1 March 2021: R1 460 000\n- Net profit after tax for the year: R700 000\n- Premium on share repurchase (from 1.2.1a): charged to Retained Income\n- Interim dividends: On 1 September 2021, an interim dividend of 10 cents per share was paid to all shareholders then in issue. (The new shares were issued 1 July 2021; the repurchase occurred 1 October 2021.)\n- Final dividends: The board of directors declared a final dividend of R260 000 on 28 February 2022.",
+          "marks": 7,
+          "memoText": "NOTE 8: RETAINED INCOME\n\n| | R |\n|---|---|\n| Balance at 1 March 2021 | 1 460 000 ✓ |\n| Net profit after tax | 700 000 ✓ |\n| Premium on share repurchase: 100 000 × (R4,50 − R3,70) | (80 000) ✓ |\n| Ordinary dividends: | |\n|   Interim dividends paid | (120 000) ✓ |\n|   Final dividends declared | (260 000) ✓ |\n| Balance at 28 February 2022 | 1 700 000 ✓ |\n\nWORKINGS:\nInterim dividend: Shares in issue on 1 September 2021 = 1 200 000 (1 000 000 + 200 000 July issue; repurchase only on 1 October)\nInterim = 1 200 000 shares × R0,10 = R120 000 ✓\n\nClosing RI check: 1 460 000 + 700 000 − 80 000 − 120 000 − 260 000 = R1 700 000 ✓\n\nTeaching points:\n• Count which shares QUALIFY for interim dividends: only shares in issue ON THE DATE OF PAYMENT. The repurchase (1 Oct) was AFTER the interim payment (1 Sep), so all 1 200 000 shares qualify.\n• The premium on repurchase reduces Retained Income — it is the amount ABOVE average cost paid to buy back the shares.\n• Final dividends appear in Retained Income when DECLARED (creates a liability: Shareholders for Dividends), even if not yet paid.",
+          "topic": "Note 8 — Retained Income",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q1.2a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q1.2b.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2022-1-2-2",
+          "label": "1.2.2",
+          "questionText": "PRUDENCE LTD — Prepare the STATEMENT OF FINANCIAL POSITION as at 28 February 2022.\n\nINFORMATION A — Selected balances from the Adjusted Trial Balance:\n| Account | Amount (R) |\n|---|---|\n| Land and buildings (at cost; no depreciation) | 4 200 000 |\n| Vehicles — at cost | 2 400 000 |\n| Vehicles — accumulated depreciation | 960 000 |\n| Equipment — at cost | 480 000 |\n| Equipment — accumulated depreciation | 192 000 |\n| Fixed deposit (3-year term) | 150 000 |\n| Trading stock | 380 000 |\n| Debtors control | 500 000 |\n| Provision for bad debts | 25 000 |\n| Prepaid expenses | 15 000 |\n| Bank (favourable) | 222 000 |\n| Creditors control | 120 000 |\n| Accrued expenses | 40 000 |\n| SARS: Income tax (credit — owing to SARS) | 80 000 |\n| Loan: ZXX Bank (total balance) | 900 000 |\n\nINFORMATION B — Additional information:\n- From Note 7: Ordinary share capital = R4 070 000 (1 100 000 shares)\n- From Note 8: Retained income = R1 700 000; Final dividend declared = R260 000 (not yet paid; shareholders for dividends).\n- The loan from ZXX Bank: R300 000 is repayable within the next 12 months. The remainder is non-current.\n- Depreciation and all adjustments have already been accounted for in the trial balance.",
+          "marks": 28,
+          "memoText": "STATEMENT OF FINANCIAL POSITION OF PRUDENCE LTD AS AT 28 FEBRUARY 2022\n\nASSETS\nNon-current assets                                   6 078 000 ✓ (subtotal)\n  Property, plant and equipment                      5 928 000\n    Land and buildings (at cost)      4 200 000 ✓\n    Vehicles (2 400 000 − 960 000)    1 440 000 ✓✓\n    Equipment (480 000 − 192 000)       288 000 ✓✓\n  Financial asset (fixed deposit)                      150 000 ✓\n\nCurrent assets                                       1 092 000 ✓ (subtotal)\n  Inventories                                          380 000 ✓\n  Trade and other receivables                          490 000 ✓ (subtotal)\n    Trade debtors (500 000 − 25 000)    475 000 ✓✓\n    Prepaid expenses                     15 000 ✓\n  Cash and cash equivalents                            222 000 ✓\n\nTOTAL ASSETS                                         7 170 000 ✓\n\nEQUITY AND LIABILITIES\nShareholders' equity                                 5 770 000 ✓ (subtotal)\n  Ordinary share capital (Note 7)     4 070 000 ✓\n  Retained income (Note 8)            1 700 000 ✓\n\nNon-current liabilities                                600 000 ✓\n  Loan: ZXX Bank (900 000 − 300 000)   600 000 ✓\n\nCurrent liabilities                                    800 000 ✓ (subtotal)\n  Trade and other payables              160 000 ✓\n    Creditors control        120 000 ✓\n    Accrued expenses          40 000 ✓\n  Shareholders for dividends            260 000 ✓\n  SARS: Income tax                       80 000 ✓\n  Current portion of loan: ZXX Bank    300 000 ✓\n\nTOTAL EQUITY AND LIABILITIES                         7 170 000 ✓\n\nPENALTY: −1 for any foreign item (max −2). Items in wrong section lose the mark for that line but workings are credited.\n\nTeaching points:\n• FIXED DEPOSIT: A 3-year fixed deposit is a NON-CURRENT FINANCIAL ASSET (held > 12 months).\n• LOAN — SPLIT: Always split the total loan into current (repayable within 12 months = R300 000) and non-current portions (R900 000 − R300 000 = R600 000).\n• TRADE AND OTHER RECEIVABLES: Net debtors = Debtors control − Provision for bad debts. Prepaid expenses are also included here.\n• PPE CARRYING VALUES: Always Cost − Accumulated Depreciation = Carrying Value.\n• SHAREHOLDERS FOR DIVIDENDS: The final dividend declared (R260 000) creates a current liability in the SFP — it is owed to shareholders but not yet paid.",
+          "topic": "Statement of Financial Position",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q1.2a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q1.2b.png"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Fixed Asset Note, Cash Flow Statement and Financial Indicators — Jantjes Ltd",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2022-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Choose the correct word from those given in brackets.\n\n'A fixed deposit that matures within 3 months is a (current asset / non-current asset) in the Statement of Financial Position.'\n\nWord list: current asset | non-current asset",
+          "marks": 1,
+          "memoText": "ANSWER: current asset ✓\n\nTeaching point: Current assets are assets expected to be converted to cash within 12 months. A fixed deposit maturing in 3 months will be received as cash in 3 months → current asset. A fixed deposit with a 3-year term = non-current financial asset.",
+          "topic": "Concepts — Current vs non-current assets",
+          "type": "mcq",
+          "options": {
+            "A": "current asset",
+            "B": "non-current asset"
+          }
+        },
+        {
+          "id": "acc-p1-may-jun-2022-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Choose the correct word from those given in brackets.\n\n'The repayment of a long-term loan appears under (operating / financing) activities in the Cash Flow Statement.'\n\nWord list: operating | financing",
+          "marks": 1,
+          "memoText": "ANSWER: financing ✓\n\nTeaching point: Financing activities involve obtaining capital (borrowing, issuing shares) and repaying capital (repaying loans, buying back shares, paying dividends). The repayment of a long-term loan is a FINANCING activity — it changes the capital structure of the company. Do not confuse with operating activities (day-to-day business cash flows) or investing activities (buying/selling assets).",
+          "topic": "Concepts — Cash Flow Statement classification",
+          "type": "mcq",
+          "options": {
+            "A": "operating",
+            "B": "financing"
+          }
+        },
+        {
+          "id": "acc-p1-may-jun-2022-2-1-3",
+          "label": "2.1.3",
+          "questionText": "Choose the correct word from those given in brackets.\n\n'Shareholders who want to know more about the company's future plans and strategies should refer to the (directors' report / auditors' report) in the annual financial statements.'\n\nWord list: directors' report | auditors' report",
+          "marks": 1,
+          "memoText": "ANSWER: directors' report ✓\n\nTeaching point: The DIRECTORS' REPORT contains information about the company's performance, future plans, dividends declared, material changes, and strategic direction — written by the directors. The AUDITORS' REPORT is written by the independent external auditors and expresses their opinion on whether the financial statements are fairly presented. It does NOT contain forward-looking plans.",
+          "topic": "Concepts — Annual report documents",
+          "type": "mcq",
+          "options": {
+            "A": "directors' report",
+            "B": "auditors' report"
+          }
+        },
+        {
+          "id": "acc-p1-may-jun-2022-2-2-1",
+          "label": "2.2.1",
+          "questionText": "JANTJES LTD — Financial year ended 28 February 2022.\n\nThe partially completed Fixed Asset Note is given below. Calculate the missing amounts.\n\n| | Vehicles (R) | Equipment (R) | Total (R) |\n|---|---|---|---|\n| Carrying value 1 March 2021 | | | |\n| Cost | 2 200 000 | 361 240 | |\n| Accumulated depreciation | (690 000) | (72 248) | |\n| | (i) ? | 288 992 | |\n| Additions | 1 100 000 | 60 624 | |\n| Disposals at carrying value | (iii) ? | — | |\n| Depreciation | (220 000) | (ii) ? | |\n| Carrying value 28 February 2022 | | | |\n| Cost | 3 100 000 | 421 864 | |\n| Accumulated depreciation | (778 000) | (108 372) | |\n| | 2 322 000 | 313 492 | 2 635 492 |\n\nADDITIONAL INFORMATION FOR VEHICLES:\n- One vehicle (cost R200 000; accumulated depreciation on 1 March 2021: R120 000) was sold on 28 February 2022. No entries have been made for the disposal except recording the cash proceeds received.\n- Depreciation on this vehicle: 15% per annum on the diminishing-balance method.\n- Depreciation on all REMAINING vehicles: R208 000 (already calculated).\n\nADDITIONAL INFORMATION FOR EQUIPMENT:\n- Depreciation: 10% per annum on the straight-line method on OPENING cost only (new equipment purchased on 28 February 2022 — no depreciation charged this year).\n- No disposals of equipment during the year.\n\nCalculate:\n(i)  The carrying value of vehicles on 1 March 2021.\n(ii) The total depreciation on equipment for the year ended 28 February 2022.\n(iii) The carrying value of the vehicle sold on 28 February 2022.",
+          "marks": 11,
+          "memoText": "(i) CARRYING VALUE OF VEHICLES ON 1 MARCH 2021:\nCV = Cost − Accumulated depreciation\n= R2 200 000 ✓ − R690 000 ✓\n= R1 510 000 ✓\n\n(ii) DEPRECIATION ON EQUIPMENT FOR THE YEAR:\nDepreciation = Opening cost × 10%\n= R361 240 ✓ × 10% ✓\n= R36 124 ✓ (no depreciation on new equipment bought on 28 Feb 2022 — held 0 months)\n\n(iii) CARRYING VALUE OF VEHICLE SOLD:\nStep 1: CV of vehicle on 1 March 2021:\n= Cost − Accumulated depreciation\n= R200 000 ✓ − R120 000 ✓\n= R80 000 ✓\n\nStep 2: Depreciation for year on this vehicle (15% diminishing balance):\n= R80 000 × 15% = R12 000 ✓\n\nStep 3: CV at date of disposal (28 February 2022):\n= R80 000 − R12 000\n= R68 000 ✓✓ (operation: one part correct)\n\nCHECK — Total depreciation on vehicles:\nDepreciation on sold vehicle: R12 000\nDepreciation on remaining vehicles: R208 000\nTotal vehicles depreciation: R220 000 ✓ (agrees with note)\n\nCheck closing vehicles accumulated depreciation:\nOpening acc dep: R690 000\nLess: disposed acc dep (R200 000 − R68 000): (R132 000)\nAdd: depreciation for year: R220 000\nClosing: R778 000 ✓ (agrees with note)\n\nTeaching points:\n• CV at start = Cost − Accumulated depreciation (the opening accumulated depreciation is given in the note).\n• Equipment depreciation uses STRAIGHT-LINE on COST. Since new equipment arrived on the last day, it has zero months of use → no depreciation this year.\n• For a DISPOSED asset on the LAST DAY of the year: charge a FULL year's depreciation first (using diminishing balance on opening CV), then the resulting CV is the disposal amount.",
+          "topic": "Fixed Asset Note — calculations",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q2.2a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q2.2b.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2022-2-2-2",
+          "label": "2.2.2",
+          "questionText": "JANTJES LTD — Calculate the following amounts that will appear in the Cash Flow Statement for the year ended 28 February 2022.\n\nINFORMATION A — Fixed assets:\nUse the information from 2.2.1. The vehicle that was disposed of was sold for R85 000 cash.\n\nFrom the ATB/general ledger:\n| Account | 1 March 2021 | 28 February 2022 |\n|---|---|---|\n| Vehicles — cost | R2 200 000 | R3 100 000 |\n| Equipment — cost | R361 240 | R421 864 |\n| Disposed vehicle — cost | R200 000 (included above) | |\n\nINFORMATION B — Dividends:\n| Item | Amount |\n|---|---|\n| Shareholders for dividends (1 March 2021 — opening) | R468 000 |\n| Dividends declared during the year | R31 428 |\n| Shareholders for dividends (28 Feb 2022 — closing) | R31 428 |\n\nINFORMATION C — Loan:\n| Item | Amount |\n|---|---|\n| Loan: First National Bank (1 March 2021 — opening) | R840 000 |\n| Loan: First National Bank (28 Feb 2022 — closing) | R600 000 |\n\nCalculate:\n(i)  Total fixed assets purchased (investing outflow) — 6 marks\n(ii) Dividends paid — 4 marks\n(iii) Decrease in loan — 3 marks",
+          "marks": 13,
+          "memoText": "(i) FIXED ASSETS PURCHASED (6 marks):\n\nVehicle additions:\nOpening vehicles cost:    R2 200 000 ✓\nAdd: Additions (?)           ?\nLess: Disposed at cost:   (R200 000) ✓\nClosing vehicles cost:     R3 100 000 ✓\nVehicle additions = R3 100 000 − R2 200 000 + R200 000 = R1 100 000 ✓\n\nEquipment additions:\nOpening equipment cost:   R361 240 ✓\nAdd: Additions:               ?\nClosing equipment cost:    R421 864\nEquipment additions = R421 864 − R361 240 = R60 624 ✓\n\nTotal fixed assets purchased = R1 100 000 + R60 624 = R1 160 624 ✓\n\n(Shown in CFS as: Purchase of fixed assets (R1 160 624))\n\n(ii) DIVIDENDS PAID (4 marks):\nFormula: Opening SfD + Dividends declared − Closing SfD = Cash paid\n= R468 000 ✓ + R31 428 ✓ − R31 428 ✓\n= R468 000 ✓\n\nANSWER: Dividends paid: R(468 000) ✓ — shown as outflow (brackets).\n\n(iii) DECREASE IN LOAN (3 marks):\nOpening loan: R840 000 ✓\nClosing loan: R600 000 ✓\nDecrease = R840 000 − R600 000 = R240 000 ✓\n\nANSWER: Loan repaid: R(240 000) ✓ — shown as outflow.\n\nTeaching points:\n• To calculate PURCHASES of fixed assets from the cost columns: Closing cost = Opening cost + Additions − Disposed at cost → Additions = Closing − Opening + Disposed.\n• DIVIDENDS PAID formula: Opening Shareholders for Dividends + Declared during year − Closing Shareholders for Dividends. Here the opening SfD (from prior year) was all paid out during the year.\n• Proceeds from the sale of the vehicle (R85 000) appear as a SEPARATE positive line under investing activities — do not confuse with purchases.",
+          "topic": "Cash Flow Statement — Investing and financing amounts",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q2.2a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q2.2b.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2022-2-2-3",
+          "label": "2.2.3",
+          "questionText": "JANTJES LTD — Calculate the NET CHANGE IN CASH AND CASH EQUIVALENTS for the year ended 28 February 2022.\n\nBANK ACCOUNT BALANCES:\n| | Amount |\n|---|---|\n| Bank (1 March 2021 — opening) | R134 000 (favourable) |\n| Bank (28 February 2022 — closing) | R120 000 (overdraft) |\n\nNOTE: A bank overdraft is shown as a negative figure in the Cash Flow Statement.",
+          "marks": 4,
+          "memoText": "NET CHANGE IN CASH AND CASH EQUIVALENTS:\n\nClosing balance: R(120 000) ✓ [overdraft = negative]\nOpening balance: R134 000 ✓\n\nNet change = Closing − Opening\n= R(120 000) − R134 000\n= R(254 000) ✓✓\n\nCHECK — verify using the CFS totals:\nCash from operations (given): R1 534 624\nInvesting: Purchase of fixed assets (R1 160 624) + Proceeds from sale R85 000 = (R1 075 624)\nFinancing: Loan repaid (R240 000) + Dividends paid (R468 000) = (R708 000)\nNet change = R1 534 624 − R1 075 624 − R708 000 = R(249 000)... (approximate; operating cash is given for illustration)\n\nCash and cash equivalents at 28 Feb 2022     (120 000) ✓\nCash and cash equivalents at 1 March 2021    134 000 ✓\nNet decrease in cash and cash equivalents   (254 000) ✓✓\n\nTeaching point: The net change in cash = Closing balance − Opening balance. When a company moves from a positive bank balance (R134 000) to an OVERDRAFT (R120 000), the change is: −120 000 − 134 000 = −R254 000 (a DECREASE). Always treat overdrafts as NEGATIVE cash equivalents.",
+          "topic": "Cash Flow Statement — Net change in cash",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q2.2a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q2.2b.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2022-2-2-4",
+          "label": "2.2.4",
+          "questionText": "JANTJES LTD — Calculate the following financial indicators for the year ended 28 February 2022.\n\nINFORMATION:\n| Item | Amount |\n|---|---|\n| Sales (Revenue) | R4 200 000 |\n| Cost of sales | R2 400 000 |\n| Total current assets | R530 000 |\n| Inventories | R200 000 |\n| Total current liabilities | R300 000 |\n| Total shareholders' equity (28 Feb 2022) | R3 844 000 |\n| Average shareholders' equity | R3 722 000 |\n| Net profit after tax | R275 428 |\n| Shares in issue (28 Feb 2022) | 500 000 |\n\nCalculate:\n(i)  % Mark-up on cost of sales — 3 marks\n(ii) Acid-test ratio — 4 marks\n(iii) Net asset value (NAV) per share — 3 marks\n(iv) % Return on shareholders' equity (ROSHE) — 4 marks",
+          "marks": 14,
+          "memoText": "(i) % MARK-UP ON COST OF SALES (3 marks):\nGross profit = Sales − Cost of sales = R4 200 000 − R2 400 000 = R1 800 000 ✓\n% Mark-up = Gross profit ÷ Cost of sales × 100\n= R1 800 000 ✓ ÷ R2 400 000 × 100\n= 75% ✓\n\n(ii) ACID-TEST RATIO (4 marks):\nLiquid assets (CA − Inventories) = R530 000 ✓ − R200 000 ✓ = R330 000 ✓\nAcid-test = Liquid assets : Current liabilities\n= R330 000 : R300 000 ✓\n= 1,1 : 1 ✓\n\n(iii) NET ASSET VALUE (NAV) PER SHARE (3 marks):\nNAV per share = Total shareholders' equity ÷ Shares in issue × 100\n= R3 844 000 ✓ ÷ 500 000 ✓ × 100\n= 768,8 cents ✓\n  (Accept R7,69 or R7,688. Must show in cents or rand.)\n\n(iv) % RETURN ON SHAREHOLDERS' EQUITY (ROSHE) (4 marks):\n% ROSHE = Net profit after tax ÷ Average shareholders' equity × 100\n= R275 428 ✓ ÷ R3 722 000 ✓ × 100 ✓\n= 7,4% ✓\n  (× 100 alone does not constitute 'one part correct'.)\n\nTeaching points:\n• MARK-UP is always on COST (not on sales). Gross profit / COS × 100.\n• ACID-TEST excludes inventories because they cannot be quickly converted to cash. A ratio ≥ 1:1 means the company can cover CL without needing to sell stock.\n• NAV per share = 'book value' of each share. Compare to market price to assess investor sentiment.\n• ROSHE uses NET PROFIT AFTER TAX (not before tax) and AVERAGE shareholders' equity (average of opening and closing).",
+          "topic": "Financial indicators — Markup, Acid-test, NAV, ROSHE",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q2.2a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q2.2b.png"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Interpretation of Financial Information — Vrede Ltd and Nigel Ltd",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2022-3-1",
+          "label": "3.1",
+          "questionText": "VREDE LTD AND NIGEL LTD — The following financial indicators were calculated for both companies for the year ended 28 February 2022.\n\n| Financial Indicator | Vrede Ltd | Nigel Ltd |\n|---|---|---|\n| % Gross profit on sales | 42,0% | 52,0% |\n| % Net profit on sales | 18,0% | 26,0% |\n| % Return on shareholders' equity (ROSHE) | 7,6% | 10,8% |\n| % Return on total capital employed (ROTCE) | 10,0% | 16,2% |\n| Current ratio | 2,1 : 1 | 0,8 : 1 |\n| Acid-test ratio | 1,4 : 1 | 0,5 : 1 |\n| Debt-equity ratio | 0,2 : 1 | 1,3 : 1 |\n| Interest rate on loans | 18% p.a. | 18% p.a. |\n| Earnings per share (EPS) | 500 cents | 500 cents |\n| Dividends per share (DPS) | 374 cents | 537 cents |\n| Market price per share | R24,00 | R32,00 |\n\nPROFITABILITY: Explain which company is managing its resources more efficiently. Quote TWO financial indicators (with figures) to support your answer.",
+          "marks": 5,
+          "memoText": "Financial indicator ✓ + figure ✓ + trend/comparison ✓ + second indicator ✓ + explanation/conclusion ✓\n\nTWO of the following (any two from the profitability indicators):\n• % Gross profit on sales: Nigel (52,0%) is HIGHER than Vrede (42,0%) — Nigel is more efficient at trading (buying and selling stock).\n• % Net profit on sales: Nigel (26,0%) is HIGHER than Vrede (18,0%) — Nigel converts more of each rand of sales into profit (better control of expenses).\n• ROSHE: Nigel (10,8%) is HIGHER than Vrede (7,6%) — Nigel generates a better return for its shareholders on each rand of equity invested.\n• ROTCE: Nigel (16,2%) is HIGHER than Vrede (10,0%) — Nigel is more efficient at using ALL long-term capital (equity + debt).\n\nCONCLUSION: NIGEL LTD is managing its resources MORE EFFICIENTLY — all four profitability indicators are superior to Vrede's.\n\nTeaching point: Profitability indicators measure efficiency. GP% measures trading efficiency (buying/selling). NP% measures overall cost control. ROSHE and ROTCE measure return on investment. All must be compared — a higher value is always better for profitability.",
+          "topic": "Interpretation — Profitability",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-3-2-1",
+          "label": "3.2.1",
+          "questionText": "VREDE LTD AND NIGEL LTD — Using the indicator table from 3.1.\n\nLIQUIDITY: Which company has a BETTER liquidity position? Quote TWO financial indicators (with figures) to support your answer.",
+          "marks": 3,
+          "memoText": "VREDE LTD has the better liquidity position.\n\nFinancial indicator ✓ + figures ✓\nAny TWO of the following:\n• Current ratio: Vrede (2,1 : 1) is HIGHER than Nigel (0,8 : 1). Vrede can cover current liabilities 2,1 times; Nigel's ratio is below 1 — it CANNOT cover its short-term obligations.\n• Acid-test ratio: Vrede (1,4 : 1) is HIGHER than Nigel (0,5 : 1). Vrede has sufficient liquid assets; Nigel has only 50 cents of liquid assets per R1 of current liabilities.\n\nConclusion ✓: Vrede has significantly better short-term liquidity. Both ratios indicate that Vrede can comfortably meet its current obligations, while Nigel faces a liquidity crisis.\n\nTeaching point: The current ratio includes ALL current assets (including slow-moving stock). The acid-test removes inventories to show truly liquid assets. When BOTH ratios are below 1 (like Nigel), it means even liquidating all stock won't cover current debts — a serious red flag.",
+          "topic": "Interpretation — Liquidity",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-3-2-2",
+          "label": "3.2.2",
+          "questionText": "VREDE LTD AND NIGEL LTD — Using the indicator table from 3.1.\n\nLIQUIDITY: Express TWO concerns you have about Nigel Ltd's liquidity position.",
+          "marks": 2,
+          "memoText": "Any TWO valid concerns ✓✓ — must relate specifically to Nigel's position:\n\n• Nigel's current ratio is 0,8 : 1 — BELOW 1:1 — the company CANNOT pay its current liabilities even if it sells all its current assets. This may lead to creditors suing for payment or the company being placed in liquidation.\n• Nigel's acid-test ratio is 0,5 : 1 — only 50 cents of liquid assets covers every R1 of short-term debt. The company is highly dependent on selling stock quickly to raise cash.\n• Nigel may struggle to pay suppliers (creditors), service short-term loan instalments, or meet payroll obligations.\n• Suppliers may withdraw credit terms due to poor liquidity, increasing Nigel's operational risk.\n\nTeaching point: Concerns about liquidity are future-looking worries — what BAD THINGS might happen because of the poor ratio? Common answers: default on debt, creditors demand payment, unable to repay bank overdraft, cash flow crisis.",
+          "topic": "Interpretation — Liquidity concerns",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-3-3",
+          "label": "3.3",
+          "questionText": "VREDE LTD AND NIGEL LTD — Using the indicator table from 3.1.\n\nDIVIDENDS: Calculate the dividend pay-out ratio for EACH company and comment on the sustainability of each company's dividend policy.",
+          "marks": 6,
+          "memoText": "VREDE LTD:\nDividend pay-out ratio = DPS ÷ EPS × 100\n= 374c ✓ ÷ 500c ✓ × 100\n= 74,8% ✓\n\nComment: Vrede pays out 74,8% of earnings as dividends, retaining 25,2% for reinvestment. This is a SUSTAINABLE dividend policy — the company earns more than it pays out and retains funds for growth.\n\nNIGEL LTD:\nDividend pay-out ratio = DPS ÷ EPS × 100\n= 537c ✓ ÷ 500c ✓ × 100\n= 107,4% ✓\n\nComment: Nigel is paying out MORE in dividends than it earns (107,4% > 100%). This is NOT sustainable — the company is drawing on retained income (reserves) to fund dividends. If this continues, Nigel will deplete its reserves and may need to cut dividends in future.\n\nTeaching points:\n• Pay-out ratio = DPS/EPS × 100. A ratio above 100% means dividends EXCEED earnings — funded from reserves.\n• A sustainable pay-out ratio is typically below 80%, retaining sufficient earnings for future growth.\n• Nigel's shareholders receive high dividends NOW but risk a dividend cut in future years, and the company has less retained cash for expansion or debt repayment.",
+          "topic": "Interpretation — Dividend pay-out ratio",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-3-4",
+          "label": "3.4",
+          "questionText": "VREDE LTD AND NIGEL LTD — The following extract is from the Cash Flow Statements of both companies.\n\nEXTRACT FROM FINANCING ACTIVITIES:\n| Item | Vrede Ltd (R) | Nigel Ltd (R) |\n|---|---|---|\n| Proceeds from shares issued | 4 800 000 | — |\n| Share repurchase | — | (2 400 000) |\n| Loan received | — | 5 600 000 |\n| Loan repaid | (3 600 000) | — |\n\nUsing the indicator table from 3.1 and the cash flow extract:\n(a) Identify TWO decisions taken by the directors of VREDE LTD regarding gearing. Quote figures. (4 marks)\n(b) Identify TWO decisions taken by the directors of NIGEL LTD regarding gearing. Quote figures. (4 marks)\n(c) Explain the financial risk facing Nigel Ltd's shareholders, quoting the debt-equity ratio and ROTCE with the interest rate. (5 marks)",
+          "marks": 13,
+          "memoText": "(a) VREDE LTD DECISIONS (4 marks — 2 decisions × 2 marks each: decision + figure):\n\nDecision 1: Vrede ISSUED new shares, raising R4 800 000 ✓✓ → increased equity, reduced reliance on debt.\nDecision 2: Vrede REPAID its loan, paying R3 600 000 ✓✓ → reduced non-current liabilities, lowered gearing.\n\nEffect: Vrede's debt-equity ratio decreased (0,2 : 1) — the company is now mainly funded by equity (own capital) rather than debt → LOWER financial risk.\n\n(b) NIGEL LTD DECISIONS (4 marks — 2 decisions × 2 marks each):\n\nDecision 1: Nigel REPURCHASED shares for R2 400 000 ✓✓ → reduced equity base, concentrated ownership.\nDecision 2: Nigel took on a NEW LOAN of R5 600 000 ✓✓ → increased non-current liabilities, higher debt burden.\n\nEffect: Nigel's debt-equity ratio increased to 1,3 : 1 — the company is now more debt-funded than equity-funded → HIGHER financial risk.\n\n(c) NIGEL LTD'S FINANCIAL RISK (5 marks):\n\nDebt-equity ratio: 1,3 : 1 ✓ — for every R1 of equity, Nigel owes R1,30 in long-term debt. This is HIGH gearing.\n\nROTCE vs interest rate: ROTCE = 16,2% ✓✓ vs interest rate = 18% ✓ → ROTCE is BELOW the interest rate.\n\nThis means Nigel is NEGATIVELY GEARED ✓ — the return earned on borrowed funds (16,2%) is LESS than the cost of those funds (18%). Borrowed capital is DESTROYING value rather than creating it.\n\nShareholder concerns ✓:\n• Interest obligations may be difficult to meet from operating profits, especially given poor liquidity.\n• If profits fall further, the company cannot service its debt → risk of financial distress.\n• Shareholders' returns are being eroded by interest costs that exceed the returns earned.\n• High D/E ratio means lenders have significant claims — in a wind-up, shareholders are last in line.\n\nTeaching point: GEARING RULE — compare ROTCE to the interest rate on loans:\n• ROTCE > interest rate → POSITIVELY geared (borrowed funds amplify shareholder returns).\n• ROTCE < interest rate → NEGATIVELY geared (borrowed funds destroy shareholder value).\n  Nigel's case: 16,2% < 18% → negatively geared → shareholders should be concerned.",
+          "topic": "Interpretation — Gearing decisions and financial risk",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-3-5",
+          "label": "3.5",
+          "questionText": "VREDE LTD AND NIGEL LTD — The following additional information is given.\n\nSTATEMENT OF FINANCIAL POSITION EXTRACT (28 February 2022):\n| Item | Vrede Ltd | Nigel Ltd |\n|---|---|---|\n| Ordinary share capital | R28 000 000 | R18 000 000 |\n| Retained income | R11 540 000 | R16 620 000 |\n| Shares in issue | 1 200 000 | 1 500 000 |\n| Market price per share | R24,00 | R32,00 |\n\nMARKET VALUE: For each company, calculate the Net Asset Value (NAV) per share and compare it to the market price. Comment on what this comparison reveals about investor sentiment towards each company.",
+          "marks": 6,
+          "memoText": "VREDE LTD:\nTotal shareholders' equity = R28 000 000 + R11 540 000 = R39 540 000 ✓\nNAV per share = R39 540 000 ÷ 1 200 000 × 100 ✓\n= 3 295 cents = R32,95 ✓\n\nMarket price (R24,00) is BELOW NAV (R32,95) ✓\n→ Vrede's shares trade at a DISCOUNT to book value.\n→ Investors have a NEGATIVE view of Vrede — they value the company LESS than its book value. This could indicate poor profitability expectations, management concerns, or sector pessimism.\n\nNIGEL LTD:\nTotal shareholders' equity = R18 000 000 + R16 620 000 = R34 620 000 ✓\nNAV per share = R34 620 000 ÷ 1 500 000 × 100 ✓\n= 2 308 cents = R23,08 ✓\n\nMarket price (R32,00) is ABOVE NAV (R23,08) ✓\n→ Nigel's shares trade at a PREMIUM to book value.\n→ Investors have a POSITIVE view of Nigel — they believe the company will grow and generate returns above book value. Despite poor liquidity, the market is optimistic about Nigel's future prospects.\n\nTeaching point: NAV is the BOOK VALUE per share — what each share would theoretically be worth if assets were sold at their carrying values and debts settled.\n• Market price > NAV = premium: investors are optimistic (good sign).\n• Market price < NAV = discount: investors are pessimistic (warning sign).",
+          "topic": "Interpretation — NAV and market price comparison",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-3-6-1",
+          "label": "3.6.1",
+          "questionText": "VREDE LTD AND NIGEL LTD — JAY SONTO SHAREHOLDING:\n\nJay Sonto is a major investor. He currently holds:\n- 800 000 shares in Nigel Ltd (total shares: 1 500 000)\n- 100 000 shares in Vrede Ltd (total shares: 1 200 000)\n\nCalculate Jay Sonto's percentage shareholding in Nigel Ltd.",
+          "marks": 4,
+          "memoText": "% shareholding in Nigel Ltd:\n= Jay's shares ÷ Total shares in issue × 100\n= 800 000 ✓ ÷ 1 500 000 ✓ × 100\n= 53,3% ✓✓\n\n(Accept 53,33% or 53%.)\n\nSignificance: Jay Sonto holds 53,3% of Nigel Ltd's shares — a MAJORITY SHAREHOLDING. This means Jay can control all ordinary resolutions at the AGM (e.g., appoint/remove directors, approve financial statements) since he holds more than 50% of votes.\n\nTeaching point: A majority shareholder (> 50%) has effective CONTROL of the company through voting power at general meetings. Jay can single-handedly determine the composition of the board of directors.",
+          "topic": "Interpretation — Shareholding percentage",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-3-6-2",
+          "label": "3.6.2",
+          "questionText": "VREDE LTD AND NIGEL LTD — JAY SONTO — FINANCIAL IMPACT:\n\nJay Sonto originally purchased:\n- His 800 000 Nigel Ltd shares at an average price of R25,20 per share.\n- His 100 000 Vrede Ltd shares at an average price of R30,00 per share.\n\nCurrent market prices: Nigel Ltd = R32,00 per share; Vrede Ltd = R24,00 per share.\n\nJay is considering selling his Vrede shares.\n\n(a) Calculate the financial gain or loss on Jay's Vrede Ltd shares. (3 marks)\n(b) Calculate the financial gain or loss on Jay's Nigel Ltd shares. (3 marks)\n(c) Based on your calculations, was it wise for Jay to invest in Nigel rather than Vrede? (included in above marks)\n\nNote: Questions (a) and (b) together carry 6 marks.",
+          "marks": 6,
+          "memoText": "(a) VREDE LTD — FINANCIAL LOSS:\nOriginal cost: 100 000 shares × R30,00 = R3 000 000 ✓\nCurrent value: 100 000 shares × R24,00 = R2 400 000 ✓\nLoss = R3 000 000 − R2 400 000 = R600 000 LOSS ✓\n\n(Alternatively: 100 000 × (R30,00 − R24,00) = 100 000 × R6,00 = R600 000 loss)\n\n(b) NIGEL LTD — FINANCIAL GAIN:\nOriginal cost: 800 000 shares × R25,20 = R20 160 000 ✓\nCurrent value: 800 000 shares × R32,00 = R25 600 000 ✓\nGain = R25 600 000 − R20 160 000 = R5 440 000 GAIN ✓\n\n(Alternatively: 800 000 × (R32,00 − R25,20) = 800 000 × R6,80 = R5 440 000 gain)\n\nCONCLUSION: YES, it was wise to invest in Nigel Ltd ✓\n- The gain on Nigel (R5 440 000) FAR exceeds the loss on Vrede (R600 000).\n- Net position: R5 440 000 − R600 000 = R4 840 000 net GAIN.\n- Additionally, Nigel's market price (R32) is above its NAV (R23,08), indicating positive investor sentiment and potential for further growth.\n- Vrede's market price (R24) is below its NAV (R32,95), confirming poor investor confidence.\n\nTeaching point: The financial gain/loss calculation is straightforward:\n  (Current market price − Average cost) × Number of shares held\nPositive result = capital gain; Negative result = capital loss. The NAV comparison adds qualitative context — Nigel trading above NAV signals continued investor confidence.",
+          "topic": "Interpretation — Investor gain/loss calculation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q3.png"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Corporate Governance",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2022-4-1",
+          "label": "4.1",
+          "questionText": "CORPORATE SOCIAL RESPONSIBILITY (CSR):\n\nThe CEO of a listed company made the following statement at the company's AGM:\n\n'Our company does not need to spend any money on Corporate Social Responsibility. The Companies Act does not legally require us to do so. Our primary obligation is to maximise profits for our shareholders. Spending money on CSR initiatives reduces profits and is therefore against the interests of shareholders.'\n\nRespond to the CEO's statement. Do you agree or disagree? Provide FOUR valid points to support your response.",
+          "marks": 4,
+          "memoText": "DISAGREE with the CEO's statement. ✓ (must indicate disagreement)\n\nAny FOUR of the following points ✓✓✓✓:\n\n• Although the Companies Act does not LEGALLY compel CSR spending, the King Code on Corporate Governance RECOMMENDS that companies take responsibility for their social and environmental impact — listed companies are expected to comply or explain.\n• CSR builds the company's REPUTATION and brand image, which leads to long-term profitability — customers prefer socially responsible companies.\n• CSR initiatives build GOODWILL with the community and other stakeholders (employees, customers, government, suppliers), which ultimately benefits the business through improved relationships.\n• Ignoring CSR can lead to NEGATIVE PUBLICITY, consumer boycotts, or regulatory scrutiny, which would harm the company far more than the cost of CSR.\n• CSR is aligned with the concept of STAKEHOLDER VALUE — companies exist within society and have obligations to ALL stakeholders, not just shareholders.\n• Long-term sustainability of the business depends on maintaining the environment and community in which it operates — CSR protects the company's LONG-TERM LICENSE TO OPERATE.\n• Employees are more motivated and engaged when working for a company that demonstrates social responsibility → improved PRODUCTIVITY and lower staff turnover.\n\nTeaching point: The CEO confuses short-term cost with long-term value. The King Code requires companies to operate ethically and consider ALL stakeholders. CSR is an investment in the company's future — not simply an expense against short-term profit.",
+          "topic": "Corporate Governance — Corporate Social Responsibility",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q4.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-4-2-1",
+          "label": "4.2.1",
+          "questionText": "FRANCO LTD:\n\nFranco Ltd is a company whose shares are traded on the Johannesburg Stock Exchange (JSE). The directors of Franco Ltd approved large performance bonuses for themselves while the company was operating at a net loss. The directors also secretly signed contracts with suppliers in which they held personal financial interests, without disclosing this to the board or shareholders. The company's financial statements were found to be misleading — they did not fairly represent the company's actual financial position. Concerned shareholders raised these issues at the AGM, but the majority shareholder (who was also the chairperson of the board) overruled all objections.\n\nIs Franco Ltd a PUBLIC company or a PRIVATE company? Give ONE reason for your answer.",
+          "marks": 1,
+          "memoText": "Franco Ltd is a PUBLIC COMPANY. ✓\n\nReason: Its shares are listed and traded on the Johannesburg Stock Exchange (JSE). Only public companies may list on a stock exchange and offer shares to the general public. (A private company's shares may not be offered to the public and its name ends in '(Pty) Ltd'.)\n\nTeaching point: Public companies (Ltd) may raise capital from the general public by listing on the JSE. Private companies (Pty Ltd) cannot list or offer shares to the public — their shares are restricted to a small group of known shareholders.",
+          "topic": "Corporate Governance — Types of companies",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q4.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-4-2-2",
+          "label": "4.2.2",
+          "questionText": "FRANCO LTD — Refer to the scenario in 4.2.1.\n\nExplain why BOTH employees AND investors of Franco Ltd would be distressed by the situation described. Give TWO reasons for EACH group (4 reasons in total).",
+          "marks": 4,
+          "memoText": "EMPLOYEES (any TWO) ✓✓:\n• Job security is threatened — if the company is operating at a loss and funds are misused on bonuses, the company may become insolvent, resulting in RETRENCHMENTS.\n• Employees' retirement/pension funds (linked to company shares) may be severely affected if the share price collapses.\n• Employees may fear that their salaries cannot be paid if the company runs out of cash due to mismanagement.\n• Employee morale and trust in management is destroyed, leading to low motivation and possible resignation of key staff.\n\nINVESTORS (any TWO) ✓✓:\n• The share price is likely to fall sharply once the misconduct is revealed, resulting in significant capital losses.\n• Investors cannot rely on the financial statements to make informed decisions, since the statements were found to be misleading.\n• Dividends are unlikely to be paid given the net loss and misuse of funds.\n• Investors may lose their ENTIRE investment if the company is liquidated due to financial distress.\n\nTeaching point: Distinguish clearly between EMPLOYEES (concerned about jobs, salaries, pensions) and INVESTORS (concerned about share price, dividends, transparency). Both groups are STAKEHOLDERS harmed by poor corporate governance.",
+          "topic": "Corporate Governance — Impact on stakeholders",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q4.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2022-4-2-3",
+          "label": "4.2.3",
+          "questionText": "FRANCO LTD — Refer to the scenario in 4.2.1.\n\nIdentify and explain SIX corporate governance failures that occurred at Franco Ltd.",
+          "marks": 6,
+          "memoText": "Any SIX of the following ✓✓✓✓✓✓ (one mark per valid point — must identify the failure AND briefly explain why it is wrong):\n\n1. DIRECTORS ACTED IN THEIR OWN INTEREST — Directors approved large bonuses for themselves while the company was making a loss. Directors must act in the BEST INTEREST OF THE COMPANY AND ALL SHAREHOLDERS, not themselves. This violates their fiduciary duty.\n\n2. CONFLICT OF INTEREST NOT DISCLOSED — Directors signed contracts with suppliers in which they had a personal financial interest without disclosing it to the board or shareholders. The King Code requires ALL conflicts of interest to be fully disclosed and managed.\n\n3. LACK OF BOARD INDEPENDENCE — The chairperson of the board was also the majority shareholder, allowing personal interests to dominate and silencing minority shareholders. An independent chairperson is required to ensure objective oversight.\n\n4. NO INDEPENDENT NON-EXECUTIVE DIRECTORS — Without independent directors on the board, there was no effective oversight or challenge of executive decisions. The King Code recommends a majority of independent non-executive directors on the board.\n\n5. MISLEADING FINANCIAL STATEMENTS — The financial statements did not fairly represent the company's financial position, violating the principles of TRANSPARENCY and ACCOUNTABILITY. Stakeholders were unable to make informed decisions.\n\n6. MINORITY SHAREHOLDERS' RIGHTS VIOLATED — Concerned shareholders raised legitimate issues at the AGM but were overruled by the majority shareholder. This violates the principle that ALL shareholders have the right to be heard and treated equitably.\n\n7. FAILURE TO FOLLOW THE KING CODE — The directors failed to adhere to the King Code's core principles of ACCOUNTABILITY, TRANSPARENCY, FAIRNESS, RESPONSIBILITY and INTEGRITY in all their actions.\n\n8. ABUSE OF AUTHORITY — The majority shareholder used their dominant position to silence dissent, preventing proper governance from functioning. No single person should have unchecked control over the company.\n\nTeaching point: The King Code on Corporate Governance requires companies to be governed ethically and sustainably. The key principles are: Ethical leadership, Accountability, Transparency, Responsibility, and Fairness. When directors act for personal gain at the expense of stakeholders, they violate ALL these principles simultaneously.",
+          "topic": "Corporate Governance — Governance failures",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2022-q4.png"
+        }
+      ]
+    }
+  ]
+}

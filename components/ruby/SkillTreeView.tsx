@@ -12,7 +12,7 @@ interface SkillTreeViewProps {
 
 const statusConfig = {
   locked:        { bg: "bg-gray-100",  text: "text-gray-400",   border: "border-gray-200",  icon: "🔒", label: "Locked" },
-  available:     { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-200",  icon: "📖", label: "Available" },
+  available:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-200", icon: "📖", label: "Available" },
   in_progress:   { bg: "bg-orange-50", text: "text-orange-700", border: "border-orange-200",icon: "⚡",  label: "In Progress" },
   mastered:      { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200", icon: "✅", label: "Mastered" },
   active:        { bg: "bg-blue-100",  text: "text-blue-800",   border: "border-blue-400",  icon: "▶",  label: "Active" },

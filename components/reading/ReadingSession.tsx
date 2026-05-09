@@ -1,93 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { apiFetch } from "@/lib/fetch";
 import { useT } from "@/lib/i18n";
 
-// ── Natural voice engine (mirrors ChatInterface) ──────────────────────────────
-function prepareForSpeech(raw: string): string {
-  return raw
-    .replace(/#{1,6}\s+/g, "")
-    .replace(/\*\*(.+?)\*\*/g, "$1")
-    .replace(/\*(.+?)\*/g, "$1")
-    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .replace(/^\s*[-*+]\s/gm, "")
-    .replace(/^\s*\d+\.\s/gm, "")
-    .replace(/\n{2,}/g, ". ")
-    .replace(/\n/g, " ")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-}
+import { speakViaAPI, prefetchTTS } from "@/lib/tts";
 
-function pickVoice(): SpeechSynthesisVoice | null {
-  const voices = window.speechSynthesis.getVoices();
-  const preferred = [
-    "Samantha", "Karen", "Moira",
-    "Google UK English Female", "Microsoft Zira",
-    "Microsoft Susan", "Google US English",
-  ];
-  for (const name of preferred) {
-    const v = voices.find((v) => v.name.includes(name));
-    if (v) return v;
-  }
-  return voices.find((v) => v.lang.startsWith("en")) ?? null;
-}
-
-function speakNaturally(
-  text: string,
-  onStart: () => void,
-  onEnd: () => void
-): () => void {
-  let cancelled = false;
-  let timer: ReturnType<typeof setTimeout> | null = null;
-
-  const cancel = () => {
-    cancelled = true;
-    if (timer !== null) { clearTimeout(timer); timer = null; }
-    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-    onEnd();
-  };
-
-  if (!("speechSynthesis" in window)) { onEnd(); return cancel; }
-  window.speechSynthesis.cancel();
-
-  const cleaned = prepareForSpeech(text);
-  const sentences = cleaned
-    .split(/(?<=[.!?])\s+/)
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0);
-
-  if (sentences.length === 0) { onEnd(); return cancel; }
-
-  let idx = 0;
-  onStart();
-
-  const speakNext = () => {
-    if (cancelled) return;
-    if (idx >= sentences.length) { onEnd(); return; }
-    const sentence = sentences[idx++];
-    const utt = new SpeechSynthesisUtterance(sentence);
-    utt.rate = 0.92;
-    utt.pitch = 1.12;
-    utt.volume = 1;
-    const voice = pickVoice();
-    if (voice) utt.voice = voice;
-    const isQuestion = sentence.trim().endsWith("?");
-    const hasNumber = /\d/.test(sentence);
-    const pauseMs = isQuestion ? 650 : hasNumber ? 450 : 320;
-    utt.onend = () => { if (cancelled) return; timer = setTimeout(speakNext, pauseMs); };
-    utt.onerror = () => { if (cancelled) return; timer = setTimeout(speakNext, pauseMs); };
-    window.speechSynthesis.speak(utt);
-  };
-
-  if (window.speechSynthesis.getVoices().length === 0) {
-    window.speechSynthesis.addEventListener("voiceschanged", speakNext, { once: true });
-  } else {
-    speakNext();
-  }
-
-  return cancel;
-}
+// Alias so all call sites remain unchanged
+const speakNaturally = speakViaAPI;
 // ─────────────────────────────────────────────────────────────────────────────
 
 import {
@@ -103,33 +23,51 @@ import {
   createReadingProfile,
   getReadingSkillById,
   getNextReadingSkillId,
+  getReadingTierById,
+  getReadingLevelById,
   advanceToReadingSkill,
   recordReadingAttempt,
   updateSessionHistory,
   updateReadingSkillMastery,
   initReadingSkillMastery,
-  determineNextReadingAction,
   completeDiagnosticPlacement,
-  determineReadingDecision,
   saveReadingProfile,
+  scanAndMarkNeedsReview,
+  pickNeedsReviewSkill,
+  stampReviewedAt,
+  linkReadingProfileToAuth,
+  hydrateReadingProfileFromSupabase,
+  getReadingUsedRefs,
+  markReadingQuestionUsed,
 } from "@/lib/reading-student-model";
 import ReadingDiagnosticPlacement from "@/components/reading/ReadingDiagnosticPlacement";
 import { selectReadingTemplate } from "@/lib/template-selector";
+import { detectStuck } from "@/lib/stuck-detector";
+import StuckScreen from "@/components/shared/StuckScreen";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
+import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import {
   identifyStudent,
   trackQuestionAnswered,
   trackSkillMastered,
   trackSkillAdvanced,
-  trackReteach,
-  trackBacktrack,
   trackSessionStarted,
   trackSessionEnded,
   trackPlacementCompleted,
 } from "@/lib/analytics";
+import { supabase } from "@/lib/supabase";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 
-type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "complete";
+type SessionPhase = "loading_question" | "question" | "feedback" | "mastered" | "tier_complete" | "level_up" | "stuck" | "complete";
+
+function classifyTransition(fromId: string, toId: string): "same_tier" | "tier_complete" | "level_up" {
+  const fromParts = fromId.split(".");
+  const toParts = toId.split(".");
+  if (fromParts[0] !== toParts[0]) return "level_up";
+  if (fromParts[1] !== toParts[1]) return "tier_complete";
+  return "same_tier";
+}
 
 // ─── Reading report input builder ─────────────────────────────────────────────
 
@@ -157,8 +95,20 @@ function buildReadingReportInput(
       const score = Math.round((groupCorrect / g.tasks.length) * 100);
       const label: "strong" | "building" | "practice" =
         score >= 75 ? "strong" : score >= 50 ? "building" : "practice";
+      // DiagnosticTaskResult has no error_type field — errorNote unavailable at placement stage
       return { domain: g.name, score, label, errorNote: null };
     });
+
+  // Derive dominant errors from profile.error_history (accumulated across all reading activity)
+  // Falls back to score-based heuristic if no history exists yet
+  const historyEntries = Object.entries(profile.error_history ?? {})
+    .filter(([code, count]) => code !== "correct" && (count as number) > 0)
+    .sort(([, a], [, b]) => (b as number) - (a as number))
+    .slice(0, 3)
+    .map(([code]) => code);
+  const dominantErrors = historyEntries.length > 0
+    ? historyEntries
+    : overallScore < 50 ? ["ERR_BLEND_FAIL"] : overallScore < 70 ? ["ERR_SOUND_RECALL"] : [];
 
   const entryLevel = result.autoCompletedSkillIds.length > 6 ? 3
     : result.autoCompletedSkillIds.length > 2 ? 2 : 1;
@@ -168,31 +118,32 @@ function buildReadingReportInput(
     studentName: profile.name.split(" ")[0],
     studentGrade: profile.grade,
     workingLevel: `Reading Level ${entryLevel}`,
-    gradeLevelGap: Math.max(0, profile.grade - entryLevel - 1),
+    gradeLevelGap: profile.grade - entryLevel,
     questionsAnalysed: total,
+    correctCount: result.tasks.filter((t) => t.correct).length,
     domainScores,
-    dominantErrors: overallScore < 50 ? ["ERR_BLEND_FAIL"] : overallScore < 70 ? ["ERR_SOUND_RECALL"] : [],
+    dominantErrors,
     placementSkill: result.entrySkillId,
-    hardGateBlocked: !result.hardGatePassed,
     skillsCompleted: result.autoCompletedSkillIds.length,
   };
 }
 
-function readOnboarding(): { name: string; grade: number } {
-  try {
-    const raw = localStorage.getItem("onboardingData");
-    if (!raw) return { name: "Student", grade: 3 };
-    const data = JSON.parse(raw);
-    const name = ((data.name as string) || "Student").split(" ")[0];
-    const grade = parseInt(data.grade as string) || 3;
-    return { name, grade };
-  } catch {
-    return { name: "Student", grade: 3 };
-  }
+function parseGrade(raw: unknown, fallback: number): number {
+  const parsed = parseInt(raw as string, 10);
+  return !isNaN(parsed) && parsed >= 1 && parsed <= 12 ? parsed : fallback;
 }
 
-export default function ReadingSession() {
+async function readOnboardingWithFallback(): Promise<{ name: string; grade: number }> {
+  try {
+    const auth = await fetchAuthorisedGrade();
+    if (auth) return auth;
+  } catch { /* fall through */ }
+  return { name: "Student", grade: 3 };
+}
+
+export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => void }) {
   const { language } = useT();
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<ReadingStudentProfile | null>(null);
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
   const [currentQuestion, setCurrentQuestion] = useState<ReadingGeneratedQuestion | null>(null);
@@ -201,21 +152,48 @@ export default function ReadingSession() {
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionAttempts, setSessionAttempts] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
+  const [loadErrorCount, setLoadErrorCount] = useState(0);
+  const retryFnRef = useRef<(() => void) | null>(null);
 
   // Report state — shown after placement, before learning begins
   const [pendingPlacementResult, setPendingPlacementResult] = useState<import("@/types/reading").DiagnosticPlacementResult | null>(null);
   const [showReport, setShowReport] = useState(false);
+  // Holds the profile saved in handleViewReport so handlePlacementComplete can reuse it
+  const savedPlacementRef = useRef<ReadingStudentProfile | null>(null);
+
+  // Needs-review: skill ID of a stale mastered skill to probe before main practice
+  const [pendingReviewSkillId, setPendingReviewSkillId] = useState<string | null>(null);
+
+  // Celebration state — next skill to advance to after tier/level celebration is dismissed
+  const [pendingNextSkillId, setPendingNextSkillId] = useState<string | null>(null);
+  // Track whether the last feedback was a needs-review question answered correctly
+  const [wasReviewCorrect, setWasReviewCorrect] = useState(false);
 
   // Recent templates — used by selectReadingTemplate for anti-repetition; last 3 kept
   const recentTemplatesRef = useRef<ReadingTemplate[]>([]);
 
+  // Stuck detection — tracks attempt_count when student last dismissed the stuck screen
+  const stuckDismissedAtRef = useRef(0);
+
+  // Prefetch cache — holds the next question fetched during feedback phase
+  const prefetchedQuestionRef = useRef<{ question: ReadingGeneratedQuestion; skillId: string } | null>(null);
+  const [stuckAttemptCount, setStuckAttemptCount] = useState(0);
+
   // Prevents double-writing sessionHistory for the same skill session
   const hasRecordedSession = useRef(false);
 
+  // Keep profileRef in sync so callbacks never close over a stale profile
+  useEffect(() => { profileRef.current = profile; }, [profile]);
+
   useEffect(() => {
-    const saved = getReadingProfile();
-    if (saved) {
+    scrollRef.current?.scrollTo({ top: 0 });
+  }, [phase, currentQuestion?.id]);
+
+  useEffect(() => {
+    function initWithProfile(saved: import("@/types/reading").ReadingStudentProfile) {
       identifyStudent({ id: saved.id, name: saved.name, grade: saved.grade });
+      // Keep auth link fresh — fire-and-forget, non-blocking
+      void linkReadingProfileToAuth(saved.id);
       if (saved.placementCompleted) {
         trackSessionStarted({
           subject: "reading",
@@ -223,24 +201,59 @@ export default function ReadingSession() {
           current_level: saved.current_level,
         });
       }
-      setProfile(saved);
+      const scanned = saved.placementCompleted ? scanAndMarkNeedsReview(saved) : saved;
+      setProfile(scanned);
+      const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
+      setSkillAttemptCount(restoredAttemptCount);
+      const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scanned) : null;
+      if (reviewSkill) setPendingReviewSkillId(reviewSkill);
       setPhase("loading_question");
+    }
+
+    const saved = getReadingProfile();
+    if (saved) {
+      initWithProfile(saved);
     } else {
-      // Auto-create from onboarding — no setup screen needed
-      const { name, grade } = readOnboarding();
-      const newProfile = createReadingProfile(name, grade);
-      identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
-      setProfile(newProfile);
-      // placement gate will intercept before loading_question fires
+      // localStorage cleared — try to restore from Supabase before creating a new profile
+      hydrateReadingProfileFromSupabase().then((restored) => {
+        if (restored) {
+          initWithProfile(restored);
+        } else {
+          readOnboardingWithFallback().then(({ name, grade }) => {
+            const newProfile = createReadingProfile(name, grade);
+            identifyStudent({ id: newProfile.id, name: newProfile.name, grade: newProfile.grade });
+            setProfile(newProfile);
+            // placement gate will intercept before loading_question fires
+          });
+        }
+      });
     }
   }, []);
 
   const loadQuestion = useCallback(
-    async (skillId: string, template: ReadingTemplate, attemptNum: number, decision = "practice", errorType: string | null = null) => {
+    async (skillId: string, template: ReadingTemplate, attemptNum: number, is_correct = true, errorType: string | null = null) => {
+      retryFnRef.current = () => loadQuestion(skillId, template, attemptNum, is_correct, errorType);
+
+      // Use prefetched question if available — skips network call and spinner
+      const prefetch = prefetchedQuestionRef.current;
+      if (prefetch?.skillId === skillId) {
+        prefetchedQuestionRef.current = null;
+        const q = prefetch.question;
+        if (q.used_ref && profileRef.current) {
+          const updated = markReadingQuestionUsed(profileRef.current, skillId, q.used_ref);
+          setProfile(updated);
+        }
+        setCurrentQuestion(q);
+        setLoadErrorCount(0);
+        setPhase("question");
+        return;
+      }
+
       setPhase("loading_question");
       setStatusMessage("Generating your question...");
       try {
-        const res = await fetch("/api/reading/generate-question", {
+        const used_refs = profileRef.current ? getReadingUsedRefs(profileRef.current, skillId) : [];
+        const res = await apiFetch("/api/reading/generate-question", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -248,16 +261,24 @@ export default function ReadingSession() {
             template,
             attempt_number: attemptNum,
             include_hint: attemptNum > 1,
-            decision,
+            is_correct,
             error_type: errorType,
+            used_refs,
           }),
         });
         if (!res.ok) throw new Error("Failed to generate question");
         const q: ReadingGeneratedQuestion = await res.json();
+        // Mark this pool ref as used so it isn't served again until the pool resets
+        if (q.used_ref && profileRef.current) {
+          const updated = markReadingQuestionUsed(profileRef.current, skillId, q.used_ref);
+          setProfile(updated);
+        }
         setCurrentQuestion(q);
+        setLoadErrorCount(0);
         setPhase("question");
       } catch {
-        setStatusMessage("Failed to load question. Check your API key and refresh.");
+        setLoadErrorCount((c) => c + 1);
+        setStatusMessage("Failed to load question.");
       }
     },
     []
@@ -265,29 +286,60 @@ export default function ReadingSession() {
 
   useEffect(() => {
     if (phase === "loading_question" && profile) {
-      const decision = currentResult?.decision?.toLowerCase() ?? "practice";
+      const prevCorrect = currentResult?.is_correct ?? true;
       const errorType =
         currentResult && !currentResult.is_correct && currentResult.error_type !== "correct"
           ? currentResult.error_type
           : null;
-      const template = selectReadingTemplate(decision, errorType, null, recentTemplatesRef.current);
+      const template = selectReadingTemplate(prevCorrect, errorType, null, recentTemplatesRef.current);
       recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
-      loadQuestion(profile.current_skill_id, template, skillAttemptCount + 1, decision, errorType);
+      // If a stale mastered skill needs a retention probe, load that first
+      const skillIdToLoad = pendingReviewSkillId ?? profile.current_skill_id;
+      loadQuestion(skillIdToLoad, template, skillAttemptCount + 1, prevCorrect, errorType);
     }
   }, [phase, profile, skillAttemptCount, currentResult, loadQuestion]);
 
   const handleViewReport = useCallback(
-    (result: DiagnosticPlacementResult) => {
+    async (result: DiagnosticPlacementResult) => {
+      if (!profile) return;
       setPendingPlacementResult(result);
       setShowReport(true);
+      // Persist immediately so the report is viewable from home/settings
+      // even if the user navigates away before clicking "Continue Learning"
+      const updated = completeDiagnosticPlacement(profile, result);
+      savedPlacementRef.current = updated;
+      try {
+        const rInput = buildReadingReportInput(updated, result);
+        const rContent = buildDeterministicReportContent(rInput);
+        const { data: { session } } = await supabase.auth.getSession();
+        const user = session?.user;
+        if (user) {
+          const { error: reportError } = await supabase.from("student_reports").insert({
+            user_id: user.id,
+            subject: "reading",
+            input_data: rInput as unknown as Record<string, unknown>,
+            content_data: rContent as unknown as Record<string, unknown>,
+            generated_at: new Date().toISOString(),
+          });
+          if (reportError) console.error("[ReadingViewReport] student_reports insert failed:", reportError);
+          void fetch("/api/reports/email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: user.id, subject: "reading", inputData: rInput, contentData: rContent }),
+          });
+        }
+      } catch (err) {
+        console.error("[ReadingViewReport] Report save failed:", err);
+      }
     },
-    []
+    [profile]
   );
 
   const handlePlacementComplete = useCallback(
-    (result: DiagnosticPlacementResult) => {
+    async (result: DiagnosticPlacementResult) => {
       if (!profile) return;
-      const updated = completeDiagnosticPlacement(profile, result);
+      // Reuse the profile already saved in handleViewReport; fall back if called directly
+      const updated = savedPlacementRef.current ?? completeDiagnosticPlacement(profile, result);
       setProfile(updated);
       setPhase("loading_question");
 
@@ -316,7 +368,7 @@ export default function ReadingSession() {
 
 
     try {
-      const res = await fetch("/api/reading/submit-answer", {
+      const res = await apiFetch("/api/reading/submit-answer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -329,6 +381,7 @@ export default function ReadingSession() {
           student_steps: steps,
           expected_answer: currentQuestion.expected_answer,
           used_hint: usedHint,
+          attempt_number: skillAttemptCount + 1,
           language,
         }),
       });
@@ -343,7 +396,7 @@ export default function ReadingSession() {
         profile.skill_mastery[currentQuestion.skill_id] ||
         initReadingSkillMastery(currentQuestion.skill_id);
 
-      const updatedMastery = updateReadingSkillMastery(existingMastery, attempt, skill);
+      const updatedMastery = updateReadingSkillMastery(existingMastery, attempt, profile.grade);
       result.mastery_update = {
         skill_id: currentQuestion.skill_id,
         new_status: updatedMastery.status,
@@ -352,22 +405,16 @@ export default function ReadingSession() {
         formats_used: updatedMastery.formats_used,
       };
 
-      const nextAction = determineNextReadingAction(updatedMastery, updatedMastery.attempts);
-      result.next_action = nextAction;
+      result.next_action = updatedMastery.status === "mastered" ? "advance_skill" : "continue_skill";
 
-      // Section 10/11 decision engine
-      const decision = determineReadingDecision(currentQuestion.skill_id, profile, {
-        is_correct: result.is_correct,
-        error_type: result.error_type,
-      });
-      result.decision = decision;
-
-      // Map decision back to next_action when appropriate
-      if (decision === "ADVANCE" || decision === "ACCELERATE") result.next_action = "advance_skill";
-      if (decision === "BACKTRACK") result.next_action = "review_prerequisite";
-
-      const profileAfterAttempt = recordReadingAttempt(profile, attempt, updatedMastery, decision);
-      setProfile(profileAfterAttempt);
+      const isReviewQuestion = pendingReviewSkillId === currentQuestion.skill_id;
+      const profileAfterAttempt = recordReadingAttempt(profile, attempt, updatedMastery);
+      const profileAfterReview = isReviewQuestion
+        ? stampReviewedAt(profileAfterAttempt, currentQuestion.skill_id)
+        : profileAfterAttempt;
+      setProfile(profileAfterReview);
+      if (isReviewQuestion) setPendingReviewSkillId(null);
+      setWasReviewCorrect(isReviewQuestion && result.is_correct);
 
       const newSessionAttempts = sessionAttempts + 1;
       const newSessionCorrect = sessionCorrect + (result.is_correct ? 1 : 0);
@@ -383,7 +430,6 @@ export default function ReadingSession() {
         is_correct: result.is_correct,
         used_hint: usedHint,
         attempt_number: skillAttemptCount + 1,
-        decision,
       });
 
       if (updatedMastery.status === "mastered") {
@@ -399,76 +445,183 @@ export default function ReadingSession() {
         document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "reading" } }));
         setPhase("mastered");
       } else {
-        if (decision === "RETEACH") {
-          trackReteach({
-            subject: "reading",
-            skill_id: currentQuestion.skill_id,
-            error_type: result.error_type ?? "unknown",
-            reteach_count: 1,
-          });
-        }
         setCurrentResult(result);
-        setPhase("feedback");
+        const stuckState = detectStuck(
+          updatedMastery.attempt_count,
+          updatedMastery.p_learned ?? 0,
+          stuckDismissedAtRef.current,
+        );
+        if (stuckState.level === "stuck") {
+          setStuckAttemptCount(stuckState.attemptCount);
+          setPhase("stuck");
+        } else {
+          setPhase("feedback");
+          // Prefetch next question while student reads feedback
+          const nextSkillId = profileAfterReview.current_skill_id;
+          const nextUsedRefs = getReadingUsedRefs(profileAfterReview, nextSkillId);
+          const nextErrorType = !result.is_correct && result.error_type !== "correct" ? result.error_type : null;
+          const nextTemplate = selectReadingTemplate(result.is_correct, nextErrorType, null, recentTemplatesRef.current);
+          void apiFetch("/api/reading/generate-question", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              skill_id: nextSkillId,
+              template: nextTemplate,
+              attempt_number: skillAttemptCount + 2,
+              include_hint: !result.is_correct,
+              is_correct: result.is_correct,
+              error_type: nextErrorType,
+              used_refs: nextUsedRefs,
+            }),
+          }).then(async (res) => {
+            if (res.ok) {
+              const q: ReadingGeneratedQuestion = await res.json();
+              prefetchedQuestionRef.current = { question: q, skillId: nextSkillId };
+              // Prefetch TTS for the next question during feedback so audio is
+              // ready the moment the question appears — not after it mounts
+              if (q.question) prefetchTTS(q.question);
+              q.audioChoices?.forEach((c) => { if (c.speech) prefetchTTS(c.speech); });
+            }
+          }).catch(() => { /* silent — loadQuestion will fetch normally as fallback */ });
+        }
       }
     } catch (e) {
       console.error(e);
+      setStatusMessage("Something went wrong, please try submitting again.");
+      setPhase("question");
     }
   };
 
   const handleNextAfterFeedback = () => {
     if (!profile || !currentResult) return;
-    if (currentResult.next_action === "review_prerequisite") {
-      const skill = getReadingSkillById(profile.current_skill_id);
-      if (skill && skill.prerequisites.length > 0) {
-        const prereqId = skill.prerequisites[skill.prerequisites.length - 1];
-        trackBacktrack({ subject: "reading", from_skill_id: profile.current_skill_id, to_prereq_id: prereqId });
-        // Record session as not passed — student is backtracking off this skill
-        if (!hasRecordedSession.current) {
-          hasRecordedSession.current = true;
-          updateSessionHistory(profile, profile.current_skill_id, false);
-        }
-        const updated = advanceToReadingSkill(profile, prereqId);
-        setProfile(updated);
-        setSkillAttemptCount(0);
-        recentTemplatesRef.current = [];
-        setPhase("loading_question");
-        return;
-      }
-    }
     setPhase("loading_question");
+  };
+
+  const handleMarkDone = () => {
+    if (!profile || !currentQuestion) return;
+    try {
+      const skillId = currentQuestion.skill_id;
+      const existingMastery = profile.skill_mastery[skillId] || initReadingSkillMastery(skillId);
+      const assumedMastery = { ...existingMastery, status: "assumed" as const };
+      const profileWithAssumed = {
+        ...profile,
+        skill_mastery: { ...profile.skill_mastery, [skillId]: assumedMastery },
+      };
+      const nextSkillId = getNextReadingSkillId(skillId);
+      if (nextSkillId) {
+        trackSkillAdvanced({ subject: "reading", from_skill_id: skillId, to_skill_id: nextSkillId });
+        const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
+        saveReadingProfile(advanced);
+        setProfile(advanced);
+      } else {
+        saveReadingProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+      }
+      stuckDismissedAtRef.current = 0;
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase(nextSkillId ? "loading_question" : "complete");
+    } catch (err) {
+      console.error("[handleMarkDone] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
+    }
+  };
+
+  const handleSkipOnLoadError = () => {
+    if (!profile) return;
+    try {
+      setLoadErrorCount(0);
+      const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
+      const existingMastery = profile.skill_mastery[skillId] || initReadingSkillMastery(skillId);
+      const profileWithAssumed = {
+        ...profile,
+        skill_mastery: { ...profile.skill_mastery, [skillId]: { ...existingMastery, status: "assumed" as const } },
+      };
+      const nextSkillId = getNextReadingSkillId(skillId);
+      if (nextSkillId) {
+        const advanced = advanceToReadingSkill(profileWithAssumed, nextSkillId);
+        saveReadingProfile(advanced);
+        setProfile(advanced);
+      } else {
+        saveReadingProfile(profileWithAssumed);
+        setProfile(profileWithAssumed);
+      }
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setPhase(nextSkillId ? "loading_question" : "complete");
+    } catch (err) {
+      console.error("[handleSkipOnLoadError] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
+    }
+  };
+
+  const handleKeepTrying = () => {
+    if (!currentQuestion || !profile) return;
+    const mastery = profile.skill_mastery[currentQuestion.skill_id];
+    stuckDismissedAtRef.current = mastery?.attempt_count ?? skillAttemptCount;
+    setPhase("feedback");
   };
 
   const handleNextAfterMastered = () => {
     if (!profile) return;
-    // Record session as passed — student mastered this skill
-    if (!hasRecordedSession.current) {
-      hasRecordedSession.current = true;
-      updateSessionHistory(profile, profile.current_skill_id, true);
+    try {
+      // Record session as passed — student mastered this skill
+      if (!hasRecordedSession.current) {
+        hasRecordedSession.current = true;
+        updateSessionHistory(profile, profile.current_skill_id, true);
+      }
+      const nextSkillId = getNextReadingSkillId(profile.current_skill_id);
+      if (nextSkillId) {
+        trackSkillAdvanced({ subject: "reading", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
+        const transition = classifyTransition(profile.current_skill_id, nextSkillId);
+        if (transition === "level_up") {
+          setPendingNextSkillId(nextSkillId);
+          setPhase("level_up");
+        } else if (transition === "tier_complete") {
+          setPendingNextSkillId(nextSkillId);
+          setPhase("tier_complete");
+        } else {
+          const updated = advanceToReadingSkill(profile, nextSkillId);
+          setProfile(updated);
+          setSkillAttemptCount(0);
+          recentTemplatesRef.current = [];
+          setPhase("loading_question");
+        }
+      } else {
+        setPhase("complete");
+      }
+    } catch (err) {
+      console.error("[handleNextAfterMastered] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
     }
-    const nextSkillId = getNextReadingSkillId(profile.current_skill_id);
-    if (nextSkillId) {
-      trackSkillAdvanced({ subject: "reading", from_skill_id: profile.current_skill_id, to_skill_id: nextSkillId });
-      const updated = advanceToReadingSkill(profile, nextSkillId);
+  };
+
+  const handleAdvanceAfterCelebration = () => {
+    if (!profile || !pendingNextSkillId) return;
+    try {
+      const updated = advanceToReadingSkill(profile, pendingNextSkillId);
       setProfile(updated);
+      setPendingNextSkillId(null);
       setSkillAttemptCount(0);
       recentTemplatesRef.current = [];
       setPhase("loading_question");
-    } else {
-      setPhase("complete");
+    } catch (err) {
+      console.error("[handleAdvanceAfterCelebration] unexpected error:", err);
+      setStatusMessage("Something went wrong. Please try again.");
     }
   };
 
   // Full reset — wipes everything, reruns placement with fresh questions
   const resetToPlacement = () => {
-    localStorage.removeItem("ruby_reading_profile");
-    const { name, grade } = readOnboarding();
-    const freshProfile = createReadingProfile(name, grade);
-    setProfile(freshProfile);
-    setPhase("loading_question");
-    setSkillAttemptCount(0);
-    recentTemplatesRef.current = [];
-    setSessionCorrect(0);
-    setSessionAttempts(0);
+    readOnboardingWithFallback().then(({ name, grade }) => {
+      const freshProfile = createReadingProfile(name, grade);
+      setProfile(freshProfile);
+      setPhase("loading_question");
+      setSkillAttemptCount(0);
+      recentTemplatesRef.current = [];
+      setSessionCorrect(0);
+      setSessionAttempts(0);
+    });
   };
 
   // Skill-tree-only reset — keeps placement result, returns to entry point with fresh questions
@@ -579,9 +732,15 @@ export default function ReadingSession() {
       return (
         <DiagnosticReportView
           input={reportInput}
-          onStartLearning={() => {
+          ctaLabel="Continue Learning 🚀"
+          onStartLearning={async () => {
+            if (onSelectPlan) {
+              onSelectPlan();
+              handlePlacementComplete(pendingPlacementResult);
+              return;
+            }
             setShowReport(false);
-            handlePlacementComplete(pendingPlacementResult);
+            await handlePlacementComplete(pendingPlacementResult);
           }}
         />
       );
@@ -590,6 +749,7 @@ export default function ReadingSession() {
     return (
       <ReadingDiagnosticPlacement
         studentName={profile.name}
+        studentGrade={profile.grade}
         onComplete={handlePlacementComplete}
         onViewReport={handleViewReport}
       />
@@ -602,11 +762,36 @@ export default function ReadingSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-gray-600 font-medium text-base">{statusMessage || "Loading..."}</p>
-          </div>
+        <div className="flex-1 flex items-center justify-center p-6">
+          {loadErrorCount === 0 ? (
+            <div className="text-center">
+              <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-gray-600 font-medium text-base">{statusMessage || "Ruby is personalising your learning..."}</p>
+            </div>
+          ) : (
+            <div className="text-center max-w-sm w-full space-y-4">
+              <div className="text-4xl">⚠️</div>
+              <p className="text-gray-800 font-semibold">
+                {loadErrorCount >= 3 ? "Still not loading" : "Couldn't load the question"}
+              </p>
+              <p className="text-gray-500 text-sm">Check your connection and try again.</p>
+              {loadErrorCount < 3 ? (
+                <button
+                  onClick={() => retryFnRef.current?.()}
+                  className="w-full bg-purple-500 text-white py-3 rounded-2xl font-semibold hover:bg-purple-600 transition-colors"
+                >
+                  Try again
+                </button>
+              ) : (
+                <button
+                  onClick={handleSkipOnLoadError}
+                  className="w-full bg-gray-200 text-gray-700 py-3 rounded-2xl font-semibold hover:bg-gray-300 transition-colors"
+                >
+                  Skip this question
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     );
@@ -620,7 +805,7 @@ export default function ReadingSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
             {skill && (
               <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
@@ -649,7 +834,6 @@ export default function ReadingSession() {
   if (phase === "feedback" && currentResult) {
     const nextLabels: Record<string, string> = {
       continue_skill: "Try another question",
-      review_prerequisite: "Review prerequisite skill",
       advance_skill: "Next skill",
       advance_tier: "Next topic",
       advance_level: "Next level",
@@ -657,13 +841,14 @@ export default function ReadingSession() {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto">
             <ReadingFeedbackCard
               result={currentResult}
               onNext={handleNextAfterFeedback}
               nextLabel={nextLabels[currentResult.next_action] || "Continue"}
               language={language}
+              wasReviewCorrect={wasReviewCorrect}
             />
           </div>
         </div>
@@ -679,23 +864,97 @@ export default function ReadingSession() {
       <div className="flex flex-col h-full bg-gray-50">
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
-          <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
-            <div className="text-5xl mb-2">🏆</div>
-            <h3 className="text-2xl font-bold text-green-800">Skill Mastered!</h3>
-            <p className="text-green-700">
-              You&apos;ve mastered <strong>{skill?.title || "this skill"}</strong>!
+          <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
+            <div className="text-6xl mb-1">🎉</div>
+            <div className="flex justify-center gap-2 text-2xl">⭐⭐⭐</div>
+            <h3 className="text-2xl font-bold text-green-800">Skill Complete!</h3>
+            <p className="text-green-700 text-lg">
+              You mastered <strong>{skill?.title || "this skill"}</strong>!
             </p>
             {currentResult && (
-              <p className="text-gray-600 text-base">{currentResult.feedback}</p>
+              <p className="text-gray-500 text-sm">{currentResult.feedback}</p>
             )}
             <button
               onClick={handleNextAfterMastered}
-              className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-medium transition-all shadow-md mt-2"
+              className="w-full bg-green-500 hover:bg-green-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md mt-2"
             >
-              Continue to Next Skill →
+              Keep going →
             </button>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  // ─── Tier complete ────────────────────────────────────────────────────────────
+
+  if (phase === "tier_complete") {
+    const currentTierId = profile ? `${profile.current_skill_id.split(".")[0]}.${profile.current_skill_id.split(".")[1]}` : null;
+    const tier = currentTierId ? getReadingTierById(currentTierId) : null;
+    return (
+      <div className="flex flex-col h-full bg-gray-50">
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <div className="flex-1 flex items-center justify-center p-6">
+          <div className="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
+            <div className="text-5xl">🎯</div>
+            <h3 className="text-2xl font-bold text-purple-800">Topic Complete!</h3>
+            <p className="text-purple-700 text-lg">
+              You finished <strong>{tier?.title ?? "this topic"}</strong>!
+            </p>
+            <button
+              onClick={handleAdvanceAfterCelebration}
+              className="w-full bg-purple-500 hover:bg-purple-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md"
+            >
+              Next topic →
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ─── Level up ─────────────────────────────────────────────────────────────────
+
+  if (phase === "level_up") {
+    const nextLevelNum = pendingNextSkillId ? parseInt(pendingNextSkillId.split(".")[0].replace("R", "")) : null;
+    const nextLevel = nextLevelNum ? getReadingLevelById(nextLevelNum) : null;
+    const levelName = nextLevel?.title ?? `Reading Level ${nextLevelNum}`;
+    return (
+      <div className="flex flex-col h-full bg-gradient-to-br from-amber-50 to-orange-50">
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <div className="flex-1 flex items-center justify-center p-6">
+          <div className="bg-white border-2 border-amber-300 rounded-2xl p-8 shadow-xl max-w-md w-full text-center space-y-4">
+            <div className="text-6xl">🏆</div>
+            <h3 className="text-3xl font-bold text-amber-800">Level Up!</h3>
+            <p className="text-amber-700 text-xl">
+              You unlocked <strong>{levelName}</strong>!
+            </p>
+            <button
+              onClick={handleAdvanceAfterCelebration}
+              className="w-full bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 active:scale-95 text-white py-4 rounded-xl font-bold text-xl transition-all shadow-lg"
+            >
+              Keep going! →
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ─── Stuck ────────────────────────────────────────────────────────────────────
+
+  if (phase === "stuck" && currentQuestion) {
+    const skill = getReadingSkillById(currentQuestion.skill_id);
+    return (
+      <div className="flex flex-col h-full bg-gray-50">
+        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+        <StuckScreen
+          skillTitle={skill?.title ?? "this skill"}
+          subject="reading"
+          attemptCount={stuckAttemptCount}
+          onMarkDone={handleMarkDone}
+          onKeepTrying={handleKeepTrying}
+        />
       </div>
     );
   }
@@ -708,18 +967,18 @@ export default function ReadingSession() {
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
-            <div className="text-5xl mb-2">🎓</div>
-            <h3 className="text-2xl font-bold text-gray-900">Amazing!</h3>
-            <p className="text-gray-600">
-              You&apos;ve completed the entire Ruby Reading Skill Tree. What an incredible achievement!
-            </p>
-            <button
-              onClick={resetToPlacement}
-              className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-xl font-medium mt-2"
-            >
-              Start Again
-            </button>
-          </div>
+              <div className="text-5xl mb-2">🎓</div>
+              <h3 className="text-2xl font-bold text-gray-900">Amazing!</h3>
+              <p className="text-gray-600">
+                You&apos;ve completed the entire Ruby Reading Skill Tree. What an incredible achievement!
+              </p>
+              <button
+                onClick={resetToPlacement}
+                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-xl font-medium mt-2"
+              >
+                Start Again
+              </button>
+            </div>
         </div>
       </div>
     );
@@ -816,10 +1075,20 @@ function ReadingQuestionCard({
   const [usedHint, setUsedHint] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const [listening, setListening] = useState(false);
+  const [selectedAudioChoice, setSelectedAudioChoice] = useState<string | null>(null);
+  const [playingChoiceValue, setPlayingChoiceValue] = useState<string | null>(null);
   const cancelSpeechRef = useRef<(() => void) | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const recognitionRef = useRef<any>(null);
+  const cancelChoiceAudioRef = useRef<(() => void) | null>(null);
+
+  // Prefetch TTS as soon as the question mounts so audio is ready when user taps play
+  useEffect(() => {
+    if (question.question) prefetchTTS(question.question);
+    // Prefetch displayWord in lowercase — matches what togglePlay sends to TTS
+    if (question.displayWord) prefetchTTS(question.displayWord.toLowerCase());
+    question.audioChoices?.forEach((c) => { if (c.speech) prefetchTTS(c.speech); });
+  }, [question.id]);
+
+  const isAudioTap = !!(question.audioChoices && question.audioChoices.length > 0);
 
   const config = templateConfig[question.template] || templateConfig.oral;
 
@@ -831,6 +1100,10 @@ function ReadingQuestionCard({
       setPlaying(false);
       return;
     }
+    // Stop any choice audio that may be playing before starting question playback
+    cancelChoiceAudioRef.current?.();
+    cancelChoiceAudioRef.current = null;
+    setPlayingChoiceValue(null);
     cancelSpeechRef.current = speakNaturally(
       text,
       () => setPlaying(true),
@@ -838,42 +1111,44 @@ function ReadingQuestionCard({
     );
   };
 
-  // ── STT: same pattern as ChatInterface ───────────────────────────────────────
-  const startVoice = () => {
-    if (!("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) {
-      alert("Voice input is not supported in your browser. Try Chrome.");
-      return;
-    }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    const rec = new SR();
-    rec.continuous = true;
-    rec.interimResults = true;
-    rec.lang = "en-US";
-    rec.onstart = () => setListening(true);
-    rec.onend = () => setListening(false);
-    rec.onerror = () => setListening(false);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    rec.onresult = (event: any) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const transcript = Array.from(event.results as any[])
-        .map((r: any) => r[0].transcript)
-        .join("");
-      setAnswer(transcript);
-    };
-    recognitionRef.current = rec;
-    rec.start();
-  };
-
-  const stopVoice = () => { recognitionRef.current?.stop(); setListening(false); };
-
   const handleSubmit = () => {
-    if ((!answer.trim() && !listening) || submitting) return;
-    if (listening) stopVoice();
+    if (!answer.trim() || submitting) return;
     cancelSpeechRef.current?.();
     setPlaying(false);
     setSubmitting(true);
     onSubmit(answer, "", usedHint);
+    setSubmitting(false);
+  };
+
+  const handleSelfReport = (correct: boolean) => {
+    if (submitting) return;
+    cancelSpeechRef.current?.();
+    setPlaying(false);
+    setSubmitting(true);
+    onSubmit(correct ? question.expected_answer : "", "", usedHint);
+    setSubmitting(false);
+  };
+
+  const handleAudioChoiceTap = (choice: { label: string; speech: string; correct: boolean }) => {
+    cancelSpeechRef.current?.();   // Stop question TTS before playing choice audio
+    cancelSpeechRef.current = null;
+    setPlaying(false);
+    cancelChoiceAudioRef.current?.();
+    setSelectedAudioChoice(choice.label);
+    setPlayingChoiceValue(choice.label);
+    cancelChoiceAudioRef.current = speakNaturally(
+      choice.speech,
+      () => {},
+      () => setPlayingChoiceValue(null)
+    );
+  };
+
+  const handleAudioChoiceSubmit = () => {
+    if (!selectedAudioChoice || submitting) return;
+    cancelChoiceAudioRef.current?.();
+    setPlayingChoiceValue(null);
+    setSubmitting(true);
+    onSubmit(selectedAudioChoice, "", usedHint);
     setSubmitting(false);
   };
 
@@ -890,10 +1165,12 @@ function ReadingQuestionCard({
         <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap">
           {question.question}
         </p>
-        {/* Play/Stop pill — same style as ChatInterface message buttons */}
+        {/* Play/Stop pill — hidden for audio-tap questions (question text contains
+            phoneme labels like "SH" that TTS cannot pronounce correctly) */}
         <div className="flex items-center gap-3 mt-3">
           <button
             onClick={() => togglePlay(question.question)}
+            hidden={isAudioTap}
             className={`flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all ${
               playing
                 ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
@@ -958,99 +1235,237 @@ function ReadingQuestionCard({
         </div>
       )}
 
-      {/* Answer input — mic inside container, same as ChatInterface input bar */}
+      {/* Answer input */}
       <div className="px-6 pb-6 space-y-4">
-        <div>
-          <label className="block text-base font-medium text-gray-700 mb-1.5">Your Answer</label>
-          <div className={`relative flex items-end gap-2 border rounded-2xl px-3 py-2 transition-all ${
-            listening
-              ? "border-red-400 bg-red-50 ring-2 ring-red-100"
-              : "bg-gray-50 border-gray-200 focus-within:border-purple-400 focus-within:ring-2 focus-within:ring-purple-100"
-          }`}>
-            {/* Answer display area */}
-            <div className={`flex-1 py-1.5 text-base leading-relaxed min-h-[28px] ${answer ? "text-gray-800" : "text-gray-400"}`}>
-              {answer || "Your answer will display here"}
-            </div>
-            {/* Mic button — same style as ChatInterface */}
-            <button
-              onClick={listening ? stopVoice : startVoice}
-              className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${
-                listening ? "bg-red-100 text-red-500" : "text-gray-400 hover:text-gray-600 hover:bg-white"
-              }`}
-              title={listening ? "Stop listening" : "Voice input"}
-            >
-              {listening ? (
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <rect x="6" y="6" width="12" height="12" rx="1" />
-                </svg>
-              ) : (
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
-                </svg>
-              )}
-            </button>
-          </div>
-          {listening && (
-            <p className="text-sm text-red-500 mt-1.5 flex items-center gap-1">
-              <span className="w-2 h-2 bg-red-500 rounded-full inline-block animate-pulse" />
-              Listening... speak your answer
-            </p>
-          )}
-        </div>
 
-        <button
-          onClick={handleSubmit}
-          disabled={(!answer.trim() && !listening) || submitting}
-          className="w-full bg-purple-500 hover:bg-purple-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white py-3 rounded-xl font-medium transition-all shadow-md flex items-center justify-center gap-2"
-        >
-          {submitting ? (
-            <>
-              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              Checking...
-            </>
-          ) : listening ? (
-            "Stop & Submit"
-          ) : (
-            "Submit Answer"
-          )}
-        </button>
+        {/* ── WRITTEN mode (L3 encoding — student types spelling after hearing TTS) ── */}
+        {question.template === "written" && question.displayWord ? (
+          <>
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 text-center">
+              <p className="text-xs text-amber-500 font-semibold uppercase tracking-widest mb-2">Listen and type</p>
+              <button
+                onClick={() => togglePlay(question.displayWord!.toLowerCase())}
+                className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl font-bold text-base transition-all active:scale-95 ${
+                  playing
+                    ? "bg-orange-400 text-white shadow-lg"
+                    : "bg-amber-400 hover:bg-amber-500 text-white shadow-md"
+                }`}
+              >
+                {playing ? (
+                  <><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>Stop</>
+                ) : (
+                  <><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Tap to hear the word</>
+                )}
+              </button>
+            </div>
+            <input
+              type="text"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") handleSubmit(); }}
+              placeholder="Type the word here…"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              disabled={submitting}
+              className="w-full border-2 border-gray-200 focus:border-purple-400 rounded-2xl px-5 py-4 text-xl font-mono text-center outline-none transition-colors disabled:opacity-40"
+            />
+            <button
+              onClick={handleSubmit}
+              disabled={!answer.trim() || submitting}
+              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+            >
+              {submitting ? (
+                <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>Checking...</>
+              ) : "Submit →"}
+            </button>
+          </>
+        ) : isAudioTap ? (
+          <>
+            {/* Large display word (letter, digraph, blend) */}
+            {question.displayWord && (
+              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 text-center">
+                <p className="text-6xl font-bold text-purple-700 tracking-widest">
+                  {question.displayWord}
+                </p>
+              </div>
+            )}
+
+            <p className="text-sm text-center text-gray-400 font-medium">
+              Tap each word to hear it, then choose the one with the right sound
+            </p>
+
+            <div className="grid grid-cols-3 gap-3">
+              {question.audioChoices!.map((c) => (
+                <button
+                  key={c.label}
+                  onClick={() => handleAudioChoiceTap(c)}
+                  disabled={submitting}
+                  className={`flex flex-col items-center justify-center gap-2 py-5 rounded-2xl border-2 font-bold transition-all active:scale-95 ${
+                    selectedAudioChoice === c.label
+                      ? "bg-purple-500 border-purple-500 text-white shadow-lg scale-105"
+                      : playingChoiceValue === c.label
+                      ? "bg-purple-50 border-purple-400 text-purple-700"
+                      : "border-gray-200 text-gray-700 hover:border-purple-300 hover:bg-purple-50"
+                  }`}
+                >
+                  {playingChoiceValue === c.label ? (
+                    <>
+                      <svg className="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                        <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+                      </svg>
+                      <span className="font-semibold text-sm text-center leading-tight">{c.label}</span>
+                    </>
+                  ) : (
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {selectedAudioChoice && (
+              <button
+                onClick={handleAudioChoiceSubmit}
+                disabled={submitting}
+                className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+              >
+                {submitting ? (
+                  <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> Checking...</>
+                ) : "That's my answer →"}
+              </button>
+            )}
+          </>
+        ) : question.template === "reading" ? (
+          <>
+            {/* ── SELF-REPORT mode (reading template) ── */}
+            {/* Word card shown for single-word decoding tasks */}
+            {question.displayWord && (
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 text-center">
+                <p className="text-5xl font-bold text-blue-800 tracking-wide">{question.displayWord}</p>
+              </div>
+            )}
+
+            {/* TTS verify button — lets student hear the word after attempting to read it */}
+            {question.displayWord && (
+              <button
+                onClick={() => togglePlay(question.displayWord!.toLowerCase())}
+                className={`w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 font-medium text-sm transition-all active:scale-95 ${
+                  playing
+                    ? "bg-orange-50 border-orange-300 text-orange-600"
+                    : "border-gray-200 text-gray-500 hover:border-blue-300 hover:text-blue-600 hover:bg-blue-50"
+                }`}
+              >
+                {playing ? (
+                  <><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>Stop</>
+                ) : (
+                  <><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Hear the word</>
+                )}
+              </button>
+            )}
+
+            <p className="text-center text-sm text-gray-400 font-medium">
+              {question.displayWord ? "Read the word, then tap to check yourself" : "Read the passage above, then tell us how you went"}
+            </p>
+
+            {/* Self-report buttons */}
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                onClick={() => handleSelfReport(true)}
+                disabled={submitting}
+                className="flex flex-col items-center gap-2 py-5 rounded-2xl bg-green-50 border-2 border-green-200 text-green-700 font-bold text-base hover:bg-green-100 hover:border-green-400 transition-all active:scale-95 disabled:opacity-40"
+              >
+                <span className="text-3xl">✓</span>
+                <span>Got it!</span>
+              </button>
+              <button
+                onClick={() => handleSelfReport(false)}
+                disabled={submitting}
+                className="flex flex-col items-center gap-2 py-5 rounded-2xl bg-red-50 border-2 border-red-200 text-red-600 font-bold text-base hover:bg-red-100 hover:border-red-400 transition-all active:scale-95 disabled:opacity-40"
+              >
+                <span className="text-3xl">✗</span>
+                <span>Need help</span>
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* ── TYPED INPUT mode (oral/written without audioChoices) ── */}
+            <textarea
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSubmit(); } }}
+              placeholder="Type your answer here…"
+              rows={3}
+              disabled={submitting}
+              autoComplete="off"
+              autoCorrect="off"
+              spellCheck={false}
+              className="w-full border-2 border-gray-200 focus:border-purple-400 rounded-2xl px-5 py-4 text-base outline-none transition-colors disabled:opacity-40 resize-none"
+            />
+            <button
+              onClick={handleSubmit}
+              disabled={!answer.trim() || submitting}
+              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+            >
+              {submitting ? (
+                <><span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>Checking...</>
+              ) : "Submit →"}
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
 }
 
-// Map language name → BCP-47 for speechSynthesis
-const READING_LANG_CODE: Record<string, string> = {
-  English: "en-ZA", Afrikaans: "af-ZA", isiZulu: "zu-ZA", isiXhosa: "xh-ZA",
-  Sepedi: "nso-ZA", Setswana: "tn-ZA", Sesotho: "st-ZA", Xitsonga: "ts-ZA",
-  siSwati: "ss-ZA", Tshivenda: "ve-ZA", isiNdebele: "nr-ZA",
+const ERROR_LABELS: Record<string, string> = {
+  ERR_PHONEME_CONF:  "Sound mix-up",
+  ERR_SOUND_RECALL:  "Sound recall",
+  ERR_BLEND_FAIL:    "Blending sounds",
+  ERR_SOUND_OMIT:    "Missing a sound",
+  ERR_SOUND_INSERT:  "Extra sound added",
+  ERR_VOWEL_CONF:    "Vowel confusion",
+  ERR_ORTHO_GUESS:   "Guessing the word",
+  ERR_SIGHT_MISS:    "Sight word",
+  ERR_MULTI_BREAK:   "Breaking up words",
+  ERR_FLUENCY_HES:   "Reading fluency",
+  ERR_MEANING_BLIND: "Reading for meaning",
+  ERR_SELF_MON:      "Self-monitoring",
 };
 
 function ReadingFeedbackCard({
   result,
   onNext,
-  language = "English",
+  wasReviewCorrect = false,
 }: {
   result: ReadingDiagnosticResult;
   onNext: () => void;
   nextLabel?: string;
   language?: string;
+  wasReviewCorrect?: boolean;
 }) {
   const touchStartY = useRef(0);
   const [ttsPlaying, setTtsPlaying] = useState(false);
+  const cancelTTSRef = useRef<(() => void) | null>(null);
   const feedbackText = [result.feedback, result.recovery_explanation].filter(Boolean).join(". ");
+  const isFirstCorrect = result.is_correct && typeof window !== "undefined" && !sessionStorage.getItem("first_correct_shown");
+  if (isFirstCorrect && typeof window !== "undefined") sessionStorage.setItem("first_correct_shown", "1");
 
   const handlePlay = () => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    if (ttsPlaying) { window.speechSynthesis.cancel(); setTtsPlaying(false); return; }
-    window.speechSynthesis.cancel();
-    const utt = new SpeechSynthesisUtterance(feedbackText);
-    utt.lang = READING_LANG_CODE[language] ?? "en-ZA";
-    utt.rate = 0.92;
-    utt.onstart = () => setTtsPlaying(true);
-    utt.onend = () => setTtsPlaying(false);
-    utt.onerror = () => setTtsPlaying(false);
-    window.speechSynthesis.speak(utt);
+    if (ttsPlaying) {
+      cancelTTSRef.current?.();
+      cancelTTSRef.current = null;
+      setTtsPlaying(false);
+      return;
+    }
+    cancelTTSRef.current = speakViaAPI(
+      feedbackText,
+      () => setTtsPlaying(true),
+      () => { setTtsPlaying(false); cancelTTSRef.current = null; }
+    );
   };
 
   return (
@@ -1067,11 +1482,15 @@ function ReadingFeedbackCard({
           <p className={`font-semibold ${result.is_correct ? "text-green-800" : "text-red-800"}`}>
             {result.is_correct ? "Correct!" : "Not quite right"}
           </p>
-          <p className={`text-base ${result.is_correct ? "text-green-600" : "text-red-600"}`}>
-            {result.error_type !== "correct" && result.error_type.replace(/_/g, " ")}
-          </p>
         </div>
       </div>
+
+      {isFirstCorrect && (
+        <p className="text-sm font-semibold text-green-700 animate-pulse">Great start! ⭐</p>
+      )}
+      {wasReviewCorrect && (
+        <p className="text-sm font-semibold text-blue-700">You still remember this! 🧠</p>
+      )}
 
       <div className="flex items-start justify-between gap-3">
         <p className="text-gray-700 text-base leading-relaxed flex-1">{result.feedback}</p>
@@ -1091,14 +1510,15 @@ function ReadingFeedbackCard({
       </div>
 
       {!result.is_correct && result.recovery_explanation && (
-        <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-          <p className="text-blue-800 text-base leading-relaxed">
-            <span className="font-medium">Tip: </span>{result.recovery_explanation}
-          </p>
+        <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 flex items-start gap-2.5">
+          <svg className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.347a3.75 3.75 0 01-5.303 0l-.347-.347a5 5 0 117.072 0z" />
+          </svg>
+          <p className="text-blue-800 text-base leading-relaxed">{result.recovery_explanation}</p>
         </div>
       )}
 
-      {/* Swipe up for next */}
+      {/* Click / swipe for next */}
       <div
         className="flex flex-col items-center gap-1 pt-2 cursor-pointer select-none"
         onClick={onNext}
@@ -1107,7 +1527,8 @@ function ReadingFeedbackCard({
           if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
         }}
       >
-        <p className="text-sm text-gray-400">Swipe up for next question</p>
+        <p className="text-sm text-gray-400 md:hidden">Swipe up for next question</p>
+        <p className="text-sm text-gray-400 hidden md:block">Click for next question</p>
         <div className="animate-bounce text-purple-500">
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />

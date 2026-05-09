@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import skillTreeData from "@/data/skill-tree.json";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   return NextResponse.json({
     skill_tree: skillTreeData,
     total_levels: skillTreeData.levels.length,

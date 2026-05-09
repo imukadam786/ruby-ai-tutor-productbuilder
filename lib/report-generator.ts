@@ -9,8 +9,8 @@ export type DiagnosticReportInput = {
   subject: ReportSubject;
   studentName: string;        // first name only
   studentGrade: number;       // school enrolment grade 1–12
-  workingLevel: string;       // e.g. "Grade 4"
-  gradeLevelGap: number;      // school grade minus working level (0 = on grade)
+  workingLevel: string;       // e.g. "Level 13 — Algebra, Patterns and Variables"
+  gradeLevelGap: number;      // expected entry level minus actual entry level (0 = on track, positive = behind)
   questionsAnalysed: number;  // actual count from placement.tasks.length
   domainScores: {
     domain: string;           // human-readable domain title
@@ -103,10 +103,10 @@ OUTPUT FORMAT: Respond with a single valid JSON object matching the ReportConten
 function buildPrompt(input: DiagnosticReportInput, errorDescriptions: string): string {
   const gapText =
     input.gradeLevelGap === 0
-      ? "working at grade level"
+      ? "at the expected starting point"
       : input.gradeLevelGap > 0
-      ? `working about ${input.gradeLevelGap} year${input.gradeLevelGap > 1 ? "s" : ""} below grade`
-      : "working above grade level";
+      ? `${input.gradeLevelGap} level${input.gradeLevelGap > 1 ? "s" : ""} before the expected starting point`
+      : "ahead of the expected starting point";
 
   const domainSummary = input.domainScores
     .map(

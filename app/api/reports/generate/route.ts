@@ -5,13 +5,18 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { generateReportContent, type DiagnosticReportInput } from "@/lib/report-generator";
+import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import { buildReportPDF } from "@/lib/report-pdf";
 import { saveReport } from "@/lib/report-store";
+import { requireApiSecret } from "@/lib/api-auth";
 
 export async function POST(req: NextRequest) {
+  const authError = requireApiSecret(req);
+  if (authError) return authError;
+
   try {
     const body = await req.json();
-    const { input }: { input: DiagnosticReportInput } = body;
+    const { input, studentId }: { input: DiagnosticReportInput; studentId?: string } = body;
 
     if (!input?.studentName || !input?.subject) {
       return NextResponse.json(
@@ -20,15 +25,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 1. Generate AI content
-    const content = await generateReportContent(input);
+    // 1. Generate AI content — fall back to deterministic builder if GPT-4o fails
+    let content;
+    try {
+      content = await generateReportContent(input);
+    } catch (aiErr) {
+      console.warn("[ReportGenerate] GPT-4o failed, using deterministic fallback:", aiErr);
+      content = buildDeterministicReportContent(input);
+    }
 
     // 2. Build PDF
     const pdfBuffer = await buildReportPDF(input, content);
 
-    // 3. Store
+    // 3. Store — use real student ID when available, fall back to name
     const reportId = await saveReport({
-      studentId: input.studentName, // Use name as ID (no server-side ID in localStorage model)
+      studentId: studentId ?? input.studentName,
       subject: input.subject,
       generatedAt: new Date().toISOString(),
       pdfBuffer,

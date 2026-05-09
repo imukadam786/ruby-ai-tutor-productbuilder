@@ -252,11 +252,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+4"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x-2"
       }
     ],
     "expectedAnswer": "(x + 4)(x − 2)",
@@ -383,5 +385,140 @@
       "ERR_CONTEXT_IGNORE"
     ],
     "passThreshold": 0.75
+  },
+  {
+    "id": "20.50",
+    "domain": "M020",
+    "domainTitle": "Two-Digit Addition",
+    "gate": "A",
+    "stimulus": "39 + 44 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 83,
+    "errorSignals": [
+      "ERR_ADD_TENS",
+      "ERR_PLACE_VALUE"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "29.50",
+    "domain": "M029",
+    "domainTitle": "Fractions — Number Line and Equivalence",
+    "gate": "B",
+    "stimulus": "3/4 = ___/28",
+    "question": "Fill in the missing number to make an equivalent fraction.",
+    "answerMode": "numeric",
+    "expectedAnswer": 21,
+    "errorSignals": [
+      "ERR_EQUIV_MULT",
+      "ERR_DENOM_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "31.50",
+    "domain": "M031",
+    "domainTitle": "Percentages",
+    "gate": "B",
+    "stimulus": "20% of 50",
+    "question": "Work out this percentage.",
+    "answerMode": "numeric",
+    "expectedAnswer": 10,
+    "errorSignals": [
+      "ERR_PCT_DECIMAL",
+      "ERR_PCT_OF_AMOUNT"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "32.50",
+    "domain": "M032",
+    "domainTitle": "Negative Number Operations",
+    "gate": "C",
+    "stimulus": "(−5) × (−8) = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 40,
+    "errorSignals": [
+      "ERR_INTEGER_SIGN",
+      "ERR_NEG_MULT"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "33.NP50",
+    "domain": "M033",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
+    "gate": "C",
+    "stimulus": "80, 64, 48, 32, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 16,
+    "errorSignals": [
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "28.50",
+    "domain": "M028",
+    "domainTitle": "Division Strategies",
+    "gate": "B",
+    "stimulus": "33 ÷ 11 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 3,
+    "errorSignals": [
+      "ERR_DIV_MULT",
+      "ERR_REMAINDER"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "34.50",
+    "domain": "M034",
+    "domainTitle": "Advanced Linear Equations",
+    "gate": "C",
+    "stimulus": "3x + 5 = 26",
+    "question": "Solve for x. Type the value of x.",
+    "answerMode": "numeric",
+    "expectedAnswer": 7,
+    "errorSignals": [
+      "ERR_STEP_SKIP",
+      "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.50",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "A triangle has base 9 cm and height 6 cm.",
+    "question": "What is the area? Type the answer in cm².",
+    "answerMode": "numeric",
+    "expectedAnswer": 27,
+    "errorSignals": [
+      "ERR_AREA_FORMULA",
+      "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.50",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "9/13 - 2/13",
+    "question": "Subtract these fractions. Type the answer as a fraction.",
+    "answerMode": "fraction",
+    "expectedAnswer": "7/13",
+    "errorSignals": [
+      "ERR_SUB_FRAC",
+      "ERR_COMMON_DENOM"
+    ],
+    "passThreshold": 0.8
   }
 ]

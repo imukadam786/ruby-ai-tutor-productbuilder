@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { getTranslations } from "@/lib/onboarding-translations";
 import { supabase } from "@/lib/supabase";
-import Flag from "react-world-flags";
 
 export type OnboardingData = {
   language: string;
@@ -13,16 +12,25 @@ export type OnboardingData = {
   name: string;
   email: string;
   plan: string;
+  userId?: string;
 };
 
-const LANGUAGES = [
-  "English",
-  "Afrikaans", "isiNdebele", "isiXhosa", "isiZulu",
-  "Sepedi", "Sesotho", "Setswana", "siSwati",
-  "Tshivenda", "Xitsonga",
+const LANGUAGES: { value: string; label: string }[] = [
+  { value: "English",    label: "English" },
+  { value: "Afrikaans",  label: "Afrikaans" },
+  { value: "isiNdebele", label: "isiNdebele" },
+  { value: "isiXhosa",   label: "isiXhosa" },
+  { value: "isiZulu",    label: "isiZulu" },
+  { value: "Sepedi",     label: "Sepedi" },
+  { value: "Sesotho",    label: "Sesotho" },
+  { value: "Setswana",   label: "Setswana" },
+  { value: "siSwati",    label: "siSwati" },
+  { value: "Tshivenda",  label: "Tshivenda" },
+  { value: "Xitsonga",   label: "Xitsonga" },
 ];
 
 const GRADES = [
+  { grade: "1", emoji: "⭐" }, { grade: "2", emoji: "⭐" },
   { grade: "3", emoji: "😊" }, { grade: "4", emoji: "😊" },
   { grade: "5", emoji: "😊" }, { grade: "6", emoji: "😊" },
   { grade: "7", emoji: "😎" }, { grade: "8", emoji: "😎" },
@@ -30,43 +38,14 @@ const GRADES = [
   { grade: "11", emoji: "🎓" }, { grade: "12", emoji: "🎓" },
 ];
 
-const SCORES: { label: string; bars: number[] }[] = [
-  { label: "30 – 40", bars: [4, 5, 4] },
-  { label: "40 – 50", bars: [5, 7, 6] },
-  { label: "50 – 60", bars: [7, 9, 8] },
-  { label: "60 – 70", bars: [9, 11, 10] },
-  { label: "70 – 80", bars: [11, 13, 12] },
-  { label: "80+",     bars: [13, 16, 14] },
-];
-
-const BAR_COLOURS = ["#f59e0b", "#3b82f6", "#10b981"];
-
-function ScoreChart({ bars }: { bars: number[] }) {
-  return (
-    <svg width="22" height="16" viewBox="0 0 22 16" fill="none" className="flex-shrink-0">
-      {bars.map((h, i) => (
-        <rect
-          key={i}
-          x={i * 7}
-          y={16 - h}
-          width="5"
-          height={h}
-          rx="1"
-          fill={BAR_COLOURS[i]}
-        />
-      ))}
-    </svg>
-  );
-}
-
 const CURRICULA: { label: string; flag: string }[] = [
-  { label: "CAPS",                    flag: "ZA" },
-  { label: "IEB",                     flag: "ZA" },
-  { label: "CAPS-SID",                flag: "ZA" },
-  { label: "LSEN",                    flag: "ZA" },
-  { label: "American Curriculum",     flag: "US" },
-  { label: "Cambridge International", flag: "GB" },
-  { label: "British Curriculum",      flag: "GB" },
+  { label: "CAPS",                    flag: "🇿🇦" },
+  { label: "IEB",                     flag: "🇿🇦" },
+  { label: "CAPS-SID",                flag: "🇿🇦" },
+  { label: "LSEN",                    flag: "🇿🇦" },
+  { label: "American Curriculum",     flag: "🇺🇸" },
+  { label: "Cambridge International", flag: "🇬🇧" },
+  { label: "British Curriculum",      flag: "🇬🇧" },
 ];
 
 const PLANS = [
@@ -110,8 +89,8 @@ const PLANS = [
   },
 ];
 
-// Steps: 1=create_account, 2=language, 3=grade, 4=score, 5=curriculum
-const TOTAL_STEPS = 5;
+// Steps: 1=create_account, 2=language, 3=grade, 4=curriculum
+const TOTAL_STEPS = 4;
 
 function BackButton({ onClick }: { onClick: () => void }) {
   return (
@@ -152,11 +131,13 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   const [data, setData] = useState<Partial<OnboardingData>>(initialData || { language: "English" });
   const [name, setName] = useState(initialData?.name || "");
   const [email, setEmail] = useState(initialData?.email || "");
+  const [parentEmail, setParentEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState("");
   const [loginMode, setLoginMode] = useState(false);
+  const [signedUpUserId, setSignedUpUserId] = useState<string | undefined>(undefined);
 
   const lang = data.language || "English";
   const t = getTranslations(lang);
@@ -181,14 +162,23 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         options: { data: { full_name: name } },
       });
       if (error) throw error;
+      // Supabase returns identities:[] when the email already exists (security feature)
+      if (!authData.session && authData.user?.identities?.length === 0) {
+        setAuthError("An account with this email already exists. Please use Log In instead.");
+        return;
+      }
       if (authData.user) {
+        setSignedUpUserId(authData.user.id);
+        const trialExpiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
         await supabase.from("users").upsert({
           id: authData.user.id,
           email,
           full_name: name,
+          parent_email: parentEmail || null,
           grade: data.grade || null,
           curriculum: data.curriculum || null,
           language: data.language || "English",
+          trial_expires_at: trialExpiresAt,
         });
       }
       // Account created — continue through onboarding questions
@@ -209,23 +199,31 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     try {
       const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
-      // Fetch the user's saved name from Supabase metadata
-      const fullName = (authData.user?.user_metadata?.full_name as string | undefined) || "";
+      // Fetch the user's saved profile from the users table
+      const userId = authData.user?.id;
+      const { data: userData } = userId
+        ? await supabase.from("users").select("full_name, grade, language, curriculum").eq("id", userId).single()
+        : { data: null };
+      const fullName =
+        (userData?.full_name as string | undefined) ||
+        (authData.user?.user_metadata?.full_name as string | undefined) ||
+        "";
+      // Build final data from saved profile and go straight to the app — no re-onboarding
       const final: OnboardingData = {
-        language: data.language || "English",
-        grade: data.grade || "",
-        averageScore: data.averageScore || "",
-        curriculum: data.curriculum || "",
+        language: (userData?.language as string | undefined) || "English",
+        grade: (userData?.grade as string | undefined) || "",
+        averageScore: "",
+        curriculum: (userData?.curriculum as string | undefined) || "",
         name: fullName,
-        email: authData.user?.email || email,
+        email,
         plan: "existing",
+        userId,
       };
-      localStorage.setItem("onboardingData", JSON.stringify(final));
       onComplete(final);
     } catch (err: unknown) {
       const raw = err instanceof Error ? err.message : "";
       const msg = raw.toLowerCase().includes("invalid login credentials") || raw.toLowerCase().includes("invalid")
-        ? "Incorrect email or password. If you just signed up, please check your email for a confirmation link."
+        ? "Incorrect email or password. Please check and try again."
         : raw || "Login failed. Please try again.";
       setAuthError(msg);
     } finally {
@@ -234,7 +232,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   };
 
   // ── Complete onboarding (no plan step) ────────────────────────────────────
-  const handleComplete = () => {
+  const handleComplete = async () => {
     const final: OnboardingData = {
       language: data.language || "English",
       grade: data.grade || "",
@@ -242,9 +240,20 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       curriculum: data.curriculum || "",
       name,
       email,
-      plan: "standard",
+      plan: data.plan || "standard",
+      userId: signedUpUserId,
     };
-    localStorage.setItem("onboardingData", JSON.stringify(final));
+    // Update Supabase with grade, curriculum and language now that user has selected them
+    if (signedUpUserId) {
+      await supabase.from("users").upsert({
+        id: signedUpUserId,
+        email,
+        full_name: name,
+        grade: final.grade || null,
+        curriculum: final.curriculum || null,
+        language: final.language,
+      });
+    }
     onComplete(final);
   };
 
@@ -253,7 +262,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
   return (
     // Fills the full locked viewport (html+body are h-full overflow-hidden)
-    <div className="h-full bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex flex-col py-8 px-4">
+    <div className="h-dvh bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex flex-col py-3 sm:py-8 px-4">
       <div className={`w-full ${outerMaxW} mx-auto flex-1 flex flex-col min-h-0`}>
         <div className="bg-white rounded-3xl shadow-xl flex-1 flex flex-col overflow-hidden min-h-0">
 
@@ -269,7 +278,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
           {/* ── Step 1: Create Account / Login ── */}
           {step === 1 && (
-            <div className="flex-1 flex flex-col p-5">
+            <div className="flex-1 flex flex-col p-5 overflow-y-auto min-h-0">
               <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-1">
                 {loginMode ? "Welcome back" : t.step7Title}
               </h1>
@@ -280,7 +289,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                   <img
                     src="/ruby-heroes.png"
                     alt="Ruby superheroes"
-                    className="h-36 w-auto object-contain"
+                    className="h-24 sm:h-36 w-auto object-contain"
                   />
                 </div>
               )}
@@ -288,7 +297,9 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               <div className="flex flex-col gap-2.5 mb-2.5">
                 {!loginMode && (
                   <div>
-                    <label className="block text-sm font-semibold text-gray-800 mb-1">{t.nameLabel}</label>
+                    <label className="block text-sm font-semibold text-gray-800 mb-1">
+                      {t.nameLabel}<span className="text-red-500 ml-0.5">*</span>
+                    </label>
                     <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
                       <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -298,7 +309,9 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                   </div>
                 )}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-800 mb-1">{t.emailLabel}</label>
+                  <label className="block text-sm font-semibold text-gray-800 mb-1">
+                    {loginMode ? t.emailLabel : <>Student Email<span className="text-red-500 ml-0.5">*</span></>}
+                  </label>
                   <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
                     <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -306,6 +319,19 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     <input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
                   </div>
                 </div>
+                {!loginMode && (
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-800 mb-1">
+                      Parent Email <span className="text-gray-400 font-normal">(optional)</span>
+                    </label>
+                    <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
+                      <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <input type="email" placeholder="parent@example.com" value={parentEmail} onChange={(e) => setParentEmail(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
+                    </div>
+                  </div>
+                )}
                 <div>
                   <label className="block text-sm font-semibold text-gray-800 mb-1">{t.passwordLabel}</label>
                   <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
@@ -324,7 +350,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 </div>
               </div>
 
-              <div className="md:mt-auto md:pt-4">
+              <div className="mt-auto pt-4">
                 {authError && (
                   <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
                 )}
@@ -339,16 +365,25 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                     </svg>
                   )}
-                  {loginMode ? "Log in" : "Start Free Beta"}
+                  {loginMode ? "Log in" : "Go! 🚀"}
                 </button>
                 {loginMode ? (
                   <button onClick={() => { setLoginMode(false); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
                     Create Account
                   </button>
                 ) : (
-                  <button onClick={() => { setLoginMode(true); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
-                    Log In
-                  </button>
+                  <p className="text-center text-sm text-gray-500 mt-1">
+                    Already have an account?{" "}
+                    <button
+                      onClick={() => {
+                        setAuthError("");
+                        setLoginMode(true);
+                      }}
+                      className="text-[#1a2744] font-bold underline hover:text-rose-600 transition-colors"
+                    >
+                      Log In
+                    </button>
+                  </p>
                 )}
               </div>
             </div>
@@ -360,17 +395,17 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               <h1 className="text-3xl font-bold text-[#1a2744] mb-6 leading-snug flex-shrink-0">{t.step1Title}</h1>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
                 <div className="grid grid-cols-3 gap-3">
-                  {LANGUAGES.map((language) => (
+                  {LANGUAGES.map(({ value, label }) => (
                     <button
-                      key={language}
-                      onClick={() => select("language", language)}
-                      className={`py-4 px-2 rounded-2xl text-base font-medium border-2 transition-all ${
-                        data.language === language
+                      key={value}
+                      onClick={() => select("language", value)}
+                      className={`py-4 px-2 rounded-2xl text-sm font-medium border-2 transition-all ${
+                        data.language === value
                           ? "border-rose-500 bg-rose-50 text-rose-600"
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      {language}
+                      {label}
                     </button>
                   ))}
                 </div>
@@ -383,63 +418,35 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
           {/* ── Step 3: Grade ── */}
           {step === 3 && (
-            <div className="flex-1 flex flex-col p-6">
-              <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-4 leading-snug">{t.step3Title}</h1>
-              <div className="flex-1 grid grid-cols-2 gap-2.5 content-start">
-                {GRADES.map(({ grade, emoji }) => (
-                  <button
-                    key={grade}
-                    onClick={() => select("grade", grade)}
-                    className={`flex items-center justify-center gap-3 py-2.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
-                      data.grade === grade
-                        ? "border-rose-500 bg-rose-50 text-rose-600"
-                        : "border-gray-200 text-gray-700 hover:border-gray-300"
-                    }`}
-                  >
-                    <span className="text-xl">{emoji}</span>
-                    <span>{grade}</span>
-                  </button>
-                ))}
-              </div>
-              <div className="pt-4">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.grade} />
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 4: Average Score ── */}
-          {step === 4 && (
             <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
               <BackButton onClick={back} />
-              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">{t.step4Title}</h1>
-              <p className="text-gray-400 text-base mb-6 flex-shrink-0">{t.step4Sub}</p>
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-4 leading-snug flex-shrink-0">{t.step3Title}</h1>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
-                <div className="grid grid-cols-2 gap-3">
-                  {SCORES.map(({ label, bars }) => (
+                <div className="grid grid-cols-2 gap-2.5">
+                  {GRADES.map(({ grade, emoji }) => (
                     <button
-                      key={label}
-                      onClick={() => select("averageScore", label)}
-                      className={`py-3.5 px-5 rounded-full border-2 text-base font-medium transition-all flex items-center justify-center gap-2 ${
-                        data.averageScore === label
+                      key={grade}
+                      onClick={() => select("grade", grade)}
+                      className={`flex items-center justify-center gap-3 py-2.5 px-5 rounded-full border-2 text-base font-medium transition-all ${
+                        data.grade === grade
                           ? "border-rose-500 bg-rose-50 text-rose-600"
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      <ScoreChart bars={bars} />
-                      {label}
+                      <span className="text-xl">{emoji}</span>
+                      <span>{grade}</span>
                     </button>
                   ))}
                 </div>
               </div>
               <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.averageScore} />
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.grade} />
               </div>
             </div>
           )}
 
-          {/* ── Step 5: Curriculum ── */}
-          {step === 5 && (
+          {/* ── Step 4: Curriculum ── */}
+          {step === 4 && (
             <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
               <BackButton onClick={back} />
               <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which curriculum do you follow?</h1>
@@ -456,9 +463,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                           : "border-gray-200 text-gray-700 hover:border-gray-300"
                       }`}
                     >
-                      <span className="flex-shrink-0 rounded overflow-hidden shadow-sm" style={{ width: 28, height: 20, display: "inline-flex", alignItems: "center" }}>
-                        <Flag code={flag} style={{ width: 28, height: 20, objectFit: "cover", borderRadius: 3 }} />
-                      </span>
+                      <span className="flex-shrink-0 text-xl leading-none">{flag}</span>
                       {label}
                     </button>
                   ))}

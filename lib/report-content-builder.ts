@@ -21,10 +21,10 @@ export function buildDeterministicReportContent(
 
   const gapText =
     gradeLevelGap <= 0
-      ? "at grade level"
+      ? "at the expected starting point"
       : gradeLevelGap === 1
-      ? "about one year below grade level"
-      : `about ${gradeLevelGap} years below grade level`;
+      ? "one level before the expected starting point"
+      : `${gradeLevelGap} levels before the expected starting point`;
 
   // ── Placement summary ──────────────────────────────────────────────────────
 

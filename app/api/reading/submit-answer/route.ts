@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
+import { checkLanguage } from "@/lib/language-utils";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import {
   ReadingAnswerSubmission,
@@ -126,57 +127,23 @@ export async function POST(req: NextRequest) {
       ? `\nNOTE: This question asked the student to say any word containing a target sound — NOT an exact word. Mark as correct if the student's word genuinely contains the target phoneme, even if it differs from the expected answer.`
       : "";
 
-    const langInstruction = submission.language && submission.language !== "English"
-      ? `\nIMPORTANT: Write your "feedback" and "recovery_explanation" values in ${submission.language}. All other JSON fields remain in English.\n`
+    const lang = submission.language && submission.language !== "English"
+      ? submission.language
+      : "English";
+    const langInstruction = lang !== "English"
+      ? `\nIMPORTANT: Write ONLY the "feedback" and "recovery_explanation" values in ${lang}. All other JSON field names and values (error_type, is_correct) must remain in English.\n`
       : "";
 
-    const prompt = `You are Ruby, a literacy diagnostic tutor for primary school students (Grade R–3).${langInstruction}
-
-A student is working on this reading/literacy skill:
-SKILL: ${skill.title}
-DESCRIPTION: ${skill.description}
-RECOVERY STRATEGY: ${skill.recovery_strategy}
-
-QUESTION: ${submission.question}
-EXPECTED ANSWER: ${submission.expected_answer}
-STUDENT'S ANSWER: ${submission.student_answer}
-USED HINT: ${submission.used_hint}
-${phonemeWordNote}
-
-Analyse the student's response and provide diagnostic feedback.
-
-For error_type, use ONLY one of these exact values:
-- "correct" (student answered correctly)
-- "ERR_PHONEME_CONF" (confuses similar sounds, e.g. /p/ vs /b/)
-- "ERR_SOUND_RECALL" (cannot retrieve a letter's sound)
-- "ERR_BLEND_FAIL" (can say phonemes separately but cannot blend into a word)
-- "ERR_SOUND_OMIT" (phoneme missing from output — medial vowels or final consonants)
-- "ERR_SOUND_INSERT" (extra phoneme added)
-- "ERR_VOWEL_CONF" (short/long vowel mismatch or vowel team error)
-- "ERR_ORTHO_GUESS" (uses visual shape or first letter to guess rather than decode)
-- "ERR_SIGHT_MISS" (irregular high-frequency word misread)
-- "ERR_MULTI_BREAK" (decodes syllables separately but cannot blend full word)
-- "ERR_FLUENCY_HES" (hesitations or slow word-by-word reading)
-- "ERR_MEANING_BLIND" (reads accurately but shows no comprehension)
-- "ERR_SELF_MON" (does not notice or correct errors that create nonsense)
-
-Respond in this exact JSON format (no markdown, raw JSON only):
-{
-  "is_correct": ${isCorrect},
-  "error_type": "one of the values above",
-  "feedback": "Warm, encouraging 1-2 sentence feedback appropriate for a young learner. If correct, celebrate. If wrong, gently explain what went wrong.",
-  "recovery_explanation": "A brief, simple explanation or tip to help the student improve on this skill."
-}
-
-Keep language simple, warm, and age-appropriate for a primary school child.`;
-
-    const aiResponse = await getOpenAI().chat.completions.create({
-      model: OPENAI_MODEL,
-      max_tokens: 512,
-      messages: [{ role: "user", content: prompt }],
-    });
-
-    const aiText = aiResponse.choices[0]?.message?.content ?? "";
+    // ── 2-tier LLM decision ───────────────────────────────────────────────────
+    // Tier 1 — correct:    static praise (translated if needed), 0 API calls
+    // Tier 2 — incorrect:  LLM generates friendly, language-correct feedback
+    const PRAISE_EN = [
+      "Great work! That's exactly right.",
+      "Well done! Keep it up.",
+      "Correct! You're doing brilliantly.",
+      "Excellent! That's the right answer.",
+      "Spot on! Nice thinking.",
+    ];
 
     let aiDiagnosis: {
       is_correct: boolean;
@@ -185,18 +152,99 @@ Keep language simple, warm, and age-appropriate for a primary school child.`;
       recovery_explanation: string;
     };
 
-    try {
-      const jsonMatch = aiText.match(/\{[\s\S]*\}/);
-      aiDiagnosis = JSON.parse(jsonMatch ? jsonMatch[0] : aiText);
-    } catch {
+    if (isCorrect) {
+      // Tier 1 — no LLM call; translate praise if needed
+      let praise = PRAISE_EN[Math.floor(Math.random() * PRAISE_EN.length)];
+      if (lang !== "English") {
+        try {
+          const praiseResp = await getOpenAI().chat.completions.create({
+            model: OPENAI_MODEL,
+            max_tokens: 60,
+            messages: [{
+              role: "user",
+              content: `Translate this short praise sentence into ${lang} for a child. Return only the translated sentence, nothing else: "${praise}"`,
+            }],
+          }, { signal: AbortSignal.timeout(8_000) });
+          praise = praiseResp.choices[0]?.message?.content?.trim() || praise;
+        } catch { /* keep English on failure */ }
+      }
       aiDiagnosis = {
-        is_correct: isCorrect,
-        error_type: preClassified,
-        feedback: isCorrect
-          ? "Well done! Your answer is correct!"
-          : `Your answer was "${submission.student_answer}" but the expected answer is "${submission.expected_answer}". Let's keep practising!`,
-        recovery_explanation: skill.recovery_strategy,
+        is_correct: true,
+        error_type: "correct",
+        feedback: praise,
+        recovery_explanation: "",
       };
+    } else {
+      // Tier 2 — LLM generates friendly, student-facing, language-correct feedback
+      const isFirstAttempt = submission.attempt_number <= 1;
+      const prompt = `You are Ruby, a warm and encouraging literacy tutor for primary school students (Grade R–3).${langInstruction}
+
+A student is practising this reading skill:
+SKILL: ${skill.title}
+DESCRIPTION: ${skill.description}
+
+QUESTION THEY WERE ASKED: ${submission.question}
+CORRECT ANSWER: ${submission.expected_answer}
+STUDENT'S ANSWER: ${submission.student_answer}
+${isFirstAttempt ? "This is their first attempt." : "They have already tried this more than once."}
+${phonemeWordNote}
+
+Write feedback that:
+- Tells the student what they got wrong in simple, friendly words (no jargon)
+- Shows them the correct answer clearly
+- Gives one practical tip they can do RIGHT NOW to improve (no technical codes like "Elkonin box drill" or "PHONEME_OMIT" — explain it in plain language a child understands)
+${isFirstAttempt ? "- Keep it brief and encouraging since it is their first try" : "- Be a bit more detailed since they have tried before"}
+
+For error_type, use ONLY one of these exact English values:
+"ERR_PHONEME_CONF", "ERR_SOUND_RECALL", "ERR_BLEND_FAIL", "ERR_SOUND_OMIT",
+"ERR_SOUND_INSERT", "ERR_VOWEL_CONF", "ERR_ORTHO_GUESS", "ERR_SIGHT_MISS",
+"ERR_MULTI_BREAK", "ERR_FLUENCY_HES", "ERR_MEANING_BLIND", "ERR_SELF_MON"
+
+Respond in this exact JSON format (no markdown, raw JSON only):
+{
+  "is_correct": false,
+  "error_type": "one of the values above",
+  "feedback": "1-2 warm sentences telling the student what went wrong and showing the correct answer.",
+  "recovery_explanation": "One plain-language tip the student can act on immediately."
+}`;
+
+      const aiResponse = await getOpenAI().chat.completions.create({
+        model: OPENAI_MODEL,
+        max_tokens: 300,
+        messages: [{ role: "user", content: prompt }],
+      }, { signal: AbortSignal.timeout(20_000) });
+
+      const aiText = aiResponse.choices[0]?.message?.content ?? "";
+
+      try {
+        const jsonMatch = aiText.match(/\{[\s\S]*\}/);
+        aiDiagnosis = JSON.parse(jsonMatch ? jsonMatch[0] : aiText);
+      } catch {
+        aiDiagnosis = {
+          is_correct: false,
+          error_type: preClassified,
+          feedback: "Not quite — give it another try!",
+          recovery_explanation: "Read each sound carefully from left to right, then blend them together.",
+        };
+      }
+
+      if (lang !== "English" && aiDiagnosis.feedback) {
+        const langOk = await checkLanguage(aiDiagnosis.feedback, lang);
+        if (!langOk) {
+          const retryPrompt = prompt + `\n\nCRITICAL OVERRIDE: Your "feedback" and "recovery_explanation" MUST be written entirely in ${lang}. Not a single English word in those two fields.`;
+          const retryResp = await getOpenAI().chat.completions.create({
+            model: OPENAI_MODEL,
+            max_tokens: 300,
+            messages: [{ role: "user", content: retryPrompt }],
+          }, { signal: AbortSignal.timeout(15_000) });
+          try {
+            const retryText = retryResp.choices[0]?.message?.content ?? "";
+            const retryMatch = retryText.match(/\{[\s\S]*\}/);
+            const retryParsed = JSON.parse(retryMatch ? retryMatch[0] : retryText);
+            if (retryParsed.feedback) aiDiagnosis = { ...aiDiagnosis, ...retryParsed };
+          } catch { /* keep original */ }
+        }
+      }
     }
 
     const finalErrorType = sanitiseErrorType(aiDiagnosis.error_type, preClassified);
@@ -216,10 +264,6 @@ Keep language simple, warm, and age-appropriate for a primary school child.`;
       timestamp: new Date().toISOString(),
     };
 
-    // Base decision derived from correctness; the full Section 10/11 decision is
-    // recalculated client-side in ReadingSession once the profile is updated.
-    const decision: ReadingDiagnosticResult["decision"] = isCorrect ? "PRACTICE" : "RETEACH";
-
     const result: ReadingDiagnosticResult = {
       is_correct: isCorrect,
       error_type: finalErrorType,
@@ -233,7 +277,6 @@ Keep language simple, warm, and age-appropriate for a primary school child.`;
         formats_used: [submission.template],
       },
       next_action: "continue_skill",
-      decision,
     };
 
     return NextResponse.json({ result, attempt });

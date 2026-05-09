@@ -252,11 +252,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+2"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+3"
       }
     ],
     "expectedAnswer": "(x + 2)(x + 3)",
@@ -383,5 +385,140 @@
       "ERR_CONTEXT_IGNORE"
     ],
     "passThreshold": 0.75
+  },
+  {
+    "id": "20.1",
+    "domain": "M020",
+    "domainTitle": "Two-Digit Addition",
+    "gate": "A",
+    "stimulus": "10 + 10 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 20,
+    "errorSignals": [
+      "ERR_ADD_TENS",
+      "ERR_PLACE_VALUE"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "29.1",
+    "domain": "M029",
+    "domainTitle": "Fractions — Number Line and Equivalence",
+    "gate": "B",
+    "stimulus": "1/2 = ___/4",
+    "question": "Fill in the missing number to make an equivalent fraction.",
+    "answerMode": "numeric",
+    "expectedAnswer": 2,
+    "errorSignals": [
+      "ERR_EQUIV_MULT",
+      "ERR_DENOM_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "31.1",
+    "domain": "M031",
+    "domainTitle": "Percentages",
+    "gate": "B",
+    "stimulus": "10% of 10",
+    "question": "Work out this percentage.",
+    "answerMode": "numeric",
+    "expectedAnswer": 1,
+    "errorSignals": [
+      "ERR_PCT_DECIMAL",
+      "ERR_PCT_OF_AMOUNT"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "32.1",
+    "domain": "M032",
+    "domainTitle": "Negative Number Operations",
+    "gate": "C",
+    "stimulus": "−1 + 1 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 0,
+    "errorSignals": [
+      "ERR_INTEGER_SIGN",
+      "ERR_NEG_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "33.NP1",
+    "domain": "M033",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
+    "gate": "C",
+    "stimulus": "3, 7, 11, 15, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 19,
+    "errorSignals": [
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "28.1",
+    "domain": "M028",
+    "domainTitle": "Division Strategies",
+    "gate": "B",
+    "stimulus": "4 ÷ 2 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 2,
+    "errorSignals": [
+      "ERR_DIV_MULT",
+      "ERR_REMAINDER"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "34.1",
+    "domain": "M034",
+    "domainTitle": "Advanced Linear Equations",
+    "gate": "C",
+    "stimulus": "2x + 1 = 5",
+    "question": "Solve for x. Type the value of x.",
+    "answerMode": "numeric",
+    "expectedAnswer": 2,
+    "errorSignals": [
+      "ERR_STEP_SKIP",
+      "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.1",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "A triangle has angles of 40° and 65°.",
+    "question": "What is the third angle? Type the answer in degrees.",
+    "answerMode": "numeric",
+    "expectedAnswer": 75,
+    "errorSignals": [
+      "ERR_ANGLE_SUM",
+      "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.1",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "1/2 x 6",
+    "question": "Multiply the fraction by the whole number. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 3,
+    "errorSignals": [
+      "ERR_FRAC_WHOLE_MULT",
+      "ERR_SIMPLIFY"
+    ],
+    "passThreshold": 0.8
   }
 ]

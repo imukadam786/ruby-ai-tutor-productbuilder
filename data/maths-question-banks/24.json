@@ -252,11 +252,13 @@
     "fields": [
       {
         "label": "First bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x+7"
       },
       {
         "label": "Second bracket",
-        "hint": "(x + ___)"
+        "hint": "(x ± ___)",
+        "expectedAnswer": "x-1"
       }
     ],
     "expectedAnswer": "(x + 7)(x − 1)",
@@ -383,5 +385,140 @@
       "ERR_CONTEXT_IGNORE"
     ],
     "passThreshold": 0.75
+  },
+  {
+    "id": "20.24",
+    "domain": "M020",
+    "domainTitle": "Two-Digit Addition",
+    "gate": "A",
+    "stimulus": "40 + 45 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 85,
+    "errorSignals": [
+      "ERR_ADD_TENS",
+      "ERR_PLACE_VALUE"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "29.24",
+    "domain": "M029",
+    "domainTitle": "Fractions — Number Line and Equivalence",
+    "gate": "B",
+    "stimulus": "1/5 = ___/20",
+    "question": "Fill in the missing number to make an equivalent fraction.",
+    "answerMode": "numeric",
+    "expectedAnswer": 4,
+    "errorSignals": [
+      "ERR_EQUIV_MULT",
+      "ERR_DENOM_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "31.24",
+    "domain": "M031",
+    "domainTitle": "Percentages",
+    "gate": "B",
+    "stimulus": "15% of 80",
+    "question": "Work out this percentage.",
+    "answerMode": "numeric",
+    "expectedAnswer": 12,
+    "errorSignals": [
+      "ERR_PCT_DECIMAL",
+      "ERR_PCT_OF_AMOUNT"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "32.24",
+    "domain": "M032",
+    "domainTitle": "Negative Number Operations",
+    "gate": "C",
+    "stimulus": "1 − (−6) = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 7,
+    "errorSignals": [
+      "ERR_INTEGER_SIGN",
+      "ERR_NEG_ADD"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "33.NP24",
+    "domain": "M033",
+    "domainTitle": "Number Patterns, Expanding Brackets, and Factorisation",
+    "gate": "C",
+    "stimulus": "64, 56, 48, 40, ___",
+    "question": "What is the next number in the sequence? Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 32,
+    "errorSignals": [
+      "ERR_SEQ_RULE",
+      "ERR_PATTERN_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "28.24",
+    "domain": "M028",
+    "domainTitle": "Division Strategies",
+    "gate": "B",
+    "stimulus": "20 ÷ 2 = ___",
+    "question": "Work this out. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 10,
+    "errorSignals": [
+      "ERR_DIV_MULT",
+      "ERR_REMAINDER"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "34.24",
+    "domain": "M034",
+    "domainTitle": "Advanced Linear Equations",
+    "gate": "C",
+    "stimulus": "9x + 9 = 36",
+    "question": "Solve for x. Type the value of x.",
+    "answerMode": "numeric",
+    "expectedAnswer": 3,
+    "errorSignals": [
+      "ERR_STEP_SKIP",
+      "ERR_OP_ERROR"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "GEO.24",
+    "domain": "M_GEO",
+    "domainTitle": "Geometry — Shape and Space",
+    "gate": "C",
+    "stimulus": "A rectangle has length 13 cm and width 4 cm.",
+    "question": "What is the area? Type the answer in cm².",
+    "answerMode": "numeric",
+    "expectedAnswer": 52,
+    "errorSignals": [
+      "ERR_AREA_FORMULA",
+      "ERR_CALC_WRONG"
+    ],
+    "passThreshold": 0.8
+  },
+  {
+    "id": "30.24",
+    "domain": "M030",
+    "domainTitle": "Fraction Operations",
+    "gate": "B",
+    "stimulus": "5/9 x 9",
+    "question": "Multiply the fraction by the whole number. Type the answer.",
+    "answerMode": "numeric",
+    "expectedAnswer": 5,
+    "errorSignals": [
+      "ERR_FRAC_WHOLE_MULT",
+      "ERR_SIMPLIFY"
+    ],
+    "passThreshold": 0.8
   }
 ]

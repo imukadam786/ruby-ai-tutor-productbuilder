@@ -1,0 +1,384 @@
+{
+  "id": "acc-p1-may-jun-2021",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P1",
+  "year": 2021,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Financial Indicator Formula Sheet",
+    "formulaSheetVariant": "accounting-p1"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Transaction Analysis and Audit Report",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2021-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Choose the correct word from those given in brackets.\n\nThe concept of (limited/unlimited) liability ensures that shareholders are not responsible for the debts of the business in the event of bankruptcy.",
+          "marks": 1,
+          "memoText": "Limited",
+          "topic": "Companies and GAAP",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Choose the correct word from those given in brackets.\n\nWhen preparing financial statements, creditors will be reflected as trade and other (receivables/payables/equity).",
+          "marks": 1,
+          "memoText": "Payables",
+          "topic": "Companies and GAAP",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Choose the correct word from those given in brackets.\n\nThe separate disclosing of significant items, such as interest expenses, is an application of the (prudence/materiality) GAAP principle.",
+          "marks": 1,
+          "memoText": "Materiality",
+          "topic": "Companies and GAAP",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-1-2-1",
+          "label": "1.2.1",
+          "questionText": "ROCK-STONE LTD\n\nAnalyse the transaction below. Indicate the account debited and account credited in the General Ledger, and the effect on the accounting equation. Indicate an increase as +, a decrease as – and no effect as 0. Assume a favourable bank balance at all times.\n\nTransaction: Electronic funds transfers (EFT) totalling R136 000 were made to shareholders, being the amount owing to them at the end of the previous financial year.",
+          "marks": 3,
+          "memoText": "Account Debited: Shareholders for dividends\nAccount Credited: Bank\nAmount: R136 000\nA (Assets): –\nO (Owners' Equity): 0\nL (Liabilities): –\n\nExplanation: The dividends payable (shareholders for dividends) was a liability from the previous year. Paying it reduces the bank (asset) and eliminates the liability.",
+          "topic": "Transaction Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q1.2.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-1-2-2",
+          "label": "1.2.2",
+          "questionText": "ROCK-STONE LTD\n\nAnalyse the transaction below. Indicate the account debited and account credited in the General Ledger, and the effect on the accounting equation. Indicate an increase as +, a decrease as – and no effect as 0.\n\nTransaction: The company received R450 000 for the issue of new shares.",
+          "marks": 3,
+          "memoText": "Account Debited: Bank\nAccount Credited: Ordinary share capital\nAmount: R450 000\nA (Assets): +\nO (Owners' Equity): +\nL (Liabilities): 0",
+          "topic": "Transaction Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q1.2.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-1-2-3",
+          "label": "1.2.3",
+          "questionText": "ROCK-STONE LTD\n\nAnalyse the transaction below. Indicate the account debited and account credited in the General Ledger, and the effect on the accounting equation. Indicate an increase as +, a decrease as – and no effect as 0.\n\nTransaction: The income tax assessment for the year was received. The income tax amount, R338 200, exceeded the provisional tax payments made.",
+          "marks": 3,
+          "memoText": "Account Debited: Income tax / Taxation\nAccount Credited: SARS: Income tax\nAmount: R338 200\nA (Assets): 0\nO (Owners' Equity): –\nL (Liabilities): +\n\nExplanation: The provisional tax paid sits as a debit balance (asset) in the SARS account. The final assessment of R338 200 exceeds what was paid, so the shortfall creates a new liability. The income tax expense (R338 200) reduces owners' equity; the credit goes to SARS: Income tax (now a net credit = liability).",
+          "topic": "Transaction Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q1.2.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-1-3-1",
+          "label": "1.3.1",
+          "questionText": "ROCK-STONE LTD — Independent Audit Report\n\nExtract of the audit report for Rock-Stone Ltd, financial year ended 28 February 2021:\n\n\"To Shareholders\n\nBasis of Opinion: We conducted our audit in accordance with international standards on auditing. We are independent of the company, as applicable to performing audits, and with other ethical requirements as per the professional code of conduct. The audit evidence we obtained was sufficient and appropriate.\n\nOpinion: We have audited the financial statements, as set out on pages 8 to 23. These comprise the Statement of Comprehensive Income, Statement of Financial Position and the Cash Flow Statement for the year ended 28 February 2021. In our opinion, the financial statements present fairly, in all material respects, the financial position of the business as at the year then ended, its financial performance and cash flows, in accordance with International Financial Reporting Standards and the requirements of the Companies Act of South Africa.\n\nPerun and Balan, Registered Auditors — 30 May 2021\"\n\nIdentify the type of audit report that the company received. Give a reason for your answer.",
+          "marks": 2,
+          "memoText": "Type: Unqualified (also accept 'clean' or 'good' report)\n\nReason (any valid reason):\n• The audit report states that the financial statements 'present fairly' in all material respects.\n• The auditors did not identify any problems/issues with the financial statements.",
+          "topic": "Audit Report",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q1.3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-1-3-2",
+          "label": "1.3.2",
+          "questionText": "Refer to the audit report extract in 1.3.1.\n\nExplain why the auditor referred to:\n• Pages 8 to 23\n• International Financial Reporting Standards and the Companies Act of South Africa",
+          "marks": 4,
+          "memoText": "Pages 8 to 23 (2 marks):\nAny suitable explanation — e.g.:\n• The auditors are responsible only for the financial statements/reports presented on these pages of the Annual Report.\n• The audited financial statements (Statement of Comprehensive Income, Statement of Financial Position and Cash Flow Statement) are found on pages 8 to 23 of the report presented to shareholders.\n\nIFRS and the Companies Act of South Africa (2 marks):\nAny suitable explanation — e.g.:\n• The audit and financial statements of the company comply with both local (Companies Act) and international (IFRS) requirements.\n• It ensures uniform presentation of financial statements in accordance with accepted standards.",
+          "topic": "Audit Report",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q1.3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-1-3-3",
+          "label": "1.3.3",
+          "questionText": "Refer to the audit report extract in 1.3.1.\n\nName any TWO items of audit evidence that the auditors may have used.",
+          "marks": 2,
+          "memoText": "Any TWO examples (1 mark each):\n• Stock sheets\n• Fixed assets register\n• Source documents (including EFT records)\n• Bank statements\n• Debtors' statements\n• Creditors' statements\n• Signed contracts\n• Employee profiles\n• Physical inspection of assets\n• Journals",
+          "topic": "Audit Report",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q1.3.png"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Statement of Comprehensive Income and Retained Income Note",
+      "totalMarks": 50,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2021-2-1",
+          "label": "2.1",
+          "questionText": "PEYPER LIMITED — Financial year ended 28 February 2021\n\nThe accountant has incorrectly calculated the closing stock. The weighted-average method should have been used. Calculate the value of the closing stock on 28 February 2021 using the weighted-average method.\n\nStock of sunglasses:\n• 1 March 2020 (opening): 4 000 units at R2 433 000 total value\n• 28 February 2021 (closing): 2 400 units — value to be calculated\n\nPurchases during the financial year:\n• 31 May 2020: 4 200 units @ R650/unit = R2 730 000\n• 15 October 2020: 4 800 units @ R790/unit = R3 792 000\n• 11 February 2021: 2 500 units @ R820/unit = R2 050 000\n• Total purchases: 11 500 units = R8 572 000",
+          "marks": 5,
+          "memoText": "Workings:\nTotal units available = 4 000 + 11 500 = 15 500 units\nTotal value available = R2 433 000 + R8 572 000 = R11 005 000\n\nWeighted-average cost per unit = R11 005 000 ÷ 15 500 = R710 per unit\n\nClosing stock = 2 400 × R710 = R1 704 000\n\nMark allocation:\n• Numerator R11 005 000 (2 marks)\n• Denominator 15 500 units (2 marks)\n• Answer R1 704 000 (1 mark — one part correct and × 2 400)",
+          "topic": "Stock Valuation - Weighted Average",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.1.1.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.1.2.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.1.3.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.1a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.1b.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.1c.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2021-2-2",
+          "label": "2.2",
+          "questionText": "PEYPER LIMITED — Financial year ended 28 February 2021\n\nComplete the Statement of Comprehensive Income for the year ended 28 February 2021. Some pre-adjustment figures have been entered in the answer book.\n\nPRE-ADJUSTMENT TRIAL BALANCE EXTRACTS (28 Feb 2021):\nNominal accounts:\n• Directors' fees: R4 836 000\n• Audit fees: R497 200\n• Advertising: R342 400\n• Sundry expenses: R88 000\n• Trading stock (per TB): R2 000 000\n• Bad debts recovered: R5 800\n• Rent income: R208 250\n• Interest income (on fixed deposit): ?\n• Salaries and wages: R6 425 000\n• Depreciation (on vehicle sold): R41 250\n• Packing material: R45 800\n• Profit on sale of vehicle: ?\n• Bad debts: R28 800\n• Ordinary share dividends: R672 000\n• SARS (Income tax): R520 000 (debit — provisional tax paid)\n\nBalance sheet accounts:\n• Loan: Wonder Bank (TB): R1 439 600 | Loan statement balance: R1 652 000\n• Ordinary share capital: R13 650 000\n• Provision for bad debts (29 Feb 2020): R9 800\n\nADDITIONAL INFORMATION:\n(a) Mark-up achieved: 160% on cost. Correct gross profit: R14 881 600.\n(b) Packing materials used during the year: R39 700.\n(c) Received R9 750 from insolvent debtor's estate (65 cents in the rand). Remaining amount must be written off as bad debt.\n(d) Adjust provision for bad debts to R9 350.\n(e) One employee omitted from February Salaries Journal: Net salary R23 800; Deductions = 30% of gross salary; Employer's contribution = R4 500 (debited to Salaries and Wages).\n(f) Closing stock must be corrected to R1 704 000 (from Q2.1; TB shows R2 000 000).\n(g) Rent income: March 2021 rent already received and recorded (prepaid 1 month). Due to lockdown, rent was reduced by 25% for 3 months (April–June 2020). Corrected rent income = R191 250.\n(h) Loan: Wonder Bank — fixed monthly repayments R59 200. Loan statement = R1 652 000. Provide for interest on loan capitalised.\n(i) Delivery vehicle sold for R88 400 on 31 Dec 2020 (already recorded). Cost R198 000; accumulated depreciation on date of sale R115 500; carrying value R82 500. Remaining vehicles: depreciate at 25% p.a. on cost. Equipment depreciation: R90 500.\n(j) Net profit after tax = R1 342 080 (given). Income tax = 28% of net profit before tax. Interest income is the balancing figure.",
+          "marks": 37,
+          "memoText": "STATEMENT OF COMPREHENSIVE INCOME FOR THE YEAR ENDED 28 FEBRUARY 2021\n\nSales: R24 182 600\n  Calculation: GP × 260/160 = R14 881 600 × 260/160\nCost of sales: (R9 301 000)\n  Calculation: GP × 100/160\nGross profit: R14 881 600 (given)\n\nOther income: R203 400\n• Bad debts recovered: R5 800\n• Rent income: R208 250 – R17 000 = R191 250\n• Provision for bad debts adjustment: R9 800 – R9 350 = R450 (credit/income)\n• Profit on sale of vehicle: R88 400 – R82 500 = R5 900\n\nGross operating income: R15 085 000\n\nOperating expenses: (R13 065 600)\n• Directors' fees: R4 836 000\n• Audit fees: R497 200\n• Advertising: R342 400\n• Sundry expenses: R88 000\n• Trading stock deficit: R296 000 (R2 000 000 – R1 704 000)\n• Salaries and wages: R6 463 500\n  = R6 425 000 + R23 800 (net) + R10 200 (deductions) + R4 500 (employer's contribution)\n  Gross salary = R23 800 ÷ 0,70 = R34 000; total additional = R34 000 + R4 500 = R38 500\n• Depreciation: R468 750 = R41 250 + R337 000 (remaining vehicles) + R90 500\n• Packing material: R39 700\n• Bad debts: R34 050 = R28 800 + R5 250 (remaining from insolvent estate: R9 750 ÷ 0,65 = R15 000; write off = R15 000 – R9 750)\n\nOperating profit: R2 019 400\nInterest income (balancing figure): R57 000\nProfit before interest expense: R2 076 400\nInterest expense: (R212 400) = R1 652 000 – R1 439 600\nNet profit before tax: R1 864 000\nIncome tax: (R521 920) = R1 864 000 × 28%\nNet profit after tax: R1 342 080 (given)\n\nKey figures: Sales R24 182 600 and COS R9 301 000 each earn 2 marks (method) + are verified by gross profit. Interest income R57 000 is balancing figure.",
+          "topic": "Statement of Comprehensive Income",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.2.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.2a.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2021-2-3",
+          "label": "2.3",
+          "questionText": "PEYPER LIMITED — Financial year ended 28 February 2021\n\nPrepare the Retained Income Note on 28 February 2021.\n\nInformation:\n• Retained income on 1 March 2020: R2 978 000\n• Net profit after tax for 2021: R1 342 080 (from Q2.2)\n• 250 000 shares were repurchased at R4,25 per share on 30 November 2020 (total cost R1 062 500). The share capital account was reduced by R1 000 000 (the book value). The excess R62 500 is charged to retained income.\n• Interim dividends paid: R672 000 (already recorded)\n• On 28 February 2021: 3 412 500 shares in issue. A final dividend of 36 cents per share was declared.",
+          "marks": 8,
+          "memoText": "RETAINED INCOME NOTE on 28 February 2021:\n\nBalance at beginning of financial year (1 March 2020): R2 978 000\nNet profit after tax: R1 342 080\nBuy back of shares: (R62 500)\nDividends: (R1 900 500)\n  Interim: R672 000\n  Final: 3 412 500 × R0,36 = R1 228 500\n\nBalance at end of financial year: R2 357 080\n\nMark allocation:\n• Opening balance R2 978 000 (given/stated)\n• Net profit after tax R1 342 080 (1 mark)\n• Buy-back R62 500 (2 marks — must be subtracted)\n• Interim dividends R672 000 (1 mark)\n• Final dividend calculation: 3 412 500 × R0,36 = R1 228 500 (2 marks — one part correct)\n• Closing balance R2 357 080 (1 mark — one part correct; buy-back and dividends must be subtracted)",
+          "topic": "Retained Income Note",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.2.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q2.2a.png"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Financial Indicators and Cash Flow Statement",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2021-3-1-1",
+          "label": "3.1.1",
+          "questionText": "DIGITAL GIANTS LTD — Financial year ends 31 March\n\nCalculate the debt-equity ratio for the financial year ended 31 March 2021.\n\nExtract from Statement of Financial Position (31 March 2021):\n• Ordinary shareholders' equity: R10 387 600 (share capital R7 280 000 + retained income R3 107 600)\n• Mortgage loan: R2 450 000",
+          "marks": 3,
+          "memoText": "Debt-equity ratio = Non-current liabilities : Shareholders' equity\n= R2 450 000 : R10 387 600\n= 0,2 : 1\n\nNote: Must be expressed as x : 1. Shareholders' equity = R7 280 000 + R3 107 600 = R10 387 600 earns 1 mark. One part correct for partial answer.",
+          "topic": "Financial Indicators - Gearing",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3.1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-3-1-2",
+          "label": "3.1.2",
+          "questionText": "DIGITAL GIANTS LTD — Financial year ends 31 March\n\nCalculate the net asset value (NAV) per share for 31 March 2021.\n\nInformation:\n• Shareholders' equity on 31 March 2021: R10 387 600\n• Shares in issue on 31 March 2020: 700 000\n• 120 000 new shares issued on 1 April 2020 at R12,60 per share\n• 20 000 shares repurchased on 31 March 2021 (for 50% more than average issue price R9,10)",
+          "marks": 3,
+          "memoText": "Shares in issue on 31 March 2021 = 700 000 + 120 000 – 20 000 = 800 000 shares (1 mark)\n\nNAV per share = Shareholders' equity × 100 ÷ Number of shares in issue\n= R10 387 600 × 100 ÷ 800 000\n= 1 298,5 cents\n\nAccept: 1298c / 1299c / R12,98 / R12,99. One part correct for partial answer. R/c not required.",
+          "topic": "Financial Indicators - NAV",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3.1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-3-1-3",
+          "label": "3.1.3",
+          "questionText": "DIGITAL GIANTS LTD — Financial year ends 31 March\n\nCalculate the dividend pay-out rate for the financial year ended 31 March 2021.\n\nInformation:\n• Earnings per share (EPS): 350 cents\n• Interim dividend (15 August 2020): 45 cents per share\n• Final dividend (31 March 2021): 32 cents per share = R262 400 total\n• Net profit after tax: R2 870 000\n• Shares in issue on 31 March 2021: 800 000",
+          "marks": 4,
+          "memoText": "Dividend pay-out rate = (Dividends per share ÷ EPS) × 100\n= (45 + 32) ÷ 350 × 100\n= 77 ÷ 350 × 100\n= 22%\n\nOR\n= Total dividends ÷ Net profit after tax × 100\nInterim amount = 820 000 × R0,45 = R369 000\nTotal dividends = R369 000 + R262 400 = R631 400\n= R631 400 ÷ R2 870 000 × 100 = 22%\n\nMark allocation: Numerator 77 cents (2 marks) + Denominator 350 cents (1 mark) + Answer 22% (1 mark — one part correct). Must be shown as a %.",
+          "topic": "Financial Indicators - Dividends",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3.1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-3-1-4",
+          "label": "3.1.4",
+          "questionText": "DIGITAL GIANTS LTD — Financial year ends 31 March\n\nCalculate the return on average shareholders' equity (ROSHE) for the financial year ended 31 March 2021.\n\nInformation:\n• Net profit after tax: R2 870 000\n• Shareholders' equity on 31 March 2021: R10 387 600\n• Shareholders' equity on 31 March 2020: R6 910 000",
+          "marks": 4,
+          "memoText": "ROSHE = (Net income after tax ÷ Average shareholders' equity) × 100\n= R2 870 000 ÷ [½ × (R10 387 600 + R6 910 000)] × 100\n= R2 870 000 ÷ R8 648 800 × 100\n= 33,2%\n\nMark allocation:\n• Sum R17 297 600 (1 mark)\n• Average R8 648 800 (2 marks — half of sum)\n• Answer 33,2% (1 mark — one part correct)\nAccept 33%. % sign not required.",
+          "topic": "Financial Indicators - ROSHE",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3.1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-3-2-1",
+          "label": "3.2.1",
+          "questionText": "DIGITAL GIANTS LTD — Cash Flow Statement 2021\n\nComplete the table for the following item. Indicate whether it is an inflow or an outflow of cash.\n\nChange in receivables:\n• Debtors' control on 31 March 2021: R418 000\n• Debtors' control on 31 March 2020: R390 000",
+          "marks": 3,
+          "memoText": "Change in receivables = R418 000 – R390 000 = R28 000\nDirection: Outflow (debtors increased → cash paid out / less cash collected)\n\nMark allocation: Amount R28 000 (2 marks) + Outflow (1 mark)",
+          "topic": "Cash Flow Statement",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3b.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2021-3-2-2",
+          "label": "3.2.2",
+          "questionText": "DIGITAL GIANTS LTD — Cash Flow Statement 2021\n\nComplete the table for the following item. Indicate whether it is an inflow or an outflow of cash.\n\nChange in payables:\n• Creditors' control on 31 March 2021: R520 000\n• Income received in advance on 31 March 2021: R16 000\n• Creditors' control on 31 March 2020: R359 200\n• Income received in advance on 31 March 2020: R0",
+          "marks": 3,
+          "memoText": "Change in payables:\nClosing payables = R520 000 + R16 000 = R536 000 (1 mark)\nOpening payables = R359 200\nChange = R536 000 – R359 200 = R176 800\nDirection: Inflow (payables increased → less cash paid out)\n\nMark allocation: R536 000 workings (1 mark) + Amount R176 800 (1 mark) + Inflow (1 mark)",
+          "topic": "Cash Flow Statement",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3b.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2021-3-3-1",
+          "label": "3.3.1",
+          "questionText": "DIGITAL GIANTS LTD — Cash Flow Statement 2021\n\nCalculate the taxation paid for the 2021 Cash Flow Statement.\n\nInformation:\n• Income tax per Statement of Comprehensive Income: R1 085 000\n• SARS: Income tax on 31 March 2020: R124 000 (Debit — refund due from SARS)\n• SARS: Income tax on 31 March 2021: R354 000 (Credit — owing to SARS)",
+          "marks": 4,
+          "memoText": "Taxation paid = Income tax expense + Opening Dr balance – Closing Cr balance\n= R1 085 000 – R124 000 – R354 000\n= R607 000\n\nOR via ledger:\nOpening Dr balance (refund owed by SARS) reduces the cash to be paid:\nTax paid = R1 085 000 – R124 000 – R354 000 = R607 000\n\nMark allocation (1 mark each): R1 085 000, R124 000, R354 000, Final answer R607 000 (one part correct)",
+          "topic": "Cash Flow Statement - Taxation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3.2.3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-3-3-2",
+          "label": "3.3.2",
+          "questionText": "DIGITAL GIANTS LTD — Cash Flow Statement 2021\n\nCalculate the dividends paid for the 2021 Cash Flow Statement.\n\nInformation:\n• Shareholders for dividends (31 March 2020): R210 000\n• Shareholders for dividends (31 March 2021): R262 400 (= final dividend declared)\n• Interim dividend declared 15 August 2020: 45 cents per share\n• Final dividend declared 31 March 2021: 32 cents per share = R262 400\n• Shares in issue at time of interim: approximately 820 000",
+          "marks": 4,
+          "memoText": "Dividends paid = Opening Shareholders for dividends + Dividends declared – Closing Shareholders for dividends\n= R210 000 + (R369 000 + R262 400) – R262 400\n= R210 000 + R369 000\n= R579 000\n\nInterim amount = 820 000 shares × R0,45 = R369 000 (2 marks)\nThe final dividend R262 400 equals the closing balance — it was declared but not yet paid, so it cancels out.\n\nMark allocation: Opening R210 000 (1 mark) + Interim R369 000 (2 marks) + Answer R579 000 (1 mark — one part correct)",
+          "topic": "Cash Flow Statement - Dividends",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3.2.4.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3.2.4a.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2021-3-3-3",
+          "label": "3.3.3",
+          "questionText": "DIGITAL GIANTS LTD — Cash Flow Statement 2021\n\nCalculate the proceeds from the sale of fixed assets for the 2021 Cash Flow Statement.\n\nInformation:\n• Fixed assets at carrying value on 31 March 2021: R8 865 000\n• Fixed assets at carrying value on 31 March 2020: R8 878 000\n• Total depreciation for the year: R785 000\n• Extensions to buildings completed at cost R1 360 000 during the year\n• Equipment was sold at carrying value during the year\n• No other fixed assets were purchased or sold",
+          "marks": 5,
+          "memoText": "Using the fixed assets at carrying value account:\nOpening CV: R8 878 000\n+ Purchases (buildings extension): R1 360 000\n– Depreciation: (R785 000)\n– Carrying value of assets sold: ?\n= Closing CV: R8 865 000\n\nCV sold = R8 878 000 + R1 360 000 – R785 000 – R8 865 000 = R588 000\nSince equipment was sold at carrying value: Proceeds = R588 000\n\nMark allocation (1 mark each): R8 865 000, R8 878 000, R785 000, R1 360 000, Answer R588 000 (one part correct)",
+          "topic": "Cash Flow Statement - Fixed Assets",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3.2.4.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-3-3-4",
+          "label": "3.3.4",
+          "questionText": "DIGITAL GIANTS LTD — Cash Flow Statement 2021\n\nCalculate the funds used for the repurchase of shares.\n\nInformation:\n• 20 000 shares were repurchased on 31 March 2021 for 50% more than the average issue price of R9,10 per share.\n• These shares qualified for final dividends.",
+          "marks": 2,
+          "memoText": "Repurchase price = R9,10 × 150% = R13,65 per share\nFunds used = 20 000 × R13,65 = R273 000\n\nOR: (20 000 × R9,10) + (20 000 × R4,55) = R182 000 + R91 000 = R273 000\n\nMark allocation: Correct price/calculation R13,65 (1 mark) + Answer R273 000 (1 mark — one part correct)",
+          "topic": "Cash Flow Statement - Share Repurchase",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q3.2.4a.png"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Interpretation of Financial Statements and Corporate Governance",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-p1-may-jun-2021-4-1-1",
+          "label": "4.1.1",
+          "questionText": "Choose a description from COLUMN B that matches the type of director in COLUMN A. Write only the letter (A–C).\n\nCOLUMN A: Executive director\n\nCOLUMN B:\nA — member of the board but not responsible for daily management functions\nB — member of the board who also has management responsibilities\nC — found guilty of serious misconduct",
+          "marks": 1,
+          "memoText": "B (member of the board who also has management responsibilities)",
+          "topic": "Corporate Governance - Directors",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.1.1.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-4-1-2",
+          "label": "4.1.2",
+          "questionText": "Choose a description from COLUMN B that matches the type of director in COLUMN A. Write only the letter (A–C).\n\nCOLUMN A: Delinquent director\n\nCOLUMN B:\nA — member of the board but not responsible for daily management functions\nB — member of the board who also has management responsibilities\nC — found guilty of serious misconduct",
+          "marks": 1,
+          "memoText": "C (found guilty of serious misconduct)",
+          "topic": "Corporate Governance - Directors",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.1.2.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-4-1-3",
+          "label": "4.1.3",
+          "questionText": "Choose a description from COLUMN B that matches the type of director in COLUMN A. Write only the letter (A–C).\n\nCOLUMN A: Non-executive director\n\nCOLUMN B:\nA — member of the board but not responsible for daily management functions\nB — member of the board who also has management responsibilities\nC — found guilty of serious misconduct",
+          "marks": 1,
+          "memoText": "A (member of the board but not responsible for daily management functions)",
+          "topic": "Corporate Governance - Directors",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.1.3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-4-2-1",
+          "label": "4.2.1",
+          "questionText": "LIBRA LIMITED — trades in computer hardware and software. CEO: Anton Buys; 5 other directors. Financial years end 30 April.\n\nFinancial indicators on 30 April:\n• Current ratio: 2021: 0,6:1 | 2020: 1,1:1\n• Acid-test ratio: 2021: 0,3:1 | 2020: 0,8:1\n• Stockholding period: 2021: 78 days | 2020: 43 days\n• Average debtors' collection period: 2021: 58,9 days | 2020: 32,6 days\n• Average creditors' payment period: 2021: 75,6 days | 2020: 63,6 days\n\nThe current ratio and acid-test ratio show the company's liquidity has deteriorated. Identify TWO other liquidity indicators which also show that the company is likely to have serious liquidity concerns in future. Explain ONE point in EACH case (with figures).",
+          "marks": 4,
+          "memoText": "Any TWO of the following (1 mark for indicator + 1 mark for explanation with figures):\n\n1. Stockholding period: Increased from 43 days to 78 days (by 35 days / 81,4%). Cash is tied up in stock; stock is not moving fast enough; danger of obsolescence.\n\n2. Average debtors' collection period: Increased from 32,6 days to 58,9 days (by 26,3 days / 80,1%). Slower collections negatively affect cash flow / poor control over debtors.\n\nNote: Do NOT accept creditors' payment period as a liquidity indicator here.",
+          "topic": "Financial Indicators - Liquidity",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.2.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-4-2-2",
+          "label": "4.2.2",
+          "questionText": "LIBRA LIMITED\n\nThe company increased the loan to finance the purchase of additional property in a new suburb, hoping to improve demand for their products.\n\nFinancial indicators on 30 April:\n• Debt-equity ratio: 2021: 0,7:1 | 2020: 0,2:1\n• Return on capital employed (ROTCE): 2021: 6,4% | 2020: 9,1%\n• Interest rate on loans: 12%\n• Sales: 2021: R8 976 000 | 2020: R11 550 000\n• Mark-up % achieved: 2021: 60% | 2020: 75%\n\n(a) Comment on how the increase in the loan affected the risk and gearing in 2021. Quote TWO financial indicators. State ONE point in EACH case (with figures).\n\n(b) Explain whether the decision to purchase additional property had the desired effect on demand (with figures).",
+          "marks": 9,
+          "memoText": "(a) TWO financial indicators with comment (3 marks each = 6 marks):\n\nPOINT 1 — Debt-equity ratio:\nIncreased from 0,2:1 to 0,7:1 (by 0,5:1). The business is now making much more use of loans, resulting in higher financial risk.\n\nPOINT 2 — ROTCE:\nDecreased from 9,1% to 6,4% (by 2,7%). The business is negatively geared — the return on capital (6,4%) is lower than the interest rate on loans (12%). The company is not making effective use of borrowed funds.\n\n(b) The decision did NOT have the desired effect (3 marks):\n• Sales decreased by R2 574 000 / from R11 550 000 to R8 976 000 / by 22,3%.\n• The mark-up reduction from 75% to 60% (lower prices) did not result in more sales.",
+          "topic": "Financial Indicators - Gearing",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.2a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.2b.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2021-4-2-3",
+          "label": "4.2.3",
+          "questionText": "LIBRA LIMITED\n\nA further 80 000 shares were issued at R6,00 per share but the public showed poor interest. Explain why the public was not interested. Quote THREE financial indicators (excluding debt-equity ratio and ROTCE). State ONE point in EACH case (with figures).\n\nFinancial indicators on 30 April:\n• EPS: 2021: 54 cents | 2020: 102 cents\n• DPS: 2021: 25 cents | 2020: 90 cents\n• NAV per share: 2021: 732 cents | 2020: 711 cents\n• ROSHE: 2021: 4,9% | 2020: 5,3%\n• Market price of shares: 2021: 580 cents | 2020: 610 cents\n• Interest rate on fixed deposit: 8%\n• Mark-up % achieved: 2021: 60% | 2020: 75%\n• % operating expenses on sales: 2021: 44,1% | 2020: 32%",
+          "marks": 9,
+          "memoText": "Any THREE of the following (1 mark indicator + 1 mark figures + 1 mark explanation = 3 marks per point):\n\n1. EPS: Decreased from 102 cents to 54 cents (by 48 cents). Company is struggling to maintain profit levels — poor investment prospect.\n\n2. DPS (Dividends per share): Dropped from 90 cents to 25 cents. Shareholders not receiving a reasonable return.\n\n3. Dividend pay-out rate: Dropped from 88,2% to 46,3%. Directors not focused on returning value to shareholders.\n\n4. ROSHE: Dropped from 5,3% to 4,9%; still below fixed deposit interest rate (8%). Investing in shares gives a lower return than a bank deposit.\n\n5. Market price / NAV: At R6,00, shares were expensive relative to the market price of R6,10 (2020) or R5,80 (2021); directors then sold at R4,80 — shows lack of investor confidence.\n\n6. NAV (711 cents 2020) higher than market price (610 cents) — indicates low demand for shares even before the new issue.\n\n7. Liquidity: Current ratio 0,6:1 and acid-test 0,3:1 — the company may struggle to meet short-term obligations.",
+          "topic": "Financial Indicators - Share Analysis",
+          "type": "written",
+          "diagramUrls": [
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.2a.png",
+            "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.2b.png"
+          ]
+        },
+        {
+          "id": "acc-p1-may-jun-2021-4-2-4",
+          "label": "4.2.4",
+          "questionText": "LIBRA LIMITED\n\nAt the AGM, shareholders complained that the Remunerations Committee was negligent and that CEO Anton Buys did not deserve his fees.\n\nDirectors' fees on 30 April:\n• Director's fees paid to CEO (Anton Buys): 2021: R2 900 000 | 2020: R2 000 000\n• Total fees paid to 5 other directors: 2021: R3 000 000 | 2020: R3 000 000\n\nOther indicators: EPS 2021: 54c (2020: 102c); ROSHE: 4,9% (5,3%); ROTCE: 6,4% (9,1%); % operating expenses on sales: 44,1% (32%)\n\nState TWO different points to justify the shareholders' opinion. Quote figures or financial indicators.",
+          "marks": 4,
+          "memoText": "TWO valid points (2 marks each: 1 for point + 1 for figure):\n\nPOINT 1 (Compulsory — must comment on CEO's fees):\n• Anton Buys gave himself a 45% increase (from R2 000 000 to R2 900 000 = +R900 000).\n• The CEO's R900 000 increase is 30% of what the 5 other directors collectively earn.\n• Other directors received no increase (still R3 000 000 total / R600 000 each).\n\nPOINT 2 (any ONE of):\n• EPS dropped from 102 cents to 54 cents (by 48 cents) — poor performance under his leadership.\n• ROSHE dropped from 5,3% to 4,9%.\n• ROTCE dropped from 9,1% to 6,4%.\n• Operating expenses increased from 32% to 44,1% of sales — poor expense control.",
+          "topic": "Corporate Governance - Remuneration",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-4-2-5",
+          "label": "4.2.5",
+          "questionText": "LIBRA LIMITED — Share capital and shareholding:\n• Shares in issue: 2021: 2 450 000 | 2020: 2 400 000\n• Shares owned by Anton Buys: 2021: 1 240 000 | 2020: 1 270 000\n• On 1 May 2020, 30 000 shares repurchased from Anton Buys at R12,00 per share (none of the other 5 directors supported this decision)\n• 80 000 new shares issued on 30 June 2020 at R4,80 (originally listed at R6,00)\n• NAV per share (2020): 711 cents | Market price (2020): 610 cents\n\n(a) Explain why the other directors were unhappy with the price paid for the shares repurchased from Anton Buys. State TWO points. Quote financial indicators or figures to support EACH point.\n\n(b) Give a calculation to show whether the repurchase of these shares affected Anton Buys' status as majority shareholder, or not.",
+          "marks": 7,
+          "memoText": "(a) TWO points (2 marks each = 4 marks; both points may be in the same statement; 2020 figures must be quoted):\n\nPOINT 1: The shares were repurchased at R12,00 — R4,89 above the NAV per share of 711 cents. The business paid an inflated/unreasonable price (169% of NAV), compromising its cash flow.\n\nPOINT 2: The repurchase price of R12,00 is R5,90 more than the market price of R6,10 (610 cents in 2020). There is no demand for shares at that level — the price is unreasonable.\n\n(b) Calculation (3 marks):\nAnton Buys' percentage = 1 240 000 ÷ 2 450 000 × 100 = 50,6%\nOR = 1 240 000 ÷ 2 370 000 × 100 = 52,3% (using shares before July 2020 issue)\n\nConclusion: Anton Buys still holds more than 50% — he remains the majority shareholder. The repurchase did NOT affect his majority status.\n\nMark allocation: Numerator 1 240 000 (1 mark) + Denominator 2 450 000 or 2 370 000 (1 mark) + Result as % (1 mark — one part correct)",
+          "topic": "Corporate Governance - Share Transactions",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.3.png"
+        },
+        {
+          "id": "acc-p1-may-jun-2021-4-2-6",
+          "label": "4.2.6",
+          "questionText": "LIBRA LIMITED\n\nExcellence Limited (renowned for good corporate governance) has offered to purchase the remaining 2 550 000 unissued shares at a price considerably more than current market value. Anton Buys says he will vote against this proposal. The other directors strongly favour accepting the offer.\n\n(a) Explain what is meant by good corporate governance and explain why it is important to shareholders.\n\n(b) Explain a possible reason why Anton Buys says he will vote against the proposal by Excellence Ltd.\n\n(c) The other directors feel Anton Buys is abusing his position as CEO and majority shareholder.\n   • Explain why you agree with them.\n   • Give the directors advice on how they should handle this.",
+          "marks": 9,
+          "memoText": "(a) Good corporate governance (3 marks):\nExplanation (2 marks — any valid point):\n• Managing the business on sound business and ethical principles.\n• Looking after the interests of all stakeholders (including the community) by being fair, equitable, and transparent.\n• Ensuring proper rules, policies and practices are in place to create long-term shareholder value.\n\nImportance to shareholders (1 mark):\n• Positively impacts the image/goodwill of the business.\n• Leads to improvement in share price.\n• Attracts potential investors.\n• Builds confidence in management.\n\n(b) Reason Anton Buys will vote against (2 marks — any valid point):\n• He will lose his majority control on the Board if Excellence Ltd acquires all unissued shares.\n• He may lose his CEO status and power.\n• He may be investigated for negligence/misconduct.\n• He will not be able to manipulate his own remuneration in future.\n\n(c) Why you agree with directors (2 marks):\n• He has taken irresponsible decisions that serve his own interests (e.g., 45% salary increase while company performance deteriorated; voted for his own inflated share repurchase against all others' wishes).\n\nAdvice to directors (2 marks — any valid point):\n• Call a special meeting of shareholders.\n• Issue a grievance report.\n• Start disciplinary/investigation proceedings for mismanagement.\n• Ask Anton Buys to step aside as CEO.",
+          "topic": "Corporate Governance",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p1-may-jun-2021-q4.3.png"
+        }
+      ]
+    }
+  ]
+}

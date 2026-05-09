@@ -1,0 +1,649 @@
+Attach the memo PDF for this paper. Fill in memoText for every sub-question using the memo. Also set type to "written" on every sub-question that does not already have a type, and "mcq" on any that are multiple choice with A/B/C/D options.
+
+Rules:
+- Match each sub-question by its label to the memo
+- Copy memoText exactly from the memo, do not summarise
+- Do not change any other fields
+- Return the complete updated JSON only, no explanation
+
+JSON:
+{
+  "id": "hist-p2-may-jun-2021",
+  "subject": "History",
+  "paperCode": "P2",
+  "year": 2021,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "WHAT WERE THE RESPONSES TO THE COMPULSORY INTRODUCTION OF AFRIKAANS AS A MEDIUM OF INSTRUCTION IN BLACK SOUTH AFRICAN SCHOOLS IN 1976?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "1A",
+          "title": "Source 1A",
+          "type": "text",
+          "content": "The source below focuses on the Department of Bantu Education's decision to impose Afrikaans as a compulsory medium of instruction on black South African schools.\n\nThe issue that caused the 1976 Soweto Uprising was a decree (law) issued by the Department of Bantu Education. The Deputy Minister of Bantu Education, Andries Treurnicht, sent a directive to school boards, inspectors and principals that Afrikaans should be put on an equal basis with English and had to be used as a medium of instruction in all schools. These instructions drew immediate negative reaction from various teacher organisations and school boards both inside and outside Soweto.\n\nThe first body to formally respond to the imposition of the apartheid regime's language policy was the Tswana School Board, which comprised (made up) school boards from Meadowlands, Orlando West, Dobsonville and other areas in Soweto. The minutes of the meeting of the Tswana School Board that was held on 20 January 1976 read:\n\n'The circuit inspector told the Board that the Secretary for Bantu Education has stated that all direct taxes paid by the black population of South Africa are being sent to the various homelands for educational purposes there … In urban areas the education of a black child is being paid for by the white population, that is English and Afrikaans-speaking groups. Therefore, the Secretary for Bantu Education has the responsibility of satisfying the English and Afrikaans-speaking people. Consequently, as the only way of satisfying both groups, the medium of instruction in all schools shall be on a 50-50 basis ... In future, if schools teach through a medium not prescribed by the Department for a particular subject, examination question papers will only be set in that medium with no option for other languages.'\n\nThe Tswana School Board made several attempts to get the Department of Bantu Education to end this policy, but it resulted in failure. School boards were told in no uncertain terms that the language policy must be implemented. Most school boards simply gave in to this directive …\n\n[From www.sahistory.org.za/pages/governance_projects/june16/june16.htm. Accessed on 23 February 2020.]",
+          "imageUrl": null
+        },
+        {
+          "id": "1B",
+          "title": "Source 1B",
+          "type": "text",
+          "content": "The article below was written by Nelvis Qekema and is titled 'The June 16 Uprising Unshackled: A Black Perspective'. It focuses on how the philosophy of Black Consciousness influenced black South African students to challenge the use of Afrikaans as a medium of instruction.\n\n… No matter how painful it might be, it is a fact of history that the 16 June 1976 Uprising occurred under the direct influence of the Black Consciousness Movement (BCM). On 28 May 1976 the South African Students' Movement (SASM), a student component of the BCM, held its general students' council meeting where the issue of Afrikaans as a medium of instruction was discussed. The minutes of the general students' council meeting captured the spirit of the meeting and stated that the recent boycotts at schools were a demonstration against preparing 'good industrial boys' for the powers that be … 'We resolve to totally reject the use of Afrikaans as a medium of instruction …'\n\nSeth Mazibuko gave this testimony at his 1977 trial and stated the following:\n'On 13 June 1976, I attended this meeting. Various schools from Soweto were present. The main speaker explained to us what the aims and objectives of the SASM were. He also discussed the use of Afrikaans as a medium of instruction and called upon the prefects at our schools to come forward and to explain what the position was [in their schools]. I stood up and told the congregation that Phefeni [Junior Secondary] School refused to use Afrikaans and they had boycotted classes during May 1976.'\n\nOn 13 June 1976, at an SASM meeting an Action Committee was formed. It was named the Soweto Students' Representative Council (SSRC) which was led by Tsietsi Mashinini. A decision was taken for a planned march on 16 June against the compulsory use of Afrikaans as a medium of instruction in black South African schools.\n\n[From http://azapo.org.za/the-june-16-uprising-ushackled-a-black perspective/. Accessed on 23 February 2020.]",
+          "imageUrl": null
+        },
+        {
+          "id": "1C",
+          "title": "Source 1C",
+          "type": "text",
+          "content": "The source below focuses on how events unfolded in Soweto on 16 June 1976.\n\nOn the morning of 16 June 1976 a massive crowd of students gathered on Vilikazi Street opposite Phefeni Junior Secondary School and Orlando West High School in Soweto.\n\nChanting slogans, such as 'Away with Afrikaans', 'Amandla Ngawethu' (Power to the People) and 'Free Azania', the huge crowd had attracted scores of people, including the apartheid police force …\n\nFive white police officers stood side by side in the middle of the road and faced a sea of black faces. Behind them, more uniformed police, most of them black and from the riot squad, armed with rifles and accompanied by dogs, alighted (got out of) from police trucks. They walked down the road towards the officers and the massive group of students. Several women watched from the roadside. 'Are you going kill our children?' a woman asked an African police officer as he walked past. 'No, there'll be no shooting,' said the officer calmly. 'The children are not fighting anybody, they are only demonstrating …'\n\nSuddenly a white police officer stepped to the side, bent down and picked up what seemed to be a stone. He then hurled the object into the crowd. Instantly the children in front of the column scattered to the sides. They picked up stones and regrouped. They shouted, 'Power, P-o-w-e-r!' as they advanced towards the police. 'Bang,' a shot rang out, then another and yet another in rapid succession.\n\nStudents fled in all directions, many took refuge (shelter) on the rugged ridge behind the two schools, into alley ways, side streets and homes. Everybody seemed terribly shaken. The students were bewildered (confused) and grim (shocked). They had not expected this. Dumb-struck, they stood in groups all over the area while the wounded lay groaning on the ground. Helped by motorists and journalists, they collected the dead and the wounded and took them to hospitals.\n\n[From A People on the Boil by H Mashabela]",
+          "imageUrl": null
+        },
+        {
+          "id": "1D",
+          "title": "Source 1D",
+          "type": "image",
+          "content": "The headlines below appeared on the front page of The World newspaper on 17 June 1976, titled 'POLICE GUN DOWN OUR CHILDREN'. The World newspaper was mainly read by black South Africans. The front page shows the newspaper masthead 'THE WORLD' at the top, followed by the date 'Thursday, 17 June 1976'. The dominant headline reads in large bold type: 'POLICE GUN DOWN OUR CHILDREN'. Below the headline, a sub-heading states: '58 dead, 700 injured in one day'.\n\n[From The World, 17 June 1976]",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "What, according to the source, caused the 1976 Soweto Uprising?",
+          "marks": 1,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Quote any TWO school boards from the source that comprised (made up) the Tswana School Board.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A"],
+          "questionType": "quote"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "Explain to what extent you agree with the circuit inspector's justification that all subjects in black South African schools should be taught 'on a 50-50 basis'.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-1-4",
+          "label": "1.1.4",
+          "questionText": "Comment on the School Board's response to the introduction of Afrikaans as a medium of instruction.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A"],
+          "questionType": "comment"
+        },
+        {
+          "id": "1-2-1",
+          "label": "1.2.1",
+          "questionText": "Name TWO organisations in the source that influenced the Soweto Uprising.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-2-2",
+          "label": "1.2.2",
+          "questionText": "Explain why the SASM rejected the use of Afrikaans as a medium of instruction in black South African schools.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-2-3",
+          "label": "1.2.3",
+          "questionText": "Define the term boycott in the context of the Soweto Uprising.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1B"],
+          "questionType": "define"
+        },
+        {
+          "id": "1-2-4",
+          "label": "1.2.4",
+          "questionText": "Comment on the usefulness of this source for a historian studying the causes of the 1976 Soweto Uprising.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1B"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "1-3-1",
+          "label": "1.3.1",
+          "questionText": "Name TWO schools in the source where a massive crowd gathered.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-3-2",
+          "label": "1.3.2",
+          "questionText": "Write down any TWO slogans from the source that the students who gathered on Vilikazi Street chanted.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-3-3",
+          "label": "1.3.3",
+          "questionText": "Explain how the statement made by the black police officer contradicts (goes against) the action taken by the white police officer in the context of the events that unfolded in Soweto on 16 June 1976.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-3-4",
+          "label": "1.3.4",
+          "questionText": "Identify any THREE places mentioned in the source where students sought refuge after the police opened fire.",
+          "marks": 3,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "1-4-1",
+          "label": "1.4.1",
+          "questionText": "Explain why you think the editor of The World newspaper decided to publish this article on the front page.",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "1-4-2",
+          "label": "1.4.2",
+          "questionText": "What message do the words, 'POLICE GUN DOWN OUR CHILDREN', convey in reference to the Soweto Uprising?",
+          "marks": 2,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1D"],
+          "questionType": "comment"
+        },
+        {
+          "id": "1-5",
+          "label": "1.5",
+          "questionText": "Study Sources 1C and 1D. Explain how the information in Source 1C supports the evidence in Source 1D regarding how the apartheid police responded to students in Soweto on 16 June 1976.",
+          "marks": 4,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1C", "1D"],
+          "questionType": "compare"
+        },
+        {
+          "id": "1-6",
+          "label": "1.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining the responses to the introduction of Afrikaans as a compulsory medium of instruction in black South African schools in 1976.",
+          "marks": 8,
+          "topic": "Civil Resistance",
+          "requiredSources": ["1A", "1B", "1C", "1D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "HOW DID THE TRUTH AND RECONCILIATION COMMISSION (TRC) DEAL WITH THE MURDER OF POLITICAL ACTIVISTS SUCH AS LENNY NAIDU?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "2A",
+          "title": "Source 2A",
+          "type": "text",
+          "content": "The source below was written by historian, Martin Meredith. It focuses on the reasons for the formation of the Truth and Reconciliation Commission (TRC).\n\nThe honeymoon (celebratory) period came to an end over differences of how to deal with South Africa's violent past. Nelson Mandela was determined that human rights violations during the apartheid era should be investigated by a truth commission. The purpose, he noted, was not to exact retribution (revenge) but to provide some form of public accountability and to help purge (remove) the injustices of the past so that reconciliation can take place. Unless past crimes were addressed, he said, they would 'live with us like a festering (decaying) sore'. FW de Klerk, deputy president in Mandela's government of national unity, denounced (criticised) the whole idea, arguing that a truth commission would result in a 'witch hunt' focusing upon past government abuses while ignoring the crimes committed by the African National Congress. It was, he said, likely to 'tear the stitches of wounds that are beginning to heal' …\n\nThe Truth and Reconciliation Commission (TRC) that emerged in 1995 was born inevitably of compromise. Its scope was limited to the investigation of gross violations of human rights, such as murder, abduction (kidnapping) and the use of torture in the thirty-four-year period from 1960, starting with the massacre at Sharpeville …\n\nThe TRC was given powers of subpoena (demand) and of search and seizure and it was supported by its own investigative unit. It was required to pay as much attention to human rights violations that were committed by the liberation movement as by the apartheid security police. But it was not a judicial body or a court of law. It could not carry out prosecutions or hand out punishment. Its aim was not so much to reach a judgement about culpability (blame) as to establish a process of disclosure. In exchange for telling the truth, perpetrators who came forward were granted amnesty from prosecution on an individual basis, provided the Commission was satisfied that they had made full disclosure of their crimes and their actions had been carried out with a political objective. If they failed to come forward, they would remain at risk of prosecution.\n\n[From The State Of Africa by M Meredith]",
+          "imageUrl": null
+        },
+        {
+          "id": "2B",
+          "title": "Source 2B",
+          "type": "text",
+          "content": "The source below is a transcript (written record) of evidence that Leslie Naidu gave before the TRC regarding the murder of his brother and student activist Lenny Naidu. The TRC hearing was held at the Durban Christian Centre on 30 July 1999.\n\nCOMMISSIONER: You have come to tell us also about the death of your brother, Surendra Lenny Naidu, who was also killed by the security forces in 1988 at Piet Retief. Can you please stand to take the oath before you tell us that story ...?\n\nLESLIE NAIDU: … I come to the Commission as the spokesperson for my family to give evidence on the events surrounding the death of my brother Lenny. Firstly, I was very pleased to hear of the establishment of the TRC, and it was something that we prayed and hoped for the last 10 years and it has been almost 11 years since I last saw my brother alive. We always believed in truth and justice and it was something that we always thought will always win, whether it's today, tomorrow, or in 10 years' time. And it was this philosophy that really made me think about myself and look into myself after Lenny had died and I asked myself, firstly, do I want justice as we believed in this philosophy of justice and fair play? Do I want justice to be served onto the wrongdoers, especially those that had administered justice the way they did to my brother and the people of this country? Do I want it to be meted out (done) in the very same manner? And there were times I wanted this type of justice, I wanted this jungle justice, blood for blood, and an eye for an eye, but fortunately there were times I wanted to learn the truth. And those times that I wanted to learn the truth actually calmed me in my need for such justice. Truth is what we all want and truth, I think, is what we deserve now. But the most soul-searching part comes after truth, and that is forgiveness. I had to think long and hard about forgiveness.\n\n… But what do I forgive, who do I forgive? It seems this road of forgiveness, or this battle that I have with forgiveness seems to be going around in circles all the time. Until this road straightens up perhaps I can forgive. But through this Commission I hope that these perpetrators will give us the truth and only the truth.\n\n[From http://sabctrc.saha.org.za/documents/hrvtrans/durban/56210.htm. Accessed on 12 February 2020.]",
+          "imageUrl": null
+        },
+        {
+          "id": "2C",
+          "title": "Source 2C",
+          "type": "text",
+          "content": "The newspaper article below focuses on Eugene De Kock's appearance before the TRC. It was written by Archie Mini for the Independent Online website on 26 July 1999. The perpetrators were not granted amnesty for the murder of the nine political activists.\n\nEugene de Kock, the apartheid assassin (killer), appeared before the Truth and Reconciliation Commission at the Durban Christian Centre on Monday. De Kock and 14 other former security branch policemen applied for amnesty for their involvement in three incidents of murder, where they killed nine ANC members from KwaZulu-Natal in four days during 1988.\n\nIn the first incident, Surendra 'Lenny' Naidu (23), Notsikelelo Cotoza (25), Makhosi Nyoka (25) and Lindiwe Mthembu (21), died when their car was ambushed in Houtkop Road outside Piet Retief in Mpumalanga, on the night of 8 June 1988.\n\nSix people, Leon William Flores, Jury Bernardus Hayes, Gerrie Johan Barnard, Flip Koenraad Theron, Frederick Johannes Pienaar and Marthinus David Ras, are applying for amnesty with De Kock for the killing of the four MK operatives, who were unarmed when they came under fire. The families of the dead are opposing the application.\n\nDe Kock told Judge Morane Moerane, representing the family of the deceased, that he organised the ambush after a request was sent to him by 'a Mr Pienaar', former head of the security branch in Piet Retief, to 'help them with an operation concerning trained ANC members infiltrating (entering) the country from Swaziland'.\n\n'They had to give a signal of a flashing left indicator to let us know that the occupants were armed. In both cases the signals were made, according to De Kock. To cover up the shooting of unarmed combatants 'we planted a Makarov pistol on the body of Lenny Naidu and a hand grenade in one of the bags of the women'.\n\n'We are opposing the application for amnesty,' said Leo Naidu, Lenny's father.\n\n[From https://www.iol.co.za/news/politics/families-hear-details-of-de-kock-deaths-6097. Accessed on 12 February 2020.]",
+          "imageUrl": null
+        },
+        {
+          "id": "2D",
+          "title": "Source 2D",
+          "type": "image",
+          "content": "A cartoon by Zapiro published in the Sowetan on 13 March 1996. It depicts Archbishop Desmond Tutu receiving Eugene de Kock's application for amnesty at the TRC. The cartoon is divided into two panels. In the left panel, Archbishop Tutu is shown seated at a desk with a folder labelled 'APPLICATIONS TO THE TRUTH COMMISSION' in front of him. He asks: 'NAME?' and de Kock responds: 'EUGENE DE KOCK.' Tutu then says: 'AH, MR DE KOCK… HAVE YOU LISTED THE CRIMES FOR WHICH YOU'LL BE APPLYING FOR AMNESTY?' In the right panel, de Kock is shown standing with his back to the viewer, facing a very long scroll of paper that trails down to the floor — implying an extremely long list of crimes. De Kock responds: 'JA.' A label on the scroll reads 'LICATIONS THE RUTH MMISSION' (partially visible, representing the list of applications to the Truth Commission).\n\n[From http://www.saha.org.za/news/2013/July/galley eugene de kock.htm. Accessed on 12 February 2020.]",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "2-1-1",
+          "label": "2.1.1",
+          "questionText": "Why, according to Nelson Mandela, was there a need to establish the TRC?",
+          "marks": 2,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-1-2",
+          "label": "2.1.2",
+          "questionText": "Define the term reconciliation in the context of the TRC.",
+          "marks": 2,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2A"],
+          "questionType": "define"
+        },
+        {
+          "id": "2-1-3",
+          "label": "2.1.3",
+          "questionText": "Explain why you think De Klerk claimed that the TRC would result in a 'witch hunt'.",
+          "marks": 2,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-1-4",
+          "label": "2.1.4",
+          "questionText": "List THREE human rights violations in the source that the TRC had to investigate.",
+          "marks": 3,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-1-5",
+          "label": "2.1.5",
+          "questionText": "Explain to what extent you agree with the TRC's decision to investigate human rights violations that were committed by both the liberation movement and the apartheid regime.",
+          "marks": 4,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-2-1",
+          "label": "2.2.1",
+          "questionText": "Quote evidence from the source that states when and where Lenny Naidu was killed.",
+          "marks": 2,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2B"],
+          "questionType": "quote"
+        },
+        {
+          "id": "2-2-2",
+          "label": "2.2.2",
+          "questionText": "Using the information in the source and your own knowledge, comment on why Leslie Naidu used the words 'truth' and 'justice' several times during his testimony.",
+          "marks": 4,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2B"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-2-3",
+          "label": "2.2.3",
+          "questionText": "Explain why you would regard this source as useful when researching how the TRC undertook the process of hearing the testimonies of victims.",
+          "marks": 4,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2B"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "2-3-1",
+          "label": "2.3.1",
+          "questionText": "Name any THREE MK operatives in the source that were ambushed by the security branch policemen in Mpumalanga on 8 June 1988.",
+          "marks": 3,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-3-2",
+          "label": "2.3.2",
+          "questionText": "Why, according to the source, did De Kock decide to ambush the MK operatives?",
+          "marks": 2,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "2-3-3",
+          "label": "2.3.3",
+          "questionText": "Comment on why you think De Kock 'planted a Makarov pistol on the body of Lenny Naidu and a hand grenade in one of the bags of the women'.",
+          "marks": 4,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2C"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-4",
+          "label": "2.4",
+          "questionText": "Refer to Sources 2B and 2C. Explain how the evidence in Source 2B supports the information in Source 2C regarding the murder of Lenny Naidu.",
+          "marks": 4,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2B", "2C"],
+          "questionType": "compare"
+        },
+        {
+          "id": "2-5-1",
+          "label": "2.5.1",
+          "questionText": "Explain the messages that are conveyed in the cartoon. Use the visual clues in the source to support your answer.",
+          "marks": 4,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "2-5-2",
+          "label": "2.5.2",
+          "questionText": "Using the information in the source and your own knowledge, comment on why Tutu asks De Kock if he has 'LISTED THE CRIMES FOR WHICH YOU'LL BE APPLYING FOR AMNESTY'.",
+          "marks": 2,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2D"],
+          "questionType": "comment"
+        },
+        {
+          "id": "2-6",
+          "label": "2.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words) explaining how the Truth and Reconciliation Commission dealt with the murder of political activists such as Lenny Naidu.",
+          "marks": 8,
+          "topic": "TRC and Lenny Naidu",
+          "requiredSources": ["2A", "2B", "2C", "2D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "WHAT ARE THE DIFFERENT VIEWS REGARDING THE IMPACT OF GLOBALISATION ON DEVELOPING COUNTRIES?",
+      "totalMarks": 50,
+      "sources": [
+        {
+          "id": "3A",
+          "title": "Source 3A",
+          "type": "text",
+          "content": "The article below focuses on how globalisation influences the economies of developing countries. It was written by F Hamdi and the title is 'The Impact of Globalisation on Developing Countries'.\n\nGlobalisation helps developing countries to increase their economic growth and solve poverty problems in their respective countries. In the past, developing countries were not able to tap the world economy due to trade barriers. They could not share the same economic growth as developed countries. However, with globalisation, the World Bank and the International Monetary Fund encouraged developing countries to go through market reforms and make radical (drastic) changes by taking large loans. Many developing nations began to take steps to open their markets by removing tariffs and freeing up their economies. The developed countries were able to invest in the developing nations and create job opportunities for the poor. For example, rapid growth in India and China led to a reduction in global poverty. It is clear that globalisation has made the relations between developed countries and developing nations stronger …\n\nGlobalisation has many economic and trade advantages for developing countries, but underdeveloped countries are faced with many disadvantages. For instance, globalisation increases the inequality between the rich and poor because the benefits of globalisation are not universal, the rich are getting richer and the poor are becoming poorer. Many developing countries benefit from globalisation but, then again, many of these nations do stay behind. In the past two decades, China and India have grown faster than many rich nations. However, countries in Africa have not grown and still have the highest poverty rates in the world ...\n\n[From https://www.linkedin.com/pulse/impact-globalization-developing-countries-fairooz-hamdi. Accessed on 10 March 2020.]",
+          "imageUrl": null
+        },
+        {
+          "id": "3B",
+          "title": "Source 3B",
+          "type": "text",
+          "content": "The source below is an interview conducted by the Global Business Social Enterprise with N Pavcnik, an associate professor of Economics at Yale University on globalisation. The interview was conducted in New Hampshire, in the United States of America (USA), in 2005.\n\nINTERVIEWER: Is there a way to describe, in a broad sense, what impact globalisation has had on the poorest people living in underdeveloped countries?\n\nN PAVCNIK: If you look back over the past 30 years, developing countries had increased levels of trade protection which have led to higher trade barriers being imposed (forced) on imports and contributed to limited imports. During the 1980s and 1990s, many countries decided to abandon these protectionist (defensive) policies and implemented large-scale trade reforms. For example, India implemented trade reforms in 1991 and its average tax on imports dropped from over 80% to an average of 30%. Colombia went from 50% to around 13%. This has resulted in increased trade flows.\n\nEconomic growth is the main channel through which globalisation can affect poverty. What researchers have found is that, in general, when countries open up for trade, they tend to grow faster and living standards tend to increase. The usual argument goes that the benefits of this higher growth will trickle down to the poor. It has been a bit challenging, especially with aggregate (combined) data, to pinpoint (identify) how exactly the poor have benefited. One challenge is that when trade or globalisation happens, many other factors change, such as technology and macro-economic conditions.\n\nBut, that said, it is virtually impossible to find cases of poor countries that were able to grow over long periods of time without creating trading opportunities. And we have no evidence to suggest that trade leads to increased poverty and a decline in growth.\n\nINTERVIEWER: Are poverty and inequality seen as a threat to globalisation?\n\nN PAVCNIK: If you look at the polls that ask people for their opinions regarding globalisation, there is less opposition in poorer countries than in developed countries. But I think the threat can grow if more people feel as if they are left out of this process or have not benefitted from this process.\n\n[From https://insights.som.yale.edu/insights/how-has-globalization-benefited-the-poor. Accessed on 10 March 2020.]",
+          "imageUrl": null
+        },
+        {
+          "id": "3C",
+          "title": "Source 3C",
+          "type": "text",
+          "content": "The article below was written by Lesetja Malope and appeared in the City Press on 28 May 2017. It is titled 'Gordhan Warns that Inequality Could Lead To Revolt'. It focuses on the impact that globalisation has had on many countries around the world.\n\nFormer Finance Minister Pravin Gordhan stated that globalisation is one of the major drivers of inequality in countries such as South Africa.\n\nGordhan highlighted that, with an increase in the level of stratification (grouping of people), the issue of inequality must be at the forefront of policies. He added that new forms of social safety nets should be created to reduce these social and economic divides.\n\nIt was through the effects of globalisation such as the divergence (difference) of incomes and the loss of jobs that has contributed to increased inequality in South Africa and other similar countries.\n\n'There's a realisation that globalisation has actually resulted in winners and losers and that greater note needs to be taken of who are the winners and what percentage of the population they constitute, and who are the losers,' Gordhan said.\n\nGordhan also tackled the issue of radical economic transformation, saying the term is often misrepresented and it deceives people into believing that these initiatives (plans) will help the majority whereas it only benefits a minority. 'Economic transformation must be for the benefit of all 55 million South Africans,' Gordhan said. 'The others would actually say it in a way which is designed to mislead people … that if we do these extremely so-called radical things they would benefit, but ultimately the small elite (privileged) would actually benefit.'\n\n[From https://city-press.news24.com/. Accessed on 10 March 2020.]",
+          "imageUrl": null
+        },
+        {
+          "id": "3D",
+          "title": "Source 3D",
+          "type": "image",
+          "content": "A horizontal bar graph published in the Mail & Guardian on 20 April 2018, titled 'World's biggest inequality gap' with the sub-heading 'SA has the worst score on the Gini index'. The graph shows Gini index scores (%) on the horizontal axis from 0 to 60, and lists the following countries on the vertical axis from top to bottom (shortest bar to longest): Norway, Switzerland, United Kingdom, Ethiopia, Niger, India, Average of 101 countries, Tanzania, United States, Russia, China, Zimbabwe, Cameroon, Brazil, South Africa. South Africa has the longest bar, extending to approximately 63%, confirming it has the highest inequality score. Norway has the shortest bar, indicating the lowest inequality. The data source is listed as World Bank SA Economic Update, April 2018 (2013 figures). A definition is provided: 'Gini index: Is used to measure the distribution of income of people living in a specific country. If the Gini index is higher, it means that inequality levels will be higher.'\n\n[From https://mg.co.za/article/2018-04-20-00-finding-wealth-in-a-sea-of-poverty. Accessed on 10 March 2020.]",
+          "imageUrl": null
+        }
+      ],
+      "subQuestions": [
+        {
+          "id": "3-1-1",
+          "label": "3.1.1",
+          "questionText": "Quote TWO pieces of evidence from the source that state that globalisation has helped developing countries.",
+          "marks": 2,
+          "topic": "Globalisation",
+          "requiredSources": ["3A"],
+          "questionType": "quote"
+        },
+        {
+          "id": "3-1-2",
+          "label": "3.1.2",
+          "questionText": "Which TWO institutions, according to the source, encouraged developing countries to make radical changes?",
+          "marks": 2,
+          "topic": "Globalisation",
+          "requiredSources": ["3A"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-1-3",
+          "label": "3.1.3",
+          "questionText": "Using the information in the source and your own knowledge, explain how India and China were able to decrease poverty levels in their respective countries.",
+          "marks": 4,
+          "topic": "Globalisation",
+          "requiredSources": ["3A"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-1-4",
+          "label": "3.1.4",
+          "questionText": "Define the term globalisation in your own words.",
+          "marks": 2,
+          "topic": "Globalisation",
+          "requiredSources": ["3A"],
+          "questionType": "define"
+        },
+        {
+          "id": "3-2-1",
+          "label": "3.2.1",
+          "questionText": "Name TWO outcomes that trade protection had on developing countries, as stated in the source.",
+          "marks": 2,
+          "topic": "Globalisation",
+          "requiredSources": ["3B"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-2-2",
+          "label": "3.2.2",
+          "questionText": "Explain the impact that trade reforms had on the economies of India and Colombia.",
+          "marks": 4,
+          "topic": "Globalisation",
+          "requiredSources": ["3B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-2-3",
+          "label": "3.2.3",
+          "questionText": "Using the information in the source and your own knowledge, explain why poorer countries were not opposed to globalisation.",
+          "marks": 4,
+          "topic": "Globalisation",
+          "requiredSources": ["3B"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Study Sources 3A and 3B. Explain how the information in Source 3A supports the evidence in Source 3B regarding the influence that globalisation had on developing countries.",
+          "marks": 4,
+          "topic": "Globalisation",
+          "requiredSources": ["3A", "3B"],
+          "questionType": "compare"
+        },
+        {
+          "id": "3-4-1",
+          "label": "3.4.1",
+          "questionText": "What, according to Pravin Gordhan, was one of the major drivers of inequality in South Africa?",
+          "marks": 1,
+          "topic": "Globalisation",
+          "requiredSources": ["3C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-4-2",
+          "label": "3.4.2",
+          "questionText": "Using the information in the source and your own knowledge, explain why you would regard this source as useful when researching the effects that globalisation had on developing countries.",
+          "marks": 4,
+          "topic": "Globalisation",
+          "requiredSources": ["3C"],
+          "questionType": "reliability"
+        },
+        {
+          "id": "3-4-3",
+          "label": "3.4.3",
+          "questionText": "Explain what you think Gordhan implied by the statement, 'globalisation has actually resulted in winners and losers' in the South African context.",
+          "marks": 4,
+          "topic": "Globalisation",
+          "requiredSources": ["3C"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-4-4",
+          "label": "3.4.4",
+          "questionText": "Why, according to Gordhan, was the term 'radical economic transformation' often misrepresented?",
+          "marks": 2,
+          "topic": "Globalisation",
+          "requiredSources": ["3C"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-5-1a",
+          "label": "3.5.1 (a)",
+          "questionText": "Identify the country in the graph that shows the greatest inequality gap.",
+          "marks": 1,
+          "topic": "Globalisation",
+          "requiredSources": ["3D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-5-1b",
+          "label": "3.5.1 (b)",
+          "questionText": "Identify the country in the graph that shows the smallest inequality gap.",
+          "marks": 1,
+          "topic": "Globalisation",
+          "requiredSources": ["3D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-5-2",
+          "label": "3.5.2",
+          "questionText": "According to the source, what is South Africa's score (%) on the Gini index?",
+          "marks": 1,
+          "topic": "Globalisation",
+          "requiredSources": ["3D"],
+          "questionType": "identify"
+        },
+        {
+          "id": "3-5-3",
+          "label": "3.5.3",
+          "questionText": "Using the information in the source and your own knowledge, explain the various factors that you think contributed to the economic gap in developing countries.",
+          "marks": 4,
+          "topic": "Globalisation",
+          "requiredSources": ["3D"],
+          "questionType": "explain"
+        },
+        {
+          "id": "3-6",
+          "label": "3.6",
+          "questionText": "Using the information in the relevant sources and your own knowledge, write a paragraph of about EIGHT lines (about 80 words), explaining the impact that globalisation had on developing countries.",
+          "marks": 8,
+          "topic": "Globalisation",
+          "requiredSources": ["3A", "3B", "3C", "3D"],
+          "questionType": "paragraph",
+          "rubric": {
+            "level1": { "marks": "0-2", "descriptor": "No relevant information is communicated; candidate has no understanding of the topic; response is irrelevant, inaccurate or a repetition of the question." },
+            "level2": { "marks": "3-5", "descriptor": "Some relevant information is communicated; candidate has a basic understanding; limited use of sources; paragraph is not well structured." },
+            "level3": { "marks": "6-8", "descriptor": "Relevant and accurate information is communicated; candidate demonstrates good understanding; effectively uses information from all relevant sources and own knowledge; well-structured paragraph with a clear argument." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "CIVIL RESISTANCE, 1970s TO 1980s: SOUTH AFRICA: THE CRISIS OF APARTHEID IN THE 1980s",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4",
+          "questionText": "The call for sanctions by the anti-apartheid movements was the only form of international protest that significantly contributed to the eventual downfall of the apartheid regime in the 1980s.\n\nDo you agree with the statement? Support your line of argument with relevant evidence.",
+          "marks": 50,
+          "topic": "Civil Resistance",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "THE COMING OF DEMOCRACY TO SOUTH AFRICA AND COMING TO TERMS WITH THE PAST",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "5-1",
+          "label": "5",
+          "questionText": "The 30th anniversary of the unconditional release of Nelson Mandela from Victor Verster Prison was commemorated in 2020. He believed that 'negotiations and not war were the key ingredients' for the establishment of a democratic South Africa.\n\nCritically discuss this statement. Use relevant evidence from 1990 to 1994 to support your line of argument.",
+          "marks": 50,
+          "topic": "Coming of Democracy",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "THE END OF THE COLD WAR AND A NEW WORLD ORDER: THE EVENTS OF 1989",
+      "totalMarks": 50,
+      "sources": [],
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6",
+          "questionText": "Explain to what extent the demise (downfall) of communism in the Soviet Union was largely responsible for political changes that occurred in South Africa after 1989.\n\nSupport your line of argument with relevant evidence.",
+          "marks": 50,
+          "topic": "Cold War and New World Order",
+          "requiredSources": [],
+          "questionType": "essay",
+          "rubric": {
+            "level1": { "marks": "0-10", "descriptor": "Very limited historical knowledge; no clear argument or thesis; response is mostly irrelevant or inaccurate; little or no use of historical evidence." },
+            "level2": { "marks": "11-20", "descriptor": "Limited historical knowledge; a basic argument is attempted; some relevant evidence used but not well integrated; limited analysis." },
+            "level3": { "marks": "21-35", "descriptor": "Adequate historical knowledge; a developing argument supported by relevant evidence; some analysis evident; essay has a basic structure with introduction and conclusion." },
+            "level4": { "marks": "36-50", "descriptor": "Good to thorough historical knowledge; a clear well-developed argument/thesis; extensive and relevant evidence; strong analysis and evaluation; well-structured essay with introduction, body paragraphs and conclusion." }
+          }
+        }
+      ]
+    }
+  ]
+}

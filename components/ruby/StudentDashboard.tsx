@@ -131,7 +131,7 @@ export default function StudentDashboard({ profile }: StudentDashboardProps) {
                   .filter(([type, count]) => type !== "correct" && count > 0)
                   .sort(([, a], [, b]) => b - a)
                   .map(([type, count]) => {
-                    const info = errorLabels[type];
+                    const info = errorLabels[type as ErrorType] ?? errorLabels["execution_slip"];
                     const pct = Math.round((count / profile.total_attempts) * 100);
                     return (
                       <div key={type}>
@@ -156,12 +156,12 @@ export default function StudentDashboard({ profile }: StudentDashboardProps) {
               </div>
               {profile.error_history.execution_slip > profile.error_history.conceptual_gap && (
                 <p className="text-xs text-gray-500 mt-3 bg-gray-50 rounded-lg p-2">
-                  💡 Most errors are execution slips — you understand the concepts well! Focus on checking your calculations carefully.
+                  💡 Most errors are execution slips, you understand the concepts well! Focus on checking your calculations carefully.
                 </p>
               )}
               {profile.error_history.conceptual_gap > profile.error_history.execution_slip && (
                 <p className="text-xs text-gray-500 mt-3 bg-gray-50 rounded-lg p-2">
-                  💡 Some conceptual gaps detected — Ruby will automatically revisit foundational skills to strengthen your understanding.
+                  💡 Some conceptual gaps detected, Ruby will automatically revisit foundational skills to strengthen your understanding.
                 </p>
               )}
             </div>

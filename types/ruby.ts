@@ -50,7 +50,7 @@ export interface SkillTree {
 
 // ─── Student Model ────────────────────────────────────────────────────────────
 
-export type MasteryStatus = "locked" | "in_progress" | "mastered" | "needs_review";
+export type MasteryStatus = "locked" | "in_progress" | "mastered" | "needs_review" | "assumed";
 
 export interface SkillAttempt {
   id: string;
@@ -87,6 +87,8 @@ export interface SkillMastery {
   needs_reinforcement?: boolean;
   session_history?: MathsSessionRecord[];
   attempts: SkillAttempt[];
+  /** BKT: continuous probability estimate that student has learned this skill (0–1) */
+  p_learned?: number;
 }
 
 export type DiagnosticBlock = 1 | 2 | 3;
@@ -98,7 +100,6 @@ export interface MathsPlacementTaskResult {
   block?: DiagnosticBlock;
   correct?: boolean;
   error_type?: string;
-  is_probe?: boolean;
 }
 
 export interface MathsPlacementResult {
@@ -146,6 +147,15 @@ export interface DiagnosticSession {
   completed: boolean;
 }
 
+export interface GraduatedHint {
+  /** Tap 1 — directional nudge, vague */
+  nudge: string;
+  /** Tap 2 — process pointer, what to do */
+  process: string;
+  /** Tap 3 — first step worked, most revealing */
+  worked: string;
+}
+
 export interface GeneratedQuestion {
   id: string;
   skill_id: string;
@@ -154,9 +164,14 @@ export interface GeneratedQuestion {
   template: QuestionTemplate;
   question: string;
   hint?: string;
+  hints?: GraduatedHint;
   expected_answer: string;
   scaffolding_notes: string;
   bank_question?: Record<string, unknown>;
+  /** Difficulty level 1–5 assigned by tagging script; used for ability-matched selection */
+  difficulty?: number;
+  /** Field labels for multi-input questions (e.g. triple_numeric: ["Groups", "In each group", "Total"]) */
+  labels?: string[];
 }
 
 export interface AnswerSubmission {
@@ -169,7 +184,11 @@ export interface AnswerSubmission {
   student_steps: string;
   expected_answer: string;
   used_hint: boolean;
+  attempt_number: number; // 1 = first attempt on this skill, 2+ = repeated incorrect
   language?: string;
+  working_image?: string; // base64 data URL of handwritten working photo
+  grade?: number;         // student's school grade — used for grade-aware praise
+  difficulty?: number;    // question difficulty 1–5 — used for hard-skill acknowledgement
 }
 
 export interface DiagnosticResult {
@@ -184,6 +203,6 @@ export interface DiagnosticResult {
     attempt_count: number;
     formats_used: QuestionTemplate[];
   };
-  next_action: "continue_skill" | "advance_skill" | "advance_tier" | "advance_level" | "review_prerequisite" | "practice" | "reteach" | "accelerate";
+  next_action: "continue_skill" | "advance_skill" | "advance_tier" | "advance_level" | "review_prerequisite";
   next_skill_id?: string;
 }

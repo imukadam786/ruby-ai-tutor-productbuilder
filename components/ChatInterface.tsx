@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { apiFetch } from "@/lib/fetch";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -33,7 +34,7 @@ function RubyAvatar({ size = "w-16 h-16" }: { size?: string }) {
   return (
     <div className={`${size} rounded-full flex-shrink-0 overflow-hidden`}>
       <img
-        src="/ruby-avatar.png"
+        src="/icons/icon-192.png"
         alt="Ruby"
         className="w-full h-full object-cover"
         onError={(e) => {
@@ -73,104 +74,11 @@ function RubyAvatar({ size = "w-16 h-16" }: { size?: string }) {
   );
 }
 
-// ── Natural voice engine ──────────────────────────────────────────────────────
-function prepareForSpeech(raw: string): string {
-  return raw
-    .replace(/#{1,6}\s+/g, "")
-    .replace(/\*\*(.+?)\*\*/g, "$1")
-    .replace(/\*(.+?)\*/g, "$1")
-    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .replace(/^\s*[-*+]\s/gm, "")
-    .replace(/^\s*\d+\.\s/gm, "")
-    .replace(/\$\$([^$]+)\$\$/g, (_, eq) => `the equation: ${eq}`)
-    .replace(/\$([^$]+)\$/g, (_, eq) => eq)
-    .replace(/\n{2,}/g, ". ")
-    .replace(/\n/g, " ")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-}
+import { speakViaAPI, checkTTSLimit } from "@/lib/tts";
+import { supabase } from "@/lib/supabase";
 
-function pickVoice(): SpeechSynthesisVoice | null {
-  const voices = window.speechSynthesis.getVoices();
-  const preferred = [
-    "Samantha", "Karen", "Moira",
-    "Google UK English Female", "Microsoft Zira",
-    "Microsoft Susan", "Google US English",
-  ];
-  for (const name of preferred) {
-    const v = voices.find((v) => v.name.includes(name));
-    if (v) return v;
-  }
-  return voices.find((v) => v.lang.startsWith("en")) ?? null;
-}
-
-// Returns a cancel() function — calling it stops all queued sentences immediately
-function speakNaturally(
-  text: string,
-  onStart: () => void,
-  onEnd: () => void
-): () => void {
-  let cancelled = false;
-  let timer: ReturnType<typeof setTimeout> | null = null;
-
-  const cancel = () => {
-    cancelled = true;
-    if (timer !== null) { clearTimeout(timer); timer = null; }
-    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-    onEnd();
-  };
-
-  if (!("speechSynthesis" in window)) { onEnd(); return cancel; }
-  window.speechSynthesis.cancel();
-
-  const cleaned = prepareForSpeech(text);
-  const sentences = cleaned
-    .split(/(?<=[.!?])\s+/)
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0);
-
-  if (sentences.length === 0) { onEnd(); return cancel; }
-
-  let idx = 0;
-  onStart();
-
-  const speakNext = () => {
-    if (cancelled) return;
-    if (idx >= sentences.length) { onEnd(); return; }
-
-    const sentence = sentences[idx++];
-    const utt = new SpeechSynthesisUtterance(sentence);
-    utt.rate = 0.92;
-    utt.pitch = 1.12;
-    utt.volume = 1;
-    const voice = pickVoice();
-    if (voice) utt.voice = voice;
-
-    const isQuestion = sentence.trim().endsWith("?");
-    const hasNumber = /\d/.test(sentence);
-    const pauseMs = isQuestion ? 650 : hasNumber ? 450 : 320;
-
-    utt.onend = () => {
-      if (cancelled) return;
-      timer = setTimeout(speakNext, pauseMs);
-    };
-    utt.onerror = () => {
-      if (cancelled) return;
-      timer = setTimeout(speakNext, pauseMs);
-    };
-
-    window.speechSynthesis.speak(utt);
-  };
-
-  if (window.speechSynthesis.getVoices().length === 0) {
-    window.speechSynthesis.addEventListener("voiceschanged", speakNext, { once: true });
-  } else {
-    speakNext();
-  }
-
-  return cancel;
-}
+// Alias so all call sites remain unchanged
+const speakNaturally = speakViaAPI;
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
@@ -182,6 +90,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   const [attachedFile, setAttachedFile] = useState<File | null>(null);
   const [attachedPreview, setAttachedPreview] = useState<string | null>(null);
   const [showUploadMenu, setShowUploadMenu] = useState(false);
+  const [ttsLimited, setTtsLimited] = useState(false);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const cancelSpeechRef = useRef<(() => void) | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -192,17 +101,18 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   const uploadMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const saved = getMessages();
-    if (saved.length > 0) {
-      setMessages(saved);
-    } else {
-      setMessages([{
-        id: "welcome",
-        role: "assistant",
-        content: WELCOME_MSG,
-        timestamp: new Date().toISOString(),
-      }]);
-    }
+    getMessages().then((saved) => {
+      if (saved.length > 0) {
+        setMessages(saved);
+      } else {
+        setMessages([{
+          id: "welcome",
+          role: "assistant",
+          content: WELCOME_MSG,
+          timestamp: new Date().toISOString(),
+        }]);
+      }
+    });
   }, []);
 
   // Scroll messages container without affecting page scroll (fixes mobile push-up)
@@ -248,7 +158,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   };
 
   const sendMessage = useCallback(
-    async (text: string) => {
+    async (text: string, isHint = false) => {
       const hasAttachment = !!attachedFile;
       const isImage = hasAttachment && attachedFile!.type.startsWith("image/");
       const messageText = text.trim() || (hasAttachment ? "" : "");
@@ -296,16 +206,26 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
           imageMimeType = capturedFile.type;
         }
 
-        const response = await fetch("/api/chat", {
+        const { data: { session } } = await supabase.auth.getSession();
+        const headers: Record<string, string> = { "Content-Type": "application/json" };
+        if (session) headers["Authorization"] = `Bearer ${session.access_token}`;
+
+        const response = await apiFetch("/api/chat", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers,
           body: JSON.stringify({
             messages: updatedMessages,
             imageData,
             imageMimeType,
+            isHint,
           }),
         });
 
+        if (response.status === 429) {
+          const body = await response.json().catch(() => ({}));
+          const type = body?.type === "hint" ? "hint" : "question";
+          throw Object.assign(new Error("limit_reached"), { limitType: type });
+        }
         if (!response.ok) throw new Error("Failed to fetch");
 
         const reader = response.body!.getReader();
@@ -329,12 +249,16 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
 
         // Clean up preview URL after sending
         if (previewUrl) URL.revokeObjectURL(previewUrl);
-      } catch {
+      } catch (err: unknown) {
+        const limitType = (err as { limitType?: string })?.limitType;
+        const limitMsg = limitType === "hint"
+          ? "You've used all 5 of your daily hints. Upgrade to Scholar or Master for unlimited hints. 🔓"
+          : limitType === "question"
+          ? "You've used all 5 of your daily questions. Upgrade to Scholar or Master for unlimited access. 🔓"
+          : "Sorry, something went wrong. Please try again.";
         setMessages((prev) =>
           prev.map((m) =>
-            m.id === assistantMessage.id
-              ? { ...m, content: "Sorry, something went wrong. Please try again." }
-              : m
+            m.id === assistantMessage.id ? { ...m, content: limitMsg } : m
           )
         );
       } finally {
@@ -358,23 +282,52 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    const recognition = new SR();
-    recognition.continuous = false;
-    recognition.interimResults = true;
-    recognition.lang = "en-US";
-    recognition.onstart = () => setIsListening(true);
-    recognition.onend = () => setIsListening(false);
-    recognition.onerror = () => setIsListening(false);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    recognition.onresult = (event: any) => {
-      const transcript = Array.from(event.results)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        .map((r: any) => r[0].transcript).join("");
-      setInput(transcript);
-      if (event.results[event.results.length - 1].isFinal) sendMessage(transcript);
+    const lang = (navigator.language || "").startsWith("en") ? navigator.language : "en-GB";
+    let capturedTranscript = "";
+    let restartCount = 0;
+    const MAX_RESTARTS = 3;
+    let done = false;
+
+    const launchRec = () => {
+      const recognition = new SR();
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      recognition.lang = lang;
+      recognition.onstart = () => setIsListening(true);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      recognition.onresult = (event: any) => {
+        const transcript = Array.from(event.results)
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          .map((r: any) => r[0].transcript).join("");
+        capturedTranscript = transcript;
+        setInput(transcript);
+        if (event.results[event.results.length - 1].isFinal) {
+          done = true;
+          setIsListening(false);
+          sendMessage(transcript);
+        }
+      };
+      recognition.onend = () => {
+        if (!done && !capturedTranscript && restartCount < MAX_RESTARTS) {
+          restartCount++;
+          setTimeout(launchRec, 400);
+          return;
+        }
+        setIsListening(false);
+      };
+      recognition.onerror = () => {
+        if (!done && !capturedTranscript && restartCount < MAX_RESTARTS) {
+          restartCount++;
+          setTimeout(launchRec, 400);
+          return;
+        }
+        setIsListening(false);
+      };
+      recognitionRef.current = recognition;
+      try { recognition.start(); } catch { setIsListening(false); }
     };
-    recognitionRef.current = recognition;
-    recognition.start();
+
+    launchRec();
   };
 
   const stopVoice = () => { recognitionRef.current?.stop(); setIsListening(false); };
@@ -384,11 +337,20 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     setPlayingMsgId(null);
   };
 
-  const togglePlay = (msgId: string, text: string) => {
-    // If this message is already playing, stop it
+  const togglePlay = async (msgId: string, text: string) => {
     if (playingMsgId === msgId) { stopSpeaking(); return; }
-    // Stop any other playing message first
     stopSpeaking();
+
+    // Unlock iOS audio context synchronously within the user gesture handler
+    try { new Audio().play().catch(() => {}); } catch {}
+
+    const allowed = await checkTTSLimit();
+    if (!allowed) {
+      setTtsLimited(true);
+      setTimeout(() => setTtsLimited(false), 4000);
+      return;
+    }
+
     cancelSpeechRef.current = speakNaturally(
       text.slice(0, 1200),
       () => setPlayingMsgId(msgId),
@@ -439,7 +401,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             {msg.role === "user" ? (
               /* User bubble */
               <div className="max-w-[80%] sm:max-w-[65%]">
-                <div className="bg-blue-500 text-white rounded-2xl rounded-tr-sm px-4 py-3">
+                <div className="bg-[#B7182E] text-white rounded-2xl rounded-tr-sm px-4 py-3">
                   <p className="text-base leading-relaxed whitespace-pre-wrap">{msg.content}</p>
                 </div>
                 <p className="text-xs text-gray-400 mt-1 text-right">
@@ -490,7 +452,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
                   {msg.id === [...messages].reverse().find(m => m.role === "assistant")?.id &&
                     msg.content && !msg.content.includes("▌") && !isLoading && (
                     <button
-                      onClick={() => sendMessage("hint")}
+                      onClick={() => sendMessage("hint", true)}
                       className="flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all text-amber-500 hover:text-amber-600 hover:bg-amber-50"
                       title="Get a hint"
                     >
@@ -517,6 +479,13 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         </div>
       </div>
 
+      {/* TTS limit toast */}
+      {ttsLimited && (
+        <div className="mx-4 mb-2 sm:mx-8 px-4 py-2.5 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-700 text-center">
+          You&apos;ve used all 5 audio playbacks for today. Upgrade for unlimited. 🔓
+        </div>
+      )}
+
       {/* Input area */}
       <div className="px-4 pb-4 pt-2 sm:px-8 sm:pb-6 bg-white">
         <div className="max-w-3xl mx-auto">
@@ -542,7 +511,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         )}
 
         {/* GPT-style input container */}
-        <div className="relative flex items-end gap-2 bg-gray-50 border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all shadow-sm">
+        <div className="relative flex items-end gap-2 bg-gray-50 border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-[#B7182E] focus-within:ring-2 focus-within:ring-[#B7182E]/15 transition-all shadow-sm">
 
           {/* Upload button (inside container, left) */}
           <div className="relative flex-shrink-0 self-end pb-0.5" ref={uploadMenuRef}>
@@ -633,7 +602,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             <button
               onClick={() => sendMessage(input)}
               disabled={(!input.trim() && !attachedFile) || isLoading}
-              className="w-8 h-8 bg-gray-900 hover:bg-gray-700 disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
+              className="w-8 h-8 bg-[#B7182E] hover:bg-[#9e1427] disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />

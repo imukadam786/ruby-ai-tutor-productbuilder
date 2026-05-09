@@ -1,0 +1,289 @@
+{
+  "id": "acc-p2-may-jun-2025",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P2",
+  "year": 2025,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "VAT and Creditors' Reconciliation",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "acc-p2-may-jun-2025-1-1-1",
+          "label": "1.1.1",
+          "questionText": "The information relates to Comfort Traders for the VAT period ended 31 January 2025. The VAT rate is 15%. The business is owned by Karen Botha. The sales of the business average R150 000 per month.\n\nCalculate the VAT amounts in the table provided in the ANSWER BOOK. Indicate the effect of EACH item on the amount payable to SARS. Show an increase with a '+' and a decrease with a '–'. An example has been completed.\n\nINFORMATION:\nA. Amount owed to SARS on 1 January 2025: R51 500.\nB. Transactions for January 2025:\n- Example: Drawings of stock — Excl VAT R6 000, Incl VAT R6 900, VAT Amount R900\n(i) Merchandise purchased — Incl VAT R221 720\n(ii) Credit notes issued to customers — Excl VAT R12 000\n(iii) Total sales — Incl VAT R187 795 (Certain goods, with a total selling price of R21 275 (including VAT), should have been recorded as zero-rated items.)\n(iv) Bad debts written off — VAT amount R765",
+          "marks": 10,
+          "memoText": "VAT calculation table:\n\nOpening balance: 51 500\nExample (Drawings): 900 (given)\n\n(i) Merchandise purchased: 221 720 x 15/115 OR 221 720 - 192 800 = -28 920 (decrease, reduces VAT payable)\n\n(ii) Credit notes issued to customers: 12 000 x 15/100 OR 12 000 - 10 200 = -1 800 (decrease)\n\n(iii) Total sales: (187 795 - 21 275) x 15/115 = 166 520 x 15/115 = +21 720 (increase)\n   OR (163 300 - 18 500) x 15/100 = 144 800 x 15/100\n   OR 24 495 - 2 775 = 21 720\n   Note: if final answer shown with incorrect sign, award working marks only, not final mark\n\n(iv) Bad debts written off: -765 (decrease, given)\n\nVAT PAYABLE = 51 500 + 900 - 28 920 - 1 800 + 21 720 - 765 = 41 735\nAccept 42 635 (one part correct)\n\nAccept brackets for negative amounts. Total must include the opening balance.\nMark allocation: 10 marks total across the calculations.",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q1.1.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Karen wants to deregister her business as a VAT vendor as she is unable to meet VAT deadlines for submissions. What advice would you give to Karen? State ONE point.",
+          "marks": 2,
+          "memoText": "Any ONE valid point (2 marks). Part-marks for partial/unclear answer:\n• If the business's turnover exceeds R1m p.a., it is compulsory to be registered and submit VAT returns.\n• If submission deadline is not met, the business will have to pay penalties to SARS.\n• She will not be able to claim back the VAT paid to suppliers.\n• Karen should have a tax consultant who can remind her of tax period to file on time.\n• Set up automated reminders through eFiling system.",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q1.1.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Epson Traders received a statement of account from a creditor, Canon Suppliers. The balance on the statement did not agree with that on the account of Canon Suppliers in the Creditors' Ledger of Epson Traders.\n\nUse the table provided to indicate changes to the:\n• Creditors' Ledger Account in the books of Epson Traders\n• Statement of account received from Canon Suppliers\n\nWrite the amount and indicate increase (+) or decrease (-) with each amount.\n\nINFORMATION:\nA. Creditors' Ledger of Epson Traders – Canon Suppliers (CL9): Opening balance R69 800; 6 March Invoice 519 R26 300 (balance R96 100); 8 March Debit Note 104 R1 600 (balance R94 500); 14 March EFT 310 R45 500 (balance R49 000), Discount R7 000 (balance R42 000); 15 March Invoice 202 R13 800 (balance R55 800); 24 March Invoice 567 R20 000 (balance R75 800); 25 March Invoice 594 R17 100 (balance R92 900); 31 March Invoice 610 R9 000 (balance R101 900).\n\nB. Statement of account from Canon Suppliers (dated 25 March 2025): Opening balance R69 800; 4 March Interest R400 (balance R70 200); 6 March Invoice 519 R23 600 (balance R93 800); 8 March Credit Note 164 R1 600 (balance R95 400); 14 March Receipt 7710 R45 500 (balance R49 900); 24 March Invoice 567 R20 000 (balance R69 900); 25 March Invoice 594 R19 000 (balance R88 900).\n\nC. Differences noted:\n(i) Canon Suppliers correctly levied interest of R400.\n(ii) Invoice 519 was correct according to Canon Suppliers' statement.\n(iii) Canon Suppliers made an error in recording the return of goods on 8 March 2025.\n(iv) Epson Traders qualified for an early settlement discount on 14 March. Canon Suppliers granted only R5 000 as discount and promised to show this next month.\n(v) Invoice 202 for R13 800 was recorded incorrectly in Epson's Creditors' Ledger - the invoice was from another creditor, Baron Suppliers.\n(vi) A trade discount of 10% was deducted on invoice 594. Canon Suppliers will correct this next month.\n(vii) Invoice 610 did not appear on the statement (after statement date).",
+          "marks": 14,
+          "memoText": "CREDITORS' RECONCILIATION TABLE:\n\nCreditors Ledger Account of Epson Traders | Statement of Account from Canon Suppliers\nOpening balances: 101 900 | 88 900\n\n(i) Interest R400: Statement side: +400\n(ii) Invoice 519 difference (26 300 - 23 600): Ledger: -2 700\n(iii) Debit/Credit Note correction (-1 600 - 1 600): Statement: -3 200\n(iv) Discount qualified for (7 000 - 5 000): Ledger: +2 000; Statement: -5 000\n(v) Invoice 202 (Baron Suppliers, recorded incorrectly): Ledger: -13 800\n(vi) Trade discount on Invoice 594 (19 000 - 17 100 = 1 900): Statement: -1 900\n(vii) Invoice 610 (after statement date): Statement: +9 000\n\nFinal balances: 87 800 | 87 800\n\nMark allocation: 14 marks. Balances may be different but must include opening balances.\n-1 for foreign items per line provided a mark is scored on that line (max could be -6).",
+          "topic": "Creditors' Reconciliation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q1.2.2d.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-1-2-2",
+          "label": "1.2.2",
+          "questionText": "It was discovered that the purchasing manager, Senzo, had signed a fictitious invoice received from Prime Suppliers. The banking details of his son appeared on this invoice. The relevant payment was processed by the financial department.\n\nOther than dismissing Senzo, provide:\n• ONE action to be taken against him\n• ONE suggestion on how to prevent this problem in future",
+          "marks": 4,
+          "memoText": "Do not accept division of duties.\n\nONE action to be taken against him (2 marks - any ONE valid point):\n• Conduct a disciplinary hearing / Issue a written warning.\n• Lay criminal charges against him.\n• Launch civil charges to pay back the money.\n• Temporary suspend him while investigating.\n• Liable for demotion / transfer to another department.\n• Conduct forensic audit to check for other possible fraud.\n\nONE suggestion on how to prevent this in future (2 marks - any ONE valid suggestion):\n• Validation of the existence of suppliers.\n• Ensure goods received are supported by order form and a valid invoice.\n• Proper authorization of payments.\n• Financial department should verify banking details before making payment.\n• Regular training on ethics and consequences of misconduct.\n• Conduct regular surprise checks or internal audits to detect fraud early.",
+          "topic": "Internal Control and Ethics",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q1.2.2.png"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cost Accounting",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-may-jun-2025-2-1",
+          "label": "2.1",
+          "questionText": "Choose the correct word from those given in brackets. Write only the word next to the question numbers (2.1.1 to 2.1.3) in the ANSWER BOOK.\n\n2.1.1 Consumable items used in the factory are regarded as (direct/indirect) material.\n2.1.2 Depreciation on factory machines is classified as a (variable/fixed) cost.\n2.1.3 Wages paid to office cleaners is regarded as a/an (selling and distribution/administration) cost.",
+          "marks": 3,
+          "memoText": "2.1.1 indirect (1 mark)\n2.1.2 fixed (1 mark)\n2.1.3 administration (1 mark)",
+          "topic": "Cost Accounting Concepts",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-2-2-1",
+          "label": "2.2.1",
+          "questionText": "WOLLIES' WINTER GLOVES — The business manufactures winter gloves. The financial year ended on 28 February 2025. Owner: Jerry Classon. The business does not carry any work-in-progress stock and all items produced are sold.\n\nCalculate the direct material cost for the year ended 28 February 2025.\n\nInformation A — Direct material cost:\n- Opening stock: 6 000 metres at R55/metre = R330 000\n- Purchases: 24 000 metres at R60/metre = R1 440 000\n- Total available for use: 30 000 metres = R1 770 000\n- Closing stock: 4 000 metres\n- Direct materials issued for production: 26 000 metres\n- Material is transferred to the factory using the weighted-average method.\n- Due to good internal controls there were no missing or stolen material.",
+          "marks": 4,
+          "memoText": "Calculation using weighted-average method:\nWeighted average cost per metre = $\\frac{1\\,770\\,000}{30\\,000} = R59$ per metre\n\nDirect material cost = 26 000 x R59 = R1 534 000\n\nAlternative workings:\n• 1 770 000 - (4 000 x 59) = 1 770 000 - 236 000 = R1 534 000\n• 1 770 000 x (26 000/30 000) = R1 534 000\n\nMark allocation: 4 marks (one part correct).",
+          "topic": "Manufacturing — Direct Material Cost",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q2.2.1.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Calculate the correct factory overhead cost for the year ended 28 February 2025.\n\nInformation B — Factory overhead cost: The bookkeeper calculated the factory overheads as R966 360. However, errors must be corrected:\n(i) The entire telephone expense of R36 000 was used instead of 25% being allocated to the factory.\n(ii) The closing stock of factory indirect material was understated by R2 800.\n(iii) The bookkeeper correctly allocated the cleaner's wages to factory overheads. However, he neglected the increase of 6% p.a. effective from 1 January 2025. The cleaner earns R48 000 p.a. and spends half his time in the factory.\n(iv) Water and electricity of R25 600 was allocated to the factory using the ratio 4:3:2 (factory:sales:office). This should have been 5:3:2.",
+          "marks": 9,
+          "memoText": "Calculation of correct factory overhead cost:\n\nIncorrect total: 966 360\n\n(i) Telephone correction: -27 000 (75% of R36 000 should NOT be in factory)\n(ii) Indirect materials understated: -2 800\n(iii) Cleaner's wages adjustment: (R48 000/2) x (6/100) x (2/12) = R240\n   OR (4 000 x 6/100) OR (48 000/100)/2 = +240\n(iv) Water and electricity correction: \n   Original (factory share 4/9 of R25 600 if R25 600 is total) - corrected calculation\n   28 800 - 25 600 = 3 200 OR 32 000 - 28 800 = 3 200 OR 25 600 x 5/40 = 3 200\n   = +3 200\n\nCorrected factory overhead cost = 966 360 - 27 000 - 2 800 + 240 + 3 200 = R940 000\n\nMark allocation: 9 marks (one part correct). Final amount must include the opening total.",
+          "topic": "Manufacturing — Factory Overhead Cost",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q2.2.2.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-2-2-3",
+          "label": "2.2.3",
+          "questionText": "Calculate the gross profit earned for the year ended 28 February 2025.\n\nGiven: Sales = R4 600 000; Direct labour cost = R876 000.",
+          "marks": 5,
+          "memoText": "Gross Profit calculation:\n\nGross Profit = Sales - (Direct material + Direct labour + Factory overheads)\n= 4 600 000 - 1 534 000 (from 2.2.1) - 876 000 - 940 000 (from 2.2.2)\n= 4 600 000 - 3 350 000\n= R1 250 000\n\nMark allocation: 5 marks (one part correct).\nBe alert to alternative workings such as ledger account or use of brackets.",
+          "topic": "Manufacturing — Gross Profit",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q2.2.2c.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-2-2-4",
+          "label": "2.2.4",
+          "questionText": "Jerry was satisfied with the performance during the current year and plans to increase production by 30% in the next financial year. He is confident that the demand will increase due to changing weather patterns.\n\n• Comment on the level of production and the break-even points comparing the results for the current financial year with his plan for the next financial year. Provide TWO points, with figures.\n• Calculate the increase in profits Jerry expects to earn from the year ended 28 February 2025 to the next financial year.\n\nInformation D — Other information:\n- Units produced and sold: 28 Feb 2025: 40 000 pairs; Plan: 52 000 pairs\n- Break-even point: 28 Feb 2025: 38 000 pairs; Plan: 38 400 pairs\n- Selling price per pair: R115 both years\n- Sales: R4 600 000 / R5 980 000",
+          "marks": 9,
+          "memoText": "PART 1 — Comment on production vs BEP (4 marks - TWO points with figures):\n\nExpected responses for 4 marks:\n• He made profit on 2 000 units (40 000 - 38 000) for the current year and expects more profit on 13 600 units (52 000 - 38 400) next year.\n• He produced 2 000 units above the BEP (current year) and expects to produce 13 600 units above the BEP (next year).\n• Anticipating increased profit on 11 600 units, as BEP expected to increase by 400 units (1.1%), while production projected to increase by 12 000 units (30%).\n\nExpected response for 2 marks (max two marks in total - mark one optional response only):\n• Production will increase from 40 000 units to 52 000 units / by 12 000 units.\n• BEP will increase from 38 000 units to 38 400 units / by 400 units.\n\nPART 2 — Calculate increase in profits (5 marks):\n\nContribution per unit:\n• Current year: R115 - R75 = R40 per unit\n• Next year: R115 - R67.50 = R47.50 per unit\n\nIncrease in profits = (13 600 x R47.50) - (2 000 x R40)\n= R646 000 - R80 000\n= R566 000\n\nMark allocation: 5 marks (one part correct).",
+          "topic": "Cost Accounting — Break-even and Profit Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q2.2.2d.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-2-2-5",
+          "label": "2.2.5",
+          "questionText": "Give TWO possible reasons for the proposed increase in direct labour cost in the next financial year. Quote figures.\n\nGiven: Direct labour cost: 28 Feb 2025: R876 000 (R21.90/pair); Plan: R1 300 000 (R25.00/pair).",
+          "marks": 4,
+          "memoText": "Any TWO valid points (4 marks) — figures and trend required:\n\n• DLC will increase (from R876 000) to R1 300 000 / by R424 000 / by 48%. Provision made for overtime / Production incentive bonuses set to be implemented which may be necessary to meet targets.\n\n• Unit costs will increase (from R21.90) to R25.00 / by R3.10 / by 14%. He has accommodated annual inflationary increases or salary increase or introduced improved fringe benefits.",
+          "topic": "Cost Accounting — Direct Labour",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-2-2-6",
+          "label": "2.2.6",
+          "questionText": "Jerry has projected an increase of R304 000 for the total fixed costs.\n\n• Provide TWO possible expense items he may have considered when making his projections. Give a different reason for each item identified.\n• Explain why Jerry should not be concerned about this proposed increase in the total fixed costs. Provide ONE point with figures.",
+          "marks": 6,
+          "memoText": "PART 1 — TWO expense items with reasons (4 marks):\n\nAccept any TWO of the following pairs:\n• Depreciation on factory machinery — Additional machinery may be required for increased production.\n• Indirect labour — The workload of the foreman/supervisor will increase / increase in minimum wage of cleaners.\n• Water and electricity — Increased usage due to overtime hours.\n• Indirect materials/consumable stores — More units must be cleaned or maintained / Increased office cleaning or packaging materials.\n• Rent expenses — More rental space to accommodate the increase in production.\n• Insurance — An increase in assets will require additional coverage.\n• Repairs and maintenance — Increased production will lead to regular repairs and maintenance.\n• Security — Need for more security personnel / advanced security system.\n• Administration cost — Need to hire more office staff / Increased office work.\n• Telephone — Frequent communication with customers and suppliers.\n\nPART 2 — Why Jerry should not be concerned (2 marks):\n\nAny ONE valid point with figures:\n• The fixed cost per unit decreased (from R38.00) to R35.10 / by R2.90 / by 7.6% while the units produced increased.\nOR\n• Fixed cost per unit decreased (from R38.00) to R35.10 / by R2.90 / by 7.6% and he took advantage of economies of scale.",
+          "topic": "Cost Accounting — Fixed Costs",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Stock Valuation",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-may-jun-2025-3-1",
+          "label": "3.1",
+          "questionText": "HELEN'S ELECTRONICS — Helen Woods owns an electronics shop. Financial year ended 28 February 2025.\n\nHEADPHONES (FIFO method applies)\n\nCalculate the value of the closing stock on 28 February 2025, using the FIFO method.\n\nINFORMATION:\nA. Stock balances: 1 March 2024: 170 units at R145 = R24 650; 28 February 2025: 350 units.\nB. Purchases: April 2024: 250 units at R165 = R41 250; June 2024: 300 units at R180 = R54 000; September 2024: 380 units at R135 = R51 300; December 2024: 320 units at R140 = R44 800. Total: 1 250 units = R191 350.\nC. Carriage on purchases: R20 per unit (non-refundable, not included in B).\nD. Returns: 80 headphones purchased in December 2024 returned to suppliers, R11 200.\nE. Sales: 1 Mar - 31 Aug 2024: 680 units at R220 = R149 600; 1 Sep 2024 - 28 Feb 2025: 310 units at R220 = R68 200. Total: 990 units = R217 800.",
+          "marks": 5,
+          "memoText": "Closing stock on 28 February 2025 using FIFO:\n\nClosing stock = 350 units\nNet December purchases = 320 - 80 (returned) = 240 units\nFrom September: 350 - 240 = 110 units\n\nUnit cost (including carriage):\n• December batch: R140 + R20 = R160 per unit\n• September batch: R135 + R20 = R155 per unit\n\nClosing stock = (240 x R160) + (110 x R155)\n= R38 400 + R17 050\n= R55 450\n\nAlternative: (33 600 + 4 800) + (14 850 + 2 200) = 55 450\n\nMark allocation: 5 marks (one part correct). Two batches must be added.",
+          "topic": "Stock Valuation — FIFO",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q3-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-3-2",
+          "label": "3.2",
+          "questionText": "Helen decided to change suppliers in September 2024 after receiving advice from her sister, the store manager.\n\n• Provide TWO points that show her customers are unhappy with the quality of the headphones purchased from the new suppliers. Quote figures.\n• What advice would you give to Helen about changing the supplier in the future? Provide ONE point.",
+          "marks": 6,
+          "memoText": "PART 1 — TWO points showing customer dissatisfaction (4 marks):\n\nAny TWO relevant points with figures:\n• 80 units were returned / R11 200 had to be refunded.\n• Closing stock has increased (from 170 units) to 350 units / by 180 units / by 106%.\n• 350 of the 620 (56%) units available for sale remain unsold.\n• 310 new units sold (R68 200) compared to 680 old units sold (R149 600) — sales decreased by 370 units (R81 400).\n\nPART 2 — Advice on changing supplier (2 marks):\n\nAny ONE relevant point:\n• Ensure that the quality of the headphones is not going to be compromised.\n• Her decision must not be influenced by family or employees, but should be based on an informed decision/her own research.\n• Do background checks on new suppliers before changing.\n• Compare warranty of new suppliers with that from current supplier.\n• Conduct market research to ensure new headphones meet market demand.\n• Evaluate product performance through customer response before buying in bulk.",
+          "topic": "Stock Valuation — Supplier Decisions",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q3-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-3-3",
+          "label": "3.3",
+          "questionText": "TELEVISION SETS — The stock of TVs is valued using the specific identification method. The business sold two models (Quantum and Crystal) from 1 March 2024. A new model, Limpid, was introduced on 1 December 2024 to replace the Quantum.\n\nCalculate the closing stock of the television sets on 28 February 2025.\n\nINFORMATION:\nA. Opening stock (1 March 2024): Quantum: 123 units at R4 800 = R590 400; Crystal: 72 units at R6 500 = R468 000.\nB. Purchases: 1 July 2024 — Crystal: 186 units at R6 500 = R1 209 000; 1 Dec 2024 — Limpid: 115 units at R7 200 = R828 000.\nC. Sales: Quantum: 105 units at R5 950 = R624 750; Crystal: 225 units at R9 750 = R2 193 750; Limpid: 94 units at R10 500 = R987 000.\nD. Donation: Helen donated the unsold Quantum TVs to local high schools.",
+          "marks": 9,
+          "memoText": "Closing stock calculation by model:\n\nQuantum: All unsold Quantum TVs (123 - 105 = 18 units) were donated. Therefore closing stock = R0.\n\nCrystal: \nAvailable: 72 + 186 = 258 units\nSold: 225 units\nClosing: 258 - 225 = 33 units\nValue: 33 x R6 500 = R214 500\nAlternative: (468 000 + 1 209 000) - (2 193 750 x 6 500/9 750) = 1 677 000 - 1 462 500 = R214 500\n\nLimpid:\nAvailable: 115 units\nSold: 94 units\nClosing: 115 - 94 = 21 units\nValue: 21 x R7 200 = R151 200\nAlternative: 828 000 - (987 000 x 7 200/10 500) = 828 000 - 676 800 = R151 200\n\nTOTAL CLOSING STOCK = 0 + R214 500 + R151 200 = R365 700\n\nMark allocation: 9 marks (one part correct).\nNote: Award one method mark for 54 if shown as final answer. Superfluous entry; lose method on total.",
+          "topic": "Stock Valuation — Specific Identification",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q3-03.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-3-4",
+          "label": "3.4",
+          "questionText": "Helen was not satisfied that she was selling an average of 19 Crystal TVs per month. However, she is happy that the new Limpid TVs, despite its higher selling price per unit, is selling at a quicker rate than Crystal TVs.\n\n• Calculate the cost of sales of the Limpid TVs.\n• Calculate how long (in days) it will take Helen to sell the closing stock of the Limpid TVs.\n• Helen feels that she has made a wise decision by replacing the Quantum TVs with the Limpid TVs. Give ONE possible reason (with figures) to substantiate her opinion.",
+          "marks": 9,
+          "memoText": "PART 1 — Cost of sales of Limpid TVs (3 marks):\n\nCost of Sales (Limpid) = Total available - Closing stock\n= R828 000 - R151 200 (from 3.3)\n= R676 800\n\nAlternative calculations:\n• 94 units x R7 200 = R676 800\n• 987 000 x (7 200/10 500) = R676 800\n\nPART 2 — Days to sell closing stock of Limpid (4 marks):\n\nLimpid was introduced 1 December 2024 and stock period is 90 days (1 Dec - 28 Feb).\n\nDays = (Closing stock / Cost of sales) x 90\n= (R151 200 / R676 800) x 90\n= 20.1 days (Accept 20 days)\n\nAlternative: (21 / 94) x 90 = 20.1 days\n\nPART 3 — ONE reason with figures (2 marks):\n\nAny ONE reason with figures:\n• Higher profit earned per unit (Quantum: R1 150 / Limpid: R3 300).\n• Higher average monthly sales (Quantum units: 11.7 (or 8.8) / Limpid: 31).\n• Unsold stock of Quantum (18 units) had to be donated.",
+          "topic": "Stock Valuation — Stock Turnover",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q3-04.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-3-5",
+          "label": "3.5",
+          "questionText": "Refer to information D. (Helen donated the unsold Quantum TVs to local high schools.)\n\nExplain how this will have a positive effect on her business. Provide ONE point.",
+          "marks": 2,
+          "memoText": "Any ONE relevant point (2 marks):\n• Corporate social responsibility / increased support from the community / increased customer loyalty / increase in sales.\n• Creates a positive image as latest technology is sold / will enhance brand perception.\n• Increase reputation as a business that cares for the community / increased opportunity to gain positive publicity.\n• Can result in tax benefits / result in lower taxable income.",
+          "topic": "Ethics — Corporate Social Responsibility",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q3-05.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-3-6",
+          "label": "3.6",
+          "questionText": "VACUUM CLEANERS\n\n• Identify ONE problem with vacuum cleaners. Quote figures.\n• What advice would you give? State ONE point.\n\nINFORMATION (Vacuum Cleaners — 28 Feb 2025 vs 29 Feb 2024):\n- Gross units sold: 532 / 565\n- Cash sales units: 280 / 360\n- Trade discount on cash sales: 5% / 5%\n- Credit sales units: 230 / 190\n- Payment policy: 90 days / 90 days\n- Interest rate: 18% / 18%\n- Returns (faulty units): 22 / 15\n- Mark-up: 50% / 60%",
+          "marks": 3,
+          "memoText": "Identify ONE problem with figures + ONE advice (3 marks):\n\nPossible PROBLEMS (with figures):\n• Decrease of 80 units (22.2%) in cash sales / increase of 40 units (21.1%) in credit sales.\n• Returns increased by 7 units (46.7%) — from 15 to 22 returns.\n\nMatching ADVICE:\nFor cash/credit sales problem:\n• Encourage more cash sales by increasing discounts on cash sales / Launch targeted in-store deals that favour cash transactions.\n• Reduce current payment terms / review the process to check credit records of potential debtors / revise credit limit regularly.\n\nFor returns problem:\n• Supply quality goods / check the product before dispatching it to customers.\n• Offer customers store voucher rather than full refund.\n• Upgrade to a newer and more advanced vacuum cleaner / change the supplier.",
+          "topic": "Stock Valuation — Decision Making",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q3-06.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-3-7",
+          "label": "3.7",
+          "questionText": "PRESSURE CLEANERS\n\n• Explain TWO good decisions that Helen has taken in respect of pressure cleaners. Quote figures.\n• Explain how each decision improved the results on 28 February 2025. Provide ONE different point for EACH decision.\n\nINFORMATION (Pressure Cleaners — 28 Feb 2025 vs 29 Feb 2024):\n- Gross units sold: 704 / 584\n- Cash sales units: 398 / 302\n- Trade discount on cash sales: 10% / 5%\n- Credit sales units: 270 / 240\n- Payment policy: 120 days / 150 days\n- Interest rate: 15% / 18%\n- Returns: 36 / 42\n- Mark-up: 40% / 60%",
+          "marks": 6,
+          "memoText": "TWO good decisions with figures + how each improved results (6 marks total — 3 marks per decision):\n\nDecision 1: Increased the trade discount on cash sales (from 5%) to 10% / by 5 percentage points.\n   → Improvement: Increase in cash sales (from 302 units to 398 units / by 96 units).\n\nDecision 2: Changed the credit policy (from 150 days) to 120 days / Interest rate decreased (from 18%) to 15%.\n   → Improvement: Better debtors' collection / reduce bad debts (defaulters).\n\nDecision 3 (alternative): Decrease in mark-up % (from 60%) to 40%.\n   → Improvement: Increase in total number of units sold (from 584 to 704 / by 120 units).\n\nMark allocation: 6 marks. Award TWO of the above decisions with their respective improvements.",
+          "topic": "Stock Valuation — Decision Making",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q3-07.png"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Budgeting",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-may-jun-2025-4-1",
+          "label": "4.1",
+          "questionText": "Daisy MacDonald owns Canary Stores that sells school bags. The information relates to the budget period ending 31 July 2025.\n\nExplain how the preparation of a Cash Budget serves as a management tool in assisting the business to manage its cash resources. State ONE point.",
+          "marks": 2,
+          "memoText": "Any ONE valid point (2 marks). Part-marks for partial/unclear answer:\n• Can be used as a control measure to see if spending and receipts are going according to plan and to make necessary changes timeously.\n• Management will use it for planning cash purchases to see what they can afford and in what month to make purchases.\n• It also alerts them to the need to cut down expenditure / to take out a loan / invest more capital / apply for an overdraft facility.\n• Indicate fraud by comparing the actual to the budgeted amounts.",
+          "topic": "Budgeting — Cash Budget",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q4-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-4-2",
+          "label": "4.2",
+          "questionText": "Identify TWO items in the payment section of this Cash Budget which will not appear in the Projected Statement of Comprehensive Income.",
+          "marks": 2,
+          "memoText": "Any TWO items (2 marks):\n• Loan repayment\n• Deposit for vehicle\n• Payment to creditors\n• Cash purchase of stock",
+          "topic": "Budgeting — Cash Budget vs Income Statement",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q4-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-4-3",
+          "label": "4.3",
+          "questionText": "Complete the Creditors' Payment Schedule.\n\nINFORMATION:\nA. Sales: April R180 000; May R202 500; June ?; July R270 000. Mark-up 50% on cost. 20% of purchases cash, 80% credit. Stock replaced monthly.\nB. Creditors' payment terms: 75% in month of purchase (5% discount); 15% one month after; 10% two months after.\n\nGiven that June total sales = ? (must be calculated). The schedule should show payments for June and July from credit purchases made in April, May, June and July.",
+          "marks": 9,
+          "memoText": "CREDITORS' PAYMENT SCHEDULE:\n\nFirst, calculate credit purchases per month:\nCost of sales = Sales / 1.5\nApril: 180 000/1.5 = R120 000 total purchases x 80% = R96 000 credit purchases\nMay: 202 500/1.5 = R135 000 total purchases x 80% = R108 000 credit purchases\nJune: 225 000/1.5 = R150 000 x 80% = R120 000 credit purchases\nJuly: 270 000/1.5 = R180 000 x 80% = R144 000 credit purchases\n\nSCHEDULE:\nMonth | Credit Purchases | June | July\nApril | 96 000 | 9 600 (10%) |\nMay | 108 000 | 16 200 (15%) | 10 800 (10%)\nJune | 120 000 | 85 500 (75% x 95%) | 18 000 (15%)\nJuly | 144 000 | | 102 600 (75% x 95%)\n\nTOTAL: June = R111 300; July = R131 400\n\nNote: 75% paid in same month with 5% discount: 75% x 95% = 71.25% of credit purchases\n• June column 'June 75%': 120 000 x 75% x 95% = R85 500\n• July column 'July 75%': 144 000 x 75% x 95% = R102 600\n\nMark allocation: 9 marks (one part correct).\nSuperfluous entry (April in July column); lose method on total.",
+          "topic": "Budgeting — Creditors Payment Schedule",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q4-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-4-4",
+          "label": "4.4",
+          "questionText": "Calculate the missing figures (i) to (iv) in the Cash Budget.\n\n(i) Cash sales for July 2025\n(ii) Salaries and wages for June 2025 (given July figure: R35 280)\n(iii) Repayment of loan on 1 July 2025 (Interest June R3 150; July R2 250; rate 15% p.a.)\n(iv) Deposit for vehicle on 31 July 2025 (10% deposit; balance R6 875/month over 36 months)\n\nINFORMATION:\nC. Salaries: 5% increase from 1 July 2025. Two assistants in June; additional assistant from 1 July at same monthly salary as the other two after the increase.\nD. Loan: Part repaid 1 July 2025. 15% p.a. interest paid monthly, not capitalised.\nE. Vehicle: 10% deposit on 31 July; balance over 36 months at R6 875.",
+          "marks": 14,
+          "memoText": "(i) Cash sales for July 2025 (2 marks):\nJuly sales = R270 000; Cash sales = 40%\nCash sales = R270 000 x 40% = R108 000\nAlternative: 144 000 x (60/80) OR 270 000 - 162 000\n\n(ii) Salaries and wages for June 2025 (4 marks):\nJuly figure R35 280 represents 3 assistants at the new (post-5% increase) rate.\nNew salary per assistant = R35 280 / 3 = R11 760\nOld salary per assistant = R11 760 x (100/105) = R11 200\nJune figure (2 assistants at old rate) = R11 200 x 2 = R22 400\n\nAlternative: (11 760 - 560) x 2 = R22 400\nAlternative: 35 280 x (200/315) = R22 400\n\n(iii) Repayment of loan on 1 July 2025 (4 marks):\nDecrease in monthly interest = R3 150 - R2 250 = R900\nThis represents 15%/12 = 1.25% per month of the principal repaid.\nLoan repayment = R900 x (100/15) x 12 = R72 000\n\nAlternative: 252 000 - 180 000 = R72 000\n\n(iv) Deposit for vehicle on 31 July 2025 (4 marks):\nMonthly instalment R6 875 represents 90% of vehicle cost over 36 months.\nVehicle cost = R6 875 x 36 / 90% × 100% \nDeposit = (R6 875 x 36) x (10/90) = R247 500 x (10/90) = R27 500\n\nAlternative: 247 500 x (100/90) x (10/100) = R27 500\nAlternative: R6 875 x 4 = R27 500\n\nMark allocation: 14 marks total (one part correct each).",
+          "topic": "Budgeting — Cash Budget Calculations",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q4-01.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-4-5",
+          "label": "4.5",
+          "questionText": "Refer to Information F.\n\nThe business rents 180 m² of the premises at a fixed rate per m². Rental agency planned increase from 1 August 2025. The owner reduced m² being rented from 1 July 2025.\n\nGiven: Rent expense June R59 940; July R47 952.\n\nCalculate the reduction in the floor space (in m²) being rented during July 2025.",
+          "marks": 5,
+          "memoText": "Calculation of reduction in floor space (5 marks):\n\nReduction in rent = R59 940 - R47 952 = R11 988\nRate per m² = R59 940 / 180 = R333 per m²\nReduction in floor space = R11 988 / R333 = 36 m²\n\nAlternative methods:\n• 47 952 / 333 = 144 m²; reduction = 180 - 144 = 36 m²\n• % reduction = (11 988/59 940) x 100 = 20%; reduction = 180 x 20% = 36 m²\n\nMark allocation: 5 marks (one part correct).",
+          "topic": "Budgeting — Rent Calculation",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q4-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-4-6-1",
+          "label": "4.6.1",
+          "questionText": "Refer to Information H. A new competitor moved into the area during April 2025. Daisy was not aware of the competitor and did not take any action during April 2025.\n\nExplain the effect of the new competitor on any TWO items in the budgeted and actual information for April 2025. Quote figures.\n\nINFORMATION (April 2025 Budgeted vs Actual):\n- Units sold: 720 / 540\n- Selling price: R250 / R250\n- Total sales: R180 000 / R135 000\n- Total purchases: R120 000 / R90 000\n- Gross profit: R60 000 / R45 000\n- Advertising: R9 000 / R4 500\n- Commission: 0 / 0\n- Delivery expenses: R7 200 / R6 750",
+          "marks": 4,
+          "memoText": "TWO valid points with figures and trend (4 marks — 2 marks each):\n\n• Number of units sold 540 is less than budgeted (720) / 180 (25%) below budget.\n• Actual sales R135 000 is less than budgeted R180 000 / R45 000 (25%) below budget.\n• Gross profit R45 000 is less than budgeted R60 000 / R15 000 (25%) below budget.\n\nAccept any TWO of the above with figures and trend.",
+          "topic": "Budgeting — Variance Analysis",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q4-02.png"
+        },
+        {
+          "id": "acc-p2-may-jun-2025-4-6-2",
+          "label": "4.6.2",
+          "questionText": "Identify TWO changes Daisy implemented in May 2025 in response to the new competitor. Quote figures.\n\nINFORMATION (May 2025 Budgeted vs Actual):\n- Units sold: 900 / 765\n- Selling price: R225 / R225\n- Total sales: R202 500 / R172 125\n- Total purchases: R135 000 / R114 750\n- Gross profit: R67 500 / R57 375\n- Advertising: R18 225 / R15 400\n- Commission: R4 050 / R3 443\n- Delivery expenses: R10 125 / R8 600\n\n(Compare to April figures: Advertising R9 000 budgeted; Delivery R7 200 budgeted; Commission 0; Selling price R250.)",
+          "marks": 4,
+          "memoText": "TWO valid changes with figures and trend (4 marks — 2 marks each):\n\n• Advertising increased (from 5%) to 9% (of sales).\n• Delivery expenses increased (from 4%) to 5% (of sales).\n• Introduced commission, 2% of sales (R4 050).\n• Decreased the selling price by 10% / from R250 to R225.\n\nAccept any TWO of the above with figures and trend.",
+          "topic": "Budgeting — Strategic Response",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/acc-p2-may-jun-2025-q4-02.png"
+        }
+      ]
+    }
+  ]
+}

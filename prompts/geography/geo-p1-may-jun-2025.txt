@@ -1,0 +1,844 @@
+Attach the memo PDF for this paper. Fill in memoText for every sub-question using the memo. Also set type to "written" on every sub-question that does not already have a type, and "mcq" on any that are multiple choice with A/B/C/D options.
+
+Rules:
+- Match each sub-question by its label to the memo
+- Copy memoText exactly from the memo, do not summarise
+- Do not change any other fields
+- Return the complete updated JSON only, no explanation
+
+JSON:
+{
+  "id": "geo-p1-may-jun-2025",
+  "subject": "Geography",
+  "subjectCode": "geo",
+  "paperCode": "P1",
+  "year": 2025,
+  "session": "May/June",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Climate and Weather",
+      "totalMarks": 60,
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "The season shown in the sketch map is …\n\nA summer.\nB spring.\nC winter.\nD autumn.",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "summer.",
+            "B": "spring.",
+            "C": "winter.",
+            "D": "autumn."
+          },
+          "diagramUrl": null,
+          "memoText": "A",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Lines on the sketch map that join places of equal atmospheric pressure are known as …\n\nA isotherms.\nB isohyets.\nC isobars.\nD contours.",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "isotherms.",
+            "B": "isohyets.",
+            "C": "isobars.",
+            "D": "contours."
+          },
+          "diagramUrl": null,
+          "memoText": "C",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "The atmospheric pressure reading at A is … hPa.\n\nA 1022\nB 1018\nC 1014\nD 1010",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "1022",
+            "B": "1018",
+            "C": "1014",
+            "D": "1010"
+          },
+          "diagramUrl": null,
+          "memoText": "C",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-1-4",
+          "label": "1.1.4",
+          "questionText": "The elongation of isobars at B indicates … of the South Atlantic high.\n\nA the ridging\nB backing\nC the trough\nD veering",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "the ridging",
+            "B": "backing",
+            "C": "the trough",
+            "D": "veering"
+          },
+          "diagramUrl": null,
+          "memoText": "A",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-1-5",
+          "label": "1.1.5",
+          "questionText": "The air movement at C is … and …\n(i) descending\n(ii) converging\n(iii) ascending\n(iv) diverging\n\nA (i) and (iii)\nB (ii) and (iv)\nC (ii) and (iii)\nD (i) and (iv)",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "(i) and (iii)",
+            "B": "(ii) and (iv)",
+            "C": "(ii) and (iii)",
+            "D": "(i) and (iv)"
+          },
+          "diagramUrl": null,
+          "memoText": "D",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-1-6",
+          "label": "1.1.6",
+          "questionText": "The station model with a wind speed of 5 knots and with a south-westerly wind direction is …\n\nA W.\nB X.\nC Y.\nD Z.",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "W.",
+            "B": "X.",
+            "C": "Y.",
+            "D": "Z."
+          },
+          "diagramUrl": null,
+          "memoText": "C",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-1-7",
+          "label": "1.1.7",
+          "questionText": "The station model representing typical winter weather conditions over the Western Cape is …\n\nA W.\nB X.\nC Y.\nD Z.",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "W.",
+            "B": "X.",
+            "C": "Y.",
+            "D": "Z."
+          },
+          "diagramUrl": null,
+          "memoText": "D",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-1-8",
+          "label": "1.1.8",
+          "questionText": "Station model W shows a high possibility of rainfall because of the following:\n(i) High cloud cover\n(ii) Low dew point temperature\n(iii) Low relative humidity\n(iv) High relative humidity\n\nA (i) and (ii)\nB (ii) and (iii)\nC (i) and (iv)\nD (ii) and (iv)",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "(i) and (ii)",
+            "B": "(ii) and (iii)",
+            "C": "(i) and (iv)",
+            "D": "(ii) and (iv)"
+          },
+          "diagramUrl": null,
+          "memoText": "C",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-2-1",
+          "label": "1.2.1",
+          "questionText": "A … refers to higher temperatures in the urban areas with decreasing temperatures towards the rural areas.\nY: pollution dome\nZ: heat island",
+          "marks": 1,
+          "memoText": "Z (heat island)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-2-2",
+          "label": "1.2.2",
+          "questionText": "A factor contributing to higher temperatures in the urban area.\nY: dense buildings\nZ: green belts",
+          "marks": 1,
+          "memoText": "Y (dense buildings)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-2-3",
+          "label": "1.2.3",
+          "questionText": "Heat islands are more dominant during the …\nY: day\nZ: night",
+          "marks": 1,
+          "memoText": "Z (night)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-2-4",
+          "label": "1.2.4",
+          "questionText": "… would be an effective strategy to reduce the heat island effect.\nY: Planting trees\nZ: Tarring roads",
+          "marks": 1,
+          "memoText": "Y (Planting trees)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-2-5",
+          "label": "1.2.5",
+          "questionText": "Multiple reflections of the sun's rays in urban areas are caused by …\nY: glass surfaces\nZ: concrete surfaces",
+          "marks": 1,
+          "memoText": "Y (glass surfaces)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-2-6",
+          "label": "1.2.6",
+          "questionText": "Heat islands are more likely to favour the formation of …\nY: smog\nZ: rainfall",
+          "marks": 1,
+          "memoText": "Z (rainfall)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-2-7",
+          "label": "1.2.7",
+          "questionText": "… is an effect of heat islands on people.\nY: Heat stroke\nZ: Reduced visibility",
+          "marks": 1,
+          "memoText": "Y (Heat stroke)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-3-1",
+          "label": "1.3.1",
+          "questionText": "The general direction of movement of the cold front is (eastwards/westwards).",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Eastwards",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-3-2",
+          "label": "1.3.2",
+          "questionText": "Why does the mid-latitude cyclone move in this direction (answer to QUESTION 1.3.1)?",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "The mid-latitude cyclone is steered by the westerlies. / This cyclone occurs in the westerly wind belt. [ANY ONE] (1 x 2)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-3-3",
+          "label": "1.3.3",
+          "questionText": "Account for the heavy rainfall of 80% at A as the cold front approaches.",
+          "marks": 4,
+          "diagramUrl": null,
+          "memoText": "The cold air undercuts the warm air (2); The warm air is rapidly uplifted along the cold front (2); Results in rapid cooling of air (2); (Vertical) condensation takes place (2); Formation of cumulonimbus clouds (2). [ANY TWO] (2 x 2)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-3-4",
+          "label": "1.3.4",
+          "questionText": "In a paragraph of approximately EIGHT lines, explain how different weather conditions associated with a cold front will have a negative impact on tourists in the Western Cape.",
+          "marks": 8,
+          "memoText": "Weather conditions must be linked to a negative impact. Weather conditions include: heavy rainfall/thunderstorms, strong/gusty winds, snow, low temperatures, lightning, overcast conditions, frontal fog/mist, hail. Impacts include: outdoor activities being cancelled (2); tourist destinations inaccessible (2); marine craft unable to go out to sea (2); flooding of tourist attractions/coastal areas (2); suspended flights causing financial losses (2); transport routes dangerous (2); outdoor activities dangerous for tourists (2); tourists get sick (2); poor visibility increases accidents (2); mass movements dangerous for tourists (2); power outages affecting accommodation (2). [ANY FOUR weather condition + impact pairs] (4 x 2). If only qualifiers mentioned, no marks awarded.",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-4-1",
+          "label": "1.4.1",
+          "questionText": "Give ONE piece of evidence from the satellite image which shows that the tropical cyclone is in the Southern Hemisphere.",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Clockwise circulation of air around the eye. (1 x 1)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-4-2",
+          "label": "1.4.2",
+          "questionText": "Name the area of the cyclone labelled A.",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Eye (1 x 1)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-4-3",
+          "label": "1.4.3",
+          "questionText": "Why does air subside in area A?",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "(Upper air) Convergence/accumulation of air above the eye (2) / A pressure gradient is created (higher pressure above the eye) (2) / Air above the eye is cold and dense (2). [ANY ONE] (1 x 2)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-4-4",
+          "label": "1.4.4",
+          "questionText": "Draw the symbol that is used on a synoptic weather map to represent a tropical cyclone in the Southern Hemisphere.",
+          "marks": 1,
+          "memoText": "A clockwise rotating spiral symbol (rotation must be clockwise). (1 x 1)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-4-5",
+          "label": "1.4.5",
+          "questionText": "Explain the formation of high-density clouds at B.",
+          "marks": 4,
+          "diagramUrl": null,
+          "memoText": "Rapid evaporation/upliftment of warm air over warm oceans (2); Intense updrafts/convection currents/strong pressure gradient occurs at B (2); Rapid cooling of air (2); This will favour rapid (vertical) condensation (2). [ANY TWO] (2 x 2)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-4-6",
+          "label": "1.4.6",
+          "questionText": "High-density clouds result in torrential (very heavy) rainfall. Describe the natural (physical) environmental damage associated with this torrential rainfall as it moves over the land.",
+          "marks": 6,
+          "memoText": "Coastal erosion would take place (2); soil erosion would occur on the land (2); mass movements change the landscape (2); reshaping of the coastline (2); habitats would be destroyed (2); food chains/food webs are destroyed (2); biodiversity would be diminished (2); contamination of water sources (2); silting up of rivers (2); increased leaching of nutrients (2). [ANY THREE] (3 x 2)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-5-1",
+          "label": "1.5.1",
+          "questionText": "What are berg winds?",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "Hot dry winds that blow from the interior (down the escarpment) to the coast. [CONCEPT] (1 x 2). Accept part marks: Hot, dry winds (1); Blows from the interior (down the escarpment) to the coast (1).",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-5-2",
+          "label": "1.5.2",
+          "questionText": "State TWO factors evident on the map that promote berg wind conditions.",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "(Kalahari) High-pressure cell (1); Coastal low-pressure cell (1). (2 x 1)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-5-3",
+          "label": "1.5.3",
+          "questionText": "According to the extract, why does the temperature of the air increase as it blows from Johannesburg to Durban?",
+          "marks": 1,
+          "memoText": "It undergoes heating caused by the adiabatic process (1) / It heats up by approximately 1°C per 100 metres as it descends (1). [ANY ONE] (1 x 1)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-5-4",
+          "label": "1.5.4",
+          "questionText": "Determine the expected air temperature at Durban due to the associated berg wind conditions.",
+          "marks": 2,
+          "memoText": "35°C (1 x 2). [20°C + 15°C = 35°C] Show all working.",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-5-5",
+          "label": "1.5.5",
+          "questionText": "Why is the threat of wildfires greater during the day when berg winds occur?",
+          "marks": 4,
+          "memoText": "Higher air temperatures (2); Greater amount of evaporation/dries out vegetation (2); Low relative humidity (dry air) increases the possibility of fires (2); More human activities occur that can start a fire (2). [ANY TWO] (2 x 2)",
+          "topic": "Climate and Weather"
+        },
+        {
+          "id": "1-5-6",
+          "label": "1.5.6",
+          "questionText": "Explain why berg winds are associated with lower agricultural productivity on farms.",
+          "marks": 4,
+          "memoText": "Dry (windy) conditions damage crops/pastural land (2); dry (windy) conditions cause soil erosion (2); high temperatures cause livestock/crops to wither/die (2); strong winds fan fires that destroy farmland/infrastructure (2); wildfires associated with berg winds kill livestock/damage crops (2); high temperatures cause heat stress which reduces workers' productivity (2); increased evaporation reduces soil moisture content (2). [ANY TWO] (2 x 2). If only qualifiers mentioned, no marks awarded.",
+          "topic": "Climate and Weather"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Geomorphology",
+      "totalMarks": 60,
+      "subQuestions": [
+        {
+          "id": "2-1-1",
+          "label": "2.1.1",
+          "questionText": "Drainage pattern P is known as a … pattern.\n\nA dendritic\nB trellis\nC rectangular\nD deranged",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "dendritic",
+            "B": "trellis",
+            "C": "rectangular",
+            "D": "deranged"
+          },
+          "diagramUrl": null,
+          "memoText": "A",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-1-2",
+          "label": "2.1.2",
+          "questionText": "In sketch …, rivers flow towards a low-lying central point.\n\nA P\nB Q\nC R\nD S",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "P",
+            "B": "Q",
+            "C": "R",
+            "D": "S"
+          },
+          "diagramUrl": null,
+          "memoText": "C",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-1-3",
+          "label": "2.1.3",
+          "questionText": "Drainage pattern Q is known as a … pattern.\n\nA centripetal\nB radial\nC parallel\nD trellis",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "centripetal",
+            "B": "radial",
+            "C": "parallel",
+            "D": "trellis"
+          },
+          "diagramUrl": null,
+          "memoText": "B",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-1-4",
+          "label": "2.1.4",
+          "questionText": "Drainage pattern S is associated with …\n\nA jointed igneous rocks.\nB very steep gradients.\nC folded mountain regions.\nD domes and buttes.",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "jointed igneous rocks.",
+            "B": "very steep gradients.",
+            "C": "folded mountain regions.",
+            "D": "domes and buttes."
+          },
+          "diagramUrl": null,
+          "memoText": "A",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-1-5",
+          "label": "2.1.5",
+          "questionText": "The tributaries in sketch … join the mainstream at acute angles and resemble the branches of a tree.\n\nA P\nB Q\nC R\nD S",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "P",
+            "B": "Q",
+            "C": "R",
+            "D": "S"
+          },
+          "diagramUrl": null,
+          "memoText": "A",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-1-6",
+          "label": "2.1.6",
+          "questionText": "In sketch …, the streams flow alongside each other in areas of steep, folded bedrock.\n\nA R\nB S\nC T\nD U",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "R",
+            "B": "S",
+            "C": "T",
+            "D": "U"
+          },
+          "diagramUrl": null,
+          "memoText": "C/D",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-1-7",
+          "label": "2.1.7",
+          "questionText": "The underlying rock structure of drainage pattern T is …\n\nA massive igneous rocks.\nB domes and volcanoes.\nC inclined strata.\nD major faults.",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "massive igneous rocks.",
+            "B": "domes and volcanoes.",
+            "C": "inclined strata.",
+            "D": "major faults."
+          },
+          "diagramUrl": null,
+          "memoText": "C",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-1-8",
+          "label": "2.1.8",
+          "questionText": "In drainage pattern Q, the stream order at X is … and could … with heavy rainfall.\n(i) 2\n(ii) 3\n(iii) increase\n(iv) decrease\n\nA (i) and (iii)\nB (i) and (iv)\nC (ii) and (iii)\nD (ii) and (iv)",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "(i) and (iii)",
+            "B": "(i) and (iv)",
+            "C": "(ii) and (iii)",
+            "D": "(ii) and (iv)"
+          },
+          "diagramUrl": null,
+          "memoText": "C",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-2-1",
+          "label": "2.2.1",
+          "questionText": "The sketch that depicts turbulent flow.\nY: [sketch of laminar/straight flow]\nZ: [sketch of turbulent/wavy flow]",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Z",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-2-2",
+          "label": "2.2.2",
+          "questionText": "The fluvial process associated with turbulent flow.\nY: deposition\nZ: erosion",
+          "marks": 1,
+          "memoText": "Z (erosion)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-2-3",
+          "label": "2.2.3",
+          "questionText": "The fluvial feature associated with turbulent flow.\nY: rapid\nZ: levee",
+          "marks": 1,
+          "memoText": "Y (rapid)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-2-4",
+          "label": "2.2.4",
+          "questionText": "The sketch that depicts a cross-profile.\nY: [sketch showing cross-profile]\nZ: [sketch showing long profile]",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Z",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-2-5",
+          "label": "2.2.5",
+          "questionText": "An example of an ungraded river profile.\nY: [sketch of smooth graded profile]\nZ: [sketch of ungraded/stepped profile]",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Z",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-2-6",
+          "label": "2.2.6",
+          "questionText": "… of rivers can change the grade of a river from graded to ungraded.\nY: Rejuvenation\nZ: Meandering",
+          "marks": 1,
+          "memoText": "Y (Rejuvenation)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-2-7",
+          "label": "2.2.7",
+          "questionText": "A waterfall is an example of a … base level of erosion.\nY: permanent\nZ: temporary",
+          "marks": 1,
+          "memoText": "Z (temporary)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-3-1",
+          "label": "2.3.1",
+          "questionText": "Braided streams and deltas form when the dominant fluvial process is (erosion/deposition).",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Deposition (1 x 1)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-3-2",
+          "label": "2.3.2",
+          "questionText": "State ONE physical similarity between braided streams and deltas.",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "Both branch off into smaller channels (2) / Both have sand islands (2) / Velocity of the river is low (2) / Shallow stream channel (2) / Both have a wide river channel (2) / Both rivers experience laminar flow (2). [ANY ONE] (1 x 2)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-3-3",
+          "label": "2.3.3",
+          "questionText": "Give TWO reasons why braided streams are common in the lower course of a river.",
+          "marks": 4,
+          "memoText": "The gradient is gentle (2); speed of the river decreases (2); lower carrying capacity of the water (2); (increased) deposition/bedload (2); laminar flow dominates (2); wider stream channel (2); shallow stream channels (2). [ANY TWO] (2 x 2)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-3-4",
+          "label": "2.3.4",
+          "questionText": "Why do deltas not form in all rivers?",
+          "marks": 4,
+          "memoText": "Less silt/sediment deposited (2); strong ocean currents/tidal action (2); some rivers have a steep gradient at the mouth (2); deep continental shelf (2). [ANY TWO] (2 x 2)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-3-5",
+          "label": "2.3.5",
+          "questionText": "Explain why deltas are suitable for agriculture.",
+          "marks": 4,
+          "memoText": "They provide fertile soil for crop farming (2); flat land allows for use of machinery (2); access to water supply from the distributaries for irrigation (2); distributaries create transport routes for farming products (2). [ANY TWO] (2 x 2). If only qualifiers mentioned, no marks awarded.",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-4-1",
+          "label": "2.4.1",
+          "questionText": "What is headward erosion?",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "River cutting/eroding backwards through the watershed (2) / Erosion towards the source (2) / River lengthening from the source (2). [CONCEPT - ANY ONE] (1 x 2)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-4-2",
+          "label": "2.4.2",
+          "questionText": "State ONE factor evident on the sketch that would promote headward erosion in stream A.",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "The steeper gradient (1) / Flowing at a lower level (1). [ANY ONE] (1 x 1)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-4-3",
+          "label": "2.4.3",
+          "questionText": "Why is stream A referred to as the captor stream after river capture?",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "It has captured the headwaters of stream B. (1 x 2)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-4-4",
+          "label": "2.4.4",
+          "questionText": "Why is river gravel found in the wind gap after river capture?",
+          "marks": 4,
+          "diagramUrl": null,
+          "memoText": "After the elbow of capture there is less water flowing/reduced carrying capacity (2); sediment is deposited (2). (2 x 2)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-4-5",
+          "label": "2.4.5",
+          "questionText": "Explain how the fluvial processes would change in stream A after river capture.",
+          "marks": 6,
+          "diagramUrl": null,
+          "memoText": "Erosion will increase (2); vertical erosion will increase (2); lateral erosion will increase (2); transportation will increase (2); deposition will decrease (2). [ANY THREE] (3 x 2)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-5-1",
+          "label": "2.5.1",
+          "questionText": "According to the extract, state TWO ways in which mines pollute rivers.",
+          "marks": 2,
+          "memoText": "Mining chemicals (1); mining waste (1); mine dumps (1); surface runoff (1); seepage from mine dumps (1). [ANY TWO] (2 x 1)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-5-2",
+          "label": "2.5.2",
+          "questionText": "Quote from the extract ONE health risk that mining poses for humans.",
+          "marks": 1,
+          "memoText": "'stomach illnesses' (1) / 'increased cancer risk' (1). [ANY ONE] (1 x 1)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-5-3",
+          "label": "2.5.3",
+          "questionText": "Explain the negative impact of mining on the river system.",
+          "marks": 4,
+          "memoText": "It (river system) could become polluted (2); the pH level could change/acid/poisonous (2); eutrophication occurs/more algae in the water (2); water quality will decrease (2); reduces river's carrying capacity (2); biodiversity is diminished (2); food chains/food webs are destroyed (2); habitats are destroyed (2). [ANY TWO] (2 x 2)",
+          "topic": "Geomorphology"
+        },
+        {
+          "id": "2-5-4",
+          "label": "2.5.4",
+          "questionText": "In a paragraph of approximately EIGHT lines, suggest measures that mining companies can implement to manage the impact of water pollution on rivers and humans.",
+          "marks": 8,
+          "memoText": "Employ environmental officers (2); improved waste management (2); maintain/improve mining infrastructure (2); implement monitoring/testing (2); develop treatment technologies (2); neutralise the acidic water (2); use of biodegradable (less harmful) chemicals (2); rehabilitate mine dumps (2); buffer areas to protect rivers (2); access to medical assistance (2); educate workers/community (2); awareness campaigns (2); build slimes dam to pump water in (2). [ANY FOUR] (4 x 2)",
+          "topic": "Geomorphology"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Geographical Skills and Techniques",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "3-1-1",
+          "label": "3.1.1",
+          "questionText": "What is the distance by railway to Frere from the boundary of the mapped area?\n\nA 1,8 km\nB 17 km\nC 18 km\nD 1,7 km",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "1,8 km",
+            "B": "17 km",
+            "C": "18 km",
+            "D": "1,7 km"
+          },
+          "diagramUrl": null,
+          "memoText": "C (1 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-1-2",
+          "label": "3.1.2",
+          "questionText": "Which illustration below represents the map index for the topographical map of Estcourt?\n\nA [29 29, AA/AB/CA/CB grid with BB highlighted]\nB [29 29, AA/AB/CA/CB grid with AB highlighted]\nC [29 29, A/B/C/D grid]\nD [29 29, AA/AB/CA/CB grid with CB-B highlighted]",
+          "marks": 1,
+          "type": "mcq",
+          "options": {
+            "A": "Grid showing BB position top-right",
+            "B": "Grid showing BB position top-right (alternative layout)",
+            "C": "Grid showing single-letter quadrants",
+            "D": "Grid showing BB position bottom-left"
+          },
+          "diagramUrl": null,
+          "memoText": "B (1 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-1-3",
+          "label": "3.1.3",
+          "questionText": "Calculate the length of the Wagendrift Dam wall at F in block C3 in metres (m).\n\nFormula: Actual distance = Map distance x Map scale",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "Map distance: 0,6 cm (accept range 0,5–0,7 cm) (1); Actual distance = 0,6 x 50 000 = 30 000 cm = 300 m (accept range 250 m–350 m) (1). (2 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-1-4",
+          "label": "3.1.4",
+          "questionText": "Calculate the magnetic declination for 2025 using the following information:\nDifference in years: 24 years\nMean annual change: 9' W",
+          "marks": 3,
+          "memoText": "24 x 9' = 216' / 3° 36' (1); 21° 43' + (1) 3° 36'; = 25° 19' West of True North (1). (3 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-1-5",
+          "label": "3.1.5",
+          "questionText": "Draw a rough cross-section from 6 in block A4 to 7 in block B5.",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "1 mark for convex slope (from point 6 side); 1 mark for concave slope (toward point 7 side). (2 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-1-6",
+          "label": "3.1.6",
+          "questionText": "Why is there no intervisibility between 6 and 7?",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "There is a convex slope (1). (Accept: there is an obstruction/crest.) [ANY ONE] (1 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-2-1",
+          "label": "3.2.1",
+          "questionText": "Name the wind that is likely to blow at night between G and H.",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Katabatic (1 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-2-2",
+          "label": "3.2.2",
+          "questionText": "Give ONE reason why this wind (answer to QUESTION 3.2.1) will develop in this area.",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "Cold air sinks downslope. (1 x 2)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-2-3a",
+          "label": "3.2.3(a)",
+          "questionText": "The rate of evaporation will be less in area (8/9).",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "8 (1 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-2-3b",
+          "label": "3.2.3(b)",
+          "questionText": "Give evidence from the orthophoto map for the low rate of evaporation in this area (answer to QUESTION 3.2.3(a)).",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "It is a built-up area (2) / It is made up of artificial surfaces/less vegetation (2) / Drainage (infrastructure) channels water away (2). [ANY ONE] (1 x 2)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-2-4",
+          "label": "3.2.4",
+          "questionText": "Identify ONE strategy that was put in place to limit the negative human impact on the Wagendrift Dam.",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "It was declared a nature reserve (2) / It was declared a protected area/buffering of area (2). [ANY ONE] (1 x 2)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-2-5a",
+          "label": "3.2.5(a)",
+          "questionText": "Identify fluvial landform/feature 10 on the orthophoto map.",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Meander (1 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-2-5b",
+          "label": "3.2.5(b)",
+          "questionText": "Feature 11 is known as the (inner/outer) bank.",
+          "marks": 1,
+          "diagramUrl": null,
+          "memoText": "Inner (bank) (1 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-2-5c",
+          "label": "3.2.5(c)",
+          "questionText": "Why will this bank (answer to QUESTION 3.2.5(b)) be associated with fertile soil?",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "Deposition takes place (on the inner bank/point bar). (1 x 2)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-3-1",
+          "label": "3.3.1",
+          "questionText": "What is data layering?",
+          "marks": 2,
+          "memoText": "Different data layers of information (with specific themes) placed on top of one another. [CONCEPT] (1 x 2)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-3-2",
+          "label": "3.3.2",
+          "questionText": "Identify TWO infrastructural layers in block B1 that would promote farming.",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "Transport/Roads/Bridge (1); Buildings (1); Dam wall (accept perennial water/dam) (1); Communication Tower (1). [ANY TWO] (2 x 1)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-3-3",
+          "label": "3.3.3",
+          "questionText": "Define the concept remote sensing.",
+          "marks": 2,
+          "memoText": "Collection of information of the earth from a (vertical) distance (without any contact with the earth). [CONCEPT] (1 x 2)",
+          "topic": "Geographical Skills and Techniques"
+        },
+        {
+          "id": "3-3-4",
+          "label": "3.3.4",
+          "questionText": "Refer to blocks C1/C2 and D1/D2. How would remote sensing assist the town's emergency personnel in the event of flooding of the Bushmans River?",
+          "marks": 2,
+          "diagramUrl": null,
+          "memoText": "Able to source information from inaccessible areas (2); rescue efforts will be prompt (2); emergency personnel would be able to take less risks (2); continual monitoring would lead to effective action (2); information will be updated regularly (2); identify areas at high risk of flooding (2); put in place early warning system (2). [ANY ONE] (1 x 2)",
+          "topic": "Geographical Skills and Techniques"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+"use client";
+
+import { useState, useRef, useCallback } from "react";
+import { apiFetch } from "@/lib/fetch";
+import { supabase } from "@/lib/supabase";
+
+/**
+ * Check the user's TTS daily limit and increment if allowed.
+ * Returns true if playback is allowed, false if limit reached.
+ * Call this before speakViaAPI — prefetchTTS skips this check intentionally.
+ */
+export async function checkTTSLimit(): Promise<boolean> {
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) return true; // unauthenticated — allow, server won't count it
+    const res = await apiFetch("/api/usage/tts", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    });
+    return res.ok;
+  } catch {
+    return true; // on network error, allow playback
+  }
+}
+
+// ── TTS prefetch cache ─────────────────────────────────────────────────────────
+// Keyed by cleaned text.
+// ttsCache: in-flight or resolved blob URL promises
+// ttsCacheSync: synchronously-readable blob URLs once resolved
+// On iOS/mobile, audio.play() must be called within the synchronous user gesture
+// handler. Even a resolved Promise's .then() is a microtask (async), so we keep
+// a second synchronous map of already-resolved URLs for instant playback on tap.
+const ttsCache = new Map<string, Promise<string>>();
+const ttsCacheSync = new Map<string, string>();
+
+function fetchTTSUrl(cleanedText: string): Promise<string> {
+  if (ttsCache.has(cleanedText)) return ttsCache.get(cleanedText)!;
+  const promise = apiFetch("/api/tts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text: cleanedText }),
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("TTS failed");
+      return res.blob();
+    })
+    .then((blob) => {
+      const url = URL.createObjectURL(blob);
+      ttsCacheSync.set(cleanedText, url); // store for synchronous access
+      return url;
+    })
+    .catch((err) => {
+      ttsCache.delete(cleanedText); // allow retry on failure
+      throw err;
+    });
+  ttsCache.set(cleanedText, promise);
+  return promise;
+}
+
+/**
+ * Fire-and-forget: start fetching TTS audio for text before the user presses play.
+ * Call when a question or passage loads. Safe to call multiple times — cached.
+ */
+export function prefetchTTS(text: string): void {
+  const cleaned = prepareForSpeech(text);
+  if (cleaned) fetchTTSUrl(cleaned).catch(() => {});
+}
+
+// Strip markdown and clean text before sending to TTS
+export function prepareForSpeech(raw: string): string {
+  return raw
+    .replace(/\/([a-zA-Z]{1,4})\//g, "$1")  // Expand phoneme notation: /sh/ → sh, /g/ → g (stripping leaves empty string)
+    .replace(/#{1,6}\s+/g, "")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
+    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/^\s*[-*+]\s/gm, "")
+    .replace(/^\s*\d+\.\s/gm, "")
+    .replace(/\$\$([^$]+)\$\$/g, (_, eq) => `the equation: ${eq}`)
+    .replace(/\$([^$]+)\$/g, (_, eq) => eq)
+    .replace(/\n{2,}/g, ". ")
+    .replace(/\n/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+/**
+ * Fetches audio from the /api/tts route and plays it.
+ * Returns a cancel() function that stops playback immediately.
+ */
+export function speakViaAPI(
+  text: string,
+  onStart: () => void,
+  onEnd: () => void
+): () => void {
+  let audio: HTMLAudioElement | null = null;
+  let cancelled = false;
+
+  const cancel = () => {
+    cancelled = true;
+    if (audio) {
+      audio.pause();
+      audio.src = "";
+      audio = null;
+    }
+    onEnd();
+  };
+
+  const cleaned = prepareForSpeech(text);
+  if (!cleaned) { onEnd(); return cancel; }
+
+  onStart();
+
+  // If the blob URL is already resolved, play synchronously within the user
+  // gesture handler — required on iOS where audio.play() must be called in the
+  // same synchronous call stack as the tap/click event.
+  const syncUrl = ttsCacheSync.get(cleaned);
+  if (syncUrl) {
+    audio = new Audio(syncUrl);
+    audio.onended = () => onEnd();
+    audio.onerror = () => onEnd();
+    audio.play().catch(() => onEnd());
+    return cancel;
+  }
+
+  // URL not yet ready — create the Audio element NOW (synchronously, within the
+  // user gesture handler) so iOS registers the user activation. The initial
+  // play() call will fail because src is empty, but that's expected — it still
+  // unlocks the audio context so the real play() call below is permitted even
+  // though it happens asynchronously inside a Promise callback.
+  audio = new Audio();
+  audio.play().catch(() => {}); // unlock iOS audio context — failure is intentional
+
+  fetchTTSUrl(cleaned)
+    .then((url) => {
+      if (cancelled || !audio) return;
+      audio.src = url;
+      audio.onended = () => onEnd();
+      audio.onerror = () => onEnd();
+      audio.load();
+      audio.play().catch(() => onEnd());
+    })
+    .catch(() => {
+      if (!cancelled) onEnd();
+    });
+
+  return cancel;
+}
+
+/**
+ * React hook — gives components a simple { playing, speak, stop } interface.
+ */
+export function useTTS() {
+  const [playing, setPlaying] = useState(false);
+  const cancelRef = useRef<(() => void) | null>(null);
+
+  const stop = useCallback(() => {
+    cancelRef.current?.();
+    cancelRef.current = null;
+    setPlaying(false);
+  }, []);
+
+  const speak = useCallback(
+    (text: string) => {
+      stop();
+      cancelRef.current = speakViaAPI(
+        text,
+        () => setPlaying(true),
+        () => setPlaying(false)
+      );
+    },
+    [stop]
+  );
+
+  return { playing, speak, stop };
+}

@@ -1,10 +1,10 @@
 [
   {
-    "id": "Q1",
-    "domain": "Phonological Awareness — Rhyme",
+    "id": "D01",
+    "domain": "Phonological Awareness – Rhyme",
     "domainCode": "D001",
     "gate": "A",
-    "question": "Do these two words rhyme?",
+    "question": "Do 'big' and 'pig' rhyme?",
     "displayWord": "big • pig",
     "answerMode": "choice",
     "choices": [
@@ -21,106 +21,286 @@
     ]
   },
   {
-    "id": "Q2",
-    "domain": "Phoneme Isolation — First Sound",
-    "domainCode": "D002",
+    "id": "D01B",
+    "domain": "Syllable Segmentation",
+    "domainCode": "D001B",
     "gate": "A",
-    "question": "What is the very first sound in 'big'? Say just the sound, not the letter name.",
-    "displayWord": "big",
-    "answerMode": "voice",
-    "expectedAnswer": "/b/"
+    "question": "How many syllables in \"window\"?",
+    "displayWord": "window",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "1",
+        "value": "1",
+        "correct": false
+      },
+      {
+        "label": "2",
+        "value": "2",
+        "correct": true
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      }
+    ],
+    "subText": "Say the word quietly and count the beats."
   },
   {
-    "id": "Q3",
-    "domain": "Letter Sound — Consonants",
+    "id": "D02",
+    "domain": "Phoneme Isolation – First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'big'? Tap the sound below.",
+    "displayWord": "big",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "value": "sound-1",
+        "speech": "B, as in bat",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "value": "sound-2",
+        "speech": "G, as in got",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "value": "sound-3",
+        "speech": "short I, as in sit",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
+  },
+  {
+    "id": "D02B",
+    "domain": "Full Phoneme Segmentation",
+    "domainCode": "D002B",
+    "gate": "A",
+    "question": "How many sounds are in \"step\"?",
+    "displayWord": "step",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "3",
+        "value": "3",
+        "correct": false
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": true
+      },
+      {
+        "label": "5",
+        "value": "5",
+        "correct": false
+      }
+    ],
+    "subText": "Count each individual sound — not letters."
+  },
+  {
+    "id": "D03",
+    "domain": "Letter Sound – Consonants",
     "domainCode": "D003",
     "gate": "A",
     "question": "What sound does this letter make?",
     "displayWord": "F",
-    "answerMode": "voice",
-    "expectedAnswer": "/f/",
-    "maxResponseMs": 2500
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "value": "sound-1",
+        "speech": "V, as in van",
+        "correct": false
+      },
+      {
+        "label": "Sound 2",
+        "value": "sound-2",
+        "speech": "P, as in pin",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "value": "sound-3",
+        "speech": "F, as in fish",
+        "correct": true
+      }
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
-    "id": "Q4",
-    "domain": "Letter Sound — Vowels",
+    "id": "D04",
+    "domain": "Letter Sound – Vowels",
     "domainCode": "D004",
     "gate": "A",
     "question": "What sound does this letter make? Give me the short sound.",
     "displayWord": "o",
-    "answerMode": "voice",
-    "expectedAnswer": "/ɒ/ (short o as in odd)",
-    "maxResponseMs": 2500
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "value": "sound-1",
+        "speech": "short U, as in cup",
+        "correct": false
+      },
+      {
+        "label": "Sound 2",
+        "value": "sound-2",
+        "speech": "short O, as in hot",
+        "correct": true
+      },
+      {
+        "label": "Sound 3",
+        "value": "sound-3",
+        "speech": "short A, as in apple",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
   },
   {
-    "id": "Q5",
-    "domain": "CVC Decoding",
-    "domainCode": "D005",
-    "gate": "B",
-    "question": "Read this word out loud for me.",
-    "displayWord": "WEP",
-    "answerMode": "voice",
-    "wordType": "nonsense",
-    "expectedAnswer": "wep"
-  },
-  {
-    "id": "Q6",
-    "domain": "CVC Encoding — Voice Segmentation",
-    "domainCode": "D006",
-    "gate": "B",
-    "question": "Say this word back to me sound by sound: 'wep'",
-    "displayWord": "",
-    "answerMode": "voice",
-    "expectedAnswer": "/w/ / /e/ / /p/"
-  },
-  {
-    "id": "Q7",
+    "id": "D05",
     "domain": "Digraph Recognition",
+    "answerMode": "audio-tap",
+    "gate": "A",
+    "question": "What sound do these two letters make together?",
+    "subText": "Tap to hear each sound, then choose the right one.",
+    "displayWord": "wh",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "speech": "wh, as in when",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "speech": "W, as in wet",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "speech": "H, as in hat",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D05B",
+    "domain": "Digraph Recognition",
+    "answerMode": "audio-tap",
+    "gate": "A",
+    "question": "What sound do these two letters make together?",
+    "subText": "Tap to hear each sound, then choose the right one.",
+    "displayWord": "ck",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "speech": "ck, as in clock",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "speech": "C, as in cat",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "speech": "K, as in kite",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D06",
+    "domain": "Consonant Blend Decoding",
+    "answerMode": "voice",
+    "gate": "A",
+    "question": "Read this word out loud for me.",
+    "displayWord": "clap",
+    "expectedAnswer": "clap",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
     "domainCode": "D007",
     "gate": "B",
-    "question": "What one sound do these two letters make together?",
-    "displayWord": "wh",
+    "question": "Read this word out loud for me.",
+    "displayWord": "cup",
     "answerMode": "voice",
-    "expectedAnswer": "/w/",
-    "maxResponseMs": 2500
+    "expectedAnswer": "cup",
+    "voiceHint": "Tap the mic and say the word you see"
   },
   {
-    "id": "Q8",
-    "domain": "Consonant Blend Decoding",
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
     "domainCode": "D008",
     "gate": "B",
     "question": "Read this word out loud for me.",
-    "displayWord": "CRON",
+    "displayWord": "shed",
     "answerMode": "voice",
-    "wordType": "nonsense",
-    "expectedAnswer": "cron"
+    "expectedAnswer": "shed",
+    "voiceHint": "Tap the mic and say the word you see"
   },
   {
-    "id": "Q9",
+    "id": "D09",
     "domain": "Long Vowel / Silent E",
     "domainCode": "D009",
     "gate": "C",
     "question": "Read this word out loud for me. The silent e changes the vowel sound.",
-    "displayWord": "CUTE",
+    "displayWord": "CAME",
     "answerMode": "voice",
-    "expectedAnswer": "cute",
-    "vowelPattern": "long u"
+    "expectedAnswer": "came",
+    "vowelPattern": "long a"
   },
   {
-    "id": "Q10",
+    "id": "D10",
     "domain": "Vowel Teams",
     "domainCode": "D010",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "MOON",
+    "displayWord": "TAIL",
     "answerMode": "voice",
-    "expectedAnswer": "moon",
-    "vowelTeam": "oo",
+    "expectedAnswer": "tail",
+    "vowelTeam": "ai",
     "maxResponseMs": 4000
   },
   {
-    "id": "Q11",
-    "domain": "Sight Words — Automaticity",
+    "id": "D10B",
+    "domain": "Phoneme Sequence Blending",
+    "domainCode": "D010B",
+    "gate": "C",
+    "question": "Blend these sounds together: /s/ /p/ /l/ /a/ /sh/ — what word do they make?",
+    "displayWord": "/s/ /p/ /l/ /a/ /sh/",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "clash",
+        "value": "clash",
+        "correct": false
+      },
+      {
+        "label": "flash",
+        "value": "flash",
+        "correct": false
+      },
+      {
+        "label": "splash",
+        "value": "splash",
+        "correct": true
+      }
+    ],
+    "subText": "Listen to the sounds and blend them into one word."
+  },
+  {
+    "id": "D11",
+    "domain": "Sight Words – Automaticity",
     "domainCode": "D011",
     "gate": "C",
     "question": "Read this word as soon as you see it!",
@@ -131,18 +311,18 @@
     "maxResponseMs": 2500
   },
   {
-    "id": "Q12",
+    "id": "D12",
     "domain": "R-Controlled Vowels",
     "domainCode": "D012",
     "gate": "C",
     "question": "Read this word out loud for me.",
-    "displayWord": "CORN",
+    "displayWord": "FARM",
     "answerMode": "voice",
-    "expectedAnswer": "corn",
-    "rControlledPattern": "or"
+    "expectedAnswer": "farm",
+    "rControlledPattern": "ar"
   },
   {
-    "id": "Q13",
+    "id": "D13",
     "domain": "Two-Syllable Decoding",
     "domainCode": "D013",
     "gate": "C",
@@ -150,10 +330,32 @@
     "displayWord": "MITTEN",
     "answerMode": "voice",
     "expectedAnswer": "mitten",
-    "syllableBreak": "mit·ten"
+    "syllableBreak": "mitÂ·ten"
   },
   {
-    "id": "Q14",
+    "id": "D13B",
+    "domain": "Consonant Blend Encoding",
+    "domainCode": "D013B",
+    "gate": "C",
+    "question": "Spell this word: \"clap\"",
+    "displayWord": "clap",
+    "answerMode": "voice",
+    "expectedAnswer": "c l a p",
+    "voiceHint": "Say each letter clearly, one at a time."
+  },
+  {
+    "id": "D13C",
+    "domain": "Unfamiliar Word Encoding",
+    "domainCode": "D013C",
+    "gate": "C",
+    "question": "Spell this made-up word: \"trid\"",
+    "displayWord": "trid",
+    "answerMode": "voice",
+    "expectedAnswer": "t r i d",
+    "voiceHint": "Use the sounds to work it out, then say each letter."
+  },
+  {
+    "id": "D14",
     "domain": "Multisyllabic Decoding",
     "domainCode": "D014",
     "gate": "C",
@@ -161,22 +363,66 @@
     "displayWord": "TOMORROW",
     "answerMode": "voice",
     "expectedAnswer": "tomorrow",
-    "syllableBreak": "to·mor·row"
+    "syllableBreak": "toÂ·morÂ·row"
   },
   {
-    "id": "Q15",
+    "id": "D15",
     "domain": "Prefix / Suffix Recognition",
     "domainCode": "D015",
     "gate": "C",
-    "question": "This word has a special part at the beginning. Say just that part out loud.",
+    "question": "Tap the prefix in this word.",
     "displayWord": "UNHAPPY",
-    "answerMode": "voice",
+    "answerMode": "choice",
     "expectedAnswer": "un",
     "affixType": "prefix",
-    "targetAffix": "un"
+    "targetAffix": "un",
+    "choices": [
+      {
+        "label": "UN",
+        "value": "un",
+        "correct": true
+      },
+      {
+        "label": "HAPPY",
+        "value": "happy",
+        "correct": false
+      },
+      {
+        "label": "RE",
+        "value": "re",
+        "correct": false
+      }
+    ]
   },
   {
-    "id": "Q16",
+    "id": "D15B",
+    "domain": "Self-Monitoring for Meaning",
+    "domainCode": "D015B",
+    "gate": "D",
+    "question": "You are reading and a word doesn't sound right. What is the best thing to do?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "reread that part carefully",
+        "value": "reread that part carefully",
+        "correct": true
+      },
+      {
+        "label": "skip it",
+        "value": "skip it",
+        "correct": false
+      },
+      {
+        "label": "guess any word",
+        "value": "guess any word",
+        "correct": false
+      }
+    ],
+    "subText": "Think about what a good reader would do."
+  },
+  {
+    "id": "D16",
     "domain": "Fluency Passage",
     "domainCode": "D016",
     "gate": "D",
@@ -192,7 +438,7 @@
     }
   },
   {
-    "id": "Q17",
+    "id": "D17",
     "domain": "Literal Comprehension",
     "domainCode": "D017",
     "gate": "D",
@@ -200,11 +446,27 @@
     "displayWord": "",
     "passageRef": "16.4",
     "comprehensionType": "literal",
-    "answerMode": "voice",
-    "expectedAnswer": "A rod and a worm"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "A rod and a worm",
+        "value": "A rod and a worm",
+        "correct": true
+      },
+      {
+        "label": "A net and a bucket",
+        "value": "A net and a bucket",
+        "correct": false
+      },
+      {
+        "label": "Some bread and a jar",
+        "value": "Some bread and a jar",
+        "correct": false
+      }
+    ]
   },
   {
-    "id": "Q18",
+    "id": "D18",
     "domain": "Inferential Comprehension",
     "domainCode": "D018",
     "gate": "D",
@@ -212,7 +474,23 @@
     "displayWord": "",
     "passageRef": "16.4",
     "comprehensionType": "inferential",
-    "answerMode": "voice",
-    "expectedAnswer": "The fish was not hungry or sensed danger — it swam past without biting"
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "It was not hungry or sensed danger",
+        "value": "It was not hungry or sensed danger",
+        "correct": true
+      },
+      {
+        "label": "It was hiding and did not see the worm",
+        "value": "It was hiding and did not see the worm",
+        "correct": false
+      },
+      {
+        "label": "It only ate other fish",
+        "value": "It only ate other fish",
+        "correct": false
+      }
+    ]
   }
 ]

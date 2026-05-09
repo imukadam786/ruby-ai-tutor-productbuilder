@@ -1,11 +1,15 @@
 "use client";
 
-import { useMemo } from "react";
-import { getProgress, getStreakData } from "@/lib/storage";
-import { getStudentProfile, getSkillById, getLevelById } from "@/lib/student-model";
-import { getReadingProfile, getReadingSkillById, getReadingLevelById } from "@/lib/reading-student-model";
-import { useT } from "@/lib/i18n";
+import { useEffect, useState } from "react";
+import { getProgress, getStreakData, StreakData } from "@/lib/storage";
+import { getSkillById, hydrateStudentProfileFromSupabase } from "@/lib/student-model";
+import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
+import { StudentProfile } from "@/types/ruby";
+import { ReadingStudentProfile } from "@/types/reading";
+import { ProgressData } from "@/types";
 import EduBackground from "@/components/EduBackground";
+import SkillTreeView from "@/components/ruby/SkillTreeView";
+import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 function TrophyIcon({ className }: { className?: string }) {
@@ -29,21 +33,51 @@ function CalendarIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-function TargetIcon({ className }: { className?: string }) {
+function CheckIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   );
 }
-function FlameIcon({ className }: { className?: string }) {
+function ChevronDownIcon({ open }: { open: boolean }) {
   return (
-    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-      <path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z" />
+    <svg
+      className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`}
+      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
     </svg>
   );
 }
 // ─────────────────────────────────────────────────────────────────────────────
+
+const DEMO_MODE = false;
+
+const DEMO_STATS = { skillsMastered: 16, inProgress: 3, lessonsDone: 40, studySessions: 24 };
+// Sessions per day: Mon–Sun (sums to 24+ to feel realistic)
+const DEMO_WEEK_COUNTS = [4, 6, 2, 8, 5, 3, 4];
+const DEMO_STREAK = { currentStreak: 7, bestStreak: 15, lastActiveDate: "", dailyActivity: {} };
+
+// One colour per weekday bar (Mon → Sun)
+const BAR_COLORS = [
+  "bg-violet-500",
+  "bg-blue-500",
+  "bg-cyan-500",
+  "bg-emerald-500",
+  "bg-amber-500",
+  "bg-orange-500",
+  "bg-rose-500",
+];
+const BAR_COLORS_DIM = [
+  "bg-violet-200",
+  "bg-blue-200",
+  "bg-cyan-200",
+  "bg-emerald-200",
+  "bg-amber-200",
+  "bg-orange-200",
+  "bg-rose-200",
+];
 
 function toDateStr(d: Date): string {
   return d.toISOString().split("T")[0];
@@ -51,7 +85,7 @@ function toDateStr(d: Date): string {
 
 function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
   const today = new Date();
-  const dayOfWeek = today.getDay(); // 0=Sun
+  const dayOfWeek = today.getDay();
   const monday = new Date(today);
   monday.setDate(today.getDate() - ((dayOfWeek + 6) % 7));
   const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -63,49 +97,50 @@ function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
 }
 
 export default function ProgressTracker() {
-  const progress = useMemo(() => getProgress(), []);
-  const profile = useMemo(() => getStudentProfile(), []);
-  const streak = useMemo(() => getStreakData(), []);
+  const [progress, setProgress] = useState<ProgressData>({
+    totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
+    lessonsStarted: 0, sessionCount: 0, lastSession: "", subjectBreakdown: {},
+  });
+  const [profile, setProfile] = useState<StudentProfile | null>(null);
+  const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
+  const [streak, setStreak] = useState<StreakData>({ currentStreak: 0, bestStreak: 0, lastActiveDate: "", dailyActivity: {} });
+
+  useEffect(() => {
+    Promise.all([
+      getProgress(),
+      hydrateStudentProfileFromSupabase(),
+      hydrateReadingProfileFromSupabase(),
+      getStreakData(),
+    ]).then(([p, prof, readProf, s]) => {
+      setProgress(p);
+      setProfile(prof);
+      setReadingProfile(readProf);
+      setStreak(s);
+    });
+  }, []);
 
   const mastery = profile?.skill_mastery ?? {};
-  const masteredEntries = Object.entries(mastery).filter(([, m]) => m.status === "mastered");
+  const masteredEntries = Object.entries(mastery).filter(([, m]) => m.status === "mastered" || m.status === "assumed");
   const inProgressEntries = Object.entries(mastery).filter(([, m]) => m.status === "in_progress");
 
-  const accuracy =
-    profile && profile.total_attempts > 0
-      ? Math.round((profile.total_correct / profile.total_attempts) * 100)
-      : null;
-
-  const currentLevel = profile ? getLevelById(profile.current_level) : null;
-  const currentSkill = profile ? getSkillById(profile.current_skill_id) : null;
-
-  const levelMastered = currentLevel
-    ? currentLevel.tiers.flatMap((t) => t.atomic_skills).filter((s) => mastery[s.id]?.status === "mastered").length
-    : 0;
-  const levelTotal = currentLevel
-    ? currentLevel.tiers.flatMap((t) => t.atomic_skills).length
-    : 1;
-
-  const readingProfile = useMemo(() => getReadingProfile(), []);
-  const readingMastery = readingProfile?.skill_mastery ?? {};
-  const readingCurrentLevel = readingProfile ? getReadingLevelById(readingProfile.current_level) : null;
-  const readingCurrentSkill = readingProfile ? getReadingSkillById(readingProfile.current_skill_id) : null;
-  const readingLevelMastered = readingCurrentLevel
-    ? readingCurrentLevel.tiers.flatMap((t) => t.atomic_skills).filter((s) => readingMastery[s.id]?.status === "mastered").length
-    : 0;
-  const readingLevelTotal = readingCurrentLevel
-    ? readingCurrentLevel.tiers.flatMap((t) => t.atomic_skills).length
-    : 1;
-
+  const realStats = {
+    skillsMastered: masteredEntries.length,
+    inProgress: inProgressEntries.length,
+    lessonsDone: progress.lessonsCompleted,
+    studySessions: progress.sessionCount,
+  };
   const weekDays = getCurrentWeek();
-  const maxActivity = Math.max(...weekDays.map((d) => streak.dailyActivity[d.date] || 0), 1);
+  const activity = streak.dailyActivity ?? {};
+  const maxActivity = Math.max(...weekDays.map((d) => activity[d.date] || 0), 1);
 
-  const isEmpty = !profile && progress.sessionCount === 0;
+  const isEmpty = !DEMO_MODE && !profile && progress.sessionCount === 0;
+
+  const [mathsTreeOpen, setMathsTreeOpen] = useState(true);
+  const [readingTreeOpen, setReadingTreeOpen] = useState(true);
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
-      {/* Content sits above pattern */}
       {/* Header */}
       <div className="relative hidden md:block bg-white border-b border-gray-100 px-6 py-4">
         <h2 className="text-gray-900 font-semibold text-xl">Progress</h2>
@@ -117,49 +152,43 @@ export default function ProgressTracker() {
 
           {/* ── 4 Stat Cards ──────────────────────────────────────────── */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {/* Skills Mastered */}
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-500">Skills Mastered</span>
-                <TrophyIcon className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <TrophyIcon className="w-5 h-5 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-blue-600">{masteredEntries.length}</span>
+              <span className="text-2xl font-bold text-blue-600">{realStats.skillsMastered}</span>
             </div>
 
-            {/* In Progress */}
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-500">In Progress</span>
                 <ChartIcon className="w-5 h-5 text-amber-500 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-amber-500">{inProgressEntries.length}</span>
+              <span className="text-2xl font-bold text-amber-500">{realStats.inProgress}</span>
             </div>
 
-            {/* Study Sessions */}
+            <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-gray-500">Lessons Done</span>
+                <CheckIcon className="w-5 h-5 text-green-600 flex-shrink-0" />
+              </div>
+              <span className="text-2xl font-bold text-green-600">{realStats.lessonsDone}</span>
+            </div>
+
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-500">Study Sessions</span>
                 <CalendarIcon className="w-5 h-5 text-purple-600 flex-shrink-0" />
               </div>
-              <span className="text-2xl font-bold text-purple-600">{progress.sessionCount}</span>
-            </div>
-
-            {/* Accuracy */}
-            <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-500">Accuracy</span>
-                <TargetIcon className="w-5 h-5 text-green-600 flex-shrink-0" />
-              </div>
-              <span className="text-2xl font-bold text-green-600">{accuracy !== null ? `${accuracy}%` : "—"}</span>
+              <span className="text-2xl font-bold text-purple-600">{realStats.studySessions}</span>
             </div>
           </div>
 
-          {/* ── Current Streak Card ────────────────────────────────────── */}
+          {/* ── Streak ──────────────────────────────────────────────────── */}
           <div className="bg-orange-50 border border-orange-100 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm">
             <div className="flex items-center gap-3">
-              <span className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <FlameIcon className="w-5 h-5 text-orange-500" />
-              </span>
+              <span className="text-2xl flex-shrink-0">🔥</span>
               <div>
                 <p className="text-sm text-orange-600 font-medium">Current Streak</p>
                 <div className="flex items-baseline gap-1.5 mt-0.5">
@@ -175,130 +204,43 @@ export default function ProgressTracker() {
           </div>
 
           {/* ── Maths Skill Tree ───────────────────────────────────────── */}
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 shadow-sm space-y-3">
-            <h3 className="font-semibold text-blue-700 text-base">Maths Skill Tree</h3>
-            {profile && currentLevel ? (
-              <>
-                <div className="flex items-center gap-3">
-                  <span className="bg-blue-600 text-white text-sm font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
-                    L{profile.current_level}
-                  </span>
-                  <span className="text-gray-700 text-base font-medium">{currentLevel.title}</span>
-                </div>
-                {currentSkill && (
-                  <div className="bg-white rounded-xl px-4 py-3">
-                    <p className="text-sm text-blue-400 mb-0.5">Active skill</p>
-                    <p className="text-gray-800 text-base font-medium">{currentSkill.title}</p>
-                    {currentSkill.description && (
-                      <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{currentSkill.description}</p>
-                    )}
-                  </div>
-                )}
-                <div>
-                  <div className="flex justify-between text-sm text-blue-500 mb-1.5">
-                    <span>Level progress</span>
-                    <span>{levelMastered} / {levelTotal} skills</span>
-                  </div>
-                  <div className="h-2 bg-blue-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-blue-500 rounded-full transition-all duration-500"
-                      style={{ width: `${Math.round((levelMastered / levelTotal) * 100)}%` }}
-                    />
-                  </div>
-                </div>
-              </>
-            ) : (
-              <p className="text-blue-400 text-sm">Start a Maths session to track your progress here.</p>
+          <div className="bg-blue-50 border border-blue-100 rounded-2xl shadow-sm overflow-hidden">
+            <button
+              onClick={() => setMathsTreeOpen((v) => !v)}
+              className="w-full flex items-center justify-between px-5 py-3.5 text-left"
+            >
+              <span className="text-sm font-medium text-blue-600">
+                🧮 Maths Skill Tree
+              </span>
+              <span className="ml-3 text-blue-400">
+                <ChevronDownIcon open={mathsTreeOpen} />
+              </span>
+            </button>
+            {mathsTreeOpen && (
+              <div className="border-t border-blue-100">
+                <SkillTreeView profile={profile} />
+              </div>
             )}
           </div>
 
           {/* ── Reading Skill Tree ─────────────────────────────────────── */}
-          <div className="bg-purple-50 border border-purple-200 rounded-2xl p-5 shadow-sm space-y-3">
-            <h3 className="font-semibold text-purple-700 text-base">Reading Skill Tree</h3>
-            {readingProfile && readingCurrentLevel ? (
-              <>
-                <div className="flex items-center gap-3">
-                  <span className="bg-purple-600 text-white text-sm font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
-                    L{readingProfile.current_level}
-                  </span>
-                  <span className="text-gray-700 text-base font-medium">{readingCurrentLevel.title}</span>
-                </div>
-                {readingCurrentSkill && (
-                  <div className="bg-white rounded-xl px-4 py-3">
-                    <p className="text-sm text-purple-400 mb-0.5">Active skill</p>
-                    <p className="text-gray-800 text-base font-medium">{readingCurrentSkill.title}</p>
-                    {readingCurrentSkill.description && (
-                      <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{readingCurrentSkill.description}</p>
-                    )}
-                  </div>
-                )}
-                <div>
-                  <div className="flex justify-between text-sm text-purple-500 mb-1.5">
-                    <span>Level progress</span>
-                    <span>{readingLevelMastered} / {readingLevelTotal} skills</span>
-                  </div>
-                  <div className="h-2 bg-purple-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-purple-500 rounded-full transition-all duration-500"
-                      style={{ width: `${Math.round((readingLevelMastered / readingLevelTotal) * 100)}%` }}
-                    />
-                  </div>
-                </div>
-              </>
-            ) : (
-              <p className="text-purple-400 text-sm">Start a Reading session to track your progress here.</p>
-            )}
-          </div>
-
-          {/* ── Mastered Skills ────────────────────────────────────────── */}
-          {masteredEntries.length > 0 && (
-            <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-800 text-base mb-3">
-                Mastered Skills
-                <span className="ml-2 bg-blue-100 text-blue-600 text-sm font-semibold px-2 py-0.5 rounded-full">
-                  {masteredEntries.length}
-                </span>
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {masteredEntries.map(([skillId]) => {
-                  const skill = getSkillById(skillId);
-                  return (
-                    <span key={skillId} className="bg-blue-50 text-blue-700 text-sm px-3 py-1.5 rounded-full font-medium">
-                      {skill?.title ?? skillId}
-                    </span>
-                  );
-                })}
+          <div className="bg-purple-50 border border-purple-100 rounded-2xl shadow-sm overflow-hidden">
+            <button
+              onClick={() => setReadingTreeOpen((v) => !v)}
+              className="w-full flex items-center justify-between px-5 py-3.5 text-left"
+            >
+              <span className="text-sm font-medium text-purple-600">
+                📖 Reading Skill Tree
+              </span>
+              <span className="ml-3 text-purple-400">
+                <ChevronDownIcon open={readingTreeOpen} />
+              </span>
+            </button>
+            {readingTreeOpen && (
+              <div className="border-t border-purple-100">
+                <ReadingSkillTreeView profile={readingProfile} />
               </div>
-            </div>
-          )}
-
-          {/* ── Weekly Study Activity ──────────────────────────────────── */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
-            <div className="flex items-end justify-between gap-1.5 h-24">
-              {weekDays.map(({ date, label, isToday }) => {
-                const count = streak.dailyActivity[date] || 0;
-                const heightPct = count > 0 ? Math.max(10, Math.round((count / maxActivity) * 100)) : 0;
-                return (
-                  <div key={date} className="flex-1 flex flex-col items-center gap-1.5">
-                    <div className="w-full flex items-end justify-center" style={{ height: "72px" }}>
-                      {count > 0 ? (
-                        <div
-                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? "bg-blue-500" : "bg-blue-200"}`}
-                          style={{ height: `${heightPct}%` }}
-                          title={`${count} action${count !== 1 ? "s" : ""}`}
-                        />
-                      ) : (
-                        <div className="w-full rounded-t-lg bg-gray-100" style={{ height: "6px" }} />
-                      )}
-                    </div>
-                    <span className={`text-sm font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
-                      {label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
+            )}
           </div>
 
           {/* ── In Progress Skills ─────────────────────────────────────── */}
@@ -322,6 +264,37 @@ export default function ProgressTracker() {
               </div>
             </div>
           )}
+
+          {/* ── Weekly Study Activity (bottom) ─────────────────────────── */}
+          <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
+            <div className="flex items-end justify-between gap-1.5 h-24">
+              {weekDays.map(({ date, label, isToday }, i) => {
+                const count = activity[date] || 0;
+                const heightPct = count > 0 ? Math.max(10, Math.round((count / maxActivity) * 100)) : 0;
+                const colorFull = BAR_COLORS[i];
+                const colorDim  = BAR_COLORS_DIM[i];
+                return (
+                  <div key={date} className="flex-1 flex flex-col items-center gap-1.5">
+                    <div className="w-full flex items-end justify-center" style={{ height: "72px" }}>
+                      {count > 0 ? (
+                        <div
+                          className={`w-full rounded-t-lg transition-all duration-500 ${isToday ? colorFull : colorDim}`}
+                          style={{ height: `${heightPct}%` }}
+                          title={`${count} session${count !== 1 ? "s" : ""}`}
+                        />
+                      ) : (
+                        <div className="w-full rounded-t-lg bg-gray-100" style={{ height: "6px" }} />
+                      )}
+                    </div>
+                    <span className={`text-sm font-medium ${isToday ? "text-blue-600" : "text-gray-400"}`}>
+                      {label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
           {/* ── Empty State ────────────────────────────────────────────── */}
           {isEmpty && (

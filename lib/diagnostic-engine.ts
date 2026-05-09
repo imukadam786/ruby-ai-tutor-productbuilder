@@ -1,4 +1,4 @@
-import { ErrorType, AnswerSubmission, AtomicSkill, DiagnosticBlock, MathsPlacementTaskResult } from "@/types/ruby";
+import { ErrorType, AnswerSubmission, AtomicSkill } from "@/types/ruby";
 
 // ─── Error Classification ─────────────────────────────────────────────────────
 
@@ -55,8 +55,17 @@ export function classifyError(input: ClassificationInput): ErrorType {
 
 // ─── Answer Normalisation ─────────────────────────────────────────────────────
 
+// Normalise any Unicode dash/minus variant to ASCII hyphen-minus.
+// Mobile keyboards (iOS/Android) can emit U+2212 MINUS SIGN, U+2013 EN DASH,
+// U+2010 HYPHEN, U+FE63 SMALL HYPHEN-MINUS, or U+FF0D FULLWIDTH HYPHEN-MINUS
+// instead of the plain ASCII U+002D. Without this step those characters are
+// stripped by the numeric regex and "-6" becomes "6".
+function normaliseMinus(s: string): string {
+  return s.replace(/[\u2212\u2010\u2013\u2014\uFE63\uFF0D]/g, "-");
+}
+
 export function normaliseAnswer(answer: string): string {
-  return answer
+  return normaliseMinus(answer)
     .trim()
     .toLowerCase()
     .replace(/\s+/g, " ")
@@ -67,6 +76,20 @@ export function checkAnswerCorrectness(
   studentAnswer: string,
   expectedAnswer: string
 ): boolean {
+  // Multi-field answers (e.g. triple_numeric: "3,4,12") — compare each field individually
+  if (expectedAnswer.includes(",")) {
+    const expectedFields = expectedAnswer.split(",").map((f) => f.trim());
+    const studentFields = studentAnswer.split(",").map((f) => normaliseMinus(f.trim()));
+    if (expectedFields.length !== studentFields.length) return false;
+    return expectedFields.every((ef, i) => {
+      const sf = studentFields[i];
+      if (sf === ef) return true;
+      const en = parseFloat(normaliseMinus(ef));
+      const sn = parseFloat(sf);
+      return !isNaN(en) && !isNaN(sn) && Math.abs(en - sn) < 0.001;
+    });
+  }
+
   const s = normaliseAnswer(studentAnswer);
   const e = normaliseAnswer(expectedAnswer);
 
@@ -142,53 +165,4 @@ Please respond in this exact JSON format:
 }
 
 Be specific to this student's actual work. Do not be generic.`;
-}
-
-// ─── Diagnostic Early Exit ────────────────────────────────────────────────────
-
-export type EarlyExitResult =
-  | { exit: false; skipToBlock3?: boolean }
-  | { exit: true; placementLevel: number; reason: string };
-
-export function evaluateEarlyExit(
-  completedTasks: MathsPlacementTaskResult[],
-  currentBlock: DiagnosticBlock,
-  errorHistory: Array<{ taskId: string; errorType: string }>
-): EarlyExitResult {
-  // Condition 1 — 4+ deep conceptual errors in Block 1 → place at level 1
-  if (currentBlock === 1) {
-    const deepConceptual = errorHistory.filter((e) =>
-      ["conceptual_gap", "ERR_OP_MEANING", "ERR_ZERO_IDENTITY", "ERR_PART_WHOLE"].includes(e.errorType)
-    );
-    if (deepConceptual.length >= 4) {
-      return { exit: true, placementLevel: 1, reason: "Consistent conceptual gap in Block 1 — place at Phase 1" };
-    }
-  }
-
-  // Condition 2 — all correct in Block 1+2 → skip to Block 3 (not a full exit)
-  if (currentBlock === 2) {
-    const block12 = completedTasks.filter((t) => t.block === 1 || t.block === 2);
-    if (block12.length > 0 && block12.every((t) => t.correct)) {
-      return { exit: false, skipToBlock3: true };
-    }
-  }
-
-  // Condition 3 — 5+ errors in Block 2 → place at Block 1 ceiling
-  if (currentBlock === 2) {
-    const block2Errors = errorHistory.filter((e) =>
-      completedTasks.some((t) => t.domain === e.taskId && t.block === 2)
-    );
-    if (block2Errors.length >= 5) {
-      const block1Ceiling = completedTasks
-        .filter((t) => t.block === 1 && t.correct)
-        .sort((a, b) => (b.domain > a.domain ? 1 : -1))[0];
-      return {
-        exit: true,
-        placementLevel: block1Ceiling ? 3 : 1,
-        reason: "Complete Block 2 failure — place at Block 1 ceiling",
-      };
-    }
-  }
-
-  return { exit: false };
 }

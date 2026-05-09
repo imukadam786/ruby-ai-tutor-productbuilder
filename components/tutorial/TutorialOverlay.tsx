@@ -21,7 +21,7 @@ const STEPS: Step[] = [
   {
     icon: "📚",
     title: "Homework Help",
-    desc: "Ask Ruby anything — homework, concepts, or exam prep. Get clear, step-by-step answers instantly in your language.",
+    desc: "Ask Ruby anything, homework, concepts, or exam prep. Get clear, step-by-step answers instantly in your language.",
     view: "chat",
   },
   {

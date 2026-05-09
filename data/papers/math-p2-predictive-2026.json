@@ -1,0 +1,545 @@
+{
+  "id": "math-p2-predictive-2026",
+  "subject": "Mathematics",
+  "subjectCode": "math",
+  "paperCode": "P2",
+  "year": 2026,
+  "session": "Predictive",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "infoSheet": {
+    "title": "Info Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics: Mean, Standard Deviation and Regression",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-p2-predictive-2026-1-1",
+          "label": "1.1",
+          "questionText": "A teacher recorded the number of hours that 10 learners spent studying for a test and the percentage mark each learner obtained. Hours studied $(x)$: 2, 3, 4, 4, 5, 6, 7, 7, 8, 9. Mark (%) $(y)$: 42, 48, 55, 58, 62, 68, 74, 78, 82, 88. Calculate the mean of the marks.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): Set up calculation $\\bar{x} = \\frac{\\sum x}{n} = \\frac{42 + 48 + 55 + 58 + 62 + 68 + 74 + 78 + 82 + 88}{10}$\nMark 2 (A): $\\bar{x} = \\frac{655}{10} = 65{,}5\\%$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-1-2",
+          "label": "1.2",
+          "questionText": "Calculate the standard deviation of the marks.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): Use calculator (STAT mode, 1-Var Stats) on the data set\nMark 2 (A): $\\sigma \\approx 14{,}32$\n[Population standard deviation. Accept $\\sigma$ between 14,30 and 14,33.]",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-1-3",
+          "label": "1.3",
+          "questionText": "Determine how many learners scored within ONE standard deviation of the mean.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): Set up interval $(\\bar{x} - \\sigma\\,;\\,\\bar{x} + \\sigma) = (65{,}5 - 14{,}32\\,;\\,65{,}5 + 14{,}32) = (51{,}18\\,;\\,79{,}82)$\nMark 2 (A): Marks within this interval: 55, 58, 62, 68, 74, 78. Therefore 6 learners scored within ONE standard deviation of the mean.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-1-4",
+          "label": "1.4",
+          "questionText": "Determine the equation of the least squares regression line in the form $\\hat{y} = a + bx$. Round $a$ and $b$ to TWO decimal places.",
+          "marks": 3,
+          "memoText": "Mark 1 (M): Use calculator: STAT $\\rightarrow$ CALC $\\rightarrow$ LinReg(a + bx)\nMark 2 (A): $a \\approx 29{,}13$\nMark 3 (A): $b \\approx 6{,}61$\nFinal equation: $\\hat{y} = 29{,}13 + 6{,}61x$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-1-5",
+          "label": "1.5",
+          "questionText": "Use the equation in QUESTION 1.4 to predict the percentage mark of a learner who studies for 7,5 hours.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): Substitute $x = 7{,}5$: $\\hat{y} = 29{,}13 + 6{,}61(7{,}5) = 29{,}13 + 49{,}575 = 78{,}705$\nMark 2 (CA): Predicted mark $\\approx 78{,}71\\%$\n[Accept any answer in the range 78,50% – 79,00% depending on rounding of $a$ and $b$.]",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-1-6",
+          "label": "1.6",
+          "questionText": "Comment on the strength and direction of the linear relationship between hours studied and marks obtained.",
+          "marks": 2,
+          "memoText": "Mark 1 ($\\checkmark$): The points lie very close to a straight line that rises from left to right.\nMark 2 ($\\checkmark$): There is a strong positive linear relationship between hours studied and marks obtained.\n[The correlation coefficient $r \\approx 0{,}996$, very close to 1, confirming a strong positive correlation.]",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Statistics: Frequency Distributions and Ogives",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-p2-predictive-2026-2-1",
+          "label": "2.1",
+          "questionText": "A school recorded the time (in minutes) spent on social media in one day by 80 learners. The grouped frequency table gives intervals $0 \\le t < 30$ (f=8), $30 \\le t < 60$ (f=14), $60 \\le t < 90$ (f=24), $90 \\le t < 120$ (f=18), $120 \\le t < 150$ (f=10), $150 \\le t < 180$ (f=6). Identify the modal class.",
+          "marks": 1,
+          "memoText": "Mark 1 (A): $60 \\le t < 90$ minutes (highest frequency = 24)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-2-2",
+          "label": "2.2",
+          "questionText": "Calculate the estimated mean time spent on social media.",
+          "marks": 3,
+          "memoText": "Mark 1 (M): Use class midpoints: 15; 45; 75; 105; 135; 165\nMark 2 (M): $\\sum fx = 8(15) + 14(45) + 24(75) + 18(105) + 10(135) + 6(165) = 120 + 630 + 1800 + 1890 + 1350 + 990 = 6\\,780$\nMark 3 (A): Estimated mean $= \\frac{\\sum fx}{\\sum f} = \\frac{6780}{80} = 84{,}75$ minutes",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-2-3",
+          "label": "2.3",
+          "questionText": "Draw an ogive (cumulative frequency curve) for the data on the grid provided in the ANSWER BOOK. (Refer to the ogive shown in the question paper.)",
+          "marks": 3,
+          "memoText": "Plot upper boundaries vs cumulative frequency: $(0;0), (30;8), (60;22), (90;46), (120;64), (150;74), (180;80)$.\nMark 1 (M): Starting point at $(0\\,;\\,0)$\nMark 2 (A): All seven points correctly plotted\nMark 3 (A): Smooth ogive shape ending at $(180\\,;\\,80)$",
+          "topic": "Statistics",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "math-p2-predictive-2026-2-4",
+          "label": "2.4",
+          "questionText": "Use the ogive to estimate the median time.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): Locate cumulative frequency $= 40$ on the ogive (since $\\frac{n}{2} = \\frac{80}{2} = 40$). Read horizontally to the curve, then vertically down to the time axis.\nMark 2 (A): Estimated median $\\approx 82$ minutes\n[Accept any answer between 80 and 84 minutes when read from a hand-drawn ogive. Algebraic interpolation gives exactly 82,5 minutes.]",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-2-5",
+          "label": "2.5",
+          "questionText": "Calculate the percentage of learners who spent more than 90 minutes on social media.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): Number of learners spending more than 90 minutes $= 80 - 46 = 34$\nMark 2 (A): Percentage $= \\frac{34}{80} \\times 100\\% = 42{,}5\\%$",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Analytical Geometry: Quadrilateral ABCD",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "math-p2-predictive-2026-3-1",
+          "label": "3.1",
+          "questionText": "ABCD is a quadrilateral with vertices $A(-3\\,;\\,1)$, $B(1\\,;\\,5)$, $C(5\\,;\\,3)$ and $D(1\\,;\\,-1)$. Calculate the gradient of AB.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): $m_{AB} = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{5 - 1}{1 - (-3)}$\nMark 2 (A): $m_{AB} = \\frac{4}{4} = 1$",
+          "topic": "Analytical Geometry",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "math-p2-predictive-2026-3-2",
+          "label": "3.2",
+          "questionText": "Determine the equation of line AB in the form $y = mx + c$.",
+          "marks": 3,
+          "memoText": "Mark 1 (M): Using point $A(-3\\,;\\,1)$ and $m = 1$: $y - y_1 = m(x - x_1)$\nMark 2 (A): $y - 1 = 1(x - (-3)) \\Rightarrow y - 1 = x + 3$\nMark 3 (A): $y = x + 4$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-3-3",
+          "label": "3.3",
+          "questionText": "Calculate the length of BC. Leave your answer in surd form.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): $BC = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} = \\sqrt{(5 - 1)^2 + (3 - 5)^2} = \\sqrt{16 + 4} = \\sqrt{20}$\nMark 2 (A): $BC = 2\\sqrt{5}$ units",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-3-4",
+          "label": "3.4",
+          "questionText": "Determine the coordinates of M, the midpoint of AC.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): $M = \\left(\\frac{x_1 + x_2}{2}\\,;\\,\\frac{y_1 + y_2}{2}\\right) = \\left(\\frac{-3 + 5}{2}\\,;\\,\\frac{1 + 3}{2}\\right)$\nMark 2 (A): $M(1\\,;\\,2)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-3-5",
+          "label": "3.5",
+          "questionText": "Show that ABCD is a parallelogram.",
+          "marks": 4,
+          "memoText": "Method: show diagonals bisect each other.\nMark 1 (M): Midpoint of AC: $M = \\left(\\frac{-3+5}{2}\\,;\\,\\frac{1+3}{2}\\right) = (1\\,;\\,2)$\nMark 2 (A): Midpoint of BD: $\\left(\\frac{1+1}{2}\\,;\\,\\frac{5+(-1)}{2}\\right) = (1\\,;\\,2)$\nMark 3 (R): Midpoint of AC = Midpoint of BD, so the diagonals bisect each other.\nMark 4 (R): $\\therefore$ ABCD is a parallelogram (diagonals bisect each other).\n[Alternative: show $m_{AB} = m_{DC} = 1$ AND $m_{BC} = m_{AD} = -\\frac{1}{2}$, i.e. both pairs of opposite sides are parallel.]",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-3-6",
+          "label": "3.6",
+          "questionText": "Calculate the size of $\\hat{A}$, the angle of the parallelogram at vertex A. Round to ONE decimal place.",
+          "marks": 4,
+          "memoText": "$\\hat{A}$ is the interior angle between sides AB and AD.\nMark 1 (M): $m_{AB} = 1$; $m_{AD} = \\frac{1 - (-1)}{-3 - 1} = \\frac{2}{-4} = -\\frac{1}{2}$\nMark 2 (A): Angle of inclination of AB: $\\tan\\theta_1 = 1 \\Rightarrow \\theta_1 = 45{,}0°$. Angle of inclination of AD: $\\tan\\theta_2 = -\\frac{1}{2} \\Rightarrow \\theta_2 = 180° - 26{,}565° = 153{,}435°$\nMark 3 (M): $\\hat{A} = 153{,}435° - 45{,}0° = 108{,}435°$\nMark 4 (A): $\\hat{A} \\approx 108{,}4°$\n[Alternative method using vectors / cosine rule on triangle ABD also accepted.]",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-3-7",
+          "label": "3.7",
+          "questionText": "Calculate the area of parallelogram ABCD.",
+          "marks": 3,
+          "memoText": "Mark 1 (M): Area of parallelogram $= |AB| \\times |AD| \\times \\sin A$\n$|AB| = \\sqrt{4^2 + 4^2} = \\sqrt{32} = 4\\sqrt{2}$; $|AD| = \\sqrt{(-3-1)^2 + (1-(-1))^2} = \\sqrt{20} = 2\\sqrt{5}$\nMark 2 (M): Area $= 4\\sqrt{2} \\times 2\\sqrt{5} \\times \\sin(108{,}435°) = 8\\sqrt{10} \\times 0{,}9487 \\approx 25{,}30 \\times 0{,}9487$\nMark 3 (A): Area $\\approx 24$ square units\n[Most efficient: shoelace formula gives Area $= \\frac{1}{2}|(-3)(5-(-1)) + 1(3-1) + 5(-1-5) + 1(1-3)| = \\frac{1}{2}|{-18} + 2 - 30 - 2| = \\frac{1}{2}(48) = 24$.]",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Analytical Geometry: Circle and Tangents",
+      "totalMarks": 19,
+      "subQuestions": [
+        {
+          "id": "math-p2-predictive-2026-4-1",
+          "label": "4.1",
+          "questionText": "A circle has centre $M(2\\,;\\,-1)$ and passes through $A(-2\\,;\\,2)$. The line through A is a tangent to the circle at A. Determine the length of the radius MA.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): $MA = \\sqrt{(-2-2)^2 + (2-(-1))^2} = \\sqrt{(-4)^2 + 3^2} = \\sqrt{16 + 9} = \\sqrt{25}$\nMark 2 (A): $MA = 5$ units",
+          "topic": "Analytical Geometry",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "math-p2-predictive-2026-4-2",
+          "label": "4.2",
+          "questionText": "Write down the equation of the circle in the form $(x - a)^2 + (y - b)^2 = r^2$.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): Standard form $(x - a)^2 + (y - b)^2 = r^2$ with centre $M(2\\,;\\,-1)$ and $r = 5$\nMark 2 (A): $(x - 2)^2 + (y + 1)^2 = 25$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-4-3",
+          "label": "4.3",
+          "questionText": "Calculate the gradient of MA.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): $m_{MA} = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{2 - (-1)}{-2 - 2} = \\frac{3}{-4}$\nMark 2 (A): $m_{MA} = -\\frac{3}{4}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-4-4",
+          "label": "4.4",
+          "questionText": "Determine the equation of the tangent to the circle at A in the form $y = mx + c$.",
+          "marks": 4,
+          "memoText": "The tangent is perpendicular to the radius at the point of contact.\nMark 1 (R): $m_{tangent} \\times m_{MA} = -1$\nMark 2 (A): $m_{tangent} = -1 \\div \\left(-\\frac{3}{4}\\right) = \\frac{4}{3}$\nMark 3 (M): Using $A(-2\\,;\\,2)$ and $m = \\frac{4}{3}$: $y - 2 = \\frac{4}{3}(x - (-2)) \\Rightarrow y - 2 = \\frac{4}{3}x + \\frac{8}{3}$\nMark 4 (A): $y = \\frac{4}{3}x + \\frac{14}{3}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-4-5",
+          "label": "4.5",
+          "questionText": "K is the point diametrically opposite to A on the circle. Calculate the coordinates of K.",
+          "marks": 3,
+          "memoText": "Mark 1 (R): M is the midpoint of diameter AK.\nMark 2 (M): Let $K(x\\,;\\,y)$. Then $\\left(\\frac{-2 + x}{2}\\,;\\,\\frac{2 + y}{2}\\right) = (2\\,;\\,-1)$\n$\\frac{-2+x}{2} = 2 \\Rightarrow x = 6$; $\\frac{2+y}{2} = -1 \\Rightarrow y = -4$\nMark 3 (A): $K(6\\,;\\,-4)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-4-6",
+          "label": "4.6",
+          "questionText": "$P(7\\,;\\,6)$ is a point outside the circle. Calculate the length of the tangent drawn from P to the circle.",
+          "marks": 3,
+          "memoText": "Let T be the point of tangency. Then $\\triangle MTP$ is right-angled at T (radius $\\perp$ tangent).\nMark 1 (R): By Pythagoras: $PT^2 = MP^2 - MT^2$\nMark 2 (M): $MP^2 = (7-2)^2 + (6-(-1))^2 = 25 + 49 = 74$; $MT^2 = r^2 = 25$; $PT^2 = 74 - 25 = 49$\nMark 3 (A): $PT = 7$ units",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-4-7",
+          "label": "4.7",
+          "questionText": "Determine, with reasons, whether the point $N(5\\,;\\,3)$ lies inside, on or outside the circle.",
+          "marks": 3,
+          "memoText": "Mark 1 (M): Calculate the distance from M to N: $MN^2 = (5-2)^2 + (3-(-1))^2 = 3^2 + 4^2 = 9 + 16$\nMark 2 (A): $MN^2 = 25$\nMark 3 (R): Compare $MN^2$ with $r^2 = 25$: since $MN^2 = r^2$, point N lies ON the circle.\n[Verify by substitution into the equation: $(5-2)^2 + (3+1)^2 = 9 + 16 = 25$ $\\checkmark$]",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Trigonometry: Identities and Equations",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "math-p2-predictive-2026-5-1",
+          "label": "5.1",
+          "questionText": "Simplify the following expression to a single trigonometric ratio: $$\\frac{\\sin(180° + x) \\cdot \\cos(360° - x) \\cdot \\tan(180° - x)}{\\cos(90° - x) \\cdot \\sin(-x)}$$",
+          "marks": 5,
+          "memoText": "Numerator reductions:\nMark 1 (R): $\\sin(180° + x) = -\\sin x$\nMark 2 (R): $\\cos(360° - x) = \\cos x$\nMark 3 (R): $\\tan(180° - x) = -\\tan x$\nNumerator $= (-\\sin x)(\\cos x)(-\\tan x) = \\sin x \\cdot \\cos x \\cdot \\frac{\\sin x}{\\cos x} = \\sin^2 x$\nDenominator: $\\cos(90° - x) = \\sin x$; $\\sin(-x) = -\\sin x$; Denominator $= \\sin x \\cdot (-\\sin x) = -\\sin^2 x$\nMark 4 (M): Combine: $\\frac{\\sin^2 x}{-\\sin^2 x}$\nMark 5 (A): $= -1$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-5-2",
+          "label": "5.2",
+          "questionText": "Prove the identity: $$\\frac{1 - \\cos 2x}{\\sin 2x} = \\tan x$$",
+          "marks": 4,
+          "memoText": "LHS: $\\frac{1 - \\cos 2x}{\\sin 2x}$\nMark 1 (R): Use identities $\\cos 2x = 1 - 2\\sin^2 x$ and $\\sin 2x = 2\\sin x \\cos x$\nMark 2 (M): LHS $= \\frac{1 - (1 - 2\\sin^2 x)}{2\\sin x \\cos x}$\nMark 3 (A): $= \\frac{2\\sin^2 x}{2\\sin x \\cos x}$\nMark 4 (M): $= \\frac{\\sin x}{\\cos x} = \\tan x = $ RHS\n$\\therefore \\frac{1 - \\cos 2x}{\\sin 2x} = \\tan x$ (proved)",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-5-3",
+          "label": "5.3",
+          "questionText": "Determine the general solution of: $\\cos(2x - 30°) = \\frac{1}{2}$",
+          "marks": 5,
+          "memoText": "Mark 1 (M): Reference angle: $\\cos^{-1}\\left(\\frac{1}{2}\\right) = 60°$\nMark 2 (R): Cosine is positive in Quadrants I and IV.\nMark 3 (A): $2x - 30° = 60° + 360°k$ OR $2x - 30° = -60° + 360°k$, $k \\in \\mathbb{Z}$\nMark 4 (A): Case 1: $2x = 90° + 360°k \\Rightarrow x = 45° + 180°k$\nMark 5 (A): Case 2: $2x = -30° + 360°k \\Rightarrow x = -15° + 180°k$\n$x = 45° + 180°k$ OR $x = -15° + 180°k$, $k \\in \\mathbb{Z}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-5-4",
+          "label": "5.4",
+          "questionText": "Solve for $x \\in [0°\\,;\\,360°]$: $2\\sin^2 x + 3\\cos x - 3 = 0$",
+          "marks": 6,
+          "memoText": "Mark 1 (M): Replace $\\sin^2 x$ with $(1 - \\cos^2 x)$: $2(1 - \\cos^2 x) + 3\\cos x - 3 = 0$\n$2 - 2\\cos^2 x + 3\\cos x - 3 = 0 \\Rightarrow -2\\cos^2 x + 3\\cos x - 1 = 0$\nMark 2 (A): $2\\cos^2 x - 3\\cos x + 1 = 0$\nMark 3 (M): Factorise: $(2\\cos x - 1)(\\cos x - 1) = 0$\n$\\therefore \\cos x = \\frac{1}{2}$ OR $\\cos x = 1$\nMark 4 (A): $\\cos x = \\frac{1}{2}$: reference angle $= 60°$; cos positive in Q I and Q IV $\\Rightarrow x = 60°$ or $x = 300°$\nMark 5 (A): $\\cos x = 1$: $x = 0°$ or $x = 360°$\nMark 6 (A): $x = 0°,\\, 60°,\\, 300°,\\, 360°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-5-5",
+          "label": "5.5",
+          "questionText": "Without using a calculator, evaluate: $\\sin 75° \\cdot \\cos 15° - \\cos 75° \\cdot \\sin 15°$",
+          "marks": 2,
+          "memoText": "Mark 1 (M): Recognise compound-angle identity: $\\sin(\\alpha - \\beta) = \\sin\\alpha\\cos\\beta - \\cos\\alpha\\sin\\beta$\n$\\therefore \\sin 75° \\cdot \\cos 15° - \\cos 75° \\cdot \\sin 15° = \\sin(75° - 15°) = \\sin 60°$\nMark 2 (A): $= \\frac{\\sqrt{3}}{2}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-p2-predictive-2026-6-1",
+          "label": "6.1",
+          "questionText": "The graphs of $f(x) = 2\\sin x$ and $g(x) = \\cos(x - 30°)$ are drawn for $x \\in [-180°\\,;\\,180°]$. Write down the amplitude of $f$.",
+          "marks": 1,
+          "memoText": "Mark 1 (A): Amplitude $= 2$ (the coefficient of $\\sin x$ in $f(x) = 2\\sin x$)",
+          "topic": "Trigonometry",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "math-p2-predictive-2026-6-2",
+          "label": "6.2",
+          "questionText": "Write down the period of $g$.",
+          "marks": 1,
+          "memoText": "Mark 1 (A): Period $= 360°$ (since the coefficient of $x$ in $\\cos(x - 30°)$ is 1)",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-6-3",
+          "label": "6.3",
+          "questionText": "Determine the values of $x$ in the interval $[-180°\\,;\\,180°]$ for which $f(x) = g(x)$.",
+          "marks": 5,
+          "memoText": "$2\\sin x = \\cos(x - 30°)$\nMark 1 (M): Expand RHS using $\\cos(\\alpha - \\beta) = \\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta$: $2\\sin x = \\cos x \\cos 30° + \\sin x \\sin 30°$\nMark 2 (A): $2\\sin x = \\frac{\\sqrt{3}}{2}\\cos x + \\frac{1}{2}\\sin x$\nMark 3 (A): $\\frac{3}{2}\\sin x = \\frac{\\sqrt{3}}{2}\\cos x$\nMark 4 (M): $\\frac{\\sin x}{\\cos x} = \\frac{\\sqrt{3}}{3} \\Rightarrow \\tan x = \\frac{1}{\\sqrt{3}}$\nMark 5 (A): Reference angle $= 30°$; tan positive in Q I and Q III. In $[-180°\\,;\\,180°]$: $x = 30°$ or $x = -150°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-6-4",
+          "label": "6.4",
+          "questionText": "Hence, or otherwise, determine the values of $x \\in [-180°\\,;\\,180°]$ for which $f(x) > g(x)$.",
+          "marks": 3,
+          "memoText": "Mark 1 (M): From the graphs and intersection points found in 6.3: $f$ is above $g$ between $x = -150°$ and $x = 30°$.\nMark 2 (A): At $x = -150°$, $f = g$ (intersection); between, $f > g$; at $x = 30°$, $f = g$ (intersection)\nMark 3 (A): $-150° < x < 30°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-6-5",
+          "label": "6.5",
+          "questionText": "Write down the maximum value of $h(x) = f(x) - 1$.",
+          "marks": 1,
+          "memoText": "Mark 1 (A): Max $f(x) = 2$; therefore max $h(x) = 2 - 1 = 1$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-6-6",
+          "label": "6.6",
+          "questionText": "If the graph of $g$ is shifted 30° to the LEFT to form graph $k$, write down the equation of $k$ in its simplest form.",
+          "marks": 2,
+          "memoText": "Mark 1 (M): Replace $x$ with $(x + 30°)$ in $g(x) = \\cos(x - 30°)$: $k(x) = \\cos((x + 30°) - 30°) = \\cos x$\nMark 2 (A): $k(x) = \\cos x$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Trigonometry: 3D Application (Tower)",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-p2-predictive-2026-7-1",
+          "label": "7.1",
+          "questionText": "TF is a vertical tower on horizontal ground. A and B lie on the ground at the same level as F. The angle of elevation from A to T is 35°. $AB = 50$ m, $F\\hat{A}B = 70°$ and $A\\hat{B}F = 60°$. Write down the size of $A\\hat{F}B$.",
+          "marks": 1,
+          "memoText": "Mark 1 (A): In $\\triangle AFB$ on the ground: $F\\hat{A}B + A\\hat{B}F + A\\hat{F}B = 180°$ (sum of angles in a triangle)\n$70° + 60° + A\\hat{F}B = 180° \\Rightarrow A\\hat{F}B = 50°$",
+          "topic": "Trigonometry",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "math-p2-predictive-2026-7-2",
+          "label": "7.2",
+          "questionText": "Show that $AF = \\frac{50\\sin 60°}{\\sin 50°}$.",
+          "marks": 3,
+          "memoText": "Mark 1 (M): Apply the sine rule in $\\triangle AFB$\nMark 2 (R): $\\frac{AF}{\\sin(A\\hat{B}F)} = \\frac{AB}{\\sin(A\\hat{F}B)}$\nMark 3 (A): $\\frac{AF}{\\sin 60°} = \\frac{50}{\\sin 50°} \\Rightarrow AF = \\frac{50\\sin 60°}{\\sin 50°}$ (as required)",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-7-3",
+          "label": "7.3",
+          "questionText": "Hence, calculate the height of the tower TF, correct to TWO decimal places.",
+          "marks": 3,
+          "memoText": "In right-angled $\\triangle TFA$ (TF $\\perp$ ground):\nMark 1 (M): $\\tan 35° = \\frac{TF}{AF} \\Rightarrow TF = AF \\cdot \\tan 35°$\nMark 2 (A): $AF = \\frac{50\\sin 60°}{\\sin 50°} = \\frac{50 \\times 0{,}8660}{0{,}7660} \\approx 56{,}53$ m\nMark 3 (A): $TF = 56{,}53 \\times \\tan 35° = 56{,}53 \\times 0{,}7002 \\approx 39{,}58$ m",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-7-4",
+          "label": "7.4",
+          "questionText": "Calculate the area of triangle AFB.",
+          "marks": 4,
+          "memoText": "Mark 1 (M): Area $= \\frac{1}{2} \\times AB \\times AF \\times \\sin(F\\hat{A}B)$\nMark 2 (A): $= \\frac{1}{2} \\times 50 \\times 56{,}53 \\times \\sin 70°$\nMark 3 (M): $= \\frac{1}{2} \\times 50 \\times 56{,}53 \\times 0{,}9397$\nMark 4 (A): Area of $\\triangle AFB \\approx 1\\,327{,}92$ m²\n[Alternative: use Area $= \\frac{1}{2} \\times AF \\times BF \\times \\sin 50°$ with BF found from sine rule. Both methods give the same result.]",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Euclidean Geometry: Circle Theorems",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-p2-predictive-2026-8-1",
+          "label": "8.1",
+          "questionText": "O is the centre of the circle. A, B, C, D are points on the circle. ST is a tangent to the circle at A. BD is drawn. $T\\hat{A}B = 55°$ and $A\\hat{B}D = 30°$. Determine, giving reasons, the size of $A\\hat{D}B$.",
+          "marks": 2,
+          "memoText": "Mark 1 (R): $T\\hat{A}B = A\\hat{D}B$ (tan-chord angle)\nMark 2 (A): $\\therefore A\\hat{D}B = 55°$",
+          "topic": "Euclidean Geometry",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "math-p2-predictive-2026-8-2",
+          "label": "8.2",
+          "questionText": "Determine, giving reasons, the size of $A\\hat{O}B$ (the angle subtended at the centre by chord AB on the major-arc side).",
+          "marks": 2,
+          "memoText": "Mark 1 (R): $A\\hat{O}B = 2 \\times A\\hat{D}B$ ($\\angle$ at centre $= 2 \\times \\angle$ at circumference, same arc AB)\nMark 2 (A): $\\therefore A\\hat{O}B = 2 \\times 55° = 110°$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-8-3",
+          "label": "8.3",
+          "questionText": "Determine, giving reasons, the size of $B\\hat{A}D$.",
+          "marks": 3,
+          "memoText": "Mark 1 (R): In $\\triangle ABD$: $A\\hat{B}D + A\\hat{D}B + B\\hat{A}D = 180°$ (sum of $\\angle$s in a $\\triangle$)\nMark 2 (M): $30° + 55° + B\\hat{A}D = 180°$\nMark 3 (A): $B\\hat{A}D = 180° - 85° = 95°$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-8-4",
+          "label": "8.4",
+          "questionText": "Determine, giving reasons, the size of $B\\hat{C}D$.",
+          "marks": 2,
+          "memoText": "Mark 1 (R): $B\\hat{A}D + B\\hat{C}D = 180°$ (opp. $\\angle$s of cyclic quad ABCD)\nMark 2 (A): $95° + B\\hat{C}D = 180° \\Rightarrow B\\hat{C}D = 85°$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-8-5",
+          "label": "8.5",
+          "questionText": "Determine, giving reasons, the size of $A\\hat{O}D$.",
+          "marks": 2,
+          "memoText": "$A\\hat{B}D = 30°$ subtends arc AD at the circumference.\nMark 1 (R): $A\\hat{O}D = 2 \\times A\\hat{B}D$ ($\\angle$ at centre $= 2 \\times \\angle$ at circumference, same arc AD)\nMark 2 (A): $\\therefore A\\hat{O}D = 2 \\times 30° = 60°$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-8-6",
+          "label": "8.6",
+          "questionText": "Show that $S\\hat{A}D = A\\hat{B}D$, giving a reason for your statement.",
+          "marks": 2,
+          "memoText": "$S\\hat{A}D$ is the angle between the tangent SA and chord AD.\nMark 1 (R): By the tan-chord theorem: $S\\hat{A}D$ = angle in the alternate segment = $A\\hat{B}D$\nMark 2 (R): $\\therefore S\\hat{A}D = A\\hat{B}D$ (tan-chord)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Euclidean Geometry: Similarity and Proportionality",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "math-p2-predictive-2026-9-1",
+          "label": "9.1",
+          "questionText": "$\\triangle PQR$ is drawn. S is on PQ and T is on PR such that $ST \\parallel QR$. U is on QR such that $SU \\parallel PR$. It is given that $PS:SQ = 2:3$. Prove that STRU is a parallelogram.",
+          "marks": 4,
+          "memoText": "To prove: Both pairs of opposite sides are parallel.\nMark 1 (R): $ST \\parallel QR$ (given)\nMark 2 (M): Since U lies on QR, the segment UR is part of QR, so $ST \\parallel UR$.\nMark 3 (R): $SU \\parallel PR$ (given)\nMark 4 (M): Since T lies on PR, the segment TR is part of PR, so $SU \\parallel TR$.\n$\\therefore$ STRU has both pairs of opposite sides parallel — it is a parallelogram.",
+          "topic": "Euclidean Geometry",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "math-p2-predictive-2026-9-2",
+          "label": "9.2",
+          "questionText": "Determine, with reasons, the value of the ratio $ST:QR$.",
+          "marks": 3,
+          "memoText": "In $\\triangle PQR$ with $ST \\parallel QR$:\nMark 1 (R): $\\frac{PS}{PQ} = \\frac{PT}{PR} = \\frac{ST}{QR}$ (line parallel to one side of a triangle, or $\\triangle PST ||| \\triangle PQR$)\nMark 2 (M): Given $PS:SQ = 2:3$, so $\\frac{PS}{PQ} = \\frac{2}{2+3} = \\frac{2}{5}$\nMark 3 (A): $\\frac{ST}{QR} = \\frac{2}{5} \\Rightarrow ST:QR = 2:5$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-9-3",
+          "label": "9.3",
+          "questionText": "Determine, with reasons, the value of the ratio $SU:PR$.",
+          "marks": 3,
+          "memoText": "Consider $\\triangle QPR$. $SU \\parallel PR$ with S on PQ and U on QR.\nMark 1 (M): By proportionality (or $\\triangle QSU ||| \\triangle QPR$)\nMark 2 (R): $\\frac{QS}{QP} = \\frac{SU}{PR}$\nMark 3 (A): $\\frac{QS}{QP} = \\frac{3}{2+3} = \\frac{3}{5}$, so $\\frac{SU}{PR} = \\frac{3}{5} \\Rightarrow SU:PR = 3:5$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-9-4",
+          "label": "9.4",
+          "questionText": "Prove that $\\triangle PST ||| \\triangle PQR$.",
+          "marks": 4,
+          "memoText": "In $\\triangle PST$ and $\\triangle PQR$:\nMark 1 (R): $P\\hat{S}T = P\\hat{Q}R$ (corresponding $\\angle$s, $ST \\parallel QR$)\nMark 2 (R): $P\\hat{T}S = P\\hat{R}Q$ (corresponding $\\angle$s, $ST \\parallel QR$)\nMark 3 (R): $\\hat{P}$ is common.\nMark 4 (R): $\\therefore \\triangle PST ||| \\triangle PQR$ (AAA)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-p2-predictive-2026-9-5",
+          "label": "9.5",
+          "questionText": "Hence, determine the ratio area $\\triangle PST$ : area $\\triangle PQR$.",
+          "marks": 4,
+          "memoText": "Mark 1 (R): If two triangles are similar, the ratio of their areas equals the square of the ratio of corresponding sides.\nMark 2 (M): From 9.2: $\\frac{ST}{QR} = \\frac{2}{5}$\nMark 3 (M): $\\frac{\\text{area}(\\triangle PST)}{\\text{area}(\\triangle PQR)} = \\left(\\frac{2}{5}\\right)^2$\nMark 4 (A): $= \\frac{4}{25}$\n$\\therefore$ area $\\triangle PST$ : area $\\triangle PQR = 4:25$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

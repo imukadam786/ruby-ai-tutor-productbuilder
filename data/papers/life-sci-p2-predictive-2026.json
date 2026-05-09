@@ -1,0 +1,604 @@
+{
+  "id": "life-sci-p2-predictive-2026",
+  "subject": "Life Sciences",
+  "subjectCode": "life-sci",
+  "paperCode": "P2",
+  "year": 2026,
+  "session": "Predictive",
+  "totalMarks": 150,
+  "durationHours": 2.5,
+  "questions": [
+    {
+      "number": 1,
+      "title": "MCQ, Terminology, Matching & Items",
+      "totalMarks": 50,
+      "subQuestions": [
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-1",
+          "label": "1.1.1",
+          "questionText": "DNA differs from RNA in that DNA…",
+          "marks": 2,
+          "memoText": "Correct answer: B — contains the sugar deoxyribose, while RNA contains ribose (2 marks)\nDNA contains the pentose sugar deoxyribose, whereas RNA contains ribose. DNA has thymine (not uracil), DNA is double-stranded, and DNA is found mainly in the nucleus.",
+          "topic": "DNA & RNA",
+          "type": "mcq",
+          "options": {
+            "A": "contains uracil instead of thymine",
+            "B": "contains the sugar deoxyribose, while RNA contains ribose",
+            "C": "is single-stranded, while RNA is double-stranded",
+            "D": "is found only in the cytoplasm, while RNA is found only in the nucleus"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-2",
+          "label": "1.1.2",
+          "questionText": "During which phase of meiosis does crossing over take place?",
+          "marks": 2,
+          "memoText": "Correct answer: C — Prophase I (2 marks)\nCrossing over (exchange of segments between non-sister chromatids of homologous chromosomes) occurs during Prophase I of meiosis.",
+          "topic": "Meiosis",
+          "type": "mcq",
+          "options": {
+            "A": "Anaphase I",
+            "B": "Metaphase II",
+            "C": "Prophase I",
+            "D": "Telophase II"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-3",
+          "label": "1.1.3",
+          "questionText": "A normal human somatic cell contains 46 chromosomes. After meiosis is complete, each daughter cell will contain:",
+          "marks": 2,
+          "memoText": "Correct answer: B — 23 chromosomes (2 marks)\nMeiosis halves the chromosome number from diploid (2n = 46) to haploid (n = 23).",
+          "topic": "Meiosis",
+          "type": "mcq",
+          "options": {
+            "A": "46 chromosomes",
+            "B": "23 chromosomes",
+            "C": "92 chromosomes",
+            "D": "23 pairs of chromosomes"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-4",
+          "label": "1.1.4",
+          "questionText": "If both parents have blood group AB, the possible blood groups of their children are:",
+          "marks": 2,
+          "memoText": "Correct answer: C — A, B and AB (2 marks)\nAB × AB cross: gametes IA and IB from each parent give offspring IAIA (group A), IAIB (group AB), and IBIB (group B). No O is possible because neither parent carries the i allele.",
+          "topic": "Inheritance — Blood Groups",
+          "type": "mcq",
+          "options": {
+            "A": "A only",
+            "B": "AB only",
+            "C": "A, B and AB",
+            "D": "A, B, AB and O"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-5",
+          "label": "1.1.5",
+          "questionText": "Which of the following is the BEST evidence for evolution from a common ancestor?",
+          "marks": 2,
+          "memoText": "Correct answer: B — Homologous structures in different species (e.g. forelimbs of mammals) (2 marks)\nHomologous structures share the same basic plan but have different functions, which is strong evidence of descent from a common ancestor with later modification by natural selection.",
+          "topic": "Evolution — Evidence",
+          "type": "mcq",
+          "options": {
+            "A": "Vestigial structures in unrelated species",
+            "B": "Homologous structures in different species (e.g. forelimbs of mammals)",
+            "C": "Fossils being found mainly in sedimentary rock",
+            "D": "All organisms having the same body temperature"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-6",
+          "label": "1.1.6",
+          "questionText": "Which of these features is characteristic of humans (and NOT of modern African apes)?",
+          "marks": 2,
+          "memoText": "Correct answer: C — S-shaped vertebral column (2 marks)\nThe S-shaped (curved) vertebral column is a key adaptation for upright bipedal posture in humans. Apes have prominent canines, long arms, and a foramen magnum at the back of the skull.",
+          "topic": "Human Evolution",
+          "type": "mcq",
+          "options": {
+            "A": "Foramen magnum positioned at the back of the skull",
+            "B": "Large prominent canine teeth",
+            "C": "S-shaped vertebral column",
+            "D": "Long arms relative to the legs"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-7",
+          "label": "1.1.7",
+          "questionText": "Lamarck's theory of evolution differs from Darwin's theory in that Lamarck believed:",
+          "marks": 2,
+          "memoText": "Correct answer: B — Acquired characteristics during life can be inherited by offspring (2 marks)\nLamarck proposed that traits acquired during an organism's lifetime (through use and disuse) could be passed to offspring. This is now disproved by genetics — only changes to DNA in gametes are heritable.",
+          "topic": "Evolution — Lamarck vs Darwin",
+          "type": "mcq",
+          "options": {
+            "A": "Variation already exists in a population before selection acts",
+            "B": "Acquired characteristics during life can be inherited by offspring",
+            "C": "Natural selection favours the best-adapted individuals",
+            "D": "Evolution occurs only through random mutation"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-8",
+          "label": "1.1.8",
+          "questionText": "Which process is NOT a form of asexual reproduction or cloning?",
+          "marks": 2,
+          "memoText": "Correct answer: C — Production of gametes by meiosis (2 marks)\nMeiosis produces genetically variable haploid gametes for sexual reproduction. The other options (tissue culture, binary fission, cuttings) all produce genetically identical clones.",
+          "topic": "Reproduction — Asexual vs Sexual",
+          "type": "mcq",
+          "options": {
+            "A": "Tissue culture of plants",
+            "B": "Bacteria dividing by binary fission",
+            "C": "Production of gametes by meiosis",
+            "D": "Cuttings being used to grow new plants"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-9",
+          "label": "1.1.9",
+          "questionText": "Two related populations of birds become physically separated by a new mountain range. Over many generations they evolve into two species that can no longer interbreed. This is an example of:",
+          "marks": 2,
+          "memoText": "Correct answer: B — Allopatric speciation (2 marks)\nAllopatric speciation occurs when populations are separated by a geographic barrier (here, a mountain range), preventing gene flow and allowing them to diverge into separate species over time.",
+          "topic": "Evolution — Speciation",
+          "type": "mcq",
+          "options": {
+            "A": "Sympatric speciation",
+            "B": "Allopatric speciation",
+            "C": "Convergent evolution",
+            "D": "Genetic drift"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-1-10",
+          "label": "1.1.10",
+          "questionText": "Which of the following is a STOP codon during translation?",
+          "marks": 2,
+          "memoText": "Correct answer: B — UAA (2 marks)\nUAA, UAG, and UGA are the three STOP codons that signal the end of translation. AUG is the START codon (methionine); GCA codes for alanine; CAU codes for histidine.",
+          "topic": "Protein Synthesis",
+          "type": "mcq",
+          "options": {
+            "A": "AUG",
+            "B": "UAA",
+            "C": "GCA",
+            "D": "CAU"
+          }
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Give the correct biological term: The basic unit of heredity made up of a sequence of bases on a DNA molecule.",
+          "marks": 1,
+          "memoText": "Gene ✓ (1 mark)",
+          "topic": "DNA & Inheritance",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-2",
+          "label": "1.2.2",
+          "questionText": "Give the correct biological term: The process by which an mRNA molecule is built from a DNA template.",
+          "marks": 1,
+          "memoText": "Transcription ✓ (1 mark)",
+          "topic": "Protein Synthesis",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-3",
+          "label": "1.2.3",
+          "questionText": "Give the correct biological term: A sudden, random change in the DNA sequence of an organism.",
+          "marks": 1,
+          "memoText": "Mutation ✓ (1 mark)",
+          "topic": "Genetics — Mutations",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-4",
+          "label": "1.2.4",
+          "questionText": "Give the correct biological term: The exchange of genetic material between non-sister chromatids during prophase I of meiosis.",
+          "marks": 1,
+          "memoText": "Crossing over ✓ (1 mark)",
+          "topic": "Meiosis",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-5",
+          "label": "1.2.5",
+          "questionText": "Give the correct biological term: The condition in which an individual carries one dominant and one recessive allele for a trait.",
+          "marks": 1,
+          "memoText": "Heterozygous ✓ (1 mark)",
+          "topic": "Inheritance — Genetics",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-6",
+          "label": "1.2.6",
+          "questionText": "Give the correct biological term: The accidental failure of one or more chromosome pairs to separate during meiosis.",
+          "marks": 1,
+          "memoText": "Non-disjunction ✓ (1 mark)",
+          "topic": "Meiosis — Errors",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-7",
+          "label": "1.2.7",
+          "questionText": "Give the correct biological term: The preserved remains, traces or impressions of organisms that lived in the past.",
+          "marks": 1,
+          "memoText": "Fossil(s) ✓ (1 mark)",
+          "topic": "Evolution — Evidence",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-8",
+          "label": "1.2.8",
+          "questionText": "Give the correct biological term: Structures in different species that have the same basic plan but different functions, providing evidence of common ancestry.",
+          "marks": 1,
+          "memoText": "Homologous structures ✓ (1 mark)",
+          "topic": "Evolution — Evidence",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-9",
+          "label": "1.2.9",
+          "questionText": "Give the correct biological term: The formation of two or more new species from a single ancestral species.",
+          "marks": 1,
+          "memoText": "Speciation ✓ (1 mark)",
+          "topic": "Evolution — Speciation",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-2-10",
+          "label": "1.2.10",
+          "questionText": "Give the correct biological term: An undifferentiated cell that is able to divide and develop into different specialised cell types.",
+          "marks": 1,
+          "memoText": "Stem cell ✓ (1 mark)",
+          "topic": "Cell Biology",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-3",
+          "label": "1.3",
+          "questionText": "Choose a description in COLUMN II that matches an item in COLUMN I. Write only the LETTER (A–G) next to the question number (1.3.1 to 1.3.5). Each description may be used only ONCE.\n\nCOLUMN I:\n1.3.1 Karyotype\n1.3.2 Anticodon\n1.3.3 Hybrid\n1.3.4 Punnett square\n1.3.5 Genetic engineering\n\nCOLUMN II:\nA — Mating between organisms of different species producing infertile offspring\nB — A photographic display of the chromosomes of an individual arranged in pairs by size and shape\nC — A sequence of three bases on a tRNA molecule that is complementary to the mRNA codon\nD — The introduction of foreign DNA from one organism into the genome of another\nE — A grid used to predict the possible genotypes resulting from a genetic cross\nF — A pair of alleles producing a blended phenotype\nG — A diagram showing the evolutionary relationships of organisms",
+          "marks": 10,
+          "memoText": "Each correct match = 2 marks (5 × 2 = 10)\n1.3.1 Karyotype → B (photographic display of chromosomes arranged in pairs) ✓✓\n1.3.2 Anticodon → C (sequence of three bases on a tRNA molecule complementary to the mRNA codon) ✓✓\n1.3.3 Hybrid → A (mating between organisms of different species producing infertile offspring) ✓✓\n1.3.4 Punnett square → E (grid used to predict possible genotypes of a cross) ✓✓\n1.3.5 Genetic engineering → D (introduction of foreign DNA into another organism's genome) ✓✓\n\n[Subtotal: 10 marks]",
+          "topic": "Mixed — DNA, Genetics, Evolution",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-1-4",
+          "label": "1.4",
+          "questionText": "The diagram shows TWO theories of evolution: A (Lamarck's theory) and B (Darwin's theory of natural selection). Indicate whether each statement (1.4.1 to 1.4.5) applies to A only, B only, BOTH A and B, or NONE.\n\n1.4.1 Believed that characteristics acquired during an organism's lifetime are passed on to offspring\n1.4.2 Variation already exists in a population before selection occurs\n1.4.3 Proposes that organisms gradually change over time\n1.4.4 Includes the principle of 'survival of the fittest'\n1.4.5 Has been disproved by modern genetics (use and disuse cannot change DNA)",
+          "marks": 10,
+          "memoText": "Each correct answer = 2 marks (5 × 2 = 10)\n1.4.1 A only ✓✓ — Lamarck's central (incorrect) idea: inheritance of acquired characteristics.\n1.4.2 B only ✓✓ — Darwin recognised that natural variation already exists in populations before selection acts.\n1.4.3 Both A and B ✓✓ — both theories propose that organisms gradually change over time (they differ on the mechanism).\n1.4.4 B only ✓✓ — 'survival of the fittest' is a Darwinian principle (Spencer/Darwin).\n1.4.5 A only ✓✓ — modern genetics (DNA-based inheritance) has disproved Lamarck's mechanism; use & disuse cannot alter DNA in gametes.\n\n[Subtotal: 10 marks]",
+          "topic": "Evolution — Lamarck vs Darwin",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "DNA, Protein Synthesis, Meiosis & Inheritance",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "life-sci-p2-predictive-2026-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Refer to DIAGRAM A (protein synthesis pathway showing three main stages). Identify the parts/stages labelled A, B, C, D, E and F.",
+          "marks": 6,
+          "memoText": "Each correct identification = 1 mark (6 × 1 = 6)\nA — DNA (double-stranded DNA / gene) ✓\nB — mRNA (messenger RNA) ✓\nC — Ribosome ✓\nD — Polypeptide / amino-acid chain / protein ✓\nE — Transcription ✓\nF — Translation ✓",
+          "topic": "Protein Synthesis",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-1-2",
+          "label": "2.1.2",
+          "questionText": "In which part of the cell does the process labelled E (transcription) take place?",
+          "marks": 1,
+          "memoText": "Nucleus ✓ (1)",
+          "topic": "Protein Synthesis",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-1-3",
+          "label": "2.1.3",
+          "questionText": "State the function of structure C (ribosome) during this process.",
+          "marks": 1,
+          "memoText": "The ribosome (C) is the site of translation — it reads the mRNA codons and joins amino acids together (with the help of tRNA) to form a polypeptide ✓ (1)",
+          "topic": "Protein Synthesis",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-1-4",
+          "label": "2.1.4",
+          "questionText": "If a portion of DNA contains 600 nucleotides coding for one polypeptide, how many amino acids will the polypeptide contain? Show your working.",
+          "marks": 2,
+          "memoText": "Mark 1: 3 nucleotides (a triplet/codon) code for 1 amino acid ✓\nMark 2: $600 \\div 3 = 200$ amino acids ✓\n[2]",
+          "topic": "Protein Synthesis — Calculations",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-2-1",
+          "label": "2.2.1",
+          "questionText": "Refer to INFORMATION 2 (DNA template strand: 3'– T A C — G T A — C G T — A T T –5' and partial codon table). Write down the sequence of the mRNA molecule transcribed from this template (read 5' → 3'). Show the codons separated.",
+          "marks": 2,
+          "memoText": "DNA template (3' → 5'): T A C — G T A — C G T — A T T\nmRNA (5' → 3'): A U G — C A U — G C A — U A A ✓✓\n\nMark 1: correct base-pairing (A↔U, T↔A, G↔C, C↔G) ✓\nMark 2: correct codon separation and direction (5' → 3') ✓\n[2]",
+          "topic": "Protein Synthesis — Transcription",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Using the codon table, determine the sequence of amino acids in the polypeptide produced from this mRNA.",
+          "marks": 2,
+          "memoText": "AUG → Methionine (Met, START) ✓\nCAU → Histidine (His), GCA → Alanine (Ala), UAA → STOP\n\nPolypeptide: Met – His – Ala ✓\n[2]\n\nNote: the STOP codon (UAA) terminates translation and does not contribute an amino acid.",
+          "topic": "Protein Synthesis — Translation",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-2-3",
+          "label": "2.2.3",
+          "questionText": "A mutation occurs in which the second base of the second triplet of the DNA template (T) is changed to A. Write down the new amino-acid sequence of the resulting polypeptide.",
+          "marks": 3,
+          "memoText": "Mark 1: New DNA template (3' → 5'): T A C — G A A — C G T — A T T ✓\nMark 2: New mRNA (5' → 3'): A U G — C U U — G C A — U A A ✓\nMark 3: Codons translated: AUG → Met, CUU → Leucine (Leu), GCA → Ala, UAA → STOP\n\nNew polypeptide: Met – Leu – Ala ✓\n[3]",
+          "topic": "Protein Synthesis — Mutation",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-2-4",
+          "label": "2.2.4",
+          "questionText": "Identify the type of mutation that has occurred (silent / missense / nonsense). Justify your answer.",
+          "marks": 2,
+          "memoText": "Mark 1: Missense mutation ✓\nMark 2: Justification — a single base change has substituted ONE amino acid (Histidine → Leucine); the polypeptide is the same length and is not terminated early ✓\n[2]\n\nNote: Silent = same amino acid; Missense = different amino acid; Nonsense = early STOP codon.",
+          "topic": "Genetics — Types of Mutations",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-2-5",
+          "label": "2.2.5",
+          "questionText": "State ONE way in which this single base substitution may affect the function of the resulting protein.",
+          "marks": 1,
+          "memoText": "Any ONE point (1 mark):\n• The new amino acid may have different chemical properties, so the protein folds differently / changes shape ✓\n• The active site of an enzyme may no longer fit its substrate, reducing/destroying its function ✓\n• The protein may still function normally if the substituted amino acid is chemically similar to the original ✓\n\n(any 1) [1]",
+          "topic": "Genetics — Effects of Mutations",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-3-1",
+          "label": "2.3.1",
+          "questionText": "Refer to DIAGRAM B (four cells W, X, Y and Z in different phases of meiosis; 2n = 4). Place the four cells (W, X, Y and Z) in the correct sequence in which they occur during meiosis.",
+          "marks": 1,
+          "memoText": "Correct sequence: W → X → Y → Z ✓ (1)",
+          "topic": "Meiosis",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-3-2",
+          "label": "2.3.2",
+          "questionText": "Identify the specific phase of meiosis represented by each cell:\n(a) Cell W (1)\n(b) Cell X (1)\n(c) Cell Y (1)\n(d) Cell Z (1)",
+          "marks": 4,
+          "memoText": "(a) Cell W = Prophase I ✓ (1) — crossing over visible between homologous chromosomes\n(b) Cell X = Metaphase I ✓ (1) — homologous pairs aligned at the equator\n(c) Cell Y = Anaphase I ✓ (1) — homologous chromosomes separating to opposite poles\n(d) Cell Z = Telophase I (with cytokinesis) ✓ (1) — two haploid daughter cells formed\n\n[Subtotal: 4 marks]",
+          "topic": "Meiosis — Phases",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-3-3",
+          "label": "2.3.3",
+          "questionText": "What process is shown clearly in cell W between the homologous chromosomes? Explain its importance for evolution.",
+          "marks": 3,
+          "memoText": "Mark 1: Crossing over — the exchange of equivalent segments of DNA between non-sister chromatids of homologous chromosomes ✓\nMark 2: It produces new combinations of alleles on chromosomes — genetic variation in gametes ✓\nMark 3: This variation is the raw material on which natural selection acts, allowing populations to evolve / adapt to changing environments ✓\n[3]",
+          "topic": "Meiosis — Crossing Over & Variation",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-3-4",
+          "label": "2.3.4",
+          "questionText": "If the body cell of a particular animal contains 28 chromosomes, calculate the number of chromosomes that would be present in each cell at the end of meiosis. Show your reasoning.",
+          "marks": 2,
+          "memoText": "Mark 1: Meiosis halves the chromosome number (diploid 2n → haploid n) ✓\nMark 2: $28 \\div 2 = 14$ chromosomes per haploid cell ✓\n[2]",
+          "topic": "Meiosis — Calculations",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-4-1",
+          "label": "2.4.1",
+          "questionText": "Refer to DIAGRAM E (pedigree showing inheritance of haemophilia, a sex-linked recessive disorder, over three generations). State TWO pieces of evidence from the pedigree that support the conclusion that haemophilia is a sex-linked recessive trait.",
+          "marks": 2,
+          "memoText": "Any TWO points (2 marks):\n• All affected individuals in the pedigree are male (II-3, III-2) — typical of sex-linked recessive traits ✓\n• The trait skips a generation (carrier mother → unaffected daughter → affected grandson) — typical of recessive inheritance ✓\n• An unaffected couple (II-1 × II-2) produces an affected son (III-2) — the parents must both carry the recessive allele, and only the male is affected because the gene is on the X chromosome ✓\n\n(any 2) [2]",
+          "topic": "Inheritance — Sex-linked Recessive",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-4-2",
+          "label": "2.4.2",
+          "questionText": "Write down the genotype of:\n(a) Individual I-1 (1)\n(b) Individual I-2 (1)\n(c) Individual II-3 (1)\n\n(Use $X^H$ = healthy allele and $X^h$ = haemophilia allele.)",
+          "marks": 3,
+          "memoText": "(a) I-1: $X^H X^h$ (carrier female) ✓ (1)\n(b) I-2: $X^H Y$ (unaffected male) ✓ (1)\n(c) II-3: $X^h Y$ (affected male) ✓ (1)\n\n[Subtotal: 3 marks]",
+          "topic": "Inheritance — Genotypes",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-4-3",
+          "label": "2.4.3",
+          "questionText": "If individuals II-1 (carrier $X^H X^h$) and II-2 in-law (unaffected $X^H Y$) have another child, use a Punnett square to determine the probability that the child will be a haemophiliac son.",
+          "marks": 3,
+          "memoText": "Punnett square — Cross: II-1 ($X^H X^h$) × II-2 ($X^H Y$)\n\nGametes from mother: $X^H$, $X^h$\nGametes from father: $X^H$, $Y$\n\n|   | $X^H$ | $Y$ |\n|---|---|---|\n| $X^H$ | $X^H X^H$ (unaffected female) | $X^H Y$ (unaffected male) |\n| $X^h$ | $X^H X^h$ (carrier female) | $X^h Y$ (haemophiliac male) |\n\nMark 1: Correct gametes from each parent ✓\nMark 2: Correct offspring genotypes in all four squares ✓\nMark 3: Probability of haemophiliac son = 1/4 = 25% ✓\n[3]\n\nNote: Workings (parental genotypes, gametes, F1 offspring and ratio) must all be shown for full marks.",
+          "topic": "Inheritance — Punnett Square",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-2-4-4",
+          "label": "2.4.4",
+          "questionText": "Explain why no female in this family is shown as affected by haemophilia, even though the trait is present in the family.",
+          "marks": 2,
+          "memoText": "Mark 1: For a female to be affected she must be HOMOZYGOUS recessive ($X^h X^h$) — she must inherit the recessive allele from BOTH parents ✓\nMark 2: This requires an affected father ($X^h Y$) AND a carrier or affected mother — this combination is rare and is not present in this family ✓\n[2]",
+          "topic": "Inheritance — Sex-linked Recessive",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Evolution & Human Evolution",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "life-sci-p2-predictive-2026-3-1-1",
+          "label": "3.1.1",
+          "questionText": "Refer to DIAGRAM C (side views of two adult primate skulls labelled P and Q). Which skull (P or Q) belongs to the modern human? Give ONE visible reason for your answer using a feature of the skull.",
+          "marks": 2,
+          "memoText": "Mark 1: Modern human = Skull Q ✓\nMark 2: Reason (any ONE) ✓\n• Larger / more rounded cranium\n• Smaller or absent brow ridge\n• Smaller jaw and teeth\n• Less prognathic (flatter) face\n• Foramen magnum positioned more centrally beneath the skull (indicating an upright posture)\n[2]",
+          "topic": "Human Evolution — Skull Comparison",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Tabulate FOUR visible differences between skull P (ape) and skull Q (human).",
+          "marks": 8,
+          "memoText": "Tabulation REQUIRED (otherwise marks lost). Award 2 marks per correctly tabulated difference (1 for the ape feature, 1 for the corresponding human feature). Five differences are given below; candidate need only provide ANY FOUR (4 × 2 = 8).\n\n| Feature | Skull P (ape) | Skull Q (human) |\n|---|---|---|\n| Cranium / brain capacity | Smaller, sloping ✓ | Larger, rounded (high-domed) ✓ |\n| Brow ridge | Prominent / heavy ✓ | Slight or absent ✓ |\n| Jaw / face | Prognathic (juts forward), large mandible ✓ | Flat (orthognathic), small mandible with chin ✓ |\n| Canine teeth | Large / prominent ✓ | Small, similar in size to other teeth ✓ |\n| Foramen magnum position | Posterior (towards back of skull base) ✓ | Central (directly below skull) ✓ |\n\n[Subtotal: 8 marks; marks forfeited if not tabulated]",
+          "topic": "Human Evolution — Skull Comparison",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-2-1",
+          "label": "3.2.1",
+          "questionText": "Refer to DIAGRAM D (simplified phylogenetic tree of hominids; A = Gorilla, B = Chimpanzee, C = Australopithecus, D = Homo habilis, E = Homo erectus, F = Homo neanderthalensis [extinct], G = Homo sapiens). Which TWO species (using their letters) share the most recent common ancestor?",
+          "marks": 2,
+          "memoText": "F (Homo neanderthalensis) and G (Homo sapiens) ✓✓ (2)\n\nThese two species share the most recent common ancestor on the phylogenetic tree (their branches diverge most recently in geological time).",
+          "topic": "Human Evolution — Phylogeny",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-2-2",
+          "label": "3.2.2",
+          "questionText": "Which species is the FIRST to branch off from the human/great-ape lineage? Give the letter and name.",
+          "marks": 2,
+          "memoText": "A — Gorilla ✓✓ (2)\n\nGorillas branched off the common ancestral lineage earliest among the species shown on the tree.",
+          "topic": "Human Evolution — Phylogeny",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-2-3",
+          "label": "3.2.3",
+          "questionText": "Explain why human DNA (G) and chimpanzee DNA (B) are over 98% similar, even though they look very different.",
+          "marks": 3,
+          "memoText": "Mark 1: Humans and chimpanzees share a recent common ancestor (~6 mya) ✓\nMark 2: They share most of their DNA from that ancestor; only relatively few mutations have accumulated in each lineage since divergence ✓\nMark 3: The genes that DO differ are mainly regulatory genes that control WHEN and HOW MUCH other genes are expressed during development — small regulatory changes produce large physical differences ✓\n[3]",
+          "topic": "Human Evolution — Molecular Evidence",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-2-4",
+          "label": "3.2.4",
+          "questionText": "What does the symbol ★ next to species F indicate, and what does this tell us about that species?",
+          "marks": 2,
+          "memoText": "Mark 1: The star indicates that the species is extinct ✓\nMark 2: Homo neanderthalensis no longer exists today — there are no living members of this species; the lineage came to an end approximately 30 000 years ago ✓\n[2]",
+          "topic": "Human Evolution — Extinction",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-2-5",
+          "label": "3.2.5",
+          "questionText": "State THREE different types of evidence that scientists use to construct phylogenetic trees like this one.",
+          "marks": 3,
+          "memoText": "Any THREE (3 marks):\n• Fossil evidence — comparing structures of extinct species with each other and with living species ✓\n• Molecular / DNA evidence — comparing DNA, RNA or protein (e.g. cytochrome c) sequences between species ✓\n• Comparative anatomy — comparing homologous structures (e.g. forelimb bones, skull features) of different species ✓\n\nAlso accept: comparative embryology / biogeography / behavioural evidence / vestigial structures.\n[3]",
+          "topic": "Evolution — Evidence",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-3-1",
+          "label": "3.3.1",
+          "questionText": "Refer to GRAPH 1 (beak-depth distribution of Galápagos medium ground finch in 1976 and 1978). Read off the mean beak depth in 1976 and the mean beak depth in 1978 from the graph.",
+          "marks": 2,
+          "memoText": "Mark 1: 1976: 9.5 mm ✓\nMark 2: 1978: 10.8 mm ✓\n[2]",
+          "topic": "Evolution — Natural Selection (Graph)",
+          "type": "diagram",
+          "diagramUrl": null
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-3-2",
+          "label": "3.3.2",
+          "questionText": "Calculate the percentage increase in mean beak depth from 1976 to 1978. Show ALL workings.",
+          "marks": 3,
+          "memoText": "Mark 1: % increase formula: $\\frac{\\text{new} - \\text{old}}{\\text{old}} \\times 100$ ✓\nMark 2: $= \\frac{10.8 - 9.5}{9.5} \\times 100$ ✓\nMark 3: $= \\frac{1.3}{9.5} \\times 100 = 13.68\\%$ ✓ (accept 13.7% or 14%)\n[3]",
+          "topic": "Evolution — Calculations",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-3-3",
+          "label": "3.3.3",
+          "questionText": "Use Darwin's theory of natural selection to explain why this shift in beak depth occurred. Refer specifically to variation, selection pressure, survival and reproduction.",
+          "marks": 4,
+          "memoText": "Any FOUR points for full marks (4 marks):\n• Variation — the original 1976 finch population showed variation in beak depth (graph shows a range from ~7 to ~12 mm) ✓\n• Selection pressure — the 1977 drought killed small soft seeds; only large, hard seeds remained as food ✓\n• Survival of the fittest — finches with deeper, stronger beaks could crack the hard seeds and survived; finches with shallow beaks could not feed and starved ✓\n• Reproduction — surviving deep-beaked finches reproduced and passed on the deep-beak alleles to their offspring ✓\n• Over generations the proportion of deep-beaked individuals in the population increased, shifting the mean beak depth upward ✓\n\n(any 4) [4]",
+          "topic": "Evolution — Natural Selection",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-3-4",
+          "label": "3.3.4",
+          "questionText": "Predict what would happen to the mean beak depth of the population over the following 5 years if the rains returned and small soft seeds again became plentiful. Justify your prediction.",
+          "marks": 1,
+          "memoText": "Mean beak depth would decrease again (selection would now favour smaller beaks suited to small soft seeds, which are easier to find and require less energy to crack open) ✓ (1)",
+          "topic": "Evolution — Natural Selection",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-4-1",
+          "label": "3.4.1",
+          "questionText": "Refer to INFORMATION 8 (case study of Hawaiian honeycreepers — over 50 species evolved from a single ancestor on different Hawaiian islands). Identify the type of speciation that has occurred in the Hawaiian honeycreepers and define this term.",
+          "marks": 2,
+          "memoText": "Mark 1: Allopatric speciation ✓\nMark 2: The formation of new species from a single ancestral species after populations have been geographically separated/isolated (here, by occupying different islands) so that gene flow between them is prevented ✓\n[2]",
+          "topic": "Evolution — Speciation",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-4-2",
+          "label": "3.4.2",
+          "questionText": "Describe the steps by which the original ancestral population evolved into more than 50 modern species. Use full sentences.",
+          "marks": 4,
+          "memoText": "Mark 1: A small founder population of finches arrived from North America about 5 mya and dispersed across the Hawaiian islands ✓\nMark 2: Populations on different islands became geographically isolated by sea — gene flow stopped between them ✓\nMark 3: Each island offered different food sources / niches, creating different selection pressures on each population. Over generations, natural selection favoured different beak shapes for the available food on each island ✓\nMark 4: Mutations and accumulated genetic differences between isolated populations led to reproductive isolation — populations could no longer interbreed even if reunited. Each is now a separate species ✓\n[4]",
+          "topic": "Evolution — Speciation Process",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-4-3",
+          "label": "3.4.3",
+          "questionText": "What term is used for the rapid diversification of a single ancestral species into many new species, each adapted to a different niche?",
+          "marks": 1,
+          "memoText": "Adaptive radiation ✓ (1)",
+          "topic": "Evolution — Speciation",
+          "type": "written"
+        },
+        {
+          "id": "life-sci-p2-predictive-2026-3-4-4",
+          "label": "3.4.4",
+          "questionText": "If two of the modern honeycreeper species are placed in the same cage and try to mate, would they produce fertile offspring? Justify your answer.",
+          "marks": 1,
+          "memoText": "No — by definition different species are reproductively isolated; even if mating occurs, offspring (if any) will be infertile / hybrids ✓ (1)",
+          "topic": "Evolution — Reproductive Isolation",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Natural Selection (Essay) — Antibiotic Resistance",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "life-sci-p2-predictive-2026-4-essay",
+          "label": "4",
+          "questionText": "INFORMATION 9 — CASE STUDY: ANTIBIOTIC RESISTANCE IN BACTERIA\n\nHospitals around the world face a serious crisis: certain bacteria such as Staphylococcus aureus have become resistant to antibiotics that were once extremely effective against them. Patients with infections caused by these 'superbugs' are very difficult to treat, and many die from infections that ordinary antibiotics could have cured 30 years ago.\n\nWhen an antibiotic is used, the vast majority of bacteria in the patient's body are killed — but a small number of bacteria carry mutations that make them resistant to the drug. These resistant bacteria survive, multiply rapidly (bacteria can divide every 20 minutes), and pass their resistance genes to their offspring. Over many generations, the entire population becomes resistant.\n\nUse the case study above and your knowledge of evolutionary biology to discuss the rise of antibiotic-resistant bacteria. In your essay you must:\n• Describe the main points (mechanism) of Charles Darwin's theory of natural selection;\n• Apply each of these points to the development of antibiotic resistance in the bacterial population;\n• Explain why Lamarck's theory of the inheritance of acquired characteristics CANNOT satisfactorily explain antibiotic resistance;\n• Suggest TWO practical actions that doctors and patients can take to slow the spread of antibiotic resistance.\n\nYour response should be in the form of a coherent piece of writing using scientific terminology. Marks will be awarded for both content and synthesis.",
+          "marks": 20,
+          "memoText": "The essay must integrate Darwin's mechanism of natural selection with the case study of antibiotic resistance. It should clearly contrast Darwin's theory with Lamarck's discredited theory of acquired characteristics, and finish with TWO practical actions to slow the spread of antibiotic resistance. Award marks for content as a list of biological points (max 17), then award synthesis marks (max 3) using the rubric.\n\n=== CONTENT MARKS (max 17) ===\n\n(a) Darwin's theory of natural selection (any 4 of these points; max 4 marks):\n• Within a population there is natural variation between individuals (caused by mutation, sexual reproduction etc.) ✓\n• Organisms produce more offspring than the environment can support, resulting in competition / struggle for survival ✓\n• Some variations make individuals better adapted to their environment than others ✓\n• Better-adapted individuals are more likely to survive ('survival of the fittest') and reproduce ✓\n• They pass on their favourable alleles to their offspring ✓\n• Over many generations the favourable trait becomes more common in the population — the population evolves ✓\n(max 4)\n\n(b) Application to antibiotic resistance (any 6 points; max 7 marks):\n• In any large bacterial population there is variation: by random mutation a small number of bacteria already carry alleles that make them resistant to a particular antibiotic ✓\n• When the antibiotic is administered, it acts as a strong selection pressure on the population ✓\n• The vast majority of bacteria (which are non-resistant) are killed by the antibiotic ✓\n• The few resistant bacteria survive the antibiotic ✓\n• With competing bacteria removed, the resistant bacteria multiply rapidly (every 20 minutes by binary fission), filling the niche left empty by the dead bacteria ✓\n• Daughter cells inherit the resistance gene, so within a few generations the entire population is resistant ✓\n• The 'superbug' problem is therefore evolution by natural selection happening on a very fast timescale (over weeks/months rather than millennia) ✓\n• Resistance can also spread between species via plasmids (horizontal gene transfer), accelerating the problem ✓\n(max 7)\n\n(c) Why Lamarck's theory CANNOT explain resistance (any 2 points; max 4 marks):\n• Lamarck believed that exposure to a stimulus (e.g. an antibiotic) would cause an organism to acquire resistance during its lifetime, and that this acquired characteristic would be passed on to its offspring ✓\n• This is incorrect: the resistance allele was already present by chance mutation BEFORE the antibiotic was applied — exposure merely selected for it; it did not create it ✓\n• Acquired characteristics (e.g. damage caused to an organism by an antibiotic) cannot be passed to offspring because they do not alter the DNA in gametes / reproductive cells ✓\n• Modern genetics (DNA-based inheritance) supports Darwin and contradicts Lamarck — the cause of resistance is a heritable change in DNA, not an environmentally-induced one ✓\n(max 4)\n\n(d) TWO practical actions to slow antibiotic resistance (any 2 actions; max 2 marks):\n• Doctors should only prescribe antibiotics when truly necessary (NOT for viral infections such as colds and flu) and prescribe the correct narrow-spectrum drug for the specific bacterium ✓\n• Patients must complete the full course of antibiotics, even after they feel better — stopping early leaves the most resistant bacteria alive to multiply ✓\n• Hospitals must enforce strict hygiene (handwashing, isolation of infected patients) to prevent the spread of resistant strains ✓\n• Reduce the use of antibiotics in the agricultural / livestock industry, where they are often used as growth promoters ✓\n• Continued investment in research and development of new antibiotics and alternative therapies ✓\n(any 2) (2)\n\nTotal content available: 4 + 7 + 4 + 2 = 17 marks (this is the maximum). Award up to a maximum of 17 for content overall.\n\n=== SYNTHESIS MARKS (max 3) ===\n\n3 marks: Excellent overall coherence; logical flow from Darwin's mechanism → application to bacteria → contrast with Lamarck → practical actions; consistent use of correct scientific terminology; ideas linked with cause-and-effect reasoning.\n\n2 marks: Good logical flow with most ideas linked; mostly correct terminology; one or two areas (e.g. the Lamarck contrast or the practical actions) less integrated.\n\n1 mark: Some attempt at flow but ideas mostly listed in disconnected bullet points; limited use of scientific terminology; no clear contrast between Darwin and Lamarck.\n\n0 marks: Disjointed answer; mostly bullet points without explanation; incorrect or absent terminology.\n\n=== TOTALS ===\nMaximum content: 17\nMaximum synthesis: 3\nMaximum essay total: 17 + 3 = 20",
+          "topic": "Evolution — Natural Selection (Essay)",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}
