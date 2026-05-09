@@ -185,6 +185,11 @@ const READING_ERROR_PLAIN: Record<string, string> = {
   ERR_SELF_MON: "Does not notice or correct errors that make the sentence nonsensical",
 };
 
+export function describeError(code: string, subject: ReportSubject): string | undefined {
+  const map = subject === "maths" ? MATHS_ERROR_PLAIN : READING_ERROR_PLAIN;
+  return map[code];
+}
+
 function buildErrorDescriptions(
   dominantErrors: string[],
   subject: ReportSubject
