@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import { buildCheckoutParams, PAYFAST_PROCESS_URL } from "@/lib/payfast";
+import { getUserFromRequest } from "@/lib/server-auth";
 
 export async function POST(request: NextRequest) {
+  const claims = getUserFromRequest(request);
+  if (!claims) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const body = await request.json();
   const { plan, voucherCode, paymentType = "subscription" } = body as {
     plan: string;
@@ -14,28 +19,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Plan is required" }, { status: 400 });
   }
 
-  // Authenticate user via the Bearer token from the client
-  const token = request.headers.get("Authorization")?.replace("Bearer ", "");
-  if (!token) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { global: { headers: { Authorization: `Bearer ${token}` } } },
-  );
-
-  const { data: { user }, error } = await supabase.auth.getUser();
-  if (error || !user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const { data: profile } = await supabase
-    .from("users")
-    .select("full_name, email")
-    .eq("id", user.id)
-    .single();
+  // Profile data from JWT claims (full user profile queries moved to Phase 4)
+  const profile = { full_name: claims.name ?? "", email: claims.email };
 
   // ── Voucher validation (server-side, authoritative check) ─────────────────
   let amountOverride: string | undefined;
@@ -43,7 +28,8 @@ export async function POST(request: NextRequest) {
 
   if (voucherCode) {
     const code = voucherCode.trim().toUpperCase();
-    const { data: voucher } = await supabase
+    const { supabaseAdmin } = await import("@/lib/supabase-admin");
+    const { data: voucher } = await supabaseAdmin
       .from("vouchers")
       .select("discount_type, discount_value, applicable_plans, max_uses, used_count, expires_at, is_active")
       .eq("code", code)
@@ -57,7 +43,7 @@ export async function POST(request: NextRequest) {
       (voucher.applicable_plans.length === 0 || voucher.applicable_plans.includes(plan))
     ) {
       // Fetch base price to compute discounted amount
-      const { data: planData } = await supabase
+      const { data: planData } = await supabaseAdmin
         .from("plans")
         .select("price_rands")
         .eq("key", plan)
@@ -87,11 +73,11 @@ export async function POST(request: NextRequest) {
   let params: Record<string, string>;
   try {
     params = await buildCheckoutParams({
-      userId:    user.id,
+      userId:    claims.sub,
       plan,
       firstName: nameParts[0] || "Ruby",
       lastName:  nameParts.slice(1).join(" ") || "User",
-      email:     profile?.email || user.email || "",
+      email:     profile.email || claims.email || "",
       baseUrl,
       amountOverride,
       voucherCode: resolvedVoucherCode,

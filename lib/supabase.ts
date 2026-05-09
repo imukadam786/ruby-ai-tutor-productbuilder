@@ -1,9 +1,16 @@
 import { createClient } from "@supabase/supabase-js";
+import { rubyAuth } from "./auth";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://placeholder.supabase.co";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "placeholder";
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Auth is now handled by the C# API via rubyAuth (lib/auth.ts).
+// The Supabase client is kept for data queries only (Phase 4 will remove it).
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const _client = createClient(supabaseUrl, supabaseAnonKey);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(_client as any).auth = rubyAuth;
+export const supabase = _client as Omit<typeof _client, "auth"> & { auth: typeof rubyAuth };
 
 // ── Types matching our database tables ────────────────────────────────────────
 

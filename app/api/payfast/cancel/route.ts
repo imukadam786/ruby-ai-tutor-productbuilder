@@ -1,27 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { PAYFAST_API_BASE, generateApiSignature } from "@/lib/payfast";
+import { getUserFromRequest } from "@/lib/server-auth";
 
 export async function POST(request: NextRequest) {
-  // Authenticate user
-  const token = request.headers.get("Authorization")?.replace("Bearer ", "");
-  if (!token) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { global: { headers: { Authorization: `Bearer ${token}` } } },
-  );
-
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const claims = getUserFromRequest(request);
+  if (!claims) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   // Get PayFast subscription token
   const { data: sub } = await supabaseAdmin
     .from("subscriptions")
     .select("payfast_token, status")
-    .eq("user_id", user.id)
+    .eq("user_id", claims.sub)
     .single();
 
   if (!sub?.payfast_token) {
@@ -63,12 +53,12 @@ export async function POST(request: NextRequest) {
   await supabaseAdmin
     .from("subscriptions")
     .update({ status: "cancelled", updated_at: new Date().toISOString() })
-    .eq("user_id", user.id);
+    .eq("user_id", claims.sub);
 
   await supabaseAdmin
     .from("users")
     .update({ plan: "free" })
-    .eq("id", user.id);
+    .eq("id", claims.sub);
 
   return NextResponse.json({ success: true });
 }

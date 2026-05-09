@@ -4,7 +4,7 @@
  *   - X-Ruby-Secret  (internal API guard, read from NEXT_PUBLIC_RUBY_API_SECRET)
  *   - Authorization  (Supabase JWT, read from the active session when available)
  */
-import { supabase } from "@/lib/supabase";
+import { rubyAuth } from "@/lib/auth";
 
 export async function apiFetch(
   input: RequestInfo | URL,
@@ -19,7 +19,7 @@ export async function apiFetch(
   }
 
   // Attach Bearer token if a session exists
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { session } } = await rubyAuth.getSession();
   if (session?.access_token) {
     headers.set("Authorization", `Bearer ${session.access_token}`);
   }

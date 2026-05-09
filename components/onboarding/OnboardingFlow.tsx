@@ -159,27 +159,19 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       const { data: authData, error } = await supabase.auth.signUp({
         email,
         password,
-        options: { data: { full_name: name } },
+        options: {
+          data: {
+            full_name:    name,
+            grade:        data.grade        || null,
+            curriculum:   data.curriculum   || null,
+            language:     data.language     || "English",
+            parent_email: parentEmail       || null,
+          },
+        },
       });
       if (error) throw error;
-      // Supabase returns identities:[] when the email already exists (security feature)
-      if (!authData.session && authData.user?.identities?.length === 0) {
-        setAuthError("An account with this email already exists. Please use Log In instead.");
-        return;
-      }
       if (authData.user) {
         setSignedUpUserId(authData.user.id);
-        const trialExpiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
-        await supabase.from("users").upsert({
-          id: authData.user.id,
-          email,
-          full_name: name,
-          parent_email: parentEmail || null,
-          grade: data.grade || null,
-          curriculum: data.curriculum || null,
-          language: data.language || "English",
-          trial_expires_at: trialExpiresAt,
-        });
       }
       // Account created — continue through onboarding questions
       next();
@@ -199,24 +191,17 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     try {
       const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
-      // Fetch the user's saved profile from the users table
-      const userId = authData.user?.id;
-      const { data: userData } = userId
-        ? await supabase.from("users").select("full_name, grade, language, curriculum").eq("id", userId).single()
-        : { data: null };
-      const fullName =
-        (userData?.full_name as string | undefined) ||
-        (authData.user?.user_metadata?.full_name as string | undefined) ||
-        "";
-      // Build final data from saved profile and go straight to the app — no re-onboarding
+      const userId  = authData.user?.id;
+      const fullName = authData.user?.user_metadata?.full_name as string | undefined ?? "";
+      // Build final data from auth response and go straight to the app
       const final: OnboardingData = {
-        language: (userData?.language as string | undefined) || "English",
-        grade: (userData?.grade as string | undefined) || "",
+        language:     "English",
+        grade:        "",
         averageScore: "",
-        curriculum: (userData?.curriculum as string | undefined) || "",
-        name: fullName,
+        curriculum:   "",
+        name:         fullName,
         email,
-        plan: "existing",
+        plan:         "existing",
         userId,
       };
       onComplete(final);
