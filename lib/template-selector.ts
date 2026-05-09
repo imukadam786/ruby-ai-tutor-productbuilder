@@ -4,12 +4,12 @@ import { ReadingTemplate } from "@/types/reading";
 // ─── Maths Template Selector ──────────────────────────────────────────────────
 
 export function selectMathsTemplate(
-  is_correct: boolean,
+  decision: string,
   errorType: string | null,
   recentTemplates: QuestionTemplate[]
 ): QuestionTemplate {
-  // Incorrect answer: select by error type — change approach, not just cycle
-  if (!is_correct) {
+  // RETEACH: select by error type — change approach, not just cycle
+  if (decision === "reteach") {
     const preferred: Record<string, QuestionTemplate> = {
       execution_slip:            "story",    // contextualise the operation
       strategy_gap:              "concrete", // visual/physical representation
@@ -19,6 +19,7 @@ export function selectMathsTemplate(
     const target: QuestionTemplate = (errorType && preferred[errorType]) ? preferred[errorType] : "concrete";
     const last = recentTemplates[recentTemplates.length - 1];
     if (last === target) {
+      // Preferred template just used — pick next best
       const fallback: Record<QuestionTemplate, QuestionTemplate> = {
         concrete: "story",
         story:    "concrete",
@@ -29,7 +30,13 @@ export function selectMathsTemplate(
     return target;
   }
 
-  // Correct answer: rotate templates, avoid consecutive repetition
+  // ACCELERATE: symbolic — highest demand, no scaffolding
+  if (decision === "accelerate") return "symbolic";
+
+  // BACKTRACK / review_prerequisite: concrete — start foundational
+  if (decision === "backtrack" || decision === "review_prerequisite") return "concrete";
+
+  // PRACTICE / ADVANCE: rotate, avoid consecutive repetition
   const all: QuestionTemplate[] = ["concrete", "story", "symbolic"];
   const last = recentTemplates[recentTemplates.length - 1];
   const available = all.filter((t) => t !== last);
@@ -41,20 +48,20 @@ export function selectMathsTemplate(
 // ─── Reading Template Selector ────────────────────────────────────────────────
 
 export function selectReadingTemplate(
-  is_correct: boolean,
+  decision: string,
   errorType: string | null,
   lessonPhase: string | null,
   recentTemplates: ReadingTemplate[]
 ): ReadingTemplate {
-  // Lesson arc phase overrides correctness when active
+  // Lesson arc phase overrides decision when active
   if (lessonPhase === "guided") return "oral";
   if (lessonPhase === "mastery_check") {
     const last = recentTemplates[recentTemplates.length - 1];
     return last === "written" ? "reading" : "written";
   }
 
-  // Incorrect answer: favour oral or listening — most fundamental, easiest to scaffold
-  if (!is_correct) {
+  // RETEACH: favour oral or listening — most fundamental, easiest to scaffold
+  if (decision === "reteach") {
     const preferred: Record<string, ReadingTemplate> = {
       ERR_PHONEME_CONF:  "oral",
       ERR_SOUND_RECALL:  "oral",
@@ -72,12 +79,22 @@ export function selectReadingTemplate(
     const target: ReadingTemplate = (errorType && preferred[errorType]) ? preferred[errorType] : "oral";
     const last = recentTemplates[recentTemplates.length - 1];
     if (last === target) {
+      // Avoid immediate repetition — swap oral↔listening
       return target === "oral" ? "listening" : "oral";
     }
     return target;
   }
 
-  // Correct answer: rotate templates, no consecutive repetition
+  // ACCELERATE: written or reading — highest demand
+  if (decision === "accelerate") {
+    const last = recentTemplates[recentTemplates.length - 1];
+    return last === "written" ? "reading" : "written";
+  }
+
+  // BACKTRACK: oral — start foundational on prerequisite skill
+  if (decision === "backtrack") return "oral";
+
+  // PRACTICE / ADVANCE: rotate, no consecutive repetition
   const all: ReadingTemplate[] = ["oral", "listening", "written", "reading"];
   const last = recentTemplates[recentTemplates.length - 1];
   const available = all.filter((t) => t !== last);

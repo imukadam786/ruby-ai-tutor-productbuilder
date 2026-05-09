@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getReportPDF, getReportMeta } from "@/lib/report-store";
 
 export async function GET(
-  req: NextRequest,
+  _req: NextRequest,
   { params }: { params: Promise<{ reportId: string }> }
 ) {
   const { reportId } = await params;

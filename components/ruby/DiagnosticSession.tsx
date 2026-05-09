@@ -133,6 +133,7 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
     dominantErrors,
     placementSkill,
     skillsCompleted: placement.autoCompletedSkillIds.length,
+    hardGateBlocked: !placement.hardGatePassed,
   };
 }
 
@@ -290,7 +291,7 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
     if (phase === "loading_question" && profile) {
       const errorType = (currentResult && !currentResult.is_correct) ? (currentResult.error_type ?? null) : null;
       const lastWasWrong = currentResult?.is_correct === false;
-      const template = selectMathsTemplate(lastWasWrong, errorType, recentTemplatesRef.current);
+      const template = selectMathsTemplate(lastWasWrong ? "reteach" : "advance", errorType, recentTemplatesRef.current);
       recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
       const skillIdToLoad = pendingReviewSkillId ?? profile.current_skill_id;
       loadQuestion(skillIdToLoad, template, skillAttemptCount + 1, profile, lastWasWrong);
@@ -359,6 +360,7 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
         is_correct: result.is_correct,
         used_hint: usedHint,
         attempt_number: skillAttemptCount + 1,
+        decision: updatedMastery.status === "mastered" ? "advance" : result.is_correct ? "practice" : "reteach",
       });
 
       const isReviewQuestion = pendingReviewSkillId === currentQuestion.skill_id;

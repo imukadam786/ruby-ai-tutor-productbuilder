@@ -67,7 +67,7 @@ Set "correct" to true if score >= ${threshold}. Use "correct" as errorType when 
       model: OPENAI_MODEL,
       max_tokens: 256,
       messages: [{ role: "user", content: prompt }],
-    }, { signal: AbortSignal.timeout(20_000) });
+    });
 
     const aiText = aiResponse.choices[0]?.message?.content ?? "";
 

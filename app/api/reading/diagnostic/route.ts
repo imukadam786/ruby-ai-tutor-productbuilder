@@ -131,7 +131,7 @@ Keep language very simple and encouraging. Address the student by name if it hel
       model: OPENAI_MODEL,
       max_tokens: 256,
       messages: [{ role: "user", content: prompt }],
-    }, { signal: AbortSignal.timeout(20_000) });
+    });
 
     const aiText = aiResponse.choices[0]?.message?.content ?? "";
 

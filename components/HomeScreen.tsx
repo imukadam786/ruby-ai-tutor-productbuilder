@@ -20,11 +20,11 @@ interface HomeScreenProps {
 
 function getRubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   return (
-    <div className={`${size} flex-shrink-0 rounded-full overflow-hidden bg-white`}>
+    <div className={`${size} flex-shrink-0`}>
       <img
-        src="/icons/icon-192.png"
+        src="/ruby-avatar.png"
         alt="Ruby"
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contain"
         onError={(e) => {
           e.currentTarget.style.display = "none";
           const fb = e.currentTarget.nextElementSibling as HTMLElement | null;
@@ -56,7 +56,7 @@ function buildStats(profile: StudentProfile | null, progress: ProgressData): Dis
   const mastery = profile?.skill_mastery ?? {};
   const values = Object.values(mastery);
   return {
-    skillsMastered: values.filter((m) => m.status === "mastered" || m.status === "assumed").length,
+    skillsMastered: values.filter((m) => m.status === "mastered").length,
     inProgress: values.filter((m) => m.status === "in_progress").length,
     lessonsDone: progress.lessonsCompleted,
     studySessions: progress.sessionCount || (profile?.session_count ?? 0),
