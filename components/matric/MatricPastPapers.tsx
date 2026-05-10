@@ -127,6 +127,13 @@ const SUBJECTS = [
     available: true,
   },
   {
+    id: "agricultural-sciences",
+    name: "Agricultural Sciences",
+    thumbnail: "/thumbnails/agricultural-science.png",
+    color: "from-lime-600 to-green-700",
+    available: true,
+  },
+  {
     id: "afrikaans",
     name: "Afrikaans",
     thumbnail: "/thumbnails/afrikaans-fal.jpeg",
