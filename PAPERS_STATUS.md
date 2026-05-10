@@ -95,20 +95,20 @@ These papers have no JSON file at all — content needs to be created.
 ### Economics
 | File | Wired | Missing | Status |
 |---|---|---|---|
-| eco-p1-may-jun-2021-combined.json | 0 | **5** | ❌ |
-| eco-p1-may-jun-2022-combined.json | 0 | **2** | ❌ |
-| eco-p1-may-jun-2023-combined.json | 0 | **6** | ❌ |
-| eco-p1-may-jun-2024-combined.json | 0 | **6** | ❌ |
-| eco-p1-may-jun-2025-combined.json | 0 | **6** | ❌ |
+| eco-p1-may-jun-2021-combined.json | 5 | 0 | ✅ |
+| eco-p1-may-jun-2022-combined.json | 2 | 0 | ✅ |
+| eco-p1-may-jun-2023-combined.json | 6 | 0 | ✅ |
+| eco-p1-may-jun-2024-combined.json | 6 | 0 | ✅ |
+| eco-p1-may-jun-2025-combined.json | 6 | 0 | ✅ |
 | eco-p1-may-jun-2026-predictive-combined.json | 0 | **5** | ❌ |
-| eco-p2-may-jun-2021-combined.json | 0 | **8** | ❌ |
-| eco-p2-may-jun-2022-combined.json | 0 | **13** | ❌ |
-| eco-p2-may-jun-2023-combined.json | 0 | **7** | ❌ |
-| eco-p2-may-jun-2024-combined.json | 0 | **5** | ❌ |
-| eco-p2-may-jun-2025-combined.json | 0 | **6** | ❌ |
+| eco-p2-may-jun-2021-combined.json | 8 | 0 | ✅ |
+| eco-p2-may-jun-2022-combined.json | 13 | 0 | ✅ |
+| eco-p2-may-jun-2023-combined.json | 7 | 0 | ✅ |
+| eco-p2-may-jun-2024-combined.json | 5 | 0 | ✅ |
+| eco-p2-may-jun-2025-combined.json | 6 | 0 | ✅ |
 | eco-p2-may-jun-2026-predictive-combined.json | 0 | **8** | ❌ |
 
-> 77 diagrams unwired across 12 Economics papers — none started.
+> ✅ 64 diagrams wired 2026-05-10. Predictive 2026 papers pending (diagrams not yet in bucket).
 
 ---
 
@@ -252,9 +252,9 @@ These papers have no JSON file at all — content needs to be created.
 ### HIGH — Missing files (no content at all)
 - [ ] Create `life-sci-p1-may-jun-2024.json`
 
-### HIGH — All diagrams unwired (Economics — 77 diagrams across 12 papers)
-- [ ] Upload & wire Economics P1 2021–2025 + predictive 2026
-- [ ] Upload & wire Economics P2 2021–2025 + predictive 2026
+### HIGH — Economics predictive 2026 (diagrams not yet in bucket)
+- [ ] Upload & wire Economics P1 predictive 2026 (5 missing)
+- [ ] Upload & wire Economics P2 predictive 2026 (8 missing)
 
 ### HIGH — Geography bulk missing (376 diagrams)
 - [ ] Upload & wire Geo P1 2021 (77 missing)
