@@ -179,6 +179,17 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Geography",
+    thumbnail: "/thumbnails/geography.jpeg",
+    guides: [
+      {
+        label: "Paper 1 — Physical Geography",
+        description: "Climate, geomorphology, rivers and global atmospheric systems",
+        filename: "geo-p1-may-jun-2026-studyguide1.pdf",
+      },
+    ],
+  },
+  {
     label: "History",
     thumbnail: "/thumbnails/history.jpeg",
     guides: [
