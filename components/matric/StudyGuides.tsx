@@ -187,6 +187,11 @@ const SUBJECTS: Subject[] = [
         description: "Climate, geomorphology, rivers and global atmospheric systems",
         filename: "geo-p1-may-jun-2026-studyguide1.pdf",
       },
+      {
+        label: "Paper 2 — Human Geography",
+        description: "Settlement, population, economic geography and development",
+        filename: "geo-p2-may-jun-2026-studyguide1.pdf",
+      },
     ],
   },
   {
