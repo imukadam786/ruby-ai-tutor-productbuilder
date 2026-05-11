@@ -144,8 +144,6 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     if (typeof window === "undefined") return false;
     return sessionStorage.getItem("installPromptDismissed") !== "1";
   });
-  const chatMessageCountRef = useRef(0);
-
   // Handle PayFast return redirect — navigate to settings and show result
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -181,11 +179,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   useEffect(() => {
     refreshStats();
 
-    // Maths + reading: count session + trigger survey after each micro skill is mastered
+    // Maths + reading: trigger survey after each micro skill is mastered
     const onSkillMastered = (e: Event) => {
       const type = (e as CustomEvent).detail?.type as "maths" | "reading";
       if (!type) return;
-      incrementSession();
       // During onboarding discovery, skip the survey — onSelectPlan in the
       // session component handles the transition to PostDiscoveryScreen.
       if (onPostDiscovery) return;
@@ -352,7 +349,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
       <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} />}
-        {activeView === "chat" && <ChatInterface onMessageSent={() => { chatMessageCountRef.current += 1; if (chatMessageCountRef.current >= 3) incrementSession(); refreshStats(); setChatEngaged(true); }} />}
+        {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
         {activeView === "progress" && <ProgressTracker />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
@@ -574,6 +571,7 @@ export default function Home() {
     // Check for an existing valid session — if found, skip login entirely
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session) {
+        incrementSession();
         // If returning from a PayFast payment, skip trial check — ITN will update DB async
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("payment") === "success") {
