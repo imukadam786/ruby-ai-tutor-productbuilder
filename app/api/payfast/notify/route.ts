@@ -71,6 +71,21 @@ export async function POST(request: NextRequest) {
         ? new Date("2026-06-30T23:59:59Z")
         : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
 
+      const { error: subErr } = await supabaseAdmin
+        .from("subscriptions")
+        .upsert(
+          {
+            user_id:            userId,
+            plan:               plan || "starter",
+            status:             "active",
+            payfast_token:      null,
+            current_period_end: accessEnd.toISOString(),
+            updated_at:         new Date().toISOString(),
+          },
+          { onConflict: "user_id" },
+        );
+      if (subErr) console.error("[PayFast ITN] once-off subscription upsert error", subErr);
+
       const { error: userErr } = await supabaseAdmin
         .from("users")
         .update({ plan: plan || "starter", trial_expires_at: accessEnd.toISOString() })
