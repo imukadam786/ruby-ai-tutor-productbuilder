@@ -571,7 +571,6 @@ export default function Home() {
     // Check for an existing valid session — if found, skip login entirely
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session) {
-        incrementSession();
         // If returning from a PayFast payment, skip trial check — ITN will update DB async
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("payment") === "success") {
@@ -623,6 +622,10 @@ export default function Home() {
       if (event === "SIGNED_OUT" || (!session && event !== "INITIAL_SESSION")) {
         setAppState("onboarding");
       }
+      // Count a session whenever Supabase reports an authenticated state.
+      // Covers INITIAL_SESSION (cached login), SIGNED_IN (fresh sign-in), and refresh events.
+      // sessionStorage guard inside incrementSession ensures one count per tab.
+      if (session) incrementSession();
     });
     return () => subscription.unsubscribe();
   }, []);
