@@ -284,7 +284,8 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   useEffect(() => {
     (async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
+        const { data: { session } } = await supabase.auth.getSession();
+        const user = session?.user;
         if (!user) return;
         const { data } = await supabase
           .from("student_reports")
@@ -301,7 +302,8 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
 
   useEffect(() => {
     const loadProfile = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { session } } = await supabase.auth.getSession();
+      const user = session?.user;
       if (!user) return;
       const { data: profile } = await supabase
         .from("users")
@@ -362,7 +364,8 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   const saveProfile = () => {
     void (async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
+        const { data: { session } } = await supabase.auth.getSession();
+        const user = session?.user;
         if (!user) return;
         await supabase.from("users").update({
           full_name: name,
