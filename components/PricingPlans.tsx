@@ -30,6 +30,29 @@ interface PricingPlan {
 
 const PLANS: PricingPlan[] = [
   {
+    key: "matric-pack",
+    name: "Matric Exam Pack",
+    subtitle: "Grade 12",
+    priceRands: 99,
+    originalPrice: 199,
+    isLaunchOffer: true,
+    badge: "New",
+    badgeClass: "bg-blue-500 text-white",
+    borderClass: "border-blue-400",
+    ctaClass: "bg-blue-500 hover:bg-blue-600 text-white",
+    ctaLabel: "Own It",
+
+    paymentType: "once-off",
+    savingsLabel: "Launch Offer — Save R99",
+    features: [
+      { text: "50+ Matric Past Papers", note: "Practice & Guide Mode", highlight: true },
+      { text: "10+ Matric Study Guides", note: "Major Subjects", highlight: true },
+      { text: "15+ Matric 2026 Prep Papers", note: "Major Subjects", highlight: true },
+      { text: "Unlimited AI Feedback in 11 Languages" },
+      { text: "Unlimited Access between 1 May – 30 June 2026" },
+    ],
+  },
+  {
     key: "freebie",
     name: "Freebie",
     subtitle: "Try it out — no card needed",
@@ -77,29 +100,6 @@ const PLANS: PricingPlan[] = [
       { text: "Unlimited hints" },
       { text: "Home Language Feedback" },
       { text: "Unlimited Audio Playback" },
-    ],
-  },
-  {
-    key: "matric-pack",
-    name: "Matric Exam Pack",
-    subtitle: "Grade 12",
-    priceRands: 99,
-    originalPrice: 199,
-    isLaunchOffer: true,
-    badge: "New",
-    badgeClass: "bg-blue-500 text-white",
-    borderClass: "border-blue-400",
-    ctaClass: "bg-blue-500 hover:bg-blue-600 text-white",
-    ctaLabel: "Own It",
-
-    paymentType: "once-off",
-    savingsLabel: "Launch Offer — Save R99",
-    features: [
-      { text: "50+ Matric Past Papers", note: "Practice & Guide Mode", highlight: true },
-      { text: "10+ Matric Study Guides", note: "Major Subjects", highlight: true },
-      { text: "15+ Matric 2026 Prep Papers", note: "Major Subjects", highlight: true },
-      { text: "Unlimited AI Feedback in 11 Languages" },
-      { text: "Unlimited Access between 1 May – 30 June 2026" },
     ],
   },
   {
