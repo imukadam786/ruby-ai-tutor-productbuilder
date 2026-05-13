@@ -316,7 +316,12 @@ function PaperList({
   onBack: () => void;
 }) {
   const subject = SUBJECTS.find((s) => s.id === subjectId)!;
-  const papers = PAPERS.filter((p) => p.subject.toLowerCase().replace(/\s+/g, "-") === subjectId);
+  const papers = PAPERS.filter(
+    (p) =>
+      p.subject.toLowerCase().replace(/\s+/g, "-") === subjectId &&
+      !p.session.startsWith("Prep") &&
+      !p.session.startsWith("Predictive")
+  );
   const [expandedCode, setExpandedCode] = useState<"P1" | "P2" | null>("P1");
   const [progressMap, setProgressMap] = useState<Record<string, PaperProgress>>({});
 

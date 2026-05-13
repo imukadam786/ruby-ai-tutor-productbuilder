@@ -133,6 +133,13 @@ const PREP_SUBJECTS = [
     available: true,
   },
   {
+    id: "maths-literacy",
+    name: "Maths Literacy",
+    thumbnail: "/thumbnails/maths-literacy.jpeg",
+    color: "from-violet-500 to-purple-600",
+    available: true,
+  },
+  {
     id: "physical-science",
     name: "Physical Science",
     thumbnail: "/thumbnails/physical-science.jpeg",
