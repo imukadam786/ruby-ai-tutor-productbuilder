@@ -392,8 +392,12 @@ function PaperList({
                   className="w-full flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${subject.color} flex items-center justify-center text-white text-sm font-bold flex-shrink-0`}>
-                      P{codeLabel}
+                    <div className="w-9 h-9 rounded-xl overflow-hidden flex-shrink-0 bg-gray-50">
+                      <img
+                        src={subject.thumbnail}
+                        alt={subject.name}
+                        className={`w-full h-full ${CONTAIN_THUMBNAILS.has(subject.thumbnail) ? "object-contain p-1" : "object-cover"}`}
+                      />
                     </div>
                     <span className="font-bold text-gray-900 text-base">
                       {subject.name} Paper {codeLabel}
@@ -680,7 +684,7 @@ function ModeSelect({
           >
             {SA_LANGUAGES.map((l) => (
               <option key={l} value={l}>
-                {l}{l !== "English" && l !== "Afrikaans" ? " (beta)" : ""}
+                {l}
               </option>
             ))}
           </select>
@@ -1319,6 +1323,12 @@ function SessionView({
             </p>
           </div>
 
+          {mode === "practice" && language !== "English" && language !== "Afrikaans" && (
+            <span className="flex items-center gap-1.5 text-xs flex-shrink-0">
+              <span className="text-gray-500">{language}</span>
+              <span className="text-[10px] font-bold uppercase tracking-wide text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">beta</span>
+            </span>
+          )}
           {paper.infoSheet && (
             <button
               onClick={() => setShowInfoSheet(true)}
@@ -2240,6 +2250,9 @@ function SessionView({
               </div>
               <span className="text-sm font-semibold text-gray-700">Ruby</span>
               <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">{language}</span>
+              {language !== "English" && language !== "Afrikaans" && (
+                <span className="text-[10px] font-bold uppercase tracking-wide text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">beta</span>
+              )}
             </div>
 
           </div>
