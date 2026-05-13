@@ -294,8 +294,12 @@ function PaperList({
                   className="text-left bg-white rounded-2xl border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#BE1832]/40 transition-all group p-6 space-y-4"
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${subject.color} flex items-center justify-center text-white font-extrabold text-lg flex-shrink-0`}>
-                      {variant}
+                    <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-gray-50">
+                      <img
+                        src={subject.thumbnail}
+                        alt={subject.name}
+                        className={`w-full h-full ${CONTAIN_THUMBNAILS.has(subject.thumbnail) ? "object-contain p-1" : "object-cover"}`}
+                      />
                     </div>
                     <div>
                       <p className="font-extrabold text-gray-900 text-lg">Paper {variant}</p>
