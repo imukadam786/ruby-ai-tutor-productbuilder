@@ -245,6 +245,18 @@ const SUBJECTS: Subject[] = [
         description: "Human biology, ecology and environmental studies",
         filename: "lifesci-p2-may-jun-2026-studyguide_compressed.pdf",
       },
+      {
+        label: "Vraestel 1 — Lewe op Molekulêre Vlak",
+        description: "DNS, genetika, meiose en evolusie",
+        filename: "life-sci-p1-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
+      {
+        label: "Vraestel 2 — Lewe op Sisteemvlak",
+        description: "Menslike biologie, ekologie en omgewingstudies",
+        filename: "life-sci-p2-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
     ],
   },
   {
@@ -316,6 +328,18 @@ const SUBJECTS: Subject[] = [
         label: "Paper 2 — Chemistry",
         description: "Matter & materials, chemical change and solutions",
         filename: "physics-pp2-may-jun-studyguide-2026_compressed.pdf",
+      },
+      {
+        label: "Vraestel 1 — Fisika",
+        description: "Meganika, golwe, elektrisiteit en magnetisme",
+        filename: "phys-sci-p1-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
+      {
+        label: "Vraestel 2 — Chemie",
+        description: "Materie & materiale, chemiese verandering en oplossings",
+        filename: "phys-sci-p2-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
       },
     ],
   },
