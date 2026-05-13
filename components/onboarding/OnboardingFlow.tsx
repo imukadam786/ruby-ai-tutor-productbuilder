@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getTranslations } from "@/lib/onboarding-translations";
 import { supabase } from "@/lib/supabase";
 
@@ -137,7 +137,17 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState("");
   const [loginMode, setLoginMode] = useState(false);
+  const [forgotMode, setForgotMode] = useState<false | "form" | "sent">(false);
   const [signedUpUserId, setSignedUpUserId] = useState<string | undefined>(undefined);
+
+  // After a password reset, the reset-password page sets this flag so we land
+  // the user on the login form (not signup) when they return here.
+  useEffect(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("ruby_post_reset") === "1") {
+      sessionStorage.removeItem("ruby_post_reset");
+      setLoginMode(true);
+    }
+  }, []);
 
   const lang = data.language || "English";
   const t = getTranslations(lang);
@@ -231,6 +241,24 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     }
   };
 
+  // ── Forgot password ────────────────────────────────────────────────────────
+  // Always advances to the "sent" view, even on error, to prevent email enumeration.
+  const handleForgotPassword = async () => {
+    if (!email) return;
+    setAuthLoading(true);
+    setAuthError("");
+    try {
+      await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      });
+    } catch {
+      // Swallow — generic confirmation is shown regardless
+    } finally {
+      setAuthLoading(false);
+      setForgotMode("sent");
+    }
+  };
+
   // ── Complete onboarding (no plan step) ────────────────────────────────────
   const handleComplete = async () => {
     const final: OnboardingData = {
@@ -277,7 +305,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           )}
 
           {/* ── Step 1: Create Account / Login ── */}
-          {step === 1 && (
+          {step === 1 && !forgotMode && (
             <div className="flex-1 flex flex-col p-5 overflow-y-auto min-h-0">
               <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-1">
                 {loginMode ? "Welcome back" : t.step7Title}
@@ -368,9 +396,19 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                   {loginMode ? "Log in" : "Go! 🚀"}
                 </button>
                 {loginMode ? (
-                  <button onClick={() => { setLoginMode(false); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
-                    Create Account
-                  </button>
+                  <>
+                    <button onClick={() => { setLoginMode(false); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
+                      Create Account
+                    </button>
+                    <p className="text-center text-sm text-gray-500 mt-2">
+                      <button
+                        onClick={() => { setForgotMode("form"); setAuthError(""); }}
+                        className="text-[#1a2744] font-bold underline hover:text-rose-600 transition-colors"
+                      >
+                        Forgot password?
+                      </button>
+                    </p>
+                  </>
                 ) : (
                   <p className="text-center text-sm text-gray-500 mt-1">
                     Already have an account?{" "}
@@ -386,6 +424,77 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                   </p>
                 )}
               </div>
+            </div>
+          )}
+
+          {/* ── Step 1: Forgot Password ── */}
+          {step === 1 && forgotMode && (
+            <div className="flex-1 flex flex-col p-5 overflow-y-auto min-h-0">
+              {forgotMode === "form" ? (
+                <>
+                  <h1 className="text-2xl font-bold text-[#1a2744] text-center mb-2">Reset your password</h1>
+                  <p className="text-gray-400 text-sm text-center mb-5">
+                    Enter your email and we&apos;ll send you a link to set a new password.
+                  </p>
+
+                  <div className="flex flex-col gap-2.5 mb-2.5">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-800 mb-1">Email</label>
+                      <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
+                        <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto pt-4">
+                    {authError && (
+                      <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
+                    )}
+                    <button
+                      onClick={handleForgotPassword}
+                      disabled={!email || authLoading}
+                      className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors mb-2.5 flex items-center justify-center gap-2"
+                    >
+                      {authLoading && (
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                        </svg>
+                      )}
+                      Send reset link
+                    </button>
+                    <p className="text-center text-sm text-gray-500 mt-1">
+                      <button
+                        onClick={() => { setForgotMode(false); setAuthError(""); }}
+                        className="text-[#1a2744] font-bold underline hover:text-rose-600 transition-colors"
+                      >
+                        Back to login
+                      </button>
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flex-1 flex flex-col items-center justify-center text-center gap-4">
+                    <div className="text-5xl">📬</div>
+                    <h1 className="text-2xl font-bold text-[#1a2744]">Check your inbox</h1>
+                    <p className="text-gray-500 text-base px-2">
+                      If an account exists for <span className="font-semibold text-gray-700">{email}</span>, we&apos;ve sent a password reset link. Click the link in the email to set a new password.
+                    </p>
+                  </div>
+                  <div className="pt-4">
+                    <button
+                      onClick={() => { setForgotMode(false); setAuthError(""); }}
+                      className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base hover:bg-rose-700 transition-colors"
+                    >
+                      Back to login
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           )}
 
