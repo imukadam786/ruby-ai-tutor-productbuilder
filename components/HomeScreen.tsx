@@ -20,11 +20,11 @@ interface HomeScreenProps {
 
 function getRubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   return (
-    <div className={`${size} flex-shrink-0`}>
+    <div className={`${size} flex-shrink-0 rounded-full overflow-hidden bg-white`}>
       <img
-        src="/ruby-avatar.png"
+        src="/icons/icon-192.png"
         alt="Ruby"
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover"
         onError={(e) => {
           e.currentTarget.style.display = "none";
           const fb = e.currentTarget.nextElementSibling as HTMLElement | null;
@@ -32,7 +32,7 @@ function getRubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
         }}
       />
       <div
-        className="w-full h-full bg-rose-600 rounded-full items-center justify-center text-white font-bold text-xl"
+        className="w-full h-full bg-rose-600 items-center justify-center text-white font-bold text-xl"
         style={{ display: "none" }}
       >
         R
@@ -114,7 +114,6 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
   const [rawStreak, setRawStreak] = useState<Pick<StreakData, "currentStreak" | "bestStreak">>({ currentStreak: 0, bestStreak: 0 });
   const [rawActivity, setRawActivity] = useState<Record<string, number>>({});
   const [hasRealData, setHasRealData] = useState(false);
-  const [showWelcomeBack, setShowWelcomeBack] = useState(false);
   const [mathsDone, setMathsDone] = useState(false);
   const [readingDone, setReadingDone] = useState(false);
   const [viewReport, setViewReport] = useState<"maths" | "reading" | null>(null);
@@ -139,18 +138,6 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
       setHasRealData(hasActivity);
       setMathsDone(profile?.placementCompleted ?? false);
       setReadingDone((readingProfile as ReadingStudentProfile | null)?.placementCompleted ?? false);
-
-      const today = new Date().toISOString().split("T")[0];
-      const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
-      if (
-        streakData.lastActiveDate &&
-        streakData.lastActiveDate !== today &&
-        streakData.lastActiveDate !== yesterday &&
-        !sessionStorage.getItem("welcome_back_shown")
-      ) {
-        sessionStorage.setItem("welcome_back_shown", "1");
-        setShowWelcomeBack(true);
-      }
     };
     load();
   }, []);
@@ -174,28 +161,6 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
 
       <div className="relative flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
-
-          {/* ── Welcome back banner ───────────────────────────────────────── */}
-          {showWelcomeBack && (
-            <div className="mb-5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl px-5 py-4 flex items-center justify-between shadow-md">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">👋</span>
-                <div>
-                  <p className="font-bold text-white text-base">Welcome back, {firstName}!</p>
-                  <p className="text-indigo-100 text-sm">Great to see you again, let&apos;s pick up where you left off.</p>
-                </div>
-              </div>
-              <button
-                onClick={() => setShowWelcomeBack(false)}
-                className="text-white/70 hover:text-white ml-3 flex-shrink-0 transition-colors"
-                aria-label="Dismiss"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          )}
 
           {/* ── Hero ─────────────────────────────────────────────────────── */}
           <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
