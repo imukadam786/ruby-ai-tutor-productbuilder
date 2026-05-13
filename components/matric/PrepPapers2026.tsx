@@ -458,7 +458,7 @@ function ModeSelect({
           >
             {SA_LANGUAGES.map((l) => (
               <option key={l} value={l}>
-                {l}{l !== "English" && l !== "Afrikaans" ? " (beta)" : ""}
+                {l}
               </option>
             ))}
           </select>
@@ -810,8 +810,14 @@ function SessionView({
           <div className="hidden sm:block w-10 h-1.5 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
             <div className="h-full bg-[#BE1832] rounded-full transition-all" style={{ width: `${pctComplete}%` }} />
           </div>
+          {mode === "practice" && language !== "English" && language !== "Afrikaans" && (
+            <span className="ml-auto flex items-center gap-1.5 text-xs flex-shrink-0">
+              <span className="text-gray-500">{language}</span>
+              <span className="text-[10px] font-bold uppercase tracking-wide text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">beta</span>
+            </span>
+          )}
           {paper.infoSheet && (
-            <button onClick={() => setShowInfoSheet(true)} className="ml-auto flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]">
+            <button onClick={() => setShowInfoSheet(true)} className={`${mode === "practice" && language !== "English" && language !== "Afrikaans" ? "" : "ml-auto"} flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]`}>
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
@@ -1105,6 +1111,9 @@ function SessionView({
               </div>
               <span className="text-sm font-semibold text-gray-700">Ruby</span>
               <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">{language}</span>
+              {language !== "English" && language !== "Afrikaans" && (
+                <span className="text-[10px] font-bold uppercase tracking-wide text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">beta</span>
+              )}
             </div>
             <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
               {currentAttempt.coachMessages.length === 0 && (
