@@ -261,6 +261,18 @@ const SUBJECTS: Subject[] = [
         description: "Euclidean geometry, trigonometry, analytical geometry and statistics",
         filename: "maths-p2-may-jun-2026-studyguide.pdf",
       },
+      {
+        label: "Vraestel 1 — Algebra, Calculus & Funksies",
+        description: "Rye, funksies, calculus, finansies en waarskynlikheid",
+        filename: "maths-p1-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
+      {
+        label: "Vraestel 2 — Meetkunde, Trigonometrie & Statistiek",
+        description: "Euklidiese meetkunde, trigonometrie, analitiese meetkunde en statistiek",
+        filename: "maths-p2-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
     ],
   },
   {
