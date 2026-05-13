@@ -323,7 +323,7 @@ function PaperList({
 
                   <div className="flex items-center gap-2">
                     {progress.status === "not_started" && (
-                      <span className="text-xs font-semibold text-[#BE1832]">Start Paper {variant} 🚀</span>
+                      <span className="text-xs font-semibold text-[#BE1832] underline">Start Paper {variant} 🚀</span>
                     )}
                     {progress.status === "in_progress" && (
                       <>
@@ -341,10 +341,6 @@ function PaperList({
                         <span className="text-xs text-green-600 font-semibold">Completed · {progress.pct ?? 0}%</span>
                       </>
                     )}
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-[#BE1832] font-semibold group-hover:underline">Select paper →</span>
                   </div>
                 </button>
               );
