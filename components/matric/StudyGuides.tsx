@@ -10,10 +10,13 @@ function getGuideUrl(filename: string) {
   return data.publicUrl;
 }
 
+type Language = "en" | "af";
+
 interface Guide {
   label: string;
   description: string;
   filename: string;
+  language?: Language;
 }
 
 interface Subject {
@@ -192,6 +195,18 @@ const SUBJECTS: Subject[] = [
         description: "Settlement, population, economic geography and development",
         filename: "geo-p2-may-jun-2026-studyguide1.pdf",
       },
+      {
+        label: "Vraestel 1 — Fisiese Geografie",
+        description: "Klimaat, geomorfologie, riviere en globale atmosferiese stelsels",
+        filename: "geo-p1-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
+      {
+        label: "Vraestel 2 — Menslike Geografie",
+        description: "Nedersetting, bevolking, ekonomiese geografie en ontwikkeling",
+        filename: "geo-p2-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
     ],
   },
   {
@@ -207,6 +222,12 @@ const SUBJECTS: Subject[] = [
         label: "Paper 2 — World History",
         description: "Cold War, decolonisation and global change",
         filename: "his-pp2-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Vraestel 2 — Wêreldgeskiedenis",
+        description: "Koue Oorlog, dekolonisasie en globale verandering",
+        filename: "hist-p2-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
       },
     ],
   },
@@ -255,6 +276,18 @@ const SUBJECTS: Subject[] = [
         label: "Paper 2 — Applications in Context",
         description: "Data handling, probability and integrated contexts",
         filename: "mathslit-p2-may-jun-2026-studyguide2_compressed.pdf",
+      },
+      {
+        label: "Vraestel 1 — Basiese Vaardighede & Toepassings",
+        description: "Getalle, finansies, meting en kaarte",
+        filename: "mathslit-p1-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
+      {
+        label: "Vraestel 2 — Toepassings in Konteks",
+        description: "Datahantering, waarskynlikheid en geïntegreerde kontekste",
+        filename: "mathslit-p2-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
       },
     ],
   },
@@ -369,34 +402,61 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
         )}
 
         {/* Guides list */}
-        {selectedSubject && (
-          <div className="space-y-3">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a paper</h2>
-            <div className="flex flex-col gap-3">
-              {selectedSubject.guides.map((guide) => (
-                <button
-                  key={guide.filename}
-                  onClick={() => handleGuideClick(guide, selectedSubject.label)}
-                  className="w-full text-left bg-white rounded-2xl border border-gray-200 p-5 flex items-center gap-4 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.99] transition-all"
-                >
-                  <div className="shrink-0 w-12 h-12 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z" />
-                      <path d="M8.5 14.5h1.5v1.5H8.5zM8.5 11.5h7v1.5h-7zM8.5 17.5h7v1.5h-7z" />
-                    </svg>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-gray-900 text-sm">{guide.label}</p>
-                    <p className="text-gray-500 text-xs mt-0.5 truncate">{guide.description}</p>
-                  </div>
-                  <svg className="w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              ))}
+        {selectedSubject && (() => {
+          const englishGuides = selectedSubject.guides.filter((g) => (g.language ?? "en") === "en");
+          const afrikaansGuides = selectedSubject.guides.filter((g) => g.language === "af");
+          const showLanguageHeadings = englishGuides.length > 0 && afrikaansGuides.length > 0;
+
+          const renderGuide = (guide: Guide) => (
+            <button
+              key={guide.filename}
+              onClick={() => handleGuideClick(guide, selectedSubject.label)}
+              className="w-full text-left bg-white rounded-2xl border border-gray-200 p-5 flex items-center gap-4 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.99] transition-all"
+            >
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center">
+                <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z" />
+                  <path d="M8.5 14.5h1.5v1.5H8.5zM8.5 11.5h7v1.5h-7zM8.5 17.5h7v1.5h-7z" />
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-semibold text-gray-900 text-sm">{guide.label}</p>
+                <p className="text-gray-500 text-xs mt-0.5 truncate">{guide.description}</p>
+              </div>
+              <svg className="w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          );
+
+          if (!showLanguageHeadings) {
+            return (
+              <div className="space-y-3">
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a paper</h2>
+                <div className="flex flex-col gap-3">
+                  {selectedSubject.guides.map(renderGuide)}
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <h2 className="text-base font-bold text-gray-900">English</h2>
+                <div className="flex flex-col gap-3">
+                  {englishGuides.map(renderGuide)}
+                </div>
+              </div>
+              <div className="space-y-3">
+                <h2 className="text-base font-bold text-gray-900">Afrikaans</h2>
+                <div className="flex flex-col gap-3">
+                  {afrikaansGuides.map(renderGuide)}
+                </div>
+              </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
 
       </div>
     </div>
