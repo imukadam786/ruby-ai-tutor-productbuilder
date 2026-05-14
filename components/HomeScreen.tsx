@@ -15,7 +15,10 @@ import SavedReportView from "@/components/SavedReportView";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
+  userPlan: string | null;
 }
+
+const MATRIC_PLANS = ["master", "matric-pack"];
 
 
 function getRubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
@@ -80,7 +83,24 @@ function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
   });
 }
 
-export default function HomeScreen({ onNavigate }: HomeScreenProps) {
+export default function HomeScreen({ onNavigate, userPlan }: HomeScreenProps) {
+  const hasMatricAccess = userPlan !== null && MATRIC_PLANS.includes(userPlan);
+
+  const handleMatricPrepClick = () => {
+    if (hasMatricAccess) {
+      onNavigate("matrics");
+    } else {
+      document.dispatchEvent(
+        new CustomEvent("ruby-upgrade-needed", {
+          detail: {
+            reason: "Matric Past Papers, Study Guides and Prep Papers require the Matric Exam Pack or Master plan.",
+            matricOnly: true,
+          },
+        })
+      );
+    }
+  };
+
   const { t } = useT();
 
   const statDefs = [
@@ -235,6 +255,26 @@ export default function HomeScreen({ onNavigate }: HomeScreenProps) {
 
           {/* ── Discovery CTAs ────────────────────────────────────────────── */}
           <section className="mb-8 space-y-3">
+            <button
+              onClick={handleMatricPrepClick}
+              className="w-full bg-gradient-to-r from-green-600 to-green-700 rounded-2xl px-5 py-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">🎓</span>
+                <div>
+                  <p className="font-semibold text-white">Matric Prep</p>
+                  <p className="text-sm text-green-100 mt-0.5">
+                    {hasMatricAccess
+                      ? "Past papers, prep papers and study guides"
+                      : "Unlock past papers, prep papers and study guides"}
+                  </p>
+                </div>
+              </div>
+              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full">
+                {hasMatricAccess ? "View →" : "Upgrade →"}
+              </span>
+            </button>
+
             {mathsDone ? (
               <button
                 onClick={() => setViewReport("maths")}
