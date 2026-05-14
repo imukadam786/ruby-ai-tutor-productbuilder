@@ -47,6 +47,18 @@ const SUBJECTS: Subject[] = [
         description: "Partnerships, companies and cash flow statements",
         filename: "acc-p2-may-jun-2026-studyguide_compressed.pdf",
       },
+      {
+        label: "Vraestel 1 — Rekeningkundige Konsepte",
+        description: "Finansiële state, grootboeke en rekeningkundige konsepte",
+        filename: "acc-p1-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
+      {
+        label: "Vraestel 2 — Finansiële Verslagdoening",
+        description: "Vennootskappe, maatskappye en kontantvloeistate",
+        filename: "acc-p2-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
     ],
   },
   {
