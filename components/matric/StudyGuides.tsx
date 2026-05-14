@@ -133,6 +133,18 @@ const SUBJECTS: Subject[] = [
         description: "Business functions, financial management and human resources",
         filename: "busistd-p2-may-jun-2026-studyguide_compressed.pdf",
       },
+      {
+        label: "Vraestel 1 — Besigheidsomgewings",
+        description: "Besigheidsomgewings, entrepreneurskap en besigheidsrolle",
+        filename: "busistd-p1-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
+      {
+        label: "Vraestel 2 — Bestuur & Bedrywighede",
+        description: "Besigheidsfunksies, finansiële bestuur en menslike hulpbronne",
+        filename: "busistd-p2-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
     ],
   },
   {
