@@ -144,7 +144,21 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     if (typeof window === "undefined") return false;
     return sessionStorage.getItem("installPromptDismissed") !== "1";
   });
-  // Handle PayFast return redirect — navigate to settings and show result
+  const fetchUserPlan = useCallback(async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+    const { data } = await supabase
+      .from("subscriptions")
+      .select("plan, status")
+      .eq("user_id", user.id)
+      .single();
+    setUserPlan(data?.status === "active" ? (data?.plan ?? "freebie") : "freebie");
+  }, []);
+
+  // Handle PayFast return redirect — navigate to settings and show result.
+  // ITN runs server-side asynchronously, so retry the plan fetch a few times
+  // before giving up; otherwise the navigation gate stays on the pre-payment plan
+  // until the user reloads.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
@@ -152,10 +166,14 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     if (payment === "success" || payment === "cancelled") {
       setPaymentReturn(payment);
       setActiveView("settings");
-      // Clean URL without reload
       window.history.replaceState({}, "", "/");
     }
-  }, []);
+    if (payment !== "success") return;
+    const timers = [2000, 6000, 12000].map((ms) =>
+      setTimeout(() => { void fetchUserPlan(); }, ms),
+    );
+    return () => timers.forEach(clearTimeout);
+  }, [fetchUserPlan]);
 
   useEffect(() => {
     const onUpgradeNeeded = (e: Event) => {
@@ -209,17 +227,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     };
   }, [refreshStats, onPostDiscovery]);
 
-  useEffect(() => {
-    supabase.auth.getUser().then(async ({ data: { user } }) => {
-      if (!user) return;
-      const { data } = await supabase
-        .from("subscriptions")
-        .select("plan, status")
-        .eq("user_id", user.id)
-        .single();
-      setUserPlan(data?.status === "active" ? (data?.plan ?? "freebie") : "freebie");
-    });
-  }, []);
+  useEffect(() => { void fetchUserPlan(); }, [fetchUserPlan]);
 
   const MATRIC_VIEWS: ActiveView[] = ["matrics", "matric", "prep-papers-2026", "study-guides"];
 
