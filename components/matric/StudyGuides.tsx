@@ -161,6 +161,18 @@ const SUBJECTS: Subject[] = [
         description: "Labour markets, public sector, foreign exchange and economic history",
         filename: "eco-p2-may-jun-2026-studyguide_compressed.pdf",
       },
+      {
+        label: "Vraestel 1 — Makro-ekonomie & Mikro-ekonomie",
+        description: "Ekonomiese stelsels, markte, groei en ontwikkeling",
+        filename: "eco-p1-may-jun-2026-studuguide-afrikaans.pdf",
+        language: "af",
+      },
+      {
+        label: "Vraestel 2 — Ekonomiese Strewes",
+        description: "Arbeidsmarkte, openbare sektor, buitelandse valuta en ekonomiese geskiedenis",
+        filename: "eco-p2-may-jun-2026-studuguide-afrikaans.pdf",
+        language: "af",
+      },
     ],
   },
   {
