@@ -98,6 +98,13 @@ const PREP_SUBJECTS = [
     available: true,
   },
   {
+    id: "economics",
+    name: "Economics",
+    thumbnail: "/thumbnails/economics.jpeg",
+    color: "from-emerald-500 to-teal-600",
+    available: true,
+  },
+  {
     id: "english",
     name: "English",
     thumbnail: "/thumbnails/english.jpeg",
