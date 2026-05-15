@@ -1,6 +1,6 @@
 # Past Papers — Source of Truth
 
-> Last updated: 2026-05-10
+> Last updated: 2026-05-15
 > ✅ Complete · ⚠️ Partial · ❌ Not started · ➖ Text-only · 🚫 File missing
 
 | Subject | P | Year | Session | Wired | Missing | Status |
@@ -45,13 +45,13 @@
 | Economics | P1 | 2023 | May/Jun | 6 | 0 | ✅ |
 | Economics | P1 | 2024 | May/Jun | 6 | 0 | ✅ |
 | Economics | P1 | 2025 | May/Jun | 6 | 0 | ✅ |
-| Economics | P1 | 2026 | Predictive | 0 | 5 | ❌ |
+| Economics | P1 | 2026 | Predictive | 7 | 5 | ⚠️ |
 | Economics | P2 | 2021 | May/Jun | 8 | 0 | ✅ |
 | Economics | P2 | 2022 | May/Jun | 13 | 0 | ✅ |
 | Economics | P2 | 2023 | May/Jun | 7 | 0 | ✅ |
 | Economics | P2 | 2024 | May/Jun | 5 | 0 | ✅ |
 | Economics | P2 | 2025 | May/Jun | 6 | 0 | ✅ |
-| Economics | P2 | 2026 | Predictive | 0 | 8 | ❌ |
+| Economics | P2 | 2026 | Predictive | 7 | 8 | ⚠️ |
 | English HL | P1 | 2021 | May/Jun | 2 | 0 | ✅ |
 | English HL | P1 | 2022 | May/Jun | 5 | 0 | ✅ |
 | English HL | P1 | 2023 | May/Jun | 2 | 0 | ✅ |
