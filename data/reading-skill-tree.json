@@ -1023,6 +1023,598 @@
           ]
         }
       ]
+    },
+    {
+      "id": 6,
+      "title": "Transition to Academic Reading",
+      "description": "Read to learn — non-fiction texts, structured data texts, instructions, and proper paragraphs. Grade 4, voice + text. Unlocks after Level 5. Advance (Gate E) when main-idea accuracy ≥60%, paragraph-structure score ≥60%, reading/cloze accuracy ≥70%, and structured-data accuracy ≥60% — across 2 separate sessions.",
+      "tiers": [
+        {
+          "id": "R6.T1",
+          "title": "Structured Understanding",
+          "atomic_skills": [
+            {
+              "id": "R6.T1.A1",
+              "title": "Find the Main Idea",
+              "description": "Read a story or information text and state the main idea in one sentence that covers the whole text — not a detail, not a topic label.",
+              "bank_skill_id": "L6.A1",
+              "prerequisites": ["R5.T3.A1"],
+              "templates": ["reading", "oral", "written"],
+              "error_signatures": [
+                { "type": "detail_as_main", "description": "A specific fact stated instead of the overarching main idea (breadth <40%)", "example": "For a text about recycling: 'A glass bottle can be melted into a new bottle.'" },
+                { "type": "topic_label", "description": "Subject named with no predicate verb", "example": "Answer is just 'Recycling' or 'the water cycle'" },
+                { "type": "verbatim_copy", "description": "A sentence copied word-for-word from the text", "example": "Learner reproduces an opening sentence verbatim" }
+              ],
+              "recovery_strategy": "DETAIL_AS_MAIN: 'Write a newspaper headline for this text' — must cover all paragraphs. TOPIC_LABEL: sentence frame 'This text is mainly saying that ___.' VERBATIM_COPY: hide text; restate in own words.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R6.T1.A2",
+              "title": "Find Supporting Details",
+              "description": "Identify 2–3 supporting details, each different from the main idea and from each other, and each grounded in the text.",
+              "bank_skill_id": "L6.A2",
+              "prerequisites": ["R6.T1.A1"],
+              "templates": ["reading", "oral", "written"],
+              "error_signatures": [
+                { "type": "duplicate_details", "description": "Two details say the same thing in different words", "example": "Both details restate that the dog was lost" },
+                { "type": "invented_detail", "description": "Detail has no keyword overlap with the source text", "example": "Learner adds a detail not present in the passage" }
+              ],
+              "recovery_strategy": "DUPLICATE_DETAILS: 'Each detail must give new information.' INVENTED_DETAIL: learner points to the source sentence before stating the detail.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R6.T1.A3",
+              "title": "Retell in Logical Order",
+              "description": "Retell the content of a text in logical order in their own words, covering beginning/middle/end (story) or steps/sections (information).",
+              "bank_skill_id": "L6.A3",
+              "prerequisites": ["R6.T1.A2"],
+              "templates": ["reading", "oral", "written"],
+              "error_signatures": [
+                { "type": "wrong_order", "description": "Units retold out of source sequence", "example": "Learner describes the ending before the beginning" },
+                { "type": "single_unit", "description": "Whole text collapsed into one statement", "example": "Learner gives a one-line gist instead of an ordered retell" }
+              ],
+              "recovery_strategy": "WRONG_ORDER: show text-structure mapping; label sections before retelling. COPY_RETELL: hide the text; learner retells aloud.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R6.T1.A4",
+              "title": "Cloze Reading",
+              "description": "Read a grade-level passage with every 7th word removed and type the correct missing word for each blank (Phase-1 fluency proxy for read-aloud accuracy).",
+              "bank_skill_id": "L6.A4",
+              "prerequisites": ["R6.T1.A3"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "high_omission_rate", "description": "More than 3 blank responses in 10 — learner not attempting", "example": "Learner leaves most blanks empty" },
+                { "type": "semantic_substitution", "description": "Plausible meaning but wrong word class", "example": "Learner supplies a noun where a verb is required" }
+              ],
+              "recovery_strategy": "HIGH_OMISSION_RATE: reduce passage to 50 words; rebuild confidence. CONSISTENT_WORD_TYPE_ERRORS: targeted word-class drill before returning to passage.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R6.T2",
+          "title": "Reading Structured Data Texts & Instructions",
+          "atomic_skills": [
+            {
+              "id": "R6.T2.A1",
+              "title": "Locate Data in Structured Text",
+              "description": "Read a structured data text (text table or data paragraph) and answer a targeted question by locating the correct data point.",
+              "bank_skill_id": "L6.B1",
+              "prerequisites": ["R6.T1.A4"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "wrong_data_point", "description": "Answer references an incorrect value or category", "example": "Learner reports the wrong number from the table" },
+                { "type": "context_ignore", "description": "Answer taken from surrounding narrative, not the data section", "example": "Learner answers from the story text instead of the data" }
+              ],
+              "recovery_strategy": "WRONG_DATA_POINT: 'Identify the data point the question asks for before answering.' CONTEXT_IGNORE: data-isolation protocol — answer from data only until 60%.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R6.T2.A2",
+              "title": "Follow Procedural Text",
+              "description": "Follow a step-by-step text and produce the steps in the correct sequence with none left out.",
+              "bank_skill_id": "L6.B2",
+              "prerequisites": ["R6.T2.A1"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "step_omission", "description": "One or more steps missing", "example": "Learner skips step 3 of a 5-step recipe" },
+                { "type": "step_inversion", "description": "Two steps swapped in order", "example": "Learner lists step 4 before step 3" }
+              ],
+              "recovery_strategy": "STEP_OMISSION: number each step explicitly before retelling. STEP_INVERSION: jumbled-order labelling task (e.g. '1=C, 2=A, 3=B') checked against source.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R6.T2.A3",
+              "title": "Vocabulary in Context",
+              "description": "Work out the meaning of an unfamiliar word from the surrounding sentence or paragraph.",
+              "bank_skill_id": "L6.B3",
+              "prerequisites": ["R6.T2.A2"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "wrong_meaning", "description": "Definition similarity below 0.40", "example": "Learner gives an unrelated meaning for the target word" },
+                { "type": "adjacent_copy", "description": "Learner copies a phrase from surrounding text", "example": "Learner repeats the next sentence instead of defining the word" }
+              ],
+              "recovery_strategy": "WRONG_MEANING: context-clue strategy — 'What do the words around it tell you?' ADJACENT_COPY: 'In your own words, what does it mean?'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R6.T3",
+          "title": "Paragraph Writing & Fluency",
+          "atomic_skills": [
+            {
+              "id": "R6.T3.A1",
+              "title": "Paragraph Structure",
+              "description": "Write a paragraph of 5–8 sentences with a clear opening, supporting sentences, and a closing, in logical order.",
+              "bank_skill_id": "L6.C1",
+              "prerequisites": ["R6.T2.A3"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "no_opening", "description": "First sentence does not identify the topic", "example": "Paragraph starts mid-thought with no topic sentence" },
+                { "type": "random_order", "description": "Adjacent sentence coherence below 0.40", "example": "Sentences jump between unrelated ideas" }
+              ],
+              "recovery_strategy": "NO_OPENING: sentence frame 'This paragraph is about ___.' RANDOM_ORDER: sentence-ordering activity before writing.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R6.T3.A2",
+              "title": "Connecting Words",
+              "description": "Use connecting words (first, then, because, so, however) correctly to link sentences logically.",
+              "bank_skill_id": "L6.C2",
+              "prerequisites": ["R6.T3.A1"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "wrong_connective_type", "description": "Cause connective used for a time-order relationship", "example": "Learner uses 'because' where 'then' is needed" },
+                { "type": "connective_absent", "description": "Paragraph has no connecting words", "example": "Sentences listed with no linking language" }
+              ],
+              "recovery_strategy": "WRONG_CONNECTIVE_TYPE: connecting-word function chart. CONNECTIVE_ABSENT: require at least 1 connecting word per 2 sentences.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R6.T3.A3",
+              "title": "Tense Consistency",
+              "description": "Maintain consistent tense (past or present) throughout a paragraph without switching mid-paragraph.",
+              "bank_skill_id": "L6.C3",
+              "prerequisites": ["R6.T3.A2"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "tense_shift", "description": "One verb in the wrong tense", "example": "Past-tense paragraph with one present-tense verb" },
+                { "type": "tense_oscillation", "description": "Systematically alternates between two tenses", "example": "Learner switches past/present every other sentence" }
+              ],
+              "recovery_strategy": "TENSE_SHIFT: highlight all verbs; learner checks each against the chosen tense before submitting. TENSE_OSCILLATION: 'Pick one tense at the start and stay in it.'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Organised Meaning & Structured Writing",
+      "description": "Organise meaning and write structured, justified responses. Grade 5, strategic voice + text. Unlocks after Level 6. Advance (Hard Gate 2 / Gate F) when all Level 7 skills meet threshold across 3 sessions, opinion structure is produced without support, and transitions appear unprompted.",
+      "tiers": [
+        {
+          "id": "R7.T1",
+          "title": "Text Structure Awareness",
+          "atomic_skills": [
+            {
+              "id": "R7.T1.A1",
+              "title": "Skim Reading",
+              "description": "Skim a text (headings and first sentence of each paragraph only) and produce a correct general topic statement within the target time.",
+              "bank_skill_id": "L7.A1",
+              "prerequisites": ["R6.T3.A3"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "over_reading", "description": "Skim latency exceeds 140 sec — learner read the whole text", "example": "Learner takes 3 minutes on a skim task" },
+                { "type": "topic_too_narrow", "description": "Topic coverage below 0.40 across the full text", "example": "Topic statement covers only the first section" }
+              ],
+              "recovery_strategy": "OVER_READING: timer enforced; system reveals headings and first sentences only. TOPIC_TOO_NARROW: 'What is the whole text about, not just one part?'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R7.T1.A2",
+              "title": "Scan Reading",
+              "description": "Scan a text for a specific named detail (date, name, statistic) without reading the full text, within the target time.",
+              "bank_skill_id": "L7.A2",
+              "prerequisites": ["R7.T1.A1"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "slow_scan", "description": "Scan latency exceeds 100 sec", "example": "Learner reads the whole text to find one date" },
+                { "type": "multiple_answers", "description": "Lists all instances rather than the specific requested detail", "example": "Learner lists every number in the text" }
+              ],
+              "recovery_strategy": "SLOW_SCAN: 'Look for the key word in the question, then find it on the page.' MULTIPLE_ANSWERS: 'Which one answers the question exactly?'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R7.T1.A3",
+              "title": "Purpose Identification",
+              "description": "Identify the primary purpose of a text (inform, persuade, entertain) and give one text-based reason.",
+              "bank_skill_id": "L7.A3",
+              "prerequisites": ["R7.T1.A2"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "wrong_purpose", "description": "Incorrect purpose classification", "example": "Learner labels a persuasive advert as 'to entertain'" },
+                { "type": "generic_reason", "description": "Reason does not reference specific text features", "example": "Learner says 'because it is interesting'" }
+              ],
+              "recovery_strategy": "WRONG_PURPOSE: purpose-feature chart; check text against 3 features per type. GENERIC_REASON: require naming a specific language feature.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R7.T2",
+          "title": "Reading & Comparing Information",
+          "atomic_skills": [
+            {
+              "id": "R7.T2.A1",
+              "title": "Text Features",
+              "description": "Identify text features (heading, subheading, caption, bold, sidebar) and state the function of each.",
+              "bank_skill_id": "L7.B1",
+              "prerequisites": ["R7.T1.A3"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "feature_mislabel", "description": "Identifies a caption as a heading or vice versa", "example": "Learner calls a sidebar a heading" },
+                { "type": "function_vague", "description": "States 'it helps' without specifying what", "example": "Learner says a heading 'just helps you read'" }
+              ],
+              "recovery_strategy": "FEATURE_MISLABEL: explicit feature glossary with examples. FUNCTION_VAGUE: frame 'The [feature] tells the reader ___ by ___.'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R7.T2.A2",
+              "title": "Data Comparison",
+              "description": "Read a structured data text with two or more comparable entities and answer a comparison/inference question by extracting 2 data points and producing a comparison statement.",
+              "bank_skill_id": "L7.B2",
+              "prerequisites": ["R7.T2.A1"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "single_data_point", "description": "Only one data point mentioned", "example": "Learner states one value without comparing" },
+                { "type": "directional_error", "description": "Comparison direction inverted", "example": "Learner says 'less than' when the data shows more than" }
+              ],
+              "recovery_strategy": "SINGLE_DATA_POINT: require a 'compared to' structure in every answer. DIRECTIONAL_ERROR: highlight both values explicitly before comparison.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R7.T2.A3",
+              "title": "Fact / Opinion",
+              "description": "Classify a statement as fact (verifiable) or opinion (personal view) and provide a justification.",
+              "bank_skill_id": "L7.B3",
+              "prerequisites": ["R7.T2.A2"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "opinion_as_fact", "description": "Personal judgement classified as verifiable", "example": "'This is the best book' classified as fact" },
+                { "type": "justification_absent", "description": "Classification given with no reason", "example": "Learner labels FACT/OPINION with no 'because'" }
+              ],
+              "recovery_strategy": "OPINION_AS_FACT: signal words — should, best, worst, I think. FACT_AS_OPINION: 'Can we check this? Is there a source?'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R7.T3",
+          "title": "Multi-Paragraph & Justified Writing",
+          "atomic_skills": [
+            {
+              "id": "R7.T3.A1",
+              "title": "Multi-Paragraph Writing",
+              "description": "Write 2–3 connected paragraphs, each beginning with a topic sentence and containing 2 supporting details.",
+              "bank_skill_id": "L7.C1",
+              "prerequisites": ["R7.T2.A3"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "no_topic_sentence", "description": "Opening sentence does not frame the paragraph", "example": "Paragraph starts with a detail, not a topic sentence" },
+                { "type": "paragraph_bleed", "description": "Sentence topically closer to a different paragraph", "example": "A point about causes appears in the effects paragraph" }
+              ],
+              "recovery_strategy": "NO_TOPIC_SENTENCE: system supplies the topic sentence; learner writes the rest; support removed over 3 tasks. PARAGRAPH_BLEED: 'This sentence belongs in the other paragraph.'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R7.T3.A2",
+              "title": "Topic Sentence Structure",
+              "description": "Use a topic-sentence + supporting-detail structure consistently, with the topic sentence flagging the paragraph's main claim.",
+              "bank_skill_id": "L7.C2",
+              "prerequisites": ["R7.T3.A1"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "narrow_topic_sentence", "description": "Topic-sentence breadth below 0.40", "example": "Topic sentence covers only one detail of the paragraph" },
+                { "type": "inverted_structure", "description": "Details come before the topic sentence", "example": "Learner lists evidence then states the claim last" }
+              ],
+              "recovery_strategy": "NARROW_TOPIC_SENTENCE: rewrite the topic sentence after writing the paragraph. INVERTED_STRUCTURE: 'Topic sentence is always first.'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R7.T3.A3",
+              "title": "Opinion Paragraph",
+              "description": "Write an opinion paragraph that states a clear position and provides 2 distinct supporting reasons.",
+              "bank_skill_id": "L7.C3",
+              "prerequisites": ["R7.T3.A2"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "single_reason", "description": "Only one reason clause present", "example": "Learner gives a position and just one reason" },
+                { "type": "reason_restates_opinion", "description": "Reason is a circular paraphrase of the opinion", "example": "'It is good because it is good.'" }
+              ],
+              "recovery_strategy": "OPINION_ABSENT: frame 'I believe ___ because ___ and ___.' REASON_RESTATES_OPINION: 'Your reason must give new information.'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R7.T3.A4",
+              "title": "Transition Words",
+              "description": "Use transition words (next, also, however, finally, in addition) between paragraphs to signal logical flow.",
+              "bank_skill_id": "L7.C4",
+              "prerequisites": ["R7.T3.A3"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "transition_absent", "description": "Second paragraph opens with no transition word", "example": "New paragraph starts with no connective" },
+                { "type": "wrong_function", "description": "Contrastive transition used between two agreeing paragraphs", "example": "'However' used to link two paragraphs that agree" }
+              ],
+              "recovery_strategy": "TRANSITION_ABSENT: fill-in activity on learner's own paragraphs. WRONG_FUNCTION: transition-function chart with examples.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R7.T4",
+          "title": "Oral Reasoning",
+          "atomic_skills": [
+            {
+              "id": "R7.T4.A1",
+              "title": "Oral Opinion",
+              "description": "State an opinion orally and support it with 2 distinct reasons using spoken language (text fallback accepted, logged as TEXT_MODE).",
+              "bank_skill_id": "L7.D1",
+              "prerequisites": ["R7.T3.A4"],
+              "templates": ["oral", "written"],
+              "error_signatures": [
+                { "type": "opinion_absent_oral", "description": "States reasons but not the opinion", "example": "Learner gives reasons without stating a position" },
+                { "type": "short_response", "description": "Fewer than 3 clauses", "example": "Learner gives a one-clause answer" }
+              ],
+              "recovery_strategy": "OPINION_ABSENT_ORAL: 'Start with what you think, then say why.' SHORT_RESPONSE: elaboration prompt 'Say more — what else?'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R7.T4.A2",
+              "title": "Oral Exchange",
+              "description": "Participate in a 2-turn spoken exchange, responding to a system-generated follow-up question with relevant new content.",
+              "bank_skill_id": "L7.D2",
+              "prerequisites": ["R7.T4.A1"],
+              "templates": ["oral", "written"],
+              "error_signatures": [
+                { "type": "off_topic_turn2", "description": "Turn 2 meaning similarity to topic below 0.40", "example": "Follow-up answer drifts to an unrelated subject" },
+                { "type": "repetition_turn2", "description": "Turn 2 largely repeats Turn 1", "example": "Learner restates the first answer with no new content" }
+              ],
+              "recovery_strategy": "OFF_TOPIC_TURN2: system simplifies the follow-up question. SHORT_TURN2: 'Can you give an example?'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R7.T4.A3",
+              "title": "Oral Summary",
+              "description": "Produce an oral summary of a text in logical order, covering the main idea and 2 supporting details.",
+              "bank_skill_id": "L7.D3",
+              "prerequisites": ["R7.T4.A2"],
+              "templates": ["oral", "written"],
+              "error_signatures": [
+                { "type": "no_main_idea_oral", "description": "Jumps to details without a main idea", "example": "Learner lists facts without saying what the text is about" },
+                { "type": "verbatim_oral", "description": "Reproduces source sentences aloud", "example": "Learner recites the text instead of summarising" }
+              ],
+              "recovery_strategy": "NO_MAIN_IDEA_ORAL: structure 'This text is mainly about ___, and two things that support that are ___.' VERBATIM_ORAL: hide text before summarising.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Early Academic Reasoning",
+      "description": "Think like a student — cause & effect, summarising, comparing sources, audience/purpose, and academic register. Grade 6, mixed text + voice. LOCKED until Hard Gate 2 (Level 7) is passed. Advance (Gate G) when causal accuracy ≥60%, summaries cover 3 key points, comparison validity ≥60%, and academic register is maintained across 2 sessions.",
+      "tiers": [
+        {
+          "id": "R8.T1",
+          "title": "Cause & Effect and Analysis",
+          "atomic_skills": [
+            {
+              "id": "R8.T1.A1",
+              "title": "Cause and Effect",
+              "description": "Identify a cause-effect relationship in a text and produce a statement naming both the cause and the effect with causal language.",
+              "bank_skill_id": "L8.A1",
+              "prerequisites": ["R7.T4.A3"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "causal_inversion", "description": "Effect identified as cause and vice versa", "example": "Learner says the flood caused the rain" },
+                { "type": "correlation_as_cause", "description": "Co-occurring events stated as causal without textual support", "example": "'It rained and the team lost, so the rain caused the loss'" }
+              ],
+              "recovery_strategy": "CAUSAL_INVERSION: 'The cause happens first and makes the effect happen.' CORRELATION_AS_CAUSE: require textual evidence for the causal claim.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R8.T1.A2",
+              "title": "Audience and Purpose",
+              "description": "Identify the intended audience and purpose of a text and provide text-based evidence for both.",
+              "bank_skill_id": "L8.A2",
+              "prerequisites": ["R8.T1.A1"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "audience_unsupported", "description": "Audience correctly identified but no textual feature given", "example": "Learner names the audience with no evidence" },
+                { "type": "purpose_confusion", "description": "Purpose misidentified", "example": "Learner reads a persuasive text as purely informative" }
+              ],
+              "recovery_strategy": "AUDIENCE_UNSUPPORTED: require evidence before accepting the classification. FEATURE_GENERIC: 'Which specific words or features tell you that?'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R8.T1.A3",
+              "title": "Persuasive Features",
+              "description": "Identify persuasive language features in a text and state the intended effect of each.",
+              "bank_skill_id": "L8.A3",
+              "prerequisites": ["R8.T1.A2"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "feature_not_in_text", "description": "Names a feature type not present in the given text", "example": "Learner claims a statistic where none exists" },
+                { "type": "effect_vague", "description": "Effect stated without a specific impact", "example": "'It makes it better' with no explanation" }
+              ],
+              "recovery_strategy": "FEATURE_NOT_IN_TEXT: highlight the feature in the text before naming it. EFFECT_VAGUE: frame 'This [feature] makes the reader feel/think ___ because ___.'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R8.T2",
+          "title": "Summarising & Comparing Texts",
+          "atomic_skills": [
+            {
+              "id": "R8.T2.A1",
+              "title": "Summary Writing",
+              "description": "Write a summary of a multi-paragraph text to roughly a third of its length, covering 3 key points without copying or adding content.",
+              "bank_skill_id": "L8.B1",
+              "prerequisites": ["R8.T1.A3"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "key_point_gap", "description": "Fewer than 3 source points represented (coverage <0.40)", "example": "Summary captures only one main point" },
+                { "type": "verbatim_summary", "description": "Copying score ≥60% per sentence", "example": "Summary reproduces source sentences" }
+              ],
+              "recovery_strategy": "KEY_POINT_GAP: guided organiser — identify 3 key points before writing. VERBATIM_SUMMARY: hide source text before writing the summary.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R8.T2.A2",
+              "title": "Compare Two Texts",
+              "description": "Compare two texts on the same topic by identifying 2 similarities and 2 differences, each grounded in evidence from both sources.",
+              "bank_skill_id": "L8.B2",
+              "prerequisites": ["R8.T2.A1"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "single_text_only", "description": "Statement references only one text", "example": "A 'comparison' that only discusses Text A" },
+                { "type": "framing_error", "description": "Similarity framed as difference or vice versa", "example": "'Both texts differ in that they both mention bees'" }
+              ],
+              "recovery_strategy": "SINGLE_TEXT_ONLY: two-source mapping — 'Both share: [X]', 'Text A only: [Y]', 'Text B only: [Z]' must pass before drafting. FRAMING_ERROR: 'Similarities use both/and; differences use but/however.'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R8.T2.A3",
+              "title": "Source Integration",
+              "description": "Read a main explanatory text and a structured data text on the same topic and produce a response drawing on both, explicitly linked with an integration connector.",
+              "bank_skill_id": "L8.B3",
+              "prerequisites": ["R8.T2.A2"],
+              "templates": ["reading", "written"],
+              "error_signatures": [
+                { "type": "main_text_only", "description": "No data point from the structured data text referenced", "example": "Answer uses only the explanatory text" },
+                { "type": "no_integration_connector", "description": "Both sources referenced but not explicitly linked", "example": "Two facts stated side by side with no linking phrase" }
+              ],
+              "recovery_strategy": "MAIN_TEXT_ONLY: 'Your answer must include one piece of information from the main text AND one data point.' NO_INTEGRATION_CONNECTOR: integration phrase starters provided.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R8.T3",
+          "title": "Structured Academic Writing",
+          "atomic_skills": [
+            {
+              "id": "R8.T3.A1",
+              "title": "Explanatory Paragraph",
+              "description": "Write a structured explanatory paragraph identifying a cause, explaining a process/mechanism, and stating an outcome, using academic transition phrases.",
+              "bank_skill_id": "L8.C1",
+              "prerequisites": ["R8.T2.A3"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "no_mechanism", "description": "Jumps from cause to outcome with no process explanation", "example": "'The sun heats water so it rains' with no intermediate steps" },
+                { "type": "casual_register", "description": "Contraction or slang detected", "example": "Learner writes 'it's gonna' in an academic paragraph" }
+              ],
+              "recovery_strategy": "NO_MECHANISM: frame 'This happens because ___. This leads to ___.' CASUAL_REGISTER: flag the word; require a formal replacement; submission gated until corrected.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R8.T3.A2",
+              "title": "Factual Report",
+              "description": "Write a basic factual report with a title, at least 2 headed sections, and 2–3 sentences per topically distinct section.",
+              "bank_skill_id": "L8.C2",
+              "prerequisites": ["R8.T3.A1"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "no_headings", "description": "Paragraphs written without section headings", "example": "Report is one block of text with no headings" },
+                { "type": "section_overlap", "description": "Cross-section similarity ≥0.65", "example": "Two sections repeat the same content" }
+              ],
+              "recovery_strategy": "NO_HEADINGS: require a title and 2 headings before content. SECTION_OVERLAP: 'Each section must cover a different part of the topic.'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R8.T3.A3",
+              "title": "Academic Transitions",
+              "description": "Use academic transition phrases (however, therefore, in contrast, as a result, furthermore) correctly between sentences and ideas. (Error signatures follow spec Section 5; the question bank is authoritative for evaluation.)",
+              "bank_skill_id": "L8.C3",
+              "prerequisites": ["R8.T3.A2"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "transition_misuse", "description": "Academic transition used for the wrong logical relationship", "example": "'Therefore' used where contrast is intended" },
+                { "type": "informal_connector", "description": "Casual connector used instead of an academic transition", "example": "'And also' instead of 'furthermore'" }
+              ],
+              "recovery_strategy": "TRANSITION_MISUSE: academic-transition function chart. INFORMAL_CONNECTOR: flag and require a formal equivalent.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R8.T3.A4",
+              "title": "Paragraph Cohesion",
+              "description": "Maintain cohesion across a paragraph using reference chains and consistent topic focus. (Error signatures follow spec Section 5; the question bank is authoritative for evaluation.)",
+              "bank_skill_id": "L8.C4",
+              "prerequisites": ["R8.T3.A3"],
+              "templates": ["written"],
+              "error_signatures": [
+                { "type": "abrupt_topic_shift", "description": "Sentence breaks the paragraph's topic chain", "example": "An unrelated point inserted mid-paragraph" },
+                { "type": "pronoun_ambiguity", "description": "Referent of a pronoun is unclear", "example": "'It' could refer to two different nouns" }
+              ],
+              "recovery_strategy": "ABRUPT_TOPIC_SHIFT: 'Every sentence should connect back to the topic sentence.' PRONOUN_AMBIGUITY: name the noun instead of the pronoun.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "R8.T4",
+          "title": "Academic Oral Reasoning",
+          "atomic_skills": [
+            {
+              "id": "R8.T4.A1",
+              "title": "Oral Explanation",
+              "description": "Explain a multi-step process orally using sequence markers and academic register (text fallback logged as TEXT_MODE). (Error signatures follow spec Section 5; the question bank is authoritative.)",
+              "bank_skill_id": "L8.D1",
+              "prerequisites": ["R8.T3.A4"],
+              "templates": ["oral", "written"],
+              "error_signatures": [
+                { "type": "no_sequence_marker", "description": "Steps explained without sequence markers", "example": "Learner lists steps with no 'first/then/finally'" },
+                { "type": "casual_register_oral", "description": "Slang or contractions in a spoken academic explanation", "example": "Learner says 'and then it kinda just works'" }
+              ],
+              "recovery_strategy": "NO_SEQUENCE_MARKER: 'Use first, next, then, finally to order your steps.' CASUAL_REGISTER_ORAL: model the formal phrasing; learner repeats.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R8.T4.A2",
+              "title": "Oral Opinion Defence",
+              "description": "Defend an opinion orally with textual evidence and acknowledge a counter-point, in academic register. (Error signatures follow spec Section 5; the question bank is authoritative.)",
+              "bank_skill_id": "L8.D2",
+              "prerequisites": ["R8.T4.A1"],
+              "templates": ["oral", "written"],
+              "error_signatures": [
+                { "type": "no_evidence_oral", "description": "Opinion defended without textual evidence", "example": "Learner repeats the opinion louder instead of citing the text" },
+                { "type": "concession_absent", "description": "No acknowledgement of a counter-point", "example": "Learner ignores the opposing view entirely" }
+              ],
+              "recovery_strategy": "NO_EVIDENCE_ORAL: 'What in the text supports your view?' CONCESSION_ABSENT: frame 'Some might say ___, but ___.'",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "R8.T4.A3",
+              "title": "Oral Process Sequence",
+              "description": "Describe a process aloud in correct sequence with no steps omitted or inverted (text fallback logged as TEXT_MODE). (Error signatures follow spec Section 5; the question bank is authoritative.)",
+              "bank_skill_id": "L8.D3",
+              "prerequisites": ["R8.T4.A2"],
+              "templates": ["oral", "written"],
+              "error_signatures": [
+                { "type": "step_omission_oral", "description": "One or more steps missing in the spoken sequence", "example": "Learner skips a stage of the water cycle" },
+                { "type": "step_inversion_oral", "description": "Two steps spoken out of order", "example": "Learner says condensation before evaporation" }
+              ],
+              "recovery_strategy": "STEP_OMISSION_ORAL: count the source steps first, then retell. STEP_INVERSION_ORAL: ordered prompt cards before speaking.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

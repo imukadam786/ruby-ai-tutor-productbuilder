@@ -432,4 +432,29 @@ export const DIAGNOSTIC_TASKS: DiagnosticTask[] = [
       },
     ],
   },
+  {
+    // ── L6 discovery probe ──────────────────────────────────────────────────
+    // Deterministic procedural-sequencing probe sourced from the L6.B2 bank
+    // (BP.001 "How to Plant a Seed"), as a multiple-choice ordering question.
+    // Calculator-facing metadata only: the placement engine reads passThreshold
+    // + mapsToSkill from here; the rendered card is L6_PROBE_TASK in
+    // ReadingDiagnosticPlacement.tsx (same content, "choice" answerMode).
+    // First failure — or a grade-seeded all-pass — places the learner at the
+    // start of Level 6. No uncalibrated grading (pure choice correctness).
+    id: "DL6",
+    domain: "L6 — Procedural Sequencing",
+    mode: "tap",
+    description: "Order the steps of a procedure (Level 6 probe)",
+    instruction: "Choose the option where the steps are in the correct order.",
+    passThreshold: 0.8,
+    mapsToSkill: "R6.T1.A1",
+    items: [
+      {
+        id: "DL6-01",
+        prompt: "Which order correctly plants a seed?",
+        expected: "A",
+        options: ["A", "B", "C"],
+      },
+    ],
+  },
 ];

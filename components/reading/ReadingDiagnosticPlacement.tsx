@@ -60,6 +60,40 @@ async function loadRandomQuestionPaper(grade: number): Promise<Task[]> {
   return withGate.filter((t) => allowed.includes(t.id));
 }
 
+// ── L6 discovery probe ────────────────────────────────────────────────────────
+// Deterministic procedural-sequencing MCQ sourced from the L6.B2 bank
+// (BP.001 "How to Plant a Seed"). Appended for Grade 4+ so Discovery can place
+// a learner into the Level 6 English tree. Calculator metadata (passThreshold
+// 0.8, mapsToSkill R6.T1.A1) lives in DIAGNOSTIC_TASKS["DL6"]; this is the
+// rendered card. Pure choice correctness — no uncalibrated grading.
+const L6_PROBE_TASK: Task = {
+  id: "DL6",
+  domain: "L6 — Procedural Sequencing",
+  question: "Read the steps for planting a seed. Which order is correct?",
+  subText: "Pick the option where the steps make sense from start to finish.",
+  answerMode: "choice",
+  choices: [
+    {
+      label:
+        "1. Fill the pot with damp soil  2. Push the seed in to the right depth  3. Cover the seed and press down  4. Water it and put it in a sunny spot",
+      value: "A",
+      correct: true,
+    },
+    {
+      label:
+        "1. Push the seed in  2. Fill the pot with soil  3. Water it and put it in the sun  4. Cover the seed and press down",
+      value: "B",
+      correct: false,
+    },
+    {
+      label:
+        "1. Water it and put it in the sun  2. Fill the pot with soil  3. Cover the seed  4. Push the seed in",
+      value: "C",
+      correct: false,
+    },
+  ],
+};
+
 
 //const TASKS: Task[] = [
 //  {
@@ -520,8 +554,11 @@ export default function ReadingDiagnosticPlacement({
         tasks = await loadRandomQuestionPaper(studentGrade);
       }
       if (!cancelled) {
-        TASKSRef.current = tasks;
-        setTASKS(tasks);
+        // Grade 4+ ends Discovery with the L6 probe so the calculator can
+        // place a strong reader into the Level 6 English tree.
+        const finalTasks = studentGrade >= 4 ? [...tasks, L6_PROBE_TASK] : tasks;
+        TASKSRef.current = finalTasks;
+        setTASKS(finalTasks);
       }
     };
     fetchTasks();

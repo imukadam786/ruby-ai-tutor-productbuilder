@@ -9,6 +9,7 @@
 
 import { DIAGNOSTIC_TASKS } from "./reading-diagnostic-tasks";
 import { DiagnosticPlacementResult, DiagnosticTaskResult } from "@/types/reading";
+import { seedForGrade } from "./english-grade-map";
 import skillTreeData from "@/data/reading-skill-tree.json";
 
 // ─── Ordered skill sequence derived from reading-skill-tree.json ───────────────
@@ -35,6 +36,7 @@ const TASK_SCAN_ORDER = [
   "D01", "D01B", "D02", "D02B", "D03", "D04", "D05", "D05B", "D06", "D07", "D08",
   "D09", "D10", "D10B", "D11", "D12",
   "D13", "D13B", "D13C", "D14", "D15", "D15B", "D16", "D17", "D18",
+  "DL6",
 ];
 
 // ─── Grade ceiling placement (when all administered tasks pass) ────────────────
@@ -144,12 +146,22 @@ export function calculateReadingPlacement(
   // A student who aced everything up to their grade ceiling has demonstrated
   // the ceiling skill — auto-complete it and start at the next skill in sequence.
   if (!firstFailTaskId) {
-    const ceilingSkill = GRADE_CEILING_SKILL[Math.min(grade, 4)] ?? "R5.T1.A1";
-    const ceilingIdx = SKILL_SEQUENCE.indexOf(ceilingSkill);
-    const entrySkillId =
-      ceilingIdx >= 0 && ceilingIdx + 1 < SKILL_SEQUENCE.length
-        ? SKILL_SEQUENCE[ceilingIdx + 1]
-        : ceilingSkill;
+    // Grade 4+: a learner who passed every administered task — including the
+    // L6+ probe — is seeded into the Intermediate tree by their grade
+    // (Gr4→L6, Gr5→L7, Gr6→L8, Gr7–12→L8), instead of being capped at R5.
+    // Grade ≤3: keep the foundation ceiling logic (auto-complete the ceiling
+    // skill, start at the next one).
+    let entrySkillId: string;
+    if (grade >= 4) {
+      entrySkillId = seedForGrade(grade).entrySkillId;
+    } else {
+      const ceilingSkill = GRADE_CEILING_SKILL[grade] ?? "R5.T1.A1";
+      const ceilingIdx = SKILL_SEQUENCE.indexOf(ceilingSkill);
+      entrySkillId =
+        ceilingIdx >= 0 && ceilingIdx + 1 < SKILL_SEQUENCE.length
+          ? SKILL_SEQUENCE[ceilingIdx + 1]
+          : ceilingSkill;
+    }
     return {
       completedAt: Date.now(),
       tasks: taskResults,

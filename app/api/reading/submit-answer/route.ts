@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { checkLanguage } from "@/lib/language-utils";
 import { getReadingSkillById } from "@/lib/reading-student-model";
+import { evaluateSequence } from "@/lib/reading-bank-evaluator";
+import { openAIJudge } from "@/lib/reading-llm-judge";
 import {
   ReadingAnswerSubmission,
   ReadingDiagnosticResult,
@@ -109,6 +111,110 @@ export async function POST(req: NextRequest) {
     const skill = getReadingSkillById(submission.skill_id);
     if (!skill) {
       return NextResponse.json({ error: "Skill not found" }, { status: 404 });
+    }
+
+    // ── L6+ static-bank scoring (Intermediate Phase) ───────────────────────
+    // generate-question sent the answer-key as JSON in expected_answer.
+    // Deterministic skills score here with no LLM call; the others are
+    // recorded honestly until their scorers are wired (next slice).
+    if (skill.bank_skill_id) {
+      let answerKey:
+        | { mode?: string; order?: string[]; reference?: string; checks?: { description?: string }[] }
+        | null = null;
+      try { answerKey = JSON.parse(submission.expected_answer); } catch { answerKey = null; }
+
+      if (answerKey?.mode) {
+        let bankCorrect = false;
+        let bankError: string | null = null;
+        let feedback: string;
+
+        if (answerKey.mode === "sequence" && Array.isArray(answerKey.order)) {
+          const studentSteps = submission.student_answer
+            .split(/\r?\n|(?:^|\s)\d+[.)]\s*/)
+            .map((s) => s.trim())
+            .filter(Boolean);
+          const seq = evaluateSequence(studentSteps, answerKey.order, {
+            passThreshold: 0.7,
+            requireZeroOmissions: true,
+          });
+          bankCorrect = seq.pass;
+          bankError = seq.firedError;
+          feedback = seq.pass
+            ? "Great — your steps are in the right order!"
+            : seq.firedError === "STEP_OMISSION"
+              ? "Some steps are missing. Make sure every step is included, in order."
+              : "The steps are out of order. Re-read and put them in the right sequence.";
+        } else if (answerKey.mode === "similarity-band") {
+          // Write-your-own answers (Find the Main Idea / details / data /
+          // vocab) — marked by the AI judge. Main-idea uses the calibrated
+          // path (no task); others are graded on their own skill task.
+          const isMainIdea = (skill.bank_skill_id ?? "").endsWith(".A1");
+          const judge = openAIJudge(getOpenAI());
+          const r = await judge({
+            studentAnswer: submission.student_answer,
+            sourceText: submission.question,
+            referenceMainIdea: answerKey.reference,
+            task: isMainIdea ? undefined : `${skill.title} — ${skill.description}`,
+          });
+          bankCorrect = r.pass;
+          bankError = r.firedError;
+          feedback = r.pass
+            ? "Nice work — that captures it."
+            : r.reason || "Not quite — try to cover the whole idea in your own words.";
+        } else if (answerKey.mode === "rubric") {
+          // Writing skills — marked by the AI judge against the bank checklist.
+          const checks = Array.isArray(answerKey.checks)
+            ? answerKey.checks.map((c) => c.description).filter((d): d is string => !!d)
+            : [];
+          const judge = openAIJudge(getOpenAI());
+          const r = await judge({
+            studentAnswer: submission.student_answer,
+            sourceText: submission.question,
+            checklist: checks,
+          });
+          bankCorrect = r.pass;
+          bankError = r.firedError;
+          feedback = r.pass
+            ? "Good writing — you covered what was needed."
+            : r.reason || "Some parts are missing — check the instructions and try again.";
+        } else {
+          // cloze (A4): the blanked-passage display is still to be built, so
+          // record honestly rather than mark something the child couldn't
+          // properly attempt.
+          feedback = "Answer recorded. Automatic marking for this question type is being set up.";
+        }
+
+        const et = (bankCorrect ? "correct" : bankError ?? "ERR_MEANING_BLIND") as ReadingErrorType;
+        const bankAttempt: ReadingSkillAttempt = {
+          id: `rattempt_${Date.now()}`,
+          skill_id: submission.skill_id,
+          template: submission.template,
+          question: submission.question,
+          student_answer: submission.student_answer,
+          student_steps: submission.student_steps,
+          expected_answer: submission.expected_answer,
+          is_correct: bankCorrect,
+          scaffolded: submission.used_hint,
+          error_type: et,
+          feedback,
+          timestamp: new Date().toISOString(),
+        };
+        const bankResult: ReadingDiagnosticResult = {
+          is_correct: bankCorrect,
+          error_type: et,
+          feedback,
+          recovery_explanation: bankCorrect ? "" : skill.recovery_strategy ?? "",
+          mastery_update: {
+            skill_id: submission.skill_id,
+            new_status: "in_progress",
+            correct_count: bankCorrect ? 1 : 0,
+            attempt_count: 1,
+            formats_used: [submission.template],
+          },
+          next_action: "continue_skill",
+        };
+        return NextResponse.json({ result: bankResult, attempt: bankAttempt });
+      }
     }
 
     const isCorrect = checkAnswerCorrectness(submission.student_answer, submission.expected_answer, submission.question);

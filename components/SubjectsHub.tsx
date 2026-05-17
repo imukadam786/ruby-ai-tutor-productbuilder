@@ -154,11 +154,11 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
               onClick={() => onNavigate("ruby")}
             />
 
-            {/* Reading */}
+            {/* English — unified reading + writing skill tree (Levels 1–8) */}
             <SubjectCard
               thumbnail="/thumbnails/english.jpeg"
-              label="Reading"
-              caption="Improve comprehension with AI-powered practice"
+              label="English"
+              caption="Reading, comprehension and writing — adapts to your grade"
               badge={readingBadge}
               badgeColor={readingBadgeColor}
               accentFrom="from-purple-600"

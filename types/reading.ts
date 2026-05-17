@@ -47,6 +47,10 @@ export interface ReadingAtomicSkill {
   id: string;
   title: string;
   description: string;
+  /** Links a tree skill (R-format id, e.g. "R6.T1.A1") to its static
+   *  question-bank skill (e.g. "L6.A1"). Present for L6+ only; L1–L5
+   *  runtime-generate and have no bank. */
+  bank_skill_id?: string;
   prerequisites: string[];
   templates: ReadingTemplate[];
   error_signatures: ReadingErrorSignature[];

@@ -2,8 +2,69 @@ import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import { ReadingTemplate, ReadingGeneratedQuestion, AudioTapChoice } from "@/types/reading";
+import type { ReadingQuestionBank, ReadingBankItem, ReadingBankSkill } from "@/types/reading-bank";
+import L6_BANK from "@/data/reading-question-banks/L6.json";
 
 export const runtime = "edge";
+
+// ── Static question banks for L6+ (Intermediate Phase) ───────────────────────
+// Tree skills (R6.T1.A1…) carry `bank_skill_id` (e.g. "L6.A1") → the bank skill.
+// Only L6 exists today; L7/L8 slot in here when their banks are converted.
+const READING_BANKS: Record<number, ReadingQuestionBank> = {
+  6: L6_BANK as unknown as ReadingQuestionBank,
+};
+
+/** Source text shown to the learner — pooled (A1/A2/A3) or inline per skill. */
+function bankItemSourceText(item: ReadingBankItem, bank: ReadingQuestionBank): string {
+  if (item.textId) return bank.texts.find((t) => t.id === item.textId)?.body ?? "";
+  return item.passage || item.procedureText || item.dataText || item.contextSentence || "";
+}
+
+/** Build a question from the L6+ static bank for a tree skill that has a
+ *  bank_skill_id. Returns null for L1–L5 skills (handled elsewhere) so the
+ *  caller falls through to the existing pipeline. */
+function buildBankQuestion(
+  skillId: string,
+  used_refs: string[]
+): Omit<ReadingGeneratedQuestion, "id"> | null {
+  const treeSkill = getReadingSkillById(skillId);
+  const bankSkillId = treeSkill?.bank_skill_id;
+  if (!treeSkill || !bankSkillId) return null;
+
+  const levelMatch = skillId.match(/^R(\d+)/);
+  const level = levelMatch ? parseInt(levelMatch[1], 10) : 0;
+  const bank = READING_BANKS[level];
+  if (!bank) return null;
+
+  const bankSkill = bank.skills.find((s) => s.skillId === bankSkillId) as
+    | ReadingBankSkill
+    | undefined;
+  if (!bankSkill || bankSkill.items.length === 0) return null;
+
+  const pool = bankSkill.items.filter((it) => !used_refs.includes(it.id));
+  const items = pool.length > 0 ? pool : bankSkill.items;
+  const item = items[Math.floor(Math.random() * items.length)];
+
+  const source = bankItemSourceText(item, bank);
+  const ask = item.question || bankSkill.defaultPrompt;
+  const orderingHint =
+    item.answerKey.mode === "sequence"
+      ? "\n\nWrite the steps in the correct order — one step per line."
+      : "";
+  const question = `${source ? source + "\n\n" : ""}${ask}${orderingHint}`;
+
+  return {
+    skill_id: skillId,
+    template: "written" as ReadingTemplate,
+    question,
+    // expected_answer carries the JSON answer-key so submit-answer scores
+    // without re-loading the bank.
+    expected_answer: JSON.stringify(item.answerKey),
+    hint: bankSkill.recovery[0]?.action,
+    scaffolding_notes: bankSkill.recovery[0]?.action ?? bankSkill.description,
+    used_ref: item.id,
+  };
+}
 
 // ── Audio-tap question builder for phoneme-production skills ──────────────────
 // These skills (R2.T1, R2.T2) require isolated phoneme production which STT
@@ -1738,6 +1799,13 @@ export async function POST(req: NextRequest) {
     const staticQuestion = buildStaticQuestion(skill_id, used_refs);
     if (staticQuestion) {
       return NextResponse.json({ ...staticQuestion, id: `rq_${Date.now()}` });
+    }
+
+    // L6+ static bank (Intermediate Phase). Served before the LLM fallback so
+    // these never hit the Grade R–3 generation path.
+    const bankQuestion = buildBankQuestion(skill_id, used_refs);
+    if (bankQuestion) {
+      return NextResponse.json({ ...bankQuestion, id: `rq_${Date.now()}` });
     }
 
     const templateDescriptions: Record<ReadingTemplate, string> = {
