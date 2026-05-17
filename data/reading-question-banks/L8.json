@@ -1,0 +1,3521 @@
+{
+  "$comment": "L8 reading bank — converted from Ruby_L8_Question_Bank_v1.pdf (spec v1.0). 13 skills, 66 items, Gate G, Grade 6. Per-item source texts are stored on the item itself; no shared text pool. ACADEMIC REGISTER ENFORCED across all writing/speaking tasks (ERR_REGISTER — auto-blocks submission). Phase 1 visual constraints: L8.B3 ERR_SOURCE_INTEGRATION reverts to ERR_TEXT_VISUAL_INTEGRATION at Phase 2 (MAIN_TEXT_ONLY → TEXT_ONLY_RESPONSE; DATA_TEXT_ONLY → VISUAL_ONLY_RESPONSE). L8.D1–D3 voice-primary with text fallback (flagged TEXT_MODE).",
+  "level": 8,
+  "gate": "G",
+  "specVersion": "1.0",
+  "bankVersion": "1.0",
+  "grades": [
+    6
+  ],
+  "texts": [],
+  "academicRegister": {
+    "enforced": true,
+    "scope": "All writing and speaking tasks at Level 8",
+    "errorCode": "ERR_REGISTER",
+    "behaviour": "Any contraction or slang detected → submission rejected → learner must replace flagged language before resubmitting.",
+    "variants": [
+      "CASUAL_REGISTER",
+      "CASUAL_REGISTER_ORAL"
+    ]
+  },
+  "skills": [
+    {
+      "skillId": "L8.A1",
+      "name": "Cause and Effect Reasoning",
+      "gate": "G",
+      "level": 8,
+      "tier": "A — Cause and Effect Reasoning",
+      "grade": 6,
+      "description": "Learner identifies a cause-effect relationship in a text and produces a statement that correctly names both the cause and the effect using causal language.",
+      "deliveryMode": "TEXT or VOICE — Open response stating cause + effect + connector",
+      "questionFormat": "Open response: one or two sentences naming cause, effect, direction, and connector",
+      "defaultPrompt": "Identify the cause and the effect from the text. State them clearly using a causal connector (because, led to, resulted in, caused, therefore, as a result).",
+      "errorCode": "ERR_CORRELATION",
+      "passCondition": {
+        "metric": "cause_effect_accuracy",
+        "mandatoryChecks": [
+          "CAUSE_ENTITY",
+          "EFFECT_ENTITY",
+          "CAUSAL_DIRECTION"
+        ],
+        "connectorThreshold": 0.6,
+        "overallThreshold": 0.6,
+        "items": 8,
+        "sessions": 2,
+        "note": "Checks 1–3 MANDATORY on every item; check 4 (connector) required in ≥60% of tasks."
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Cause entity",
+            "criterion": "Cause noun phrase matches the source text cause. MANDATORY — must pass on every item.",
+            "failVariant": "WRONG_ENTITY"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Effect entity",
+            "criterion": "Effect noun phrase matches the source text effect. MANDATORY — must pass on every item.",
+            "failVariant": "WRONG_ENTITY"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Causal direction",
+            "criterion": "Cause correctly identified as cause (not confused with effect). MANDATORY.",
+            "failVariant": "CAUSAL_INVERSION"
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Causal connector",
+            "criterion": "A causal connector present (caused, led to, resulted in, because, therefore, as a result). Required in ≥60% of tasks — not mandatory on each item.",
+            "failVariant": "CONNECTOR_ABSENT"
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": "Checks 1–3 pass; connector present → full pass."
+        },
+        {
+          "decision": "ACCEPT_IF",
+          "condition": "Checks 1–3 pass but no connector → PARTIAL_PASS. Counts toward 60% threshold."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Effect identified as cause and cause as effect — causal direction reversed.",
+          "firesError": "CAUSAL_INVERSION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Two co-occurring events stated as causal without textual support establishing causation.",
+          "firesError": "CORRELATION_AS_CAUSE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Incorrect noun identified as the cause or effect from the text.",
+          "firesError": "WRONG_ENTITY"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "CAUSAL_INVERSION",
+          "action": "'The cause happens first and makes the effect happen.'"
+        },
+        {
+          "errorVariant": "CORRELATION_AS_CAUSE",
+          "action": "System requires textual evidence before accepting causal claim."
+        },
+        {
+          "errorVariant": "CONNECTOR_ABSENT",
+          "action": "'Use a connecting word: because / resulted in / led to / as a result.'"
+        },
+        {
+          "errorVariant": "WRONG_ENTITY",
+          "action": "'Find the sentence in the text that describes what caused this.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "CE.001",
+          "errorSignals": [
+            "CAUSAL_INVERSION",
+            "CORRELATION_AS_CAUSE",
+            "CONNECTOR_ABSENT",
+            "WRONG_ENTITY"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "In 2010, a massive earthquake struck Haiti. The earthquake caused widespread destruction of buildings across the capital, Port-au-Prince. Because most structures were not built to withstand seismic activity, they collapsed rapidly. The collapse of buildings resulted in more than 200 000 deaths and left over 1.5 million people homeless. Aid organisations concluded that stricter building regulations would have significantly reduced the death toll.",
+          "question": "What caused the collapse of buildings in Haiti, and what was the result?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Cause: Buildings were not constructed to withstand seismic activity. Effect: The buildings collapsed rapidly during the earthquake.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "CE.002",
+          "errorSignals": [
+            "CAUSAL_INVERSION",
+            "CORRELATION_AS_CAUSE",
+            "CONNECTOR_ABSENT",
+            "WRONG_ENTITY"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Deforestation in the Amazon basin has significantly reduced the amount of moisture that trees release into the atmosphere through a process called transpiration. Forests act as natural water pumps, drawing groundwater upward and releasing it as water vapour. When large areas of forest are cleared, this moisture cycle is disrupted. As a result, rainfall patterns across South America have shifted, with some regions experiencing more severe droughts than in previous decades. Scientists warn that continued deforestation could permanently alter the climate of the entire continent.",
+          "question": "What has caused changes in rainfall patterns across South America?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Cause: Deforestation has reduced the moisture forests release through transpiration. Effect: Rainfall patterns have shifted and droughts have become more severe.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "CE.003",
+          "errorSignals": [
+            "CAUSAL_INVERSION",
+            "CORRELATION_AS_CAUSE",
+            "CONNECTOR_ABSENT",
+            "WRONG_ENTITY"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "passage": "The introduction of the cane toad to Australia in 1935 had devastating consequences for native wildlife. Cane toads were brought to Queensland to control beetles destroying sugar cane crops. However, the toads failed to control the beetles and instead spread rapidly across the country. Because cane toads produce a toxic poison in their skin, native predators such as quolls and freshwater crocodiles that attempted to eat them were killed. This caused a significant decline in the populations of several native species across northern Australia.",
+          "question": "What caused the decline in native predator populations after cane toads were introduced?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Cause: Cane toads produce skin toxins that are lethal to native predators. Effect: Native predator populations declined significantly.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "CE.004",
+          "errorSignals": [
+            "CAUSAL_INVERSION",
+            "CORRELATION_AS_CAUSE",
+            "CONNECTOR_ABSENT",
+            "WRONG_ENTITY"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "During the 1930s, a combination of severe drought and poor farming practices caused the topsoil of large areas of the American Great Plains to dry out and blow away. Farmers had ploughed up the native grasses that normally held the soil in place, leaving it loose and exposed. When prolonged drought arrived, the unprotected soil was carried away by strong winds in massive dust storms. The region became known as the Dust Bowl, and the destruction of farmland led hundreds of thousands of families to abandon their homes and migrate west in search of work.",
+          "question": "What caused the formation of the Dust Bowl in the 1930s?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Cause: Farmers removed native grasses, leaving soil unprotected; prolonged drought then allowed wind to carry the loose topsoil away. Effect: Massive dust storms destroyed farmland and forced hundreds of thousands of families to migrate.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "CE.005",
+          "errorSignals": [
+            "CAUSAL_INVERSION",
+            "CORRELATION_AS_CAUSE",
+            "CONNECTOR_ABSENT",
+            "WRONG_ENTITY"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "In 1986, a reactor at the Chernobyl nuclear power plant in Ukraine exploded during a safety test. Engineers had disabled several of the plant's automatic safety systems in order to conduct the test, leaving the reactor vulnerable. A sudden power surge caused an uncontrolled chain reaction, which resulted in two explosions and a fire that burned for ten days. The explosions released large amounts of radioactive material into the atmosphere. As a result, a 30-kilometre exclusion zone was established around the plant, and approximately 350 000 people were evacuated from surrounding areas.",
+          "question": "What directly caused the explosions at Chernobyl?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Cause: A sudden power surge caused an uncontrolled chain reaction. Effect: Two explosions occurred and radioactive material was released into the atmosphere.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "CE.006",
+          "errorSignals": [
+            "CAUSAL_INVERSION",
+            "CORRELATION_AS_CAUSE",
+            "CONNECTOR_ABSENT",
+            "WRONG_ENTITY"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "passage": "The widespread use of antibiotics in farming has contributed to the rise of antibiotic-resistant bacteria. Farmers routinely give low doses of antibiotics to livestock to promote growth and prevent disease in crowded conditions. Because bacteria are exposed to these antibiotics repeatedly over time, those with natural resistance survive and reproduce while others die. This process of natural selection has produced strains of bacteria that cannot be killed by standard antibiotics. Doctors now struggle to treat infections caused by these resistant strains, which pose a serious threat to public health.",
+          "question": "What has caused the development of antibiotic-resistant bacteria?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Cause: Repeated low-dose antibiotic exposure in farming allows resistant bacteria to survive and reproduce. Effect: Strains of bacteria have developed that cannot be killed by standard antibiotics.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "CE.007",
+          "errorSignals": [
+            "CAUSAL_INVERSION",
+            "CORRELATION_AS_CAUSE",
+            "CONNECTOR_ABSENT",
+            "WRONG_ENTITY"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The construction of the Aswan High Dam in Egypt, completed in 1970, transformed agriculture along the Nile. Before the dam was built, the Nile flooded annually, depositing rich silt across farmland. The dam stopped these floods, which meant that the annual layer of natural fertiliser no longer reached the fields. As a result, Egyptian farmers became heavily dependent on artificial fertilisers to maintain crop yields. The dam also caused the erosion of the Nile Delta, because without the silt that once built it up, the coastline began to recede.",
+          "question": "What effect did the Aswan High Dam have on the Nile Delta, and what caused this effect?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Cause: The dam stopped the annual floods, which meant silt no longer built up the coastline. Effect: The Nile Delta began to erode and the coastline receded.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "CE.008",
+          "errorSignals": [
+            "CAUSAL_INVERSION",
+            "CORRELATION_AS_CAUSE",
+            "CONNECTOR_ABSENT",
+            "WRONG_ENTITY"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "In the 19th century, the introduction of the steam-powered printing press dramatically increased the speed at which books and newspapers could be produced. Before this invention, books were printed slowly by hand, making them expensive and accessible only to the wealthy. The steam press allowed publishers to produce thousands of copies per hour at low cost. Because printed material became affordable, literacy rates rose significantly across Europe and North America as more people had access to texts that had previously been out of their reach.",
+          "question": "What caused the rise in literacy rates in Europe and North America in the 19th century?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Cause: The steam-powered printing press made printed material affordable and widely available. Effect: Literacy rates rose significantly as more people gained access to books and newspapers.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.A2",
+      "name": "Audience and Purpose Identification",
+      "gate": "G",
+      "level": 8,
+      "tier": "A — Cause and Effect Reasoning",
+      "grade": 6,
+      "description": "Learner states the intended audience and purpose of a text and provides ≥1 specific text feature as evidence for each identification.",
+      "deliveryMode": "TEXT — Four-part response: (1) audience; (2) purpose; (3) text feature for audience; (4) text feature for purpose",
+      "questionFormat": "Four-part response identifying audience, purpose, and one text feature as evidence for each",
+      "defaultPrompt": "Identify the intended audience and the purpose of this text. For each, name one specific text feature that supports your identification.",
+      "errorCode": "ERR_AUDIENCE_PURPOSE",
+      "passCondition": {
+        "metric": "audience_purpose_accuracy",
+        "audienceThreshold": 0.6,
+        "purposeThreshold": 0.6,
+        "supportingFeatureRequired": true,
+        "texts": 6,
+        "sessions": 2
+      },
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": "Audience — correct audience group identified; exact label not required; paraphrase accepted if group is correct."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Purpose — correct purpose label (INFORM / PERSUADE / ENTERTAIN / WARN / EVALUATE — or combinations)."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Feature evidence — any specific textual feature named that is present in the text and logically supports the audience/purpose claim."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Audience correctly identified but no specific textual feature given as evidence.",
+          "firesError": "AUDIENCE_UNSUPPORTED"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Purpose misidentified — text type or author intent misread.",
+          "firesError": "PURPOSE_CONFUSION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "'It uses descriptive words' or similar vague claim — no specific feature cited.",
+          "firesError": "FEATURE_GENERIC"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "AUDIENCE_UNSUPPORTED",
+          "action": "System requires evidence before accepting classification."
+        },
+        {
+          "errorVariant": "PURPOSE_CONFUSION",
+          "action": "Purpose feature chart: 3 features per purpose type. Learner checks text against chart."
+        },
+        {
+          "errorVariant": "FEATURE_GENERIC",
+          "action": "'Which specific words or features tell you that?'"
+        }
+      ],
+      "items": [
+        {
+          "id": "AP.001",
+          "errorSignals": [
+            "AUDIENCE_UNSUPPORTED",
+            "PURPOSE_CONFUSION",
+            "FEATURE_GENERIC"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Warning label on medication",
+          "passage": "IMPORTANT: Read all instructions before use. This medication is intended for adults aged 18 and over only. Do not exceed the recommended dosage. If symptoms persist for more than three days, consult a healthcare professional immediately. Keep out of reach of children. Do not use if you are pregnant or breastfeeding without first seeking medical advice. Store below 25°C in a dry place away from direct sunlight.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "AUDIENCE",
+                "description": "Correctly identifies the audience: Adults purchasing or using the medication"
+              },
+              {
+                "id": "AUDIENCE_EVIDENCE",
+                "description": "Gives text evidence for the audience (Uses 'you' directly; specifies 'adults aged 18 and over' — addresses the user directly.)"
+              },
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose: INFORM and WARN"
+              },
+              {
+                "id": "PURPOSE_EVIDENCE",
+                "description": "Gives text evidence for the purpose (Uses imperative verbs (Read, Do not exceed, consult, Keep) to warn and instruct.)"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "AP.002",
+          "errorSignals": [
+            "AUDIENCE_UNSUPPORTED",
+            "PURPOSE_CONFUSION",
+            "FEATURE_GENERIC"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Charity fundraising appeal",
+          "passage": "Right now, a child somewhere is going to bed hungry. You have the power to change that. For just the cost of a cup of coffee per day, you can provide a child with nutritious meals, clean water, and a chance at education. Our charity has already helped over 200 000 children across 15 countries — but there are millions more waiting for your support. Don't look away. Donate today and be the reason a child smiles tomorrow. Every rand counts. Act now.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "AUDIENCE",
+                "description": "Correctly identifies the audience: General public / potential donors with disposable income"
+              },
+              {
+                "id": "AUDIENCE_EVIDENCE",
+                "description": "Gives text evidence for the audience (Uses 'you' and 'your' throughout — directly addresses a reader with the power to donate.)"
+              },
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose: PERSUADE"
+              },
+              {
+                "id": "PURPOSE_EVIDENCE",
+                "description": "Gives text evidence for the purpose (Uses emotive language ('going to bed hungry', 'Don't look away'), a call to action ('Donate today', 'Act now'), and cost minimisation ('just the cost of a cup of coffee').)"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "AP.003",
+          "errorSignals": [
+            "AUDIENCE_UNSUPPORTED",
+            "PURPOSE_CONFUSION",
+            "FEATURE_GENERIC"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "Science magazine article for secondary students",
+          "passage": "Have you ever wondered why the sky is blue? The answer involves a process called Rayleigh scattering. When sunlight — which contains all colours of the visible spectrum — enters Earth's atmosphere, it collides with molecules of gas. Shorter wavelengths of light, like violet and blue, scatter much more than longer wavelengths like red and orange. Although violet light actually scatters more than blue, our eyes are more sensitive to blue light, which is why the sky appears blue to us. At sunset, light travels through more atmosphere, scattering away the blue and leaving the longer red and orange wavelengths visible.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "AUDIENCE",
+                "description": "Correctly identifies the audience: Secondary school students (ages 12–17) with general science interest"
+              },
+              {
+                "id": "AUDIENCE_EVIDENCE",
+                "description": "Gives text evidence for the audience (Starts with a rhetorical question ('Have you ever wondered') — engages a curious young reader. Uses accessible vocabulary with technical terms defined in context.)"
+              },
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose: INFORM"
+              },
+              {
+                "id": "PURPOSE_EVIDENCE",
+                "description": "Gives text evidence for the purpose (Explains a scientific process using factual language, defined terms (Rayleigh scattering, wavelengths), and no persuasive or emotive language.)"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "AP.004",
+          "errorSignals": [
+            "AUDIENCE_UNSUPPORTED",
+            "PURPOSE_CONFUSION",
+            "FEATURE_GENERIC"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "title": "Restaurant review",
+          "passage": "Tucked away on a quiet side street in the city centre, The Copper Pot is the kind of neighbourhood restaurant that makes you want to return the moment you leave. The menu is short — five starters, seven mains — but every dish shows real care. The lamb shank, slow-cooked for six hours, fell apart at the touch of a fork, and the accompanying roasted root vegetables were a revelation. Service was warm without being intrusive. My one reservation: the dessert menu is disappointingly limited for a restaurant of this quality. Overall, The Copper Pot is quietly excellent and deserves far more attention than it currently receives.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "AUDIENCE",
+                "description": "Correctly identifies the audience: Adults looking for restaurant recommendations"
+              },
+              {
+                "id": "AUDIENCE_EVIDENCE",
+                "description": "Gives text evidence for the audience (Written in first person ('My one reservation') — reviewer shares personal experience for a reader making dining decisions.)"
+              },
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose: INFORM and EVALUATE"
+              },
+              {
+                "id": "PURPOSE_EVIDENCE",
+                "description": "Gives text evidence for the purpose (Combines factual descriptions (menu size, cooking time) with evaluative language ('quietly excellent', 'disappointingly limited') to inform and judge.)"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "AP.005",
+          "errorSignals": [
+            "AUDIENCE_UNSUPPORTED",
+            "PURPOSE_CONFUSION",
+            "FEATURE_GENERIC"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "School newsletter item for parents",
+          "passage": "Dear Parents and Guardians, We are pleased to inform you that the school's annual Sports Day will take place on Friday 14 March, starting at 9:00 AM on the main field. All learners are required to wear their sports kit on this day. Spectators are welcome from 10:00 AM. Please ensure your child brings a hat, sunscreen, and sufficient water. Learners with medical exemptions should submit a letter from their doctor to the school office by Wednesday 12 March. We look forward to seeing you there.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "AUDIENCE",
+                "description": "Correctly identifies the audience: Parents and guardians of school learners"
+              },
+              {
+                "id": "AUDIENCE_EVIDENCE",
+                "description": "Gives text evidence for the audience (Opens with 'Dear Parents and Guardians' — directly addresses the audience by role. Uses 'your child' to personalise the message.)"
+              },
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose: INFORM"
+              },
+              {
+                "id": "PURPOSE_EVIDENCE",
+                "description": "Gives text evidence for the purpose (Contains factual details (date, time, location, requirements) with no persuasive language or emotional appeal.)"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "AP.006",
+          "errorSignals": [
+            "AUDIENCE_UNSUPPORTED",
+            "PURPOSE_CONFUSION",
+            "FEATURE_GENERIC"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "Opinion column in a youth newspaper",
+          "passage": "Let's be honest: the school curriculum is stuck in the past. We are still teaching young people skills that will be irrelevant in ten years, while failing to prepare them for the world they will actually inherit. Critical thinking, financial literacy, digital safety — these are not optional extras. They are the foundations of a functioning adult life. It is time for education departments to stop defending an outdated system and start listening to the young people who have to live with the consequences. The future belongs to us. Let us have a say in what we are taught.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "AUDIENCE",
+                "description": "Correctly identifies the audience: Young people (teenagers) and educators / policymakers who influence the curriculum"
+              },
+              {
+                "id": "AUDIENCE_EVIDENCE",
+                "description": "Gives text evidence for the audience (Uses 'we' and 'us' — the writer identifies with young readers and speaks on their behalf.)"
+              },
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose: PERSUADE"
+              },
+              {
+                "id": "PURPOSE_EVIDENCE",
+                "description": "Gives text evidence for the purpose (Uses strong opinion language ('Let's be honest', 'stuck in the past', 'It is time'), rhetorical commands, and a direct call to action ('Let us have a say').)"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.A3",
+      "name": "Persuasive Language Features",
+      "gate": "G",
+      "level": 8,
+      "tier": "A — Cause and Effect Reasoning",
+      "grade": 6,
+      "description": "Learner identifies ≥3 persuasive language features in a text and states the intended effect of each on the reader.",
+      "deliveryMode": "TEXT — For each feature: name + effect statement",
+      "questionFormat": "List: feature name / effect statement pairs (≥3 required)",
+      "defaultPrompt": "Identify at least three persuasive language features in this text. For each one, name the feature and state its intended effect on the reader.",
+      "errorCode": "ERR_PERSUASIVE_FEATURES",
+      "passCondition": {
+        "metric": "persuasive_feature_accuracy",
+        "minFeatures": 3,
+        "effectAccuracyThreshold": 0.6,
+        "texts": 4,
+        "sessions": 2
+      },
+      "acceptedFeatureTypes": [
+        "rhetorical question",
+        "repetition",
+        "emotive language",
+        "statistics/evidence",
+        "direct address",
+        "call to action",
+        "tricolon",
+        "counter-argument",
+        "anaphora",
+        "figurative language",
+        "appeal to authority"
+      ],
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": "Named feature type is present in the text. From accepted list above."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Effect statement contains an effect verb (makes, causes, creates, persuades, convinces, emphasises, implies, suggests, appeals, encourages) AND is plausibly linked to the feature type."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Named persuasive feature type not actually present in the given text.",
+          "firesError": "FEATURE_NOT_IN_TEXT"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "'It persuades the reader' without a specific emotional or cognitive impact. No effect verb + specific impact.",
+          "firesError": "EFFECT_VAGUE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Feature incorrectly categorised (e.g. rhetorical question called a statistic).",
+          "firesError": "FEATURE_MISCLASSIFIED"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "FEATURE_NOT_IN_TEXT",
+          "action": "Evidence-first: highlight the feature in the text before naming it."
+        },
+        {
+          "errorVariant": "EFFECT_VAGUE",
+          "action": "Sentence frame: 'This [feature] makes the reader feel/think ___ because ___.'"
+        },
+        {
+          "errorVariant": "FEATURE_MISCLASSIFIED",
+          "action": "Feature glossary: definitions + distinguishing characteristics of each type."
+        }
+      ],
+      "items": [
+        {
+          "id": "PF.001",
+          "errorSignals": [
+            "FEATURE_NOT_IN_TEXT",
+            "EFFECT_VAGUE",
+            "FEATURE_MISCLASSIFIED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Against single-use plastics",
+          "passage": "Every single minute, the equivalent of a rubbish truck full of plastic is dumped into our oceans. Every. Single. Minute. Is this really the legacy we want to leave our children? Scientists have confirmed that microplastics are now found in human blood, in unborn babies, and in the deepest ocean trenches. The evidence is overwhelming and the solution is simple: ban single-use plastics now. Other countries have done it. Industries have adapted. There is simply no excuse for inaction. Join the millions already demanding change — because the ocean cannot speak for itself. You can.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "FEATURE_1",
+                "description": "Rhetorical question: Makes the reader feel personally responsible for the problem."
+              },
+              {
+                "id": "FEATURE_2",
+                "description": "Repetition for emphasis: Creates urgency and forces the reader to slow down and register the scale of the problem."
+              },
+              {
+                "id": "FEATURE_3",
+                "description": "Statistical evidence: Uses verified scientific data to make the threat feel immediate and personal."
+              },
+              {
+                "id": "FEATURE_4",
+                "description": "Direct address / call to action: Empowers the reader by making them feel they have the ability to make a difference."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PF.002",
+          "errorSignals": [
+            "FEATURE_NOT_IN_TEXT",
+            "EFFECT_VAGUE",
+            "FEATURE_MISCLASSIFIED"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "In favour of a four-day school week",
+          "passage": "Studies from schools across three continents show that learners who attend school four days a week perform better academically than those who attend five. This is not a radical idea — it is a proven one. A shorter week gives students time to consolidate learning, pursue interests, and recover from the relentless pressure of modern schooling. Teachers report lower burnout rates and higher job satisfaction. Parents gain flexibility. And students? They arrive on Mondays motivated, refreshed, and ready to learn — not exhausted before the week has even begun. The evidence is there. The benefits are clear. The only question is: why are we still waiting?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "FEATURE_1",
+                "description": "Statistical/research appeal: Uses research evidence to give the argument credibility and make it seem proven rather than merely opinionated."
+              },
+              {
+                "id": "FEATURE_2",
+                "description": "Counter-argument pre-empted: Anticipates and dismisses potential opposition, making the argument seem stronger."
+              },
+              {
+                "id": "FEATURE_3",
+                "description": "List of beneficiaries: Shows the proposal benefits everyone, making it harder to oppose."
+              },
+              {
+                "id": "FEATURE_4",
+                "description": "Rhetorical question (closing): Suggests that those who disagree are unreasonable, placing the reader on the side of change."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PF.003",
+          "errorSignals": [
+            "FEATURE_NOT_IN_TEXT",
+            "EFFECT_VAGUE",
+            "FEATURE_MISCLASSIFIED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Campaign to protect endangered languages",
+          "passage": "When a language dies, the world loses far more than a set of words. It loses an entire way of understanding human experience — a way of describing the world that no other language can replicate. Linguists estimate that half of the world's approximately 7 000 languages will disappear within the next century unless urgent action is taken. Governments must fund language preservation programmes. Schools must offer minority languages as subjects. Communities must be given resources to record, teach, and celebrate their linguistic heritage. The loss of a language is irreversible. Once gone, it is gone forever. We cannot afford to stand by while thousands of years of human culture are silenced.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "FEATURE_1",
+                "description": "Emotive language: Personalises the issue by framing language loss as a death, making it feel like a tragedy rather than an abstract statistic."
+              },
+              {
+                "id": "FEATURE_2",
+                "description": "Statistical evidence: Makes the threat feel urgent and measurable, giving the reader a concrete scale for the problem."
+              },
+              {
+                "id": "FEATURE_3",
+                "description": "Tricolon (list of three imperatives): Creates a sense of shared responsibility across different groups, making the call to action feel comprehensive and urgent."
+              },
+              {
+                "id": "FEATURE_4",
+                "description": "Irreversibility appeal: Creates urgency by highlighting that inaction has permanent consequences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PF.004",
+          "errorSignals": [
+            "FEATURE_NOT_IN_TEXT",
+            "EFFECT_VAGUE",
+            "FEATURE_MISCLASSIFIED"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "In favour of compulsory community service",
+          "passage": "Imagine a society in which every young person, regardless of background or privilege, contributes one year of service to their community. Not as a punishment. Not as a burden. As an investment — in themselves, in their nation, and in the future they will all share. Countries that have introduced compulsory national service report stronger civic identity, lower youth unemployment, and reduced social inequality. Critics argue that it restricts individual freedom. But freedom without responsibility is not strength — it is selfishness. The question is not whether we can afford compulsory service. The question is whether we can afford not to have it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "FEATURE_1",
+                "description": "Imperative invitation / appeal to imagination: Draws the reader into a positive vision, making them emotionally invested before presenting the argument."
+              },
+              {
+                "id": "FEATURE_2",
+                "description": "Repetition and contrast (anaphora): Addresses likely objections before making the positive case, controlling how the reader interprets the proposal."
+              },
+              {
+                "id": "FEATURE_3",
+                "description": "Counter-argument reframing: Redefines the opposing argument negatively, making it harder to maintain without appearing selfish."
+              },
+              {
+                "id": "FEATURE_4",
+                "description": "Inverted rhetorical question (closing): Implies the cost of inaction is higher than the cost of action, nudging the reader toward agreement."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.B1",
+      "name": "Summary Writing",
+      "gate": "G",
+      "level": 8,
+      "tier": "B — Summarising and Comparing Texts",
+      "grade": 6,
+      "registerEnforced": true,
+      "description": "Learner writes a summary of a multi-paragraph text to ≤1/3 of the original length, covering ≥3 key points, in own words, with no invented content.",
+      "deliveryMode": "TEXT — Written summary",
+      "questionFormat": "Written summary ≤1/3 of source length",
+      "defaultPrompt": "Write a summary of this text in your own words. Your summary must not exceed one third of the original word count and must cover at least three key points from the source.",
+      "errorCode": "ERR_OVER_SUMMARY",
+      "passCondition": {
+        "metric": "summary_quality",
+        "lengthRule": "Summary word count ≤ source word count ÷ 3",
+        "keyPointCoverageThreshold": 0.4,
+        "copyingMaxPerSentence": 0.6,
+        "minKeyPoints": 3,
+        "texts": 4,
+        "sessions": 2
+      },
+      "scoringBands": {
+        "length": "≤1/3 = pass",
+        "keyPoints": {
+          "green": 0.6,
+          "amber": 0.4,
+          "red": "<0.40"
+        },
+        "copying": {
+          "green": "<0.40",
+          "amber": "0.40–0.60",
+          "red": "≥0.60"
+        }
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Length",
+            "criterion": "Summary word count ≤ source word count ÷ 3. System calculates exact limit and displays it.",
+            "failVariant": "OVER_LENGTH"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Key points",
+            "criterion": "Key point coverage ≥0.40 (meaning match with ≥3 source key points).",
+            "failVariant": "KEY_POINT_GAP"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Copying",
+            "criterion": "Copying score <60% per sentence.",
+            "failVariant": "VERBATIM_SUMMARY"
+          },
+          {
+            "id": "CHECK_4",
+            "name": "No hallucination",
+            "criterion": "Content not present in source text → flagged (meaning match <0.50 with source for any sentence).",
+            "failVariant": "HALLUCINATION"
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": "Paraphrase in learner's own words — even brief — if key point meaning is preserved (≥0.40 similarity to source key point)."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Summary exceeds 1/3 of source word count after 2 attempts.",
+          "firesError": "OVER_LENGTH"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Fewer than 3 source key points represented. Coverage <0.40.",
+          "firesError": "KEY_POINT_GAP"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Copying score ≥65% per sentence — source text reproduced rather than compressed.",
+          "firesError": "VERBATIM_SUMMARY"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Summary contains information not present in the source text.",
+          "firesError": "HALLUCINATION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or slang detected — academic register violated.",
+          "firesError": "CASUAL_REGISTER"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "OVER_LENGTH",
+          "action": "Strict word limit enforced. System rejects if over limit. 3-point guided organiser shown."
+        },
+        {
+          "errorVariant": "KEY_POINT_GAP",
+          "action": "Guided organiser: 'Identify 3 key points before writing.'"
+        },
+        {
+          "errorVariant": "VERBATIM_SUMMARY",
+          "action": "System hides source text before writing summary."
+        },
+        {
+          "errorVariant": "HALLUCINATION",
+          "action": "'Does this sentence appear in the text? If not, remove it.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "SU.001",
+          "errorSignals": [
+            "OVER_LENGTH",
+            "KEY_POINT_GAP",
+            "VERBATIM_SUMMARY",
+            "HALLUCINATION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Green Revolution",
+          "passage": "The Green Revolution refers to a period of intense agricultural development between the 1940s and 1960s that dramatically increased crop yields in developing countries. The movement was led by scientists and agronomists who developed new high-yielding varieties of wheat, rice, and maize that produced significantly more food per hectare than traditional crops. These new varieties were combined with modern irrigation techniques and synthetic fertilisers to maximise output. The results were transformative. Countries like India and Mexico, which had faced severe food shortages, became self-sufficient in food production within a decade. Famines that had threatened millions were averted. Norman Borlaug, the scientist most associated with the movement, was awarded the Nobel Peace Prize in 1970 for his contribution to reducing hunger. However, the Green Revolution also had significant drawbacks. The widespread use of chemical fertilisers and pesticides polluted waterways and damaged soil health over time. Small farmers who could not afford the new seeds and technologies were often displaced by larger agricultural operations. Critics argue that while the revolution increased food production, it also concentrated wealth in fewer hands and created long-term environmental damage that continues to affect farming communities today.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Summary word count ≤77 (≤1/3 of 230)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Key point coverage ≥0.40; ≥3 key points represented."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Copying score <60% per sentence."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No hallucinated content."
+              },
+              {
+                "id": "REGISTER",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "SU.002",
+          "errorSignals": [
+            "OVER_LENGTH",
+            "KEY_POINT_GAP",
+            "VERBATIM_SUMMARY",
+            "HALLUCINATION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Psychology of Colour",
+          "passage": "Colour affects human psychology in ways that are both universal and culturally specific. Researchers have found that certain colours reliably trigger emotional and physiological responses across different cultures. Red, for example, raises heart rate and increases arousal — it is associated with danger, passion, and urgency in many societies. Blue, by contrast, is typically associated with calm, trust, and reliability, which explains why it is favoured by banks, airlines, and social media platforms seeking to project these qualities. However, colour associations are not entirely universal. White is linked to purity and weddings in many Western cultures but to mourning and funerals in several East Asian traditions. Green carries associations of nature and health in Europe and North America but can signify illness in some other cultural contexts. Marketers and designers have long used this knowledge to influence consumer behaviour. Fast food companies commonly use red and yellow together — colours that stimulate appetite and create a sense of urgency. Hospitals use pale greens and blues to reduce patient anxiety. Political campaigns carefully select colours to signal values and affiliations. Understanding how colour influences perception has become a sophisticated science with practical applications across business, healthcare, and politics.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Summary word count ≤85 (≤1/3 of 255)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Key point coverage ≥0.40; ≥3 key points represented."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Copying score <60% per sentence."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No hallucinated content."
+              },
+              {
+                "id": "REGISTER",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "SU.003",
+          "errorSignals": [
+            "OVER_LENGTH",
+            "KEY_POINT_GAP",
+            "VERBATIM_SUMMARY",
+            "HALLUCINATION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "Urban Heat Islands",
+          "passage": "Cities are typically several degrees warmer than the surrounding countryside — a phenomenon known as the urban heat island effect. This occurs because buildings, roads, and other infrastructure absorb and retain heat during the day and release it slowly at night. Dark surfaces such as tarmac and rooftops are particularly effective at absorbing solar radiation. Vegetation, which would normally cool the air through evapotranspiration, is largely absent in urban areas, removing a natural cooling mechanism. The consequences are significant. Higher temperatures in cities increase energy demand for air conditioning, which in turn generates more heat and greenhouse gas emissions, creating a feedback loop. Elderly people and those with respiratory or cardiovascular conditions are particularly vulnerable to heat stress during urban heatwaves. Studies have linked urban heat islands to increased mortality rates during hot weather events. Urban planners are exploring several strategies to reduce the heat island effect, including planting trees and creating green spaces, installing green or reflective roofs, and using lighter-coloured paving materials that reflect rather than absorb solar energy.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Summary word count ≤68 (≤1/3 of 205)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Key point coverage ≥0.40; ≥3 key points represented."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Copying score <60% per sentence."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No hallucinated content."
+              },
+              {
+                "id": "REGISTER",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "SU.004",
+          "errorSignals": [
+            "OVER_LENGTH",
+            "KEY_POINT_GAP",
+            "VERBATIM_SUMMARY",
+            "HALLUCINATION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Origins of Money",
+          "passage": "For most of human history, people obtained what they needed through barter — directly exchanging goods or services with one another. Barter works well in small communities where people know each other and their needs, but it becomes impractical as societies grow larger and more complex. The fundamental problem is the 'double coincidence of wants': for a trade to happen, each party must have exactly what the other wants at the same time and place. Money solved this problem by introducing a generally accepted medium of exchange. The earliest known money took the form of commodity money — physical objects with intrinsic value, such as grain, cattle, shells, or metal ingots. Coinage — standardised metal coins with guaranteed weight and purity — was developed independently in several civilisations around the 7th century BCE, most notably in Lydia (in present-day Turkey). Paper money emerged in China during the Tang Dynasty (618–907 CE) as a more convenient alternative to carrying heavy metal coins. European banks began issuing paper notes in the 17th century. Today, the vast majority of money exists not as physical currency but as digital records in banking systems. Cryptocurrencies represent the latest evolution: decentralised digital money that operates without a central authority. Economists debate whether cryptocurrencies represent a genuine advance in monetary systems or a speculative bubble that will ultimately collapse.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Summary word count ≤87 (≤1/3 of 260)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Key point coverage ≥0.40; ≥3 key points represented."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Copying score <60% per sentence."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No hallucinated content."
+              },
+              {
+                "id": "REGISTER",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.B2",
+      "name": "Compare Two Texts",
+      "gate": "G",
+      "level": 8,
+      "tier": "B — Summarising and Comparing Texts",
+      "grade": 6,
+      "registerEnforced": true,
+      "description": "Learner reads two texts on the same topic and produces ≥2 valid similarities and ≥2 valid differences, each referencing both texts and using comparison language.",
+      "deliveryMode": "TEXT — Comparison statements",
+      "questionFormat": "≥2 similarity statements + ≥2 difference statements, each referencing both texts",
+      "defaultPrompt": "Read both texts. Write at least two similarities and at least two differences between them. Each statement must reference both texts and use comparison language (both, while, whereas, in contrast, similarly).",
+      "errorCode": "ERR_NO_COMPARISON",
+      "passCondition": {
+        "metric": "comparison_validity",
+        "minSimilarities": 2,
+        "minDifferences": 2,
+        "all4ChecksPerStatement": true,
+        "textPairs": 3,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "References both texts",
+            "criterion": "Statement references both texts (keyword overlap with both Text A and Text B).",
+            "failVariant": "SINGLE_TEXT_ONLY"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Comparison language present",
+            "criterion": "Uses comparison language (more than, less than, both, while, compared to, whereas, similarly, in contrast, by contrast, unlike).",
+            "failVariant": "NO_COMPARISON_LANGUAGE"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Grounded in source",
+            "criterion": "Each claim has keyword overlap with the relevant source text(s) — not invented.",
+            "failVariant": "UNSUPPORTED_CLAIM"
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Framing matches claim type",
+            "criterion": "Similarity claims use additive/agreement framing; difference claims use contrastive framing.",
+            "failVariant": "FRAMING_ERROR"
+          }
+        ]
+      },
+      "preWritingSupport": "Two-source mapping: system requires learner to write three labelled statements before drafting: 'Both texts share: [X]', 'Text A only: [Y]', 'Text B only: [Z].' Writing unlocks only after all three pass keyword overlap check.",
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Statement references only one of the two source texts.",
+          "firesError": "SINGLE_TEXT_ONLY"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Data from both texts described in separate sentences without comparative framing.",
+          "firesError": "NO_COMPARISON_LANGUAGE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Comparison not grounded in keywords from either text.",
+          "firesError": "UNSUPPORTED_CLAIM"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Similarity framed as difference or vice versa.",
+          "firesError": "FRAMING_ERROR"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or slang detected.",
+          "firesError": "CASUAL_REGISTER"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "SINGLE_TEXT_ONLY",
+          "action": "Two-source mapping required before drafting."
+        },
+        {
+          "errorVariant": "NO_COMPARISON_LANGUAGE",
+          "action": "Sentence frame: '___ is [more/less/similar to] ___ in that ___.'"
+        },
+        {
+          "errorVariant": "UNSUPPORTED_CLAIM",
+          "action": "'Find the sentence in each text that supports this comparison.'"
+        },
+        {
+          "errorVariant": "FRAMING_ERROR",
+          "action": "'Similarities use both/and. Differences use but/however/whereas.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "TP.001",
+          "errorSignals": [
+            "SINGLE_TEXT_ONLY",
+            "NO_COMPARISON_LANGUAGE",
+            "UNSUPPORTED_CLAIM",
+            "FRAMING_ERROR",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Two views on social media",
+          "passage": "Text A — Social Media and Young People (information article)\nResearch consistently shows that heavy use of social media is associated with increased rates of anxiety and depression among teenagers. A large-scale study published in 2023 found that young people who spend more than three hours per day on social media platforms are twice as likely to report poor mental health compared to those who spend less than one hour. Researchers attribute this to constant social comparison, cyberbullying, and disrupted sleep patterns caused by late-night device use. Some platforms have introduced screen time alerts and content filters in response to growing public concern.\n\nText B — The Case Against a Social Media Ban (opinion piece)\nCalls to ban young people from social media are well-intentioned but misguided. Social media is not inherently harmful — it is a tool, and like all tools, its effects depend on how it is used. For many young people, particularly those in remote areas or with marginalised identities, social media provides vital community, support, and access to information they cannot find elsewhere. Rather than banning platforms outright, we should focus on digital literacy education that equips young people to use these tools responsibly. Restriction treats teenagers as incapable of making informed choices. Education trusts them.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "SIMILARITIES",
+                "description": "State at least 2 similarities grounded in both texts (e.g. Both texts acknowledge that social media affects young people's wellbeing.; Both texts suggest that action is needed in response to the problems social media creates.)"
+              },
+              {
+                "id": "DIFFERENCES",
+                "description": "State at least 2 differences grounded in both texts (e.g. Text A uses research data (studies, statistics) while Text B uses argument and reasoning without citing specific research.; Text A focuses on the harms of social media use, while Text B argues that social media can provide benefits, particularly for marginalised young people.)"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TP.002",
+          "errorSignals": [
+            "SINGLE_TEXT_ONLY",
+            "NO_COMPARISON_LANGUAGE",
+            "UNSUPPORTED_CLAIM",
+            "FRAMING_ERROR",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "Two texts on the causes of the First World War",
+          "passage": "Text A — The Assassination at Sarajevo (history textbook extract)\nOn 28 June 1914, Archduke Franz Ferdinand, heir to the Austro-Hungarian throne, was assassinated in Sarajevo by Gavrilo Princip, a Bosnian Serb nationalist. The assassination triggered a chain of events that drew the major European powers into war within six weeks. Austria-Hungary issued an ultimatum to Serbia; Serbia's partial compliance was rejected; Austria-Hungary declared war. Russia mobilised in support of Serbia; Germany declared war on Russia; France and Britain were drawn in through their alliance obligations. Most historians agree that while the assassination was the immediate trigger, the underlying causes — militarism, imperial rivalry, and the complex system of alliances — had been building for decades.\n\nText B — Why Europe Was a Powder Keg (analytical essay extract)\nThe First World War did not begin in Sarajevo. It began in the decades of rivalry, rearmament, and mutual suspicion that made Europe a powder keg waiting for a spark. Between 1870 and 1914, European powers had tripled their military spending and constructed a web of secret alliances that made any localised conflict immediately global. Imperial competition for territory in Africa and Asia had generated deep resentments between Britain, France, and Germany. The assassination of Franz Ferdinand was not a cause — it was a trigger. Remove that trigger and another would surely have found the same powder keg within years. The real causes were structural, not accidental.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "SIMILARITIES",
+                "description": "State at least 2 similarities grounded in both texts (e.g. Both texts agree that the assassination of Archduke Franz Ferdinand was the immediate trigger, not the sole cause, of the war.; Both texts acknowledge that alliances between European powers played a significant role in escalating the conflict.)"
+              },
+              {
+                "id": "DIFFERENCES",
+                "description": "State at least 2 differences grounded in both texts (e.g. Text A presents the events as a factual sequence (Austria-Hungary issued an ultimatum... declared war), while Text B uses figurative language ('powder keg', 'spark') to argue a structural thesis.; Text A attributes the causes to 'militarism, imperial rivalry, and alliances', while Text B places greater emphasis on the decades of rivalry and rearmament as the primary causes.)"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TP.003",
+          "errorSignals": [
+            "SINGLE_TEXT_ONLY",
+            "NO_COMPARISON_LANGUAGE",
+            "UNSUPPORTED_CLAIM",
+            "FRAMING_ERROR",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Two texts on artificial intelligence in education",
+          "passage": "Text A — AI in the Classroom: Opportunities (technology magazine article)\nArtificial intelligence is beginning to transform how students learn. Adaptive learning platforms can now analyse how individual students respond to different types of questions and automatically adjust the difficulty and format of content in real time. Early trials in several school systems have shown measurable improvements in outcomes for learners with learning differences, who benefit from the platform's ability to identify specific gaps and address them without the stigma of being singled out. AI writing assistants can provide instant, detailed feedback on drafts — feedback that would take a teacher hours to produce for a full class. For under-resourced schools with large class sizes, AI tools offer a form of personalised support that would otherwise be impossible to provide.\n\nText B — The Limits of AI in Education (academic journal abstract)\nWhile AI tutoring systems demonstrate measurable gains in narrow, assessable skills such as vocabulary acquisition and procedural mathematics, the evidence for broader educational outcomes remains limited. Learning involves not only knowledge acquisition but the development of critical thinking, social intelligence, and the capacity to deal with ambiguity — capacities that current AI systems are poorly equipped to develop or assess. There is also a significant equity concern: AI tools are predominantly deployed in well-funded schools in high-income countries, potentially widening the gap between advantaged and disadvantaged learners. Enthusiasm for AI in education must be tempered by rigorous evaluation of what these systems can and cannot do.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "SIMILARITIES",
+                "description": "State at least 2 similarities grounded in both texts (e.g. Both texts acknowledge that AI tools show measurable improvements in specific, assessable learning outcomes.; Both texts raise the question of equity — Text A frames AI as a solution for under-resourced schools; Text B raises concern that AI currently benefits well-funded schools more.)"
+              },
+              {
+                "id": "DIFFERENCES",
+                "description": "State at least 2 differences grounded in both texts (e.g. Text A is optimistic about AI's potential across a range of learning contexts, while Text B argues that AI is only effective in narrow, procedural domains.; Text A focuses on the practical benefits of AI (feedback, personalisation, accessibility), while Text B focuses on what AI cannot do (critical thinking, social intelligence, ambiguity).)"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.B3",
+      "name": "Source Integration",
+      "gate": "G",
+      "level": 8,
+      "tier": "B — Summarising and Comparing Texts",
+      "grade": 6,
+      "registerEnforced": true,
+      "phase1Note": "ERR_SOURCE_INTEGRATION ■ Phase 1 (was ERR_TEXT_VISUAL_INTEGRATION). Plain-text structured data used in place of visual sources. Reverts at Phase 2. MAIN_TEXT_ONLY reverts to TEXT_ONLY_RESPONSE; DATA_TEXT_ONLY reverts to VISUAL_ONLY_RESPONSE.",
+      "description": "Learner reads a main explanatory text and a structured data text on the same topic. Response must draw on specific information from both sources and link them with an integration connector.",
+      "deliveryMode": "TEXT — Integrated response paragraph",
+      "questionFormat": "Integrated response paragraph drawing on both sources with explicit connector",
+      "defaultPrompt": "Read both sources. Write a response that includes at least one detail from the main text and at least one data point from the data text. Link them explicitly using an integration connector (the data shows, both sources show, this is supported by, according to both).",
+      "errorCode": "ERR_SOURCE_INTEGRATION",
+      "passCondition": {
+        "metric": "source_integration_accuracy",
+        "all3ChecksThreshold": 0.6,
+        "items": 6,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Main text detail",
+            "criterion": "≥1 specific detail from the main explanatory text present (keyword overlap with main text).",
+            "failVariant": "DATA_TEXT_ONLY"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Data point",
+            "criterion": "≥1 specific data point from the structured data text present (keyword or numerical overlap with data text).",
+            "failVariant": "MAIN_TEXT_ONLY"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Integration connector",
+            "criterion": "An integration connector used: the data shows / which the text confirms / according to both / this is supported by / both sources show / the data confirms that.",
+            "failVariant": "NO_INTEGRATION_CONNECTOR"
+          }
+        ]
+      },
+      "support": "Two-source checklist: system requires learner to confirm 'main text used ✓' and 'data text used ✓' before submitting. Integration phrase starters provided on first attempt.",
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "No data point from the structured data text referenced — response ignores data source.",
+          "firesError": "MAIN_TEXT_ONLY"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "No detail from the main explanatory text referenced — response ignores main text.",
+          "firesError": "DATA_TEXT_ONLY"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Both sources referenced but not explicitly linked with an integration phrase.",
+          "firesError": "NO_INTEGRATION_CONNECTOR"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or slang detected.",
+          "firesError": "CASUAL_REGISTER"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "MAIN_TEXT_ONLY",
+          "action": "'Your answer must include one piece of information from the main text AND one data point.'"
+        },
+        {
+          "errorVariant": "DATA_TEXT_ONLY",
+          "action": "Same prompt, reversed."
+        },
+        {
+          "errorVariant": "NO_INTEGRATION_CONNECTOR",
+          "action": "Integration phrase starters provided: 'the data shows... / both sources show... / this is supported by...'"
+        }
+      ],
+      "items": [
+        {
+          "id": "SI.001",
+          "errorSignals": [
+            "MAIN_TEXT_ONLY",
+            "DATA_TEXT_ONLY",
+            "NO_INTEGRATION_CONNECTOR",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Ocean Plastic Pollution",
+          "passage": "Plastic pollution in the ocean has become one of the most serious environmental threats facing marine ecosystems. Unlike organic materials, most plastics do not biodegrade — they break into smaller and smaller fragments called microplastics. These particles are ingested by marine animals ranging from tiny plankton to large whales. Once plastic enters the food chain, it accumulates in increasing concentrations at each level — a process called biomagnification. Fish containing microplastics are then consumed by humans, raising public health concerns that scientists are still working to fully understand.",
+          "dataText": "Plastic waste entering the ocean per year (millions of tonnes): 2000: 3.5 million tonnes 2010: 6.1 million tonnes 2020: 8.0 million tonnes 2030 (projected): 11.2 million tonnes Source: OECD Global Plastics Outlook, 2022.",
+          "question": "Using information from both sources, explain why ocean plastic pollution is a growing concern. Reference both sources in your answer.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "mainTextDetail",
+                "description": "mainTextDetail: biomagnification / food chain / microplastics in fish / human health concerns"
+              },
+              {
+                "id": "dataPoint",
+                "description": "dataPoint: Any year figure showing increase (3.5 / 6.1 / 8.0 / 11.2 million tonnes)"
+              },
+              {
+                "id": "integrationConnector",
+                "description": "integrationConnector: the data shows / which the data confirms / according to both sources / this is supported by"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "SI.002",
+          "errorSignals": [
+            "MAIN_TEXT_ONLY",
+            "DATA_TEXT_ONLY",
+            "NO_INTEGRATION_CONNECTOR",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Gender Pay Gap",
+          "passage": "The gender pay gap refers to the difference between average earnings of men and women across an economy. Economists identify two forms: the raw gap (which compares all male and female earnings regardless of job type) and the adjusted gap (which compares men and women doing equivalent work). Even after adjusting for factors such as occupation, hours worked, and experience, a pay gap typically remains. Researchers attribute the residual gap to a combination of unconscious bias in promotion decisions, the undervaluation of work predominantly done by women, and the disproportionate impact of career interruptions — particularly those related to childcare — on women's earnings.",
+          "dataText": "Gender pay gap (adjusted, % difference in median hourly earnings): United Kingdom: 8.3% United States: 9.1% South Africa: 15.0% Iceland: 3.2% Source: OECD Employment Outlook, 2023.",
+          "question": "Using both sources, explain what causes the gender pay gap and what the data reveals about its size in different countries.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "mainTextDetail",
+                "description": "mainTextDetail: unconscious bias / undervaluation of women's work / childcare interruptions"
+              },
+              {
+                "id": "dataPoint",
+                "description": "dataPoint: At least one country comparison (8.3% UK / 9.1% US / 15.0% SA / 3.2% Iceland)"
+              },
+              {
+                "id": "integrationConnector",
+                "description": "integrationConnector: the data shows / according to both sources / this is supported by / both sources confirm"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "SI.003",
+          "errorSignals": [
+            "MAIN_TEXT_ONLY",
+            "DATA_TEXT_ONLY",
+            "NO_INTEGRATION_CONNECTOR",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "How Forests Regulate Climate",
+          "passage": "Forests play a critical role in regulating the Earth's climate through three main mechanisms. First, trees absorb carbon dioxide during photosynthesis and store it as carbon in their wood and roots, acting as carbon sinks. Second, forests release water vapour through transpiration, which cools the local atmosphere and contributes to cloud formation and rainfall. Third, the dark canopy of a forest absorbs more solar energy than open land, influencing regional temperature patterns. When forests are cleared, these three functions are lost simultaneously: carbon is released rather than stored, local rainfall decreases, and surface temperatures rise.",
+          "dataText": "Global forest area lost per decade (million hectares): 1980s: 150 million hectares 1990s: 178 million hectares 2000s: 130 million hectares 2010s: 119 million hectares Note: Rate of loss has slowed but remains substantial. Source: FAO Global Forest Resources Assessment, 2020.",
+          "question": "Using both sources, explain why continued deforestation remains a serious climate concern.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "mainTextDetail",
+                "description": "mainTextDetail: carbon sinks / transpiration / temperature regulation / three mechanisms"
+              },
+              {
+                "id": "dataPoint",
+                "description": "dataPoint: Any decade figure showing scale of forest loss (150 / 178 / 130 / 119 million hectares)"
+              },
+              {
+                "id": "integrationConnector",
+                "description": "integrationConnector: the data shows / according to both sources / both sources confirm / this is supported by"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "SI.004",
+          "errorSignals": [
+            "MAIN_TEXT_ONLY",
+            "DATA_TEXT_ONLY",
+            "NO_INTEGRATION_CONNECTOR",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Rise of Remote Work",
+          "passage": "The COVID-19 pandemic forced millions of workers to shift to remote work virtually overnight, accelerating a trend that had been growing slowly for years. Research on the effects of remote work shows mixed results. On the positive side, many workers report higher job satisfaction, reduced commuting stress, and greater flexibility to manage family responsibilities. Productivity studies are inconclusive: some show gains for individual task-based work, while others show declines in collaborative and creative work that benefits from face-to-face interaction. Concerns about social isolation, blurred work-life boundaries, and reduced access to informal mentorship have also emerged as significant drawbacks, particularly for younger workers early in their careers.",
+          "dataText": "Percentage of workers who prefer remote or hybrid work arrangements (2023 survey): Fully remote: 28% Hybrid (mix of remote and office): 53% Fully in-office: 19% Survey of 12 000 workers across 11 countries. Source: McKinsey Global Institute, 2023.",
+          "question": "Using both sources, explain the appeal of remote and hybrid work and identify at least one concern the data alone does not reveal.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "mainTextDetail",
+                "description": "mainTextDetail: flexibility / social isolation / mentorship loss / work-life boundary"
+              },
+              {
+                "id": "dataPoint",
+                "description": "dataPoint: Preference percentages (28% fully remote / 53% hybrid / 19% in-office)"
+              },
+              {
+                "id": "integrationConnector",
+                "description": "integrationConnector: the data shows / both sources show / according to both / this is supported by"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "SI.005",
+          "errorSignals": [
+            "MAIN_TEXT_ONLY",
+            "DATA_TEXT_ONLY",
+            "NO_INTEGRATION_CONNECTOR",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Youth Mental Health",
+          "passage": "Mental health difficulties among young people have increased significantly in the past decade, with anxiety and depression now among the most common health conditions affecting teenagers worldwide. Researchers point to multiple contributing factors, including academic pressure, social comparison on digital platforms, reduced time spent in unstructured outdoor play, and economic uncertainty about future employment. The COVID-19 pandemic exacerbated these trends: school closures, social isolation, and the disruption of daily routines placed additional strain on young people's mental health. Despite growing awareness, access to mental health services for young people remains severely limited in most countries, with long waiting lists and insufficient numbers of trained professionals.",
+          "dataText": "Percentage of young people (ages 15–24) reporting poor mental health (by region, 2022): North America: 31% Western Europe: 26% Sub-Saharan Africa: 19% South-East Asia: 22% Source: WHO World Mental Health Report, 2022.",
+          "question": "Using both sources, explain why youth mental health is a growing global concern and what the data reveals about regional differences.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "mainTextDetail",
+                "description": "mainTextDetail: academic pressure / digital platforms / pandemic effects / limited service access"
+              },
+              {
+                "id": "dataPoint",
+                "description": "dataPoint: Regional comparison (31% NA / 26% WE / 19% SSA / 22% SEA)"
+              },
+              {
+                "id": "integrationConnector",
+                "description": "integrationConnector: the data shows / both sources confirm / according to both / this is supported by"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "SI.006",
+          "errorSignals": [
+            "MAIN_TEXT_ONLY",
+            "DATA_TEXT_ONLY",
+            "NO_INTEGRATION_CONNECTOR",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "Electric Vehicles and the Environment",
+          "passage": "Electric vehicles (EVs) are widely promoted as a cleaner alternative to petrol and diesel cars, but their environmental impact is more complex than simple comparisons suggest. Over a full lifecycle — from manufacture to disposal — EVs produce significantly fewer greenhouse gas emissions than conventional vehicles in countries where electricity is generated from low-carbon sources. However, the manufacturing of EV batteries requires large quantities of lithium, cobalt, and other minerals, the extraction of which causes significant environmental damage and raises serious ethical concerns about labour conditions in mining regions. The environmental benefits of EVs are therefore heavily dependent on both the electricity grid's carbon intensity and the responsible sourcing of battery materials.",
+          "dataText": "Lifecycle CO2 emissions per vehicle (tonnes, petrol vs. electric by country electricity mix): Norway (94% renewables) — Petrol: 41 t · Electric: 18 t United Kingdom (40% renewables) — Petrol: 41 t · Electric: 27 t Poland (80% coal) — Petrol: 41 t · Electric: 34 t Source: Transport & Environment, 2023.",
+          "question": "Using both sources, explain why the environmental case for electric vehicles is more complicated than it first appears.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "mainTextDetail",
+                "description": "mainTextDetail: battery mining / lithium / cobalt / labour conditions / electricity source dependency"
+              },
+              {
+                "id": "dataPoint",
+                "description": "dataPoint: Country comparison showing how electricity mix affects benefit (Norway 18 t vs Poland 34 t electric)"
+              },
+              {
+                "id": "integrationConnector",
+                "description": "integrationConnector: the data shows / both sources confirm / according to both / this is supported by"
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.C1",
+      "name": "Structured Explanatory Paragraph",
+      "gate": "G",
+      "level": 8,
+      "tier": "C — Structured Academic Writing",
+      "grade": 6,
+      "registerEnforced": true,
+      "description": "Learner writes a structured explanatory paragraph identifying a cause, explaining a process or mechanism, and stating an outcome, using ≥1 academic transition phrase. Academic register enforced.",
+      "deliveryMode": "TEXT — Structured explanatory paragraph",
+      "questionFormat": "Single paragraph: cause + mechanism + outcome + ≥1 academic transition",
+      "defaultPrompt": "Write a structured explanatory paragraph. Include: (1) the cause; (2) the process or mechanism; (3) the outcome; (4) at least one academic transition phrase (however, therefore, as a result, consequently).",
+      "errorCode": "ERR_EXPLANATION_STRUCTURE",
+      "passCondition": {
+        "metric": "explanation_structure_score",
+        "all4ChecksThreshold": 0.6,
+        "tasks": 6,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Cause",
+            "criterion": "A cause-statement is present. Noun phrase + verb identifying what produces the effect.",
+            "failVariant": "NO_CAUSE"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Mechanism",
+            "criterion": "A process or mechanism sentence is present — explains HOW the cause produces the effect (not just restating cause and effect).",
+            "failVariant": "NO_MECHANISM"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Outcome",
+            "criterion": "An outcome statement is present identifying what results.",
+            "failVariant": "NO_OUTCOME"
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Academic transition",
+            "criterion": "≥1 academic transition phrase present (however, therefore, although, as a result, consequently, this means that, thus).",
+            "failVariant": "TRANSITION_ABSENT"
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Paragraph explains an outcome without naming a cause.",
+          "firesError": "NO_CAUSE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Paragraph jumps from cause to outcome with no process explanation.",
+          "firesError": "NO_MECHANISM"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "No academic transition phrase present.",
+          "firesError": "TRANSITION_ABSENT"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or slang detected — submission rejected.",
+          "firesError": "CASUAL_REGISTER"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "NO_CAUSE",
+          "action": "'Your paragraph must name what caused this before explaining what happened.'"
+        },
+        {
+          "errorVariant": "NO_MECHANISM",
+          "action": "Sentence frame: 'This happens because ___. This leads to ___.'"
+        },
+        {
+          "errorVariant": "TRANSITION_ABSENT",
+          "action": "'Use an academic transition: however / therefore / as a result / consequently.'"
+        },
+        {
+          "errorVariant": "CASUAL_REGISTER",
+          "action": "System flags the specific word. Learner must replace before resubmitting."
+        }
+      ],
+      "items": [
+        {
+          "id": "EC1.001",
+          "errorSignals": [
+            "NO_CAUSE",
+            "NO_MECHANISM",
+            "TRANSITION_ABSENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a structured explanatory paragraph about why deforestation leads to soil erosion. Your paragraph must: (1) name the cause; (2) explain the process or mechanism; (3) state the outcome; (4) use at least one academic transition phrase (however, therefore, although, as a result, consequently).",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Cause stated (deforestation / tree removal)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Mechanism explained (roots no longer bind soil; rain washes loose topsoil)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Outcome stated (erosion / lost topsoil / land degradation)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "≥1 academic transition phrase."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "EC1.002",
+          "errorSignals": [
+            "NO_CAUSE",
+            "NO_MECHANISM",
+            "TRANSITION_ABSENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write a structured explanatory paragraph about how pollution affects human health. Name the cause clearly, explain the process by which it causes harm, state the outcome, and use at least one academic transition phrase.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Cause stated (pollutants / specific pollutant source)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Mechanism explained (how pollutants enter and damage the body)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Outcome stated (specific health conditions / mortality)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "≥1 academic transition phrase."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "EC1.003",
+          "errorSignals": [
+            "NO_CAUSE",
+            "NO_MECHANISM",
+            "TRANSITION_ABSENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a structured explanatory paragraph explaining why cities are warmer than rural areas. Include: (1) the cause; (2) the mechanism (how it works); (3) the outcome; (4) at least one academic transition phrase.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Cause stated (urban surfaces / lack of vegetation / heat absorption)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Mechanism explained (surfaces absorb solar radiation; lack of evapotranspiration)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Outcome stated (urban heat island / higher temperatures in cities)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "≥1 academic transition phrase."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "EC1.004",
+          "errorSignals": [
+            "NO_CAUSE",
+            "NO_MECHANISM",
+            "TRANSITION_ABSENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a structured explanatory paragraph about how economic inequality affects access to education. Your paragraph must name the cause, explain how it operates, state the outcome, and use at least one academic transition phrase such as 'as a result' or 'consequently'.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Cause stated (economic inequality / income disparity)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Mechanism explained (cost barriers / unequal school quality / opportunity cost)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Outcome stated (reduced educational access / attainment gap)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "≥1 academic transition phrase."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "EC1.005",
+          "errorSignals": [
+            "NO_CAUSE",
+            "NO_MECHANISM",
+            "TRANSITION_ABSENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write a structured explanatory paragraph explaining why antibiotic resistance is a growing public health problem. Include: cause, mechanism (how resistance develops), outcome, and at least one academic transition phrase.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Cause stated (overuse / misuse of antibiotics)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Mechanism explained (natural selection / resistant bacteria survive and reproduce)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Outcome stated (untreatable infections / public health threat)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "≥1 academic transition phrase."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "EC1.006",
+          "errorSignals": [
+            "NO_CAUSE",
+            "NO_MECHANISM",
+            "TRANSITION_ABSENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a structured explanatory paragraph about how social media use affects sleep patterns in young people. Name the cause, explain the mechanism, state the health outcome, and use at least one academic transition phrase.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Cause stated (late-night social media use / screen exposure)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Mechanism explained (blue light suppresses melatonin / cognitive arousal delays sleep)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Outcome stated (reduced sleep duration / poorer sleep quality / health effects)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "≥1 academic transition phrase."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.C2",
+      "name": "Factual Report Writing",
+      "gate": "G",
+      "level": 8,
+      "tier": "C — Structured Academic Writing",
+      "grade": 6,
+      "registerEnforced": true,
+      "description": "Learner writes a basic factual report with a title, ≥2 headed sections (headings as labels, not sentences), and 2–3 sentences per section. Sections must be topically distinct.",
+      "deliveryMode": "TEXT — Multi-section factual report",
+      "questionFormat": "Report with title + ≥2 headed sections + 2–3 sentences each",
+      "defaultPrompt": "Write a basic factual report. Include: (1) a title; (2) at least two sections each with a heading (headings are labels, not sentences); (3) 2–3 factual sentences per section. Sections must be topically distinct.",
+      "errorCode": "ERR_SECTION_OVERLAP",
+      "passCondition": {
+        "metric": "report_structure_score",
+        "all4ChecksThreshold": 0.6,
+        "tasks": 3,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Title",
+            "criterion": "Title present at the top of the report.",
+            "failVariant": "NO_TITLE"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Headings",
+            "criterion": "≥2 section headings present. Each heading must be a label (no finite verb).",
+            "failVariant": "NO_HEADINGS / HEADING_AS_SENTENCE"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Section length",
+            "criterion": "Each section contains 2–3 complete sentences.",
+            "failVariant": "SECTION_TOO_SHORT"
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Section distinctness",
+            "criterion": "Cross-section similarity <0.65 (GREEN <0.45; AMBER 0.45–0.65; RED ≥0.65).",
+            "failVariant": "SECTION_OVERLAP"
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Paragraphs written without section headings — report structure absent.",
+          "firesError": "NO_HEADINGS"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Section heading contains a finite verb — formatted as a full sentence.",
+          "firesError": "HEADING_AS_SENTENCE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Cross-section similarity ≥0.65 — two sections cover the same topic.",
+          "firesError": "SECTION_OVERLAP"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Fewer than 2 complete sentences in a section.",
+          "firesError": "SECTION_TOO_SHORT"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or slang detected.",
+          "firesError": "CASUAL_REGISTER"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "NO_HEADINGS",
+          "action": "Show example report. Require headings before writing section content."
+        },
+        {
+          "errorVariant": "HEADING_AS_SENTENCE",
+          "action": "'A heading is a label, not a sentence. Remove the verb.'"
+        },
+        {
+          "errorVariant": "SECTION_OVERLAP",
+          "action": "Learner names each section's distinct topic in one word before writing."
+        },
+        {
+          "errorVariant": "SECTION_TOO_SHORT",
+          "action": "'Each section needs at least 2 complete sentences.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "RC2.001",
+          "errorSignals": [
+            "NO_HEADINGS",
+            "HEADING_AS_SENTENCE",
+            "SECTION_OVERLAP",
+            "SECTION_TOO_SHORT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a basic factual report about water pollution. Your report must have: (1) a title; (2) at least two sections, each with a heading; (3) 2–3 factual sentences in each section. Headings must be labels — not full sentences. Keep each section focused on a different aspect of the topic.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Title present at top."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥2 headings, each a label (no finite verb)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Each section 2–3 complete sentences."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Cross-section similarity <0.65 — sections topically distinct."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "RC2.002",
+          "errorSignals": [
+            "NO_HEADINGS",
+            "HEADING_AS_SENTENCE",
+            "SECTION_OVERLAP",
+            "SECTION_TOO_SHORT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write a basic factual report about renewable energy. Include: (1) a report title; (2) at least two sections, each with a heading that is a label (not a sentence); (3) 2–3 sentences of factual content per section. Each section must cover a different aspect of the topic.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Title present at top."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥2 headings, each a label (no finite verb)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Each section 2–3 complete sentences."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Cross-section similarity <0.65 — sections topically distinct."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "RC2.003",
+          "errorSignals": [
+            "NO_HEADINGS",
+            "HEADING_AS_SENTENCE",
+            "SECTION_OVERLAP",
+            "SECTION_TOO_SHORT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a basic factual report about the effects of climate change on agriculture. Your report must have a title, at least two headed sections (headings are labels, not sentences), and 2–3 factual sentences per section. The sections must be topically distinct — each one focused on a different aspect.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Title present at top."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥2 headings, each a label (no finite verb)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Each section 2–3 complete sentences."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Cross-section similarity <0.65 — sections topically distinct."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.C3",
+      "name": "Academic Transition Phrases",
+      "gate": "G",
+      "level": 8,
+      "tier": "C — Structured Academic Writing",
+      "grade": 6,
+      "registerEnforced": true,
+      "description": "Learner uses academic transition phrases (however, therefore, although, in contrast, as a result, consequently) correctly — function match, syntactically correct position, no repetition within 3 sentences.",
+      "deliveryMode": "TEXT — Paragraph with required academic transitions",
+      "questionFormat": "Paragraph requiring ≥2 different academic transitions with correct function and position",
+      "defaultPrompt": "Write a paragraph using at least two different academic transition phrases (however, therefore, although, in contrast, as a result, consequently). Each transition must match the logical relationship it signals, be placed at the start of a sentence or clause, and must not be repeated within three sentences.",
+      "errorCode": "ERR_TRANSITION_MISUSE",
+      "passCondition": {
+        "metric": "transition_usage_accuracy",
+        "functionMatchThreshold": 0.6,
+        "positionThreshold": 0.7,
+        "noRepetitionWithin3Sentences": true,
+        "tasks": 6,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Function match",
+            "criterion": "Transition's logical function matches the relationship between clauses. 'however' = contrast; 'therefore/as a result/consequently' = result/cause; 'although' = concession; 'in contrast' = contrast. ≥60% correctly matched.",
+            "failVariant": "WRONG_FUNCTION"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Correct position",
+            "criterion": "Transition used at sentence start or clause boundary — not mid-clause. ≥70% correctly positioned.",
+            "failVariant": "WRONG_POSITION"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "No repetition",
+            "criterion": "Same transition not used within 3 consecutive sentences.",
+            "failVariant": "TRANSITION_REPETITION"
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "'however' linking two agreeing statements; 'therefore' used without a causal relationship.",
+          "firesError": "WRONG_FUNCTION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Transition inserted mid-clause at a syntactically incorrect position.",
+          "firesError": "WRONG_POSITION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Same transition phrase appears within 3 consecutive sentences.",
+          "firesError": "TRANSITION_REPETITION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or slang detected.",
+          "firesError": "CASUAL_REGISTER"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "WRONG_FUNCTION",
+          "action": "Meaning function chart; learner identifies the relationship between clauses before selecting a transition."
+        },
+        {
+          "errorVariant": "WRONG_POSITION",
+          "action": "'Place the transition at the start of a sentence or clause, not in the middle.'"
+        },
+        {
+          "errorVariant": "TRANSITION_REPETITION",
+          "action": "Transition variety checklist. 'Do not repeat a transition within three sentences.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "TC3.001",
+          "errorSignals": [
+            "WRONG_FUNCTION",
+            "WRONG_POSITION",
+            "TRANSITION_REPETITION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about the advantages and disadvantages of living in a large city. Use at least two different academic transition phrases (however, therefore, although, in contrast, as a result, consequently) to signal the logical relationships between your sentences. Do not use the same transition twice in a row.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Function match ≥60% — each transition signals the correct relationship."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Position correct ≥70% — transitions at sentence start or clause boundary."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition repeated within 3 consecutive sentences."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TC3.002",
+          "errorSignals": [
+            "WRONG_FUNCTION",
+            "WRONG_POSITION",
+            "TRANSITION_REPETITION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write a paragraph explaining why regular exercise is important for mental health. Use at least two different academic transition phrases to connect your ideas. Ensure each transition correctly signals the logical relationship between the sentences it connects.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Function match ≥60%."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Position correct ≥70%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition repeated within 3 consecutive sentences."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TC3.003",
+          "errorSignals": [
+            "WRONG_FUNCTION",
+            "WRONG_POSITION",
+            "TRANSITION_REPETITION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about the causes and effects of water scarcity in developing regions. Use at least two academic transition phrases. Make sure the transitions you choose match the logical relationship between the sentences — for example, use 'therefore' only when one idea follows logically from another.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Function match ≥60%."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Position correct ≥70%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition repeated within 3 consecutive sentences."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TC3.004",
+          "errorSignals": [
+            "WRONG_FUNCTION",
+            "WRONG_POSITION",
+            "TRANSITION_REPETITION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph comparing traditional education and online education. Use at least two academic transition phrases. Use a contrast transition (however, in contrast, although, whereas) at least once. Do not use the same transition within three sentences of itself.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Function match ≥60% — including ≥1 contrast transition."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Position correct ≥70%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition repeated within 3 consecutive sentences."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TC3.005",
+          "errorSignals": [
+            "WRONG_FUNCTION",
+            "WRONG_POSITION",
+            "TRANSITION_REPETITION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write a paragraph about how technology has changed communication. Use at least two academic transition phrases that signal different logical relationships — one to show a result (therefore, as a result, consequently) and one to show contrast or concession (however, although, in contrast).",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Function match ≥60% — including ≥1 result and ≥1 contrast/concession transition."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Position correct ≥70%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition repeated within 3 consecutive sentences."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TC3.006",
+          "errorSignals": [
+            "WRONG_FUNCTION",
+            "WRONG_POSITION",
+            "TRANSITION_REPETITION",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about the importance of biodiversity. Use at least two different academic transition phrases. Ensure that each transition is placed at the correct syntactic position — at the start of a sentence or clause, not mid-clause.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Function match ≥60%."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Position correct ≥70%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition repeated within 3 consecutive sentences."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.C4",
+      "name": "Paragraph Cohesion",
+      "gate": "G",
+      "level": 8,
+      "tier": "C — Structured Academic Writing",
+      "grade": 6,
+      "registerEnforced": true,
+      "description": "Each sentence in the learner's paragraph must relate to the topic sentence. No sentence may introduce a topic belonging to a different paragraph or an unrelated tangent.",
+      "deliveryMode": "TEXT — Single cohesive paragraph",
+      "questionFormat": "Paragraph with every sentence supporting the topic sentence",
+      "defaultPrompt": "Write a paragraph. Every sentence must directly relate to your topic sentence. Do not introduce a new topic mid-paragraph. Academic register required.",
+      "errorCode": "ERR_COHESION",
+      "passCondition": {
+        "metric": "cohesion_score",
+        "scoreFormula": "non_flagged_sentences ÷ total_sentences per paragraph",
+        "threshold": 0.6,
+        "tasks": 4,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Sentence cohesion",
+            "criterion": "Meaning similarity between each sentence and the topic sentence. ≥0.60 → GREEN; 0.40–0.60 → AMBER (logged, not excluded); <0.40 → RED → flagged and excluded.",
+            "failVariant": "COHESION_BREAK"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Paragraph bleed",
+            "criterion": "Each sentence checked against all paragraph topic sentences. If sentence is topically closer to a different paragraph's topic sentence than its own → flagged.",
+            "failVariant": "PARAGRAPH_BLEED"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Tangent",
+            "criterion": "Sentence introduces a new topic mid-paragraph (similarity to own TS <0.25 and no overlap with any TS).",
+            "failVariant": "TANGENT"
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Sentence meaning similarity to paragraph topic sentence <0.20 — content is unrelated.",
+          "firesError": "COHESION_BREAK"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Sentence topically closer to a different paragraph's topic sentence than its own.",
+          "firesError": "PARAGRAPH_BLEED"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Sentence introduces a new topic mid-paragraph with no connection to the paragraph focus.",
+          "firesError": "TANGENT"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or slang detected.",
+          "firesError": "CASUAL_REGISTER"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "COHESION_BREAK",
+          "action": "'Does this sentence support your topic sentence? If not, remove or revise it.'"
+        },
+        {
+          "errorVariant": "PARAGRAPH_BLEED",
+          "action": "System asks learner to move the flagged sentence to the correct paragraph before resubmitting."
+        },
+        {
+          "errorVariant": "TANGENT",
+          "action": "'This sentence introduces a new topic. Remove it and stay focused on your topic sentence.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "PC4.001",
+          "errorSignals": [
+            "COHESION_BREAK",
+            "PARAGRAPH_BLEED",
+            "TANGENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about the effects of habitat destruction on wildlife. Every sentence must directly relate to your topic sentence. Do not introduce a new topic mid-paragraph. Academic register required — no contractions.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Sentence cohesion ≥0.60 per sentence to topic sentence."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "No paragraph bleed — sentences belong to this paragraph's topic."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No tangents — no unrelated topics introduced."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PC4.002",
+          "errorSignals": [
+            "COHESION_BREAK",
+            "PARAGRAPH_BLEED",
+            "TANGENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write a paragraph about how economic development affects the environment. Begin with a clear topic sentence. Make sure every other sentence supports that topic sentence and does not introduce an unrelated idea. Use academic register throughout.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Sentence cohesion ≥0.60 per sentence to topic sentence."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "No paragraph bleed."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No tangents."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PC4.003",
+          "errorSignals": [
+            "COHESION_BREAK",
+            "PARAGRAPH_BLEED",
+            "TANGENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about the role of diet in preventing disease. Start with a topic sentence that clearly states your main claim. Each following sentence must stay focused on that claim. Do not introduce a new sub-topic. Academic register required.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Sentence cohesion ≥0.60 per sentence to topic sentence."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "No paragraph bleed."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No tangents."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PC4.004",
+          "errorSignals": [
+            "COHESION_BREAK",
+            "PARAGRAPH_BLEED",
+            "TANGENT",
+            "CASUAL_REGISTER"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about how access to education affects a country's economic development. Your topic sentence must state the main relationship clearly. Every subsequent sentence must support it without drifting to a different aspect of the topic. Academic language throughout.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Sentence cohesion ≥0.60 per sentence to topic sentence."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "No paragraph bleed."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No tangents."
+              },
+              {
+                "id": "REGISTER",
+                "description": "No contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.D1",
+      "name": "Oral Explanation — structured, definition + process + significance",
+      "gate": "G",
+      "level": 8,
+      "tier": "D — Oral Academic Tasks",
+      "grade": 6,
+      "registerEnforced": true,
+      "hybridDeliveryNote": "IF VOICE: all 4 checks applied to spoken output. IF TEXT FALLBACK (Phase 1): learner types explanation. Same 4 checks applied. SESSION LOGGED as TEXT_MODE.",
+      "description": "Learner gives a structured oral explanation of a concept or process: definition + ≥2 process steps/mechanisms + significance statement. Academic register enforced.",
+      "deliveryMode": "HYBRID — VOICE primary; TEXT fallback (flagged TEXT_MODE)",
+      "primaryMode": "VOICE",
+      "textFallback": "Learner types explanation. Same 4 checks applied. Session logged as TEXT_MODE.",
+      "questionFormat": "Structured oral explanation: definition + ≥2 steps + significance",
+      "defaultPrompt": "Explain this concept. Your explanation must include: (1) a definition of what it is; (2) at least two steps or mechanisms; (3) a statement of why it matters. Use academic language throughout.",
+      "errorCode": "ERR_ORAL_EXPLANATION",
+      "passCondition": {
+        "metric": "oral_explanation_structure",
+        "all4ChecksThreshold": 0.6,
+        "tasks": 6,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Definition",
+            "criterion": "A definition-type sentence is present (what the concept is).",
+            "failVariant": "NO_DEFINITION"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "≥2 steps",
+            "criterion": "≥2 process steps or mechanisms identified via sequence markers or process language.",
+            "failVariant": "FEWER_THAN_2_STEPS"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Significance",
+            "criterion": "A significance statement is present (why it matters / what it affects).",
+            "failVariant": "NO_SIGNIFICANCE"
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Academic register",
+            "criterion": "No contractions or informal words detected.",
+            "failVariant": "CASUAL_REGISTER_ORAL"
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Explanation begins with process steps without first defining what the concept is.",
+          "firesError": "NO_DEFINITION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Only one step or mechanism named.",
+          "firesError": "FEWER_THAN_2_STEPS"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Explanation ends without stating why the concept or process matters.",
+          "firesError": "NO_SIGNIFICANCE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or informal word detected in the spoken or written response.",
+          "firesError": "CASUAL_REGISTER_ORAL"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "NO_DEFINITION",
+          "action": "'What is it? Answer that first, before explaining how it works.'"
+        },
+        {
+          "errorVariant": "FEWER_THAN_2_STEPS",
+          "action": "'Describe at least two steps or mechanisms.'"
+        },
+        {
+          "errorVariant": "NO_SIGNIFICANCE",
+          "action": "'Why does this matter? What does it affect?'"
+        },
+        {
+          "errorVariant": "CASUAL_REGISTER_ORAL",
+          "action": "System flags the informal word. 'Say that more formally.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "OE1.001",
+          "errorSignals": [
+            "NO_DEFINITION",
+            "FEWER_THAN_2_STEPS",
+            "NO_SIGNIFICANCE",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Explain how the water cycle works. Your explanation must: (1) define what the water cycle is; (2) describe at least two steps in the process; (3) explain why the water cycle is important. Use academic language throughout.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Definition of the water cycle present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥2 process steps (e.g. evaporation, condensation, precipitation)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Significance statement (why it matters for life / climate)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OE1.002",
+          "errorSignals": [
+            "NO_DEFINITION",
+            "FEWER_THAN_2_STEPS",
+            "NO_SIGNIFICANCE",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Explain what photosynthesis is and how it works. Include: a definition, at least two steps in the process, and a statement about why it matters for life on Earth. Use formal, academic language.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Definition of photosynthesis present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥2 steps (light absorption, water/CO2 inputs, glucose/oxygen production)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Significance (foundation of food chains / oxygen production)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OE1.003",
+          "errorSignals": [
+            "NO_DEFINITION",
+            "FEWER_THAN_2_STEPS",
+            "NO_SIGNIFICANCE",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Explain the concept of supply and demand. Define the concept, describe how it operates (at least two steps or mechanisms), and explain why it matters in everyday life. Use formal academic language.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Definition of supply and demand present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥2 mechanisms (price-demand relationship; supply response to price)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Real-world significance (everyday prices, market behaviour)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OE1.004",
+          "errorSignals": [
+            "NO_DEFINITION",
+            "FEWER_THAN_2_STEPS",
+            "NO_SIGNIFICANCE",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Explain how vaccines protect communities, not just individuals. Define the concept, describe at least two steps or mechanisms, and explain why this matters for public health. Academic language required.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Definition of herd immunity or community-level vaccine protection."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥2 mechanisms (individual immune response; herd immunity threshold / breaking transmission chains)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Public health significance (protects vulnerable / unvaccinated people)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OE1.005",
+          "errorSignals": [
+            "NO_DEFINITION",
+            "FEWER_THAN_2_STEPS",
+            "NO_SIGNIFICANCE",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Explain what democracy is and how it works. Your explanation must include a definition, at least two mechanisms or processes by which it functions, and a statement about why it matters. Use academic register.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Definition of democracy present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥2 mechanisms (elections / separation of powers / rule of law / accountability)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Significance for society (citizen voice / protection of rights)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OE1.006",
+          "errorSignals": [
+            "NO_DEFINITION",
+            "FEWER_THAN_2_STEPS",
+            "NO_SIGNIFICANCE",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Explain how inflation affects people's daily lives. Define inflation, describe at least two ways it operates or affects different groups, and explain why managing it matters. Academic language required.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Definition of inflation present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥2 mechanisms or effects (purchasing power decline / wage erosion / savings devaluation)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Significance — why managing inflation matters."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.D2",
+      "name": "Oral Opinion Defence with Text Reference",
+      "gate": "G",
+      "level": 8,
+      "tier": "D — Oral Academic Tasks",
+      "grade": 6,
+      "registerEnforced": true,
+      "hybridDeliveryNote": "IF VOICE: all 3 checks applied to spoken output. IF TEXT FALLBACK (Phase 1): learner types response after reading source text. Same checks applied. SESSION LOGGED as TEXT_MODE.",
+      "description": "Learner reads a source text, then defends an opinion using ≥1 specific text reference explicitly linked to the stated position. Academic register enforced.",
+      "deliveryMode": "HYBRID — VOICE primary; TEXT fallback (flagged TEXT_MODE)",
+      "primaryMode": "VOICE",
+      "textFallback": "Learner types response after reading text. Same 3 checks + register. Session logged.",
+      "questionFormat": "Opinion defence: position + ≥1 specific text reference + explicit connector",
+      "defaultPrompt": "Read the source text. State your opinion on the question. Support your view with at least one specific detail from the text, linked explicitly to your opinion using a connector (this shows / this supports / because the text says / which demonstrates). Use academic language.",
+      "errorCode": "ERR_ORAL_DEFENCE",
+      "passCondition": {
+        "metric": "oral_defence_structure",
+        "all3ChecksThreshold": 0.6,
+        "tasks": 6,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Opinion signal",
+            "criterion": "Opinion signal phrase present (I believe, I think, In my view, I agree/disagree, It is my position).",
+            "failVariant": "OPINION_ABSENT_IN_DEFENCE"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Text reference",
+            "criterion": "≥1 specific detail, statistic, or finding from the source text referenced.",
+            "failVariant": "NO_TEXT_REFERENCE"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Explicit connector",
+            "criterion": "Reference explicitly connected to opinion using a connector phrase (this shows / this supports / this proves / because the text says / which demonstrates).",
+            "failVariant": "REFERENCE_DISCONNECTED"
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Academic register",
+            "criterion": "No contractions or informal language.",
+            "failVariant": "CASUAL_REGISTER_ORAL"
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Learner summarises the text but does not state their own position.",
+          "firesError": "OPINION_ABSENT_IN_DEFENCE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Opinion stated but no reference to specific content from the source text.",
+          "firesError": "NO_TEXT_REFERENCE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Text detail mentioned but not explicitly linked to the stated opinion.",
+          "firesError": "REFERENCE_DISCONNECTED"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or slang detected.",
+          "firesError": "CASUAL_REGISTER_ORAL"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "OPINION_ABSENT_IN_DEFENCE",
+          "action": "'State your view first: do you agree or disagree? Then use the text as evidence.'"
+        },
+        {
+          "errorVariant": "NO_TEXT_REFERENCE",
+          "action": "'You must say where in the text you found your evidence.'"
+        },
+        {
+          "errorVariant": "REFERENCE_DISCONNECTED",
+          "action": "Connector support: 'This shows that ___ because the text says ___.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "OD2.001",
+          "errorSignals": [
+            "OPINION_ABSENT_IN_DEFENCE",
+            "NO_TEXT_REFERENCE",
+            "REFERENCE_DISCONNECTED",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "A 2022 study by the University of Cambridge found that students who were given more autonomy over their learning — including some choice over topics, pace, and method — showed higher motivation and performed better on assessments of critical thinking than students in traditional structured classrooms. The researchers noted, however, that autonomy was most effective when combined with clear guidance and regular feedback from teachers.",
+          "question": "Do you think students should have more control over what they learn at school? Use the text to support your view.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥1 specific text reference (Cambridge study / autonomy / critical thinking)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Explicit connector linking reference to opinion."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.002",
+          "errorSignals": [
+            "OPINION_ABSENT_IN_DEFENCE",
+            "NO_TEXT_REFERENCE",
+            "REFERENCE_DISCONNECTED",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "passage": "According to the World Health Organisation, physical inactivity is now the fourth leading risk factor for global mortality. Regular physical activity reduces the risk of heart disease, stroke, diabetes, and several cancers. Despite this, fewer than 20% of adolescents worldwide meet the recommended guidelines of 60 minutes of moderate-to-vigorous activity per day. The WHO recommends that schools play a central role in addressing this by incorporating physical activity into the school day beyond timetabled sports lessons.",
+          "question": "Do you think schools should be required to provide more physical activity during the school day? Use evidence from the text in your answer.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion clearly stated."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥1 specific text reference (WHO / 4th risk factor / 20% / 60 minutes)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Explicit connector linking reference to opinion."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.003",
+          "errorSignals": [
+            "OPINION_ABSENT_IN_DEFENCE",
+            "NO_TEXT_REFERENCE",
+            "REFERENCE_DISCONNECTED",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "A longitudinal study tracking over 10 000 students across six countries found that students who read for pleasure for at least 30 minutes per day consistently outperformed their peers in reading comprehension, vocabulary, and general knowledge assessments by the time they reached secondary school. The study found that the type of reading material — fiction, non-fiction, news, or graphic novels — made little difference to outcomes; the key variable was the regularity of reading.",
+          "question": "Should schools set aside dedicated time for students to read for pleasure during the school day? Use the research in the text to support your view.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion clearly stated."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥1 specific text reference (10 000 students / 30 minutes / regularity)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Explicit connector linking reference to opinion."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.004",
+          "errorSignals": [
+            "OPINION_ABSENT_IN_DEFENCE",
+            "NO_TEXT_REFERENCE",
+            "REFERENCE_DISCONNECTED",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "A 2023 meta-analysis of 47 studies on the effects of homework in primary and secondary schools found that homework has a small but positive effect on academic achievement at secondary level, but little or no measurable benefit for primary school learners. The analysis also found that the quality of homework tasks — specifically whether tasks required students to apply and extend learning rather than simply practise routine procedures — was more important than the quantity of homework assigned.",
+          "question": "Based on this research, do you think homework should be assigned differently to primary and secondary school learners? Give your opinion and use the text as evidence.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion stated about primary vs secondary difference."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥1 specific text reference (meta-analysis of 47 studies / no benefit for primary / quality vs quantity)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Explicit connector linking evidence to opinion."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.005",
+          "errorSignals": [
+            "OPINION_ABSENT_IN_DEFENCE",
+            "NO_TEXT_REFERENCE",
+            "REFERENCE_DISCONNECTED",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "passage": "Urban green spaces — parks, trees, community gardens, and green rooftops — provide measurable benefits beyond aesthetics. Studies have found that access to green space reduces stress hormones, lowers blood pressure, and is associated with lower rates of depression and anxiety. Urban trees reduce the urban heat island effect by up to 8°C in their immediate vicinity and improve air quality by absorbing particulate pollution. Despite these documented benefits, green space is distributed unequally across most cities, with low-income areas consistently receiving less than wealthier neighbourhoods.",
+          "question": "Should city governments be required to ensure equal access to green spaces for all residents? Use evidence from the text to support your position.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Clear position on equal access / government responsibility."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥1 specific text reference (8°C cooling / unequal distribution / health benefits)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Explicit connector linking reference to position."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.006",
+          "errorSignals": [
+            "OPINION_ABSENT_IN_DEFENCE",
+            "NO_TEXT_REFERENCE",
+            "REFERENCE_DISCONNECTED",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Research into the effects of sleep deprivation on cognitive performance has consistently found that sleeping fewer than eight hours per night impairs memory consolidation, decision-making, and emotional regulation in adolescents. A study at a secondary school in the United States that moved school start times from 07:30 to 08:45 found that students reported an average of 45 minutes more sleep per night, and the school recorded significant improvements in attendance, academic performance, and self-reported wellbeing over a two-year period.",
+          "question": "Do you think secondary schools should start later in the morning? Use the evidence in the text to support your view.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion clearly stated."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "≥1 specific text reference (45 minutes more sleep / 07:30 to 08:45 / improved attendance and performance)."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Explicit connector linking reference to opinion."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Academic register — no contractions or slang."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L8.D3",
+      "name": "Oral Process Sequence — ≥3 steps, correct order, sequence markers",
+      "gate": "G",
+      "level": 8,
+      "tier": "D — Oral Academic Tasks",
+      "grade": 6,
+      "registerEnforced": true,
+      "hybridDeliveryNote": "IF VOICE: all checks applied to spoken output. IF TEXT FALLBACK (Phase 1): learner types the step sequence. Same checks applied. SESSION LOGGED as TEXT_MODE.",
+      "description": "Learner explains a multi-step process using sequence markers in correct order. ≥3 distinct steps, each a complete clause. Academic register enforced.",
+      "deliveryMode": "HYBRID — VOICE primary; TEXT fallback (flagged TEXT_MODE)",
+      "primaryMode": "VOICE",
+      "textFallback": "Learner types steps. Same 4 checks. Session logged.",
+      "questionFormat": "Multi-step process explanation: ≥3 steps with sequence markers in correct order",
+      "defaultPrompt": "Explain this process. Use sequence markers (first, then, next, after that, finally) to order at least three steps clearly. Each step must be a complete sentence. Use academic language.",
+      "errorCode": "ERR_PROCESS_SEQUENCE",
+      "passCondition": {
+        "metric": "process_sequence_accuracy",
+        "minSteps": 3,
+        "correctOrderThreshold": 0.6,
+        "completeClauseThreshold": 0.6,
+        "tasks": 4,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "≥3 steps",
+            "criterion": "≥3 distinct step units identified via sequence markers (first, then, next, after that, finally, subsequently).",
+            "failVariant": "FEWER_THAN_3_STEPS"
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Correct order",
+            "criterion": "Steps in correct logical or temporal sequence. ≥60% correctly ordered.",
+            "failVariant": "STEP_ORDER_ERROR"
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Complete clause",
+            "criterion": "Each step unit contains a subject + action clause (not just a marker alone). ≥60% complete clauses.",
+            "failVariant": "INCOMPLETE_STEP"
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Sequence markers",
+            "criterion": "Process described using sequence markers — not in unbroken paragraph form.",
+            "failVariant": "NO_MARKERS"
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Only 1–2 steps named.",
+          "firesError": "FEWER_THAN_3_STEPS"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Process steps produced in the wrong logical or temporal sequence.",
+          "firesError": "STEP_ORDER_ERROR"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Sequence marker present but no complete clause follows it.",
+          "firesError": "INCOMPLETE_STEP"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Process described in paragraph form — no sequence markers used.",
+          "firesError": "NO_MARKERS"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Contraction or slang detected.",
+          "firesError": "CASUAL_REGISTER_ORAL"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "FEWER_THAN_3_STEPS",
+          "action": "System requires step count before explaining: 'How many steps are there?'"
+        },
+        {
+          "errorVariant": "STEP_ORDER_ERROR",
+          "action": "'Think about what must happen first, then what follows.'"
+        },
+        {
+          "errorVariant": "INCOMPLETE_STEP",
+          "action": "'After each sequence word, add a full sentence saying what happens.'"
+        },
+        {
+          "errorVariant": "NO_MARKERS",
+          "action": "'Start each step with a sequence word: first, then, next, after that, finally.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "OP3.001",
+          "errorSignals": [
+            "FEWER_THAN_3_STEPS",
+            "STEP_ORDER_ERROR",
+            "INCOMPLETE_STEP",
+            "NO_MARKERS",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Explain the process of how a bill becomes a law in a democratic country. Use sequence markers (first, then, next, after that, finally) to clearly order each step. Each step must be a full sentence. Aim for at least three steps.",
+          "answerKey": {
+            "mode": "sequence",
+            "order": [
+              "A bill is proposed by a member of the legislature.",
+              "The bill is debated and may be amended in committee or the full chamber.",
+              "Members vote on the bill; it must receive majority support to pass.",
+              "The bill is sent to the head of state (president or equivalent) for approval.",
+              "Once signed, the bill becomes law and is implemented."
+            ]
+          }
+        },
+        {
+          "id": "OP3.002",
+          "errorSignals": [
+            "FEWER_THAN_3_STEPS",
+            "STEP_ORDER_ERROR",
+            "INCOMPLETE_STEP",
+            "NO_MARKERS",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Explain the process of how the human digestive system breaks down food. Use sequence markers to order your explanation. Include at least three steps. Each step must be a complete sentence. Use academic language.",
+          "answerKey": {
+            "mode": "sequence",
+            "order": [
+              "First, food is broken down mechanically by the teeth and mixed with saliva in the mouth.",
+              "Next, the food travels down the oesophagus to the stomach, where acids and enzymes break it down further.",
+              "After that, nutrients are absorbed through the walls of the small intestine into the bloodstream.",
+              "Finally, undigested material passes into the large intestine, where water is absorbed before waste is excreted."
+            ]
+          }
+        },
+        {
+          "id": "OP3.003",
+          "errorSignals": [
+            "FEWER_THAN_3_STEPS",
+            "STEP_ORDER_ERROR",
+            "INCOMPLETE_STEP",
+            "NO_MARKERS",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Explain the process by which a news story is reported and published. Describe at least three steps in the correct order, using sequence markers. Each step must be a full sentence. Use formal academic language.",
+          "answerKey": {
+            "mode": "sequence",
+            "order": [
+              "A journalist identifies a newsworthy event or issue and begins gathering information.",
+              "The journalist interviews relevant sources and collects evidence to verify the facts.",
+              "A draft article is written and submitted to an editor for review and fact-checking.",
+              "The article is revised based on editorial feedback and approved for publication.",
+              "The story is published across the outlet's platforms and may be updated as new information emerges."
+            ]
+          }
+        },
+        {
+          "id": "OP3.004",
+          "errorSignals": [
+            "FEWER_THAN_3_STEPS",
+            "STEP_ORDER_ERROR",
+            "INCOMPLETE_STEP",
+            "NO_MARKERS",
+            "CASUAL_REGISTER_ORAL"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Explain the process of how a scientific experiment is designed and conducted. Use sequence markers to order at least three steps clearly. Each step must be a complete sentence. Academic register required.",
+          "answerKey": {
+            "mode": "sequence",
+            "order": [
+              "First, the researcher identifies a problem or question and formulates a testable hypothesis.",
+              "Next, an experimental method is designed to test the hypothesis, including identifying variables and controls.",
+              "The experiment is conducted and data is systematically collected and recorded.",
+              "The data is analysed and compared against the hypothesis to determine whether it is supported or refuted.",
+              "Finally, the findings are written up and, where appropriate, peer-reviewed and published."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "errorCodeReference": {
+    "specSection": "9",
+    "totalActiveErrors": 14,
+    "registerErrorNote": "ERR_REGISTER (#47) applies to ALL C and D tasks at Level 8. It is the only error that automatically blocks submission. The learner must replace flagged language before the response is accepted.",
+    "codes": [
+      {
+        "id": 34,
+        "code": "ERR_CORRELATION",
+        "skills": [
+          "L8.A1"
+        ],
+        "variants": [
+          "CAUSAL_INVERSION",
+          "CORRELATION_AS_CAUSE",
+          "CONNECTOR_ABSENT",
+          "WRONG_ENTITY"
+        ]
+      },
+      {
+        "id": 35,
+        "code": "ERR_AUDIENCE_PURPOSE",
+        "skills": [
+          "L8.A2"
+        ],
+        "variants": [
+          "AUDIENCE_UNSUPPORTED",
+          "PURPOSE_CONFUSION",
+          "FEATURE_GENERIC"
+        ]
+      },
+      {
+        "id": 36,
+        "code": "ERR_PERSUASIVE_FEATURES",
+        "skills": [
+          "L8.A3"
+        ],
+        "variants": [
+          "FEATURE_NOT_IN_TEXT",
+          "EFFECT_VAGUE",
+          "FEATURE_MISCLASSIFIED"
+        ]
+      },
+      {
+        "id": 37,
+        "code": "ERR_OVER_SUMMARY",
+        "skills": [
+          "L8.B1"
+        ],
+        "variants": [
+          "OVER_LENGTH",
+          "KEY_POINT_GAP",
+          "VERBATIM_SUMMARY",
+          "HALLUCINATION"
+        ]
+      },
+      {
+        "id": 38,
+        "code": "ERR_NO_COMPARISON",
+        "skills": [
+          "L8.B2"
+        ],
+        "variants": [
+          "SINGLE_TEXT_ONLY",
+          "NO_COMPARISON_LANGUAGE",
+          "UNSUPPORTED_CLAIM",
+          "FRAMING_ERROR"
+        ]
+      },
+      {
+        "id": 39,
+        "code": "ERR_SOURCE_INTEGRATION",
+        "phase1Note": "Phase 1 — was ERR_TEXT_VISUAL_INTEGRATION. MAIN_TEXT_ONLY reverts to TEXT_ONLY_RESPONSE; DATA_TEXT_ONLY reverts to VISUAL_ONLY_RESPONSE at Phase 2.",
+        "skills": [
+          "L8.B3"
+        ],
+        "variants": [
+          "MAIN_TEXT_ONLY",
+          "DATA_TEXT_ONLY",
+          "NO_INTEGRATION_CONNECTOR"
+        ]
+      },
+      {
+        "id": 40,
+        "code": "ERR_EXPLANATION_STRUCTURE",
+        "skills": [
+          "L8.C1"
+        ],
+        "variants": [
+          "NO_CAUSE",
+          "NO_MECHANISM",
+          "TRANSITION_ABSENT",
+          "CASUAL_REGISTER"
+        ]
+      },
+      {
+        "id": 41,
+        "code": "ERR_SECTION_OVERLAP",
+        "skills": [
+          "L8.C2"
+        ],
+        "variants": [
+          "NO_HEADINGS",
+          "HEADING_AS_SENTENCE",
+          "SECTION_OVERLAP",
+          "SECTION_TOO_SHORT"
+        ]
+      },
+      {
+        "id": 42,
+        "code": "ERR_TRANSITION_MISUSE",
+        "skills": [
+          "L8.C3"
+        ],
+        "variants": [
+          "WRONG_FUNCTION",
+          "WRONG_POSITION",
+          "TRANSITION_REPETITION"
+        ]
+      },
+      {
+        "id": 43,
+        "code": "ERR_COHESION",
+        "skills": [
+          "L8.C4"
+        ],
+        "variants": [
+          "COHESION_BREAK",
+          "PARAGRAPH_BLEED",
+          "TANGENT"
+        ]
+      },
+      {
+        "id": 44,
+        "code": "ERR_ORAL_EXPLANATION",
+        "skills": [
+          "L8.D1"
+        ],
+        "variants": [
+          "NO_DEFINITION",
+          "FEWER_THAN_2_STEPS",
+          "NO_SIGNIFICANCE",
+          "CASUAL_REGISTER_ORAL"
+        ]
+      },
+      {
+        "id": 45,
+        "code": "ERR_ORAL_DEFENCE",
+        "skills": [
+          "L8.D2"
+        ],
+        "variants": [
+          "NO_TEXT_REFERENCE",
+          "REFERENCE_DISCONNECTED",
+          "OPINION_ABSENT_IN_DEFENCE"
+        ]
+      },
+      {
+        "id": 46,
+        "code": "ERR_PROCESS_SEQUENCE",
+        "skills": [
+          "L8.D3"
+        ],
+        "variants": [
+          "FEWER_THAN_3_STEPS",
+          "STEP_ORDER_ERROR",
+          "INCOMPLETE_STEP",
+          "NO_MARKERS"
+        ]
+      },
+      {
+        "id": 47,
+        "code": "ERR_REGISTER",
+        "skills": [
+          "All C and D tasks"
+        ],
+        "appliesAcross": "ALL C and D tasks at Level 8. Auto-blocks submission. Learner must replace flagged language before response is accepted.",
+        "variants": [
+          "CASUAL_REGISTER",
+          "CASUAL_REGISTER_ORAL"
+        ]
+      }
+    ]
+  },
+  "entryCondition": "Level 8 follows Level 7. The algorithm evaluates Level 7 skill mastery signals, session stability, and error patterns before advancing a learner to Level 8.",
+  "advanceCondition": "Gate G: Causal accuracy ≥60%; summary ≤1/3 with ≥3 key points; comparison valid ≥60%; structured explanation ≥60%; academic register maintained; 2 sessions.",
+  "phase1VisualConstraints": "L8.B3 uses structured plain-text data in place of charts, tables, and diagrams. ERR_SOURCE_INTEGRATION is the Phase 1 name for ERR_TEXT_VISUAL_INTEGRATION, which reverts at Phase 2. MAIN_TEXT_ONLY → TEXT_ONLY_RESPONSE; DATA_TEXT_ONLY → VISUAL_ONLY_RESPONSE at Phase 2."
+}

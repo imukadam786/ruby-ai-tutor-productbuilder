@@ -119,7 +119,14 @@ export async function POST(req: NextRequest) {
     // recorded honestly until their scorers are wired (next slice).
     if (skill.bank_skill_id) {
       let answerKey:
-        | { mode?: string; order?: string[]; reference?: string; checks?: { description?: string }[] }
+        | {
+            mode?: string;
+            order?: string[];
+            reference?: string;
+            checks?: { description?: string }[];
+            options?: string[];
+            correct?: number;
+          }
         | null = null;
       try { answerKey = JSON.parse(submission.expected_answer); } catch { answerKey = null; }
 
@@ -177,6 +184,30 @@ export async function POST(req: NextRequest) {
           feedback = r.pass
             ? "Good writing — you covered what was needed."
             : r.reason || "Some parts are missing — check the instructions and try again.";
+        } else if (
+          answerKey.mode === "choice" &&
+          Array.isArray(answerKey.options) &&
+          typeof answerKey.correct === "number"
+        ) {
+          // Multiple choice (e.g. fact/opinion) — deterministic, no LLM.
+          // Accept the option text, its letter (A/B/C), or its number.
+          const opts = answerKey.options;
+          const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+          const a = norm(submission.student_answer);
+          let chosen = opts.findIndex((o) => norm(o) === a);
+          if (chosen < 0) {
+            const letter = "abcdefghij".indexOf(a);
+            if (letter >= 0 && letter < opts.length) chosen = letter;
+          }
+          if (chosen < 0) {
+            const n = parseInt(a, 10);
+            if (!Number.isNaN(n) && n >= 1 && n <= opts.length) chosen = n - 1;
+          }
+          bankCorrect = chosen === answerKey.correct;
+          bankError = bankCorrect ? null : "WRONG_CHOICE";
+          feedback = bankCorrect
+            ? "Correct!"
+            : `Not quite — the correct answer is "${opts[answerKey.correct]}".`;
         } else {
           // cloze (A4): the blanked-passage display is still to be built, so
           // record honestly rather than mark something the child couldn't

@@ -4,20 +4,28 @@ import { getReadingSkillById } from "@/lib/reading-student-model";
 import { ReadingTemplate, ReadingGeneratedQuestion, AudioTapChoice } from "@/types/reading";
 import type { ReadingQuestionBank, ReadingBankItem, ReadingBankSkill } from "@/types/reading-bank";
 import L6_BANK from "@/data/reading-question-banks/L6.json";
+import L7_BANK from "@/data/reading-question-banks/L7.json";
+import L8_BANK from "@/data/reading-question-banks/L8.json";
 
 export const runtime = "edge";
 
 // ── Static question banks for L6+ (Intermediate Phase) ───────────────────────
 // Tree skills (R6.T1.A1…) carry `bank_skill_id` (e.g. "L6.A1") → the bank skill.
-// Only L6 exists today; L7/L8 slot in here when their banks are converted.
+// L6 = Grade 4, L7 = Grade 5, L8 = Grade 6.
 const READING_BANKS: Record<number, ReadingQuestionBank> = {
   6: L6_BANK as unknown as ReadingQuestionBank,
+  7: L7_BANK as unknown as ReadingQuestionBank,
+  8: L8_BANK as unknown as ReadingQuestionBank,
 };
 
-/** Source text shown to the learner — pooled (A1/A2/A3) or inline per skill. */
+/** Source text shown to the learner — pooled (A1/A2/A3) or inline per skill.
+ *  Some skills carry both a main passage and a data text (e.g. source
+ *  integration) — show both. */
 function bankItemSourceText(item: ReadingBankItem, bank: ReadingQuestionBank): string {
   if (item.textId) return bank.texts.find((t) => t.id === item.textId)?.body ?? "";
-  return item.passage || item.procedureText || item.dataText || item.contextSentence || "";
+  const main = item.passage || item.procedureText || item.contextSentence || "";
+  if (main && item.dataText) return `${main}\n\n${item.dataText}`;
+  return main || item.dataText || "";
 }
 
 /** Build a question from the L6+ static bank for a tree skill that has a
@@ -46,12 +54,17 @@ function buildBankQuestion(
   const item = items[Math.floor(Math.random() * items.length)];
 
   const source = bankItemSourceText(item, bank);
-  const ask = item.question || bankSkill.defaultPrompt;
-  const orderingHint =
-    item.answerKey.mode === "sequence"
-      ? "\n\nWrite the steps in the correct order — one step per line."
-      : "";
-  const question = `${source ? source + "\n\n" : ""}${ask}${orderingHint}`;
+  const ask = item.question || item.prompt || bankSkill.defaultPrompt;
+  let modeHint = "";
+  if (item.answerKey.mode === "sequence") {
+    modeHint = "\n\nWrite the steps in the correct order — one step per line.";
+  } else if (item.answerKey.mode === "choice") {
+    const opts = item.answerKey.options
+      .map((o, i) => `${String.fromCharCode(65 + i)}) ${o}`)
+      .join("   ");
+    modeHint = `\n\n${opts}\n\nType the letter of your answer.`;
+  }
+  const question = `${source ? source + "\n\n" : ""}${ask}${modeHint}`;
 
   return {
     skill_id: skillId,
