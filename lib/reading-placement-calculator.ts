@@ -100,6 +100,26 @@ export function calculateReadingPlacement(
 
   const dominantErrors = collectDominantErrors(taskResults);
 
+  // ── Grade 4+ : grade drives the starting point ───────────────────────────
+  // Older learners are NOT funnelled through Level-1 phonics. Their content
+  // lives in the Intermediate tree (L6+), so placement is seeded by grade.
+  // Only the grade-level probe (DL6) can lower it — and only to the
+  // comprehension bridge (R5), never to phonics. This prevents missed spoken
+  // phonics questions (D01/D02) from trapping a Grade-4 learner at Level 1.
+  if (grade >= 4) {
+    const seed = seedForGrade(grade).entrySkillId;
+    const probeFailed = !!resultMap["DL6"] && !taskPassed("DL6");
+    const entrySkillId = probeFailed ? "R5.T1.A1" : seed;
+    return {
+      completedAt: Date.now(),
+      tasks: taskResults,
+      entrySkillId,
+      autoCompletedSkillIds: skillsBefore(entrySkillId),
+      hardGatePassed: true,
+      dominantErrors,
+    };
+  }
+
   // ── Hard gate: derived from entry placement, not a fixed task ────────────
   // hardGatePassed = true  → student placed in R2 or above; R2+ content is accessible.
   // hardGatePassed = false → student placed in R1; session caps progression at R1
@@ -146,22 +166,15 @@ export function calculateReadingPlacement(
   // A student who aced everything up to their grade ceiling has demonstrated
   // the ceiling skill — auto-complete it and start at the next skill in sequence.
   if (!firstFailTaskId) {
-    // Grade 4+: a learner who passed every administered task — including the
-    // L6+ probe — is seeded into the Intermediate tree by their grade
-    // (Gr4→L6, Gr5→L7, Gr6→L8, Gr7–12→L8), instead of being capped at R5.
-    // Grade ≤3: keep the foundation ceiling logic (auto-complete the ceiling
-    // skill, start at the next one).
-    let entrySkillId: string;
-    if (grade >= 4) {
-      entrySkillId = seedForGrade(grade).entrySkillId;
-    } else {
-      const ceilingSkill = GRADE_CEILING_SKILL[grade] ?? "R5.T1.A1";
-      const ceilingIdx = SKILL_SEQUENCE.indexOf(ceilingSkill);
-      entrySkillId =
-        ceilingIdx >= 0 && ceilingIdx + 1 < SKILL_SEQUENCE.length
-          ? SKILL_SEQUENCE[ceilingIdx + 1]
-          : ceilingSkill;
-    }
+    // Only reached for Grade ≤3 now (Grade 4+ returned earlier, grade-seeded).
+    // Aced everything up to the grade ceiling — auto-complete the ceiling
+    // skill and start at the next one.
+    const ceilingSkill = GRADE_CEILING_SKILL[grade] ?? "R5.T1.A1";
+    const ceilingIdx = SKILL_SEQUENCE.indexOf(ceilingSkill);
+    const entrySkillId =
+      ceilingIdx >= 0 && ceilingIdx + 1 < SKILL_SEQUENCE.length
+        ? SKILL_SEQUENCE[ceilingIdx + 1]
+        : ceilingSkill;
     return {
       completedAt: Date.now(),
       tasks: taskResults,

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
-import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
-import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
+import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
+import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
@@ -75,8 +75,11 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       hydrateStudentProfileFromSupabase(),
       hydrateReadingProfileFromSupabase(),
     ]).then(([mp, rp]) => {
-      setMathsProfile(mp);
-      setReadingProfile(rp as ReadingStudentProfile | null);
+      // Supabase is best-effort/async and empty for anonymous or unsynced
+      // testers — fall back to the local profile (where a just-completed
+      // placement actually lives) so status badges reflect reality.
+      setMathsProfile(mp ?? getStudentProfile());
+      setReadingProfile((rp as ReadingStudentProfile | null) ?? getReadingProfile());
       setLoading(false);
     });
   }, []);
