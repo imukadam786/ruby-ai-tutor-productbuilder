@@ -117,6 +117,18 @@ const SUBJECTS: Subject[] = [
         description: "Animal production, animal health and agricultural management",
         filename: "agrisci-p2-may-jun-2026-studyguide.pdf",
       },
+      {
+        label: "Vraestel 1 — Landbouwetenskap",
+        description: "Plantproduksie, diereproduksie en landboubestuur",
+        filename: "agrisci-p1-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
+      {
+        label: "Vraestel 2 — Landbouwetenskap",
+        description: "Diereproduksie, dieregesondheid en landboubestuur",
+        filename: "agrisci-p2-may-jun-2026-studyguide-afrikaans.pdf",
+        language: "af",
+      },
     ],
   },
   {
