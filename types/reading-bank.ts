@@ -15,7 +15,10 @@
 //   • B2 proc   → item.procedureText• B3 vocab→ item.contextSentence + targetWord
 //   • C1–C3     → writing prompt only (item.prompt), no source text
 
-export type ReadingGate = "E" | "F" | "G";            // L6 / L7 / L8 advance gates
+// L6/L7/L8 used hard advance gates E/F/G. Senior (L9–L11) and FET (L12–L14)
+// removed hard gates (algorithm-driven progression), so their banks carry
+// "NONE". `gate` is metadata only — no runtime logic branches on it.
+export type ReadingGate = "E" | "F" | "G" | "NONE";
 export type ReadingContext = "A" | "B" | "C";          // A=story  B=information  C=data/procedural
 export type ReadingDeliveryMode = "TEXT" | "VOICE" | "HYBRID";
 

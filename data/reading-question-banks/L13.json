@@ -1,0 +1,969 @@
+{
+  "$comment": "L13 = Grade 11. SCAFFOLD — author fills texts[] and each skill's items[]. Skill structure is pre-wired to the skill tree; do not change skillId/level/tier/grade. See data/reading-question-banks/READING_BANK_AUTHORING_GUIDE.md. Validate with: node scripts/validate-reading-bank.mjs L13",
+  "level": 13,
+  "gate": "NONE",
+  "specVersion": "FET v1.0 (no-timer, 60%)",
+  "bankVersion": "0.1-scaffold",
+  "grades": [
+    11
+  ],
+  "texts": [],
+  "skills": [
+    {
+      "skillId": "L13.A1",
+      "name": "Theme Beyond the Literal",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "1 — Advanced Analysis",
+      "grade": 11,
+      "description": "Interpret theme beyond the literal level by producing a theme statement with a universal abstract claim, naming at least 1 authorial technique used to develop it, and stating an interpretive implication about human experience.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_THEME_SHALLOW",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "THEME_SHALLOW",
+          "action": "THEME_SHALLOW: 'What does this text suggest about people more broadly?' Push to interpretive implication. IMPLICATION_ABSENT: 'What does this theme mean for us as readers — beyond this specific text?'"
+        },
+        {
+          "errorVariant": "TECHNIQUE_ABSENT",
+          "action": "THEME_SHALLOW: 'What does this text suggest about people more broadly?' Push to interpretive implication. IMPLICATION_ABSENT: 'What does this theme mean for us as readers — beyond this specific text?'"
+        },
+        {
+          "errorVariant": "IMPLICATION_ABSENT",
+          "action": "THEME_SHALLOW: 'What does this text suggest about people more broadly?' Push to interpretive implication. IMPLICATION_ABSENT: 'What does this theme mean for us as readers — beyond this specific text?'"
+        },
+        {
+          "errorVariant": "LITERAL_THEME",
+          "action": "THEME_SHALLOW: 'What does this text suggest about people more broadly?' Push to interpretive implication. IMPLICATION_ABSENT: 'What does this theme mean for us as readers — beyond this specific text?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.A2",
+      "name": "Character Motivation",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "1 — Advanced Analysis",
+      "grade": 11,
+      "description": "Analyse character motivation psychologically by stating the dominant desire, fear, or belief driving behaviour from a predefined list, the textual evidence, and the narrative function the motivation serves.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_MOTIVATION_SURFACE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "MOTIVATION_SURFACE",
+          "action": "MOTIVATION_SURFACE: 'Why does the character behave this way? What do they want or fear most?' Psychological motivation prompt before free analysis. FUNCTION_ABSENT: 'How does this motivation move the story or develop the theme?'"
+        },
+        {
+          "errorVariant": "EVIDENCE_ABSENT",
+          "action": "MOTIVATION_SURFACE: 'Why does the character behave this way? What do they want or fear most?' Psychological motivation prompt before free analysis. FUNCTION_ABSENT: 'How does this motivation move the story or develop the theme?'"
+        },
+        {
+          "errorVariant": "FUNCTION_ABSENT",
+          "action": "MOTIVATION_SURFACE: 'Why does the character behave this way? What do they want or fear most?' Psychological motivation prompt before free analysis. FUNCTION_ABSENT: 'How does this motivation move the story or develop the theme?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.A3",
+      "name": "Narrative Perspective",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "1 — Advanced Analysis",
+      "grade": 11,
+      "description": "Evaluate narrative perspective by identifying the perspective type, stating the effect on reader trust and empathy, and identifying at least 1 specific technique the perspective uses.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_PERSPECTIVE_MISLABELLED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "PERSPECTIVE_MISLABELLED",
+          "action": "PERSPECTIVE_MISLABELLED: perspective predefined list with defining characteristics. EFFECT_ABSENT: 'How does this perspective make you trust or distrust the narrator? How does it affect your sympathy?'"
+        },
+        {
+          "errorVariant": "EFFECT_ABSENT",
+          "action": "PERSPECTIVE_MISLABELLED: perspective predefined list with defining characteristics. EFFECT_ABSENT: 'How does this perspective make you trust or distrust the narrator? How does it affect your sympathy?'"
+        },
+        {
+          "errorVariant": "TECHNIQUE_ABSENT",
+          "action": "PERSPECTIVE_MISLABELLED: perspective predefined list with defining characteristics. EFFECT_ABSENT: 'How does this perspective make you trust or distrust the narrator? How does it affect your sympathy?'"
+        },
+        {
+          "errorVariant": "EXAMPLE_ABSENT",
+          "action": "PERSPECTIVE_MISLABELLED: perspective predefined list with defining characteristics. EFFECT_ABSENT: 'How does this perspective make you trust or distrust the narrator? How does it affect your sympathy?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.A4",
+      "name": "Figurative Language Impact",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "1 — Advanced Analysis",
+      "grade": 11,
+      "description": "Analyse figurative language impact by identifying the device, stating the literal meaning, the figurative meaning, the tonal effect, and the connection to a structural or thematic pattern in the broader text.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_LITERAL_ONLY",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "LITERAL_ONLY",
+          "action": "TONE_ABSENT: tone predefined list provided. PATTERN_ABSENT: 'Does this image appear elsewhere in the text? How does repetition or contrast deepen meaning?'"
+        },
+        {
+          "errorVariant": "TONE_ABSENT",
+          "action": "TONE_ABSENT: tone predefined list provided. PATTERN_ABSENT: 'Does this image appear elsewhere in the text? How does repetition or contrast deepen meaning?'"
+        },
+        {
+          "errorVariant": "PATTERN_ABSENT",
+          "action": "TONE_ABSENT: tone predefined list provided. PATTERN_ABSENT: 'Does this image appear elsewhere in the text? How does repetition or contrast deepen meaning?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.A5",
+      "name": "Integrate Contextual References",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "1 — Advanced Analysis",
+      "grade": 11,
+      "description": "Integrate contextual references in essays by providing a textual anchor and interpretive significance for each reference, built into analytical sentences rather than a separate background paragraph.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_CONTEXT_ISOLATED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "CONTEXT_ISOLATED",
+          "action": "CONTEXT_ISOLATED: 'Integrate the context into your analysis — don't separate it.' Integration drill: context reference must be embedded in an analytical sentence before submission accepted."
+        },
+        {
+          "errorVariant": "ANCHOR_ABSENT",
+          "action": "CONTEXT_ISOLATED: 'Integrate the context into your analysis — don't separate it.' Integration drill: context reference must be embedded in an analytical sentence before submission accepted."
+        },
+        {
+          "errorVariant": "SIGNIFICANCE_ABSENT",
+          "action": "CONTEXT_ISOLATED: 'Integrate the context into your analysis — don't separate it.' Integration drill: context reference must be embedded in an analytical sentence before submission accepted."
+        },
+        {
+          "errorVariant": "CONTEXT_TYPE_UNLABELLED",
+          "action": "CONTEXT_ISOLATED: 'Integrate the context into your analysis — don't separate it.' Integration drill: context reference must be embedded in an analytical sentence before submission accepted."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.B1",
+      "name": "Compare Poems Structurally",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "2 — Multi-Text Synthesis",
+      "grade": 11,
+      "description": "Compare poems structurally by stating at least 2 structural features per poem, the effect on pace, tone, or meaning, and the comparative difference or similarity between poems.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_CONTENT_ONLY_COMPARISON",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "CONTENT_ONLY_COMPARISON",
+          "action": "CONTENT_ONLY_COMPARISON: 'Focus on form: stanza breaks, line length, rhythm — how do these create meaning?' Structural analysis framework provided. EFFECT_ABSENT: 'Why did the poet break the line here? What does that pause create?'"
+        },
+        {
+          "errorVariant": "FEATURE_MISLABELLED",
+          "action": "CONTENT_ONLY_COMPARISON: 'Focus on form: stanza breaks, line length, rhythm — how do these create meaning?' Structural analysis framework provided. EFFECT_ABSENT: 'Why did the poet break the line here? What does that pause create?'"
+        },
+        {
+          "errorVariant": "EFFECT_ABSENT",
+          "action": "CONTENT_ONLY_COMPARISON: 'Focus on form: stanza breaks, line length, rhythm — how do these create meaning?' Structural analysis framework provided. EFFECT_ABSENT: 'Why did the poet break the line here? What does that pause create?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.B2",
+      "name": "Compare Drama and Novels Thematically",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "2 — Multi-Text Synthesis",
+      "grade": 11,
+      "description": "Compare drama and novels thematically by identifying at least 1 shared theme and at least 1 diverging treatment, with textual evidence from both forms, and analysing how the medium shapes thematic expression.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_MEDIUM_IGNORED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "MEDIUM_IGNORED",
+          "action": "MEDIUM_IGNORED: 'Dramas show; novels tell. How does each form shape how the theme is expressed?' Medium comparison frame required."
+        },
+        {
+          "errorVariant": "SINGLE_TEXT_REFERENCE",
+          "action": "MEDIUM_IGNORED: 'Dramas show; novels tell. How does each form shape how the theme is expressed?' Medium comparison frame required."
+        },
+        {
+          "errorVariant": "THEME_UNSUPPORTED",
+          "action": "MEDIUM_IGNORED: 'Dramas show; novels tell. How does each form shape how the theme is expressed?' Medium comparison frame required."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.B3",
+      "name": "Counter-Argument Paragraph (Quality >=4)",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "2 — Multi-Text Synthesis",
+      "grade": 11,
+      "description": "Construct a counter-argument paragraph at quality 4 with a concession signal, a fair representation of the opposing view, a rebuttal connector, at least 2 supporting reasons, and evidence for at least 1 reason.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_STRAW_MAN",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "STRAW_MAN",
+          "action": "STRAW_MAN: 'State the strongest version of the opposing view — what would its best supporter say?' REBUTTAL_UNSUPPORTED: 2 reasons why the opposing view fails — use: 'This ignores / This overlooks / Research shows...'"
+        },
+        {
+          "errorVariant": "REBUTTAL_UNSUPPORTED",
+          "action": "STRAW_MAN: 'State the strongest version of the opposing view — what would its best supporter say?' REBUTTAL_UNSUPPORTED: 2 reasons why the opposing view fails — use: 'This ignores / This overlooks / Research shows...'"
+        },
+        {
+          "errorVariant": "EVIDENCE_ABSENT_REBUTTAL",
+          "action": "STRAW_MAN: 'State the strongest version of the opposing view — what would its best supporter say?' REBUTTAL_UNSUPPORTED: 2 reasons why the opposing view fails — use: 'This ignores / This overlooks / Research shows...'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.B4",
+      "name": "Nuanced Academic Vocabulary",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "2 — Multi-Text Synthesis",
+      "grade": 11,
+      "description": "Deploy nuanced academic vocabulary with a vocabulary variety score of at least 15% of total tokens, zero vague intensifiers without evidence, and at least 3 discipline-specific terms per literary essay.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_AWL_LOW",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "AWL_LOW",
+          "action": "AWL_LOW: academic vocabulary expansion drill — 10 AWL words per task with contextual use tasks. DISCIPLINE_TERM_LOW: literary term list; at least 3 must be checked off per essay before submission."
+        },
+        {
+          "errorVariant": "INTENSIFIER_OVERUSE",
+          "action": "AWL_LOW: academic vocabulary expansion drill — 10 AWL words per task with contextual use tasks. DISCIPLINE_TERM_LOW: literary term list; at least 3 must be checked off per essay before submission."
+        },
+        {
+          "errorVariant": "DISCIPLINE_TERM_LOW",
+          "action": "AWL_LOW: academic vocabulary expansion drill — 10 AWL words per task with contextual use tasks. DISCIPLINE_TERM_LOW: literary term list; at least 3 must be checked off per essay before submission."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.B5",
+      "name": "Sustain an 800-Word Essay",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "2 — Multi-Text Synthesis",
+      "grade": 11,
+      "description": "Sustain an 800-word essay (single session) by meeting the 750-900 word target checked at submission, maintaining full structure, and avoiding quality degradation in the final body paragraph (coherence maintenance ratio >=0.85).",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_UNDER_LENGTH_TIMED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "UNDER_LENGTH_TIMED",
+          "action": "UNDER_LENGTH_TIMED: content audit — identify which section is underweight; targeted expansion drills. QUALITY_DEGRADATION: 'Your last paragraph is weaker than your first — write your strongest paragraph last.'"
+        },
+        {
+          "errorVariant": "QUALITY_DEGRADATION",
+          "action": "UNDER_LENGTH_TIMED: content audit — identify which section is underweight; targeted expansion drills. QUALITY_DEGRADATION: 'Your last paragraph is weaker than your first — write your strongest paragraph last.'"
+        },
+        {
+          "errorVariant": "STRUCTURE_INCOMPLETE_TIMED",
+          "action": "UNDER_LENGTH_TIMED: content audit — identify which section is underweight; targeted expansion drills. QUALITY_DEGRADATION: 'Your last paragraph is weaker than your first — write your strongest paragraph last.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.C1",
+      "name": "Evaluate Ideological Positioning",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "3 — Critical Discourse",
+      "grade": 11,
+      "description": "Evaluate ideological positioning in text by identifying the dominant ideology, naming the group whose perspective is centred or marginalised, linking to at least 2 specific language choices, and stating the effect on reader positioning.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_IDEOLOGY_UNLABELLED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "IDEOLOGY_UNLABELLED",
+          "action": "IDEOLOGY_UNLABELLED: ideology predefined list; label required before analysis proceeds. READER_POSITIONING_ABSENT: 'How does this ideological choice position the reader — to agree, question, or resist?'"
+        },
+        {
+          "errorVariant": "MARGINALISED_GROUP_ABSENT",
+          "action": "IDEOLOGY_UNLABELLED: ideology predefined list; label required before analysis proceeds. READER_POSITIONING_ABSENT: 'How does this ideological choice position the reader — to agree, question, or resist?'"
+        },
+        {
+          "errorVariant": "READER_POSITIONING_ABSENT",
+          "action": "IDEOLOGY_UNLABELLED: ideology predefined list; label required before analysis proceeds. READER_POSITIONING_ABSENT: 'How does this ideological choice position the reader — to agree, question, or resist?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.C2",
+      "name": "Identify Manipulation in Media",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "3 — Critical Discourse",
+      "grade": 11,
+      "description": "Identify manipulation in media texts by naming at least 3 manipulation techniques, each with a stated mechanism describing how the audience's psychology is guided and a stated effect.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TECHNIQUE_UNLABELLED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TECHNIQUE_UNLABELLED",
+          "action": "TECHNIQUE_UNLABELLED: manipulation predefined list; label required before analysis proceeds. MECHANISM_ABSENT: 'How does it work on the audience? What psychological process does it use?'"
+        },
+        {
+          "errorVariant": "MECHANISM_ABSENT",
+          "action": "TECHNIQUE_UNLABELLED: manipulation predefined list; label required before analysis proceeds. MECHANISM_ABSENT: 'How does it work on the audience? What psychological process does it use?'"
+        },
+        {
+          "errorVariant": "EFFECT_GENERIC",
+          "action": "TECHNIQUE_UNLABELLED: manipulation predefined list; label required before analysis proceeds. MECHANISM_ABSENT: 'How does it work on the audience? What psychological process does it use?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.C3",
+      "name": "Balanced Evaluative Argument",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "3 — Critical Discourse",
+      "grade": 11,
+      "description": "Produce a balanced evaluative argument with at least 2 arguments per position, an evaluative judgement based on stated criteria, and a conclusion that acknowledges complexity without false equivalence.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_ONE_SIDED_EVALUATIVE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "ONE_SIDED_EVALUATIVE",
+          "action": "CRITERIA_ABSENT: criteria card; minimum 2 must be invoked before conclusion. FALSE_EQUIVALENCE: 'On balance, which argument has stronger evidence? State this clearly.'"
+        },
+        {
+          "errorVariant": "CRITERIA_ABSENT",
+          "action": "CRITERIA_ABSENT: criteria card; minimum 2 must be invoked before conclusion. FALSE_EQUIVALENCE: 'On balance, which argument has stronger evidence? State this clearly.'"
+        },
+        {
+          "errorVariant": "FALSE_EQUIVALENCE",
+          "action": "CRITERIA_ABSENT: criteria card; minimum 2 must be invoked before conclusion. FALSE_EQUIVALENCE: 'On balance, which argument has stronger evidence? State this clearly.'"
+        },
+        {
+          "errorVariant": "CONCLUSION_UNCOMMITTED",
+          "action": "CRITERIA_ABSENT: criteria card; minimum 2 must be invoked before conclusion. FALSE_EQUIVALENCE: 'On balance, which argument has stronger evidence? State this clearly.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.D1",
+      "name": "Compare Two Unseen Texts",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "4 — Reading and Comprehension",
+      "grade": 11,
+      "description": "Compare two unseen texts on a related topic by identifying at least 2 similarities and 2 differences in purpose, audience, tone, or approach, with a textual reference per point and an overall comparative judgement.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_COMPARISON_CONNECTOR_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "COMPARISON_CONNECTOR_ABSENT",
+          "action": "COMPARISON_CONNECTOR_ABSENT: comparison connector list required; each point must use a listed connector before submission. JUDGEMENT_ABSENT: 'Which text achieves its purpose more effectively, and why?' Evaluative sentence required before submission accepted."
+        },
+        {
+          "errorVariant": "REFERENCE_ABSENT_COMPARE",
+          "action": "COMPARISON_CONNECTOR_ABSENT: comparison connector list required; each point must use a listed connector before submission. JUDGEMENT_ABSENT: 'Which text achieves its purpose more effectively, and why?' Evaluative sentence required before submission accepted."
+        },
+        {
+          "errorVariant": "JUDGEMENT_ABSENT",
+          "action": "COMPARISON_CONNECTOR_ABSENT: comparison connector list required; each point must use a listed connector before submission. JUDGEMENT_ABSENT: 'Which text achieves its purpose more effectively, and why?' Evaluative sentence required before submission accepted."
+        },
+        {
+          "errorVariant": "ONE_TEXT_ONLY",
+          "action": "COMPARISON_CONNECTOR_ABSENT: comparison connector list required; each point must use a listed connector before submission. JUDGEMENT_ABSENT: 'Which text achieves its purpose more effectively, and why?' Evaluative sentence required before submission accepted."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.D2",
+      "name": "Author's Bias and Perspective",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "4 — Reading and Comprehension",
+      "grade": 11,
+      "description": "Identify and explain an author's bias and perspective in an unseen text by naming the bias type, identifying at least 2 specific language choices revealing bias, explaining each choice's effect on reader positioning, and assessing the bias's impact on credibility.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_BIAS_UNLABELLED_L13",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "BIAS_UNLABELLED_L13",
+          "action": "BIAS_UNLABELLED_L13: predefined bias taxonomy with defining features; learner matches description to label before free analysis. CREDIBILITY_ABSENT: 'Does this bias make the argument more or less convincing? State your view and give one reason.' Required before submission."
+        },
+        {
+          "errorVariant": "LANGUAGE_CHOICE_ABSENT",
+          "action": "BIAS_UNLABELLED_L13: predefined bias taxonomy with defining features; learner matches description to label before free analysis. CREDIBILITY_ABSENT: 'Does this bias make the argument more or less convincing? State your view and give one reason.' Required before submission."
+        },
+        {
+          "errorVariant": "EFFECT_VAGUE",
+          "action": "BIAS_UNLABELLED_L13: predefined bias taxonomy with defining features; learner matches description to label before free analysis. CREDIBILITY_ABSENT: 'Does this bias make the argument more or less convincing? State your view and give one reason.' Required before submission."
+        },
+        {
+          "errorVariant": "CREDIBILITY_ABSENT",
+          "action": "BIAS_UNLABELLED_L13: predefined bias taxonomy with defining features; learner matches description to label before free analysis. CREDIBILITY_ABSENT: 'Does this bias make the argument more or less convincing? State your view and give one reason.' Required before submission."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.D3",
+      "name": "Synthesise Two Unseen Texts",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "4 — Reading and Comprehension",
+      "grade": 11,
+      "description": "Synthesise information from two unseen texts to support a stated analytical position, using at least one piece of evidence from each, integrating evidence smoothly, and demonstrating a coherent line of reasoning connecting evidence to the position.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_SINGLE_SOURCE_ONLY_L13",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "SINGLE_SOURCE_ONLY_L13",
+          "action": "SINGLE_SOURCE_ONLY_L13: 'Your synthesis must draw on both texts. Identify one piece of evidence from each before writing.' Evidence-first frame required. QUOTE_DUMP_L13: evidence integration drill — quote must appear inside the learner's own clause; three embedded examples required before free synthesis."
+        },
+        {
+          "errorVariant": "QUOTE_DUMP_L13",
+          "action": "SINGLE_SOURCE_ONLY_L13: 'Your synthesis must draw on both texts. Identify one piece of evidence from each before writing.' Evidence-first frame required. QUOTE_DUMP_L13: evidence integration drill — quote must appear inside the learner's own clause; three embedded examples required before free synthesis."
+        },
+        {
+          "errorVariant": "ANALYSIS_ABSENT_L13",
+          "action": "SINGLE_SOURCE_ONLY_L13: 'Your synthesis must draw on both texts. Identify one piece of evidence from each before writing.' Evidence-first frame required. QUOTE_DUMP_L13: evidence integration drill — quote must appear inside the learner's own clause; three embedded examples required before free synthesis."
+        },
+        {
+          "errorVariant": "COHERENCE_LOW_L13",
+          "action": "SINGLE_SOURCE_ONLY_L13: 'Your synthesis must draw on both texts. Identify one piece of evidence from each before writing.' Evidence-first frame required. QUOTE_DUMP_L13: evidence integration drill — quote must appear inside the learner's own clause; three embedded examples required before free synthesis."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.E1",
+      "name": "Formal Report",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "5 — Transactional Writing",
+      "grade": 11,
+      "description": "Write a formal report on a given issue with a clear heading and purpose statement, an introduction, at least 2 findings sections with subheadings, and a recommendations section, in fully objective register (250-350 words).",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_STRUCTURE_INCOMPLETE_REPORT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "STRUCTURE_INCOMPLETE_REPORT",
+          "action": "STRUCTURE_INCOMPLETE_REPORT: report template displayed with all section labels; each section must be completed before submission. REGISTER_SUBJECTIVE_REPORT: flagged tokens highlighted; replaced with objective equivalents before resubmission."
+        },
+        {
+          "errorVariant": "REGISTER_SUBJECTIVE_REPORT",
+          "action": "STRUCTURE_INCOMPLETE_REPORT: report template displayed with all section labels; each section must be completed before submission. REGISTER_SUBJECTIVE_REPORT: flagged tokens highlighted; replaced with objective equivalents before resubmission."
+        },
+        {
+          "errorVariant": "OBJECTIVE_VERB_ABSENT",
+          "action": "STRUCTURE_INCOMPLETE_REPORT: report template displayed with all section labels; each section must be completed before submission. REGISTER_SUBJECTIVE_REPORT: flagged tokens highlighted; replaced with objective equivalents before resubmission."
+        },
+        {
+          "errorVariant": "RECOMMENDATION_ABSENT",
+          "action": "STRUCTURE_INCOMPLETE_REPORT: report template displayed with all section labels; each section must be completed before submission. REGISTER_SUBJECTIVE_REPORT: flagged tokens highlighted; replaced with objective equivalents before resubmission."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.E2",
+      "name": "Review",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "5 — Transactional Writing",
+      "grade": 11,
+      "description": "Write a review of a product, event, or text introducing the subject, applying at least 3 evaluative criteria with evidence per criterion, providing a balanced judgement, and including a recommendation (220-300 words).",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_CRITERIA_COUNT_LOW_REVIEW",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "CRITERIA_COUNT_LOW_REVIEW",
+          "action": "ONE_SIDED_REVIEW: 'Your review must include both strengths and weaknesses. Add at least one point from the opposite side.' Balance check required before submission. CRITERIA_COUNT_LOW_REVIEW: criteria frame — 3 rows (criterion / evidence / judgement); all 3 rows must be completed before free writing."
+        },
+        {
+          "errorVariant": "EVIDENCE_ABSENT_REVIEW",
+          "action": "ONE_SIDED_REVIEW: 'Your review must include both strengths and weaknesses. Add at least one point from the opposite side.' Balance check required before submission. CRITERIA_COUNT_LOW_REVIEW: criteria frame — 3 rows (criterion / evidence / judgement); all 3 rows must be completed before free writing."
+        },
+        {
+          "errorVariant": "ONE_SIDED_REVIEW",
+          "action": "ONE_SIDED_REVIEW: 'Your review must include both strengths and weaknesses. Add at least one point from the opposite side.' Balance check required before submission. CRITERIA_COUNT_LOW_REVIEW: criteria frame — 3 rows (criterion / evidence / judgement); all 3 rows must be completed before free writing."
+        },
+        {
+          "errorVariant": "RECOMMENDATION_ABSENT_REVIEW",
+          "action": "ONE_SIDED_REVIEW: 'Your review must include both strengths and weaknesses. Add at least one point from the opposite side.' Balance check required before submission. CRITERIA_COUNT_LOW_REVIEW: criteria frame — 3 rows (criterion / evidence / judgement); all 3 rows must be completed before free writing."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.E3",
+      "name": "Dialogue",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "5 — Transactional Writing",
+      "grade": 11,
+      "description": "Write a dialogue between two speakers representing different positions where each states a position, gives at least 1 reason, responds directly to the other speaker, and maintains consistent register over at least 6 exchanges (200-280 words).",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TURN_COUNT_LOW",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TURN_COUNT_LOW",
+          "action": "TALKING_PAST: 'Each response must acknowledge what the other speaker just said.' Response template: 'You said [reference] — however, [counter].' Required before free writing. TURN_COUNT_LOW: minimum 6 turns enforced; system does not accept submission until turn count is at least 6."
+        },
+        {
+          "errorVariant": "REASON_ABSENT_DIALOGUE",
+          "action": "TALKING_PAST: 'Each response must acknowledge what the other speaker just said.' Response template: 'You said [reference] — however, [counter].' Required before free writing. TURN_COUNT_LOW: minimum 6 turns enforced; system does not accept submission until turn count is at least 6."
+        },
+        {
+          "errorVariant": "TALKING_PAST",
+          "action": "TALKING_PAST: 'Each response must acknowledge what the other speaker just said.' Response template: 'You said [reference] — however, [counter].' Required before free writing. TURN_COUNT_LOW: minimum 6 turns enforced; system does not accept submission until turn count is at least 6."
+        },
+        {
+          "errorVariant": "REGISTER_INCONSISTENT_DIALOGUE",
+          "action": "TALKING_PAST: 'Each response must acknowledge what the other speaker just said.' Response template: 'You said [reference] — however, [counter].' Required before free writing. TURN_COUNT_LOW: minimum 6 turns enforced; system does not accept submission until turn count is at least 6."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.F1",
+      "name": "Rewrite for Clarity and Precision",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "6 — Language, Grammar and Editing",
+      "grade": 11,
+      "description": "Rewrite 6 sentences containing redundancy, weak verbs, or unclear structure to remove the identified problem while preserving meaning, stating the specific improvement made for each.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_MEANING_LOST_REWRITE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "MEANING_LOST_REWRITE",
+          "action": "PROBLEM_REMAINS: sentence shown with problem highlighted; specific instruction given (e.g., 'Remove the underlined redundant phrase'). Targeted drill before free rewrite. MEANING_LOST_REWRITE: 'Your rewrite has changed the meaning. Compare your sentence with the original. Revise to restore the original idea.'"
+        },
+        {
+          "errorVariant": "PROBLEM_REMAINS",
+          "action": "PROBLEM_REMAINS: sentence shown with problem highlighted; specific instruction given (e.g., 'Remove the underlined redundant phrase'). Targeted drill before free rewrite. MEANING_LOST_REWRITE: 'Your rewrite has changed the meaning. Compare your sentence with the original. Revise to restore the original idea.'"
+        },
+        {
+          "errorVariant": "IMPROVEMENT_UNLABELLED",
+          "action": "PROBLEM_REMAINS: sentence shown with problem highlighted; specific instruction given (e.g., 'Remove the underlined redundant phrase'). Targeted drill before free rewrite. MEANING_LOST_REWRITE: 'Your rewrite has changed the meaning. Compare your sentence with the original. Revise to restore the original idea.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.F2",
+      "name": "Vocabulary Imprecision",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "6 — Language, Grammar and Editing",
+      "grade": 11,
+      "description": "Identify at least 4 instances of vague, overused, or imprecise vocabulary in a provided text, replace each with a precise alternative, and explain why the replacement is more precise.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_IMPRECISION_MISSED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "IMPRECISION_MISSED",
+          "action": "IMPRECISION_MISSED: predefined imprecision token list displayed; learner scans text against the list before free identification. REPLACEMENT_IMPRECISE: 'Your replacement is still vague. Try a word that specifies exactly how much, how, or what kind.' Replacement reattempted."
+        },
+        {
+          "errorVariant": "REPLACEMENT_IMPRECISE",
+          "action": "IMPRECISION_MISSED: predefined imprecision token list displayed; learner scans text against the list before free identification. REPLACEMENT_IMPRECISE: 'Your replacement is still vague. Try a word that specifies exactly how much, how, or what kind.' Replacement reattempted."
+        },
+        {
+          "errorVariant": "EXPLANATION_ABSENT_VOCAB",
+          "action": "IMPRECISION_MISSED: predefined imprecision token list displayed; learner scans text against the list before free identification. REPLACEMENT_IMPRECISE: 'Your replacement is still vague. Try a word that specifies exactly how much, how, or what kind.' Replacement reattempted."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.F3",
+      "name": "Edit for Register, Grammar and Cohesion",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "6 — Language, Grammar and Editing",
+      "grade": 11,
+      "description": "Edit a full paragraph for register consistency, grammar accuracy, and cohesion by identifying and correcting all register inconsistencies, grammatical errors, and missing or misused cohesion devices, producing a clean edited version with changes justified.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_REGISTER_REMAINING",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "REGISTER_REMAINING",
+          "action": "REGISTER_REMAINING: flagged tokens shown after edit; each must be corrected before resubmission. GRAMMAR_ERROR_REMAINING: specific error type shown with rule card; targeted correction required before proceeding."
+        },
+        {
+          "errorVariant": "GRAMMAR_ERROR_REMAINING",
+          "action": "REGISTER_REMAINING: flagged tokens shown after edit; each must be corrected before resubmission. GRAMMAR_ERROR_REMAINING: specific error type shown with rule card; targeted correction required before proceeding."
+        },
+        {
+          "errorVariant": "COHESION_GAP_UNADDRESSED",
+          "action": "REGISTER_REMAINING: flagged tokens shown after edit; each must be corrected before resubmission. GRAMMAR_ERROR_REMAINING: specific error type shown with rule card; targeted correction required before proceeding."
+        },
+        {
+          "errorVariant": "JUSTIFICATION_ABSENT_EDIT",
+          "action": "REGISTER_REMAINING: flagged tokens shown after edit; each must be corrected before resubmission. GRAMMAR_ERROR_REMAINING: specific error type shown with rule card; targeted correction required before proceeding."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.G1",
+      "name": "Extended Oral Argument",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "7 — Speaking and Listening",
+      "grade": 11,
+      "description": "Deliver an extended oral argument stating a clear position, providing at least 3 supported arguments, including at least 1 counter-argument with rebuttal, and concluding with a synthesis statement in formal register (250-350 words).",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_ARGUMENT_COUNT_LOW_ORAL",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "ARGUMENT_COUNT_LOW_ORAL",
+          "action": "COUNTERARG_ABSENT_ORAL: concession plus rebuttal frame — 'It may be argued that [opposition]. However, [rebuttal] because [reason].' Must be inserted before submission. SYNTHESIS_ABSENT_ORAL: 'Your conclusion must go beyond restating your position. What does your argument reveal?' Qualifier or broadening clause required."
+        },
+        {
+          "errorVariant": "COUNTERARG_ABSENT_ORAL",
+          "action": "COUNTERARG_ABSENT_ORAL: concession plus rebuttal frame — 'It may be argued that [opposition]. However, [rebuttal] because [reason].' Must be inserted before submission. SYNTHESIS_ABSENT_ORAL: 'Your conclusion must go beyond restating your position. What does your argument reveal?' Qualifier or broadening clause required."
+        },
+        {
+          "errorVariant": "SYNTHESIS_ABSENT_ORAL",
+          "action": "COUNTERARG_ABSENT_ORAL: concession plus rebuttal frame — 'It may be argued that [opposition]. However, [rebuttal] because [reason].' Must be inserted before submission. SYNTHESIS_ABSENT_ORAL: 'Your conclusion must go beyond restating your position. What does your argument reveal?' Qualifier or broadening clause required."
+        },
+        {
+          "errorVariant": "REGISTER_INFORMAL_ORAL",
+          "action": "COUNTERARG_ABSENT_ORAL: concession plus rebuttal frame — 'It may be argued that [opposition]. However, [rebuttal] because [reason].' Must be inserted before submission. SYNTHESIS_ABSENT_ORAL: 'Your conclusion must go beyond restating your position. What does your argument reveal?' Qualifier or broadening clause required."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.G2",
+      "name": "Panel Interview Response",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "7 — Speaking and Listening",
+      "grade": 11,
+      "description": "Respond to a simulated panel interview by answering 4 questions precisely within 50-80 words each, maintaining formal register, demonstrating reasoning beyond factual recall, and concluding each response with a specific point.",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_OFF_TOPIC_INTERVIEW",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "OFF_TOPIC_INTERVIEW",
+          "action": "REASONING_ABSENT_INTERVIEW: 'Add a reason for your answer. Use: because / this means / as a result.' Sentence extender required. FILLER_CONCLUSION: 'End with a specific point, not a closing phrase.' Example of a specific concluding claim displayed."
+        },
+        {
+          "errorVariant": "REASONING_ABSENT_INTERVIEW",
+          "action": "REASONING_ABSENT_INTERVIEW: 'Add a reason for your answer. Use: because / this means / as a result.' Sentence extender required. FILLER_CONCLUSION: 'End with a specific point, not a closing phrase.' Example of a specific concluding claim displayed."
+        },
+        {
+          "errorVariant": "WORD_COUNT_OUTSIDE_INTERVIEW",
+          "action": "REASONING_ABSENT_INTERVIEW: 'Add a reason for your answer. Use: because / this means / as a result.' Sentence extender required. FILLER_CONCLUSION: 'End with a specific point, not a closing phrase.' Example of a specific concluding claim displayed."
+        },
+        {
+          "errorVariant": "FILLER_CONCLUSION",
+          "action": "REASONING_ABSENT_INTERVIEW: 'Add a reason for your answer. Use: because / this means / as a result.' Sentence extender required. FILLER_CONCLUSION: 'End with a specific point, not a closing phrase.' Example of a specific concluding claim displayed."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L13.G3",
+      "name": "Evaluate a Speech Transcript",
+      "gate": "NONE",
+      "level": 13,
+      "tier": "7 — Speaking and Listening",
+      "grade": 11,
+      "description": "Evaluate a transcript of a speech or debate by identifying at least 2 strengths and 2 weaknesses of the speaker's argument, naming at least 1 rhetorical technique, rating the persuasive effectiveness, and justifying the rating with at least 2 reasons.",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_EVALUATION_ONE_SIDED_SPEECH",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "EVALUATION_ONE_SIDED_SPEECH",
+          "action": "EVALUATION_ONE_SIDED_SPEECH: 'Your evaluation must include both strengths and weaknesses.' Balance check enforced before submission. RATING_UNJUSTIFIED: 'State your rating and give two reasons for it.' Rating plus reasons frame required."
+        },
+        {
+          "errorVariant": "REFERENCE_ABSENT_SPEECH_EVAL",
+          "action": "EVALUATION_ONE_SIDED_SPEECH: 'Your evaluation must include both strengths and weaknesses.' Balance check enforced before submission. RATING_UNJUSTIFIED: 'State your rating and give two reasons for it.' Rating plus reasons frame required."
+        },
+        {
+          "errorVariant": "TECHNIQUE_UNLABELLED_SPEECH",
+          "action": "EVALUATION_ONE_SIDED_SPEECH: 'Your evaluation must include both strengths and weaknesses.' Balance check enforced before submission. RATING_UNJUSTIFIED: 'State your rating and give two reasons for it.' Rating plus reasons frame required."
+        },
+        {
+          "errorVariant": "RATING_UNJUSTIFIED",
+          "action": "EVALUATION_ONE_SIDED_SPEECH: 'Your evaluation must include both strengths and weaknesses.' Balance check enforced before submission. RATING_UNJUSTIFIED: 'State your rating and give two reasons for it.' Rating plus reasons frame required."
+        }
+      ],
+      "items": []
+    }
+  ]
+}

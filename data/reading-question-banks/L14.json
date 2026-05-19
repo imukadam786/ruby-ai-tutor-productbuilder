@@ -1,0 +1,1013 @@
+{
+  "$comment": "L14 = Grade 12. SCAFFOLD — author fills texts[] and each skill's items[]. Skill structure is pre-wired to the skill tree; do not change skillId/level/tier/grade. See data/reading-question-banks/READING_BANK_AUTHORING_GUIDE.md. Validate with: node scripts/validate-reading-bank.mjs L14",
+  "level": 14,
+  "gate": "NONE",
+  "specVersion": "FET v1.0 (no-timer, 60%)",
+  "bankVersion": "0.1-scaffold",
+  "grades": [
+    12
+  ],
+  "texts": [],
+  "skills": [
+    {
+      "skillId": "L14.A1",
+      "name": "Unseen Poetry Analysis",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "1 — Exam Precision",
+      "grade": 12,
+      "description": "Analyse unseen poetry by integrating all 4 TICC dimensions in a single analytical paragraph, naming at least 4 devices with effect plus structural analysis, and producing an original interpretive claim not present in the prompt.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TICC_INCOMPLETE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TICC_INCOMPLETE",
+          "action": "TICC_INCOMPLETE: TICC checklist gate; each dimension must be completed before submission accepted. PARAPHRASED_CLAIM: 'Your interpretive claim must go beyond what the question states — what original insight do you bring?'"
+        },
+        {
+          "errorVariant": "DEVICE_COUNT_LOW",
+          "action": "TICC_INCOMPLETE: TICC checklist gate; each dimension must be completed before submission accepted. PARAPHRASED_CLAIM: 'Your interpretive claim must go beyond what the question states — what original insight do you bring?'"
+        },
+        {
+          "errorVariant": "STRUCTURAL_ANALYSIS_ABSENT",
+          "action": "TICC_INCOMPLETE: TICC checklist gate; each dimension must be completed before submission accepted. PARAPHRASED_CLAIM: 'Your interpretive claim must go beyond what the question states — what original insight do you bring?'"
+        },
+        {
+          "errorVariant": "PARAPHRASED_CLAIM",
+          "action": "TICC_INCOMPLETE: TICC checklist gate; each dimension must be completed before submission accepted. PARAPHRASED_CLAIM: 'Your interpretive claim must go beyond what the question states — what original insight do you bring?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.A2",
+      "name": "Command Word Precision",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "1 — Exam Precision",
+      "grade": 12,
+      "description": "Respond precisely to command words so analyse, evaluate, discuss, and compare produce detectably different response types in analytical verb density, judgement, balance, and comparison language.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_COMMAND_CONFUSION",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "COMMAND_CONFUSION",
+          "action": "COMMAND_CONFUSION: command word predefined list — 'Evaluate = judge using criteria; Analyse = break down without judging.' Differentiation task: same passage, 4 command word responses, each detectably different. DISCUSS_ONE_SIDED: balance check — both sides must be represented."
+        },
+        {
+          "errorVariant": "DISCUSS_ONE_SIDED",
+          "action": "COMMAND_CONFUSION: command word predefined list — 'Evaluate = judge using criteria; Analyse = break down without judging.' Differentiation task: same passage, 4 command word responses, each detectably different. DISCUSS_ONE_SIDED: balance check — both sides must be represented."
+        },
+        {
+          "errorVariant": "COMPARE_SINGLE_TEXT",
+          "action": "COMMAND_CONFUSION: command word predefined list — 'Evaluate = judge using criteria; Analyse = break down without judging.' Differentiation task: same passage, 4 command word responses, each detectably different. DISCUSS_ONE_SIDED: balance check — both sides must be represented."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.A3",
+      "name": "TICC Literary Essay",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "1 — Exam Precision",
+      "grade": 12,
+      "description": "Construct 3-4 body paragraph literary essays where each paragraph integrates all TICC dimensions, with quote integration at least 95%, analytical coherence, thesis link, no scaffold dependency, and coherence maintained from first to final paragraph.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TICC_PARTIAL",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TICC_PARTIAL",
+          "action": "TICC_INCOMPLETE: TICC checklist gate (same as L14.A1); each dimension must be identifiable before submission accepted. COHERENCE_DEGRADATION: 'Your last paragraph is weaker than your first — reverse your order; draft conclusion first.'"
+        },
+        {
+          "errorVariant": "QUOTE_STANDALONE",
+          "action": "TICC_INCOMPLETE: TICC checklist gate (same as L14.A1); each dimension must be identifiable before submission accepted. COHERENCE_DEGRADATION: 'Your last paragraph is weaker than your first — reverse your order; draft conclusion first.'"
+        },
+        {
+          "errorVariant": "COHERENCE_DEGRADATION",
+          "action": "TICC_INCOMPLETE: TICC checklist gate (same as L14.A1); each dimension must be identifiable before submission accepted. COHERENCE_DEGRADATION: 'Your last paragraph is weaker than your first — reverse your order; draft conclusion first.'"
+        },
+        {
+          "errorVariant": "THESIS_LINK_ABSENT",
+          "action": "TICC_INCOMPLETE: TICC checklist gate (same as L14.A1); each dimension must be identifiable before submission accepted. COHERENCE_DEGRADATION: 'Your last paragraph is weaker than your first — reverse your order; draft conclusion first.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.A4",
+      "name": "700-900 Word Essay (Single Session)",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "1 — Exam Precision",
+      "grade": 12,
+      "description": "Write 700-900 word essays in a single session with full structure (introduction plus 3-4 body plus conclusion), editing evidence before submission, and a coherence maintenance ratio of at least 0.90. Word count is checked at submission, no real-time pacing.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_UNDER_LENGTH_TIMED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "UNDER_LENGTH_TIMED",
+          "action": "UNDER_LENGTH_TIMED: content diagnostics; identify the underweight section; targeted expansion drills. COHERENCE_DEGRADATION: reverse drafting — conclusion written first to anchor quality."
+        },
+        {
+          "errorVariant": "OVER_LENGTH",
+          "action": "UNDER_LENGTH_TIMED: content diagnostics; identify the underweight section; targeted expansion drills. COHERENCE_DEGRADATION: reverse drafting — conclusion written first to anchor quality."
+        },
+        {
+          "errorVariant": "COHERENCE_DEGRADATION",
+          "action": "UNDER_LENGTH_TIMED: content diagnostics; identify the underweight section; targeted expansion drills. COHERENCE_DEGRADATION: reverse drafting — conclusion written first to anchor quality."
+        },
+        {
+          "errorVariant": "EDITING_ABSENT",
+          "action": "UNDER_LENGTH_TIMED: content diagnostics; identify the underweight section; targeted expansion drills. COHERENCE_DEGRADATION: reverse drafting — conclusion written first to anchor quality."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.B1",
+      "name": "Integrate All Four TICC Dimensions",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "2 — Intellectual Maturity",
+      "grade": 12,
+      "description": "Integrate all four TICC dimensions in analytical writing so that Theme, Intention, Context, and Craft are all identifiable and mutually reinforcing within a paragraph or analysis section.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TICC_INCOMPLETE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TICC_INCOMPLETE",
+          "action": "TICC_INCOMPLETE: TICC checklist gate (same as L14.A1). TICC_DISCONNECTED: 'How does the craft choice connect to the authorial intention? How does the context shape the theme?' Cross-dimension linking prompt."
+        },
+        {
+          "errorVariant": "TICC_DISCONNECTED",
+          "action": "TICC_INCOMPLETE: TICC checklist gate (same as L14.A1). TICC_DISCONNECTED: 'How does the craft choice connect to the authorial intention? How does the context shape the theme?' Cross-dimension linking prompt."
+        },
+        {
+          "errorVariant": "CRAFT_SURFACE",
+          "action": "TICC_INCOMPLETE: TICC checklist gate (same as L14.A1). TICC_DISCONNECTED: 'How does the craft choice connect to the authorial intention? How does the context shape the theme?' Cross-dimension linking prompt."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.B2",
+      "name": "Evaluate Authorial Intention",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "2 — Intellectual Maturity",
+      "grade": 12,
+      "description": "Evaluate authorial intention by stating the author's purpose, naming at least 2 craft choices that serve that intention, and evaluating how successfully the text achieves it with at least 2 criteria.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_PURPOSE_VAGUE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "PURPOSE_VAGUE",
+          "action": "PURPOSE_VAGUE: 'What specific belief or feeling does this author want the reader to have?' Specific proposition required. JUDGEMENT_WITHOUT_CRITERIA: evaluation criteria card; minimum 2 must be invoked."
+        },
+        {
+          "errorVariant": "CRAFT_UNLINKED",
+          "action": "PURPOSE_VAGUE: 'What specific belief or feeling does this author want the reader to have?' Specific proposition required. JUDGEMENT_WITHOUT_CRITERIA: evaluation criteria card; minimum 2 must be invoked."
+        },
+        {
+          "errorVariant": "JUDGEMENT_WITHOUT_CRITERIA",
+          "action": "PURPOSE_VAGUE: 'What specific belief or feeling does this author want the reader to have?' Specific proposition required. JUDGEMENT_WITHOUT_CRITERIA: evaluation criteria card; minimum 2 must be invoked."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.B3",
+      "name": "Nuanced Interpretation",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "2 — Intellectual Maturity",
+      "grade": 12,
+      "description": "Demonstrate nuanced interpretation by producing at least 2 plausible but distinct interpretations of the same textual element, the evidence for each, and an analysis of why the text supports both readings with neither dismissed.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_SINGLE_READING",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "SINGLE_READING",
+          "action": "SINGLE_READING: 'This text can be read in more than one way. What else might it mean?' Second reading prompt required. AMBIGUITY_FEATURE_ABSENT: 'A nuanced reader holds both readings simultaneously — what textual feature allows this?'"
+        },
+        {
+          "errorVariant": "INTERPRETATION_DISMISSED",
+          "action": "SINGLE_READING: 'This text can be read in more than one way. What else might it mean?' Second reading prompt required. AMBIGUITY_FEATURE_ABSENT: 'A nuanced reader holds both readings simultaneously — what textual feature allows this?'"
+        },
+        {
+          "errorVariant": "AMBIGUITY_FEATURE_ABSENT",
+          "action": "SINGLE_READING: 'This text can be read in more than one way. What else might it mean?' Second reading prompt required. AMBIGUITY_FEATURE_ABSENT: 'A nuanced reader holds both readings simultaneously — what textual feature allows this?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.B4",
+      "name": "Construct an Original Thesis",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "2 — Intellectual Maturity",
+      "grade": 12,
+      "description": "Construct an original thesis that is not a paraphrase of the question, makes a claimable critical position, and introduces an interpretive angle not obvious from a surface reading.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_THESIS_PARAPHRASE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "THESIS_PARAPHRASE",
+          "action": "THESIS_PARAPHRASE: 'Your thesis restates the question — what is your own interpretive claim?' Distance drill: rewrite until similarity below 0.45. THESIS_OBVIOUS: 'What is surprising or counterintuitive about this text? Build your thesis from there.'"
+        },
+        {
+          "errorVariant": "THESIS_OBVIOUS",
+          "action": "THESIS_PARAPHRASE: 'Your thesis restates the question — what is your own interpretive claim?' Distance drill: rewrite until similarity below 0.45. THESIS_OBVIOUS: 'What is surprising or counterintuitive about this text? Build your thesis from there.'"
+        },
+        {
+          "errorVariant": "THESIS_GENERIC",
+          "action": "THESIS_PARAPHRASE: 'Your thesis restates the question — what is your own interpretive claim?' Distance drill: rewrite until similarity below 0.45. THESIS_OBVIOUS: 'What is surprising or counterintuitive about this text? Build your thesis from there.'"
+        },
+        {
+          "errorVariant": "THESIS_DESCRIPTIVE",
+          "action": "THESIS_PARAPHRASE: 'Your thesis restates the question — what is your own interpretive claim?' Distance drill: rewrite until similarity below 0.45. THESIS_OBVIOUS: 'What is surprising or counterintuitive about this text? Build your thesis from there.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.C1",
+      "name": "Evaluate Ambiguity",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "3 — Distinction Level",
+      "grade": 12,
+      "description": "Evaluate ambiguity in texts by identifying at least 2 genuinely indeterminate elements, naming the textual or linguistic feature creating each, and stating the interpretive implications of each reading without resolving to a single meaning.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_AMBIGUITY_RESOLVED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "AMBIGUITY_RESOLVED",
+          "action": "AMBIGUITY_RESOLVED: 'A sophisticated reader sits with uncertainty. What if both interpretations are equally valid?' Resolution-resistance frame: 'The text permits both... and... simultaneously because...' AMBIGUITY_TYPE_ABSENT: ambiguity predefined list."
+        },
+        {
+          "errorVariant": "AMBIGUITY_TYPE_ABSENT",
+          "action": "AMBIGUITY_RESOLVED: 'A sophisticated reader sits with uncertainty. What if both interpretations are equally valid?' Resolution-resistance frame: 'The text permits both... and... simultaneously because...' AMBIGUITY_TYPE_ABSENT: ambiguity predefined list."
+        },
+        {
+          "errorVariant": "SINGLE_ELEMENT",
+          "action": "AMBIGUITY_RESOLVED: 'A sophisticated reader sits with uncertainty. What if both interpretations are equally valid?' Resolution-resistance frame: 'The text permits both... and... simultaneously because...' AMBIGUITY_TYPE_ABSENT: ambiguity predefined list."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.C2",
+      "name": "Construct a Layered Argument",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "3 — Distinction Level",
+      "grade": 12,
+      "description": "Construct a layered argument that argues at least 2 simultaneous positions held in productive tension, connects layers through a unifying interpretive insight, and sustains complexity to the conclusion.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_FLAT_ARGUMENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "FLAT_ARGUMENT",
+          "action": "FLAT_ARGUMENT: 'Instead of arguing for or against, the text reveals a tension between two ideas that both matter.' UNIFYING_INSIGHT_ABSENT: 'How do your two positions connect at a deeper level? What does their coexistence reveal?'"
+        },
+        {
+          "errorVariant": "TENSION_ABSENT",
+          "action": "FLAT_ARGUMENT: 'Instead of arguing for or against, the text reveals a tension between two ideas that both matter.' UNIFYING_INSIGHT_ABSENT: 'How do your two positions connect at a deeper level? What does their coexistence reveal?'"
+        },
+        {
+          "errorVariant": "UNIFYING_INSIGHT_ABSENT",
+          "action": "FLAT_ARGUMENT: 'Instead of arguing for or against, the text reveals a tension between two ideas that both matter.' UNIFYING_INSIGHT_ABSENT: 'How do your two positions connect at a deeper level? What does their coexistence reveal?'"
+        },
+        {
+          "errorVariant": "EARLY_RESOLUTION",
+          "action": "FLAT_ARGUMENT: 'Instead of arguing for or against, the text reveals a tension between two ideas that both matter.' UNIFYING_INSIGHT_ABSENT: 'How do your two positions connect at a deeper level? What does their coexistence reveal?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.C3",
+      "name": "Stylistically Sophisticated Essay",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "3 — Distinction Level",
+      "grade": 12,
+      "description": "Write a stylistically sophisticated essay with sentence variety, at least 2 distinct rhetorical techniques, AWL at least 18%, at least 3 discipline-specific terms, an empty-intensifier rate of zero, and readable academic sophistication.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TECHNIQUE_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TECHNIQUE_ABSENT",
+          "action": "TECHNIQUE_ABSENT: rhetorical technique list; at least 2 must be marked in text before submission. INTENSIFIER_PRESENT: submission rejected for intensifier; replace with specific evidence or claim."
+        },
+        {
+          "errorVariant": "AWL_LOW",
+          "action": "TECHNIQUE_ABSENT: rhetorical technique list; at least 2 must be marked in text before submission. INTENSIFIER_PRESENT: submission rejected for intensifier; replace with specific evidence or claim."
+        },
+        {
+          "errorVariant": "INTENSIFIER_PRESENT",
+          "action": "TECHNIQUE_ABSENT: rhetorical technique list; at least 2 must be marked in text before submission. INTENSIFIER_PRESENT: submission rejected for intensifier; replace with specific evidence or claim."
+        },
+        {
+          "errorVariant": "MONOTONE_SYNTAX",
+          "action": "TECHNIQUE_ABSENT: rhetorical technique list; at least 2 must be marked in text before submission. INTENSIFIER_PRESENT: submission rejected for intensifier; replace with specific evidence or claim."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.C4",
+      "name": "Multiple Critical Interpretations",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "3 — Distinction Level",
+      "grade": 12,
+      "description": "Analyse multiple interpretations of the same text by presenting at least 3 interpretive positions from different critical frameworks, evaluating the explanatory power of each with a textual example, and stating which is most compelling with at least 2 reasons.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_FRAMEWORK_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "FRAMEWORK_ABSENT",
+          "action": "FRAMEWORK_ABSENT: critical framework predefined list with defining questions per framework. COMPARISON_ABSENT: 'Which framework explains most about this text? Which has the greatest explanatory power?'"
+        },
+        {
+          "errorVariant": "EXAMPLE_ABSENT",
+          "action": "FRAMEWORK_ABSENT: critical framework predefined list with defining questions per framework. COMPARISON_ABSENT: 'Which framework explains most about this text? Which has the greatest explanatory power?'"
+        },
+        {
+          "errorVariant": "PREFERENCE_ABSENT",
+          "action": "FRAMEWORK_ABSENT: critical framework predefined list with defining questions per framework. COMPARISON_ABSENT: 'Which framework explains most about this text? Which has the greatest explanatory power?'"
+        },
+        {
+          "errorVariant": "COMPARISON_ABSENT",
+          "action": "FRAMEWORK_ABSENT: critical framework predefined list with defining questions per framework. COMPARISON_ABSENT: 'Which framework explains most about this text? Which has the greatest explanatory power?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.C5",
+      "name": "Exam-Ready Consistency",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "3 — Distinction Level",
+      "grade": 12,
+      "description": "Produce exam-ready responses consistently across all P1/P2/P3 task types with command word precision, word count targets met, complete structure, scaffold dependency below 3%, and a coherence maintenance ratio of at least 0.90.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_COMMAND_PRECISION_LOW",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "COMMAND_PRECISION_LOW",
+          "action": "COMMAND_PRECISION_LOW: command differentiation task battery. WORD_COUNT_FAILURE: targeted drill for the specific section where count consistently drops."
+        },
+        {
+          "errorVariant": "WORD_COUNT_FAILURE",
+          "action": "COMMAND_PRECISION_LOW: command differentiation task battery. WORD_COUNT_FAILURE: targeted drill for the specific section where count consistently drops."
+        },
+        {
+          "errorVariant": "STRUCTURE_FAILURE_RATE_HIGH",
+          "action": "COMMAND_PRECISION_LOW: command differentiation task battery. WORD_COUNT_FAILURE: targeted drill for the specific section where count consistently drops."
+        },
+        {
+          "errorVariant": "SCAFFOLD_PRESENT",
+          "action": "COMMAND_PRECISION_LOW: command differentiation task battery. WORD_COUNT_FAILURE: targeted drill for the specific section where count consistently drops."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.D1",
+      "name": "Subtext and Irony",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "4 — Reading and Comprehension",
+      "grade": 12,
+      "description": "Interpret implicit meaning, subtext, and irony by identifying at least 2 instances per text, explaining what is implied versus stated, naming the feature creating the gap, and connecting each instance to the author's broader purpose.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_STATED_AS_IMPLICIT_L14",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "STATED_AS_IMPLICIT_L14",
+          "action": "STATED_AS_IMPLICIT_L14: 'Your interpretation is already in the text. Find what the author hints at without saying.' Keyword check before resubmission. GAP_UNEXPLAINED: frame — 'The text says [stated]. What the author actually means is [implied]. This gap is created by [feature].' Required before acceptance."
+        },
+        {
+          "errorVariant": "FEATURE_ABSENT_L14",
+          "action": "STATED_AS_IMPLICIT_L14: 'Your interpretation is already in the text. Find what the author hints at without saying.' Keyword check before resubmission. GAP_UNEXPLAINED: frame — 'The text says [stated]. What the author actually means is [implied]. This gap is created by [feature].' Required before acceptance."
+        },
+        {
+          "errorVariant": "GAP_UNEXPLAINED",
+          "action": "STATED_AS_IMPLICIT_L14: 'Your interpretation is already in the text. Find what the author hints at without saying.' Keyword check before resubmission. GAP_UNEXPLAINED: frame — 'The text says [stated]. What the author actually means is [implied]. This gap is created by [feature].' Required before acceptance."
+        },
+        {
+          "errorVariant": "PURPOSE_LINK_ABSENT_L14",
+          "action": "STATED_AS_IMPLICIT_L14: 'Your interpretation is already in the text. Find what the author hints at without saying.' Keyword check before resubmission. GAP_UNEXPLAINED: frame — 'The text says [stated]. What the author actually means is [implied]. This gap is created by [feature].' Required before acceptance."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.D2",
+      "name": "Evaluate Structural and Language Choices",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "4 — Reading and Comprehension",
+      "grade": 12,
+      "description": "Evaluate the effectiveness of an author's structural and language choices by identifying at least 2 structural and 2 language choices, explaining each effect on meaning or reader response, and producing an overall effectiveness judgement with at least 2 criterion-based reasons.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_CHOICE_COUNT_LOW_L14",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "CHOICE_COUNT_LOW_L14",
+          "action": "EFFECT_VAGUE_L14: 'State specifically what this choice achieves — how does it affect the reader or advance the author's purpose?' Purpose-achievement verb required before acceptance. JUDGEMENT_WITHOUT_CRITERIA_L14: 'Your judgement must be supported by at least two criteria. Name them and explain.' Criteria frame required."
+        },
+        {
+          "errorVariant": "EFFECT_VAGUE_L14",
+          "action": "EFFECT_VAGUE_L14: 'State specifically what this choice achieves — how does it affect the reader or advance the author's purpose?' Purpose-achievement verb required before acceptance. JUDGEMENT_WITHOUT_CRITERIA_L14: 'Your judgement must be supported by at least two criteria. Name them and explain.' Criteria frame required."
+        },
+        {
+          "errorVariant": "STRUCTURAL_ONLY_OR_LANGUAGE_ONLY",
+          "action": "EFFECT_VAGUE_L14: 'State specifically what this choice achieves — how does it affect the reader or advance the author's purpose?' Purpose-achievement verb required before acceptance. JUDGEMENT_WITHOUT_CRITERIA_L14: 'Your judgement must be supported by at least two criteria. Name them and explain.' Criteria frame required."
+        },
+        {
+          "errorVariant": "JUDGEMENT_WITHOUT_CRITERIA_L14",
+          "action": "EFFECT_VAGUE_L14: 'State specifically what this choice achieves — how does it affect the reader or advance the author's purpose?' Purpose-achievement verb required before acceptance. JUDGEMENT_WITHOUT_CRITERIA_L14: 'Your judgement must be supported by at least two criteria. Name them and explain.' Criteria frame required."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.D3",
+      "name": "Synthesise Three or More Sources",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "4 — Reading and Comprehension",
+      "grade": 12,
+      "description": "Synthesise perspectives from three or more sources into a coherent analytical position by integrating evidence from each, demonstrating agreement and tension between sources, and constructing an original position that goes beyond any single source (300-400 words).",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_SOURCE_COUNT_LOW_L14",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "SOURCE_COUNT_LOW_L14",
+          "action": "INTER_SOURCE_TENSION_ABSENT: 'Do your sources agree or disagree? Identify one point of tension or agreement between them.' Comparative connector required before submission. POSITION_NOT_ORIGINAL_L14: 'Your position restates one source. What conclusion do you draw from all three sources together?' Originality check enforced."
+        },
+        {
+          "errorVariant": "QUOTE_DUMP_L14",
+          "action": "INTER_SOURCE_TENSION_ABSENT: 'Do your sources agree or disagree? Identify one point of tension or agreement between them.' Comparative connector required before submission. POSITION_NOT_ORIGINAL_L14: 'Your position restates one source. What conclusion do you draw from all three sources together?' Originality check enforced."
+        },
+        {
+          "errorVariant": "INTER_SOURCE_TENSION_ABSENT",
+          "action": "INTER_SOURCE_TENSION_ABSENT: 'Do your sources agree or disagree? Identify one point of tension or agreement between them.' Comparative connector required before submission. POSITION_NOT_ORIGINAL_L14: 'Your position restates one source. What conclusion do you draw from all three sources together?' Originality check enforced."
+        },
+        {
+          "errorVariant": "POSITION_NOT_ORIGINAL_L14",
+          "action": "INTER_SOURCE_TENSION_ABSENT: 'Do your sources agree or disagree? Identify one point of tension or agreement between them.' Comparative connector required before submission. POSITION_NOT_ORIGINAL_L14: 'Your position restates one source. What conclusion do you draw from all three sources together?' Originality check enforced."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.E1",
+      "name": "Formal Article (NSC Exit Standard)",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "5 — Transactional Writing",
+      "grade": 12,
+      "description": "Write a formal article for an academic or professional audience opening with a thesis-driven introduction, developing at least 3 substantiated sections with evidence and analysis, addressing a counter-perspective, and concluding with a synthesis insight in fully academic register (350-450 words).",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_THESIS_VAGUE_ARTICLE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "THESIS_VAGUE_ARTICLE",
+          "action": "THESIS_VAGUE_ARTICLE: 'Your opening must argue a specific, debatable position — not describe a topic.' Thesis revision required before body writing. COUNTER_PERSPECTIVE_ABSENT: counter-perspective frame — concession signal + rebuttal + reason; must be inserted before submission."
+        },
+        {
+          "errorVariant": "SECTION_COUNT_LOW",
+          "action": "THESIS_VAGUE_ARTICLE: 'Your opening must argue a specific, debatable position — not describe a topic.' Thesis revision required before body writing. COUNTER_PERSPECTIVE_ABSENT: counter-perspective frame — concession signal + rebuttal + reason; must be inserted before submission."
+        },
+        {
+          "errorVariant": "COUNTER_PERSPECTIVE_ABSENT",
+          "action": "THESIS_VAGUE_ARTICLE: 'Your opening must argue a specific, debatable position — not describe a topic.' Thesis revision required before body writing. COUNTER_PERSPECTIVE_ABSENT: counter-perspective frame — concession signal + rebuttal + reason; must be inserted before submission."
+        },
+        {
+          "errorVariant": "SYNTHESIS_ABSENT_ARTICLE",
+          "action": "THESIS_VAGUE_ARTICLE: 'Your opening must argue a specific, debatable position — not describe a topic.' Thesis revision required before body writing. COUNTER_PERSPECTIVE_ABSENT: counter-perspective frame — concession signal + rebuttal + reason; must be inserted before submission."
+        },
+        {
+          "errorVariant": "REGISTER_BELOW_ACADEMIC",
+          "action": "THESIS_VAGUE_ARTICLE: 'Your opening must argue a specific, debatable position — not describe a topic.' Thesis revision required before body writing. COUNTER_PERSPECTIVE_ABSENT: counter-perspective frame — concession signal + rebuttal + reason; must be inserted before submission."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.E2",
+      "name": "Structured Interview Response Set",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "5 — Transactional Writing",
+      "grade": 12,
+      "description": "Write a structured interview response set answering 5 challenging questions with precise answers demonstrating evaluative thinking, formal register, discipline-specific vocabulary, and one answer demonstrating acknowledgement of complexity with appropriate hedging (60-90 words each).",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_RECALL_ONLY_L14",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "RECALL_ONLY_L14",
+          "action": "RECALL_ONLY_L14: 'Add a judgement — what do you conclude about this? Use: I argue/this demonstrates/this challenges.' Evaluative verb required. HEDGING_ABSENT_L14: 'Acknowledge what is uncertain or complex. Use: it could be argued/arguably/it is possible that.' Hedging sentence required in the relevant answer."
+        },
+        {
+          "errorVariant": "HEDGING_ABSENT_L14",
+          "action": "RECALL_ONLY_L14: 'Add a judgement — what do you conclude about this? Use: I argue/this demonstrates/this challenges.' Evaluative verb required. HEDGING_ABSENT_L14: 'Acknowledge what is uncertain or complex. Use: it could be argued/arguably/it is possible that.' Hedging sentence required in the relevant answer."
+        },
+        {
+          "errorVariant": "REGISTER_BELOW_PROFESSIONAL",
+          "action": "RECALL_ONLY_L14: 'Add a judgement — what do you conclude about this? Use: I argue/this demonstrates/this challenges.' Evaluative verb required. HEDGING_ABSENT_L14: 'Acknowledge what is uncertain or complex. Use: it could be argued/arguably/it is possible that.' Hedging sentence required in the relevant answer."
+        },
+        {
+          "errorVariant": "WORD_COUNT_OUTSIDE_L14",
+          "action": "RECALL_ONLY_L14: 'Add a judgement — what do you conclude about this? Use: I argue/this demonstrates/this challenges.' Evaluative verb required. HEDGING_ABSENT_L14: 'Acknowledge what is uncertain or complex. Use: it could be argued/arguably/it is possible that.' Hedging sentence required in the relevant answer."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.E3",
+      "name": "Distinction-Level Persuasive Speech",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "5 — Transactional Writing",
+      "grade": 12,
+      "description": "Write a persuasive speech at distinction level opening with a rhetorical device, developing a layered argument, deploying at least 2 distinct rhetorical techniques, maintaining formal register, and closing with a call to action or unifying insight (350-450 words).",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_OPENING_DEVICE_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "OPENING_DEVICE_ABSENT",
+          "action": "ARGUMENT_FLAT_SPEECH: 'Your argument must have more than one layer. Add a supporting claim and a resolution that connects your positions.' Layered argument frame required. TECHNIQUE_COUNT_LOW_SPEECH: rhetorical technique list; two distinct techniques must be inserted and marked before submission."
+        },
+        {
+          "errorVariant": "ARGUMENT_FLAT_SPEECH",
+          "action": "ARGUMENT_FLAT_SPEECH: 'Your argument must have more than one layer. Add a supporting claim and a resolution that connects your positions.' Layered argument frame required. TECHNIQUE_COUNT_LOW_SPEECH: rhetorical technique list; two distinct techniques must be inserted and marked before submission."
+        },
+        {
+          "errorVariant": "TECHNIQUE_COUNT_LOW_SPEECH",
+          "action": "ARGUMENT_FLAT_SPEECH: 'Your argument must have more than one layer. Add a supporting claim and a resolution that connects your positions.' Layered argument frame required. TECHNIQUE_COUNT_LOW_SPEECH: rhetorical technique list; two distinct techniques must be inserted and marked before submission."
+        },
+        {
+          "errorVariant": "REGISTER_BELOW_DISTINCTION",
+          "action": "ARGUMENT_FLAT_SPEECH: 'Your argument must have more than one layer. Add a supporting claim and a resolution that connects your positions.' Layered argument frame required. TECHNIQUE_COUNT_LOW_SPEECH: rhetorical technique list; two distinct techniques must be inserted and marked before submission."
+        },
+        {
+          "errorVariant": "CLOSING_WEAK_SPEECH",
+          "action": "ARGUMENT_FLAT_SPEECH: 'Your argument must have more than one layer. Add a supporting claim and a resolution that connects your positions.' Layered argument frame required. TECHNIQUE_COUNT_LOW_SPEECH: rhetorical technique list; two distinct techniques must be inserted and marked before submission."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.F1",
+      "name": "Full Language Audit",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "6 — Language, Grammar and Editing",
+      "grade": 12,
+      "description": "Perform a full language audit of own essay at NSC exit standard reviewing grammar accuracy, register consistency, punctuation precision, word choice precision, and AWL proportion, reporting findings by category and correcting all identified errors.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_GRAMMAR_AUDIT_INCOMPLETE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "GRAMMAR_AUDIT_INCOMPLETE",
+          "action": "REGISTER_REMAINING_L14: all informal tokens highlighted; each must be replaced with a formal equivalent before the audit is accepted. AWL_LOW_AUDIT: 'Your academic vocabulary proportion is below target. Identify 3 words that could be replaced with AWL alternatives.' Replacement task required."
+        },
+        {
+          "errorVariant": "REGISTER_REMAINING_L14",
+          "action": "REGISTER_REMAINING_L14: all informal tokens highlighted; each must be replaced with a formal equivalent before the audit is accepted. AWL_LOW_AUDIT: 'Your academic vocabulary proportion is below target. Identify 3 words that could be replaced with AWL alternatives.' Replacement task required."
+        },
+        {
+          "errorVariant": "INTENSIFIER_REMAINING_L14",
+          "action": "REGISTER_REMAINING_L14: all informal tokens highlighted; each must be replaced with a formal equivalent before the audit is accepted. AWL_LOW_AUDIT: 'Your academic vocabulary proportion is below target. Identify 3 words that could be replaced with AWL alternatives.' Replacement task required."
+        },
+        {
+          "errorVariant": "AWL_LOW_AUDIT",
+          "action": "REGISTER_REMAINING_L14: all informal tokens highlighted; each must be replaced with a formal equivalent before the audit is accepted. AWL_LOW_AUDIT: 'Your academic vocabulary proportion is below target. Identify 3 words that could be replaced with AWL alternatives.' Replacement task required."
+        },
+        {
+          "errorVariant": "PUNCTUATION_AUDIT_INCOMPLETE",
+          "action": "REGISTER_REMAINING_L14: all informal tokens highlighted; each must be replaced with a formal equivalent before the audit is accepted. AWL_LOW_AUDIT: 'Your academic vocabulary proportion is below target. Identify 3 words that could be replaced with AWL alternatives.' Replacement task required."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.F2",
+      "name": "Improve Sentence Complexity",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "6 — Language, Grammar and Editing",
+      "grade": 12,
+      "description": "Improve sentence complexity at distinction level by rewriting 6 simple or compound sentences as compound-complex or complex sentences without losing meaning, demonstrating at least 2 different subordination strategies, and explaining the structural improvement per sentence.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_STILL_SIMPLE_L14",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "STILL_SIMPLE_L14",
+          "action": "STILL_SIMPLE_L14: subordination strategy list with examples; learner selects and applies one strategy before free rewrite. SUBORDINATION_TYPE_NARROW: 'Your rewrites use the same structure. Apply a different subordination strategy in at least two sentences.' Strategy variety check required."
+        },
+        {
+          "errorVariant": "MEANING_LOST_L14",
+          "action": "STILL_SIMPLE_L14: subordination strategy list with examples; learner selects and applies one strategy before free rewrite. SUBORDINATION_TYPE_NARROW: 'Your rewrites use the same structure. Apply a different subordination strategy in at least two sentences.' Strategy variety check required."
+        },
+        {
+          "errorVariant": "SUBORDINATION_TYPE_NARROW",
+          "action": "STILL_SIMPLE_L14: subordination strategy list with examples; learner selects and applies one strategy before free rewrite. SUBORDINATION_TYPE_NARROW: 'Your rewrites use the same structure. Apply a different subordination strategy in at least two sentences.' Strategy variety check required."
+        },
+        {
+          "errorVariant": "IMPROVEMENT_UNLABELLED_L14",
+          "action": "STILL_SIMPLE_L14: subordination strategy list with examples; learner selects and applies one strategy before free rewrite. SUBORDINATION_TYPE_NARROW: 'Your rewrites use the same structure. Apply a different subordination strategy in at least two sentences.' Strategy variety check required."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.F3",
+      "name": "Vocabulary Precision",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "6 — Language, Grammar and Editing",
+      "grade": 12,
+      "description": "Demonstrate vocabulary precision at distinction level by replacing at least 5 imprecise or overused words in a low-register text with AWL or discipline-appropriate alternatives, justifying each by the semantic gain, and ensuring the edited text reaches AWL proportion at least 18%.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_REPLACEMENT_NOT_AWL",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "REPLACEMENT_NOT_AWL",
+          "action": "REPLACEMENT_NOT_AWL: AWL list displayed; learner selects a replacement from the list and checks it fits the context. JUSTIFICATION_SURFACE_L14: semantic gain descriptor list displayed (specificity/register elevation/connotative precision/denotative accuracy); descriptor must be selected and applied before acceptance."
+        },
+        {
+          "errorVariant": "AWL_TARGET_MISSED_L14",
+          "action": "REPLACEMENT_NOT_AWL: AWL list displayed; learner selects a replacement from the list and checks it fits the context. JUSTIFICATION_SURFACE_L14: semantic gain descriptor list displayed (specificity/register elevation/connotative precision/denotative accuracy); descriptor must be selected and applied before acceptance."
+        },
+        {
+          "errorVariant": "JUSTIFICATION_SURFACE_L14",
+          "action": "REPLACEMENT_NOT_AWL: AWL list displayed; learner selects a replacement from the list and checks it fits the context. JUSTIFICATION_SURFACE_L14: semantic gain descriptor list displayed (specificity/register elevation/connotative precision/denotative accuracy); descriptor must be selected and applied before acceptance."
+        },
+        {
+          "errorVariant": "REPLACEMENT_COUNT_LOW_L14",
+          "action": "REPLACEMENT_NOT_AWL: AWL list displayed; learner selects a replacement from the list and checks it fits the context. JUSTIFICATION_SURFACE_L14: semantic gain descriptor list displayed (specificity/register elevation/connotative precision/denotative accuracy); descriptor must be selected and applied before acceptance."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.G1",
+      "name": "Prepared Formal Speech (NSC Standard)",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "7 — Speaking and Listening",
+      "grade": 12,
+      "description": "Produce a prepared formal speech at NSC standard on an unseen topic constructing a layered argument, deploying at least 2 rhetorical techniques, maintaining academic register, citing at least 1 named source or statistic, and closing with a unifying insight (350-450 words).",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_ARGUMENT_FLAT_ORAL_L14",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "ARGUMENT_FLAT_ORAL_L14",
+          "action": "ARGUMENT_FLAT_ORAL_L14: 'Your argument needs a second layer. What complexity or tension does your position acknowledge? Resolve it in the conclusion.' Layered argument frame required. CLOSING_INSIGHT_ABSENT: 'Your closing must reveal something larger than what your argument has already stated.' Superordinate claim frame: 'Ultimately, this reveals [broader insight].'"
+        },
+        {
+          "errorVariant": "TECHNIQUE_COUNT_LOW_ORAL_L14",
+          "action": "ARGUMENT_FLAT_ORAL_L14: 'Your argument needs a second layer. What complexity or tension does your position acknowledge? Resolve it in the conclusion.' Layered argument frame required. CLOSING_INSIGHT_ABSENT: 'Your closing must reveal something larger than what your argument has already stated.' Superordinate claim frame: 'Ultimately, this reveals [broader insight].'"
+        },
+        {
+          "errorVariant": "SOURCE_ABSENT_L14",
+          "action": "ARGUMENT_FLAT_ORAL_L14: 'Your argument needs a second layer. What complexity or tension does your position acknowledge? Resolve it in the conclusion.' Layered argument frame required. CLOSING_INSIGHT_ABSENT: 'Your closing must reveal something larger than what your argument has already stated.' Superordinate claim frame: 'Ultimately, this reveals [broader insight].'"
+        },
+        {
+          "errorVariant": "CLOSING_INSIGHT_ABSENT",
+          "action": "ARGUMENT_FLAT_ORAL_L14: 'Your argument needs a second layer. What complexity or tension does your position acknowledge? Resolve it in the conclusion.' Layered argument frame required. CLOSING_INSIGHT_ABSENT: 'Your closing must reveal something larger than what your argument has already stated.' Superordinate claim frame: 'Ultimately, this reveals [broader insight].'"
+        },
+        {
+          "errorVariant": "REGISTER_BELOW_NSC",
+          "action": "ARGUMENT_FLAT_ORAL_L14: 'Your argument needs a second layer. What complexity or tension does your position acknowledge? Resolve it in the conclusion.' Layered argument frame required. CLOSING_INSIGHT_ABSENT: 'Your closing must reveal something larger than what your argument has already stated.' Superordinate claim frame: 'Ultimately, this reveals [broader insight].'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.G2",
+      "name": "Simulated NSC Oral Examination",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "7 — Speaking and Listening",
+      "grade": 12,
+      "description": "Respond to an unseen question set in a simulated NSC oral examination by answering 4 questions demonstrating command word precision, formal register, and reasoning beyond factual recall (70-100 words each).",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_COMMAND_PRECISION_LOW_ORAL",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "COMMAND_PRECISION_LOW_ORAL",
+          "action": "COMMAND_PRECISION_LOW_ORAL: command word differentiation card — analyse/evaluate/discuss/compare with defining response characteristics; learner identifies which type is required before answering. RECALL_ONLY_ORAL_L14: 'Your answer describes rather than evaluates. Add a judgement using: argues/concludes/challenges/demonstrates.' Evaluative verb required."
+        },
+        {
+          "errorVariant": "RECALL_ONLY_ORAL_L14",
+          "action": "COMMAND_PRECISION_LOW_ORAL: command word differentiation card — analyse/evaluate/discuss/compare with defining response characteristics; learner identifies which type is required before answering. RECALL_ONLY_ORAL_L14: 'Your answer describes rather than evaluates. Add a judgement using: argues/concludes/challenges/demonstrates.' Evaluative verb required."
+        },
+        {
+          "errorVariant": "REGISTER_INFORMAL_ORAL_L14",
+          "action": "COMMAND_PRECISION_LOW_ORAL: command word differentiation card — analyse/evaluate/discuss/compare with defining response characteristics; learner identifies which type is required before answering. RECALL_ONLY_ORAL_L14: 'Your answer describes rather than evaluates. Add a judgement using: argues/concludes/challenges/demonstrates.' Evaluative verb required."
+        },
+        {
+          "errorVariant": "WORD_COUNT_OUTSIDE_ORAL_L14",
+          "action": "COMMAND_PRECISION_LOW_ORAL: command word differentiation card — analyse/evaluate/discuss/compare with defining response characteristics; learner identifies which type is required before answering. RECALL_ONLY_ORAL_L14: 'Your answer describes rather than evaluates. Add a judgement using: argues/concludes/challenges/demonstrates.' Evaluative verb required."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L14.G3",
+      "name": "Critically Evaluate Own Argument Transcript",
+      "gate": "NONE",
+      "level": 14,
+      "tier": "7 — Speaking and Listening",
+      "grade": 12,
+      "description": "Critically evaluate own spoken argument transcript at distinction level by identifying at least 2 register lapses, 2 structural gaps, and 2 reasoning failures, proposing a specific revision for each, and producing an overall self-assessment with at least 3 criterion-based reasons.",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_SELF_EVAL_SURFACE_L14",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "SELF_EVAL_SURFACE_L14",
+          "action": "SELF_EVAL_SURFACE_L14: 'Your evaluation only addresses surface features. Now evaluate the structure and logic of your argument.' Structural and reasoning checklists displayed; each category requires at least 1 identified issue. REVISION_TOO_SIMILAR: 'Your proposed revision is too similar to the original. Revise substantially.' Revision similarity check enforced before acceptance."
+        },
+        {
+          "errorVariant": "REVISION_TOO_SIMILAR",
+          "action": "SELF_EVAL_SURFACE_L14: 'Your evaluation only addresses surface features. Now evaluate the structure and logic of your argument.' Structural and reasoning checklists displayed; each category requires at least 1 identified issue. REVISION_TOO_SIMILAR: 'Your proposed revision is too similar to the original. Revise substantially.' Revision similarity check enforced before acceptance."
+        },
+        {
+          "errorVariant": "STRUCTURAL_GAP_UNLABELLED",
+          "action": "SELF_EVAL_SURFACE_L14: 'Your evaluation only addresses surface features. Now evaluate the structure and logic of your argument.' Structural and reasoning checklists displayed; each category requires at least 1 identified issue. REVISION_TOO_SIMILAR: 'Your proposed revision is too similar to the original. Revise substantially.' Revision similarity check enforced before acceptance."
+        },
+        {
+          "errorVariant": "REASONING_FAILURE_UNLABELLED",
+          "action": "SELF_EVAL_SURFACE_L14: 'Your evaluation only addresses surface features. Now evaluate the structure and logic of your argument.' Structural and reasoning checklists displayed; each category requires at least 1 identified issue. REVISION_TOO_SIMILAR: 'Your proposed revision is too similar to the original. Revise substantially.' Revision similarity check enforced before acceptance."
+        },
+        {
+          "errorVariant": "RATING_UNJUSTIFIED_L14",
+          "action": "SELF_EVAL_SURFACE_L14: 'Your evaluation only addresses surface features. Now evaluate the structure and logic of your argument.' Structural and reasoning checklists displayed; each category requires at least 1 identified issue. REVISION_TOO_SIMILAR: 'Your proposed revision is too similar to the original. Revise substantially.' Revision similarity check enforced before acceptance."
+        }
+      ],
+      "items": []
+    }
+  ]
+}

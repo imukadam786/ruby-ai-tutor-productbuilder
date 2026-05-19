@@ -1,0 +1,1345 @@
+{
+  "$comment": "L12 = Grade 10. SCAFFOLD — author fills texts[] and each skill's items[]. Skill structure is pre-wired to the skill tree; do not change skillId/level/tier/grade. See data/reading-question-banks/READING_BANK_AUTHORING_GUIDE.md. Validate with: node scripts/validate-reading-bank.mjs L12",
+  "level": 12,
+  "gate": "NONE",
+  "specVersion": "FET v1.0 (no-timer, 60%)",
+  "bankVersion": "0.1-scaffold",
+  "grades": [
+    10
+  ],
+  "texts": [],
+  "skills": [
+    {
+      "skillId": "L12.A1",
+      "name": "Argument vs Explanation",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Distinguish argument from explanation by stating whether a passage contains a defended position or a described process, with at least one specific textual marker differentiating the two.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_ARG_EXP_CONFUSION",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "ARG_EXP_CONFUSION",
+          "action": "ARG_EXP_CONFUSION: predefined prompt — 'An argument is a position someone must defend; an explanation is a process no one disputes.' Pattern match task before free classification."
+        },
+        {
+          "errorVariant": "MARKER_ABSENT",
+          "action": "ARG_EXP_CONFUSION: predefined prompt — 'An argument is a position someone must defend; an explanation is a process no one disputes.' Pattern match task before free classification."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A2",
+      "name": "Tone and Bias Analysis",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Analyse tone and bias in non-literary text by identifying at least 3 tone markers with the stated emotional register, naming the bias type from a predefined list, and giving at least 1 language-level citation per claim.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TONE_VAGUE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TONE_VAGUE",
+          "action": "TONE_VAGUE: predefined tone card; learner selects register-specific word before free analysis. BIAS_UNLABELLED: bias predefined list with examples required."
+        },
+        {
+          "errorVariant": "BIAS_UNLABELLED",
+          "action": "TONE_VAGUE: predefined tone card; learner selects register-specific word before free analysis. BIAS_UNLABELLED: bias predefined list with examples required."
+        },
+        {
+          "errorVariant": "CITATION_ABSENT",
+          "action": "TONE_VAGUE: predefined tone card; learner selects register-specific word before free analysis. BIAS_UNLABELLED: bias predefined list with examples required."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A3",
+      "name": "Persuasive Techniques",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Identify at least 3 persuasive techniques per text from the CAPS P1 predefined list, each with its stated intended effect and a specific textual example.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TECHNIQUE_NOT_IN_TEXT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TECHNIQUE_NOT_IN_TEXT",
+          "action": "TECHNIQUE_NOT_IN_TEXT: evidence-first sequence — highlight technique before naming; effect verb list required. EFFECT_ABSENT: impact verb list required."
+        },
+        {
+          "errorVariant": "EFFECT_ABSENT",
+          "action": "TECHNIQUE_NOT_IN_TEXT: evidence-first sequence — highlight technique before naming; effect verb list required. EFFECT_ABSENT: impact verb list required."
+        },
+        {
+          "errorVariant": "EXAMPLE_ABSENT",
+          "action": "TECHNIQUE_NOT_IN_TEXT: evidence-first sequence — highlight technique before naming; effect verb list required. EFFECT_ABSENT: impact verb list required."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A4",
+      "name": "Implied Assumptions",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Extract implied assumptions from an argument by stating at least 2 unstated premises required for the argument to hold, with at least 1 textual pointer per assumption and a falsifiability test for each.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_STATED_AS_IMPLICIT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "STATED_AS_IMPLICIT",
+          "action": "STATED_AS_IMPLICIT: 'Find a belief the argument needs but never says.' Keyword check before submission. FALSIFIABILITY_ABSENT: 'What would have to be true for this assumption to fail?' Required before acceptance."
+        },
+        {
+          "errorVariant": "ASSUMPTION_NOT_NECESSARY",
+          "action": "STATED_AS_IMPLICIT: 'Find a belief the argument needs but never says.' Keyword check before submission. FALSIFIABILITY_ABSENT: 'What would have to be true for this assumption to fail?' Required before acceptance."
+        },
+        {
+          "errorVariant": "FALSIFIABILITY_ABSENT",
+          "action": "STATED_AS_IMPLICIT: 'Find a belief the argument needs but never says.' Keyword check before submission. FALSIFIABILITY_ABSENT: 'What would have to be true for this assumption to fail?' Required before acceptance."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A5",
+      "name": "Argumentative Essay Construction",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Construct a 5-paragraph argumentative essay with an introduction (thesis plus 2+ argument preview), 3+ body paragraphs (claim plus proof plus explanation), at least 1 counter-argument paragraph, and a conclusion with no new claims.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_THESIS_VAGUE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "THESIS_VAGUE",
+          "action": "THESIS_VAGUE: 'This claim must be defeatable — what is your specific position?' CEE_INCOMPLETE: CEE gate — components completed sequentially before free writing."
+        },
+        {
+          "errorVariant": "FIVE_PARA_MISSING",
+          "action": "THESIS_VAGUE: 'This claim must be defeatable — what is your specific position?' CEE_INCOMPLETE: CEE gate — components completed sequentially before free writing."
+        },
+        {
+          "errorVariant": "CEE_INCOMPLETE",
+          "action": "THESIS_VAGUE: 'This claim must be defeatable — what is your specific position?' CEE_INCOMPLETE: CEE gate — components completed sequentially before free writing."
+        },
+        {
+          "errorVariant": "CONCLUSION_NEW_CLAIM",
+          "action": "THESIS_VAGUE: 'This claim must be defeatable — what is your specific position?' CEE_INCOMPLETE: CEE gate — components completed sequentially before free writing."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A6",
+      "name": "Thesis and Topic Sentences",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Deploy a claimable thesis (position clarity >=4/5) and open each body paragraph with a topic sentence whose meaning connects to the thesis without restating it.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TOPIC_SENTENCE_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TOPIC_SENTENCE_ABSENT",
+          "action": "TOPIC_SENTENCE_ABSENT: retro topic sentence drill — write paragraph body first, then write the topic sentence. DRIFT: 'Your paragraph heading must relate directly to your thesis.' Coherence pre-check before body writing."
+        },
+        {
+          "errorVariant": "THESIS_ECHO",
+          "action": "TOPIC_SENTENCE_ABSENT: retro topic sentence drill — write paragraph body first, then write the topic sentence. DRIFT: 'Your paragraph heading must relate directly to your thesis.' Coherence pre-check before body writing."
+        },
+        {
+          "errorVariant": "DRIFT",
+          "action": "TOPIC_SENTENCE_ABSENT: retro topic sentence drill — write paragraph body first, then write the topic sentence. DRIFT: 'Your paragraph heading must relate directly to your thesis.' Coherence pre-check before body writing."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A7",
+      "name": "Evidence Integration",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Integrate evidence with explanation by building evidence into the learner's own sentence and following it within 2 sentences with an explanation verb linking the evidence to the argument claim, with an explanation-to-evidence ratio >=1.2.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_QUOTE_DUMP",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "QUOTE_DUMP",
+          "action": "QUOTE_DUMP: sandwich frame mandatory — 'Introduce -> embed -> explain.' Integration check gates submission. ANALYSIS_ABSENT: 'After your evidence, state what it proves — use reveals/demonstrates/suggests.'"
+        },
+        {
+          "errorVariant": "EXPLANATION_THIN",
+          "action": "QUOTE_DUMP: sandwich frame mandatory — 'Introduce -> embed -> explain.' Integration check gates submission. ANALYSIS_ABSENT: 'After your evidence, state what it proves — use reveals/demonstrates/suggests.'"
+        },
+        {
+          "errorVariant": "ANALYSIS_ABSENT",
+          "action": "QUOTE_DUMP: sandwich frame mandatory — 'Introduce -> embed -> explain.' Integration check gates submission. ANALYSIS_ABSENT: 'After your evidence, state what it proves — use reveals/demonstrates/suggests.'"
+        },
+        {
+          "errorVariant": "ANALYSIS_DISCONNECTED",
+          "action": "QUOTE_DUMP: sandwich frame mandatory — 'Introduce -> embed -> explain.' Integration check gates submission. ANALYSIS_ABSENT: 'After your evidence, state what it proves — use reveals/demonstrates/suggests.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A8",
+      "name": "Formal Register Control",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Maintain formal register across all P3 writing tasks: no contractions, no slang, no personal anecdotes in argumentative context, and hedging within 15% of evaluative sentences.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_CONTRACTION_USED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "CONTRACTION_USED",
+          "action": "CONTRACTION_USED: submission rejected; replace before resubmission. REGISTER_COLLAPSE: full register check before resubmission. HEDGING_OVERUSE: 'State your position clearly — remove hedges or commit to the claim.'"
+        },
+        {
+          "errorVariant": "SLANG_TOKEN",
+          "action": "CONTRACTION_USED: submission rejected; replace before resubmission. REGISTER_COLLAPSE: full register check before resubmission. HEDGING_OVERUSE: 'State your position clearly — remove hedges or commit to the claim.'"
+        },
+        {
+          "errorVariant": "ANECDOTE_IN_ARG",
+          "action": "CONTRACTION_USED: submission rejected; replace before resubmission. REGISTER_COLLAPSE: full register check before resubmission. HEDGING_OVERUSE: 'State your position clearly — remove hedges or commit to the claim.'"
+        },
+        {
+          "errorVariant": "HEDGING_OVERUSE",
+          "action": "CONTRACTION_USED: submission rejected; replace before resubmission. REGISTER_COLLAPSE: full register check before resubmission. HEDGING_OVERUSE: 'State your position clearly — remove hedges or commit to the claim.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A9",
+      "name": "Complex Sentence Structures",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Use complex sentence structures accurately so that at least 45% of sentences are complex or compound-complex, with zero sentence fragments and zero run-ons.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_COMPLEXITY_LOW",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "COMPLEXITY_LOW",
+          "action": "COMPLEXITY_LOW: complex sentence construction drills — subordinating conjunction list; each paragraph must contain at least 1 complex sentence before submission. RUN_ON: automatic flag with the specific sentence highlighted."
+        },
+        {
+          "errorVariant": "FRAGMENT_PRESENT",
+          "action": "COMPLEXITY_LOW: complex sentence construction drills — subordinating conjunction list; each paragraph must contain at least 1 complex sentence before submission. RUN_ON: automatic flag with the specific sentence highlighted."
+        },
+        {
+          "errorVariant": "RUN_ON",
+          "action": "COMPLEXITY_LOW: complex sentence construction drills — subordinating conjunction list; each paragraph must contain at least 1 complex sentence before submission. RUN_ON: automatic flag with the specific sentence highlighted."
+        },
+        {
+          "errorVariant": "SUBORDINATION_OVERLOAD",
+          "action": "COMPLEXITY_LOW: complex sentence construction drills — subordinating conjunction list; each paragraph must contain at least 1 complex sentence before submission. RUN_ON: automatic flag with the specific sentence highlighted."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A10",
+      "name": "Active and Passive Voice",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Apply active and passive voice strategically by identifying the voice of given constructions, stating the communicative effect of each, and using both voices in a single writing task with a stated justification for at least 1 passive use.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_PASSIVE_UNDETECTED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "PASSIVE_UNDETECTED",
+          "action": "PASSIVE_UNDETECTED: auxiliary verb pattern drill (to be + past participle). PASSIVE_UNJUSTIFIED: 'State why you removed the agent here.'"
+        },
+        {
+          "errorVariant": "EFFECT_GENERIC",
+          "action": "PASSIVE_UNDETECTED: auxiliary verb pattern drill (to be + past participle). PASSIVE_UNJUSTIFIED: 'State why you removed the agent here.'"
+        },
+        {
+          "errorVariant": "PASSIVE_UNJUSTIFIED",
+          "action": "PASSIVE_UNDETECTED: auxiliary verb pattern drill (to be + past participle). PASSIVE_UNJUSTIFIED: 'State why you removed the agent here.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.A11",
+      "name": "Punctuation Control",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "1 — Structured Academic Control",
+      "grade": 10,
+      "description": "Control punctuation in extended writing with accurate comma usage in at least 90% of contexts, correct semicolons and colons, and zero comma splices.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_COMMA_SPLICE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "COMMA_SPLICE",
+          "action": "COMMA_SPLICE: highlighted; 'Replace the comma with a full stop, semicolon, or coordinating conjunction.' SEMICOLON_ERROR: rule reminder — 'A semicolon joins two complete sentences.'"
+        },
+        {
+          "errorVariant": "SEMICOLON_ERROR",
+          "action": "COMMA_SPLICE: highlighted; 'Replace the comma with a full stop, semicolon, or coordinating conjunction.' SEMICOLON_ERROR: rule reminder — 'A semicolon joins two complete sentences.'"
+        },
+        {
+          "errorVariant": "MISSING_COMMA",
+          "action": "COMMA_SPLICE: highlighted; 'Replace the comma with a full stop, semicolon, or coordinating conjunction.' SEMICOLON_ERROR: rule reminder — 'A semicolon joins two complete sentences.'"
+        },
+        {
+          "errorVariant": "COLON_ERROR",
+          "action": "COMMA_SPLICE: highlighted; 'Replace the comma with a full stop, semicolon, or coordinating conjunction.' SEMICOLON_ERROR: rule reminder — 'A semicolon joins two complete sentences.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.B1",
+      "name": "Evaluate Argument Strength",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "2 — Analytical Development",
+      "grade": 10,
+      "description": "Evaluate argument strength using at least 3 explicit criteria (evidence quality, logical validity, balance) and produce an overall effectiveness judgement with at least 2 criterion-based reasons.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_CRITERIA_COUNT_LOW",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "CRITERIA_COUNT_LOW",
+          "action": "CRITERIA_COUNT_LOW: evaluation criteria card; minimum 3 must be applied before judgement. FALLACY_CHECK_ABSENT: 'Does this argument commit any logical fallacy? Check the predefined list.'"
+        },
+        {
+          "errorVariant": "JUDGEMENT_WITHOUT_CRITERIA",
+          "action": "CRITERIA_COUNT_LOW: evaluation criteria card; minimum 3 must be applied before judgement. FALLACY_CHECK_ABSENT: 'Does this argument commit any logical fallacy? Check the predefined list.'"
+        },
+        {
+          "errorVariant": "FALLACY_CHECK_ABSENT",
+          "action": "CRITERIA_COUNT_LOW: evaluation criteria card; minimum 3 must be applied before judgement. FALLACY_CHECK_ABSENT: 'Does this argument commit any logical fallacy? Check the predefined list.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.B2",
+      "name": "Identify Logical Fallacies",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "2 — Analytical Development",
+      "grade": 10,
+      "description": "Identify logical fallacies by naming the fallacy type from a predefined list, quoting or paraphrasing the fallacious reasoning, and stating why it weakens the argument.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_FALLACY_MISLABELLED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "FALLACY_MISLABELLED",
+          "action": "FALLACY_MISLABELLED: fallacy predefined list with defining characteristics and examples; match description to name before free identification. FALLACY_NO_EVIDENCE: evidence-first — highlight before naming."
+        },
+        {
+          "errorVariant": "FALLACY_NO_EVIDENCE",
+          "action": "FALLACY_MISLABELLED: fallacy predefined list with defining characteristics and examples; match description to name before free identification. FALLACY_NO_EVIDENCE: evidence-first — highlight before naming."
+        },
+        {
+          "errorVariant": "WEAKENING_ABSENT",
+          "action": "FALLACY_MISLABELLED: fallacy predefined list with defining characteristics and examples; match description to name before free identification. FALLACY_NO_EVIDENCE: evidence-first — highlight before naming."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.B3",
+      "name": "Imagery and Symbolism",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "2 — Analytical Development",
+      "grade": 10,
+      "description": "Analyse imagery and symbolism in literature by identifying at least 3 images or symbols, stating the literal referent and symbolic meaning, and connecting each to theme or authorial purpose.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_LITERAL_ONLY",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "LITERAL_ONLY",
+          "action": "LITERAL_ONLY: four-part frame — 'This image literally represents ___. Symbolically it suggests ___, which connects to the theme of ___.'"
+        },
+        {
+          "errorVariant": "SYMBOL_UNGROUNDED",
+          "action": "LITERAL_ONLY: four-part frame — 'This image literally represents ___. Symbolically it suggests ___, which connects to the theme of ___.'"
+        },
+        {
+          "errorVariant": "THEME_LINK_ABSENT",
+          "action": "LITERAL_ONLY: four-part frame — 'This image literally represents ___. Symbolically it suggests ___, which connects to the theme of ___.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.B4",
+      "name": "Compare Two Texts Thematically",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "2 — Analytical Development",
+      "grade": 10,
+      "description": "Compare two texts thematically by identifying at least 1 shared theme and at least 1 diverging theme treatment, both grounded in textual evidence from each source, using comparative framing language throughout.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_SINGLE_TEXT_REFERENCE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "SINGLE_TEXT_REFERENCE",
+          "action": "SINGLE_TEXT_REFERENCE: text-based two-source mapping task — learner writes 'Both texts share: [X]', 'Text A only: [Y]', 'Text B only: [Z]' and all three must pass before drafting. FRAMING_ERROR: 'Both: use and/also. Contrast: use however/whereas.'"
+        },
+        {
+          "errorVariant": "THEME_UNVERIFIED",
+          "action": "SINGLE_TEXT_REFERENCE: text-based two-source mapping task — learner writes 'Both texts share: [X]', 'Text A only: [Y]', 'Text B only: [Z]' and all three must pass before drafting. FRAMING_ERROR: 'Both: use and/also. Contrast: use however/whereas.'"
+        },
+        {
+          "errorVariant": "FRAMING_ERROR",
+          "action": "SINGLE_TEXT_REFERENCE: text-based two-source mapping task — learner writes 'Both texts share: [X]', 'Text A only: [Y]', 'Text B only: [Z]' and all three must pass before drafting. FRAMING_ERROR: 'Both: use and/also. Contrast: use however/whereas.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.B5",
+      "name": "Discursive Essay",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "2 — Analytical Development",
+      "grade": 10,
+      "description": "Write a discursive essay presenting both sides of an issue fairly (2+ arguments per side), with balanced argument density, formal register, and a clearly stated concluding position with a reason.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_ONE_SIDED_DISCURSIVE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "ONE_SIDED_DISCURSIVE",
+          "action": "ONE_SIDED_DISCURSIVE: 'A discursive essay explores both perspectives equally — what would the other side argue?' CONCLUSION_ABSENT: 'End with: On balance, I believe ___ because ___.'"
+        },
+        {
+          "errorVariant": "REGISTER_DISCURSIVE_WEAK",
+          "action": "ONE_SIDED_DISCURSIVE: 'A discursive essay explores both perspectives equally — what would the other side argue?' CONCLUSION_ABSENT: 'End with: On balance, I believe ___ because ___.'"
+        },
+        {
+          "errorVariant": "CONCLUSION_ABSENT",
+          "action": "ONE_SIDED_DISCURSIVE: 'A discursive essay explores both perspectives equally — what would the other side argue?' CONCLUSION_ABSENT: 'End with: On balance, I believe ___ because ___.'"
+        },
+        {
+          "errorVariant": "BALANCE_FAILURE",
+          "action": "ONE_SIDED_DISCURSIVE: 'A discursive essay explores both perspectives equally — what would the other side argue?' CONCLUSION_ABSENT: 'End with: On balance, I believe ___ because ___.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.B6",
+      "name": "Cohesion Using Transitions",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "2 — Analytical Development",
+      "grade": 10,
+      "description": "Maintain cohesion using transitions so each body paragraph has at least 1 transition whose type matches the discourse function, with no transition repeated more than twice in the essay.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TRANSITION_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TRANSITION_ABSENT",
+          "action": "TRANSITION_ABSENT: transition bank provided; one must be selected before paragraph writing. FUNCTION_MISMATCH: 'Does the relationship here add, contrast, or cause? Select matching transition.'"
+        },
+        {
+          "errorVariant": "FUNCTION_MISMATCH",
+          "action": "TRANSITION_ABSENT: transition bank provided; one must be selected before paragraph writing. FUNCTION_MISMATCH: 'Does the relationship here add, contrast, or cause? Select matching transition.'"
+        },
+        {
+          "errorVariant": "TRANSITION_REPETITION",
+          "action": "TRANSITION_ABSENT: transition bank provided; one must be selected before paragraph writing. FUNCTION_MISMATCH: 'Does the relationship here add, contrast, or cause? Select matching transition.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.B7",
+      "name": "Embed Quotations",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "2 — Analytical Development",
+      "grade": 10,
+      "description": "Embed quotations correctly so at least 90% are built into the learner's own clause with an attribution phrase, correct punctuation, and an explanation within 2 sentences.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_QUOTE_STANDALONE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "QUOTE_STANDALONE",
+          "action": "QUOTE_STANDALONE: sandwich drill — 'X argues that [quote] (attribution + embedding + demonstrates ___).' Full sequence required before submission. ATTRIBUTION_ABSENT: sequence required before submission."
+        },
+        {
+          "errorVariant": "ATTRIBUTION_ABSENT",
+          "action": "QUOTE_STANDALONE: sandwich drill — 'X argues that [quote] (attribution + embedding + demonstrates ___).' Full sequence required before submission. ATTRIBUTION_ABSENT: sequence required before submission."
+        },
+        {
+          "errorVariant": "QUOTE_PUNCTUATION_ERROR",
+          "action": "QUOTE_STANDALONE: sandwich drill — 'X argues that [quote] (attribution + embedding + demonstrates ___).' Full sequence required before submission. ATTRIBUTION_ABSENT: sequence required before submission."
+        },
+        {
+          "errorVariant": "EXPLANATION_ABSENT",
+          "action": "QUOTE_STANDALONE: sandwich drill — 'X argues that [quote] (attribution + embedding + demonstrates ___).' Full sequence required before submission. ATTRIBUTION_ABSENT: sequence required before submission."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.C1",
+      "name": "Thesis-Driven Literary Essay",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "3 — Independent Control",
+      "grade": 10,
+      "description": "Write a literary essay with a thesis-driven argument that positions a critical claim (not plot summary), with 3+ body paragraphs of claim plus integrated quote plus analysis, naming a literary technique in at least 75% of analytical points.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_PLOT_SUMMARY_ESSAY",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "PLOT_SUMMARY_ESSAY",
+          "action": "PLOT_SUMMARY_ESSAY: 'What does the text argue or reveal — not what happens?' Critical claim drill before essay planning. TECHNIQUE_UNNAMED: technique predefined list provided; minimum 1 named per body paragraph."
+        },
+        {
+          "errorVariant": "TECHNIQUE_UNNAMED",
+          "action": "PLOT_SUMMARY_ESSAY: 'What does the text argue or reveal — not what happens?' Critical claim drill before essay planning. TECHNIQUE_UNNAMED: technique predefined list provided; minimum 1 named per body paragraph."
+        },
+        {
+          "errorVariant": "TECHNIQUE_UNLINKED",
+          "action": "PLOT_SUMMARY_ESSAY: 'What does the text argue or reveal — not what happens?' Critical claim drill before essay planning. TECHNIQUE_UNNAMED: technique predefined list provided; minimum 1 named per body paragraph."
+        },
+        {
+          "errorVariant": "QUOTE_UNANALYSED",
+          "action": "PLOT_SUMMARY_ESSAY: 'What does the text argue or reveal — not what happens?' Critical claim drill before essay planning. TECHNIQUE_UNNAMED: technique predefined list provided; minimum 1 named per body paragraph."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.C2",
+      "name": "Synthesise Multiple Sources",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "3 — Independent Control",
+      "grade": 10,
+      "description": "Synthesise at least 2 sources into integrated paragraphs where both sources are cited in a single paragraph with a comparative or argumentative frame, balanced source distribution, and scaffold frame patterns below 10% of sentences.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_SOURCE_LISTING",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "SOURCE_LISTING",
+          "action": "SOURCE_LISTING: integration sentence frame until independent; scaffold removed after 3 passing attempts. SCAFFOLD_DEPENDENCY: frame pattern detection active."
+        },
+        {
+          "errorVariant": "INTEGRATION_ABSENT",
+          "action": "SOURCE_LISTING: integration sentence frame until independent; scaffold removed after 3 passing attempts. SCAFFOLD_DEPENDENCY: frame pattern detection active."
+        },
+        {
+          "errorVariant": "SCAFFOLD_DEPENDENCY",
+          "action": "SOURCE_LISTING: integration sentence frame until independent; scaffold removed after 3 passing attempts. SCAFFOLD_DEPENDENCY: frame pattern detection active."
+        },
+        {
+          "errorVariant": "SINGLE_SOURCE_DOMINANCE",
+          "action": "SOURCE_LISTING: integration sentence frame until independent; scaffold removed after 3 passing attempts. SCAFFOLD_DEPENDENCY: frame pattern detection active."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.C3",
+      "name": "Socio-Political Context",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "3 — Independent Control",
+      "grade": 10,
+      "description": "Evaluate socio-political context in literature by identifying at least 1 contextual factor, connecting it to a specific textual element, and stating how the context alters or deepens meaning.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_CONTEXT_TYPE_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "CONTEXT_TYPE_ABSENT",
+          "action": "CONTEXT_TYPE_ABSENT: context predefined list; label required before linking. SIGNIFICANCE_ABSENT: 'How does knowing this context change how we read the text? Use reveals/complicates/subverts.'"
+        },
+        {
+          "errorVariant": "TEXTUAL_LINK_ABSENT",
+          "action": "CONTEXT_TYPE_ABSENT: context predefined list; label required before linking. SIGNIFICANCE_ABSENT: 'How does knowing this context change how we read the text? Use reveals/complicates/subverts.'"
+        },
+        {
+          "errorVariant": "SIGNIFICANCE_ABSENT",
+          "action": "CONTEXT_TYPE_ABSENT: context predefined list; label required before linking. SIGNIFICANCE_ABSENT: 'How does knowing this context change how we read the text? Use reveals/complicates/subverts.'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.C4",
+      "name": "Coherent Academic Essay Under Unseen Conditions",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "3 — Independent Control",
+      "grade": 10,
+      "description": "Write a 600-800 word coherent academic essay on an unseen topic, meeting the word count, maintaining the 5-paragraph structure, sustaining argument coherence from thesis to conclusion, with zero scaffold dependency. Word count is checked at submission, single session, no real-time pacing.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_UNDER_LENGTH",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "UNDER_LENGTH",
+          "action": "UNDER_LENGTH: content sufficiency audit — identify which paragraph is underweight; targeted expansion task. COHERENCE_LOW: 'Your paragraph must directly argue or support your thesis — what does it prove?'"
+        },
+        {
+          "errorVariant": "OVER_LENGTH",
+          "action": "UNDER_LENGTH: content sufficiency audit — identify which paragraph is underweight; targeted expansion task. COHERENCE_LOW: 'Your paragraph must directly argue or support your thesis — what does it prove?'"
+        },
+        {
+          "errorVariant": "STRUCTURE_INCOMPLETE",
+          "action": "UNDER_LENGTH: content sufficiency audit — identify which paragraph is underweight; targeted expansion task. COHERENCE_LOW: 'Your paragraph must directly argue or support your thesis — what does it prove?'"
+        },
+        {
+          "errorVariant": "COHERENCE_LOW",
+          "action": "UNDER_LENGTH: content sufficiency audit — identify which paragraph is underweight; targeted expansion task. COHERENCE_LOW: 'Your paragraph must directly argue or support your thesis — what does it prove?'"
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.C5",
+      "name": "Stylistic Maturity",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "3 — Independent Control",
+      "grade": 10,
+      "description": "Demonstrate stylistic maturity through sentence variety across paragraphs, at least 2 distinct rhetorical techniques per essay, and lexical precision with an empty-intensifier rate of zero.",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_SENTENCE_MONOTONY",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "SENTENCE_MONOTONY",
+          "action": "SENTENCE_MONOTONY: sentence structure variation drill; each paragraph must demonstrate at least 2 different opening structures. TECHNIQUE_ABSENT: rhetorical technique list; 1 must be inserted and marked before submission."
+        },
+        {
+          "errorVariant": "TECHNIQUE_ABSENT",
+          "action": "SENTENCE_MONOTONY: sentence structure variation drill; each paragraph must demonstrate at least 2 different opening structures. TECHNIQUE_ABSENT: rhetorical technique list; 1 must be inserted and marked before submission."
+        },
+        {
+          "errorVariant": "INTENSIFIER_OVERUSE",
+          "action": "SENTENCE_MONOTONY: sentence structure variation drill; each paragraph must demonstrate at least 2 different opening structures. TECHNIQUE_ABSENT: rhetorical technique list; 1 must be inserted and marked before submission."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.D1",
+      "name": "Main Idea and Author's Purpose",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "4 — Reading and Comprehension",
+      "grade": 10,
+      "description": "Identify the main idea and author's purpose in an unseen non-fiction text by stating the central claim in one sentence and naming the primary purpose from a predefined list with at least 1 textual marker per claim.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_MAIN_IDEA_VAGUE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "MAIN_IDEA_VAGUE",
+          "action": "MAIN_IDEA_VAGUE: 'This text is about X' is a topic label — state what the author claims about X. Sentence-starter scaffold required before free response. PURPOSE_UNLABELLED: purpose predefined list with defining features displayed; learner selects before free identification."
+        },
+        {
+          "errorVariant": "PURPOSE_UNLABELLED",
+          "action": "MAIN_IDEA_VAGUE: 'This text is about X' is a topic label — state what the author claims about X. Sentence-starter scaffold required before free response. PURPOSE_UNLABELLED: purpose predefined list with defining features displayed; learner selects before free identification."
+        },
+        {
+          "errorVariant": "MARKER_ABSENT",
+          "action": "MAIN_IDEA_VAGUE: 'This text is about X' is a topic label — state what the author claims about X. Sentence-starter scaffold required before free response. PURPOSE_UNLABELLED: purpose predefined list with defining features displayed; learner selects before free identification."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.D2",
+      "name": "Make Inferences",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "4 — Reading and Comprehension",
+      "grade": 10,
+      "description": "Make inferences from an unseen text by identifying at least 2 implied ideas, providing at least 1 specific textual clue per inference, and explaining the reasoning chain connecting clue to inferred meaning.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_STATED_AS_INFERRED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "STATED_AS_INFERRED",
+          "action": "STATED_AS_INFERRED: 'Find an idea the text hints at but never says.' Keyword check before submission. REASONING_ABSENT: inference chain frame — 'The text says [clue], which suggests [inference] because [reasoning].' Required before acceptance."
+        },
+        {
+          "errorVariant": "CLUE_ABSENT",
+          "action": "STATED_AS_INFERRED: 'Find an idea the text hints at but never says.' Keyword check before submission. REASONING_ABSENT: inference chain frame — 'The text says [clue], which suggests [inference] because [reasoning].' Required before acceptance."
+        },
+        {
+          "errorVariant": "REASONING_ABSENT",
+          "action": "STATED_AS_INFERRED: 'Find an idea the text hints at but never says.' Keyword check before submission. REASONING_ABSENT: inference chain frame — 'The text says [clue], which suggests [inference] because [reasoning].' Required before acceptance."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.D3",
+      "name": "Structured Summary",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "4 — Reading and Comprehension",
+      "grade": 10,
+      "description": "Write a structured summary of a non-fiction text restating the main idea, including at least 3 key supporting points in logical order, in the learner's own words, within 80-120 words.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_COPY_PASTE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "COPY_PASTE",
+          "action": "COPY_PASTE: 'Your summary must use your own words.' Source text removed from view; learner rewrites from memory or notes. SUPPORTING_POINT_COUNT_LOW: structured frame — main idea + point 1 + point 2 + point 3; each slot must be completed before free summary."
+        },
+        {
+          "errorVariant": "SUPPORTING_POINT_COUNT_LOW",
+          "action": "COPY_PASTE: 'Your summary must use your own words.' Source text removed from view; learner rewrites from memory or notes. SUPPORTING_POINT_COUNT_LOW: structured frame — main idea + point 1 + point 2 + point 3; each slot must be completed before free summary."
+        },
+        {
+          "errorVariant": "WORD_COUNT_OUTSIDE_RANGE",
+          "action": "COPY_PASTE: 'Your summary must use your own words.' Source text removed from view; learner rewrites from memory or notes. SUPPORTING_POINT_COUNT_LOW: structured frame — main idea + point 1 + point 2 + point 3; each slot must be completed before free summary."
+        },
+        {
+          "errorVariant": "MAIN_IDEA_ABSENT",
+          "action": "COPY_PASTE: 'Your summary must use your own words.' Source text removed from view; learner rewrites from memory or notes. SUPPORTING_POINT_COUNT_LOW: structured frame — main idea + point 1 + point 2 + point 3; each slot must be completed before free summary."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.E1",
+      "name": "Formal Letter",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "5 — Transactional Writing",
+      "grade": 10,
+      "description": "Write a formal letter with correct layout, formal register throughout, a clearly stated purpose in the opening paragraph, and a specific request or action in the closing paragraph (180-250 words).",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_LAYOUT_INCOMPLETE",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "LAYOUT_INCOMPLETE",
+          "action": "LAYOUT_INCOMPLETE: formal letter template displayed; each structural element must be labelled before free writing. REGISTER_INFORMAL_LETTER: flagged tokens highlighted; learner replaces each before resubmission."
+        },
+        {
+          "errorVariant": "REGISTER_INFORMAL_LETTER",
+          "action": "LAYOUT_INCOMPLETE: formal letter template displayed; each structural element must be labelled before free writing. REGISTER_INFORMAL_LETTER: flagged tokens highlighted; learner replaces each before resubmission."
+        },
+        {
+          "errorVariant": "PURPOSE_ABSENT",
+          "action": "LAYOUT_INCOMPLETE: formal letter template displayed; each structural element must be labelled before free writing. REGISTER_INFORMAL_LETTER: flagged tokens highlighted; learner replaces each before resubmission."
+        },
+        {
+          "errorVariant": "CLOSING_ACTION_ABSENT",
+          "action": "LAYOUT_INCOMPLETE: formal letter template displayed; each structural element must be labelled before free writing. REGISTER_INFORMAL_LETTER: flagged tokens highlighted; learner replaces each before resubmission."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.E2",
+      "name": "Persuasive Speech",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "5 — Transactional Writing",
+      "grade": 10,
+      "description": "Write a persuasive speech for a specific audience opening with direct address, presenting 2+ supported arguments, including at least 1 rhetorical technique, and closing with a call to action (200-280 words).",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_DIRECT_ADDRESS_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "DIRECT_ADDRESS_ABSENT",
+          "action": "TECHNIQUE_NOT_IN_SPEECH: rhetorical technique list with examples; learner selects and inserts one before submission. CALL_TO_ACTION_ABSENT: 'What do you want your audience to do or believe after hearing this?' Imperative sentence required in closing."
+        },
+        {
+          "errorVariant": "ARGUMENT_COUNT_LOW",
+          "action": "TECHNIQUE_NOT_IN_SPEECH: rhetorical technique list with examples; learner selects and inserts one before submission. CALL_TO_ACTION_ABSENT: 'What do you want your audience to do or believe after hearing this?' Imperative sentence required in closing."
+        },
+        {
+          "errorVariant": "TECHNIQUE_NOT_IN_SPEECH",
+          "action": "TECHNIQUE_NOT_IN_SPEECH: rhetorical technique list with examples; learner selects and inserts one before submission. CALL_TO_ACTION_ABSENT: 'What do you want your audience to do or believe after hearing this?' Imperative sentence required in closing."
+        },
+        {
+          "errorVariant": "CALL_TO_ACTION_ABSENT",
+          "action": "TECHNIQUE_NOT_IN_SPEECH: rhetorical technique list with examples; learner selects and inserts one before submission. CALL_TO_ACTION_ABSENT: 'What do you want your audience to do or believe after hearing this?' Imperative sentence required in closing."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.E3",
+      "name": "Newspaper Article",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "5 — Transactional Writing",
+      "grade": 10,
+      "description": "Write a newspaper article with a headline, a lead paragraph covering at least 3 of the 5 W elements, a body of 2+ supporting paragraphs, factual register, and at least 1 attributed quotation (220-300 words).",
+      "deliveryMode": "TEXT",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_HEADLINE_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "HEADLINE_ABSENT",
+          "action": "LEAD_INCOMPLETE: 5W checklist displayed; learner completes each slot before body writing. REGISTER_OPINION_IN_NEWS: flagged sentences highlighted; learner rewrites as attributed facts."
+        },
+        {
+          "errorVariant": "LEAD_INCOMPLETE",
+          "action": "LEAD_INCOMPLETE: 5W checklist displayed; learner completes each slot before body writing. REGISTER_OPINION_IN_NEWS: flagged sentences highlighted; learner rewrites as attributed facts."
+        },
+        {
+          "errorVariant": "REGISTER_OPINION_IN_NEWS",
+          "action": "LEAD_INCOMPLETE: 5W checklist displayed; learner completes each slot before body writing. REGISTER_OPINION_IN_NEWS: flagged sentences highlighted; learner rewrites as attributed facts."
+        },
+        {
+          "errorVariant": "ATTRIBUTION_ABSENT",
+          "action": "LEAD_INCOMPLETE: 5W checklist displayed; learner completes each slot before body writing. REGISTER_OPINION_IN_NEWS: flagged sentences highlighted; learner rewrites as attributed facts."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.F1",
+      "name": "SVA and Tense Consistency",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "6 — Language, Grammar and Editing",
+      "grade": 10,
+      "description": "Identify and correct subject-verb agreement and tense consistency errors in a provided paragraph, providing the correction and stating the grammatical rule applied for each.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_SVA_MISSED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "SVA_MISSED",
+          "action": "SVA_MISSED: SVA rule card; learner applies each rule to a targeted sentence set before the full paragraph task. CORRECTION_WRONG: error highlighted; learner shown rule; correction reattempted before proceeding."
+        },
+        {
+          "errorVariant": "TENSE_SHIFT_MISSED",
+          "action": "SVA_MISSED: SVA rule card; learner applies each rule to a targeted sentence set before the full paragraph task. CORRECTION_WRONG: error highlighted; learner shown rule; correction reattempted before proceeding."
+        },
+        {
+          "errorVariant": "CORRECTION_WRONG",
+          "action": "SVA_MISSED: SVA rule card; learner applies each rule to a targeted sentence set before the full paragraph task. CORRECTION_WRONG: error highlighted; learner shown rule; correction reattempted before proceeding."
+        },
+        {
+          "errorVariant": "RULE_ABSENT",
+          "action": "SVA_MISSED: SVA rule card; learner applies each rule to a targeted sentence set before the full paragraph task. CORRECTION_WRONG: error highlighted; learner shown rule; correction reattempted before proceeding."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.F2",
+      "name": "Formal and Informal Register",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "6 — Language, Grammar and Editing",
+      "grade": 10,
+      "description": "Distinguish and apply formal and informal register by identifying at least 3 informal features in a provided text, naming each feature type, and rewriting the full text in formal academic register.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_FEATURE_UNLABELLED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "FEATURE_UNLABELLED",
+          "action": "REWRITE_STILL_INFORMAL: flagged tokens highlighted in the rewritten text; each replaced before resubmission. MEANING_LOST: 'Your rewrite has changed the meaning. Check each sentence matches the original idea.' Sentence-by-sentence comparison required."
+        },
+        {
+          "errorVariant": "REWRITE_STILL_INFORMAL",
+          "action": "REWRITE_STILL_INFORMAL: flagged tokens highlighted in the rewritten text; each replaced before resubmission. MEANING_LOST: 'Your rewrite has changed the meaning. Check each sentence matches the original idea.' Sentence-by-sentence comparison required."
+        },
+        {
+          "errorVariant": "MEANING_LOST",
+          "action": "REWRITE_STILL_INFORMAL: flagged tokens highlighted in the rewritten text; each replaced before resubmission. MEANING_LOST: 'Your rewrite has changed the meaning. Check each sentence matches the original idea.' Sentence-by-sentence comparison required."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.F3",
+      "name": "Punctuation Editing",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "6 — Language, Grammar and Editing",
+      "grade": 10,
+      "description": "Edit a provided paragraph for punctuation accuracy by identifying and correcting all comma, semicolon, colon, and apostrophe errors and stating the rule for each correction.",
+      "deliveryMode": "HYBRID",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_COMMA_SPLICE_MISSED",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "COMMA_SPLICE_MISSED",
+          "action": "COMMA_SPLICE_MISSED: comma splice explanation with rule; targeted 5-sentence drill before the full paragraph. APOSTROPHE_ERROR_MISSED: apostrophe rule card (possessive vs contraction); targeted drill before the full paragraph."
+        },
+        {
+          "errorVariant": "APOSTROPHE_ERROR_MISSED",
+          "action": "COMMA_SPLICE_MISSED: comma splice explanation with rule; targeted 5-sentence drill before the full paragraph. APOSTROPHE_ERROR_MISSED: apostrophe rule card (possessive vs contraction); targeted drill before the full paragraph."
+        },
+        {
+          "errorVariant": "CORRECTION_WRONG_PUNCT",
+          "action": "COMMA_SPLICE_MISSED: comma splice explanation with rule; targeted 5-sentence drill before the full paragraph. APOSTROPHE_ERROR_MISSED: apostrophe rule card (possessive vs contraction); targeted drill before the full paragraph."
+        },
+        {
+          "errorVariant": "RULE_ABSENT_PUNCT",
+          "action": "COMMA_SPLICE_MISSED: comma splice explanation with rule; targeted 5-sentence drill before the full paragraph. APOSTROPHE_ERROR_MISSED: apostrophe rule card (possessive vs contraction); targeted drill before the full paragraph."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.G1",
+      "name": "Structured Short Speech",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "7 — Speaking and Listening",
+      "grade": 10,
+      "description": "Prepare and present a structured short speech stating a clear position in the opening sentence, providing 2+ supporting points with reasoning, using formal register, and concluding with a restatement of position (100-150 words).",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_POSITION_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "POSITION_ABSENT",
+          "action": "POSITION_ABSENT: 'State your view in one sentence. Use: I argue/I believe/In my view.' Stance verb required in the position sentence. SUPPORT_COUNT_LOW: two-point frame — Point 1 [claim + because reason] / Point 2 [claim + because reason]; both slots must be completed."
+        },
+        {
+          "errorVariant": "SUPPORT_COUNT_LOW",
+          "action": "POSITION_ABSENT: 'State your view in one sentence. Use: I argue/I believe/In my view.' Stance verb required in the position sentence. SUPPORT_COUNT_LOW: two-point frame — Point 1 [claim + because reason] / Point 2 [claim + because reason]; both slots must be completed."
+        },
+        {
+          "errorVariant": "REGISTER_INFORMAL_SPEECH",
+          "action": "POSITION_ABSENT: 'State your view in one sentence. Use: I argue/I believe/In my view.' Stance verb required in the position sentence. SUPPORT_COUNT_LOW: two-point frame — Point 1 [claim + because reason] / Point 2 [claim + because reason]; both slots must be completed."
+        },
+        {
+          "errorVariant": "RESTATEMENT_ABSENT",
+          "action": "POSITION_ABSENT: 'State your view in one sentence. Use: I argue/I believe/In my view.' Stance verb required in the position sentence. SUPPORT_COUNT_LOW: two-point frame — Point 1 [claim + because reason] / Point 2 [claim + because reason]; both slots must be completed."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.G2",
+      "name": "Comprehension Response",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "7 — Speaking and Listening",
+      "grade": 10,
+      "description": "Respond to a comprehension question about a provided text in full coherent sentences, answering the specific question asked, including at least 1 textual reference, and maintaining formal register (40-80 words).",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_OFF_TOPIC",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "OFF_TOPIC",
+          "action": "OFF_TOPIC: question reread; 'Your answer must directly address what the question asks.' Sentence starter: 'The text shows/states/suggests...' FRAGMENT_RESPONSE: 'Write at least one complete sentence with a subject and a verb.' Example response displayed."
+        },
+        {
+          "errorVariant": "FRAGMENT_RESPONSE",
+          "action": "OFF_TOPIC: question reread; 'Your answer must directly address what the question asks.' Sentence starter: 'The text shows/states/suggests...' FRAGMENT_RESPONSE: 'Write at least one complete sentence with a subject and a verb.' Example response displayed."
+        },
+        {
+          "errorVariant": "REFERENCE_ABSENT",
+          "action": "OFF_TOPIC: question reread; 'Your answer must directly address what the question asks.' Sentence starter: 'The text shows/states/suggests...' FRAGMENT_RESPONSE: 'Write at least one complete sentence with a subject and a verb.' Example response displayed."
+        },
+        {
+          "errorVariant": "REGISTER_INFORMAL_RESPONSE",
+          "action": "OFF_TOPIC: question reread; 'Your answer must directly address what the question asks.' Sentence starter: 'The text shows/states/suggests...' FRAGMENT_RESPONSE: 'Write at least one complete sentence with a subject and a verb.' Example response displayed."
+        }
+      ],
+      "items": []
+    },
+    {
+      "skillId": "L12.G3",
+      "name": "Summarise a Spoken Extract",
+      "gate": "NONE",
+      "level": 12,
+      "tier": "7 — Speaking and Listening",
+      "grade": 10,
+      "description": "Summarise the content of a spoken extract provided as a transcript by identifying the main topic, stating at least 2 key points, and noting the speaker's apparent purpose or attitude in the learner's own words (60-100 words).",
+      "deliveryMode": "VOICE",
+      "questionFormat": "AUTHOR: describe the answer expected (e.g. '1 sentence stating the central argument')",
+      "defaultPrompt": "AUTHOR: the question shown to the learner",
+      "errorCode": "ERR_TOPIC_ABSENT",
+      "passCondition": {
+        "metric": "accuracy",
+        "threshold": 0.6,
+        "amberFloor": 0.4,
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [],
+      "recovery": [
+        {
+          "errorVariant": "TOPIC_ABSENT",
+          "action": "KEY_POINT_COUNT_LOW: structured frame — main topic + key point 1 + key point 2; each slot must be completed. PURPOSE_ATTITUDE_ABSENT: 'Why is the speaker saying this? What do they want the listener to think or feel?' Purpose verb list provided."
+        },
+        {
+          "errorVariant": "KEY_POINT_COUNT_LOW",
+          "action": "KEY_POINT_COUNT_LOW: structured frame — main topic + key point 1 + key point 2; each slot must be completed. PURPOSE_ATTITUDE_ABSENT: 'Why is the speaker saying this? What do they want the listener to think or feel?' Purpose verb list provided."
+        },
+        {
+          "errorVariant": "PURPOSE_ATTITUDE_ABSENT",
+          "action": "KEY_POINT_COUNT_LOW: structured frame — main topic + key point 1 + key point 2; each slot must be completed. PURPOSE_ATTITUDE_ABSENT: 'Why is the speaker saying this? What do they want the listener to think or feel?' Purpose verb list provided."
+        },
+        {
+          "errorVariant": "COPY_PASTE_TRANSCRIPT",
+          "action": "KEY_POINT_COUNT_LOW: structured frame — main topic + key point 1 + key point 2; each slot must be completed. PURPOSE_ATTITUDE_ABSENT: 'Why is the speaker saying this? What do they want the listener to think or feel?' Purpose verb list provided."
+        }
+      ],
+      "items": []
+    }
+  ]
+}

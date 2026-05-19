@@ -6,16 +6,31 @@ import type { ReadingQuestionBank, ReadingBankItem, ReadingBankSkill } from "@/t
 import L6_BANK from "@/data/reading-question-banks/L6.json";
 import L7_BANK from "@/data/reading-question-banks/L7.json";
 import L8_BANK from "@/data/reading-question-banks/L8.json";
+import L9_BANK from "@/data/reading-question-banks/L9.json";
+import L10_BANK from "@/data/reading-question-banks/L10.json";
+import L11_BANK from "@/data/reading-question-banks/L11.json";
+import L12_BANK from "@/data/reading-question-banks/L12.json";
+import L13_BANK from "@/data/reading-question-banks/L13.json";
+import L14_BANK from "@/data/reading-question-banks/L14.json";
 
 export const runtime = "edge";
 
 // ── Static question banks for L6+ (Intermediate Phase) ───────────────────────
 // Tree skills (R6.T1.A1…) carry `bank_skill_id` (e.g. "L6.A1") → the bank skill.
-// L6 = Grade 4, L7 = Grade 5, L8 = Grade 6.
+// L6=Gr4 L7=Gr5 L8=Gr6 (Intermediate) · L9=Gr7 L10=Gr8 L11=Gr9 (Senior) ·
+// L12=Gr10 L13=Gr11 L14=Gr12 (FET). L9–L14 ship as scaffolds: empty
+// `items[]` makes buildBankQuestion return null and fall through until the
+// head of education authors content. No code change needed when they do.
 const READING_BANKS: Record<number, ReadingQuestionBank> = {
   6: L6_BANK as unknown as ReadingQuestionBank,
   7: L7_BANK as unknown as ReadingQuestionBank,
   8: L8_BANK as unknown as ReadingQuestionBank,
+  9: L9_BANK as unknown as ReadingQuestionBank,
+  10: L10_BANK as unknown as ReadingQuestionBank,
+  11: L11_BANK as unknown as ReadingQuestionBank,
+  12: L12_BANK as unknown as ReadingQuestionBank,
+  13: L13_BANK as unknown as ReadingQuestionBank,
+  14: L14_BANK as unknown as ReadingQuestionBank,
 };
 
 /** Source text shown to the learner — pooled (A1/A2/A3) or inline per skill.
