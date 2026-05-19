@@ -13,7 +13,10 @@ import L12_BANK from "@/data/reading-question-banks/L12.json";
 import L13_BANK from "@/data/reading-question-banks/L13.json";
 import L14_BANK from "@/data/reading-question-banks/L14.json";
 
-export const runtime = "edge";
+// Node.js serverless runtime (default — no `runtime = "edge"`): this route
+// statically bundles the L6–L14 question banks, which exceed the 1 MB Edge
+// Function size limit. Node serverless allows up to 50 MB. Matches the
+// sibling submit-answer route, which is also Node serverless.
 
 // ── Static question banks for L6+ (Intermediate Phase) ───────────────────────
 // Tree skills (R6.T1.A1…) carry `bank_skill_id` (e.g. "L6.A1") → the bank skill.
