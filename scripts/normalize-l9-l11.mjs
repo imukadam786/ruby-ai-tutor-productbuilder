@@ -86,23 +86,56 @@ function canonItem(it, textsById) {
   };
   if (it.context) out.context = it.context;
   if (it.title) out.title = it.title;
-  if (it.textId) out.textId = it.textId; // L9/L10 single-source: resolve via texts[]
 
-  let passage =
-    it.passage || it.sourceText || it.mainText || it.text || "";
-  // L10/L11 synthesis: items cite several sources via textIds[]/sourceIds[];
-  // the runtime only resolves a single textId, so inline the sources as a
-  // labelled passage (same approach normalize-l7l8 uses for textA/textB).
-  const srcIds = it.textIds || it.sourceIds;
-  if (!passage && Array.isArray(srcIds) && srcIds.length) {
+  // ── Source linkage ──
+  // The runtime only resolves a single textId, so every pooled source is
+  // inlined into one labelled passage. Items reference sources four ways:
+  //   textIds[]  (L11)        sourceIds[]  (L10 synthesis)
+  //   textId + pairTextId  (L9.B3 / L10.B1 paired texts)
+  // Collect them all, in order, deduped — before this they were dropped and
+  // the learner saw a question citing sources that were never shown.
+  const srcIds = [
+    ...(Array.isArray(it.textIds) ? it.textIds : []),
+    ...(Array.isArray(it.sourceIds) ? it.sourceIds : []),
+    ...(it.textId ? [it.textId] : []),
+    ...(it.pairTextId ? [it.pairTextId] : []),
+  ].filter((v, i, a) => v && a.indexOf(v) === i);
+
+  // Inline source carried directly on the item (most L9/L10 skills, plus
+  // L10.C2 sourcePassage/sourceLabel and L11 C2 draftText).
+  let passage = txt(
+    it.passage || it.sourceText || it.mainText || it.text ||
+      it.sourcePassage || it.draftText || ""
+  );
+  if (passage && it.sourceLabel) passage = `${it.sourceLabel}\n${passage}`;
+
+  if (!passage && srcIds.length) {
+    // Label each source the way the question names it: "…S1/-S1" → "Source 1"
+    // (triplets), "….A/-B" → "Text A/Text B" (paired), else "Source N".
+    const labelFor = (id, i) => {
+      const s = id.match(/[-.]S(\d+)$/i);
+      if (s) return `Source ${s[1]}`;
+      const a = id.match(/[-.]([A-Z])$/);
+      if (a) return `Text ${a[1]}`;
+      return `Source ${i + 1}`;
+    };
     const parts = srcIds.map((tid, i) => {
       const t = textsById.get(tid);
       if (!t) { flag(`source ${tid} not in texts[]`); return ""; }
-      return `Source ${i + 1} — ${t.label || t.title || tid}\n${t.body}`;
+      const lbl = srcIds.length > 1 ? labelFor(tid, i) : "";
+      return lbl ? `${lbl}\n${t.body}` : t.body;
     });
     passage = parts.filter(Boolean).join("\n\n");
   }
-  if (passage) out.passage = txt(passage);
+
+  // Research/brief context the task asks the learner to act on but that is
+  // not a standalone passage (L11.B3 sourceContext, D1/D2 sourceMaterials).
+  const brief = it.sourceContext || it.sourceMaterials;
+  if (brief) {
+    const b = txt(Array.isArray(brief) ? brief.join("\n") : brief);
+    passage = [passage, b].filter(Boolean).join("\n\n");
+  }
+  if (passage) out.passage = passage;
 
   // task instruction → prompt (validator's hasSource accepts prompt, not question)
   out.prompt = it.prompt || it.stimulus || it.focusPrompt || it.question || "";
