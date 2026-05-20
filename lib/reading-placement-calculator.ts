@@ -104,26 +104,32 @@ export function calculateReadingPlacement(
 
   const dominantErrors = collectDominantErrors(taskResults);
 
-  // ── Grade 4+ : grade-seed ceiling + probe ladder ─────────────────────────
+  // ── Grade 4+ : grade-seed ceiling + two-consecutive-failure probe ladder ─
   // Older learners are NOT funnelled through Level-1 phonics. Their content
   // lives in the Intermediate tree (L6+), so placement is capped by the
   // grade seed (Gr 4→L6, Gr 6→L8, Gr 12→L14 — see english-grade-map.ts).
-  // We then scan the L6–L14 probe ladder in ascending order. First failure
-  // = entry at that probe's mapsToSkill; all-pass = grade seed. DL6 keeps
-  // its legacy semantic — failing the very first probe drops to R5 (the
-  // comprehension bridge), not to phonics, since spoken phonics tasks
-  // (D01/D02) are unreliable for older learners.
+  //
+  // Rule (changed 2026-05-20): A single probe slip no longer drops placement.
+  // We scan the L6–L14 probe ladder pair-by-pair (administered probes only)
+  // and only drop when we find TWO CONSECUTIVE failures. Entry lands at the
+  // FIRST failure of that pair. If no consecutive pair exists (≤1 wrong, or
+  // wrongs separated by a pass), the learner stays at the grade seed. DL6
+  // keeps its comprehension-bridge semantic — a confirmed DL6→DL7 double
+  // miss drops to R5, never to phonics. With only one probe administered
+  // (Gr 4 sees DL6 alone), no consecutive pair is possible, so a single
+  // DL6 fail also leaves the learner at seed. That's deliberate: a single
+  // MCQ wrong should not sink a 9-level placement.
   if (grade >= 4) {
     const seed = seedForGrade(grade).entrySkillId;
+    const administered = GRADE4_PLUS_PROBE_LADDER.filter((p) => !!resultMap[p]);
 
     let entrySkillId = seed;
-    for (const probeId of GRADE4_PLUS_PROBE_LADDER) {
-      if (!resultMap[probeId]) continue;          // probe not administered this grade
-      if (taskPassed(probeId)) continue;          // passed — climb to the next rung
-      const probeTask = DIAGNOSTIC_TASKS.find((t) => t.id === probeId);
-      // DL6 fail: comprehension bridge, not phonics. All other probes use
-      // their declared mapsToSkill (R7.T1.A1 .. R14.T1.A1).
-      entrySkillId = probeId === "DL6" ? "R5.T1.A1" : (probeTask?.mapsToSkill ?? seed);
+    for (let i = 0; i < administered.length - 1; i++) {
+      const p1 = administered[i];
+      const p2 = administered[i + 1];
+      if (taskPassed(p1) || taskPassed(p2)) continue;   // need TWO in a row
+      const probeTask = DIAGNOSTIC_TASKS.find((t) => t.id === p1);
+      entrySkillId = p1 === "DL6" ? "R5.T1.A1" : (probeTask?.mapsToSkill ?? seed);
       break;
     }
 
