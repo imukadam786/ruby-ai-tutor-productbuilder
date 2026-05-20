@@ -36,8 +36,12 @@ const TASK_SCAN_ORDER = [
   "D01", "D01B", "D02", "D02B", "D03", "D04", "D05", "D05B", "D06", "D07", "D08",
   "D09", "D10", "D10B", "D11", "D12",
   "D13", "D13B", "D13C", "D14", "D15", "D15B", "D16", "D17", "D18",
-  "DL6",
+  "DL6", "DL7", "DL8", "DL9", "DL10", "DL11", "DL12", "DL13", "DL14",
 ];
+
+// Probe ladder scanned for grade 4+ placement (low → high).
+// First failure in the ladder = entry level; all-pass = grade-seed level.
+const GRADE4_PLUS_PROBE_LADDER = ["DL6", "DL7", "DL8", "DL9", "DL10", "DL11", "DL12", "DL13", "DL14"];
 
 // ─── Grade ceiling placement (when all administered tasks pass) ────────────────
 // A student who passes everything in their grade window starts at the top of
@@ -100,22 +104,35 @@ export function calculateReadingPlacement(
 
   const dominantErrors = collectDominantErrors(taskResults);
 
-  // ── Grade 4+ : grade drives the starting point ───────────────────────────
+  // ── Grade 4+ : grade-seed ceiling + probe ladder ─────────────────────────
   // Older learners are NOT funnelled through Level-1 phonics. Their content
-  // lives in the Intermediate tree (L6+), so placement is seeded by grade.
-  // Only the grade-level probe (DL6) can lower it — and only to the
-  // comprehension bridge (R5), never to phonics. This prevents missed spoken
-  // phonics questions (D01/D02) from trapping a Grade-4 learner at Level 1.
+  // lives in the Intermediate tree (L6+), so placement is capped by the
+  // grade seed (Gr 4→L6, Gr 6→L8, Gr 12→L14 — see english-grade-map.ts).
+  // We then scan the L6–L14 probe ladder in ascending order. First failure
+  // = entry at that probe's mapsToSkill; all-pass = grade seed. DL6 keeps
+  // its legacy semantic — failing the very first probe drops to R5 (the
+  // comprehension bridge), not to phonics, since spoken phonics tasks
+  // (D01/D02) are unreliable for older learners.
   if (grade >= 4) {
     const seed = seedForGrade(grade).entrySkillId;
-    const probeFailed = !!resultMap["DL6"] && !taskPassed("DL6");
-    const entrySkillId = probeFailed ? "R5.T1.A1" : seed;
+
+    let entrySkillId = seed;
+    for (const probeId of GRADE4_PLUS_PROBE_LADDER) {
+      if (!resultMap[probeId]) continue;          // probe not administered this grade
+      if (taskPassed(probeId)) continue;          // passed — climb to the next rung
+      const probeTask = DIAGNOSTIC_TASKS.find((t) => t.id === probeId);
+      // DL6 fail: comprehension bridge, not phonics. All other probes use
+      // their declared mapsToSkill (R7.T1.A1 .. R14.T1.A1).
+      entrySkillId = probeId === "DL6" ? "R5.T1.A1" : (probeTask?.mapsToSkill ?? seed);
+      break;
+    }
+
     return {
       completedAt: Date.now(),
       tasks: taskResults,
       entrySkillId,
       autoCompletedSkillIds: skillsBefore(entrySkillId),
-      hardGatePassed: true,
+      hardGatePassed: !entrySkillId.startsWith("R1."),
       dominantErrors,
     };
   }

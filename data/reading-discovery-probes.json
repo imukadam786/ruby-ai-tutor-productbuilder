@@ -1,0 +1,529 @@
+{
+  "_meta": {
+    "purpose": "Discovery placement probes for Grade 4+ learners. One probe per level (L6 through L14). At runtime, ReadingDiagnosticPlacement.tsx picks ONE item at random from each level's pool, so retakes show fresh content. Calculator scores at the probe (DLn) level — item choice does not affect placement.",
+    "sourcing": "L6–L12 items adapt passages from the head of ed's authored skill-tree banks (data/reading-question-banks/*.json) — same passages used in the live engine, restated as 3-choice MCQs for choice-correctness scoring. L13 and L14 items are authored standalone because L13 has no bank yet and L14's bank is empty.",
+    "format": "Each level has a probeId (DLn), domain label, mapsToSkill (R{n}.T1.A1) used by the placement calculator on first-failure, passThreshold 0.8, and an items pool. Each item has a stem (question), optional passage (rendered in the amber passage box), and 3 choices with one marked correct."
+  },
+  "L6": {
+    "probeId": "DL6",
+    "domain": "L6 — Procedural Sequencing & Main Idea",
+    "mapsToSkill": "R6.T1.A1",
+    "passThreshold": 0.8,
+    "items": [
+      {
+        "iid": "DL6-01",
+        "question": "Read the steps for planting a seed. Which order is correct?",
+        "subText": "Pick the option where the steps make sense from start to finish.",
+        "choices": [
+          { "label": "1. Fill the pot with damp soil  2. Push the seed in to the right depth  3. Cover the seed and press down  4. Water it and put it in a sunny spot", "value": "A", "correct": true },
+          { "label": "1. Push the seed in  2. Fill the pot with soil  3. Water it and put it in the sun  4. Cover the seed and press down", "value": "B", "correct": false },
+          { "label": "1. Water it and put it in the sun  2. Fill the pot with soil  3. Cover the seed  4. Push the seed in", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL6-02",
+        "question": "Read the story. What is the MAIN idea?",
+        "passage": "Maya's dog Biscuit ran out of the gate one morning. Maya searched the whole street calling his name. She checked under the bushes and behind the garage. Her neighbour Mr Peters pointed toward the park. Maya ran to the park and found Biscuit sitting near the pond, wagging his tail. After that morning she always checked the gate before leaving the house.",
+        "choices": [
+          { "label": "Dogs like to run away from home.", "value": "A", "correct": false },
+          { "label": "Maya searched for her lost dog and learned to check the gate carefully afterwards.", "value": "B", "correct": true },
+          { "label": "The neighbour was very helpful that morning.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL6-03",
+        "question": "Which order is correct for how bees make honey?",
+        "passage": "A bee collects nectar from flowers, stores it in its honey stomach, returns to the hive, passes it to worker bees who put it in honeycomb cells, and the bees fan it with their wings to thicken it into honey.",
+        "choices": [
+          { "label": "Store nectar in stomach → collect nectar → return to hive → fan it → put in cells", "value": "A", "correct": false },
+          { "label": "Collect nectar → store in honey stomach → return to hive → put in cells → fan it dry", "value": "B", "correct": true },
+          { "label": "Return to hive → collect nectar → fan it → store in stomach → put in cells", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL6-04",
+        "question": "Which is the correct order in the water cycle?",
+        "passage": "The sun heats water in the sea. The water turns into vapour and rises. The vapour cools high in the sky and forms clouds. The clouds release the water as rain. The rain flows back to the sea.",
+        "choices": [
+          { "label": "Sun heats water → vapour rises → clouds form → rain falls → water returns to sea", "value": "A", "correct": true },
+          { "label": "Clouds form → sun heats water → rain falls → vapour rises → water returns", "value": "B", "correct": false },
+          { "label": "Rain falls → vapour rises → sun heats water → clouds form → water returns", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL6-05",
+        "question": "Read the story. What is the MAIN idea?",
+        "passage": "Liam wanted a new football costing R150. His mother said she could not buy it, but offered him R5 for making his bed and R10 for washing dishes. Liam saved every coin in a jar. After eight weeks the jar was full and he counted exactly R150.",
+        "choices": [
+          { "label": "Liam's mother was strict about money.", "value": "A", "correct": false },
+          { "label": "Liam earned and saved the money he needed to buy his football.", "value": "B", "correct": true },
+          { "label": "Footballs cost too much for most families.", "value": "C", "correct": false }
+        ]
+      }
+    ]
+  },
+  "L7": {
+    "probeId": "DL7",
+    "domain": "L7 — Organised Meaning",
+    "mapsToSkill": "R7.T1.A1",
+    "passThreshold": 0.8,
+    "items": [
+      {
+        "iid": "DL7-01",
+        "question": "Read this short text. What is the writer's MAIN point?",
+        "passage": "Cats and dogs both make good pets, but they need very different care. Dogs need walks every day and lots of company, while cats are more independent and clean themselves.",
+        "choices": [
+          { "label": "Cats and dogs need different kinds of care.", "value": "A", "correct": true },
+          { "label": "Cats are better pets than dogs.", "value": "B", "correct": false },
+          { "label": "All pets need food and water.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL7-02",
+        "question": "What is the MAIN idea this passage organises?",
+        "passage": "Water moves continuously between the Earth's surface and the atmosphere. When the sun heats water in oceans, rivers, and lakes, it turns into water vapour and rises. When clouds hold enough droplets, the water falls back to Earth as rain, snow, or hail.",
+        "choices": [
+          { "label": "The sun heats water in oceans and rivers.", "value": "A", "correct": false },
+          { "label": "Water moves continuously between Earth's surface and the atmosphere.", "value": "B", "correct": true },
+          { "label": "Clouds release water as rain, snow, or hail.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL7-03",
+        "question": "Which sentence captures the writer's MAIN point?",
+        "passage": "Solar energy is electricity produced from sunlight. Solar panels are made of cells that absorb sunlight and convert it directly into electricity. Solar energy produces no pollution when generating electricity, which helps reduce climate change.",
+        "choices": [
+          { "label": "Solar panels are made of cells that absorb sunlight.", "value": "A", "correct": false },
+          { "label": "Solar energy is clean electricity made from sunlight, and it helps reduce climate change.", "value": "B", "correct": true },
+          { "label": "Climate change is a serious global problem.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL7-04",
+        "question": "What is this passage MAINLY about?",
+        "passage": "Migration is the seasonal movement of animals from one place to another, usually to find food, warmth, or safe breeding grounds. Most animals migrate because their food supply changes with the seasons. Scientists have discovered that many animals use the Earth's magnetic field like a compass to navigate.",
+        "choices": [
+          { "label": "The Earth's magnetic field and how it works.", "value": "A", "correct": false },
+          { "label": "Why animals migrate seasonally and how they find their way.", "value": "B", "correct": true },
+          { "label": "Why food supplies change in winter.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL7-05",
+        "question": "Which sentence BEST captures the writer's main point?",
+        "passage": "The Amazon is the world's largest tropical rainforest. Scientists estimate it contains around 10% of all species on Earth. The Amazon is often called 'the lungs of the Earth' because its trees absorb vast amounts of carbon dioxide and release oxygen.",
+        "choices": [
+          { "label": "Scientists estimate the Amazon contains 10% of all species on Earth.", "value": "A", "correct": false },
+          { "label": "The Amazon is the world's largest rainforest and is vital for biodiversity and the climate.", "value": "B", "correct": true },
+          { "label": "The Amazon's trees release oxygen into the air.", "value": "C", "correct": false }
+        ]
+      }
+    ]
+  },
+  "L8": {
+    "probeId": "DL8",
+    "domain": "L8 — Cause & Effect",
+    "mapsToSkill": "R8.T1.A1",
+    "passThreshold": 0.8,
+    "items": [
+      {
+        "iid": "DL8-01",
+        "question": "Read the passage. What is the MAIN cause of the river drying up?",
+        "passage": "The river had been low for years. Each summer was hotter than the last, and the rain that used to soak the hills now ran off too quickly. By August, only puddles remained.",
+        "choices": [
+          { "label": "Heavy rain that flooded the river.", "value": "A", "correct": false },
+          { "label": "Hotter summers and rainfall that ran off too quickly to soak in.", "value": "B", "correct": true },
+          { "label": "Animals drinking too much from the river.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL8-02",
+        "question": "What was the MAIN cause of the deaths after the Haiti earthquake?",
+        "passage": "In 2010, a massive earthquake struck Haiti. Most structures in Port-au-Prince were not built to withstand seismic activity, so they collapsed rapidly. The collapse resulted in more than 200,000 deaths and left over 1.5 million people homeless.",
+        "choices": [
+          { "label": "The earthquake was unusually large for the region.", "value": "A", "correct": false },
+          { "label": "Buildings were not constructed to withstand seismic activity, so they collapsed.", "value": "B", "correct": true },
+          { "label": "Aid organisations arrived too slowly after the quake.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL8-03",
+        "question": "What is the MAIN effect of Amazon deforestation described here?",
+        "passage": "Deforestation in the Amazon basin has reduced the moisture that trees release through transpiration. When large areas of forest are cleared, this moisture cycle is disrupted. As a result, rainfall patterns across South America have shifted, with some regions experiencing more severe droughts.",
+        "choices": [
+          { "label": "Remaining trees grow taller because there is less competition.", "value": "A", "correct": false },
+          { "label": "Rainfall patterns have shifted and droughts have become more severe.", "value": "B", "correct": true },
+          { "label": "Air pollution has risen sharply in nearby cities.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL8-04",
+        "question": "Why did the introduction of cane toads cause native predators to decline?",
+        "passage": "Cane toads were brought to Queensland in 1935 to control beetles destroying sugar cane. The toads failed to control the beetles and spread rapidly. Because cane toads produce a toxic poison in their skin, native predators that tried to eat them were killed.",
+        "choices": [
+          { "label": "Cane toads ate the same food the predators relied on.", "value": "A", "correct": false },
+          { "label": "Cane toads carry a toxic poison in their skin that killed predators that tried to eat them.", "value": "B", "correct": true },
+          { "label": "Cane toads spread a disease that infected the predators.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL8-05",
+        "question": "What was the MAIN cause of the Dust Bowl?",
+        "passage": "During the 1930s, farmers in the American Great Plains ploughed up the native grasses that held the soil in place. When prolonged drought arrived, the unprotected soil was carried away by strong winds in massive dust storms. The destruction of farmland forced hundreds of thousands of families to leave.",
+        "choices": [
+          { "label": "Heavy rainfall washed all the topsoil away.", "value": "A", "correct": false },
+          { "label": "Farmers removed the grasses holding the soil, then drought left the loose soil exposed to wind.", "value": "B", "correct": true },
+          { "label": "Strong winds destroyed the crops directly while they were growing.", "value": "C", "correct": false }
+        ]
+      }
+    ]
+  },
+  "L9": {
+    "probeId": "DL9",
+    "domain": "L9 — Argument Analysis",
+    "mapsToSkill": "R9.T1.A1",
+    "passThreshold": 0.8,
+    "items": [
+      {
+        "iid": "DL9-01",
+        "question": "Which sentence is the writer's MAIN argument?",
+        "passage": "School uniforms make mornings easier. They cut down on competition over clothes. Most importantly, students who wear uniforms can focus on learning rather than fashion. Schools should require uniforms.",
+        "choices": [
+          { "label": "School uniforms cut down on competition over clothes.", "value": "A", "correct": false },
+          { "label": "Schools should require uniforms.", "value": "B", "correct": true },
+          { "label": "Mornings are easier when students wear uniforms.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL9-02",
+        "question": "Which sentence is the writer's MAIN argument?",
+        "passage": "Public libraries deserve more funding, not less. They are among the few places left where anyone can walk in and use books, computers, and the internet without paying a penny. For families who cannot afford home internet, the library is often the only place children can finish their homework. Libraries also run free classes in reading, job-hunting, and basic computer skills.",
+        "choices": [
+          { "label": "Libraries run free classes in reading and job-hunting.", "value": "A", "correct": false },
+          { "label": "Public libraries deserve more funding, not less.", "value": "B", "correct": true },
+          { "label": "Many families cannot afford home internet.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL9-03",
+        "question": "Which sentence is the writer's MAIN argument?",
+        "passage": "Single-use plastic bags should be banned across every country that has not yet done so. Each year, around five trillion plastic bags are used globally, and most are thrown away within minutes. A plastic bag takes between 100 and 500 years to break down. Marine animals often mistake floating bags for jellyfish and swallow them.",
+        "choices": [
+          { "label": "Single-use plastic bags should be banned across every country.", "value": "A", "correct": true },
+          { "label": "Five trillion plastic bags are used around the world each year.", "value": "B", "correct": false },
+          { "label": "Marine animals sometimes swallow plastic bags.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL9-04",
+        "question": "Which sentence is the writer's MAIN argument?",
+        "passage": "Schools should start the day later for teenagers. Research from sleep scientists at Oxford and Harvard shows the teenage body clock naturally shifts by one to two hours. A teenager who feels alert at 11 p.m. is not lazy — their biology has changed. Studies of schools that pushed start times back to 8:30 report improved test scores, attendance, and mental health.",
+        "choices": [
+          { "label": "The teenage body clock naturally shifts by one to two hours.", "value": "A", "correct": false },
+          { "label": "Studies show improved test scores when schools start later.", "value": "B", "correct": false },
+          { "label": "Schools should start the day later for teenagers.", "value": "C", "correct": true }
+        ]
+      },
+      {
+        "iid": "DL9-05",
+        "question": "Which sentence is the writer's MAIN argument?",
+        "passage": "Homework deserves to stay. After a lesson, the brain needs time to revisit new ideas, and homework provides that chance. Research on regular short homework practice has reported that learners who complete short tasks regularly score measurably higher on end-of-term tests. Homework also teaches pupils to plan their time and take responsibility for their own learning.",
+        "choices": [
+          { "label": "Homework deserves to stay.", "value": "A", "correct": true },
+          { "label": "Homework helps pupils plan their time.", "value": "B", "correct": false },
+          { "label": "Research has measured end-of-term test scores.", "value": "C", "correct": false }
+        ]
+      }
+    ]
+  },
+  "L10": {
+    "probeId": "DL10",
+    "domain": "L10 — Argument Evaluation",
+    "mapsToSkill": "R10.T1.A1",
+    "passThreshold": 0.8,
+    "items": [
+      {
+        "iid": "DL10-01",
+        "question": "What is wrong with this argument?",
+        "passage": "\"You should not believe Dr Lin's research on climate change because she drives a large car.\"",
+        "choices": [
+          { "label": "It attacks the person making the argument instead of the argument itself.", "value": "A", "correct": true },
+          { "label": "It uses two true facts but draws a false comparison between them.", "value": "B", "correct": false },
+          { "label": "It changes the subject from climate science to cars.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL10-02",
+        "question": "What is wrong with this argument?",
+        "passage": "\"You should not listen to that pupil's idea for the school council — he failed last term's spelling test.\"",
+        "choices": [
+          { "label": "Past spelling performance has nothing to do with the value of someone's ideas — it attacks the person, not the idea.", "value": "A", "correct": true },
+          { "label": "The pupil should be allowed to retake the spelling test.", "value": "B", "correct": false },
+          { "label": "The school council is not a serious enough body to consider ideas.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL10-03",
+        "question": "What kind of flawed reasoning is this?",
+        "passage": "\"Coach Park's argument for more practice cannot be trusted — he has only been coaching for two years.\"",
+        "choices": [
+          { "label": "It uses outdated statistics about coaching.", "value": "A", "correct": false },
+          { "label": "It dismisses the argument by attacking the speaker's experience rather than the argument itself.", "value": "B", "correct": true },
+          { "label": "It generalises from a single example to all coaches.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL10-04",
+        "question": "What is the flaw in this reasoning?",
+        "passage": "\"I drank tea before my last test and I passed. So drinking tea before a test makes you pass.\"",
+        "choices": [
+          { "label": "The writer assumes that because one thing happened before another, it must have caused it.", "value": "A", "correct": true },
+          { "label": "The writer doesn't define exactly what 'tea' means.", "value": "B", "correct": false },
+          { "label": "The writer attacks the reader personally.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL10-05",
+        "question": "What is wrong with this argument?",
+        "passage": "\"Many great scientists struggled in school. So if you struggle in school, you will probably be a great scientist.\"",
+        "choices": [
+          { "label": "It reverses a one-way pattern — 'some great scientists struggled' does not mean 'most strugglers become scientists'.", "value": "A", "correct": true },
+          { "label": "It cites no actual scientists by name.", "value": "B", "correct": false },
+          { "label": "It is unkind to students who do well at school.", "value": "C", "correct": false }
+        ]
+      }
+    ]
+  },
+  "L11": {
+    "probeId": "DL11",
+    "domain": "L11 — Source Synthesis",
+    "mapsToSkill": "R11.T1.A1",
+    "passThreshold": 0.8,
+    "items": [
+      {
+        "iid": "DL11-01",
+        "question": "Which statement BEST reconciles all three sources?",
+        "passage": "Source 1: Pediatricians recommend middle/high schools start no earlier than 8:30 a.m., because adolescent body clocks naturally shift later.  Source 2: Some parents argue that later starts disrupt family schedules and after-school work.  Source 3: A district that moved its start times later reported better attendance and fewer teen-driver crashes.",
+        "choices": [
+          { "label": "Schools should ignore parent feedback and follow the medical advice.", "value": "A", "correct": false },
+          { "label": "Later starts have measurable benefits for teenagers but must be weighed against family logistics.", "value": "B", "correct": true },
+          { "label": "Family schedules are more important than teenage sleep.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL11-02",
+        "question": "Which statement BEST combines all three sources?",
+        "passage": "Source 1: An LSE study found that schools that banned phones saw modest test-score gains, with the largest gains for lower-attaining pupils.  Source 2: Some educators argue that blanket bans ignore the legitimate educational uses of phones.  Source 3: Surveys show many pupils support partial restrictions rather than total bans.",
+        "choices": [
+          { "label": "Phone bans are clearly wrong and should never be imposed.", "value": "A", "correct": false },
+          { "label": "Limiting phones may help pupils — especially the lowest-attaining — but partial restrictions are more popular and may still capture the benefit.", "value": "B", "correct": true },
+          { "label": "Phones in schools have no measurable effect on test scores.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL11-03",
+        "question": "Which statement BEST integrates all three sources?",
+        "passage": "Source 1: When Pontevedra in Spain closed its centre to private cars in 1999, pedestrian traffic rose, pollution fell, and small shops did well.  Source 2: Critics argue pedestrianisation can move traffic and customers to suburbs, hurting some businesses.  Source 3: Recent meta-analyses suggest the net effect depends on parking and public-transport alternatives.",
+        "choices": [
+          { "label": "Pedestrianising city centres always boosts local businesses.", "value": "A", "correct": false },
+          { "label": "Pedestrianisation can succeed but the result depends on context, including parking and public-transport substitutes.", "value": "B", "correct": true },
+          { "label": "Critics of pedestrianisation are usually wrong.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL11-04",
+        "question": "Which statement BEST combines all three sources?",
+        "passage": "Source 1: A meta-analysis found that moderate coffee intake improves focus and reaction time.  Source 2: A clinical review found that coffee can worsen anxiety in people who already have anxiety disorders.  Source 3: Sleep researchers note that coffee in the afternoon disrupts sleep, indirectly worsening focus the next day.",
+        "choices": [
+          { "label": "Coffee sharpens focus for most people, but timing and pre-existing conditions can turn the benefit into harm.", "value": "A", "correct": true },
+          { "label": "Coffee is harmful and should be avoided.", "value": "B", "correct": false },
+          { "label": "Coffee is the most popular drink in the world.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL11-05",
+        "question": "Which statement BEST reconciles all three sources?",
+        "passage": "Source 1: Economists argue that carbon pricing is among the most economically efficient ways to reduce emissions.  Source 2: Critics warn that carbon pricing places a disproportionate burden on low-income households.  Source 3: Studies show that returning carbon-tax revenue as dividends can offset the regressive impact.",
+        "choices": [
+          { "label": "Carbon pricing is efficient but can be unfair; recycling the revenue as dividends can offset the unfairness.", "value": "A", "correct": true },
+          { "label": "Carbon pricing is too harmful to households and should be abandoned.", "value": "B", "correct": false },
+          { "label": "Climate policy does not need to consider household income.", "value": "C", "correct": false }
+        ]
+      }
+    ]
+  },
+  "L12": {
+    "probeId": "DL12",
+    "domain": "L12 — Thesis Identification",
+    "mapsToSkill": "R12.T1.A1",
+    "passThreshold": 0.8,
+    "items": [
+      {
+        "iid": "DL12-01",
+        "question": "Which sentence is the THESIS of this passage?",
+        "passage": "When the school council voted last term to ban smartphones, the predictable response from pupils was outrage. We were told that phones are essential for safety, note-taking, and staying in touch with parents. Yet the case for the policy is stronger than the howls of protest suggest. Research from the LSE, examining English schools before and after similar bans, found measurable gains in test scores.",
+        "choices": [
+          { "label": "The case for the phone-ban policy is stronger than the protest suggests.", "value": "A", "correct": true },
+          { "label": "Pupils argued that phones were essential for safety.", "value": "B", "correct": false },
+          { "label": "The LSE study examined English schools before and after the ban.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL12-02",
+        "question": "Which sentence is the THESIS of this passage?",
+        "passage": "In 2013 Tallinn became the first European capital to abolish public transport fares. A decade on, the policy is still debated. Supporters argue that free transport is a matter of fairness: those who can least afford a car depend on buses, and a flat fare hits them hardest. Critics reply that nothing is truly free; the cost is simply transferred to taxpayers. The honest verdict is that whether free transport works depends on the city and the design of its transport network.",
+        "choices": [
+          { "label": "Tallinn was the first European capital to make public transport free.", "value": "A", "correct": false },
+          { "label": "Free transport is fundamentally a matter of fairness, supporters argue.", "value": "B", "correct": false },
+          { "label": "Whether free public transport works depends on the city and the design of its transport network.", "value": "C", "correct": true }
+        ]
+      },
+      {
+        "iid": "DL12-03",
+        "question": "Which sentence is the THESIS of this passage?",
+        "passage": "Few public-health measures provoke as much eye-rolling as the sugar tax. Critics call it nanny-state policy. But the evidence is harder to dismiss than the rhetoric. Mexico introduced a tax on sugary drinks in 2014; the United Kingdom followed in 2018. In both countries, manufacturers reformulated to avoid the tax, sugar content in popular drinks fell, and consumption of sugary drinks declined.",
+        "choices": [
+          { "label": "Critics dismiss sugar taxes as nanny-state policy.", "value": "A", "correct": false },
+          { "label": "The evidence for sugar taxes is harder to dismiss than the rhetoric against them suggests.", "value": "B", "correct": true },
+          { "label": "Mexico introduced a tax on sugary drinks in 2014.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL12-04",
+        "question": "Which sentence is the THESIS of this passage?",
+        "passage": "In 1995, after a sixty-year absence, wolves were reintroduced to Yellowstone. What followed was anything but straightforward. Elk, no longer browsing without fear, began to avoid open river valleys. Vegetation in those valleys recovered. Beavers, finding more willow to work with, built more dams, which created wetlands. The reintroduction showed how a single predator can reshape an entire ecosystem.",
+        "choices": [
+          { "label": "Wolves were reintroduced to Yellowstone in 1995.", "value": "A", "correct": false },
+          { "label": "The reintroduction showed how a single predator can reshape an entire ecosystem.", "value": "B", "correct": true },
+          { "label": "Beavers built more dams after the wolves returned.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL12-05",
+        "question": "Which sentence is the THESIS of this passage?",
+        "passage": "Social media has reshaped public debate. Twitter spreads news in seconds. TikTok makes complex ideas viral in days. Instagram turns image into argument. Each platform changes the way we persuade each other, and the speed of that change is faster than any democracy has had to manage before.",
+        "choices": [
+          { "label": "Twitter spreads news in seconds.", "value": "A", "correct": false },
+          { "label": "Social media has reshaped public debate.", "value": "B", "correct": true },
+          { "label": "Each platform changes the way we persuade.", "value": "C", "correct": false }
+        ]
+      }
+    ]
+  },
+  "L13": {
+    "probeId": "DL13",
+    "domain": "L13 — Theme Beyond Literal",
+    "mapsToSkill": "R13.T1.A1",
+    "passThreshold": 0.8,
+    "items": [
+      {
+        "iid": "DL13-01",
+        "question": "What does the plant most likely SYMBOLISE in this story?",
+        "passage": "A short story ends with a character watering a dead plant every morning, even though everyone tells her it will never bloom again. She continues for months. The narrator never explains why.",
+        "choices": [
+          { "label": "The character's interest in gardening.", "value": "A", "correct": false },
+          { "label": "The character's refusal to let go of something she has already lost.", "value": "B", "correct": true },
+          { "label": "The dry weather that year affecting all the plants.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL13-02",
+        "question": "Which thematic reading BEST explains the boy's torch?",
+        "passage": "Throughout the novel, the boy carries a small torch wherever he goes. He turns it on in classrooms, in his bedroom, even in broad daylight. The narrator describes the beam as 'a small island the world cannot quite swallow.'",
+        "choices": [
+          { "label": "The boy is afraid of the dark and the torch reassures him.", "value": "A", "correct": false },
+          { "label": "The torch represents the boy's small but stubborn hold on his own sense of self.", "value": "B", "correct": true },
+          { "label": "The torch is a gift from his father and he carries it for sentimental reasons.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL13-03",
+        "question": "What does Lena's behaviour MOST suggest about her relationship with her past?",
+        "passage": "Lena returns to her childhood village after twenty years away. She greets her aunt politely but refuses to step inside the family house. She tells the driver to wait. She walks the perimeter of the garden, then leaves without going in.",
+        "choices": [
+          { "label": "She is in a hurry to get back home before dark.", "value": "A", "correct": false },
+          { "label": "She is drawn to the past but unwilling — perhaps unable — to fully re-enter it.", "value": "B", "correct": true },
+          { "label": "She has lost her memory of the village and the house.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL13-04",
+        "question": "What is the EFFECT of the structural shift in the final stanza?",
+        "passage": "Each stanza of the poem opens with 'I will not' — 'I will not look,' 'I will not speak,' 'I will not stay.' The final stanza opens, simply, with 'I look.'",
+        "choices": [
+          { "label": "The poet has changed the topic abruptly and accidentally.", "value": "A", "correct": false },
+          { "label": "The repeated refusals build a wall — breaking it in the final line carries the weight of every earlier refusal.", "value": "B", "correct": true },
+          { "label": "The poet ran out of negative things to say and gave up.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL13-05",
+        "question": "What does the repetition of 'empty streets' MOST likely suggest?",
+        "passage": "Text A describes the city at dawn — empty streets, gulls, the smell of bread. Text B describes the city at midnight — empty streets, sirens, the smell of rain. Both texts share the phrase 'empty streets.'",
+        "choices": [
+          { "label": "The author was lazy and reused the same phrase.", "value": "A", "correct": false },
+          { "label": "Each emptiness carries a different weight — peaceful in one text, lonely in the other.", "value": "B", "correct": true },
+          { "label": "The city's streets are always empty regardless of time of day.", "value": "C", "correct": false }
+        ]
+      }
+    ]
+  },
+  "L14": {
+    "probeId": "DL14",
+    "domain": "L14 — NSC Exit Standard",
+    "mapsToSkill": "R14.T1.A1",
+    "passThreshold": 0.8,
+    "items": [
+      {
+        "iid": "DL14-01",
+        "question": "Which device is the poet using in this line?",
+        "passage": "\"The clock ticked like a heart that had forgotten how to stop.\"",
+        "choices": [
+          { "label": "Alliteration", "value": "A", "correct": false },
+          { "label": "Simile", "value": "B", "correct": true },
+          { "label": "Rhyme", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL14-02",
+        "question": "Which BEST describes the tone of this passage?",
+        "passage": "\"He bowed deeply to his accusers, smiled, and thanked them for their kind attention. The room was very, very quiet.\"",
+        "choices": [
+          { "label": "Cheerful and sincere — the speaker is grateful.", "value": "A", "correct": false },
+          { "label": "Ironic — the polite gestures suggest a deeper anger or contempt beneath them.", "value": "B", "correct": true },
+          { "label": "Confused and frightened — the speaker doesn't know what to do.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL14-03",
+        "question": "Which device is the poet using?",
+        "passage": "\"Her voice was a small lighthouse — every word a sweep of light over the dark water of the room.\"",
+        "choices": [
+          { "label": "Metaphor — her voice is described AS a lighthouse, not 'like' one.", "value": "A", "correct": true },
+          { "label": "Personification of the room itself.", "value": "B", "correct": false },
+          { "label": "Alliteration of the 'l' sound.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL14-04",
+        "question": "What does the final line MOST likely convey?",
+        "passage": "The poem ends: 'And so we sat, two strangers, sharing one umbrella in the rain.' The 'two strangers' have appeared earlier in the poem as a husband and wife of thirty years.",
+        "choices": [
+          { "label": "The couple are stuck outside in the rain and waiting for it to stop.", "value": "A", "correct": false },
+          { "label": "After thirty years together, the couple have grown into strangers — distance hidden inside intimacy.", "value": "B", "correct": true },
+          { "label": "The umbrella they share is too small for two adults.", "value": "C", "correct": false }
+        ]
+      },
+      {
+        "iid": "DL14-05",
+        "question": "How should we read the speaker's repeated insistence?",
+        "passage": "The speaker insists, in stanza after stanza, that she does not miss her mother. By the final stanza, she lists every meal her mother cooked, the smell of her perfume, and every song she used to sing.",
+        "choices": [
+          { "label": "She is telling us the literal truth: she does not miss her mother.", "value": "A", "correct": false },
+          { "label": "Her insistence is undermined by the detail of the memories — the poem dramatises grief through denial.", "value": "B", "correct": true },
+          { "label": "The speaker is angry with her mother and wants to forget her.", "value": "C", "correct": false }
+        ]
+      }
+    ]
+  }
+}

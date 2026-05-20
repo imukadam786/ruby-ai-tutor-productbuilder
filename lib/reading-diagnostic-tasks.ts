@@ -457,4 +457,106 @@ export const DIAGNOSTIC_TASKS: DiagnosticTask[] = [
       },
     ],
   },
+  // ── L7–L14 discovery probes ─────────────────────────────────────────────
+  // One MCQ each, testing the hallmark skill of each level. Stacked after DL6
+  // in the diagnostic so Grade 5–12 learners get probed beyond procedural
+  // sequencing. Placement calculator scans them in ascending order — first
+  // failure decides entry level; all-pass falls back to the grade seed.
+  // Rendered cards live in ReadingDiagnosticPlacement.tsx as LX_PROBE_TASK.
+  {
+    id: "DL7",
+    domain: "L7 — Organised Meaning",
+    mode: "tap",
+    description: "Identify the main idea across a structured paragraph (Level 7 probe)",
+    instruction: "Choose the sentence that best captures the writer's main point.",
+    passThreshold: 0.8,
+    mapsToSkill: "R7.T1.A1",
+    items: [
+      { id: "DL7-01", prompt: "Read the short text. What is the writer's main point?", expected: "A", options: ["A", "B", "C"] },
+    ],
+  },
+  {
+    id: "DL8",
+    domain: "L8 — Cause & Effect",
+    mode: "tap",
+    description: "Identify the main cause in a short academic passage (Level 8 probe)",
+    instruction: "Choose the option that best explains the cause.",
+    passThreshold: 0.8,
+    mapsToSkill: "R8.T1.A1",
+    items: [
+      { id: "DL8-01", prompt: "Read the passage. What is the MAIN cause of the river drying up?", expected: "B", options: ["A", "B", "C"] },
+    ],
+  },
+  {
+    id: "DL9",
+    domain: "L9 — Argument Analysis",
+    mode: "tap",
+    description: "Identify the writer's main argument in a short paragraph (Level 9 probe)",
+    instruction: "Choose the sentence that states the writer's main argument.",
+    passThreshold: 0.8,
+    mapsToSkill: "R9.T1.A1",
+    items: [
+      { id: "DL9-01", prompt: "Which sentence is the writer's MAIN argument?", expected: "B", options: ["A", "B", "C"] },
+    ],
+  },
+  {
+    id: "DL10",
+    domain: "L10 — Argument Evaluation",
+    mode: "tap",
+    description: "Detect the flaw in a short argument (Level 10 probe)",
+    instruction: "Choose the option that best explains what is wrong with the argument.",
+    passThreshold: 0.8,
+    mapsToSkill: "R10.T1.A1",
+    items: [
+      { id: "DL10-01", prompt: "What is wrong with this argument?", expected: "A", options: ["A", "B", "C"] },
+    ],
+  },
+  {
+    id: "DL11",
+    domain: "L11 — Source Synthesis",
+    mode: "tap",
+    description: "Reconcile information across two sources (Level 11 probe)",
+    instruction: "Choose the statement that best combines both sources.",
+    passThreshold: 0.8,
+    mapsToSkill: "R11.T1.A1",
+    items: [
+      { id: "DL11-01", prompt: "Which statement BEST combines both sources?", expected: "A", options: ["A", "B", "C"] },
+    ],
+  },
+  {
+    id: "DL12",
+    domain: "L12 — Thesis vs Evidence",
+    mode: "tap",
+    description: "Identify the thesis sentence in an academic paragraph (Level 12 probe)",
+    instruction: "Choose the sentence that is the THESIS of the paragraph.",
+    passThreshold: 0.8,
+    mapsToSkill: "R12.T1.A1",
+    items: [
+      { id: "DL12-01", prompt: "Which sentence is the THESIS of this paragraph?", expected: "B", options: ["A", "B", "C"] },
+    ],
+  },
+  {
+    id: "DL13",
+    domain: "L13 — Theme Beyond Literal",
+    mode: "tap",
+    description: "Identify symbolic meaning beyond the literal text (Level 13 probe)",
+    instruction: "Choose the option that best explains the symbolism.",
+    passThreshold: 0.8,
+    mapsToSkill: "R13.T1.A1",
+    items: [
+      { id: "DL13-01", prompt: "What does the plant most likely SYMBOLISE in this story?", expected: "B", options: ["A", "B", "C"] },
+    ],
+  },
+  {
+    id: "DL14",
+    domain: "L14 — Poetic Device",
+    mode: "tap",
+    description: "Identify a poetic device in an unseen line (Level 14 probe)",
+    instruction: "Choose the device the poet is using.",
+    passThreshold: 0.8,
+    mapsToSkill: "R14.T1.A1",
+    items: [
+      { id: "DL14-01", prompt: "Which device is the poet using in this line?", expected: "B", options: ["A", "B", "C"] },
+    ],
+  },
 ];

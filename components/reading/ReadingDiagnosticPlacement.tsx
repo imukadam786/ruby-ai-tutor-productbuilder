@@ -8,6 +8,7 @@ import DiagnosticReportView from "@/components/DiagnosticReportView";
 import { describeError } from "@/lib/report-generator";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { DIAGNOSTIC_TASKS } from "@/lib/reading-diagnostic-tasks";
+import discoveryProbesData from "@/data/reading-discovery-probes.json";
 
 // ── Task definitions (hardcoded — no API calls for generation) ────────────────
 
@@ -38,15 +39,19 @@ interface Task {
 //   Grade 1:  9 tasks — D01–D07  (phonological awareness + basic CVC decoding)
 //   Grade 2: 12 tasks — D01–D10  (+ vowel patterns: silent E, vowel teams)
 //   Grade 3: 15 tasks — D01–D12  (+ sight words, phoneme blending, r-controlled)
-//   Grade 4+: 17 tasks — D01–D13B (+ two-syllable decoding, consonant blend encoding)
+//   Grade 4: 17 tasks — D01–D13B (+ two-syllable decoding, consonant blend encoding)
+//   Grade 5+: 2 tasks — D01+D02 only (foundation sanity check). Placement for
+//             these grades is driven by the L6–L14 probe ladder appended after
+//             phonics (see GRADE_PROBE_STACK below). Older learners don't need
+//             a 17-task phonics quiz to be placed at L7+.
 // D13C (Unfamiliar Word Encoding) excluded: it uses intentional pseudo-words that STT
 // cannot reliably recognise — redesign as keyboard-tap spelling is a future iteration.
-// Grade 4+ is capped at 17 — students beyond this advance through the skill tree.
 const GRADE_TASK_IDS: Record<number, string[]> = {
   1: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07"],
   2: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07","D08","D09","D10"],
   3: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07","D08","D09","D10","D10B","D11","D12"],
   4: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07","D08","D09","D10","D10B","D11","D12","D13","D13B"],
+  5: ["D01","D02"],
 };
 
 // ── Dynamic task loader ───────────────────────────────────────────────────────
@@ -55,43 +60,70 @@ async function loadRandomQuestionPaper(grade: number): Promise<Task[]> {
   const paper = await import(`@/data/question-banks/${randomNumber}.json`);
   const all = paper.default as Task[];
   const withGate = all.filter((t) => !!t.gate);
-  const allowed = GRADE_TASK_IDS[Math.min(grade, 4)];
-  if (!allowed) return withGate; // Grade 5+ gets all tasks
+  // Grades 1–4 use their own task lists; grades 5+ collapse to the senior
+  // sanity check (D01+D02). The probe ladder appended in the useEffect does
+  // the actual placement work for older learners.
+  const lookup = grade <= 4 ? grade : 5;
+  const allowed = GRADE_TASK_IDS[lookup];
+  if (!allowed) return withGate;
   return withGate.filter((t) => allowed.includes(t.id));
 }
 
-// ── L6 discovery probe ────────────────────────────────────────────────────────
-// Deterministic procedural-sequencing MCQ sourced from the L6.B2 bank
-// (BP.001 "How to Plant a Seed"). Appended for Grade 4+ so Discovery can place
-// a learner into the Level 6 English tree. Calculator metadata (passThreshold
-// 0.8, mapsToSkill R6.T1.A1) lives in DIAGNOSTIC_TASKS["DL6"]; this is the
-// rendered card. Pure choice correctness — no uncalibrated grading.
-const L6_PROBE_TASK: Task = {
-  id: "DL6",
-  domain: "L6 — Procedural Sequencing",
-  question: "Read the steps for planting a seed. Which order is correct?",
-  subText: "Pick the option where the steps make sense from start to finish.",
-  answerMode: "choice",
-  choices: [
-    {
-      label:
-        "1. Fill the pot with damp soil  2. Push the seed in to the right depth  3. Cover the seed and press down  4. Water it and put it in a sunny spot",
-      value: "A",
-      correct: true,
-    },
-    {
-      label:
-        "1. Push the seed in  2. Fill the pot with soil  3. Water it and put it in the sun  4. Cover the seed and press down",
-      value: "B",
-      correct: false,
-    },
-    {
-      label:
-        "1. Water it and put it in the sun  2. Fill the pot with soil  3. Cover the seed  4. Push the seed in",
-      value: "C",
-      correct: false,
-    },
-  ],
+// ── L6–L14 discovery probes ───────────────────────────────────────────────────
+// Probe content lives in data/reading-discovery-probes.json (one pool of MCQ
+// items per level, 5 each, sourced from authored skill-tree banks where they
+// exist). At session start we draw ONE item at random from each level the
+// learner's grade requires — so retakes show fresh content. Placement
+// calculator scores at the probe (DLn) level; item choice does not affect
+// placement. Calculator-facing metadata (passThreshold, mapsToSkill) lives
+// in DIAGNOSTIC_TASKS in lib/reading-diagnostic-tasks.ts.
+
+interface ProbePoolItem {
+  iid: string;
+  question: string;
+  subText?: string;
+  passage?: string;
+  choices: Choice[];
+}
+interface ProbePool {
+  probeId: string;
+  domain: string;
+  mapsToSkill: string;
+  passThreshold: number;
+  items: ProbePoolItem[];
+}
+const PROBE_POOLS = discoveryProbesData as unknown as Record<string, ProbePool>;
+
+/** Pick one random item from each level's pool and build a renderable Task. */
+function buildProbeTask(levelKey: "L6"|"L7"|"L8"|"L9"|"L10"|"L11"|"L12"|"L13"|"L14"): Task | null {
+  const pool = PROBE_POOLS[levelKey];
+  if (!pool || pool.items.length === 0) return null;
+  const item = pool.items[Math.floor(Math.random() * pool.items.length)];
+  return {
+    id: pool.probeId,
+    domain: pool.domain,
+    question: item.question,
+    subText: item.subText,
+    passage: item.passage,
+    answerMode: "choice",
+    choices: item.choices,
+  };
+}
+
+// Grade → which level-keys to probe. A Gr-12 learner answers the full L6→L14
+// ladder; a Gr-5 learner only sees L6 + L7. First failure in the ladder
+// decides entry level (see reading-placement-calculator.ts). Gr 4 keeps the
+// legacy single-L6 behaviour.
+const GRADE_PROBE_LEVELS: Record<number, ("L6"|"L7"|"L8"|"L9"|"L10"|"L11"|"L12"|"L13"|"L14")[]> = {
+  4: ["L6"],
+  5: ["L6","L7"],
+  6: ["L6","L7","L8"],
+  7: ["L6","L7","L8","L9"],
+  8: ["L6","L7","L8","L9","L10"],
+  9: ["L6","L7","L8","L9","L10","L11"],
+  10: ["L6","L7","L8","L9","L10","L11","L12"],
+  11: ["L6","L7","L8","L9","L10","L11","L12","L13"],
+  12: ["L6","L7","L8","L9","L10","L11","L12","L13","L14"],
 };
 
 
@@ -554,9 +586,16 @@ export default function ReadingDiagnosticPlacement({
         tasks = await loadRandomQuestionPaper(studentGrade);
       }
       if (!cancelled) {
-        // Grade 4+ ends Discovery with the L6 probe so the calculator can
-        // place a strong reader into the Level 6 English tree.
-        const finalTasks = studentGrade >= 4 ? [...tasks, L6_PROBE_TASK] : tasks;
+        // Grade 4+ ends Discovery with a stack of level-probe MCQs (L6 up to
+        // the learner's grade-seed level). Each probe draws one random item
+        // from its level pool so retakes see fresh content. Calculator does
+        // first-fail scan to find the right entry level. Gr 4 keeps the
+        // legacy single-L6 probe; grades above 12 cap at the L14 stack.
+        const probeKeys = GRADE_PROBE_LEVELS[Math.min(studentGrade, 12)];
+        const probeStack = (probeKeys ?? [])
+          .map((k) => buildProbeTask(k))
+          .filter((t): t is Task => t !== null);
+        const finalTasks = studentGrade >= 4 ? [...tasks, ...probeStack] : tasks;
         TASKSRef.current = finalTasks;
         setTASKS(finalTasks);
       }

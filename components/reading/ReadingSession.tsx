@@ -309,6 +309,10 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
       // even if the user navigates away before clicking "Continue Learning"
       const updated = completeDiagnosticPlacement(profile, result);
       savedPlacementRef.current = updated;
+      // Await the Supabase write so SubjectsHub reflects placement-complete
+      // on the very next hydrate. Errors are already logged inside
+      // saveReadingProfile — we just block on it here.
+      if (updated._savePromise) await updated._savePromise;
       try {
         const rInput = buildReadingReportInput(updated, result);
         const rContent = buildDeterministicReportContent(rInput);
