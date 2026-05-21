@@ -24,6 +24,8 @@ const SkillTreeView        = dynamic(() => import("@/components/ruby/SkillTreeVi
 const StudentDashboard     = dynamic(() => import("@/components/ruby/StudentDashboard"),                { ssr: false });
 const ReadingSession       = dynamic(() => import("@/components/reading/ReadingSession"),               { ssr: false });
 const ReadingSkillTreeView = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),         { ssr: false });
+const LifeSkillsSession        = dynamic(() => import("@/components/life-skills/LifeSkillsSession"),         { ssr: false });
+const LifeSkillsSkillTreeView  = dynamic(() => import("@/components/life-skills/LifeSkillsSkillTreeView"),   { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -124,6 +126,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     subjects: "Subjects",
     matrics: "Matrics",
     "study-guides": "Study Guides",
+    "life-skills": "Life Skills",
+    "life-skills-skill-tree": "Life Skills · Topics",
   };
 
   const refreshStats = useCallback(() => {
@@ -366,6 +370,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
         {activeView === "discover-reading" && <ErrorBoundary><ReadingSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
+        {activeView === "life-skills" && <ErrorBoundary><LifeSkillsSession /></ErrorBoundary>}
+        {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

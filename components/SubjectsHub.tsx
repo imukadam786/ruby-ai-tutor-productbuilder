@@ -168,6 +168,18 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
               accentTo="to-purple-700"
               onClick={() => onNavigate("reading")}
             />
+
+            {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans */}
+            <SubjectCard
+              placeholderEmoji="🌟"
+              label="Life Skills"
+              caption="Beginning Knowledge & Health for Grades 1–3"
+              badge="Foundation Phase"
+              badgeColor="bg-amber-100 text-amber-700"
+              accentFrom="from-amber-500"
+              accentTo="to-rose-500"
+              onClick={() => onNavigate("life-skills")}
+            />
           </div>
 
         </div>

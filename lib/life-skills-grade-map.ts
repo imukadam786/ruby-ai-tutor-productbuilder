@@ -9,8 +9,7 @@
 // that grade's tree; all 12 topics for that grade are unlocked from day one
 // (CAPS sequences them termly but they do not prerequisite each other).
 //
-// The full Life Skills subject is gated behind the Scholar plan — onboarding
-// flow handles entitlement check before routing here.
+// Life Skills is open to all plans (including freebie) — no entitlement check.
 
 export const HIGHEST_AVAILABLE_LEVEL = 3; // L4 not yet authored
 export const LOWEST_AVAILABLE_LEVEL = 1;
