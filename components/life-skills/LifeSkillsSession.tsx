@@ -5,6 +5,8 @@ import { apiFetch } from "@/lib/fetch";
 import { supabase } from "@/lib/supabase";
 import { prefetchTTS, useTTS } from "@/lib/tts";
 import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
+import lifeSkillsBankData from "@/data/life-skills-question-bank.json";
+import EduBackground from "@/components/EduBackground";
 import LifeSkillsSkillTreeView from "./LifeSkillsSkillTreeView";
 import {
   trackQuestionAnswered,
@@ -13,6 +15,7 @@ import {
   trackSkillMastered,
 } from "@/lib/analytics";
 import type {
+  LifeSkillsBank,
   LifeSkillsGeneratedQuestion,
   LifeSkillsGenerateQuestionResponse,
   LifeSkillsSkillTree,
@@ -21,10 +24,20 @@ import type {
 } from "@/types/life-skills";
 
 const tree = lifeSkillsTreeData as unknown as LifeSkillsSkillTree;
+const bank = lifeSkillsBankData as unknown as LifeSkillsBank;
 
-// Match the bank's per-topic mastery target. L1/L2 = 3 correct, L3 = 4.
-function masteryTarget(skillId: string): number {
-  return skillId.startsWith("LS.L3.") ? 4 : 3;
+// Mastery rule: the learner answers ALL questions in the topic. The session
+// only ends when every authored item has been attempted. Mastery (vs just
+// "complete") is judged after the fact by overall accuracy ≥ pass_threshold.
+function targetItemCount(skillId: string): number {
+  const topic = bank.topics[skillId];
+  if (topic) return topic.questions.length;
+  // Fallback if the topic somehow isn't in the bank.
+  return skillId.startsWith("LS.L3.") ? 20 : 15;
+}
+
+function passThreshold(skillId: string): number {
+  return bank.topics[skillId]?.pass_threshold ?? 0.6;
 }
 
 function findSkill(skillId: string) {
@@ -108,6 +121,8 @@ export default function LifeSkillsSession() {
     if (!question) return;
     const text = question.ruby_prompt || question.question;
     prefetchTTS(text);
+    // Pre-warm each option too so per-option playback is instant on tap.
+    question.options?.forEach((opt) => prefetchTTS(opt));
     // Auto-speak on Foundation Phase since many learners cannot read fluently.
     speak(text);
     return () => stop();
@@ -115,12 +130,13 @@ export default function LifeSkillsSession() {
   }, [question?.id]);
 
   const persistReport = useCallback(
-    async (topicId: string, correct: number, attempts: number) => {
+    async (topicId: string, correct: number, attempts: number, didMaster: boolean) => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
         const user = session?.user;
         if (!user) return;
         const found = findSkill(topicId);
+        const accuracy = attempts > 0 ? correct / attempts : 0;
         const inputData = {
           subject: "life-skills",
           topic_id: topicId,
@@ -128,12 +144,16 @@ export default function LifeSkillsSession() {
           grade: found?.level.grade ?? null,
           correct_count: correct,
           attempt_count: attempts,
-          accuracy: attempts > 0 ? correct / attempts : 0,
-          mastery_target: masteryTarget(topicId),
+          accuracy,
+          target_item_count: targetItemCount(topicId),
+          pass_threshold: passThreshold(topicId),
+          mastered: didMaster,
           duration_ms: Date.now() - sessionStartRef.current,
         };
         const contentData = {
-          summary: `Mastered "${found?.skill.title ?? topicId}" with ${correct}/${attempts} correct.`,
+          summary: didMaster
+            ? `Mastered "${found?.skill.title ?? topicId}" with ${correct}/${attempts} correct.`
+            : `Completed "${found?.skill.title ?? topicId}" with ${correct}/${attempts} correct.`,
           topic_id: topicId,
         };
         const { error: reportError } = await supabase.from("student_reports").insert({
@@ -268,24 +288,32 @@ export default function LifeSkillsSession() {
           saveMastery(next);
         }
 
-        if (nextCorrect >= masteryTarget(skillId)) {
-          const next = { ...mastery, [skillId]: "mastered" as TopicMastery };
+        // Topic ends when every authored question has been attempted.
+        // Mastery decided after the fact by accuracy ≥ pass_threshold (default 0.6).
+        const allAnswered = nextAttempts >= targetItemCount(skillId);
+        if (allAnswered) {
+          const accuracy = nextAttempts > 0 ? nextCorrect / nextAttempts : 0;
+          const didMaster = accuracy >= passThreshold(skillId);
+          const nextStatus: TopicMastery = didMaster ? "mastered" : "in_progress";
+          const next = { ...mastery, [skillId]: nextStatus };
           setMastery(next);
           saveMastery(next);
-          trackSkillMastered({
-            subject: "life-skills",
-            skill_id: skillId,
-            level: findSkill(skillId)?.level.id ?? 1,
-            session_attempt_count: nextAttempts,
-            session_correct: nextCorrect,
-          });
+          if (didMaster) {
+            trackSkillMastered({
+              subject: "life-skills",
+              skill_id: skillId,
+              level: findSkill(skillId)?.level.id ?? 1,
+              session_attempt_count: nextAttempts,
+              session_correct: nextCorrect,
+            });
+          }
           trackSessionEnded({
             subject: "life-skills",
             questions_answered: nextAttempts,
             correct: nextCorrect,
-            accuracy: nextCorrect / nextAttempts,
+            accuracy,
           });
-          void persistReport(skillId, nextCorrect, nextAttempts);
+          void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {
           setPhase("feedback");
@@ -305,16 +333,25 @@ export default function LifeSkillsSession() {
     return <LifeSkillsSkillTreeView onPickTopic={handlePickTopic} masteryStatus={mastery} />;
   }
 
-  // ─── Render: mastered ──────────────────────────────────────────────────────
+  // ─── Render: end-of-topic ─────────────────────────────────────────────────
   if (phase === "mastered" && skillId) {
     const skill = findSkill(skillId)?.skill;
+    const accuracy = attemptCount > 0 ? correctCount / attemptCount : 0;
+    const didMaster = accuracy >= passThreshold(skillId);
     return (
-      <div className="flex items-center justify-center h-full bg-[#FFF8E7] p-6">
-        <div className="bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-4">
-          <div className="text-6xl">🎉</div>
-          <h2 className="text-2xl font-bold text-[#1a2744]">You did it!</h2>
+      <div className="relative flex items-center justify-center h-full bg-[#F4F4F5] p-6">
+        <EduBackground />
+        <div className="relative bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-4">
+          <div className="text-6xl">{didMaster ? "🎉" : "💪"}</div>
+          <h2 className="text-2xl font-bold text-[#1a2744]">
+            {didMaster ? "You did it!" : "All done!"}
+          </h2>
           <p className="text-gray-600 text-base">
-            You mastered <span className="font-semibold">{skill?.title ?? "this topic"}</span>.
+            {didMaster ? (
+              <>You mastered <span className="font-semibold">{skill?.title ?? "this topic"}</span>.</>
+            ) : (
+              <>You finished <span className="font-semibold">{skill?.title ?? "this topic"}</span>. Try it again to master it.</>
+            )}
           </p>
           <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct.</p>
           <button
@@ -336,8 +373,9 @@ export default function LifeSkillsSession() {
   // ─── Render: loading ───────────────────────────────────────────────────────
   if (phase === "loading") {
     return (
-      <div className="flex items-center justify-center h-full bg-[#FFF8E7]">
-        <p className="text-gray-500 text-lg">Loading…</p>
+      <div className="relative flex items-center justify-center h-full bg-[#F4F4F5]">
+        <EduBackground />
+        <p className="relative text-gray-500 text-lg">Loading…</p>
       </div>
     );
   }
@@ -347,8 +385,9 @@ export default function LifeSkillsSession() {
   const recoveryHint = showRecoveryHint ? findSkill(skillId!)?.skill.recovery_strategy ?? null : null;
 
   return (
-    <div className="flex flex-col h-full bg-[#FFF8E7] overflow-y-auto">
-      <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
+    <div className="relative flex flex-col h-full bg-[#F4F4F5] overflow-y-auto">
+      <EduBackground />
+      <div className="relative max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
         {/* Header bar */}
         <div className="flex items-center justify-between">
           <button
@@ -364,7 +403,7 @@ export default function LifeSkillsSession() {
           </button>
           {skillId && (
             <span className="text-sm font-semibold text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
-              ⭐ {correctCount} / {masteryTarget(skillId)}
+              Q {Math.min(attemptCount + 1, targetItemCount(skillId))} / {targetItemCount(skillId)} · ⭐ {correctCount}
             </span>
           )}
         </div>
@@ -411,6 +450,7 @@ export default function LifeSkillsSession() {
                 onChange={setAnswer}
                 onSubmit={handleSubmit}
                 submitting={submitting}
+                speak={speak}
               />
             )}
 
@@ -468,6 +508,37 @@ interface AnswerInputProps {
   onChange: (next: string) => void;
   onSubmit: (answer: string) => void;
   submitting: boolean;
+  speak: (text: string) => void;
+}
+
+// Small reusable "play option aloud" icon button. Its onClick uses
+// stopPropagation so it never triggers the surrounding option button's submit.
+function PlayIcon({ text, speak, dark }: { text: string; speak: (t: string) => void; dark?: boolean }) {
+  return (
+    <span
+      role="button"
+      tabIndex={0}
+      aria-label={`Read aloud: ${text}`}
+      onClick={(e) => {
+        e.stopPropagation();
+        speak(text);
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          e.stopPropagation();
+          speak(text);
+        }
+      }}
+      className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors ${
+        dark
+          ? "bg-white/20 hover:bg-white/30 text-white"
+          : "bg-white border border-amber-300 hover:bg-amber-100 text-[#BE1832]"
+      }`}
+    >
+      🔊
+    </span>
+  );
 }
 
 function AnswerInput({
@@ -478,6 +549,7 @@ function AnswerInput({
   onChange,
   onSubmit,
   submitting,
+  speak,
 }: AnswerInputProps) {
   const { input_type, options } = question;
 
@@ -490,9 +562,10 @@ function AnswerInput({
             key={opt}
             disabled={submitting}
             onClick={() => onSubmit(opt)}
-            className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl px-5 py-5 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
+            className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl px-5 py-5 flex items-center gap-3 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
           >
-            {opt}
+            <span className="flex-1">{opt}</span>
+            <PlayIcon text={opt} speak={speak} />
           </button>
         ))}
       </div>
@@ -506,70 +579,33 @@ function AnswerInput({
         <button
           disabled={submitting}
           onClick={() => onSubmit("true")}
-          className="bg-green-50 hover:bg-green-100 border-2 border-green-200 rounded-2xl px-5 py-6 text-xl font-bold text-green-800 active:scale-95"
+          className="bg-green-50 hover:bg-green-100 border-2 border-green-200 rounded-2xl px-5 py-6 flex items-center justify-center gap-2 text-xl font-bold text-green-800 active:scale-95"
         >
-          ✓ True
+          <span>✓ True</span>
+          <PlayIcon text="True" speak={speak} />
         </button>
         <button
           disabled={submitting}
           onClick={() => onSubmit("false")}
-          className="bg-rose-50 hover:bg-rose-100 border-2 border-rose-200 rounded-2xl px-5 py-6 text-xl font-bold text-rose-800 active:scale-95"
+          className="bg-rose-50 hover:bg-rose-100 border-2 border-rose-200 rounded-2xl px-5 py-6 flex items-center justify-center gap-2 text-xl font-bold text-rose-800 active:scale-95"
         >
-          ✗ False
+          <span>✗ False</span>
+          <PlayIcon text="False" speak={speak} />
         </button>
       </div>
     );
   }
 
-  // Sequence — show numbered shuffled list with up/down arrows
+  // Sequence — tap an item to pick it up, tap another to swap.
   if (input_type === "sequence" && options) {
-    const move = (idx: number, dir: -1 | 1) => {
-      const next = [...sequenceOrder];
-      const target = idx + dir;
-      if (target < 0 || target >= next.length) return;
-      [next[idx], next[target]] = [next[target], next[idx]];
-      onSequenceChange(next);
-    };
     return (
-      <div className="space-y-3">
-        <p className="text-sm text-gray-500">Put these in the right order:</p>
-        <ol className="space-y-2">
-          {sequenceOrder.map((item, idx) => (
-            <li
-              key={item}
-              className="flex items-center gap-3 bg-amber-50 border-2 border-amber-200 rounded-2xl px-4 py-3"
-            >
-              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#BE1832] text-white font-bold text-sm flex items-center justify-center">
-                {idx + 1}
-              </span>
-              <span className="flex-1 text-base font-semibold text-[#1a2744]">{item}</span>
-              <button
-                onClick={() => move(idx, -1)}
-                disabled={idx === 0 || submitting}
-                className="w-9 h-9 rounded-full bg-white border border-gray-300 hover:bg-gray-50 disabled:opacity-30 text-lg"
-                aria-label="Move up"
-              >
-                ↑
-              </button>
-              <button
-                onClick={() => move(idx, 1)}
-                disabled={idx === sequenceOrder.length - 1 || submitting}
-                className="w-9 h-9 rounded-full bg-white border border-gray-300 hover:bg-gray-50 disabled:opacity-30 text-lg"
-                aria-label="Move down"
-              >
-                ↓
-              </button>
-            </li>
-          ))}
-        </ol>
-        <button
-          disabled={submitting}
-          onClick={() => onSubmit(sequenceOrder.join(","))}
-          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-        >
-          Check answer
-        </button>
-      </div>
+      <SequenceInput
+        order={sequenceOrder}
+        onChange={onSequenceChange}
+        onSubmit={() => onSubmit(sequenceOrder.join(","))}
+        submitting={submitting}
+        speak={speak}
+      />
     );
   }
 
@@ -592,6 +628,81 @@ function AnswerInput({
         disabled={submitting || !value.trim()}
         onClick={() => onSubmit(value.trim())}
         className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
+      >
+        Check answer
+      </button>
+    </div>
+  );
+}
+
+// ─── Sequence input (tap-to-swap) ────────────────────────────────────────────
+
+interface SequenceInputProps {
+  order: string[];
+  onChange: (next: string[]) => void;
+  onSubmit: () => void;
+  submitting: boolean;
+  speak: (text: string) => void;
+}
+
+function SequenceInput({ order, onChange, onSubmit, submitting, speak }: SequenceInputProps) {
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+
+  const handleTap = (idx: number) => {
+    if (submitting) return;
+    if (selectedIdx === null) {
+      setSelectedIdx(idx);
+      return;
+    }
+    if (selectedIdx === idx) {
+      setSelectedIdx(null);
+      return;
+    }
+    const next = [...order];
+    [next[selectedIdx], next[idx]] = [next[idx], next[selectedIdx]];
+    onChange(next);
+    setSelectedIdx(null);
+  };
+
+  return (
+    <div className="space-y-3">
+      <p className="text-sm text-gray-500">
+        Tap an item, then tap where it should go. They swap places.
+      </p>
+      <ol className="space-y-2">
+        {order.map((item, idx) => {
+          const isSelected = selectedIdx === idx;
+          return (
+            <li key={item}>
+              <button
+                type="button"
+                onClick={() => handleTap(idx)}
+                disabled={submitting}
+                className={`w-full flex items-center gap-3 rounded-2xl px-4 py-4 text-left transition-all active:scale-[0.99] ${
+                  isSelected
+                    ? "bg-[#BE1832] border-2 border-[#BE1832] text-white shadow-md"
+                    : "bg-amber-50 border-2 border-amber-200 text-[#1a2744] hover:bg-amber-100"
+                }`}
+                aria-pressed={isSelected}
+              >
+                <span
+                  className={`flex-shrink-0 w-8 h-8 rounded-full font-bold text-sm flex items-center justify-center ${
+                    isSelected ? "bg-white text-[#BE1832]" : "bg-[#BE1832] text-white"
+                  }`}
+                >
+                  {idx + 1}
+                </span>
+                <span className="flex-1 text-base sm:text-lg font-semibold">{item}</span>
+                <PlayIcon text={item} speak={speak} dark={isSelected} />
+              </button>
+            </li>
+          );
+        })}
+      </ol>
+      <button
+        disabled={submitting}
+        onClick={onSubmit}
+        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
       >
         Check answer
       </button>

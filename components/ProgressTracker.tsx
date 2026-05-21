@@ -10,6 +10,22 @@ import { ProgressData } from "@/types";
 import EduBackground from "@/components/EduBackground";
 import SkillTreeView from "@/components/ruby/SkillTreeView";
 import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
+import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
+import type { LifeSkillsSkillTree } from "@/types/life-skills";
+
+const lifeSkillsTree = lifeSkillsTreeData as unknown as LifeSkillsSkillTree;
+const LIFE_SKILLS_MASTERY_KEY = "life-skills-mastery-v1";
+
+type LifeSkillsTopicStatus = "mastered" | "in_progress" | "available";
+
+function readLifeSkillsMastery(): Record<string, LifeSkillsTopicStatus> {
+  if (typeof window === "undefined") return {};
+  try {
+    return JSON.parse(localStorage.getItem(LIFE_SKILLS_MASTERY_KEY) ?? "{}");
+  } catch {
+    return {};
+  }
+}
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 function TrophyIcon({ className }: { className?: string }) {
@@ -137,6 +153,14 @@ export default function ProgressTracker() {
 
   const [mathsTreeOpen, setMathsTreeOpen] = useState(true);
   const [readingTreeOpen, setReadingTreeOpen] = useState(true);
+  const [lifeSkillsTreeOpen, setLifeSkillsTreeOpen] = useState(true);
+  const [lifeSkillsMastery, setLifeSkillsMastery] = useState<Record<string, LifeSkillsTopicStatus>>({});
+
+  useEffect(() => {
+    setLifeSkillsMastery(readLifeSkillsMastery());
+  }, []);
+
+  const lifeSkillsMasteredCount = Object.values(lifeSkillsMastery).filter((s) => s === "mastered").length;
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -239,6 +263,67 @@ export default function ProgressTracker() {
             {readingTreeOpen && (
               <div className="border-t border-purple-100">
                 <ReadingSkillTreeView profile={readingProfile} />
+              </div>
+            )}
+          </div>
+
+          {/* ── Life Skills Skill Tree ────────────────────────────────── */}
+          <div className="bg-amber-50 border border-amber-100 rounded-2xl shadow-sm overflow-hidden">
+            <button
+              onClick={() => setLifeSkillsTreeOpen((v) => !v)}
+              className="w-full flex items-center justify-between px-5 py-3.5 text-left"
+            >
+              <span className="text-sm font-medium text-amber-700">
+                🌟 Life Skills Skill Tree
+                {lifeSkillsMasteredCount > 0 && (
+                  <span className="ml-2 text-xs bg-amber-200 text-amber-800 px-2 py-0.5 rounded-full">
+                    {lifeSkillsMasteredCount} mastered
+                  </span>
+                )}
+              </span>
+              <span className="ml-3 text-amber-500">
+                <ChevronDownIcon open={lifeSkillsTreeOpen} />
+              </span>
+            </button>
+            {lifeSkillsTreeOpen && (
+              <div className="border-t border-amber-100 p-5 space-y-5 bg-white">
+                {lifeSkillsTree.levels.map((level) => (
+                  <div key={level.id}>
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-sm font-semibold text-[#1a2744]">{level.title}</h4>
+                      <span className="text-xs text-gray-400">
+                        {level.tiers[0]?.atomic_skills.length ?? 0} topics
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {level.tiers[0]?.atomic_skills.map((skill) => {
+                        const status = lifeSkillsMastery[skill.id] ?? "available";
+                        const pillClass =
+                          status === "mastered"
+                            ? "bg-green-50 text-green-700 border-green-200"
+                            : status === "in_progress"
+                            ? "bg-amber-50 text-amber-700 border-amber-300"
+                            : "bg-gray-50 text-gray-500 border-gray-200";
+                        const icon = status === "mastered" ? "✓" : status === "in_progress" ? "⚡" : "·";
+                        return (
+                          <span
+                            key={skill.id}
+                            className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
+                            title={`${skill.title} — ${status.replace("_", " ")}`}
+                          >
+                            <span className="mr-1">{icon}</span>
+                            {skill.title}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+                <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                  <span className="inline-block mr-3">✓ Mastered</span>
+                  <span className="inline-block mr-3">⚡ In progress</span>
+                  <span className="inline-block">· Not started</span>
+                </div>
               </div>
             )}
           </div>

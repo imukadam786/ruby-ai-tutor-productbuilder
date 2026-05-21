@@ -8,6 +8,7 @@ import {
   seedForGrade,
 } from "@/lib/life-skills-grade-map";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import EduBackground from "@/components/EduBackground";
 import type { LifeSkillsSkillTree } from "@/types/life-skills";
 
 const TOPIC_EMOJI: Record<string, string> = {
@@ -50,7 +51,7 @@ export default function LifeSkillsSkillTreeView({
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-full bg-[#FFF8E7]">
+      <div className="flex items-center justify-center h-full bg-[#F4F4F5]">
         <p className="text-gray-500 text-lg">Loading…</p>
       </div>
     );
@@ -58,7 +59,7 @@ export default function LifeSkillsSkillTreeView({
 
   if (!level) {
     return (
-      <div className="flex items-center justify-center h-full bg-[#FFF8E7] p-6 text-center">
+      <div className="flex items-center justify-center h-full bg-[#F4F4F5] p-6 text-center">
         <p className="text-gray-600">No Life Skills content available for this grade yet.</p>
       </div>
     );
@@ -68,8 +69,9 @@ export default function LifeSkillsSkillTreeView({
   const topics = tier?.atomic_skills ?? [];
 
   return (
-    <div className="flex flex-col h-full bg-[#FFF8E7] overflow-y-auto">
-      <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-6 pb-12 w-full">
+    <div className="flex flex-col h-full bg-[#F4F4F5] relative overflow-y-auto">
+      <EduBackground />
+      <div className="relative max-w-3xl mx-auto px-5 sm:px-8 pt-6 pb-12 w-full">
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-[#1a2744]">
