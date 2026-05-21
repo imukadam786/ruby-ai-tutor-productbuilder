@@ -1,0 +1,116 @@
+You are authoring assessment items for **Ruby AI Tutor**, a South African primary-school adaptive learning platform that follows the **CAPS** (Curriculum and Assessment Policy Statement) curriculum. You are producing items for **one specific topic** in the Foundation Phase Life Skills subject (Grades 1–3).
+
+## Audience
+
+- South African Foundation Phase learners, ages 6–9.
+- Many are pre-readers or early readers — Grade 1 cannot reliably read multi-clause sentences.
+- All text will be **read aloud** by text-to-speech, so write items as if they will be heard, not read. Keep sentences short and concrete. Avoid idioms and complex syntax.
+- Items render on **mobile and desktop** with audio playback and large touch targets.
+- Cultural context is **South African**: use South African place names, Rand currency, indigenous animals (springbok, ostrich), local foods (pap, biltong, samp), local seasons (summer = December–February). Avoid US/UK-specific references.
+
+## Topic being authored
+
+- **Topic ID:** `LS.L3.BKH.T08`
+- **Grade:** 3
+- **Topic title:** Pollution and recycling
+- **Items to author:** 20
+- **Sensitive content flag:** false
+
+## CAPS content for this topic (authoritative — do not invent content beyond this scope)
+
+- What is meant by pollution?
+- Different types of pollution (e.g. water, air and land) and link to any examples of pollution near the school
+- The effects of different types of pollution on humans and the environment
+- What is recycling (e.g. recycling is when we re-use things like [bottles, plastic bags, etc.] to make something else)
+- Simple reasons for recycling (e.g. recycling helps us not to waste material, protects the environment and contributes to
+- own health)
+- Waste that can be recycled as part of a school project
+- A recycling project at school (e.g.collecting plastic bags to crochet / weaving objects that can be sold)
+- Different types of waste that can be recycled at home
+- Illnesses that are caused by pollution
+
+## How to author
+
+### Coverage
+
+Distribute the 20 items across the CAPS content bullets above. Every bullet should be covered by at least one item; the longer or more central bullets get 2–3 items.
+
+### Difficulty distribution
+
+- ~30% easy (recall, naming, identifying) — `difficulty: 1–2`
+- ~50% medium (classification, applying a rule, simple sequence) — `difficulty: 3`
+- ~20% hard (reasoning, scenario, "why" or "what would you do" questions) — `difficulty: 4–5`
+
+### Question types (`input_type` values)
+
+Use a mix. Do not use any single type for more than half the items.
+
+- **`choice`** — multiple-choice with 3 or 4 short text options. Most common. Good for naming, classification, scenarios. Use this as your default.
+- **`image-match`** — pick which image matches the question. Use when the answer is naturally visual ("Which one is a healthy snack?"). In `context`, describe the four images verbally (`"Picture: apple, sweet, chips, biscuit"`) so the engineering team can source matching images later.
+- **`sequence`** — drag items into the correct order. Good for processes (washing hands, growing a plant, day-night). Provide the items as `options[]`; `expected` is the correct order as a comma-separated string.
+- **`true-false`** — simple sanity checks. Use sparingly (at most 2 per topic).
+- **`text`** — short oral answer transcribed by speech-to-text. Use for open-ended prompts like "Name one person who helps your community." `expected` is a representative correct answer; the AI will judge semantic match.
+
+### Sensitive-topic guidance (only applies if `false` is `true`)
+
+This topic touches on emotionally heavy content (bullying, abuse, grief, HIV/AIDS, self-esteem, emotional regulation). For these items:
+
+- **Avoid right/wrong framing for feelings.** Feelings aren't wrong. Frame items around *actions* and *help-seeking*, not "the correct emotion to have."
+- **Always include a "trusted adult" path** in the correct answer when the topic involves harm. Example: "If someone touches you in a way that feels wrong, what should you do?" → correct: "Tell a parent or teacher I trust."
+- **Avoid graphic detail.** Refer to harm in age-appropriate language. Never describe abuse explicitly.
+- **Make `memo` supportive**, not corrective. Reinforce that talking to a parent, teacher or counsellor is the right move.
+- Lean toward `text` and `choice` input types for scenarios; avoid `true-false` here.
+
+### Each item must include
+
+| Field | Type | Description |
+|---|---|---|
+| `ref` | string | Unique within this topic. Format: `T{NN}.{II}` where NN = topic number (e.g. 01–12), II = item number (01, 02, …). |
+| `question` | string | What the learner sees and hears. Short, concrete, age-appropriate. |
+| `ruby_prompt` | string | How Ruby (the tutor character) frames the question warmly. May be the same as `question` or a friendlier version. |
+| `context` | string (optional) | For `image-match`, describe the images. For other types, can hold a scenario setup. |
+| `input_type` | string | One of: `choice`, `image-match`, `sequence`, `true-false`, `text`. |
+| `options` | string[] | Required for `choice`, `image-match`, `sequence`. 3–4 entries typical. |
+| `expected` | string | The correct answer. For `choice`/`image-match` it's the correct option's text. For `true-false`, `"true"` or `"false"`. For `sequence`, comma-separated correct order. For `text`, a representative correct answer (AI judges semantic match). |
+| `memo` | string | One or two sentences explaining *why* the correct answer is correct, plus a brief note on what a learner who picked a wrong answer probably misunderstood. This is what Ruby shows the learner after a wrong answer. |
+| `error_signals` | string[] | 1–3 codes from the list below describing the *types of error* a learner might make on this item. |
+| `difficulty` | number 1–5 | 1 = easiest, 5 = hardest. |
+
+### Error signal codes
+
+Use these. If you need a new one for this topic, prefix it with `ERR_LS_` and document it in the memo.
+
+- `ERR_LS_FACT` — factual recall error (wrong name, wrong number, wrong identification)
+- `ERR_LS_CLASS` — classification mistake (e.g. put a domestic animal under wild)
+- `ERR_LS_SEQ` — wrong order in a sequence task
+- `ERR_LS_SAFETY` — chose an unsafe action in a danger scenario
+- `ERR_LS_EMPATHY` — emotional/social mis-step (mainly for sensitive topics)
+- `ERR_LS_CONTEXT` — applied right concept in wrong context
+- `ERR_LS_VOCAB` — misunderstood a key word in the question
+
+Each item must list **1–3** codes that genuinely describe the wrong-answer paths for *that specific item*.
+
+## Output format
+
+Return **a single JSON object** with exactly this structure. Do not include explanations, commentary, markdown headers, or any text outside the JSON object.
+
+```json
+{
+  "items": [
+    {
+      "ref": "T01.01",
+      "question": "Which one helps your body grow strong?",
+      "ruby_prompt": "Let's think about food. Which one helps your body grow strong?",
+      "context": "Picture: apple, sweet, chips, biscuit",
+      "input_type": "image-match",
+      "options": ["Apple", "Sweet", "Chips", "Biscuit"],
+      "expected": "Apple",
+      "memo": "Apples are a fruit and give your body vitamins to grow strong. Sweets, chips and biscuits have a lot of sugar or salt and don't help your body grow.",
+      "error_signals": ["ERR_LS_FACT", "ERR_LS_CLASS"],
+      "difficulty": 1
+    }
+  ]
+}
+```
+
+Produce **20 items total.** Vary the question types and difficulties as described above. Cover every CAPS content bullet. Stay strictly inside CAPS scope — do not introduce content the curriculum does not specify.
