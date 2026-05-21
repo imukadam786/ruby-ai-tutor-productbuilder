@@ -3,12 +3,12 @@
   "levels": [
     {
       "id": 1,
-      "title": "Oral Language & Phonological Foundation",
+      "title": "Listening, talking and sound play (Grade R)",
       "description": "Listen, speak, and play with sounds in words. Grade R–1, voice only, entry level. All 8 skills must be shown correctly at least 3 times each, across 2 different sessions at least 24 hours apart, with no help or hints.",
       "tiers": [
         {
           "id": "R1.T1",
-          "title": "Listening & Vocabulary",
+          "title": "Listening and learning new words",
           "atomic_skills": [
             {
               "id": "R1.T1.A1",
@@ -116,7 +116,7 @@
         },
         {
           "id": "R1.T2",
-          "title": "Expressive Structure",
+          "title": "Speaking in full sentences",
           "atomic_skills": [
             {
               "id": "R1.T2.A1",
@@ -192,7 +192,7 @@
         },
         {
           "id": "R1.T3",
-          "title": "Phonological Manipulation",
+          "title": "Playing with sounds inside words",
           "atomic_skills": [
             {
               "id": "R1.T3.A1",
@@ -310,12 +310,12 @@
     },
     {
       "id": 2,
-      "title": "Alphabetic Code Construction",
+      "title": "Letters and their sounds (Grade 1)",
       "description": "Learn the sound each letter makes, quickly and automatically. Grade 1, voice + text. Unlocks after Level 1. At least 95% accuracy with mean response time of 2.5 seconds or less, confirmed across 2 separate sessions. Speed matters as much as accuracy — average response time over 4 seconds sends the learner back to Level 1 drills.",
       "tiers": [
         {
           "id": "R2.T1",
-          "title": "Letter-Sound Correspondence",
+          "title": "Letter sounds",
           "atomic_skills": [
             {
               "id": "R2.T1.A1",
@@ -437,7 +437,7 @@
         },
         {
           "id": "R2.T2",
-          "title": "Digraph & Blend Integration",
+          "title": "Two-letter sounds and blends",
           "atomic_skills": [
             {
               "id": "R2.T2.A1",
@@ -513,7 +513,7 @@
         },
         {
           "id": "R2.T3",
-          "title": "Phonogram Stability & Automaticity",
+          "title": "Reading sounds quickly without thinking",
           "atomic_skills": [
             {
               "id": "R2.T3.A1",
@@ -627,12 +627,12 @@
     },
     {
       "id": 3,
-      "title": "Encoding Consolidation — HARD GATE 1",
+      "title": "Spelling by sound — first foundation check (Grade 1–2)",
       "description": "Spell words by matching sounds to letters. Grade 2, mainly text input. HARD GATE 1: Level 4 is completely locked until this level is passed — no exceptions, no overrides. At least 80% of encoded words must be plausible (every sound has a letter, in the right order), including made-up words, confirmed across 3 separate sessions.",
       "tiers": [
         {
           "id": "R3.T1",
-          "title": "CVC & Simple Encoding",
+          "title": "Spelling short words",
           "atomic_skills": [
             {
               "id": "R3.T1.A1",
@@ -774,7 +774,7 @@
         },
         {
           "id": "R3.T2",
-          "title": "Independent Encoding Stability",
+          "title": "Spelling on their own",
           "atomic_skills": [
             {
               "id": "R3.T2.A1",
@@ -850,12 +850,12 @@
     },
     {
       "id": 4,
-      "title": "Decoding & Fluency Construction",
+      "title": "Reading words smoothly (Grade 2–3)",
       "description": "Read aloud smoothly, in phrases, at a natural pace. Grade 2–3, voice required. Unlocks after Hard Gate 1. Read at 60 or more words per minute, with a prosody (phrasing) score of 70% or above, and a self-correction rate of 50% or above — confirmed across 2 separate sessions by voice.",
       "tiers": [
         {
           "id": "R4.T1",
-          "title": "Controlled Decoding",
+          "title": "Reading new words by sound",
           "atomic_skills": [
             {
               "id": "R4.T1.A1",
@@ -936,7 +936,7 @@
         },
         {
           "id": "R4.T2",
-          "title": "Automatic Pattern Recognition",
+          "title": "Reading whole words at a glance",
           "atomic_skills": [
             {
               "id": "R4.T2.A1",
@@ -1012,7 +1012,7 @@
         },
         {
           "id": "R4.T3",
-          "title": "Fluent Phrased Reading",
+          "title": "Reading aloud smoothly",
           "atomic_skills": [
             {
               "id": "R4.T3.A1",
@@ -1090,12 +1090,12 @@
     },
     {
       "id": 5,
-      "title": "Comprehension & Language Expansion",
+      "title": "Understanding what you read (Grade 3)",
       "description": "Understand what you read and explain your thinking. Grade 3, voice + text. Unlocks after Level 4. Literal comprehension at 80% or above, inferential comprehension at 75% or above, and written response completeness at 80% or above — across 2 separate sessions.",
       "tiers": [
         {
           "id": "R5.T1",
-          "title": "Literal & Inferential Comprehension",
+          "title": "Finding answers and reading between the lines",
           "atomic_skills": [
             {
               "id": "R5.T1.A1",
@@ -1209,7 +1209,7 @@
         },
         {
           "id": "R5.T2",
-          "title": "Extended Language Production",
+          "title": "Using new words and 'because'",
           "atomic_skills": [
             {
               "id": "R5.T2.A1",
@@ -1285,7 +1285,7 @@
         },
         {
           "id": "R5.T3",
-          "title": "Written Structured Response",
+          "title": "Writing clear answers",
           "atomic_skills": [
             {
               "id": "R5.T3.A1",
@@ -1328,12 +1328,12 @@
     },
     {
       "id": 6,
-      "title": "Transition to Academic Reading",
+      "title": "Reading to learn (Grade 4)",
       "description": "Read to learn — non-fiction texts, structured data texts, instructions, and proper paragraphs. Grade 4, voice + text. Unlocks after Level 5. Advance (Gate E) when main-idea accuracy ≥60%, paragraph-structure score ≥60%, reading/cloze accuracy ≥70%, and structured-data accuracy ≥60% — across 2 separate sessions.",
       "tiers": [
         {
           "id": "R6.T1",
-          "title": "Structured Understanding",
+          "title": "Understanding what a text is mainly about",
           "atomic_skills": [
             {
               "id": "R6.T1.A1",
@@ -1471,7 +1471,7 @@
         },
         {
           "id": "R6.T2",
-          "title": "Reading Structured Data Texts & Instructions",
+          "title": "Reading tables, charts and instructions",
           "atomic_skills": [
             {
               "id": "R6.T2.A1",
@@ -1570,7 +1570,7 @@
         },
         {
           "id": "R6.T3",
-          "title": "Paragraph Writing & Fluency",
+          "title": "Writing clear paragraphs",
           "atomic_skills": [
             {
               "id": "R6.T3.A1",
@@ -1668,12 +1668,12 @@
     },
     {
       "id": 7,
-      "title": "Organised Meaning & Structured Writing",
+      "title": "Reading for ideas and writing clear paragraphs (Grade 5)",
       "description": "Organise meaning and write structured, justified responses. Grade 5, strategic voice + text. Unlocks after Level 6. Advance (Hard Gate 2 / Gate F) when all Level 7 skills meet threshold across 3 sessions, opinion structure is produced without support, and transitions appear unprompted.",
       "tiers": [
         {
           "id": "R7.T1",
-          "title": "Text Structure Awareness",
+          "title": "Reading for the gist and key details",
           "atomic_skills": [
             {
               "id": "R7.T1.A1",
@@ -1772,7 +1772,7 @@
         },
         {
           "id": "R7.T2",
-          "title": "Reading & Comparing Information",
+          "title": "Comparing information across texts",
           "atomic_skills": [
             {
               "id": "R7.T2.A1",
@@ -1871,7 +1871,7 @@
         },
         {
           "id": "R7.T3",
-          "title": "Multi-Paragraph & Justified Writing",
+          "title": "Writing more than one paragraph",
           "atomic_skills": [
             {
               "id": "R7.T3.A1",
@@ -1997,7 +1997,7 @@
         },
         {
           "id": "R7.T4",
-          "title": "Oral Reasoning",
+          "title": "Explaining ideas out loud",
           "atomic_skills": [
             {
               "id": "R7.T4.A1",
@@ -2098,12 +2098,12 @@
     },
     {
       "id": 8,
-      "title": "Early Academic Reasoning",
+      "title": "Thinking like a learner — cause, effect and summary (Grade 6)",
       "description": "Think like a student — cause & effect, summarising, comparing sources, audience/purpose, and academic register. Grade 6, mixed text + voice. LOCKED until Hard Gate 2 (Level 7) is passed. Advance (Gate G) when causal accuracy ≥60%, summaries cover 3 key points, comparison validity ≥60%, and academic register is maintained across 2 sessions.",
       "tiers": [
         {
           "id": "R8.T1",
-          "title": "Cause & Effect and Analysis",
+          "title": "Cause, effect and audience",
           "atomic_skills": [
             {
               "id": "R8.T1.A1",
@@ -2202,7 +2202,7 @@
         },
         {
           "id": "R8.T2",
-          "title": "Summarising & Comparing Texts",
+          "title": "Summarising and comparing texts",
           "atomic_skills": [
             {
               "id": "R8.T2.A1",
@@ -2301,7 +2301,7 @@
         },
         {
           "id": "R8.T3",
-          "title": "Structured Academic Writing",
+          "title": "Writing clear school-style essays",
           "atomic_skills": [
             {
               "id": "R8.T3.A1",
@@ -2427,7 +2427,7 @@
         },
         {
           "id": "R8.T4",
-          "title": "Academic Oral Reasoning",
+          "title": "Explaining and defending ideas out loud",
           "atomic_skills": [
             {
               "id": "R8.T4.A1",
@@ -2528,12 +2528,12 @@
     },
     {
       "id": 9,
-      "title": "Analytical Reading Foundations",
+      "title": "Reading and analysing arguments (Grade 7)",
       "description": "Shift from structured academic reading to analytical reading — identifying and evaluating arguments, assessing evidence quality, detecting perspective and bias, writing CEE analytical paragraphs, and delivering oral analyses. Grade 7, hybrid voice and text. Entry requires Level 8 fully mastered (causal reasoning ≥60%, summary ≤⅓ length, comparison valid ≥60%, academic register maintained, confirmed across 2 sessions). Advance when analytical paragraph (CEE) ≥60%, evidence evaluation ≥60%, synthesis ≥60%, oral analysis ≥60%, academic register maintained across 2 sessions.",
       "tiers": [
         {
           "id": "R9.T1",
-          "title": "Argument Analysis",
+          "title": "Picking apart an argument",
           "atomic_skills": [
             {
               "id": "R9.T1.A1",
@@ -2647,7 +2647,7 @@
         },
         {
           "id": "R9.T2",
-          "title": "Evidence and Perspective",
+          "title": "Judging evidence and perspective",
           "atomic_skills": [
             {
               "id": "R9.T2.A1",
@@ -2761,7 +2761,7 @@
         },
         {
           "id": "R9.T3",
-          "title": "Analytical Writing and Speaking",
+          "title": "Writing and speaking about arguments",
           "atomic_skills": [
             {
               "id": "R9.T3.A1",
@@ -2924,12 +2924,12 @@
     },
     {
       "id": 10,
-      "title": "Evaluative & Argumentative Control",
+      "title": "Judging arguments and writing your own (Grade 8)",
       "description": "Move from analysing arguments to evaluating their logic and writing controlled argumentative essays — logical fallacies, validity, fact/inference/speculation, counter-arguments, three-source synthesis with citation, and formal oral argument. Grade 8, strategic voice and text. Entry requires Level 9 fully mastered (analytical paragraph (CEE) ≥60%, evidence evaluation ≥60%, synthesis ≥60%, academic register maintained, confirmed across 2 sessions). Advance when essay structure ≥60%, grammar GREEN or AMBER, citation ≥60%, across 3 sessions.",
       "tiers": [
         {
           "id": "R10.T1",
-          "title": "Argument Evaluation",
+          "title": "Judging whether arguments work",
           "atomic_skills": [
             {
               "id": "R10.T1.A1",
@@ -3043,7 +3043,7 @@
         },
         {
           "id": "R10.T2",
-          "title": "Extended Reading and Synthesis",
+          "title": "Reading and combining several sources",
           "atomic_skills": [
             {
               "id": "R10.T2.A1",
@@ -3157,7 +3157,7 @@
         },
         {
           "id": "R10.T3",
-          "title": "Argumentative Writing and Speaking",
+          "title": "Writing and giving structured arguments",
           "atomic_skills": [
             {
               "id": "R10.T3.A1",
@@ -3430,12 +3430,12 @@
     },
     {
       "id": 11,
-      "title": "Academic Independence & Synthesis",
+      "title": "Working with several sources (Grade 9)",
       "description": "Become an independent academic reader and writer — synthesizing three or more sources, reconciling conflicting information, writing extended analytical essays with self-revision, and delivering formal oral presentations, in preparation for the FET Phase. Grade 9, mixed text and voice; formal citation language required throughout. Entry requires Level 10 fully mastered (essay structure ≥60%, citation accuracy ≥60%, argumentative reasoning ≥60%, academic register maintained, confirmed across 3 sessions). Advance when synthesis ≥60%, citation ≥60%, presentation ≥60%, and academic register maintained across 3 sessions.",
       "tiers": [
         {
           "id": "R11.T1",
-          "title": "Critical Source Use",
+          "title": "Using sources carefully",
           "atomic_skills": [
             {
               "id": "R11.T1.A1",
@@ -3549,7 +3549,7 @@
         },
         {
           "id": "R11.T2",
-          "title": "Extended Academic Writing",
+          "title": "Writing longer essays",
           "atomic_skills": [
             {
               "id": "R11.T2.A1",
@@ -3675,7 +3675,7 @@
         },
         {
           "id": "R11.T3",
-          "title": "Self-Revision and Formal Presentation",
+          "title": "Self-checking and presenting",
           "atomic_skills": [
             {
               "id": "R11.T3.A1",
@@ -3884,12 +3884,12 @@
     },
     {
       "id": 12,
-      "title": "Academic Transition",
+      "title": "Building strong essays (Grade 10)",
       "description": "Move from structured analysis to independently constructing thesis-driven arguments — identifying logical fallacies, analysing tone and bias, embedding quotations, and using active and passive voice strategically. Grade 10, mixed reading + writing + voice. Assessment is single-session, with word count checked at submission (no real-time pacing). Advance when structure score >=60%, thesis clarity >=4/5, CEE >=60% per paragraph, counter-argument quality >=3, register >=60%, grammar AMBER or GREEN, 600-800 words, across 3 non-consecutive sessions.",
       "tiers": [
         {
           "id": "R12.T1",
-          "title": "Structured Academic Control",
+          "title": "Structured argument writing",
           "atomic_skills": [
             {
               "id": "R12.T1.A1",
@@ -4304,7 +4304,7 @@
         },
         {
           "id": "R12.T2",
-          "title": "Analytical Development",
+          "title": "Deeper analysis of texts",
           "atomic_skills": [
             {
               "id": "R12.T2.A1",
@@ -4569,7 +4569,7 @@
         },
         {
           "id": "R12.T3",
-          "title": "Independent Control",
+          "title": "Independent essay writing",
           "atomic_skills": [
             {
               "id": "R12.T3.A1",
@@ -4767,7 +4767,7 @@
         },
         {
           "id": "R12.T4",
-          "title": "Reading and Comprehension",
+          "title": "Reading and understanding unseen texts",
           "atomic_skills": [
             {
               "id": "R12.T4.A1",
@@ -4886,7 +4886,7 @@
         },
         {
           "id": "R12.T5",
-          "title": "Transactional Writing",
+          "title": "Letters, speeches and articles",
           "atomic_skills": [
             {
               "id": "R12.T5.A1",
@@ -5012,7 +5012,7 @@
         },
         {
           "id": "R12.T6",
-          "title": "Language, Grammar and Editing",
+          "title": "Grammar, punctuation and editing",
           "atomic_skills": [
             {
               "id": "R12.T6.A1",
@@ -5136,7 +5136,7 @@
         },
         {
           "id": "R12.T7",
-          "title": "Speaking and Listening",
+          "title": "Speaking and listening",
           "atomic_skills": [
             {
               "id": "R12.T7.A1",
@@ -5264,12 +5264,12 @@
     },
     {
       "id": 13,
-      "title": "Pre-Exam Maturity",
+      "title": "Deeper reading and exam preparation (Grade 11)",
       "description": "Deepen analytical control — theme beyond literal interpretation, psychological character analysis, structural text comparison, and 800-word essays building toward NSC exam performance. Grade 11, mixed reading + writing + voice. Assessment is single-session, with word count checked at submission (no real-time pacing). Advance when depth score >=4/5, structural comparison present, counter-argument quality >=4, grammar AMBER or GREEN, coherence ratio >=0.85, 750-900 words, across 3 non-consecutive sessions.",
       "tiers": [
         {
           "id": "R13.T1",
-          "title": "Advanced Analysis",
+          "title": "Deeper literary analysis",
           "atomic_skills": [
             {
               "id": "R13.T1.A1",
@@ -5469,7 +5469,7 @@
         },
         {
           "id": "R13.T2",
-          "title": "Multi-Text Synthesis",
+          "title": "Comparing across texts",
           "atomic_skills": [
             {
               "id": "R13.T2.A1",
@@ -5652,7 +5652,7 @@
         },
         {
           "id": "R13.T3",
-          "title": "Critical Discourse",
+          "title": "Reading the bigger picture (ideology and media)",
           "atomic_skills": [
             {
               "id": "R13.T3.A1",
@@ -5770,7 +5770,7 @@
         },
         {
           "id": "R13.T4",
-          "title": "Reading and Comprehension",
+          "title": "Reading and understanding unseen texts",
           "atomic_skills": [
             {
               "id": "R13.T4.A1",
@@ -5899,7 +5899,7 @@
         },
         {
           "id": "R13.T5",
-          "title": "Transactional Writing",
+          "title": "Reports, reviews and dialogues",
           "atomic_skills": [
             {
               "id": "R13.T5.A1",
@@ -6025,7 +6025,7 @@
         },
         {
           "id": "R13.T6",
-          "title": "Language, Grammar and Editing",
+          "title": "Editing for clarity and precision",
           "atomic_skills": [
             {
               "id": "R13.T6.A1",
@@ -6144,7 +6144,7 @@
         },
         {
           "id": "R13.T7",
-          "title": "Speaking and Listening",
+          "title": "Extended speaking and listening",
           "atomic_skills": [
             {
               "id": "R13.T7.A1",
@@ -6272,12 +6272,12 @@
     },
     {
       "id": 14,
-      "title": "NSC Exit Standard",
+      "title": "Reading and writing at matric exam level (Grade 12)",
       "description": "Perform at NSC exam standard — unseen poetry analysis, 700-900 word essays, intellectual maturity, and full TICC integration with distinction-level evaluation of ambiguity and layered argument. Grade 12, mixed reading + writing + voice. Assessment is single-session, with word count checked at submission (no real-time pacing). Advance when thesis originality is HIGH, TICC is present per paragraph, command precision >=60%, coherence >=60%, grammar GREEN or AMBER, 700-900 words, across 3 non-consecutive sessions.",
       "tiers": [
         {
           "id": "R14.T1",
-          "title": "Exam Precision",
+          "title": "Exam-precise responses",
           "atomic_skills": [
             {
               "id": "R14.T1.A1",
@@ -6439,7 +6439,7 @@
         },
         {
           "id": "R14.T2",
-          "title": "Intellectual Maturity",
+          "title": "Mature, layered thinking",
           "atomic_skills": [
             {
               "id": "R14.T2.A1",
@@ -6592,7 +6592,7 @@
         },
         {
           "id": "R14.T3",
-          "title": "Distinction Level",
+          "title": "Distinction-level writing",
           "atomic_skills": [
             {
               "id": "R14.T3.A1",
@@ -6795,7 +6795,7 @@
         },
         {
           "id": "R14.T4",
-          "title": "Reading and Comprehension",
+          "title": "Reading and understanding unseen texts",
           "atomic_skills": [
             {
               "id": "R14.T4.A1",
@@ -6924,7 +6924,7 @@
         },
         {
           "id": "R14.T5",
-          "title": "Transactional Writing",
+          "title": "Formal articles, interviews and speeches",
           "atomic_skills": [
             {
               "id": "R14.T5.A1",
@@ -7060,7 +7060,7 @@
         },
         {
           "id": "R14.T6",
-          "title": "Language, Grammar and Editing",
+          "title": "Polishing language to exam standard",
           "atomic_skills": [
             {
               "id": "R14.T6.A1",
@@ -7194,7 +7194,7 @@
         },
         {
           "id": "R14.T7",
-          "title": "Speaking and Listening",
+          "title": "Speaking and listening at exam standard",
           "atomic_skills": [
             {
               "id": "R14.T7.A1",
