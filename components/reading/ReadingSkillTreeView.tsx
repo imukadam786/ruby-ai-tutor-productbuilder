@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
 import { ReadingStudentProfile } from "@/types/reading";
-import { getReadingSkillStatus, getReadingLevelProgress } from "@/lib/reading-student-model";
+import { getReadingSkillStatus, getReadingLevelProgress, friendlyReadingSkillName } from "@/lib/reading-student-model";
 
 interface ReadingSkillTreeViewProps {
   profile: ReadingStudentProfile | null;
@@ -89,7 +89,7 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                   <p className="text-blue-800 font-semibold text-sm">Placement complete</p>
                   <p className="text-blue-600 text-xs">
                     {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
-                    {" · "}Entry: <span className="font-semibold">{entrySkillId}</span>
+                    {" · "}Entry: <span className="font-semibold">{friendlyReadingSkillName(entrySkillId)}</span>
                     {!hardGatePassed && " · "}
                     {!hardGatePassed && <span className="text-amber-600 font-medium">🔑 Hard Gate active</span>}
                   </p>

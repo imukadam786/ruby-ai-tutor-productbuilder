@@ -22,6 +22,7 @@ import {
   getReadingProfile,
   createReadingProfile,
   getReadingSkillById,
+  friendlyReadingSkillName,
   getNextReadingSkillId,
   getReadingTierById,
   getReadingLevelById,
@@ -123,7 +124,7 @@ function buildReadingReportInput(
     correctCount: result.tasks.filter((t) => t.correct).length,
     domainScores,
     dominantErrors,
-    placementSkill: result.entrySkillId,
+    placementSkill: friendlyReadingSkillName(result.entrySkillId),
     skillsCompleted: result.autoCompletedSkillIds.length,
     hardGateBlocked: !result.hardGatePassed,
   };

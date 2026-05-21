@@ -340,6 +340,18 @@ export function getReadingTierById(tierId: string) {
   return null;
 }
 
+/**
+ * Single source of truth for "user-facing skill name" in reading.
+ * Looks up the skill's parent-friendly title from the skill tree. Never returns
+ * the raw R{L}.T{T}.A{A} code — falls back to a neutral phrase if the id is
+ * not in the tree (which can happen if the calculator emits an id that the
+ * authored tree doesn't yet contain).
+ */
+export function friendlyReadingSkillName(skillId: string | null | undefined): string {
+  if (!skillId) return "your starting skill";
+  return getReadingSkillById(skillId)?.title ?? "your starting skill";
+}
+
 export function getNextReadingSkillId(currentSkillId: string): string | null {
   const parts = currentSkillId.split(".");
   const levelId = parseInt(parts[0].replace("R", ""));

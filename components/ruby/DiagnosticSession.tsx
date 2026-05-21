@@ -14,6 +14,7 @@ import {
   createStudentProfile,
   saveStudentProfile,
   getSkillById,
+  friendlyMathsSkillName,
   getNextSkillId,
   getTierById,
   getLevelById,
@@ -113,9 +114,8 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
     .slice(0, 3)
     .map(([code]) => code);
 
-  // Entry skill plain name
-  const entrySkill = getSkillById(placement.entrySkillId);
-  const placementSkill = entrySkill?.title ?? placement.entrySkillId;
+  // Entry skill plain name — never leak the raw L{L}.T{T}.A{A} code
+  const placementSkill = friendlyMathsSkillName(placement.entrySkillId);
 
   const levelTitle  = LEVEL_LABEL[placement.entryLevel] ?? `Level ${placement.entryLevel}`;
   const expected    = expectedEntryLevel(profile.grade);

@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import skillTreeData from "@/data/skill-tree.json";
 import { StudentProfile } from "@/types/ruby";
-import { getSkillStatus, getLevelById } from "@/lib/student-model";
+import { getSkillStatus, getLevelById, friendlyMathsSkillName } from "@/lib/student-model";
 import { getLevelProgress } from "@/lib/mastery-engine";
 
 interface SkillTreeViewProps {
@@ -78,7 +78,7 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
                   <p className="text-blue-800 font-semibold text-sm">Placement complete</p>
                   <p className="text-blue-600 text-xs">
                     {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
-                    {" · "}Entry: <span className="font-semibold">{entrySkillId}</span>
+                    {" · "}Entry: <span className="font-semibold">{friendlyMathsSkillName(entrySkillId)}</span>
                     {!hardGatePassed && <span className="text-amber-600 font-medium"> · 🔑 Hard Gate active</span>}
                   </p>
                 </div>
