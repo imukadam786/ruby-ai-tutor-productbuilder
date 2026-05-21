@@ -171,7 +171,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
 
             {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans */}
             <SubjectCard
-              placeholderEmoji="🌟"
+              thumbnail="/thumbnails/life-skills.png"
               label="Life Skills"
               caption="Beginning Knowledge & Health for Grades 1–3"
               badge="Foundation Phase"
