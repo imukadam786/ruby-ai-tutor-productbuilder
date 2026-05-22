@@ -180,6 +180,17 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
               accentTo="to-rose-500"
               onClick={() => onNavigate("life-skills")}
             />
+
+            {/* Afrikaans FAL — Foundation Phase (Gr 1–3), free (no Scholar badge).
+                Uses the emoji fallback until /thumbnails/afrikaans.png is added. */}
+            <SubjectCard
+              placeholderEmoji="🇿🇦"
+              label="Afrikaans"
+              caption="First Additional Language — listen, choose and learn (Grades 1–3)"
+              accentFrom="from-emerald-500"
+              accentTo="to-teal-600"
+              onClick={() => onNavigate("afrikaans-fal")}
+            />
           </div>
 
         </div>

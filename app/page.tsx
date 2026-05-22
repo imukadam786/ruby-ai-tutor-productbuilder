@@ -26,6 +26,8 @@ const ReadingSession       = dynamic(() => import("@/components/reading/ReadingS
 const ReadingSkillTreeView = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),         { ssr: false });
 const LifeSkillsSession        = dynamic(() => import("@/components/life-skills/LifeSkillsSession"),         { ssr: false });
 const LifeSkillsSkillTreeView  = dynamic(() => import("@/components/life-skills/LifeSkillsSkillTreeView"),   { ssr: false });
+const AfrikaansSession         = dynamic(() => import("@/components/afrikaans/AfrikaansSession"),            { ssr: false });
+const AfrikaansSkillTreeView   = dynamic(() => import("@/components/afrikaans/AfrikaansSkillTreeView"),      { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -128,6 +130,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "study-guides": "Study Guides",
     "life-skills": "Life Skills",
     "life-skills-skill-tree": "Life Skills · Topics",
+    "afrikaans-fal": "Afrikaans",
+    "afrikaans-fal-skill-tree": "Afrikaans · Skills",
   };
 
   const refreshStats = useCallback(() => {
@@ -372,6 +376,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
         {activeView === "life-skills" && <ErrorBoundary><LifeSkillsSession /></ErrorBoundary>}
         {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} />}
+        {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
+        {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession /></ErrorBoundary>}
+        {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
