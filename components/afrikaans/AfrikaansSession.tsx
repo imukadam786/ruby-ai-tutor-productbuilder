@@ -23,11 +23,14 @@ import EduBackground from "@/components/EduBackground";
 import AfrikaansSkillTreeView from "./AfrikaansSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
-  getOrCreateAfrikaansProfile,
+  createAfrikaansProfile,
+  hydrateAfrikaansProfileFromSupabase,
+  linkAfrikaansProfileToAuth,
   loadAfrikaansProfile,
   markAfrikaansQuestionUsed,
   markAfrikaansSkillInProgress,
   recordAfrikaansSkillResult,
+  saveAfrikaansProfile,
 } from "@/lib/afrikaans-student-model";
 import {
   trackQuestionAnswered,
@@ -91,11 +94,27 @@ export default function AfrikaansSession() {
   const { speak, speakAfrikaans, stop, playing } = useAfrikaansTTS();
   const sessionStartRef = useRef<number>(Date.now());
 
-  // Load (or create) the localStorage-backed profile for the learner's grade.
+  // Resolve the learner's profile: prefer localStorage; if empty, restore from
+  // Supabase (returning learner on a new device); otherwise create a fresh one.
+  // Then link it to the authenticated user so future restores work.
   useEffect(() => {
-    fetchAuthorisedGrade().then((data) => {
-      setProfile(getOrCreateAfrikaansProfile(data?.grade ?? 1, data?.name ?? "Learner"));
-    });
+    let cancelled = false;
+    (async () => {
+      const data = await fetchAuthorisedGrade();
+      const grade = data?.grade ?? 1;
+      const name = data?.name ?? "Learner";
+      let p = loadAfrikaansProfile();
+      if (!p) {
+        p = await hydrateAfrikaansProfileFromSupabase();
+        if (p) saveAfrikaansProfile(p); // restore to localStorage
+      }
+      if (!p) p = createAfrikaansProfile(name, grade);
+      void linkAfrikaansProfileToAuth(p.id);
+      if (!cancelled) setProfile(p);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // ─── Audio: prefetch + auto-speak when a new question arrives ──────────────

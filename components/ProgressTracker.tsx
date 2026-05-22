@@ -12,19 +12,16 @@ import SkillTreeView from "@/components/ruby/SkillTreeView";
 import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
 import type { LifeSkillsSkillTree } from "@/types/life-skills";
+import { getLifeSkillsMasteryMap } from "@/lib/life-skills-student-model";
 
 const lifeSkillsTree = lifeSkillsTreeData as unknown as LifeSkillsSkillTree;
-const LIFE_SKILLS_MASTERY_KEY = "life-skills-mastery-v1";
 
 type LifeSkillsTopicStatus = "mastered" | "in_progress" | "available";
 
+// Reads the topic→status map from the Life Skills profile (localStorage-backed,
+// mirrored to Supabase). Replaces the old direct "life-skills-mastery-v1" read.
 function readLifeSkillsMastery(): Record<string, LifeSkillsTopicStatus> {
-  if (typeof window === "undefined") return {};
-  try {
-    return JSON.parse(localStorage.getItem(LIFE_SKILLS_MASTERY_KEY) ?? "{}");
-  } catch {
-    return {};
-  }
+  return getLifeSkillsMasteryMap();
 }
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────

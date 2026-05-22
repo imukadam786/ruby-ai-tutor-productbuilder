@@ -8,6 +8,18 @@ import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
 import lifeSkillsBankData from "@/data/life-skills-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import LifeSkillsSkillTreeView from "./LifeSkillsSkillTreeView";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import {
+  getLifeSkillsMasteryMap,
+  getLifeSkillsUsedRefs,
+  getOrCreateLifeSkillsProfile,
+  hydrateLifeSkillsProfileFromSupabase,
+  linkLifeSkillsProfileToAuth,
+  loadLifeSkillsProfile,
+  recordLifeSkillsAnswer,
+  saveLifeSkillsProfile,
+  setLifeSkillsMastery,
+} from "@/lib/life-skills-student-model";
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -52,42 +64,10 @@ function findSkill(skillId: string) {
 
 type TopicMastery = "available" | "in_progress" | "mastered";
 
-// localStorage helpers — used_refs persist across reloads so a learner sees
-// fresh questions when they return to a topic.
-const LS_USED_KEY = "life_skills_used_refs_v1";
-const LS_MASTERY_KEY = "life-skills-mastery-v1";
-
-function loadUsedRefs(): Record<string, string[]> {
-  if (typeof window === "undefined") return {};
-  try {
-    return JSON.parse(localStorage.getItem(LS_USED_KEY) ?? "{}");
-  } catch {
-    return {};
-  }
-}
-
-function saveUsedRefs(map: Record<string, string[]>) {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.setItem(LS_USED_KEY, JSON.stringify(map));
-  } catch { /* quota or disabled — ignore */ }
-}
-
-function loadMastery(): Record<string, TopicMastery> {
-  if (typeof window === "undefined") return {};
-  try {
-    return JSON.parse(localStorage.getItem(LS_MASTERY_KEY) ?? "{}");
-  } catch {
-    return {};
-  }
-}
-
-function saveMastery(map: Record<string, TopicMastery>) {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.setItem(LS_MASTERY_KEY, JSON.stringify(map));
-  } catch { /* ignore */ }
-}
+// Progress (mastery status + used-question pool + totals) is persisted by
+// lib/life-skills-student-model.ts: localStorage as the working store, mirrored
+// to Supabase `student_profiles` so it restores across devices — same model as
+// Maths and Afrikaans.
 
 // ─── Component ───────────────────────────────────────────────────────────────
 
@@ -112,8 +92,28 @@ export default function LifeSkillsSession() {
   const { speak, stop, playing } = useTTS();
   const sessionStartRef = useRef<number>(Date.now());
 
+  // Resolve the learner's profile on mount: prefer localStorage; if empty,
+  // restore from Supabase (returning learner / new device); otherwise create
+  // one for their grade. Then link it to the authenticated user and seed the
+  // mastery map for the tree UI.
   useEffect(() => {
-    setMastery(loadMastery());
+    let cancelled = false;
+    (async () => {
+      const data = await fetchAuthorisedGrade();
+      const grade = data?.grade ?? 1;
+      const name = data?.name ?? "Learner";
+      // No local progress (incl. legacy) → try restoring from the cloud first.
+      if (!loadLifeSkillsProfile()) {
+        const restored = await hydrateLifeSkillsProfileFromSupabase();
+        if (restored) saveLifeSkillsProfile(restored);
+      }
+      const profile = getOrCreateLifeSkillsProfile(grade, name);
+      void linkLifeSkillsProfileToAuth(profile.id);
+      if (!cancelled) setMastery(getLifeSkillsMasteryMap());
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // ─── Audio: prefetch + auto-speak when a new question arrives ──────────────
@@ -177,8 +177,7 @@ export default function LifeSkillsSession() {
     setError(null);
     setAnswer("");
     setSequenceOrder([]);
-    const usedMap = loadUsedRefs();
-    const used = usedMap[topicId] ?? [];
+    const used = getLifeSkillsUsedRefs(topicId);
     try {
       const res = await apiFetch("/api/life-skills/generate-question", {
         method: "POST",
@@ -259,10 +258,8 @@ export default function LifeSkillsSession() {
         const data = (await res.json()) as LifeSkillsSubmitAnswerResponse;
         setResult(data);
 
-        // Mark question as used so the next call avoids it
-        const usedMap = loadUsedRefs();
-        usedMap[skillId] = [...(usedMap[skillId] ?? []), question.question_ref];
-        saveUsedRefs(usedMap);
+        // Mark question as used (so the next call avoids it) and roll up totals.
+        recordLifeSkillsAnswer(skillId, question.question_ref, data.is_correct);
 
         const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
         const nextAttempts = attemptCount + 1;
@@ -285,7 +282,7 @@ export default function LifeSkillsSession() {
         if (mastery[skillId] !== "mastered" && mastery[skillId] !== "in_progress") {
           const next = { ...mastery, [skillId]: "in_progress" as TopicMastery };
           setMastery(next);
-          saveMastery(next);
+          setLifeSkillsMastery(skillId, "in_progress");
         }
 
         // Topic ends when every authored question has been attempted.
@@ -297,7 +294,7 @@ export default function LifeSkillsSession() {
           const nextStatus: TopicMastery = didMaster ? "mastered" : "in_progress";
           const next = { ...mastery, [skillId]: nextStatus };
           setMastery(next);
-          saveMastery(next);
+          setLifeSkillsMastery(skillId, nextStatus);
           if (didMaster) {
             trackSkillMastered({
               subject: "life-skills",

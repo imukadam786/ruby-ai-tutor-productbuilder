@@ -13,6 +13,8 @@
 // skill; mastery is awarded when session accuracy ≥ the skill's pass_threshold.
 
 import afrikaansSkillTreeData from "@/data/afrikaans-skill-tree.json";
+import { supabase } from "@/lib/supabase";
+import { retrySupabase } from "@/lib/supabase-retry";
 import type {
   AfrikaansAtomicSkill,
   AfrikaansSkillMastery,
@@ -21,6 +23,7 @@ import type {
 } from "@/types/afrikaans";
 
 const STORAGE_KEY = "afrikaans-fal-profile-v1";
+const SUBJECT = "afrikaans-fal";
 
 const tree = afrikaansSkillTreeData as unknown as AfrikaansSkillTree;
 
@@ -43,6 +46,72 @@ export function saveAfrikaansProfile(profile: AfrikaansStudentProfile): void {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
   } catch {
     /* quota or disabled — ignore */
+  }
+  // Mirror to Supabase so progress restores across devices / cleared storage,
+  // exactly like Maths (lib/student-model.ts) and Reading. Fire-and-forget —
+  // localStorage stays the working store; the cloud row is the backup.
+  void (async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const user = session?.user;
+      void retrySupabase(() => supabase.from("student_profiles").upsert({
+        id: profile.id,
+        subject: SUBJECT,
+        name: profile.name,
+        grade: profile.grade,
+        ...(user?.id ? { auth_user_id: user.id } : {}),
+        profile_data: profile as unknown as Record<string, unknown>,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: "id" }));
+    } catch {
+      /* non-critical */
+    }
+  })();
+}
+
+/**
+ * Links this profile to the currently authenticated Supabase user so
+ * hydrateAfrikaansProfileFromSupabase() can later restore it. Fire-and-forget;
+ * no-op when not authenticated. Mirrors lib/student-model.ts.
+ */
+export async function linkAfrikaansProfileToAuth(profileId: string): Promise<void> {
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    const user = session?.user;
+    if (!user) return;
+    void retrySupabase(() =>
+      supabase.from("student_profiles")
+        .update({ auth_user_id: user.id })
+        .eq("id", profileId),
+    );
+  } catch {
+    /* non-critical */
+  }
+}
+
+/**
+ * When localStorage is empty (e.g. a new device or cleared data), queries
+ * Supabase for the most recent Afrikaans profile linked to the authenticated
+ * user and returns it. Returns null if not authenticated or none found.
+ * Caller is responsible for writing it back to localStorage.
+ */
+export async function hydrateAfrikaansProfileFromSupabase(): Promise<AfrikaansStudentProfile | null> {
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    const user = session?.user;
+    if (!user) return null;
+    const { data } = await supabase
+      .from("student_profiles")
+      .select("profile_data")
+      .eq("auth_user_id", user.id)
+      .eq("subject", SUBJECT)
+      .order("updated_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    if (!data?.profile_data) return null;
+    return data.profile_data as unknown as AfrikaansStudentProfile;
+  } catch {
+    return null;
   }
 }
 
