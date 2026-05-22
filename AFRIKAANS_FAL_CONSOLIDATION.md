@@ -54,8 +54,10 @@ the app). Your job: consolidate the current state, then continue whichever the u
 
 - **Tree: all 83 skills built** across G1–G3, 5 strands, prereq chains, tutoring
   `progression` blocks. Validator: 0 errors.
-- **Bank: all 83 skills authored** (every skill has items; the *depth* expansion to 20
-  items each is in progress — see REMAINING).
+- **Bank: all 83 skills authored AND depth-expanded.** Every skill is at the 20-item floor:
+  **83/83 at >=20 items, 1660 items total** (550 original + 1110 authored 2026-05-22).
+  Validator: 0 errors / 0 warnings. Integrity verified (no original items lost/altered, all
+  `image_refs` resolve to existing manifest keys, every `expected` is in `options`).
 - **Tutoring model migrated** across tree + bank + validator + engineering ticket.
 - **Content tooling:** grade-map, validator (with depth tracking), image manifest.
 - **Engineering (parallel chat, in progress):** `types/afrikaans.ts`,
@@ -66,26 +68,31 @@ the app). Your job: consolidate the current state, then continue whichever the u
 
 ## REMAINING
 
-1. **Depth expansion — the main content job.** Bring every skill to 20+ items. As of this
-   handoff ~**9/83** are at the floor (all G1 Klanke + all G1 Luister). Going **top to
-   bottom**: next is G1 Woordeskat (7), Lees (4), Taalstruktuur (9), then all of G2 (27),
-   then G3 (27). Run the validator for the live count and the exact list still below floor.
-   - Per-item style: difficulty spread 1→3; reteach-style `memo` (explains *why*);
-     voice + tap/choice/image-match; English scaffolding, Afrikaans content.
-   - Mechanism: append to each skill's `questions` array (anchor on its last item's `memo`
-     + the array close); continue ref numbering (e.g. `WRD02.06`…`WRD02.20`).
-   - Image-match items reference `image_refs` keys — add any new keys to the manifest.
+> **Depth expansion is DONE** (was the main content job) — all 83 skills at 20+ items,
+> validator green. The depth additions are in the working tree, **not yet committed**.
+
+1. **Commit the depth work** — `data/afrikaans-question-bank.json` has +1110 items uncommitted.
+   (Heads-up: `git diff` shows large deletion counts — these are Myers diff-alignment
+   artifacts on the repetitive JSON, not lost content; verified 0 original items changed.)
 2. **Images** — user supplies the picture set per the manifest → `public/afrikaans/<key>.<ext>`.
-   Until then image-match items fall back to audio + English-text options.
+   Until then image-match items fall back to audio + English-text options. (Depth expansion
+   added **no new image keys** — every image-match item reuses an existing manifest key.)
 3. **Audio** — implement/verify `speakAfrikaans()` af-ZA TTS so Klanke/Luister actually speak.
 4. **Engineering finish** — complete + verify the tasks in the engineering ticket; ensure
    the app builds, the Afrikaans tile shows for a free user, the tutoring flow works (no
    padlocks, reteach on wrong), progress persists, analytics fire with `subject:"afrikaans-fal"`.
-5. **QA pass** — once playable, review items in-context for Afrikaans accuracy + difficulty.
+5. **QA pass** — ✅ accuracy review of the 1110 new items DONE 2026-05-22: checked
+   diacritics (reën/voël/oë/môre/knieë — all clean), plurals + diminutives, rhyme/blend/
+   diphthong/vowel sound-classifications, ~250 vocab pairs, and every past (`het ge-`),
+   future (`sal`) and negation (`nie…nie`/`Moenie…nie`) form. **3 fixes made:** `G2KLK02.18`
+   (dropped the misleading "c makes /k/" claim — 'c' is loanword-only in Afrikaans → now a
+   clean "starts with /k/" item) and `G3KLK04.01`/`.04` (the unstressed final **-er** is a
+   schwa "soft uh", not /i/ — corrected to match the new items). Validator still 0/0.
+   A future in-app QA (once playable) could still sanity-check audio TTS + image rendering.
 
 ## How to continue
 
-Confirm with the user which workstream they want (content depth-expansion vs engineering),
-then proceed. For depth expansion, work top-to-bottom and validate after each strand. Keep
+Content authoring is complete. Confirm with the user which workstream they want next
+(commit + engineering finish vs a QA/accuracy review of the new items), then proceed. Keep
 the project memory note (`proj-ruby-afrikaans-fal-1-3`) and this file updated as the source
 of truth. Do not author Speaking/Writing content (deferred) and do not add a mastery gate.
