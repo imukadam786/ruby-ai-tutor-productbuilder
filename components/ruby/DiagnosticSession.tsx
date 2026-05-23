@@ -27,7 +27,7 @@ import {
 import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
 import { updateSkillMastery, initSkillMastery, scanMasteryForReview, pickNeedsReviewSkill, stampMathsReviewedAt } from "@/lib/mastery-engine";
-import { getDomainForSkill, getDomain, getUsedRefs, markQuestionUsed, selectQuestion, bankQuestionToGenerated } from "@/lib/question-selector";
+import { getDomainForSkill, friendlyMathsDomainName, getUsedRefs, markQuestionUsed, selectQuestion, bankQuestionToGenerated } from "@/lib/question-selector";
 import { abilityLevel } from "@/lib/bkt";
 import { simplifyQuestion } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
@@ -96,8 +96,8 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
     const label: "strong" | "building" | "practice" =
       avg >= 0.8 ? "strong" : avg >= 0.4 ? "building" : "practice";
     const primaryError = data.errors.length > 0 ? data.errors[0] : null;
-    // Get human-readable domain title from question bank
-    const domainTitle = getDomain(domainId)?.title ?? domainId;
+    // Parent-facing domain name (plain language, not CAPS jargon) for the report.
+    const domainTitle = friendlyMathsDomainName(domainId);
     const errorNote = primaryError ? (describeError(primaryError, "maths") ?? null) : null;
     return { domain: domainTitle, score, label, errorNote };
   });

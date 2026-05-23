@@ -83,10 +83,13 @@ function buildReadingReportInput(
 
   // Split tasks into approximate thirds for domain breakdown
   const third = Math.ceil(total / 3);
+  // Plain-language area names that match the skill-tree headings — the report
+  // previously showed teacher jargon ("Phonological Awareness" etc.) that didn't
+  // match what families see in the tree (BUG #14/#15).
   const groups = [
-    { name: "Phonological Awareness", tasks: result.tasks.slice(0, third) },
-    { name: "Letter–Sound Knowledge", tasks: result.tasks.slice(third, third * 2) },
-    { name: "Decoding & Fluency",     tasks: result.tasks.slice(third * 2) },
+    { name: "Hearing sounds in words", tasks: result.tasks.slice(0, third) },
+    { name: "Letters and their sounds", tasks: result.tasks.slice(third, third * 2) },
+    { name: "Reading words smoothly",   tasks: result.tasks.slice(third * 2) },
   ];
 
   const domainScores: DiagnosticReportInput["domainScores"] = groups
