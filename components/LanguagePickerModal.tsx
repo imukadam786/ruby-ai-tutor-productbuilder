@@ -8,7 +8,7 @@ const CONTINENTS = [
   {
     key: "africa", label: "Africa", color: "#C9A62B",
     emoji: "🌍",
-    languages: ["Afrikaans","Arabic","English","French","Portuguese","Somali","Swahili","Xhosa","Yoruba","Zulu"],
+    languages: ["Afrikaans","Arabic","English","French","isiNdebele","Portuguese","Sepedi","Sesotho","Setswana","siSwati","Somali","Swahili","Tshivenda","Xhosa","Xitsonga","Yoruba","Zulu"],
   },
   {
     key: "asia", label: "Asia", color: "#7B68EE",
