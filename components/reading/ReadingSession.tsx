@@ -111,8 +111,10 @@ function buildReadingReportInput(
     ? historyEntries
     : overallScore < 50 ? ["ERR_BLEND_FAIL"] : overallScore < 70 ? ["ERR_SOUND_RECALL"] : [];
 
-  const entryLevel = result.autoCompletedSkillIds.length > 6 ? 3
-    : result.autoCompletedSkillIds.length > 2 ? 2 : 1;
+  // Derive the working level from the actual placement skill (e.g. "R14.T1.A1" -> 14),
+  // not from a count of auto-completed skills. The old count-based heuristic capped at 3,
+  // so any learner placed above Level 3 was mislabelled (e.g. Gr12 -> "Reading Level 3").
+  const entryLevel = parseInt(result.entrySkillId.split(".")[0].replace(/\D/g, ""), 10) || 1;
 
   return {
     subject: "reading",
@@ -210,6 +212,22 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
       const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scanned) : null;
       if (reviewSkill) setPendingReviewSkillId(reviewSkill);
       setPhase("loading_question");
+    }
+
+    // Retake: DiscoverHub set this flag when the learner chose "Retake". Start a
+    // brand-new profile so the placement gate re-runs Discovery from scratch with
+    // fresh questions, instead of resuming the saved (already-placed) profile and
+    // dropping straight into learning (BUG #3).
+    const isRetake = typeof window !== "undefined" && sessionStorage.getItem("ruby_reading_retake") === "1";
+    if (isRetake) {
+      sessionStorage.removeItem("ruby_reading_retake");
+      readOnboardingWithFallback().then(({ name, grade }) => {
+        const fresh = createReadingProfile(name, grade);
+        identifyStudent({ id: fresh.id, name: fresh.name, grade: fresh.grade });
+        setProfile(fresh);
+        // placement gate intercepts before loading_question fires
+      });
+      return;
     }
 
     const saved = getReadingProfile();

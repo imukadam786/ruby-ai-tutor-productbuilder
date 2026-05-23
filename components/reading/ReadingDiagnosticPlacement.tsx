@@ -8,7 +8,7 @@ import DiagnosticReportView from "@/components/DiagnosticReportView";
 import { describeError } from "@/lib/report-generator";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { DIAGNOSTIC_TASKS } from "@/lib/reading-diagnostic-tasks";
-import { friendlyReadingSkillName } from "@/lib/reading-student-model";
+import { friendlyReadingSkillName, getReadingLevelById } from "@/lib/reading-student-model";
 import discoveryProbesData from "@/data/reading-discovery-probes.json";
 
 // ── Task definitions (hardcoded — no API calls for generation) ────────────────
@@ -461,8 +461,10 @@ function buildReadingReportInput(
       return { domain: task.domain, score, label, errorNote };
     });
 
-  const level = parseInt(placement.entrySkillId.charAt(1)) || 1;
-  const workingLevel = ENTRY_LEVEL_LABELS[level] ?? "Foundation Reading";
+  // Parse the full level number (e.g. "R14.T1.A1" -> 14). charAt(1) only read the
+  // first digit, so R10–R14 all collapsed to "1".
+  const level = parseInt(placement.entrySkillId.split(".")[0].replace(/\D/g, ""), 10) || 1;
+  const workingLevel = ENTRY_LEVEL_LABELS[level] ?? `Reading Level ${level}`;
   const gradeLevelGap = studentGrade - level;
 
   return {
@@ -764,6 +766,12 @@ export default function ReadingDiagnosticPlacement({
     } else {
       const next = currentIndex + 1;
       taskIndexRef.current = next;
+      // Clear the previous answer synchronously, in the same update that advances
+      // the task. Otherwise the next probe's first paint still sees the old
+      // selectedChoice — showing an option pre-highlighted (and all buttons
+      // disabled) before the learner picks anything (BUG #5).
+      setSelectedChoice(null);
+      setShowEncouragement(false);
       setTaskIndex(next);
     }
     setSubmitting(false);
@@ -889,20 +897,20 @@ export default function ReadingDiagnosticPlacement({
   if (phase === "result" && placementResult) {
     const autoCount = placementResult.autoCompletedSkillIds.length;
     const entryName = friendlyReadingSkillName(placementResult.entrySkillId);
-    const ALL_IDS = [
-      "R1.T1.A1","R1.T1.A2","R1.T1.A3","R1.T2.A1","R1.T2.A2","R1.T3.A1","R1.T3.A2","R1.T3.A3",
-      "R2.T1.A1","R2.T1.A2","R2.T1.A3","R2.T2.A1","R2.T2.A2","R2.T2.A3","R2.T2.A4","R2.T3.A1","R2.T3.A2","R2.T3.A3",
-      "R3.T1.A1","R3.T1.A2","R3.T1.A3","R3.T1.A4","R3.T2.A1","R3.T2.A2",
-      "R4.T1.A1","R4.T2.A1","R4.T2.A2","R4.T3.A1","R4.T3.A2",
-      "R5.T1.A1","R5.T1.A2","R5.T1.A3","R5.T2.A1","R5.T2.A2","R5.T3.A1",
-    ];
-    const levelGroups = [
-      { label: "Foundation", ids: ALL_IDS.slice(0, 8) },
-      { label: "Alphabetic", ids: ALL_IDS.slice(8, 16) },
-      { label: "Encoding", ids: ALL_IDS.slice(16, 22) },
-      { label: "Decoding", ids: ALL_IDS.slice(22, 28) },
-      { label: "Comprehension", ids: ALL_IDS.slice(28) },
-    ];
+    // Build the skill map dynamically from the real tree, windowed around the
+    // learner's actual entry level (one level below, the entry level, one above).
+    // The old version was a hardcoded R1–R5 list: for a high-grade learner it
+    // excluded the entry skill entirely (no ★ "start here" marker) and lit every
+    // square green regardless of what was answered (BUG #6).
+    const entryLevelNum = parseInt(placementResult.entrySkillId.split(".")[0].replace(/\D/g, ""), 10) || 1;
+    const levelGroups = [entryLevelNum - 1, entryLevelNum, entryLevelNum + 1]
+      .map((lvl) => getReadingLevelById(lvl))
+      .filter((l): l is NonNullable<typeof l> => l !== null)
+      .map((l) => ({
+        label: l.title,
+        ids: l.tiers.flatMap((t) => t.atomic_skills.map((s) => s.id)),
+      }))
+      .filter((g) => g.ids.length > 0);
     const getState = (id: string) => id === placementResult.entrySkillId ? "active" : placementResult.autoCompletedSkillIds.includes(id) ? "mastered" : "locked";
 
     return (
@@ -1072,7 +1080,7 @@ export default function ReadingDiagnosticPlacement({
               <div className={`grid gap-3 ${task.choices.length === 2 ? "grid-cols-2" : "grid-cols-1"}`}>
                 {task.choices.map((c) => (
                   <button
-                    key={c.value}
+                    key={`${task.id}-${c.value}`}
                     onClick={() => handleChoice(c)}
                     disabled={submitting || !!selectedChoice}
                     className={`px-4 py-4 rounded-2xl border-2 text-base font-semibold text-left transition-all select-none ${

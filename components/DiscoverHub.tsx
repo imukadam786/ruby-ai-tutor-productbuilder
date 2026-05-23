@@ -170,7 +170,13 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                     View Report
                   </button>
                   <button
-                    onClick={() => onNavigate("discover-reading")}
+                    onClick={() => {
+                      // Signal a full Discovery retake. ReadingSession reads this on
+                      // mount and starts a fresh placement instead of resuming the
+                      // already-placed profile (BUG #3 — retake was skipping Discovery).
+                      try { sessionStorage.setItem("ruby_reading_retake", "1"); } catch { /* ignore */ }
+                      onNavigate("discover-reading");
+                    }}
                     className="flex-1 border border-purple-200 text-purple-600 hover:bg-purple-50 font-medium text-sm py-2.5 rounded-xl transition-colors active:scale-[0.97]"
                   >
                     Retake
