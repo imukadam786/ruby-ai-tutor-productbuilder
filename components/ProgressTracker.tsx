@@ -13,8 +13,29 @@ import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
 import type { LifeSkillsSkillTree } from "@/types/life-skills";
 import { getLifeSkillsMasteryMap } from "@/lib/life-skills-student-model";
+import { seedForGrade as lifeSkillsSeedForGrade } from "@/lib/life-skills-grade-map";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import afrikaansTreeData from "@/data/afrikaans-skill-tree.json";
+import type { AfrikaansSkillTree, AfrikaansStudentProfile } from "@/types/afrikaans";
+import { seedForGrade as afrikaansSeedForGrade } from "@/lib/afrikaans-grade-map";
+import {
+  getAfrikaansSkillStatus,
+  loadAfrikaansProfile,
+  hydrateAfrikaansProfileFromSupabase,
+} from "@/lib/afrikaans-student-model";
 
 const lifeSkillsTree = lifeSkillsTreeData as unknown as LifeSkillsSkillTree;
+const afrikaansTree = afrikaansTreeData as unknown as AfrikaansSkillTree;
+
+// Subject tabs shown on the Progress screen. Only one tree renders at a time so
+// the page stays short regardless of how tall the Maths/Reading trees get.
+type SubjectTabId = "maths" | "reading" | "lifeskills" | "afrikaans";
+const SUBJECT_TABS: { id: SubjectTabId; emoji: string; label: string; active: string }[] = [
+  { id: "maths",      emoji: "🧮", label: "Maths",       active: "bg-blue-100 border-blue-300 text-blue-700" },
+  { id: "reading",    emoji: "📖", label: "Reading",     active: "bg-purple-100 border-purple-300 text-purple-700" },
+  { id: "lifeskills", emoji: "🌟", label: "Life Skills", active: "bg-amber-100 border-amber-300 text-amber-700" },
+  { id: "afrikaans",  emoji: "🇿🇦", label: "Afrikaans",   active: "bg-emerald-100 border-emerald-300 text-emerald-700" },
+];
 
 type LifeSkillsTopicStatus = "mastered" | "in_progress" | "available";
 
@@ -50,16 +71,6 @@ function CheckIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  );
-}
-function ChevronDownIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`}
-      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
     </svg>
   );
 }
@@ -109,7 +120,14 @@ function getCurrentWeek(): { date: string; label: string; isToday: boolean }[] {
   });
 }
 
-export default function ProgressTracker() {
+interface ProgressTrackerProps {
+  /** Launch an isolated replay of a completed Maths skill (no progression change). */
+  onMathsReplaySkill?: (skillId: string) => void;
+  /** Launch an isolated replay of a completed Reading skill (no progression change). */
+  onReadingReplaySkill?: (skillId: string) => void;
+}
+
+export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill }: ProgressTrackerProps = {}) {
   const [progress, setProgress] = useState<ProgressData>({
     totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
     lessonsStarted: 0, sessionCount: 0, lastSession: "", subjectBreakdown: {},
@@ -148,16 +166,42 @@ export default function ProgressTracker() {
 
   const isEmpty = !DEMO_MODE && !profile && progress.sessionCount === 0;
 
-  const [mathsTreeOpen, setMathsTreeOpen] = useState(true);
-  const [readingTreeOpen, setReadingTreeOpen] = useState(true);
-  const [lifeSkillsTreeOpen, setLifeSkillsTreeOpen] = useState(true);
+  const [activeTab, setActiveTab] = useState<SubjectTabId>("maths");
   const [lifeSkillsMastery, setLifeSkillsMastery] = useState<Record<string, LifeSkillsTopicStatus>>({});
+  const [grade, setGrade] = useState<number | null>(null);
+  const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(null);
 
   useEffect(() => {
     setLifeSkillsMastery(readLifeSkillsMastery());
+    fetchAuthorisedGrade().then((data) => setGrade(data?.grade ?? 1));
+    // Afrikaans persists primarily in localStorage; fall back to the Supabase
+    // backup when this device has no local profile yet.
+    const localAfrikaans = loadAfrikaansProfile();
+    if (localAfrikaans) setAfrikaansProfile(localAfrikaans);
+    else hydrateAfrikaansProfileFromSupabase().then((p) => { if (p) setAfrikaansProfile(p); });
   }, []);
 
+  // Only show the level for the grade the student selected in onboarding
+  // (Foundation Phase: Gr1→L1, Gr2→L2, Gr3→L3). seedForGrade clamps
+  // out-of-range grades to the nearest available level.
+  const lifeSkillsSeed = lifeSkillsSeedForGrade(grade ?? 1);
+  const lifeSkillsLevel = lifeSkillsTree.levels.find((l) => l.id === lifeSkillsSeed.level);
+  const afrikaansSeed = afrikaansSeedForGrade(grade ?? 1);
+  const afrikaansLevel = afrikaansTree.levels.find((l) => l.id === afrikaansSeed.level);
+
   const lifeSkillsMasteredCount = Object.values(lifeSkillsMastery).filter((s) => s === "mastered").length;
+  const readingMasteredCount = Object.values(readingProfile?.skill_mastery ?? {})
+    .filter((m) => m.status === "mastered" || m.status === "assumed").length;
+  const afrikaansMasteredCount = Object.values(afrikaansProfile?.skill_mastery ?? {})
+    .filter((m) => m.status === "mastered" || m.status === "assumed").length;
+
+  // Mastered count per tab — drives the small green badge on each tab.
+  const masteredCounts: Record<SubjectTabId, number> = {
+    maths: masteredEntries.length,
+    reading: readingMasteredCount,
+    lifeskills: lifeSkillsMasteredCount,
+    afrikaans: afrikaansMasteredCount,
+  };
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -224,105 +268,128 @@ export default function ProgressTracker() {
             </div>
           </div>
 
-          {/* ── Maths Skill Tree ───────────────────────────────────────── */}
-          <div className="bg-blue-50 border border-blue-100 rounded-2xl shadow-sm overflow-hidden">
-            <button
-              onClick={() => setMathsTreeOpen((v) => !v)}
-              className="w-full flex items-center justify-between px-5 py-3.5 text-left"
-            >
-              <span className="text-sm font-medium text-blue-600">
-                🧮 Maths Skill Tree
-              </span>
-              <span className="ml-3 text-blue-400">
-                <ChevronDownIcon open={mathsTreeOpen} />
-              </span>
-            </button>
-            {mathsTreeOpen && (
-              <div className="border-t border-blue-100">
-                <SkillTreeView profile={profile} />
-              </div>
-            )}
-          </div>
-
-          {/* ── Reading Skill Tree ─────────────────────────────────────── */}
-          <div className="bg-purple-50 border border-purple-100 rounded-2xl shadow-sm overflow-hidden">
-            <button
-              onClick={() => setReadingTreeOpen((v) => !v)}
-              className="w-full flex items-center justify-between px-5 py-3.5 text-left"
-            >
-              <span className="text-sm font-medium text-purple-600">
-                📖 Reading Skill Tree
-              </span>
-              <span className="ml-3 text-purple-400">
-                <ChevronDownIcon open={readingTreeOpen} />
-              </span>
-            </button>
-            {readingTreeOpen && (
-              <div className="border-t border-purple-100">
-                <ReadingSkillTreeView profile={readingProfile} />
-              </div>
-            )}
-          </div>
-
-          {/* ── Life Skills Skill Tree ────────────────────────────────── */}
-          <div className="bg-amber-50 border border-amber-100 rounded-2xl shadow-sm overflow-hidden">
-            <button
-              onClick={() => setLifeSkillsTreeOpen((v) => !v)}
-              className="w-full flex items-center justify-between px-5 py-3.5 text-left"
-            >
-              <span className="text-sm font-medium text-amber-700">
-                🌟 Life Skills Skill Tree
-                {lifeSkillsMasteredCount > 0 && (
-                  <span className="ml-2 text-xs bg-amber-200 text-amber-800 px-2 py-0.5 rounded-full">
-                    {lifeSkillsMasteredCount} mastered
-                  </span>
-                )}
-              </span>
-              <span className="ml-3 text-amber-500">
-                <ChevronDownIcon open={lifeSkillsTreeOpen} />
-              </span>
-            </button>
-            {lifeSkillsTreeOpen && (
-              <div className="border-t border-amber-100 p-5 space-y-5 bg-white">
-                {lifeSkillsTree.levels.map((level) => (
-                  <div key={level.id}>
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-sm font-semibold text-[#1a2744]">{level.title}</h4>
-                      <span className="text-xs text-gray-400">
-                        {level.tiers[0]?.atomic_skills.length ?? 0} topics
+          {/* ── Skill Trees (one tab at a time) ────────────────────────── */}
+          <div>
+            {/* Subject tab bar */}
+            <div className="grid grid-cols-4 gap-2">
+              {SUBJECT_TABS.map((t) => {
+                const isActive = activeTab === t.id;
+                const count = masteredCounts[t.id];
+                return (
+                  <button
+                    key={t.id}
+                    onClick={() => setActiveTab(t.id)}
+                    aria-pressed={isActive}
+                    className={`relative flex flex-col items-center gap-1 rounded-2xl border px-1.5 py-2.5 transition-colors ${
+                      isActive ? t.active : "bg-white border-gray-100 text-gray-500 hover:bg-gray-50"
+                    }`}
+                  >
+                    <span className="text-xl leading-none" aria-hidden>{t.emoji}</span>
+                    <span className="text-[11px] sm:text-xs font-semibold leading-tight text-center">{t.label}</span>
+                    {count > 0 && (
+                      <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-green-500 text-white text-[10px] font-bold flex items-center justify-center">
+                        {count}
                       </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Selected subject's tree */}
+            <div className="mt-3 bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+              {activeTab === "maths" && <SkillTreeView profile={profile} onReplaySkill={onMathsReplaySkill} />}
+              {activeTab === "reading" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={onReadingReplaySkill} />}
+
+              {activeTab === "lifeskills" && (
+                <div className="p-5 space-y-5">
+                  {lifeSkillsLevel ? (
+                    <div key={lifeSkillsLevel.id}>
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="text-sm font-semibold text-[#1a2744]">{lifeSkillsLevel.title}</h4>
+                        <span className="text-xs text-gray-400">
+                          {lifeSkillsLevel.tiers[0]?.atomic_skills.length ?? 0} topics
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {lifeSkillsLevel.tiers[0]?.atomic_skills.map((skill) => {
+                          const status = lifeSkillsMastery[skill.id] ?? "available";
+                          const pillClass =
+                            status === "mastered"
+                              ? "bg-green-50 text-green-700 border-green-200"
+                              : status === "in_progress"
+                              ? "bg-amber-50 text-amber-700 border-amber-300"
+                              : "bg-gray-50 text-gray-500 border-gray-200";
+                          const icon = status === "mastered" ? "✓" : status === "in_progress" ? "⚡" : "·";
+                          return (
+                            <span
+                              key={skill.id}
+                              className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
+                              title={`${skill.title} — ${status.replace("_", " ")}`}
+                            >
+                              <span className="mr-1">{icon}</span>
+                              {skill.title}
+                            </span>
+                          );
+                        })}
+                      </div>
                     </div>
-                    <div className="flex flex-wrap gap-2">
-                      {level.tiers[0]?.atomic_skills.map((skill) => {
-                        const status = lifeSkillsMastery[skill.id] ?? "available";
-                        const pillClass =
-                          status === "mastered"
-                            ? "bg-green-50 text-green-700 border-green-200"
-                            : status === "in_progress"
-                            ? "bg-amber-50 text-amber-700 border-amber-300"
-                            : "bg-gray-50 text-gray-500 border-gray-200";
-                        const icon = status === "mastered" ? "✓" : status === "in_progress" ? "⚡" : "·";
-                        return (
-                          <span
-                            key={skill.id}
-                            className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
-                            title={`${skill.title} — ${status.replace("_", " ")}`}
-                          >
-                            <span className="mr-1">{icon}</span>
-                            {skill.title}
-                          </span>
-                        );
-                      })}
-                    </div>
+                  ) : (
+                    <p className="text-sm text-gray-500">No Life Skills content for this grade yet.</p>
+                  )}
+                  <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                    <span className="inline-block mr-3">✓ Mastered</span>
+                    <span className="inline-block mr-3">⚡ In progress</span>
+                    <span className="inline-block">· Not started</span>
                   </div>
-                ))}
-                <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                  <span className="inline-block mr-3">✓ Mastered</span>
-                  <span className="inline-block mr-3">⚡ In progress</span>
-                  <span className="inline-block">· Not started</span>
                 </div>
-              </div>
-            )}
+              )}
+
+              {activeTab === "afrikaans" && (
+                <div className="p-5 space-y-5">
+                  {afrikaansLevel && afrikaansLevel.tiers.length > 0 ? (
+                    afrikaansLevel.tiers.map((tier) => (
+                      <div key={tier.id}>
+                        <h4 className="text-sm font-semibold text-[#1a2744] mb-2">{tier.title}</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {tier.atomic_skills.map((skill) => {
+                            const status = getAfrikaansSkillStatus(skill.id, afrikaansProfile);
+                            const pillClass =
+                              status === "mastered"
+                                ? "bg-green-50 text-green-700 border-green-200"
+                                : status === "in_progress"
+                                ? "bg-amber-50 text-amber-700 border-amber-300"
+                                : status === "locked"
+                                ? "bg-gray-50 text-gray-400 border-gray-200"
+                                : "bg-white text-[#1a2744] border-emerald-200";
+                            const icon =
+                              status === "mastered" ? "✓" : status === "in_progress" ? "⚡" : status === "locked" ? "🔒" : "▶";
+                            return (
+                              <span
+                                key={skill.id}
+                                className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
+                                title={`${skill.title} — ${status.replace("_", " ")}`}
+                              >
+                                <span className="mr-1">{icon}</span>
+                                {skill.title}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-sm text-gray-500">More Afrikaans grades coming soon.</p>
+                  )}
+                  <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                    <span className="inline-block mr-3">✓ Mastered</span>
+                    <span className="inline-block mr-3">⚡ In progress</span>
+                    <span className="inline-block mr-3">▶ Ready</span>
+                    <span className="inline-block">🔒 Locked</span>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* ── In Progress Skills ─────────────────────────────────────── */}

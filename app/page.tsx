@@ -280,6 +280,20 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     }
   };
 
+  // ── Tap-to-replay (Maths / Reading) ───────────────────────────────────────
+  // A completed/attained skill tapped in the tree opens the session in an
+  // isolated "replay" mode: same questions, but no progression is written.
+  // We stash the target skill in sessionStorage (same pattern as the existing
+  // ruby_reading_retake flag) and the session reads it on mount.
+  const startMathsReplay = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_replay_skill", skillId);
+    handleViewChange("ruby");
+  };
+  const startReadingReplay = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_reading_replay_skill", skillId);
+    handleViewChange("reading");
+  };
+
   return (
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
       {/* ── Streak milestone toast ──────────────────────────────────────── */}
@@ -366,14 +380,14 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
-        {activeView === "progress" && <ProgressTracker />}
-        {activeView === "ruby" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
+        {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} />}
+        {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
-        {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
+        {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
-        {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
+        {activeView === "reading" && <ErrorBoundary><ReadingSession onExitReplay={() => handleViewChange("reading-skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-reading" && <ErrorBoundary><ReadingSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
-        {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
+        {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={startReadingReplay} />}
         {activeView === "life-skills" && <ErrorBoundary><LifeSkillsSession /></ErrorBoundary>}
         {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} />}
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}

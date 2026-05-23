@@ -8,6 +8,9 @@ import { getLevelProgress } from "@/lib/mastery-engine";
 
 interface SkillTreeViewProps {
   profile: StudentProfile | null;
+  /** When provided, skills the student has already completed/attained become
+   *  tappable to replay (extra practice — no progression is changed). */
+  onReplaySkill?: (skillId: string) => void;
 }
 
 const statusConfig = {
@@ -21,7 +24,7 @@ const statusConfig = {
   entry_point:   { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-300",  icon: "🎯", label: "Entry Point" },
 };
 
-export default function SkillTreeView({ profile }: SkillTreeViewProps) {
+export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewProps) {
   const levelProgress = useMemo(() => {
     if (!profile) return {};
     const result: Record<number, number> = {};
@@ -181,22 +184,43 @@ export default function SkillTreeView({ profile }: SkillTreeViewProps) {
                                 const config = statusConfig[extStatus as keyof typeof statusConfig] ?? statusConfig.locked;
                                 const isActive = extStatus === "active";
                                 const isHardGateSkill = extStatus === "hard_gate";
+                                // Replay is allowed only on skills the student has already
+                                // completed/attained (mastered, or auto-completed via placement).
+                                const canReplay = !!onReplaySkill && (extStatus === "mastered" || extStatus === "auto_complete");
 
-                                return (
-                                  <div
-                                    key={skill.id}
-                                    className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${config.bg} ${config.text} ${config.border} ${
-                                      isActive ? "ring-2 ring-blue-500 ring-offset-1 animate-pulse shadow-sm shadow-blue-300" : ""
-                                    }`}
-                                    title={`${skill.title} — ${config.label}${isActive ? " (current)" : ""}${isHardGateSkill ? " — complete multiplication gate first" : ""}`}
-                                  >
+                                const tileClass = `px-3 py-1.5 rounded-lg border text-xs font-medium text-left ${config.bg} ${config.text} ${config.border} ${
+                                  isActive ? "ring-2 ring-blue-500 ring-offset-1 animate-pulse shadow-sm shadow-blue-300" : ""
+                                } ${canReplay ? "cursor-pointer hover:ring-2 hover:ring-blue-300 hover:shadow-sm transition-all" : ""}`;
+                                const tileInner = (
+                                  <>
                                     <span className="mr-1">{config.icon}</span>
                                     {skill.title}
+                                    {canReplay && <span className="ml-1 text-blue-400" aria-hidden>🔁</span>}
                                     {isHardGateSkill && (
                                       <span className="block text-amber-600 text-[10px] leading-tight mt-0.5">
                                         Complete this challenge to unlock
                                       </span>
                                     )}
+                                  </>
+                                );
+
+                                return canReplay ? (
+                                  <button
+                                    key={skill.id}
+                                    type="button"
+                                    onClick={() => onReplaySkill!(skill.id)}
+                                    className={tileClass}
+                                    title={`${skill.title} — ${config.label} · Tap to practise again`}
+                                  >
+                                    {tileInner}
+                                  </button>
+                                ) : (
+                                  <div
+                                    key={skill.id}
+                                    className={tileClass}
+                                    title={`${skill.title} — ${config.label}${isActive ? " (current)" : ""}${isHardGateSkill ? " — complete multiplication gate first" : ""}`}
+                                  >
+                                    {tileInner}
                                   </div>
                                 );
                               })}

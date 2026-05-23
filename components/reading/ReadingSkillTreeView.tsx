@@ -7,6 +7,9 @@ import { getReadingSkillStatus, getReadingLevelProgress, friendlyReadingSkillNam
 
 interface ReadingSkillTreeViewProps {
   profile: ReadingStudentProfile | null;
+  /** When provided, skills the student has already completed/attained become
+   *  tappable to replay (extra practice — no progression is changed). */
+  onReplaySkill?: (skillId: string) => void;
 }
 
 const statusConfig = {
@@ -35,7 +38,7 @@ type TreeData = {
 
 const treeData = readingSkillTreeData as unknown as TreeData;
 
-export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewProps) {
+export default function ReadingSkillTreeView({ profile, onReplaySkill }: ReadingSkillTreeViewProps) {
   const levelProgress = useMemo(() => {
     if (!profile) return {};
     const result: Record<number, number> = {};
@@ -193,23 +196,46 @@ export default function ReadingSkillTreeView({ profile }: ReadingSkillTreeViewPr
                               const isEntry = skill.id === entrySkillId;
                               const isActive = extStatus === "active";
                               const isHardGate = extStatus === "hard_gate";
+                              // Replay is allowed only on skills the student has already
+                              // completed/attained (mastered, or auto-completed via placement).
+                              const canReplay = !!onReplaySkill && (extStatus === "mastered" || extStatus === "auto_complete");
 
-                              return (
-                                <div
-                                  key={skill.id}
-                                  className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${config.bg} ${config.text} ${config.border} ${
-                                    isActive ? "ring-2 ring-purple-500 ring-offset-1 animate-pulse shadow-sm shadow-purple-300" : ""
-                                  } ${isEntry ? "ring-2 ring-blue-400 ring-offset-1" : ""}`}
-                                  title={`${skill.title} — ${config.label}${isActive ? " (current)" : ""}${isHardGate ? " — unlock encoding gate first" : ""}`}
-                                >
+                              const tileClass = `px-3 py-1.5 rounded-lg border text-xs font-medium text-left ${config.bg} ${config.text} ${config.border} ${
+                                isActive ? "ring-2 ring-purple-500 ring-offset-1 animate-pulse shadow-sm shadow-purple-300" : ""
+                              } ${isEntry ? "ring-2 ring-blue-400 ring-offset-1" : ""} ${
+                                canReplay ? "cursor-pointer hover:ring-2 hover:ring-purple-300 hover:shadow-sm transition-all" : ""
+                              }`;
+                              const tileInner = (
+                                <>
                                   <span className="mr-1">{config.icon}</span>
                                   {skill.title}
+                                  {canReplay && <span className="ml-1 text-purple-400" aria-hidden>🔁</span>}
                                   {isAutoComplete && (
                                     <span className="ml-1.5 text-green-500 text-xs" title="Auto-completed via placement">✦</span>
                                   )}
                                   {isEntry && (
                                     <span className="ml-1.5 text-blue-500 text-xs" title="Placement entry point">★</span>
                                   )}
+                                </>
+                              );
+
+                              return canReplay ? (
+                                <button
+                                  key={skill.id}
+                                  type="button"
+                                  onClick={() => onReplaySkill!(skill.id)}
+                                  className={tileClass}
+                                  title={`${skill.title} — ${config.label} · Tap to practise again`}
+                                >
+                                  {tileInner}
+                                </button>
+                              ) : (
+                                <div
+                                  key={skill.id}
+                                  className={tileClass}
+                                  title={`${skill.title} — ${config.label}${isActive ? " (current)" : ""}${isHardGate ? " — unlock encoding gate first" : ""}`}
+                                >
+                                  {tileInner}
                                 </div>
                               );
                             })}
