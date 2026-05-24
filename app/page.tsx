@@ -24,6 +24,10 @@ const SkillTreeView        = dynamic(() => import("@/components/ruby/SkillTreeVi
 const StudentDashboard     = dynamic(() => import("@/components/ruby/StudentDashboard"),                { ssr: false });
 const ReadingSession       = dynamic(() => import("@/components/reading/ReadingSession"),               { ssr: false });
 const ReadingSkillTreeView = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),         { ssr: false });
+const LifeSkillsSession        = dynamic(() => import("@/components/life-skills/LifeSkillsSession"),         { ssr: false });
+const LifeSkillsSkillTreeView  = dynamic(() => import("@/components/life-skills/LifeSkillsSkillTreeView"),   { ssr: false });
+const AfrikaansSession         = dynamic(() => import("@/components/afrikaans/AfrikaansSession"),            { ssr: false });
+const AfrikaansSkillTreeView   = dynamic(() => import("@/components/afrikaans/AfrikaansSkillTreeView"),      { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -124,6 +128,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     subjects: "Subjects",
     matrics: "Matrics",
     "study-guides": "Study Guides",
+    "life-skills": "Life Skills",
+    "life-skills-skill-tree": "Life Skills · Topics",
+    "afrikaans-fal": "Afrikaans",
+    "afrikaans-fal-skill-tree": "Afrikaans · Skills",
   };
 
   const refreshStats = useCallback(() => {
@@ -272,6 +280,25 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     }
   };
 
+  // ── Tap-to-replay (Maths / Reading) ───────────────────────────────────────
+  // A completed/attained skill tapped in the tree opens the session in an
+  // isolated "replay" mode: same questions, but no progression is written.
+  // We stash the target skill in sessionStorage (same pattern as the existing
+  // ruby_reading_retake flag) and the session reads it on mount.
+  const startMathsReplay = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_replay_skill", skillId);
+    handleViewChange("ruby");
+  };
+  const startReadingReplay = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_reading_replay_skill", skillId);
+    handleViewChange("reading");
+  };
+  // Open the Afrikaans subject and jump straight into the picked skill.
+  const startAfrikaansSkill = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_afrikaans_target_skill", skillId);
+    handleViewChange("afrikaans-fal");
+  };
+
   return (
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
       {/* ── Streak milestone toast ──────────────────────────────────────── */}
@@ -358,14 +385,19 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
-        {activeView === "progress" && <ProgressTracker />}
-        {activeView === "ruby" && <ErrorBoundary><DiagnosticSession /></ErrorBoundary>}
+        {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} onAfrikaansPickSkill={startAfrikaansSkill} />}
+        {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
-        {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} />}
+        {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
-        {activeView === "reading" && <ErrorBoundary><ReadingSession /></ErrorBoundary>}
+        {activeView === "reading" && <ErrorBoundary><ReadingSession onExitReplay={() => handleViewChange("reading-skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-reading" && <ErrorBoundary><ReadingSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
-        {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} />}
+        {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={startReadingReplay} />}
+        {activeView === "life-skills" && <ErrorBoundary><LifeSkillsSession /></ErrorBoundary>}
+        {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} />}
+        {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
+        {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

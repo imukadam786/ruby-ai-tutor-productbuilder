@@ -1,0 +1,38 @@
+{
+  "$comment": "Calibration fixture for L6.A1. `label` (G|A|R) is human ground truth. Grade-4 spelling/grammar and borderline cases included. Harness sweeps thresholds against these labels.",
+  "skillId": "L6.A1",
+  "samples": [
+    { "ref": "A1.001", "n": 1,  "answer": "Maya's dog ran away and she looked all over until she found him at the park, then she made sure it wouldnt happen again.", "label": "G" },
+    { "ref": "A1.001", "n": 2,  "answer": "A girl looses her dog but finds it and lerns to keep the gate locked so it cant get out again.", "label": "G" },
+    { "ref": "A1.001", "n": 3,  "answer": "Maya looked for her dog everywhere.", "label": "R" },
+    { "ref": "A1.001", "n": 4,  "answer": "Mr Peters told Maya the dog was at the park.", "label": "R" },
+    { "ref": "A1.001", "n": 5,  "answer": "Maya hugged Biscuit tightly.", "label": "R" },
+    { "ref": "A1.001", "n": 6,  "answer": "The lost dog", "label": "R" },
+    { "ref": "A1.001", "n": 7,  "answer": "Maya searched the whole street calling his name.", "label": "R" },
+    { "ref": "A1.001", "n": 8,  "answer": "dogs", "label": "R" },
+    { "ref": "A1.001", "n": 9,  "answer": "It is about a dog named Biscuit that is naughty and the family is sad then happy.", "label": "A" },
+    { "ref": "A1.001", "n": 10, "answer": "i dont know", "label": "R" },
+
+    { "ref": "A1.012", "n": 11, "answer": "Recycling means using old things again so theres less pollution and we save stuff, you just have to sort your bins.", "label": "G" },
+    { "ref": "A1.012", "n": 12, "answer": "If we recycle and sort our rubbish properly it helps the planet by making less landfill and less pollution.", "label": "G" },
+    { "ref": "A1.012", "n": 13, "answer": "Recycling is good because it stops pollution.", "label": "A" },
+    { "ref": "A1.012", "n": 14, "answer": "Recycling helps the earth.", "label": "R" },
+    { "ref": "A1.012", "n": 15, "answer": "A glass bottle can be melted and made into a new bottle.", "label": "R" },
+    { "ref": "A1.012", "n": 16, "answer": "Paper and cardboard go in one bin.", "label": "R" },
+    { "ref": "A1.012", "n": 17, "answer": "Recycling", "label": "R" },
+    { "ref": "A1.012", "n": 18, "answer": "Landfills take up space, create pollution, and can harm the soil and nearby water.", "label": "R" },
+    { "ref": "A1.012", "n": 19, "answer": "We should recycle plastic glass and paper into the right bins so it doesnt go to landfill and hurt animals in the sea.", "label": "G" },
+    { "ref": "A1.012", "n": 20, "answer": "rubbish", "label": "R" },
+
+    { "ref": "A1.014", "n": 21, "answer": "The water cycle is how water keeps moving around the earth by evaporating, making clouds and then raining down again.", "label": "G" },
+    { "ref": "A1.014", "n": 22, "answer": "Water goes up into the air, turns into clouds, and falls back down as rain over and over.", "label": "G" },
+    { "ref": "A1.014", "n": 23, "answer": "Water evaporates from the sea.", "label": "R" },
+    { "ref": "A1.014", "n": 24, "answer": "It rains and then the water goes back to the sea.", "label": "A" },
+    { "ref": "A1.014", "n": 25, "answer": "The water cycle", "label": "R" },
+    { "ref": "A1.014", "n": 26, "answer": "Clouds are made of tiny water droplets.", "label": "R" },
+    { "ref": "A1.014", "n": 27, "answer": "Water moves in a continuous circle around the Earth.", "label": "A" },
+    { "ref": "A1.014", "n": 28, "answer": "evaporation condensation precipitation", "label": "R" },
+    { "ref": "A1.014", "n": 29, "answer": "The sun heats the water and it goes round and round in a cycle giving fresh water everywhere.", "label": "G" },
+    { "ref": "A1.014", "n": 30, "answer": "water", "label": "R" }
+  ]
+}

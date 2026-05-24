@@ -22,6 +22,7 @@ import {
   getReadingProfile,
   createReadingProfile,
   getReadingSkillById,
+  friendlyReadingSkillName,
   getNextReadingSkillId,
   getReadingTierById,
   getReadingLevelById,
@@ -45,6 +46,7 @@ import { selectReadingTemplate } from "@/lib/template-selector";
 import { detectStuck } from "@/lib/stuck-detector";
 import StuckScreen from "@/components/shared/StuckScreen";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
+import EduBackground from "@/components/EduBackground";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import {
@@ -82,10 +84,13 @@ function buildReadingReportInput(
 
   // Split tasks into approximate thirds for domain breakdown
   const third = Math.ceil(total / 3);
+  // Plain-language area names that match the skill-tree headings — the report
+  // previously showed teacher jargon ("Phonological Awareness" etc.) that didn't
+  // match what families see in the tree (BUG #14/#15).
   const groups = [
-    { name: "Phonological Awareness", tasks: result.tasks.slice(0, third) },
-    { name: "Letter–Sound Knowledge", tasks: result.tasks.slice(third, third * 2) },
-    { name: "Decoding & Fluency",     tasks: result.tasks.slice(third * 2) },
+    { name: "Hearing sounds in words", tasks: result.tasks.slice(0, third) },
+    { name: "Letters and their sounds", tasks: result.tasks.slice(third, third * 2) },
+    { name: "Reading words smoothly",   tasks: result.tasks.slice(third * 2) },
   ];
 
   const domainScores: DiagnosticReportInput["domainScores"] = groups
@@ -110,8 +115,10 @@ function buildReadingReportInput(
     ? historyEntries
     : overallScore < 50 ? ["ERR_BLEND_FAIL"] : overallScore < 70 ? ["ERR_SOUND_RECALL"] : [];
 
-  const entryLevel = result.autoCompletedSkillIds.length > 6 ? 3
-    : result.autoCompletedSkillIds.length > 2 ? 2 : 1;
+  // Derive the working level from the actual placement skill (e.g. "R14.T1.A1" -> 14),
+  // not from a count of auto-completed skills. The old count-based heuristic capped at 3,
+  // so any learner placed above Level 3 was mislabelled (e.g. Gr12 -> "Reading Level 3").
+  const entryLevel = parseInt(result.entrySkillId.split(".")[0].replace(/\D/g, ""), 10) || 1;
 
   return {
     subject: "reading",
@@ -123,7 +130,7 @@ function buildReadingReportInput(
     correctCount: result.tasks.filter((t) => t.correct).length,
     domainScores,
     dominantErrors,
-    placementSkill: result.entrySkillId,
+    placementSkill: friendlyReadingSkillName(result.entrySkillId),
     skillsCompleted: result.autoCompletedSkillIds.length,
     hardGateBlocked: !result.hardGatePassed,
   };
@@ -142,7 +149,7 @@ async function readOnboardingWithFallback(): Promise<{ name: string; grade: numb
   return { name: "Student", grade: 3 };
 }
 
-export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => void }) {
+export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelectPlan?: () => void; onExitReplay?: () => void }) {
   const { language } = useT();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<ReadingStudentProfile | null>(null);
@@ -183,6 +190,18 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
   // Prevents double-writing sessionHistory for the same skill session
   const hasRecordedSession = useRef(false);
 
+  // ── Replay mode ────────────────────────────────────────────────────────────
+  // When the student taps an already-completed skill in the tree, that skill id
+  // is stashed in sessionStorage. In replay mode the session loads ONLY that
+  // skill's questions and writes NO progression state (no attempts, no mastery,
+  // no advancement, no session history) — pure practice. `replayChecked` gates
+  // the loader until the flag has been read so the first question targets right.
+  const [replaySkillId, setReplaySkillId] = useState<string | null>(null);
+  const [replayChecked, setReplayChecked] = useState(false);
+  const replayConsumedRef = useRef(false);
+  const replaySkillIdRef = useRef<string | null>(null);
+  replaySkillIdRef.current = replaySkillId;
+
   // Keep profileRef in sync so callbacks never close over a stale profile
   useEffect(() => { profileRef.current = profile; }, [profile]);
 
@@ -191,6 +210,23 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
   }, [phase, currentQuestion?.id]);
 
   useEffect(() => {
+    // Replay detection — read the tapped-skill flag synchronously BEFORE the
+    // profile init runs, so scanAndMarkNeedsReview (which persists internally) is
+    // skipped in replay and the first question targets the replay skill. Guarded
+    // against React StrictMode double-invoke so the single-use flag is consumed once.
+    if (!replayConsumedRef.current) {
+      replayConsumedRef.current = true;
+      if (typeof window !== "undefined") {
+        const flag = sessionStorage.getItem("ruby_reading_replay_skill");
+        if (flag) {
+          sessionStorage.removeItem("ruby_reading_replay_skill");
+          replaySkillIdRef.current = flag;
+          setReplaySkillId(flag);
+        }
+      }
+      setReplayChecked(true);
+    }
+
     function initWithProfile(saved: import("@/types/reading").ReadingStudentProfile) {
       identifyStudent({ id: saved.id, name: saved.name, grade: saved.grade });
       // Keep auth link fresh — fire-and-forget, non-blocking
@@ -202,13 +238,30 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
           current_level: saved.current_level,
         });
       }
-      const scanned = saved.placementCompleted ? scanAndMarkNeedsReview(saved) : saved;
+      // Skip the needs-review scan (it persists) during replay — writes nothing.
+      const scanned = (saved.placementCompleted && !replaySkillIdRef.current) ? scanAndMarkNeedsReview(saved) : saved;
       setProfile(scanned);
       const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
       setSkillAttemptCount(restoredAttemptCount);
       const reviewSkill = saved.placementCompleted ? pickNeedsReviewSkill(scanned) : null;
       if (reviewSkill) setPendingReviewSkillId(reviewSkill);
       setPhase("loading_question");
+    }
+
+    // Retake: DiscoverHub set this flag when the learner chose "Retake". Start a
+    // brand-new profile so the placement gate re-runs Discovery from scratch with
+    // fresh questions, instead of resuming the saved (already-placed) profile and
+    // dropping straight into learning (BUG #3).
+    const isRetake = typeof window !== "undefined" && sessionStorage.getItem("ruby_reading_retake") === "1";
+    if (isRetake) {
+      sessionStorage.removeItem("ruby_reading_retake");
+      readOnboardingWithFallback().then(({ name, grade }) => {
+        const fresh = createReadingProfile(name, grade);
+        identifyStudent({ id: fresh.id, name: fresh.name, grade: fresh.grade });
+        setProfile(fresh);
+        // placement gate intercepts before loading_question fires
+      });
+      return;
     }
 
     const saved = getReadingProfile();
@@ -240,7 +293,7 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
       if (prefetch?.skillId === skillId) {
         prefetchedQuestionRef.current = null;
         const q = prefetch.question;
-        if (q.used_ref && profileRef.current) {
+        if (q.used_ref && profileRef.current && !replaySkillIdRef.current) {
           const updated = markReadingQuestionUsed(profileRef.current, skillId, q.used_ref);
           setProfile(updated);
         }
@@ -269,8 +322,9 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
         });
         if (!res.ok) throw new Error("Failed to generate question");
         const q: ReadingGeneratedQuestion = await res.json();
-        // Mark this pool ref as used so it isn't served again until the pool resets
-        if (q.used_ref && profileRef.current) {
+        // Mark this pool ref as used so it isn't served again until the pool resets.
+        // Skipped in replay so practice never writes to the profile.
+        if (q.used_ref && profileRef.current && !replaySkillIdRef.current) {
           const updated = markReadingQuestionUsed(profileRef.current, skillId, q.used_ref);
           setProfile(updated);
         }
@@ -286,7 +340,7 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
   );
 
   useEffect(() => {
-    if (phase === "loading_question" && profile) {
+    if (phase === "loading_question" && profile && replayChecked) {
       const prevCorrect = currentResult?.is_correct ?? true;
       const errorType =
         currentResult && !currentResult.is_correct && currentResult.error_type !== "correct"
@@ -294,11 +348,11 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
           : null;
       const template = selectReadingTemplate(prevCorrect ? "advance" : "reteach", errorType, null, recentTemplatesRef.current);
       recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
-      // If a stale mastered skill needs a retention probe, load that first
-      const skillIdToLoad = pendingReviewSkillId ?? profile.current_skill_id;
+      // Replay targets the chosen skill; otherwise needs-review probe / current skill.
+      const skillIdToLoad = replaySkillId ?? pendingReviewSkillId ?? profile.current_skill_id;
       loadQuestion(skillIdToLoad, template, skillAttemptCount + 1, prevCorrect, errorType);
     }
-  }, [phase, profile, skillAttemptCount, currentResult, loadQuestion]);
+  }, [phase, profile, skillAttemptCount, currentResult, loadQuestion, replayChecked, replaySkillId]);
 
   const handleViewReport = useCallback(
     async (result: DiagnosticPlacementResult) => {
@@ -309,6 +363,10 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
       // even if the user navigates away before clicking "Continue Learning"
       const updated = completeDiagnosticPlacement(profile, result);
       savedPlacementRef.current = updated;
+      // Await the Supabase write so SubjectsHub reflects placement-complete
+      // on the very next hydrate. Errors are already logged inside
+      // saveReadingProfile — we just block on it here.
+      if (updated._savePromise) await updated._savePromise;
       try {
         const rInput = buildReadingReportInput(updated, result);
         const rContent = buildDeterministicReportContent(rInput);
@@ -392,6 +450,19 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
 
       const skill = getReadingSkillById(currentQuestion.skill_id);
       if (!skill) return;
+
+      // ── Replay mode: pure practice ──────────────────────────────────────────
+      // Grade and show feedback only. Skip ALL progression writes — no mastery
+      // update, no recordReadingAttempt, no advance, no session history, no save.
+      if (replaySkillId) {
+        result.next_action = "continue_skill";
+        setSessionAttempts((n) => n + 1);
+        if (result.is_correct) setSessionCorrect((n) => n + 1);
+        setSkillAttemptCount((n) => n + 1);
+        setCurrentResult(result);
+        setPhase("feedback");
+        return;
+      }
 
       const existingMastery =
         profile.skill_mastery[currentQuestion.skill_id] ||
@@ -531,6 +602,12 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
 
   const handleSkipOnLoadError = () => {
     if (!profile) return;
+    // In replay, "skip" must not advance progression — just retry the same skill.
+    if (replaySkillId) {
+      setLoadErrorCount(0);
+      setPhase("loading_question");
+      return;
+    }
     try {
       setLoadErrorCount(0);
       const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
@@ -684,6 +761,8 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
   // Write one session entry on unmount (student navigates away mid-skill)
   useEffect(() => {
     return () => {
+      // Replay is pure practice — never record a session on exit.
+      if (replaySkillIdRef.current) return;
       const p = profileRef.current;
       const attempts = sessionAttemptsRef.current;
       const correct = sessionCorrectRef.current;
@@ -712,6 +791,7 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
     const handler = () => {
       const p = profileRef.current;
       if (!p) return;
+      if (replaySkillIdRef.current) return; // replay = practice; restart is disabled
       if (!p.placementCompleted) {
         if (window.confirm("Restart the discovery activity? You'll get a fresh set of questions.")) {
           actionsRef.current.resetToPlacement();
@@ -762,8 +842,11 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
 
   if (phase === "loading_question") {
     return (
-      <div className="flex flex-col h-full bg-gray-50">
-        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
+        {replaySkillId
+          ? <ReadingReplayBar skillId={replaySkillId} onExit={onExitReplay} />
+          : <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
         <div className="flex-1 flex items-center justify-center p-6">
           {loadErrorCount === 0 ? (
             <div className="text-center">
@@ -805,8 +888,11 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
     const skill = getReadingSkillById(currentQuestion.skill_id);
     const mastery = profile?.skill_mastery[currentQuestion.skill_id];
     return (
-      <div className="flex flex-col h-full bg-gray-50">
-        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
+        {replaySkillId
+          ? <ReadingReplayBar skillId={replaySkillId} onExit={onExitReplay} />
+          : <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
             {skill && (
@@ -841,8 +927,11 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
       advance_level: "Next level",
     };
     return (
-      <div className="flex flex-col h-full bg-gray-50">
-        <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
+        {replaySkillId
+          ? <ReadingReplayBar skillId={replaySkillId} onExit={onExitReplay} />
+          : <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto">
             <ReadingFeedbackCard
@@ -863,7 +952,8 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
   if (phase === "mastered") {
     const skill = profile ? getReadingSkillById(profile.current_skill_id) : null;
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
@@ -894,7 +984,8 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
     const currentTierId = profile ? `${profile.current_skill_id.split(".")[0]}.${profile.current_skill_id.split(".")[1]}` : null;
     const tier = currentTierId ? getReadingTierById(currentTierId) : null;
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
@@ -948,7 +1039,8 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
   if (phase === "stuck" && currentQuestion) {
     const skill = getReadingSkillById(currentQuestion.skill_id);
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <StuckScreen
           skillTitle={skill?.title ?? "this skill"}
@@ -965,7 +1057,8 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
 
   if (phase === "complete") {
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
@@ -990,6 +1083,26 @@ export default function ReadingSession({ onSelectPlan }: { onSelectPlan?: () => 
 }
 
 // ─── Sub-components ────────────────────────────────────────────────────────────
+
+// Header shown during replay (pure-practice) mode: a clear way back to the tree
+// plus the skill being practised. Replaces ReadingSessionHeader so the
+// progression "restart" control isn't exposed while replaying.
+function ReadingReplayBar({ skillId, onExit }: { skillId: string | null; onExit?: () => void }) {
+  const skill = skillId ? getReadingSkillById(skillId) : null;
+  return (
+    <div className="bg-purple-50 border-b border-purple-200 px-4 py-2 sm:px-6 sm:py-3 flex items-center justify-between gap-3">
+      <button
+        onClick={onExit}
+        className="text-sm font-semibold text-purple-700 hover:text-purple-900 flex items-center gap-1 flex-shrink-0"
+      >
+        ← Back to skill tree
+      </button>
+      <span className="text-xs sm:text-sm text-purple-700 bg-purple-100 px-3 py-1 rounded-full font-medium truncate">
+        🔁 Practising: {skill?.title ?? "this skill"}
+      </span>
+    </div>
+  );
+}
 
 function ReadingSessionHeader({
   profile,

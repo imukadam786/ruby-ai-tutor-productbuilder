@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL, OPENAI_SMART_MODEL } from "@/lib/anthropic";
-import { checkLanguage } from "@/lib/language-utils";
+import { checkLanguage, localiseFeedback } from "@/lib/language-utils";
 import { getSkillById } from "@/lib/student-model";
 import {
   checkAnswerCorrectness,
@@ -123,12 +123,19 @@ export async function POST(req: NextRequest) {
         recovery_explanation: "",
       };
     } else if (submission.attempt_number <= 1) {
-      // Tier 2 — first incorrect: use pre-authored recovery tip, no LLM call
+      // Tier 2 — first incorrect: pre-authored recovery tip. Translate it when the
+      // learner has chosen a non-English language — this branch previously returned
+      // English regardless of the selected language (BUG #11). localiseFeedback
+      // no-ops for English, so English answers still make 0 LLM calls here.
+      const localised = await localiseFeedback(
+        { feedback: "Not quite — give it another try!", recovery: skill.recovery_strategy },
+        submission.language ?? "English"
+      );
       aiDiagnosis = {
         is_correct: false,
         error_type: preClassifiedError,
-        feedback: "Not quite — give it another try!",
-        recovery_explanation: skill.recovery_strategy,
+        feedback: localised.feedback,
+        recovery_explanation: localised.recovery,
       };
     } else {
       // Tier 3 — repeated incorrect: call LLM for personalised re-teaching

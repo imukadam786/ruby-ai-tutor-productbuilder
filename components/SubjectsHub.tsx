@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
-import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
-import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
+import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
+import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
@@ -75,8 +75,11 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       hydrateStudentProfileFromSupabase(),
       hydrateReadingProfileFromSupabase(),
     ]).then(([mp, rp]) => {
-      setMathsProfile(mp);
-      setReadingProfile(rp as ReadingStudentProfile | null);
+      // Supabase is best-effort/async and empty for anonymous or unsynced
+      // testers — fall back to the local profile (where a just-completed
+      // placement actually lives) so status badges reflect reality.
+      setMathsProfile(mp ?? getStudentProfile());
+      setReadingProfile((rp as ReadingStudentProfile | null) ?? getReadingProfile());
       setLoading(false);
     });
   }, []);
@@ -154,16 +157,39 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
               onClick={() => onNavigate("ruby")}
             />
 
-            {/* Reading */}
+            {/* English — unified reading + writing skill tree (Levels 1–8) */}
             <SubjectCard
               thumbnail="/thumbnails/english.jpeg"
-              label="Reading"
-              caption="Improve comprehension with AI-powered practice"
+              label="English"
+              caption="Reading, comprehension and writing — adapts to your grade"
               badge={readingBadge}
               badgeColor={readingBadgeColor}
               accentFrom="from-purple-600"
               accentTo="to-purple-700"
               onClick={() => onNavigate("reading")}
+            />
+
+            {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans */}
+            <SubjectCard
+              thumbnail="/thumbnails/life-skills.png"
+              label="Life Skills"
+              caption="Beginning Knowledge & Health for Grades 1–3"
+              badge="Foundation Phase"
+              badgeColor="bg-amber-100 text-amber-700"
+              accentFrom="from-amber-500"
+              accentTo="to-rose-500"
+              onClick={() => onNavigate("life-skills")}
+            />
+
+            {/* Afrikaans FAL — Foundation Phase (Gr 1–3), free (no Scholar badge).
+                Uses the same thumbnail as the Matric Afrikaans FAL subject. */}
+            <SubjectCard
+              thumbnail="/thumbnails/afrikaans-fal.jpeg"
+              label="Afrikaans"
+              caption="First Additional Language — listen, choose and learn (Grades 1–3)"
+              accentFrom="from-emerald-500"
+              accentTo="to-teal-600"
+              onClick={() => onNavigate("afrikaans-fal")}
             />
           </div>
 

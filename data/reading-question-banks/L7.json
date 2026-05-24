@@ -1,0 +1,3874 @@
+{
+  "$comment": "L7 reading bank — converted from Ruby_L7_Question_Bank_v1.pdf (spec v1.0). 13 skills, 105 items, Gate F, Grade 5. Per-item source texts are stored on the item itself; no shared text pool is used at this level. Phase 1 visual constraints applied: L7.B1 uses [HEADING]/[SUBHEADING]/[CAPTION]/[BOLD]/[SIDEBAR] plain-text markup; L7.B2 uses ERR_DATA_COMPARE (reverts to ERR_VISUAL_COMPARE at Phase 2). L7.D1–D3 are voice-primary with text fallback (flagged TEXT_MODE in session log).",
+  "level": 7,
+  "gate": "F",
+  "specVersion": "1.0",
+  "bankVersion": "1.0",
+  "grades": [
+    5
+  ],
+  "texts": [],
+  "skills": [
+    {
+      "skillId": "L7.A1",
+      "name": "Skim Reading",
+      "gate": "F",
+      "level": 7,
+      "tier": "A — Text Structure Awareness",
+      "grade": 5,
+      "description": "Learner reads headings and first sentence of each paragraph only, then produces a correct general topic statement. Simulated skim: platform reveals only [HEADING] lines and first sentence of each [PARA] block.",
+      "deliveryMode": "TEXT — Learner types topic statement. Latency measured from text display to submission.",
+      "questionFormat": "Open response — one sentence stating what the whole text is about",
+      "defaultPrompt": "Skim the headings and first sentences only. What is the whole text about? Answer in one sentence.",
+      "errorCode": "ERR_NO_SKIM",
+      "passCondition": {
+        "metric": "topic_coverage",
+        "threshold": 0.4,
+        "greenAt": 0.6,
+        "amberFloor": 0.4,
+        "latencyBandsSec": {
+          "green": "<110",
+          "amber": "110–140",
+          "red": ">140"
+        },
+        "texts": 6,
+        "sessions": 2
+      },
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": "Topic statement covers >=0.60 of text content (GREEN), even with simple phrasing."
+        },
+        {
+          "decision": "ACCEPT_IF",
+          "condition": "Coverage 0.40–0.60 (AMBER). Log; count as pass if latency also passes."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Coverage <0.40 — statement covers only one section.",
+          "firesError": "TOPIC_TOO_NARROW"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Learner reproduces the opening sentence of the text verbatim (copying >=60%).",
+          "firesError": "VERBATIM_COPY"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Latency >140 sec — learner read the full text, not just headings/first sentences.",
+          "firesError": "OVER_READING"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "OVER_READING",
+          "action": "Timed reveal: headings and first sentences shown one at a time on click. Timer enforced on next attempt."
+        },
+        {
+          "errorVariant": "TOPIC_TOO_NARROW",
+          "action": "Prompt: 'What is the whole text about, not just one part?'"
+        },
+        {
+          "errorVariant": "VERBATIM_COPY",
+          "action": "System prompts: 'In your own words, what is the whole text about?'"
+        }
+      ],
+      "items": [
+        {
+          "id": "SA.001",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Water Cycle",
+          "passage": "[HEADING] The Water Cycle [First sentence] Water moves continuously between the Earth's surface and the atmosphere in a process called the water cycle. [SUBHEADING] Evaporation and Condensation [First sentence] When the sun heats water in oceans, rivers, and lakes, it turns into water vapour and rises into the air. [SUBHEADING] Precipitation and Collection [First sentence] When clouds hold enough water droplets, the water falls back to Earth as rain, snow, or hail — this is called precipitation.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Water moves between the Earth's surface and the atmosphere in a continuous process called the water cycle.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.002",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "How Solar Energy Works",
+          "passage": "[HEADING] How Solar Energy Works [First sentence] Solar energy is electricity produced from sunlight, and it is one of the fastest-growing energy sources in the world. [SUBHEADING] Capturing Sunlight [First sentence] Solar panels are made of cells that absorb sunlight and convert it directly into electricity. [SUBHEADING] Benefits and Limitations [First sentence] Solar energy produces no pollution when generating electricity, which helps reduce climate change.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Solar energy converts sunlight into electricity and is growing as a clean, renewable energy source.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.003",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "Animal Migration",
+          "passage": "[HEADING] Animal Migration [First sentence] Migration is the seasonal movement of animals from one place to another, usually to find food, warmth, or safe breeding grounds. [SUBHEADING] Why Animals Migrate [First sentence] Most animals migrate because their food supply changes with the seasons. [SUBHEADING] How Animals Navigate [First sentence] Scientists have discovered that many animals use the Earth's magnetic field like a compass to navigate.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Many animals migrate seasonally to find food or breeding grounds, using remarkable navigation abilities.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.004",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Amazon Rainforest",
+          "passage": "[HEADING] The Amazon Rainforest [First sentence] The Amazon is the world's largest tropical rainforest, covering more than five million square kilometres across nine countries in South America. [SUBHEADING] Biodiversity [First sentence] Scientists estimate that the Amazon contains around 10% of all species on Earth. [SUBHEADING] Threats and Importance [First sentence] The Amazon is often called 'the lungs of the Earth' because its trees absorb vast amounts of carbon dioxide and release oxygen.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "The Amazon Rainforest is the world's largest rainforest and a vital resource for global biodiversity and climate.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.005",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "How Vaccines Work",
+          "passage": "[HEADING] How Vaccines Work [First sentence] Vaccines teach the body's immune system to recognise and fight specific diseases without the person having to get sick first. [SUBHEADING] The Immune Response [First sentence] When a vaccine is given, it introduces a weakened or inactive form of a disease-causing germ — or just a small piece of it — into the body. [SUBHEADING] Community Protection [First sentence] When enough people in a community are vaccinated, the disease cannot spread easily — even people who cannot be vaccinated (such as very young babies) are protected.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Vaccines protect individuals and communities from disease by training the immune system to fight specific germs.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.006",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "The History of Writing",
+          "passage": "[HEADING] The History of Writing [First sentence] Writing is one of humanity's most important inventions, allowing people to store and share information across time and distance. [SUBHEADING] Early Writing Systems [First sentence] The oldest known writing system is cuneiform, developed by the Sumerians of ancient Mesopotamia around 3 400 BCE. [SUBHEADING] Alphabets and Modern Writing [First sentence] The first true alphabet — in which each symbol represents a sound — appeared around 2 000 BCE in the region that is now the Middle East.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Writing is a vital human invention that began thousands of years ago and has evolved into the systems we use today.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.007",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Why Recycling Matters",
+          "passage": "[HEADING] Why Recycling Matters [First sentence] Recycling is the process of converting waste materials into new products, reducing the need to extract and use raw natural resources. [SUBHEADING] Reducing Landfill Waste [First sentence] Without recycling, most household waste goes to landfill sites where it breaks down slowly, releasing harmful gases. [SUBHEADING] Saving Energy and Resources [First sentence] Making products from recycled materials uses far less energy than starting from raw materials.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Recycling reduces waste and saves energy and natural resources by reprocessing used materials into new products.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.008",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Coral Reefs in Danger",
+          "passage": "[HEADING] Coral Reefs in Danger [First sentence] Coral reefs are underwater ecosystems built by tiny animals called coral polyps, and they support more species of marine life than any other ocean habitat. [SUBHEADING] What Threatens Coral Reefs [First sentence] Rising ocean temperatures caused by climate change trigger a process called coral bleaching, in which corals expel the algae living in their tissue and turn white. [SUBHEADING] Why Reefs Matter [First sentence] Coral reefs cover less than 1% of the ocean floor but are home to about 25% of all marine species.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Coral reefs are vital ocean ecosystems that are under serious threat from climate change and ocean acidification.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.A2",
+      "name": "Scan Reading",
+      "gate": "F",
+      "level": 7,
+      "tier": "A — Text Structure Awareness",
+      "grade": 5,
+      "description": "Learner scans a text for a specific named detail — a date, name, or statistic — as quickly as possible, without reading the full text.",
+      "deliveryMode": "TEXT — Learner types the specific detail. Latency measured.",
+      "questionFormat": "Short answer — the specific detail only (e.g. a year, a name, a number with units)",
+      "defaultPrompt": "Scan the text to find the answer. Type only the specific detail.",
+      "errorCode": "ERR_SCAN_ACCURACY",
+      "passCondition": {
+        "metric": "scan_accuracy",
+        "threshold": 0.6,
+        "latencyBandsSec": {
+          "greenFast": "<45",
+          "green": "45–75",
+          "amber": "75–100",
+          "red": ">100"
+        },
+        "tasks": 8,
+        "sessions": 2
+      },
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": "Exact match with the target detail (name, date, number with correct units)."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Minor spelling variation on a name — if unambiguously the correct person/place."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Number given without units if the number is uniquely correct (e.g. '1981' for '1981')."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Wrong value, name, or date retrieved for the scan target. Even if the right type (e.g. wrong year).",
+          "firesError": "WRONG_DETAIL"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Learner lists all instances of the target type rather than the specific requested detail.",
+          "firesError": "MULTIPLE_ANSWERS"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Response latency >100 sec — learner is reading rather than scanning.",
+          "firesError": "SLOW_SCAN"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "SLOW_SCAN",
+          "action": "'Look for the key word in the question, then find it on the page.' Timer enforced on next attempt."
+        },
+        {
+          "errorVariant": "WRONG_DETAIL",
+          "action": "'Which part of the text answers this question exactly? Find that sentence.'"
+        },
+        {
+          "errorVariant": "MULTIPLE_ANSWERS",
+          "action": "'Which one answers the question exactly? Give only that one.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "SC.001",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The Great Barrier Reef stretches for 2 300 kilometres along the northeast coast of Australia. It was listed as a UNESCO World Heritage Site in 1981. The reef is made up of about 2 900 individual reefs and 900 islands. Every year, approximately 2 million tourists visit the area, contributing around 6.4 billion dollars to the Australian economy. Marine biologist Dr Sylvia Earle described it as 'the most spectacular marine environment on Earth.'",
+          "question": "In what year was the Great Barrier Reef listed as a UNESCO World Heritage Site?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "1981",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.002",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "passage": "The International Space Station (ISS) orbits Earth at an average altitude of 408 kilometres. It travels at approximately 28 000 kilometres per hour, completing one orbit every 90 minutes. The station was first launched in November 1998 and has been continuously inhabited since November 2000. Commander Chris Hadfield became famous for posting photographs and videos from the ISS. The station is jointly operated by the space agencies of the United States, Russia, Europe, Japan, and Canada.",
+          "question": "What is the average altitude at which the ISS orbits Earth?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "408 kilometres",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.003",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Alexander Fleming discovered penicillin in 1928 when he noticed that a mould called Penicillium notatum was killing bacteria in one of his laboratory dishes. However, it was scientists Howard Florey and Ernst Boris Chain who developed penicillin into a usable medicine. By 1945, penicillin was being manufactured on a large scale. Fleming, Florey, and Chain shared the Nobel Prize in Physiology or Medicine in 1945. Penicillin is still one of the most widely used antibiotics in the world today.",
+          "question": "Who discovered penicillin?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Alexander Fleming",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.004",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Mount Everest, located on the border of Nepal and Tibet, is the highest mountain on Earth, measuring 8 849 metres above sea level. The first confirmed ascent was made on 29 May 1953 by Tenzing Norgay and Sir Edmund Hillary. Since then, more than 6 000 people have reached the summit. Each year around 800 climbers attempt the ascent. The mountain is named after Sir George Everest, the British surveyor who mapped the Indian subcontinent in the 19th century.",
+          "question": "What is the height of Mount Everest above sea level?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "8 849 metres",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.005",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "passage": "The Rosetta Stone was discovered in 1799 by French soldiers during Napoleon Bonaparte's campaign in Egypt. It is a stone slab inscribed with the same text written in three scripts: ancient Egyptian hieroglyphics, Demotic script, and ancient Greek. Scholar Jean-François Champollion finally decoded the hieroglyphics in 1822, using the Greek text as a guide. The stone is currently on display at the British Museum in London, where it has been since 1802. It is one of the most visited objects in the museum.",
+          "question": "In what year was the Rosetta Stone discovered?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "1799",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.006",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The human brain contains approximately 86 billion neurons — nerve cells that send and receive signals throughout the body. The brain makes up only about 2% of body weight but uses around 20% of the body's total energy. Neuroscientist Dr Antonio Damasio has studied how emotions influence decision-making in the brain. The cerebral cortex, the outer layer of the brain, is responsible for thinking, language, and memory. The brain continues developing until around age 25 in humans.",
+          "question": "Approximately how many neurons does the human brain contain?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "86 billion neurons",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.007",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The Trans-Siberian Railway is the world's longest railway line, stretching 9 289 kilometres from Moscow in Russia to Vladivostok on the Pacific coast. Construction began in 1891 under Tsar Alexander III and was completed in 1916. The full journey takes approximately six days by train and passes through eight time zones. Engineer Gennady Fadeev oversaw a major modernisation of the railway in the early 2000s. Approximately 30% of Russia's freight is transported along this route.",
+          "question": "How long is the Trans-Siberian Railway?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "9 289 kilometres",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.008",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "passage": "Marie Curie was born in Warsaw, Poland, in 1867. She moved to Paris to study at the Sorbonne University, where she became the first woman to earn a doctorate in physics in France. In 1903 she shared the Nobel Prize in Physics with her husband Pierre Curie and Henri Becquerel. In 1911 she was awarded a second Nobel Prize, this time in Chemistry — making her the first person to win Nobel Prizes in two different sciences. Her research on radioactivity changed the course of modern science.",
+          "question": "In what year did Marie Curie win her second Nobel Prize?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "1911",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.009",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The Sahara Desert is the world's largest hot desert, covering approximately 9 million square kilometres across 11 African countries. Despite its reputation for sand dunes, around 70% of the Sahara is actually covered by gravel plains and rocky plateaus. Temperatures can exceed 50 degrees Celsius during the day and drop below freezing at night. Explorer René Caillié was the first European to return alive from Timbuktu in 1828. The Sahara has been expanding southward at a rate of about 48 kilometres per year.",
+          "question": "Across how many African countries does the Sahara Desert stretch?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "11 African countries",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.010",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The printing press was invented by Johannes Gutenberg around 1440 in the German city of Mainz. Before this invention, books had to be copied by hand, which meant they were rare and expensive. Gutenberg's press could produce around 3 600 pages per day, compared to a single page per day by hand. By 1500, printing presses had produced over 20 million books across Europe. Historian Elizabeth Eisenstein argued that the printing press was the single most important factor in the spread of the Renaissance and the Reformation.",
+          "question": "Who invented the printing press?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Johannes Gutenberg",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.A3",
+      "name": "Text Purpose Identification",
+      "gate": "F",
+      "level": 7,
+      "tier": "A — Text Structure Awareness",
+      "grade": 5,
+      "description": "Learner identifies the primary purpose of a text — INFORM, PERSUADE, or ENTERTAIN — and gives one text-based reason naming a specific language feature.",
+      "deliveryMode": "TEXT or VOICE — Purpose label + one reason sentence",
+      "questionFormat": "Two-part response: (1) purpose label; (2) one sentence naming a specific text feature as evidence",
+      "defaultPrompt": "What is the main purpose of this text — INFORM, PERSUADE, or ENTERTAIN? Give one sentence naming a specific language feature in the text as your reason.",
+      "errorCode": "ERR_PURPOSE_ID",
+      "passCondition": {
+        "metric": "purpose_classification_accuracy",
+        "threshold": 0.6,
+        "reasonRequirement": "reason contains >=1 text-specific language feature",
+        "textsDistribution": {
+          "INFORM": 4,
+          "PERSUADE": 3,
+          "ENTERTAIN": 3
+        },
+        "texts": 8,
+        "sessions": 2
+      },
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": "Purpose label — correct label (INFORM / PERSUADE / ENTERTAIN), exact label required."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Reason names any specific language feature from the key feature list (e.g. 'uses the word should', 'uses a statistic', 'uses humour')."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Reason — paraphrase of feature acceptable if the feature type is identifiable."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Incorrect classification label.",
+          "firesError": "WRONG_PURPOSE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Correct label but no textual feature given as evidence.",
+          "firesError": "PURPOSE_WITHOUT_REASON"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Reason does not reference a specific text feature (e.g. 'it uses good words').",
+          "firesError": "GENERIC_REASON"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "WRONG_PURPOSE",
+          "action": "Purpose feature chart: 3 features per type listed. Learner checks text against chart before answering."
+        },
+        {
+          "errorVariant": "PURPOSE_WITHOUT_REASON",
+          "action": "'Name one specific word or feature in the text that shows this is its purpose.'"
+        },
+        {
+          "errorVariant": "GENERIC_REASON",
+          "action": "'Which specific word or phrase tells you that?'"
+        }
+      ],
+      "items": [
+        {
+          "id": "PT.001",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Photosynthesis is the process by which plants make their own food using sunlight. Inside plant cells are structures called chloroplasts, which contain a green pigment called chlorophyll. Chlorophyll absorbs energy from sunlight and uses it to convert water and carbon dioxide into glucose and oxygen. The plant uses the glucose for energy and growth, while the oxygen is released into the air. This process makes plants the foundation of nearly all food chains on Earth.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as INFORM (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses factual language, scientific terms (chlorophyll, glucose), and explains a process without expressing an opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.002",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Black holes are regions of space where gravity is so strong that nothing — not even light — can escape. They form when a massive star collapses at the end of its life, compressing all its mass into an extremely small, dense point called a singularity. The boundary around a black hole beyond which nothing can escape is called the event horizon. Scientists can detect black holes by observing how their gravity affects nearby stars and gas. In 2019, the first direct image of a black hole was captured by a network of radio telescopes.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as INFORM (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses factual language, defines scientific terms, presents verified information without personal opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.003",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "passage": "The global population reached 8 billion people in November 2022. It took just 12 years to add the last billion, compared to 123 years to grow from 1 billion to 2 billion in the early 1900s. Most of the current growth is happening in countries in Africa and Asia. Populations in many European countries, by contrast, are ageing and in some cases declining. Demographers project that global population will peak at around 10.4 billion people in the 2080s before levelling off.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as INFORM (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses statistics, precise dates, and projects future data. No opinion or persuasive language."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.004",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Earthquakes occur when energy stored in underground rocks is suddenly released, sending vibrations called seismic waves through the Earth. Most earthquakes happen along fault lines — cracks in the Earth's crust where tectonic plates meet or slide past each other. The point inside the Earth where an earthquake begins is called the focus, and the point directly above it on the surface is called the epicentre. Scientists use an instrument called a seismograph to measure the strength and location of earthquakes.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as INFORM (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Defines terms (focus, epicentre, seismograph), explains a natural process factually."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.005",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "passage": "Every school in the country should provide free, healthy meals to all students, regardless of their family's income. Hungry children cannot concentrate in class, and study after study has shown that students who eat well perform better academically. It is simply not fair that some children arrive at school without breakfast and struggle to focus while others do not. Investing in school meals is not a cost — it is an investment in our children's futures. We must act now before another generation is left behind.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as PERSUADE (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses opinion phrases (should, must), emotive language (not fair, left behind), and a direct call to action."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.006",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "passage": "Single-use plastic bags must be banned immediately. These bags take over 500 years to decompose, and millions of them end up in our oceans every year, killing marine life and polluting beaches. The good news is that reusable bags are cheap, durable, and just as convenient. Several countries have already introduced plastic bag bans and seen significant reductions in plastic pollution within months. There is no excuse for inaction. Every bag we eliminate is a step toward a cleaner, healthier planet for everyone.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as PERSUADE (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses must, calls for immediate action, uses emotive appeal (killing marine life), positive framing of alternatives."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.007",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "passage": "Students should have a say in what topics they study at school. When learners have some choice over their education, they are more motivated, more engaged, and more likely to develop a genuine love of learning. The current system treats students as empty containers to be filled with information rather than as thinking individuals with real interests and ideas. It is time for schools to trust their students and create a more flexible curriculum. Student voice is not a luxury — it is a necessity for education that truly works.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as PERSUADE (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses should, rhetorical comparison (containers), opinion signals (it is time), emotional appeal."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.008",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "passage": "The morning my uncle tried to make pancakes for the whole family, our kitchen looked like a disaster zone within minutes. Flour covered every surface. An egg had somehow reached the ceiling. The dog was enthusiastically licking batter off the floor tiles while my aunt stood in the doorway, arms crossed, watching with an expression that suggested she was reconsidering several life decisions. The pancakes, when they finally emerged, were perfectly shaped — perfectly shaped like small, blackened biscuits. My uncle called them 'rustic.' We called them inedible. We ended up eating cereal.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as ENTERTAIN (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses humour, vivid imagery, storytelling voice, descriptive language, and comic detail."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.009",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "passage": "Nobody had warned Zara that the school's new robot assistant had a bug in its politeness settings. Every time a teacher asked it a question, it would answer correctly — then bow deeply and recite a poem. 'What is the capital of France?' asked Mr Khumalo. 'Paris,' said the robot. Then it bowed, and said: 'Roses are red, violets are blue, geography is wonderful, and so are you.' The class erupted. Mr Khumalo tried, and failed, to keep a straight face. By the end of the day, students were inventing increasingly obscure questions just to hear what poem the robot would produce.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as ENTERTAIN (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses narrative, dialogue, comic scenario, playful tone, character reactions for humour."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.010",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "passage": "The cat had decided, definitively and without consultation, that the keyboard was the best possible place to sit. This was inconvenient, as Priya was in the middle of writing an important email. She lifted the cat. The cat returned. She moved the cat to a cushion specially purchased for this purpose. The cat examined the cushion, determined it was inferior, and returned to the keyboard. The email, when finally sent, contained the phrase 'best regardsxxxxxppppppp', which Priya did not notice until after pressing send. The recipient, assuming it was a new form of greeting, replied: 'Best xxxxxppppppp to you too.'",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as ENTERTAIN (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses comic narrative, character contrast (determined cat, frustrated human), escalating absurdity, satisfying punchline."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.B1",
+      "name": "Text Features — Identify and State Function",
+      "gate": "F",
+      "level": 7,
+      "tier": "B — Multi-Paragraph Organisation",
+      "grade": 5,
+      "phase1Note": "Formatted documents not yet rendered. Features represented using plain-text markup: [HEADING] [SUBHEADING] [CAPTION] [BOLD] [SIDEBAR]. Platform highlights each tag for the learner.",
+      "description": "Learner names each marked feature and states its function in the text — what it does and how it helps the reader.",
+      "deliveryMode": "TEXT — Learner names each feature and writes one function sentence per feature",
+      "questionFormat": "For each marked feature: (1) name the feature; (2) state its function using a purpose verb.",
+      "defaultPrompt": "For each marked feature in this text: name it, then write one sentence saying what it does and how it helps the reader.",
+      "errorCode": "ERR_TEXT_FEATURE",
+      "passCondition": {
+        "metric": "feature_id_and_function_accuracy",
+        "featureIdThreshold": 0.6,
+        "functionThreshold": 0.6,
+        "texts": 4,
+        "sessions": 2
+      },
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": "Feature name — correct feature name stated (heading, subheading, caption, bold text, sidebar). Minor spelling accepted."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Function description contains a purpose verb (tells, shows, helps, introduces, highlights, adds, explains, guides) AND relates to the feature's role."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Feature identified by wrong name (e.g. caption called a heading).",
+          "firesError": "FEATURE_MISLABEL"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Function stated as 'it helps the reader' without specifying what or how. No purpose verb + specific role.",
+          "firesError": "FUNCTION_VAGUE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "A marked feature in the text not identified at all.",
+          "firesError": "FEATURE_MISSED"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "FEATURE_MISLABEL",
+          "action": "Explicit feature glossary: each feature defined with its distinguishing characteristics."
+        },
+        {
+          "errorVariant": "FUNCTION_VAGUE",
+          "action": "Sentence frame: 'The [feature] [purpose verb] the reader ___ by ___.'"
+        },
+        {
+          "errorVariant": "FEATURE_MISSED",
+          "action": "'How many features are marked in this text? Name each one.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "TF.001",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Volcanoes",
+          "passage": "[HEADING] Volcanoes: Fire from the Earth [PARA] Volcanoes are openings in the Earth's crust through which magma, gases, and ash escape. They can form mountains, islands, and fertile plains. [SUBHEADING] Types of Eruption [PARA] Some volcanoes erupt violently, sending [BOLD]pyroclastic flows[/BOLD] — fast-moving rivers of hot gas and rock — down their slopes. Others release lava slowly over long periods. [SIDEBAR] The 1980 eruption of Mount St Helens in the USA removed the top 400 metres of the mountain and caused the largest landslide in recorded history. [PARA] Scientists who study volcanoes are called volcanologists. They monitor underground activity to try to predict eruptions before they happen.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: Tells the reader the main topic of the whole text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Introduces a new section or subtopic within the text."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights an important or technical term the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Provides an interesting extra fact that supports but is separate from the main text."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.002",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Rainwater Harvesting",
+          "passage": "[HEADING] Collecting Rainwater at Home [PARA] Rainwater harvesting means collecting and storing rain that falls on rooftops and other surfaces for later use. It reduces household water bills and conserves municipal water supplies. [SUBHEADING] How It Works [PARA] Gutters channel rainwater from the roof into a storage tank or barrel. A [BOLD]first-flush diverter[/BOLD] removes the initial dirty water before clean rain enters the tank. [CAPTION] A rooftop collection system can store up to 5 000 litres of rainwater per heavy rainfall event. [PARA] Collected rainwater can be used to water gardens, wash cars, or flush toilets. In some systems it is filtered and purified for drinking.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the main topic of the whole text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Introduces a new section explaining how the system works."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights a technical term the reader should learn."
+              },
+              {
+                "id": "CAPTION",
+                "description": "CAPTION: Gives a specific detail or measurement related to an image or diagram that is nearby."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.003",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "Deep Sea Creatures",
+          "passage": "[HEADING] Life in the Deep Ocean [PARA] The deep ocean — below 200 metres — is one of the least explored places on Earth. It is completely dark, very cold, and under enormous pressure. [SUBHEADING] Bioluminescence [PARA] Many deep sea animals produce their own light through a process called [BOLD]bioluminescence[/BOLD]. This light is used to attract prey, communicate, or confuse predators. [SUBHEADING] Food Sources [PARA] Without sunlight, deep sea creatures cannot rely on plants for food. Many feed on [BOLD]marine snow[/BOLD] — tiny particles of dead material that drift down from shallower water. [SIDEBAR] The anglerfish dangles a glowing lure from its head to attract prey in the darkness.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the main topic of the whole text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into separate sub-topics for easier reading."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights key scientific terms the reader should know."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Adds a specific interesting example that supports the main text."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.004",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Heart",
+          "passage": "[HEADING] The Human Heart [PARA] The heart is a muscular organ that pumps blood around the body. An adult heart beats approximately 100 000 times a day. [SUBHEADING] The Four Chambers [PARA] The heart is divided into four chambers: two [BOLD]atria[/BOLD] (upper chambers) and two [BOLD]ventricles[/BOLD] (lower chambers). The right side pumps blood to the lungs; the left side pumps oxygenated blood to the rest of the body. [CAPTION] The left ventricle has thicker walls than the right because it must pump blood to the whole body. [SIDEBAR] During exercise, the heart can beat up to 200 times per minute in a trained athlete.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the main topic of the text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Introduces a new section about the heart's structure."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights anatomical terms the reader should learn."
+              },
+              {
+                "id": "CAPTION",
+                "description": "CAPTION: Explains a detail about a diagram or image that would appear nearby."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Adds a related interesting fact that is separate from the main explanation."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.005",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "Ancient Rome",
+          "passage": "[HEADING] The Rise and Fall of Ancient Rome [PARA] Ancient Rome grew from a small city on the banks of the Tiber River into one of the greatest empires the world has ever seen. [SUBHEADING] The Roman Republic [PARA] For centuries, Rome was governed as a republic — citizens voted for leaders called [BOLD]consuls[/BOLD] who shared power to prevent any one person from becoming too powerful. [SUBHEADING] The Roman Empire [PARA] In 27 BCE, Augustus became the first Roman [BOLD]emperor[/BOLD], ending the republic and beginning an era of imperial rule that lasted for centuries. [CAPTION] At its height, the Roman Empire controlled territories across Europe, North Africa, and the Middle East.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: Tells the reader the main topic and time period covered in the text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the historical text into separate time periods."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights important historical terms or titles."
+              },
+              {
+                "id": "CAPTION",
+                "description": "CAPTION: Summarises key geographic information related to a nearby map or image."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.006",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Urban Farming",
+          "passage": "[HEADING] Growing Food in the City [PARA] Urban farming is the practice of growing food within cities, on rooftops, in community gardens, or in indoor vertical farms. It is growing rapidly as cities look for ways to produce fresh food locally. [SUBHEADING] Vertical Farming [PARA] In vertical farms, crops grow in stacked layers under [BOLD]LED lighting[/BOLD] with no soil — only nutrient-rich water. This method uses 95% less water than traditional farming. [SIDEBAR] Singapore produces 10% of its leafy vegetables through urban farming despite having very little agricultural land. [SUBHEADING] Community Gardens [PARA] Community gardens allow city residents to grow vegetables and fruit in shared spaces, improving access to fresh food and creating green spaces in built-up areas.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the main topic of the text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into separate types of urban farming."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights a specific technical term the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives a real-world example that supports the main text from outside the main flow."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.B2",
+      "name": "Structured Data Text Comparison",
+      "gate": "F",
+      "level": 7,
+      "tier": "B — Multi-Paragraph Organisation",
+      "grade": 5,
+      "phase1Note": "ERR code is ERR_DATA_COMPARE ■ Phase 1 (reverts to ERR_VISUAL_COMPARE at Phase 2). Charts and diagrams replaced by plain-text structured data paragraphs.",
+      "description": "Learner reads a structured data text presenting two or more comparable entities and answers a comparison or inference question by extracting >=2 data points and producing a comparison statement.",
+      "deliveryMode": "TEXT — Learner writes a comparison or inference statement",
+      "questionFormat": "Open response — comparison statement referencing >=2 data points with comparison language",
+      "defaultPrompt": "Read the data, then answer the question. Use at least two data points from the text and comparison language (e.g. more than, less than, while, compared to).",
+      "errorCode": "ERR_DATA_COMPARE",
+      "passCondition": {
+        "metric": "comparison_accuracy",
+        "threshold": 0.6,
+        "minDataPoints": 2,
+        "requiresComparisonLanguage": true,
+        "requiresDirectionalAccuracy": true,
+        "questions": 6,
+        "sessions": 2
+      },
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": ">=2 data points from the structured data text; comparison language present; directional accuracy correct."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Comparison language — 'more than', 'less than', 'both', 'while', 'compared to', 'whereas', 'higher', 'lower', 'greater', 'fewer' — any of these qualify."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Only one data point mentioned. Comparison requires >=2.",
+          "firesError": "SINGLE_DATA_POINT"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Data points described in separate sentences without comparative framing.",
+          "firesError": "NO_COMPARISON_LANGUAGE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Comparison direction inverted (e.g. 'A is greater than B' when data shows B > A).",
+          "firesError": "DIRECTIONAL_ERROR"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "SINGLE_DATA_POINT",
+          "action": "'Your answer must reference at least two values from the data. Add the second.'"
+        },
+        {
+          "errorVariant": "NO_COMPARISON_LANGUAGE",
+          "action": "Sentence frame: '___ is [more/less] than ___ because the data shows ___.'"
+        },
+        {
+          "errorVariant": "DIRECTIONAL_ERROR",
+          "action": "System highlights both values explicitly before asking for comparison."
+        }
+      ],
+      "items": [
+        {
+          "id": "DC.001",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Annual rainfall (millimetres) in three cities: Cape Town: 515 mm Johannesburg: 713 mm Durban: 1 009 mm Data source: South African Weather Service, 2023.",
+          "question": "Which city receives the most rainfall per year, and how much more does it receive than Cape Town?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Durban receives the most rainfall (1 009 mm). It receives 494 mm more than Cape Town (515 mm).",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.002",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Average daily screen time for learners in three age groups (hours): Ages 10–12: 4.2 hours Ages 13–15: 6.5 hours Ages 16–18: 7.8 hours Source: Digital Health Survey, 2023.",
+          "question": "How does screen time change as learners get older? Use at least two data points in your answer.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Screen time increases with age. Learners aged 10–12 average 4.2 hours, while those aged 16–18 average 7.8 hours — an increase of 3.6 hours per day.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.003",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "dataText": "DATA: Plastic waste generated per person per year (kilograms): United States: 130 kg United Kingdom: 99 kg South Africa: 38 kg India: 4 kg Source: OECD Global Plastics Report, 2022.",
+          "question": "Which country generates the least plastic waste per person, and how does it compare to the highest?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "India generates the least plastic waste per person (4 kg). The United States generates the most (130 kg) — more than 32 times more than India.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.004",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Number of books read per year by learners in three schools: School A: 14 books per learner School B: 8 books per learner School C: 22 books per learner All schools are in the same city. School C has a dedicated reading period each day.",
+          "question": "What does the data suggest about the effect of a dedicated reading period on the number of books read?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "School C, which has a dedicated reading period, has learners who read 22 books per year — the highest of the three schools. This suggests that a dedicated reading period may increase the number of books learners read.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.005",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Water usage per household per day (litres) in three towns: Town X (water restrictions in place): 180 litres Town Y (no restrictions): 320 litres Town Z (no restrictions): 295 litres Source: Municipal water authority report, 2023.",
+          "question": "Compare the water usage of Town X to Towns Y and Z. What does the data suggest about water restrictions?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Town X uses 180 litres per day, while Town Y uses 320 litres and Town Z uses 295 litres. Town X uses significantly less water than the other two towns. The data suggests that water restrictions reduce household water usage.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.006",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "dataText": "DATA: Energy sources used for electricity generation (percentage of total): Country A: Coal 65%, Renewables 18%, Gas 17% Country B: Coal 12%, Renewables 61%, Gas 27% Source: International Energy Agency, 2023.",
+          "question": "Which country relies more on renewable energy, and how much more renewable energy does it use than Country A?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Country B relies more on renewable energy (61%) compared to Country A (18%). Country B uses 43 percentage points more renewable energy than Country A.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.007",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Time taken to travel between City P and City Q using different transport: Aeroplane: 1 hour 15 minutes High-speed train: 2 hours 40 minutes Standard train: 4 hours 55 minutes Car: 3 hours 20 minutes (excluding traffic)",
+          "question": "How much faster is the aeroplane than the car for this journey? Use exact figures from the data.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "The aeroplane takes 1 hour 15 minutes. The car takes 3 hours 20 minutes. The aeroplane is 2 hours 5 minutes faster than the car.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.008",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Percentage of learners who said they felt confident in each subject: Mathematics: 41% English: 67% Science: 53% History: 72% Survey of 500 Grade 5 learners, 2023.",
+          "question": "Which subject has the lowest learner confidence, and how does it compare to the highest?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Mathematics has the lowest learner confidence (41%). History has the highest (72%). Learners feel 31 percentage points more confident in History than in Mathematics.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.B3",
+      "name": "Fact / Opinion Classification",
+      "gate": "F",
+      "level": 7,
+      "tier": "B — Multi-Paragraph Organisation",
+      "grade": 5,
+      "description": "Learner classifies each statement as FACT (verifiable) or OPINION (personal view). For incorrect responses, learner provides a justification with a reasoning word (because, since).",
+      "deliveryMode": "TEXT — FACT or OPINION label + justification when challenged",
+      "questionFormat": "Single-word classification: FACT or OPINION",
+      "defaultPrompt": "Is this statement a FACT or an OPINION?",
+      "errorCode": "ERR_FACT_OPINION",
+      "passCondition": {
+        "metric": "classification_accuracy",
+        "threshold": 0.6,
+        "statements": 10,
+        "justificationQualityOnIncorrect": 0.6,
+        "sessions": 2
+      },
+      "tolerance": [
+        {
+          "decision": "ACCEPT",
+          "condition": "Learner selects FACT for a FACT statement. No justification required for correct answers."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "Learner selects OPINION for an OPINION statement. No justification required for correct answers."
+        },
+        {
+          "decision": "ACCEPT",
+          "condition": "When challenged: justification contains a reasoning word (because, since, as, this is because) AND a valid reasoning signal (signal words for opinions: should, best, worst, I think, many believe; signal for facts: can be measured, can be checked, is confirmed by)."
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Personal judgement classified as FACT.",
+          "firesError": "OPINION_AS_FACT"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Statistics or established information classified as OPINION.",
+          "firesError": "FACT_AS_OPINION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Classification given with no reasoning or textual evidence.",
+          "firesError": "JUSTIFICATION_ABSENT"
+        }
+      ],
+      "signalWords": {
+        "OPINION": [
+          "should",
+          "best",
+          "worst",
+          "most",
+          "better",
+          "I think",
+          "I believe",
+          "many feel",
+          "people say"
+        ],
+        "FACT": [
+          "can be checked",
+          "is recorded",
+          "is measured",
+          "according to",
+          "research shows",
+          "confirmed by"
+        ]
+      },
+      "recovery": [
+        {
+          "errorVariant": "OPINION_AS_FACT",
+          "action": "'Signal words for opinions: should, best, worst, I think, many believe.'"
+        },
+        {
+          "errorVariant": "FACT_AS_OPINION",
+          "action": "'Can we check this? Is there a source? If yes → FACT.'"
+        },
+        {
+          "errorVariant": "JUSTIFICATION_ABSENT",
+          "action": "'Explain why using because or since.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "FO.001",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"The Eiffel Tower is 330 metres tall.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 0
+          }
+        },
+        {
+          "id": "FO.002",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"Paris is the most beautiful city in the world.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": "FO.003",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": false,
+          "question": "Is this a FACT or an OPINION?\n\n\"All schools should teach students how to cook.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": "FO.004",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"The human heart beats approximately 100 000 times per day.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 0
+          }
+        },
+        {
+          "id": "FO.005",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"Swimming is better exercise than running.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": "FO.006",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": false,
+          "question": "Is this a FACT or an OPINION?\n\n\"South Africa has 11 official languages.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 0
+          }
+        },
+        {
+          "id": "FO.007",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"Reading books is more valuable than watching television.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": "FO.008",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"The Amazon River discharges more water than any other river on Earth.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 0
+          }
+        },
+        {
+          "id": "FO.009",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"Homework should be banned in primary schools.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": "FO.010",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": false,
+          "question": "Is this a FACT or an OPINION?\n\n\"Water boils at 100 degrees Celsius at sea level.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 0
+          }
+        },
+        {
+          "id": "FO.011",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"The best way to learn a language is to live in a country where it is spoken.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": "FO.012",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"Plastic pollution kills more than 1 million seabirds every year.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 0
+          }
+        },
+        {
+          "id": "FO.013",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"Children are more creative than adults.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": "FO.014",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": false,
+          "question": "Is this a FACT or an OPINION?\n\n\"The Moon is approximately 384 400 kilometres from Earth.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 0
+          }
+        },
+        {
+          "id": "FO.015",
+          "errorSignals": [
+            "OPINION_AS_FACT",
+            "FACT_AS_OPINION",
+            "JUSTIFICATION_ABSENT"
+          ],
+          "randomisable": true,
+          "question": "Is this a FACT or an OPINION?\n\n\"Science is the most important subject in school.\"",
+          "answerKey": {
+            "mode": "choice",
+            "options": [
+              "FACT",
+              "OPINION"
+            ],
+            "correct": 1
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.C1",
+      "name": "Multi-Paragraph Writing",
+      "gate": "F",
+      "level": 7,
+      "tier": "C — Justified Reasoning",
+      "grade": 5,
+      "description": "Learner writes 2–3 connected paragraphs. Each paragraph must begin with a topic sentence and contain >=2 supporting details. Paragraphs must be connected by transition words.",
+      "deliveryMode": "TEXT — Learner types the multi-paragraph response",
+      "questionFormat": "Extended written response of 2–3 paragraphs",
+      "defaultPrompt": "Write 2–3 connected paragraphs. Each paragraph must begin with a topic sentence and contain at least two supporting details.",
+      "errorCode": "ERR_TOPIC_SENTENCE",
+      "passCondition": {
+        "metric": "multi_paragraph_score",
+        "scoreFormula": "checks_passed / (4 * number_of_paragraphs)",
+        "threshold": 0.6,
+        "minParagraphs": 2,
+        "tasks": 4,
+        "sessions": 3
+      },
+      "rubric": {
+        "perParagraphChecks": [
+          {
+            "id": "CHECK_1",
+            "name": "Topic sentence present",
+            "criterion": "First sentence has keyword overlap >=40% with paragraph body. YES/NO."
+          },
+          {
+            "id": "CHECK_2",
+            "name": ">=2 distinct supporting sentences",
+            "criterion": "Each with detail novelty score >=0.22 (not repeating each other). YES/NO."
+          },
+          {
+            "id": "CHECK_3",
+            "name": "No paragraph bleed",
+            "criterion": "No sentence topically closer to a different paragraph (paragraph bleed score <0.50). YES/NO."
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Sentence cohesion",
+            "criterion": "Sentence cohesion >=0.40 across consecutive sentences. YES/NO."
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Opening sentence does not frame the paragraph. Keyword overlap with paragraph body <30%.",
+          "firesError": "NO_TOPIC_SENTENCE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Topic sentence breadth coverage <40% of paragraph content.",
+          "firesError": "NARROW_TOPIC_SENTENCE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Fewer than 2 distinct supporting sentences in the paragraph body.",
+          "firesError": "DETAIL_MISSING"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "A sentence belongs topically to a different paragraph (similarity to own TS <0.25, to other >0.50).",
+          "firesError": "PARAGRAPH_BLEED"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "NO_TOPIC_SENTENCE",
+          "action": "System provides a topic sentence; learner writes the rest. Support removed over 3 tasks."
+        },
+        {
+          "errorVariant": "NARROW_TOPIC_SENTENCE",
+          "action": "'Rewrite your topic sentence after writing the paragraph.'"
+        },
+        {
+          "errorVariant": "DETAIL_MISSING",
+          "action": "'Add a second specific detail that gives new information.'"
+        },
+        {
+          "errorVariant": "PARAGRAPH_BLEED",
+          "action": "'Each paragraph has one job. Move this sentence to the paragraph it belongs in.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "WC1.001",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Write 2–3 paragraphs about why exercise is important for young people. Each paragraph must start with a topic sentence and include at least two supporting details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.002",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about a skill or hobby you have learnt. In the first paragraph, explain what it is. In the second, explain how you learnt it. You may add a third paragraph about why it matters to you.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.003",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Write 2–3 paragraphs about the advantages and disadvantages of living in a city. Each paragraph must start with a topic sentence and include at least two details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.004",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about a time when you worked as part of a team. Describe what the team was doing, what role you played, and what the outcome was. Each paragraph must start with a topic sentence.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.005",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "prompt": "Write 2–3 paragraphs about why clean water is important. Each paragraph must begin with a topic sentence and contain at least two supporting details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.006",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about what makes a good leader. In each paragraph, start with a topic sentence that names one quality, then give at least two examples or details to support it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.C2",
+      "name": "Topic Sentence Structure",
+      "gate": "F",
+      "level": 7,
+      "tier": "C — Justified Reasoning",
+      "grade": 5,
+      "description": "Learner writes a paragraph with a topic sentence that correctly flags the main claim, supported by >=2 distinct details. Topic sentence breadth and detail novelty are both measured.",
+      "deliveryMode": "TEXT — Learner types the paragraph",
+      "questionFormat": "Single paragraph with explicit topic sentence requirement",
+      "defaultPrompt": "Write one paragraph. Start with a topic sentence that states the main idea, then support it with at least two distinct details.",
+      "errorCode": "ERR_TOPIC_SENTENCE",
+      "passCondition": {
+        "metric": "topic_sentence_structure",
+        "topicSentenceBreadth": 0.4,
+        "detailNoveltyPerDetail": 0.22,
+        "tasks": 4,
+        "sessions": 3
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Topic sentence breadth",
+            "criterion": "Topic sentence breadth >=0.40 (covers the paragraph content, not too narrow). GREEN >=0.60, AMBER 0.40–0.60, RED <0.40 → NARROW_TOPIC_SENTENCE."
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Detail novelty",
+            "criterion": ">=2 supporting sentences each with detail novelty >=0.22 (not restating each other). RED <0.22 → REDUNDANT_DETAIL."
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Non-inverted structure",
+            "criterion": "No supporting detail precedes the topic sentence — structure not inverted. FAIL → INVERTED_STRUCTURE."
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Topic sentence breadth <0.40 — too specific to cover the paragraph.",
+          "firesError": "NARROW_TOPIC_SENTENCE"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Supporting detail restates a previous detail. Novelty score <0.22.",
+          "firesError": "REDUNDANT_DETAIL"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Supporting details appear before the topic sentence — structure reversed.",
+          "firesError": "INVERTED_STRUCTURE"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "NARROW_TOPIC_SENTENCE",
+          "action": "'Rewrite your topic sentence after writing the paragraph. Make it cover all your ideas.'"
+        },
+        {
+          "errorVariant": "REDUNDANT_DETAIL",
+          "action": "'Your second detail must give new information. What else can you say?'"
+        },
+        {
+          "errorVariant": "INVERTED_STRUCTURE",
+          "action": "'Topic sentence is always first.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "WC2.001",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Write a paragraph about how technology has changed the way people communicate. Start with a topic sentence that clearly states the main idea of your paragraph, then support it with at least two distinct details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.002",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write a paragraph about what makes a good friend. Your topic sentence must state the main idea clearly. Then give at least two specific, different supporting details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.003",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Write a paragraph about how animals adapt to survive in their environment. Your first sentence must make a claim that the rest of the paragraph supports. Include at least two different examples.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.004",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about the importance of reading. Start with a strong topic sentence, then give at least two different reasons or examples that support it. Do not repeat the same idea in different words.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.005",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "prompt": "Write a paragraph about how pollution affects the environment. Your topic sentence must state what type of pollution and what effect. Support with at least two distinct details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.006",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about a challenge you have overcome. Your topic sentence should name the challenge. Then describe at least two specific things you did to deal with it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.C3",
+      "name": "Opinion Paragraph",
+      "gate": "F",
+      "level": 7,
+      "tier": "C — Justified Reasoning",
+      "grade": 5,
+      "description": "Learner writes a paragraph that states a clear opinion and provides >=2 distinct supporting reasons, each introduced by a reason connector.",
+      "deliveryMode": "TEXT — Learner types the opinion paragraph",
+      "questionFormat": "Opinion paragraph to a given topic — position + >=2 reasons",
+      "defaultPrompt": "Write one opinion paragraph. State your opinion clearly, then give at least two different supporting reasons. Each reason should be introduced by a connector (because, since, as).",
+      "errorCode": "ERR_NO_REASONS",
+      "passCondition": {
+        "metric": "opinion_structure_score",
+        "scoreFormula": "checks_passed / 4",
+        "threshold": 0.6,
+        "minDistinctReasons": 2,
+        "tasks": 4,
+        "sessions": 3
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Opinion signal present",
+            "criterion": "Opinion signal phrase present (I believe, I think, In my view, I agree/disagree, It is my opinion). YES/NO → OPINION_ABSENT."
+          },
+          {
+            "id": "CHECK_2",
+            "name": ">=2 reason clauses with connectors",
+            "criterion": ">=2 reason clauses, each introduced by a reason connector (because, since, as, therefore, this means). YES/NO → SINGLE_REASON."
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Reason distinctness",
+            "criterion": "Cross-reason similarity <0.55 (GREEN); 0.55–0.72 (AMBER); >=0.72 → REASON_RESTATES_OPINION."
+          },
+          {
+            "id": "CHECK_4",
+            "name": "No contradicting reason",
+            "criterion": "No reason logically contradicts the stated opinion. YES/NO → CONTRADICTING_REASON."
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Position not explicitly stated. Reasons given but no opinion signal phrase.",
+          "firesError": "OPINION_ABSENT"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Only one reason clause present. Minimum is two.",
+          "firesError": "SINGLE_REASON"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Reason clause is a paraphrase of the opinion. Circular reasoning.",
+          "firesError": "REASON_RESTATES_OPINION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "A stated reason logically undermines the learner's own position.",
+          "firesError": "CONTRADICTING_REASON"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "OPINION_ABSENT",
+          "action": "Sentence frame: 'I believe ___ because ___ and also because ___.'"
+        },
+        {
+          "errorVariant": "SINGLE_REASON",
+          "action": "'Give a second reason that adds new information.'"
+        },
+        {
+          "errorVariant": "REASON_RESTATES_OPINION",
+          "action": "'Your reason must give new information that supports your opinion.'"
+        },
+        {
+          "errorVariant": "CONTRADICTING_REASON",
+          "action": "'Check: does this reason support your position or go against it?'"
+        }
+      ],
+      "items": [
+        {
+          "id": "WC3.001",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether all students should learn a second language at school. State your opinion clearly and give at least two different reasons to support it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.002",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether mobile phones should be allowed in classrooms. Start with your opinion, then give at least two distinct reasons. Your reasons must support your position and not repeat each other.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.003",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Write an opinion paragraph about whether zoos are good or bad for animals. Clearly state your position and give at least two separate reasons with supporting detail.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.004",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether screen time should be limited for young people. State your view clearly and provide at least two distinct reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.005",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "prompt": "Write an opinion paragraph about whether it is more important to protect the environment or to grow the economy. State your position and give at least two clear, different reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.006",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether students should be able to choose their own topics to study. State your opinion and give at least two distinct reasons that each add new information.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.C4",
+      "name": "Transition Words Between Paragraphs",
+      "gate": "F",
+      "level": 7,
+      "tier": "C — Justified Reasoning",
+      "grade": 5,
+      "description": "Learner uses transition words (next, also, however, finally, in addition) at the start of >=2nd and subsequent paragraphs to signal logical flow between paragraphs. Function must match the relationship. No transition word repeated in consecutive paragraphs.",
+      "deliveryMode": "TEXT — Learner types the multi-paragraph response",
+      "questionFormat": "2–3 paragraph response with explicit transition requirement",
+      "defaultPrompt": "Write 2–3 paragraphs. Use a transition word (next, also, however, finally, in addition) to open your second and any further paragraphs. Each transition must match how the new paragraph connects to the one before it. Do not repeat the same transition word.",
+      "errorCode": "ERR_NO_TRANSITION",
+      "passCondition": {
+        "metric": "transition_usage",
+        "transitionsPresentThreshold": 0.6,
+        "functionMatchThreshold": 0.6,
+        "noConsecutiveRepetition": true,
+        "tasks": 4,
+        "sessions": 3
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Transition word at start of non-opening paragraphs",
+            "criterion": "YES if >=60% of non-opening paragraphs start with a recognised transition. NO → TRANSITION_ABSENT."
+          },
+          {
+            "id": "CHECK_2",
+            "name": "Transition function matches relationship",
+            "criterion": "Contrast transitions only between contrasting paragraphs; addition transitions only between additive paragraphs. YES if function match >=60%. NO → WRONG_FUNCTION."
+          },
+          {
+            "id": "CHECK_3",
+            "name": "No consecutive repetition",
+            "criterion": "No transition word repeated in consecutive paragraphs. YES/NO → REPETITION."
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Second or subsequent paragraph opens with no transition word at all.",
+          "firesError": "TRANSITION_ABSENT"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Transition present but its logical function mismatches the paragraph relationship (e.g. 'however' between two agreeing paragraphs).",
+          "firesError": "WRONG_FUNCTION"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Same transition word or phrase opens every paragraph.",
+          "firesError": "REPETITION"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "TRANSITION_ABSENT",
+          "action": "Fill-in: learner's own paragraphs shown with transitions removed. Learner selects from labelled menu."
+        },
+        {
+          "errorVariant": "WRONG_FUNCTION",
+          "action": "Transition function chart with examples. Learner identifies the relationship first, then selects a matching transition."
+        },
+        {
+          "errorVariant": "REPETITION",
+          "action": "'Use a different transition word for each paragraph.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "WC4.001",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Write 2–3 paragraphs about the advantages of eating healthy food. Use a transition word (next, also, however, finally, in addition) to open your second and third paragraphs. Each transition must signal how the new paragraph connects to the one before it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.002",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about a challenge you faced at school and how you dealt with it. Use a different transition word to open each paragraph after the first. Do not use the same transition twice.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.003",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Write 2–3 paragraphs comparing life in cities and life in the countryside. Use transition words between your paragraphs to signal agreement, contrast, or addition (for example: however, in addition, on the other hand, furthermore, similarly).",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.004",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about why teamwork matters. Your second and any additional paragraphs must start with a transition word. Choose transition words that show the logical connection between your paragraphs.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.005",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "prompt": "Write 2–3 paragraphs about the causes of ocean pollution. Use a transition word to begin each paragraph after the first. Make sure the transition word matches the relationship between paragraphs — use contrast words only if you are contrasting ideas.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.006",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about a person who has inspired you. In each paragraph after the first, use a different transition word to link to the previous paragraph. Do not repeat any transition word.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.D1",
+      "name": "Oral Opinion — State and justify an opinion",
+      "gate": "F",
+      "level": 7,
+      "tier": "D — Oral Justification",
+      "grade": 5,
+      "hybridDeliveryNote": "IF VOICE available: all checks applied to spoken output via voice processing. IF TEXT FALLBACK (Phase 1): learner types response. Same checks applied. Session logged as TEXT_MODE.",
+      "description": "Learner states an opinion and justifies it with >=2 distinct reasons. Voice-primary task with text fallback.",
+      "deliveryMode": "HYBRID — VOICE primary; TEXT fallback (flagged TEXT_MODE)",
+      "primaryMode": "VOICE",
+      "textFallback": "Learner types opinion + >=2 reasons. Same 4 checks applied. Session logged as TEXT_MODE.",
+      "questionFormat": "Opinion statement + >=2 reasons (spoken or typed)",
+      "defaultPrompt": "Say (or type) your opinion on the question. Give at least two different reasons.",
+      "errorCode": "ERR_NO_REASONS",
+      "passCondition": {
+        "metric": "opinion_structure_accuracy",
+        "threshold": 0.6,
+        "minDistinctReasons": 2,
+        "minClauses": 3,
+        "tasks": 6,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Opinion signal phrase detected",
+            "criterion": "Opinion signal phrase (I think, I believe, In my view, I agree/disagree that). YES/NO → OPINION_ABSENT / OPINION_ABSENT_ORAL."
+          },
+          {
+            "id": "CHECK_2",
+            "name": ">=2 reason clauses with connectors",
+            "criterion": ">=2 reason clauses each introduced by a reason connector (because, since, as, so, therefore). YES/NO → SINGLE_REASON / SINGLE_REASON_ORAL."
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Reason distinctness",
+            "criterion": "Cross-reason similarity <0.72. AMBER 0.55–0.72; RED >=0.72 → REASON_RESTATES_OPINION."
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Total response length",
+            "criterion": "Total response >=3 clauses. YES/NO → SHORT_RESPONSE."
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Position not explicitly stated in writing. No opinion signal phrase used.",
+          "firesError": "OPINION_ABSENT"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Position not stated orally. Reasons given but no 'I think / I believe / In my view.'",
+          "firesError": "OPINION_ABSENT_ORAL"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Only one reason clause in written response.",
+          "firesError": "SINGLE_REASON"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Only one reason produced in spoken response.",
+          "firesError": "SINGLE_REASON_ORAL"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Fewer than 3 clauses total — response too brief for opinion + 2 reasons.",
+          "firesError": "SHORT_RESPONSE"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "OPINION_ABSENT",
+          "action": "Sentence frame: 'I believe ___ because ___ and also because ___.'"
+        },
+        {
+          "errorVariant": "OPINION_ABSENT_ORAL",
+          "action": "'Start with what you think, then say why.'"
+        },
+        {
+          "errorVariant": "SINGLE_REASON",
+          "action": "'Give a second reason that adds new information.'"
+        },
+        {
+          "errorVariant": "SINGLE_REASON_ORAL",
+          "action": "'Say more — what is another reason?'"
+        },
+        {
+          "errorVariant": "SHORT_RESPONSE",
+          "action": "Elaboration prompt: 'Say more — what else?'"
+        }
+      ],
+      "items": [
+        {
+          "id": "OD1.001",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Do you think students should have less homework? State your opinion and give at least two different reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.002",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Do you think it is important for young people to learn about the environment? State your view and give at least two reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.003",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": false,
+          "context": "A",
+          "prompt": "Should school start later in the morning? Give your opinion and at least two reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.004",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Do you think animals should be kept in zoos? Explain your opinion with at least two different reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.005",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Is it more important to be kind or to be honest? State your opinion and support it with at least two reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.006",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "prompt": "Should junk food be banned in school tuck shops? Give your view and at least two reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.007",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Do you think team sports or individual sports are better for young people? State your opinion and give two different reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.008",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Should all young people learn basic first aid? State your opinion with at least two supporting reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.D2",
+      "name": "Oral Exchange — 2-turn spoken exchange",
+      "gate": "F",
+      "level": 7,
+      "tier": "D — Oral Justification",
+      "grade": 5,
+      "hybridDeliveryNote": "IF VOICE available: all checks applied to spoken output via voice processing. IF TEXT FALLBACK (Phase 1): learner types response. Same checks applied. Session logged as TEXT_MODE.",
+      "description": "Two-turn exchange: learner speaks Turn 1; system responds; learner speaks Turn 2. Only Turn 2 is scored. Turn 1 is used to generate the system follow-up.",
+      "deliveryMode": "HYBRID — VOICE primary; TEXT fallback (flagged TEXT_MODE)",
+      "primaryMode": "VOICE",
+      "textFallback": "Learner types Turn 1; system displays Turn 2 prompt as text; learner types Turn 2. Same 3 checks applied to typed Turn 2.",
+      "questionFormat": "2-turn exchange — only Turn 2 is scored",
+      "defaultPrompt": "Answer the Turn 1 question. Then the system will ask a follow-up. Your Turn 2 answer must stay on topic, add something new, and be at least two clauses.",
+      "errorCode": "ERR_ORAL_SUMMARY",
+      "passCondition": {
+        "metric": "turn2_checks",
+        "threshold": 0.6,
+        "exchanges": 6,
+        "sessions": 2,
+        "scoringNote": "Only Turn 2 is scored. Turn 1 used to generate the system follow-up."
+      },
+      "rubric": {
+        "checksOnTurn2Only": [
+          {
+            "id": "CHECK_1",
+            "name": "Turn relevance",
+            "criterion": "Turn 2 meaning similarity to Turn 1 topic >=0.40. RED <0.40 → OFF_TOPIC_TURN2."
+          },
+          {
+            "id": "CHECK_2",
+            "name": "New information added",
+            "criterion": "Turn 2 copying score with Turn 1 <60%. RED >=60% → REPETITION_TURN2."
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Response length",
+            "criterion": ">=2 clauses. RED <2 clauses → SHORT_TURN2."
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Turn 2 meaning similarity to Turn 1 topic <0.40 — response is unrelated.",
+          "firesError": "OFF_TOPIC_TURN2"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Turn 2 copying score >60% with Turn 1 — learner repeats Turn 1 without adding new information.",
+          "firesError": "REPETITION_TURN2"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Turn 2 fewer than 2 complete clauses — response too brief for a meaningful exchange.",
+          "firesError": "SHORT_TURN2"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "OFF_TOPIC_TURN2",
+          "action": "System simplifies the follow-up question. Prompt: 'Remember the topic from your first answer.'"
+        },
+        {
+          "errorVariant": "REPETITION_TURN2",
+          "action": "'Can you add something new to what you already said?'"
+        },
+        {
+          "errorVariant": "SHORT_TURN2",
+          "action": "Elaboration prompt: 'Can you give an example or say more?'"
+        }
+      ],
+      "items": [
+        {
+          "id": "OD2.001",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "What is one thing you think schools could do better?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Stay on topic from Turn 1 (similarity >=0.40)."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Add new information not stated in Turn 1."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.002",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "prompt": "What is one way that technology has changed daily life?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the technology named in Turn 1."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "States a position (good/bad) and gives >=1 reason."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.003",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "If you could change one rule at your school, what would it be and why?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the rule named in Turn 1."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Describes a cooperative process — adds new information."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.004",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "What is one problem in your community that you think young people could help solve?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the problem named in Turn 1."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Names specific skills or resources — new information."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.005",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Do you prefer learning something new from a person or from a book or video? Why?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Engages with the method not preferred in Turn 1."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Concedes a point — new information."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.006",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "prompt": "What is one thing people your age can do to protect the environment?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the action named in Turn 1."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Identifies a barrier AND a solution."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.007",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "What is something you are good at that you had to practise for a long time?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the skill from Turn 1."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Gives specific advice — not just 'practise a lot'. New information."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.008",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "What do you think is the most important invention of the last 100 years?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to technology/invention context."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "States a position with >=1 reason. May agree or disagree."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "skillId": "L7.D3",
+      "name": "Oral Summary — main idea + >=2 details in logical order",
+      "gate": "F",
+      "level": 7,
+      "tier": "D — Oral Justification",
+      "grade": 5,
+      "hybridDeliveryNote": "IF VOICE available: all checks applied to spoken output via voice processing. IF TEXT FALLBACK (Phase 1): learner types response. Same checks applied. Session logged as TEXT_MODE.",
+      "description": "Learner speaks (or types) a summary of the given text — main idea stated first, followed by >=2 supporting details, in their own words.",
+      "deliveryMode": "HYBRID — VOICE primary; TEXT fallback (flagged TEXT_MODE)",
+      "primaryMode": "VOICE",
+      "textFallback": "Learner types the summary. Same 4 checks applied. Session logged as TEXT_MODE.",
+      "questionFormat": "Spoken or typed summary of a short text — main idea first, then >=2 details",
+      "defaultPrompt": "Summarise this text in your own words. Start with the main idea, then give at least two supporting details.",
+      "errorCode": "ERR_ORAL_SUMMARY",
+      "passCondition": {
+        "metric": "summary_checks",
+        "threshold": 0.6,
+        "summaries": 6,
+        "sessions": 2
+      },
+      "rubric": {
+        "checks": [
+          {
+            "id": "CHECK_1",
+            "name": "Main idea present",
+            "criterion": "Main idea statement present — meaning breadth >=0.40 (covers the whole text, not just one detail). RED <0.40 → NO_MAIN_IDEA_ORAL."
+          },
+          {
+            "id": "CHECK_2",
+            "name": ">=2 details with keyword overlap",
+            "criterion": ">=2 detail statements each with keyword overlap to source text. YES/NO."
+          },
+          {
+            "id": "CHECK_3",
+            "name": "Logical order",
+            "criterion": "Main idea stated before details in >=60% of summaries. FAIL → DETAIL_BEFORE_MAIN."
+          },
+          {
+            "id": "CHECK_4",
+            "name": "Paraphrase confirmed",
+            "criterion": "Copying score with source <60% per unit. RED >=60% → VERBATIM_ORAL."
+          }
+        ]
+      },
+      "tolerance": [
+        {
+          "decision": "REJECT",
+          "condition": "Learner jumps directly to details without first stating the main idea.",
+          "firesError": "NO_MAIN_IDEA_ORAL"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Supporting details precede the main idea statement — inverted oral structure.",
+          "firesError": "DETAIL_BEFORE_MAIN"
+        },
+        {
+          "decision": "REJECT",
+          "condition": "Source sentences reproduced aloud / in writing. Copying score >=60% per unit.",
+          "firesError": "VERBATIM_ORAL"
+        }
+      ],
+      "recovery": [
+        {
+          "errorVariant": "NO_MAIN_IDEA_ORAL",
+          "action": "'This text is mainly about ___, and two things that support that are ___.'"
+        },
+        {
+          "errorVariant": "DETAIL_BEFORE_MAIN",
+          "action": "'State the main point first, then give your details.'"
+        },
+        {
+          "errorVariant": "VERBATIM_ORAL",
+          "action": "System hides text before summarising. 'Say it in your own words.'"
+        }
+      ],
+      "items": [
+        {
+          "id": "OD3.001",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "How Bees Make Honey",
+          "passage": "Bees make honey by collecting nectar from flowers. A worker bee visits hundreds of flowers and sucks up the sweet nectar using its long tongue. The nectar is stored in the bee's honey stomach, where it mixes with enzymes that begin breaking it down into simpler sugars. Back at the hive, the bee passes the nectar to other worker bees, who chew it and continue breaking it down. The bees then spread the nectar into the honeycomb cells, where water evaporates from it over several days. When the honey is thick enough, the bees seal the cell with a wax cap. A single bee produces only about one twelfth of a teaspoon of honey in its lifetime.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Bees make honey by collecting flower nectar and processing it through a series of steps in the hive. Key details: Bees collect nectar from hundreds of flowers.; Enzymes in the bee's stomach break the nectar down.; Water evaporates from the nectar in the honeycomb before it is sealed.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.002",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Why We Dream",
+          "passage": "Scientists are still not certain why humans dream, but several theories exist. One widely accepted idea is that dreaming helps the brain process and store memories from the day. During a stage of sleep called REM (Rapid Eye Movement) sleep, the brain is very active — almost as active as when we are awake. Some researchers believe that during this time the brain sorts through experiences, strengthening important memories and discarding unneeded information. Another theory suggests that dreaming helps us process emotions, allowing us to work through difficult feelings in a safe environment. A third idea is that dreams are simply a side effect of the brain's normal activity during sleep — meaningful to us but without a specific function.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Scientists have several theories about why we dream, most involving memory processing or emotional regulation. Key details: REM sleep is when most dreaming occurs and the brain is very active.; One theory says dreaming helps store memories.; Another theory suggests dreams help us process emotions.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.003",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "The History of the Olympic Games",
+          "passage": "The Olympic Games began in ancient Greece around 776 BCE as a religious festival honouring the god Zeus. Athletes from across the Greek world competed in events including running, wrestling, and chariot racing. The Games were held every four years at Olympia and were so important that wars between Greek states were paused to allow athletes to travel safely. The ancient Olympics continued for over 1 000 years before being banned by the Roman Emperor Theodosius I in 393 CE. The modern Olympic Games were revived in 1896 in Athens, Greece, largely through the efforts of French educator Pierre de Coubertin. Today the Games are held every four years and involve thousands of athletes from over 200 countries.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "The Olympic Games began in ancient Greece and were revived in the modern era, becoming the world's largest international sporting event. Key details: The ancient Olympics began around 776 BCE and were held at Olympia.; Wars were paused to allow athletes to travel to the Games.; The modern Olympics were revived in 1896 in Athens.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.004",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Importance of Sleep",
+          "passage": "Sleep is one of the most important things the human body does, yet many people do not get enough of it. During sleep, the brain consolidates memories, the body repairs damaged tissues, and the immune system is strengthened. Children and teenagers need between 8 and 10 hours of sleep per night, but surveys show that many get far less than this. Lack of sleep affects concentration, mood, and physical performance. Over time, chronic sleep deprivation has been linked to serious health problems including obesity, heart disease, and depression. Sleep experts recommend keeping a consistent sleep schedule, avoiding screens before bed, and ensuring the sleeping environment is dark and cool.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Sleep is essential for health and brain function, and most young people do not get enough of it. Key details: During sleep, the brain consolidates memories and the body repairs itself.; Children need 8–10 hours but many get less.; Chronic sleep deprivation is linked to obesity, heart disease, and depression.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.005",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Plastic in the Ocean",
+          "passage": "Plastic pollution in the ocean has become one of the most serious environmental problems of our time. Around 8 million tonnes of plastic enter the ocean each year. Much of this plastic does not decompose — instead it breaks into tiny pieces called microplastics, which are now found in every ocean on Earth, from the surface to the deepest trenches. Marine animals mistake plastic for food, and it has been found in the stomachs of fish, seabirds, and whales. Microplastics have also been detected in human blood and breast milk. Scientists warn that unless plastic production and disposal are significantly reduced, the amount of plastic in the ocean could triple by 2040.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Plastic pollution is a major environmental problem, with millions of tonnes entering the ocean each year and harming marine life and humans. Key details: Around 8 million tonnes of plastic enter the ocean each year.; Plastic breaks into microplastics that are found throughout the ocean.; Microplastics have been found in marine animals and even in human blood.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.006",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": false,
+          "context": "B",
+          "title": "The Development of Language",
+          "passage": "Language is one of the defining features of being human, and it has evolved over hundreds of thousands of years. Scientists believe that early humans began communicating through gestures and simple vocalisations long before spoken language developed. Modern human language — with grammar, complex vocabulary, and the ability to discuss abstract ideas — probably emerged around 100 000 years ago. Children acquire language remarkably quickly: by the age of five, most have mastered the basic grammar of their native language without being explicitly taught it. Today there are approximately 7 000 languages spoken worldwide, though many are endangered as smaller language communities disappear. Linguists estimate that one language dies every two weeks.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Human language evolved over thousands of years and children acquire it naturally, but thousands of languages are now endangered. Key details: Modern complex language probably emerged around 100 000 years ago.; Children master basic grammar by age five without being formally taught.; About 7 000 languages exist today, but one dies approximately every two weeks.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.007",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "How Earthquakes Are Measured",
+          "passage": "Earthquakes release energy in the form of seismic waves, and scientists use two main scales to measure them. The Richter scale, developed in 1935 by Charles Richter, measures the energy released at the source of the earthquake. Each whole number increase on the scale represents a tenfold increase in the size of the seismic waves. The moment magnitude scale (Mw), developed in the 1970s, is now more widely used by scientists because it is more accurate for large earthquakes. The Modified Mercalli Intensity (MMI) scale is different — it measures how strongly an earthquake is felt at different locations rather than the energy released. An earthquake measuring 2.0 on the moment magnitude scale is barely noticeable, while one measuring 8.0 or above can destroy entire cities.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Scientists use several scales to measure earthquakes, each capturing a different aspect of the earthquake's size or impact. Key details: The Richter scale measures energy at the source; each point represents a tenfold increase.; The moment magnitude scale is now more widely used for large earthquakes.; The MMI scale measures how strongly an earthquake is felt at different locations.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.008",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Food Security",
+          "passage": "Food security means that all people have reliable access to enough nutritious food to live healthy lives. According to the United Nations, approximately 735 million people worldwide are chronically hungry. Food insecurity is caused by a combination of factors including poverty, conflict, climate change, and inefficient food distribution systems. Paradoxically, the world already produces enough food to feed every person on Earth — the problem is that much of it is wasted or unevenly distributed. Around one third of all food produced globally is lost or wasted before it is eaten. Experts argue that solving food insecurity requires not just producing more food, but improving storage, distribution, and reducing waste.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Food insecurity affects hundreds of millions of people, but the problem is not a shortage of food — it is waste and unequal distribution. Key details: About 735 million people are chronically hungry worldwide.; The world produces enough food for everyone but much is wasted or unevenly distributed.; Around one third of all food produced globally is lost or wasted.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        }
+      ]
+    }
+  ],
+  "errorCodeReference": {
+    "specSection": "9",
+    "totalActiveErrors": 12,
+    "codes": [
+      {
+        "id": 23,
+        "code": "ERR_NO_SKIM",
+        "skills": [
+          "L7.A1"
+        ],
+        "variants": [
+          "OVER_READING",
+          "TOPIC_TOO_NARROW",
+          "VERBATIM_COPY"
+        ]
+      },
+      {
+        "id": 24,
+        "code": "ERR_SCAN_ACCURACY",
+        "skills": [
+          "L7.A2"
+        ],
+        "variants": [
+          "WRONG_DETAIL",
+          "SLOW_SCAN",
+          "MULTIPLE_ANSWERS"
+        ]
+      },
+      {
+        "id": 25,
+        "code": "ERR_PURPOSE_ID",
+        "skills": [
+          "L7.A3"
+        ],
+        "variants": [
+          "WRONG_PURPOSE",
+          "PURPOSE_WITHOUT_REASON",
+          "GENERIC_REASON"
+        ]
+      },
+      {
+        "id": 26,
+        "code": "ERR_TEXT_FEATURE",
+        "skills": [
+          "L7.B1"
+        ],
+        "variants": [
+          "FEATURE_MISLABEL",
+          "FUNCTION_VAGUE",
+          "FEATURE_MISSED"
+        ]
+      },
+      {
+        "id": 27,
+        "code": "ERR_DATA_COMPARE",
+        "phase1Note": "Phase 1 — reverts to ERR_VISUAL_COMPARE at Phase 2.",
+        "skills": [
+          "L7.B2"
+        ],
+        "variants": [
+          "SINGLE_DATA_POINT",
+          "NO_COMPARISON_LANGUAGE",
+          "DIRECTIONAL_ERROR"
+        ]
+      },
+      {
+        "id": 28,
+        "code": "ERR_FACT_OPINION",
+        "skills": [
+          "L7.B3"
+        ],
+        "variants": [
+          "OPINION_AS_FACT",
+          "FACT_AS_OPINION",
+          "JUSTIFICATION_ABSENT"
+        ]
+      },
+      {
+        "id": 29,
+        "code": "ERR_TOPIC_SENTENCE",
+        "skills": [
+          "L7.C1",
+          "L7.C2"
+        ],
+        "variants": [
+          "NO_TOPIC_SENTENCE",
+          "NARROW_TOPIC_SENTENCE",
+          "DETAIL_MISSING",
+          "PARAGRAPH_BLEED",
+          "REDUNDANT_DETAIL",
+          "INVERTED_STRUCTURE"
+        ]
+      },
+      {
+        "id": 30,
+        "code": "ERR_NO_REASONS",
+        "skills": [
+          "L7.C3",
+          "L7.D1"
+        ],
+        "variants": [
+          "OPINION_ABSENT",
+          "OPINION_ABSENT_ORAL",
+          "SINGLE_REASON",
+          "SINGLE_REASON_ORAL",
+          "REASON_RESTATES_OPINION",
+          "CONTRADICTING_REASON",
+          "SHORT_RESPONSE"
+        ]
+      },
+      {
+        "id": 31,
+        "code": "ERR_NO_TRANSITION",
+        "skills": [
+          "L7.C4"
+        ],
+        "variants": [
+          "TRANSITION_ABSENT",
+          "WRONG_FUNCTION",
+          "REPETITION"
+        ]
+      },
+      {
+        "id": 32,
+        "code": "ERR_GRAMMAR_OVERLOAD",
+        "skills": [
+          "L7 writing tasks"
+        ],
+        "appliesAcross": "All L7 writing tasks — not tied to one skill. Fires when grammar error rate RED >40% total, or any category >20%. Recovery: complexity reduction + one error type highlighted per session.",
+        "variants": [
+          "SUBJECT_VERB_AGREEMENT",
+          "TENSE_INCONSISTENCY",
+          "SENTENCE_FRAGMENT",
+          "RUN_ON_SENTENCE",
+          "ARTICLE_MISUSE",
+          "SENTENCE_BOUNDARY_ERROR",
+          "HIGH_ERROR_RATE"
+        ]
+      },
+      {
+        "id": 33,
+        "code": "ERR_ORAL_SUMMARY",
+        "skills": [
+          "L7.D2",
+          "L7.D3"
+        ],
+        "variants": [
+          "NO_MAIN_IDEA_ORAL",
+          "DETAIL_BEFORE_MAIN",
+          "VERBATIM_ORAL",
+          "OFF_TOPIC_TURN2",
+          "REPETITION_TURN2",
+          "SHORT_TURN2"
+        ]
+      }
+    ]
+  },
+  "entryCondition": "Level 6 fully mastered: paragraph writing structure score >=60%, reading accuracy >=70%, structured data text accuracy >=60%, confirmed across 2 sessions.",
+  "advanceCondition": "All L7 skills at threshold across 3 sessions. Opinion tasks pass structure check without system support. Transitions present without prompting.",
+  "phase1VisualConstraints": "L7.B2 uses structured plain-text data in place of charts, tables, and diagrams. ERR_DATA_COMPARE is the Phase 1 name for ERR_VISUAL_COMPARE, which reverts at Phase 2. L7.B1 uses [HEADING] / [SUBHEADING] / [CAPTION] / [BOLD] / [SIDEBAR] plain-text markup in place of rendered formatted documents."
+}

@@ -9,6 +9,7 @@
 
 import { DIAGNOSTIC_TASKS } from "./reading-diagnostic-tasks";
 import { DiagnosticPlacementResult, DiagnosticTaskResult } from "@/types/reading";
+import { seedForGrade } from "./english-grade-map";
 import skillTreeData from "@/data/reading-skill-tree.json";
 
 // ─── Ordered skill sequence derived from reading-skill-tree.json ───────────────
@@ -35,7 +36,12 @@ const TASK_SCAN_ORDER = [
   "D01", "D01B", "D02", "D02B", "D03", "D04", "D05", "D05B", "D06", "D07", "D08",
   "D09", "D10", "D10B", "D11", "D12",
   "D13", "D13B", "D13C", "D14", "D15", "D15B", "D16", "D17", "D18",
+  "DL6", "DL7", "DL8", "DL9", "DL10", "DL11", "DL12", "DL13", "DL14",
 ];
+
+// Probe ladder scanned for grade 4+ placement (low → high).
+// First failure in the ladder = entry level; all-pass = grade-seed level.
+const GRADE4_PLUS_PROBE_LADDER = ["DL6", "DL7", "DL8", "DL9", "DL10", "DL11", "DL12", "DL13", "DL14"];
 
 // ─── Grade ceiling placement (when all administered tasks pass) ────────────────
 // A student who passes everything in their grade window starts at the top of
@@ -98,6 +104,45 @@ export function calculateReadingPlacement(
 
   const dominantErrors = collectDominantErrors(taskResults);
 
+  // ── Grade 4+ : grade-seed ceiling + two-consecutive-failure probe ladder ─
+  // Older learners are NOT funnelled through Level-1 phonics. Their content
+  // lives in the Intermediate tree (L6+), so placement is capped by the
+  // grade seed (Gr 4→L6, Gr 6→L8, Gr 12→L14 — see english-grade-map.ts).
+  //
+  // Rule (changed 2026-05-20): A single probe slip no longer drops placement.
+  // We scan the L6–L14 probe ladder pair-by-pair (administered probes only)
+  // and only drop when we find TWO CONSECUTIVE failures. Entry lands at the
+  // FIRST failure of that pair. If no consecutive pair exists (≤1 wrong, or
+  // wrongs separated by a pass), the learner stays at the grade seed. DL6
+  // keeps its comprehension-bridge semantic — a confirmed DL6→DL7 double
+  // miss drops to R5, never to phonics. With only one probe administered
+  // (Gr 4 sees DL6 alone), no consecutive pair is possible, so a single
+  // DL6 fail also leaves the learner at seed. That's deliberate: a single
+  // MCQ wrong should not sink a 9-level placement.
+  if (grade >= 4) {
+    const seed = seedForGrade(grade).entrySkillId;
+    const administered = GRADE4_PLUS_PROBE_LADDER.filter((p) => !!resultMap[p]);
+
+    let entrySkillId = seed;
+    for (let i = 0; i < administered.length - 1; i++) {
+      const p1 = administered[i];
+      const p2 = administered[i + 1];
+      if (taskPassed(p1) || taskPassed(p2)) continue;   // need TWO in a row
+      const probeTask = DIAGNOSTIC_TASKS.find((t) => t.id === p1);
+      entrySkillId = p1 === "DL6" ? "R5.T1.A1" : (probeTask?.mapsToSkill ?? seed);
+      break;
+    }
+
+    return {
+      completedAt: Date.now(),
+      tasks: taskResults,
+      entrySkillId,
+      autoCompletedSkillIds: skillsBefore(entrySkillId),
+      hardGatePassed: !entrySkillId.startsWith("R1."),
+      dominantErrors,
+    };
+  }
+
   // ── Hard gate: derived from entry placement, not a fixed task ────────────
   // hardGatePassed = true  → student placed in R2 or above; R2+ content is accessible.
   // hardGatePassed = false → student placed in R1; session caps progression at R1
@@ -144,7 +189,10 @@ export function calculateReadingPlacement(
   // A student who aced everything up to their grade ceiling has demonstrated
   // the ceiling skill — auto-complete it and start at the next skill in sequence.
   if (!firstFailTaskId) {
-    const ceilingSkill = GRADE_CEILING_SKILL[Math.min(grade, 4)] ?? "R5.T1.A1";
+    // Only reached for Grade ≤3 now (Grade 4+ returned earlier, grade-seeded).
+    // Aced everything up to the grade ceiling — auto-complete the ceiling
+    // skill and start at the next one.
+    const ceilingSkill = GRADE_CEILING_SKILL[grade] ?? "R5.T1.A1";
     const ceilingIdx = SKILL_SEQUENCE.indexOf(ceilingSkill);
     const entrySkillId =
       ceilingIdx >= 0 && ceilingIdx + 1 < SKILL_SEQUENCE.length

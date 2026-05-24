@@ -186,6 +186,20 @@ export function getLevelById(levelId: number) {
   return skillTreeData.levels.find((l) => l.id === levelId) || null;
 }
 
+/**
+ * Single source of truth for "user-facing skill name" in maths.
+ * Looks up the skill's friendly title from the skill tree. Never returns
+ * the raw L{L}.T{T}.A{A} code — falls back to a neutral phrase if not found.
+ */
+export function friendlyMathsSkillName(skillId: string | null | undefined): string {
+  if (!skillId) return "your starting skill";
+  const skill = getSkillById(skillId);
+  // Some maths skill records use `title`, some legacy ones may use `name`.
+  // Cast through unknown so we don't fight the AtomicSkill type for a fallback read.
+  const s = skill as unknown as { title?: string; name?: string } | null;
+  return s?.title ?? s?.name ?? "your starting skill";
+}
+
 export function getNextSkillId(currentSkillId: string): string | null {
   const parts = currentSkillId.split(".");
   const levelId = parseInt(parts[0].replace("L", ""));

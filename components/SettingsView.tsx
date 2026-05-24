@@ -248,6 +248,45 @@ const LANGUAGES = [
   "Xitsonga",
 ];
 
+// ── Cancellation feedback config ──────────────────────────────────────────────
+
+const CANCEL_REASONS: { value: string; label: string }[] = [
+  { value: "price",         label: "It's too expensive for me" },
+  { value: "low_usage",     label: "We didn't use it enough" },
+  { value: "goal_met",      label: "We finished what we needed (exams done, etc.)" },
+  { value: "not_effective", label: "It didn't help with the grades or subjects we wanted" },
+  { value: "technical",     label: "I had technical problems or bugs" },
+  { value: "support",       label: "Customer support wasn't good enough" },
+  { value: "competitor",    label: "I'm switching to another tool or tutor" },
+  { value: "circumstances", label: "Life got busy / our circumstances changed" },
+  { value: "pause_intent",  label: "Just taking a break — I'll be back" },
+  { value: "other",         label: "Other" },
+];
+
+// Single-select follow-up shown only when the biggest reason is one of these.
+const CANCEL_DETAIL: Record<string, { prompt: string; options: { value: string; label: string }[] }> = {
+  not_effective: {
+    prompt: "Which let you down most?",
+    options: [
+      { value: "maths",       label: "Maths" },
+      { value: "science",     label: "Science" },
+      { value: "languages",   label: "Languages & English" },
+      { value: "unclear",     label: "The explanations weren't clear" },
+      { value: "wrong_level", label: "The level was wrong (too easy or too hard)" },
+    ],
+  },
+  technical: {
+    prompt: "Where did it go wrong?",
+    options: [
+      { value: "performance", label: "The app was slow or crashed" },
+      { value: "payments",    label: "Payments" },
+      { value: "login",       label: "Login" },
+      { value: "content",     label: "Lessons didn't load" },
+      { value: "other",       label: "Something else" },
+    ],
+  },
+};
+
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function SettingsView({ onBack, paymentReturn }: SettingsViewProps) {
@@ -280,6 +319,15 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
 
   // Active modal
   const [modal, setModal] = useState<string | null>(null);
+
+  // Cancellation feedback flow (required, before the cancel actually fires)
+  const [cancelStep, setCancelStep] = useState<"reasons" | "followup" | "confirm">("reasons");
+  const [cancelReasons, setCancelReasons] = useState<string[]>([]);
+  const [primaryReason, setPrimaryReason] = useState<string>("");
+  const [cheaperWouldKeep, setCheaperWouldKeep] = useState<boolean | null>(null);
+  const [pauseWouldKeep, setPauseWouldKeep] = useState<boolean | null>(null);
+  const [cancelDetail, setCancelDetail] = useState<string>("");
+  const [cancelComment, setCancelComment] = useState<string>("");
 
   useEffect(() => {
     (async () => {
@@ -382,13 +430,45 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
   const close = () => {
     setModal(null);
     setSubError(null);
+    setCancelStep("reasons");
+    setCancelReasons([]);
+    setPrimaryReason("");
+    setCheaperWouldKeep(null);
+    setPauseWouldKeep(null);
+    setCancelDetail("");
+    setCancelComment("");
   };
+
+  // Best-effort: a failed feedback write must never block a cancellation.
+  async function saveCancellationFeedback(outcome: "cancelled" | "kept") {
+    if (!supaUser) return;
+    const primary = cancelReasons.length === 1 ? cancelReasons[0] : primaryReason;
+    try {
+      await supabase.from("cancellation_feedback").insert({
+        user_id: supaUser.id,
+        reasons: cancelReasons,
+        primary_reason: primary || null,
+        cheaper_plan_would_keep: cheaperWouldKeep,
+        pause_would_keep: pauseWouldKeep,
+        detail: cancelDetail || null,
+        comment: cancelComment.trim() || null,
+        outcome,
+      });
+    } catch { /* ignore */ }
+  }
+
+  // Backed out of the flow after picking reasons — still a useful signal.
+  function keepSubscription() {
+    if (cancelReasons.length > 0) void saveCancellationFeedback("kept");
+    close();
+  }
 
   async function cancelSubscription() {
     if (!supaUser) return;
     setCancelling(true);
     setSubError(null);
     try {
+      await saveCancellationFeedback("cancelled");
       const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch("/api/payfast/cancel", {
         method: "POST",
@@ -663,26 +743,175 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
         </Modal>
       )}
 
-      {modal === "cancelSub" && (
-        <Modal title="Cancel subscription" onClose={close}>
-          <div className="space-y-4">
-            <p className="text-sm text-gray-600">You&apos;ll lose access to all premium features at the end of your billing cycle. Your progress data will be kept.</p>
-            {subError && (
-              <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2">{subError}</p>
-            )}
-            <button onClick={close} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
-              Keep subscription
-            </button>
-            <button
-              onClick={cancelSubscription}
-              disabled={cancelling}
-              className="w-full bg-red-500 hover:bg-red-600 disabled:opacity-50 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
-            >
-              {cancelling ? "Cancelling…" : "Cancel subscription"}
-            </button>
+      {modal === "cancelSub" && (() => {
+        const primary = cancelReasons.length === 1 ? cancelReasons[0] : primaryReason;
+        const detail = CANCEL_DETAIL[primary];
+        const reasonsValid = cancelReasons.length > 0 && (cancelReasons.length === 1 || !!primaryReason);
+        const followupValid = primary !== "other" || cancelComment.trim().length > 0;
+
+        const toggleReason = (v: string) => {
+          const next = cancelReasons.includes(v)
+            ? cancelReasons.filter((r) => r !== v)
+            : [...cancelReasons, v];
+          setCancelReasons(next);
+          if (primaryReason && !next.includes(primaryReason)) setPrimaryReason("");
+        };
+
+        const Pill = ({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) => (
+          <button
+            type="button"
+            onClick={onClick}
+            className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium border transition-colors ${
+              active
+                ? "bg-blue-50 border-blue-400 text-blue-700"
+                : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50"
+            }`}
+          >
+            {children}
+          </button>
+        );
+
+        const YesNo = ({ value, onChange }: { value: boolean | null; onChange: (v: boolean) => void }) => (
+          <div className="flex gap-2">
+            {[true, false].map((v) => (
+              <button
+                key={String(v)}
+                type="button"
+                onClick={() => onChange(v)}
+                className={`flex-1 py-2 rounded-xl text-sm font-medium border transition-colors ${
+                  value === v
+                    ? "bg-blue-50 border-blue-400 text-blue-700"
+                    : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50"
+                }`}
+              >
+                {v ? "Yes" : "No"}
+              </button>
+            ))}
           </div>
-        </Modal>
-      )}
+        );
+
+        const titles = {
+          reasons: "Before you go",
+          followup: "A couple more questions",
+          confirm: "Confirm cancellation",
+        };
+
+        return (
+          <Modal title={titles[cancelStep]} onClose={keepSubscription}>
+            {cancelStep === "reasons" && (
+              <div className="space-y-4">
+                <p className="text-sm text-gray-600">What&apos;s making you cancel? Pick all that apply.</p>
+                <div className="space-y-2 max-h-[40vh] overflow-y-auto pr-1">
+                  {CANCEL_REASONS.map((r) => (
+                    <Pill key={r.value} active={cancelReasons.includes(r.value)} onClick={() => toggleReason(r.value)}>
+                      {cancelReasons.includes(r.value) ? "✓ " : ""}{r.label}
+                    </Pill>
+                  ))}
+                </div>
+
+                {cancelReasons.length > 1 && (
+                  <div className="space-y-2 pt-1">
+                    <p className="text-sm font-medium text-gray-700">Which is the biggest reason?</p>
+                    {cancelReasons.map((v) => {
+                      const r = CANCEL_REASONS.find((x) => x.value === v)!;
+                      return (
+                        <Pill key={v} active={primaryReason === v} onClick={() => setPrimaryReason(v)}>
+                          {primaryReason === v ? "● " : "○ "}{r.label}
+                        </Pill>
+                      );
+                    })}
+                  </div>
+                )}
+
+                <button
+                  onClick={() => setCancelStep("followup")}
+                  disabled={!reasonsValid}
+                  className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-40 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
+                >
+                  Continue
+                </button>
+                <button onClick={keepSubscription} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
+                  Keep subscription
+                </button>
+              </div>
+            )}
+
+            {cancelStep === "followup" && (
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <p className="text-sm font-medium text-gray-700">Would a cheaper plan have kept you?</p>
+                  <YesNo value={cheaperWouldKeep} onChange={setCheaperWouldKeep} />
+                </div>
+                <div className="space-y-2">
+                  <p className="text-sm font-medium text-gray-700">Would pausing your plan for a month or two have kept you?</p>
+                  <YesNo value={pauseWouldKeep} onChange={setPauseWouldKeep} />
+                </div>
+
+                {detail && (
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium text-gray-700">{detail.prompt}</p>
+                    {detail.options.map((o) => (
+                      <Pill key={o.value} active={cancelDetail === o.value} onClick={() => setCancelDetail(o.value)}>
+                        {cancelDetail === o.value ? "● " : "○ "}{o.label}
+                      </Pill>
+                    ))}
+                  </div>
+                )}
+
+                <div className="space-y-1">
+                  <p className="text-sm font-medium text-gray-700">
+                    {primary === "other" ? "Tell us a bit more" : "Anything else you'd like us to know?"}
+                    {primary !== "other" && <span className="text-gray-400 font-normal"> (optional)</span>}
+                  </p>
+                  <textarea
+                    value={cancelComment}
+                    onChange={(e) => setCancelComment(e.target.value)}
+                    rows={3}
+                    maxLength={1000}
+                    className="w-full text-sm border border-gray-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none"
+                    placeholder="Your feedback helps us improve."
+                  />
+                </div>
+
+                <button
+                  onClick={() => setCancelStep("confirm")}
+                  disabled={!followupValid}
+                  className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-40 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
+                >
+                  Continue
+                </button>
+                <div className="flex gap-2">
+                  <button onClick={() => setCancelStep("reasons")} className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
+                    Back
+                  </button>
+                  <button onClick={keepSubscription} className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
+                    Keep subscription
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {cancelStep === "confirm" && (
+              <div className="space-y-4">
+                <p className="text-sm text-gray-600">You&apos;ll lose access to all premium features at the end of your billing cycle. Your progress data will be kept.</p>
+                {subError && (
+                  <p className="text-xs text-red-500 bg-red-50 rounded-xl px-4 py-2">{subError}</p>
+                )}
+                <button onClick={keepSubscription} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
+                  Keep subscription
+                </button>
+                <button
+                  onClick={cancelSubscription}
+                  disabled={cancelling}
+                  className="w-full bg-red-500 hover:bg-red-600 disabled:opacity-50 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
+                >
+                  {cancelling ? "Cancelling…" : "Cancel subscription"}
+                </button>
+              </div>
+            )}
+          </Modal>
+        );
+      })()}
 
       {modal === "downloadPDF" && (
         <Modal title="Download progress report" onClose={close}>

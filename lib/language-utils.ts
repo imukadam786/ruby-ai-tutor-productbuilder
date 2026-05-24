@@ -48,3 +48,46 @@ export async function checkLanguage(text: string, expected: string): Promise<boo
     return true;
   }
 }
+
+/**
+ * Translates student-facing feedback into `language` for a primary-school
+ * child, in one small model call. Returns the originals unchanged when the
+ * language is English, both strings are empty, or translation fails — we
+ * never block a marking result on a translation hiccup, and English is the
+ * safe fallback (same err-on-pass philosophy as checkLanguage).
+ */
+export async function localiseFeedback(
+  fields: { feedback: string; recovery?: string },
+  language: string
+): Promise<{ feedback: string; recovery: string }> {
+  const feedback = fields.feedback ?? "";
+  const recovery = fields.recovery ?? "";
+  if (language === "English" || (!feedback.trim() && !recovery.trim())) {
+    return { feedback, recovery };
+  }
+  try {
+    const resp = await getOpenAI().chat.completions.create({
+      model: "gpt-4o-mini",
+      temperature: 0,
+      max_tokens: 400,
+      response_format: { type: "json_object" },
+      messages: [{
+        role: "user",
+        content:
+          `Translate the string values of this JSON into ${language} for a ` +
+          `primary-school child. Keep the meaning and the warm, encouraging ` +
+          `tone. Translate ONLY the values; keep the keys exactly as they are. ` +
+          `Return ONLY the JSON.\n\n` +
+          JSON.stringify({ feedback, recovery }),
+      }],
+    }, { signal: AbortSignal.timeout(10_000) });
+    const raw = resp.choices[0]?.message?.content ?? "{}";
+    const parsed = JSON.parse(raw) as { feedback?: string; recovery?: string };
+    return {
+      feedback: parsed.feedback || feedback,
+      recovery: parsed.recovery || recovery,
+    };
+  } catch {
+    return { feedback, recovery };
+  }
+}

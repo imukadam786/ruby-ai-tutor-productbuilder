@@ -29,21 +29,29 @@ export function getReadingProfile(): ReadingStudentProfile | null {
   return null;
 }
 
-export function saveReadingProfile(profile: ReadingStudentProfile): void {
-  void (async () => {
+export function saveReadingProfile(profile: ReadingStudentProfile): Promise<void> {
+  // Returns a promise so callers that NEED the write to land (e.g. placement
+  // completion) can await it. Most callers fire-and-forget; that still works.
+  return (async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const user = session?.user;
-      void retrySupabase(() => supabase.from("student_profiles").upsert({
-        id: profile.id,
-        subject: "reading",
-        name: profile.name,
-        grade: profile.grade,
-        ...(user?.id ? { auth_user_id: user.id } : {}),
-        profile_data: profile as unknown as Record<string, unknown>,
-        updated_at: new Date().toISOString(),
-      }, { onConflict: "id" }));
-    } catch { /* non-critical */ }
+      await retrySupabase(async () => {
+        const { error } = await supabase.from("student_profiles").upsert({
+          id: profile.id,
+          subject: "reading",
+          name: profile.name,
+          grade: profile.grade,
+          ...(user?.id ? { auth_user_id: user.id } : {}),
+          profile_data: profile as unknown as Record<string, unknown>,
+          updated_at: new Date().toISOString(),
+        }, { onConflict: "id" });
+        if (error) throw error;
+      });
+    } catch (err) {
+      // Surface failures — silent drops were masking placement-not-saved bugs.
+      console.error("[saveReadingProfile] upsert failed:", err);
+    }
   })();
 }
 
@@ -332,6 +340,18 @@ export function getReadingTierById(tierId: string) {
   return null;
 }
 
+/**
+ * Single source of truth for "user-facing skill name" in reading.
+ * Looks up the skill's parent-friendly title from the skill tree. Never returns
+ * the raw R{L}.T{T}.A{A} code — falls back to a neutral phrase if the id is
+ * not in the tree (which can happen if the calculator emits an id that the
+ * authored tree doesn't yet contain).
+ */
+export function friendlyReadingSkillName(skillId: string | null | undefined): string {
+  if (!skillId) return "your starting skill";
+  return getReadingSkillById(skillId)?.title ?? "your starting skill";
+}
+
 export function getNextReadingSkillId(currentSkillId: string): string | null {
   const parts = currentSkillId.split(".");
   const levelId = parseInt(parts[0].replace("R", ""));
@@ -463,10 +483,15 @@ export function stampReviewedAt(
 
 // ─── Diagnostic Placement ─────────────────────────────────────────────────────
 
+/**
+ * Marks placement complete, persists the profile (returns the save promise on
+ * `_savePromise` so callers that need the write to land before navigating can
+ * await it), and best-effort inserts a diagnostic_results row.
+ */
 export function completeDiagnosticPlacement(
   profile: ReadingStudentProfile,
   result: DiagnosticPlacementResult
-): ReadingStudentProfile {
+): ReadingStudentProfile & { _savePromise?: Promise<void> } {
   // Mark all auto-completed skills as assumed — inferred from diagnostic, not demonstrated
   const updatedMastery = { ...profile.skill_mastery };
   for (const skillId of result.autoCompletedSkillIds) {
@@ -488,7 +513,7 @@ export function completeDiagnosticPlacement(
   const levelId = parseInt(parts[0].replace("R", ""));
   const tierId = `${parts[0]}.${parts[1]}`;
 
-  const updated: ReadingStudentProfile = {
+  const updated: ReadingStudentProfile & { _savePromise?: Promise<void> } = {
     ...profile,
     placementCompleted: true,
     placement: result,
@@ -498,7 +523,9 @@ export function completeDiagnosticPlacement(
     current_level: levelId,
     last_active: new Date().toISOString(),
   };
-  saveReadingProfile(updated);
+  // Expose the save promise so handleViewReport can await it before treating
+  // placement as persisted. Non-awaiting callers still work as before.
+  updated._savePromise = saveReadingProfile(updated);
   // Supabase sync with retry
   void retrySupabase(() => supabase.from("diagnostic_results").insert({
     student_id: profile.id,

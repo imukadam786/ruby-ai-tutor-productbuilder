@@ -14,6 +14,7 @@ import {
   createStudentProfile,
   saveStudentProfile,
   getSkillById,
+  friendlyMathsSkillName,
   getNextSkillId,
   getTierById,
   getLevelById,
@@ -26,13 +27,14 @@ import {
 import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
 import { updateSkillMastery, initSkillMastery, scanMasteryForReview, pickNeedsReviewSkill, stampMathsReviewedAt } from "@/lib/mastery-engine";
-import { getDomainForSkill, getDomain, getUsedRefs, markQuestionUsed, selectQuestion, bankQuestionToGenerated } from "@/lib/question-selector";
+import { getDomainForSkill, friendlyMathsDomainName, getUsedRefs, markQuestionUsed, selectQuestion, bankQuestionToGenerated } from "@/lib/question-selector";
 import { abilityLevel } from "@/lib/bkt";
 import { simplifyQuestion } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 import { supabase } from "@/lib/supabase";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
+import EduBackground from "@/components/EduBackground";
 import { selectMathsTemplate } from "@/lib/template-selector";
 import { detectStuck } from "@/lib/stuck-detector";
 import StuckScreen from "@/components/shared/StuckScreen";
@@ -95,8 +97,8 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
     const label: "strong" | "building" | "practice" =
       avg >= 0.8 ? "strong" : avg >= 0.4 ? "building" : "practice";
     const primaryError = data.errors.length > 0 ? data.errors[0] : null;
-    // Get human-readable domain title from question bank
-    const domainTitle = getDomain(domainId)?.title ?? domainId;
+    // Parent-facing domain name (plain language, not CAPS jargon) for the report.
+    const domainTitle = friendlyMathsDomainName(domainId);
     const errorNote = primaryError ? (describeError(primaryError, "maths") ?? null) : null;
     return { domain: domainTitle, score, label, errorNote };
   });
@@ -113,9 +115,8 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
     .slice(0, 3)
     .map(([code]) => code);
 
-  // Entry skill plain name
-  const entrySkill = getSkillById(placement.entrySkillId);
-  const placementSkill = entrySkill?.title ?? placement.entrySkillId;
+  // Entry skill plain name — never leak the raw L{L}.T{T}.A{A} code
+  const placementSkill = friendlyMathsSkillName(placement.entrySkillId);
 
   const levelTitle  = LEVEL_LABEL[placement.entryLevel] ?? `Level ${placement.entryLevel}`;
   const expected    = expectedEntryLevel(profile.grade);
@@ -138,7 +139,7 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
 }
 
 
-export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () => void }) {
+export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSelectPlan?: () => void; onExitReplay?: () => void }) {
   const { language } = useT();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<StudentProfile | null>(null);
@@ -174,8 +175,36 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
   const stuckDismissedAtRef = useRef(0);
   const [stuckAttemptCount, setStuckAttemptCount] = useState(0);
 
+  // ── Replay mode ────────────────────────────────────────────────────────────
+  // When the student taps an already-completed skill in the tree, that skill id
+  // is stashed in sessionStorage. In replay mode the session loads ONLY that
+  // skill's questions and writes NO progression state (no attempts, no mastery,
+  // no advancement) — pure practice. `replayChecked` gates the loader until the
+  // flag has been read so the first question targets the right skill.
+  const [replaySkillId, setReplaySkillId] = useState<string | null>(null);
+  const [replayChecked, setReplayChecked] = useState(false);
+  const replayConsumedRef = useRef(false);
+  const replaySkillIdRef = useRef<string | null>(null);
+  replaySkillIdRef.current = replaySkillId;
 
   useEffect(() => {
+    // Replay detection — read the tapped-skill flag synchronously BEFORE the
+    // profile init below runs, so the mastery scan-and-save is skipped in replay
+    // and the first question targets the replay skill. Guarded against React
+    // StrictMode double-invoke so the single-use flag is consumed exactly once.
+    if (!replayConsumedRef.current) {
+      replayConsumedRef.current = true;
+      if (typeof window !== "undefined") {
+        const flag = sessionStorage.getItem("ruby_maths_replay_skill");
+        if (flag) {
+          sessionStorage.removeItem("ruby_maths_replay_skill");
+          replaySkillIdRef.current = flag;
+          setReplaySkillId(flag);
+        }
+      }
+      setReplayChecked(true);
+    }
+
     // Fetch authoritative grade from Supabase users table first.
     // This is the single source of truth — written at onboarding completion and
     // survives browser clears, device switches, and tester session resets.
@@ -203,7 +232,8 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
         }
         const scannedMastery = synced.placementCompleted ? scanMasteryForReview(synced.skill_mastery) : synced.skill_mastery;
         const scanned = scannedMastery !== synced.skill_mastery ? { ...synced, skill_mastery: scannedMastery } : synced;
-        if (scanned !== saved) saveStudentProfile(scanned);
+        // Skip the maintenance save during replay — pure practice writes nothing.
+        if (scanned !== saved && !replaySkillIdRef.current) saveStudentProfile(scanned);
         setProfile(scanned);
         const restoredAttemptCount = scanned.skill_mastery[scanned.current_skill_id]?.attempt_count ?? 0;
         setSkillAttemptCount(restoredAttemptCount);
@@ -264,7 +294,9 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
         if (q.domain_id && q.question_ref) {
           try {
             const updatedProfile = markQuestionUsed(currentProfile, q.domain_id, q.question_ref);
-            saveStudentProfile(updatedProfile);
+            // Replay is pure practice — track used questions in-memory only (avoid
+            // repeats this session) but never persist to storage.
+            if (!replaySkillIdRef.current) saveStudentProfile(updatedProfile);
             setProfile(updatedProfile);
           } catch {
             // DB unavailable — continue without saving used ref
@@ -288,15 +320,16 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
   }, [phase, currentQuestion?.id]);
 
   useEffect(() => {
-    if (phase === "loading_question" && profile) {
+    if (phase === "loading_question" && profile && replayChecked) {
       const errorType = (currentResult && !currentResult.is_correct) ? (currentResult.error_type ?? null) : null;
       const lastWasWrong = currentResult?.is_correct === false;
       const template = selectMathsTemplate(lastWasWrong ? "reteach" : "advance", errorType, recentTemplatesRef.current);
       recentTemplatesRef.current = [...recentTemplatesRef.current.slice(-3), template];
-      const skillIdToLoad = pendingReviewSkillId ?? profile.current_skill_id;
+      // Replay targets the chosen skill; otherwise normal needs-review/current-skill flow.
+      const skillIdToLoad = replaySkillId ?? pendingReviewSkillId ?? profile.current_skill_id;
       loadQuestion(skillIdToLoad, template, skillAttemptCount + 1, profile, lastWasWrong);
     }
-  }, [phase, profile, skillAttemptCount, loadQuestion, currentResult]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [phase, profile, skillAttemptCount, loadQuestion, currentResult, replayChecked, replaySkillId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmitAnswer = async (answer: string, steps: string, usedHint: boolean, workingImage?: string) => {
     if (!currentQuestion || !profile) return;
@@ -330,6 +363,20 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
       // Update mastery in student model
       const skill = getSkillById(currentQuestion.skill_id);
       if (!skill) return;
+
+      // ── Replay mode: pure practice ──────────────────────────────────────────
+      // Grade and show feedback only. Skip ALL progression writes — no mastery
+      // update, no recordAttempt, no advance, no save. Replay can never change
+      // a student's real progress.
+      if (replaySkillId) {
+        result.next_action = "continue_skill";
+        setSessionAttempts((n) => n + 1);
+        if (result.is_correct) setSessionCorrect((n) => n + 1);
+        setSkillAttemptCount((n) => n + 1);
+        setCurrentResult(result);
+        setPhase("feedback");
+        return;
+      }
 
       const existingMastery =
         profile.skill_mastery[currentQuestion.skill_id] ||
@@ -444,6 +491,12 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
 
   const handleSkipOnLoadError = () => {
     if (!profile) return;
+    // In replay, "skip" must not advance progression — just retry the same skill.
+    if (replaySkillId) {
+      setLoadErrorCount(0);
+      setPhase("loading_question");
+      return;
+    }
     try {
       setLoadErrorCount(0);
       const skillId = currentQuestion?.skill_id ?? profile.current_skill_id;
@@ -681,6 +734,7 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
     const handler = () => {
       const p = profileRef.current;
       if (!p) return;
+      if (replaySkillIdRef.current) return; // replay = practice; restart is disabled
       if (!p.placementCompleted) {
         if (window.confirm("Restart the discovery activity? You'll get a fresh set of questions in a different order.")) {
           actionsRef.current.resetToPlacement();
@@ -735,8 +789,11 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
 
   if (phase === "loading_question") {
     return (
-      <div className="flex flex-col h-full bg-gray-50">
-        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
+        {replaySkillId
+          ? <ReplayBar skillId={replaySkillId} onExit={onExitReplay} />
+          : <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
         <div className="flex-1 flex items-center justify-center p-6">
           {loadErrorCount === 0 ? (
             <div className="text-center">
@@ -775,27 +832,25 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
   if (phase === "question" && currentQuestion) {
     const skill = getSkillById(currentQuestion.skill_id);
     return (
-      <div className="flex flex-col h-full bg-gray-50">
-        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
+        {replaySkillId
+          ? <ReplayBar skillId={replaySkillId} onExit={onExitReplay} />
+          : <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
-            {skill && (
-              <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
-                <div className="flex-1">
-                  <p className="text-xs text-gray-400 uppercase tracking-wide">{profile ? `L${profile.current_level} - CURRENT SKILL` : "Current Skill"}</p>
-                  <p className="text-gray-800 font-medium text-sm">{skill.title}</p>
-                </div>
-                <MasteryDots
-                  correctCount={profile?.skill_mastery[currentQuestion.skill_id]?.correct_count || 0}
-                  required={skill.mastery_criteria.correct_required}
-                />
-              </div>
-            )}
             <QuestionCard
               question={currentQuestion}
               onSubmit={handleSubmitAnswer}
               isSubmitting={false}
               forceHint={currentResult?.is_correct === false}
+              topicLabel={skill?.title}
+              badgeRight={skill ? (
+                <MasteryDots
+                  correctCount={profile?.skill_mastery[currentQuestion.skill_id]?.correct_count || 0}
+                  required={skill.mastery_criteria.correct_required}
+                />
+              ) : undefined}
             />
           </div>
         </div>
@@ -812,8 +867,11 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
       advance_level: "Next level",
     };
     return (
-      <div className="flex flex-col h-full bg-gray-50">
-        <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
+        {replaySkillId
+          ? <ReplayBar skillId={replaySkillId} onExit={onExitReplay} />
+          : <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto">
             <FeedbackCard
@@ -838,7 +896,8 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
   if (phase === "mastered") {
     const skill = profile ? getSkillById(profile.current_skill_id) : null;
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
@@ -867,7 +926,8 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
     const currentTierId = profile ? `${profile.current_skill_id.split(".")[0]}.${profile.current_skill_id.split(".")[1]}` : null;
     const tier = currentTierId ? getTierById(currentTierId) : null;
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
@@ -917,7 +977,8 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
   if (phase === "stuck" && currentQuestion) {
     const skill = getSkillById(currentQuestion.skill_id);
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <StuckScreen
           skillTitle={skill?.title ?? "this skill"}
@@ -932,7 +993,8 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
 
   if (phase === "complete") {
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
@@ -957,6 +1019,26 @@ export default function DiagnosticSession({ onSelectPlan }: { onSelectPlan?: () 
 }
 
 // ─── Sub-components ────────────────────────────────────────────────────────────
+
+// Header shown during replay (pure-practice) mode: a clear way back to the tree
+// plus the skill being practised. Replaces SessionHeader so the progression
+// "restart" control isn't exposed while replaying.
+function ReplayBar({ skillId, onExit }: { skillId: string | null; onExit?: () => void }) {
+  const skill = skillId ? getSkillById(skillId) : null;
+  return (
+    <div className="bg-blue-50 border-b border-blue-200 px-4 py-2 sm:px-6 sm:py-3 flex items-center justify-between gap-3">
+      <button
+        onClick={onExit}
+        className="text-sm font-semibold text-blue-700 hover:text-blue-900 flex items-center gap-1 flex-shrink-0"
+      >
+        ← Back to skill tree
+      </button>
+      <span className="text-xs sm:text-sm text-blue-700 bg-blue-100 px-3 py-1 rounded-full font-medium truncate">
+        🔁 Practising: {skill?.title ?? "this skill"}
+      </span>
+    </div>
+  );
+}
 
 function SessionHeader({
   profile,

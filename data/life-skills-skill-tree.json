@@ -1,0 +1,492 @@
+{
+  "version": "1.0",
+  "subject": "life-skills",
+  "description": "Life Skills (CAPS Foundation Phase) skill tree. Grades 1–3 BK&H launch scope. Grade 4 (Intermediate Phase) blocked on source doc. Art & Crafts and Physical Education deferred to Phase 2.",
+  "levels": [
+    {
+      "id": 1,
+      "grade": 1,
+      "title": "Grade 1 — Life Skills",
+      "description": "CAPS Foundation Phase Grade 1. 12 topics across the year, 2 hours/week Beginning Knowledge & Health Education. Topics do not prerequisite each other — all unlocked from day one.",
+      "tiers": [
+        {
+          "id": "LS.L1.BKH",
+          "title": "Beginning Knowledge & Health Education",
+          "atomic_skills": [
+            {
+              "id": "LS.L1.BKH.T01",
+              "bank_skill_id": "LS.L1.BKH.T01",
+              "title": "Me and my body",
+              "description": "Personal details, body parts, hygiene, common communicable diseases.",
+              "caps_term": "T1 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T02",
+              "bank_skill_id": "LS.L1.BKH.T02",
+              "title": "My school",
+              "description": "Classroom layout, routines, rules, school structure, evacuation signals, safety.",
+              "caps_term": "T1 W4–6",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T03",
+              "bank_skill_id": "LS.L1.BKH.T03",
+              "title": "My family",
+              "description": "Family members, roles, family tree, safe/unsafe situations at home, emergency contacts.",
+              "caps_term": "T1 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T04",
+              "bank_skill_id": "LS.L1.BKH.T04",
+              "title": "Ways of travelling",
+              "description": "Modes of transport, common road signs, crossing safely, rules in moving vehicles.",
+              "caps_term": "T2 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T05",
+              "bank_skill_id": "LS.L1.BKH.T05",
+              "title": "Food and nutrition",
+              "description": "Food preferences, plant growth, food groups, water intake, nutritious choices, traditional foods.",
+              "caps_term": "T2 W4–6",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T06",
+              "bank_skill_id": "LS.L1.BKH.T06",
+              "title": "Domestic animals",
+              "description": "Pets vs farm animals, care for animals, products from animals (dairy etc).",
+              "caps_term": "T2 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T07",
+              "bank_skill_id": "LS.L1.BKH.T07",
+              "title": "Stories of heroes",
+              "description": "Important people in SA history, qualities of a hero, basic rescue skills.",
+              "caps_term": "T3 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T08",
+              "bank_skill_id": "LS.L1.BKH.T08",
+              "title": "People who help us",
+              "description": "Community helpers and their roles, emergency numbers.",
+              "caps_term": "T3 W4–6",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T09",
+              "bank_skill_id": "LS.L1.BKH.T09",
+              "title": "Familiar places (my village / town / city / neighbourhood)",
+              "description": "Places close to home and school, important buildings, parks, sporting facilities.",
+              "caps_term": "T3 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T10",
+              "bank_skill_id": "LS.L1.BKH.T10",
+              "title": "Family life: now and then",
+              "description": "Older family members' experiences, objects from the past, lifestyle then vs now.",
+              "caps_term": "T4 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T11",
+              "bank_skill_id": "LS.L1.BKH.T11",
+              "title": "Being a good friend",
+              "description": "Qualities of a good friend, bullying, recognising and reporting abuse (verbal/physical/sexual). SENSITIVE — scenario-based authoring, not standard recall.",
+              "caps_term": "T4 W4–6",
+              "sensitive": true,
+              "prerequisites": [],
+              "templates": ["story", "choice", "audio"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint. NOTE: handle abuse-reporting content with extreme care; recovery should reinforce that telling a trusted adult is always the right thing.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L1.BKH.T12",
+              "bank_skill_id": "LS.L1.BKH.T12",
+              "title": "Stories of different South African communities",
+              "description": "Stories from diverse SA communities, similarities and differences, customs, festivals, healthy foods.",
+              "caps_term": "T4 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "grade": 2,
+      "title": "Grade 2 — Life Skills",
+      "description": "CAPS Foundation Phase Grade 2. 12 topics across the year, 2 hours/week Beginning Knowledge & Health Education.",
+      "tiers": [
+        {
+          "id": "LS.L2.BKH",
+          "title": "Beginning Knowledge & Health Education",
+          "atomic_skills": [
+            {
+              "id": "LS.L2.BKH.T01",
+              "bank_skill_id": "LS.L2.BKH.T01",
+              "title": "Homes in different places",
+              "description": "Types of homes, homes for different weather, mobile homes, safety at home.",
+              "caps_term": "T1 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T02",
+              "bank_skill_id": "LS.L2.BKH.T02",
+              "title": "Water",
+              "description": "Sources, purification, water cycle, aquatic life, water safety, effects of dirty water.",
+              "caps_term": "T1 W4–6",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T03",
+              "bank_skill_id": "LS.L2.BKH.T03",
+              "title": "Weather and seasons",
+              "description": "Weather observation, seasonal changes, suitable clothing, effects on plants/animals/fruit.",
+              "caps_term": "T1 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T04",
+              "bank_skill_id": "LS.L2.BKH.T04",
+              "title": "How my body works",
+              "description": "External and internal organs and their functions, skeleton, body care, healthy lifestyle.",
+              "caps_term": "T2 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T05",
+              "bank_skill_id": "LS.L2.BKH.T05",
+              "title": "Foods eaten by different communities",
+              "description": "Dietary choices across communities, world foods, cooking methods, recipes, food allergies.",
+              "caps_term": "T2 W4–6",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T06",
+              "bank_skill_id": "LS.L2.BKH.T06",
+              "title": "Energy resources",
+              "description": "Types of energy (electricity, petrol, paraffin, solar, wind, wood), home/school usage, hazards, first aid.",
+              "caps_term": "T2 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T07",
+              "bank_skill_id": "LS.L2.BKH.T07",
+              "title": "Wild animals",
+              "description": "Common SA wild animals, classifications (herbivore/carnivore/omnivore), animal diseases.",
+              "caps_term": "T3 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T08",
+              "bank_skill_id": "LS.L2.BKH.T08",
+              "title": "Relationships and handling emotions",
+              "description": "Different relationships, emotions in different situations, handling emotions, classroom behaviour, exercise to manage feelings. SENSITIVE — scenario-based authoring.",
+              "caps_term": "T3 W4–6",
+              "sensitive": true,
+              "prerequisites": [],
+              "templates": ["story", "choice", "audio"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint. NOTE: emotional regulation content — recovery should normalise feelings, not correct them.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T09",
+              "bank_skill_id": "LS.L2.BKH.T09",
+              "title": "Keeping our environment clean",
+              "description": "Healthy home/school/local environment, hygiene-related diseases (diarrhoea, TB).",
+              "caps_term": "T3 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T10",
+              "bank_skill_id": "LS.L2.BKH.T10",
+              "title": "National symbols and the national anthem",
+              "description": "SA national symbols, currency, sports teams, holidays, flag, anthem, communicable diseases.",
+              "caps_term": "T4 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T11",
+              "bank_skill_id": "LS.L2.BKH.T11",
+              "title": "People at work",
+              "description": "Types of work, careers, protective clothing for different jobs.",
+              "caps_term": "T4 W4–6",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L2.BKH.T12",
+              "bank_skill_id": "LS.L2.BKH.T12",
+              "title": "The planets and the stars",
+              "description": "Solar system, planet names, sun and its uses, moon phases, space travel, sun protection.",
+              "caps_term": "T4 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "grade": 3,
+      "title": "Grade 3 — Life Skills",
+      "description": "CAPS Foundation Phase Grade 3. 12 topics across the year, 3 hours/week Beginning Knowledge & Health Education (50% more than Gr 1/2). Item density target 15–20 per topic.",
+      "tiers": [
+        {
+          "id": "LS.L3.BKH",
+          "title": "Beginning Knowledge & Health Education",
+          "atomic_skills": [
+            {
+              "id": "LS.L3.BKH.T01",
+              "bank_skill_id": "LS.L3.BKH.T01",
+              "title": "Clothes and the materials they are made from",
+              "description": "Clothing categories, materials, processing, cultural and seasonal clothing, protective wear, clothing care.",
+              "caps_term": "T1 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T02",
+              "bank_skill_id": "LS.L3.BKH.T02",
+              "title": "Farming the land",
+              "description": "Farm-grown foods, home garden, food production processes, staple foods, healthy eating.",
+              "caps_term": "T1 W4–6",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T03",
+              "bank_skill_id": "LS.L3.BKH.T03",
+              "title": "Extinct and endangered creatures",
+              "description": "Dinosaur age, kinds of dinosaurs, how species become extinct, endangered animals, safety with sharp objects.",
+              "caps_term": "T1 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T04",
+              "bank_skill_id": "LS.L3.BKH.T04",
+              "title": "Communication then and now",
+              "description": "Communication history, radio/telegraph/TV/newspapers, modern communication (SMS, email, internet), safety with media.",
+              "caps_term": "T2 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T05",
+              "bank_skill_id": "LS.L3.BKH.T05",
+              "title": "Communicable diseases",
+              "description": "Communicable diseases (HIV/AIDS, flu, cholera, measles, TB), causes, prevention, symptoms, treatment, caring for sick family, coping with grief and loss. SENSITIVE — handle with care.",
+              "caps_term": "T2 W4–6",
+              "sensitive": true,
+              "prerequisites": [],
+              "templates": ["story", "choice", "audio"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint. NOTE: grief and HIV/AIDS content — recovery must be supportive, not corrective; reinforce empathy and trusted-adult resources.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T06",
+              "bank_skill_id": "LS.L3.BKH.T06",
+              "title": "Famous places in South Africa",
+              "description": "Local famous places, SA heritage sites, locating places on a map, safety in public.",
+              "caps_term": "T2 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T07",
+              "bank_skill_id": "LS.L3.BKH.T07",
+              "title": "Stories from key South African historical events",
+              "description": "Family history, simple time line, events affecting SA communities, phrases for passing time (before/after/long ago).",
+              "caps_term": "T3 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T08",
+              "bank_skill_id": "LS.L3.BKH.T08",
+              "title": "Pollution and recycling",
+              "description": "Types of pollution (water/air/land), effects on humans and environment, recycling, recyclable waste, illnesses from pollution.",
+              "caps_term": "T3 W4–6",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T09",
+              "bank_skill_id": "LS.L3.BKH.T09",
+              "title": "Natural disasters",
+              "description": "Severe weather experiences, natural disasters and their results, climatic changes (global warming), water-borne diseases.",
+              "caps_term": "T3 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T10",
+              "bank_skill_id": "LS.L3.BKH.T10",
+              "title": "Stories of role models from different cultures",
+              "description": "Family/community role models, characteristics of a good role model, diversity of role models, contributions to medicine/sports/literature.",
+              "caps_term": "T4 W1–3",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T11",
+              "bank_skill_id": "LS.L3.BKH.T11",
+              "title": "Understanding myself: my abilities, interests, rights and responsibilities",
+              "description": "Own abilities and interests, classmates' abilities, rights and responsibilities, classroom rules, health/safety responsibilities. SENSITIVE — self-esteem content.",
+              "caps_term": "T4 W4–6",
+              "sensitive": true,
+              "prerequisites": [],
+              "templates": ["story", "choice", "audio"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint. NOTE: self-esteem content — recovery should affirm the learner's worth, not just correct knowledge gaps.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            },
+            {
+              "id": "LS.L3.BKH.T12",
+              "bank_skill_id": "LS.L3.BKH.T12",
+              "title": "Celebrations and festivals",
+              "description": "Religious and cultural celebrations, personal celebration experiences, traditional clothes, religious symbols and worship, places of worship, home safety measures.",
+              "caps_term": "T4 W7–10",
+              "prerequisites": [],
+              "templates": ["image", "audio", "story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 4, "formats_required": 2, "allow_scaffolding": true }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "grade": 4,
+      "title": "Grade 4 — Life Skills (Intermediate Phase) — NOT YET AUTHORED",
+      "description": "Intermediate Phase Grade 4. CAPS Intermediate Phase Grades 4–6 document required before content can be scaffolded. Subject restructures at this level (Personal & Social Well-being, Creative Arts, Physical Education) and BK/HE collapses. Placeholder only.",
+      "tiers": []
+    }
+  ]
+}

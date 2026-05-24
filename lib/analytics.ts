@@ -25,14 +25,14 @@ export function identifyStudent(opts: {
 // ─── Placement events ─────────────────────────────────────────────────────────
 
 export function trackPlacementStarted(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   grade: number;
 }) {
   posthog.capture("placement_started", opts);
 }
 
 export function trackPlacementCompleted(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   grade: number;
   entry_level: number;
   grade_gap: number;
@@ -48,7 +48,7 @@ export function trackPlacementCompleted(opts: {
 // ─── Question events ──────────────────────────────────────────────────────────
 
 export function trackQuestionAnswered(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   skill_id: string;
   template: string;
   is_correct: boolean;
@@ -62,7 +62,7 @@ export function trackQuestionAnswered(opts: {
 // ─── Skill state events ───────────────────────────────────────────────────────
 
 export function trackSkillMastered(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   skill_id: string;
   level: number;
   session_attempt_count: number;
@@ -72,7 +72,7 @@ export function trackSkillMastered(opts: {
 }
 
 export function trackSkillAdvanced(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   from_skill_id: string;
   to_skill_id: string;
 }) {
@@ -80,7 +80,7 @@ export function trackSkillAdvanced(opts: {
 }
 
 export function trackReteach(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   skill_id: string;
   error_type: string;
   reteach_count: number;
@@ -89,7 +89,7 @@ export function trackReteach(opts: {
 }
 
 export function trackBacktrack(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   from_skill_id: string;
   to_prereq_id: string;
 }) {
@@ -97,7 +97,7 @@ export function trackBacktrack(opts: {
 }
 
 export function trackAccelerate(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   skill_id: string;
 }) {
   posthog.capture("skill_accelerate", opts);
@@ -106,7 +106,7 @@ export function trackAccelerate(opts: {
 // ─── Session events ───────────────────────────────────────────────────────────
 
 export function trackSessionStarted(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   current_skill_id: string;
   current_level: number;
 }) {
@@ -114,7 +114,7 @@ export function trackSessionStarted(opts: {
 }
 
 export function trackSessionEnded(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   questions_answered: number;
   correct: number;
   accuracy: number;
@@ -138,7 +138,7 @@ export function trackReviewCompleted(opts: {
 // ─── Report events ────────────────────────────────────────────────────────────
 
 export function trackReportGenerated(opts: {
-  subject: "maths" | "reading";
+  subject: "maths" | "reading" | "life-skills" | "afrikaans-fal";
   grade_gap: number;
 }) {
   posthog.capture("report_generated", opts);

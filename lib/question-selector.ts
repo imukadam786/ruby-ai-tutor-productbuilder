@@ -130,6 +130,56 @@ export function getDomain(domainId: string): DomainInfo | null {
   return bank.domains[domainId] || null;
 }
 
+// Parent-facing names for the diagnostic report. The question bank keeps the
+// canonical CAPS domain titles (used for authoring/analytics); these are the
+// plain-language versions shown to families so the report doesn't read as
+// teacher jargon (BUG #14/#15). Falls back to the canonical title.
+const FRIENDLY_MATHS_DOMAIN_NAMES: Record<string, string> = {
+  M001: "Counting and how many",
+  M002: "Counting in order",
+  M003: "Tens and ones (place value)",
+  M004: "Adding in your head",
+  M005: "Subtracting in your head",
+  M006: "Multiplying with equal groups",
+  M007: "Breaking numbers apart to calculate",
+  M008: "Understanding fractions",
+  M009: "Ratio and proportion",
+  M010: "Negative numbers & order of operations (BODMAS)",
+  M011: "Algebra: writing expressions",
+  M012: "Solving equations",
+  M013: "Factorising quadratics",
+  M014: "Graphs and functions",
+  M015: "Exponents and logarithms",
+  M016: "Trigonometry (sin, cos, tan)",
+  M017: "Calculus: differentiation",
+  M018: "Multi-step word problems",
+  M_DEC: "Decimals",
+  M_GEO: "Geometry: angles, area and volume",
+  M_STAT: "Statistics: averages, charts and probability",
+  M019: "Adding: doubles and make-ten",
+  M020: "Two-digit addition",
+  M021: "Finding the difference by counting up",
+  M022: "Two-digit subtraction",
+  M023: "Adding and subtracting bigger numbers",
+  M024: "Skip counting",
+  M025: "Times tables",
+  M026: "How multiplication works (swapping & splitting)",
+  M027: "Multiplying bigger numbers",
+  M028: "Ways to divide",
+  M029: "Fractions on a number line",
+  M030: "Calculating with fractions",
+  M031: "Percentages",
+  M032: "Working with negative numbers",
+  M033: "Patterns and basic algebra",
+  M034: "Harder equations and word problems",
+  M_DIV_SHARE: "Division: sharing and grouping",
+  M_SCALE: "Multiplying to scale up",
+};
+
+export function friendlyMathsDomainName(domainId: string): string {
+  return FRIENDLY_MATHS_DOMAIN_NAMES[domainId] ?? getDomain(domainId)?.title ?? domainId;
+}
+
 // ─── Select a difficulty-matched unused question for a domain ─────────────────
 /**
  * Selects a question from the pool, preferring questions that match the

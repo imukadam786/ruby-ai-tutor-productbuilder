@@ -8,6 +8,8 @@ import DiagnosticReportView from "@/components/DiagnosticReportView";
 import { describeError } from "@/lib/report-generator";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { DIAGNOSTIC_TASKS } from "@/lib/reading-diagnostic-tasks";
+import { friendlyReadingSkillName, getReadingLevelById } from "@/lib/reading-student-model";
+import discoveryProbesData from "@/data/reading-discovery-probes.json";
 
 // ── Task definitions (hardcoded — no API calls for generation) ────────────────
 
@@ -38,15 +40,19 @@ interface Task {
 //   Grade 1:  9 tasks — D01–D07  (phonological awareness + basic CVC decoding)
 //   Grade 2: 12 tasks — D01–D10  (+ vowel patterns: silent E, vowel teams)
 //   Grade 3: 15 tasks — D01–D12  (+ sight words, phoneme blending, r-controlled)
-//   Grade 4+: 17 tasks — D01–D13B (+ two-syllable decoding, consonant blend encoding)
+//   Grade 4: 17 tasks — D01–D13B (+ two-syllable decoding, consonant blend encoding)
+//   Grade 5+: 2 tasks — D01+D02 only (foundation sanity check). Placement for
+//             these grades is driven by the L6–L14 probe ladder appended after
+//             phonics (see GRADE_PROBE_STACK below). Older learners don't need
+//             a 17-task phonics quiz to be placed at L7+.
 // D13C (Unfamiliar Word Encoding) excluded: it uses intentional pseudo-words that STT
 // cannot reliably recognise — redesign as keyboard-tap spelling is a future iteration.
-// Grade 4+ is capped at 17 — students beyond this advance through the skill tree.
 const GRADE_TASK_IDS: Record<number, string[]> = {
   1: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07"],
   2: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07","D08","D09","D10"],
   3: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07","D08","D09","D10","D10B","D11","D12"],
   4: ["D01","D01B","D02","D02B","D03","D04","D05","D05B","D06","D07","D08","D09","D10","D10B","D11","D12","D13","D13B"],
+  5: ["D01","D02"],
 };
 
 // ── Dynamic task loader ───────────────────────────────────────────────────────
@@ -55,10 +61,71 @@ async function loadRandomQuestionPaper(grade: number): Promise<Task[]> {
   const paper = await import(`@/data/question-banks/${randomNumber}.json`);
   const all = paper.default as Task[];
   const withGate = all.filter((t) => !!t.gate);
-  const allowed = GRADE_TASK_IDS[Math.min(grade, 4)];
-  if (!allowed) return withGate; // Grade 5+ gets all tasks
+  // Grades 1–4 use their own task lists; grades 5+ collapse to the senior
+  // sanity check (D01+D02). The probe ladder appended in the useEffect does
+  // the actual placement work for older learners.
+  const lookup = grade <= 4 ? grade : 5;
+  const allowed = GRADE_TASK_IDS[lookup];
+  if (!allowed) return withGate;
   return withGate.filter((t) => allowed.includes(t.id));
 }
+
+// ── L6–L14 discovery probes ───────────────────────────────────────────────────
+// Probe content lives in data/reading-discovery-probes.json (one pool of MCQ
+// items per level, 5 each, sourced from authored skill-tree banks where they
+// exist). At session start we draw ONE item at random from each level the
+// learner's grade requires — so retakes show fresh content. Placement
+// calculator scores at the probe (DLn) level; item choice does not affect
+// placement. Calculator-facing metadata (passThreshold, mapsToSkill) lives
+// in DIAGNOSTIC_TASKS in lib/reading-diagnostic-tasks.ts.
+
+interface ProbePoolItem {
+  iid: string;
+  question: string;
+  subText?: string;
+  passage?: string;
+  choices: Choice[];
+}
+interface ProbePool {
+  probeId: string;
+  domain: string;
+  mapsToSkill: string;
+  passThreshold: number;
+  items: ProbePoolItem[];
+}
+const PROBE_POOLS = discoveryProbesData as unknown as Record<string, ProbePool>;
+
+/** Pick one random item from each level's pool and build a renderable Task. */
+function buildProbeTask(levelKey: "L6"|"L7"|"L8"|"L9"|"L10"|"L11"|"L12"|"L13"|"L14"): Task | null {
+  const pool = PROBE_POOLS[levelKey];
+  if (!pool || pool.items.length === 0) return null;
+  const item = pool.items[Math.floor(Math.random() * pool.items.length)];
+  return {
+    id: pool.probeId,
+    domain: pool.domain,
+    question: item.question,
+    subText: item.subText,
+    passage: item.passage,
+    answerMode: "choice",
+    choices: item.choices,
+  };
+}
+
+// Grade → which level-keys to probe. A Gr-12 learner answers the full L6→L14
+// ladder; a Gr-5 learner only sees L6 + L7. First failure in the ladder
+// decides entry level (see reading-placement-calculator.ts). Gr 4 keeps the
+// legacy single-L6 behaviour.
+const GRADE_PROBE_LEVELS: Record<number, ("L6"|"L7"|"L8"|"L9"|"L10"|"L11"|"L12"|"L13"|"L14")[]> = {
+  4: ["L6"],
+  5: ["L6","L7"],
+  6: ["L6","L7","L8"],
+  7: ["L6","L7","L8","L9"],
+  8: ["L6","L7","L8","L9","L10"],
+  9: ["L6","L7","L8","L9","L10","L11"],
+  10: ["L6","L7","L8","L9","L10","L11","L12"],
+  11: ["L6","L7","L8","L9","L10","L11","L12","L13"],
+  12: ["L6","L7","L8","L9","L10","L11","L12","L13","L14"],
+};
 
 
 //const TASKS: Task[] = [
@@ -271,50 +338,9 @@ const TASK_ERROR_MAP: Record<string, string> = {
   D18:  "ERR_MEANING_BLIND",   // Inferential comprehension — implied meaning
 };
 
-// ── Skill name map ─────────────────────────────────────────────────────────────
-
-const SKILL_NAME_MAP: Record<string, string> = {
-  // R1 — Listening & Phonological Awareness
-  "R1.T1.A1": "Following Instructions",
-  "R1.T1.A2": "Story Retell",
-  "R1.T1.A3": "Speaking in Sentences",
-  "R1.T2.A1": "Rhyme Awareness",
-  "R1.T2.A2": "Syllable Segmentation",
-  "R1.T3.A1": "Phoneme Isolation",
-  "R1.T3.A2": "Phoneme Blending",
-  "R1.T3.A3": "Phoneme Manipulation",
-  // R2 — Letter Sounds & Decoding
-  "R2.T1.A1": "Letter Sounds",
-  "R2.T1.A2": "Letter-Sound Mapping",
-  "R2.T1.A3": "Letter Discrimination",
-  "R2.T2.A1": "Digraph Sounds",
-  "R2.T2.A2": "Consonant Blends",
-  "R2.T2.A3": "CVC Word Decoding",
-  "R2.T2.A4": "Digraph Word Decoding",
-  "R2.T3.A1": "Vowel Patterns",
-  "R2.T3.A2": "Phonogram Retrieval",
-  "R2.T3.A3": "Sound Blending",
-  // R3 — Spelling & Encoding
-  "R3.T1.A1": "Spelling Foundations",
-  "R3.T1.A2": "Blend Spelling",
-  "R3.T1.A3": "Word Encoding",
-  "R3.T1.A4": "Nonsense Word Spelling",
-  "R3.T2.A1": "Complete Spelling",
-  "R3.T2.A2": "Spelling Self-Correction",
-  // R4 — Fluency & Word Recognition
-  "R4.T1.A1": "Word Decoding",
-  "R4.T2.A1": "Text Tracking",
-  "R4.T2.A2": "Word Recognition",
-  "R4.T3.A1": "Fluent Reading",
-  "R4.T3.A2": "Reading for Meaning",
-  // R5 — Comprehension
-  "R5.T1.A1": "Comprehension",
-  "R5.T1.A2": "Inferential Comprehension",
-  "R5.T1.A3": "Inferential Thinking",
-  "R5.T2.A1": "Reading Reasoning",
-  "R5.T2.A2": "Vocabulary Use",
-  "R5.T3.A1": "Written Response",
-};
+// Skill name lookup lives in lib/reading-student-model.ts as
+// `friendlyReadingSkillName(id)` — single source of truth, backed by the
+// `title` field on every atomic skill in data/reading-skill-tree.json.
 
 // ── TTS helper ────────────────────────────────────────────────────────────────
 
@@ -435,8 +461,10 @@ function buildReadingReportInput(
       return { domain: task.domain, score, label, errorNote };
     });
 
-  const level = parseInt(placement.entrySkillId.charAt(1)) || 1;
-  const workingLevel = ENTRY_LEVEL_LABELS[level] ?? "Foundation Reading";
+  // Parse the full level number (e.g. "R14.T1.A1" -> 14). charAt(1) only read the
+  // first digit, so R10–R14 all collapsed to "1".
+  const level = parseInt(placement.entrySkillId.split(".")[0].replace(/\D/g, ""), 10) || 1;
+  const workingLevel = ENTRY_LEVEL_LABELS[level] ?? `Reading Level ${level}`;
   const gradeLevelGap = studentGrade - level;
 
   return {
@@ -449,7 +477,7 @@ function buildReadingReportInput(
     correctCount: completedTasks.filter((t) => t.correct).length,
     domainScores,
     dominantErrors: placement.dominantErrors ?? [],
-    placementSkill: SKILL_NAME_MAP[placement.entrySkillId] ?? placement.entrySkillId,
+    placementSkill: friendlyReadingSkillName(placement.entrySkillId),
     skillsCompleted: placement.autoCompletedSkillIds.length,
     hardGateBlocked: !placement.hardGatePassed,
   };
@@ -520,8 +548,18 @@ export default function ReadingDiagnosticPlacement({
         tasks = await loadRandomQuestionPaper(studentGrade);
       }
       if (!cancelled) {
-        TASKSRef.current = tasks;
-        setTASKS(tasks);
+        // Grade 4+ ends Discovery with a stack of level-probe MCQs (L6 up to
+        // the learner's grade-seed level). Each probe draws one random item
+        // from its level pool so retakes see fresh content. Calculator does
+        // first-fail scan to find the right entry level. Gr 4 keeps the
+        // legacy single-L6 probe; grades above 12 cap at the L14 stack.
+        const probeKeys = GRADE_PROBE_LEVELS[Math.min(studentGrade, 12)];
+        const probeStack = (probeKeys ?? [])
+          .map((k) => buildProbeTask(k))
+          .filter((t): t is Task => t !== null);
+        const finalTasks = studentGrade >= 4 ? [...tasks, ...probeStack] : tasks;
+        TASKSRef.current = finalTasks;
+        setTASKS(finalTasks);
       }
     };
     fetchTasks();
@@ -728,6 +766,12 @@ export default function ReadingDiagnosticPlacement({
     } else {
       const next = currentIndex + 1;
       taskIndexRef.current = next;
+      // Clear the previous answer synchronously, in the same update that advances
+      // the task. Otherwise the next probe's first paint still sees the old
+      // selectedChoice — showing an option pre-highlighted (and all buttons
+      // disabled) before the learner picks anything (BUG #5).
+      setSelectedChoice(null);
+      setShowEncouragement(false);
       setTaskIndex(next);
     }
     setSubmitting(false);
@@ -852,21 +896,21 @@ export default function ReadingDiagnosticPlacement({
   // ── Result ────────────────────────────────────────────────────────────────────
   if (phase === "result" && placementResult) {
     const autoCount = placementResult.autoCompletedSkillIds.length;
-    const entryName = SKILL_NAME_MAP[placementResult.entrySkillId] ?? placementResult.entrySkillId;
-    const ALL_IDS = [
-      "R1.T1.A1","R1.T1.A2","R1.T1.A3","R1.T2.A1","R1.T2.A2","R1.T3.A1","R1.T3.A2","R1.T3.A3",
-      "R2.T1.A1","R2.T1.A2","R2.T1.A3","R2.T2.A1","R2.T2.A2","R2.T2.A3","R2.T2.A4","R2.T3.A1","R2.T3.A2","R2.T3.A3",
-      "R3.T1.A1","R3.T1.A2","R3.T1.A3","R3.T1.A4","R3.T2.A1","R3.T2.A2",
-      "R4.T1.A1","R4.T2.A1","R4.T2.A2","R4.T3.A1","R4.T3.A2",
-      "R5.T1.A1","R5.T1.A2","R5.T1.A3","R5.T2.A1","R5.T2.A2","R5.T3.A1",
-    ];
-    const levelGroups = [
-      { label: "Foundation", ids: ALL_IDS.slice(0, 8) },
-      { label: "Alphabetic", ids: ALL_IDS.slice(8, 16) },
-      { label: "Encoding", ids: ALL_IDS.slice(16, 22) },
-      { label: "Decoding", ids: ALL_IDS.slice(22, 28) },
-      { label: "Comprehension", ids: ALL_IDS.slice(28) },
-    ];
+    const entryName = friendlyReadingSkillName(placementResult.entrySkillId);
+    // Build the skill map dynamically from the real tree, windowed around the
+    // learner's actual entry level (one level below, the entry level, one above).
+    // The old version was a hardcoded R1–R5 list: for a high-grade learner it
+    // excluded the entry skill entirely (no ★ "start here" marker) and lit every
+    // square green regardless of what was answered (BUG #6).
+    const entryLevelNum = parseInt(placementResult.entrySkillId.split(".")[0].replace(/\D/g, ""), 10) || 1;
+    const levelGroups = [entryLevelNum - 1, entryLevelNum, entryLevelNum + 1]
+      .map((lvl) => getReadingLevelById(lvl))
+      .filter((l): l is NonNullable<typeof l> => l !== null)
+      .map((l) => ({
+        label: l.title,
+        ids: l.tiers.flatMap((t) => t.atomic_skills.map((s) => s.id)),
+      }))
+      .filter((g) => g.ids.length > 0);
     const getState = (id: string) => id === placementResult.entrySkillId ? "active" : placementResult.autoCompletedSkillIds.includes(id) ? "mastered" : "locked";
 
     return (
@@ -1036,7 +1080,7 @@ export default function ReadingDiagnosticPlacement({
               <div className={`grid gap-3 ${task.choices.length === 2 ? "grid-cols-2" : "grid-cols-1"}`}>
                 {task.choices.map((c) => (
                   <button
-                    key={c.value}
+                    key={`${task.id}-${c.value}`}
                     onClick={() => handleChoice(c)}
                     disabled={submitting || !!selectedChoice}
                     className={`px-4 py-4 rounded-2xl border-2 text-base font-semibold text-left transition-all select-none ${
