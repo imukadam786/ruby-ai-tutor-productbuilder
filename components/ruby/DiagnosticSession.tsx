@@ -34,6 +34,7 @@ import { getReadingProfile } from "@/lib/reading-student-model";
 import { supabase } from "@/lib/supabase";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
+import EduBackground from "@/components/EduBackground";
 import { selectMathsTemplate } from "@/lib/template-selector";
 import { detectStuck } from "@/lib/stuck-detector";
 import StuckScreen from "@/components/shared/StuckScreen";
@@ -788,7 +789,8 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
 
   if (phase === "loading_question") {
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         {replaySkillId
           ? <ReplayBar skillId={replaySkillId} onExit={onExitReplay} />
           : <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
@@ -830,29 +832,25 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
   if (phase === "question" && currentQuestion) {
     const skill = getSkillById(currentQuestion.skill_id);
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         {replaySkillId
           ? <ReplayBar skillId={replaySkillId} onExit={onExitReplay} />
           : <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-xl mx-auto space-y-4">
-            {skill && (
-              <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3">
-                <div className="flex-1">
-                  <p className="text-xs text-gray-400 uppercase tracking-wide">{profile ? `L${profile.current_level} - CURRENT SKILL` : "Current Skill"}</p>
-                  <p className="text-gray-800 font-medium text-sm">{skill.title}</p>
-                </div>
-                <MasteryDots
-                  correctCount={profile?.skill_mastery[currentQuestion.skill_id]?.correct_count || 0}
-                  required={skill.mastery_criteria.correct_required}
-                />
-              </div>
-            )}
             <QuestionCard
               question={currentQuestion}
               onSubmit={handleSubmitAnswer}
               isSubmitting={false}
               forceHint={currentResult?.is_correct === false}
+              topicLabel={skill?.title}
+              badgeRight={skill ? (
+                <MasteryDots
+                  correctCount={profile?.skill_mastery[currentQuestion.skill_id]?.correct_count || 0}
+                  required={skill.mastery_criteria.correct_required}
+                />
+              ) : undefined}
             />
           </div>
         </div>
@@ -869,7 +867,8 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
       advance_level: "Next level",
     };
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         {replaySkillId
           ? <ReplayBar skillId={replaySkillId} onExit={onExitReplay} />
           : <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
@@ -897,7 +896,8 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
   if (phase === "mastered") {
     const skill = profile ? getSkillById(profile.current_skill_id) : null;
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
@@ -926,7 +926,8 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
     const currentTierId = profile ? `${profile.current_skill_id.split(".")[0]}.${profile.current_skill_id.split(".")[1]}` : null;
     const tier = currentTierId ? getTierById(currentTierId) : null;
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
@@ -976,7 +977,8 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
   if (phase === "stuck" && currentQuestion) {
     const skill = getSkillById(currentQuestion.skill_id);
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <StuckScreen
           skillTitle={skill?.title ?? "this skill"}
@@ -991,7 +993,8 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
 
   if (phase === "complete") {
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <SessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">

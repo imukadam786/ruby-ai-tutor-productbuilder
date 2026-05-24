@@ -5,6 +5,7 @@ import skillTreeData from "@/data/skill-tree.json";
 import { StudentProfile } from "@/types/ruby";
 import { getSkillStatus, getLevelById, friendlyMathsSkillName } from "@/lib/student-model";
 import { getLevelProgress } from "@/lib/mastery-engine";
+import EduBackground from "@/components/EduBackground";
 
 interface SkillTreeViewProps {
   profile: StudentProfile | null;
@@ -15,11 +16,11 @@ interface SkillTreeViewProps {
 
 const statusConfig = {
   locked:        { bg: "bg-gray-100",  text: "text-gray-400",   border: "border-gray-200",  icon: "🔒", label: "Locked" },
-  available:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-200", icon: "📖", label: "Available" },
+  available:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-200", icon: "🚀", label: "Ready" },
   in_progress:   { bg: "bg-orange-50", text: "text-orange-700", border: "border-orange-200",icon: "⚡",  label: "In Progress" },
-  mastered:      { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200", icon: "✅", label: "Mastered" },
+  mastered:      { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200", icon: "🏆", label: "Mastered" },
   active:        { bg: "bg-blue-100",  text: "text-blue-800",   border: "border-blue-400",  icon: "▶",  label: "Active" },
-  hard_gate:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-300", icon: "🔑", label: "Hard Gate" },
+  hard_gate:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-300", icon: "🔒", label: "Locked" },
   auto_complete: { bg: "bg-green-50",  text: "text-green-600",  border: "border-green-200", icon: "✦",  label: "Auto-completed" },
   entry_point:   { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-300",  icon: "🎯", label: "Entry Point" },
 };
@@ -59,7 +60,8 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
   }
 
   return (
-    <div className="flex flex-col h-full bg-gray-50">
+    <div className="relative isolate flex flex-col h-full bg-gray-50">
+      <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-blue-50 border-b border-blue-200 px-6 py-4">
         <h2 className="font-semibold text-blue-700 text-lg">Maths Skill Tree</h2>
         <p className="text-blue-400 text-sm">17 levels · 51 tiers · 72 atomic skills</p>
@@ -82,7 +84,7 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
                   <p className="text-blue-600 text-xs">
                     {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
                     {" · "}Entry: <span className="font-semibold">{friendlyMathsSkillName(entrySkillId)}</span>
-                    {!hardGatePassed && <span className="text-amber-600 font-medium"> · 🔑 Hard Gate active</span>}
+                    {!hardGatePassed && <span className="text-amber-600 font-medium"> · 🔒 Hard Gate active</span>}
                   </p>
                 </div>
               </div>
@@ -101,7 +103,7 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
                     <div className="flex items-center gap-3 my-2 px-1">
                       <div className="flex-1 h-px bg-amber-300" />
                       <div className="bg-amber-100 border border-amber-300 rounded-xl px-3 py-1.5 flex items-center gap-2 text-amber-700 text-xs font-semibold">
-                        <span>🔑</span>
+                        <span>🔒</span>
                         <span>Hard Gate — master multiplication to unlock advanced maths</span>
                       </div>
                       <div className="flex-1 h-px bg-amber-300" />
@@ -115,7 +117,7 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
                     {/* Hard gate banner inside Level 5 card */}
                     {isHardGateLevel && !hardGatePassed && (
                       <div className="bg-amber-50 border-b border-amber-200 px-5 py-2 flex items-center gap-2">
-                        <span className="text-amber-500">🔑</span>
+                        <span className="text-amber-500">🔒</span>
                         <p className="text-amber-700 text-xs font-medium">
                           Hard Gate — multiplication mastery required before advancing
                         </p>

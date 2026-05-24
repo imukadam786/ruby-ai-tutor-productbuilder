@@ -69,9 +69,10 @@ export default function LifeSkillsSkillTreeView({
   const topics = tier?.atomic_skills ?? [];
 
   return (
-    <div className="flex flex-col h-full bg-[#F4F4F5] relative overflow-y-auto">
+    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative max-w-3xl mx-auto px-5 sm:px-8 pt-6 pb-12 w-full">
+      <div className="relative flex-1 overflow-y-auto">
+       <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-6 pb-12 w-full">
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-[#1a2744]">
@@ -118,7 +119,7 @@ export default function LifeSkillsSkillTreeView({
                   {skill.title}
                 </span>
                 {status === "mastered" && (
-                  <span className="text-xs font-semibold text-green-700">✓ Mastered</span>
+                  <span className="text-xs font-semibold text-green-700">🏆 Mastered</span>
                 )}
                 {status === "in_progress" && (
                   <span className="text-xs font-semibold text-amber-700">In progress</span>
@@ -127,6 +128,7 @@ export default function LifeSkillsSkillTreeView({
             );
           })}
         </div>
+       </div>
       </div>
     </div>
   );

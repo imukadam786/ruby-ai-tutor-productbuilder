@@ -125,9 +125,11 @@ interface ProgressTrackerProps {
   onMathsReplaySkill?: (skillId: string) => void;
   /** Launch an isolated replay of a completed Reading skill (no progression change). */
   onReadingReplaySkill?: (skillId: string) => void;
+  /** Open the Afrikaans subject and start the picked (non-locked) skill. */
+  onAfrikaansPickSkill?: (skillId: string) => void;
 }
 
-export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill }: ProgressTrackerProps = {}) {
+export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill, onAfrikaansPickSkill }: ProgressTrackerProps = {}) {
   const [progress, setProgress] = useState<ProgressData>({
     totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
     lessonsStarted: 0, sessionCount: 0, lastSession: "", subjectBreakdown: {},
@@ -320,7 +322,7 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                               : status === "in_progress"
                               ? "bg-amber-50 text-amber-700 border-amber-300"
                               : "bg-gray-50 text-gray-500 border-gray-200";
-                          const icon = status === "mastered" ? "✓" : status === "in_progress" ? "⚡" : "·";
+                          const icon = status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : "·";
                           return (
                             <span
                               key={skill.id}
@@ -338,7 +340,7 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                     <p className="text-sm text-gray-500">No Life Skills content for this grade yet.</p>
                   )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                    <span className="inline-block mr-3">✓ Mastered</span>
+                    <span className="inline-block mr-3">🏆 Mastered</span>
                     <span className="inline-block mr-3">⚡ In progress</span>
                     <span className="inline-block">· Not started</span>
                   </div>
@@ -354,25 +356,38 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                         <div className="flex flex-wrap gap-2">
                           {tier.atomic_skills.map((skill) => {
                             const status = getAfrikaansSkillStatus(skill.id, afrikaansProfile);
+                            const isLocked = status === "locked";
                             const pillClass =
                               status === "mastered"
                                 ? "bg-green-50 text-green-700 border-green-200"
                                 : status === "in_progress"
                                 ? "bg-amber-50 text-amber-700 border-amber-300"
-                                : status === "locked"
+                                : isLocked
                                 ? "bg-gray-50 text-gray-400 border-gray-200"
                                 : "bg-white text-[#1a2744] border-emerald-200";
                             const icon =
-                              status === "mastered" ? "✓" : status === "in_progress" ? "⚡" : status === "locked" ? "🔒" : "▶";
+                              status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : isLocked ? "🔒" : "🚀";
+                            const canStart = !isLocked && !!onAfrikaansPickSkill;
                             return (
-                              <span
+                              <button
                                 key={skill.id}
-                                className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
-                                title={`${skill.title} — ${status.replace("_", " ")}`}
+                                type="button"
+                                disabled={!canStart}
+                                onClick={() => canStart && onAfrikaansPickSkill!(skill.id)}
+                                className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass} ${
+                                  canStart
+                                    ? "cursor-pointer hover:ring-2 hover:ring-emerald-300 hover:shadow-sm transition-all"
+                                    : "cursor-default"
+                                }`}
+                                title={
+                                  isLocked
+                                    ? `${skill.title} — locked`
+                                    : `${skill.title} — ${status.replace("_", " ")} · Tap to start`
+                                }
                               >
                                 <span className="mr-1">{icon}</span>
                                 {skill.title}
-                              </span>
+                              </button>
                             );
                           })}
                         </div>
@@ -382,9 +397,9 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                     <p className="text-sm text-gray-500">More Afrikaans grades coming soon.</p>
                   )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                    <span className="inline-block mr-3">✓ Mastered</span>
+                    <span className="inline-block mr-3">🏆 Mastered</span>
                     <span className="inline-block mr-3">⚡ In progress</span>
-                    <span className="inline-block mr-3">▶ Ready</span>
+                    <span className="inline-block mr-3">🚀 Ready</span>
                     <span className="inline-block">🔒 Locked</span>
                   </div>
                 </div>

@@ -382,9 +382,10 @@ export default function LifeSkillsSession() {
   const recoveryHint = showRecoveryHint ? findSkill(skillId!)?.skill.recovery_strategy ?? null : null;
 
   return (
-    <div className="relative flex flex-col h-full bg-[#F4F4F5] overflow-y-auto">
+    <div className="relative flex flex-col h-full bg-[#F4F4F5]">
       <EduBackground />
-      <div className="relative max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
+      <div className="relative flex-1 overflow-y-auto">
+       <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
         {/* Header bar */}
         <div className="flex items-center justify-between">
           <button
@@ -490,6 +491,7 @@ export default function LifeSkillsSession() {
             )}
           </div>
         )}
+       </div>
       </div>
     </div>
   );

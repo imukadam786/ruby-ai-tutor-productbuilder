@@ -182,9 +182,9 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             />
 
             {/* Afrikaans FAL — Foundation Phase (Gr 1–3), free (no Scholar badge).
-                Uses the emoji fallback until /thumbnails/afrikaans.png is added. */}
+                Uses the same thumbnail as the Matric Afrikaans FAL subject. */}
             <SubjectCard
-              placeholderEmoji="🇿🇦"
+              thumbnail="/thumbnails/afrikaans-fal.jpeg"
               label="Afrikaans"
               caption="First Additional Language — listen, choose and learn (Grades 1–3)"
               accentFrom="from-emerald-500"

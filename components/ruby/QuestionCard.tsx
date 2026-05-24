@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { GeneratedQuestion, GraduatedHint, QuestionTemplate } from "@/types/ruby";
 
 interface QuestionCardProps {
@@ -8,6 +8,10 @@ interface QuestionCardProps {
   onSubmit: (answer: string, steps: string, usedHint: boolean, workingImage?: string) => void;
   isSubmitting: boolean;
   forceHint?: boolean;
+  /** Skill/topic name shown as a pill — matches the Discovery activity's badge. */
+  topicLabel?: string;
+  /** Optional content rendered on the right of the topic-badge row (e.g. mastery dots). */
+  badgeRight?: ReactNode;
 }
 
 const templateLabels: Record<QuestionTemplate, { label: string; icon: string; color: string }> = {
@@ -16,7 +20,7 @@ const templateLabels: Record<QuestionTemplate, { label: string; icon: string; co
   symbolic: { label: "Symbolic", icon: "🔢", color: "orange" },
 };
 
-export default function QuestionCard({ question, onSubmit, isSubmitting, forceHint = false }: QuestionCardProps) {
+export default function QuestionCard({ question, onSubmit, isSubmitting, forceHint = false, topicLabel, badgeRight }: QuestionCardProps) {
   const isMultiField = Array.isArray(question.labels) && question.labels.length > 0;
   const [answer, setAnswer] = useState("");
   const [fieldValues, setFieldValues] = useState<string[]>(
@@ -77,12 +81,12 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
 
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-      {/* Template badge */}
-      <div className={`px-5 py-3 flex items-center gap-2 border-b border-gray-100 bg-${templateInfo.color}-50`}>
-        <span>{templateInfo.icon}</span>
-        <span className={`text-${templateInfo.color}-700 text-sm font-medium`}>
-          {templateInfo.label}
+      {/* Topic badge — same blue pill style as the Discovery activity */}
+      <div className="px-5 py-3 border-b border-gray-100 flex items-center justify-between gap-3">
+        <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">
+          {topicLabel ?? templateInfo.label}
         </span>
+        {badgeRight}
       </div>
 
       {/* Question */}

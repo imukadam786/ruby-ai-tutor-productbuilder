@@ -5,7 +5,8 @@
 // each skill is a tappable tile and `onPickSkill` opens the session. Renders the
 // 5 Afrikaans FAL strands (Luister, Klanke, Woordeskat, Lees & Kyk,
 // Taalstruktuur) for the learner's grade. Locked skills stay locked until their
-// prerequisites are mastered.
+// prerequisites are mastered. Strands are collapsible and a "Start here" card
+// surfaces the next skill so learners don't have to hunt for where to begin.
 
 import { useEffect, useMemo, useState } from "react";
 import afrikaansSkillTreeData from "@/data/afrikaans-skill-tree.json";
@@ -31,10 +32,12 @@ const STRAND_EMOJI: Record<string, string> = {
 
 const statusConfig = {
   locked:      { bg: "bg-gray-100",  text: "text-gray-400",   border: "border-gray-200",  icon: "🔒", label: "Locked" },
-  available:   { bg: "bg-white",     text: "text-[#1a2744]",  border: "border-amber-200", icon: "▶",  label: "Ready" },
+  available:   { bg: "bg-white",     text: "text-[#1a2744]",  border: "border-amber-200", icon: "🚀", label: "Ready" },
   in_progress: { bg: "bg-amber-50",  text: "text-amber-800",  border: "border-amber-300", icon: "⚡", label: "In progress" },
-  mastered:    { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-300", icon: "✅", label: "Mastered" },
+  mastered:    { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-300", icon: "🏆", label: "Mastered" },
 };
+
+type SkillStatus = keyof typeof statusConfig;
 
 function strandCode(tierId: string): string {
   return tierId.split(".")[2] ?? "";
@@ -44,14 +47,21 @@ interface AfrikaansSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
   /** Drives per-skill status + prerequisite locking. */
   profile: AfrikaansStudentProfile | null;
+  /** Optional back action — shows a "← Subjects" button when provided. */
+  onBack?: () => void;
 }
 
 export default function AfrikaansSkillTreeView({
   onPickSkill,
   profile,
+  onBack,
 }: AfrikaansSkillTreeViewProps) {
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  // Explicit user expand/collapse overrides keyed by tier id. When a tier is
+  // absent here we fall back to a sensible default (open if it has any unlocked
+  // skill, collapsed if everything in it is still locked).
+  const [openOverride, setOpenOverride] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     fetchAuthorisedGrade().then((data) => {
@@ -68,6 +78,38 @@ export default function AfrikaansSkillTreeView({
     const ids = level.tiers.flatMap((t) => t.atomic_skills.map((s) => s.id));
     return getAfrikaansLevelProgress(ids, profile.skill_mastery);
   }, [level, profile]);
+
+  // Per-tier status, mastered counts, and whether anything in the tier is unlocked.
+  const tierMeta = useMemo(() => {
+    if (!level) return [];
+    return level.tiers.map((tier) => {
+      const skills = tier.atomic_skills.map((s) => ({
+        skill: s,
+        status: getAfrikaansSkillStatus(s.id, profile) as SkillStatus,
+      }));
+      const hasUnlocked = skills.some((s) => s.status !== "locked");
+      const mastered = skills.filter((s) => s.status === "mastered").length;
+      return { tier, skills, hasUnlocked, mastered, total: skills.length };
+    });
+  }, [level, profile]);
+
+  // Where to begin: the first in-progress skill, else the first ready one.
+  const startSkill = useMemo(() => {
+    for (const m of tierMeta) {
+      const ip = m.skills.find((s) => s.status === "in_progress");
+      if (ip) return ip;
+    }
+    for (const m of tierMeta) {
+      const av = m.skills.find((s) => s.status === "available");
+      if (av) return av;
+    }
+    return null;
+  }, [tierMeta]);
+
+  const isOpen = (tierId: string, hasUnlocked: boolean) =>
+    openOverride[tierId] ?? hasUnlocked;
+  const toggle = (tierId: string, hasUnlocked: boolean) =>
+    setOpenOverride((prev) => ({ ...prev, [tierId]: !(prev[tierId] ?? hasUnlocked) }));
 
   if (loading) {
     return (
@@ -88,91 +130,148 @@ export default function AfrikaansSkillTreeView({
   }
 
   return (
-    <div className="flex flex-col h-full bg-[#F4F4F5] relative overflow-y-auto">
+    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative max-w-3xl mx-auto px-5 sm:px-8 pt-6 pb-12 w-full">
-        {/* Header */}
-        <div className="mb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-[#1a2744]">
-            Afrikaans · Graad {seed.level}
-          </h1>
-          <p className="text-gray-600 text-sm sm:text-base mt-1">
-            Pick a skill to start. Instructions are in English; you&apos;ll hear and
-            answer in Afrikaans.
-          </p>
-          {seed.beyondContent && (
-            <p className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2">
-              More grades coming soon. Here&apos;s Grade {HIGHEST_AVAILABLE_LEVEL} for now.
-            </p>
+      <div className="relative flex-1 overflow-y-auto">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-5 pb-12 w-full">
+          {/* Back */}
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="mb-4 text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
+            >
+              ← Subjects
+            </button>
           )}
-          {/* Level progress */}
-          <div className="mt-4">
-            <div className="flex items-center justify-between mb-1">
-              <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-                Progress
-              </span>
-              <span className={`text-sm font-bold ${progress === 100 ? "text-green-600" : "text-amber-700"}`}>
-                {progress}%
-              </span>
-            </div>
-            <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className={`h-full rounded-full transition-all ${progress === 100 ? "bg-green-500" : "bg-amber-500"}`}
-                style={{ width: `${progress}%` }}
-              />
+
+          {/* Header */}
+          <div className="mb-5">
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#1a2744]">
+              Afrikaans · Graad {seed.level}
+            </h1>
+            <p className="text-gray-600 text-sm sm:text-base mt-1">
+              Instructions are in English; you&apos;ll hear and answer in Afrikaans.
+            </p>
+            {seed.beyondContent && (
+              <p className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2">
+                More grades coming soon. Here&apos;s Grade {HIGHEST_AVAILABLE_LEVEL} for now.
+              </p>
+            )}
+            {/* Level progress */}
+            <div className="mt-4">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                  Progress
+                </span>
+                <span className={`text-sm font-bold ${progress === 100 ? "text-green-600" : "text-amber-700"}`}>
+                  {progress}%
+                </span>
+              </div>
+              <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${progress === 100 ? "bg-green-500" : "bg-amber-500"}`}
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Strands */}
-        <div className="space-y-6">
-          {level.tiers.map((tier) => (
-            <div key={tier.id}>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl" aria-hidden>
-                  {STRAND_EMOJI[strandCode(tier.id)] ?? "⭐"}
+          {/* Start here / Continue — jumps straight to the next skill so the
+              learner never has to scroll to find where to begin. */}
+          {startSkill && (
+            <button
+              onClick={() => onPickSkill(startSkill.skill.id)}
+              className="w-full mb-6 flex items-center gap-4 rounded-2xl border-2 border-emerald-300 bg-emerald-50 px-5 py-4 text-left hover:shadow-md active:scale-[0.99] transition-all"
+            >
+              <span className="text-3xl flex-shrink-0" aria-hidden>🚀</span>
+              <span className="flex-1 min-w-0">
+                <span className="block text-xs font-semibold uppercase tracking-wide text-emerald-700">
+                  {startSkill.status === "in_progress" ? "Continue where you left off" : "Start here"}
                 </span>
-                <h2 className="text-lg font-bold text-[#1a2744]">{tier.title}</h2>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {tier.atomic_skills.map((skill) => {
-                  const status = getAfrikaansSkillStatus(skill.id, profile);
-                  const config = statusConfig[status];
-                  const isLocked = status === "locked";
-                  return (
-                    <button
-                      key={skill.id}
-                      onClick={() => !isLocked && onPickSkill(skill.id)}
-                      disabled={isLocked}
-                      title={
-                        isLocked
-                          ? "Master the earlier skill(s) first to unlock this one"
-                          : `${skill.title} — ${config.label}`
-                      }
-                      aria-label={`${skill.title} — ${config.label}`}
-                      className={`${config.bg} ${config.border} border-2 rounded-2xl px-4 py-4 flex items-start gap-3 text-left transition-all ${
-                        isLocked
-                          ? "opacity-70 cursor-not-allowed"
-                          : "hover:shadow-md active:scale-[0.99] cursor-pointer"
-                      }`}
+                <span className="block text-base font-bold text-[#1a2744] leading-tight truncate">
+                  {startSkill.skill.title}
+                </span>
+              </span>
+              <span className="text-emerald-600 text-xl flex-shrink-0" aria-hidden>→</span>
+            </button>
+          )}
+
+          {/* Strands — collapsible. Locked strands start collapsed. */}
+          <div className="space-y-3">
+            {tierMeta.map(({ tier, skills, hasUnlocked, mastered, total }) => {
+              const open = isOpen(tier.id, hasUnlocked);
+              return (
+                <div key={tier.id} className="rounded-2xl border border-gray-200 bg-white/70 overflow-hidden">
+                  <button
+                    onClick={() => toggle(tier.id, hasUnlocked)}
+                    aria-expanded={open}
+                    className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-50 transition-colors"
+                  >
+                    <span className="text-2xl flex-shrink-0" aria-hidden>
+                      {STRAND_EMOJI[strandCode(tier.id)] ?? "⭐"}
+                    </span>
+                    <h2 className="flex-1 min-w-0 text-base sm:text-lg font-bold text-[#1a2744] leading-tight">
+                      {tier.title}
+                    </h2>
+                    {!hasUnlocked && (
+                      <span className="flex-shrink-0 text-xs font-medium text-gray-400 flex items-center gap-1">
+                        <span aria-hidden>🔒</span> Locked
+                      </span>
+                    )}
+                    <span className="flex-shrink-0 text-xs text-gray-400">
+                      {mastered}/{total}
+                    </span>
+                    <svg
+                      className={`flex-shrink-0 w-4 h-4 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`}
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
                     >
-                      <span className="text-xl flex-shrink-0" aria-hidden>
-                        {config.icon}
-                      </span>
-                      <span className="flex-1 min-w-0">
-                        <span className={`block text-base font-semibold leading-tight ${config.text}`}>
-                          {skill.title}
-                        </span>
-                        <span className="block text-xs text-gray-500 mt-0.5">
-                          {config.label}
-                        </span>
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {open && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-4 pb-4">
+                      {skills.map(({ skill, status }) => {
+                        const config = statusConfig[status];
+                        const isLocked = status === "locked";
+                        const sub = isLocked ? "Unlocks after earlier skills" : config.label;
+                        return (
+                          <button
+                            key={skill.id}
+                            onClick={() => !isLocked && onPickSkill(skill.id)}
+                            disabled={isLocked}
+                            title={
+                              isLocked
+                                ? "Master the earlier skill(s) first to unlock this one"
+                                : `${skill.title} — ${config.label}`
+                            }
+                            aria-label={`${skill.title} — ${sub}`}
+                            className={`${config.bg} ${config.border} border-2 rounded-2xl px-4 py-4 flex items-start gap-3 text-left transition-all ${
+                              isLocked
+                                ? "opacity-70 cursor-not-allowed"
+                                : "hover:shadow-md active:scale-[0.99] cursor-pointer"
+                            }`}
+                          >
+                            <span className="text-xl flex-shrink-0" aria-hidden>
+                              {config.icon}
+                            </span>
+                            <span className="flex-1 min-w-0">
+                              <span className={`block text-base font-semibold leading-tight ${config.text}`}>
+                                {skill.title}
+                              </span>
+                              <span className="block text-xs text-gray-500 mt-0.5">
+                                {sub}
+                              </span>
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

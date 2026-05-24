@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
 import { ReadingStudentProfile } from "@/types/reading";
 import { getReadingSkillStatus, getReadingLevelProgress, friendlyReadingSkillName } from "@/lib/reading-student-model";
+import EduBackground from "@/components/EduBackground";
 
 interface ReadingSkillTreeViewProps {
   profile: ReadingStudentProfile | null;
@@ -14,13 +15,13 @@ interface ReadingSkillTreeViewProps {
 
 const statusConfig = {
   locked:        { bg: "bg-gray-100",    text: "text-gray-400",    border: "border-gray-200",    icon: "🔒", label: "Locked" },
-  available:     { bg: "bg-amber-50",    text: "text-amber-700",   border: "border-amber-200",   icon: "📖", label: "Available" },
+  available:     { bg: "bg-amber-50",    text: "text-amber-700",   border: "border-amber-200",   icon: "🚀", label: "Ready" },
   in_progress:   { bg: "bg-orange-50",   text: "text-orange-700",  border: "border-orange-200",  icon: "⚡", label: "In Progress" },
-  mastered:      { bg: "bg-green-50",    text: "text-green-700",   border: "border-green-200",   icon: "✅", label: "Mastered" },
+  mastered:      { bg: "bg-green-50",    text: "text-green-700",   border: "border-green-200",   icon: "🏆", label: "Mastered" },
   auto_complete: { bg: "bg-green-50",    text: "text-green-600",   border: "border-green-200",   icon: "✦",  label: "Auto-completed" },
   entry_point:   { bg: "bg-blue-50",     text: "text-blue-700",    border: "border-blue-300",    icon: "🎯", label: "Entry Point" },
   active:        { bg: "bg-purple-100",  text: "text-purple-800",  border: "border-purple-400",  icon: "▶",  label: "Active" },
-  hard_gate:     { bg: "bg-amber-50",    text: "text-amber-600",   border: "border-amber-300",   icon: "🔑", label: "Hard Gate" },
+  hard_gate:     { bg: "bg-amber-50",    text: "text-amber-600",   border: "border-amber-300",   icon: "🔒", label: "Locked" },
 };
 
 type TreeData = {
@@ -70,7 +71,8 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill }: Reading
   }
 
   return (
-    <div className="flex flex-col h-full bg-gray-50">
+    <div className="relative isolate flex flex-col h-full bg-gray-50">
+      <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-purple-50 border-b border-purple-200 px-6 py-4">
         <h2 className="font-semibold text-purple-700 text-lg">Reading Skill Tree</h2>
         <p className="text-purple-400 text-sm">5 levels · 14 tiers · 34 atomic skills</p>
@@ -94,7 +96,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill }: Reading
                     {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
                     {" · "}Entry: <span className="font-semibold">{friendlyReadingSkillName(entrySkillId)}</span>
                     {!hardGatePassed && " · "}
-                    {!hardGatePassed && <span className="text-amber-600 font-medium">🔑 Hard Gate active</span>}
+                    {!hardGatePassed && <span className="text-amber-600 font-medium">🔒 Hard Gate active</span>}
                   </p>
                 </div>
               </div>
@@ -114,7 +116,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill }: Reading
                   <div className="flex items-center gap-3 my-2 px-1">
                     <div className="flex-1 h-px bg-amber-300" />
                     <div className="bg-amber-100 border border-amber-300 rounded-xl px-3 py-1.5 flex items-center gap-2 text-amber-700 text-xs font-semibold">
-                      <span>🔑</span>
+                      <span>🔒</span>
                       <span>Hard Gate — master encoding skills to unlock advanced phonics</span>
                     </div>
                     <div className="flex-1 h-px bg-amber-300" />
@@ -128,7 +130,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill }: Reading
                   {/* Hard gate banner for Level 3 */}
                   {isHardGateLevel && !hardGatePassed && (
                     <div className="bg-amber-50 border-b border-amber-200 px-5 py-2 flex items-center gap-2">
-                      <span className="text-amber-500">🔑</span>
+                      <span className="text-amber-500">🔒</span>
                       <p className="text-amber-700 text-xs font-medium">
                         Hard Gate — encoding mastery required before advancing
                       </p>

@@ -46,6 +46,7 @@ import { selectReadingTemplate } from "@/lib/template-selector";
 import { detectStuck } from "@/lib/stuck-detector";
 import StuckScreen from "@/components/shared/StuckScreen";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
+import EduBackground from "@/components/EduBackground";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import {
@@ -841,7 +842,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
 
   if (phase === "loading_question") {
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         {replaySkillId
           ? <ReadingReplayBar skillId={replaySkillId} onExit={onExitReplay} />
           : <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
@@ -886,7 +888,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
     const skill = getReadingSkillById(currentQuestion.skill_id);
     const mastery = profile?.skill_mastery[currentQuestion.skill_id];
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         {replaySkillId
           ? <ReadingReplayBar skillId={replaySkillId} onExit={onExitReplay} />
           : <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
@@ -924,7 +927,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
       advance_level: "Next level",
     };
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         {replaySkillId
           ? <ReadingReplayBar skillId={replaySkillId} onExit={onExitReplay} />
           : <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
@@ -948,7 +952,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
   if (phase === "mastered") {
     const skill = profile ? getReadingSkillById(profile.current_skill_id) : null;
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
@@ -979,7 +984,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
     const currentTierId = profile ? `${profile.current_skill_id.split(".")[0]}.${profile.current_skill_id.split(".")[1]}` : null;
     const tier = currentTierId ? getReadingTierById(currentTierId) : null;
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
@@ -1033,7 +1039,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
   if (phase === "stuck" && currentQuestion) {
     const skill = getReadingSkillById(currentQuestion.skill_id);
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <StuckScreen
           skillTitle={skill?.title ?? "this skill"}
@@ -1050,7 +1057,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
 
   if (phase === "complete") {
     return (
-      <div className="flex flex-col h-full bg-gray-50">
+      <div className="relative isolate flex flex-col h-full bg-gray-50">
+        <div className="absolute inset-0 -z-10"><EduBackground /></div>
         <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">

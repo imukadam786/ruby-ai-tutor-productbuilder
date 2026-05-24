@@ -293,6 +293,11 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     if (typeof window !== "undefined") sessionStorage.setItem("ruby_reading_replay_skill", skillId);
     handleViewChange("reading");
   };
+  // Open the Afrikaans subject and jump straight into the picked skill.
+  const startAfrikaansSkill = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_afrikaans_target_skill", skillId);
+    handleViewChange("afrikaans-fal");
+  };
 
   return (
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
@@ -380,7 +385,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
-        {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} />}
+        {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} onAfrikaansPickSkill={startAfrikaansSkill} />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} />}
@@ -391,8 +396,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "life-skills" && <ErrorBoundary><LifeSkillsSession /></ErrorBoundary>}
         {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} />}
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
-        {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession /></ErrorBoundary>}
-        {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} />}
+        {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

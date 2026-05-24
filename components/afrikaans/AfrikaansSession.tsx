@@ -24,6 +24,7 @@ import AfrikaansSkillTreeView from "./AfrikaansSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
   createAfrikaansProfile,
+  getAfrikaansSkillStatus,
   hydrateAfrikaansProfileFromSupabase,
   linkAfrikaansProfileToAuth,
   loadAfrikaansProfile,
@@ -75,7 +76,7 @@ function findSkill(skillId: string) {
 
 type Phase = "tree" | "loading" | "question" | "feedback" | "mastered";
 
-export default function AfrikaansSession() {
+export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {}) {
   const [phase, setPhase] = useState<Phase>("tree");
   const [skillId, setSkillId] = useState<string | null>(null);
   const [question, setQuestion] = useState<AfrikaansGeneratedQuestion | null>(null);
@@ -235,6 +236,22 @@ export default function AfrikaansSession() {
     [loadNextQuestion, profile],
   );
 
+  // Deep-link from the Progress page: if a target skill was stashed, jump
+  // straight into it once the profile is ready (and only if it isn't locked).
+  useEffect(() => {
+    if (!profile || phase !== "tree") return;
+    let target: string | null = null;
+    try {
+      target = sessionStorage.getItem("ruby_afrikaans_target_skill");
+    } catch { /* ignore */ }
+    if (!target) return;
+    try { sessionStorage.removeItem("ruby_afrikaans_target_skill"); } catch { /* ignore */ }
+    if (getAfrikaansSkillStatus(target, profile) !== "locked") {
+      handlePickSkill(target);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profile]);
+
   // ─── Submit handler ────────────────────────────────────────────────────────
   const handleSubmit = useCallback(
     async (rawAnswer: string) => {
@@ -342,7 +359,7 @@ export default function AfrikaansSession() {
 
   // ─── Render: tree (default) ────────────────────────────────────────────────
   if (phase === "tree") {
-    return <AfrikaansSkillTreeView onPickSkill={handlePickSkill} profile={profile} />;
+    return <AfrikaansSkillTreeView onPickSkill={handlePickSkill} profile={profile} onBack={onBack} />;
   }
 
   // ─── Render: end-of-skill ─────────────────────────────────────────────────
@@ -392,9 +409,10 @@ export default function AfrikaansSession() {
   const recoveryHint = showRecoveryHint ? findSkill(skillId!)?.skill.recovery_strategy ?? null : null;
 
   return (
-    <div className="relative flex flex-col h-full bg-[#F4F4F5] overflow-y-auto">
+    <div className="relative flex flex-col h-full bg-[#F4F4F5]">
       <EduBackground />
-      <div className="relative max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
+      <div className="relative flex-1 overflow-y-auto">
+       <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
         {/* Header bar */}
         <div className="flex items-center justify-between">
           <button
@@ -500,6 +518,7 @@ export default function AfrikaansSession() {
             )}
           </div>
         )}
+       </div>
       </div>
     </div>
   );
