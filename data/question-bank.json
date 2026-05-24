@@ -27331,6 +27331,606 @@
           "ruby_prompt": "Multiply: 11 × 3 = 33 cm."
         }
       ]
+    },
+    "M035": {
+      "title": "Expanding Single Brackets",
+      "gate": "C",
+      "skill_ids": [
+        "L13.T3.A1"
+      ],
+      "pass_threshold": 0.8,
+      "questions_for_mastery": 3,
+      "authored_pool": 24,
+      "questions": [
+        {
+          "ref": "35.1",
+          "question": "Expand: 3(x + 2)",
+          "expected": "3x + 6",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 2
+        },
+        {
+          "ref": "35.2",
+          "question": "Expand: 2(x + 5)",
+          "expected": "2x + 10",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 2
+        },
+        {
+          "ref": "35.3",
+          "question": "Expand: 4(x + 1)",
+          "expected": "4x + 4",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 2
+        },
+        {
+          "ref": "35.4",
+          "question": "Expand: 5(x + 3)",
+          "expected": "5x + 15",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 2
+        },
+        {
+          "ref": "35.5",
+          "question": "Expand: 2(x + 7)",
+          "expected": "2x + 14",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 2
+        },
+        {
+          "ref": "35.6",
+          "question": "Expand: 6(x + 2)",
+          "expected": "6x + 12",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 2
+        },
+        {
+          "ref": "35.7",
+          "question": "Expand: 8(x + 2)",
+          "expected": "8x + 16",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 2
+        },
+        {
+          "ref": "35.8",
+          "question": "Expand: 3(x - 4)",
+          "expected": "3x - 12",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 3
+        },
+        {
+          "ref": "35.9",
+          "question": "Expand: 5(x - 2)",
+          "expected": "5x - 10",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 3
+        },
+        {
+          "ref": "35.10",
+          "question": "Expand: 7(x - 3)",
+          "expected": "7x - 21",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 3
+        },
+        {
+          "ref": "35.11",
+          "question": "Expand: 4(2x + 1)",
+          "expected": "8x + 4",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 3
+        },
+        {
+          "ref": "35.12",
+          "question": "Expand: 2(3x + 4)",
+          "expected": "6x + 8",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 3
+        },
+        {
+          "ref": "35.13",
+          "question": "Expand: 5(2x + 3)",
+          "expected": "10x + 15",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 3
+        },
+        {
+          "ref": "35.14",
+          "question": "Expand: 2(4x - 3)",
+          "expected": "8x - 6",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 3
+        },
+        {
+          "ref": "35.15",
+          "question": "Expand: 3(2x - 5)",
+          "expected": "6x - 15",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 3
+        },
+        {
+          "ref": "35.16",
+          "question": "Expand: -2(x + 3)",
+          "expected": "-2x - 6",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 4
+        },
+        {
+          "ref": "35.17",
+          "question": "Expand: -3(x + 4)",
+          "expected": "-3x - 12",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 4
+        },
+        {
+          "ref": "35.18",
+          "question": "Expand: -(x - 5)",
+          "expected": "-x + 5",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 4
+        },
+        {
+          "ref": "35.19",
+          "question": "Expand: -4(x - 2)",
+          "expected": "-4x + 8",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 4
+        },
+        {
+          "ref": "35.20",
+          "question": "Expand: x(x + 6)",
+          "expected": "x² + 6x",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 4
+        },
+        {
+          "ref": "35.21",
+          "question": "Expand: x(2x + 5)",
+          "expected": "2x² + 5x",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 4
+        },
+        {
+          "ref": "35.22",
+          "question": "Expand: 2x(x + 3)",
+          "expected": "2x² + 6x",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 4
+        },
+        {
+          "ref": "35.23",
+          "question": "Expand: 3x(x - 2)",
+          "expected": "3x² - 6x",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 4
+        },
+        {
+          "ref": "35.24",
+          "question": "Expand: 4x(x + 1)",
+          "expected": "4x² + 4x",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_DISTRIBUTE_PARTIAL",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Multiply the term outside the bracket by each term inside, then add the results.",
+          "difficulty": 4
+        }
+      ]
+    },
+    "M036": {
+      "title": "Factorising by Common Factor",
+      "gate": "C",
+      "skill_ids": [
+        "L13.T3.A2"
+      ],
+      "pass_threshold": 0.8,
+      "questions_for_mastery": 3,
+      "authored_pool": 24,
+      "questions": [
+        {
+          "ref": "36.1",
+          "question": "Factorise: 3x + 6",
+          "expected": "3(x + 2)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 2
+        },
+        {
+          "ref": "36.2",
+          "question": "Factorise: 2x + 10",
+          "expected": "2(x + 5)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 2
+        },
+        {
+          "ref": "36.3",
+          "question": "Factorise: 4x + 8",
+          "expected": "4(x + 2)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 2
+        },
+        {
+          "ref": "36.4",
+          "question": "Factorise: 5x + 15",
+          "expected": "5(x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 2
+        },
+        {
+          "ref": "36.5",
+          "question": "Factorise: 7x + 7",
+          "expected": "7(x + 1)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 2
+        },
+        {
+          "ref": "36.6",
+          "question": "Factorise: 6x + 9",
+          "expected": "3(2x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 3
+        },
+        {
+          "ref": "36.7",
+          "question": "Factorise: 8x + 12",
+          "expected": "4(2x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 3
+        },
+        {
+          "ref": "36.8",
+          "question": "Factorise: 10x + 15",
+          "expected": "5(2x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 3
+        },
+        {
+          "ref": "36.9",
+          "question": "Factorise: 14x + 21",
+          "expected": "7(2x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 3
+        },
+        {
+          "ref": "36.10",
+          "question": "Factorise: 9x - 6",
+          "expected": "3(3x - 2)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 3
+        },
+        {
+          "ref": "36.11",
+          "question": "Factorise: 6x - 15",
+          "expected": "3(2x - 5)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 3
+        },
+        {
+          "ref": "36.12",
+          "question": "Factorise: 12x + 8",
+          "expected": "4(3x + 2)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.13",
+          "question": "Factorise: 20x + 30",
+          "expected": "10(2x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.14",
+          "question": "Factorise: 16x + 24",
+          "expected": "8(2x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.15",
+          "question": "Factorise: 18x + 12",
+          "expected": "6(3x + 2)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.16",
+          "question": "Factorise: 15x - 10",
+          "expected": "5(3x - 2)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.17",
+          "question": "Factorise: x² + 3x",
+          "expected": "x(x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.18",
+          "question": "Factorise: x² - 4x",
+          "expected": "x(x - 4)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.19",
+          "question": "Factorise: 2x² + 6x",
+          "expected": "2x(x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.20",
+          "question": "Factorise: 5x² - 10x",
+          "expected": "5x(x - 2)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.21",
+          "question": "Factorise: 4x² + 8x",
+          "expected": "4x(x + 2)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.22",
+          "question": "Factorise: 6x² + 9x",
+          "expected": "3x(2x + 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.23",
+          "question": "Factorise: 3x² + 12x",
+          "expected": "3x(x + 4)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        },
+        {
+          "ref": "36.24",
+          "question": "Factorise: 10x² - 15x",
+          "expected": "5x(2x - 3)",
+          "input_type": "text",
+          "error_signals": [
+            "ERR_FACTOR_NOT_HIGHEST",
+            "ERR_SIGN_DROP"
+          ],
+          "ruby_prompt": "Find the highest common factor of the terms, place it outside the bracket, and write what is left inside.",
+          "difficulty": 4
+        }
+      ]
     }
   }
 }

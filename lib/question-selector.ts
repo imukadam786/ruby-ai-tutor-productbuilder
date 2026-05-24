@@ -172,6 +172,8 @@ const FRIENDLY_MATHS_DOMAIN_NAMES: Record<string, string> = {
   M032: "Working with negative numbers",
   M033: "Patterns and basic algebra",
   M034: "Harder equations and word problems",
+  M035: "Expanding brackets",
+  M036: "Factorising (common factor)",
   M_DIV_SHARE: "Division: sharing and grouping",
   M_SCALE: "Multiplying to scale up",
 };
