@@ -4,10 +4,12 @@ import { buildCheckoutParams, PAYFAST_PROCESS_URL } from "@/lib/payfast";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { plan, voucherCode, paymentType = "subscription" } = body as {
+  const { plan, voucherCode, paymentType = "subscription", billingFrequency = "monthly", amountOverride: clientAmountOverride } = body as {
     plan: string;
     voucherCode?: string;
     paymentType?: "subscription" | "once-off";
+    billingFrequency?: "weekly" | "monthly";
+    amountOverride?: string;
   };
 
   if (!plan) {
@@ -38,7 +40,7 @@ export async function POST(request: NextRequest) {
     .single();
 
   // ── Voucher validation (server-side, authoritative check) ─────────────────
-  let amountOverride: string | undefined;
+  let amountOverride: string | undefined = clientAmountOverride;
   let resolvedVoucherCode: string | undefined;
 
   if (voucherCode) {
@@ -96,6 +98,7 @@ export async function POST(request: NextRequest) {
       amountOverride,
       voucherCode: resolvedVoucherCode,
       paymentType,
+      billingFrequency,
     });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Invalid plan";

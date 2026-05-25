@@ -28,6 +28,11 @@ interface PricingPlan {
   features: Feature[];
 }
 
+const WEEKLY_PRICES: Record<string, number> = {
+  scholar: 29,
+  master:  39,
+};
+
 const PLANS: PricingPlan[] = [
   {
     key: "matric-pack",
@@ -138,6 +143,7 @@ export default function PricingPlans({
   mode = "onboarding",
   onSelectFree,
 }: PricingPlansProps) {
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "weekly">("monthly");
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [voucherInput, setVoucherInput] = useState("");
@@ -174,14 +180,20 @@ export default function PricingPlans({
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
+  function basePrice(plan: PricingPlan): number {
+    if (plan.paymentType === "subscription" && billingCycle === "weekly" && WEEKLY_PRICES[plan.key] != null)
+      return WEEKLY_PRICES[plan.key];
+    return plan.priceRands;
+  }
+
   function effectivePrice(plan: PricingPlan): number {
-    const base = plan.priceRands;
+    const base = basePrice(plan);
     if (!appliedVoucher) return base;
     const applies =
       appliedVoucher.applicable_plans.length === 0 ||
       appliedVoucher.applicable_plans.includes(plan.key);
     if (!applies) return base;
-    const dv = appliedVoucher.discount_value;
+    const dv = appliedVoucher.discount_value ?? 0;
     const discounted =
       appliedVoucher.discount_type === "percentage"
         ? base * (1 - dv / 100)
@@ -267,7 +279,11 @@ export default function PricingPlans({
         body: JSON.stringify({
           plan: plan.key,
           paymentType: plan.paymentType,
+          billingFrequency: billingCycle,
           ...(appliedVoucher ? { voucherCode: appliedVoucher.code } : {}),
+          ...(billingCycle === "weekly" && WEEKLY_PRICES[plan.key] != null
+            ? { amountOverride: WEEKLY_PRICES[plan.key].toFixed(2) }
+            : {}),
         }),
       });
       if (!res.ok) {
@@ -313,6 +329,25 @@ export default function PricingPlans({
           <h1 className="text-2xl font-extrabold text-[#1a2744]">Choose your learning plan</h1>
         </div>
       )}
+
+      {/* Billing cycle toggle */}
+      <div className="flex justify-center mb-4">
+        <div className="inline-flex rounded-xl border border-gray-200 bg-gray-50 p-1 gap-1">
+          {(["monthly", "weekly"] as const).map((cycle) => (
+            <button
+              key={cycle}
+              onClick={() => setBillingCycle(cycle)}
+              className={`px-5 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
+                billingCycle === cycle
+                  ? "bg-white shadow text-[#1a2744]"
+                  : "text-gray-400 hover:text-gray-600"
+              }`}
+            >
+              {cycle === "monthly" ? "Monthly" : "Weekly"}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Voucher — top */}
       <div className="max-w-sm mx-auto mb-4 space-y-2 px-4">
@@ -409,9 +444,11 @@ export default function PricingPlans({
                     <span className="text-2xl font-extrabold text-[#1a2744]">
                       {plan.isFree ? "Free" : (
                         <>
-                          R{voucherApplied ? final : plan.priceRands}
+                          R{voucherApplied ? final : basePrice(plan)}
                           {plan.paymentType === "subscription" ? (
-                            <span className="text-sm font-semibold text-gray-400">/mo</span>
+                            <span className="text-sm font-semibold text-gray-400">
+                              {billingCycle === "weekly" && WEEKLY_PRICES[plan.key] != null ? "/wk" : "/mo"}
+                            </span>
                           ) : (
                             <span className="text-sm font-semibold text-blue-500">/once-off</span>
                           )}
@@ -420,7 +457,7 @@ export default function PricingPlans({
                     </span>
                     {!plan.isFree && (plan.isLaunchOffer || voucherApplied) && (
                       <span className="text-sm text-gray-400 line-through mb-1">
-                        R{voucherApplied ? plan.priceRands : plan.originalPrice}
+                        R{voucherApplied ? basePrice(plan) : plan.originalPrice}
                       </span>
                     )}
                   </div>

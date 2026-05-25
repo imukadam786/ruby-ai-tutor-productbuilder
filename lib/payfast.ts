@@ -132,6 +132,8 @@ export async function buildCheckoutParams({
   voucherCode?: string;
   /** "subscription" for recurring billing, "once-off" for a single charge. */
   paymentType?: "subscription" | "once-off";
+  /** "weekly" (R/wk) or "monthly" (R/mo) — ignored for once-off payments. */
+  billingFrequency?: "weekly" | "monthly";
 }): Promise<Record<string, string>> {
   const planInfo = await getPlanInfo(plan);
   const amount = amountOverride ?? planInfo.amount;
@@ -162,7 +164,7 @@ export async function buildCheckoutParams({
     params.subscription_type = "1";
     params.billing_date      = billingDate;
     params.recurring_amount  = amount;
-    params.frequency         = "3"; // monthly
+    params.frequency         = billingFrequency === "weekly" ? "2" : "3";
     params.cycles            = "0"; // indefinite
   }
 
