@@ -29,6 +29,7 @@ export const UI_STRINGS: Record<string, string> = {
   "sidebar.logout_desc": "Sign out",
   "sidebar.powered_by": "Powered by Hula",
   // Home
+  "home.greeting": "Hi {name} 👋",
   "home.ready": "Ready to keep learning?",
   "home.skills_mastered": "Skills Mastered",
   "home.in_progress": "In Progress",
@@ -143,7 +144,24 @@ export const UI_STRINGS: Record<string, string> = {
   "common.back": "Back",
   "common.send": "Send",
   "common.cancel": "Cancel",
+  // Subjects hub
+  "subjects.title": "Subjects",
+  "subjects.subtitle": "Choose what to work on today.",
+  // Discover hub
+  "discover.title": "Discovery Activity",
+  // Progress
+  "progress.weekly_study": "Weekly Study Activity",
+  // Session end screens (Maths + Reading)
+  "session.skill_complete": "Skill Complete!",
+  "session.topic_complete": "Topic Complete!",
+  "session.level_up": "Level Up!",
+  "session.amazing": "Amazing!",
+  "session.incredible": "Incredible!",
 };
+
+// Bump when UI_STRINGS gains keys so cached per-language translations refresh
+// (old caches lack new keys and would otherwise show English for them).
+const TX_CACHE_VERSION = "2";
 
 interface I18nContextValue {
   language: string;
@@ -169,7 +187,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       const savedLang = localStorage.getItem("ruby_language") ?? "English";
       setLanguageState(savedLang);
       if (savedLang !== "English") {
-        const cached = localStorage.getItem(`ruby_translations_${savedLang}`);
+        const cached = localStorage.getItem(`ruby_translations_${TX_CACHE_VERSION}_${savedLang}`);
         if (cached) setTranslations(JSON.parse(cached));
       }
     } catch { /* ignore */ }
@@ -184,7 +202,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    const cacheKey = `ruby_translations_${lang}`;
+    const cacheKey = `ruby_translations_${TX_CACHE_VERSION}_${lang}`;
     try {
       const cached = localStorage.getItem(cacheKey);
       if (cached) {

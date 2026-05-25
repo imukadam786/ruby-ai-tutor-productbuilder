@@ -140,7 +140,7 @@ function buildMathsReportInput(profile: StudentProfile): DiagnosticReportInput {
 
 
 export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSelectPlan?: () => void; onExitReplay?: () => void }) {
-  const { language } = useT();
+  const { t, language } = useT();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
@@ -916,7 +916,7 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
             <div className="text-6xl mb-1">🎉</div>
             <div className="flex justify-center gap-2 text-2xl">⭐⭐⭐</div>
-            <h3 className="text-2xl font-bold text-green-800">Skill Complete!</h3>
+            <h3 className="text-2xl font-bold text-green-800">{t("session.skill_complete")}</h3>
             <p className="text-green-700 text-lg">
               You mastered <strong>{skill?.title || "this skill"}</strong>!
             </p>
@@ -945,7 +945,7 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
             <div className="text-5xl">🎯</div>
-            <h3 className="text-2xl font-bold text-blue-800">Topic Complete!</h3>
+            <h3 className="text-2xl font-bold text-blue-800">{t("session.topic_complete")}</h3>
             <p className="text-blue-700 text-lg">
               You finished <strong>{tier?.title ?? "this topic"}</strong>!
             </p>
@@ -971,7 +971,7 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-yellow-300 rounded-2xl p-8 shadow-xl max-w-md w-full text-center space-y-4">
             <div className="text-6xl">🏆</div>
-            <h3 className="text-3xl font-bold text-yellow-800">Level Up!</h3>
+            <h3 className="text-3xl font-bold text-yellow-800">{t("session.level_up")}</h3>
             <p className="text-yellow-700 text-xl">
               You unlocked <strong>{levelName}</strong>!
             </p>
@@ -1012,7 +1012,7 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
             <div className="text-5xl mb-2">🎓</div>
-            <h3 className="text-2xl font-bold text-gray-900">Incredible!</h3>
+            <h3 className="text-2xl font-bold text-gray-900">{t("session.incredible")}</h3>
             <p className="text-gray-600">
               You&apos;ve completed the entire Ruby Math Skill Tree. That&apos;s a remarkable achievement!
             </p>

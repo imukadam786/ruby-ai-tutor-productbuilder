@@ -8,6 +8,7 @@ import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
 import { ProgressData } from "@/types";
 import EduBackground from "@/components/EduBackground";
+import { useT } from "@/lib/i18n";
 import SkillTreeView from "@/components/ruby/SkillTreeView";
 import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
@@ -129,6 +130,7 @@ interface ProgressTrackerProps {
 }
 
 export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill, onAfrikaansPickSkill }: ProgressTrackerProps = {}) {
+  const { t } = useT();
   const [progress, setProgress] = useState<ProgressData>({
     totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
     lessonsStarted: 0, sessionCount: 0, lastSession: "", subjectBreakdown: {},
@@ -212,8 +214,8 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
       <EduBackground />
       {/* Header */}
       <div className="relative hidden md:block bg-white border-b border-gray-100 px-6 py-4">
-        <h2 className="text-gray-900 font-semibold text-xl">Progress</h2>
-        <p className="text-gray-500 text-base">Your skill tree journey</p>
+        <h2 className="text-gray-900 font-semibold text-xl">{t("progress.title")}</h2>
+        <p className="text-gray-500 text-base">{t("progress.subtitle")}</p>
       </div>
 
       <div className="relative flex-1 overflow-y-auto p-6">
@@ -437,7 +439,7 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
 
           {/* ── Weekly Study Activity (bottom) ─────────────────────────── */}
           <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
+            <h3 className="font-semibold text-gray-800 text-base mb-4">{t("progress.weekly_study")}</h3>
             <div className="flex items-end justify-between gap-1.5 h-24">
               {weekDays.map(({ date, label, isToday }, i) => {
                 const count = activity[date] || 0;

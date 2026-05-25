@@ -6,6 +6,7 @@ import { StudentProfile } from "@/types/ruby";
 import { getSkillStatus, getLevelById, friendlyMathsSkillName } from "@/lib/student-model";
 import { getLevelProgress } from "@/lib/mastery-engine";
 import EduBackground from "@/components/EduBackground";
+import { useT } from "@/lib/i18n";
 
 interface SkillTreeViewProps {
   profile: StudentProfile | null;
@@ -30,6 +31,7 @@ const statusConfig = {
 };
 
 export default function SkillTreeView({ profile, onReplaySkill, onContinue }: SkillTreeViewProps) {
+  const { t } = useT();
   const levelProgress = useMemo(() => {
     if (!profile) return {};
     const result: Record<number, number> = {};
@@ -68,7 +70,7 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue }: Sk
     <div className="relative isolate flex flex-col h-full bg-gray-50">
       <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-blue-50 border-b border-blue-200 px-6 py-4">
-        <h2 className="font-semibold text-blue-700 text-lg">Maths Skill Tree</h2>
+        <h2 className="font-semibold text-blue-700 text-lg">{t("nav.maths_skill_tree")}</h2>
         <p className="text-blue-400 text-sm">17 levels · 51 tiers · 72 atomic skills</p>
       </div>
 

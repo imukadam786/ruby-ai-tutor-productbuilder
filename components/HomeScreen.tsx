@@ -186,7 +186,7 @@ export default function HomeScreen({ onNavigate, userPlan }: HomeScreenProps) {
           <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
             <RubyAvatar size="w-14 h-14" />
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Hi {firstName} 👋</h1>
+              <h1 className="text-3xl font-bold text-gray-900">{t("home.greeting", { name: firstName })}</h1>
               <p className="text-gray-500 text-base mt-0.5">Ready to keep learning?</p>
             </div>
           </div>
@@ -338,7 +338,7 @@ export default function HomeScreen({ onNavigate, userPlan }: HomeScreenProps) {
 
           {/* ── Learning Modes ────────────────────────────────────────────── */}
           <section>
-            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Learning Modes</h2>
+            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">{t("home.learning_modes")}</h2>
             <div className="grid grid-cols-2 gap-3">
               {learningModes.map((mode) => (
                 <button

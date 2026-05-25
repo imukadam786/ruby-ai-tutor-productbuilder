@@ -5,6 +5,7 @@ import readingSkillTreeData from "@/data/reading-skill-tree.json";
 import { ReadingStudentProfile } from "@/types/reading";
 import { getReadingSkillStatus, getReadingLevelProgress, friendlyReadingSkillName } from "@/lib/reading-student-model";
 import EduBackground from "@/components/EduBackground";
+import { useT } from "@/lib/i18n";
 
 interface ReadingSkillTreeViewProps {
   profile: ReadingStudentProfile | null;
@@ -44,6 +45,7 @@ type TreeData = {
 const treeData = readingSkillTreeData as unknown as TreeData;
 
 export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinue }: ReadingSkillTreeViewProps) {
+  const { t } = useT();
   const levelProgress = useMemo(() => {
     if (!profile) return {};
     const result: Record<number, number> = {};
@@ -79,7 +81,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
     <div className="relative isolate flex flex-col h-full bg-gray-50">
       <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-purple-50 border-b border-purple-200 px-6 py-4">
-        <h2 className="font-semibold text-purple-700 text-lg">Reading Skill Tree</h2>
+        <h2 className="font-semibold text-purple-700 text-lg">{t("nav.reading_skill_tree")}</h2>
         <p className="text-purple-400 text-sm">5 levels · 14 tiers · 34 atomic skills</p>
       </div>
 

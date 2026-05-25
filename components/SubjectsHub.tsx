@@ -8,6 +8,7 @@ import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
+import { useT } from "@/lib/i18n";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -67,6 +68,7 @@ function SubjectCard({
 }
 
 export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
+  const { t } = useT();
   const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [grade, setGrade] = useState<number | null>(null);
@@ -136,8 +138,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         <div className="max-w-4xl mx-auto px-6 sm:px-10 pt-8 pb-8">
 
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Subjects</h1>
-            <p className="text-gray-500 text-sm mt-1">Choose what to work on today.</p>
+            <h1 className="text-2xl font-bold text-gray-900">{t("subjects.title")}</h1>
+            <p className="text-gray-500 text-sm mt-1">{t("subjects.subtitle")}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
