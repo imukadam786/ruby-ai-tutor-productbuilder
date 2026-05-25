@@ -155,9 +155,10 @@ export async function buildCheckoutParams({
   };
 
   if (paymentType === "subscription") {
-    // First billing date = today + 30 days (PayFast max is 30 days from today)
-    const billingDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+    // No charge at signup — first payment taken 3 days later so users can cancel
+    const billingDate = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000)
       .toISOString().split("T")[0];
+    params.amount            = "0.00";
     params.subscription_type = "1";
     params.billing_date      = billingDate;
     params.recurring_amount  = amount;
