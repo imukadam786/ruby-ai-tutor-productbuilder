@@ -119,6 +119,7 @@ export async function buildCheckoutParams({
   amountOverride,
   voucherCode,
   paymentType = "subscription",
+  billingFrequency = "monthly",
 }: {
   userId: string;
   plan: string;
