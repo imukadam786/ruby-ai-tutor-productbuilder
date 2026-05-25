@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { checkLanguage, localiseFeedback } from "@/lib/language-utils";
+import { selectPraise } from "@/lib/praise";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import { evaluateSequence } from "@/lib/reading-bank-evaluator";
 import { openAIJudge } from "@/lib/reading-llm-judge";
@@ -118,6 +119,9 @@ export async function POST(req: NextRequest) {
     const lang = submission.language && submission.language !== "English"
       ? submission.language
       : "English";
+    // Correct-answer praise tier from the reading level (R1–R2 → younger pool).
+    const rLevel = parseInt(submission.skill_id?.match(/^R(\d+)/)?.[1] ?? "3", 10);
+    const praiseGrade = rLevel <= 2 ? 2 : 5;
 
     // ── L6+ static-bank scoring (Intermediate Phase) ───────────────────────
     // generate-question sent the answer-key as JSON in expected_answer.
@@ -222,10 +226,10 @@ export async function POST(req: NextRequest) {
         }
 
         const et = (bankCorrect ? "correct" : bankError ?? "ERR_MEANING_BLIND") as ReadingErrorType;
-        const bankLoc = await localiseFeedback(
-          { feedback, recovery: bankCorrect ? "" : skill.recovery_strategy ?? "" },
-          lang
-        );
+        // Correct → pre-translated praise lookup (no LLM). Wrong → AI-translated.
+        const bankLoc = bankCorrect
+          ? { feedback: selectPraise(praiseGrade, 2, lang), recovery: "" }
+          : await localiseFeedback({ feedback, recovery: skill.recovery_strategy ?? "" }, lang);
         const bankAttempt: ReadingSkillAttempt = {
           id: `rattempt_${Date.now()}`,
           skill_id: submission.skill_id,
@@ -290,10 +294,9 @@ export async function POST(req: NextRequest) {
         : r.reason
           ? `Not quite. ${r.reason}. Re-read the passage, find the part that answers the question, then say it in your own words.`
           : "Not quite — re-read the passage, find the part that answers the question, then say it in your own words.";
-      const r5Loc = await localiseFeedback(
-        { feedback: r5FeedbackEn, recovery: r5Correct ? "" : skill.recovery_strategy ?? "" },
-        lang
-      );
+      const r5Loc = r5Correct
+        ? { feedback: selectPraise(praiseGrade, 2, lang), recovery: "" }
+        : await localiseFeedback({ feedback: r5FeedbackEn, recovery: skill.recovery_strategy ?? "" }, lang);
       const r5Attempt: ReadingSkillAttempt = {
         id: `rattempt_${Date.now()}`,
         skill_id: submission.skill_id,
@@ -346,15 +349,8 @@ export async function POST(req: NextRequest) {
       : "";
 
     // ── 2-tier LLM decision ───────────────────────────────────────────────────
-    // Tier 1 — correct:    static praise (translated if needed), 0 API calls
+    // Tier 1 — correct:    pre-translated praise lookup (lib/praise.ts), 0 API calls
     // Tier 2 — incorrect:  LLM generates friendly, language-correct feedback
-    const PRAISE_EN = [
-      "Great work! That's exactly right.",
-      "Well done! Keep it up.",
-      "Correct! You're doing brilliantly.",
-      "Excellent! That's the right answer.",
-      "Spot on! Nice thinking.",
-    ];
 
     let aiDiagnosis: {
       is_correct: boolean;
@@ -364,25 +360,11 @@ export async function POST(req: NextRequest) {
     };
 
     if (isCorrect) {
-      // Tier 1 — no LLM call; translate praise if needed
-      let praise = PRAISE_EN[Math.floor(Math.random() * PRAISE_EN.length)];
-      if (lang !== "English") {
-        try {
-          const praiseResp = await getOpenAI().chat.completions.create({
-            model: OPENAI_MODEL,
-            max_tokens: 60,
-            messages: [{
-              role: "user",
-              content: `Translate this short praise sentence into ${lang} for a child. Return only the translated sentence, nothing else: "${praise}"`,
-            }],
-          }, { signal: AbortSignal.timeout(8_000) });
-          praise = praiseResp.choices[0]?.message?.content?.trim() || praise;
-        } catch { /* keep English on failure */ }
-      }
+      // Tier 1 — pre-translated praise lookup, NO LLM call in any language.
       aiDiagnosis = {
         is_correct: true,
         error_type: "correct",
-        feedback: praise,
+        feedback: selectPraise(praiseGrade, 2, lang),
         recovery_explanation: "",
       };
     } else {

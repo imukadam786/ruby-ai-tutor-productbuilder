@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL, OPENAI_SMART_MODEL } from "@/lib/anthropic";
 import { checkLanguage, localiseFeedback } from "@/lib/language-utils";
+import { selectPraise } from "@/lib/praise";
 import { getSkillById } from "@/lib/student-model";
 import {
   checkAnswerCorrectness,
@@ -52,46 +53,8 @@ export async function POST(req: NextRequest) {
     // Tier 2 — first incorrect:     pre-authored recovery tip, 0 API calls
     // Tier 3 — repeated incorrect:  LLM deep re-teaching, 1 API call
 
-    // Grade-aware praise pools.
-    // Grades 1–3: warm, enthusiastic, emoji-friendly.
-    // Grades 4–7: encouraging but not childish.
-    // Grades 8–12: minimal; extra line added for hard questions (difficulty ≥ 4).
-    const PRAISE_EARLY = [
-      "Amazing! You got it! ⭐",
-      "Brilliant work! That's exactly right! 🌟",
-      "Yes! You did it! Keep going! ⭐",
-      "Fantastic! That's correct! 🎉",
-      "Superstar! Well done! ⭐",
-    ];
-    const PRAISE_MID = [
-      "Correct! Good thinking.",
-      "Well done — that's right.",
-      "Spot on. Keep it up.",
-      "Nice work. That's exactly it.",
-      "Correct. Good approach.",
-    ];
-    const PRAISE_SENIOR = [
-      "Correct.",
-      "Right answer.",
-      "That's it.",
-      "Exactly right.",
-      "Correct — well done.",
-    ];
-    const PRAISE_SENIOR_HARD = [
-      "Correct — that one takes real understanding.",
-      "Right. That's a genuinely challenging skill.",
-      "Exactly right. Not an easy question.",
-      "Correct — good work on a hard one.",
-    ];
-
-    function selectPraise(grade: number, difficulty: number): string {
-      const pick = <T>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
-      if (grade <= 3) return pick(PRAISE_EARLY);
-      if (grade <= 7) return pick(PRAISE_MID);
-      // Senior: acknowledge hard questions specifically
-      if (difficulty >= 4) return pick(PRAISE_SENIOR_HARD);
-      return pick(PRAISE_SENIOR);
-    }
+    // Correct-answer praise is grade/difficulty-tiered and pre-translated per
+    // language (lib/praise.ts → data/praise-i18n.json) — see selectPraise.
 
     let aiDiagnosis: {
       is_correct: boolean;
@@ -101,21 +64,8 @@ export async function POST(req: NextRequest) {
     };
 
     if (isCorrect) {
-      // Tier 1 — translate praise if needed, otherwise no LLM call
-      let praise = selectPraise(submission.grade ?? 5, submission.difficulty ?? 2);
-      if (submission.language && submission.language !== "English") {
-        try {
-          const praiseResp = await getOpenAI().chat.completions.create({
-            model: OPENAI_MODEL,
-            max_tokens: 60,
-            messages: [{
-              role: "user",
-              content: `Translate this short praise sentence into ${submission.language} for a school student. Return only the translated sentence, nothing else: "${praise}"`,
-            }],
-          }, { signal: AbortSignal.timeout(8_000) });
-          praise = praiseResp.choices[0]?.message?.content?.trim() || praise;
-        } catch { /* keep English on failure */ }
-      }
+      // Tier 1 — pre-translated praise lookup, NO LLM call in any language.
+      const praise = selectPraise(submission.grade ?? 5, submission.difficulty ?? 2, submission.language);
       aiDiagnosis = {
         is_correct: true,
         error_type: "correct",

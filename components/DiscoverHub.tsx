@@ -117,7 +117,12 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                     View Report
                   </button>
                   <button
-                    onClick={() => onNavigate("discover-maths")}
+                    onClick={() => {
+                      // Force a fresh placement (mirror Reading) so Retake re-runs
+                      // Discovery instead of resuming the already-placed profile.
+                      try { sessionStorage.setItem("ruby_maths_retake", "1"); } catch { /* ignore */ }
+                      onNavigate("discover-maths");
+                    }}
                     className="flex-1 border border-blue-200 text-blue-600 hover:bg-blue-50 font-medium text-sm py-2.5 rounded-xl transition-colors active:scale-[0.97]"
                   >
                     Retake

@@ -213,6 +213,19 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
       const authName  = authorised?.name  ?? "Student";
       const authGrade = authorised?.grade ?? 7;
 
+      // Retake: DiscoverHub set this flag when the learner chose "Retake". Start a
+      // brand-new profile so the placement gate re-runs Discovery from scratch,
+      // instead of resuming the saved (already-placed) profile (mirror Reading).
+      // The old profile isn't overwritten until the new placement completes.
+      if (typeof window !== "undefined" && sessionStorage.getItem("ruby_maths_retake") === "1") {
+        sessionStorage.removeItem("ruby_maths_retake");
+        const fresh = createStudentProfile(authName, authGrade);
+        identifyStudent({ id: fresh.id, name: fresh.name, grade: fresh.grade });
+        void linkStudentProfileToAuth(fresh.id);
+        setProfile(fresh);
+        return;
+      }
+
       function initWithProfile(saved: import("@/types/ruby").StudentProfile) {
         // Always apply the authoritative grade — never trust the cached profile grade.
         const gradeChanged = saved.grade !== authGrade;

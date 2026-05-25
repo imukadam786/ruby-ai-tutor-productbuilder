@@ -20,6 +20,7 @@ import { prefetchAfrikaans, useAfrikaansTTS } from "@/lib/afrikaans-audio";
 import afrikaansTreeData from "@/data/afrikaans-skill-tree.json";
 import afrikaansBankData from "@/data/afrikaans-question-bank.json";
 import EduBackground from "@/components/EduBackground";
+import SpeakButton from "@/components/SpeakButton";
 import AfrikaansSkillTreeView from "./AfrikaansSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
@@ -118,16 +119,13 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
     };
   }, []);
 
-  // ─── Audio: prefetch + auto-speak when a new question arrives ──────────────
+  // ─── Audio: prefetch when a new question arrives (no autoplay — the learner
+  //     taps the 🔊 icon to hear it, consistent across subjects). ──────────────
   useEffect(() => {
     if (!question) return;
-    // Warm both channels.
+    // Warm both channels so playback is instant on tap.
     prefetchTTS(question.ruby_prompt || question.question);
     if (question.audio) prefetchAfrikaans(question.audio, question.question_ref);
-    // For audio-first items (Klanke/Luister), the Afrikaans IS the question, so
-    // auto-play it. Otherwise auto-play the English instruction.
-    if (question.audio) speakAfrikaans(question.audio, question.question_ref);
-    else speak(question.ruby_prompt || question.question);
     return () => stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question?.id]);
@@ -431,21 +429,17 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
         {/* Question card */}
         {question && (
           <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
-            {/* English instruction + replay (scaffolding stays English) */}
-            <div className="flex items-start gap-3">
-              <button
-                onClick={() => {
-                  if (playing) stop();
-                  else speak(question.ruby_prompt || question.question);
-                }}
-                aria-label={playing ? "Stop reading" : "Read instruction aloud"}
-                className="flex-shrink-0 w-14 h-14 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white text-2xl flex items-center justify-center shadow-md"
-              >
-                {playing ? "⏹" : "🔊"}
-              </button>
-              <p className="text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
+            {/* English instruction + compact tap-to-hear icon (no autoplay;
+                scaffolding stays English) */}
+            <div className="flex items-start gap-2">
+              <p className="flex-1 text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
                 {question.ruby_prompt || question.question}
               </p>
+              <SpeakButton
+                playing={playing}
+                onClick={() => (playing ? stop() : speak(question.ruby_prompt || question.question))}
+                label="Read instruction aloud"
+              />
             </div>
 
             {/* Afrikaans audio — the target content to listen to */}

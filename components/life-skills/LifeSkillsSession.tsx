@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
+import SpeakButton from "@/components/SpeakButton";
 import { supabase } from "@/lib/supabase";
 import { prefetchTTS, useTTS } from "@/lib/tts";
 import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
@@ -116,15 +117,14 @@ export default function LifeSkillsSession() {
     };
   }, []);
 
-  // ─── Audio: prefetch + auto-speak when a new question arrives ──────────────
+  // ─── Audio: prefetch when a new question arrives (no autoplay — the learner
+  //     taps the 🔊 icon to hear it, consistent across subjects). ──────────────
   useEffect(() => {
     if (!question) return;
     const text = question.ruby_prompt || question.question;
     prefetchTTS(text);
     // Pre-warm each option too so per-option playback is instant on tap.
     question.options?.forEach((opt) => prefetchTTS(opt));
-    // Auto-speak on Foundation Phase since many learners cannot read fluently.
-    speak(text);
     return () => stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question?.id]);
@@ -399,31 +399,42 @@ export default function LifeSkillsSession() {
           >
             ← Topics
           </button>
-          {skillId && (
-            <span className="text-sm font-semibold text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
-              Q {Math.min(attemptCount + 1, targetItemCount(skillId))} / {targetItemCount(skillId)} · ⭐ {correctCount}
-            </span>
-          )}
         </div>
+
+        {/* Mastery progress strip — makes the goal clear: every question counts,
+            finish them all (≥ pass mark) to master the topic. */}
+        {skillId && (
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-xs font-bold uppercase tracking-wide text-amber-800">
+                Master this topic
+              </span>
+              <span className="text-sm font-semibold text-amber-700">
+                Q {Math.min(attemptCount + 1, targetItemCount(skillId))} of {targetItemCount(skillId)} · ⭐ {correctCount}
+              </span>
+            </div>
+            <div className="h-2 bg-amber-100 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-amber-500 rounded-full transition-all"
+                style={{ width: `${Math.round((Math.min(attemptCount, targetItemCount(skillId)) / targetItemCount(skillId)) * 100)}%` }}
+              />
+            </div>
+            <p className="text-[11px] text-amber-700 mt-1.5">Answer all {targetItemCount(skillId)} to master it</p>
+          </div>
+        )}
 
         {/* Question card */}
         {question && (
           <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
-            {/* Audio replay button — large, obvious */}
-            <div className="flex items-start gap-3">
-              <button
-                onClick={() => {
-                  if (playing) stop();
-                  else speak(question.ruby_prompt || question.question);
-                }}
-                aria-label={playing ? "Stop reading" : "Read question aloud"}
-                className="flex-shrink-0 w-14 h-14 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white text-2xl flex items-center justify-center shadow-md"
-              >
-                {playing ? "⏹" : "🔊"}
-              </button>
-              <p className="text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
+            {/* Question + compact tap-to-hear icon (no autoplay) */}
+            <div className="flex items-start gap-2">
+              <p className="flex-1 text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
                 {question.ruby_prompt || question.question}
               </p>
+              <SpeakButton
+                playing={playing}
+                onClick={() => (playing ? stop() : speak(question.ruby_prompt || question.question))}
+              />
             </div>
 
             {/* Context (e.g. image description). Hidden once real picture tiles

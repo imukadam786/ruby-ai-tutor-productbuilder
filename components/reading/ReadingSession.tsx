@@ -47,6 +47,7 @@ import { detectStuck } from "@/lib/stuck-detector";
 import StuckScreen from "@/components/shared/StuckScreen";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import EduBackground from "@/components/EduBackground";
+import SpeakButton from "@/components/SpeakButton";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import {
@@ -1282,37 +1283,13 @@ function ReadingQuestionCard({
         <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap">
           {question.question}
         </p>
-        {/* Play/Stop pill — hidden for audio-tap questions (question text contains
-            phoneme labels like "SH" that TTS cannot pronounce correctly) */}
-        <div className="flex items-center gap-3 mt-3">
-          <button
-            onClick={() => togglePlay(question.question)}
-            hidden={isAudioTap}
-            className={`flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all ${
-              playing
-                ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
-                : "text-gray-400 hover:text-gray-600 hover:bg-gray-100"
-            }`}
-            title={playing ? "Stop" : "Play"}
-          >
-            {playing ? (
-              <>
-                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <rect x="6" y="4" width="4" height="16" rx="1" />
-                  <rect x="14" y="4" width="4" height="16" rx="1" />
-                </svg>
-                Stop
-              </>
-            ) : (
-              <>
-                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                Play
-              </>
-            )}
-          </button>
-        </div>
+        {/* Tap-to-hear icon — consistent across subjects. Hidden for audio-tap
+            questions whose text has phoneme labels (e.g. "SH") TTS mispronounces. */}
+        {!isAudioTap && (
+          <div className="mt-3">
+            <SpeakButton playing={playing} onClick={() => togglePlay(question.question)} />
+          </div>
+        )}
       </div>
 
       {/* Hint */}
