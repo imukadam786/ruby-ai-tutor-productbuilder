@@ -67,7 +67,8 @@ export async function POST(request: NextRequest) {
         .single();
 
       if (planData) {
-        const base = parseFloat(planData.price_rands);
+        // Use clientAmountOverride (e.g. weekly price) as base if provided, else DB price
+        const base = clientAmountOverride ? parseFloat(clientAmountOverride) : parseFloat(planData.price_rands);
         const dv   = parseFloat(voucher.discount_value);
         const discounted = voucher.discount_type === "percentage"
           ? base * (1 - dv / 100)
