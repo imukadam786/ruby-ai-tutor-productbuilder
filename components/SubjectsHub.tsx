@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
@@ -68,21 +69,28 @@ function SubjectCard({
 export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
+  const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       hydrateStudentProfileFromSupabase(),
       hydrateReadingProfileFromSupabase(),
-    ]).then(([mp, rp]) => {
+      fetchAuthorisedGrade(),
+    ]).then(([mp, rp, auth]) => {
       // Supabase is best-effort/async and empty for anonymous or unsynced
       // testers — fall back to the local profile (where a just-completed
       // placement actually lives) so status badges reflect reality.
       setMathsProfile(mp ?? getStudentProfile());
       setReadingProfile((rp as ReadingStudentProfile | null) ?? getReadingProfile());
+      setGrade(auth?.grade ?? null);
       setLoading(false);
     });
   }, []);
+
+  // Life Skills & Afrikaans are Foundation Phase (Gr 1–3) only — hide them for
+  // Grade 4+ learners. Default to showing while the grade is still loading.
+  const showFoundationSubjects = (grade ?? 1) <= 3;
 
   const mathsDone = mathsProfile?.placementCompleted ?? false;
   const readingDone = readingProfile?.placementCompleted ?? false;
@@ -169,28 +177,34 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
               onClick={() => onNavigate("reading")}
             />
 
-            {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans */}
-            <SubjectCard
-              thumbnail="/thumbnails/life-skills.png"
-              label="Life Skills"
-              caption="Beginning Knowledge & Health for Grades 1–3"
-              badge="Foundation Phase"
-              badgeColor="bg-amber-100 text-amber-700"
-              accentFrom="from-amber-500"
-              accentTo="to-rose-500"
-              onClick={() => onNavigate("life-skills")}
-            />
+            {/* Life Skills & Afrikaans are Foundation Phase (Gr 1–3) — hidden
+                for Grade 4+ learners. */}
+            {showFoundationSubjects && (
+              <>
+                {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans */}
+                <SubjectCard
+                  thumbnail="/thumbnails/life-skills.png"
+                  label="Life Skills"
+                  caption="Beginning Knowledge & Health for Grades 1–3"
+                  badge="Foundation Phase"
+                  badgeColor="bg-amber-100 text-amber-700"
+                  accentFrom="from-amber-500"
+                  accentTo="to-rose-500"
+                  onClick={() => onNavigate("life-skills")}
+                />
 
-            {/* Afrikaans FAL — Foundation Phase (Gr 1–3), free (no Scholar badge).
-                Uses the same thumbnail as the Matric Afrikaans FAL subject. */}
-            <SubjectCard
-              thumbnail="/thumbnails/afrikaans-fal.jpeg"
-              label="Afrikaans"
-              caption="First Additional Language — listen, choose and learn (Grades 1–3)"
-              accentFrom="from-emerald-500"
-              accentTo="to-teal-600"
-              onClick={() => onNavigate("afrikaans-fal")}
-            />
+                {/* Afrikaans FAL — Foundation Phase (Gr 1–3), free (no Scholar badge).
+                    Uses the same thumbnail as the Matric Afrikaans FAL subject. */}
+                <SubjectCard
+                  thumbnail="/thumbnails/afrikaans-fal.jpeg"
+                  label="Afrikaans"
+                  caption="First Additional Language — listen, choose and learn (Grades 1–3)"
+                  accentFrom="from-emerald-500"
+                  accentTo="to-teal-600"
+                  onClick={() => onNavigate("afrikaans-fal")}
+                />
+              </>
+            )}
           </div>
 
         </div>

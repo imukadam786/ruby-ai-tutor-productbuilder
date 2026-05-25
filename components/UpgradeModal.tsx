@@ -27,14 +27,18 @@ export default function UpgradeModal({ onDismiss, reason, matricOnly }: UpgradeM
                 : "You've reached your daily limit, upgrade to continue")}
             </p>
           </div>
+          {/* Always-visible exit. Lives in the sticky header so a learner who
+              taps a locked subject (e.g. Matric on the free plan) can never get
+              stuck — filled + sized up so it reads as tappable on mobile. */}
           <button
             onClick={onDismiss}
-            className="p-2 rounded-full hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors ml-4 flex-shrink-0"
-            aria-label="Close"
+            className="ml-4 flex-shrink-0 flex items-center gap-1.5 rounded-full bg-gray-100 hover:bg-gray-200 active:scale-95 text-gray-700 hover:text-gray-900 font-semibold text-sm pl-3 pr-3.5 py-2 transition-all"
+            aria-label="Close and go back"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
+            <span>Back</span>
           </button>
         </div>
 

@@ -33,6 +33,10 @@ export interface LifeSkillsBankQuestion {
   context?: string;             // image description / scenario setup
   input_type: LifeSkillsInputType;
   options?: string[];           // required for choice / image-match / sequence
+  /** Image keys parallel to `options` (image-match). Files live at
+   *  public/life-skills/<key>.<ext>; the session falls back to the option text
+   *  when a file is absent. Optional — items without it render as text. */
+  image_refs?: string[];
   expected: string | number;    // correct answer (or comma-separated order for sequence)
   memo: string;                 // why the answer is correct + wrong-answer hint
   error_signals: string[];      // 1–3 ERR_LS_* codes
@@ -185,6 +189,8 @@ export interface LifeSkillsGeneratedQuestion {
   ruby_prompt: string;
   context?: string;
   options?: string[];
+  /** Image keys parallel to `options` (image-match), or undefined for text. */
+  image_refs?: string[];
   expected_answer: string | number;
   memo: string;
   difficulty?: number;

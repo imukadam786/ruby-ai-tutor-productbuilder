@@ -11,6 +11,10 @@ interface ReadingSkillTreeViewProps {
   /** When provided, skills the student has already completed/attained become
    *  tappable to replay (extra practice — no progression is changed). */
   onReplaySkill?: (skillId: string) => void;
+  /** When provided, shows a "Continue where you left off" button (and makes the
+   *  active skill tile tappable) that resumes the current skill's session.
+   *  Mirrors the Afrikaans tree so every subject resumes the same way. */
+  onContinue?: () => void;
 }
 
 const statusConfig = {
@@ -39,7 +43,7 @@ type TreeData = {
 
 const treeData = readingSkillTreeData as unknown as TreeData;
 
-export default function ReadingSkillTreeView({ profile, onReplaySkill }: ReadingSkillTreeViewProps) {
+export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinue }: ReadingSkillTreeViewProps) {
   const levelProgress = useMemo(() => {
     if (!profile) return {};
     const result: Record<number, number> = {};
@@ -56,6 +60,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill }: Reading
   );
   const entrySkillId = profile?.placement?.entrySkillId ?? null;
   const hardGatePassed = profile?.placement?.hardGatePassed ?? true;
+  const currentSkillId = profile?.current_skill_id ?? null;
 
   function getExtendedStatus(skillId: string) {
     if (skillId === profile?.current_skill_id) return "active";
@@ -86,6 +91,27 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill }: Reading
           </div>
         ) : (
           <div className="max-w-2xl mx-auto space-y-4">
+            {/* Continue where you left off — jumps straight back into the
+                current skill so the learner never has to hunt for it. Same
+                button across Maths, Reading and Afrikaans. */}
+            {onContinue && currentSkillId && (
+              <button
+                onClick={onContinue}
+                className="w-full flex items-center gap-4 rounded-2xl border-2 border-emerald-300 bg-emerald-50 px-5 py-4 text-left hover:shadow-md active:scale-[0.99] transition-all"
+              >
+                <span className="text-3xl flex-shrink-0" aria-hidden>🚀</span>
+                <span className="flex-1 min-w-0">
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-emerald-700">
+                    Continue where you left off
+                  </span>
+                  <span className="block text-base font-bold text-[#1a2744] leading-tight truncate">
+                    {friendlyReadingSkillName(currentSkillId)}
+                  </span>
+                </span>
+                <span className="text-emerald-600 text-xl flex-shrink-0" aria-hidden>→</span>
+              </button>
+            )}
+
             {/* Placement summary banner */}
             {profile.placementCompleted && profile.placement && (
               <div className="bg-blue-50 border border-blue-200 rounded-2xl px-5 py-3 flex items-center gap-3">
@@ -201,11 +227,14 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill }: Reading
                               // Replay is allowed only on skills the student has already
                               // completed/attained (mastered, or auto-completed via placement).
                               const canReplay = !!onReplaySkill && (extStatus === "mastered" || extStatus === "auto_complete");
+                              // The active (current) skill resumes the session when tapped,
+                              // so the ▶ tile isn't a dead click.
+                              const canResume = !!onContinue && isActive;
 
                               const tileClass = `px-3 py-1.5 rounded-lg border text-xs font-medium text-left ${config.bg} ${config.text} ${config.border} ${
                                 isActive ? "ring-2 ring-purple-500 ring-offset-1 animate-pulse shadow-sm shadow-purple-300" : ""
                               } ${isEntry ? "ring-2 ring-blue-400 ring-offset-1" : ""} ${
-                                canReplay ? "cursor-pointer hover:ring-2 hover:ring-purple-300 hover:shadow-sm transition-all" : ""
+                                (canReplay || canResume) ? "cursor-pointer hover:ring-2 hover:ring-purple-300 hover:shadow-sm transition-all" : ""
                               }`;
                               const tileInner = (
                                 <>
@@ -228,6 +257,16 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill }: Reading
                                   onClick={() => onReplaySkill!(skill.id)}
                                   className={tileClass}
                                   title={`${skill.title} — ${config.label} · Tap to practise again`}
+                                >
+                                  {tileInner}
+                                </button>
+                              ) : canResume ? (
+                                <button
+                                  key={skill.id}
+                                  type="button"
+                                  onClick={onContinue}
+                                  className={tileClass}
+                                  title={`${skill.title} — ${config.label} · Tap to continue`}
                                 >
                                   {tileInner}
                                 </button>

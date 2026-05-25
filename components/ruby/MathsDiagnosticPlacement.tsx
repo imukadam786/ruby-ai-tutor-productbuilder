@@ -6,6 +6,7 @@ import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
 import { SEARCH_GATES, GATE_PASSED_ENTRY, LEVEL_LABEL, getSearchWindow } from "@/lib/maths-placement-engine";
 import { simplifyText } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
+import { DotArray, parseDotArray } from "./DotArray";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -260,22 +261,8 @@ function computePlacement(
 type Phase = "welcome" | "loading" | "task" | "result" | "error";
 
 // ── Stimulus renderer ─────────────────────────────────────────────────────────
-
-function parseDotArray(stimulus: string): number | null {
-  const m = stimulus.match(/^Dot array:\s*(\d+)\s*dots/i);
-  return m ? parseInt(m[1], 10) : null;
-}
-
-function DotArray({ count }: { count: number }) {
-  const dots = Array.from({ length: count }, (_, i) => i);
-  return (
-    <div className="bg-gradient-to-br from-blue-50 to-blue-50 rounded-2xl p-5 flex flex-wrap gap-3 justify-center items-center min-h-[100px]">
-      {dots.map((i) => (
-        <div key={i} className="w-8 h-8 rounded-full bg-blue-600 shadow-sm flex-shrink-0" />
-      ))}
-    </div>
-  );
-}
+// DotArray / parseDotArray live in ./DotArray so the practice session
+// (QuestionCard) renders identical dots.
 
 function StimulusDisplay({ stimulus }: { stimulus: string }) {
   const dotCount = parseDotArray(stimulus);

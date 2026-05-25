@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { GeneratedQuestion, GraduatedHint, QuestionTemplate } from "@/types/ruby";
+import { DotArray, parseDotArray } from "./DotArray";
 
 interface QuestionCardProps {
   question: GeneratedQuestion;
@@ -44,6 +45,13 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
   }, [question.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const templateInfo = templateLabels[question.template];
+
+  // "Count the dots" (M001) questions carry the dot count in the bank item's
+  // context — render real dots matching the Discovery activity, not text bullets.
+  const dotContext = typeof question.bank_question?.context === "string"
+    ? (question.bank_question.context as string)
+    : null;
+  const dotCount = parseDotArray(dotContext);
 
   const handleShowHint = () => {
     setHintLevel((prev) => Math.min(prev + 1, 3));
@@ -90,7 +98,8 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
       </div>
 
       {/* Question */}
-      <div className="px-6 py-6">
+      <div className="px-6 py-6 space-y-4">
+        {dotCount !== null && <DotArray count={dotCount} />}
         <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap">
           {question.question}
         </p>

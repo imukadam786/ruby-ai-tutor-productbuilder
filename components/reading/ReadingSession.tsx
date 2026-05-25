@@ -817,8 +817,10 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
           ctaLabel="Continue Learning 🚀"
           onStartLearning={async () => {
             if (onSelectPlan) {
+              // Finish + persist the placement BEFORE tearing the session down,
+              // so it's fully saved when Home / the skill tree next hydrate.
+              await handlePlacementComplete(pendingPlacementResult);
               onSelectPlan();
-              handlePlacementComplete(pendingPlacementResult);
               return;
             }
             setShowReport(false);

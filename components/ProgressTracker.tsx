@@ -13,7 +13,6 @@ import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
 import type { LifeSkillsSkillTree } from "@/types/life-skills";
 import { getLifeSkillsMasteryMap } from "@/lib/life-skills-student-model";
-import { seedForGrade as lifeSkillsSeedForGrade } from "@/lib/life-skills-grade-map";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import afrikaansTreeData from "@/data/afrikaans-skill-tree.json";
 import type { AfrikaansSkillTree, AfrikaansStudentProfile } from "@/types/afrikaans";
@@ -183,11 +182,6 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
     else hydrateAfrikaansProfileFromSupabase().then((p) => { if (p) setAfrikaansProfile(p); });
   }, []);
 
-  // Only show the level for the grade the student selected in onboarding
-  // (Foundation Phase: Gr1→L1, Gr2→L2, Gr3→L3). seedForGrade clamps
-  // out-of-range grades to the nearest available level.
-  const lifeSkillsSeed = lifeSkillsSeedForGrade(grade ?? 1);
-  const lifeSkillsLevel = lifeSkillsTree.levels.find((l) => l.id === lifeSkillsSeed.level);
   const afrikaansSeed = afrikaansSeedForGrade(grade ?? 1);
   const afrikaansLevel = afrikaansTree.levels.find((l) => l.id === afrikaansSeed.level);
 
@@ -204,6 +198,14 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
     lifeskills: lifeSkillsMasteredCount,
     afrikaans: afrikaansMasteredCount,
   };
+
+  // Life Skills & Afrikaans are Foundation Phase (Gr 1–3) — hide their tabs for
+  // Grade 4+ learners (matches the Subjects page). Default to showing while the
+  // grade is still loading.
+  const showFoundationSubjects = (grade ?? 1) <= 3;
+  const visibleTabs = SUBJECT_TABS.filter(
+    (t) => showFoundationSubjects || (t.id !== "lifeskills" && t.id !== "afrikaans")
+  );
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -273,8 +275,8 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
           {/* ── Skill Trees (one tab at a time) ────────────────────────── */}
           <div>
             {/* Subject tab bar */}
-            <div className="grid grid-cols-4 gap-2">
-              {SUBJECT_TABS.map((t) => {
+            <div className={`grid gap-2 ${visibleTabs.length >= 4 ? "grid-cols-4" : "grid-cols-2"}`}>
+              {visibleTabs.map((t) => {
                 const isActive = activeTab === t.id;
                 const count = masteredCounts[t.id];
                 return (
@@ -305,39 +307,43 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
 
               {activeTab === "lifeskills" && (
                 <div className="p-5 space-y-5">
-                  {lifeSkillsLevel ? (
-                    <div key={lifeSkillsLevel.id}>
-                      <div className="flex items-center justify-between mb-2">
-                        <h4 className="text-sm font-semibold text-[#1a2744]">{lifeSkillsLevel.title}</h4>
-                        <span className="text-xs text-gray-400">
-                          {lifeSkillsLevel.tiers[0]?.atomic_skills.length ?? 0} topics
-                        </span>
+                  {lifeSkillsTree.levels.length > 0 ? (
+                    // Show every grade's topics (Gr 1–3 = 36), each grade as its
+                    // own group — not just the learner's own grade.
+                    lifeSkillsTree.levels.map((level) => (
+                      <div key={level.id}>
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="text-sm font-semibold text-[#1a2744]">{level.title}</h4>
+                          <span className="text-xs text-gray-400">
+                            {level.tiers[0]?.atomic_skills.length ?? 0} topics
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {level.tiers[0]?.atomic_skills.map((skill) => {
+                            const status = lifeSkillsMastery[skill.id] ?? "available";
+                            const pillClass =
+                              status === "mastered"
+                                ? "bg-green-50 text-green-700 border-green-200"
+                                : status === "in_progress"
+                                ? "bg-amber-50 text-amber-700 border-amber-300"
+                                : "bg-gray-50 text-gray-500 border-gray-200";
+                            const icon = status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : "·";
+                            return (
+                              <span
+                                key={skill.id}
+                                className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
+                                title={`${skill.title} — ${status.replace("_", " ")}`}
+                              >
+                                <span className="mr-1">{icon}</span>
+                                {skill.title}
+                              </span>
+                            );
+                          })}
+                        </div>
                       </div>
-                      <div className="flex flex-wrap gap-2">
-                        {lifeSkillsLevel.tiers[0]?.atomic_skills.map((skill) => {
-                          const status = lifeSkillsMastery[skill.id] ?? "available";
-                          const pillClass =
-                            status === "mastered"
-                              ? "bg-green-50 text-green-700 border-green-200"
-                              : status === "in_progress"
-                              ? "bg-amber-50 text-amber-700 border-amber-300"
-                              : "bg-gray-50 text-gray-500 border-gray-200";
-                          const icon = status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : "·";
-                          return (
-                            <span
-                              key={skill.id}
-                              className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
-                              title={`${skill.title} — ${status.replace("_", " ")}`}
-                            >
-                              <span className="mr-1">{icon}</span>
-                              {skill.title}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    </div>
+                    ))
                   ) : (
-                    <p className="text-sm text-gray-500">No Life Skills content for this grade yet.</p>
+                    <p className="text-sm text-gray-500">No Life Skills content yet.</p>
                   )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
                     <span className="inline-block mr-3">🏆 Mastered</span>

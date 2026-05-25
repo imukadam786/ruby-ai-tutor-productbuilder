@@ -237,6 +237,13 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
   useEffect(() => { void fetchUserPlan(); }, [fetchUserPlan]);
 
+  // Hydrate the reading profile on mount too (refreshStats only does maths), so
+  // a reading-skill-tree initial view — e.g. landing here straight after
+  // onboarding Discovery — has the learner's placement to show.
+  useEffect(() => {
+    void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
+  }, []);
+
   const MATRIC_VIEWS: ActiveView[] = ["matrics", "matric", "prep-papers-2026", "study-guides"];
 
   const MATRIC_PLANS = ["master", "matric-pack"];
@@ -297,6 +304,18 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   const startAfrikaansSkill = (skillId: string) => {
     if (typeof window !== "undefined") sessionStorage.setItem("ruby_afrikaans_target_skill", skillId);
     handleViewChange("afrikaans-fal");
+  };
+
+  // ── Continue where you left off (Maths / Reading) ─────────────────────────
+  // Resume the current skill's session. We clear any stale replay flag first so
+  // this is a normal resume (progression on), not an isolated replay.
+  const continueMaths = () => {
+    if (typeof window !== "undefined") sessionStorage.removeItem("ruby_maths_replay_skill");
+    handleViewChange("ruby");
+  };
+  const continueReading = () => {
+    if (typeof window !== "undefined") sessionStorage.removeItem("ruby_reading_replay_skill");
+    handleViewChange("reading");
   };
 
   return (
@@ -388,11 +407,11 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} onAfrikaansPickSkill={startAfrikaansSkill} />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
-        {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} />}
+        {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} onContinue={continueMaths} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
         {activeView === "reading" && <ErrorBoundary><ReadingSession onExitReplay={() => handleViewChange("reading-skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-reading" && <ErrorBoundary><ReadingSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
-        {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={startReadingReplay} />}
+        {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={startReadingReplay} onContinue={continueReading} />}
         {activeView === "life-skills" && <ErrorBoundary><LifeSkillsSession /></ErrorBoundary>}
         {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} />}
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
@@ -597,6 +616,9 @@ export default function Home() {
   const [welcomeName, setWelcomeName] = useState("");
   const [welcomeGrade, setWelcomeGrade] = useState("");
   const [pendingDiscovery, setPendingDiscovery] = useState<"maths" | "reading" | null>(null);
+  // Which subject's Discovery just finished, so the final post-onboarding mount
+  // can land the learner in that skill tree instead of dumping them on Home.
+  const [lastDiscovery, setLastDiscovery] = useState<"maths" | "reading" | null>(null);
   const [matricPrepPending, setMatricPrepPending] = useState(false);
 
   useEffect(() => {
@@ -750,6 +772,7 @@ export default function Home() {
         <AppContent
           initialView={discoveryView}
           onPostDiscovery={() => {
+            setLastDiscovery(pendingDiscovery);
             setPendingDiscovery(null);
             setAppState("post-discovery");
           }}
@@ -781,10 +804,18 @@ export default function Home() {
     );
   }
 
+  // After onboarding Discovery, land the learner in the matching skill tree
+  // (so the tree opens and their placement + "Continue" button are right there)
+  // instead of dropping them on Home. Returning users get the default (home).
+  const postOnboardingView: ActiveView | undefined =
+    lastDiscovery === "reading" ? "reading-skill-tree"
+    : lastDiscovery === "maths" ? "skill-tree"
+    : undefined;
+
   return (
     <LanguageProvider>
       <AppContent
-        initialView={undefined}
+        initialView={postOnboardingView}
         onPostDiscovery={undefined}
         showUpgradeOnMount={matricPrepPending}
       />

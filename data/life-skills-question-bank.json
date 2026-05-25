@@ -56,6 +56,12 @@
             "Eye",
             "Mouth"
           ],
+          "image_refs": [
+            "body_nose",
+            "body_ear",
+            "body_eye",
+            "body_mouth"
+          ],
           "expected": "Nose",
           "memo": "Your nose helps you smell things, like food cooking or flowers in the garden.",
           "error_signals": [
@@ -894,6 +900,12 @@
             "A bowl of pap",
             "A hat"
           ],
+          "image_refs": [
+            "obj_bicycle",
+            "obj_chair",
+            "food_pap",
+            "obj_hat"
+          ],
           "expected": "Bicycle with two wheels",
           "memo": "A bicycle has two wheels and a handlebar. You can ride it to get around.",
           "error_signals": [
@@ -1085,6 +1097,12 @@
             "A tree",
             "A phone booth"
           ],
+          "image_refs": [
+            "obj_trafficlight",
+            "obj_flag",
+            "obj_tree",
+            "obj_phone"
+          ],
           "expected": "Tall pole with red, yellow and green lights",
           "memo": "A traffic light has red, yellow and green lights stacked on top of each other. It tells drivers when to stop and go.",
           "error_signals": [
@@ -1176,6 +1194,12 @@
             "A sweet",
             "A biscuit",
             "A piece of cake"
+          ],
+          "image_refs": [
+            "food_carrot",
+            "food_sweet",
+            "food_biscuit",
+            "food_cake"
           ],
           "expected": "A carrot",
           "memo": "Carrots are vegetables that grow in the ground. Sweets, biscuits and cake are treats, not vegetables.",
@@ -1293,6 +1317,12 @@
             "A potato",
             "A carrot",
             "A slice of bread"
+          ],
+          "image_refs": [
+            "food_banana",
+            "food_potato",
+            "food_carrot",
+            "food_bread"
           ],
           "expected": "A banana",
           "memo": "Bananas grow on trees and are fruit. Potatoes and carrots grow in the ground as vegetables. Bread is made from grain.",
@@ -1454,6 +1484,12 @@
             "A gecko",
             "A whale"
           ],
+          "image_refs": [
+            "animal_cow",
+            "animal_tiger",
+            "animal_gecko",
+            "animal_whale"
+          ],
           "expected": "A cow",
           "memo": "Cows live on farms. Tigers and whales are wild animals, and geckos are small lizards that live around buildings.",
           "error_signals": [
@@ -1588,6 +1624,12 @@
             "A fish",
             "A monkey",
             "A snake"
+          ],
+          "image_refs": [
+            "animal_pig",
+            "animal_fish",
+            "animal_monkey",
+            "animal_snake"
           ],
           "expected": "A pig",
           "memo": "Pigs are common farm animals. Fish live in water, monkeys live in trees, and snakes are wild animals.",
@@ -2366,6 +2408,12 @@
             "Restaurant",
             "Post office"
           ],
+          "image_refs": [
+            "place_hospital",
+            "place_library",
+            "place_restaurant",
+            "place_postoffice"
+          ],
           "expected": "Building with a red cross sign",
           "memo": "Clinics usually have a red cross or first-aid sign. That helps people find them quickly when they are sick.",
           "error_signals": [
@@ -2487,6 +2535,12 @@
             "A school",
             "A post office"
           ],
+          "image_refs": [
+            "place_petrol",
+            "place_library",
+            "place_school",
+            "place_postoffice"
+          ],
           "expected": "A place where cars fill up with fuel",
           "memo": "Petrol stations sell fuel for cars and taxis. You can also buy some snacks and drinks there.",
           "error_signals": [
@@ -2559,6 +2613,12 @@
             "A smartphone",
             "A laptop",
             "A flat-screen TV"
+          ],
+          "image_refs": [
+            "obj_claypot",
+            "obj_smartphone",
+            "obj_laptop",
+            "obj_tv"
           ],
           "expected": "A clay pot",
           "memo": "Clay pots have been used for a very long time to cook and store food. Smartphones, laptops and TVs are modern things.",
@@ -3261,6 +3321,12 @@
             "A hamburger",
             "A doughnut"
           ],
+          "image_refs": [
+            "food_stew",
+            "food_pizza",
+            "food_burger",
+            "food_doughnut"
+          ],
           "expected": "Pap and stew with morogo",
           "memo": "Pap with stew and morogo (wild spinach) is a traditional, healthy South African meal. The others come from other places.",
           "error_signals": [
@@ -3387,6 +3453,12 @@
             "A hospital",
             "A shop",
             "An office"
+          ],
+          "image_refs": [
+            "place_house",
+            "place_hospital",
+            "place_shop",
+            "place_office"
           ],
           "expected": "A house",
           "memo": "A house is a home — a place where people live, sleep and eat together. The others are places to work, shop or get help.",
@@ -3723,6 +3795,12 @@
             "A cat",
             "An ant"
           ],
+          "image_refs": [
+            "animal_fish",
+            "animal_chicken",
+            "animal_cat",
+            "animal_ant"
+          ],
           "expected": "A fish",
           "memo": "Fish live in water and breathe through gills. Chickens, cats and ants live on land.",
           "error_signals": [
@@ -3855,6 +3933,12 @@
             "A cow",
             "A chicken",
             "A sheep"
+          ],
+          "image_refs": [
+            "animal_dolphin",
+            "animal_cow",
+            "animal_chicken",
+            "animal_sheep"
           ],
           "expected": "A dolphin",
           "memo": "Dolphins live in the sea. The other three are land animals you find on farms.",
@@ -4269,6 +4353,12 @@
             "Ear",
             "Hand",
             "Foot"
+          ],
+          "image_refs": [
+            "body_eye",
+            "body_ear",
+            "body_hand",
+            "body_foot"
           ],
           "expected": "Eye",
           "memo": "Eyes let us see colours, shapes and movement. Without them we would have to use other senses to know the world.",
@@ -5081,6 +5171,12 @@
             "A cat",
             "A sheep"
           ],
+          "image_refs": [
+            "animal_springbok",
+            "animal_chicken",
+            "animal_cat",
+            "animal_sheep"
+          ],
           "expected": "A springbok",
           "memo": "Springboks live wild in South Africa. The others are farm or pet animals that live with people.",
           "error_signals": [
@@ -5249,6 +5345,12 @@
             "A zebra",
             "An antelope",
             "A rabbit"
+          ],
+          "image_refs": [
+            "animal_leopard",
+            "animal_zebra",
+            "animal_antelope",
+            "animal_rabbit"
           ],
           "expected": "A leopard",
           "memo": "Leopards are predators — they hunt other animals. Zebras, antelope and rabbits are prey animals that eat plants.",
@@ -6555,6 +6657,12 @@
             "A star",
             "A comet"
           ],
+          "image_refs": [
+            "space_jupiter",
+            "space_moon",
+            "space_star",
+            "space_comet"
+          ],
           "expected": "Jupiter",
           "memo": "Jupiter is the biggest planet in our solar system. The Moon is not a planet (it orbits Earth), stars are like the sun, comets are icy travellers.",
           "error_signals": [
@@ -7229,6 +7337,12 @@
             "Just chips",
             "Just a fizzy drink"
           ],
+          "image_refs": [
+            "food_plate",
+            "food_sweet",
+            "food_chips",
+            "food_fizzy"
+          ],
           "expected": "Pap with vegetables and chicken",
           "memo": "A balanced meal has a grain (pap), vegetables and a protein (chicken). That gives your body everything it needs.",
           "error_signals": [
@@ -7417,6 +7531,12 @@
             "A pineapple",
             "An ice cream",
             "A chocolate bar"
+          ],
+          "image_refs": [
+            "food_spinach",
+            "food_pineapple",
+            "food_icecream",
+            "food_chocolate"
           ],
           "expected": "Spinach (morogo)",
           "memo": "Morogo (wild spinach) grows easily in SA gardens and is full of vitamins. Pineapples grow on big farms in warm areas, not most home gardens.",
