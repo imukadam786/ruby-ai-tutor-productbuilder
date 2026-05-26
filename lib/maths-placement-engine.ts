@@ -36,6 +36,26 @@ export const GATE_PASSED_ENTRY: Record<number, number> = {
   11: 22, // Passed Grade 12 → top of tree (level 22)
 };
 
+// ── Partial-pass entry map ─────────────────────────────────────────────────────
+// Keyed by the index of the highest gate a student FULLY passed. The value is the
+// landing level when the *next* gate up was only half-passed (exactly one of its
+// two topics correct). This rescues the "in-between" skill-tree levels that the
+// gate model otherwise skips: without it, a single slip on the next band drops a
+// student two levels (e.g. Grade 3 near-miss: L5 → L3) instead of one (L5 → L4).
+//
+// Rule applied: land one level above what the student fully proved, so we never
+// auto-complete content they have not demonstrated. Boundaries where the two
+// gates already sit on neighbouring levels (G1→G2, G4→G5, G6/G7, G7→G8, G11→G12)
+// have no in-between level and are intentionally absent.
+export const GATE_PARTIAL_ENTRY: Record<number, number> = {
+  1: 4,   // Passed Grade 2 + half of Grade 3   → Addition & Subtraction Fluency
+  2: 6,   // Passed Grade 3 + half of Grade 4   → Multiplicative Reasoning
+  4: 10,  // Passed Grade 5 + half of Grade 6   → Decimals
+  7: 14,  // Passed Grade 8 + half of Grade 9   → Linear Equations
+  8: 16,  // Passed Grade 9 + half of Grade 10  → Statistics and Data
+  9: 20,  // Passed Grade 10 + half of Grade 11 → Exponentials and Logarithms
+};
+
 // ── Level labels ─────────────────────────────────────────────────────────────
 
 export const LEVEL_LABEL: Record<number, string> = {
@@ -99,4 +119,89 @@ export function getGradeFloor(grade: number): number {
   if (grade <= 11) return 11;
   if (grade <= 12) return 13;
   return 17;
+}
+
+// ── Scoring helpers ────────────────────────────────────────────────────────────
+
+/**
+ * Whether a single domain is passed, given how many of its questions were correct.
+ * Threshold scales with question count:
+ *   2 questions (Grade 3–12): both must be correct — prevents a single lucky
+ *     answer passing a domain and cascading into a large overplacement.
+ *   3 questions (Grade 2):    majority (≥2/3) — one slip is forgiven.
+ *   6 questions (Grade 1):    majority (≥4/6) — consistent performance needed.
+ */
+export function isDomainPassed(correct: number, total: number): boolean {
+  if (total === 0) return false;
+  if (total === 2) return correct === 2; // strict: both correct
+  return correct / total >= 0.5;         // majority for 3q and 6q
+}
+
+/** A gate is passed only when BOTH of its domains are passed. */
+export function isGatePassed(
+  idx: number,
+  domainCorrect: Record<string, number>,
+  domainTotal: Record<string, number>,
+): boolean {
+  const gate = SEARCH_GATES[idx];
+  return (
+    !!gate &&
+    gate.domains.every((d) => isDomainPassed(domainCorrect[d] ?? 0, domainTotal[d] ?? 0))
+  );
+}
+
+/**
+ * Resolve a student's skill-tree entry level from their per-domain results.
+ *
+ * Order of decisions:
+ *   1. No gate passed at all → conservative grade floor.
+ *   2. Prerequisite gap (passed a higher band but failed a lower one) → start at
+ *      the failed band's content rather than skipping the gap.
+ *   3. Partial pass of the band just above the highest fully-passed band (exactly
+ *      one of its two topics correct) → the in-between level from GATE_PARTIAL_ENTRY.
+ *   4. Otherwise → the full-pass entry level for the highest gate passed.
+ */
+export function resolveEntryLevel(
+  domainCorrect: Record<string, number>,
+  domainTotal: Record<string, number>,
+  grade: number,
+): number {
+  const domainTested = (d: string) => (domainTotal[d] ?? 0) > 0;
+  const domainPassed = (d: string) =>
+    isDomainPassed(domainCorrect[d] ?? 0, domainTotal[d] ?? 0);
+
+  const [lo, hi] = getSearchWindow(grade);
+  let highestPassedGate = -1;
+  let lowestFailedGate = -1;
+  for (let i = lo; i <= hi; i++) {
+    if (isGatePassed(i, domainCorrect, domainTotal)) {
+      highestPassedGate = i;
+    } else {
+      const wasTested = SEARCH_GATES[i].domains.some((d) => domainTested(d));
+      if (wasTested && lowestFailedGate === -1) lowestFailedGate = i;
+    }
+  }
+
+  if (highestPassedGate < 0) return getGradeFloor(grade);
+
+  const hasGap = lowestFailedGate >= 0 && highestPassedGate > lowestFailedGate;
+  if (hasGap) {
+    return lowestFailedGate > 0
+      ? GATE_PASSED_ENTRY[lowestFailedGate - 1] ?? getGradeFloor(grade)
+      : getGradeFloor(grade);
+  }
+
+  // No prerequisite gap. If the band just above the highest fully-passed band was
+  // half-passed, the student has partial mastery of it — land one level up rather
+  // than skipping the in-between level entirely.
+  const nextGate = highestPassedGate + 1;
+  const partialLevel = GATE_PARTIAL_ENTRY[highestPassedGate];
+  if (nextGate <= hi && partialLevel !== undefined) {
+    const { domains } = SEARCH_GATES[nextGate];
+    const tested = domains.some((d) => domainTested(d));
+    const passedCount = domains.filter((d) => domainPassed(d)).length;
+    if (tested && passedCount === 1) return partialLevel;
+  }
+
+  return GATE_PASSED_ENTRY[highestPassedGate] ?? getGradeFloor(grade);
 }
