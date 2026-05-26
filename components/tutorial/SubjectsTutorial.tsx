@@ -4,20 +4,22 @@ import FeatureTutorialShell, { SlideData } from "./FeatureTutorialShell";
 
 function MockupSubjects({ isMobile }: { isMobile: boolean }) {
   const items = [
-    { emoji: "🧭", label: "Discover", badge: "Find your level", color: "from-slate-600 to-slate-700" },
-    { emoji: "🧮", label: "Maths",    badge: "12 mastered",    color: "from-blue-600 to-blue-700" },
-    { emoji: "📖", label: "Reading",  badge: "Not started",    color: "from-purple-600 to-purple-700" },
+    { emoji: "🧭", label: "Discover",    badge: "Find your level", color: "from-slate-600 to-slate-700" },
+    { emoji: "🧮", label: "Maths",       badge: "12 mastered",     color: "from-blue-600 to-blue-700" },
+    { emoji: "📖", label: "Reading",     badge: "Not started",     color: "from-purple-600 to-purple-700" },
+    { emoji: "🌍", label: "Life Skills", badge: "Grades 1–3",      color: "from-emerald-600 to-emerald-700" },
+    { emoji: "🇿🇦", label: "Afrikaans",   badge: "Grades 1–3",      color: "from-orange-600 to-orange-700" },
   ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div
-        className="bg-[#F4F4F5] rounded-2xl overflow-hidden shadow-sm flex flex-col gap-2 p-3"
-        style={{ width: isMobile ? "100%" : 360, height: isMobile ? 240 : 280 }}
+        className="bg-[#F4F4F5] rounded-2xl overflow-hidden shadow-sm flex flex-col gap-1.5 p-3"
+        style={{ width: isMobile ? "100%" : 360, height: isMobile ? 280 : 320 }}
       >
         {items.map((item) => (
           <div
             key={item.label}
-            className={`bg-gradient-to-r ${item.color} rounded-xl px-4 py-2.5 flex items-center justify-between flex-shrink-0`}
+            className={`bg-gradient-to-r ${item.color} rounded-xl px-4 py-2 flex items-center justify-between flex-shrink-0`}
           >
             <div className="flex items-center gap-2">
               <span className="text-base">{item.emoji}</span>
@@ -36,7 +38,7 @@ function MockupSubjects({ isMobile }: { isMobile: boolean }) {
 const SLIDES: readonly SlideData[] = [
   {
     subtitle: "Everything in one place",
-    description: "Subjects brings together Discovery, Maths, and Reading. Your progress badge is shown on each card so you can see where you are at a glance.",
+    description: "Subjects brings together Discovery, Maths, Reading, Life Skills, and Afrikaans. Each card shows your progress at a glance. Life Skills and Afrikaans are open for Grades 1–3.",
     Mockup: MockupSubjects,
   },
 ];

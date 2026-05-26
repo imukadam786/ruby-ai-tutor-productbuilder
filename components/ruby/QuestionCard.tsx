@@ -88,7 +88,11 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+    <div className="bg-white rounded-2xl border border-gray-200 shadow-xl shadow-blue-500/10 overflow-hidden">
+      {/* Ruby brand accent strip — gives the card a clear "top" edge so it
+          lifts off the patterned background. */}
+      <div className="h-1.5 bg-gradient-to-r from-[#B7182E] via-[#D6562E] to-[#E8B341]" />
+
       {/* Topic badge — same blue pill style as the Discovery activity */}
       <div className="px-5 py-3 border-b border-gray-100 flex items-center justify-between gap-3">
         <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">

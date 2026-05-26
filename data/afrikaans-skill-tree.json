@@ -21,10 +21,21 @@
               "description": "Respond to one or two simple spoken Afrikaans instructions by tapping the right object/picture, e.g. 'Wys vir my die rooi bal' (Show me the red ball). Total Physical Response style.",
               "caps_term": "T1-T4",
               "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Replay the instruction slowly. Drop to a single-step instruction with two clearly different picture choices before adding a second step.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.LUI.02",
@@ -32,11 +43,23 @@
               "title": "Verstaan alledaagse frases en groete (understand everyday phrases & greetings)",
               "description": "Understand the meaning of common greetings and classroom phrases heard in Afrikaans, e.g. 'Goeie môre', 'Hoe gaan dit?', 'Mag ek asseblief...' — pick the right meaning or the right reply.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G1.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Anchor each phrase to a familiar situation (a picture of two people greeting). Replay audio and offer the English meaning as a hint before the Afrikaans choices.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.LUI.03",
@@ -44,11 +67,25 @@
               "title": "Beantwoord vrae oor 'n storie (answer questions about a heard story)",
               "description": "Listen to a short, simple Afrikaans story or description and answer Wie? (who), Wat? (what), Hoeveel? (how many) comprehension questions.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.LUI.01"],
-              "templates": ["audio", "story", "choice", "image-match"],
+              "prerequisites": [
+                "AF.G1.LUI.02"
+              ],
+              "templates": [
+                "audio",
+                "story",
+                "choice",
+                "image-match"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Re-read the story one sentence at a time. Ask the question right after the matching sentence. Use the picture to support recall.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -63,11 +100,23 @@
               "title": "Herken rymwoorde (identify rhyming words)",
               "description": "Hear Afrikaans words and identify which ones rhyme, e.g. kat / mat / hoed — which two sound the same at the end.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G1.LUI.03"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Exaggerate and stretch the ending sound. Compare just two words at a time before offering three choices.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.KLK.02",
@@ -75,11 +124,23 @@
               "title": "Herken beginklanke (recognise beginning sounds)",
               "description": "Identify the first sound of a familiar Afrikaans word, e.g. /k/ in 'kat', /h/ in 'hoed' — choose the word that starts with a given sound.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G1.KLK.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Say the word, then say it again with the first sound held long (k-k-kat). Offer two words with very different starts before three.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.KLK.03",
@@ -87,11 +148,24 @@
               "title": "Verdeel sinne in woorde (split sentences into words)",
               "description": "Hear a short Afrikaans sentence and count or tap how many words it has, e.g. 'Die kat slaap' = 3 words (one clap per word).",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["audio", "choice", "sequence"],
+              "prerequisites": [
+                "AF.G1.KLK.02"
+              ],
+              "templates": [
+                "audio",
+                "choice",
+                "sequence"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Clap each word with the child. Start with two-word sentences before three- and four-word ones.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.KLK.04",
@@ -99,11 +173,23 @@
               "title": "Verdeel woorde in lettergrepe (split words into syllables)",
               "description": "Hear an Afrikaans word and count its syllables (claps), e.g. ska-pe = 2, pie-sang = 2, skoen-lap-per = 3.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.KLK.03"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G1.KLK.03"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Clap and say each chunk slowly. Use the child's own name first, then one- and two-syllable words before longer ones.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.KLK.05",
@@ -111,11 +197,23 @@
               "title": "Onderskei aanvangsklank en res (onset and rime)",
               "description": "Split a simple word into its first sound and the rest, e.g. k-at, m-at, l-at; choose the word made from a given onset + rime.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.KLK.02"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G1.KLK.04"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Say the onset and rime separated by a pause (k ... at), then blend them. Keep the rime constant across choices (-at) so only the first sound changes.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.KLK.06",
@@ -123,11 +221,23 @@
               "title": "Herken meervoude (klank) (recognise plurals by ear)",
               "description": "Hear a noun and its plural and notice the change in sound, e.g. boek/boeke, kat/katte, sok/sokkies — pick the one that means more than one.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G1.KLK.05"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Show one object then many, saying the singular then plural. Stress the added ending sound (-e, -te, -s).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -142,11 +252,24 @@
               "title": "Kleure (colours)",
               "description": "Core Afrikaans colour words: rooi, blou, geel, groen, swart, wit, oranje, pers, bruin, pienk.",
               "caps_term": "T1",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G1.KLK.06"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Pair each colour word with a clear block of that colour. Practise two contrasting colours before adding more.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.WRD.02",
@@ -154,11 +277,24 @@
               "title": "Liggaamsdele (body parts)",
               "description": "Afrikaans body-part words: kop, hare, oë, ore, neus, mond, arms, hande, bene, voete.",
               "caps_term": "T1",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G1.WRD.01"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Let the child point to the body part on themselves as they hear the word. Start with face parts before limbs.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.WRD.03",
@@ -166,11 +302,24 @@
               "title": "My klere (clothes)",
               "description": "Afrikaans clothing words: hemp, broek, rok, trui, sokkies, skoene, hoed, jas.",
               "caps_term": "T1",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G1.WRD.02"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Link each word to a picture of someone wearing the item. Group by where it is worn (top, bottom, feet, head).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.WRD.04",
@@ -178,11 +327,24 @@
               "title": "Voedsel (food)",
               "description": "Afrikaans food words: appel, piesang, lemoen, brood, melk, eier, kos, water, pap.",
               "caps_term": "T2",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G1.WRD.03"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Use pictures of single, recognisable foods. Practise fruits as one set before mixing food types.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.WRD.05",
@@ -190,11 +352,24 @@
               "title": "Diere (animals)",
               "description": "Afrikaans animal words: hond, kat, koei, perd, skaap, voël, vis, hoender, olifant.",
               "caps_term": "T2",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G1.WRD.04"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Pair each animal word with its picture and, where helpful, its sound. Start with pets/farm animals the child knows.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.WRD.06",
@@ -202,11 +377,24 @@
               "title": "Die weer (weather)",
               "description": "Afrikaans weather words: son, reën, wind, wolk, koud, warm, sneeu.",
               "caps_term": "T3",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G1.WRD.05"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Connect each word to today's weather or a clear weather picture. Contrast pairs (koud/warm, son/reën).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.WRD.07",
@@ -214,11 +402,24 @@
               "title": "Vorms, grootte en rigting (shapes, size, direction)",
               "description": "Afrikaans words for shape/size/position: groot, klein, sirkel, vierkant, op, onder, in, langs.",
               "caps_term": "T3-T4",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G1.WRD.06"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Demonstrate position words with a real object (a ball on/under a box). Contrast opposites (groot/klein, op/onder).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -233,11 +434,23 @@
               "title": "Herken sigwoorde (recognise sight words)",
               "description": "Recognise high-frequency Afrikaans sight words by sight: die, en, is, was, hy, sy, ek, ons, kan, hulle.",
               "caps_term": "T2-T4",
-              "prerequisites": [],
-              "templates": ["choice", "audio"],
+              "prerequisites": [
+                "AF.G1.WRD.07"
+              ],
+              "templates": [
+                "choice",
+                "audio"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Show the word and say it together a few times. Compare two words that look different before similar-looking ones (hy/sy).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.LEE.02",
@@ -245,11 +458,23 @@
               "title": "Lees etikette in die omgewing (read environmental labels)",
               "description": "Read common labelled words from the classroom/environment and match them to the object: deur, venster, kas, bord, stoel, tafel; everyday signs oop/toe, in/uit.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G1.LEE.01"],
-              "templates": ["image-match", "choice"],
+              "prerequisites": [
+                "AF.G1.LEE.01"
+              ],
+              "templates": [
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Point to the real labelled object as the word is read. Practise opposites together (oop/toe).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.LEE.03",
@@ -257,11 +482,23 @@
               "title": "Pas onderskrif by prent (match caption to picture)",
               "description": "Match a short Afrikaans caption or word to the picture it describes, e.g. 'Die rooi bal' to the right image.",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G1.LEE.01"],
-              "templates": ["image-match", "choice"],
+              "prerequisites": [
+                "AF.G1.LEE.02"
+              ],
+              "templates": [
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Read the caption aloud while pointing to each word. Reduce to a single keyword (rooi, bal) if the full caption is too much.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.LEE.04",
@@ -269,11 +506,24 @@
               "title": "Beantwoord begripsvrae (answer comprehension questions)",
               "description": "After a short shared-reading text with a picture, answer simple Afrikaans comprehension questions (Wie? Wat? Waar?).",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G1.LEE.01"],
-              "templates": ["story", "choice", "image-match"],
+              "prerequisites": [
+                "AF.G1.LEE.03"
+              ],
+              "templates": [
+                "story",
+                "choice",
+                "image-match"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Re-read the relevant sentence and point to the picture detail that answers the question.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -288,11 +538,23 @@
               "title": "Teenwoordige tyd (present tense)",
               "description": "Understand and use simple present-tense sentences, e.g. 'Sy hou van skool', 'Ek speel'.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G1.LEE.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Act out the action while saying the sentence. Keep the subject simple (ek/sy) and the verb familiar.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.TAA.02",
@@ -300,11 +562,23 @@
               "title": "Ontkenning (negation)",
               "description": "Understand the Afrikaans double-negative pattern, e.g. 'Sy lees nie', 'Ek hou nie van pere nie', 'Moenie hardloop nie'.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.TAA.01"],
-              "templates": ["choice", "true-false"],
+              "prerequisites": [
+                "AF.G1.TAA.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Contrast a positive sentence with its negative version side by side. Highlight the two 'nie' words that wrap the idea.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.TAA.03",
@@ -312,11 +586,22 @@
               "title": "Vraagsinne (question words)",
               "description": "Understand simple Afrikaans question words: Wat? Hoe? Hoeveel? Wie? — match the question to the right kind of answer.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["choice"],
+              "prerequisites": [
+                "AF.G1.TAA.02"
+              ],
+              "templates": [
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Tie each question word to what it asks for (Wie = a person, Hoeveel = a number). Use a picture so the answer is visible.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.TAA.04",
@@ -324,11 +609,24 @@
               "title": "Persoonlike voornaamwoorde (personal pronouns)",
               "description": "Understand and use Afrikaans personal pronouns: ek, jy, hy, sy, ons, hulle.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["choice", "cloze", "image-match"],
+              "prerequisites": [
+                "AF.G1.TAA.03"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "image-match"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Point to who the pronoun means (me = ek, the boy = hy). Practise ek/jy first, then hy/sy, then ons/hulle.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.TAA.05",
@@ -336,11 +634,23 @@
               "title": "Modale werkwoorde (modal verbs: mag, kan)",
               "description": "Understand and use 'kan' (can) and 'mag' (may), e.g. 'Ek kan spring', 'Mag ek uitgaan?'.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.TAA.01"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G1.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Link 'kan' to ability (show it) and 'mag' to asking permission. Use classroom requests the child knows.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.TAA.06",
@@ -348,11 +658,23 @@
               "title": "Meervoude (plurals)",
               "description": "Form and recognise plurals of familiar nouns, e.g. boek/boeke, kat/katte, appel/appels.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G1.TAA.05"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Show one then many objects. Group nouns by their plural ending (-e, -s, -te) and practise one group at a time.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.TAA.07",
@@ -360,11 +682,23 @@
               "title": "Besitlike voornaamwoorde (possessive pronouns)",
               "description": "Understand and use Afrikaans possessives: my, jou, sy, haar, ons; myne, syne, hare.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G1.TAA.04"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G1.TAA.06"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Hold up an object and say whose it is (my potlood, jou boek). Practise my/jou before sy/haar.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.TAA.08",
@@ -372,11 +706,23 @@
               "title": "Voorsetsels (prepositions)",
               "description": "Understand Afrikaans position words: op, in, onder, langs, by, uit.",
               "caps_term": "T2-T4",
-              "prerequisites": [],
-              "templates": ["choice", "image-match"],
+              "prerequisites": [
+                "AF.G1.TAA.07"
+              ],
+              "templates": [
+                "choice",
+                "image-match"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Demonstrate with a real object (the cat is op/onder/in the box). Contrast two positions at a time.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G1.TAA.09",
@@ -384,11 +730,23 @@
               "title": "Byvoeglike naamwoorde en bywoorde (adjectives & adverbs)",
               "description": "Understand simple Afrikaans describing words: gelukkig, hartseer, groot, klein (adjectives); vinnig, stadig (adverbs).",
               "caps_term": "T3-T4",
-              "prerequisites": [],
-              "templates": ["choice", "image-match"],
+              "prerequisites": [
+                "AF.G1.TAA.08"
+              ],
+              "templates": [
+                "choice",
+                "image-match"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Match each describing word to a clear picture or action (a happy face, running fast). Practise opposite pairs.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         }
@@ -411,11 +769,22 @@
               "title": "Volg opeenvolgende instruksies (follow consecutive instructions)",
               "description": "Respond to two short consecutive Afrikaans instructions, e.g. 'Trek 'n sirkel. Kleur dit rooi in.' (Draw a circle. Colour it red.)",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.LUI.01"],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Replay and break into one step at a time. Confirm the first step before adding the second.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.LUI.02",
@@ -423,11 +792,24 @@
               "title": "Identifiseer voorwerp uit beskrywing (identify object from description)",
               "description": "Listen to a simple Afrikaans description and choose the object/picture it describes, e.g. 'Dit is rond en rooi. Jy speel daarmee.' → bal.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.LUI.03"],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G2.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Re-read the description one clue at a time and let the child rule options out clue by clue.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.LUI.03",
@@ -435,11 +817,25 @@
               "title": "Beantwoord vrae oor 'n storie — gebeure in volgorde (story comprehension: events in order)",
               "description": "Listen to a short Afrikaans story and answer comprehension questions, including what happened first/next/last.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.LUI.03"],
-              "templates": ["audio", "story", "choice", "sequence"],
+              "prerequisites": [
+                "AF.G2.LUI.02"
+              ],
+              "templates": [
+                "audio",
+                "story",
+                "choice",
+                "sequence"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Re-read the story and pause after each event. Ask 'what happened next?' before the ordering question.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -454,11 +850,23 @@
               "title": "Onderskei verwarrende klanke (distinguish confusable sounds)",
               "description": "Tell apart Afrikaans sounds that are easily confused, e.g. mier vs muur, bal vs bel.",
               "caps_term": "T1-T2",
-              "prerequisites": ["AF.G1.KLK.02"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G2.LUI.03"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Say the two words back to back, exaggerating the differing vowel. Show the letters so the child links sound to spelling.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.KLK.02",
@@ -466,11 +874,23 @@
               "title": "Letter-klank verhoudings (letter-sound relationships)",
               "description": "Match single Afrikaans letters to their sounds, e.g. which letter makes /m/, /s/, /k/. Note where the sound differs from English.",
               "caps_term": "T1-T2",
-              "prerequisites": ["AF.G1.KLK.05"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G2.KLK.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Show the letter, say its sound, give a key word (m -> /m/ -> mat). Start with letters that sound the same as English.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.KLK.03",
@@ -478,11 +898,24 @@
               "title": "Bou en breek 3-letterwoorde (build & break 3-letter words)",
               "description": "Blend and segment simple CVC Afrikaans words, e.g. k-a-t -> kat, p-e-n -> pen, s-o-n -> son.",
               "caps_term": "T1-T3",
-              "prerequisites": ["AF.G2.KLK.02"],
-              "templates": ["audio", "choice", "sequence"],
+              "prerequisites": [
+                "AF.G2.KLK.02"
+              ],
+              "templates": [
+                "audio",
+                "choice",
+                "sequence"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Sound each letter with a finger tap, then sweep to blend. For segmenting, stretch the word and tap each sound.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.KLK.04",
@@ -490,11 +923,23 @@
               "title": "Woordfamilies (word families)",
               "description": "Group Afrikaans words that share a rime into families, e.g. kos/los/pos, kat/mat/lat, pen/hen/den.",
               "caps_term": "T2-T3",
-              "prerequisites": ["AF.G2.KLK.03"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G2.KLK.03"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Fix the ending and swap the first letter. Read the family as a list so the pattern is heard.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.KLK.05",
@@ -502,11 +947,23 @@
               "title": "Herken eindklanke (recognise end sounds)",
               "description": "Notice common end sounds in Afrikaans, e.g. plural -e/-s and diminutive -tjie/-jie (kat->katjie, hond->hondjie).",
               "caps_term": "T2-T3",
-              "prerequisites": ["AF.G2.KLK.02", "AF.G1.KLK.06"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G2.KLK.04"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Say base word then changed word, stressing the added ending. Compare two endings at a time.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.KLK.06",
@@ -514,11 +971,24 @@
               "title": "Konsonanttweeklanke (consonant blends)",
               "description": "Recognise and build words with common Afrikaans consonant blends at the start/end, e.g. st-, dr-, sk-, -nd, -rd (staan, drink, hand, perd).",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G2.KLK.03"],
-              "templates": ["audio", "choice", "sequence"],
+              "prerequisites": [
+                "AF.G2.KLK.05"
+              ],
+              "templates": [
+                "audio",
+                "choice",
+                "sequence"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Say the two consonants joined (st, dr) before the rest of the word. Build from the blend outward.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.KLK.07",
@@ -526,11 +996,23 @@
               "title": "Vokaaltweeklanke (vowel digraphs)",
               "description": "Recognise Afrikaans double-vowel sounds: oo, ee, uu, aa, e.g. b-oo-t, l-ee-r, m-uu-r, m-aa-n.",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G2.KLK.02"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G2.KLK.06"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Contrast the short vowel with the long double vowel (man vs maan). Hold the long sound.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -545,11 +1027,24 @@
               "title": "Gevoelens (feelings)",
               "description": "Afrikaans feeling words: bly, hartseer, kwaad, bang, moeg, opgewonde.",
               "caps_term": "T1",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G2.KLK.07"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Match each feeling to a clear face. Practise opposite pairs (bly/hartseer).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.WRD.02",
@@ -557,11 +1052,24 @@
               "title": "Seisoene (seasons)",
               "description": "Afrikaans seasons: lente, somer, herfs, winter.",
               "caps_term": "T2-T3",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G2.WRD.01"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Link each season to a clear picture and the weather word the child knows (winter/koud).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.WRD.03",
@@ -569,11 +1077,23 @@
               "title": "Tyd en volgorde (time & sequence words)",
               "description": "Afrikaans time/sequence vocabulary: dae van die week, gister, vandag, môre, eers, toe, daarna.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G2.WRD.02"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Order the days/words on a line. Anchor gister/vandag/môre to a calendar.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.WRD.04",
@@ -581,11 +1101,24 @@
               "title": "Kos en drinkgoed — uitgebrei (food & drink, extended)",
               "description": "More Afrikaans food/drink words building on Grade 1: vleis, groente, vrugte, sap, tee, koek, kaas.",
               "caps_term": "T2",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G2.WRD.03"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Group by category (vrugte, groente). Use single clear food pictures.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.WRD.05",
@@ -593,11 +1126,24 @@
               "title": "Aksiewoorde (action verbs)",
               "description": "Common Afrikaans action verbs (feed the past tense): hardloop, spring, sit, staan, eet, drink, slaap, lees, skryf, speel.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G2.WRD.04"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Act out each verb. Pair the word with a picture of the action.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -612,11 +1158,23 @@
               "title": "Sigwoordeskat uitbrei (expand sight vocabulary)",
               "description": "Recognise a larger set of Afrikaans sight words by sight, e.g. met, het, op, by, vir, nie, dit, het, was.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.LEE.01"],
-              "templates": ["choice", "audio"],
+              "prerequisites": [
+                "AF.G2.WRD.05"
+              ],
+              "templates": [
+                "choice",
+                "audio"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Show and say the word together a few times. Compare similar-looking words carefully.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.LEE.02",
@@ -624,11 +1182,24 @@
               "title": "Kry betekenis uit teks en prente (get meaning from text + pictures)",
               "description": "Use a short written Afrikaans text with pictures to work out meaning, e.g. choosing the picture that matches the sentence.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.LEE.04"],
-              "templates": ["story", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G2.LEE.01"
+              ],
+              "templates": [
+                "story",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Read the sentence, then look at each picture and ask which one it could be.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.LEE.03",
@@ -636,11 +1207,24 @@
               "title": "Rangskik prente in volgorde (sequence pictures)",
               "description": "Put pictures of a short Afrikaans story in logical order using the text as a guide.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G1.LEE.04"],
-              "templates": ["sequence", "story", "image-match"],
+              "prerequisites": [
+                "AF.G2.LEE.02"
+              ],
+              "templates": [
+                "sequence",
+                "story",
+                "image-match"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Find the first event together, then ask 'what happened next?' for each step.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.LEE.04",
@@ -648,11 +1232,23 @@
               "title": "Pas onderskrifte by prente (match captions to pictures)",
               "description": "Match longer Afrikaans captions (a short sentence) to the correct picture.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G1.LEE.03"],
-              "templates": ["image-match", "choice"],
+              "prerequisites": [
+                "AF.G2.LEE.03"
+              ],
+              "templates": [
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Read each caption word by word and check the picture detail it names.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.LEE.05",
@@ -660,11 +1256,23 @@
               "title": "Beantwoord begripsvrae en som op (comprehension & simple summary)",
               "description": "Answer comprehension questions on a short Afrikaans text and pick the best 1-sentence summary of what it was about.",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G1.LEE.04"],
-              "templates": ["story", "choice"],
+              "prerequisites": [
+                "AF.G2.LEE.04"
+              ],
+              "templates": [
+                "story",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Re-read, then ask 'what is the whole thing mostly about?' before offering summary choices.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -679,11 +1287,23 @@
               "title": "Verlede tyd (past tense: het ge-)",
               "description": "Understand and form the Afrikaans past tense with 'het' + ge-verb, e.g. 'Ek het gespeel', 'Sy het haar gesig gewas'.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G1.TAA.01"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G2.LEE.05"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Contrast 'Ek speel' (now) with 'Ek het gespeel' (done). Point out 'het' + the ge- on the verb.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.TAA.02",
@@ -691,11 +1311,24 @@
               "title": "Tydlyne en volgorde (timelines & sequence)",
               "description": "Understand and use Afrikaans sequence words: Eers ... en toe ... Daarna ... Uiteindelik.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G2.TAA.01"],
-              "templates": ["choice", "cloze", "sequence"],
+              "prerequisites": [
+                "AF.G2.TAA.01"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sequence"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Lay three events on a line and label them eers/toe/daarna. Re-tell a routine the child knows.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.TAA.03",
@@ -703,11 +1336,22 @@
               "title": "Vraagsinne uitgebrei (expanded questions: Wanneer? Waar?)",
               "description": "Understand and use 'Wanneer?' (when) and 'Waar?' (where), alongside the Grade 1 question words.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.TAA.03"],
-              "templates": ["choice"],
+              "prerequisites": [
+                "AF.G2.TAA.02"
+              ],
+              "templates": [
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Tie 'Wanneer?' to a time answer and 'Waar?' to a place answer. Match question to the kind of answer.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.TAA.04",
@@ -715,11 +1359,23 @@
               "title": "Voorwerpsvoornaamwoorde (object pronouns: my, hom, haar)",
               "description": "Understand and use Afrikaans object pronouns: my (me), jou (you), hom (him), haar (her), ons (us), hulle (them), e.g. 'Sy help my'.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G1.TAA.04"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G2.TAA.03"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Show who receives the action (She helps ME). Practise my/hom/haar in short sentences.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.TAA.05",
@@ -727,11 +1383,23 @@
               "title": "Koppelwerkwoord 'is' (linking verb 'is')",
               "description": "Understand and use the linking verb 'is', e.g. 'Sy is gelukkig', 'Die hond is groot', 'Ek is moeg'.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.TAA.01"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G2.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Join a subject to a describing word with 'is' (Sy + is + bly). Use feelings the child knows.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.TAA.06",
@@ -739,11 +1407,23 @@
               "title": "Meer byvoeglike naamwoorde en werkwoorde (more adjectives & verbs)",
               "description": "Understand a wider range of Afrikaans describing words and verbs, e.g. lekker, vinnig, lank, kort; loop, val, lag, huil.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G1.TAA.09"],
-              "templates": ["choice", "image-match"],
+              "prerequisites": [
+                "AF.G2.TAA.05"
+              ],
+              "templates": [
+                "choice",
+                "image-match"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Match each new word to a clear picture or action. Practise opposites (lank/kort).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G2.TAA.07",
@@ -751,11 +1431,23 @@
               "title": "Meervoude uitgebrei (extended plurals)",
               "description": "Form a wider range of Afrikaans plurals: -e, -s, -te, and common irregulars (oog->oë, kind->kinders, blom->blomme).",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G1.TAA.06"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G2.TAA.06"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Group nouns by plural ending and practise one group at a time. Flag irregulars as 'special words'.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         }
@@ -778,11 +1470,22 @@
               "title": "Beantwoord begripsvrae — insluitend Waarom (comprehension incl. why)",
               "description": "Listen to an Afrikaans story or account and answer comprehension questions, including 'Waarom?' (why) questions that need a reason.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G2.LUI.03"],
-              "templates": ["audio", "story", "choice"],
+              "prerequisites": [],
+              "templates": [
+                "audio",
+                "story",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Re-read the cause-and-effect sentence. For 'why', point to the part of the story that gives the reason.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.LUI.02",
@@ -790,11 +1493,24 @@
               "title": "Voorspel wat volgende gebeur (predict the next event)",
               "description": "Listen to part of an Afrikaans story and predict what will happen next from the clues.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G2.LUI.03"],
-              "templates": ["audio", "story", "choice"],
+              "prerequisites": [
+                "AF.G3.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "story",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Recap what has happened, then ask 'what makes sense next?' Rule out options that do not fit the clues.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.LUI.03",
@@ -802,11 +1518,24 @@
               "title": "Luister na niefiksie en som op (non-fiction: answer & summarise)",
               "description": "Listen to a short Afrikaans non-fiction text (a factual recount or information) and answer questions / pick the best summary.",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G3.LUI.01"],
-              "templates": ["audio", "story", "choice"],
+              "prerequisites": [
+                "AF.G3.LUI.02"
+              ],
+              "templates": [
+                "audio",
+                "story",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Re-read each fact. Ask 'what is the whole thing about?' before offering summary choices.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -821,11 +1550,23 @@
               "title": "Konsonanttweeklanke uitgebrei (extended consonant blends)",
               "description": "Recognise more Afrikaans consonant blends at start/end, e.g. sm-, spr-, str-, skr-, -ld, -rg (smul, spring, straat, veld, berg).",
               "caps_term": "T1-T2",
-              "prerequisites": ["AF.G2.KLK.06"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G3.LUI.03"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Say the cluster joined (spr, str) before the rest. Build from the blend outward.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.KLK.02",
@@ -833,11 +1574,23 @@
               "title": "Diftonge (diphthongs: eeu, aai, ooi, oei)",
               "description": "Recognise Afrikaans triple-letter diphthongs: eeu (leeu), aai (draai), ooi (mooi), oei (koei).",
               "caps_term": "T2-T3",
-              "prerequisites": ["AF.G2.KLK.07"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G3.KLK.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Stretch the glide sound and link to a key word (oei -> koei). Compare two diphthongs at a time.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.KLK.03",
@@ -845,11 +1598,23 @@
               "title": "Twee-vokaal klanke (two-vowel sounds: ei, eu, ou)",
               "description": "Recognise Afrikaans two-vowel sounds: ei (trein), eu (seun), ou (koud).",
               "caps_term": "T2-T3",
-              "prerequisites": ["AF.G2.KLK.07"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G3.KLK.02"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Link each sound to a key word (eu -> seun). Contrast with a single vowel (ou in koud vs o in kos).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.KLK.04",
@@ -857,11 +1622,23 @@
               "title": "Klanke wat verskil (e-as-i, d-as-t)",
               "description": "Recognise where Afrikaans spelling and sound differ: the unstressed 'e' that sounds like 'i' (water, later) and the word-final 'd' that sounds like 't' (brood, bed).",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G2.KLK.02"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G3.KLK.03"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Say the word naturally, then point to the letter that sounds different. Group examples of the same rule.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.KLK.05",
@@ -869,11 +1646,24 @@
               "title": "Bou woorde met konsonantgroepe (blend consonant clusters)",
               "description": "Blend and segment Afrikaans words with consonant clusters, e.g. dr-i-nk, spr-ing, str-aat.",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G3.KLK.01"],
-              "templates": ["audio", "choice", "sequence"],
+              "prerequisites": [
+                "AF.G3.KLK.04"
+              ],
+              "templates": [
+                "audio",
+                "choice",
+                "sequence"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Keep the cluster together as one unit while blending the rest of the word.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.KLK.06",
@@ -881,11 +1671,23 @@
               "title": "Agtervoegsels (suffixes)",
               "description": "Recognise and use common Afrikaans suffixes: -tjie/-jie (little), -e/-s (more than one), -er/-ste (comparison).",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G2.KLK.05"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G3.KLK.05"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Show the base word, then add the ending and say what it changes (little / more / most).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.KLK.07",
@@ -893,11 +1695,23 @@
               "title": "Herken rymwoorde — uitgebrei (rhyme, more complex)",
               "description": "Recognise rhyming Afrikaans words, including more complex words, e.g. kom/som/dom, spring/sing/ding.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G1.KLK.01"],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G3.KLK.06"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Exaggerate the ending. Compare two words before three.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -912,11 +1726,24 @@
               "title": "Beskrywende woorde (descriptive words)",
               "description": "Afrikaans describing words that support comparison: groot, klein, lank, kort, swaar, lig, vinnig, stadig.",
               "caps_term": "T1-T2",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G3.KLK.07"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Match each word to a clear picture. Teach in opposite pairs (swaar/lig).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.WRD.02",
@@ -924,11 +1751,23 @@
               "title": "Teenoorgesteldes (opposites)",
               "description": "Common Afrikaans opposite pairs: oop/toe, vinnig/stadig, warm/koud, groot/klein, lank/kort, bly/hartseer.",
               "caps_term": "T1-T2",
-              "prerequisites": [],
-              "templates": ["audio", "choice"],
+              "prerequisites": [
+                "AF.G3.WRD.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Always present the pair together. Use a picture or action that shows the contrast.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.WRD.03",
@@ -936,11 +1775,24 @@
               "title": "Diere en hul lewe (animals & their life — non-fiction)",
               "description": "Afrikaans non-fiction vocabulary about animals: leef, woon, eet, troppe, wild, mak, groot/klein diere.",
               "caps_term": "T2-T3",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G3.WRD.02"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Tie each word to a clear animal picture or fact the child knows.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.WRD.04",
@@ -948,11 +1800,24 @@
               "title": "Plekke in die dorp (places in town)",
               "description": "Afrikaans place words: winkel, skool, huis, hospitaal, park, kerk, biblioteek.",
               "caps_term": "T2-T3",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G3.WRD.03"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Link each place to what you do there (winkel -> koop). Use clear building pictures.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.WRD.05",
@@ -960,11 +1825,24 @@
               "title": "Vervoer (transport)",
               "description": "Afrikaans transport words: motor, bus, trein, fiets, vliegtuig, boot, vragmotor.",
               "caps_term": "T3-T4",
-              "prerequisites": [],
-              "templates": ["audio", "image-match", "choice"],
+              "prerequisites": [
+                "AF.G3.WRD.04"
+              ],
+              "templates": [
+                "audio",
+                "image-match",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Match each word to a clear vehicle picture, and to where it travels (lug/water/pad).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -979,11 +1857,23 @@
               "title": "Lees plakkate en opskrifte (read posters & headings)",
               "description": "Read simple Afrikaans posters/headings from the environment and work out what they mean.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G2.LEE.01"],
-              "templates": ["choice", "image-match"],
+              "prerequisites": [
+                "AF.G3.WRD.05"
+              ],
+              "templates": [
+                "choice",
+                "image-match"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Read the heading word by word; use any picture on the poster as a clue.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.LEE.02",
@@ -991,11 +1881,23 @@
               "title": "Beantwoord begripsvrae — uitgebrei (comprehension incl. why)",
               "description": "Read a short Afrikaans text and answer comprehension questions, including 'Waarom?' questions.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G2.LEE.05"],
-              "templates": ["story", "choice"],
+              "prerequisites": [
+                "AF.G3.LEE.01"
+              ],
+              "templates": [
+                "story",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Re-read the sentence that gives the reason. Underline cause-and-effect words.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.LEE.03",
@@ -1003,11 +1905,24 @@
               "title": "Rangskik gebeure in volgorde (order events)",
               "description": "Read a short Afrikaans story and put its events in logical order.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G2.LEE.03"],
-              "templates": ["sequence", "story", "choice"],
+              "prerequisites": [
+                "AF.G3.LEE.02"
+              ],
+              "templates": [
+                "sequence",
+                "story",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Find the first event, then ask 'what happened next?' for each step.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.LEE.04",
@@ -1015,11 +1930,23 @@
               "title": "Som 'n niefiksie-teks op (summarise non-fiction)",
               "description": "Read a short Afrikaans non-fiction text (factual recount/information) and choose the best summary.",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G2.LEE.05"],
-              "templates": ["story", "choice"],
+              "prerequisites": [
+                "AF.G3.LEE.03"
+              ],
+              "templates": [
+                "story",
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Ask 'what is the whole text mostly about?' Rule out details that are too small to be the summary.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.LEE.05",
@@ -1027,11 +1954,24 @@
               "title": "Gebruik diagramme en illustrasies (use diagrams & illustrations)",
               "description": "Use an Afrikaans labelled diagram or illustration to answer questions about the text.",
               "caps_term": "T3-T4",
-              "prerequisites": ["AF.G2.LEE.02"],
-              "templates": ["image-match", "choice", "story"],
+              "prerequisites": [
+                "AF.G3.LEE.04"
+              ],
+              "templates": [
+                "image-match",
+                "choice",
+                "story"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Point to the labelled part of the diagram that answers the question.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         },
@@ -1046,11 +1986,23 @@
               "title": "Toekomende tyd (future tense: sal)",
               "description": "Understand and form the Afrikaans future tense with 'sal' + verb, e.g. 'Ek sal speel', 'Sy sal kom'.",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G2.TAA.01"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G3.LEE.05"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Tie 'sal' to something not yet done (later/môre). Contrast with the past 'het'.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.TAA.02",
@@ -1058,11 +2010,23 @@
               "title": "Al drie tye (present, past, future contrasted)",
               "description": "Tell apart and choose the right Afrikaans tense: present (Ek speel), past (Ek het gespeel), future (Ek sal speel).",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G3.TAA.01"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G3.TAA.01"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Anchor each tense to a time word: nou (present), gister (past), môre (future).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.TAA.03",
@@ -1070,11 +2034,23 @@
               "title": "Lidwoorde ('n, die)",
               "description": "Use the Afrikaans articles ''n' (a/an) and 'die' (the) correctly with nouns.",
               "caps_term": "T1-T4",
-              "prerequisites": [],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G3.TAA.02"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Use ''n' for any one (a dog) and 'die' for a specific one (the dog we know).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.TAA.04",
@@ -1082,11 +2058,23 @@
               "title": "Trappe van vergelyking (degrees of comparison)",
               "description": "Understand and use Afrikaans comparison: groot, groter, die grootste; vinnig, vinniger, die vinnigste.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G2.TAA.06"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G3.TAA.03"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Line up three things small-to-big and label them: groot, groter, grootste. Stress -er and -ste.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.TAA.05",
@@ -1094,11 +2082,23 @@
               "title": "Aanwysende voornaamwoorde (demonstratives)",
               "description": "Understand and use Afrikaans demonstratives: hierdie (this), daardie (that), dit (it).",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G2.TAA.04"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G3.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Point near (hierdie) and far (daardie) with real objects. Practise the pair together.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.TAA.06",
@@ -1106,11 +2106,22 @@
               "title": "Vraagsinne (Watter? Waarom?)",
               "description": "Understand and use a variety of Afrikaans question words, including 'Watter?' (which) and 'Waarom?' (why).",
               "caps_term": "T1-T4",
-              "prerequisites": ["AF.G2.TAA.03"],
-              "templates": ["choice"],
+              "prerequisites": [
+                "AF.G3.TAA.05"
+              ],
+              "templates": [
+                "choice"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Tie 'Watter?' to a choice between options and 'Waarom?' to a reason (omdat ...).",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             },
             {
               "id": "AF.G3.TAA.07",
@@ -1118,11 +2129,23 @@
               "title": "Selfstandige naamwoorde en meervoude (nouns & plurals consolidated)",
               "description": "Recognise Afrikaans nouns (incl. uncountable: suiker, sand, water) and consolidate plural forms.",
               "caps_term": "T2-T4",
-              "prerequisites": ["AF.G2.TAA.07"],
-              "templates": ["choice", "cloze"],
+              "prerequisites": [
+                "AF.G3.TAA.06"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
               "error_signatures": [],
               "recovery_strategy": "Sort words into 'things you can count' and 'things you cannot count' (suiker, sand). Review plural endings.",
-              "progression": { "model": "practice-through", "complete_when": "all_items_correct_once", "reteach_on_error": true, "requeue_missed": true, "allow_scaffolding": true, "blocks_progress": false }
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
             }
           ]
         }

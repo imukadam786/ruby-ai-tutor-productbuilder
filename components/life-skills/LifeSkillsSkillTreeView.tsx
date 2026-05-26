@@ -30,11 +30,14 @@ interface LifeSkillsSkillTreeViewProps {
   /** Map of skill_id → "mastered"/"in_progress" so the tile shows status.
    *  Optional — when omitted, all topics render as "available". */
   masteryStatus?: Record<string, "mastered" | "in_progress" | "available">;
+  /** Optional back action — shows a "← Subjects" button when provided. */
+  onBack?: () => void;
 }
 
 export default function LifeSkillsSkillTreeView({
   onPickTopic,
   masteryStatus,
+  onBack,
 }: LifeSkillsSkillTreeViewProps) {
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
@@ -72,7 +75,17 @@ export default function LifeSkillsSkillTreeView({
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
       <div className="relative flex-1 overflow-y-auto">
-       <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-6 pb-12 w-full">
+       <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-5 pb-12 w-full">
+        {/* Back */}
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="mb-4 text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
+          >
+            ← Subjects
+          </button>
+        )}
+
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-[#1a2744]">

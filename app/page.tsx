@@ -407,13 +407,13 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} onAfrikaansPickSkill={startAfrikaansSkill} />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
-        {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} onContinue={continueMaths} />}
+        {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} onContinue={continueMaths} onBack={() => handleViewChange("subjects")} />}
         {activeView === "student-dashboard" && <StudentDashboard profile={rubyProfile} />}
         {activeView === "reading" && <ErrorBoundary><ReadingSession onExitReplay={() => handleViewChange("reading-skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-reading" && <ErrorBoundary><ReadingSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
-        {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={startReadingReplay} onContinue={continueReading} />}
-        {activeView === "life-skills" && <ErrorBoundary><LifeSkillsSession /></ErrorBoundary>}
-        {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} />}
+        {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={startReadingReplay} onContinue={continueReading} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "life-skills" && <ErrorBoundary><LifeSkillsSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} onBack={() => handleViewChange("subjects")} />}
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
         {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} onBack={() => handleViewChange("subjects")} />}

@@ -74,7 +74,7 @@ type TopicMastery = "available" | "in_progress" | "mastered";
 
 type Phase = "tree" | "loading" | "question" | "feedback" | "mastered";
 
-export default function LifeSkillsSession() {
+export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = {}) {
   const [phase, setPhase] = useState<Phase>("tree");
   const [skillId, setSkillId] = useState<string | null>(null);
   const [question, setQuestion] = useState<LifeSkillsGeneratedQuestion | null>(null);
@@ -327,7 +327,7 @@ export default function LifeSkillsSession() {
 
   // ─── Render: tree (default) ────────────────────────────────────────────────
   if (phase === "tree") {
-    return <LifeSkillsSkillTreeView onPickTopic={handlePickTopic} masteryStatus={mastery} />;
+    return <LifeSkillsSkillTreeView onPickTopic={handlePickTopic} masteryStatus={mastery} onBack={onBack} />;
   }
 
   // ─── Render: end-of-topic ─────────────────────────────────────────────────

@@ -16,6 +16,8 @@ interface ReadingSkillTreeViewProps {
    *  active skill tile tappable) that resumes the current skill's session.
    *  Mirrors the Afrikaans tree so every subject resumes the same way. */
   onContinue?: () => void;
+  /** Optional back action — shows a "← Subjects" button when provided. */
+  onBack?: () => void;
 }
 
 const statusConfig = {
@@ -44,7 +46,7 @@ type TreeData = {
 
 const treeData = readingSkillTreeData as unknown as TreeData;
 
-export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinue }: ReadingSkillTreeViewProps) {
+export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinue, onBack }: ReadingSkillTreeViewProps) {
   const { t } = useT();
   const levelProgress = useMemo(() => {
     if (!profile) return {};
@@ -86,6 +88,16 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
       </div>
 
       <div className="flex-1 overflow-y-auto p-6">
+        {onBack && (
+          <div className="max-w-2xl mx-auto mb-4">
+            <button
+              onClick={onBack}
+              className="text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
+            >
+              ← Subjects
+            </button>
+          </div>
+        )}
         {!profile ? (
           <div className="text-center py-12 text-gray-400">
             <p className="text-4xl mb-3">🌳</p>
