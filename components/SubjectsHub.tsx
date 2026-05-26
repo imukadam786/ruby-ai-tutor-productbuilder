@@ -5,6 +5,8 @@ import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import { HIGHEST_AVAILABLE_LEVEL as LIFE_SKILLS_MAX_GRADE } from "@/lib/life-skills-grade-map";
+import { HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
@@ -90,9 +92,12 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     });
   }, []);
 
-  // Life Skills & Afrikaans are Foundation Phase (Gr 1–3) only — hide them for
-  // Grade 4+ learners. Default to showing while the grade is still loading.
-  const showFoundationSubjects = (grade ?? 1) <= 3;
+  // Each subject card is gated by its own authored-content range, so they
+  // stay in lock-step with the per-subject HIGHEST_AVAILABLE_LEVEL. Default
+  // to showing while the grade is still loading.
+  const learnerGrade = grade ?? 1;
+  const showLifeSkills = learnerGrade <= LIFE_SKILLS_MAX_GRADE;
+  const showAfrikaans = learnerGrade <= AFRIKAANS_MAX_GRADE;
 
   const mathsDone = mathsProfile?.placementCompleted ?? false;
   const readingDone = readingProfile?.placementCompleted ?? false;
@@ -179,33 +184,33 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
               onClick={() => onNavigate("reading")}
             />
 
-            {/* Life Skills & Afrikaans are Foundation Phase (Gr 1–3) — hidden
-                for Grade 4+ learners. */}
-            {showFoundationSubjects && (
-              <>
-                {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans */}
-                <SubjectCard
-                  thumbnail="/thumbnails/life-skills.png"
-                  label="Life Skills"
-                  caption="Beginning Knowledge & Health for Grades 1–3"
-                  badge="Foundation Phase"
-                  badgeColor="bg-amber-100 text-amber-700"
-                  accentFrom="from-amber-500"
-                  accentTo="to-rose-500"
-                  onClick={() => onNavigate("life-skills")}
-                />
+            {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans.
+                Hidden once the learner is past LIFE_SKILLS_MAX_GRADE. */}
+            {showLifeSkills && (
+              <SubjectCard
+                thumbnail="/thumbnails/life-skills.png"
+                label="Life Skills"
+                caption={`Beginning Knowledge & Health for Grades 1–${LIFE_SKILLS_MAX_GRADE}`}
+                badge="Foundation Phase"
+                badgeColor="bg-amber-100 text-amber-700"
+                accentFrom="from-amber-500"
+                accentTo="to-rose-500"
+                onClick={() => onNavigate("life-skills")}
+              />
+            )}
 
-                {/* Afrikaans FAL — Foundation Phase (Gr 1–3), free (no Scholar badge).
-                    Uses the same thumbnail as the Matric Afrikaans FAL subject. */}
-                <SubjectCard
-                  thumbnail="/thumbnails/afrikaans-fal.jpeg"
-                  label="Afrikaans"
-                  caption="First Additional Language — listen, choose and learn (Grades 1–3)"
-                  accentFrom="from-emerald-500"
-                  accentTo="to-teal-600"
-                  onClick={() => onNavigate("afrikaans-fal")}
-                />
-              </>
+            {/* Afrikaans FAL — free (no Scholar badge). Hidden once the
+                learner is past AFRIKAANS_MAX_GRADE. Same thumbnail as the
+                Matric Afrikaans FAL subject. */}
+            {showAfrikaans && (
+              <SubjectCard
+                thumbnail="/thumbnails/afrikaans-fal.jpeg"
+                label="Afrikaans"
+                caption={`First Additional Language — listen, choose and learn (Grades 1–${AFRIKAANS_MAX_GRADE})`}
+                accentFrom="from-emerald-500"
+                accentTo="to-teal-600"
+                onClick={() => onNavigate("afrikaans-fal")}
+              />
             )}
           </div>
 

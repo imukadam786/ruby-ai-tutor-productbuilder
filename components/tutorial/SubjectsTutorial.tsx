@@ -8,7 +8,7 @@ function MockupSubjects({ isMobile }: { isMobile: boolean }) {
     { emoji: "🧮", label: "Maths",       badge: "12 mastered",     color: "from-blue-600 to-blue-700" },
     { emoji: "📖", label: "Reading",     badge: "Not started",     color: "from-purple-600 to-purple-700" },
     { emoji: "🌍", label: "Life Skills", badge: "Grades 1–3",      color: "from-emerald-600 to-emerald-700" },
-    { emoji: "🇿🇦", label: "Afrikaans",   badge: "Grades 1–3",      color: "from-orange-600 to-orange-700" },
+    { emoji: "🇿🇦", label: "Afrikaans",   badge: "Grades 1–4",      color: "from-orange-600 to-orange-700" },
   ];
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
@@ -38,7 +38,7 @@ function MockupSubjects({ isMobile }: { isMobile: boolean }) {
 const SLIDES: readonly SlideData[] = [
   {
     subtitle: "Everything in one place",
-    description: "Subjects brings together Discovery, Maths, Reading, Life Skills, and Afrikaans. Each card shows your progress at a glance. Life Skills and Afrikaans are open for Grades 1–3.",
+    description: "Subjects brings together Discovery, Maths, Reading, Life Skills, and Afrikaans. Each card shows your progress at a glance. Life Skills is open for Grades 1–3 and Afrikaans for Grades 1–4.",
     Mockup: MockupSubjects,
   },
 ];

@@ -17,7 +17,8 @@ import { getLifeSkillsMasteryMap } from "@/lib/life-skills-student-model";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import afrikaansTreeData from "@/data/afrikaans-skill-tree.json";
 import type { AfrikaansSkillTree, AfrikaansStudentProfile } from "@/types/afrikaans";
-import { seedForGrade as afrikaansSeedForGrade } from "@/lib/afrikaans-grade-map";
+import { seedForGrade as afrikaansSeedForGrade, HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
+import { HIGHEST_AVAILABLE_LEVEL as LIFE_SKILLS_MAX_GRADE } from "@/lib/life-skills-grade-map";
 import {
   getAfrikaansSkillStatus,
   loadAfrikaansProfile,
@@ -201,13 +202,17 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
     afrikaans: afrikaansMasteredCount,
   };
 
-  // Life Skills & Afrikaans are Foundation Phase (Gr 1–3) — hide their tabs for
-  // Grade 4+ learners (matches the Subjects page). Default to showing while the
-  // grade is still loading.
-  const showFoundationSubjects = (grade ?? 1) <= 3;
-  const visibleTabs = SUBJECT_TABS.filter(
-    (t) => showFoundationSubjects || (t.id !== "lifeskills" && t.id !== "afrikaans")
-  );
+  // Each subject tab is gated by its own authored-content range, so they stay
+  // in lock-step with the per-subject HIGHEST_AVAILABLE_LEVEL (matches the
+  // Subjects page). Default to showing while the grade is still loading.
+  const learnerGrade = grade ?? 1;
+  const showLifeSkills = learnerGrade <= LIFE_SKILLS_MAX_GRADE;
+  const showAfrikaans = learnerGrade <= AFRIKAANS_MAX_GRADE;
+  const visibleTabs = SUBJECT_TABS.filter((t) => {
+    if (t.id === "lifeskills") return showLifeSkills;
+    if (t.id === "afrikaans") return showAfrikaans;
+    return true;
+  });
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
