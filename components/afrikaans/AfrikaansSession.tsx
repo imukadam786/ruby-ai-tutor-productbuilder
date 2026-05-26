@@ -18,7 +18,7 @@ import { supabase } from "@/lib/supabase";
 import { prefetchTTS } from "@/lib/tts";
 import { prefetchAfrikaans, useAfrikaansTTS } from "@/lib/afrikaans-audio";
 import afrikaansTreeData from "@/data/afrikaans-skill-tree.json";
-import afrikaansBankData from "@/data/afrikaans-question-bank.json";
+import { AFRIKAANS_SKILL_STATS } from "@/lib/afrikaans-skill-stats";
 import EduBackground from "@/components/EduBackground";
 import SpeakButton from "@/components/SpeakButton";
 import AfrikaansSkillTreeView from "./AfrikaansSkillTreeView";
@@ -41,7 +41,6 @@ import {
   trackSkillMastered,
 } from "@/lib/analytics";
 import type {
-  AfrikaansBank,
   AfrikaansGeneratedQuestion,
   AfrikaansGenerateQuestionResponse,
   AfrikaansSkillTree,
@@ -51,16 +50,15 @@ import type {
 } from "@/types/afrikaans";
 
 const tree = afrikaansTreeData as unknown as AfrikaansSkillTree;
-const bank = afrikaansBankData as unknown as AfrikaansBank;
 
 // A skill session walks every authored item; mastery (vs just "complete") is
 // judged after the fact by accuracy ≥ pass_threshold.
 function targetItemCount(skillId: string): number {
-  return bank.skills[skillId]?.questions.length ?? 8;
+  return AFRIKAANS_SKILL_STATS[skillId]?.itemCount ?? 8;
 }
 
 function passThreshold(skillId: string): number {
-  return bank.skills[skillId]?.pass_threshold ?? 0.6;
+  return AFRIKAANS_SKILL_STATS[skillId]?.passThreshold ?? 0.6;
 }
 
 function findSkill(skillId: string) {
