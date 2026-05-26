@@ -128,13 +128,6 @@ export default function DiagnosticReportView({
               <div>
                 <p className="text-gray-400 text-[10px] font-semibold uppercase tracking-wide">Working Level</p>
                 <p className="text-gray-900 font-bold text-sm leading-snug">{input.workingLevel}</p>
-                <p className="text-gray-400 text-xs">
-                  {input.gradeLevelGap < 0
-                    ? `${Math.abs(input.gradeLevelGap)} level${Math.abs(input.gradeLevelGap) !== 1 ? "s" : ""} ahead`
-                    : input.gradeLevelGap === 0
-                    ? "At expected"
-                    : `${input.gradeLevelGap} level${input.gradeLevelGap !== 1 ? "s" : ""} before expected`}
-                </p>
               </div>
               <div>
                 <p className="text-gray-400 text-[10px] font-semibold uppercase tracking-wide">Score</p>

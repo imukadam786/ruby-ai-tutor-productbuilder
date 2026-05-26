@@ -184,7 +184,15 @@ export function resolveEntryLevel(
 
   if (highestPassedGate < 0) return getGradeFloor(grade);
 
-  const hasGap = lowestFailedGate >= 0 && highestPassedGate > lowestFailedGate;
+  // High overall score skips the gap penalty: a near-perfect quiz is not
+  // evidence of a foundational gap — it's noise on a short instrument. With
+  // ≥75% correct overall and at least one gate passed, treat any "gap" as a
+  // slip and land at the highest gate passed instead of below the failed one.
+  const totalCorrect = Object.values(domainCorrect).reduce((a, b) => a + b, 0);
+  const totalAsked   = Object.values(domainTotal).reduce((a, b) => a + b, 0);
+  const skipGapPenalty = totalAsked > 0 && totalCorrect / totalAsked >= 0.75;
+
+  const hasGap = !skipGapPenalty && lowestFailedGate >= 0 && highestPassedGate > lowestFailedGate;
   if (hasGap) {
     return lowestFailedGate > 0
       ? GATE_PASSED_ENTRY[lowestFailedGate - 1] ?? getGradeFloor(grade)

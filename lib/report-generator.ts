@@ -93,6 +93,7 @@ TONE RULES — follow these absolutely:
 - Always use the child's first name, never "your child" or "the student".
 - Never use the words: diagnostic, assessment, test, score, data, algorithm, metric, threshold, rubric, tier, phase, node, skill ID.
 - Positive and forward-looking. Never alarming. Never list what will go wrong — only what will improve.
+- Never compare the child to their grade level, expected level, classmates, or any benchmark. Do not use phrases like "behind", "ahead", "catching up", "below grade", "at grade", "above grade", or "where they should be". Describe only where the child starts and how Ruby will build from there.
 - Short sentences. Plain words. A parent reading on a phone should understand every sentence.
 - Never use bullet points in your output — use full sentences in all prose fields.
 - The experienceBullets and expectedOutcomes fields ARE bullet points — keep them to one sentence each, no sub-bullets.
@@ -102,13 +103,6 @@ OUTPUT FORMAT: Respond with a single valid JSON object matching the ReportConten
 // ─── Prompt builder ───────────────────────────────────────────────────────────
 
 function buildPrompt(input: DiagnosticReportInput, errorDescriptions: string): string {
-  const gapText =
-    input.gradeLevelGap === 0
-      ? "at the expected starting point"
-      : input.gradeLevelGap > 0
-      ? `${input.gradeLevelGap} level${input.gradeLevelGap > 1 ? "s" : ""} before the expected starting point`
-      : "ahead of the expected starting point";
-
   const domainSummary = input.domainScores
     .map(
       (d) =>
@@ -121,7 +115,7 @@ function buildPrompt(input: DiagnosticReportInput, errorDescriptions: string): s
 STUDENT: ${input.studentName}
 SCHOOL GRADE: Grade ${input.studentGrade}
 SUBJECT: ${input.subject === "maths" ? "Maths" : "Reading"}
-WORKING LEVEL: ${input.workingLevel} (${gapText})
+WORKING LEVEL: ${input.workingLevel}
 SKILLS ALREADY KNOWN: ${input.skillsCompleted} skills auto-completed by the diagnostic
 STARTING SKILL ON RUBY: ${input.placementSkill}
 ${input.hardGateBlocked ? "HARD GATE: Student must complete encoding foundation before reading skills unlock." : ""}
