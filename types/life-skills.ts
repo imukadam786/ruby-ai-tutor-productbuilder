@@ -1,7 +1,8 @@
 // ─── Life Skills — content, skill tree, student model, session ───────────────
-// Foundation Phase (Grades 1–3) launch scope. Grade 4 (Intermediate Phase)
-// blocked on source doc. Bank shape and validator live at
-// scripts/validate-life-skills-bank.mjs; this file is the TypeScript mirror.
+// Covers FP Grades 1–3 (BK&H strand) and IP Grades 4–6 (PSW strand only —
+// Creative Arts and PE are activity-based and don't fit a question-bank tutor).
+// Bank shape and validator live at scripts/validate-life-skills-bank.mjs;
+// this file is the TypeScript mirror.
 
 // ─── Bank content ─────────────────────────────────────────────────────────────
 

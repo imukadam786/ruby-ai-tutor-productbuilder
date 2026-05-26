@@ -21,6 +21,21 @@ const TOPIC_EMOJI: Record<string, string> = {
   "LS.L3.BKH.T01": "🪞", "LS.L3.BKH.T02": "🏘️", "LS.L3.BKH.T03": "🗺️", "LS.L3.BKH.T04": "🚦",
   "LS.L3.BKH.T05": "🩺", "LS.L3.BKH.T06": "🍽️", "LS.L3.BKH.T07": "🌡️", "LS.L3.BKH.T08": "🤗",
   "LS.L3.BKH.T09": "🌳", "LS.L3.BKH.T10": "🚨", "LS.L3.BKH.T11": "🌟", "LS.L3.BKH.T12": "🎈",
+  // Grade 4 — Personal & Social Well-being
+  "LS.L4.PSW.T01": "💪", "LS.L4.PSW.T02": "🙅", "LS.L4.PSW.T03": "🤝", "LS.L4.PSW.T04": "😊",
+  "LS.L4.PSW.T05": "👥", "LS.L4.PSW.T06": "🛡️", "LS.L4.PSW.T07": "📜", "LS.L4.PSW.T08": "📖",
+  "LS.L4.PSW.T09": "🕌", "LS.L4.PSW.T10": "🌊", "LS.L4.PSW.T11": "🚸", "LS.L4.PSW.T12": "🧼",
+  "LS.L4.PSW.T13": "🦷", "LS.L4.PSW.T14": "🌱", "LS.L4.PSW.T15": "🎗️",
+  // Grade 5 — Personal & Social Well-being
+  "LS.L5.PSW.T01": "🪞", "LS.L5.PSW.T02": "💬", "LS.L5.PSW.T03": "❤️", "LS.L5.PSW.T04": "👫",
+  "LS.L5.PSW.T05": "⚖️", "LS.L5.PSW.T06": "🆘", "LS.L5.PSW.T07": "🚧", "LS.L5.PSW.T08": "🌍",
+  "LS.L5.PSW.T09": "🎉", "LS.L5.PSW.T10": "🔥", "LS.L5.PSW.T11": "💧", "LS.L5.PSW.T12": "🥗",
+  "LS.L5.PSW.T13": "🏥", "LS.L5.PSW.T14": "🎗️", "LS.L5.PSW.T15": "🚫",
+  // Grade 6 — Personal & Social Well-being
+  "LS.L6.PSW.T01": "🪞", "LS.L6.PSW.T02": "⭐", "LS.L6.PSW.T03": "👥", "LS.L6.PSW.T04": "🕊️",
+  "LS.L6.PSW.T05": "📝", "LS.L6.PSW.T06": "🛡️", "LS.L6.PSW.T07": "🎓", "LS.L6.PSW.T08": "🙏",
+  "LS.L6.PSW.T09": "🐾", "LS.L6.PSW.T10": "💛", "LS.L6.PSW.T11": "🇿🇦", "LS.L6.PSW.T12": "♀️",
+  "LS.L6.PSW.T13": "🩹", "LS.L6.PSW.T14": "🍳", "LS.L6.PSW.T15": "🤧", "LS.L6.PSW.T16": "🎗️",
 };
 
 const tree = lifeSkillsTreeData as unknown as LifeSkillsSkillTree;
@@ -68,7 +83,7 @@ export default function LifeSkillsSkillTreeView({
     );
   }
 
-  const tier = level.tiers[0]; // BK&H — only strand at launch
+  const tier = level.tiers[0]; // Single strand per level (BK&H at FP, PSW at IP)
   const topics = tier?.atomic_skills ?? [];
 
   return (

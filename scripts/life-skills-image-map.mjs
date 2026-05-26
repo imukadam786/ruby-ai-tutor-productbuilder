@@ -67,6 +67,56 @@ export const KEY_TO_EMOJI = {
   food_apple: "1f34e",
   place_beach: "1f3d6",
   sky_fireworks: "1f386", sky_sunset: "1f305", sky_fog: "1f32b",
+
+  // ── Intermediate Phase (Grades 4–6 PSW) additions ──
+  // emotions / faces
+  emotion_happy: "1f600", emotion_sad: "1f622",
+  emotion_angry: "1f620", emotion_grief: "1f622",  // grief shows as a crying face
+  emotion_fear: "1f628", emotion_jealous: "1f612",
+  emotion_bored: "1f611", emotion_excited: "1f603",
+  emotion_hungry: "1f60b",
+
+  // activities — proxies for personal strengths
+  activity_run: "1f3c3", activity_read: "1f4d6",
+  activity_sing: "1f3a4", activity_draw: "1f3a8",
+  activity_cook: "1f373",
+
+  // colours (traffic-light option set)
+  colour_red: "1f534", colour_green: "1f7e2",
+  colour_yellow: "1f7e1", colour_blue: "1f535",
+
+  // religious symbols
+  symbol_cross: "271d", symbol_star_of_david: "2721",
+  symbol_crescent: "262a", symbol_om: "1f549",
+
+  // religious / community places
+  place_church: "26ea", place_mosque: "1f54c",
+  place_synagogue: "1f54d", place_temple: "1f6d5",
+  place_stadium: "1f3df", place_mall: "1f3ec",
+
+  // foods / drinks (IP additions)
+  food_spaghetti: "1f35d", food_sushi: "1f363",
+  food_croissant: "1f950", food_water: "1f4a7",
+
+  // objects
+  obj_pencil: "270f", obj_pen: "1f58a",
+  obj_helmet: "26d1",
+  obj_slippers: "1f97f",   // APPROX: thong sandal stands in for slippers
+  obj_dress: "1f457", obj_sunglasses: "1f576",
+  obj_toothbrush: "1faa5", obj_football: "26bd",
+  obj_teapot: "1fad6",
+
+  // safety
+  safety_lifering: "1f6df",
+
+  // animals (IP additions)
+  animal_mosquito: "1f99f",
+
+  // gestures
+  gesture_handshake: "1f91d",
+
+  // festival symbols (Gr5 T09.16)
+  symbol_diya: "1fa94", symbol_christmas_tree: "1f384",
 };
 
 // ── exact bank option text -> key ────────────────────────────────────────────
@@ -144,4 +194,109 @@ export const LABEL_TO_KEY = {
   "Fireworks at night": "sky_fireworks",
   "A clear sunset": "sky_sunset",
   "A foggy morning": "sky_fog",
+
+  // ── Intermediate Phase (Grades 4–6) additions ──
+  // emotions (option text used in Gr4 T04.*, Gr5 T03.*)
+  "Happiness": "emotion_happy",
+  "Sadness": "emotion_sad",
+  "Anger": "emotion_angry",
+  "Grief": "emotion_grief",
+  "Fear": "emotion_fear",
+  "Jealousy": "emotion_jealous",
+  "Boredom": "emotion_bored",
+  "Excitement": "emotion_excited",
+  "Hunger": "emotion_hungry",
+
+  // activities (Gr4 T01 personal strengths)
+  "Running": "activity_run",
+  "Reading": "activity_read",
+  "Singing": "activity_sing",
+  "Drawing": "activity_draw",
+  "Drawing and painting": "activity_draw",
+  "Cooking": "activity_cook",
+  "Reading aloud": "activity_read",
+
+  // traffic light colours (Gr4 T11.02)
+  "Red": "colour_red",
+  "Green": "colour_green",
+  "Yellow": "colour_yellow",
+  "Blue": "colour_blue",
+
+  // foods (Gr4 cultures + diet)
+  "Pap and stew": "food_stew",
+  "Spaghetti from Italy": "food_spaghetti",
+  "Sushi from Japan": "food_sushi",
+  "Croissant from France": "food_croissant",
+  "Sweets and sugary fizzy drinks": "food_sweet",  // APPROX: one icon for the combo
+  "Apples": "food_apple",
+  "Carrots": "food_carrot",
+  "Plain water": "food_water",
+  "Sweetened cold drink (cola, fanta)": "food_fizzy",
+  "Plain pap": "food_pap",
+  "Drinking water": "food_water",
+  "Eating fruit": "food_apple",
+
+  // religious places (Gr4 T09.02–T09.05, T09.20)
+  "Church": "place_church",
+  "Mosque": "place_mosque",
+  "Synagogue": "place_synagogue",
+  "Temple": "place_temple",
+  "Hindu temple": "place_temple",
+  "Hindu temple (mandir)": "place_temple",
+  "Places of worship": "place_church",
+  "Football stadiums": "place_stadium",
+  "Shopping malls": "place_mall",
+  "Restaurants": "place_restaurant",
+
+  // religious symbols (Gr4 T09.09)
+  "Om (ॐ)": "symbol_om",
+  "The cross": "symbol_cross",
+  "The Star of David": "symbol_star_of_david",
+  "The crescent moon": "symbol_crescent",
+
+  // bicycle gear (Gr4 T11.05)
+  "A helmet": "obj_helmet",
+  "Slippers": "obj_slippers",
+  "A long dress": "obj_dress",
+  "Sunglasses only": "obj_sunglasses",
+
+  // emotion-vs-object set (Gr4 T04.01)
+  "Pencil": "obj_pencil",
+  "Shoe": "obj_shoes",
+  "Tree": "obj_tree",
+
+  // hygiene items (Gr4 T12.01)
+  "A toothbrush": "obj_toothbrush",
+  "A book": "obj_book",
+  "A pen": "obj_pen",
+  "A football": "obj_football",
+  "Football": "obj_football",
+
+  // pool safety (Gr4 T10.08)
+  "A life ring (red and white round float)": "safety_lifering",
+  "A loaf of bread": "food_bread",
+  "A textbook": "obj_book",
+  "A teapot": "obj_teapot",
+
+  // malaria mosquito (Gr5 T13.06)
+  "The bite of a specific kind of mosquito": "animal_mosquito",
+  "Holding hands": "gesture_handshake",
+
+  // emotion-face image-match (Gr4 T04.02)
+  "Smiling face": "emotion_happy",
+  "Frowning face": "emotion_sad",
+  "Crying face": "emotion_grief",
+  "Angry face": "emotion_angry",
+
+  // religion symbol → religion-name image-match (Gr4 T09.15, T09.16)
+  "Christianity": "symbol_cross",
+  "Judaism": "symbol_star_of_david",
+  "Islam": "symbol_crescent",
+  "Hinduism": "symbol_om",
+
+  // Gr5 T09.16 festival images
+  "Lit-up oil lamp (diya)": "symbol_diya",
+  "Christmas tree": "symbol_christmas_tree",
+  "Crescent moon and star": "symbol_crescent",
+  "Star of David": "symbol_star_of_david",
 };
