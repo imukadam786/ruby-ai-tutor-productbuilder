@@ -1,0 +1,499 @@
+[
+  {
+    "id": "D01",
+    "domain": "Phonological Awareness – Rhyme",
+    "domainCode": "D001",
+    "gate": "A",
+    "question": "Do 'ball' and 'bell' rhyme?",
+    "displayWord": "ball • bell",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Yes",
+        "value": "yes",
+        "correct": false
+      },
+      {
+        "label": "No",
+        "value": "no",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "D01B",
+    "domain": "Syllable Segmentation",
+    "domainCode": "D001B",
+    "gate": "A",
+    "question": "How many syllables in \"together\"?",
+    "displayWord": "together",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "2",
+        "value": "2",
+        "correct": false
+      },
+      {
+        "label": "3",
+        "value": "3",
+        "correct": true
+      },
+      {
+        "label": "4",
+        "value": "4",
+        "correct": false
+      }
+    ],
+    "subText": "Say the word quietly and count the beats."
+  },
+  {
+    "id": "D02",
+    "domain": "Phoneme Isolation – First Sound",
+    "domainCode": "D002",
+    "gate": "A",
+    "question": "What is the very first sound in 'yak'? Tap the sound below.",
+    "displayWord": "yak",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "value": "sound-1",
+        "speech": "K, as in kite",
+        "correct": false
+      },
+      {
+        "label": "Sound 2",
+        "value": "sound-2",
+        "speech": "Y, as in yes",
+        "correct": true
+      },
+      {
+        "label": "Sound 3",
+        "value": "sound-3",
+        "speech": "short A, as in apple",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
+  },
+  {
+    "id": "D02B",
+    "domain": "Full Phoneme Segmentation",
+    "domainCode": "D002B",
+    "gate": "A",
+    "question": "What is the last sound in \"big\"?",
+    "displayWord": "big",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "/g/",
+        "value": "/g/",
+        "speech": "/g/",
+        "correct": true
+      },
+      {
+        "label": "/b/",
+        "value": "/b/",
+        "speech": "/b/",
+        "correct": false
+      },
+      {
+        "label": "/i/",
+        "value": "/i/",
+        "speech": "/i/",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound choice, then choose the last sound in the word."
+  },
+  {
+    "id": "D03",
+    "domain": "Letter Sound – Consonants",
+    "domainCode": "D003",
+    "gate": "A",
+    "question": "What sound does this letter make?",
+    "displayWord": "r",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "value": "sound-1",
+        "speech": "L, as in leg",
+        "correct": false
+      },
+      {
+        "label": "Sound 2",
+        "value": "sound-2",
+        "speech": "W, as in wet",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "value": "sound-3",
+        "speech": "R, as in red",
+        "correct": true
+      }
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
+  },
+  {
+    "id": "D04",
+    "domain": "Letter Sound – Vowels",
+    "domainCode": "D004",
+    "gate": "A",
+    "question": "What sound does this letter make? Give me the short sound.",
+    "displayWord": "U",
+    "answerMode": "audio-tap",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "value": "sound-1",
+        "speech": "short I, as in sit",
+        "correct": false
+      },
+      {
+        "label": "Sound 2",
+        "value": "sound-2",
+        "speech": "short U, as in cup",
+        "correct": true
+      },
+      {
+        "label": "Sound 3",
+        "value": "sound-3",
+        "speech": "short O, as in hot",
+        "correct": false
+      }
+    ],
+    "subText": "Tap to hear each sound, then choose the right one."
+  },
+  {
+    "id": "D05",
+    "domain": "Digraph Recognition",
+    "answerMode": "audio-tap",
+    "gate": "A",
+    "question": "What sound do these two letters make together?",
+    "subText": "Tap to hear each sound, then choose the right one.",
+    "displayWord": "ph",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "speech": "F – ph makes the F sound, as in phone",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "speech": "P, as in pin",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "speech": "B, as in bat",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D05B",
+    "domain": "Digraph Recognition",
+    "answerMode": "audio-tap",
+    "gate": "A",
+    "question": "What sound do these two letters make together?",
+    "subText": "Tap to hear each sound, then choose the right one.",
+    "displayWord": "sh",
+    "choices": [
+      {
+        "label": "Sound 1",
+        "speech": "sh, as in ship",
+        "correct": true
+      },
+      {
+        "label": "Sound 2",
+        "speech": "S, as in sun",
+        "correct": false
+      },
+      {
+        "label": "Sound 3",
+        "speech": "ch, as in chip",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D06",
+    "domain": "Consonant Blend Decoding",
+    "answerMode": "voice",
+    "gate": "A",
+    "question": "Read this word out loud for me.",
+    "displayWord": "stem",
+    "expectedAnswer": "stem",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D07",
+    "domain": "CVC Word Reading",
+    "domainCode": "D007",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "fun",
+    "answerMode": "voice",
+    "expectedAnswer": "fun",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D08",
+    "domain": "Digraph Word Decoding",
+    "domainCode": "D008",
+    "gate": "B",
+    "question": "Read this word out loud for me.",
+    "displayWord": "shrug",
+    "answerMode": "voice",
+    "expectedAnswer": "shrug",
+    "voiceHint": "Tap the mic and say the word you see"
+  },
+  {
+    "id": "D09",
+    "domain": "Long Vowel / Silent E",
+    "domainCode": "D009",
+    "gate": "C",
+    "question": "Read this word out loud for me. The silent e changes the vowel sound.",
+    "displayWord": "DARE",
+    "answerMode": "voice",
+    "expectedAnswer": "dare",
+    "vowelPattern": "long a"
+  },
+  {
+    "id": "D10",
+    "domain": "Vowel Teams",
+    "domainCode": "D010",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "DEAL",
+    "answerMode": "voice",
+    "expectedAnswer": "deal",
+    "vowelTeam": "ea",
+    "maxResponseMs": 4000
+  },
+  {
+    "id": "D10B",
+    "domain": "Phoneme Sequence Blending",
+    "domainCode": "D010B",
+    "gate": "C",
+    "question": "Blend these sounds together: /s/ /t/ /r/ /oo/ /ng/ — what word do they make?",
+    "displayWord": "/s/ /t/ /r/ /oo/ /ng/",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "prong",
+        "value": "prong",
+        "correct": false
+      },
+      {
+        "label": "strong",
+        "value": "strong",
+        "correct": true
+      },
+      {
+        "label": "wrong",
+        "value": "wrong",
+        "correct": false
+      }
+    ],
+    "subText": "Listen to the sounds and blend them into one word."
+  },
+  {
+    "id": "D11",
+    "domain": "Sight Words – Automaticity",
+    "domainCode": "D011",
+    "gate": "C",
+    "question": "Read this word as soon as you see it!",
+    "displayWord": "MANY",
+    "answerMode": "voice",
+    "expectedAnswer": "many",
+    "flashDurationMs": 1500,
+    "maxResponseMs": 2500
+  },
+  {
+    "id": "D12",
+    "domain": "R-Controlled Vowels",
+    "domainCode": "D012",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "SHIRT",
+    "answerMode": "voice",
+    "expectedAnswer": "shirt",
+    "rControlledPattern": "ir"
+  },
+  {
+    "id": "D13",
+    "domain": "Two-Syllable Decoding",
+    "domainCode": "D013",
+    "gate": "C",
+    "question": "Read this word out loud for me.",
+    "displayWord": "BORSIP",
+    "answerMode": "voice",
+    "expectedAnswer": "borsip",
+    "syllableBreak": "borÂ·sip"
+  },
+  {
+    "id": "D13B",
+    "domain": "Consonant Blend Encoding",
+    "domainCode": "D013B",
+    "gate": "C",
+    "question": "Spell this word: \"flop\"",
+    "displayWord": "flop",
+    "answerMode": "voice",
+    "expectedAnswer": "f l o p",
+    "voiceHint": "Say each letter clearly, one at a time."
+  },
+  {
+    "id": "D13C",
+    "domain": "Unfamiliar Word Encoding",
+    "domainCode": "D013C",
+    "gate": "C",
+    "question": "Spell this made-up word: \"trop\"",
+    "displayWord": "trop",
+    "answerMode": "voice",
+    "expectedAnswer": "t r o p",
+    "voiceHint": "Use the sounds to work it out, then say each letter."
+  },
+  {
+    "id": "D14",
+    "domain": "Multisyllabic Decoding",
+    "domainCode": "D014",
+    "gate": "C",
+    "question": "Read this word out loud for me. Take your time.",
+    "displayWord": "FANRUBDOT",
+    "answerMode": "voice",
+    "expectedAnswer": "fanrubdot",
+    "syllableBreak": "fanÂ·rubÂ·dot"
+  },
+  {
+    "id": "D15",
+    "domain": "Prefix / Suffix Recognition",
+    "domainCode": "D015",
+    "gate": "C",
+    "question": "Tap the suffix in this word.",
+    "displayWord": "SLOWLY",
+    "answerMode": "choice",
+    "expectedAnswer": "ly",
+    "affixType": "suffix",
+    "targetAffix": "ly",
+    "choices": [
+      {
+        "label": "SLOW",
+        "value": "slow",
+        "correct": false
+      },
+      {
+        "label": "LY",
+        "value": "ly",
+        "correct": true
+      },
+      {
+        "label": "ING",
+        "value": "ing",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D15B",
+    "domain": "Self-Monitoring for Meaning",
+    "domainCode": "D015B",
+    "gate": "D",
+    "question": "Which of these shows a reader checking their own understanding?",
+    "displayWord": "",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "\"Does this make sense?\"",
+        "value": "\"Does this make sense?\"",
+        "correct": true
+      },
+      {
+        "label": "\"I'll just keep going\"",
+        "value": "\"I'll just keep going\"",
+        "correct": false
+      },
+      {
+        "label": "\"This is boring\"",
+        "value": "\"This is boring\"",
+        "correct": false
+      }
+    ],
+    "subText": "Think about what a good reader would do."
+  },
+  {
+    "id": "D16",
+    "domain": "Fluency Passage",
+    "domainCode": "D016",
+    "gate": "D",
+    "question": "Here is a short story. Read it to me.",
+    "displayWord": "",
+    "passage": "The plane rose steeply into the clouds and then broke through into blue sky above them. Below, the clouds looked like a white floor. The sun was bright and sharp. Two hours later the plane came down through the clouds again and landed in the rain.",
+    "passageId": "16.35",
+    "answerMode": "voice",
+    "scoringCriteria": {
+      "minWPM": 40,
+      "minProsodyPct": 50,
+      "maxWordSkipPct": 10
+    }
+  },
+  {
+    "id": "D17",
+    "domain": "Literal Comprehension",
+    "domainCode": "D017",
+    "gate": "D",
+    "question": "What did the sky look like above the clouds?",
+    "displayWord": "",
+    "passageRef": "16.35",
+    "comprehensionType": "literal",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Blue sky with bright sharp sun",
+        "value": "Blue sky with bright sharp sun",
+        "correct": true
+      },
+      {
+        "label": "More thick grey cloud",
+        "value": "More thick grey cloud",
+        "correct": false
+      },
+      {
+        "label": "A dark stormy sky",
+        "value": "A dark stormy sky",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "D18",
+    "domain": "Inferential Comprehension",
+    "domainCode": "D018",
+    "gate": "D",
+    "question": "What does the plane breaking through the clouds suggest about flying?",
+    "displayWord": "",
+    "passageRef": "16.35",
+    "comprehensionType": "inferential",
+    "answerMode": "choice",
+    "choices": [
+      {
+        "label": "Above the clouds it is always sunny even when it rains below",
+        "value": "Above the clouds it is always sunny even when it rains below",
+        "correct": true
+      },
+      {
+        "label": "Planes fly so high there is never any rain at all",
+        "value": "Planes fly so high there is never any rain at all",
+        "correct": false
+      },
+      {
+        "label": "Clouds always have clear sky directly above them",
+        "value": "Clouds always have clear sky directly above them",
+        "correct": false
+      }
+    ]
+  }
+]

@@ -3,38 +3,40 @@ import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import { ReadingTemplate, ReadingGeneratedQuestion, AudioTapChoice } from "@/types/reading";
 import type { ReadingQuestionBank, ReadingBankItem, ReadingBankSkill } from "@/types/reading-bank";
-import L6_BANK from "@/data/reading-question-banks/L6.json";
-import L7_BANK from "@/data/reading-question-banks/L7.json";
-import L8_BANK from "@/data/reading-question-banks/L8.json";
-import L9_BANK from "@/data/reading-question-banks/L9.json";
-import L10_BANK from "@/data/reading-question-banks/L10.json";
-import L11_BANK from "@/data/reading-question-banks/L11.json";
-import L12_BANK from "@/data/reading-question-banks/L12.json";
-import L13_BANK from "@/data/reading-question-banks/L13.json";
-import L14_BANK from "@/data/reading-question-banks/L14.json";
 
-// Node.js serverless runtime (default — no `runtime = "edge"`): this route
-// statically bundles the L6–L14 question banks, which exceed the 1 MB Edge
-// Function size limit. Node serverless allows up to 50 MB. Matches the
-// sibling submit-answer route, which is also Node serverless.
+// Node.js serverless runtime (default — no `runtime = "edge"`): banks are
+// loaded on demand per request via dynamic import so each level ships as its
+// own webpack chunk. Only the requested level is loaded into the serverless
+// container's memory.
 
-// ── Static question banks for L6+ (Intermediate Phase) ───────────────────────
+// ── Question banks for L6+ (Intermediate Phase) ──────────────────────────────
 // Tree skills (R6.T1.A1…) carry `bank_skill_id` (e.g. "L6.A1") → the bank skill.
 // L6=Gr4 L7=Gr5 L8=Gr6 (Intermediate) · L9=Gr7 L10=Gr8 L11=Gr9 (Senior) ·
 // L12=Gr10 L13=Gr11 L14=Gr12 (FET). L9–L14 ship as scaffolds: empty
 // `items[]` makes buildBankQuestion return null and fall through until the
 // head of education authors content. No code change needed when they do.
-const READING_BANKS: Record<number, ReadingQuestionBank> = {
-  6: L6_BANK as unknown as ReadingQuestionBank,
-  7: L7_BANK as unknown as ReadingQuestionBank,
-  8: L8_BANK as unknown as ReadingQuestionBank,
-  9: L9_BANK as unknown as ReadingQuestionBank,
-  10: L10_BANK as unknown as ReadingQuestionBank,
-  11: L11_BANK as unknown as ReadingQuestionBank,
-  12: L12_BANK as unknown as ReadingQuestionBank,
-  13: L13_BANK as unknown as ReadingQuestionBank,
-  14: L14_BANK as unknown as ReadingQuestionBank,
-};
+const bankCache = new Map<number, ReadingQuestionBank>();
+
+async function loadReadingBank(level: number): Promise<ReadingQuestionBank | null> {
+  const cached = bankCache.get(level);
+  if (cached) return cached;
+  let mod: { default: unknown } | null = null;
+  switch (level) {
+    case 6:  mod = await import("@/data/reading-question-banks/L6.json");  break;
+    case 7:  mod = await import("@/data/reading-question-banks/L7.json");  break;
+    case 8:  mod = await import("@/data/reading-question-banks/L8.json");  break;
+    case 9:  mod = await import("@/data/reading-question-banks/L9.json");  break;
+    case 10: mod = await import("@/data/reading-question-banks/L10.json"); break;
+    case 11: mod = await import("@/data/reading-question-banks/L11.json"); break;
+    case 12: mod = await import("@/data/reading-question-banks/L12.json"); break;
+    case 13: mod = await import("@/data/reading-question-banks/L13.json"); break;
+    case 14: mod = await import("@/data/reading-question-banks/L14.json"); break;
+    default: return null;
+  }
+  const bank = mod.default as ReadingQuestionBank;
+  bankCache.set(level, bank);
+  return bank;
+}
 
 /** Source text shown to the learner — pooled (A1/A2/A3) or inline per skill.
  *  Some skills carry both a main passage and a data text (e.g. source
@@ -49,17 +51,17 @@ function bankItemSourceText(item: ReadingBankItem, bank: ReadingQuestionBank): s
 /** Build a question from the L6+ static bank for a tree skill that has a
  *  bank_skill_id. Returns null for L1–L5 skills (handled elsewhere) so the
  *  caller falls through to the existing pipeline. */
-function buildBankQuestion(
+async function buildBankQuestion(
   skillId: string,
   used_refs: string[]
-): Omit<ReadingGeneratedQuestion, "id"> | null {
+): Promise<Omit<ReadingGeneratedQuestion, "id"> | null> {
   const treeSkill = getReadingSkillById(skillId);
   const bankSkillId = treeSkill?.bank_skill_id;
   if (!treeSkill || !bankSkillId) return null;
 
   const levelMatch = skillId.match(/^R(\d+)/);
   const level = levelMatch ? parseInt(levelMatch[1], 10) : 0;
-  const bank = READING_BANKS[level];
+  const bank = await loadReadingBank(level);
   if (!bank) return null;
 
   const bankSkill = bank.skills.find((s) => s.skillId === bankSkillId) as
@@ -2414,7 +2416,7 @@ export async function POST(req: NextRequest) {
 
     // L6+ static bank (Intermediate Phase). Served before the LLM fallback so
     // these never hit the Grade R–3 generation path.
-    const bankQuestion = buildBankQuestion(skill_id, used_refs);
+    const bankQuestion = await buildBankQuestion(skill_id, used_refs);
     if (bankQuestion) {
       return NextResponse.json({ ...bankQuestion, id: `rq_${Date.now()}` });
     }
