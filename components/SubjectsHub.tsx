@@ -7,6 +7,10 @@ import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/read
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import { HIGHEST_AVAILABLE_LEVEL as LIFE_SKILLS_MAX_GRADE } from "@/lib/life-skills-grade-map";
 import { HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
+import {
+  HIGHEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MAX_GRADE,
+  LOWEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MIN_GRADE,
+} from "@/lib/social-sciences-grade-map";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
@@ -98,6 +102,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const learnerGrade = grade ?? 1;
   const showLifeSkills = learnerGrade <= LIFE_SKILLS_MAX_GRADE;
   const showAfrikaans = learnerGrade <= AFRIKAANS_MAX_GRADE;
+  const showSocialSciences =
+    learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE;
 
   const mathsDone = mathsProfile?.placementCompleted ?? false;
   const readingDone = readingProfile?.placementCompleted ?? false;
@@ -210,6 +216,22 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
                 accentFrom="from-emerald-500"
                 accentTo="to-teal-600"
                 onClick={() => onNavigate("afrikaans-fal")}
+              />
+            )}
+
+            {/* Social Sciences — Intermediate Phase only (Grades 4–6). Two
+                strands per grade: History and Geography. Hidden outside the
+                authored range. */}
+            {showSocialSciences && (
+              <SubjectCard
+                placeholderEmoji="🌍"
+                label="Social Sciences"
+                caption={`History & Geography for Grades ${SOCIAL_SCIENCES_MIN_GRADE}–${SOCIAL_SCIENCES_MAX_GRADE}`}
+                badge="Intermediate Phase"
+                badgeColor="bg-sky-100 text-sky-700"
+                accentFrom="from-sky-500"
+                accentTo="to-indigo-600"
+                onClick={() => onNavigate("social-sciences")}
               />
             )}
           </div>

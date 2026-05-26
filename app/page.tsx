@@ -28,6 +28,8 @@ const LifeSkillsSession        = dynamic(() => import("@/components/life-skills/
 const LifeSkillsSkillTreeView  = dynamic(() => import("@/components/life-skills/LifeSkillsSkillTreeView"),   { ssr: false });
 const AfrikaansSession         = dynamic(() => import("@/components/afrikaans/AfrikaansSession"),            { ssr: false });
 const AfrikaansSkillTreeView   = dynamic(() => import("@/components/afrikaans/AfrikaansSkillTreeView"),      { ssr: false });
+const SocialSciencesSession        = dynamic(() => import("@/components/social-sciences/SocialSciencesSession"),         { ssr: false });
+const SocialSciencesSkillTreeView  = dynamic(() => import("@/components/social-sciences/SocialSciencesSkillTreeView"),   { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -132,6 +134,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "life-skills-skill-tree": "Life Skills · Topics",
     "afrikaans-fal": "Afrikaans",
     "afrikaans-fal-skill-tree": "Afrikaans · Skills",
+    "social-sciences": "Social Sciences",
+    "social-sciences-skill-tree": "Social Sciences · Topics",
   };
 
   const refreshStats = useCallback(() => {
@@ -414,6 +418,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "reading-skill-tree" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={startReadingReplay} onContinue={continueReading} onBack={() => handleViewChange("subjects")} />}
         {activeView === "life-skills" && <ErrorBoundary><LifeSkillsSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "social-sciences" && <ErrorBoundary><SocialSciencesSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "social-sciences-skill-tree" && <SocialSciencesSkillTreeView onPickTopic={() => handleViewChange("social-sciences")} onBack={() => handleViewChange("subjects")} />}
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
         {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} onBack={() => handleViewChange("subjects")} />}

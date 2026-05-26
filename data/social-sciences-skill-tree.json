@@ -1,0 +1,319 @@
+{
+  "version": "1.0",
+  "subject": "social-sciences",
+  "description": "Social Sciences skill tree for CAPS Intermediate Phase (Grades 4–6). Two strands per grade — History (HIS) and Geography (GEO). Map skills topics and History project topics are out of scope for this MCQ-based tutor. Topic IDs preserve the original CAPS term number so they trace cleanly back to the curriculum. Topics do not prerequisite each other — all unlocked from day one.",
+  "levels": [
+    {
+      "id": 4,
+      "grade": 4,
+      "title": "Grade 4 — Social Sciences",
+      "description": "CAPS Intermediate Phase Grade 4. 4 History topics (one per term) + 3 Geography topics (Term 2 Map skills out of scope). 3 hours/week total. Topics do not prerequisite each other.",
+      "tiers": [
+        {
+          "id": "SS.L4.HIS",
+          "title": "History",
+          "atomic_skills": [
+            {
+              "id": "SS.L4.HIS.T01",
+              "bank_skill_id": "SS.L4.HIS.T01",
+              "title": "Local history",
+              "description": "Finding out about the past of a local area through pictures, writing, stories, interviews and objects.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Help the learner think about how we KNOW things about the past. Pictures, stories, objects and writing are all ways. Each gives a different kind of clue.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L4.HIS.T02",
+              "bank_skill_id": "SS.L4.HIS.T02",
+              "title": "Learning from leaders",
+              "description": "Qualities of good leaders, using Nelson Mandela and Mahatma Gandhi as examples.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Anchor the qualities to specific things the leader did, not vague praise. A good leader serves others, listens, has courage and is willing to sacrifice.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L4.HIS.T03",
+              "bank_skill_id": "SS.L4.HIS.T03",
+              "title": "Transport through time",
+              "description": "How transport on land, water and in the air has changed over time.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Use chronology — old to new. Each invention solved a problem the older one had. Cars are faster than wagons; trains carry more than horses.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L4.HIS.T04",
+              "bank_skill_id": "SS.L4.HIS.T04",
+              "title": "Communication through time",
+              "description": "How communication has changed over time — from songs, symbols and art to postal systems, radio, telephone, TV, computers and cell phones.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Communication = sharing a message. The TOOLS change, the goal stays the same. Older tools were slower; newer tools reach further faster.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "SS.L4.GEO",
+          "title": "Geography",
+          "atomic_skills": [
+            {
+              "id": "SS.L4.GEO.T01",
+              "bank_skill_id": "SS.L4.GEO.T01",
+              "title": "Places where people live (settlements)",
+              "description": "Farms, villages, towns and cities; buildings and their uses; landmarks; people's basic needs.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Think about the SIZE and the JOBS. Farms are smallest and most spread out; cities are biggest and have the most kinds of work. A landmark is anything easy to spot.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L4.GEO.T03",
+              "bank_skill_id": "SS.L4.GEO.T03",
+              "title": "Food and farming in South Africa",
+              "description": "Where food comes from; subsistence vs commercial farming; crop and stock farming in SA; unprocessed and processed foods.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Subsistence = grow to FEED YOUR FAMILY. Commercial = grow to SELL. Processed food has been changed (cooked, dried, ground); unprocessed is as it came from the farm.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L4.GEO.T04",
+              "bank_skill_id": "SS.L4.GEO.T04",
+              "title": "Water in South Africa",
+              "description": "Uses of water; salt and fresh water; the natural water cycle; how people store and access water; pollution and wastewater.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Water moves in a cycle — sea → cloud → rain → river → sea. We use it, dirty it, and need to clean it before it returns. Salt water is in the sea; fresh water is what we drink.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "grade": 5,
+      "title": "Grade 5 — Social Sciences",
+      "description": "CAPS Intermediate Phase Grade 5. 4 History topics + 3 Geography topics (Term 1 Map skills out of scope). 3 hours/week total. Topics do not prerequisite each other.",
+      "tiers": [
+        {
+          "id": "SS.L5.HIS",
+          "title": "History",
+          "atomic_skills": [
+            {
+              "id": "SS.L5.HIS.T01",
+              "bank_skill_id": "SS.L5.HIS.T01",
+              "title": "Hunter-gatherers and herders in Southern Africa",
+              "description": "San hunter-gatherer society and Khoikhoi herders in the Later Stone Age; how we find out about them; rock art.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "The San lived off the land — they HUNTED animals and GATHERED plants. The Khoikhoi kept LIVESTOCK. Both shared the land for thousands of years.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L5.HIS.T02",
+              "bank_skill_id": "SS.L5.HIS.T02",
+              "title": "The first farmers in Southern Africa",
+              "description": "Bantu-speaking farmers who entered Southern Africa 1700–2000 years ago; homesteads, crops, livestock, iron-working and pottery.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Bantu-speaking farmers brought TWO big new things: farming (crops + cattle) and iron-working. They lived in chiefdoms — not 'tribes' — and shared the land with hunter-gatherers.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L5.HIS.T03",
+              "bank_skill_id": "SS.L5.HIS.T03",
+              "title": "An ancient African society: Egypt",
+              "description": "Life in ancient Egypt — the Nile, pharaohs, pyramids, hieroglyphics, religion, medicine; Tutankhamen's tomb.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Everything in Egypt started with the Nile — the river made farming possible in the desert. Pharaohs ruled; pyramids were tombs; hieroglyphics were the writing.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L5.HIS.T04",
+              "bank_skill_id": "SS.L5.HIS.T04",
+              "title": "A heritage trail through the provinces of South Africa",
+              "description": "Examples of heritage from each of the nine provinces — sites, objects, achievements, names, architecture, art and indigenous knowledge.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Heritage = what we inherit from the past. It can be a PLACE (Cradle of Humankind), an OBJECT (gold rhino), a PERSON's work, or an IDEA (indigenous medicine).",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "SS.L5.GEO",
+          "title": "Geography",
+          "atomic_skills": [
+            {
+              "id": "SS.L5.GEO.T02",
+              "bank_skill_id": "SS.L5.GEO.T02",
+              "title": "Physical features of South Africa",
+              "description": "South Africa's landscape — coastal plain, escarpment, plateau; main mountains, rivers and famous features; how human activity changes landscapes.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "South Africa is HIGH in the middle (plateau) and LOW at the coast. Rivers flow from HIGH places down to the sea. The Drakensberg is the highest mountain range.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L5.GEO.T03",
+              "bank_skill_id": "SS.L5.GEO.T03",
+              "title": "Weather, climate and vegetation of South Africa",
+              "description": "Elements of weather; difference between weather and climate; rainfall patterns; natural vegetation including savannah grasslands.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Weather = TODAY. Climate = the PATTERN over many years. Natural vegetation is plants that grow on their own, shaped by climate.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L5.GEO.T04",
+              "bank_skill_id": "SS.L5.GEO.T04",
+              "title": "Minerals and mining in South Africa",
+              "description": "SA's main minerals (gold, platinum, diamonds, iron ore, coal); ways of mining; environmental impact; health and safety of miners.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Minerals are non-renewable — once mined, they're gone. SA is famous for gold, platinum and diamonds. Mining can hurt land, air and water, so safety and care matter.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "grade": 6,
+      "title": "Grade 6 — Social Sciences",
+      "description": "CAPS Intermediate Phase Grade 6. 4 History topics + 3 Geography topics (Term 1 Map skills out of scope). 3 hours/week total. Topics do not prerequisite each other.",
+      "tiers": [
+        {
+          "id": "SS.L6.HIS",
+          "title": "History",
+          "atomic_skills": [
+            {
+              "id": "SS.L6.HIS.T01",
+              "bank_skill_id": "SS.L6.HIS.T01",
+              "title": "An African kingdom long ago: Mapungubwe",
+              "description": "Mapungubwe (1220–1300) — first state in Southern Africa; trade across the Indian Ocean; gold objects; Great Zimbabwe; Marco Polo's travels.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Mapungubwe was a KINGDOM in the Limpopo Valley — the first big state in Southern Africa. It traded across the Indian Ocean. The famous gold rhino was a symbol of royal power.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L6.HIS.T02",
+              "bank_skill_id": "SS.L6.HIS.T02",
+              "title": "Explorers from Europe find Southern Africa",
+              "description": "The European Renaissance; new inventions; reasons for exploration; Dias and Da Gama; the VOC.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "The Renaissance gave Europe new ideas and tools (compass, caravel). Europeans wanted a sea route to ASIA for trade — and on the way they sailed past Southern Africa.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L6.HIS.T03",
+              "bank_skill_id": "SS.L6.HIS.T03",
+              "title": "Democracy and citizenship in South Africa",
+              "description": "South Africa's first democratic election in 1994; the Constitution; Parliament; rights and responsibilities; the Constitutional Court; children's rights; national symbols.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Democracy = the people choose their government by voting. South Africa's first FREE election was in 1994. The Constitution is the highest law and protects everyone's rights.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L6.HIS.T04",
+              "bank_skill_id": "SS.L6.HIS.T04",
+              "title": "Medicine through time",
+              "description": "Indigenous healing in SA; Western scientific discoveries — vaccination (Jenner), germs (Pasteur), TB (Koch), penicillin (Fleming); first heart transplant (Barnard).",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Two ways of healing: indigenous (treats whole person, uses plants and beliefs) and Western (treats the body using science). Both have helped people; today they often work together.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "SS.L6.GEO",
+          "title": "Geography",
+          "atomic_skills": [
+            {
+              "id": "SS.L6.GEO.T02",
+              "bank_skill_id": "SS.L6.GEO.T02",
+              "title": "Trade (focus: South Africa and the world)",
+              "description": "Why people trade; exports and imports; raw materials vs manufactured goods; fair trade vs unfair trade.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Trade = swapping or selling. EXPORTS go OUT of a country; IMPORTS come IN. Raw materials (cocoa beans) become more valuable when manufactured (chocolate).",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L6.GEO.T03",
+              "bank_skill_id": "SS.L6.GEO.T03",
+              "title": "Climate and vegetation around the world",
+              "description": "Hot, mild and cold climates; tropical rainforests; hot deserts; coniferous forests — climate, vegetation, wildlife and how people live in each.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "Climate shapes the plants and animals AND how people live. Rainforests are hot + wet + thick trees. Deserts are hot + dry + few plants. Coniferous forests are cold + tall trees with needles.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "SS.L6.GEO.T04",
+              "bank_skill_id": "SS.L6.GEO.T04",
+              "title": "Population — why people live where they do",
+              "description": "Population distribution and density in SA and the world; reasons for settlement; rural vs urban; rural-to-urban migration.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["story", "choice"],
+              "error_signatures": [],
+              "recovery_strategy": "People settle where life is EASIER — water, good climate, jobs, safety. Cities pull people from the countryside because there's more work. Rural = countryside, urban = city.",
+              "mastery_criteria": { "correct_required": 3, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
