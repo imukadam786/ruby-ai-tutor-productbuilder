@@ -1,7 +1,7 @@
 {
   "version": "0.1",
   "subject": "afrikaans-fal",
-  "description": "Afrikaans First Additional Language (CAPS Foundation Phase, Grades 1-3) skill tree. Knowledge-core launch scope: Luister (listening comprehension), Klanke (phonics/sound awareness), Woordeskat (vocabulary), Lees & Kyk (reading & viewing), Taalstruktuur (language structure). Praat (speaking-aloud) and Skryf & Handskrif (writing/handwriting) are DEFERRED to Phase 2 (need voice capture / stylus grading). Language-subject architecture (levels -> strands -> atomic skills with prerequisite chains), modelled on data/reading-skill-tree.json. Item delivery format modelled on Life Skills (audio/choice/image-match/sequence) because learners are 6-9. Grade 1 fully authored; Grades 2-3 are stubs pending sign-off on the Grade 1 pattern.",
+  "description": "Afrikaans First Additional Language skill tree, Grades 1-6 (CAPS Foundation Phase 1-3 + Intermediate Phase 4-6). Strands shift at IP: Foundation Phase uses Luister / Klanke / Woordeskat / Lees & Kyk / Taalstruktuur (oral-heavy); Intermediate Phase uses Luister / Lees en Kyk / Skryf en Aanbied / Taalstrukture (reading + writing become first-class). Praat (speaking-aloud) and essay-length writing remain DEFERRED. Item delivery follows the same tap/choice/cloze/sequence templates as Life Skills (no LLM grading in scope).",
   "levels": [
     {
       "id": 1,
@@ -26,7 +26,18 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "step_omitted",
+                  "description": "Learner does only part of a one- or two-step instruction",
+                  "example": "'Wys vir my die rooi bal' — learner taps a ball but ignores the colour cue."
+                },
+                {
+                  "type": "key_word_missed",
+                  "description": "A critical noun, colour or number in the instruction is not heard",
+                  "example": "Audio says 'die GROOT hond'; learner picks the small dog."
+                }
+              ],
               "recovery_strategy": "Replay the instruction slowly. Drop to a single-step instruction with two clearly different picture choices before adding a second step.",
               "progression": {
                 "model": "practice-through",
@@ -50,7 +61,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "literal_translation",
+                  "description": "Learner translates a greeting word-for-word and loses the chunk meaning",
+                  "example": "'Goeie môre' interpreted as 'good face' rather than 'good morning'."
+                },
+                {
+                  "type": "wrong_situation",
+                  "description": "Learner connects the phrase to the wrong scene",
+                  "example": "''n Mag ek asseblief...' matched to leaving instead of asking."
+                }
+              ],
               "recovery_strategy": "Anchor each phrase to a familiar situation (a picture of two people greeting). Replay audio and offer the English meaning as a hint before the Afrikaans choices.",
               "progression": {
                 "model": "practice-through",
@@ -76,7 +98,18 @@
                 "choice",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_character",
+                  "description": "Learner mixes up who did what in the heard story",
+                  "example": "Story says the cat slept; learner says the dog slept."
+                },
+                {
+                  "type": "detail_substitution",
+                  "description": "Learner replaces a heard detail with a similar wrong one",
+                  "example": "Audio: 'drie appels'; learner picks 'two apples'."
+                }
+              ],
               "recovery_strategy": "Re-read the story one sentence at a time. Ask the question right after the matching sentence. Use the picture to support recall.",
               "progression": {
                 "model": "practice-through",
@@ -107,7 +140,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "rhyme_pair_wrong",
+                  "description": "Learner picks words that share a starting sound, not an ending sound",
+                  "example": "kat / koek picked as rhyming (both /k/) instead of kat / mat."
+                },
+                {
+                  "type": "ending_sound_missed",
+                  "description": "Learner can't isolate the final phoneme",
+                  "example": "Hears 'kat' but can't tell what comes after 'ka-'."
+                }
+              ],
               "recovery_strategy": "Exaggerate and stretch the ending sound. Compare just two words at a time before offering three choices.",
               "progression": {
                 "model": "practice-through",
@@ -131,7 +175,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "ending_vs_start",
+                  "description": "Learner identifies the final sound when asked for the first",
+                  "example": "Asked for the first sound of 'kat'; learner says /t/."
+                },
+                {
+                  "type": "similar_sound_confusion",
+                  "description": "Learner confuses voiced/unvoiced or near pairs (b/p, d/t, k/g)",
+                  "example": "Says 'kat' starts with /g/."
+                }
+              ],
               "recovery_strategy": "Say the word, then say it again with the first sound held long (k-k-kat). Offer two words with very different starts before three.",
               "progression": {
                 "model": "practice-through",
@@ -156,7 +211,18 @@
                 "choice",
                 "sequence"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "word_count_off_by_one",
+                  "description": "Learner is one word out when counting words in a sentence",
+                  "example": "'Die kat slaap' counted as 4 words because of the article."
+                },
+                {
+                  "type": "joined_words_kept_together",
+                  "description": "Learner counts compound nouns or contractions as one word still and gets confused",
+                  "example": "'huiswerk' counted as two."
+                }
+              ],
               "recovery_strategy": "Clap each word with the child. Start with two-word sentences before three- and four-word ones.",
               "progression": {
                 "model": "practice-through",
@@ -180,7 +246,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "syllable_count_wrong",
+                  "description": "Learner miscounts the syllables (off by one)",
+                  "example": "'ska-pe' counted as 1 syllable."
+                },
+                {
+                  "type": "consonant_cluster_split",
+                  "description": "Learner splits a consonant cluster into a fake syllable",
+                  "example": "'skoen' clapped as 'sk-oen', two syllables."
+                }
+              ],
               "recovery_strategy": "Clap and say each chunk slowly. Use the child's own name first, then one- and two-syllable words before longer ones.",
               "progression": {
                 "model": "practice-through",
@@ -204,7 +281,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "rime_changed",
+                  "description": "Learner changes the rime when asked to keep it constant",
+                  "example": "Onset k + rime -at: learner picks 'kop' instead of 'kat'."
+                },
+                {
+                  "type": "onset_swap_failure",
+                  "description": "Learner cannot swap the onset to form a new word",
+                  "example": "Asked for k → m on '-at', learner picks 'kat'."
+                }
+              ],
               "recovery_strategy": "Say the onset and rime separated by a pause (k ... at), then blend them. Keep the rime constant across choices (-at) so only the first sound changes.",
               "progression": {
                 "model": "practice-through",
@@ -228,7 +316,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "ending_sound_missed",
+                  "description": "Learner can't hear the plural-ending change (-e, -te, -s)",
+                  "example": "Picks 'kat' as the plural form instead of 'katte'."
+                },
+                {
+                  "type": "stress_overgeneralised",
+                  "description": "Learner picks the form with stress they remember even if singular",
+                  "example": "Single 'boek' chosen as plural because it's spoken louder."
+                }
+              ],
               "recovery_strategy": "Show one object then many, saying the singular then plural. Stress the added ending sound (-e, -te, -s).",
               "progression": {
                 "model": "practice-through",
@@ -260,7 +359,18 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "near_colour_confusion",
+                  "description": "Learner picks a similar colour instead of the named one",
+                  "example": "'pers' (purple) picked when 'blou' was said."
+                },
+                {
+                  "type": "image_text_mismatch",
+                  "description": "Learner taps the wrong picture because the colour names sound similar in their own language",
+                  "example": "'rooi' (red) confused with English 'roof'."
+                }
+              ],
               "recovery_strategy": "Pair each colour word with a clear block of that colour. Practise two contrasting colours before adding more.",
               "progression": {
                 "model": "practice-through",
@@ -285,7 +395,18 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "body_part_swap",
+                  "description": "Learner taps a different body part on the figure",
+                  "example": "Asked for 'neus' (nose); learner taps the mouth."
+                },
+                {
+                  "type": "singular_plural_mix",
+                  "description": "Learner confuses 'oog' (one eye) with 'oë' (eyes)",
+                  "example": "'oë' picked for a one-eye image."
+                }
+              ],
               "recovery_strategy": "Let the child point to the body part on themselves as they hear the word. Start with face parts before limbs.",
               "progression": {
                 "model": "practice-through",
@@ -310,7 +431,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "garment_swap",
+                  "description": "Learner picks a different garment on the figure",
+                  "example": "'hemp' (shirt) picked when 'broek' (pants) was said."
+                }
+              ],
               "recovery_strategy": "Link each word to a picture of someone wearing the item. Group by where it is worn (top, bottom, feet, head).",
               "progression": {
                 "model": "practice-through",
@@ -335,7 +462,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_food_group",
+                  "description": "Learner picks a food from the wrong group (fruit vs bread vs egg)",
+                  "example": "'piesang' picked when 'brood' was said."
+                }
+              ],
               "recovery_strategy": "Use pictures of single, recognisable foods. Practise fruits as one set before mixing food types.",
               "progression": {
                 "model": "practice-through",
@@ -360,7 +493,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "animal_size_confusion",
+                  "description": "Learner picks an animal of the wrong size class",
+                  "example": "'kat' picked when 'koei' was said."
+                }
+              ],
               "recovery_strategy": "Pair each animal word with its picture and, where helpful, its sound. Start with pets/farm animals the child knows.",
               "progression": {
                 "model": "practice-through",
@@ -385,7 +524,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "weather_swap",
+                  "description": "Learner picks a weather word that doesn't match the picture",
+                  "example": "'reen' picked when 'son' image is shown."
+                }
+              ],
               "recovery_strategy": "Connect each word to today's weather or a clear weather picture. Contrast pairs (koud/warm, son/reën).",
               "progression": {
                 "model": "practice-through",
@@ -410,7 +555,18 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "shape_swap",
+                  "description": "Learner picks the wrong basic shape",
+                  "example": "'driehoek' picked when 'sirkel' was said."
+                },
+                {
+                  "type": "direction_inversion",
+                  "description": "Learner picks the opposite direction word",
+                  "example": "'links' picked when 'regs' was said."
+                }
+              ],
               "recovery_strategy": "Demonstrate position words with a real object (a ball on/under a box). Contrast opposites (groot/klein, op/onder).",
               "progression": {
                 "model": "practice-through",
@@ -441,7 +597,18 @@
                 "choice",
                 "audio"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "sight_word_phonetic_attempt",
+                  "description": "Learner tries to sound out a high-frequency sight word instead of recognising it",
+                  "example": "'die' read as /d/-/i/-/e/."
+                },
+                {
+                  "type": "near_word_confusion",
+                  "description": "Learner reads a similar-looking word",
+                  "example": "'dit' read as 'die'."
+                }
+              ],
               "recovery_strategy": "Show the word and say it together a few times. Compare two words that look different before similar-looking ones (hy/sy).",
               "progression": {
                 "model": "practice-through",
@@ -465,7 +632,18 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "label_picture_mismatch",
+                  "description": "Learner matches a label to the wrong nearby picture",
+                  "example": "'venster' matched to the door."
+                },
+                {
+                  "type": "label_keyword_ignored",
+                  "description": "Learner picks the picture from another label in the scene",
+                  "example": "Label says 'stoel'; learner taps the table."
+                }
+              ],
               "recovery_strategy": "Point to the real labelled object as the word is read. Practise opposites together (oop/toe).",
               "progression": {
                 "model": "practice-through",
@@ -489,7 +667,18 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "caption_picture_mismatch",
+                  "description": "Learner matches a caption to the wrong picture",
+                  "example": "''n hond' matched to a picture of a cat."
+                },
+                {
+                  "type": "modifier_ignored",
+                  "description": "Learner ignores the adjective in the caption",
+                  "example": "''n rooi bal' matched to a blue ball."
+                }
+              ],
               "recovery_strategy": "Read the caption aloud while pointing to each word. Reduce to a single keyword (rooi, bal) if the full caption is too much.",
               "progression": {
                 "model": "practice-through",
@@ -514,7 +703,18 @@
                 "choice",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "literal_detail_substituted",
+                  "description": "Learner substitutes a similar but wrong detail from a read text",
+                  "example": "Text said three apples; learner picks two."
+                },
+                {
+                  "type": "wrong_5w",
+                  "description": "Learner answers a different W-question than asked",
+                  "example": "Asked WHERE; learner gives a WHO answer."
+                }
+              ],
               "recovery_strategy": "Re-read the relevant sentence and point to the picture detail that answers the question.",
               "progression": {
                 "model": "practice-through",
@@ -545,7 +745,18 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "agreement_invented",
+                  "description": "Learner adds an extra ending to the verb to 'agree' with the subject",
+                  "example": "'Hy speels' instead of 'Hy speel'."
+                },
+                {
+                  "type": "tense_drift",
+                  "description": "Past or future form picked when present is required",
+                  "example": "'Ek het gespeel' for a present-tense slot."
+                }
+              ],
               "recovery_strategy": "Act out the action while saying the sentence. Keep the subject simple (ek/sy) and the verb familiar.",
               "progression": {
                 "model": "practice-through",
@@ -569,7 +780,18 @@
                 "choice",
                 "true-false"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "single_nie",
+                  "description": "Learner forms a negative with only one 'nie' (English habit)",
+                  "example": "'Ek hou nie van melk' instead of 'Ek hou nie van melk nie'."
+                },
+                {
+                  "type": "nie_position",
+                  "description": "The second 'nie' is misplaced in the sentence",
+                  "example": "'Ek hou nie nie van melk'."
+                }
+              ],
               "recovery_strategy": "Contrast a positive sentence with its negative version side by side. Highlight the two 'nie' words that wrap the idea.",
               "progression": {
                 "model": "practice-through",
@@ -592,7 +814,18 @@
               "templates": [
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "question_word_swap",
+                  "description": "Learner picks the wrong question word",
+                  "example": "'Wie' chosen when 'Waar' was needed."
+                },
+                {
+                  "type": "missing_question_mark",
+                  "description": "Learner doesn't recognise the line as a question",
+                  "example": "Reads 'Wat is jou naam' as a statement."
+                }
+              ],
               "recovery_strategy": "Tie each question word to what it asks for (Wie = a person, Hoeveel = a number). Use a picture so the answer is visible.",
               "progression": {
                 "model": "practice-through",
@@ -617,7 +850,18 @@
                 "cloze",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "gender_swap",
+                  "description": "'hy' used for a female subject or 'sy' for a male",
+                  "example": "Mia replaced with 'hy'."
+                },
+                {
+                  "type": "subject_vs_object",
+                  "description": "Subject form used where object form is needed",
+                  "example": "'Ek sien hy' instead of 'Ek sien hom'."
+                }
+              ],
               "recovery_strategy": "Point to who the pronoun means (me = ek, the boy = hy). Practise ek/jy first, then hy/sy, then ons/hulle.",
               "progression": {
                 "model": "practice-through",
@@ -641,7 +885,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "modal_swap",
+                  "description": "Learner picks 'kan' when 'mag' (permission) is needed, or vice versa",
+                  "example": "'Mag ek loop?' answered with the meaning of 'kan' (able to)."
+                }
+              ],
               "recovery_strategy": "Link 'kan' to ability (show it) and 'mag' to asking permission. Use classroom requests the child knows.",
               "progression": {
                 "model": "practice-through",
@@ -665,7 +915,18 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "plural_rule_wrong",
+                  "description": "Learner applies the wrong plural ending",
+                  "example": "kat → 'kats' instead of 'katte'."
+                },
+                {
+                  "type": "consonant_doubling",
+                  "description": "Learner forgets to double the consonant before -e",
+                  "example": "bal → 'bale' instead of 'balle'."
+                }
+              ],
               "recovery_strategy": "Show one then many objects. Group nouns by their plural ending (-e, -s, -te) and practise one group at a time.",
               "progression": {
                 "model": "practice-through",
@@ -689,7 +950,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "possessive_swap",
+                  "description": "Learner picks 'sy' (his) for a female owner, or 'haar' (her) for a male",
+                  "example": "Mia se boek → 'sy boek'."
+                }
+              ],
               "recovery_strategy": "Hold up an object and say whose it is (my potlood, jou boek). Practise my/jou before sy/haar.",
               "progression": {
                 "model": "practice-through",
@@ -713,7 +980,13 @@
                 "choice",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "spatial_confusion",
+                  "description": "Learner picks the wrong spatial preposition",
+                  "example": "'op' picked when the ball is 'onder' the box."
+                }
+              ],
               "recovery_strategy": "Demonstrate with a real object (the cat is op/onder/in the box). Contrast two positions at a time.",
               "progression": {
                 "model": "practice-through",
@@ -737,7 +1010,18 @@
                 "choice",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "opposite_picked",
+                  "description": "Learner picks the opposite adjective (or adverb)",
+                  "example": "'gelukkig' picked when 'hartseer' was the right one."
+                },
+                {
+                  "type": "wrong_word_class",
+                  "description": "Adjective picked where adverb was needed",
+                  "example": "'vinnig' (adverb) gap filled with 'vinnige' (adjective)."
+                }
+              ],
               "recovery_strategy": "Match each describing word to a clear picture or action (a happy face, running fast). Practise opposite pairs.",
               "progression": {
                 "model": "practice-through",
@@ -775,7 +1059,18 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "step_omitted",
+                  "description": "Learner does only one of two consecutive steps",
+                  "example": "'Trek 'n sirkel. Kleur dit rooi in.' — learner draws but skips the colouring."
+                },
+                {
+                  "type": "sequence_inversion",
+                  "description": "Steps performed in wrong order",
+                  "example": "Colour first then draw."
+                }
+              ],
               "recovery_strategy": "Replay and break into one step at a time. Confirm the first step before adding the second.",
               "progression": {
                 "model": "practice-through",
@@ -800,7 +1095,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "key_attribute_missed",
+                  "description": "Learner ignores a key attribute (round, red, you play with it)",
+                  "example": "'Dit is rond en rooi' — learner picks a green object."
+                }
+              ],
               "recovery_strategy": "Re-read the description one clue at a time and let the child rule options out clue by clue.",
               "progression": {
                 "model": "practice-through",
@@ -826,7 +1127,18 @@
                 "choice",
                 "sequence"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "event_omission",
+                  "description": "Learner drops an event from the heard sequence",
+                  "example": "Three-event story but learner orders only two."
+                },
+                {
+                  "type": "sequence_inversion",
+                  "description": "Events recalled in the wrong order",
+                  "example": "Places ending before beginning."
+                }
+              ],
               "recovery_strategy": "Re-read the story and pause after each event. Ask 'what happened next?' before the ordering question.",
               "progression": {
                 "model": "practice-through",
@@ -857,7 +1169,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "similar_sound_confusion",
+                  "description": "Learner confuses voiced/unvoiced pairs (b/p, d/t, g/k)",
+                  "example": "'bad' read as 'pad'."
+                }
+              ],
               "recovery_strategy": "Say the two words back to back, exaggerating the differing vowel. Show the letters so the child links sound to spelling.",
               "progression": {
                 "model": "practice-through",
@@ -881,7 +1199,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "letter_sound_swap",
+                  "description": "Learner produces the wrong sound for a letter",
+                  "example": "Letter 'v' sounded as English /v/ instead of Afrikaans /f/."
+                }
+              ],
               "recovery_strategy": "Show the letter, say its sound, give a key word (m -> /m/ -> mat). Start with letters that sound the same as English.",
               "progression": {
                 "model": "practice-through",
@@ -906,7 +1230,18 @@
                 "choice",
                 "sequence"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "blend_breakdown_fail",
+                  "description": "Learner can't blend k-a-t into 'kat'",
+                  "example": "Reads k-a-t as three separate sounds without blending."
+                },
+                {
+                  "type": "segment_breakdown_fail",
+                  "description": "Learner can't break a 3-letter word into sounds",
+                  "example": "'pen' segmented as 'pen' (one sound)."
+                }
+              ],
               "recovery_strategy": "Sound each letter with a finger tap, then sweep to blend. For segmenting, stretch the word and tap each sound.",
               "progression": {
                 "model": "practice-through",
@@ -930,7 +1265,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "family_member_wrong",
+                  "description": "Learner picks a word from a different family",
+                  "example": "Asked for the -at family; picks 'kop'."
+                }
+              ],
               "recovery_strategy": "Fix the ending and swap the first letter. Read the family as a list so the pattern is heard.",
               "progression": {
                 "model": "practice-through",
@@ -954,7 +1295,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "end_sound_confusion",
+                  "description": "Learner can't isolate the final phoneme",
+                  "example": "Asked for the last sound of 'pen'; learner says /e/."
+                }
+              ],
               "recovery_strategy": "Say base word then changed word, stressing the added ending. Compare two endings at a time.",
               "progression": {
                 "model": "practice-through",
@@ -979,7 +1326,13 @@
                 "choice",
                 "sequence"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "blend_split",
+                  "description": "Learner pronounces the blend as two separate sounds with a pause",
+                  "example": "'skoen' as 'se-koen'."
+                }
+              ],
               "recovery_strategy": "Say the two consonants joined (st, dr) before the rest of the word. Build from the blend outward.",
               "progression": {
                 "model": "practice-through",
@@ -1003,7 +1356,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "digraph_split",
+                  "description": "Learner reads a vowel digraph as two single vowels",
+                  "example": "'oe' in 'boek' read as 'o' + 'e'."
+                }
+              ],
               "recovery_strategy": "Contrast the short vowel with the long double vowel (man vs maan). Hold the long sound.",
               "progression": {
                 "model": "practice-through",
@@ -1035,7 +1394,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_feeling_face",
+                  "description": "Learner picks a feeling face that doesn't match the word",
+                  "example": "'hartseer' (sad) matched to the happy face."
+                }
+              ],
               "recovery_strategy": "Match each feeling to a clear face. Practise opposite pairs (bly/hartseer).",
               "progression": {
                 "model": "practice-through",
@@ -1060,7 +1425,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "season_swap",
+                  "description": "Learner picks a season detail from a different season",
+                  "example": "'sneeu' attached to summer."
+                }
+              ],
               "recovery_strategy": "Link each season to a clear picture and the weather word the child knows (winter/koud).",
               "progression": {
                 "model": "practice-through",
@@ -1084,7 +1455,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "time_word_confusion",
+                  "description": "Learner confuses time words (oggend / aand / nag)",
+                  "example": "'aand' picked for a sunrise picture."
+                }
+              ],
               "recovery_strategy": "Order the days/words on a line. Anchor gister/vandag/môre to a calendar.",
               "progression": {
                 "model": "practice-through",
@@ -1109,7 +1486,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_food_group",
+                  "description": "Learner picks a food from a different group",
+                  "example": "'kaas' picked when a fruit was named."
+                }
+              ],
               "recovery_strategy": "Group by category (vrugte, groente). Use single clear food pictures.",
               "progression": {
                 "model": "practice-through",
@@ -1134,7 +1517,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "action_swap",
+                  "description": "Learner picks the wrong action for the named verb",
+                  "example": "'spring' (jump) matched to a sitting figure."
+                }
+              ],
               "recovery_strategy": "Act out each verb. Pair the word with a picture of the action.",
               "progression": {
                 "model": "practice-through",
@@ -1165,7 +1554,13 @@
                 "choice",
                 "audio"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "sight_word_phonetic_attempt",
+                  "description": "Learner sounds out high-frequency words instead of recognising them",
+                  "example": "'maar' read letter by letter."
+                }
+              ],
               "recovery_strategy": "Show and say the word together a few times. Compare similar-looking words carefully.",
               "progression": {
                 "model": "practice-through",
@@ -1190,7 +1585,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "ignored_picture_cue",
+                  "description": "Learner ignores the picture and guesses from the text alone",
+                  "example": "Doesn't use the picture to disambiguate a homonym."
+                }
+              ],
               "recovery_strategy": "Read the sentence, then look at each picture and ask which one it could be.",
               "progression": {
                 "model": "practice-through",
@@ -1215,7 +1616,18 @@
                 "story",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "sequence_inversion",
+                  "description": "Pictures placed out of story order",
+                  "example": "End placed first."
+                },
+                {
+                  "type": "missed_time_marker",
+                  "description": "Learner ignores 'eers / toe / daarna' cues",
+                  "example": "'Toe ...' clause placed before 'Eers ...'."
+                }
+              ],
               "recovery_strategy": "Find the first event together, then ask 'what happened next?' for each step.",
               "progression": {
                 "model": "practice-through",
@@ -1239,7 +1651,18 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "caption_picture_mismatch",
+                  "description": "Learner matches caption to the wrong picture",
+                  "example": "'Die seun lees' attached to a sleeping boy."
+                },
+                {
+                  "type": "modifier_ignored",
+                  "description": "Learner ignores an adjective in the caption",
+                  "example": "''n groot hond' matched to a small dog."
+                }
+              ],
               "recovery_strategy": "Read each caption word by word and check the picture detail it names.",
               "progression": {
                 "model": "practice-through",
@@ -1263,7 +1686,18 @@
                 "story",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "literal_detail_substituted",
+                  "description": "Learner replaces a fact with a similar one in a summary",
+                  "example": "Text says two apples; learner says three."
+                },
+                {
+                  "type": "missing_main_event",
+                  "description": "Learner's summary leaves out the main event",
+                  "example": "Summary mentions only that 'the boy was happy' but not what he did."
+                }
+              ],
               "recovery_strategy": "Re-read, then ask 'what is the whole thing mostly about?' before offering summary choices.",
               "progression": {
                 "model": "practice-through",
@@ -1294,7 +1728,18 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "het_dropped",
+                  "description": "Learner forms past tense without 'het'",
+                  "example": "'Ek gespeel' instead of 'Ek het gespeel'."
+                },
+                {
+                  "type": "ge_prefix_missing",
+                  "description": "Learner forgets the ge- prefix on the past participle",
+                  "example": "'Hy het loop' instead of 'Hy het geloop'."
+                }
+              ],
               "recovery_strategy": "Contrast 'Ek speel' (now) with 'Ek het gespeel' (done). Point out 'het' + the ge- on the verb.",
               "progression": {
                 "model": "practice-through",
@@ -1319,7 +1764,13 @@
                 "cloze",
                 "sequence"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "out_of_order",
+                  "description": "Learner can't place events on a timeline",
+                  "example": "Reads 'gister' as later than 'môre'."
+                }
+              ],
               "recovery_strategy": "Lay three events on a line and label them eers/toe/daarna. Re-tell a routine the child knows.",
               "progression": {
                 "model": "practice-through",
@@ -1342,7 +1793,13 @@
               "templates": [
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "question_word_swap",
+                  "description": "Learner picks 'Wanneer' when 'Waar' was needed (or vice versa)",
+                  "example": "'Wanneer is Karel?' for a location question."
+                }
+              ],
               "recovery_strategy": "Tie 'Wanneer?' to a time answer and 'Waar?' to a place answer. Match question to the kind of answer.",
               "progression": {
                 "model": "practice-through",
@@ -1366,7 +1823,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "subject_vs_object",
+                  "description": "Subject form used where object form is needed",
+                  "example": "'Ek sien hy' instead of 'Ek sien hom'."
+                }
+              ],
               "recovery_strategy": "Show who receives the action (She helps ME). Practise my/hom/haar in short sentences.",
               "progression": {
                 "model": "practice-through",
@@ -1390,7 +1853,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "linking_omitted",
+                  "description": "Learner drops the linking verb 'is'",
+                  "example": "'Sy 'n onderwyser' instead of 'Sy is 'n onderwyser'."
+                }
+              ],
               "recovery_strategy": "Join a subject to a describing word with 'is' (Sy + is + bly). Use feelings the child knows.",
               "progression": {
                 "model": "practice-through",
@@ -1414,7 +1883,13 @@
                 "choice",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_word_class",
+                  "description": "Adjective picked where verb is needed or vice versa",
+                  "example": "'Sy stadig' (adverb missing 'is' or verb) — wrong word picked."
+                }
+              ],
               "recovery_strategy": "Match each new word to a clear picture or action. Practise opposites (lank/kort).",
               "progression": {
                 "model": "practice-through",
@@ -1438,7 +1913,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "irregular_missed",
+                  "description": "Learner regularises an irregular plural",
+                  "example": "kind → 'kinde' instead of 'kinders'."
+                }
+              ],
               "recovery_strategy": "Group nouns by plural ending and practise one group at a time. Flag irregulars as 'special words'.",
               "progression": {
                 "model": "practice-through",
@@ -1476,7 +1957,18 @@
                 "story",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "why_answered_with_what",
+                  "description": "Asked 'Waarom?'; learner gives a 'what' answer",
+                  "example": "Story says the boy ran because it rained; learner says 'he ran fast'."
+                },
+                {
+                  "type": "cause_effect_inverted",
+                  "description": "Learner reverses cause and effect",
+                  "example": "Says the rain happened because the boy ran."
+                }
+              ],
               "recovery_strategy": "Re-read the cause-and-effect sentence. For 'why', point to the part of the story that gives the reason.",
               "progression": {
                 "model": "practice-through",
@@ -1501,7 +1993,13 @@
                 "story",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "ignored_clue",
+                  "description": "Prediction not grounded in the heard cues",
+                  "example": "Dark clouds + wind clues; learner predicts a picnic."
+                }
+              ],
               "recovery_strategy": "Recap what has happened, then ask 'what makes sense next?' Rule out options that do not fit the clues.",
               "progression": {
                 "model": "practice-through",
@@ -1526,7 +2024,13 @@
                 "story",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "detail_as_summary",
+                  "description": "Learner gives a detail as the summary of a non-fiction text",
+                  "example": "Text about bees; learner's summary is just 'they have wings'."
+                }
+              ],
               "recovery_strategy": "Re-read each fact. Ask 'what is the whole thing about?' before offering summary choices.",
               "progression": {
                 "model": "practice-through",
@@ -1557,7 +2061,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "blend_split",
+                  "description": "Consonant blend split into two separate sounds",
+                  "example": "'strand' read as 's-t-rand'."
+                }
+              ],
               "recovery_strategy": "Say the cluster joined (spr, str) before the rest. Build from the blend outward.",
               "progression": {
                 "model": "practice-through",
@@ -1581,7 +2091,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "diphthong_split",
+                  "description": "Diphthong (aai, ooi, oei, eeu) split into separate vowels",
+                  "example": "'koei' read as 'ko-ei'."
+                }
+              ],
               "recovery_strategy": "Stretch the glide sound and link to a key word (oei -> koei). Compare two diphthongs at a time.",
               "progression": {
                 "model": "practice-through",
@@ -1605,7 +2121,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "digraph_split",
+                  "description": "Vowel digraph (ei, eu, ou) split into separate vowels",
+                  "example": "'seun' read as 'se-un'."
+                }
+              ],
               "recovery_strategy": "Link each sound to a key word (eu -> seun). Contrast with a single vowel (ou in koud vs o in kos).",
               "progression": {
                 "model": "practice-through",
@@ -1629,7 +2151,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "near_sound_confusion",
+                  "description": "Learner confuses near sounds (e-as-i, d-as-t at word end)",
+                  "example": "'sit' read with a long 'see' sound."
+                }
+              ],
               "recovery_strategy": "Say the word naturally, then point to the letter that sounds different. Group examples of the same rule.",
               "progression": {
                 "model": "practice-through",
@@ -1654,7 +2182,13 @@
                 "choice",
                 "sequence"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "cluster_breakdown_fail",
+                  "description": "Learner can't blend a 3+ consonant cluster",
+                  "example": "'spraak' read as 'sp-raak' with a pause."
+                }
+              ],
               "recovery_strategy": "Keep the cluster together as one unit while blending the rest of the word.",
               "progression": {
                 "model": "practice-through",
@@ -1678,7 +2212,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "suffix_dropped",
+                  "description": "Learner drops a suffix when reading",
+                  "example": "'mooie' read as 'mooi'."
+                },
+                {
+                  "type": "suffix_misread",
+                  "description": "Learner reads the wrong suffix",
+                  "example": "'-tjie' read as '-jie'."
+                }
+              ],
               "recovery_strategy": "Show the base word, then add the ending and say what it changes (little / more / most).",
               "progression": {
                 "model": "practice-through",
@@ -1702,7 +2247,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "rhyme_pair_wrong",
+                  "description": "Learner picks words that share a starting sound, not an ending sound",
+                  "example": "'kat / koek' picked as rhyming instead of 'kat / mat'."
+                }
+              ],
               "recovery_strategy": "Exaggerate the ending. Compare two words before three.",
               "progression": {
                 "model": "practice-through",
@@ -1734,7 +2285,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "opposite_picked",
+                  "description": "Learner picks the opposite descriptor",
+                  "example": "Asked for 'groot'; picks 'klein'."
+                }
+              ],
               "recovery_strategy": "Match each word to a clear picture. Teach in opposite pairs (swaar/lig).",
               "progression": {
                 "model": "practice-through",
@@ -1758,7 +2315,13 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "synonym_vs_antonym",
+                  "description": "Learner picks a synonym when antonym is asked (or vice versa)",
+                  "example": "Opposite of 'warm'; picks 'lekker' (synonym) instead of 'koud'."
+                }
+              ],
               "recovery_strategy": "Always present the pair together. Use a picture or action that shows the contrast.",
               "progression": {
                 "model": "practice-through",
@@ -1783,7 +2346,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_habitat",
+                  "description": "Learner matches an animal to the wrong habitat or food",
+                  "example": "'leeu' matched to 'eet gras'."
+                }
+              ],
               "recovery_strategy": "Tie each word to a clear animal picture or fact the child knows.",
               "progression": {
                 "model": "practice-through",
@@ -1808,7 +2377,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "place_function_swap",
+                  "description": "Learner matches a place to the wrong activity",
+                  "example": "'hospitaal' matched to 'koop kos'."
+                }
+              ],
               "recovery_strategy": "Link each place to what you do there (winkel -> koop). Use clear building pictures.",
               "progression": {
                 "model": "practice-through",
@@ -1833,7 +2408,13 @@
                 "image-match",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "transport_swap",
+                  "description": "Learner picks a vehicle that doesn't match the context",
+                  "example": "'bus' picked when the text says 'trein' (rails)."
+                }
+              ],
               "recovery_strategy": "Match each word to a clear vehicle picture, and to where it travels (lug/water/pad).",
               "progression": {
                 "model": "practice-through",
@@ -1864,7 +2445,13 @@
                 "choice",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "comprehension_literal",
+                  "description": "Learner can read the poster aloud but can't say what it means",
+                  "example": "Reads 'PASOP VIR DIE HOND' but can't pick 'Beware of the dog'."
+                }
+              ],
               "recovery_strategy": "Read the heading word by word; use any picture on the poster as a clue.",
               "progression": {
                 "model": "practice-through",
@@ -1888,7 +2475,13 @@
                 "story",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "why_answered_with_what",
+                  "description": "Asked 'Waarom?'; learner answers with a literal 'what'",
+                  "example": "Asked why the girl smiled; learner says she smiled."
+                }
+              ],
               "recovery_strategy": "Re-read the sentence that gives the reason. Underline cause-and-effect words.",
               "progression": {
                 "model": "practice-through",
@@ -1913,7 +2506,18 @@
                 "story",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "sequence_inversion",
+                  "description": "Events ordered incorrectly",
+                  "example": "End placed before beginning."
+                },
+                {
+                  "type": "missed_time_marker",
+                  "description": "Time markers ignored when ordering",
+                  "example": "Ignores 'Eers / Toe / Daarna'."
+                }
+              ],
               "recovery_strategy": "Find the first event, then ask 'what happened next?' for each step.",
               "progression": {
                 "model": "practice-through",
@@ -1937,7 +2541,13 @@
                 "story",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "detail_as_summary",
+                  "description": "Picks a detail instead of the overall idea",
+                  "example": "Summary for an animals text picks only 'lions eat meat'."
+                }
+              ],
               "recovery_strategy": "Ask 'what is the whole text mostly about?' Rule out details that are too small to be the summary.",
               "progression": {
                 "model": "practice-through",
@@ -1962,7 +2572,18 @@
                 "choice",
                 "story"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "label_misread",
+                  "description": "Learner reads the wrong label on a diagram",
+                  "example": "Plant diagram — picks 'blare' when the arrow points at the root."
+                },
+                {
+                  "type": "arrow_direction_ignored",
+                  "description": "Learner ignores arrow direction on a diagram",
+                  "example": "Says the highlighted part is the leaves when the arrow points at the stem."
+                }
+              ],
               "recovery_strategy": "Point to the labelled part of the diagram that answers the question.",
               "progression": {
                 "model": "practice-through",
@@ -1993,7 +2614,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "sal_dropped",
+                  "description": "Future tense formed without 'sal' / 'gaan'",
+                  "example": "'Ek speel môre' picked as future-tense form instead of 'Ek sal môre speel'."
+                }
+              ],
               "recovery_strategy": "Tie 'sal' to something not yet done (later/môre). Contrast with the past 'het'.",
               "progression": {
                 "model": "practice-through",
@@ -2017,7 +2644,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "tense_drift",
+                  "description": "Learner picks the wrong tense for the time signal",
+                  "example": "Sentence has 'gister'; learner picks present-tense verb."
+                }
+              ],
               "recovery_strategy": "Anchor each tense to a time word: nou (present), gister (past), môre (future).",
               "progression": {
                 "model": "practice-through",
@@ -2041,7 +2674,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "article_swap",
+                  "description": "Learner uses 'die' for a first mention or ''n' for a known referent",
+                  "example": "''n son skyn' instead of 'Die son skyn'."
+                }
+              ],
               "recovery_strategy": "Use ''n' for any one (a dog) and 'die' for a specific one (the dog we know).",
               "progression": {
                 "model": "practice-through",
@@ -2065,7 +2704,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "degree_wrong",
+                  "description": "Comparative used where superlative is needed (or vice versa)",
+                  "example": "'die grootter' instead of 'die grootste'."
+                }
+              ],
               "recovery_strategy": "Line up three things small-to-big and label them: groot, groter, grootste. Stress -er and -ste.",
               "progression": {
                 "model": "practice-through",
@@ -2089,7 +2734,13 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "near_vs_far_swap",
+                  "description": "Learner picks 'hierdie' for a far object or 'daardie' for a near one",
+                  "example": "'daardie boek' for the book on the desk in front of you."
+                }
+              ],
               "recovery_strategy": "Point near (hierdie) and far (daardie) with real objects. Practise the pair together.",
               "progression": {
                 "model": "practice-through",
@@ -2112,7 +2763,13 @@
               "templates": [
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "question_word_swap",
+                  "description": "Learner picks the wrong question word (Watter vs Waarom)",
+                  "example": "'Watter rede?' picked when 'Waarom?' was needed."
+                }
+              ],
               "recovery_strategy": "Tie 'Watter?' to a choice between options and 'Waarom?' to a reason (omdat ...).",
               "progression": {
                 "model": "practice-through",
@@ -2136,8 +2793,2421 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "plural_rule_wrong",
+                  "description": "Learner picks the wrong plural ending",
+                  "example": "'kinde' instead of 'kinders'."
+                },
+                {
+                  "type": "uncountable_pluralised",
+                  "description": "Learner adds a plural ending to an uncountable noun",
+                  "example": "'suikere' for 'suiker'."
+                }
+              ],
               "recovery_strategy": "Sort words into 'things you can count' and 'things you cannot count' (suiker, sand). Review plural endings.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "grade": 4,
+      "title": "Graad 4 — Afrikaans Eerste Addisionele Taal",
+      "description": "CAPS Intermediate Phase Grade 4 FAL. Reading and writing become first-class strands. Strands: Luister (receptive), Lees en Kyk, Skryf en Aanbied (typed cloze/sentence only), Taalstrukture. Praat (speaking aloud) and long-form essay writing remain deferred. Vocabulary target: ~1700 words by year end. Reading texts run ~60-80 words.",
+      "tiers": [
+        {
+          "id": "AF.G4.LUI",
+          "title": "Luister (Listening comprehension)",
+          "description": "Receptive listening only (Praat / speaking-aloud is deferred — needs voice capture). Audio plays Afrikaans; the learner taps/chooses. At IP level the content shifts from FP greetings to multi-step instructions, longer narratives, opinions, and figurative language.",
+          "atomic_skills": [
+            {
+              "id": "AF.G4.LUI.01",
+              "bank_skill_id": "AF.G4.LUI.01",
+              "title": "Volg meer-stap gesproke instruksies (follow multi-step spoken instructions)",
+              "description": "Listen to two- or three-step Afrikaans instructions and choose what to do, e.g. 'Trek 'n sirkel, kleur dit blou, en skryf jou naam.'",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "audio",
+                "choice",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "step_omitted",
+                  "description": "The learner skips one of the steps in a multi-step instruction",
+                  "example": "Asked to 'draw a circle and colour it red', the learner draws the circle but doesn't colour it."
+                },
+                {
+                  "type": "sequence_inversion",
+                  "description": "Steps performed but in the wrong order",
+                  "example": "Learner colours first and then draws — reversing the instructions."
+                },
+                {
+                  "type": "key_word_missed",
+                  "description": "A critical detail (colour, place, number) is not heard or chosen",
+                  "example": "Learner taps the wrong colour because they missed 'rooi' in the audio."
+                }
+              ],
+              "recovery_strategy": "Replay slowly. Confirm step 1 before step 2; have the learner repeat the steps back.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LUI.02",
+              "bank_skill_id": "AF.G4.LUI.02",
+              "title": "Beantwoord vrae oor 'n gehoorde storie (answer Q's about a heard story)",
+              "description": "Listen to a short Afrikaans story (~60 words) and answer wie/wat/waar/wanneer comprehension questions.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "story",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "literal_detail_missed",
+                  "description": "Learner cannot recall a literal detail (who/what/when) from the audio",
+                  "example": "Story said 'pienk sambreel' but learner picks 'blou sambreel'."
+                },
+                {
+                  "type": "wrong_character",
+                  "description": "Learner mixes up who did what in a multi-character story",
+                  "example": "Themba won the race, but learner says it was the coach."
+                },
+                {
+                  "type": "time_word_confusion",
+                  "description": "Learner misreads time words (saans, oggend, naweek)",
+                  "example": "Learner says the event happens in the morning when audio said 'saans'."
+                }
+              ],
+              "recovery_strategy": "Re-read one sentence at a time and ask the matching question. Use the picture / context as a cue.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LUI.03",
+              "bank_skill_id": "AF.G4.LUI.03",
+              "title": "Maak voorspellings tydens luister (predict during listening)",
+              "description": "Listen to part of an Afrikaans story / account and choose the most likely next event from clues.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LUI.02"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "ignored_clue",
+                  "description": "Learner picks an option not supported by the audio cues",
+                  "example": "Audio mentions dark clouds and wind, but learner predicts sunshine."
+                },
+                {
+                  "type": "over_literal",
+                  "description": "Learner chooses an option only because words match, not because it makes sense",
+                  "example": "Learner picks an option that re-uses a noun from the audio but doesn't follow logically."
+                }
+              ],
+              "recovery_strategy": "Pause at the clue sentence and underline (read aloud) the words that hint at what comes next.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LUI.04",
+              "bank_skill_id": "AF.G4.LUI.04",
+              "title": "Hervertel die volgorde van gebeure (retell the order of events)",
+              "description": "Hear a short Afrikaans story and put the events back in the correct order.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LUI.03"
+              ],
+              "templates": [
+                "audio",
+                "sequence",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "sequence_inversion",
+                  "description": "Events recalled in the wrong order",
+                  "example": "Learner places 'breakfast' before 'wake up'."
+                },
+                {
+                  "type": "event_omission",
+                  "description": "Learner drops an event entirely from the sequence",
+                  "example": "Four-step story but learner orders only three events."
+                }
+              ],
+              "recovery_strategy": "Walk through the story event by event; place each one on a timeline before choosing.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LUI.05",
+              "bank_skill_id": "AF.G4.LUI.05",
+              "title": "Volg 'n eenvoudige dialoog (follow a simple dialogue)",
+              "description": "Listen to a short conversation between two Afrikaans speakers and answer who said what.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LUI.04"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "speaker_confusion",
+                  "description": "Learner attributes a line to the wrong speaker",
+                  "example": "Dad says 'wil jy melk hê?' but learner says Karel asked."
+                },
+                {
+                  "type": "question_vs_answer",
+                  "description": "Learner picks the question as the response (or vice versa)",
+                  "example": "Dialogue asks 'Hoe oud is jy?' and learner picks the question option instead of the answer."
+                }
+              ],
+              "recovery_strategy": "Replay with each speaker labelled (Speaker 1 / Speaker 2). Match each line to who said it before answering.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LUI.06",
+              "bank_skill_id": "AF.G4.LUI.06",
+              "title": "Verstaan alledaagse uitdrukkings (understand everyday expressions)",
+              "description": "Recognise common Afrikaans expressions and chunks heard in everyday talk, e.g. 'Mag ek asseblief...', 'Wat is jou naam?', 'Hoeveel kos dit?'.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LUI.05"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "literal_translation",
+                  "description": "Learner translates the expression word-for-word instead of using the chunk meaning",
+                  "example": "'Lekker dag verder' interpreted as 'tasty day further' rather than 'have a nice day'."
+                },
+                {
+                  "type": "wrong_register",
+                  "description": "Learner can't distinguish polite from informal usage",
+                  "example": "Learner picks 'jy' option in a sentence using 'u' (formal)."
+                }
+              ],
+              "recovery_strategy": "Anchor each expression to a familiar scene (asking a shopkeeper, meeting a friend) and give the English meaning as a hint before the choices.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G4.LEE",
+          "title": "Lees en Kyk (Reading & Viewing)",
+          "description": "The major IP strand. Learners read full Afrikaans stories, factual / information texts, poems, and media (posters, ads, news). Items present the text in `context` and ask comprehension, prediction, summarising, inferring, and visual-literacy questions.",
+          "atomic_skills": [
+            {
+              "id": "AF.G4.LEE.01",
+              "bank_skill_id": "AF.G4.LEE.01",
+              "title": "Pre-lees: voorspel uit titel en prente (pre-read: predict from title and pictures)",
+              "description": "Use the title, headings and any picture / illustration of an Afrikaans text to predict what it is about before reading.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "title_keyword_ignored",
+                  "description": "Learner ignores the meaningful word in the title",
+                  "example": "Title 'Die Verlore Hondjie' — learner picks a zoo trip, ignoring 'hondjie'."
+                },
+                {
+                  "type": "over_specific",
+                  "description": "Learner picks a wrong specific outcome rather than the broad topic",
+                  "example": "Title 'Sport by die Skool' — learner picks 'a rugby final' instead of the topic 'sport at school'."
+                }
+              ],
+              "recovery_strategy": "Cover the body of the text; ask 'Wat sien jy? Wat dink jy gaan gebeur?' before revealing.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LEE.02",
+              "bank_skill_id": "AF.G4.LEE.02",
+              "title": "Lees en verstaan 'n kort storie (read and understand a short story, 60-80 words)",
+              "description": "Read a short Afrikaans story (60-80 words) and answer comprehension questions about characters, setting and events.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LEE.01"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "detail_substitution",
+                  "description": "Learner replaces a story detail with a similar but wrong one",
+                  "example": "Story has a green ball; learner says red ball."
+                },
+                {
+                  "type": "inference_overreach",
+                  "description": "Learner picks an option that goes beyond what the story states",
+                  "example": "Story doesn't say where they went after the park; learner picks a wrong location."
+                }
+              ],
+              "recovery_strategy": "Re-read the story one sentence at a time. Underline the words that answer each question.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LEE.03",
+              "bank_skill_id": "AF.G4.LEE.03",
+              "title": "Beantwoord wie/wat/waar/wanneer-vrae (answer literal who/what/where/when questions)",
+              "description": "Find facts in a short Afrikaans text and answer literal comprehension questions.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LEE.02"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "scanning_failure",
+                  "description": "Learner can't find the literal answer in the text",
+                  "example": "Bus time is in the text but learner guesses."
+                },
+                {
+                  "type": "wrong_5w",
+                  "description": "Learner answers a different W-question than asked",
+                  "example": "Question asks WHEN; learner gives a WHO answer."
+                }
+              ],
+              "recovery_strategy": "Point to where in the text the answer comes from. Highlight that exact sentence.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LEE.04",
+              "bank_skill_id": "AF.G4.LEE.04",
+              "title": "Vind hoofidee in 'n inligtingsteks (find the main idea in an information text)",
+              "description": "Read a short Afrikaans information text and identify what it is mainly about (not just a detail).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LEE.03"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "detail_as_main",
+                  "description": "Learner picks a supporting detail as the main idea",
+                  "example": "Text about teeth-care; learner picks 'sugar makes holes' instead of the broader topic."
+                },
+                {
+                  "type": "topic_too_narrow",
+                  "description": "Learner picks a too-narrow option",
+                  "example": "Picks 'apples' when text is about fruit in general."
+                }
+              ],
+              "recovery_strategy": "Cover everything but the heading and first/last sentence — the main idea usually lives there.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LEE.05",
+              "bank_skill_id": "AF.G4.LEE.05",
+              "title": "Lees 'n eenvoudige prosedureteks (read a simple procedure / how-to)",
+              "description": "Read a short Afrikaans procedure (recipe, craft instructions, game rules) and answer questions about order and ingredients.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LEE.04"
+              ],
+              "templates": [
+                "text",
+                "choice",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "step_order_wrong",
+                  "description": "Learner picks the wrong-ordered step in a how-to",
+                  "example": "Picks 'add milk' before 'boil water' in a tea recipe."
+                },
+                {
+                  "type": "missing_step",
+                  "description": "Learner can't identify which step is missing or last",
+                  "example": "Asked for the LAST step, learner picks step 2."
+                }
+              ],
+              "recovery_strategy": "Number each step. Match each question to the numbered step that holds the answer.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LEE.06",
+              "bank_skill_id": "AF.G4.LEE.06",
+              "title": "Lees 'n eenvoudige gedig — rym en ritme (read a simple poem — rhyme and rhythm)",
+              "description": "Read a short Afrikaans rhyming poem and identify rhyming pairs, line repetition, and overall feeling.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LEE.05"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "rhyme_pair_wrong",
+                  "description": "Learner picks lines that don't actually rhyme",
+                  "example": "Picks 'speel / lag' instead of 'bal / val'."
+                },
+                {
+                  "type": "mood_mismatch",
+                  "description": "Learner picks an opposite feeling for the poem",
+                  "example": "Playful poem; learner picks 'scary'."
+                }
+              ],
+              "recovery_strategy": "Read aloud and clap the rhythm. Circle the words that sound the same at the end.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LEE.07",
+              "bank_skill_id": "AF.G4.LEE.07",
+              "title": "Visuele geletterdheid: plakkaat / advertensie (visual literacy: poster / ad)",
+              "description": "Read a simple Afrikaans poster or ad and identify what it wants the reader to do, when, and where.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LEE.06"
+              ],
+              "templates": [
+                "text",
+                "choice",
+                "image-match"
+              ],
+              "error_signatures": [
+                {
+                  "type": "audience_misread",
+                  "description": "Learner misidentifies who the poster is for",
+                  "example": "Family bazaar; learner says 'for farmers only'."
+                },
+                {
+                  "type": "missed_call_to_action",
+                  "description": "Learner can't tell what the poster wants the reader to do",
+                  "example": "Poster invites to a bazaar; learner picks an unrelated action."
+                }
+              ],
+              "recovery_strategy": "Look at the picture first — who is it speaking to? Then read the big words, then the small print.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.LEE.08",
+              "bank_skill_id": "AF.G4.LEE.08",
+              "title": "Leid betekenis van onbekende woorde af uit konteks (infer unknown words from context)",
+              "description": "When you meet an unfamiliar Afrikaans word in a text, work out its meaning from the surrounding sentence and any picture.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.LEE.07"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "context_ignored",
+                  "description": "Learner picks a meaning that doesn't fit the sentence context",
+                  "example": "'Die kos is GAAR' — learner picks 'raw' instead of 'cooked / ready'."
+                },
+                {
+                  "type": "phonetic_guess",
+                  "description": "Learner guesses based on a similar-sounding English word",
+                  "example": "'GLIBBERIG' guessed as 'glittery' instead of 'slippery'."
+                }
+              ],
+              "recovery_strategy": "Cover the unknown word; ask what word would make sense there. Then reveal and confirm with the options.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G4.SKR",
+          "title": "Skryf en Aanbied (Writing & Presenting)",
+          "description": "Typed-only writing, kept at sentence / cloze level so it can be auto-marked (no LLM essay grading in scope). Templates: cloze (fill missing words), sequence (order sentences), choice (pick the right sentence form). Long-form essay grading is Phase 3.",
+          "atomic_skills": [
+            {
+              "id": "AF.G4.SKR.01",
+              "bank_skill_id": "AF.G4.SKR.01",
+              "title": "Voltooi sinne (complete sentences via cloze)",
+              "description": "Fill in the missing word in a short Afrikaans sentence so it makes sense and matches the picture / context.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "cloze",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "wrong_word_class",
+                  "description": "Learner picks a wrong part of speech for the gap",
+                  "example": "Gap needs a verb; learner picks a noun."
+                },
+                {
+                  "type": "tense_mismatch",
+                  "description": "Learner picks past tense where present is needed (or vice versa)",
+                  "example": "Sentence is present tense; learner picks 'gespeel' (past)."
+                }
+              ],
+              "recovery_strategy": "Read the sentence with each option in the gap; which one makes a true sentence?",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.SKR.02",
+              "bank_skill_id": "AF.G4.SKR.02",
+              "title": "Skryf 'n eenvoudige lys (write a simple list — shopping, classroom, weekend)",
+              "description": "Build a short Afrikaans list (4-6 items) by choosing which words belong on the list (e.g. items for a picnic).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.SKR.01"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "category_violation",
+                  "description": "Learner picks an item that doesn't belong on the list",
+                  "example": "Adds 'stoel' (chair) to a fruit list."
+                },
+                {
+                  "type": "kept_distractor",
+                  "description": "Learner removes a correct item and keeps an irrelevant one",
+                  "example": "Drops 'appel' from fruit list and keeps 'brood'."
+                }
+              ],
+              "recovery_strategy": "Cluster items by category first (food / drink / utensils) before deciding what to include.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.SKR.03",
+              "bank_skill_id": "AF.G4.SKR.03",
+              "title": "Vul 'n cloze-paragraaf in (5-7 leemtes)",
+              "description": "Read a short Afrikaans paragraph with 5-7 missing words and fill each gap with the right word from a word bank.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.SKR.02"
+              ],
+              "templates": [
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "gap_skipped",
+                  "description": "Learner fills some gaps and skips others",
+                  "example": "5-gap paragraph; learner answers only 3 gaps."
+                },
+                {
+                  "type": "wrong_concord",
+                  "description": "Word chosen doesn't agree with the surrounding nouns/verbs",
+                  "example": "Picks a singular noun where the verb form needs plural."
+                }
+              ],
+              "recovery_strategy": "Read the whole paragraph first to get the gist, then fill the easiest gaps before the harder ones.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.SKR.04",
+              "bank_skill_id": "AF.G4.SKR.04",
+              "title": "Plaas sinne in storievolgorde (sequence sentences into a story)",
+              "description": "Put 4-6 short Afrikaans sentences in the correct order so they tell a coherent story.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.SKR.03"
+              ],
+              "templates": [
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "scrambled_order",
+                  "description": "Learner's sentence order doesn't tell a coherent story",
+                  "example": "Puts 'eat' before 'wake up'."
+                },
+                {
+                  "type": "ignored_time_marker",
+                  "description": "Learner ignores 'eers/toe/daarna/laastens' cues when sequencing",
+                  "example": "Story has 'Eers ... daarna ...' clearly; learner still picks the wrong order."
+                }
+              ],
+              "recovery_strategy": "Look for time words (eerstens, toe, daarna, laastens) and pronouns that refer back. Find the beginning first.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.SKR.05",
+              "bank_skill_id": "AF.G4.SKR.05",
+              "title": "Skryf eenvoudige instruksies (write simple instructions via cloze)",
+              "description": "Complete a short Afrikaans procedure (3-5 steps) by choosing the missing verb or detail in each step.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.SKR.04"
+              ],
+              "templates": [
+                "cloze",
+                "sequence",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "wrong_action_verb",
+                  "description": "Learner picks a verb that doesn't match the step",
+                  "example": "Step 1 'open the tap'; learner chooses 'eat the tap'."
+                },
+                {
+                  "type": "step_order_wrong",
+                  "description": "Procedure built in the wrong sequence",
+                  "example": "Boil → measure → mix written as measure → boil → mix."
+                }
+              ],
+              "recovery_strategy": "Imagine actually doing the task — what is the very first thing you'd pick up or check?",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G4.TAL",
+          "title": "Taalstrukture en -konvensies (Language structures)",
+          "description": "Afrikaans grammar, punctuation and vocabulary in context. CAPS embeds grammar inside the other strands but here it is its own ladder so progress can be tracked. Items are choice / cloze.",
+          "atomic_skills": [
+            {
+              "id": "AF.G4.TAL.01",
+              "bank_skill_id": "AF.G4.TAL.01",
+              "title": "Selfstandige naamwoorde: ekv en mv (nouns: singular and plural)",
+              "description": "Form Afrikaans plurals correctly: -e (kat → katte), -s (skoen → skoene), and the common -ies for diminutives carried over (boek → boeke).",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "plural_rule_wrong",
+                  "description": "Learner applies the wrong plural ending",
+                  "example": "kat → 'kats' instead of 'katte'."
+                },
+                {
+                  "type": "irregular_missed",
+                  "description": "Learner uses regular -e for an irregular plural",
+                  "example": "kind → 'kinde' instead of 'kinders'."
+                },
+                {
+                  "type": "consonant_doubling",
+                  "description": "Learner forgets to double the consonant before -e",
+                  "example": "bal → 'bale' instead of 'balle'."
+                }
+              ],
+              "recovery_strategy": "Sort words into 'add -e', 'add -s'. Stress the new ending sound when reading the plural aloud.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.TAL.02",
+              "bank_skill_id": "AF.G4.TAL.02",
+              "title": "Werkwoorde — teenwoordige tyd (verbs — present tense)",
+              "description": "Use the present tense of common Afrikaans verbs correctly: ek loop, hy speel, ons sing, hulle eet.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.TAL.01"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "agreement_invented",
+                  "description": "Learner adds an -s/-t to the verb to 'agree' with the subject",
+                  "example": "Hy 'speels' instead of 'Hy speel'."
+                },
+                {
+                  "type": "tense_drift",
+                  "description": "Learner picks past form when present is required",
+                  "example": "'Ek het gespeel' picked for a present-tense slot."
+                }
+              ],
+              "recovery_strategy": "Afrikaans is simple in the present — the verb form doesn't change with the subject. Show that ek/jy/hy/sy/ons/julle/hulle all take the same verb.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.TAL.03",
+              "bank_skill_id": "AF.G4.TAL.03",
+              "title": "Persoonlike voornaamwoorde (personal pronouns)",
+              "description": "Use Afrikaans personal pronouns: ek, jy, hy, sy, dit, ons, julle, hulle, and object forms my, jou, hom, haar, ons, julle, hulle.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.TAL.02"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "gender_swap",
+                  "description": "Learner picks 'hy' for a female subject (or 'sy' for male)",
+                  "example": "Mia replaced with 'hy' instead of 'sy'."
+                },
+                {
+                  "type": "subject_vs_object",
+                  "description": "Learner uses subject form where object form is needed",
+                  "example": "'Ek hou van hy' instead of 'Ek hou van hom'."
+                }
+              ],
+              "recovery_strategy": "Show pictures or names; replace them with the right pronoun. Highlight that 'jy/jou' is informal and 'u' is polite.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.TAL.04",
+              "bank_skill_id": "AF.G4.TAL.04",
+              "title": "Byvoeglike naamwoorde (adjectives — describing words)",
+              "description": "Use simple Afrikaans adjectives to describe nouns: groot, klein, mooi, lelik, vinnig, stadig.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.TAL.03"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "wrong_adjective",
+                  "description": "Learner picks an adjective that contradicts the sentence",
+                  "example": "'Die ys is warm' — learner accepts 'warm'."
+                },
+                {
+                  "type": "opposite_confusion",
+                  "description": "Learner picks the antonym instead of the synonym (or vice versa)",
+                  "example": "Asked the opposite of 'groot', learner picks 'klein' but for synonym asks the same answer."
+                }
+              ],
+              "recovery_strategy": "Match each adjective to a clear picture or its opposite. Practise the adjective right next to the noun: 'die groot hond'.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.TAL.05",
+              "bank_skill_id": "AF.G4.TAL.05",
+              "title": "Lidwoorde: die / 'n (articles)",
+              "description": "Choose between 'die' (the) and ''n' (a/an) correctly in Afrikaans sentences.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.TAL.04"
+              ],
+              "templates": [
+                "cloze",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "article_swap",
+                  "description": "Learner uses 'die' for a first mention or ''n' for a known referent",
+                  "example": "''n son skyn' instead of 'Die son skyn'."
+                },
+                {
+                  "type": "missing_article",
+                  "description": "Learner omits the article altogether",
+                  "example": "'Ek sien hond' instead of 'Ek sien 'n hond'."
+                }
+              ],
+              "recovery_strategy": "Use 'die' for something already known, ''n' for the first time it's mentioned.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.TAL.06",
+              "bank_skill_id": "AF.G4.TAL.06",
+              "title": "Sinsoorte: stelsin, vraagsin, bevelsin (statement / question / command)",
+              "description": "Recognise and form three Afrikaans sentence types: statement, question (starts with verb or question word), command (starts with verb).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.TAL.05"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "type_mislabel",
+                  "description": "Learner labels a question as a statement (or similar mix-up)",
+                  "example": "'Is sy bly?' labelled as a statement."
+                },
+                {
+                  "type": "wrong_terminator",
+                  "description": "Learner picks the wrong end-punctuation",
+                  "example": "Question ended with '.' instead of '?'."
+                }
+              ],
+              "recovery_strategy": "Punctuation is the giveaway: . for statement, ? for question, ! for command. Read each sentence aloud with the right tone.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.TAL.07",
+              "bank_skill_id": "AF.G4.TAL.07",
+              "title": "Hoofletters en punte (capitals and full stops)",
+              "description": "Apply Afrikaans capitalisation: start of sentences, proper names, place names, days, months; use full stops at sentence ends.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.TAL.06"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "day_or_month_lowercase",
+                  "description": "Learner doesn't capitalise days or months (English-influenced habit)",
+                  "example": "'op saterdag' instead of 'op Saterdag'."
+                },
+                {
+                  "type": "proper_noun_lowercase",
+                  "description": "Place / personal names left in lowercase",
+                  "example": "'pretoria' instead of 'Pretoria'."
+                },
+                {
+                  "type": "missing_full_stop",
+                  "description": "Sentence not ended with a full stop",
+                  "example": "'Sy is my vriendin' — no period."
+                }
+              ],
+              "recovery_strategy": "Underline every word that needs a capital before re-writing. Days of the week ARE capitalised in Afrikaans — point that out.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G4.TAL.08",
+              "bank_skill_id": "AF.G4.TAL.08",
+              "title": "Woordeskat in konteks (vocabulary in context)",
+              "description": "Work out which Afrikaans word fits a given sentence from a small set of similar options.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G4.TAL.07"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "context_ignored",
+                  "description": "Learner picks a word that doesn't suit the surrounding sentence",
+                  "example": "'Sy is dors. Sy drink 'n glas klippe' — learner picks 'klippe' instead of 'water'."
+                },
+                {
+                  "type": "category_confusion",
+                  "description": "Picks an item from the wrong semantic field",
+                  "example": "Sentence about food; learner picks an item of clothing."
+                }
+              ],
+              "recovery_strategy": "Read the whole sentence with each option in turn. Eliminate the option that makes the sentence untrue or odd.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "grade": 5,
+      "title": "Graad 5 — Afrikaans Eerste Addisionele Taal",
+      "description": "CAPS Intermediate Phase Grade 5 FAL. Comprehension shifts from literal to inferential; writing widens from single sentences to scaffolded paragraphs. Reading texts run ~80-120 words. Vocabulary target: ~2500 words. Past tense, diminutives and the double-negative are the new grammar focus.",
+      "tiers": [
+        {
+          "id": "AF.G5.LUI",
+          "title": "Luister (Listening comprehension)",
+          "description": "Receptive listening only (Praat / speaking-aloud is deferred — needs voice capture). Audio plays Afrikaans; the learner taps/chooses. At IP level the content shifts from FP greetings to multi-step instructions, longer narratives, opinions, and figurative language.",
+          "atomic_skills": [
+            {
+              "id": "AF.G5.LUI.01",
+              "bank_skill_id": "AF.G5.LUI.01",
+              "title": "Volg langer mondelinge instruksies in volgorde (follow longer ordered instructions)",
+              "description": "Listen to four- to five-step Afrikaans instructions and place the steps in correct order.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "audio",
+                "sequence",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Have the learner say the steps back in their own words before sequencing them.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LUI.02",
+              "bank_skill_id": "AF.G5.LUI.02",
+              "title": "Vind hoofidee in 'n gehoorde teks (find the main idea in a heard text)",
+              "description": "Listen to a short Afrikaans information text and pick the sentence that best states its main idea.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Ask: 'What is the WHOLE text about, not just one part?' Eliminate options that are only one detail.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LUI.03",
+              "bank_skill_id": "AF.G5.LUI.03",
+              "title": "Maak gevolgtrekkings uit luisterteks (draw inferences from listening)",
+              "description": "Listen to an Afrikaans story and answer questions that need reasoning beyond the literal text (how does the character feel? what is implied?).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LUI.02"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Replay the clue sentence; ask 'Why might they say that?'. Connect tone-of-voice to feeling.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LUI.04",
+              "bank_skill_id": "AF.G5.LUI.04",
+              "title": "Identifiseer karakter se gevoelens uit toon (identify feelings from tone)",
+              "description": "Notice the tone (happy / angry / sad / surprised) of an Afrikaans speaker and match it to the right feeling word.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LUI.03"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Re-listen and copy the tone in your own voice. The feeling word should match how you sound.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LUI.05",
+              "bank_skill_id": "AF.G5.LUI.05",
+              "title": "Volg 'n kort gedig en herken rym (follow a short poem and recognise rhyme)",
+              "description": "Listen to a short Afrikaans rhyming poem and pick the rhyming pair / fill the rhyme.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LUI.04"
+              ],
+              "templates": [
+                "audio",
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Stretch the ending of each line. Compare line endings in pairs.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LUI.06",
+              "bank_skill_id": "AF.G5.LUI.06",
+              "title": "Verstaan idiome en uitdrukkings (understand common idioms)",
+              "description": "Recognise high-frequency Afrikaans idioms and choose the meaning, e.g. 'Hy is 'n boekwurm', 'Dis 'n appel-en-eier'.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LUI.05"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Give the English equivalent and the literal meaning side by side; show why the figurative meaning makes sense.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G5.LEE",
+          "title": "Lees en Kyk (Reading & Viewing)",
+          "description": "The major IP strand. Learners read full Afrikaans stories, factual / information texts, poems, and media (posters, ads, news). Items present the text in `context` and ask comprehension, prediction, summarising, inferring, and visual-literacy questions.",
+          "atomic_skills": [
+            {
+              "id": "AF.G5.LEE.01",
+              "bank_skill_id": "AF.G5.LEE.01",
+              "title": "Pre-lees: gebruik opskrif, byskrif en illustrasies (pre-read with heading, caption, illustrations)",
+              "description": "Use the heading, captions and any illustrations of an Afrikaans text to predict content and purpose before reading.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "List 3 things you expect to find in the text based on the heading. Then check after reading.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LEE.02",
+              "bank_skill_id": "AF.G5.LEE.02",
+              "title": "Lees en verstaan 'n storie (read a story, 80-120 words)",
+              "description": "Read a longer Afrikaans story (80-120 words) and answer questions about plot, characters and setting.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LEE.01"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "After reading, briefly retell in 1-2 sentences in English before answering the Afrikaans questions.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LEE.03",
+              "bank_skill_id": "AF.G5.LEE.03",
+              "title": "Beantwoord hoekom/hoe-vrae (answer how / why reasoning questions)",
+              "description": "Read an Afrikaans text and answer 'Hoekom?' / 'Hoe?' questions that need a reason or method, not just a fact.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LEE.02"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Find the cause-and-effect sentence. Look for words like 'omdat', 'want', 'sodat' as signals.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LEE.04",
+              "bank_skill_id": "AF.G5.LEE.04",
+              "title": "Onderskei hoof- en ondersteunende besonderhede (main vs supporting details)",
+              "description": "Read an Afrikaans information text and tell which sentence is the main idea and which are supporting details.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LEE.03"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Ask: 'Could the text exist without this sentence?' If yes, it's supporting; if no, it's main.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LEE.05",
+              "bank_skill_id": "AF.G5.LEE.05",
+              "title": "Lees 'n feitelike verslag (read a factual report)",
+              "description": "Read a short Afrikaans factual report (animals, places, events) and answer comprehension questions.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LEE.04"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Underline numbers, names and places — they often anchor the questions.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LEE.06",
+              "bank_skill_id": "AF.G5.LEE.06",
+              "title": "Lees 'n gedig — tema en boodskap (poem — theme and message)",
+              "description": "Read a short Afrikaans poem and identify its theme (what it is about) and message (what the poet wants the reader to think or feel).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LEE.05"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Theme = topic, message = the take-away. Ask both questions separately.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LEE.07",
+              "bank_skill_id": "AF.G5.LEE.07",
+              "title": "Visuele geletterdheid: spotprent / strokie (visual literacy: cartoon / strip)",
+              "description": "Read an Afrikaans cartoon or comic strip and answer questions about what each character does, says, and feels.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LEE.06"
+              ],
+              "templates": [
+                "text",
+                "choice",
+                "image-match"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Read the panels in order. Match each speech bubble to the right character.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.LEE.08",
+              "bank_skill_id": "AF.G5.LEE.08",
+              "title": "Gebruik woordeboek en konteks saam (use a dictionary and context together)",
+              "description": "Look up an Afrikaans word and pick which dictionary meaning fits the sentence in front of you.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.LEE.07"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Dictionaries often list more than one meaning. Read each meaning back into the sentence; only one will fit.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G5.SKR",
+          "title": "Skryf en Aanbied (Writing & Presenting)",
+          "description": "Typed-only writing, kept at sentence / cloze level so it can be auto-marked (no LLM essay grading in scope). Templates: cloze (fill missing words), sequence (order sentences), choice (pick the right sentence form). Long-form essay grading is Phase 3.",
+          "atomic_skills": [
+            {
+              "id": "AF.G5.SKR.01",
+              "bank_skill_id": "AF.G5.SKR.01",
+              "title": "Skryf sinne uit losse woorde (build sentences from given words)",
+              "description": "Order a small set of given Afrikaans words into a correct sentence (subject-verb-object).",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "sequence",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Find the verb first, then the subject (who is doing it), then the rest.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.SKR.02",
+              "bank_skill_id": "AF.G5.SKR.02",
+              "title": "Skryf 'n boodskap / uitnodiging (write a message / invitation via cloze)",
+              "description": "Complete a short Afrikaans message or invitation by filling in missing parts: greeting, date, place, sign-off.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.SKR.01"
+              ],
+              "templates": [
+                "cloze",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Map out the parts (who from, who to, what, when, where) before filling the gaps.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.SKR.03",
+              "bank_skill_id": "AF.G5.SKR.03",
+              "title": "Vul 'n cloze-paragraaf in (8-10 leemtes)",
+              "description": "Read a short Afrikaans paragraph with 8-10 missing words across nouns, verbs and connectors, and fill each gap.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.SKR.02"
+              ],
+              "templates": [
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Do the easy nouns first to fix the topic, then verbs, then the connector words last.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.SKR.04",
+              "bank_skill_id": "AF.G5.SKR.04",
+              "title": "Skryf 'n kort beskrywing (3-4 sinne, scaffolded)",
+              "description": "Complete a 3-4 sentence Afrikaans description of a person / place / thing by filling in scaffolded prompts.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.SKR.03"
+              ],
+              "templates": [
+                "cloze",
+                "choice",
+                "sequence"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Use the senses ladder: what does it look / sound / feel / smell like? One sense per sentence.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.SKR.05",
+              "bank_skill_id": "AF.G5.SKR.05",
+              "title": "Skryf 'n prosedureteks (scaffolded procedure)",
+              "description": "Build a short Afrikaans procedure (4-6 steps) by filling in the verb in each step and putting steps in order.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.SKR.04"
+              ],
+              "templates": [
+                "cloze",
+                "sequence"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Each step needs a 'doing word' (werkwoord) at the start. Imagine performing the task as you write each step.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.SKR.06",
+              "bank_skill_id": "AF.G5.SKR.06",
+              "title": "Skryf 'n persoonlike sin oor 'n storie (write a personal response sentence)",
+              "description": "Complete a short Afrikaans sentence giving a personal opinion about a story (which character you liked, what you thought of the ending), using a scaffolded frame.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.SKR.05"
+              ],
+              "templates": [
+                "cloze",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Start with 'Ek dink...' or 'My gunsteling-karakter is... omdat...'. Always give one reason.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G5.TAL",
+          "title": "Taalstrukture en -konvensies (Language structures)",
+          "description": "Afrikaans grammar, punctuation and vocabulary in context. CAPS embeds grammar inside the other strands but here it is its own ladder so progress can be tracked. Items are choice / cloze.",
+          "atomic_skills": [
+            {
+              "id": "AF.G5.TAL.01",
+              "bank_skill_id": "AF.G5.TAL.01",
+              "title": "Selfstandige naamwoorde: verkleinwoorde (diminutives: -ie, -tjie, -etjie)",
+              "description": "Form Afrikaans diminutives correctly: boek → boekie, kat → katjie, hond → hondjie, blom → blommetjie.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Sort words by their ending — the diminutive rule depends on the final sound, not the spelling.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.TAL.02",
+              "bank_skill_id": "AF.G5.TAL.02",
+              "title": "Werkwoorde — verlede tyd (verbs — past tense with het ... ge-)",
+              "description": "Form the simple Afrikaans past tense: ek het gespeel, hy het geloop, ons het gesing.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.TAL.01"
+              ],
+              "templates": [
+                "cloze",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Frame is fixed: subject + het + ge-VERB. Practise the frame before swapping verbs in.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.TAL.03",
+              "bank_skill_id": "AF.G5.TAL.03",
+              "title": "Besitlike voornaamwoorde (possessive pronouns: my, jou, sy, haar, ons, julle, hulle se)",
+              "description": "Use Afrikaans possessive pronouns correctly: my boek, jou pen, sy fiets, haar tas, ons huis.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.TAL.02"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Match each person word to its possessive. Note 'sy' (he/his) vs 'haar' (her) often confuses learners.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.TAL.04",
+              "bank_skill_id": "AF.G5.TAL.04",
+              "title": "Byvoeglike naamwoorde — trappe van vergelyking (comparative & superlative)",
+              "description": "Use Afrikaans comparative (-er) and superlative (die ... -ste) correctly: groot / groter / die grootste; mooi / mooier / die mooiste.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.TAL.03"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Stand three items in size order. Label them: positief, vergrotende, oortreffende.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.TAL.05",
+              "bank_skill_id": "AF.G5.TAL.05",
+              "title": "Voorsetsels — basies (basic prepositions: in, op, onder, langs, agter, voor)",
+              "description": "Use common Afrikaans place prepositions correctly: op die tafel, in die kas, onder die bed.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.TAL.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "image-match"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Demonstrate physically: put a small object in / on / under something while saying the sentence.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.TAL.06",
+              "bank_skill_id": "AF.G5.TAL.06",
+              "title": "Negatives: nie ... nie (the double-negative construction)",
+              "description": "Form Afrikaans negative sentences correctly using the double 'nie': 'Ek hou nie van melk nie.', 'Hy speel nie buite nie.'",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.TAL.05"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Sentence frame: take the positive sentence and add 'nie' immediately after the verb and a closing 'nie' at the end.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.TAL.07",
+              "bank_skill_id": "AF.G5.TAL.07",
+              "title": "Komma, vraagteken, uitroepteken (comma, question mark, exclamation mark)",
+              "description": "Punctuate Afrikaans sentences correctly: commas in lists and after introducers, ? for questions, ! for commands / strong feeling.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.TAL.06"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Read the sentence aloud — where you naturally pause, a comma probably belongs.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G5.TAL.08",
+              "bank_skill_id": "AF.G5.TAL.08",
+              "title": "Sinonieme en antonieme (synonyms and antonyms)",
+              "description": "Find Afrikaans words that mean the same (sinonieme: bly / gelukkig) and words that mean the opposite (antonieme: warm / koud).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G5.TAL.07"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Group word pairs visually: opposites face each other, synonyms stand side by side.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "grade": 6,
+      "title": "Graad 6 — Afrikaans Eerste Addisionele Taal",
+      "description": "CAPS Intermediate Phase Grade 6 FAL. Critical reading: opinions, viewpoints, figurative language. Reading texts run ~120-200 words. Vocabulary target: ~3500 words. Grammar adds future tense, compound and complex sentences, and quotation punctuation. Writing stays scaffolded; no essay grading in scope.",
+      "tiers": [
+        {
+          "id": "AF.G6.LUI",
+          "title": "Luister (Listening comprehension)",
+          "description": "Receptive listening only (Praat / speaking-aloud is deferred — needs voice capture). Audio plays Afrikaans; the learner taps/chooses. At IP level the content shifts from FP greetings to multi-step instructions, longer narratives, opinions, and figurative language.",
+          "atomic_skills": [
+            {
+              "id": "AF.G6.LUI.01",
+              "bank_skill_id": "AF.G6.LUI.01",
+              "title": "Volg komplekse mondelinge prosedures (follow complex spoken procedures)",
+              "description": "Listen to a 6+ step Afrikaans procedure or set of directions and choose the correct action / next step.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "audio",
+                "sequence",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Build a checklist as you listen. Confirm each tick before moving on.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LUI.02",
+              "bank_skill_id": "AF.G6.LUI.02",
+              "title": "Onderskei hoof- en ondersteunende idees in luisterteks (main vs supporting ideas)",
+              "description": "Listen to a longer Afrikaans text and separate the main idea from the supporting details.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "After listening, write a one-sentence summary. If a sentence wouldn't belong in your summary, it's a supporting detail.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LUI.03",
+              "bank_skill_id": "AF.G6.LUI.03",
+              "title": "Verduidelik spreker se standpunt (explain the speaker's viewpoint)",
+              "description": "Listen to an Afrikaans opinion or speech and identify the speaker's viewpoint and the reasons they give.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LUI.02"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Mark the opinion sentence ('Ek dink...') and each reason ('want...', 'omdat...') separately.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LUI.04",
+              "bank_skill_id": "AF.G6.LUI.04",
+              "title": "Vergelyk twee gehoorde menings (compare two opinions)",
+              "description": "Listen to two Afrikaans speakers on the same topic and identify what they agree on and disagree on.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LUI.03"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Make two columns: speaker A says / speaker B says. Compare row by row.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LUI.05",
+              "bank_skill_id": "AF.G6.LUI.05",
+              "title": "Volg 'n gedig — herken beeldspraak (vergelyking) (follow a poem, recognise simile)",
+              "description": "Hear a short Afrikaans poem and recognise similes ('soos 'n leeu', 'so vinnig soos'n hasie').",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LUI.04"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Look for 'soos' or 'so ... soos' — that signals a comparison.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LUI.06",
+              "bank_skill_id": "AF.G6.LUI.06",
+              "title": "Verstaan figuurlike taal (understand figurative language)",
+              "description": "Tell the difference between literal and figurative meaning in spoken Afrikaans, e.g. 'sy hart was in haar keel'.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LUI.05"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Ask: 'Is this really happening, or does it MEAN something?' Figurative phrases describe a feeling, not a fact.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G6.LEE",
+          "title": "Lees en Kyk (Reading & Viewing)",
+          "description": "The major IP strand. Learners read full Afrikaans stories, factual / information texts, poems, and media (posters, ads, news). Items present the text in `context` and ask comprehension, prediction, summarising, inferring, and visual-literacy questions.",
+          "atomic_skills": [
+            {
+              "id": "AF.G6.LEE.01",
+              "bank_skill_id": "AF.G6.LEE.01",
+              "title": "Pre-lees: identifiseer teksdoel en gehoor (identify text purpose and audience)",
+              "description": "Before reading an Afrikaans text, work out who it is for (children / adults / classmates) and what it is for (to inform, persuade, entertain).",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Look at where the text would appear (poster on the wall, story book, magazine) — that signals purpose and audience.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LEE.02",
+              "bank_skill_id": "AF.G6.LEE.02",
+              "title": "Lees en verstaan 'n storie (read a story, 120-200 words)",
+              "description": "Read a longer Afrikaans story and answer questions about plot, characters, setting, and message.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LEE.01"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "After reading, summarise in two sentences before answering. If you can't, re-read the parts you skimmed.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LEE.03",
+              "bank_skill_id": "AF.G6.LEE.03",
+              "title": "Maak gevolgtrekkings en lug eie mening (infer and give your own opinion)",
+              "description": "Read an Afrikaans text and choose the inference the text supports, then choose the well-reasoned opinion.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LEE.02"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "An inference must be defensible from the text. Reject options that go beyond what the text says.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LEE.04",
+              "bank_skill_id": "AF.G6.LEE.04",
+              "title": "Som 'n teks puntsgewys op (bullet-point summary)",
+              "description": "Read an Afrikaans text and choose the bullet-point summary that captures the main and supporting ideas correctly.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LEE.03"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Compare each summary to the text: every bullet must be supported, and no big point must be missing.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LEE.05",
+              "bank_skill_id": "AF.G6.LEE.05",
+              "title": "Lees 'n koerantberig of artikel (read a news article)",
+              "description": "Read a short Afrikaans news article and answer who / what / where / when / why questions, including the headline's role.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LEE.04"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "The first paragraph usually carries the 5Ws. Use the headline to predict before reading.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LEE.06",
+              "bank_skill_id": "AF.G6.LEE.06",
+              "title": "Lees 'n gedig — beeldspraak en woordkeuse (poem — imagery and word choice)",
+              "description": "Read a short Afrikaans poem and identify similes, personification, and notable word choices.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LEE.05"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Ask: 'Why this word and not a plainer one?' The chosen word often carries the feeling.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LEE.07",
+              "bank_skill_id": "AF.G6.LEE.07",
+              "title": "Visuele geletterdheid: oorredingstegnieke in advertensies (persuasive techniques in ads)",
+              "description": "Read an Afrikaans ad and identify the persuasive technique used: emotive language, exaggeration, repetition, slogan, celebrity / endorsement.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LEE.06"
+              ],
+              "templates": [
+                "text",
+                "choice",
+                "image-match"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Cover the picture; do the words alone try to make you feel something? If so, that's emotive language.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.LEE.08",
+              "bank_skill_id": "AF.G6.LEE.08",
+              "title": "Onderskei letterlike en figuurlike betekenis (literal vs figurative meaning)",
+              "description": "Read an Afrikaans sentence and decide whether the meaning is literal or figurative, then pick the figurative meaning.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.LEE.07"
+              ],
+              "templates": [
+                "text",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Test: could this actually, physically happen? If not, the meaning is figurative.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G6.SKR",
+          "title": "Skryf en Aanbied (Writing & Presenting)",
+          "description": "Typed-only writing, kept at sentence / cloze level so it can be auto-marked (no LLM essay grading in scope). Templates: cloze (fill missing words), sequence (order sentences), choice (pick the right sentence form). Long-form essay grading is Phase 3.",
+          "atomic_skills": [
+            {
+              "id": "AF.G6.SKR.01",
+              "bank_skill_id": "AF.G6.SKR.01",
+              "title": "Skryf samegestelde sinne (write compound sentences with en, maar, want, of)",
+              "description": "Join two short Afrikaans sentences into one compound sentence using a conjunction (en, maar, want, of).",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Pick the conjunction that matches the relationship: 'en' = add, 'maar' = contrast, 'want' = reason, 'of' = choice.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.SKR.02",
+              "bank_skill_id": "AF.G6.SKR.02",
+              "title": "Skryf 'n kort vriendskaplike brief / e-pos (short friendly letter / email)",
+              "description": "Complete a short Afrikaans friendly letter or email by filling in greeting, body sentences, and sign-off.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.SKR.01"
+              ],
+              "templates": [
+                "cloze",
+                "sequence"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Map the parts first: address, date, greeting, body, sign-off, name. Tackle them in that order.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.SKR.03",
+              "bank_skill_id": "AF.G6.SKR.03",
+              "title": "Vul 'n cloze-paragraaf in (10-12 leemtes, gemengde woordsoorte)",
+              "description": "Read a short Afrikaans paragraph with 10-12 missing words across nouns, verbs, adjectives and prepositions, and fill each gap.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.SKR.02"
+              ],
+              "templates": [
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Two passes: first pass for nouns and verbs (big meaning), second pass for connector words and prepositions.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.SKR.04",
+              "bank_skill_id": "AF.G6.SKR.04",
+              "title": "Skryf 'n kort paragraaf (4-6 sinne, scaffolded)",
+              "description": "Build a 4-6 sentence Afrikaans paragraph on a given topic by completing scaffolded sentence frames.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.SKR.03"
+              ],
+              "templates": [
+                "cloze",
+                "sequence"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Use the frame: topic sentence, two supporting sentences, one example, closing sentence.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.SKR.05",
+              "bank_skill_id": "AF.G6.SKR.05",
+              "title": "Skryf 'n hervertelling (scaffolded retelling)",
+              "description": "Retell a short Afrikaans story in 4-5 sentences by completing scaffolded frames in the right order.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.SKR.04"
+              ],
+              "templates": [
+                "cloze",
+                "sequence"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Identify the beginning, middle and end before filling. One or two sentences per stage.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.SKR.06",
+              "bank_skill_id": "AF.G6.SKR.06",
+              "title": "Skryf 'n persoonlike mening met rede (opinion with reason)",
+              "description": "Complete an Afrikaans opinion sentence with a supporting reason, e.g. 'Ek dink ... omdat ...'.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.SKR.05"
+              ],
+              "templates": [
+                "cloze",
+                "choice"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Always give a reason. If the reason fits with 'want' or 'omdat', the opinion is well-supported.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G6.TAL",
+          "title": "Taalstrukture en -konvensies (Language structures)",
+          "description": "Afrikaans grammar, punctuation and vocabulary in context. CAPS embeds grammar inside the other strands but here it is its own ladder so progress can be tracked. Items are choice / cloze.",
+          "atomic_skills": [
+            {
+              "id": "AF.G6.TAL.01",
+              "bank_skill_id": "AF.G6.TAL.01",
+              "title": "Selfstandige naamwoorde: geslag en samestellings (gender hint & compounds)",
+              "description": "Recognise common Afrikaans compound nouns (huiswerk, skoolbus, melktert) and split / join them correctly.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Build the compound from its parts. Pronounce both parts; the meaning is usually the parts combined.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.TAL.02",
+              "bank_skill_id": "AF.G6.TAL.02",
+              "title": "Werkwoorde — toekomende tyd (verbs — future tense with sal / gaan)",
+              "description": "Form Afrikaans future tense correctly: 'Ek sal speel', 'Hulle gaan kuier'.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.TAL.01"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Frame: subject + sal/gaan + VERB. 'sal' = will, 'gaan' = going to. Both are acceptable.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.TAL.03",
+              "bank_skill_id": "AF.G6.TAL.03",
+              "title": "Aanwysende en betreklike voornaamwoorde (demonstrative & relative pronouns)",
+              "description": "Use Afrikaans demonstratives (hierdie / daardie) and the relative 'wat'.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.TAL.02"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "'hierdie' = this (near), 'daardie' = that (far). 'wat' joins two ideas: 'Die man wat sing.'",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.TAL.04",
+              "bank_skill_id": "AF.G6.TAL.04",
+              "title": "Bywoorde (adverbs of manner, time, place)",
+              "description": "Recognise Afrikaans adverbs that tell HOW (vinnig, stadig), WHEN (gister, vandag), WHERE (hier, daar, oral).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.TAL.03"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Three columns on a page (hoe / wanneer / waar). Sort each adverb into one before answering.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.TAL.05",
+              "bank_skill_id": "AF.G6.TAL.05",
+              "title": "Voorsetsels — gevorderd (advanced prepositions: tussen, langs, sonder, met, vir)",
+              "description": "Use less-common Afrikaans prepositions correctly: tussen die bome, sonder my pen, met die bus.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.TAL.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "image-match"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Most map cleanly to English (sonder = without, met = with). Translate the test sentence first, then verify.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.TAL.06",
+              "bank_skill_id": "AF.G6.TAL.06",
+              "title": "Sinsbou: hoofsin + bysin (main clause + subordinate clause)",
+              "description": "Join two Afrikaans ideas into a main + subordinate clause using omdat, terwyl, voor, nadat, as.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.TAL.05"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "The conjunction sends the verb to the END of the subordinate clause in Afrikaans — note that shift.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.TAL.07",
+              "bank_skill_id": "AF.G6.TAL.07",
+              "title": "Aanhalingstekens en dubbelpunt (quotation marks and colons)",
+              "description": "Punctuate Afrikaans direct speech with quotation marks and use a colon before a list or explanation.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.TAL.06"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Frame: 'Hy sê: \"...\"' — colon introduces, opening quote starts the spoken words, closing quote ends them.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G6.TAL.08",
+              "bank_skill_id": "AF.G6.TAL.08",
+              "title": "Idiome en spreekwoorde (idioms and proverbs)",
+              "description": "Recognise common Afrikaans idioms and proverbs and match them to their meanings.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G6.TAL.07"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [],
+              "recovery_strategy": "Give the literal picture (what the words say) and then the figurative meaning, side by side.",
               "progression": {
                 "model": "practice-through",
                 "complete_when": "all_items_correct_once",
