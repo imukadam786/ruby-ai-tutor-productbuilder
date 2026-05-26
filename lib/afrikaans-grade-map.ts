@@ -10,7 +10,7 @@
 // Grades above HIGHEST_AVAILABLE_LEVEL are beyond authored content; callers
 // surface a "more grades coming" state rather than placing the learner.
 
-export const HIGHEST_AVAILABLE_LEVEL = 5; // Gr6 tree exists but items not yet authored
+export const HIGHEST_AVAILABLE_LEVEL = 6; // Gr 1-6 all authored
 
 export interface AfrikaansEntrySeed {
   /** Skill-tree level to start at (1–HIGHEST_AVAILABLE_LEVEL). */
