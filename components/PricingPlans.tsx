@@ -143,7 +143,9 @@ export default function PricingPlans({
   mode = "onboarding",
   onSelectFree,
 }: PricingPlansProps) {
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "weekly">("monthly");
+  // Defaults to weekly: the smaller per-week price is easier for parents to
+  // commit to on first view; they can switch to Monthly with the toggle.
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "weekly">("weekly");
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [voucherInput, setVoucherInput] = useState("");
@@ -330,22 +332,32 @@ export default function PricingPlans({
         </div>
       )}
 
-      {/* Billing cycle toggle */}
-      <div className="flex justify-center mb-4">
-        <div className="inline-flex rounded-xl border border-gray-200 bg-gray-50 p-1 gap-1">
-          {(["monthly", "weekly"] as const).map((cycle) => (
-            <button
-              key={cycle}
-              onClick={() => setBillingCycle(cycle)}
-              className={`px-5 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
-                billingCycle === cycle
-                  ? "bg-white shadow text-[#1a2744]"
-                  : "text-gray-400 hover:text-gray-600"
-              }`}
-            >
-              {cycle === "monthly" ? "Monthly" : "Weekly"}
-            </button>
-          ))}
+      {/* Billing cycle toggle — prominent. Active option is rose-600 + white;
+          inactive is white + black so both sides read clearly on the card. */}
+      <div className="flex justify-center mb-5">
+        <div
+          role="tablist"
+          aria-label="Billing cycle"
+          className="inline-flex rounded-2xl border-2 border-gray-200 bg-white p-1 gap-1 shadow-sm"
+        >
+          {(["monthly", "weekly"] as const).map((cycle) => {
+            const isActive = billingCycle === cycle;
+            return (
+              <button
+                key={cycle}
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setBillingCycle(cycle)}
+                className={`px-8 py-3 rounded-xl text-base font-bold transition-colors ${
+                  isActive
+                    ? "bg-rose-600 text-white shadow"
+                    : "bg-white text-black hover:bg-gray-50"
+                }`}
+              >
+                {cycle === "monthly" ? "Monthly" : "Weekly"}
+              </button>
+            );
+          })}
         </div>
       </div>
 
