@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import skillTreeData from "@/data/skill-tree.json";
 import { StudentProfile } from "@/types/ruby";
 import { getSkillStatus, getLevelById, friendlyMathsSkillName } from "@/lib/student-model";
@@ -34,6 +34,18 @@ const statusConfig = {
 
 export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBack }: SkillTreeViewProps) {
   const { t } = useT();
+  // Per-level expand/collapse. Default: only the learner's current level is
+  // expanded; others stay collapsed so the tree is scannable rather than
+  // an endless scroll.
+  const [expandedLevels, setExpandedLevels] = useState<Set<number>>(
+    () => new Set(profile ? [profile.current_level] : [1]),
+  );
+  const toggleLevel = (id: number) =>
+    setExpandedLevels((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
   const levelProgress = useMemo(() => {
     if (!profile) return {};
     const result: Record<number, number> = {};
@@ -135,6 +147,7 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
               const isCurrent = level.id === profile.current_level;
               const isHardGateLevel = level.id === 5;
               const showHardGateBarrier = level.id === 5 && !hardGatePassed && profile.placementCompleted;
+              const isExpanded = expandedLevels.has(level.id);
 
               return (
                 <div key={level.id}>
@@ -170,8 +183,14 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
                       </div>
                     )}
 
-                    {/* Level header */}
-                    <div className={`px-5 py-4 ${isCurrent ? "bg-blue-50" : ""}`}>
+                    {/* Level header — click to expand/collapse */}
+                    <button
+                      type="button"
+                      onClick={() => toggleLevel(level.id)}
+                      aria-expanded={isExpanded}
+                      aria-controls={`level-body-${level.id}`}
+                      className={`w-full text-left px-5 py-4 ${isCurrent ? "bg-blue-50" : ""} hover:bg-gray-50 transition-colors`}
+                    >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-3">
                           <div className={`min-w-[2.25rem] h-8 px-1.5 rounded-lg flex items-center justify-center text-sm font-bold ${
@@ -190,15 +209,24 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
                             <p className="text-gray-400 text-xs">{level.description}</p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <p className={`text-sm font-bold ${progress === 100 ? "text-green-600" : "text-gray-600"}`}>
-                            {progress}%
-                          </p>
-                          {isCurrent && (
-                            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">
-                              Current
-                            </span>
-                          )}
+                        <div className="flex items-center gap-3">
+                          <div className="text-right">
+                            <p className={`text-sm font-bold ${progress === 100 ? "text-green-600" : "text-gray-600"}`}>
+                              {progress}%
+                            </p>
+                            {isCurrent && (
+                              <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">
+                                Current
+                              </span>
+                            )}
+                          </div>
+                          <svg
+                            aria-hidden
+                            className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
                         </div>
                       </div>
                       {/* Progress bar */}
@@ -210,11 +238,11 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
                           style={{ width: `${progress}%` }}
                         />
                       </div>
-                    </div>
+                    </button>
 
-                    {/* Skills grid (only show for current and nearby levels) */}
-                    {(isCurrent || progress > 0) && (
-                      <div className="px-5 pb-4">
+                    {/* Skills grid — collapsed by default; user expands per level. */}
+                    {isExpanded && (
+                      <div id={`level-body-${level.id}`} className="px-5 pb-4">
                         {level.tiers.map((tier) => (
                           <div key={tier.id} className="mt-3">
                             <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">
