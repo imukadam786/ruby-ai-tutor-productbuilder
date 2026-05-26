@@ -3838,7 +3838,23 @@
                 "sequence",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "sequence_inversion",
+                  "description": "Steps performed but in wrong order",
+                  "example": "5-step instruction; learner places step 4 before step 3."
+                },
+                {
+                  "type": "step_omitted",
+                  "description": "A step is skipped in a multi-step instruction",
+                  "example": "Asked for the LAST step; learner gives step 3 of 5."
+                },
+                {
+                  "type": "key_detail_missed",
+                  "description": "A key time / colour / number in a step is not heard",
+                  "example": "Audio says 'wag drie minute'; learner picks 'ten minutes'."
+                }
+              ],
               "recovery_strategy": "Have the learner say the steps back in their own words before sequencing them.",
               "progression": {
                 "model": "practice-through",
@@ -3862,7 +3878,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "detail_as_main",
+                  "description": "Learner picks a supporting detail as the main idea",
+                  "example": "Text on bees; learner picks 'bees can sting' as main idea."
+                },
+                {
+                  "type": "topic_too_narrow",
+                  "description": "Picks a narrow option instead of the broader main idea",
+                  "example": "Text on rhinos in general; learner picks 'baby rhinos' only."
+                }
+              ],
               "recovery_strategy": "Ask: 'What is the WHOLE text about, not just one part?' Eliminate options that are only one detail.",
               "progression": {
                 "model": "practice-through",
@@ -3886,7 +3913,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "ignored_clue",
+                  "description": "Inference not grounded in the heard clues",
+                  "example": "Audio suggests fear; learner picks 'excited'."
+                },
+                {
+                  "type": "over_literal",
+                  "description": "Learner picks an option only because words match, missing the underlying meaning",
+                  "example": "Picks a literal option when the question needs inference."
+                }
+              ],
               "recovery_strategy": "Replay the clue sentence; ask 'Why might they say that?'. Connect tone-of-voice to feeling.",
               "progression": {
                 "model": "practice-through",
@@ -3910,7 +3948,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "tone_misread",
+                  "description": "Learner misreads the speaker's tone",
+                  "example": "Soft warm tone interpreted as 'angry'."
+                },
+                {
+                  "type": "opposite_feeling",
+                  "description": "Learner picks the opposite feeling",
+                  "example": "Excited speaker labelled as 'bored'."
+                }
+              ],
               "recovery_strategy": "Re-listen and copy the tone in your own voice. The feeling word should match how you sound.",
               "progression": {
                 "model": "practice-through",
@@ -3935,7 +3984,18 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "rhyme_pair_wrong",
+                  "description": "Picks lines that share a starting sound, not an ending sound",
+                  "example": "Picks 'speel / lag' instead of 'bal / val'."
+                },
+                {
+                  "type": "missed_rhyme",
+                  "description": "Cannot identify which words rhyme at line-ends",
+                  "example": "Picks two unrelated words from the middle of the poem."
+                }
+              ],
               "recovery_strategy": "Stretch the ending of each line. Compare line endings in pairs.",
               "progression": {
                 "model": "practice-through",
@@ -3959,7 +4019,18 @@
                 "audio",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "literal_translation",
+                  "description": "Translates the idiom word-for-word instead of figuratively",
+                  "example": "'Hy is 'n boekwurm' interpreted as 'he is a worm in a book'."
+                },
+                {
+                  "type": "context_ignored",
+                  "description": "Picks a meaning that doesn't fit the sentence around the idiom",
+                  "example": "Chooses 'rich' for an idiom that means 'kind'."
+                }
+              ],
               "recovery_strategy": "Give the English equivalent and the literal meaning side by side; show why the figurative meaning makes sense.",
               "progression": {
                 "model": "practice-through",
@@ -3988,7 +4059,18 @@
                 "text",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "heading_keyword_ignored",
+                  "description": "Doesn't use the heading's key noun to predict",
+                  "example": "Title mentions 'pannekoek'; learner predicts a science text."
+                },
+                {
+                  "type": "audience_mismatch",
+                  "description": "Misidentifies the intended audience",
+                  "example": "Says a children's poster is 'for farmers only'."
+                }
+              ],
               "recovery_strategy": "List 3 things you expect to find in the text based on the heading. Then check after reading.",
               "progression": {
                 "model": "practice-through",
@@ -4012,7 +4094,18 @@
                 "text",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "detail_substitution",
+                  "description": "Replaces a story detail with a similar but wrong one",
+                  "example": "Story says 'pers fiets'; learner says 'blou fiets'."
+                },
+                {
+                  "type": "inference_overreach",
+                  "description": "Picks an option that the text doesn't actually support",
+                  "example": "Goes beyond what the story explicitly says."
+                }
+              ],
               "recovery_strategy": "After reading, briefly retell in 1-2 sentences in English before answering the Afrikaans questions.",
               "progression": {
                 "model": "practice-through",
@@ -4036,7 +4129,18 @@
                 "text",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "why_answered_with_what",
+                  "description": "Asked 'Hoekom?'; learner gives a literal 'what' answer",
+                  "example": "Question asks WHY mom woke up early; learner answers WHAT she did."
+                },
+                {
+                  "type": "cause_effect_inverted",
+                  "description": "Reverses cause and effect",
+                  "example": "Says she drives to work because there's traffic, not vice versa."
+                }
+              ],
               "recovery_strategy": "Find the cause-and-effect sentence. Look for words like 'omdat', 'want', 'sodat' as signals.",
               "progression": {
                 "model": "practice-through",
@@ -4060,7 +4164,18 @@
                 "text",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "detail_as_main",
+                  "description": "Picks a supporting detail as the main idea",
+                  "example": "Text on elephants; main idea is 'largest land animals' but learner picks 'they can weigh 4 tons'."
+                },
+                {
+                  "type": "main_as_detail",
+                  "description": "Picks the main idea as a detail (when asked the opposite)",
+                  "example": "Asked for a SUPPORTING detail; picks the main-idea sentence."
+                }
+              ],
               "recovery_strategy": "Ask: 'Could the text exist without this sentence?' If yes, it's supporting; if no, it's main.",
               "progression": {
                 "model": "practice-through",
@@ -4084,7 +4199,18 @@
                 "text",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "scanning_failure",
+                  "description": "Cannot find a specific fact in the text",
+                  "example": "Park has 147 mammals — learner guesses '500'."
+                },
+                {
+                  "type": "name_or_number_confused",
+                  "description": "Confuses similar names or numbers",
+                  "example": "Mixes up Paul Kruger and a different historic figure."
+                }
+              ],
               "recovery_strategy": "Underline numbers, names and places — they often anchor the questions.",
               "progression": {
                 "model": "practice-through",
@@ -4108,7 +4234,18 @@
                 "text",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "theme_vs_message_confusion",
+                  "description": "Mixes up theme (topic) and message (take-away)",
+                  "example": "Asked for THEME; gives a moral instead."
+                },
+                {
+                  "type": "mood_mismatch",
+                  "description": "Picks an opposite feeling for the poem",
+                  "example": "Calm poem labelled 'angry'."
+                }
+              ],
               "recovery_strategy": "Theme = topic, message = the take-away. Ask both questions separately.",
               "progression": {
                 "model": "practice-through",
@@ -4133,7 +4270,18 @@
                 "choice",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "speaker_confusion",
+                  "description": "Wrong character attributed to a speech bubble",
+                  "example": "Mom's line attributed to child."
+                },
+                {
+                  "type": "missed_humour",
+                  "description": "Doesn't recognise the joke / point of the strip",
+                  "example": "Boot vs fish joke missed; learner picks 'biggest fish'."
+                }
+              ],
               "recovery_strategy": "Read the panels in order. Match each speech bubble to the right character.",
               "progression": {
                 "model": "practice-through",
@@ -4157,7 +4305,18 @@
                 "text",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_dictionary_sense",
+                  "description": "Picks a dictionary meaning that doesn't suit the sentence context",
+                  "example": "'slot' in 'die slot van die deur' picked as 'end' instead of 'lock'."
+                },
+                {
+                  "type": "single_meaning_assumed",
+                  "description": "Assumes a word has only one meaning",
+                  "example": "Doesn't check both senses of 'bank'."
+                }
+              ],
               "recovery_strategy": "Dictionaries often list more than one meaning. Read each meaning back into the sentence; only one will fit.",
               "progression": {
                 "model": "practice-through",
@@ -4186,7 +4345,18 @@
                 "sequence",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "word_order_wrong",
+                  "description": "Sentence words placed in wrong order",
+                  "example": "Subject after verb when SVO is needed."
+                },
+                {
+                  "type": "question_or_statement_confused",
+                  "description": "Builds a question when a statement is asked (or vice versa)",
+                  "example": "'Is Mia bly?' built instead of 'Mia is bly.'."
+                }
+              ],
               "recovery_strategy": "Find the verb first, then the subject (who is doing it), then the rest.",
               "progression": {
                 "model": "practice-through",
@@ -4210,7 +4380,18 @@
                 "cloze",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "part_missing",
+                  "description": "Greeting / body / sign-off filled with a wrong-category word",
+                  "example": "Greeting filled with a verb or noun instead of a name."
+                },
+                {
+                  "type": "register_mismatch",
+                  "description": "Picks an informal word in a formal message (or vice versa)",
+                  "example": "Uses 'hi' to address a teacher in writing."
+                }
+              ],
               "recovery_strategy": "Map out the parts (who from, who to, what, when, where) before filling the gaps.",
               "progression": {
                 "model": "practice-through",
@@ -4233,7 +4414,18 @@
               "templates": [
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_word_class",
+                  "description": "Picks a word of the wrong class for the gap",
+                  "example": "Picks a noun where the sentence needs a verb."
+                },
+                {
+                  "type": "context_ignored",
+                  "description": "Picks a word that's grammatical but doesn't fit the sentence's meaning",
+                  "example": "Fills 'slaap' (sleep) in a sentence about running."
+                }
+              ],
               "recovery_strategy": "Do the easy nouns first to fix the topic, then verbs, then the connector words last.",
               "progression": {
                 "model": "practice-through",
@@ -4258,7 +4450,18 @@
                 "choice",
                 "sequence"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "sensory_mismatch",
+                  "description": "Description word doesn't match what's being described",
+                  "example": "Calls a cold morning 'warm'."
+                },
+                {
+                  "type": "frame_filled_with_unfit_words",
+                  "description": "Words don't match the scaffolded frame's topic",
+                  "example": "Description of a flower includes 'rooi rok'."
+                }
+              ],
               "recovery_strategy": "Use the senses ladder: what does it look / sound / feel / smell like? One sense per sentence.",
               "progression": {
                 "model": "practice-through",
@@ -4282,7 +4485,18 @@
                 "cloze",
                 "sequence"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "step_order_wrong",
+                  "description": "Procedure built in wrong sequence",
+                  "example": "Wash hands AFTER drying them."
+                },
+                {
+                  "type": "missing_action_verb",
+                  "description": "Wrong verb chosen for a step",
+                  "example": "Step 1: 'Eet die tap' instead of 'Maak die kraan oop'."
+                }
+              ],
               "recovery_strategy": "Each step needs a 'doing word' (werkwoord) at the start. Imagine performing the task as you write each step.",
               "progression": {
                 "model": "practice-through",
@@ -4306,7 +4520,18 @@
                 "cloze",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "no_reason_given",
+                  "description": "Opinion sentence missing a reason / connector",
+                  "example": "'Ek dink dis goed.' without 'omdat'."
+                },
+                {
+                  "type": "irrelevant_reason",
+                  "description": "Reason doesn't actually support the opinion",
+                  "example": "'Karel is slim omdat hy 'n hond het.'"
+                }
+              ],
               "recovery_strategy": "Start with 'Ek dink...' or 'My gunsteling-karakter is... omdat...'. Always give one reason.",
               "progression": {
                 "model": "practice-through",
@@ -4335,7 +4560,18 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_diminutive_suffix",
+                  "description": "Applies wrong diminutive ending for the final sound",
+                  "example": "boek → 'boekjie' instead of 'boekie'."
+                },
+                {
+                  "type": "consonant_doubling_missed",
+                  "description": "Forgets to double the consonant before the suffix",
+                  "example": "kop → 'kopie' instead of 'koppie'."
+                }
+              ],
               "recovery_strategy": "Sort words by their ending — the diminutive rule depends on the final sound, not the spelling.",
               "progression": {
                 "model": "practice-through",
@@ -4359,7 +4595,23 @@
                 "cloze",
                 "choice"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "het_dropped",
+                  "description": "Past tense formed without 'het'",
+                  "example": "'Ek gespeel' instead of 'Ek het gespeel'."
+                },
+                {
+                  "type": "ge_prefix_missing",
+                  "description": "Forgets the ge- prefix on the past participle",
+                  "example": "'Hy het loop' instead of 'Hy het geloop'."
+                },
+                {
+                  "type": "ge_with_be_or_ver",
+                  "description": "Adds ge- to verbs starting with be-/ver-",
+                  "example": "'Sy het gebeantwoord' instead of 'Sy het beantwoord'."
+                }
+              ],
               "recovery_strategy": "Frame is fixed: subject + het + ge-VERB. Practise the frame before swapping verbs in.",
               "progression": {
                 "model": "practice-through",
@@ -4383,7 +4635,18 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "gender_swap",
+                  "description": "'sy' (his) used for a female owner, or 'haar' (her) for a male owner",
+                  "example": "'Mia se boek' → 'sy boek' instead of 'haar boek'."
+                },
+                {
+                  "type": "subject_vs_possessive",
+                  "description": "Subject pronoun used where possessive is needed",
+                  "example": "'Ek boek' instead of 'My boek'."
+                }
+              ],
               "recovery_strategy": "Match each person word to its possessive. Note 'sy' (he/his) vs 'haar' (her) often confuses learners.",
               "progression": {
                 "model": "practice-through",
@@ -4407,7 +4670,23 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "degree_wrong",
+                  "description": "Comparative used where superlative is needed (or vice versa)",
+                  "example": "'die grooter' instead of 'die grootste'."
+                },
+                {
+                  "type": "missing_die",
+                  "description": "Superlative missing 'die'",
+                  "example": "'grootste' alone instead of 'die grootste'."
+                },
+                {
+                  "type": "irregular_regularised",
+                  "description": "Tries to add -er/-ste to an irregular adjective",
+                  "example": "'goeder / goedste' instead of 'beter / die beste'."
+                }
+              ],
               "recovery_strategy": "Stand three items in size order. Label them: positief, vergrotende, oortreffende.",
               "progression": {
                 "model": "practice-through",
@@ -4432,7 +4711,18 @@
                 "cloze",
                 "image-match"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "spatial_confusion",
+                  "description": "Picks a preposition with the wrong spatial meaning",
+                  "example": "'op' when the object is 'onder' (underneath)."
+                },
+                {
+                  "type": "vague_preposition",
+                  "description": "Picks a generic preposition where context demands a specific one",
+                  "example": "'in' when 'tussen' (between) is correct."
+                }
+              ],
               "recovery_strategy": "Demonstrate physically: put a small object in / on / under something while saying the sentence.",
               "progression": {
                 "model": "practice-through",
@@ -4456,7 +4746,18 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "single_nie",
+                  "description": "Forgets the second 'nie' at the end",
+                  "example": "'Ek hou nie van melk' instead of 'Ek hou nie van melk nie'."
+                },
+                {
+                  "type": "nie_misplaced",
+                  "description": "First 'nie' in the wrong position",
+                  "example": "'Ek nie hou van melk nie' instead of 'Ek hou nie van melk nie'."
+                }
+              ],
               "recovery_strategy": "Sentence frame: take the positive sentence and add 'nie' immediately after the verb and a closing 'nie' at the end.",
               "progression": {
                 "model": "practice-through",
@@ -4480,7 +4781,23 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "wrong_terminator",
+                  "description": "Wrong end-mark for sentence type",
+                  "example": "Question ended with '.' instead of '?'."
+                },
+                {
+                  "type": "missing_comma_intro",
+                  "description": "No comma after an introductory clause",
+                  "example": "'Toe ek wakker word het ek...' instead of 'Toe ek wakker word, het ek...'."
+                },
+                {
+                  "type": "missing_list_commas",
+                  "description": "List items not separated by commas",
+                  "example": "'brood melk kaas' instead of 'brood, melk en kaas'."
+                }
+              ],
               "recovery_strategy": "Read the sentence aloud — where you naturally pause, a comma probably belongs.",
               "progression": {
                 "model": "practice-through",
@@ -4504,7 +4821,18 @@
                 "choice",
                 "cloze"
               ],
-              "error_signatures": [],
+              "error_signatures": [
+                {
+                  "type": "synonym_vs_antonym",
+                  "description": "Picks a synonym when an antonym is asked (or vice versa)",
+                  "example": "Asked for the OPPOSITE of 'warm'; picks 'heet'."
+                },
+                {
+                  "type": "unrelated_word",
+                  "description": "Picks an unrelated word for either category",
+                  "example": "Asked for a synonym of 'bly'; picks 'koud'."
+                }
+              ],
               "recovery_strategy": "Group word pairs visually: opposites face each other, synonyms stand side by side.",
               "progression": {
                 "model": "practice-through",
