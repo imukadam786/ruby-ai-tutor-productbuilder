@@ -48,23 +48,20 @@ function SubjectCard({
       onClick={onClick}
       className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col active:opacity-80 transition-all text-left hover:shadow-xl hover:-translate-y-1"
     >
-      {/* Square gradient header */}
       <div
-        className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center overflow-hidden flex-shrink-0`}
-        style={{ aspectRatio: "1 / 1" }}
+        className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center overflow-hidden flex-shrink-0 aspect-square lg:aspect-[4/3]`}
       >
         {thumbnail ? (
           <img src={thumbnail} alt={label} className="w-full h-full object-cover" />
         ) : (
-          <span style={{ fontSize: "5rem", lineHeight: 1 }}>{placeholderEmoji}</span>
+          <span className="text-[5rem] lg:text-[3.5rem] leading-none">{placeholderEmoji}</span>
         )}
       </div>
-      {/* Label + caption + badge */}
-      <div className="px-5 pt-4 pb-5 flex flex-col items-start gap-1.5">
-        <span className="font-bold text-gray-900 text-xl">{label}</span>
-        <span className="text-sm text-gray-500 leading-snug">{caption}</span>
+      <div className="px-5 pt-4 pb-5 lg:px-4 lg:pt-3 lg:pb-3 flex flex-col items-start gap-1.5 lg:gap-1">
+        <span className="font-bold text-gray-900 text-xl lg:text-base">{label}</span>
+        <span className="text-sm lg:text-xs text-gray-500 leading-snug">{caption}</span>
         {badge && (
-          <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap mt-2 ${badgeColor}`}>
+          <span className={`text-xs lg:text-[10px] font-semibold px-3 py-1 lg:px-2 lg:py-0.5 rounded-full whitespace-nowrap mt-2 lg:mt-1 ${badgeColor}`}>
             {badge}
           </span>
         )}
@@ -146,17 +143,17 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       <EduBackground />
 
       <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-4xl mx-auto px-6 sm:px-10 pt-8 pb-8">
+        <div className="max-w-4xl lg:max-w-6xl mx-auto px-6 sm:px-10 pt-8 lg:pt-4 pb-8 lg:pb-4">
 
-          <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">{t("subjects.title")}</h1>
+          <div className="mb-8 lg:mb-4">
+            <h1 className="text-2xl lg:text-xl font-bold text-gray-900">{t("subjects.title")}</h1>
             <p className="text-gray-500 text-sm mt-1">{t("subjects.subtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-4">
             {/* Discover */}
             <SubjectCard
-              placeholderEmoji="🧭"
+              thumbnail="/thumbnails/discover.png"
               label="Discover"
               caption="Take the placement and find your starting point"
               badge={discoverBadge}
@@ -224,7 +221,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
                 authored range. */}
             {showSocialSciences && (
               <SubjectCard
-                placeholderEmoji="🌍"
+                thumbnail="/thumbnails/social-sciences.png"
                 label="Social Sciences"
                 caption={`History & Geography for Grades ${SOCIAL_SCIENCES_MIN_GRADE}–${SOCIAL_SCIENCES_MAX_GRADE}`}
                 badge="Intermediate Phase"

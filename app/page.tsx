@@ -408,7 +408,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
-        {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} onAfrikaansPickSkill={startAfrikaansSkill} />}
+        {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} onAfrikaansPickSkill={startAfrikaansSkill} onSocialSciencesOpen={() => handleViewChange("social-sciences")} />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} onContinue={continueMaths} onBack={() => handleViewChange("subjects")} />}

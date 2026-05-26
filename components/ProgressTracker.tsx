@@ -20,6 +20,18 @@ import type { AfrikaansSkillTree, AfrikaansStudentProfile } from "@/types/afrika
 import { HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
 import { HIGHEST_AVAILABLE_LEVEL as LIFE_SKILLS_MAX_GRADE } from "@/lib/life-skills-grade-map";
 import {
+  HIGHEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MAX_GRADE,
+  LOWEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MIN_GRADE,
+} from "@/lib/social-sciences-grade-map";
+import socialSciencesTreeData from "@/data/social-sciences-skill-tree.json";
+import type { SocialSciencesSkillTree } from "@/types/social-sciences";
+import {
+  loadSocialSciencesProfile,
+  hydrateSocialSciencesProfileFromSupabase,
+  type SocialSciencesProfile,
+  type SocialSciencesTopicStatus,
+} from "@/lib/social-sciences-student-model";
+import {
   getAfrikaansSkillStatus,
   loadAfrikaansProfile,
   hydrateAfrikaansProfileFromSupabase,
@@ -27,15 +39,25 @@ import {
 
 const lifeSkillsTree = lifeSkillsTreeData as unknown as LifeSkillsSkillTree;
 const afrikaansTree = afrikaansTreeData as unknown as AfrikaansSkillTree;
+const socialSciencesTree = socialSciencesTreeData as unknown as SocialSciencesSkillTree;
 
 // Subject tabs shown on the Progress screen. Only one tree renders at a time so
 // the page stays short regardless of how tall the Maths/Reading trees get.
-type SubjectTabId = "maths" | "reading" | "lifeskills" | "afrikaans";
-const SUBJECT_TABS: { id: SubjectTabId; emoji: string; label: string; active: string }[] = [
-  { id: "maths",      emoji: "🧮", label: "Maths",       active: "bg-blue-100 border-blue-300 text-blue-700" },
-  { id: "reading",    emoji: "📖", label: "Reading",     active: "bg-purple-100 border-purple-300 text-purple-700" },
-  { id: "lifeskills", emoji: "🌟", label: "Life Skills", active: "bg-amber-100 border-amber-300 text-amber-700" },
-  { id: "afrikaans",  emoji: "🇿🇦", label: "Afrikaans",   active: "bg-emerald-100 border-emerald-300 text-emerald-700" },
+type SubjectTabId = "maths" | "reading" | "lifeskills" | "afrikaans" | "socialsciences";
+interface SubjectConfig {
+  id: SubjectTabId;
+  emoji: string;
+  label: string;
+  hex: string;
+  activeCard: string;
+  activeBorder: string;
+}
+const SUBJECTS: SubjectConfig[] = [
+  { id: "maths",          emoji: "🧮", label: "Maths",           hex: "#3b82f6", activeCard: "bg-blue-50",     activeBorder: "border-blue-400" },
+  { id: "reading",        emoji: "📖", label: "Reading",         hex: "#a855f7", activeCard: "bg-purple-50",   activeBorder: "border-purple-400" },
+  { id: "lifeskills",     emoji: "🌟", label: "Life Skills",     hex: "#f59e0b", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
+  { id: "afrikaans",      emoji: "🇿🇦", label: "Afrikaans",      hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
+  { id: "socialsciences", emoji: "🌍", label: "Social Sciences", hex: "#0ea5e9", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
 ];
 
 type LifeSkillsTopicStatus = "mastered" | "in_progress" | "available";
@@ -128,9 +150,11 @@ interface ProgressTrackerProps {
   onReadingReplaySkill?: (skillId: string) => void;
   /** Open the Afrikaans subject and start the picked (non-locked) skill. */
   onAfrikaansPickSkill?: (skillId: string) => void;
+  /** Open the Social Sciences subject (lands on the topic tree for the learner's grade). */
+  onSocialSciencesOpen?: () => void;
 }
 
-export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill, onAfrikaansPickSkill }: ProgressTrackerProps = {}) {
+export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill, onAfrikaansPickSkill, onSocialSciencesOpen }: ProgressTrackerProps = {}) {
   const { t } = useT();
   const [progress, setProgress] = useState<ProgressData>({
     totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
@@ -174,10 +198,12 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
   const [lifeSkillsMastery, setLifeSkillsMastery] = useState<Record<string, LifeSkillsTopicStatus>>({});
   const [grade, setGrade] = useState<number | null>(null);
   const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(null);
-  // Per-level expand/collapse for Life Skills and Afrikaans skill trees.
+  const [socialSciencesMastery, setSocialSciencesMastery] = useState<Record<string, SocialSciencesTopicStatus>>({});
+  // Per-level expand/collapse for Life Skills, Afrikaans, and Social Sciences trees.
   // Default: learner's own grade expanded; other grades collapsed.
   const [lifeSkillsExpanded, setLifeSkillsExpanded] = useState<Set<number>>(new Set());
   const [afrikaansExpanded, setAfrikaansExpanded] = useState<Set<number>>(new Set());
+  const [socialSciencesExpanded, setSocialSciencesExpanded] = useState<Set<number>>(new Set());
   const toggleSet = <T,>(setter: (fn: (prev: Set<T>) => Set<T>) => void) => (id: T) =>
     setter((prev) => {
       const next = new Set(prev);
@@ -186,6 +212,7 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
     });
   const toggleLifeSkillsLevel = toggleSet<number>(setLifeSkillsExpanded);
   const toggleAfrikaansLevel = toggleSet<number>(setAfrikaansExpanded);
+  const toggleSocialSciencesLevel = toggleSet<number>(setSocialSciencesExpanded);
 
   useEffect(() => {
     setLifeSkillsMastery(readLifeSkillsMastery());
@@ -195,14 +222,22 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
     const localAfrikaans = loadAfrikaansProfile();
     if (localAfrikaans) setAfrikaansProfile(localAfrikaans);
     else hydrateAfrikaansProfileFromSupabase().then((p) => { if (p) setAfrikaansProfile(p); });
+    // Social Sciences mirrors the Afrikaans pattern.
+    const localSocial = loadSocialSciencesProfile();
+    if (localSocial) setSocialSciencesMastery(localSocial.mastery ?? {});
+    else hydrateSocialSciencesProfileFromSupabase().then((p: SocialSciencesProfile | null) => {
+      if (p) setSocialSciencesMastery(p.mastery ?? {});
+    });
   }, []);
 
   // Once the learner's grade is known, default-expand that grade's level in
-  // both inline trees. Once-only; user clicks override.
+  // all three inline trees. Once-only; user clicks override.
   useEffect(() => {
     if (grade == null) return;
     setLifeSkillsExpanded((prev) => (prev.size === 0 ? new Set([grade]) : prev));
     setAfrikaansExpanded((prev) => (prev.size === 0 ? new Set([grade]) : prev));
+    const ssSeed = Math.min(Math.max(grade, SOCIAL_SCIENCES_MIN_GRADE), SOCIAL_SCIENCES_MAX_GRADE);
+    setSocialSciencesExpanded((prev) => (prev.size === 0 ? new Set([ssSeed]) : prev));
   }, [grade]);
 
   const lifeSkillsMasteredCount = Object.values(lifeSkillsMastery).filter((s) => s === "mastered").length;
@@ -210,26 +245,38 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
     .filter((m) => m.status === "mastered" || m.status === "assumed").length;
   const afrikaansMasteredCount = Object.values(afrikaansProfile?.skill_mastery ?? {})
     .filter((m) => m.status === "mastered" || m.status === "assumed").length;
+  const socialSciencesMasteredCount = Object.values(socialSciencesMastery).filter((s) => s === "mastered").length;
 
-  // Mastered count per tab — drives the small green badge on each tab.
+  // Mastered count per subject — drives the donut sizing and the card badges.
   const masteredCounts: Record<SubjectTabId, number> = {
     maths: masteredEntries.length,
     reading: readingMasteredCount,
     lifeskills: lifeSkillsMasteredCount,
     afrikaans: afrikaansMasteredCount,
+    socialsciences: socialSciencesMasteredCount,
   };
 
-  // Each subject tab is gated by its own authored-content range, so they stay
-  // in lock-step with the per-subject HIGHEST_AVAILABLE_LEVEL (matches the
-  // Subjects page). Default to showing while the grade is still loading.
+  // Each subject is gated by its own authored-content range, so it stays in
+  // lock-step with the per-subject grade map (matches the Subjects page).
+  // Default to showing while the grade is still loading.
   const learnerGrade = grade ?? 1;
   const showLifeSkills = learnerGrade <= LIFE_SKILLS_MAX_GRADE;
   const showAfrikaans = learnerGrade <= AFRIKAANS_MAX_GRADE;
-  const visibleTabs = SUBJECT_TABS.filter((t) => {
-    if (t.id === "lifeskills") return showLifeSkills;
-    if (t.id === "afrikaans") return showAfrikaans;
+  const showSocialSciences =
+    learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE;
+  const visibleSubjects = SUBJECTS.filter((s) => {
+    if (s.id === "lifeskills") return showLifeSkills;
+    if (s.id === "afrikaans") return showAfrikaans;
+    if (s.id === "socialsciences") return showSocialSciences;
     return true;
   });
+
+  // Keep activeTab valid when the learner's grade range hides their current tab.
+  useEffect(() => {
+    if (!visibleSubjects.find((s) => s.id === activeTab)) {
+      setActiveTab(visibleSubjects[0]?.id ?? "maths");
+    }
+  }, [visibleSubjects, activeTab]);
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -296,24 +343,23 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
             </div>
           </div>
 
-          {/* ── Skill Trees (one tab at a time) ────────────────────────── */}
+          {/* ── Subject card grid (replaces the old 4-col flat tab strip) ── */}
           <div>
-            {/* Subject tab bar */}
-            <div className={`grid gap-2 ${visibleTabs.length >= 4 ? "grid-cols-4" : "grid-cols-2"}`}>
-              {visibleTabs.map((t) => {
-                const isActive = activeTab === t.id;
-                const count = masteredCounts[t.id];
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+              {visibleSubjects.map((s) => {
+                const isActive = activeTab === s.id;
+                const count = masteredCounts[s.id];
                 return (
                   <button
-                    key={t.id}
-                    onClick={() => setActiveTab(t.id)}
+                    key={s.id}
+                    onClick={() => setActiveTab(s.id)}
                     aria-pressed={isActive}
-                    className={`relative flex flex-col items-center gap-1 rounded-2xl border px-1.5 py-2.5 transition-colors ${
-                      isActive ? t.active : "bg-white border-gray-100 text-gray-500 hover:bg-gray-50"
+                    className={`relative flex flex-col items-center gap-1 rounded-2xl border-2 px-1.5 py-2.5 transition-colors ${
+                      isActive ? `${s.activeCard} ${s.activeBorder}` : "bg-white border-gray-100 hover:bg-gray-50"
                     }`}
                   >
-                    <span className="text-xl leading-none" aria-hidden>{t.emoji}</span>
-                    <span className="text-[11px] sm:text-xs font-semibold leading-tight text-center">{t.label}</span>
+                    <span className="text-xl leading-none" aria-hidden>{s.emoji}</span>
+                    <span className="text-[11px] sm:text-xs font-semibold leading-tight text-center text-gray-700">{s.label}</span>
                     {count > 0 && (
                       <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-green-500 text-white text-[10px] font-bold flex items-center justify-center">
                         {count}
@@ -489,6 +535,90 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                     <span className="inline-block mr-3">⚡ In progress</span>
                     <span className="inline-block mr-3">🚀 Ready</span>
                     <span className="inline-block">🔒 Locked</span>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === "socialsciences" && (
+                <div className="p-5 space-y-3">
+                  {socialSciencesTree.levels.length > 0 ? (
+                    socialSciencesTree.levels.map((level) => {
+                      const isExpanded = socialSciencesExpanded.has(level.id);
+                      const skillCount = level.tiers.reduce((n, t) => n + t.atomic_skills.length, 0);
+                      const isCurrentGrade = grade === level.id;
+                      return (
+                        <div key={level.id} className="rounded-xl border border-gray-200 overflow-hidden">
+                          <button
+                            type="button"
+                            onClick={() => toggleSocialSciencesLevel(level.id)}
+                            aria-expanded={isExpanded}
+                            aria-controls={`social-body-${level.id}`}
+                            className={`w-full text-left px-4 py-3 flex items-center justify-between hover:bg-gray-50 transition-colors ${isCurrentGrade ? "bg-sky-50" : ""}`}
+                          >
+                            <h4 className="text-sm font-semibold text-[#1a2744]">{level.title}</h4>
+                            <div className="flex items-center gap-3">
+                              <span className="text-xs text-gray-400">{skillCount} topics</span>
+                              <svg
+                                aria-hidden
+                                className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </button>
+                          {isExpanded && (
+                            <div id={`social-body-${level.id}`} className="px-4 pb-4 pt-1 space-y-4">
+                              {level.tiers.map((tier) => (
+                                <div key={tier.id}>
+                                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">
+                                    {tier.title}
+                                  </p>
+                                  <div className="flex flex-wrap gap-2">
+                                    {tier.atomic_skills.map((skill) => {
+                                      const status = socialSciencesMastery[skill.id] ?? "available";
+                                      const pillClass =
+                                        status === "mastered"
+                                          ? "bg-green-50 text-green-700 border-green-200"
+                                          : status === "in_progress"
+                                          ? "bg-amber-50 text-amber-700 border-amber-300"
+                                          : "bg-white text-[#1a2744] border-sky-200";
+                                      const icon =
+                                        status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : "🌍";
+                                      const canStart = !!onSocialSciencesOpen;
+                                      return (
+                                        <button
+                                          key={skill.id}
+                                          type="button"
+                                          disabled={!canStart}
+                                          onClick={() => canStart && onSocialSciencesOpen!()}
+                                          className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass} ${
+                                            canStart
+                                              ? "cursor-pointer hover:ring-2 hover:ring-sky-300 hover:shadow-sm transition-all"
+                                              : "cursor-default"
+                                          }`}
+                                          title={`${skill.title} — ${status.replace("_", " ")} · Tap to open`}
+                                        >
+                                          <span className="mr-1">{icon}</span>
+                                          {skill.title}
+                                        </button>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <p className="text-sm text-gray-500">No Social Sciences content yet.</p>
+                  )}
+                  <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                    <span className="inline-block mr-3">🏆 Mastered</span>
+                    <span className="inline-block mr-3">⚡ In progress</span>
+                    <span className="inline-block">🌍 Ready</span>
                   </div>
                 </div>
               )}
