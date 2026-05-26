@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
+import SpeakButton from "@/components/SpeakButton";
 import { supabase } from "@/lib/supabase";
 import { prefetchTTS, useTTS } from "@/lib/tts";
 import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
@@ -73,7 +74,7 @@ type TopicMastery = "available" | "in_progress" | "mastered";
 
 type Phase = "tree" | "loading" | "question" | "feedback" | "mastered";
 
-export default function LifeSkillsSession() {
+export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = {}) {
   const [phase, setPhase] = useState<Phase>("tree");
   const [skillId, setSkillId] = useState<string | null>(null);
   const [question, setQuestion] = useState<LifeSkillsGeneratedQuestion | null>(null);
@@ -116,15 +117,14 @@ export default function LifeSkillsSession() {
     };
   }, []);
 
-  // ─── Audio: prefetch + auto-speak when a new question arrives ──────────────
+  // ─── Audio: prefetch when a new question arrives (no autoplay — the learner
+  //     taps the 🔊 icon to hear it, consistent across subjects). ──────────────
   useEffect(() => {
     if (!question) return;
     const text = question.ruby_prompt || question.question;
     prefetchTTS(text);
     // Pre-warm each option too so per-option playback is instant on tap.
     question.options?.forEach((opt) => prefetchTTS(opt));
-    // Auto-speak on Foundation Phase since many learners cannot read fluently.
-    speak(text);
     return () => stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question?.id]);
@@ -327,7 +327,7 @@ export default function LifeSkillsSession() {
 
   // ─── Render: tree (default) ────────────────────────────────────────────────
   if (phase === "tree") {
-    return <LifeSkillsSkillTreeView onPickTopic={handlePickTopic} masteryStatus={mastery} />;
+    return <LifeSkillsSkillTreeView onPickTopic={handlePickTopic} masteryStatus={mastery} onBack={onBack} />;
   }
 
   // ─── Render: end-of-topic ─────────────────────────────────────────────────
@@ -399,35 +399,47 @@ export default function LifeSkillsSession() {
           >
             ← Topics
           </button>
-          {skillId && (
-            <span className="text-sm font-semibold text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
-              Q {Math.min(attemptCount + 1, targetItemCount(skillId))} / {targetItemCount(skillId)} · ⭐ {correctCount}
-            </span>
-          )}
         </div>
+
+        {/* Mastery progress strip — makes the goal clear: every question counts,
+            finish them all (≥ pass mark) to master the topic. */}
+        {skillId && (
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-xs font-bold uppercase tracking-wide text-amber-800">
+                Master this topic
+              </span>
+              <span className="text-sm font-semibold text-amber-700">
+                Q {Math.min(attemptCount + 1, targetItemCount(skillId))} of {targetItemCount(skillId)} · ⭐ {correctCount}
+              </span>
+            </div>
+            <div className="h-2 bg-amber-100 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-amber-500 rounded-full transition-all"
+                style={{ width: `${Math.round((Math.min(attemptCount, targetItemCount(skillId)) / targetItemCount(skillId)) * 100)}%` }}
+              />
+            </div>
+            <p className="text-[11px] text-amber-700 mt-1.5">Answer all {targetItemCount(skillId)} to master it</p>
+          </div>
+        )}
 
         {/* Question card */}
         {question && (
           <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
-            {/* Audio replay button — large, obvious */}
-            <div className="flex items-start gap-3">
-              <button
-                onClick={() => {
-                  if (playing) stop();
-                  else speak(question.ruby_prompt || question.question);
-                }}
-                aria-label={playing ? "Stop reading" : "Read question aloud"}
-                className="flex-shrink-0 w-14 h-14 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white text-2xl flex items-center justify-center shadow-md"
-              >
-                {playing ? "⏹" : "🔊"}
-              </button>
-              <p className="text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
+            {/* Question + compact tap-to-hear icon (no autoplay) */}
+            <div className="flex items-start gap-2">
+              <p className="flex-1 text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
                 {question.ruby_prompt || question.question}
               </p>
+              <SpeakButton
+                playing={playing}
+                onClick={() => (playing ? stop() : speak(question.ruby_prompt || question.question))}
+              />
             </div>
 
-            {/* Context (e.g. image description) */}
-            {question.context && (
+            {/* Context (e.g. image description). Hidden once real picture tiles
+                render — the images replace the text description. */}
+            {question.context && !(question.input_type === "image-match" && question.image_refs?.length) && (
               <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 text-sm text-amber-900">
                 <p className="font-semibold mb-1">Picture:</p>
                 <ul className="list-disc list-inside space-y-0.5">
@@ -438,18 +450,33 @@ export default function LifeSkillsSession() {
               </div>
             )}
 
-            {/* Input — branches on input_type */}
+            {/* Input — branches on input_type. While a tap is being checked we
+                dim the whole answer area + block further taps and show a
+                "Checking…" spinner, so it's obvious the tap registered and the
+                learner doesn't press 3–4 times. */}
             {phase === "question" && (
-              <AnswerInput
-                question={question}
-                value={answer}
-                sequenceOrder={sequenceOrder}
-                onSequenceChange={setSequenceOrder}
-                onChange={setAnswer}
-                onSubmit={handleSubmit}
-                submitting={submitting}
-                speak={speak}
-              />
+              <div className="relative">
+                <div className={submitting ? "opacity-40 pointer-events-none transition-opacity" : "transition-opacity"}>
+                  <AnswerInput
+                    question={question}
+                    value={answer}
+                    sequenceOrder={sequenceOrder}
+                    onSequenceChange={setSequenceOrder}
+                    onChange={setAnswer}
+                    onSubmit={handleSubmit}
+                    submitting={submitting}
+                    speak={speak}
+                  />
+                </div>
+                {submitting && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="flex items-center gap-2 bg-white/90 rounded-full px-4 py-2 shadow text-[#1a2744] font-semibold text-sm">
+                      <span className="w-4 h-4 border-2 border-[#BE1832] border-t-transparent rounded-full animate-spin" />
+                      Checking…
+                    </span>
+                  </div>
+                )}
+              </div>
             )}
 
             {/* Feedback after submission */}
@@ -540,6 +567,52 @@ function PlayIcon({ text, speak, dark }: { text: string; speak: (t: string) => v
   );
 }
 
+// ─── Image option (picture tile with English-text fallback) ──────────────────
+// Files live at public/life-skills/<key>.<ext> (png/svg/jpg per the image
+// manifest). We try each extension in turn; once all fail we fall back to the
+// option text, so image-match items without assets still work. Mirrors the
+// Afrikaans ImageOption.
+const LS_IMAGE_EXTS = ["png", "svg", "jpg"];
+
+function LifeSkillsImageOption({
+  imageKey,
+  label,
+  disabled,
+  onPick,
+}: {
+  imageKey?: string;
+  label: string;
+  disabled: boolean;
+  onPick: () => void;
+}) {
+  const [extIdx, setExtIdx] = useState(0);
+  const showImage = Boolean(imageKey) && extIdx < LS_IMAGE_EXTS.length;
+  return (
+    <button
+      disabled={disabled}
+      onClick={onPick}
+      className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl p-3 flex flex-col items-center gap-2 active:scale-95 transition-all"
+    >
+      {showImage ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={`/life-skills/${imageKey}.${LS_IMAGE_EXTS[extIdx]}`}
+          alt={label}
+          onError={() => setExtIdx((i) => i + 1)}
+          className="w-full aspect-square object-contain rounded-xl bg-white"
+        />
+      ) : (
+        <span className="w-full aspect-square rounded-xl bg-white flex items-center justify-center text-4xl" aria-hidden>
+          🖼️
+        </span>
+      )}
+      <span className="text-sm sm:text-base font-semibold text-[#1a2744] text-center leading-tight">
+        {label}
+      </span>
+    </button>
+  );
+}
+
 function AnswerInput({
   question,
   value,
@@ -550,10 +623,29 @@ function AnswerInput({
   submitting,
   speak,
 }: AnswerInputProps) {
-  const { input_type, options } = question;
+  const { input_type, options, image_refs } = question;
 
-  // Choice / image-match / audio-tap — large tappable option buttons
-  if ((input_type === "choice" || input_type === "image-match" || input_type === "audio-tap") && options) {
+  // Image-match WITH authored image keys — picture tiles (per-tile text
+  // fallback when a file is absent). Items with no image_refs yet drop through
+  // to the text buttons below, so they render exactly as before.
+  if (input_type === "image-match" && options && image_refs?.length) {
+    return (
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        {options.map((opt, i) => (
+          <LifeSkillsImageOption
+            key={opt}
+            imageKey={image_refs[i]}
+            label={opt}
+            disabled={submitting}
+            onPick={() => onSubmit(opt)}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  // Choice / audio-tap / image-match-without-pictures — large tappable buttons
+  if ((input_type === "choice" || input_type === "audio-tap" || input_type === "image-match") && options) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {options.map((opt) => (

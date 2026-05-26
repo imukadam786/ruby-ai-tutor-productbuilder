@@ -121,6 +121,7 @@ export function bankQuestionToGenerated(
     ruby_prompt: q.ruby_prompt,
     context: q.context,
     options: q.options,
+    image_refs: q.image_refs,
     expected_answer: q.expected,
     memo: q.memo,
     difficulty: q.difficulty,

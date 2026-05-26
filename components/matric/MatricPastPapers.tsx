@@ -6,7 +6,8 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { apiFetch } from "@/lib/fetch";
 import EduBackground from "@/components/EduBackground";
-import { PAPERS, Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown } from "@/lib/matric/papers";
+import { Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown } from "@/lib/matric/papers";
+import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
 
@@ -312,11 +313,11 @@ function PaperList({
   onBack,
 }: {
   subjectId: SubjectId;
-  onSelect: (paper: Paper) => void;
+  onSelect: (id: string) => void;
   onBack: () => void;
 }) {
   const subject = SUBJECTS.find((s) => s.id === subjectId)!;
-  const papers = PAPERS.filter(
+  const papers: PaperMeta[] = PAPER_INDEX.filter(
     (p) =>
       p.subject.toLowerCase().replace(/\s+/g, "-") === subjectId &&
       !p.session.startsWith("Prep") &&
@@ -443,7 +444,7 @@ function PaperList({
                       return (
                         <button
                           key={year}
-                          onClick={() => onSelect(paper)}
+                          onClick={() => onSelect(paper.id)}
                           className={`w-full text-left px-5 group transition-colors ${
                             isLatest ? "py-5 hover:bg-rose-50" : "py-4 hover:bg-gray-50"
                           }`}
@@ -477,18 +478,18 @@ function PaperList({
                                 <span className="text-gray-200">·</span>
                                 <span className="flex items-center gap-1 text-xs text-gray-500">
                                   <span>❓</span>
-                                  <span className="font-medium">{paper.questions.length} questions</span>
+                                  <span className="font-medium">{paper.questionCount} questions</span>
                                 </span>
                               </div>
 
                               {/* QP + Memo availability (non-clickable) */}
                               <div className="flex items-center gap-3">
-                                {paper.questionPaperUrl && (
+                                {paper.hasQuestionPaper && (
                                   <span className="flex items-center gap-1 text-xs text-gray-500">
                                     <span className="text-green-500">✅</span> Question Paper
                                   </span>
                                 )}
-                                {paper.memoUrl && (
+                                {paper.hasMemo && (
                                   <span className="flex items-center gap-1 text-xs text-gray-500">
                                     <span className="text-green-500">✅</span> Memo
                                   </span>
@@ -2530,7 +2531,9 @@ export default function MatricPastPapers({ onBack }: { onBack?: () => void }) {
     setPhase("papers");
   };
 
-  const handlePaperSelect = (paper: Paper) => {
+  const handlePaperSelect = async (id: string) => {
+    const paper = await loadPaperById(id);
+    if (!paper) return;
     setSelectedPaper(paper);
     setPhase("mode");
   };

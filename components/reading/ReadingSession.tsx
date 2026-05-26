@@ -47,6 +47,7 @@ import { detectStuck } from "@/lib/stuck-detector";
 import StuckScreen from "@/components/shared/StuckScreen";
 import DiagnosticReportView from "@/components/DiagnosticReportView";
 import EduBackground from "@/components/EduBackground";
+import SpeakButton from "@/components/SpeakButton";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { buildDeterministicReportContent } from "@/lib/report-content-builder";
 import {
@@ -150,7 +151,7 @@ async function readOnboardingWithFallback(): Promise<{ name: string; grade: numb
 }
 
 export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelectPlan?: () => void; onExitReplay?: () => void }) {
-  const { language } = useT();
+  const { t, language } = useT();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<ReadingStudentProfile | null>(null);
   const [phase, setPhase] = useState<SessionPhase>("loading_question");
@@ -817,8 +818,10 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
           ctaLabel="Continue Learning 🚀"
           onStartLearning={async () => {
             if (onSelectPlan) {
+              // Finish + persist the placement BEFORE tearing the session down,
+              // so it's fully saved when Home / the skill tree next hydrate.
+              await handlePlacementComplete(pendingPlacementResult);
               onSelectPlan();
-              handlePlacementComplete(pendingPlacementResult);
               return;
             }
             setShowReport(false);
@@ -959,7 +962,7 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
             <div className="text-6xl mb-1">🎉</div>
             <div className="flex justify-center gap-2 text-2xl">⭐⭐⭐</div>
-            <h3 className="text-2xl font-bold text-green-800">Skill Complete!</h3>
+            <h3 className="text-2xl font-bold text-green-800">{t("session.skill_complete")}</h3>
             <p className="text-green-700 text-lg">
               You mastered <strong>{skill?.title || "this skill"}</strong>!
             </p>
@@ -990,7 +993,7 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
             <div className="text-5xl">🎯</div>
-            <h3 className="text-2xl font-bold text-purple-800">Topic Complete!</h3>
+            <h3 className="text-2xl font-bold text-purple-800">{t("session.topic_complete")}</h3>
             <p className="text-purple-700 text-lg">
               You finished <strong>{tier?.title ?? "this topic"}</strong>!
             </p>
@@ -1018,7 +1021,7 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-amber-300 rounded-2xl p-8 shadow-xl max-w-md w-full text-center space-y-4">
             <div className="text-6xl">🏆</div>
-            <h3 className="text-3xl font-bold text-amber-800">Level Up!</h3>
+            <h3 className="text-3xl font-bold text-amber-800">{t("session.level_up")}</h3>
             <p className="text-amber-700 text-xl">
               You unlocked <strong>{levelName}</strong>!
             </p>
@@ -1063,7 +1066,7 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm max-w-md w-full text-center space-y-4">
               <div className="text-5xl mb-2">🎓</div>
-              <h3 className="text-2xl font-bold text-gray-900">Amazing!</h3>
+              <h3 className="text-2xl font-bold text-gray-900">{t("session.amazing")}</h3>
               <p className="text-gray-600">
                 You&apos;ve completed the entire Ruby Reading Skill Tree. What an incredible achievement!
               </p>
@@ -1280,37 +1283,13 @@ function ReadingQuestionCard({
         <p className="text-gray-800 text-lg leading-relaxed font-medium whitespace-pre-wrap">
           {question.question}
         </p>
-        {/* Play/Stop pill — hidden for audio-tap questions (question text contains
-            phoneme labels like "SH" that TTS cannot pronounce correctly) */}
-        <div className="flex items-center gap-3 mt-3">
-          <button
-            onClick={() => togglePlay(question.question)}
-            hidden={isAudioTap}
-            className={`flex items-center gap-1.5 text-xs px-2 py-1 rounded-full transition-all ${
-              playing
-                ? "bg-orange-100 text-orange-600 hover:bg-orange-200"
-                : "text-gray-400 hover:text-gray-600 hover:bg-gray-100"
-            }`}
-            title={playing ? "Stop" : "Play"}
-          >
-            {playing ? (
-              <>
-                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <rect x="6" y="4" width="4" height="16" rx="1" />
-                  <rect x="14" y="4" width="4" height="16" rx="1" />
-                </svg>
-                Stop
-              </>
-            ) : (
-              <>
-                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                Play
-              </>
-            )}
-          </button>
-        </div>
+        {/* Tap-to-hear icon — consistent across subjects. Hidden for audio-tap
+            questions whose text has phoneme labels (e.g. "SH") TTS mispronounces. */}
+        {!isAudioTap && (
+          <div className="mt-3">
+            <SpeakButton playing={playing} onClick={() => togglePlay(question.question)} />
+          </div>
+        )}
       </div>
 
       {/* Hint */}

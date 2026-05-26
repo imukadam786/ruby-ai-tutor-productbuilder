@@ -3,9 +3,10 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
-import { SEARCH_GATES, GATE_PASSED_ENTRY, LEVEL_LABEL, getSearchWindow } from "@/lib/maths-placement-engine";
+import { SEARCH_GATES, LEVEL_LABEL, getSearchWindow, isGatePassed, resolveEntryLevel } from "@/lib/maths-placement-engine";
 import { simplifyText } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
+import { DotArray, parseDotArray } from "./DotArray";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -84,8 +85,8 @@ const DOMAIN_ERROR_MAP: Record<string, string> = {
   M017: "ERR_POWER_RULE",         // Calculus
 };
 
-// SEARCH_GATES, GATE_PASSED_ENTRY, getSearchWindow, getGradeFloor
-// are imported from @/lib/maths-placement-engine
+// Gate definitions, window/floor helpers, and the entry-level resolver
+// (including partial-pass handling) are imported from @/lib/maths-placement-engine
 
 // ── Answer evaluation ─────────────────────────────────────────────────────────
 
@@ -146,26 +147,6 @@ function evaluateTaskAnswer(task: Task, answers: string[]): { correct: boolean; 
   return { correct: false, errorType };
 }
 
-// ── Grade floor (entry level fallback when no gate is passed) ─────────────────
-
-// Conservative fallback entry level when a student fails every gate in their window.
-// Deliberately set ~2 grade levels below the window's lowest gate so the learning
-// session can quickly find the real floor via BKT rather than starting too high.
-function getGradeFloor(grade: number): number {
-  if (grade <= 2) return 1;   // Grade 1–2 failed → start at Counting
-  if (grade <= 3) return 1;   // Grade 3 failed  → start at Counting
-  if (grade <= 4) return 2;   // Grade 4 failed  → start at Addition
-  if (grade <= 5) return 3;   // Grade 5 failed  → start at Subtraction
-  if (grade <= 6) return 4;   // Grade 6 failed  → start at Multiplication entry
-  if (grade <= 7) return 5;   // Grade 7 failed  → start at Multiplication
-  if (grade <= 8) return 5;   // Grade 8 failed  → start at Multiplication
-  if (grade <= 9) return 7;   // Grade 9 failed  → start at Fractions
-  if (grade <= 10) return 8;  // Grade 10 failed → start at Ratio/Proportion entry
-  if (grade <= 11) return 11; // Grade 11 failed → start at Ratio
-  if (grade <= 12) return 13; // Grade 12 failed → start at Algebra
-  return 17;
-}
-
 // ── Placement computation ─────────────────────────────────────────────────────
 
 function computePlacement(
@@ -184,60 +165,10 @@ function computePlacement(
     domainTotal[r.domain]   = (domainTotal[r.domain]   ?? 0) + 1;
   }
 
-  // Domain passed threshold scales with question count:
-  //   2 questions (Grade 3–12): both must be correct — prevents a single lucky
-  //     answer passing a domain and cascading into a large overplacement.
-  //   3 questions (Grade 2):    majority (≥2/3) — one slip is forgiven.
-  //   6 questions (Grade 1):    majority (≥4/6) — consistent performance needed.
-  const domainPassed = (d: string) => {
-    const total = domainTotal[d] ?? 0;
-    const correct = domainCorrect[d] ?? 0;
-    if (total === 0) return false;
-    if (total === 2) return correct === 2;           // strict: both correct
-    return correct / total >= 0.5;                  // majority for 3q and 6q
-  };
-
-  // Gate passed = both domains passed
-  const gatePassed = (idx: number): boolean => {
-    const gate = SEARCH_GATES[idx];
-    return !!gate && gate.domains.every((d) => domainPassed(d));
-  };
-
-  // Find the highest gate passed and the lowest gate failed within the window.
-  // A gate is only considered "failed" if it was actually tested (domainTotal > 0).
-  const [lo, hi] = getSearchWindow(grade);
-  let highestPassedGate = -1;
-  let lowestFailedGate  = -1;
-  for (let i = lo; i <= hi; i++) {
-    if (gatePassed(i)) {
-      highestPassedGate = i;
-    } else {
-      const gate = SEARCH_GATES[i];
-      const wasTested = gate.domains.some((d) => (domainTotal[d] ?? 0) > 0);
-      if (wasTested && lowestFailedGate === -1) lowestFailedGate = i;
-    }
-  }
-
-  // Gap detection: student passed a higher gate but failed a lower one.
-  // This means they have a prerequisite gap — e.g. can do quadratics but
-  // cannot handle negative integers. Placing them at the higher pass level
-  // would skip a foundational gap. Instead, start at the content they failed.
-  const hasGap = lowestFailedGate >= 0 && highestPassedGate > lowestFailedGate;
-
-  const entryLevel = (() => {
-    if (highestPassedGate < 0) return getGradeFloor(grade);
-    if (hasGap) {
-      // Start at the level that opens with the failed gate's content.
-      // GATE_PASSED_ENTRY[lowestFailedGate - 1] = "start level when the gate
-      // just below the failure was passed" = the first level of failed content.
-      return lowestFailedGate > 0
-        ? (GATE_PASSED_ENTRY[lowestFailedGate - 1] ?? getGradeFloor(grade))
-        : getGradeFloor(grade);
-    }
-    return GATE_PASSED_ENTRY[highestPassedGate] ?? getGradeFloor(grade);
-  })();
-
-  const hardGatePassed = gatePassed(3); // Gate 3 = Multiplication / Division
+  // Gate logic, gap detection, and partial-pass handling all live in the engine
+  // so they can be unit-tested independently of this component.
+  const entryLevel = resolveEntryLevel(domainCorrect, domainTotal, grade);
+  const hardGatePassed = isGatePassed(3, domainCorrect, domainTotal); // Gate 3 = Multiplication / Division
 
   const level = getLevelById(entryLevel);
   let entrySkillId = `L${entryLevel}.T1.A1`;
@@ -260,22 +191,8 @@ function computePlacement(
 type Phase = "welcome" | "loading" | "task" | "result" | "error";
 
 // ── Stimulus renderer ─────────────────────────────────────────────────────────
-
-function parseDotArray(stimulus: string): number | null {
-  const m = stimulus.match(/^Dot array:\s*(\d+)\s*dots/i);
-  return m ? parseInt(m[1], 10) : null;
-}
-
-function DotArray({ count }: { count: number }) {
-  const dots = Array.from({ length: count }, (_, i) => i);
-  return (
-    <div className="bg-gradient-to-br from-blue-50 to-blue-50 rounded-2xl p-5 flex flex-wrap gap-3 justify-center items-center min-h-[100px]">
-      {dots.map((i) => (
-        <div key={i} className="w-8 h-8 rounded-full bg-blue-600 shadow-sm flex-shrink-0" />
-      ))}
-    </div>
-  );
-}
+// DotArray / parseDotArray live in ./DotArray so the practice session
+// (QuestionCard) renders identical dots.
 
 function StimulusDisplay({ stimulus }: { stimulus: string }) {
   const dotCount = parseDotArray(stimulus);

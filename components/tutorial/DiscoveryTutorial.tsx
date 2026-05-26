@@ -59,7 +59,7 @@ function MockupReport({ isMobile }: { isMobile: boolean }) {
           <div className="grid grid-cols-3 gap-2 mt-2">
             {[
               { label: "Student", value: "Sipho M.", sub: "Grade 8" },
-              { label: "Working Level", value: "Level 2", sub: "1 level before expected" },
+              { label: "Working Level", value: "Level 2", sub: "" },
               { label: "Score", value: "7/10", sub: "Placement reliable" },
             ].map((item) => (
               <div key={item.label}>

@@ -8,12 +8,14 @@ import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import SavedReportView from "@/components/SavedReportView";
 import { supabase } from "@/lib/supabase";
+import { useT } from "@/lib/i18n";
 
 interface DiscoverHubProps {
   onNavigate: (view: ActiveView) => void;
 }
 
 export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
+  const { t } = useT();
   const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [loading, setLoading] = useState(true);
@@ -81,7 +83,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-2xl">🧭</span>
-            <h1 className="text-2xl font-bold text-gray-900">Discovery Activity</h1>
+            <h1 className="text-2xl font-bold text-gray-900">{t("discover.title")}</h1>
           </div>
           <p className="text-gray-500 text-base leading-relaxed">
             Find your level so Ruby knows exactly where to start. Takes about 10 minutes and makes every session count.
@@ -94,7 +96,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
             <span className="text-2xl">🧮</span>
             <div>
               <p className="text-white/70 text-xs font-semibold uppercase tracking-widest">Discovery</p>
-              <h2 className="text-white font-bold text-lg leading-tight">Maths</h2>
+              <h2 className="text-white font-bold text-lg leading-tight">{t("home.maths_title")}</h2>
             </div>
             {mathsDone && (
               <span className="ml-auto bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
@@ -117,7 +119,12 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                     View Report
                   </button>
                   <button
-                    onClick={() => onNavigate("discover-maths")}
+                    onClick={() => {
+                      // Force a fresh placement (mirror Reading) so Retake re-runs
+                      // Discovery instead of resuming the already-placed profile.
+                      try { sessionStorage.setItem("ruby_maths_retake", "1"); } catch { /* ignore */ }
+                      onNavigate("discover-maths");
+                    }}
                     className="flex-1 border border-blue-200 text-blue-600 hover:bg-blue-50 font-medium text-sm py-2.5 rounded-xl transition-colors active:scale-[0.97]"
                   >
                     Retake
@@ -147,7 +154,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
             <span className="text-2xl">📖</span>
             <div>
               <p className="text-white/70 text-xs font-semibold uppercase tracking-widest">Discovery</p>
-              <h2 className="text-white font-bold text-lg leading-tight">Reading</h2>
+              <h2 className="text-white font-bold text-lg leading-tight">{t("home.reading_title")}</h2>
             </div>
             {readingDone && (
               <span className="ml-auto bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full">

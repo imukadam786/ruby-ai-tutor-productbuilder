@@ -8,16 +8,29 @@ import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
 import { ProgressData } from "@/types";
 import EduBackground from "@/components/EduBackground";
+import { useT } from "@/lib/i18n";
 import SkillTreeView from "@/components/ruby/SkillTreeView";
 import ReadingSkillTreeView from "@/components/reading/ReadingSkillTreeView";
 import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
 import type { LifeSkillsSkillTree } from "@/types/life-skills";
 import { getLifeSkillsMasteryMap } from "@/lib/life-skills-student-model";
-import { seedForGrade as lifeSkillsSeedForGrade } from "@/lib/life-skills-grade-map";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import afrikaansTreeData from "@/data/afrikaans-skill-tree.json";
 import type { AfrikaansSkillTree, AfrikaansStudentProfile } from "@/types/afrikaans";
-import { seedForGrade as afrikaansSeedForGrade } from "@/lib/afrikaans-grade-map";
+import { HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
+import { HIGHEST_AVAILABLE_LEVEL as LIFE_SKILLS_MAX_GRADE } from "@/lib/life-skills-grade-map";
+import {
+  HIGHEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MAX_GRADE,
+  LOWEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MIN_GRADE,
+} from "@/lib/social-sciences-grade-map";
+import socialSciencesTreeData from "@/data/social-sciences-skill-tree.json";
+import type { SocialSciencesSkillTree } from "@/types/social-sciences";
+import {
+  loadSocialSciencesProfile,
+  hydrateSocialSciencesProfileFromSupabase,
+  type SocialSciencesProfile,
+  type SocialSciencesTopicStatus,
+} from "@/lib/social-sciences-student-model";
 import {
   getAfrikaansSkillStatus,
   loadAfrikaansProfile,
@@ -26,15 +39,25 @@ import {
 
 const lifeSkillsTree = lifeSkillsTreeData as unknown as LifeSkillsSkillTree;
 const afrikaansTree = afrikaansTreeData as unknown as AfrikaansSkillTree;
+const socialSciencesTree = socialSciencesTreeData as unknown as SocialSciencesSkillTree;
 
 // Subject tabs shown on the Progress screen. Only one tree renders at a time so
 // the page stays short regardless of how tall the Maths/Reading trees get.
-type SubjectTabId = "maths" | "reading" | "lifeskills" | "afrikaans";
-const SUBJECT_TABS: { id: SubjectTabId; emoji: string; label: string; active: string }[] = [
-  { id: "maths",      emoji: "🧮", label: "Maths",       active: "bg-blue-100 border-blue-300 text-blue-700" },
-  { id: "reading",    emoji: "📖", label: "Reading",     active: "bg-purple-100 border-purple-300 text-purple-700" },
-  { id: "lifeskills", emoji: "🌟", label: "Life Skills", active: "bg-amber-100 border-amber-300 text-amber-700" },
-  { id: "afrikaans",  emoji: "🇿🇦", label: "Afrikaans",   active: "bg-emerald-100 border-emerald-300 text-emerald-700" },
+type SubjectTabId = "maths" | "reading" | "lifeskills" | "afrikaans" | "socialsciences";
+interface SubjectConfig {
+  id: SubjectTabId;
+  emoji: string;
+  label: string;
+  hex: string;
+  activeCard: string;
+  activeBorder: string;
+}
+const SUBJECTS: SubjectConfig[] = [
+  { id: "maths",          emoji: "🧮", label: "Maths",           hex: "#3b82f6", activeCard: "bg-blue-50",     activeBorder: "border-blue-400" },
+  { id: "reading",        emoji: "📖", label: "Reading",         hex: "#a855f7", activeCard: "bg-purple-50",   activeBorder: "border-purple-400" },
+  { id: "lifeskills",     emoji: "🌟", label: "Life Skills",     hex: "#f59e0b", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
+  { id: "afrikaans",      emoji: "🇿🇦", label: "Afrikaans",      hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
+  { id: "socialsciences", emoji: "🌍", label: "Social Sciences", hex: "#0ea5e9", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
 ];
 
 type LifeSkillsTopicStatus = "mastered" | "in_progress" | "available";
@@ -127,9 +150,12 @@ interface ProgressTrackerProps {
   onReadingReplaySkill?: (skillId: string) => void;
   /** Open the Afrikaans subject and start the picked (non-locked) skill. */
   onAfrikaansPickSkill?: (skillId: string) => void;
+  /** Open the Social Sciences subject (lands on the topic tree for the learner's grade). */
+  onSocialSciencesOpen?: () => void;
 }
 
-export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill, onAfrikaansPickSkill }: ProgressTrackerProps = {}) {
+export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill, onAfrikaansPickSkill, onSocialSciencesOpen }: ProgressTrackerProps = {}) {
+  const { t } = useT();
   const [progress, setProgress] = useState<ProgressData>({
     totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
     lessonsStarted: 0, sessionCount: 0, lastSession: "", subjectBreakdown: {},
@@ -172,6 +198,21 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
   const [lifeSkillsMastery, setLifeSkillsMastery] = useState<Record<string, LifeSkillsTopicStatus>>({});
   const [grade, setGrade] = useState<number | null>(null);
   const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(null);
+  const [socialSciencesMastery, setSocialSciencesMastery] = useState<Record<string, SocialSciencesTopicStatus>>({});
+  // Per-level expand/collapse for Life Skills, Afrikaans, and Social Sciences trees.
+  // Default: learner's own grade expanded; other grades collapsed.
+  const [lifeSkillsExpanded, setLifeSkillsExpanded] = useState<Set<number>>(new Set());
+  const [afrikaansExpanded, setAfrikaansExpanded] = useState<Set<number>>(new Set());
+  const [socialSciencesExpanded, setSocialSciencesExpanded] = useState<Set<number>>(new Set());
+  const toggleSet = <T,>(setter: (fn: (prev: Set<T>) => Set<T>) => void) => (id: T) =>
+    setter((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  const toggleLifeSkillsLevel = toggleSet<number>(setLifeSkillsExpanded);
+  const toggleAfrikaansLevel = toggleSet<number>(setAfrikaansExpanded);
+  const toggleSocialSciencesLevel = toggleSet<number>(setSocialSciencesExpanded);
 
   useEffect(() => {
     setLifeSkillsMastery(readLifeSkillsMastery());
@@ -181,37 +222,69 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
     const localAfrikaans = loadAfrikaansProfile();
     if (localAfrikaans) setAfrikaansProfile(localAfrikaans);
     else hydrateAfrikaansProfileFromSupabase().then((p) => { if (p) setAfrikaansProfile(p); });
+    // Social Sciences mirrors the Afrikaans pattern.
+    const localSocial = loadSocialSciencesProfile();
+    if (localSocial) setSocialSciencesMastery(localSocial.mastery ?? {});
+    else hydrateSocialSciencesProfileFromSupabase().then((p: SocialSciencesProfile | null) => {
+      if (p) setSocialSciencesMastery(p.mastery ?? {});
+    });
   }, []);
 
-  // Only show the level for the grade the student selected in onboarding
-  // (Foundation Phase: Gr1→L1, Gr2→L2, Gr3→L3). seedForGrade clamps
-  // out-of-range grades to the nearest available level.
-  const lifeSkillsSeed = lifeSkillsSeedForGrade(grade ?? 1);
-  const lifeSkillsLevel = lifeSkillsTree.levels.find((l) => l.id === lifeSkillsSeed.level);
-  const afrikaansSeed = afrikaansSeedForGrade(grade ?? 1);
-  const afrikaansLevel = afrikaansTree.levels.find((l) => l.id === afrikaansSeed.level);
+  // Once the learner's grade is known, default-expand that grade's level in
+  // all three inline trees. Once-only; user clicks override.
+  useEffect(() => {
+    if (grade == null) return;
+    setLifeSkillsExpanded((prev) => (prev.size === 0 ? new Set([grade]) : prev));
+    setAfrikaansExpanded((prev) => (prev.size === 0 ? new Set([grade]) : prev));
+    const ssSeed = Math.min(Math.max(grade, SOCIAL_SCIENCES_MIN_GRADE), SOCIAL_SCIENCES_MAX_GRADE);
+    setSocialSciencesExpanded((prev) => (prev.size === 0 ? new Set([ssSeed]) : prev));
+  }, [grade]);
 
   const lifeSkillsMasteredCount = Object.values(lifeSkillsMastery).filter((s) => s === "mastered").length;
   const readingMasteredCount = Object.values(readingProfile?.skill_mastery ?? {})
     .filter((m) => m.status === "mastered" || m.status === "assumed").length;
   const afrikaansMasteredCount = Object.values(afrikaansProfile?.skill_mastery ?? {})
     .filter((m) => m.status === "mastered" || m.status === "assumed").length;
+  const socialSciencesMasteredCount = Object.values(socialSciencesMastery).filter((s) => s === "mastered").length;
 
-  // Mastered count per tab — drives the small green badge on each tab.
+  // Mastered count per subject — drives the donut sizing and the card badges.
   const masteredCounts: Record<SubjectTabId, number> = {
     maths: masteredEntries.length,
     reading: readingMasteredCount,
     lifeskills: lifeSkillsMasteredCount,
     afrikaans: afrikaansMasteredCount,
+    socialsciences: socialSciencesMasteredCount,
   };
+
+  // Each subject is gated by its own authored-content range, so it stays in
+  // lock-step with the per-subject grade map (matches the Subjects page).
+  // Default to showing while the grade is still loading.
+  const learnerGrade = grade ?? 1;
+  const showLifeSkills = learnerGrade <= LIFE_SKILLS_MAX_GRADE;
+  const showAfrikaans = learnerGrade <= AFRIKAANS_MAX_GRADE;
+  const showSocialSciences =
+    learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE;
+  const visibleSubjects = SUBJECTS.filter((s) => {
+    if (s.id === "lifeskills") return showLifeSkills;
+    if (s.id === "afrikaans") return showAfrikaans;
+    if (s.id === "socialsciences") return showSocialSciences;
+    return true;
+  });
+
+  // Keep activeTab valid when the learner's grade range hides their current tab.
+  useEffect(() => {
+    if (!visibleSubjects.find((s) => s.id === activeTab)) {
+      setActiveTab(visibleSubjects[0]?.id ?? "maths");
+    }
+  }, [visibleSubjects, activeTab]);
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
       {/* Header */}
       <div className="relative hidden md:block bg-white border-b border-gray-100 px-6 py-4">
-        <h2 className="text-gray-900 font-semibold text-xl">Progress</h2>
-        <p className="text-gray-500 text-base">Your skill tree journey</p>
+        <h2 className="text-gray-900 font-semibold text-xl">{t("progress.title")}</h2>
+        <p className="text-gray-500 text-base">{t("progress.subtitle")}</p>
       </div>
 
       <div className="relative flex-1 overflow-y-auto p-6">
@@ -270,24 +343,23 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
             </div>
           </div>
 
-          {/* ── Skill Trees (one tab at a time) ────────────────────────── */}
+          {/* ── Subject card grid (replaces the old 4-col flat tab strip) ── */}
           <div>
-            {/* Subject tab bar */}
-            <div className="grid grid-cols-4 gap-2">
-              {SUBJECT_TABS.map((t) => {
-                const isActive = activeTab === t.id;
-                const count = masteredCounts[t.id];
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+              {visibleSubjects.map((s) => {
+                const isActive = activeTab === s.id;
+                const count = masteredCounts[s.id];
                 return (
                   <button
-                    key={t.id}
-                    onClick={() => setActiveTab(t.id)}
+                    key={s.id}
+                    onClick={() => setActiveTab(s.id)}
                     aria-pressed={isActive}
-                    className={`relative flex flex-col items-center gap-1 rounded-2xl border px-1.5 py-2.5 transition-colors ${
-                      isActive ? t.active : "bg-white border-gray-100 text-gray-500 hover:bg-gray-50"
+                    className={`relative flex flex-col items-center gap-1 rounded-2xl border-2 px-1.5 py-2.5 transition-colors ${
+                      isActive ? `${s.activeCard} ${s.activeBorder}` : "bg-white border-gray-100 hover:bg-gray-50"
                     }`}
                   >
-                    <span className="text-xl leading-none" aria-hidden>{t.emoji}</span>
-                    <span className="text-[11px] sm:text-xs font-semibold leading-tight text-center">{t.label}</span>
+                    <span className="text-xl leading-none" aria-hidden>{s.emoji}</span>
+                    <span className="text-[11px] sm:text-xs font-semibold leading-tight text-center text-gray-700">{s.label}</span>
                     {count > 0 && (
                       <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-green-500 text-white text-[10px] font-bold flex items-center justify-center">
                         {count}
@@ -304,40 +376,66 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
               {activeTab === "reading" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={onReadingReplaySkill} />}
 
               {activeTab === "lifeskills" && (
-                <div className="p-5 space-y-5">
-                  {lifeSkillsLevel ? (
-                    <div key={lifeSkillsLevel.id}>
-                      <div className="flex items-center justify-between mb-2">
-                        <h4 className="text-sm font-semibold text-[#1a2744]">{lifeSkillsLevel.title}</h4>
-                        <span className="text-xs text-gray-400">
-                          {lifeSkillsLevel.tiers[0]?.atomic_skills.length ?? 0} topics
-                        </span>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {lifeSkillsLevel.tiers[0]?.atomic_skills.map((skill) => {
-                          const status = lifeSkillsMastery[skill.id] ?? "available";
-                          const pillClass =
-                            status === "mastered"
-                              ? "bg-green-50 text-green-700 border-green-200"
-                              : status === "in_progress"
-                              ? "bg-amber-50 text-amber-700 border-amber-300"
-                              : "bg-gray-50 text-gray-500 border-gray-200";
-                          const icon = status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : "·";
-                          return (
-                            <span
-                              key={skill.id}
-                              className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
-                              title={`${skill.title} — ${status.replace("_", " ")}`}
-                            >
-                              <span className="mr-1">{icon}</span>
-                              {skill.title}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    </div>
+                <div className="p-5 space-y-3">
+                  {lifeSkillsTree.levels.length > 0 ? (
+                    // Show every grade's topics, each grade as its own
+                    // collapsible level header.
+                    lifeSkillsTree.levels.map((level) => {
+                      const isExpanded = lifeSkillsExpanded.has(level.id);
+                      const skills = level.tiers[0]?.atomic_skills ?? [];
+                      const isCurrentGrade = grade === level.id;
+                      return (
+                        <div key={level.id} className="rounded-xl border border-gray-200 overflow-hidden">
+                          <button
+                            type="button"
+                            onClick={() => toggleLifeSkillsLevel(level.id)}
+                            aria-expanded={isExpanded}
+                            aria-controls={`lifeskills-body-${level.id}`}
+                            className={`w-full text-left px-4 py-3 flex items-center justify-between hover:bg-gray-50 transition-colors ${isCurrentGrade ? "bg-amber-50" : ""}`}
+                          >
+                            <h4 className="text-sm font-semibold text-[#1a2744]">{level.title}</h4>
+                            <div className="flex items-center gap-3">
+                              <span className="text-xs text-gray-400">{skills.length} topics</span>
+                              <svg
+                                aria-hidden
+                                className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </button>
+                          {isExpanded && (
+                            <div id={`lifeskills-body-${level.id}`} className="px-4 pb-4 pt-1">
+                              <div className="flex flex-wrap gap-2">
+                                {skills.map((skill) => {
+                                  const status = lifeSkillsMastery[skill.id] ?? "available";
+                                  const pillClass =
+                                    status === "mastered"
+                                      ? "bg-green-50 text-green-700 border-green-200"
+                                      : status === "in_progress"
+                                      ? "bg-amber-50 text-amber-700 border-amber-300"
+                                      : "bg-gray-50 text-gray-500 border-gray-200";
+                                  const icon = status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : "·";
+                                  return (
+                                    <span
+                                      key={skill.id}
+                                      className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
+                                      title={`${skill.title} — ${status.replace("_", " ")}`}
+                                    >
+                                      <span className="mr-1">{icon}</span>
+                                      {skill.title}
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })
                   ) : (
-                    <p className="text-sm text-gray-500">No Life Skills content for this grade yet.</p>
+                    <p className="text-sm text-gray-500">No Life Skills content yet.</p>
                   )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
                     <span className="inline-block mr-3">🏆 Mastered</span>
@@ -348,51 +446,87 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
               )}
 
               {activeTab === "afrikaans" && (
-                <div className="p-5 space-y-5">
-                  {afrikaansLevel && afrikaansLevel.tiers.length > 0 ? (
-                    afrikaansLevel.tiers.map((tier) => (
-                      <div key={tier.id}>
-                        <h4 className="text-sm font-semibold text-[#1a2744] mb-2">{tier.title}</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {tier.atomic_skills.map((skill) => {
-                            const status = getAfrikaansSkillStatus(skill.id, afrikaansProfile);
-                            const isLocked = status === "locked";
-                            const pillClass =
-                              status === "mastered"
-                                ? "bg-green-50 text-green-700 border-green-200"
-                                : status === "in_progress"
-                                ? "bg-amber-50 text-amber-700 border-amber-300"
-                                : isLocked
-                                ? "bg-gray-50 text-gray-400 border-gray-200"
-                                : "bg-white text-[#1a2744] border-emerald-200";
-                            const icon =
-                              status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : isLocked ? "🔒" : "🚀";
-                            const canStart = !isLocked && !!onAfrikaansPickSkill;
-                            return (
-                              <button
-                                key={skill.id}
-                                type="button"
-                                disabled={!canStart}
-                                onClick={() => canStart && onAfrikaansPickSkill!(skill.id)}
-                                className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass} ${
-                                  canStart
-                                    ? "cursor-pointer hover:ring-2 hover:ring-emerald-300 hover:shadow-sm transition-all"
-                                    : "cursor-default"
-                                }`}
-                                title={
-                                  isLocked
-                                    ? `${skill.title} — locked`
-                                    : `${skill.title} — ${status.replace("_", " ")} · Tap to start`
-                                }
+                <div className="p-5 space-y-3">
+                  {afrikaansTree.levels.length > 0 ? (
+                    // Show ALL grades' skills, each grade as its own collapsible
+                    // level — was previously filtered to the learner's grade.
+                    afrikaansTree.levels.map((level) => {
+                      const isExpanded = afrikaansExpanded.has(level.id);
+                      const skillCount = level.tiers.reduce((n, t) => n + t.atomic_skills.length, 0);
+                      const isCurrentGrade = grade === level.id;
+                      return (
+                        <div key={level.id} className="rounded-xl border border-gray-200 overflow-hidden">
+                          <button
+                            type="button"
+                            onClick={() => toggleAfrikaansLevel(level.id)}
+                            aria-expanded={isExpanded}
+                            aria-controls={`afrikaans-body-${level.id}`}
+                            className={`w-full text-left px-4 py-3 flex items-center justify-between hover:bg-gray-50 transition-colors ${isCurrentGrade ? "bg-emerald-50" : ""}`}
+                          >
+                            <h4 className="text-sm font-semibold text-[#1a2744]">{level.title}</h4>
+                            <div className="flex items-center gap-3">
+                              <span className="text-xs text-gray-400">{skillCount} skills</span>
+                              <svg
+                                aria-hidden
+                                className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                               >
-                                <span className="mr-1">{icon}</span>
-                                {skill.title}
-                              </button>
-                            );
-                          })}
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </button>
+                          {isExpanded && (
+                            <div id={`afrikaans-body-${level.id}`} className="px-4 pb-4 pt-1 space-y-4">
+                              {level.tiers.map((tier) => (
+                                <div key={tier.id}>
+                                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">
+                                    {tier.title}
+                                  </p>
+                                  <div className="flex flex-wrap gap-2">
+                                    {tier.atomic_skills.map((skill) => {
+                                      const status = getAfrikaansSkillStatus(skill.id, afrikaansProfile);
+                                      const isLocked = status === "locked";
+                                      const pillClass =
+                                        status === "mastered"
+                                          ? "bg-green-50 text-green-700 border-green-200"
+                                          : status === "in_progress"
+                                          ? "bg-amber-50 text-amber-700 border-amber-300"
+                                          : isLocked
+                                          ? "bg-gray-50 text-gray-400 border-gray-200"
+                                          : "bg-white text-[#1a2744] border-emerald-200";
+                                      const icon =
+                                        status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : isLocked ? "🔒" : "🚀";
+                                      const canStart = !isLocked && !!onAfrikaansPickSkill;
+                                      return (
+                                        <button
+                                          key={skill.id}
+                                          type="button"
+                                          disabled={!canStart}
+                                          onClick={() => canStart && onAfrikaansPickSkill!(skill.id)}
+                                          className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass} ${
+                                            canStart
+                                              ? "cursor-pointer hover:ring-2 hover:ring-emerald-300 hover:shadow-sm transition-all"
+                                              : "cursor-default"
+                                          }`}
+                                          title={
+                                            isLocked
+                                              ? `${skill.title} — locked`
+                                              : `${skill.title} — ${status.replace("_", " ")} · Tap to start`
+                                          }
+                                        >
+                                          <span className="mr-1">{icon}</span>
+                                          {skill.title}
+                                        </button>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                      </div>
-                    ))
+                      );
+                    })
                   ) : (
                     <p className="text-sm text-gray-500">More Afrikaans grades coming soon.</p>
                   )}
@@ -401,6 +535,90 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                     <span className="inline-block mr-3">⚡ In progress</span>
                     <span className="inline-block mr-3">🚀 Ready</span>
                     <span className="inline-block">🔒 Locked</span>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === "socialsciences" && (
+                <div className="p-5 space-y-3">
+                  {socialSciencesTree.levels.length > 0 ? (
+                    socialSciencesTree.levels.map((level) => {
+                      const isExpanded = socialSciencesExpanded.has(level.id);
+                      const skillCount = level.tiers.reduce((n, t) => n + t.atomic_skills.length, 0);
+                      const isCurrentGrade = grade === level.id;
+                      return (
+                        <div key={level.id} className="rounded-xl border border-gray-200 overflow-hidden">
+                          <button
+                            type="button"
+                            onClick={() => toggleSocialSciencesLevel(level.id)}
+                            aria-expanded={isExpanded}
+                            aria-controls={`social-body-${level.id}`}
+                            className={`w-full text-left px-4 py-3 flex items-center justify-between hover:bg-gray-50 transition-colors ${isCurrentGrade ? "bg-sky-50" : ""}`}
+                          >
+                            <h4 className="text-sm font-semibold text-[#1a2744]">{level.title}</h4>
+                            <div className="flex items-center gap-3">
+                              <span className="text-xs text-gray-400">{skillCount} topics</span>
+                              <svg
+                                aria-hidden
+                                className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </button>
+                          {isExpanded && (
+                            <div id={`social-body-${level.id}`} className="px-4 pb-4 pt-1 space-y-4">
+                              {level.tiers.map((tier) => (
+                                <div key={tier.id}>
+                                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">
+                                    {tier.title}
+                                  </p>
+                                  <div className="flex flex-wrap gap-2">
+                                    {tier.atomic_skills.map((skill) => {
+                                      const status = socialSciencesMastery[skill.id] ?? "available";
+                                      const pillClass =
+                                        status === "mastered"
+                                          ? "bg-green-50 text-green-700 border-green-200"
+                                          : status === "in_progress"
+                                          ? "bg-amber-50 text-amber-700 border-amber-300"
+                                          : "bg-white text-[#1a2744] border-sky-200";
+                                      const icon =
+                                        status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : "🌍";
+                                      const canStart = !!onSocialSciencesOpen;
+                                      return (
+                                        <button
+                                          key={skill.id}
+                                          type="button"
+                                          disabled={!canStart}
+                                          onClick={() => canStart && onSocialSciencesOpen!()}
+                                          className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass} ${
+                                            canStart
+                                              ? "cursor-pointer hover:ring-2 hover:ring-sky-300 hover:shadow-sm transition-all"
+                                              : "cursor-default"
+                                          }`}
+                                          title={`${skill.title} — ${status.replace("_", " ")} · Tap to open`}
+                                        >
+                                          <span className="mr-1">{icon}</span>
+                                          {skill.title}
+                                        </button>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <p className="text-sm text-gray-500">No Social Sciences content yet.</p>
+                  )}
+                  <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                    <span className="inline-block mr-3">🏆 Mastered</span>
+                    <span className="inline-block mr-3">⚡ In progress</span>
+                    <span className="inline-block">🌍 Ready</span>
                   </div>
                 </div>
               )}
@@ -431,7 +649,7 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
 
           {/* ── Weekly Study Activity (bottom) ─────────────────────────── */}
           <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-            <h3 className="font-semibold text-gray-800 text-base mb-4">Weekly Study Activity</h3>
+            <h3 className="font-semibold text-gray-800 text-base mb-4">{t("progress.weekly_study")}</h3>
             <div className="flex items-end justify-between gap-1.5 h-24">
               {weekDays.map(({ date, label, isToday }, i) => {
                 const count = activity[date] || 0;

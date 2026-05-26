@@ -1,31 +1,35 @@
 // ─── Afrikaans FAL grade → level map ──────────────────────────────────────────
-// Foundation Phase only (Grades 1–3). Unlike English/Maths there is NO placement
-// engine: the learners are 6–9 and their grade is known from onboarding, so we
+// Foundation + Intermediate Phase (Grades 1–6 by curriculum; built up to the
+// HIGHEST_AVAILABLE_LEVEL below). Unlike English/Maths there is NO placement
+// engine: learners are 6–12 and their grade is known from onboarding, so we
 // trust the self-reported grade and send them straight to that grade's tree.
 // (Same decision as Life Skills — see lib/life-skills-grade-map.ts.)
 //
-// Levels mirror grades 1:1 — L1 = Grade 1, L2 = Grade 2, L3 = Grade 3.
+// Levels mirror grades 1:1 — L1 = Grade 1 … L6 = Grade 6.
 // Grade R is treated as Grade 1 entry (FAL formally starts in Grade 1).
-// Grades above 3 are beyond Foundation-Phase content; callers should surface a
-// "more grades coming" state rather than placing the learner.
+// Grades above HIGHEST_AVAILABLE_LEVEL are beyond authored content; callers
+// surface a "more grades coming" state rather than placing the learner.
 
-export const HIGHEST_AVAILABLE_LEVEL = 3;
+export const HIGHEST_AVAILABLE_LEVEL = 6; // Gr 1-6 all authored
 
 export interface AfrikaansEntrySeed {
-  /** Skill-tree level to start at (1–3). */
+  /** Skill-tree level to start at (1–HIGHEST_AVAILABLE_LEVEL). */
   level: number;
   /** First strand entry skill of that level if the learner just dives in. */
   entrySkillId: string;
-  /** True when the learner's grade is above the content we have (Gr 4+). */
+  /** True when the learner's grade is above the authored content. */
   beyondContent: boolean;
 }
 
-// Grade → level. Foundation Phase is a clean 1:1 map.
+// Grade → level. Clean 1:1 map across Foundation + Intermediate Phase.
 const GRADE_TO_LEVEL: Record<number, number> = {
   0: 1, // Grade R → Grade 1 entry
   1: 1,
   2: 2,
   3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
 };
 
 /** Normalise the onboarding grade (string "1".."12" or "R") to a number. */
@@ -40,7 +44,7 @@ export function normaliseGrade(grade: string | number | null | undefined): numbe
 
 export function seedForGrade(grade: string | number | null | undefined): AfrikaansEntrySeed {
   const g = normaliseGrade(grade);
-  const beyondContent = g > 3;
+  const beyondContent = g > HIGHEST_AVAILABLE_LEVEL;
   const level = beyondContent ? HIGHEST_AVAILABLE_LEVEL : GRADE_TO_LEVEL[g] ?? 1;
   // Listening is the natural on-ramp for an additional language, so entry
   // starts at the first Luister skill of the level.

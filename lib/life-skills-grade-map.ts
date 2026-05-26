@@ -1,17 +1,19 @@
 // ─── Life Skills grade → entry-level map ──────────────────────────────────────
-// Onboarding captures a grade (R, 1–12). Life Skills as a subject only ships
-// CAPS Foundation Phase content (Grades 1–3) at launch. Grade 4 is Intermediate
-// Phase and is blocked on the separate CAPS Intermediate Phase doc — placeholder
-// only in the tree.
+// Onboarding captures a grade (R, 1–12). Life Skills covers:
+//   - Foundation Phase Grades 1–3 (BK&H strand)
+//   - Intermediate Phase Grades 4–6 (PSW strand only — Creative Arts and PE
+//     are activity-based and don't fit a question-bank tutor)
+// Senior Phase (Gr 7+) is where the subject renames to Life Orientation —
+// out of scope.
 //
-// Unlike Maths, Life Skills does NOT run a placement test. Foundation Phase
-// learners (6–9 years) self-report grade in onboarding and land directly on
-// that grade's tree; all 12 topics for that grade are unlocked from day one
-// (CAPS sequences them termly but they do not prerequisite each other).
+// Unlike Maths, Life Skills does NOT run a placement test. Learners self-report
+// grade in onboarding and land directly on that grade's tree; all topics for
+// that grade are unlocked from day one (CAPS sequences them termly but they do
+// not prerequisite each other).
 //
 // Life Skills is open to all plans (including freebie) — no entitlement check.
 
-export const HIGHEST_AVAILABLE_LEVEL = 3; // L4 not yet authored
+export const HIGHEST_AVAILABLE_LEVEL = 6; // Gr 7+ is Life Orientation, not Life Skills
 export const LOWEST_AVAILABLE_LEVEL = 1;
 
 export interface LifeSkillsEntrySeed {
@@ -29,16 +31,17 @@ export interface LifeSkillsEntrySeed {
   belowContent: boolean;
 }
 
-// Grade → level. Foundation Phase only at launch.
+// Grade → level. Foundation Phase + Intermediate Phase.
 //   Grade R → not yet covered (closest: L1)
-//   Grade 1 → L1
-//   Grade 2 → L2
-//   Grade 3 → L3
-//   Grade 4+ → blocked (closest: L3)
+//   Grades 1–6 → L1–L6
+//   Grade 7+ → out of scope (Life Orientation territory; closest: L6)
 const GRADE_TO_LEVEL: Record<number, number> = {
   1: 1,
   2: 2,
   3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
 };
 
 /** Normalise the onboarding grade (string "1".."12" or "R") to a number.
@@ -52,6 +55,18 @@ export function normaliseGrade(grade: string | number | null | undefined): numbe
   return Number.isFinite(n) ? n : 1;
 }
 
+/** FP uses BKH (Beginning Knowledge & Health Education); IP uses PSW
+ *  (Personal & Social Well-being). The strand prefix follows the level. */
+function strandForLevel(level: number): "BKH" | "PSW" {
+  return level <= 3 ? "BKH" : "PSW";
+}
+
+/** Topic counts per level. FP is 12/grade; IP varies by grade. */
+const TOPIC_COUNTS: Record<number, number> = {
+  1: 12, 2: 12, 3: 12,
+  4: 15, 5: 15, 6: 16,
+};
+
 export function seedForGrade(grade: string | number | null | undefined): LifeSkillsEntrySeed {
   const g = normaliseGrade(grade);
   const belowContent = g < LOWEST_AVAILABLE_LEVEL;
@@ -63,7 +78,7 @@ export function seedForGrade(grade: string | number | null | undefined): LifeSki
     : GRADE_TO_LEVEL[g] ?? LOWEST_AVAILABLE_LEVEL;
   return {
     level,
-    entrySkillId: `LS.L${level}.BKH.T01`,
+    entrySkillId: `LS.L${level}.${strandForLevel(level)}.T01`,
     beyondContent,
     belowContent,
   };
@@ -73,5 +88,7 @@ export function seedForGrade(grade: string | number | null | undefined): LifeSki
  *  default sort even though all topics are unlocked simultaneously. */
 export function topicsForLevel(level: number): string[] {
   if (level < LOWEST_AVAILABLE_LEVEL || level > HIGHEST_AVAILABLE_LEVEL) return [];
-  return Array.from({ length: 12 }, (_, i) => `LS.L${level}.BKH.T${String(i + 1).padStart(2, "0")}`);
+  const count = TOPIC_COUNTS[level] ?? 12;
+  const strand = strandForLevel(level);
+  return Array.from({ length: count }, (_, i) => `LS.L${level}.${strand}.T${String(i + 1).padStart(2, "0")}`);
 }

@@ -1,17 +1,24 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import skillTreeData from "@/data/skill-tree.json";
 import { StudentProfile } from "@/types/ruby";
 import { getSkillStatus, getLevelById, friendlyMathsSkillName } from "@/lib/student-model";
 import { getLevelProgress } from "@/lib/mastery-engine";
 import EduBackground from "@/components/EduBackground";
+import { useT } from "@/lib/i18n";
 
 interface SkillTreeViewProps {
   profile: StudentProfile | null;
   /** When provided, skills the student has already completed/attained become
    *  tappable to replay (extra practice — no progression is changed). */
   onReplaySkill?: (skillId: string) => void;
+  /** When provided, shows a "Continue where you left off" button (and makes the
+   *  active skill tile tappable) that resumes the current skill's session.
+   *  Mirrors the Afrikaans tree so every subject resumes the same way. */
+  onContinue?: () => void;
+  /** Optional back action — shows a "← Subjects" button when provided. */
+  onBack?: () => void;
 }
 
 const statusConfig = {
@@ -25,7 +32,20 @@ const statusConfig = {
   entry_point:   { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-300",  icon: "🎯", label: "Entry Point" },
 };
 
-export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewProps) {
+export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBack }: SkillTreeViewProps) {
+  const { t } = useT();
+  // Per-level expand/collapse. Default: only the learner's current level is
+  // expanded; others stay collapsed so the tree is scannable rather than
+  // an endless scroll.
+  const [expandedLevels, setExpandedLevels] = useState<Set<number>>(
+    () => new Set(profile ? [profile.current_level] : [1]),
+  );
+  const toggleLevel = (id: number) =>
+    setExpandedLevels((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
   const levelProgress = useMemo(() => {
     if (!profile) return {};
     const result: Record<number, number> = {};
@@ -44,6 +64,7 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
   );
   const entrySkillId = profile?.placement?.entrySkillId ?? null;
   const hardGatePassed = profile?.placement?.hardGatePassed ?? true;
+  const currentSkillId = profile?.current_skill_id ?? null;
 
   function getExtendedStatus(skillId: string) {
     if (!profile) return "locked" as const;
@@ -63,11 +84,21 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
     <div className="relative isolate flex flex-col h-full bg-gray-50">
       <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-blue-50 border-b border-blue-200 px-6 py-4">
-        <h2 className="font-semibold text-blue-700 text-lg">Maths Skill Tree</h2>
+        <h2 className="font-semibold text-blue-700 text-lg">{t("nav.maths_skill_tree")}</h2>
         <p className="text-blue-400 text-sm">17 levels · 51 tiers · 72 atomic skills</p>
       </div>
 
       <div className="flex-1 overflow-y-auto p-6">
+        {onBack && (
+          <div className="max-w-2xl mx-auto mb-4">
+            <button
+              onClick={onBack}
+              className="text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
+            >
+              ← Subjects
+            </button>
+          </div>
+        )}
         {!profile ? (
           <div className="text-center py-12 text-gray-400">
             <p className="text-4xl mb-3">🌳</p>
@@ -75,6 +106,27 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
           </div>
         ) : (
           <div className="max-w-2xl mx-auto space-y-4">
+            {/* Continue where you left off — jumps straight back into the
+                current skill so the learner never has to hunt for it. Same
+                button across Maths, Reading and Afrikaans. */}
+            {onContinue && currentSkillId && (
+              <button
+                onClick={onContinue}
+                className="w-full flex items-center gap-4 rounded-2xl border-2 border-emerald-300 bg-emerald-50 px-5 py-4 text-left hover:shadow-md active:scale-[0.99] transition-all"
+              >
+                <span className="text-3xl flex-shrink-0" aria-hidden>🚀</span>
+                <span className="flex-1 min-w-0">
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-emerald-700">
+                    Continue where you left off
+                  </span>
+                  <span className="block text-base font-bold text-[#1a2744] leading-tight truncate">
+                    {friendlyMathsSkillName(currentSkillId)}
+                  </span>
+                </span>
+                <span className="text-emerald-600 text-xl flex-shrink-0" aria-hidden>→</span>
+              </button>
+            )}
+
             {/* Placement summary banner */}
             {profile.placementCompleted && profile.placement && (
               <div className="bg-blue-50 border border-blue-200 rounded-2xl px-5 py-3 flex items-center gap-3">
@@ -95,6 +147,7 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
               const isCurrent = level.id === profile.current_level;
               const isHardGateLevel = level.id === 5;
               const showHardGateBarrier = level.id === 5 && !hardGatePassed && profile.placementCompleted;
+              const isExpanded = expandedLevels.has(level.id);
 
               return (
                 <div key={level.id}>
@@ -130,8 +183,14 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
                       </div>
                     )}
 
-                    {/* Level header */}
-                    <div className={`px-5 py-4 ${isCurrent ? "bg-blue-50" : ""}`}>
+                    {/* Level header — click to expand/collapse */}
+                    <button
+                      type="button"
+                      onClick={() => toggleLevel(level.id)}
+                      aria-expanded={isExpanded}
+                      aria-controls={`level-body-${level.id}`}
+                      className={`w-full text-left px-5 py-4 ${isCurrent ? "bg-blue-50" : ""} hover:bg-gray-50 transition-colors`}
+                    >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-3">
                           <div className={`min-w-[2.25rem] h-8 px-1.5 rounded-lg flex items-center justify-center text-sm font-bold ${
@@ -150,15 +209,24 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
                             <p className="text-gray-400 text-xs">{level.description}</p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <p className={`text-sm font-bold ${progress === 100 ? "text-green-600" : "text-gray-600"}`}>
-                            {progress}%
-                          </p>
-                          {isCurrent && (
-                            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">
-                              Current
-                            </span>
-                          )}
+                        <div className="flex items-center gap-3">
+                          <div className="text-right">
+                            <p className={`text-sm font-bold ${progress === 100 ? "text-green-600" : "text-gray-600"}`}>
+                              {progress}%
+                            </p>
+                            {isCurrent && (
+                              <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">
+                                Current
+                              </span>
+                            )}
+                          </div>
+                          <svg
+                            aria-hidden
+                            className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
                         </div>
                       </div>
                       {/* Progress bar */}
@@ -170,11 +238,11 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
                           style={{ width: `${progress}%` }}
                         />
                       </div>
-                    </div>
+                    </button>
 
-                    {/* Skills grid (only show for current and nearby levels) */}
-                    {(isCurrent || progress > 0) && (
-                      <div className="px-5 pb-4">
+                    {/* Skills grid — collapsed by default; user expands per level. */}
+                    {isExpanded && (
+                      <div id={`level-body-${level.id}`} className="px-5 pb-4">
                         {level.tiers.map((tier) => (
                           <div key={tier.id} className="mt-3">
                             <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">
@@ -189,10 +257,13 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
                                 // Replay is allowed only on skills the student has already
                                 // completed/attained (mastered, or auto-completed via placement).
                                 const canReplay = !!onReplaySkill && (extStatus === "mastered" || extStatus === "auto_complete");
+                                // The active (current) skill resumes the session when tapped,
+                                // so the ▶ tile isn't a dead click.
+                                const canResume = !!onContinue && isActive;
 
                                 const tileClass = `px-3 py-1.5 rounded-lg border text-xs font-medium text-left ${config.bg} ${config.text} ${config.border} ${
                                   isActive ? "ring-2 ring-blue-500 ring-offset-1 animate-pulse shadow-sm shadow-blue-300" : ""
-                                } ${canReplay ? "cursor-pointer hover:ring-2 hover:ring-blue-300 hover:shadow-sm transition-all" : ""}`;
+                                } ${(canReplay || canResume) ? "cursor-pointer hover:ring-2 hover:ring-blue-300 hover:shadow-sm transition-all" : ""}`;
                                 const tileInner = (
                                   <>
                                     <span className="mr-1">{config.icon}</span>
@@ -213,6 +284,16 @@ export default function SkillTreeView({ profile, onReplaySkill }: SkillTreeViewP
                                     onClick={() => onReplaySkill!(skill.id)}
                                     className={tileClass}
                                     title={`${skill.title} — ${config.label} · Tap to practise again`}
+                                  >
+                                    {tileInner}
+                                  </button>
+                                ) : canResume ? (
+                                  <button
+                                    key={skill.id}
+                                    type="button"
+                                    onClick={onContinue}
+                                    className={tileClass}
+                                    title={`${skill.title} — ${config.label} · Tap to continue`}
                                   >
                                     {tileInner}
                                   </button>

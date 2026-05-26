@@ -241,6 +241,153 @@
             },
             "copyRejectAt": 0.6
           }
+        },
+        {
+          "id": "SA.009",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Busy World of Honeybees",
+          "passage": "[HEADING] The Busy World of Honeybees [First sentence] Honeybees live together in large colonies and work as a team to collect food and care for their young. [SUBHEADING] Life Inside the Hive [First sentence] Each hive has one queen, thousands of female worker bees, and male bees called drones, and every bee has its own job. [SUBHEADING] Why Bees Matter to Us [First sentence] As bees move from flower to flower they spread pollen, which helps plants make the fruits and seeds that people and animals eat.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Honeybees live and work together in colonies, and they matter to us because they pollinate the plants we rely on for food.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.010",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Climbing the World's Highest Mountain",
+          "passage": "[HEADING] Climbing the World's Highest Mountain [First sentence] Mount Everest, on the border of Nepal and China, is the highest mountain on Earth at about 8 849 metres above sea level. [SUBHEADING] Dangers on the Mountain [First sentence] Climbers face freezing temperatures, thin air with little oxygen, and sudden storms near the summit. [SUBHEADING] The People Who Help [First sentence] Local Sherpa guides carry equipment and lead climbers, using their deep knowledge of the mountain to keep expeditions safe.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Mount Everest is the world's highest and most dangerous mountain to climb, and Sherpa guides help climbers reach the top safely.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.011",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Amazon Rainforest",
+          "passage": "[HEADING] The Amazon Rainforest [First sentence] The Amazon is the largest tropical rainforest on Earth, stretching across nine countries in South America. [SUBHEADING] A Home for Wildlife [First sentence] Millions of species of insects, plants, birds, and mammals live in the Amazon, many found nowhere else in the world. [SUBHEADING] The Forest Under Threat [First sentence] Large areas of the rainforest are cut down each year for farming and timber, which harms wildlife and adds to climate change.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "The Amazon is the world's largest rainforest and home to a huge variety of wildlife, but it is under threat from deforestation.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.012",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Why We Recycle",
+          "passage": "[HEADING] Why We Recycle [First sentence] Recycling means turning used materials like paper, glass, and plastic into new products instead of throwing them away. [SUBHEADING] How Recycling Works [First sentence] Used materials are collected, sorted, cleaned, and then broken down so they can be made into something new. [SUBHEADING] The Benefits for the Planet [First sentence] Recycling saves natural resources, uses less energy, and reduces the rubbish sent to landfill sites.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Recycling turns used materials into new products, which saves resources and energy and reduces waste.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.013",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Human Heart",
+          "passage": "[HEADING] The Human Heart [First sentence] The heart is a muscular organ about the size of your fist that pumps blood around your body every second of your life. [SUBHEADING] How the Heart Works [First sentence] The heart has four chambers that squeeze in a steady rhythm to push blood through a network of blood vessels. [SUBHEADING] Keeping Your Heart Healthy [First sentence] Regular exercise, a balanced diet, and avoiding smoking all help keep the heart strong and working well.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "The heart is a muscle that pumps blood around the body, and healthy habits like exercise and good food keep it strong.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.014",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Volcanoes",
+          "passage": "[HEADING] Volcanoes [First sentence] A volcano is an opening in the Earth's surface through which melted rock, ash, and gases can escape from deep underground. [SUBHEADING] What Causes an Eruption [First sentence] Pressure builds up beneath the surface until molten rock called magma is forced upwards and bursts out as lava. [SUBHEADING] Living Near Volcanoes [First sentence] Although eruptions can be dangerous, many people live near volcanoes because the soil around them is very fertile for farming.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Volcanoes let molten rock and gas escape from inside the Earth, and although they can be dangerous, people live near them for the fertile soil.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SA.015",
+          "errorSignals": [
+            "TOPIC_TOO_NARROW",
+            "VERBATIM_COPY",
+            "OVER_READING"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The History of the Bicycle",
+          "passage": "[HEADING] The History of the Bicycle [First sentence] The bicycle has changed a great deal since the first wooden version was invented in the early 1800s. [SUBHEADING] Early Designs [First sentence] The earliest bicycles had no pedals and were pushed along the ground with the rider's feet. [SUBHEADING] The Modern Bicycle [First sentence] Today's bicycles have chains, gears, and air-filled tyres that make them faster, safer, and more comfortable to ride.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "The bicycle has developed from a simple pedal-less wooden machine in the 1800s into the fast, comfortable bicycle we use today.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
         }
       ]
     },
@@ -515,6 +662,111 @@
           "answerKey": {
             "mode": "similarity-band",
             "reference": "Johannes Gutenberg",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.011",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The Great Wall of China is one of the most famous structures in the world. It was built over many centuries by different Chinese dynasties to protect the country from invaders. The full length of all its sections is about 21 000 kilometres. Construction began more than 2 000 years ago, and millions of workers were involved over time.",
+          "question": "How long is the Great Wall of China in total?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "About 21 000 kilometres",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.012",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Nelson Mandela was one of South Africa's most respected leaders. He spent 27 years in prison for opposing the unjust system of apartheid. After his release in 1990, he worked to bring peace to the country. In 1994, he became South Africa's first democratically elected president.",
+          "question": "In which year did Nelson Mandela become president of South Africa?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "1994",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.013",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The Sun is the star at the centre of our solar system. It is about 150 million kilometres away from Earth. Light from the Sun takes around eight minutes to reach us. The Sun is so large that more than one million Earths could fit inside it.",
+          "question": "How long does light from the Sun take to reach Earth?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "About eight minutes",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.014",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The cheetah is the fastest land animal on Earth. It can reach speeds of up to 110 kilometres per hour in short bursts while chasing prey. However, it can keep up this speed for only about 30 seconds before it needs to rest. Cheetahs live mainly in the grasslands of Africa.",
+          "question": "What is the cheetah's top speed?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Up to 110 kilometres per hour",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "SC.015",
+          "errorSignals": [
+            "WRONG_DETAIL",
+            "SLOW_SCAN",
+            "MULTIPLE_ANSWERS"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "The modern Olympic Games were first held in Athens, Greece, in 1896. The Games take place every four years and bring together athletes from around the world. The five rings on the Olympic flag represent the five continents that take part.",
+          "question": "In which city were the first modern Olympic Games held?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Athens",
             "bands": {
               "green": 0.6,
               "amber": 0.4
@@ -841,6 +1093,131 @@
             ],
             "passFraction": 0.6
           }
+        },
+        {
+          "id": "PT.011",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "passage": "Our school produces bags and bags of waste every single day, and most of it could be recycled. By placing recycling bins in every classroom, we could cut our waste in half and teach everyone good habits at the same time. It is a simple change that costs almost nothing. If we truly care about our planet, we cannot keep ignoring this problem. Let's make our school a recycling school — starting today.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as PERSUADE (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses strong opinion language ('we cannot keep ignoring'), a direct call to action ('Let's make our school...'), and an emotional appeal to caring about the planet."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.012",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Rain forms through a process that begins when the sun heats water in oceans, rivers, and lakes. The warm water turns into an invisible gas called water vapour and rises into the sky. As the vapour cools high in the air, it turns back into tiny droplets that join to form clouds. When the droplets grow heavy enough, they fall to the ground as rain. This continuous movement of water is called the water cycle.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as INFORM (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Explains a process step by step using factual language and scientific terms (water vapour, water cycle) without giving an opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.013",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "passage": "Biscuit the dog had one rule in life: every shoe in the house belonged to him. It did not matter whose foot it fitted. The moment a shoe was left unguarded, Biscuit would carry it proudly to his secret pile behind the sofa. One morning, Dad hopped around the kitchen wearing one shoe and one slipper, muttering about 'that thieving hound', while Biscuit watched calmly from the doorway, looking deeply innocent and just a little pleased with himself.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as ENTERTAIN (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Tells an amusing story with a mischievous animal character, funny details (one shoe and one slipper), and a humorous ending."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.014",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "passage": "Penguins are flightless birds that live mostly in the southern half of the world. Although they cannot fly, they are excellent swimmers and use their wings like flippers to move quickly through the water. Penguins have a thick layer of fat and tightly packed feathers that keep them warm in freezing conditions. They feed on fish, squid, and small sea creatures called krill.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as INFORM (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Gives factual information about penguins' features and behaviour using a neutral, explaining tone."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "PT.015",
+          "errorSignals": [
+            "WRONG_PURPOSE",
+            "PURPOSE_WITHOUT_REASON",
+            "GENERIC_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "passage": "Reading is one of the best things you can do for yourself, yet too many of us spend hours scrolling on screens instead. A good book can take you to another world, teach you something new, and improve your writing without you even noticing. Just twenty minutes a day can make a real difference. Put down your phone, pick up a book, and discover what you have been missing.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "PURPOSE",
+                "description": "Correctly identifies the purpose as PERSUADE (choices: INFORM, PERSUADE, ENTERTAIN)."
+              },
+              {
+                "id": "REASON",
+                "description": "Gives a valid text-based reason. Model reason: Uses persuasive techniques: a strong opinion, direct address to the reader, and a clear call to action ('Put down your phone, pick up a book')."
+              }
+            ],
+            "passFraction": 0.6
+          }
         }
       ]
     },
@@ -1111,6 +1488,312 @@
             ],
             "passFraction": 0.6
           }
+        },
+        {
+          "id": "TF.007",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Renewable Energy",
+          "passage": "[HEADING] Power from Nature [PARA] Renewable energy comes from sources that never run out, such as sunlight, wind, and moving water, and countries are turning to it to reduce pollution. [SUBHEADING] Solar Power [PARA] Solar panels capture energy from the sun and turn it into [BOLD]electricity[/BOLD] that can power homes and schools. [SIDEBAR] In 2022, renewable sources produced almost 30% of the world's electricity. [SUBHEADING] Wind Power [PARA] Tall wind turbines use the force of the wind to spin blades that generate power, even in remote areas.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States renewable energy."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into the two types of renewable energy."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights a key technical term the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives a real-world fact that supports the main text from outside the main flow."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.008",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Sharks",
+          "passage": "[HEADING] Sharks: Rulers of the Ocean [PARA] Sharks have lived in the world's oceans for more than 400 million years, long before the dinosaurs. [SUBHEADING] Built to Hunt [PARA] A shark's body is streamlined for speed, and its rows of sharp [BOLD]teeth[/BOLD] are replaced throughout its life. [SIDEBAR] Most of the 500 shark species are harmless to humans, and attacks are extremely rare. [SUBHEADING] Sharks in Danger [PARA] Millions of sharks are caught each year, and several species are now at risk of disappearing.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the topic of the whole text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into different aspects of sharks."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights an important feature word the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives a surprising fact set apart from the main text."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.009",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Ancient Egyptians",
+          "passage": "[HEADING] Life in Ancient Egypt [PARA] The ancient Egyptians built one of the longest-lasting civilisations in history along the River Nile. [SUBHEADING] The Importance of the Nile [PARA] Each year the Nile flooded and left behind rich [BOLD]silt[/BOLD] that made the soil perfect for farming. [SUBHEADING] Pyramids and Pharaohs [PARA] Kings called pharaohs ruled Egypt, and huge stone pyramids were built as their tombs. [SIDEBAR] The Great Pyramid of Giza took around 20 years to build.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the main topic of the text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into two separate aspects of Egyptian life."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights a special term the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives an extra fact placed outside the main text."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.010",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Healthy Eating",
+          "passage": "[HEADING] Eating for a Healthy Body [PARA] The food we eat gives our bodies the energy and nutrients they need to grow and stay healthy. [SUBHEADING] A Balanced Diet [PARA] A balanced diet includes fruit, vegetables, grains, and protein, with only small amounts of [BOLD]sugar[/BOLD]. [SIDEBAR] Health experts recommend at least five portions of fruit and vegetables every day. [SUBHEADING] Drinking Water [PARA] Water keeps the body working properly, and children should drink it regularly throughout the day.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the subject of the whole text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into different parts of healthy eating."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights a word the reader should pay attention to."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives a recommendation that supports the main text from the side."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.011",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Internet",
+          "passage": "[HEADING] How the Internet Connects Us [PARA] The internet is a giant network that links billions of computers and devices around the world. [SUBHEADING] How It Works [PARA] Information travels as tiny pieces of [BOLD]data[/BOLD] that move between devices in fractions of a second. [SUBHEADING] Staying Safe Online [PARA] Users should protect their passwords and be careful about what they share. [SIDEBAR] More than five billion people now use the internet worldwide.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the topic of the text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into two different aspects of the internet."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights a key term the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives a statistic placed outside the main text."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.012",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Earthquakes",
+          "passage": "[HEADING] When the Ground Shakes [PARA] An earthquake is a sudden shaking of the ground caused by movement deep inside the Earth. [SUBHEADING] What Causes Earthquakes [PARA] The Earth's outer layer is cracked into huge pieces called [BOLD]tectonic plates[/BOLD] that slowly move and sometimes slip. [SIDEBAR] Scientists use a tool called a seismometer to measure how strong an earthquake is. [SUBHEADING] Staying Safe [PARA] During an earthquake, people are advised to take cover under sturdy furniture and stay away from windows.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the main idea of the text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into different aspects of earthquakes."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights a scientific term the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives an extra piece of information from outside the main flow."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.013",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Migratory Birds",
+          "passage": "[HEADING] The Great Journeys of Birds [PARA] Many birds travel thousands of kilometres each year in a journey called migration. [SUBHEADING] Why Birds Migrate [PARA] Birds migrate to find food and warmer weather when the [BOLD]seasons[/BOLD] change. [SUBHEADING] Finding the Way [PARA] Birds use the sun, the stars, and the Earth's magnetic field to navigate. [SIDEBAR] The Arctic tern makes the longest migration of any animal, flying from pole to pole each year.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the topic of the whole text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into two different aspects of bird migration."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights an important word the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives a record-breaking example placed beside the main text."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.014",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Deserts of the World",
+          "passage": "[HEADING] Life in the Desert [PARA] Deserts are some of the driest places on Earth, receiving very little rain each year. [SUBHEADING] A Harsh Climate [PARA] Deserts can be scorching by day and freezing by night because there are few clouds to trap [BOLD]heat[/BOLD]. [SIDEBAR] The Sahara in Africa is the largest hot desert in the world. [SUBHEADING] Surviving the Desert [PARA] Desert plants and animals have special features, such as storing water, that help them survive with very little moisture.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the subject of the text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into different aspects of deserts."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights a key idea the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives a fact about a specific desert placed outside the main text."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "TF.015",
+          "errorSignals": [
+            "FEATURE_MISLABEL",
+            "FUNCTION_VAGUE",
+            "FEATURE_MISSED"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Space Exploration",
+          "passage": "[HEADING] Exploring Outer Space [PARA] For thousands of years people have looked at the night sky and wondered what lies beyond our planet. [SUBHEADING] The First Steps [PARA] In 1969, astronauts landed on the [BOLD]Moon[/BOLD] for the first time. [SUBHEADING] Robots in Space [PARA] Today, robotic rovers explore distant planets and send pictures back to Earth. [SIDEBAR] The Voyager 1 spacecraft, launched in 1977, is now billions of kilometres from Earth.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "HEADING",
+                "description": "HEADING: States the main topic of the text."
+              },
+              {
+                "id": "SUBHEADING",
+                "description": "SUBHEADING: Divides the text into two stages of space exploration."
+              },
+              {
+                "id": "BOLD",
+                "description": "BOLD: Highlights an important term the reader should notice."
+              },
+              {
+                "id": "SIDEBAR",
+                "description": "SIDEBAR: Gives an example that supports the main text from the side."
+              }
+            ],
+            "passFraction": 0.6
+          }
         }
       ]
     },
@@ -1337,6 +2020,153 @@
           "answerKey": {
             "mode": "similarity-band",
             "reference": "Mathematics has the lowest learner confidence (41%). History has the highest (72%). Learners feel 31 percentage points more confident in History than in Mathematics.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.009",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Average rainfall per year (millimetres): Cape Town: 515 mm Durban: 1 009 mm Johannesburg: 713 mm Upington: 197 mm Source: South African Weather Service.",
+          "question": "Which city receives the most rain, and how does it compare to the driest city listed?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Durban receives the most rain (1 009 mm). Upington receives the least (197 mm). Durban gets more than five times as much rain as Upington.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.010",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Favourite sport among 400 learners: Soccer: 180 Netball: 90 Cricket: 70 Athletics: 60 Source: school survey, 2023.",
+          "question": "Which sport is the most popular, and how does it compare to athletics?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Soccer is the most popular (180 learners). Athletics is the least popular listed (60 learners). Three times as many learners chose soccer as chose athletics.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.011",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Percentage of waste recycled by material: Glass: 78% Paper: 65% Metal: 52% Plastic: 31% Source: national recycling report.",
+          "question": "Which material is recycled the most, and how does plastic compare?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Glass is recycled the most (78%). Plastic is recycled the least (31%). Glass is recycled at more than twice the rate of plastic.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.012",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Average screen time per day (hours): Ages 8–10: 2.5 Ages 11–13: 4.0 Ages 14–16: 6.5 Source: media use study.",
+          "question": "How does screen time change as children get older?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Screen time increases with age. The youngest group (ages 8–10) averages 2.5 hours, while the oldest group (ages 14–16) averages 6.5 hours — more than double.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.013",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Number of public libraries per province: Western Cape: 360 Gauteng: 110 KwaZulu-Natal: 215 Free State: 175 Source: provincial library services.",
+          "question": "Which province has the most public libraries, and how does Gauteng compare?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "The Western Cape has the most public libraries (360). Gauteng has the fewest listed (110). The Western Cape has more than three times as many libraries as Gauteng.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.014",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Litres of water used per activity at home: Bath: 80 Shower (5 min): 45 Washing dishes by hand: 20 Brushing teeth (tap running): 6 Source: water-saving guide.",
+          "question": "Which activity uses the most water, and how does a shower compare to a bath?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "A bath uses the most water (80 litres). A five-minute shower uses 45 litres, which is almost half as much as a bath, so showering saves water.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "DC.015",
+          "errorSignals": [
+            "SINGLE_DATA_POINT",
+            "NO_COMPARISON_LANGUAGE",
+            "DIRECTIONAL_ERROR"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "dataText": "DATA: Books borrowed by genre in one month: Adventure: 240 Mystery: 190 Science: 120 Poetry: 50 Source: school library records.",
+          "question": "Which genre is borrowed the most, and how does poetry compare?",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Adventure books are borrowed the most (240). Poetry is borrowed the least (50). Almost five times as many adventure books are borrowed as poetry books.",
             "bands": {
               "green": 0.6,
               "amber": 0.4
@@ -1990,6 +2820,312 @@
             ],
             "passFraction": 0.6
           }
+        },
+        {
+          "id": "WC1.007",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about why exercise is important. In each paragraph, start with a topic sentence that names one benefit, then give at least two details to support it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.008",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about what makes a good friend. Begin each paragraph with a topic sentence naming one quality, then support it with at least two examples.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.009",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about why looking after the environment matters. Start each paragraph with a topic sentence, then add at least two supporting details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.010",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about the benefits of reading books. Each paragraph should begin with a topic sentence and include at least two supporting details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.011",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about how technology has changed the way we learn. Begin each paragraph with a topic sentence and support it with at least two details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.012",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about why teamwork is useful. Each paragraph must start with a topic sentence naming one reason, followed by at least two supporting details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.013",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about your favourite season and why you enjoy it. Begin each paragraph with a topic sentence and add at least two details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.014",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about why animals make good pets. Start each paragraph with a topic sentence and support it with at least two examples.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC1.015",
+          "errorSignals": [
+            "NO_TOPIC_SENTENCE",
+            "NARROW_TOPIC_SENTENCE",
+            "DETAIL_MISSING",
+            "PARAGRAPH_BLEED"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about how learning a new skill can help you. Each paragraph should begin with a topic sentence and include at least two supporting details.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence present — first sentence has keyword overlap >=40% with paragraph body."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting sentences each with detail novelty >=0.22."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No paragraph bleed (paragraph bleed score <0.50)."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "Sentence cohesion >=0.40 across consecutive sentences."
+              }
+            ],
+            "passFraction": 0.6
+          }
         }
       ]
     },
@@ -2218,6 +3354,267 @@
           "randomisable": true,
           "context": "A",
           "prompt": "Write a paragraph about a challenge you have overcome. Your topic sentence should name the challenge. Then describe at least two specific things you did to deal with it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.007",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about a place you would love to visit. Your topic sentence should name the place. Then give at least two specific reasons you want to go there.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.008",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about a hobby you enjoy. Begin with a topic sentence naming the hobby, then describe at least two things you like about it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.009",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about a person you admire. Your topic sentence should name the person, then give at least two specific reasons you admire them.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.010",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about an important lesson you have learned. Start with a topic sentence stating the lesson, then explain at least two ways you learned it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.011",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about your favourite book or film. Begin with a topic sentence naming it, then give at least two reasons it is your favourite.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.012",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about something you are good at. Your topic sentence should name the skill, then describe at least two examples of using it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.013",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about a memorable day. Begin with a topic sentence about the day, then describe at least two things that made it memorable.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.014",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about a goal you have. Start with a topic sentence stating the goal, then explain at least two steps you will take to reach it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Topic sentence breadth >=0.40."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 distinct supporting details with novelty >=0.22 each."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Topic sentence appears first — not inverted structure."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC2.015",
+          "errorSignals": [
+            "NARROW_TOPIC_SENTENCE",
+            "REDUNDANT_DETAIL",
+            "INVERTED_STRUCTURE"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write a paragraph about your favourite animal. Your topic sentence should name the animal, then give at least two interesting facts or reasons you like it.",
           "answerKey": {
             "mode": "rubric",
             "checks": [
@@ -2527,6 +3924,312 @@
             ],
             "passFraction": 0.6
           }
+        },
+        {
+          "id": "WC3.007",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether schools should have longer breaks. State your opinion and give at least two distinct reasons that each add new information.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.008",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether homework is helpful. State your opinion clearly and support it with at least two different reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.009",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether children should have their own mobile phones. State your opinion and give at least two distinct reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.010",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether school uniforms are a good idea. State your opinion and support it with at least two different reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.011",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether pets should be allowed in classrooms. State your opinion and give at least two distinct reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.012",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether sport should be compulsory at school. State your opinion clearly and support it with at least two reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.013",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether it is better to live in a city or in the countryside. State your opinion and give at least two distinct reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.014",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether everyone should learn to cook. State your opinion and support it with at least two different reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC3.015",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "SINGLE_REASON",
+            "REASON_RESTATES_OPINION",
+            "CONTRADICTING_REASON"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write an opinion paragraph about whether zoos are good or bad for animals. State your opinion clearly and give at least two distinct reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": "No reason contradicts the stated opinion."
+              }
+            ],
+            "passFraction": 0.6
+          }
         }
       ]
     },
@@ -2756,6 +4459,267 @@
           "randomisable": true,
           "context": "A",
           "prompt": "Write 2–3 paragraphs about a person who has inspired you. In each paragraph after the first, use a different transition word to link to the previous paragraph. Do not repeat any transition word.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.007",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about how to plan a class event. In each paragraph after the first, use a different transition word to link to the previous paragraph. Do not repeat any transition word.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.008",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about a place you know well. After the first paragraph, begin each new paragraph with a different transition word, without repeating any.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.009",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about the seasons of the year. Use a different transition word at the start of each paragraph after the first, with no repeats.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.010",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs explaining how to look after a pet. In each paragraph after the first, use a different transition word, without repeating any.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.011",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about a memorable holiday. After the first paragraph, link each new paragraph with a different transition word, with no repeats.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.012",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about why recycling is important. Use a different transition word to begin each paragraph after the first, without repeating any.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.013",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs describing your daily routine. In each paragraph after the first, use a different transition word to link to the one before it.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.014",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about a skill you would like to learn. After the first paragraph, begin each new paragraph with a different transition word, with no repeats.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Transition word at start of >=60% of non-opening paragraphs."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "Transition function matches paragraph relationship >=60%."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "No transition word repeated in consecutive paragraphs."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "WC4.015",
+          "errorSignals": [
+            "TRANSITION_ABSENT",
+            "WRONG_FUNCTION",
+            "REPETITION"
+          ],
+          "randomisable": true,
+          "context": "A",
+          "prompt": "Write 2–3 paragraphs about how a plant grows. Use a different transition word to link each paragraph after the first, without repeating any.",
           "answerKey": {
             "mode": "rubric",
             "checks": [
@@ -3153,6 +5117,251 @@
             ],
             "passFraction": 0.6
           }
+        },
+        {
+          "id": "OD1.009",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Should every learner be taught how to swim? State your opinion with at least two supporting reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.010",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Should schools grow their own vegetable gardens? State your opinion with at least two supporting reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.011",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Should children spend less time on screens? State your opinion with at least two supporting reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.012",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Should everyone help with chores at home? State your opinion with at least two supporting reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.013",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Should schools have a longer summer holiday? State your opinion with at least two supporting reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.014",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Should plastic bags be banned in shops? State your opinion with at least two supporting reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD1.015",
+          "errorSignals": [
+            "OPINION_ABSENT",
+            "OPINION_ABSENT_ORAL",
+            "SINGLE_REASON",
+            "SINGLE_REASON_ORAL",
+            "SHORT_RESPONSE"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "Should learning a second language be compulsory? State your opinion with at least two supporting reasons.",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Opinion signal phrase present."
+              },
+              {
+                "id": "CHECK_2",
+                "description": ">=2 reason clauses each with a connector."
+              },
+              {
+                "id": "CHECK_3",
+                "description": "Reason distinctness — cross-reason similarity <0.72."
+              },
+              {
+                "id": "CHECK_4",
+                "description": ">=3 clauses total."
+              }
+            ],
+            "passFraction": 0.6
+          }
         }
       ]
     },
@@ -3460,6 +5669,209 @@
             ],
             "passFraction": 0.6
           }
+        },
+        {
+          "id": "OD2.009",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "What do you think is the best way for people to stay healthy?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the question's context."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "States a position with >=1 reason. May agree or disagree."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.010",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "What do you think is the most useful subject to learn at school?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the question's context."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "States a position with >=1 reason. May agree or disagree."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.011",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "What do you think is the best way to make new friends?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the question's context."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "States a position with >=1 reason. May agree or disagree."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.012",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "What do you think people can do to help protect wild animals?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the question's context."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "States a position with >=1 reason. May agree or disagree."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.013",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "What do you think is the most enjoyable way to spend a weekend?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the question's context."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "States a position with >=1 reason. May agree or disagree."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.014",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "What do you think is the best way to save water at home?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the question's context."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "States a position with >=1 reason. May agree or disagree."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
+        },
+        {
+          "id": "OD2.015",
+          "errorSignals": [
+            "OFF_TOPIC_TURN2",
+            "REPETITION_TURN2",
+            "SHORT_TURN2"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "prompt": "What do you think makes a place a good community to live in?",
+          "answerKey": {
+            "mode": "rubric",
+            "checks": [
+              {
+                "id": "CHECK_1",
+                "description": "Relevant to the question's context."
+              },
+              {
+                "id": "CHECK_2",
+                "description": "States a position with >=1 reason. May agree or disagree."
+              },
+              {
+                "id": "CHECK_3",
+                "description": ">=2 clauses."
+              }
+            ],
+            "passFraction": 0.6
+          }
         }
       ]
     },
@@ -3701,6 +6113,153 @@
           "answerKey": {
             "mode": "similarity-band",
             "reference": "Food insecurity affects hundreds of millions of people, but the problem is not a shortage of food — it is waste and unequal distribution. Key details: About 735 million people are chronically hungry worldwide.; The world produces enough food for everyone but much is wasted or unevenly distributed.; Around one third of all food produced globally is lost or wasted.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.009",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Plastic Pollution",
+          "passage": "Plastic pollution is one of the biggest problems facing our oceans today. Every year, millions of tonnes of plastic waste end up in the sea, where it can take hundreds of years to break down. Sea animals such as turtles and seabirds often mistake plastic for food, which can make them very ill or even kill them. Tiny pieces of plastic, called microplastics, have now been found in fish and even in drinking water. Scientists say the best way to solve the problem is to use less plastic, reuse what we can, and recycle the rest.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Plastic pollution is harming our oceans and the animals in them, and the best way to fix it is to use less plastic, reuse, and recycle. Key details: Millions of tonnes of plastic enter the sea each year.; Animals mistake plastic for food and become ill.; Tiny microplastics have been found in fish and drinking water.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.010",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Moon Landing",
+          "passage": "On 20 July 1969, two American astronauts became the first humans to walk on the Moon. Their spacecraft, Apollo 11, had travelled about 384 000 kilometres from Earth. Neil Armstrong was the first to step onto the surface, followed by Buzz Aldrin, while a third astronaut stayed in orbit. They collected rock samples and planted a flag before returning safely to Earth. The Moon landing is remembered as one of the greatest achievements in human history.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "The first Moon landing in 1969 was a historic achievement in which astronauts walked on the Moon and returned safely. Key details: Apollo 11 travelled about 384 000 kilometres.; Neil Armstrong was the first to step onto the surface.; The astronauts collected rock samples before returning to Earth.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.011",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Antibiotics",
+          "passage": "Antibiotics are powerful medicines that fight infections caused by bacteria. Before they were discovered, even small infections could be deadly. The first antibiotic, penicillin, was discovered by Alexander Fleming in 1928, and it has saved millions of lives since. However, doctors warn that using antibiotics too often can make bacteria resistant, which means the medicines stop working. For this reason, antibiotics should only be taken when a doctor says they are needed.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Antibiotics are medicines that fight bacterial infections and have saved millions of lives, but overusing them can make them stop working. Key details: Penicillin was discovered by Alexander Fleming in 1928.; Before antibiotics, small infections could be deadly.; Overuse makes bacteria resistant to the medicine.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.012",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "Migration of the Wildebeest",
+          "passage": "Each year in East Africa, more than a million wildebeest take part in one of nature's greatest journeys. They travel in huge herds across the plains of Tanzania and Kenya in search of fresh grass and water. Along the way they must cross rivers full of crocodiles and avoid predators such as lions. Many animals do not survive the journey, but the migration is essential for the herds to find enough food. The great wildebeest migration draws visitors from all over the world.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Over a million wildebeest migrate across East Africa each year to find food and water, facing many dangers along the way. Key details: They travel across Tanzania and Kenya.; They must cross rivers full of crocodiles.; The migration helps the herds find enough grass and water.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.013",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Importance of Sleep",
+          "passage": "Sleep is just as important for your health as eating well and exercising. While you sleep, your body repairs itself and your brain sorts and stores everything you have learned during the day. Children and teenagers need more sleep than adults because their bodies and brains are still growing. People who do not get enough sleep often find it harder to concentrate, remember things, and control their mood. Experts recommend that young people aim for nine to eleven hours of sleep each night.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "Sleep is essential for health because it lets the body repair itself and the brain store what you have learned. Key details: Children and teenagers need more sleep than adults.; Too little sleep makes it harder to concentrate and remember.; Experts recommend nine to eleven hours a night for young people.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.014",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Rainforest Layers",
+          "passage": "A tropical rainforest is made up of several layers, each home to different plants and animals. The top layer is the emergent layer, where the tallest trees rise above the rest. Below it is the canopy, a thick roof of leaves where most rainforest animals live. Further down is the understorey, which is dark and humid, and finally the forest floor, where very little sunlight reaches. Each layer plays an important part in keeping the rainforest alive and balanced.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "A rainforest has several layers, from the tall emergent layer down to the dark forest floor, and each is home to different living things. Key details: The canopy is where most rainforest animals live.; The understorey is dark and humid.; Very little sunlight reaches the forest floor.",
+            "bands": {
+              "green": 0.6,
+              "amber": 0.4
+            },
+            "copyRejectAt": 0.6
+          }
+        },
+        {
+          "id": "OD3.015",
+          "errorSignals": [
+            "NO_MAIN_IDEA_ORAL",
+            "DETAIL_BEFORE_MAIN",
+            "VERBATIM_ORAL"
+          ],
+          "randomisable": true,
+          "context": "B",
+          "title": "The Invention of the Telephone",
+          "passage": "The telephone changed the way people communicate forever. Before it was invented, messages had to be sent by letter or telegraph, which could take days. In 1876, Alexander Graham Bell made the first successful telephone call, allowing people to speak to each other over long distances instantly. Over time, telephones became smaller and more common, and today most people carry a mobile phone wherever they go. The telephone is one of the most important inventions in history.",
+          "answerKey": {
+            "mode": "similarity-band",
+            "reference": "The telephone transformed communication by letting people speak instantly over long distances, starting with Bell's first call in 1876. Key details: Before it, messages were sent by letter or telegraph and took days.; Alexander Graham Bell made the first call in 1876.; Telephones became smaller and led to today's mobile phones.",
             "bands": {
               "green": 0.6,
               "amber": 0.4

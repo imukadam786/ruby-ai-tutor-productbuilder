@@ -6,7 +6,8 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { apiFetch } from "@/lib/fetch";
 import EduBackground from "@/components/EduBackground";
-import { PAPERS, Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown } from "@/lib/matric/papers";
+import { Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown } from "@/lib/matric/papers";
+import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
 
@@ -73,7 +74,7 @@ const CONTAIN_THUMBNAILS = new Set([
   "/thumbnails/business-studies.jpeg",
 ]);
 
-const PREP_PAPERS = PAPERS.filter((p) => p.session.startsWith("Prep") || p.session.startsWith("Predictive"));
+const PREP_PAPERS: PaperMeta[] = PAPER_INDEX.filter((p) => p.session.startsWith("Prep") || p.session.startsWith("Predictive"));
 
 const PREP_SUBJECTS = [
   {
@@ -238,11 +239,11 @@ function PaperList({
   onBack,
 }: {
   subjectId: PrepSubjectId;
-  onSelect: (paper: Paper) => void;
+  onSelect: (id: string) => void;
   onBack: () => void;
 }) {
   const subject = PREP_SUBJECTS.find((s) => s.id === subjectId)!;
-  const papers = PREP_PAPERS.filter(
+  const papers: PaperMeta[] = PREP_PAPERS.filter(
     (p) => p.subject.toLowerCase().replace(/\s+/g, "-") === subjectId
   );
   const [progressMap, setProgressMap] = useState<Record<string, PaperProgress>>({});
@@ -297,7 +298,7 @@ function PaperList({
               return (
                 <button
                   key={paper.id}
-                  onClick={() => onSelect(paper)}
+                  onClick={() => onSelect(paper.id)}
                   className="text-left bg-white rounded-2xl border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#BE1832]/40 transition-all group p-6 space-y-4"
                 >
                   <div className="flex items-center gap-3">
@@ -317,10 +318,10 @@ function PaperList({
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-2 text-xs text-gray-500">
                       <span>❓</span>
-                      <span>{paper.questions.length} questions · {getFlatSubQuestions(paper).length} sub-questions</span>
+                      <span>{paper.questionCount} questions · {paper.subQuestionCount} sub-questions</span>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      {paper.questions.map((q) => (
+                      {paper.questionTitles.map((q) => (
                         <span key={q.number} className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
                           Q{q.number}: {q.title}
                         </span>
@@ -1261,7 +1262,12 @@ export default function PrepPapers2026({ onBack }: { onBack?: () => void }) {
   const [finalAttempts, setFinalAttempts] = useState<Record<string, QuestionState> | null>(null);
 
   const handleSubjectSelect = (subjectId: PrepSubjectId) => { setSelectedSubject(subjectId); setPhase("papers"); };
-  const handlePaperSelect = (paper: Paper) => { setSelectedPaper(paper); setPhase("mode"); };
+  const handlePaperSelect = async (id: string) => {
+    const paper = await loadPaperById(id);
+    if (!paper) return;
+    setSelectedPaper(paper);
+    setPhase("mode");
+  };
 
   const handleStart = (mode: SessionMode, lang: string) => {
     setSessionMode(mode); setLanguage(lang); setFinalAttempts(null);

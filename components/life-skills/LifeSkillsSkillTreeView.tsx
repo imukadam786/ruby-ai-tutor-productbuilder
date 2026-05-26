@@ -21,6 +21,21 @@ const TOPIC_EMOJI: Record<string, string> = {
   "LS.L3.BKH.T01": "🪞", "LS.L3.BKH.T02": "🏘️", "LS.L3.BKH.T03": "🗺️", "LS.L3.BKH.T04": "🚦",
   "LS.L3.BKH.T05": "🩺", "LS.L3.BKH.T06": "🍽️", "LS.L3.BKH.T07": "🌡️", "LS.L3.BKH.T08": "🤗",
   "LS.L3.BKH.T09": "🌳", "LS.L3.BKH.T10": "🚨", "LS.L3.BKH.T11": "🌟", "LS.L3.BKH.T12": "🎈",
+  // Grade 4 — Personal & Social Well-being
+  "LS.L4.PSW.T01": "💪", "LS.L4.PSW.T02": "🙅", "LS.L4.PSW.T03": "🤝", "LS.L4.PSW.T04": "😊",
+  "LS.L4.PSW.T05": "👥", "LS.L4.PSW.T06": "🛡️", "LS.L4.PSW.T07": "📜", "LS.L4.PSW.T08": "📖",
+  "LS.L4.PSW.T09": "🕌", "LS.L4.PSW.T10": "🌊", "LS.L4.PSW.T11": "🚸", "LS.L4.PSW.T12": "🧼",
+  "LS.L4.PSW.T13": "🦷", "LS.L4.PSW.T14": "🌱", "LS.L4.PSW.T15": "🎗️",
+  // Grade 5 — Personal & Social Well-being
+  "LS.L5.PSW.T01": "🪞", "LS.L5.PSW.T02": "💬", "LS.L5.PSW.T03": "❤️", "LS.L5.PSW.T04": "👫",
+  "LS.L5.PSW.T05": "⚖️", "LS.L5.PSW.T06": "🆘", "LS.L5.PSW.T07": "🚧", "LS.L5.PSW.T08": "🌍",
+  "LS.L5.PSW.T09": "🎉", "LS.L5.PSW.T10": "🔥", "LS.L5.PSW.T11": "💧", "LS.L5.PSW.T12": "🥗",
+  "LS.L5.PSW.T13": "🏥", "LS.L5.PSW.T14": "🎗️", "LS.L5.PSW.T15": "🚫",
+  // Grade 6 — Personal & Social Well-being
+  "LS.L6.PSW.T01": "🪞", "LS.L6.PSW.T02": "⭐", "LS.L6.PSW.T03": "👥", "LS.L6.PSW.T04": "🕊️",
+  "LS.L6.PSW.T05": "📝", "LS.L6.PSW.T06": "🛡️", "LS.L6.PSW.T07": "🎓", "LS.L6.PSW.T08": "🙏",
+  "LS.L6.PSW.T09": "🐾", "LS.L6.PSW.T10": "💛", "LS.L6.PSW.T11": "🇿🇦", "LS.L6.PSW.T12": "♀️",
+  "LS.L6.PSW.T13": "🩹", "LS.L6.PSW.T14": "🍳", "LS.L6.PSW.T15": "🤧", "LS.L6.PSW.T16": "🎗️",
 };
 
 const tree = lifeSkillsTreeData as unknown as LifeSkillsSkillTree;
@@ -30,11 +45,14 @@ interface LifeSkillsSkillTreeViewProps {
   /** Map of skill_id → "mastered"/"in_progress" so the tile shows status.
    *  Optional — when omitted, all topics render as "available". */
   masteryStatus?: Record<string, "mastered" | "in_progress" | "available">;
+  /** Optional back action — shows a "← Subjects" button when provided. */
+  onBack?: () => void;
 }
 
 export default function LifeSkillsSkillTreeView({
   onPickTopic,
   masteryStatus,
+  onBack,
 }: LifeSkillsSkillTreeViewProps) {
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
@@ -65,14 +83,24 @@ export default function LifeSkillsSkillTreeView({
     );
   }
 
-  const tier = level.tiers[0]; // BK&H — only strand at launch
+  const tier = level.tiers[0]; // Single strand per level (BK&H at FP, PSW at IP)
   const topics = tier?.atomic_skills ?? [];
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
       <div className="relative flex-1 overflow-y-auto">
-       <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-6 pb-12 w-full">
+       <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-5 pb-12 w-full">
+        {/* Back */}
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="mb-4 text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
+          >
+            ← Subjects
+          </button>
+        )}
+
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-[#1a2744]">

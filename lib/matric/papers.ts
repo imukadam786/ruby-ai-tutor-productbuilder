@@ -74,35 +74,10 @@ export interface Paper {
   infoSheet?: InfoSheet;
 }
 
-import { MATHS_PAPERS } from "./papers-maths";
-import { PHYSICS_PAPERS } from "./papers-physics";
-import { ENGLISH_PAPERS } from "./papers-english";
-import { AFRIKAANS_PAPERS } from "./papers-afrikaans";
-import { HISTORY_PAPERS } from "./papers-history";
-import { GEO_PAPERS } from "./papers-geo";
-import { LIFE_SCI_PAPERS } from "./papers-life-sci";
-import { ACC_PAPERS } from "./papers-acc";
-import { TOURISM_PAPERS } from "./papers-tourism";
-import { BUS_STUD_PAPERS } from "./papers-bus-stud";
-import { ECONOMICS_PAPERS } from "./papers-economics";
-import { MATHS_LIT_PAPERS } from "./papers-maths-lit";
-import { AGRIC_SCI_PAPERS } from "./papers-agric-sci";
-
-export const PAPERS: Paper[] = [
-  ...MATHS_PAPERS,
-  ...PHYSICS_PAPERS,
-  ...ENGLISH_PAPERS,
-  ...AFRIKAANS_PAPERS,
-  ...(HISTORY_PAPERS as unknown as Paper[]),
-  ...GEO_PAPERS,
-  ...LIFE_SCI_PAPERS,
-  ...ACC_PAPERS,
-  ...TOURISM_PAPERS,
-  ...BUS_STUD_PAPERS,
-  ...ECONOMICS_PAPERS,
-  ...MATHS_LIT_PAPERS,
-  ...AGRIC_SCI_PAPERS,
-];
+// Paper metadata + per-paper dynamic loader live in ./paper-index.ts (auto-
+// generated from data/papers/*.json). UI components import PAPER_INDEX for
+// list views and call loadPaperById() to fetch a single paper's full content
+// on demand. This file keeps only the shared types + helpers.
 
 export function getFlatSubQuestions(paper: Paper): SubQuestion[] {
   return paper.questions.flatMap((q) => q.subQuestions);

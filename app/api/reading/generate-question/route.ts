@@ -3,38 +3,40 @@ import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import { ReadingTemplate, ReadingGeneratedQuestion, AudioTapChoice } from "@/types/reading";
 import type { ReadingQuestionBank, ReadingBankItem, ReadingBankSkill } from "@/types/reading-bank";
-import L6_BANK from "@/data/reading-question-banks/L6.json";
-import L7_BANK from "@/data/reading-question-banks/L7.json";
-import L8_BANK from "@/data/reading-question-banks/L8.json";
-import L9_BANK from "@/data/reading-question-banks/L9.json";
-import L10_BANK from "@/data/reading-question-banks/L10.json";
-import L11_BANK from "@/data/reading-question-banks/L11.json";
-import L12_BANK from "@/data/reading-question-banks/L12.json";
-import L13_BANK from "@/data/reading-question-banks/L13.json";
-import L14_BANK from "@/data/reading-question-banks/L14.json";
 
-// Node.js serverless runtime (default — no `runtime = "edge"`): this route
-// statically bundles the L6–L14 question banks, which exceed the 1 MB Edge
-// Function size limit. Node serverless allows up to 50 MB. Matches the
-// sibling submit-answer route, which is also Node serverless.
+// Node.js serverless runtime (default — no `runtime = "edge"`): banks are
+// loaded on demand per request via dynamic import so each level ships as its
+// own webpack chunk. Only the requested level is loaded into the serverless
+// container's memory.
 
-// ── Static question banks for L6+ (Intermediate Phase) ───────────────────────
+// ── Question banks for L6+ (Intermediate Phase) ──────────────────────────────
 // Tree skills (R6.T1.A1…) carry `bank_skill_id` (e.g. "L6.A1") → the bank skill.
 // L6=Gr4 L7=Gr5 L8=Gr6 (Intermediate) · L9=Gr7 L10=Gr8 L11=Gr9 (Senior) ·
 // L12=Gr10 L13=Gr11 L14=Gr12 (FET). L9–L14 ship as scaffolds: empty
 // `items[]` makes buildBankQuestion return null and fall through until the
 // head of education authors content. No code change needed when they do.
-const READING_BANKS: Record<number, ReadingQuestionBank> = {
-  6: L6_BANK as unknown as ReadingQuestionBank,
-  7: L7_BANK as unknown as ReadingQuestionBank,
-  8: L8_BANK as unknown as ReadingQuestionBank,
-  9: L9_BANK as unknown as ReadingQuestionBank,
-  10: L10_BANK as unknown as ReadingQuestionBank,
-  11: L11_BANK as unknown as ReadingQuestionBank,
-  12: L12_BANK as unknown as ReadingQuestionBank,
-  13: L13_BANK as unknown as ReadingQuestionBank,
-  14: L14_BANK as unknown as ReadingQuestionBank,
-};
+const bankCache = new Map<number, ReadingQuestionBank>();
+
+async function loadReadingBank(level: number): Promise<ReadingQuestionBank | null> {
+  const cached = bankCache.get(level);
+  if (cached) return cached;
+  let mod: { default: unknown } | null = null;
+  switch (level) {
+    case 6:  mod = await import("@/data/reading-question-banks/L6.json");  break;
+    case 7:  mod = await import("@/data/reading-question-banks/L7.json");  break;
+    case 8:  mod = await import("@/data/reading-question-banks/L8.json");  break;
+    case 9:  mod = await import("@/data/reading-question-banks/L9.json");  break;
+    case 10: mod = await import("@/data/reading-question-banks/L10.json"); break;
+    case 11: mod = await import("@/data/reading-question-banks/L11.json"); break;
+    case 12: mod = await import("@/data/reading-question-banks/L12.json"); break;
+    case 13: mod = await import("@/data/reading-question-banks/L13.json"); break;
+    case 14: mod = await import("@/data/reading-question-banks/L14.json"); break;
+    default: return null;
+  }
+  const bank = mod.default as ReadingQuestionBank;
+  bankCache.set(level, bank);
+  return bank;
+}
 
 /** Source text shown to the learner — pooled (A1/A2/A3) or inline per skill.
  *  Some skills carry both a main passage and a data text (e.g. source
@@ -49,17 +51,17 @@ function bankItemSourceText(item: ReadingBankItem, bank: ReadingQuestionBank): s
 /** Build a question from the L6+ static bank for a tree skill that has a
  *  bank_skill_id. Returns null for L1–L5 skills (handled elsewhere) so the
  *  caller falls through to the existing pipeline. */
-function buildBankQuestion(
+async function buildBankQuestion(
   skillId: string,
   used_refs: string[]
-): Omit<ReadingGeneratedQuestion, "id"> | null {
+): Promise<Omit<ReadingGeneratedQuestion, "id"> | null> {
   const treeSkill = getReadingSkillById(skillId);
   const bankSkillId = treeSkill?.bank_skill_id;
   if (!treeSkill || !bankSkillId) return null;
 
   const levelMatch = skillId.match(/^R(\d+)/);
   const level = levelMatch ? parseInt(levelMatch[1], 10) : 0;
-  const bank = READING_BANKS[level];
+  const bank = await loadReadingBank(level);
   if (!bank) return null;
 
   const bankSkill = bank.skills.find((s) => s.skillId === bankSkillId) as
@@ -687,6 +689,66 @@ const R4_TRACKING_PASSAGES = [
     passage: "The wind blew the leaves.\nThey spun and twisted down.\nA child picked up the best one.",
     expected_answer: "The wind blew the leaves. They spun and twisted down. A child picked up the best one.",
   },
+  {
+    passage: "Sam ran to the shop.\nHe got a bun and a bag.\nThen he ran back home.",
+    expected_answer: "Sam ran to the shop. He got a bun and a bag. Then he ran back home.",
+  },
+  {
+    passage: "The cat had a long nap.\nIt sat in the warm sun.\nA bird sang in the tree.",
+    expected_answer: "The cat had a long nap. It sat in the warm sun. A bird sang in the tree.",
+  },
+  {
+    passage: "Nomsa fed the hens.\nThey ran up to the bowl.\nThe big hen got the most.",
+    expected_answer: "Nomsa fed the hens. They ran up to the bowl. The big hen got the most.",
+  },
+  {
+    passage: "Dad lit the fire.\nThe meat began to sizzle.\nWe all sat down to eat.",
+    expected_answer: "Dad lit the fire. The meat began to sizzle. We all sat down to eat.",
+  },
+  {
+    passage: "A bee buzzed near the jam.\nIt landed on the lid.\nMum waved it away.",
+    expected_answer: "A bee buzzed near the jam. It landed on the lid. Mum waved it away.",
+  },
+  {
+    passage: "The bus came at last.\nWe got on and sat down.\nIt drove us to school.",
+    expected_answer: "The bus came at last. We got on and sat down. It drove us to school.",
+  },
+  {
+    passage: "Thabo kicked the ball.\nIt flew over the wall.\nThe dog ran to fetch it.",
+    expected_answer: "Thabo kicked the ball. It flew over the wall. The dog ran to fetch it.",
+  },
+  {
+    passage: "Rain fell on the roof.\nThe drops ran down the glass.\nSoon a puddle formed.",
+    expected_answer: "Rain fell on the roof. The drops ran down the glass. Soon a puddle formed.",
+  },
+  {
+    passage: "Gogo made some soup.\nIt was hot and full of beans.\nWe ate it with fresh bread.",
+    expected_answer: "Gogo made some soup. It was hot and full of beans. We ate it with fresh bread.",
+  },
+  {
+    passage: "The frog hid in the reeds.\nA stork walked by slowly.\nThe frog kept very still.",
+    expected_answer: "The frog hid in the reeds. A stork walked by slowly. The frog kept very still.",
+  },
+  {
+    passage: "Lerato found a shell.\nIt was pink and smooth.\nShe put it in her bag.",
+    expected_answer: "Lerato found a shell. It was pink and smooth. She put it in her bag.",
+  },
+  {
+    passage: "The kite got stuck.\nIt hung in the tall tree.\nDad helped to pull it down.",
+    expected_answer: "The kite got stuck. It hung in the tall tree. Dad helped to pull it down.",
+  },
+  {
+    passage: "We packed the car.\nWe drove to the sea.\nThe waves were big and blue.",
+    expected_answer: "We packed the car. We drove to the sea. The waves were big and blue.",
+  },
+  {
+    passage: "The pup chewed a sock.\nMum was not happy.\nShe gave it a bone instead.",
+    expected_answer: "The pup chewed a sock. Mum was not happy. She gave it a bone instead.",
+  },
+  {
+    passage: "Ants marched in a line.\nThey carried bits of leaf.\nThey took them to the nest.",
+    expected_answer: "Ants marched in a line. They carried bits of leaf. They took them to the nest.",
+  },
 ];
 
 const R4_WORD_SETS = [
@@ -695,6 +757,21 @@ const R4_WORD_SETS = [
   { words: "there, their, here, were, your", expected: "there their here were your" },
   { words: "about, again, friend, people, every", expected: "about again friend people every" },
   { words: "because, before, could, should, would", expected: "because before could should would" },
+  { words: "one, two, four, eight, ten", expected: "one two four eight ten" },
+  { words: "who, why, when, what, where", expected: "who why when what where" },
+  { words: "live, give, love, move, have", expected: "live give love move have" },
+  { words: "any, many, money, honey, funny", expected: "any many money honey funny" },
+  { words: "walk, talk, half, calf, calm", expected: "walk talk half calf calm" },
+  { words: "door, floor, poor, four, your", expected: "door floor poor four your" },
+  { words: "they, them, then, there, those", expected: "they them then there those" },
+  { words: "once, gone, done, some, come", expected: "once gone done some come" },
+  { words: "could, would, should, world, word", expected: "could would should world word" },
+  { words: "great, break, bread, head, dead", expected: "great break bread head dead" },
+  { words: "two, too, to, do, who", expected: "two too to do who" },
+  { words: "night, light, right, might, eight", expected: "night light right might eight" },
+  { words: "father, mother, brother, sister, other", expected: "father mother brother sister other" },
+  { words: "people, little, middle, apple, table", expected: "people little middle apple table" },
+  { words: "first, second, third, fourth, fifth", expected: "first second third fourth fifth" },
 ];
 
 const R4_PROSODY_PASSAGES = [
@@ -717,6 +794,66 @@ const R4_PROSODY_PASSAGES = [
   {
     passage: "The bees buzzed, the birds sang, and the sun shone.\nIt was the best day of summer.\n\"Let's stay here forever,\" said Lily, and she laughed.",
     expected_answer: "The bees buzzed, the birds sang, and the sun shone. It was the best day of summer. Let's stay here forever, said Lily, and she laughed.",
+  },
+  {
+    passage: "The dog barked, growled, and ran in circles.\n'What is wrong?' asked Lin.\nThen she saw the cat on the roof.",
+    expected_answer: "The dog barked, growled, and ran in circles. What is wrong? asked Lin. Then she saw the cat on the roof.",
+  },
+  {
+    passage: "Slowly, carefully, she opened the lid.\nInside was a tiny, sleeping kitten.\n'Oh, you are so small!' she whispered.",
+    expected_answer: "Slowly, carefully, she opened the lid. Inside was a tiny, sleeping kitten. Oh, you are so small! she whispered.",
+  },
+  {
+    passage: "The wind howled, the rain poured, and the thunder crashed.\nWere they safe inside? Yes, the house was strong.\n'Don't worry,' said Dad. 'It will pass.'",
+    expected_answer: "The wind howled, the rain poured, and the thunder crashed. Were they safe inside? Yes, the house was strong. Don't worry, said Dad. It will pass.",
+  },
+  {
+    passage: "First, mix the flour and the sugar.\nNext, add the eggs and the milk.\nFinally, pour it in and bake!",
+    expected_answer: "First, mix the flour and the sugar. Next, add the eggs and the milk. Finally, pour it in and bake!",
+  },
+  {
+    passage: "Tendai ran fast, but the bus pulled away.\n'Wait! Please wait!' he shouted.\nThe driver stopped, smiled, and opened the door.",
+    expected_answer: "Tendai ran fast, but the bus pulled away. Wait! Please wait! he shouted. The driver stopped, smiled, and opened the door.",
+  },
+  {
+    passage: "The market was loud, busy, and bright.\nPeople called out, 'Fresh fruit! Cheap fruit!'\nMa bought apples, bananas, and a big, ripe mango.",
+    expected_answer: "The market was loud, busy, and bright. People called out, Fresh fruit! Cheap fruit! Ma bought apples, bananas, and a big, ripe mango.",
+  },
+  {
+    passage: "Could she climb the tree? She was not sure.\nShe reached up, pulled hard, and lifted herself.\n'I did it!' she cried with joy.",
+    expected_answer: "Could she climb the tree? She was not sure. She reached up, pulled hard, and lifted herself. I did it! she cried with joy.",
+  },
+  {
+    passage: "The baby laughed, clapped, and waved her arms.\n'Peekaboo!' said her brother.\nShe giggled, hiccupped, and laughed again.",
+    expected_answer: "The baby laughed, clapped, and waved her arms. Peekaboo! said her brother. She giggled, hiccupped, and laughed again.",
+  },
+  {
+    passage: "It was dark, cold, and very quiet.\n'Is anyone there?' called Sipho.\nAn owl hooted, and he jumped in fright.",
+    expected_answer: "It was dark, cold, and very quiet. Is anyone there? called Sipho. An owl hooted, and he jumped in fright.",
+  },
+  {
+    passage: "We packed our bags, locked the door, and left.\nWould we make the train in time?\nYes — we ran, and we just caught it!",
+    expected_answer: "We packed our bags, locked the door, and left. Would we make the train in time? Yes — we ran, and we just caught it!",
+  },
+  {
+    passage: "The teacher smiled and said, 'Well done, everyone.'\nWe had worked hard, and it showed.\n'Tomorrow,' she added, 'we begin something new.'",
+    expected_answer: "The teacher smiled and said, Well done, everyone. We had worked hard, and it showed. Tomorrow, she added, we begin something new.",
+  },
+  {
+    passage: "Splash! The stone hit the water.\nRipples spread out, wide and round.\n'Watch this one,' said Ben, picking up another.",
+    expected_answer: "Splash! The stone hit the water. Ripples spread out, wide and round. Watch this one, said Ben, picking up another.",
+  },
+  {
+    passage: "She tasted the soup, paused, and frowned.\nWas it too salty? Far too salty!\n'Let's start again,' she sighed.",
+    expected_answer: "She tasted the soup, paused, and frowned. Was it too salty? Far too salty! Let's start again, she sighed.",
+  },
+  {
+    passage: "The puppy dug, sniffed, and wagged its tail.\n'What have you found?' asked Kabelo.\nIt was an old, muddy, chewed-up bone.",
+    expected_answer: "The puppy dug, sniffed, and wagged its tail. What have you found? asked Kabelo. It was an old, muddy, chewed-up bone.",
+  },
+  {
+    passage: "Up, up, up went the big balloon.\n'Don't let go!' shouted Mum.\nBut the string slipped, and away it flew.",
+    expected_answer: "Up, up, up went the big balloon. Don't let go! shouted Mum. But the string slipped, and away it flew.",
   },
 ];
 
@@ -746,6 +883,81 @@ const R4_SELF_MONITORING_PASSAGES = [
     passage: "The fish jumped high into the clouds to catch a worm.\nIt splashed back into the river.\nThe heron watched and waited.",
     error_word: "clouds",
     expected_answer: "clouds",
+  },
+  {
+    passage: "The hot sun melted the snowman into a puddle of bricks.\nThe children were sad to see him go.\nThey hoped it would snow again soon.",
+    error_word: "bricks",
+    expected_answer: "bricks",
+  },
+  {
+    passage: "Mum put the bread in the fridge to make toast.\nIt popped up brown and warm.\nWe spread it with butter and jam.",
+    error_word: "fridge",
+    expected_answer: "fridge",
+  },
+  {
+    passage: "The bird flew down and swam to its nest in the tree.\nIt fed its hungry chicks.\nThen it flew off to find more food.",
+    error_word: "swam",
+    expected_answer: "swam",
+  },
+  {
+    passage: "At night the sky was full of bright yellow grass.\nWe lay on our backs and gazed up.\nOne even shot across the sky.",
+    error_word: "grass",
+    expected_answer: "grass",
+  },
+  {
+    passage: "She was tired, so she climbed into bed and ran asleep.\nShe pulled up the warm blanket.\nVery soon she was dreaming.",
+    error_word: "ran",
+    expected_answer: "ran",
+  },
+  {
+    passage: "The fish lived deep in the dry ocean.\nIt swam past the colourful coral.\nA big shark chased it away.",
+    error_word: "dry",
+    expected_answer: "dry",
+  },
+  {
+    passage: "We were hungry, so we sat down to drink our dinner.\nThere was rice, beans, and chicken.\nWe ate up every last bit.",
+    error_word: "drink",
+    expected_answer: "drink",
+  },
+  {
+    passage: "The fire was so cold that we moved closer to it.\nThe flames crackled and popped.\nWe toasted bread on long sticks.",
+    error_word: "cold",
+    expected_answer: "cold",
+  },
+  {
+    passage: "Gogo wore her thick coat because the day was so hot.\nThe icy wind was sharp and biting.\nShe pulled her scarf tighter.",
+    error_word: "hot",
+    expected_answer: "hot",
+  },
+  {
+    passage: "The car would not start, so Dad rode it to the garage.\nThe man looked under the bonnet.\nVery soon the engine worked again.",
+    error_word: "rode",
+    expected_answer: "rode",
+  },
+  {
+    passage: "I could not see in the dark, so I turned off the light.\nThe whole room became bright at once.\nNow I could read my book.",
+    error_word: "off",
+    expected_answer: "off",
+  },
+  {
+    passage: "The baby was crying, so Mum gave her a warm bottle of sand.\nThe baby drank it all up.\nThen she fell fast asleep.",
+    error_word: "sand",
+    expected_answer: "sand",
+  },
+  {
+    passage: "It was raining hard, so we opened our umbrella made of glass.\nThe drops bounced off the top.\nWe stayed nice and dry.",
+    error_word: "glass",
+    expected_answer: "glass",
+  },
+  {
+    passage: "The runner was thirsty after the race, so she ate a big glass of water.\nThe water was cool and fresh.\nShe felt much better.",
+    error_word: "ate",
+    expected_answer: "ate",
+  },
+  {
+    passage: "The teacher wrote the sum on the board with a piece of soap.\nThe white letters were easy to read.\nWe copied them into our books.",
+    error_word: "soap",
+    expected_answer: "soap",
   },
 ];
 
@@ -785,6 +997,76 @@ const R5_LITERAL_PASSAGES = [
     question: "What is lava? Use the passage to explain your answer.",
     expected_answer: "Lava is magma that has reached the Earth's surface.",
   },
+  {
+    passage: "Giraffes are the tallest animals in the world. Their long necks help them reach leaves high up in the trees that other animals cannot eat. A giraffe's tongue can be as long as 45 centimetres, which helps it pull leaves from thorny branches. Even though their necks are so long, giraffes have the same number of neck bones as humans.",
+    question: "How do giraffes reach food that other animals cannot? Use words from the passage.",
+    expected_answer: "Their long necks help them reach leaves high up in the trees.",
+  },
+  {
+    passage: "Spiders are not insects; they are arachnids with eight legs. Most spiders spin webs from silk made inside their own bodies. The sticky web traps insects that fly or crawl into it. The spider feels the web shake when something is caught and hurries over to wrap up its meal.",
+    question: "How does a spider know when something is caught in its web? Find the words in the passage.",
+    expected_answer: "It feels the web shake when something is caught.",
+  },
+  {
+    passage: "Rooibos is a special plant that grows only in the Cederberg mountains of South Africa. Its thin green leaves turn red when they dry in the sun. People use the dried leaves to make rooibos tea, which has no caffeine in it. Farmers have grown rooibos in this area for over a hundred years.",
+    question: "Where does the rooibos plant grow? Find the words in the passage.",
+    expected_answer: "It grows only in the Cederberg mountains of South Africa.",
+  },
+  {
+    passage: "Camels are well suited to life in the desert. The humps on their backs store fat, which their bodies can use for energy when food is hard to find. Camels can go for many days without drinking water. Their long eyelashes and closeable nostrils protect them from blowing sand.",
+    question: "What do camels store in their humps? Use words from the passage.",
+    expected_answer: "Their humps store fat, which their bodies use for energy.",
+  },
+  {
+    passage: "A frog begins its life as a tiny egg laid in water. The egg hatches into a tadpole, which has a tail and breathes underwater using gills. As the tadpole grows, it slowly develops legs and lungs. Finally it becomes an adult frog that can live both on land and in water.",
+    question: "What does a tadpole use to breathe underwater?",
+    expected_answer: "A tadpole breathes underwater using gills.",
+  },
+  {
+    passage: "Table Mountain stands high above the city of Cape Town. It has a flat top that is about three kilometres from side to side. A cloud sometimes covers the top, and people call this cloud the 'tablecloth'. Visitors can ride a cable car all the way to the top to enjoy the view.",
+    question: "What do people call the cloud that covers the top of Table Mountain?",
+    expected_answer: "People call it the 'tablecloth'.",
+  },
+  {
+    passage: "The ostrich is the largest bird in the world, but it cannot fly. Instead, it runs very fast on its strong legs, reaching speeds of up to 70 kilometres an hour. Ostriches lay the biggest eggs of any bird. When in danger, an ostrich can give a powerful kick to protect itself.",
+    question: "How does the ostrich move quickly if it cannot fly? Use the passage.",
+    expected_answer: "It runs very fast on its strong legs.",
+  },
+  {
+    passage: "Rivers carry water from the mountains down to the sea. Along the way, the water is used by people, animals, and plants. Some rivers are so big that boats can sail along them. When too little rain falls, rivers can dry up, and this is called a drought.",
+    question: "What is it called when too little rain falls and rivers dry up?",
+    expected_answer: "It is called a drought.",
+  },
+  {
+    passage: "Sharks have many rows of sharp teeth. When a shark loses a tooth, a new one moves forward to take its place. A shark may grow and lose thousands of teeth during its lifetime. This is why sharks almost always have a full set of teeth ready for catching fish.",
+    question: "What happens when a shark loses a tooth? Use the passage.",
+    expected_answer: "A new tooth moves forward to take its place.",
+  },
+  {
+    passage: "Plants make their own food using sunlight. Their green leaves catch the light from the sun. Together with water and air, the leaves turn this light into food for the plant. This is why most plants need plenty of sunshine to grow well.",
+    question: "What do plants use to make their own food? Find the words in the passage.",
+    expected_answer: "They use sunlight, caught by their green leaves, together with water and air.",
+  },
+  {
+    passage: "Dolphins are clever sea animals that live in groups called pods. They talk to each other using clicks and whistles. Dolphins must come up to the surface to breathe air through a blowhole on top of their heads. They often leap right out of the water as they swim.",
+    question: "How do dolphins breathe? Find the words in the passage.",
+    expected_answer: "They come to the surface to breathe air through a blowhole on top of their heads.",
+  },
+  {
+    passage: "Bread is made from flour, water, and yeast. The yeast is a tiny living thing that makes the dough rise and become soft. After the dough has risen, it is baked in a hot oven. The heat turns the soft dough into bread with a crispy crust.",
+    question: "What does the yeast do to the dough? Use the passage.",
+    expected_answer: "The yeast makes the dough rise and become soft.",
+  },
+  {
+    passage: "Bats are the only mammals that can truly fly. Most bats sleep during the day and come out at night to find food. They use sound to find their way in the dark. A bat makes a high squeak and then listens for the echo to know where things are.",
+    question: "How do bats find their way in the dark?",
+    expected_answer: "They make a high squeak and listen for the echo.",
+  },
+  {
+    passage: "The tortoise carries its home on its back. Its hard shell protects it from danger, and it can pull its head and legs inside when it feels afraid. Tortoises move very slowly, but they can live for a very long time — some for more than a hundred years.",
+    question: "What does the tortoise do when it feels afraid? Use the passage.",
+    expected_answer: "It pulls its head and legs inside its hard shell.",
+  },
 ];
 
 // R5.T1.A2 — Inferential Comprehension with Connector and Evidence
@@ -819,6 +1101,76 @@ const R5_INFERENCE_PASSAGES = [
     question: "What can you infer the chef is trying to do? Use 'because' in your answer.",
     expected_answer: "The chef is trying to get the soup exactly right, because she keeps tasting and adjusting it.",
   },
+  {
+    passage: "Every time the doorbell rang, Buddy the cat darted under the sofa. He stayed there, very still, until the last of the visitors had gone home.",
+    question: "What can you infer about Buddy? Use 'because' in your answer.",
+    expected_answer: "Buddy is shy or frightened of strangers, because he hides whenever visitors arrive.",
+  },
+  {
+    passage: "Zanele packed sunscreen, a hat, a towel, and her swimming costume into her bag. She looked up at the bright blue sky and grinned with excitement.",
+    question: "Where do you think Zanele is going? Use 'because' in your answer.",
+    expected_answer: "She is going to the beach or a pool, because she packed a towel, swimming costume and sunscreen.",
+  },
+  {
+    passage: "The bell rang. Chairs scraped, bags zipped shut, and feet pounded towards the door. Within seconds the classroom was completely empty.",
+    question: "What can you infer had just happened? Use 'this shows that' in your answer.",
+    expected_answer: "The lesson or school day had ended, this shows that the children were eager to leave.",
+  },
+  {
+    passage: "Dad kept looking at his watch. He paced up and down by the window and opened the front door twice to look down the road.",
+    question: "What can you infer about Dad? Use 'because' in your answer.",
+    expected_answer: "Dad is waiting anxiously for someone, because he keeps checking the time and looking down the road.",
+  },
+  {
+    passage: "When Grandma walked in, the children jumped up, shouted 'Surprise!', and pointed to a cake covered in candles.",
+    question: "What can you infer the day was? Use 'because' in your answer.",
+    expected_answer: "It was Grandma's birthday, because there was a cake with candles and the children shouted surprise.",
+  },
+  {
+    passage: "Thabo's stomach rumbled loudly in the middle of the lesson. He kept glancing at the clock and could not stop thinking about the lunchbox in his bag.",
+    question: "What can you infer about Thabo? Use 'because' in your answer.",
+    expected_answer: "Thabo was hungry, because his stomach rumbled and he kept thinking about his lunch.",
+  },
+  {
+    passage: "The puppy ran to the front door with its lead held in its mouth. It spun in excited circles and whined softly at Kabelo.",
+    question: "What does the puppy want? Use 'because' in your answer.",
+    expected_answer: "The puppy wants to go for a walk, because it brought its lead and is waiting excitedly at the door.",
+  },
+  {
+    passage: "Lerato wiped her eyes and sniffed as she turned the last page of the story. She closed the book gently and hugged it to her chest.",
+    question: "How do you think the story made Lerato feel? Use 'this shows that' in your answer.",
+    expected_answer: "The story made her sad or deeply moved, this shows that it had a touching ending.",
+  },
+  {
+    passage: "The sky turned dark grey and the wind picked up. People on the beach began folding their umbrellas and hurrying towards their cars.",
+    question: "What can you infer is about to happen? Use 'because' in your answer.",
+    expected_answer: "A storm or heavy rain is coming, because the sky darkened and everyone rushed off the beach.",
+  },
+  {
+    passage: "Sipho tiptoed past his baby sister's bedroom. He carried his shoes in his hand instead of wearing them, and held his breath as he passed her door.",
+    question: "Why was Sipho being so quiet? Use 'because' in your answer.",
+    expected_answer: "He was being quiet because he did not want to wake his sleeping baby sister.",
+  },
+  {
+    passage: "The classroom floor was covered in glitter and dried glue. On every desk lay a half-finished card with hearts drawn on the front.",
+    question: "What can you infer the class had been doing? Use 'this shows that' in your answer.",
+    expected_answer: "The class had been making cards, this shows that they were busy with an art or craft activity.",
+  },
+  {
+    passage: "Mr Naidoo put on his thickest gloves, a scarf, and a woolly hat before stepping outside. His breath came out in little white clouds.",
+    question: "What can you infer about the weather? Use 'because' in your answer.",
+    expected_answer: "It was very cold, because he wrapped up warmly and his breath showed in the air.",
+  },
+  {
+    passage: "Aisha had practised her song every single day for a month. Now, standing behind the stage curtain, she took a deep breath and noticed her hands were shaking.",
+    question: "How do you think Aisha was feeling? Use 'this shows that' in your answer.",
+    expected_answer: "Aisha was nervous before performing, this shows that her hands were shaking even though she was well prepared.",
+  },
+  {
+    passage: "The dinner plate was empty except for a few crumbs. In the corner, the dog sat licking its lips and wagging its tail happily.",
+    question: "What can you infer happened to the food? Use 'because' in your answer.",
+    expected_answer: "The dog ate the food, because the plate is empty and the dog is licking its lips.",
+  },
 ];
 
 // R5.T1.A3 — Oral or Written Retell with Main Idea and Supporting Details
@@ -847,6 +1199,76 @@ const R5_RETELL_PASSAGES = [
     passage: "The water cycle describes how water moves around the Earth. Water from oceans, rivers, and lakes evaporates into the air as water vapour. As it rises, it cools and forms clouds. When clouds hold too much water, it falls back to Earth as rain or snow. The water then flows back into rivers and oceans, and the cycle begins again.",
     question: "Retell this passage in your own words. What is the main idea? Give 2 steps from the water cycle.",
     expected_answer: "Main idea: the water cycle explains how water keeps moving around the Earth. Steps should include evaporation forming clouds, and rain/snow returning water to rivers and oceans.",
+  },
+  {
+    passage: "Lions live together in groups called prides. The female lions, called lionesses, do most of the hunting, working as a team to catch their prey. The male lion protects the pride and is known for his thick mane. Lion cubs are looked after by all the adults in the pride.",
+    question: "Retell this passage in your own words. What is it mainly about? Give 2 supporting details.",
+    expected_answer: "Main idea: lions live and work together in a pride. Details: lionesses hunt as a team, the male protects the pride, and all the adults help care for the cubs.",
+  },
+  {
+    passage: "Nelson Mandela was a great leader in South Africa. He spent 27 years in prison for standing up against unfair laws. After he was freed, he helped to bring people of all races together. In 1994 he became the first president of South Africa to be chosen by all its people.",
+    question: "Retell what you read about Nelson Mandela. What is the main idea, and what are 2 details?",
+    expected_answer: "Main idea: Nelson Mandela was an important South African leader who fought against unfairness. Details: he was in prison for 27 years, and he became the first president elected by all South Africans in 1994.",
+  },
+  {
+    passage: "Honeybees have a clever way of telling each other where to find flowers. When a bee finds food, it returns to the hive and does a special 'waggle dance'. The way it moves shows the other bees which direction to fly and how far to go. Soon many bees set off to collect the nectar.",
+    question: "Retell this passage. What is it mostly about? Include 2 details.",
+    expected_answer: "Main idea: honeybees use a dance to share where food is. Details: a bee does a waggle dance in the hive, and its movements show the direction and distance to the flowers.",
+  },
+  {
+    passage: "Looking after your teeth keeps them healthy and strong. You should brush your teeth twice a day, in the morning and before bed. Brushing removes bits of food and germs that can cause holes in your teeth. Eating too many sweets can also damage your teeth, so it is best to eat them only sometimes.",
+    question: "Retell this passage. What is the main idea and 2 supporting details?",
+    expected_answer: "Main idea: looking after your teeth keeps them healthy. Details: brush twice a day to remove food and germs, and avoid eating too many sweets.",
+  },
+  {
+    passage: "Some birds travel huge distances when the seasons change. This long journey is called migration. As winter comes and food becomes scarce, the birds fly to warmer places where they can find food. When spring returns, they fly all the way back to build their nests.",
+    question: "Retell this passage in your own words. What is the main idea and 2 details?",
+    expected_answer: "Main idea: some birds migrate long distances with the seasons. Details: they fly to warmer places in winter to find food, and return in spring to build nests.",
+  },
+  {
+    passage: "The blue whale is the largest animal that has ever lived, even bigger than the biggest dinosaurs. Although it is enormous, it eats tiny sea creatures called krill. A blue whale must come to the surface to breathe air. It can make very loud sounds to call to other whales far away.",
+    question: "Retell this passage. What was it mainly about? Give 2 facts.",
+    expected_answer: "Main idea: the blue whale is the largest animal ever to live. Facts: it eats tiny krill, it must surface to breathe, and it makes loud sounds to call other whales.",
+  },
+  {
+    passage: "Trees are very important for life on Earth. They take in a gas called carbon dioxide and give out oxygen, which people and animals need to breathe. Trees also give us shade, fruit, and homes for birds and insects. This is why planting trees helps to keep our world healthy.",
+    question: "Retell this passage. What is the main idea and 2 details?",
+    expected_answer: "Main idea: trees are very important for life on Earth. Details: they give out the oxygen we breathe, and they provide shade, fruit and homes for animals.",
+  },
+  {
+    passage: "A rainbow appears when the sun shines through drops of rain. The raindrops bend the sunlight and split it into many colours. A rainbow always has its colours in the same order, from red on the outside to violet on the inside. You can only see a rainbow when the sun is behind you.",
+    question: "Retell this passage in your own words. What is the main idea and 2 details?",
+    expected_answer: "Main idea: rainbows form when sunlight shines through raindrops. Details: the drops split the light into colours in a fixed order, and you can only see one with the sun behind you.",
+  },
+  {
+    passage: "Ants are small, but they work together in large groups called colonies. Each ant has its own job to do. Some search for food, some look after the eggs, and the queen ant lays all the eggs. By working as a team, the colony can build nests and gather food much faster.",
+    question: "Retell this passage. What is the main idea and 2 supporting details?",
+    expected_answer: "Main idea: ants work together in colonies. Details: each ant has a job — some find food and some mind the eggs — and the queen lays all the eggs.",
+  },
+  {
+    passage: "Most parts of the world have four seasons: spring, summer, autumn, and winter. In spring, plants begin to grow and flowers bloom. Summer is warm and the days are long. In autumn the leaves change colour and fall, and in winter it is cold and the days are short.",
+    question: "Retell this passage. What is it mainly about? Give 2 details.",
+    expected_answer: "Main idea: there are four seasons in the year. Details: plants grow in spring, summer is warm with long days, leaves fall in autumn, and winter is cold.",
+  },
+  {
+    passage: "A magnet is a special object that can pull certain metals towards it. Magnets are strongest at their two ends, which are called poles. If you put the same poles of two magnets together they push apart, but opposite poles pull together. Magnets are used in fridge doors, compasses, and many machines.",
+    question: "Retell this passage. What is the main idea and 2 details?",
+    expected_answer: "Main idea: magnets pull certain metals and have two poles. Details: same poles push apart while opposite poles attract, and magnets are used in things like fridges and compasses.",
+  },
+  {
+    passage: "Firefighters do a brave and important job in our communities. They rush to put out fires and to rescue people who are in danger. They wear special suits and helmets to protect them from heat and smoke. Firefighters also teach people how to stay safe and stop fires from starting.",
+    question: "Retell this passage. What is the main idea and 2 details?",
+    expected_answer: "Main idea: firefighters do an important job keeping people safe. Details: they put out fires and rescue people, they wear protective suits, and they teach fire safety.",
+  },
+  {
+    passage: "Chameleons are lizards with an amazing skill: they can change the colour of their skin. They do this to hide from danger and to show how they are feeling. Chameleons also have very long, sticky tongues that shoot out to catch insects. Their eyes can even look in two directions at the same time.",
+    question: "Retell this passage. What is the main idea and 2 details?",
+    expected_answer: "Main idea: chameleons are lizards with special skills. Details: they change colour to hide and to show feelings, they have long sticky tongues for catching insects, and their eyes can look two ways at once.",
+  },
+  {
+    passage: "Water is precious, especially in dry countries like South Africa. We can all help to save water at home. Turning off the tap while brushing your teeth saves many litres each day. Taking shorter showers and fixing dripping taps also makes a big difference.",
+    question: "Retell this passage. What is the main idea and 2 supporting details?",
+    expected_answer: "Main idea: we should all save water, especially in dry places. Details: turn off the tap while brushing teeth, take shorter showers, and fix dripping taps.",
   },
 ];
 
@@ -888,6 +1310,90 @@ const R5_CONNECTIVE_PROMPTS = [
     connective_hint: "Connect these ideas using 'therefore' or 'because'.",
     expected_answer: "The roads were icy and dangerous, therefore the school decided to close for the day.",
   },
+  {
+    sentence_a: "The library was very quiet.",
+    sentence_b: "everyone was busy reading.",
+    connective_hint: "Use 'because' to join these two ideas.",
+    expected_answer: "The library was very quiet because everyone was busy reading.",
+  },
+  {
+    sentence_a: "He forgot to take his umbrella.",
+    sentence_b: "he got soaked in the rain.",
+    connective_hint: "Join these ideas using 'therefore' or 'because'.",
+    expected_answer: "He forgot to take his umbrella, therefore he got soaked in the rain.",
+  },
+  {
+    sentence_a: "She loves all kinds of animals.",
+    sentence_b: "she does not enjoy going to the zoo.",
+    connective_hint: "Use 'however' to show the contrast between these ideas.",
+    expected_answer: "She loves all kinds of animals; however, she does not enjoy going to the zoo.",
+  },
+  {
+    sentence_a: "The team practised every single day.",
+    sentence_b: "they won the final match.",
+    connective_hint: "Join these ideas using 'because' or 'therefore'.",
+    expected_answer: "The team practised every single day, therefore they won the final match.",
+  },
+  {
+    sentence_a: "I wanted to phone my friend.",
+    sentence_b: "my phone battery was flat.",
+    connective_hint: "Use 'however' to show the problem.",
+    expected_answer: "I wanted to phone my friend; however, my phone battery was flat.",
+  },
+  {
+    sentence_a: "The ground was very dry.",
+    sentence_b: "the farmer watered all his crops.",
+    connective_hint: "Join these ideas using 'so' or 'therefore'.",
+    expected_answer: "The ground was very dry, therefore the farmer watered all his crops.",
+  },
+  {
+    sentence_a: "Sipho was feeling very tired.",
+    sentence_b: "he kept on working until he finished.",
+    connective_hint: "Use 'but' or 'however' to show the contrast.",
+    expected_answer: "Sipho was feeling very tired; however, he kept on working until he finished.",
+  },
+  {
+    sentence_a: "We missed the early bus.",
+    sentence_b: "we had to walk all the way to school.",
+    connective_hint: "Join these ideas using 'so' or 'therefore'.",
+    expected_answer: "We missed the early bus, therefore we had to walk all the way to school.",
+  },
+  {
+    sentence_a: "The cake looked absolutely delicious.",
+    sentence_b: "it tasted far too sweet.",
+    connective_hint: "Use 'however' to show the contrast.",
+    expected_answer: "The cake looked absolutely delicious; however, it tasted far too sweet.",
+  },
+  {
+    sentence_a: "The baby would not stop crying.",
+    sentence_b: "she was hungry.",
+    connective_hint: "Use 'because' to join these two ideas.",
+    expected_answer: "The baby would not stop crying because she was hungry.",
+  },
+  {
+    sentence_a: "It was a public holiday.",
+    sentence_b: "all the shops were closed.",
+    connective_hint: "Join these ideas using 'so' or 'therefore'.",
+    expected_answer: "It was a public holiday, therefore all the shops were closed.",
+  },
+  {
+    sentence_a: "Lerato studied very hard for the test.",
+    sentence_b: "she still found some questions difficult.",
+    connective_hint: "Use 'but' or 'however' to show the contrast.",
+    expected_answer: "Lerato studied very hard for the test; however, she still found some questions difficult.",
+  },
+  {
+    sentence_a: "The river burst its banks in the night.",
+    sentence_b: "the road was flooded by morning.",
+    connective_hint: "Join these ideas using 'therefore' or 'because'.",
+    expected_answer: "The river burst its banks in the night, therefore the road was flooded by morning.",
+  },
+  {
+    sentence_a: "He saved his pocket money for months.",
+    sentence_b: "he could finally buy the new game.",
+    connective_hint: "Join these ideas using 'so' or 'therefore'.",
+    expected_answer: "He saved his pocket money for months, therefore he could finally buy the new game.",
+  },
 ];
 
 // R5.T2.A2 — Contextually Accurate Vocabulary Use
@@ -900,6 +1406,22 @@ const R5_VOCABULARY_PROMPTS = [
   { word: "vibrant",   definition: "bright, lively, and full of energy", example: "The market was vibrant with colour and noise." },
   { word: "ancient",   definition: "very old, from a long time ago",   example: "The ancient castle had stood for 800 years." },
   { word: "fragile",   definition: "easily broken or damaged",         example: "The glass ornament was fragile, so she held it carefully." },
+  { word: "delicate",  definition: "easily harmed or needing careful handling", example: "The butterfly's wings are very delicate." },
+  { word: "furious",   definition: "extremely angry",                  example: "Dad was furious when he saw the broken window." },
+  { word: "generous",  definition: "happy to give and share with others", example: "She is generous and always shares her lunch." },
+  { word: "timid",     definition: "shy and easily frightened",        example: "The timid mouse hid behind the box." },
+  { word: "brilliant", definition: "very bright, or very clever",      example: "The fireworks were brilliant against the night sky." },
+  { word: "weary",     definition: "very tired",                       example: "After the long hike we were all weary." },
+  { word: "curious",   definition: "wanting to know or learn about something", example: "The curious kitten poked its nose into the bag." },
+  { word: "gigantic",  definition: "extremely big",                    example: "A gigantic wave crashed onto the rocks." },
+  { word: "gentle",    definition: "kind and careful, not rough",      example: "Be gentle when you hold the baby chick." },
+  { word: "anxious",   definition: "worried or nervous",               example: "She felt anxious before her first day at a new school." },
+  { word: "rapid",     definition: "very fast",                        example: "The river became rapid after the heavy rain." },
+  { word: "scarce",    definition: "hard to find because there is very little", example: "Water becomes scarce during a drought." },
+  { word: "delighted", definition: "very pleased and happy",           example: "He was delighted to win first prize." },
+  { word: "stubborn",  definition: "refusing to change your mind",     example: "The stubborn donkey would not move at all." },
+  { word: "feeble",    definition: "weak, with very little strength",  example: "The feeble old dog could barely climb the steps." },
+  { word: "marvellous",definition: "wonderful and amazing",            example: "We had a marvellous time at the fair." },
 ];
 
 // R5.T3.A1 — Structured Written Response (topic sentence + details + connectives)
@@ -928,6 +1450,66 @@ const R5_WRITTEN_PASSAGES = [
     passage: "Space exploration has led to many important discoveries. Scientists have learned about the formation of planets and the history of our solar system. Technology developed for space missions is now used in everyday life — including GPS, water filters, and memory foam. Many experts believe exploring space will be essential for the future of humanity.",
     question: "Write a paragraph explaining why space exploration matters. Use a topic sentence, 2 supporting details, and at least one connective.",
     expected_answer: "Model: 'Space exploration is important because it has led to significant discoveries about our solar system. Technology from space missions is now used in everyday life, such as GPS and water filters. Therefore, space exploration benefits not only science but also daily life on Earth.'",
+  },
+  {
+    passage: "Eating fruit and vegetables every day keeps our bodies healthy. They are full of vitamins that help us grow and fight off illness. Fruit and vegetables also give us energy to work and play. Choosing them instead of sweets is good for our teeth too.",
+    question: "Write a paragraph about why we should eat fruit and vegetables. Start with a topic sentence, give 2 details from the passage, and use a connecting word (because, however, therefore).",
+    expected_answer: "Model: 'Eating fruit and vegetables every day is very good for us. They are full of vitamins, therefore they help us grow and stay well. They also give us energy and are better for our teeth than sweets.'",
+  },
+  {
+    passage: "Keeping a pet can be very rewarding. Pets such as dogs and cats give us company and love. Looking after a pet also teaches children to be responsible, as the animal needs feeding and care every day. Playing with a pet can make us feel happy and calm.",
+    question: "Write a structured paragraph about the benefits of keeping a pet. Use a topic sentence, 2 details, and a connecting word.",
+    expected_answer: "Model: 'Keeping a pet has many benefits. Pets give us company and love, and because they need daily care, they teach us to be responsible. Spending time with a pet can also make us feel calm and happy.'",
+  },
+  {
+    passage: "Getting enough sleep is important for children. While we sleep, our bodies rest and grow. A good night's sleep also helps us to concentrate and remember what we learn at school. Children who do not sleep enough often feel grumpy and tired during the day.",
+    question: "Write a paragraph about why sleep is important. Include a topic sentence, 2 supporting details, and a connecting word.",
+    expected_answer: "Model: 'Sleep is very important for growing children. While we sleep our bodies rest and grow, therefore we wake up feeling strong. Good sleep also helps us to concentrate at school, however too little sleep makes us grumpy.'",
+  },
+  {
+    passage: "Keeping our school clean is everyone's job. When we throw litter on the ground, it makes the school look untidy and can harm animals. Putting our rubbish in the bin keeps the grounds neat and safe. A clean school is a nicer place for everyone to learn and play.",
+    question: "Write a structured paragraph about keeping our school clean. Use a topic sentence, 2 details, and a connective.",
+    expected_answer: "Model: 'Keeping our school clean is something we should all do. Litter looks untidy and can harm animals, therefore we must always use the bins. A clean school is a safer and nicer place for everyone to learn.'",
+  },
+  {
+    passage: "Rhinos are amazing animals, but they are in great danger. People hunt them illegally for their horns, and this has made their numbers fall. Many people are now working hard to protect rhinos in game parks. If we look after them, future children will still be able to see these special animals.",
+    question: "Write a paragraph about why we should protect rhinos. Begin with a topic sentence, give 2 details, and use a connecting word.",
+    expected_answer: "Model: 'We should protect rhinos because they are in great danger. People hunt them illegally for their horns, therefore their numbers have fallen. Many people now guard rhinos in game parks so that future children can still see them.'",
+  },
+  {
+    passage: "Reading books is one of the best things you can do. Books take us on adventures to faraway places and times. Reading also helps us to learn new words and ideas. The more we read, the better we become at it, and the more we enjoy it.",
+    question: "Write a paragraph about why reading is good for us. Use a topic sentence, 2 details, and a connecting word.",
+    expected_answer: "Model: 'Reading books is wonderful for many reasons. Books take us on exciting adventures, and because we meet new words, our language grows. The more we read, therefore, the better and happier readers we become.'",
+  },
+  {
+    passage: "Working as a team helps us do better than working alone. When everyone shares the work, a big job becomes easier and faster. Team members can also help each other when something is difficult. Playing and working in a team teaches us to listen and to be kind.",
+    question: "Write a structured paragraph about why teamwork matters. Include a topic sentence, 2 details, and a connective.",
+    expected_answer: "Model: 'Teamwork helps us to achieve more than we can alone. When everyone shares the work the job becomes easier, therefore it is finished faster. Team members also help one another, and this teaches us to listen and be kind.'",
+  },
+  {
+    passage: "Saving electricity is good for our homes and for our planet. Switching off lights when we leave a room uses less power. Using less electricity also means our families pay smaller bills. When we save power, we help to look after the Earth's resources.",
+    question: "Write a paragraph about how and why we should save electricity. Use a topic sentence, 2 details, and a connecting word.",
+    expected_answer: "Model: 'Saving electricity is important for our homes and the planet. Switching off lights uses less power, therefore our families pay smaller bills. Using less electricity also helps to protect the Earth's resources.'",
+  },
+  {
+    passage: "Staying safe near roads is very important. Before crossing, we should always stop, look both ways, and listen for cars. Crossing at a zebra crossing or with a scholar patrol is much safer. Cars move quickly, so we must never run into the road to fetch a ball.",
+    question: "Write a structured paragraph about how to stay safe near roads. Include a topic sentence, 2 details, and a connecting word.",
+    expected_answer: "Model: 'Staying safe near roads is very important for everyone. We should stop, look, and listen before crossing, and because cars move quickly, we must use a zebra crossing. We should never run into the road to fetch a ball.'",
+  },
+  {
+    passage: "Clean water is something all living things need. We use water for drinking, cooking, washing, and growing food. In some places water is hard to find, so it must not be wasted. We can save water by closing taps tightly and using only what we need.",
+    question: "Write a paragraph about why water is important and how we can save it. Use a topic sentence, 2 details, and a connecting word.",
+    expected_answer: "Model: 'Clean water is something every living thing needs. We use it for drinking, cooking and washing, however in some places it is hard to find. Therefore we should save water by closing taps tightly and using only what we need.'",
+  },
+  {
+    passage: "Being kind to others makes the world a better place. A kind word or a helping hand can make someone's whole day brighter. When we are kind, people often want to be kind back to us. Small acts of kindness, like sharing or saying thank you, cost nothing but mean a lot.",
+    question: "Write a structured paragraph about why we should be kind. Include a topic sentence, 2 details, and a connective.",
+    expected_answer: "Model: 'Being kind makes the world a better place for everyone. A kind word can brighten someone's day, and because kindness spreads, people are often kind back. Small acts like sharing cost nothing, therefore we should do them every day.'",
+  },
+  {
+    passage: "Learning to swim is a useful and important skill. Knowing how to swim can keep you safe near pools, rivers, and the sea. Swimming is also good exercise that makes our bodies strong. It is best to swim where there is a lifeguard, and never to swim alone.",
+    question: "Write a paragraph about why learning to swim is important. Use a topic sentence, 2 details, and a connecting word.",
+    expected_answer: "Model: 'Learning to swim is a very important skill. It can keep us safe near water, and because it uses the whole body, it is good exercise too. However, we should always swim where there is a lifeguard and never swim alone.'",
   },
 ];
 
@@ -1834,7 +2416,7 @@ export async function POST(req: NextRequest) {
 
     // L6+ static bank (Intermediate Phase). Served before the LLM fallback so
     // these never hit the Grade R–3 generation path.
-    const bankQuestion = buildBankQuestion(skill_id, used_refs);
+    const bankQuestion = await buildBankQuestion(skill_id, used_refs);
     if (bankQuestion) {
       return NextResponse.json({ ...bankQuestion, id: `rq_${Date.now()}` });
     }

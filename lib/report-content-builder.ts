@@ -10,7 +10,7 @@ import type { DiagnosticReportInput, ReportContent } from "./report-generator";
 export function buildDeterministicReportContent(
   input: DiagnosticReportInput
 ): ReportContent {
-  const { studentName: name, subject, gradeLevelGap, workingLevel, domainScores, dominantErrors, skillsCompleted } = input;
+  const { studentName: name, subject, workingLevel, domainScores, dominantErrors, skillsCompleted } = input;
 
   const strongDomains   = domainScores.filter((d) => d.label === "strong");
   const practiceDomains = domainScores.filter((d) => d.label === "practice").sort((a, b) => a.score - b.score);
@@ -19,13 +19,6 @@ export function buildDeterministicReportContent(
   const mainFocus       = weakDomains[0] ?? domainScores[0];
   const mainStrength    = strongDomains[0];
 
-  const gapText =
-    gradeLevelGap <= 0
-      ? "at the expected starting point"
-      : gradeLevelGap === 1
-      ? "one level before the expected starting point"
-      : `${gradeLevelGap} levels before the expected starting point`;
-
   // ── Placement summary ──────────────────────────────────────────────────────
 
   const knownSkillsNote =
@@ -33,10 +26,7 @@ export function buildDeterministicReportContent(
       ? ` ${name} already knows ${skillsCompleted} skill${skillsCompleted !== 1 ? "s" : ""} — a solid base to build from.`
       : "";
 
-  const placementSummary =
-    gradeLevelGap <= 0
-      ? `${name} is working at grade level in ${subject === "maths" ? "Maths" : "Reading"}. Ruby will start at a point that builds real confidence before introducing more advanced material.${knownSkillsNote}`
-      : `Based on the placement activity, ${name} will begin at ${workingLevel} — ${gapText}. This is a starting point, not a ceiling. Ruby builds from where ${name} is, not where the class is, so progress will happen at the right pace.${knownSkillsNote}`;
+  const placementSummary = `Based on the placement activity, ${name} will begin at ${workingLevel}. This is a starting point, not a ceiling. Ruby builds from where ${name} is, so progress happens at the right pace.${knownSkillsNote}`;
 
   // ── Strengths ──────────────────────────────────────────────────────────────
 

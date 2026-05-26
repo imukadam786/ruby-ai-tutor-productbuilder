@@ -119,6 +119,7 @@ export async function buildCheckoutParams({
   amountOverride,
   voucherCode,
   paymentType = "subscription",
+  billingFrequency = "monthly",
 }: {
   userId: string;
   plan: string;
@@ -132,6 +133,8 @@ export async function buildCheckoutParams({
   voucherCode?: string;
   /** "subscription" for recurring billing, "once-off" for a single charge. */
   paymentType?: "subscription" | "once-off";
+  /** "weekly" (R/wk) or "monthly" (R/mo) — ignored for once-off payments. */
+  billingFrequency?: "weekly" | "monthly";
 }): Promise<Record<string, string>> {
   const planInfo = await getPlanInfo(plan);
   const amount = amountOverride ?? planInfo.amount;
@@ -155,13 +158,14 @@ export async function buildCheckoutParams({
   };
 
   if (paymentType === "subscription") {
-    // First billing date = today + 30 days (PayFast max is 30 days from today)
-    const billingDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+    // No charge at signup — first payment taken 3 days later so users can cancel
+    const billingDate = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000)
       .toISOString().split("T")[0];
+    params.amount            = "0.00";
     params.subscription_type = "1";
     params.billing_date      = billingDate;
     params.recurring_amount  = amount;
-    params.frequency         = "3"; // monthly
+    params.frequency         = billingFrequency === "weekly" ? "2" : "3";
     params.cycles            = "0"; // indefinite
   }
 

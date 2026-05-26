@@ -91,6 +91,14 @@ function validateItem(item, idx, errors, warns) {
     if (!arr(item.options) || item.options.length < 2)
       errors.push(`${where}: "${item.input_type}" needs "options" with ≥2 entries`);
   }
+  // image_refs is optional; when present it must be parallel to options (one
+  // image key per option, same order). Files live at public/life-skills/<key>.<ext>.
+  if (item.image_refs !== undefined) {
+    if (!arr(item.image_refs))
+      errors.push(`${where}: "image_refs" must be an array when present`);
+    else if (arr(item.options) && item.image_refs.length !== item.options.length)
+      errors.push(`${where}: "image_refs" (${item.image_refs.length}) must match "options" length (${item.options.length})`);
+  }
   if (item.input_type === "true-false") {
     if (typeof item.expected !== "string" || !["true", "false", "True", "False"].includes(item.expected))
       errors.push(`${where}: "true-false" expected must be "true" or "false"`);

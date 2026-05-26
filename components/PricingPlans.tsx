@@ -28,6 +28,11 @@ interface PricingPlan {
   features: Feature[];
 }
 
+const WEEKLY_PRICES: Record<string, number> = {
+  scholar: 29,
+  master:  39,
+};
+
 const PLANS: PricingPlan[] = [
   {
     key: "matric-pack",
@@ -53,31 +58,6 @@ const PLANS: PricingPlan[] = [
     ],
   },
   {
-    key: "freebie",
-    name: "Freebie",
-    subtitle: "Try it out — no card needed",
-    priceRands: 0,
-    originalPrice: 0,
-    isLaunchOffer: false,
-    isFree: true,
-    badge: null,
-    badgeClass: "",
-    borderClass: "border-gray-200",
-    ctaClass: "bg-gray-100 hover:bg-gray-200 text-gray-700",
-    ctaLabel: "Get Started",
-    paymentType: "subscription",
-    features: [
-      { text: "CAPS Aligned curriculum" },
-      { text: "1× Discovery Activity", note: "Maths or Reading" },
-      { text: "1× Discovery Report" },
-      { text: "5 Personalised Skills Worksheets" },
-      { text: "5 AI Homework Questions per day" },
-      { text: "5 hints per day" },
-      { text: "Home Language Feedback" },
-      { text: "5 Audio Playbacks per day" },
-    ],
-  },
-  {
     key: "scholar",
     name: "Scholar",
     subtitle: "Grade 1 – 11",
@@ -100,6 +80,33 @@ const PLANS: PricingPlan[] = [
       { text: "Unlimited hints" },
       { text: "Home Language Feedback" },
       { text: "Unlimited Audio Playback" },
+    ],
+  },
+  {
+    key: "freebie",
+    name: "Freebie",
+    subtitle: "Try it out — no card needed",
+    priceRands: 0,
+    originalPrice: 0,
+    isLaunchOffer: false,
+    isFree: true,
+    // Dark border + top badge so Free reads as an active choice, not a
+    // switched-off card (matches the bordered + badged paid tiles).
+    badge: "No Card Needed",
+    badgeClass: "bg-[#1a2744] text-white",
+    borderClass: "border-[#1a2744]",
+    ctaClass: "bg-gray-100 hover:bg-gray-200 text-gray-700",
+    ctaLabel: "Get Started",
+    paymentType: "subscription",
+    features: [
+      { text: "CAPS Aligned curriculum" },
+      { text: "1× Discovery Activity", note: "Maths or Reading" },
+      { text: "1× Discovery Report" },
+      { text: "5 Personalised Skills Worksheets" },
+      { text: "5 AI Homework Questions per day" },
+      { text: "5 hints per day" },
+      { text: "Home Language Feedback" },
+      { text: "5 Audio Playbacks per day" },
     ],
   },
   {
@@ -136,6 +143,9 @@ export default function PricingPlans({
   mode = "onboarding",
   onSelectFree,
 }: PricingPlansProps) {
+  // Defaults to weekly: the smaller per-week price is easier for parents to
+  // commit to on first view; they can switch to Monthly with the toggle.
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "weekly">("weekly");
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [voucherInput, setVoucherInput] = useState("");
@@ -172,14 +182,20 @@ export default function PricingPlans({
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
+  function basePrice(plan: PricingPlan): number {
+    if (plan.paymentType === "subscription" && billingCycle === "weekly" && WEEKLY_PRICES[plan.key] != null)
+      return WEEKLY_PRICES[plan.key];
+    return plan.priceRands;
+  }
+
   function effectivePrice(plan: PricingPlan): number {
-    const base = plan.priceRands;
+    const base = basePrice(plan);
     if (!appliedVoucher) return base;
     const applies =
       appliedVoucher.applicable_plans.length === 0 ||
       appliedVoucher.applicable_plans.includes(plan.key);
     if (!applies) return base;
-    const dv = appliedVoucher.discount_value;
+    const dv = appliedVoucher.discount_value ?? 0;
     const discounted =
       appliedVoucher.discount_type === "percentage"
         ? base * (1 - dv / 100)
@@ -265,7 +281,11 @@ export default function PricingPlans({
         body: JSON.stringify({
           plan: plan.key,
           paymentType: plan.paymentType,
+          billingFrequency: billingCycle,
           ...(appliedVoucher ? { voucherCode: appliedVoucher.code } : {}),
+          ...(billingCycle === "weekly" && WEEKLY_PRICES[plan.key] != null
+            ? { amountOverride: WEEKLY_PRICES[plan.key].toFixed(2) }
+            : {}),
         }),
       });
       if (!res.ok) {
@@ -311,6 +331,35 @@ export default function PricingPlans({
           <h1 className="text-2xl font-extrabold text-[#1a2744]">Choose your learning plan</h1>
         </div>
       )}
+
+      {/* Billing cycle toggle — prominent. Active option is rose-600 + white;
+          inactive is white + black so both sides read clearly on the card. */}
+      <div className="flex justify-center mb-5">
+        <div
+          role="tablist"
+          aria-label="Billing cycle"
+          className="inline-flex rounded-2xl border-2 border-gray-200 bg-white p-1 gap-1 shadow-sm"
+        >
+          {(["monthly", "weekly"] as const).map((cycle) => {
+            const isActive = billingCycle === cycle;
+            return (
+              <button
+                key={cycle}
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setBillingCycle(cycle)}
+                className={`px-8 py-3 rounded-xl text-base font-bold transition-colors ${
+                  isActive
+                    ? "bg-rose-600 text-white shadow"
+                    : "bg-white text-black hover:bg-gray-50"
+                }`}
+              >
+                {cycle === "monthly" ? "Monthly" : "Weekly"}
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       {/* Voucher — top */}
       <div className="max-w-sm mx-auto mb-4 space-y-2 px-4">
@@ -407,9 +456,11 @@ export default function PricingPlans({
                     <span className="text-2xl font-extrabold text-[#1a2744]">
                       {plan.isFree ? "Free" : (
                         <>
-                          R{voucherApplied ? final : plan.priceRands}
+                          R{voucherApplied ? final : basePrice(plan)}
                           {plan.paymentType === "subscription" ? (
-                            <span className="text-sm font-semibold text-gray-400">/mo</span>
+                            <span className="text-sm font-semibold text-gray-400">
+                              {billingCycle === "weekly" && WEEKLY_PRICES[plan.key] != null ? "/wk" : "/mo"}
+                            </span>
                           ) : (
                             <span className="text-sm font-semibold text-blue-500">/once-off</span>
                           )}
@@ -418,7 +469,7 @@ export default function PricingPlans({
                     </span>
                     {!plan.isFree && (plan.isLaunchOffer || voucherApplied) && (
                       <span className="text-sm text-gray-400 line-through mb-1">
-                        R{voucherApplied ? plan.priceRands : plan.originalPrice}
+                        R{voucherApplied ? basePrice(plan) : plan.originalPrice}
                       </span>
                     )}
                   </div>

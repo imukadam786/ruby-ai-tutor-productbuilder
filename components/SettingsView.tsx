@@ -6,10 +6,13 @@ import SpinningGlobe from "@/components/SpinningGlobe";
 import EduBackground from "@/components/EduBackground";
 import { supabase } from "@/lib/supabase";
 import SavedReportView from "@/components/SavedReportView";
+import { ActiveView } from "@/types";
 
 interface SettingsViewProps {
   onBack: () => void;
   paymentReturn?: "success" | "cancelled" | null;
+  /** Navigate elsewhere in the app (e.g. to the Discover hub to re-take). */
+  onNavigate?: (view: ActiveView) => void;
 }
 
 // ── Small reusable pieces ─────────────────────────────────────────────────────
@@ -289,7 +292,7 @@ const CANCEL_DETAIL: Record<string, { prompt: string; options: { value: string; 
 
 // ── Main component ────────────────────────────────────────────────────────────
 
-export default function SettingsView({ onBack, paymentReturn }: SettingsViewProps) {
+export default function SettingsView({ onBack, paymentReturn, onNavigate }: SettingsViewProps) {
   const { t, setLanguage, isTranslating } = useT();
 
   // Profile state
@@ -569,6 +572,14 @@ export default function SettingsView({ onBack, paymentReturn }: SettingsViewProp
                       : <span className="text-xs text-gray-300">Complete diagnostic to unlock</span>
                   }
                 />
+                {onNavigate && (
+                  <Row
+                    icon={icons.book}
+                    label="Re-take Discovery"
+                    onClick={() => onNavigate("discover")}
+                    rightEl={<RowChevron />}
+                  />
+                )}
               </Card>
             </section>
 

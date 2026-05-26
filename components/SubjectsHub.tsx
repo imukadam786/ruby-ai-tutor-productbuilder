@@ -4,9 +4,17 @@ import { useEffect, useState } from "react";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import { HIGHEST_AVAILABLE_LEVEL as LIFE_SKILLS_MAX_GRADE } from "@/lib/life-skills-grade-map";
+import { HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
+import {
+  HIGHEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MAX_GRADE,
+  LOWEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MIN_GRADE,
+} from "@/lib/social-sciences-grade-map";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
+import { useT } from "@/lib/i18n";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -40,23 +48,20 @@ function SubjectCard({
       onClick={onClick}
       className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col active:opacity-80 transition-all text-left hover:shadow-xl hover:-translate-y-1"
     >
-      {/* Square gradient header */}
       <div
-        className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center overflow-hidden flex-shrink-0`}
-        style={{ aspectRatio: "1 / 1" }}
+        className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center overflow-hidden flex-shrink-0 aspect-square lg:aspect-[4/3]`}
       >
         {thumbnail ? (
           <img src={thumbnail} alt={label} className="w-full h-full object-cover" />
         ) : (
-          <span style={{ fontSize: "5rem", lineHeight: 1 }}>{placeholderEmoji}</span>
+          <span className="text-[5rem] lg:text-[3.5rem] leading-none">{placeholderEmoji}</span>
         )}
       </div>
-      {/* Label + caption + badge */}
-      <div className="px-5 pt-4 pb-5 flex flex-col items-start gap-1.5">
-        <span className="font-bold text-gray-900 text-xl">{label}</span>
-        <span className="text-sm text-gray-500 leading-snug">{caption}</span>
+      <div className="px-5 pt-4 pb-5 lg:px-4 lg:pt-3 lg:pb-3 flex flex-col items-start gap-1.5 lg:gap-1">
+        <span className="font-bold text-gray-900 text-xl lg:text-base">{label}</span>
+        <span className="text-sm lg:text-xs text-gray-500 leading-snug">{caption}</span>
         {badge && (
-          <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap mt-2 ${badgeColor}`}>
+          <span className={`text-xs lg:text-[10px] font-semibold px-3 py-1 lg:px-2 lg:py-0.5 rounded-full whitespace-nowrap mt-2 lg:mt-1 ${badgeColor}`}>
             {badge}
           </span>
         )}
@@ -66,23 +71,36 @@ function SubjectCard({
 }
 
 export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
+  const { t } = useT();
   const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
+  const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       hydrateStudentProfileFromSupabase(),
       hydrateReadingProfileFromSupabase(),
-    ]).then(([mp, rp]) => {
+      fetchAuthorisedGrade(),
+    ]).then(([mp, rp, auth]) => {
       // Supabase is best-effort/async and empty for anonymous or unsynced
       // testers — fall back to the local profile (where a just-completed
       // placement actually lives) so status badges reflect reality.
       setMathsProfile(mp ?? getStudentProfile());
       setReadingProfile((rp as ReadingStudentProfile | null) ?? getReadingProfile());
+      setGrade(auth?.grade ?? null);
       setLoading(false);
     });
   }, []);
+
+  // Each subject card is gated by its own authored-content range, so they
+  // stay in lock-step with the per-subject HIGHEST_AVAILABLE_LEVEL. Default
+  // to showing while the grade is still loading.
+  const learnerGrade = grade ?? 1;
+  const showLifeSkills = learnerGrade <= LIFE_SKILLS_MAX_GRADE;
+  const showAfrikaans = learnerGrade <= AFRIKAANS_MAX_GRADE;
+  const showSocialSciences =
+    learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE;
 
   const mathsDone = mathsProfile?.placementCompleted ?? false;
   const readingDone = readingProfile?.placementCompleted ?? false;
@@ -125,17 +143,17 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       <EduBackground />
 
       <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-4xl mx-auto px-6 sm:px-10 pt-8 pb-8">
+        <div className="max-w-4xl lg:max-w-6xl mx-auto px-6 sm:px-10 pt-8 lg:pt-4 pb-8 lg:pb-4">
 
-          <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Subjects</h1>
-            <p className="text-gray-500 text-sm mt-1">Choose what to work on today.</p>
+          <div className="mb-8 lg:mb-4">
+            <h1 className="text-2xl lg:text-xl font-bold text-gray-900">{t("subjects.title")}</h1>
+            <p className="text-gray-500 text-sm mt-1">{t("subjects.subtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-4">
             {/* Discover */}
             <SubjectCard
-              placeholderEmoji="🧭"
+              thumbnail="/thumbnails/discover.png"
               label="Discover"
               caption="Take the placement and find your starting point"
               badge={discoverBadge}
@@ -169,28 +187,50 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
               onClick={() => onNavigate("reading")}
             />
 
-            {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans */}
-            <SubjectCard
-              thumbnail="/thumbnails/life-skills.png"
-              label="Life Skills"
-              caption="Beginning Knowledge & Health for Grades 1–3"
-              badge="Foundation Phase"
-              badgeColor="bg-amber-100 text-amber-700"
-              accentFrom="from-amber-500"
-              accentTo="to-rose-500"
-              onClick={() => onNavigate("life-skills")}
-            />
+            {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans.
+                Hidden once the learner is past LIFE_SKILLS_MAX_GRADE. */}
+            {showLifeSkills && (
+              <SubjectCard
+                thumbnail="/thumbnails/life-skills.png"
+                label="Life Skills"
+                caption={`Beginning Knowledge & Health for Grades 1–${LIFE_SKILLS_MAX_GRADE}`}
+                badge="Foundation Phase"
+                badgeColor="bg-amber-100 text-amber-700"
+                accentFrom="from-amber-500"
+                accentTo="to-rose-500"
+                onClick={() => onNavigate("life-skills")}
+              />
+            )}
 
-            {/* Afrikaans FAL — Foundation Phase (Gr 1–3), free (no Scholar badge).
-                Uses the same thumbnail as the Matric Afrikaans FAL subject. */}
-            <SubjectCard
-              thumbnail="/thumbnails/afrikaans-fal.jpeg"
-              label="Afrikaans"
-              caption="First Additional Language — listen, choose and learn (Grades 1–3)"
-              accentFrom="from-emerald-500"
-              accentTo="to-teal-600"
-              onClick={() => onNavigate("afrikaans-fal")}
-            />
+            {/* Afrikaans FAL — free (no Scholar badge). Hidden once the
+                learner is past AFRIKAANS_MAX_GRADE. Same thumbnail as the
+                Matric Afrikaans FAL subject. */}
+            {showAfrikaans && (
+              <SubjectCard
+                thumbnail="/thumbnails/afrikaans-fal.jpeg"
+                label="Afrikaans"
+                caption={`First Additional Language — listen, choose and learn (Grades 1–${AFRIKAANS_MAX_GRADE})`}
+                accentFrom="from-emerald-500"
+                accentTo="to-teal-600"
+                onClick={() => onNavigate("afrikaans-fal")}
+              />
+            )}
+
+            {/* Social Sciences — Intermediate Phase only (Grades 4–6). Two
+                strands per grade: History and Geography. Hidden outside the
+                authored range. */}
+            {showSocialSciences && (
+              <SubjectCard
+                thumbnail="/thumbnails/social-sciences.png"
+                label="Social Sciences"
+                caption={`History & Geography for Grades ${SOCIAL_SCIENCES_MIN_GRADE}–${SOCIAL_SCIENCES_MAX_GRADE}`}
+                badge="Intermediate Phase"
+                badgeColor="bg-sky-100 text-sky-700"
+                accentFrom="from-sky-500"
+                accentTo="to-indigo-600"
+                onClick={() => onNavigate("social-sciences")}
+              />
+            )}
           </div>
 
         </div>

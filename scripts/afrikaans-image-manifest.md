@@ -79,3 +79,26 @@ Colour swatches = a solid block of the colour. Position images = the **same obje
 ## Labelled diagrams (Lees — use diagrams). Each is a labelled illustration; the named part is highlighted.
 `diagram_plant_blare` (plant — leaves highlighted) · `diagram_plant_wortel` (plant — root highlighted) · `diagram_plant_stam` (plant — stem highlighted) ·
 `diagram_body_kop` (body — head highlighted) · `diagram_body_arm` (body — arm highlighted) · `diagram_body_been` (body — leg highlighted)
+
+---
+
+# Asset status & sourcing
+
+Generated free (no AI/illustrator cost) by three scripts:
+- `scripts/fetch-afrikaans-images.mjs` — colour blocks + coloured balls (code-drawn SVG) and
+  single-object Twemoji icons.
+- `scripts/compose-afrikaans-images.mjs` — composed SVGs that aren't one icon: positions
+  (`pos_*`, `cat_*` = ball/cat + a drawn box), size variants (`hond_groot/klein`, `kat_groot`),
+  and `wolk_wit`.
+- `scripts/compose-afrikaans-diagrams.mjs` — code-drawn labelled diagrams (`diagram_*`): a plant
+  and a child figure, each with one part highlighted and the rest greyed.
+
+**92 of 92 keys covered.** Open `public/afrikaans/_contact-sheet.html` to review them all.
+
+**AI-generated PNGs added 2026-05-26 (21)** — flat Twemoji-style icons from `Image_Prompts.xlsx`:
+- **Reading scenes (12)** `scene_seun_appel`, `scene_meisie_appel`, `scene_seun_bal`, `scene_hond_water`, `scene_hond_kos`, `scene_kat_melk`, `scene_hond_slaap`, `scene_hond_hardloop`, `scene_kat_slaap`, `scene_meisie_fiets`, `scene_seun_fiets`, `scene_meisie_loop`.
+- **Garment/colour variants (3)** `hoed_rooi`, `trui_blou`, `trui_rooi`.
+- **No clean single icon (6)** `act_sit`, `act_spring`, `body_kop`, `clothes_trui`, `obj_kas`, `obj_tafel`.
+
+**Attribution:** object icons are [Twemoji](https://github.com/jdecked/twemoji) by Twitter/X,
+licensed **CC-BY 4.0**. Keep this credit if the app ships these assets.
