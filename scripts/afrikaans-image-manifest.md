@@ -93,14 +93,12 @@ Generated free (no AI/illustrator cost) by three scripts:
 - `scripts/compose-afrikaans-diagrams.mjs` — code-drawn labelled diagrams (`diagram_*`): a plant
   and a child figure, each with one part highlighted and the rest greyed.
 
-**71 of 92 keys covered.** Open `public/afrikaans/_contact-sheet.html` to review them all.
+**92 of 92 keys covered.** Open `public/afrikaans/_contact-sheet.html` to review them all.
 
-**Still to do (21)** — would need AI generation or an illustrator:
-- **Reading scenes (12)** `scene_*` — multi-object actions ("boy eating an apple").
-- **Garment/colour variants (3)** `hoed_rooi`, `trui_blou`, `trui_rooi` — no jersey emoji exists.
+**AI-generated PNGs added 2026-05-26 (21)** — flat Twemoji-style icons from `Image_Prompts.xlsx`:
+- **Reading scenes (12)** `scene_seun_appel`, `scene_meisie_appel`, `scene_seun_bal`, `scene_hond_water`, `scene_hond_kos`, `scene_kat_melk`, `scene_hond_slaap`, `scene_hond_hardloop`, `scene_kat_slaap`, `scene_meisie_fiets`, `scene_seun_fiets`, `scene_meisie_loop`.
+- **Garment/colour variants (3)** `hoed_rooi`, `trui_blou`, `trui_rooi`.
 - **No clean single icon (6)** `act_sit`, `act_spring`, `body_kop`, `clothes_trui`, `obj_kas`, `obj_tafel`.
-
-Items using these keys keep falling back to English-text options until assets land.
 
 **Attribution:** object icons are [Twemoji](https://github.com/jdecked/twemoji) by Twitter/X,
 licensed **CC-BY 4.0**. Keep this credit if the app ships these assets.
