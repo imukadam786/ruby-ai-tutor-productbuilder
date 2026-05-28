@@ -117,7 +117,6 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
   );
   const entrySkillId = profile?.placement?.entrySkillId ?? null;
   const hardGatePassed = profile?.placement?.hardGatePassed ?? true;
-  const currentSkillId = profile?.current_skill_id ?? null;
 
   function getExtendedStatus(skillId: string) {
     if (!profile) return "locked" as const;
@@ -134,7 +133,7 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
   }
 
   return (
-    <div className="relative isolate flex flex-col h-full bg-gray-50">
+    <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>
       <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-blue-50 border-b border-blue-200 px-6 py-4">
         <h2 className="font-semibold text-blue-700 text-lg">{t("nav.maths_skill_tree")}</h2>
@@ -143,7 +142,7 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
         </p>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className={compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
         {onBack && (
           <div className="max-w-2xl mx-auto mb-4">
             <button

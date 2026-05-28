@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
@@ -64,21 +64,9 @@ interface SubjectMeta {
   navigateTo: ActiveView;
 }
 
-interface SubjectRowProps {
-  subject: SubjectMeta;
-  active: boolean;
-  onSelect: () => void;
-}
-
-function SubjectRow({ subject, active, onSelect }: SubjectRowProps) {
+function SubjectRow({ subject }: { subject: SubjectMeta }) {
   return (
-    <button
-      onClick={onSelect}
-      aria-pressed={active}
-      className={`w-full text-left rounded-xl bg-white border transition-all flex items-center gap-4 px-4 py-4 hover:shadow-md hover:-translate-y-px ${
-        active ? "border-[#BE1832] ring-2 ring-[#BE1832]/15 shadow-md" : "border-gray-100"
-      }`}
-    >
+    <div className="w-full h-full rounded-xl bg-white border border-gray-100 flex items-center gap-4 px-4 py-4">
       <div
         className={`w-[72px] h-[72px] lg:w-[84px] lg:h-[84px] flex-shrink-0 rounded-lg bg-gradient-to-br ${subject.accentFrom} ${subject.accentTo} flex items-center justify-center overflow-hidden`}
       >
@@ -97,7 +85,7 @@ function SubjectRow({ subject, active, onSelect }: SubjectRowProps) {
           </span>
         )}
       </div>
-    </button>
+    </div>
   );
 }
 
@@ -108,10 +96,6 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [mathsLiteracyProfile, setMathsLiteracyProfile] = useState<MathsLiteracyStudentProfile | null>(null);
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
-  const [selectedId, setSelectedId] = useState<SubjectId>(() => {
-    if (typeof window === "undefined") return "maths";
-    return (sessionStorage.getItem("ruby_last_subject") as SubjectId | null) ?? "maths";
-  });
 
   useEffect(() => {
     Promise.all([
@@ -126,10 +110,6 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       setLoading(false);
     });
   }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") sessionStorage.setItem("ruby_last_subject", selectedId);
-  }, [selectedId]);
 
   const learnerGrade = grade ?? 1;
   const showLifeSkills = learnerGrade <= LIFE_SKILLS_MAX_GRADE;
@@ -309,13 +289,6 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showMathsLiteracy, mathsLiteracyBadge, mathsLiteracyMastered,
   ]);
 
-  // Keep selection valid if the chosen subject is no longer visible for this grade.
-  useEffect(() => {
-    if (!subjects.find((s) => s.id === selectedId)) {
-      setSelectedId(subjects[0]?.id ?? "maths");
-    }
-  }, [subjects, selectedId]);
-
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
   const startMathsReplay = (skillId: string) => {
     if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_replay_skill", skillId);
@@ -346,26 +319,18 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     onNavigate("maths-literacy");
   };
 
-  const selectedSubject = subjects.find((s) => s.id === selectedId) ?? subjects[0];
-
   function renderSubjectPanel(subject: SubjectMeta) {
     switch (subject.id) {
       case "discover":
         return (
-          <div className="p-6 sm:p-8 flex flex-col items-center text-center gap-4">
-            <div className="text-5xl">🧭</div>
-            <h3 className="text-lg font-bold text-gray-900">{subject.label}</h3>
-            <p className="text-sm text-gray-600 max-w-md leading-relaxed">
+          <div className="p-5 flex flex-col items-center text-center gap-3">
+            <div className="text-3xl">🧭</div>
+            <p className="text-sm text-gray-600 leading-relaxed">
               Discovery places you on the right starting rung of the Maths and Reading skill trees.
-              {mathsDone && readingDone
-                ? " You've completed both — open Discover to view your placement reports."
-                : mathsDone || readingDone
-                ? " One down, one to go."
-                : ""}
             </p>
             <button
               onClick={() => onNavigate("discover")}
-              className="mt-2 px-5 py-2.5 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors shadow-sm"
+              className="px-4 py-2 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors shadow-sm"
             >
               {mathsDone && readingDone ? "View placement results →" : "Open Discover →"}
             </button>
@@ -430,50 +395,17 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             <p className="text-gray-500 text-sm mt-0.5">{t("subjects.subtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-4 items-start">
-            {/* Left: subject picker — sticky so it stays visible while the
-                right panel scrolls internally. */}
-            <aside className="space-y-2 lg:sticky lg:top-4 self-start">
-              {subjects.map((s) => (
-                <SubjectRow
-                  key={s.id}
-                  subject={s}
-                  active={s.id === selectedId}
-                  onSelect={() => setSelectedId(s.id)}
-                />
-              ))}
-            </aside>
-
-            {/* Right: just the selected subject's panel. Swaps instantly
-                when the learner picks a different subject on the left. */}
-            {selectedSubject && (
-              <section
-                key={selectedSubject.id}
-                className="bg-white border rounded-2xl shadow-sm overflow-hidden border-[#BE1832]/40"
-              >
-                <header className="flex items-center gap-3 px-5 py-4 border-b border-gray-100">
-                  <div className={`w-10 h-10 flex-shrink-0 rounded-lg bg-gradient-to-br ${selectedSubject.accentFrom} ${selectedSubject.accentTo} flex items-center justify-center overflow-hidden`}>
-                    {selectedSubject.thumbnail ? (
-                      <img src={selectedSubject.thumbnail} alt={selectedSubject.label} className="w-full h-full object-cover" />
-                    ) : (
-                      <span className="text-xl leading-none">{selectedSubject.placeholderEmoji}</span>
-                    )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h2 className="font-bold text-gray-900 text-base leading-tight">{selectedSubject.label}</h2>
-                    <p className="text-xs text-gray-500 leading-snug">{selectedSubject.caption}</p>
-                  </div>
-                  {selectedSubject.badge && (
-                    <span className={`text-[10px] font-semibold px-2 py-1 rounded-full whitespace-nowrap ${selectedSubject.badgeColor ?? "bg-gray-100 text-gray-600"}`}>
-                      {selectedSubject.badge}
-                    </span>
-                  )}
-                </header>
-                <div className="h-[640px]">
-                  {renderSubjectPanel(selectedSubject)}
-                </div>
-              </section>
-            )}
+          {/* One grid: each subject = one row of [card | tree]. CSS Grid
+              auto-stretches the card to match its row's tree height. */}
+          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-4 gap-y-3">
+            {subjects.map((s) => (
+              <Fragment key={s.id}>
+                <SubjectRow subject={s} />
+                <section className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+                  {renderSubjectPanel(s)}
+                </section>
+              </Fragment>
+            ))}
           </div>
 
         </div>

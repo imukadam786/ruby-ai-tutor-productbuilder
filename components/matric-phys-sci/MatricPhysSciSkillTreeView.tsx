@@ -80,7 +80,7 @@ export default function MatricPhysSciSkillTreeView({
   }
 
   return (
-    <div className="relative isolate flex flex-col h-full bg-gray-50">
+    <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>
       <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-rose-50 border-b border-rose-200 px-6 py-4">
         <h2 className="font-semibold text-rose-700 text-lg">Physical Sciences Skill Tree</h2>
@@ -89,7 +89,7 @@ export default function MatricPhysSciSkillTreeView({
         </p>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className={compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
         {onBack && (
           <div className="max-w-2xl mx-auto mb-4">
             <button
