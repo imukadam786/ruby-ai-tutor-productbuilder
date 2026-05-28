@@ -32,6 +32,8 @@ const SocialSciencesSession        = dynamic(() => import("@/components/social-s
 const SocialSciencesSkillTreeView  = dynamic(() => import("@/components/social-sciences/SocialSciencesSkillTreeView"),   { ssr: false });
 const NstSession                   = dynamic(() => import("@/components/nst/NstSession"),                                 { ssr: false });
 const NstSkillTreeView             = dynamic(() => import("@/components/nst/NstSkillTreeView"),                           { ssr: false });
+const MatricPhysSciSession         = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSession"),           { ssr: false });
+const MatricPhysSciSkillTreeView   = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSkillTreeView"),     { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -140,6 +142,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "social-sciences-skill-tree": "Social Sciences · Topics",
     "natural-sciences-tech": "Natural Sciences & Tech",
     "natural-sciences-tech-skill-tree": "Natural Sciences & Tech · Topics",
+    "matric-phys-sci": "Matric Physical Sciences",
+    "matric-phys-sci-skill-tree": "Matric Physical Sciences · Skills",
   };
 
   const refreshStats = useCallback(() => {
@@ -252,7 +256,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
   }, []);
 
-  const MATRIC_VIEWS: ActiveView[] = ["matrics", "matric", "prep-papers-2026", "study-guides"];
+  const MATRIC_VIEWS: ActiveView[] = ["matrics", "matric", "prep-papers-2026", "study-guides", "matric-phys-sci", "matric-phys-sci-skill-tree"];
 
   const MATRIC_PLANS = ["master", "matric-pack"];
 
@@ -426,6 +430,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "social-sciences-skill-tree" && <SocialSciencesSkillTreeView onPickTopic={() => handleViewChange("social-sciences")} onBack={() => handleViewChange("subjects")} />}
         {activeView === "natural-sciences-tech" && <ErrorBoundary><NstSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "natural-sciences-tech-skill-tree" && <NstSkillTreeView onPickTopic={() => handleViewChange("natural-sciences-tech")} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "matric-phys-sci" && <ErrorBoundary><MatricPhysSciSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "matric-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView onPickSkill={() => handleViewChange("matric-phys-sci")} onBack={() => handleViewChange("subjects")} />}
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
         {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} onBack={() => handleViewChange("subjects")} />}

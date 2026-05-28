@@ -27,6 +27,7 @@ const LifeSkillsSkillTreeView = dynamic(() => import("@/components/life-skills/L
 const AfrikaansSkillTreeView  = dynamic(() => import("@/components/afrikaans/AfrikaansSkillTreeView"),         { ssr: false });
 const SocialSciencesSkillTreeView = dynamic(() => import("@/components/social-sciences/SocialSciencesSkillTreeView"), { ssr: false });
 const NstSkillTreeView        = dynamic(() => import("@/components/nst/NstSkillTreeView"),                     { ssr: false });
+const MatricPhysSciSkillTreeView = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSkillTreeView"), { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -35,7 +36,8 @@ type SubjectId =
   | "life-skills"
   | "afrikaans"
   | "social-sciences"
-  | "nst";
+  | "nst"
+  | "matric-phys-sci";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -126,6 +128,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE;
   const showNst =
     learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE;
+  const showMatricPhysSci = learnerGrade === 12;
 
   const mathsDone = mathsProfile?.placementCompleted ?? false;
   const readingDone = readingProfile?.placementCompleted ?? false;
@@ -248,12 +251,25 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "natural-sciences-tech",
       });
     }
+    if (showMatricPhysSci) {
+      all.push({
+        id: "matric-phys-sci",
+        thumbnail: "/thumbnails/physical-science.jpeg",
+        label: "Physical Sciences",
+        caption: "Grade 12 NSC · 42 skills across P1 Physics and P2 Chemistry",
+        badge: "Matric",
+        badgeColor: "bg-rose-100 text-rose-700",
+        accentFrom: "from-rose-500",
+        accentTo: "to-amber-500",
+        navigateTo: "matric-phys-sci",
+      });
+    }
     return all;
   }, [
     discoverBadge, discoverBadgeColor,
     mathsBadge, mathsBadgeColor,
     readingBadge, readingBadgeColor,
-    showLifeSkills, showAfrikaans, showSocialSciences, showNst,
+    showLifeSkills, showAfrikaans, showSocialSciences, showNst, showMatricPhysSci,
   ]);
 
   // Keep selection valid if the chosen subject is no longer visible for this grade.
@@ -340,6 +356,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         return <SocialSciencesSkillTreeView onPickTopic={() => onNavigate("social-sciences")} />;
       case "nst":
         return <NstSkillTreeView onPickTopic={() => onNavigate("natural-sciences-tech")} />;
+      case "matric-phys-sci":
+        return <MatricPhysSciSkillTreeView onPickSkill={() => onNavigate("matric-phys-sci")} />;
       default:
         return null;
     }
