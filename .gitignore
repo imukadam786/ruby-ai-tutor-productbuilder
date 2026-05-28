@@ -5,3 +5,11 @@ node_modules/
 *.log
 
 .vercel
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
+
+# Local backups of edited content trees
+*.bak
+*-bak
+*.bak-*
