@@ -148,13 +148,18 @@ interface ProgressTrackerProps {
   onMathsReplaySkill?: (skillId: string) => void;
   /** Launch an isolated replay of a completed Reading skill (no progression change). */
   onReadingReplaySkill?: (skillId: string) => void;
+  /** Resume the learner's current Maths skill (progression on) — wires the
+   *  "Continue where you left off" CTA inside the Maths tree on this page. */
+  onMathsContinue?: () => void;
+  /** Resume the learner's current Reading skill (progression on). */
+  onReadingContinue?: () => void;
   /** Open the Afrikaans subject and start the picked (non-locked) skill. */
   onAfrikaansPickSkill?: (skillId: string) => void;
   /** Open the Social Sciences subject (lands on the topic tree for the learner's grade). */
   onSocialSciencesOpen?: () => void;
 }
 
-export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill, onAfrikaansPickSkill, onSocialSciencesOpen }: ProgressTrackerProps = {}) {
+export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill, onMathsContinue, onReadingContinue, onAfrikaansPickSkill, onSocialSciencesOpen }: ProgressTrackerProps = {}) {
   const { t } = useT();
   const [progress, setProgress] = useState<ProgressData>({
     totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
@@ -372,8 +377,8 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
 
             {/* Selected subject's tree */}
             <div className="mt-3 bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
-              {activeTab === "maths" && <SkillTreeView profile={profile} onReplaySkill={onMathsReplaySkill} />}
-              {activeTab === "reading" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={onReadingReplaySkill} />}
+              {activeTab === "maths" && <SkillTreeView profile={profile} onReplaySkill={onMathsReplaySkill} onContinue={onMathsContinue} />}
+              {activeTab === "reading" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={onReadingReplaySkill} onContinue={onReadingContinue} />}
 
               {activeTab === "lifeskills" && (
                 <div className="p-5 space-y-3">
