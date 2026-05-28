@@ -15,4 +15,4 @@ export interface ProgressData {
   subjectBreakdown: Record<string, number>;
 }
 
-export type ActiveView = "home" | "chat" | "progress" | "ruby" | "skill-tree" | "student-dashboard" | "watch" | "reading" | "reading-skill-tree" | "settings" | "matric" | "prep-papers-2026" | "discover-maths" | "discover-reading" | "discover" | "subjects" | "matrics" | "study-guides" | "life-skills" | "life-skills-skill-tree" | "afrikaans-fal" | "afrikaans-fal-skill-tree" | "social-sciences" | "social-sciences-skill-tree";
+export type ActiveView = "home" | "chat" | "progress" | "ruby" | "skill-tree" | "student-dashboard" | "watch" | "reading" | "reading-skill-tree" | "settings" | "matric" | "prep-papers-2026" | "discover-maths" | "discover-reading" | "discover" | "subjects" | "matrics" | "study-guides" | "life-skills" | "life-skills-skill-tree" | "afrikaans-fal" | "afrikaans-fal-skill-tree" | "social-sciences" | "social-sciences-skill-tree" | "natural-sciences-tech" | "natural-sciences-tech-skill-tree";

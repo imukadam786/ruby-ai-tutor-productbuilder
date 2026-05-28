@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
@@ -11,16 +12,37 @@ import {
   HIGHEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MAX_GRADE,
   LOWEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MIN_GRADE,
 } from "@/lib/social-sciences-grade-map";
+import {
+  HIGHEST_AVAILABLE_LEVEL as NST_MAX_GRADE,
+  LOWEST_AVAILABLE_LEVEL as NST_MIN_GRADE,
+} from "@/lib/nst-grade-map";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
 import { useT } from "@/lib/i18n";
 
+const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
+const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
+const LifeSkillsSkillTreeView = dynamic(() => import("@/components/life-skills/LifeSkillsSkillTreeView"),     { ssr: false });
+const AfrikaansSkillTreeView  = dynamic(() => import("@/components/afrikaans/AfrikaansSkillTreeView"),         { ssr: false });
+const SocialSciencesSkillTreeView = dynamic(() => import("@/components/social-sciences/SocialSciencesSkillTreeView"), { ssr: false });
+const NstSkillTreeView        = dynamic(() => import("@/components/nst/NstSkillTreeView"),                     { ssr: false });
+
+type SubjectId =
+  | "discover"
+  | "maths"
+  | "english"
+  | "life-skills"
+  | "afrikaans"
+  | "social-sciences"
+  | "nst";
+
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
 }
 
-interface SubjectCardProps {
+interface SubjectMeta {
+  id: SubjectId;
   thumbnail?: string;
   placeholderEmoji?: string;
   label: string;
@@ -29,40 +51,39 @@ interface SubjectCardProps {
   badgeColor?: string;
   accentFrom: string;
   accentTo: string;
-  onClick: () => void;
+  navigateTo: ActiveView;
 }
 
-function SubjectCard({
-  thumbnail,
-  placeholderEmoji,
-  label,
-  caption,
-  badge,
-  badgeColor = "bg-gray-100 text-gray-600",
-  accentFrom,
-  accentTo,
-  onClick,
-}: SubjectCardProps) {
+interface SubjectRowProps {
+  subject: SubjectMeta;
+  active: boolean;
+  onSelect: () => void;
+}
+
+function SubjectRow({ subject, active, onSelect }: SubjectRowProps) {
   return (
     <button
-      onClick={onClick}
-      className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col active:opacity-80 transition-all text-left hover:shadow-xl hover:-translate-y-1"
+      onClick={onSelect}
+      aria-pressed={active}
+      className={`w-full text-left rounded-xl bg-white border transition-all flex items-center gap-3 px-3 py-2.5 hover:shadow-md hover:-translate-y-px ${
+        active ? "border-[#BE1832] ring-2 ring-[#BE1832]/15 shadow-md" : "border-gray-100"
+      }`}
     >
       <div
-        className={`w-full bg-gradient-to-br ${accentFrom} ${accentTo} flex items-center justify-center overflow-hidden flex-shrink-0 aspect-square lg:aspect-[4/3]`}
+        className={`w-12 h-12 lg:w-14 lg:h-14 flex-shrink-0 rounded-lg bg-gradient-to-br ${subject.accentFrom} ${subject.accentTo} flex items-center justify-center overflow-hidden`}
       >
-        {thumbnail ? (
-          <img src={thumbnail} alt={label} className="w-full h-full object-cover" />
+        {subject.thumbnail ? (
+          <img src={subject.thumbnail} alt={subject.label} className="w-full h-full object-cover" />
         ) : (
-          <span className="text-[5rem] lg:text-[3.5rem] leading-none">{placeholderEmoji}</span>
+          <span className="text-2xl leading-none">{subject.placeholderEmoji}</span>
         )}
       </div>
-      <div className="px-5 pt-4 pb-5 lg:px-4 lg:pt-3 lg:pb-3 flex flex-col items-start gap-1.5 lg:gap-1">
-        <span className="font-bold text-gray-900 text-xl lg:text-base">{label}</span>
-        <span className="text-sm lg:text-xs text-gray-500 leading-snug">{caption}</span>
-        {badge && (
-          <span className={`text-xs lg:text-[10px] font-semibold px-3 py-1 lg:px-2 lg:py-0.5 rounded-full whitespace-nowrap mt-2 lg:mt-1 ${badgeColor}`}>
-            {badge}
+      <div className="min-w-0 flex-1">
+        <span className="block font-semibold text-gray-900 text-sm leading-tight">{subject.label}</span>
+        <span className="block text-[11px] text-gray-500 leading-snug line-clamp-2">{subject.caption}</span>
+        {subject.badge && (
+          <span className={`inline-block mt-1 text-[10px] font-semibold px-1.5 py-0.5 rounded-full whitespace-nowrap ${subject.badgeColor ?? "bg-gray-100 text-gray-600"}`}>
+            {subject.badge}
           </span>
         )}
       </div>
@@ -76,6 +97,10 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const [selectedId, setSelectedId] = useState<SubjectId>(() => {
+    if (typeof window === "undefined") return "maths";
+    return (sessionStorage.getItem("ruby_last_subject") as SubjectId | null) ?? "maths";
+  });
 
   useEffect(() => {
     Promise.all([
@@ -83,9 +108,6 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       hydrateReadingProfileFromSupabase(),
       fetchAuthorisedGrade(),
     ]).then(([mp, rp, auth]) => {
-      // Supabase is best-effort/async and empty for anonymous or unsynced
-      // testers — fall back to the local profile (where a just-completed
-      // placement actually lives) so status badges reflect reality.
       setMathsProfile(mp ?? getStudentProfile());
       setReadingProfile((rp as ReadingStudentProfile | null) ?? getReadingProfile());
       setGrade(auth?.grade ?? null);
@@ -93,14 +115,17 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     });
   }, []);
 
-  // Each subject card is gated by its own authored-content range, so they
-  // stay in lock-step with the per-subject HIGHEST_AVAILABLE_LEVEL. Default
-  // to showing while the grade is still loading.
+  useEffect(() => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_last_subject", selectedId);
+  }, [selectedId]);
+
   const learnerGrade = grade ?? 1;
   const showLifeSkills = learnerGrade <= LIFE_SKILLS_MAX_GRADE;
   const showAfrikaans = learnerGrade <= AFRIKAANS_MAX_GRADE;
   const showSocialSciences =
     learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE;
+  const showNst =
+    learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE;
 
   const mathsDone = mathsProfile?.placementCompleted ?? false;
   const readingDone = readingProfile?.placementCompleted ?? false;
@@ -134,103 +159,229 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       : mathsDone || readingDone
       ? "bg-amber-100 text-amber-700"
       : "bg-gray-100 text-gray-600";
-
   const mathsBadgeColor = mathsDone ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600";
   const readingBadgeColor = readingDone ? "bg-purple-100 text-purple-700" : "bg-gray-100 text-gray-600";
+
+  const subjects = useMemo<SubjectMeta[]>(() => {
+    const all: SubjectMeta[] = [
+      {
+        id: "discover",
+        thumbnail: "/thumbnails/discover.png",
+        label: "Discover",
+        caption: "Take the placement and find your starting point",
+        badge: discoverBadge,
+        badgeColor: discoverBadgeColor,
+        accentFrom: "from-slate-600",
+        accentTo: "to-slate-700",
+        navigateTo: "discover",
+      },
+      {
+        id: "maths",
+        thumbnail: "/thumbnails/mathematics.jpeg",
+        label: "Maths",
+        caption: "Personalised lessons that adapt to your level",
+        badge: mathsBadge,
+        badgeColor: mathsBadgeColor,
+        accentFrom: "from-blue-600",
+        accentTo: "to-blue-700",
+        navigateTo: "ruby",
+      },
+      {
+        id: "english",
+        thumbnail: "/thumbnails/english.jpeg",
+        label: "English",
+        caption: "Reading, comprehension and writing — adapts to your grade",
+        badge: readingBadge,
+        badgeColor: readingBadgeColor,
+        accentFrom: "from-purple-600",
+        accentTo: "to-purple-700",
+        navigateTo: "reading",
+      },
+    ];
+    if (showLifeSkills) {
+      all.push({
+        id: "life-skills",
+        thumbnail: "/thumbnails/life-skills.png",
+        label: "Life Skills",
+        caption: `Beginning Knowledge & Health for Grades 1–${LIFE_SKILLS_MAX_GRADE}`,
+        badge: "Foundation Phase",
+        badgeColor: "bg-amber-100 text-amber-700",
+        accentFrom: "from-amber-500",
+        accentTo: "to-rose-500",
+        navigateTo: "life-skills",
+      });
+    }
+    if (showAfrikaans) {
+      all.push({
+        id: "afrikaans",
+        thumbnail: "/thumbnails/afrikaans-fal.jpeg",
+        label: "Afrikaans",
+        caption: `First Additional Language — listen, choose and learn (Grades 1–${AFRIKAANS_MAX_GRADE})`,
+        accentFrom: "from-emerald-500",
+        accentTo: "to-teal-600",
+        navigateTo: "afrikaans-fal",
+      });
+    }
+    if (showSocialSciences) {
+      all.push({
+        id: "social-sciences",
+        thumbnail: "/thumbnails/social-sciences.png",
+        label: "Social Sciences",
+        caption: `History & Geography for Grades ${SOCIAL_SCIENCES_MIN_GRADE}–${SOCIAL_SCIENCES_MAX_GRADE}`,
+        badge: "Intermediate Phase",
+        badgeColor: "bg-sky-100 text-sky-700",
+        accentFrom: "from-sky-500",
+        accentTo: "to-indigo-600",
+        navigateTo: "social-sciences",
+      });
+    }
+    if (showNst) {
+      all.push({
+        id: "nst",
+        placeholderEmoji: "🔬",
+        label: "Natural Sciences & Tech",
+        caption: `Science and Technology for Grades ${NST_MIN_GRADE}–${NST_MAX_GRADE}`,
+        badge: "Intermediate Phase",
+        badgeColor: "bg-sky-100 text-sky-700",
+        accentFrom: "from-green-500",
+        accentTo: "to-teal-600",
+        navigateTo: "natural-sciences-tech",
+      });
+    }
+    return all;
+  }, [
+    discoverBadge, discoverBadgeColor,
+    mathsBadge, mathsBadgeColor,
+    readingBadge, readingBadgeColor,
+    showLifeSkills, showAfrikaans, showSocialSciences, showNst,
+  ]);
+
+  // Keep selection valid if the chosen subject is no longer visible for this grade.
+  useEffect(() => {
+    if (!subjects.find((s) => s.id === selectedId)) {
+      setSelectedId(subjects[0]?.id ?? "maths");
+    }
+  }, [subjects, selectedId]);
+
+  const selected = subjects.find((s) => s.id === selectedId);
+
+  // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
+  const startMathsReplay = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_replay_skill", skillId);
+    onNavigate("ruby");
+  };
+  const startReadingReplay = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_reading_replay_skill", skillId);
+    onNavigate("reading");
+  };
+  const continueMaths = () => {
+    if (typeof window !== "undefined") sessionStorage.removeItem("ruby_maths_replay_skill");
+    onNavigate("ruby");
+  };
+  const continueReading = () => {
+    if (typeof window !== "undefined") sessionStorage.removeItem("ruby_reading_replay_skill");
+    onNavigate("reading");
+  };
+  const startAfrikaansSkill = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_afrikaans_target_skill", skillId);
+    onNavigate("afrikaans-fal");
+  };
+
+  function renderRightPane() {
+    if (!selected) return null;
+    switch (selected.id) {
+      case "discover":
+        return (
+          <div className="p-6 sm:p-8 flex flex-col items-center text-center gap-4">
+            <div className="text-5xl">🧭</div>
+            <h3 className="text-lg font-bold text-gray-900">{selected.label}</h3>
+            <p className="text-sm text-gray-600 max-w-md leading-relaxed">
+              Discovery places you on the right starting rung of the Maths and Reading skill trees.
+              {mathsDone && readingDone
+                ? " You've completed both — open Discover to view your placement reports."
+                : mathsDone || readingDone
+                ? " One down, one to go."
+                : ""}
+            </p>
+            <button
+              onClick={() => onNavigate("discover")}
+              className="mt-2 px-5 py-2.5 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors shadow-sm"
+            >
+              {mathsDone && readingDone ? "View placement results →" : "Open Discover →"}
+            </button>
+          </div>
+        );
+      case "maths":
+        return (
+          <SkillTreeView
+            profile={mathsProfile}
+            onReplaySkill={startMathsReplay}
+            onContinue={continueMaths}
+          />
+        );
+      case "english":
+        return (
+          <ReadingSkillTreeView
+            profile={readingProfile}
+            onReplaySkill={startReadingReplay}
+            onContinue={continueReading}
+          />
+        );
+      case "life-skills":
+        return <LifeSkillsSkillTreeView onPickTopic={() => onNavigate("life-skills")} />;
+      case "afrikaans":
+        return (
+          <AfrikaansSkillTreeView
+            onPickSkill={startAfrikaansSkill}
+            profile={null}
+          />
+        );
+      case "social-sciences":
+        return <SocialSciencesSkillTreeView onPickTopic={() => onNavigate("social-sciences")} />;
+      case "nst":
+        return <NstSkillTreeView onPickTopic={() => onNavigate("natural-sciences-tech")} />;
+      default:
+        return null;
+    }
+  }
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
 
       <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-4xl lg:max-w-6xl mx-auto px-6 sm:px-10 pt-8 lg:pt-4 pb-8 lg:pb-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
 
-          <div className="mb-8 lg:mb-4">
-            <h1 className="text-2xl lg:text-xl font-bold text-gray-900">{t("subjects.title")}</h1>
-            <p className="text-gray-500 text-sm mt-1">{t("subjects.subtitle")}</p>
+          <div className="mb-4">
+            <h1 className="text-xl lg:text-2xl font-bold text-gray-900">{t("subjects.title")}</h1>
+            <p className="text-gray-500 text-sm mt-0.5">{t("subjects.subtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-4">
-            {/* Discover */}
-            <SubjectCard
-              thumbnail="/thumbnails/discover.png"
-              label="Discover"
-              caption="Take the placement and find your starting point"
-              badge={discoverBadge}
-              badgeColor={discoverBadgeColor}
-              accentFrom="from-slate-600"
-              accentTo="to-slate-700"
-              onClick={() => onNavigate("discover")}
-            />
+          <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-4">
+            {/* Left: stacked subjects */}
+            <aside className="space-y-2">
+              {subjects.map((s) => (
+                <SubjectRow
+                  key={s.id}
+                  subject={s}
+                  active={s.id === selectedId}
+                  onSelect={() => setSelectedId(s.id)}
+                />
+              ))}
+              {selected && selected.id !== "discover" && (
+                <button
+                  onClick={() => onNavigate(selected.navigateTo)}
+                  className="w-full mt-2 px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors shadow-sm"
+                >
+                  Open {selected.label} →
+                </button>
+              )}
+            </aside>
 
-            {/* Maths */}
-            <SubjectCard
-              thumbnail="/thumbnails/mathematics.jpeg"
-              label="Maths"
-              caption="Personalised lessons that adapt to your level"
-              badge={mathsBadge}
-              badgeColor={mathsBadgeColor}
-              accentFrom="from-blue-600"
-              accentTo="to-blue-700"
-              onClick={() => onNavigate("ruby")}
-            />
-
-            {/* English — unified reading + writing skill tree (Levels 1–8) */}
-            <SubjectCard
-              thumbnail="/thumbnails/english.jpeg"
-              label="English"
-              caption="Reading, comprehension and writing — adapts to your grade"
-              badge={readingBadge}
-              badgeColor={readingBadgeColor}
-              accentFrom="from-purple-600"
-              accentTo="to-purple-700"
-              onClick={() => onNavigate("reading")}
-            />
-
-            {/* Life Skills — Foundation Phase (Gr 1–3), open to all plans.
-                Hidden once the learner is past LIFE_SKILLS_MAX_GRADE. */}
-            {showLifeSkills && (
-              <SubjectCard
-                thumbnail="/thumbnails/life-skills.png"
-                label="Life Skills"
-                caption={`Beginning Knowledge & Health for Grades 1–${LIFE_SKILLS_MAX_GRADE}`}
-                badge="Foundation Phase"
-                badgeColor="bg-amber-100 text-amber-700"
-                accentFrom="from-amber-500"
-                accentTo="to-rose-500"
-                onClick={() => onNavigate("life-skills")}
-              />
-            )}
-
-            {/* Afrikaans FAL — free (no Scholar badge). Hidden once the
-                learner is past AFRIKAANS_MAX_GRADE. Same thumbnail as the
-                Matric Afrikaans FAL subject. */}
-            {showAfrikaans && (
-              <SubjectCard
-                thumbnail="/thumbnails/afrikaans-fal.jpeg"
-                label="Afrikaans"
-                caption={`First Additional Language — listen, choose and learn (Grades 1–${AFRIKAANS_MAX_GRADE})`}
-                accentFrom="from-emerald-500"
-                accentTo="to-teal-600"
-                onClick={() => onNavigate("afrikaans-fal")}
-              />
-            )}
-
-            {/* Social Sciences — Intermediate Phase only (Grades 4–6). Two
-                strands per grade: History and Geography. Hidden outside the
-                authored range. */}
-            {showSocialSciences && (
-              <SubjectCard
-                thumbnail="/thumbnails/social-sciences.png"
-                label="Social Sciences"
-                caption={`History & Geography for Grades ${SOCIAL_SCIENCES_MIN_GRADE}–${SOCIAL_SCIENCES_MAX_GRADE}`}
-                badge="Intermediate Phase"
-                badgeColor="bg-sky-100 text-sky-700"
-                accentFrom="from-sky-500"
-                accentTo="to-indigo-600"
-                onClick={() => onNavigate("social-sciences")}
-              />
-            )}
+            {/* Right: selected subject's skill tree (the journey) */}
+            <section className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden min-h-[60vh] lg:min-h-[70vh]">
+              {renderRightPane()}
+            </section>
           </div>
 
         </div>
