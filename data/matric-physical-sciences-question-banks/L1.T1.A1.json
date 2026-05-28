@@ -3,8 +3,8 @@
   "skill_title": "State and explain Newton's three laws of motion",
   "grades": [12],
   "paper": "P1",
-  "version": "1.0",
-  "notes": "Items mix lifted-from-paper (definitional questions from NSC P1 papers) and fresh-authored (scenarios, Third Law pair identification, misconception checks).",
+  "version": "1.1",
+  "notes": "v1.1: Expanded scope to match tree v1.1 — A1 now includes drawing free-body diagrams. Added 6 FBD items (q21–q26: 4 lifted from NSC P1 papers, 2 fresh). Existing q01–q20 (Newton's-law recall and identification) unchanged from v1.0.",
   "items": [
     {
       "id": "L1.T1.A1.q01",
@@ -307,6 +307,108 @@
       "explanation": "Constant velocity ⇒ zero acceleration ⇒ zero net force (Newton's First Law). The engine's forward force must exactly balance friction + air resistance.",
       "errorSignals": ["ERR_INERTIA_REQUIRES_FORCE", "ERR_LAW_IDENTIFICATION"],
       "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q21",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "lifted-from-paper",
+      "source_ref": "P1 May/Jun 2025 Q2.2",
+      "question": "A 24 kg block is pulled up a rough inclined plane at a constant velocity by an applied force F parallel to the incline. The incline makes an angle of 30° with the horizontal. The coefficient of kinetic friction between the block and the surface is 0.19. Draw a labelled free-body diagram showing ALL the forces acting on the block. Show the block as a dot. (List each force, its direction, and its label.)",
+      "answerMode": "text",
+      "expectedAnswer": "Four forces, all from a single dot: (1) Normal force N — perpendicular to the inclined surface, pointing away from the surface; (2) Weight / gravity Fg (or mg) — vertically downward; (3) Applied force F — along and up the incline; (4) Kinetic friction force f — along and down the incline (opposing motion up).",
+      "marks": 4,
+      "explanation": "Four labelled forces. Any extra force or forces not starting from the dot loses a mark. Note that weight is drawn vertically downward — the block is on an incline but weight always points to Earth's centre.",
+      "errorSignals": ["ERR_FBD_FORCE_COUNT", "ERR_FBD_DIRECTION_INCLINE", "ERR_FBD_EXTRA_FORCE"],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q22",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "lifted-from-paper",
+      "source_ref": "P1 May/Jun 2024 Q2.2",
+      "question": "Block A (4.1 kg) is on a rough horizontal table, connected by a light inextensible string over a frictionless pulley to Block B (2.3 kg) which hangs vertically off the side. A force F = 49 N is applied on A at 50° below the horizontal, pulling to the LEFT. The coefficient of kinetic friction is 0.35. Block A moves to the RIGHT (towards the pulley). Draw a free-body diagram for block A.",
+      "answerMode": "text",
+      "expectedAnswer": "Five forces on A (all from a single dot): (1) Weight Fg = 40.18 N downward; (2) Normal N upward (from the table); (3) Applied force F = 49 N at 50° below the horizontal, to the LEFT; (4) Tension T to the RIGHT (along the string, towards the pulley); (5) Kinetic friction f_k to the LEFT (opposing motion to the right).",
+      "marks": 5,
+      "explanation": "Five forces total: weight, normal, applied, tension, friction. Friction opposes the direction of motion of A (which is rightward), so f_k points left. The applied force has both horizontal (left) and vertical components, but in the FBD it's drawn as a single arrow at 50° below horizontal to the left.",
+      "errorSignals": ["ERR_FBD_FORCE_COUNT", "ERR_FBD_FRICTION_DIRECTION", "ERR_FBD_DIRECTION_ANGLE"],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q23",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "lifted-from-paper",
+      "source_ref": "P1 May/Jun 2023 Q2.2",
+      "question": "Two blocks A and B are connected by a light inextensible string over a frictionless pulley. Block B (7.5 kg) hangs vertically and accelerates DOWNWARD. Draw a free-body diagram showing all forces on block B.",
+      "answerMode": "text",
+      "expectedAnswer": "Two forces on B (from a single dot): (1) Weight (m_B × g = 7.5 × 9.8 ≈ 73.5 N) — vertically downward; (2) Tension T in the string — vertically upward. Since B accelerates downward, the weight is larger than the tension.",
+      "marks": 2,
+      "explanation": "A hanging block has only two forces: its weight (down) and the tension (up). There is no normal force because nothing supports it from below. Acceleration direction tells you which force is bigger (here, weight > tension).",
+      "errorSignals": ["ERR_FBD_FORCE_COUNT", "ERR_FBD_ADDS_NORMAL_TO_HANGING", "ERR_FBD_TENSION_DIRECTION"],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q24",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "lifted-from-paper",
+      "source_ref": "P1 May/Jun 2022 Q2.2",
+      "question": "A man (70 kg) is attached to a tube (4 kg) and is being lifted vertically by a helicopter at CONSTANT SPEED. A rope connects the man-tube system to the helicopter at 50° to the vertical. Friction on the tube is 300 N upward. Draw a free-body diagram for the man-tube system.",
+      "answerMode": "text",
+      "expectedAnswer": "Three forces (all from a single dot): (1) Weight of system (74 × 9.8 = 725.2 N) — vertically downward; (2) Tension T — along the rope, at 50° to the vertical (upward, towards the helicopter); (3) Friction f = 300 N — vertically upward.",
+      "marks": 4,
+      "explanation": "Treat the man-tube as one body. Three forces act on it: weight (always vertical down), tension along the rope (which is at 50° from vertical), and friction. Friction is acting upward because the system is moving (being lifted) and friction on the tube opposes that motion direction — but in this case the question states it's upward, meaning the relative motion of the tube against the air/cable is downward.",
+      "errorSignals": ["ERR_FBD_FORCE_COUNT", "ERR_FBD_TENSION_DIRECTION", "ERR_FBD_OMITS_FRICTION"],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q25",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "lifted-from-paper",
+      "source_ref": "P1 May/Jun 2021 Q2.2",
+      "question": "An 8 kg block and a 2 kg block are connected by a light inextensible string over a frictionless pulley. A force F = 29.6 N is applied horizontally on the 8 kg block. The system moves at CONSTANT SPEED. The kinetic friction on the 8 kg block is 10 N. Draw a free-body diagram showing all forces on the 8 kg block.",
+      "answerMode": "text",
+      "expectedAnswer": "Five forces (from a single dot): (1) Weight (8 × 9.8 = 78.4 N) — vertically downward; (2) Normal force N — vertically upward (from the table); (3) Applied force F = 29.6 N — horizontal, in the direction of motion; (4) Tension T — horizontal, opposing motion (towards the pulley); (5) Kinetic friction f = 10 N — horizontal, opposing motion.",
+      "marks": 5,
+      "explanation": "The 8 kg block on the table has weight, normal, applied force, tension, and friction. Tension acts toward the pulley (which is opposite to the direction the block is being pulled, hence opposing motion alongside friction). At constant speed, Fnet = 0 so F = T + f.",
+      "errorSignals": ["ERR_FBD_FORCE_COUNT", "ERR_FBD_TENSION_DIRECTION", "ERR_FBD_FRICTION_DIRECTION"],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q26",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A ball is in free-fall after being released from rest. Air resistance is negligible. Which of the following correctly describes the free-body diagram of the ball?",
+      "answerMode": "choice",
+      "options": [
+        "Weight downward; normal force upward",
+        "Weight downward only",
+        "Weight downward; air resistance upward",
+        "Velocity arrow downward; weight downward"
+      ],
+      "expectedAnswer": "Weight downward only",
+      "marks": 2,
+      "explanation": "In free fall with no air resistance, only weight acts on the ball. There's nothing to provide a normal force (no surface in contact). Velocity is NOT a force and never appears on an FBD. Air resistance is stated as negligible.",
+      "errorSignals": ["ERR_FBD_INCLUDES_VELOCITY", "ERR_FBD_ADDS_NORMAL_TO_HANGING", "ERR_FBD_EXTRA_FORCE"],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q27",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A learner draws a free-body diagram for a block sliding to the right on a rough horizontal surface, and includes an arrow labelled 'force of motion' pointing to the right. What is wrong with this FBD?",
+      "answerMode": "text",
+      "expectedAnswer": "'Force of motion' is not a real force on the block. Motion (velocity) is not a force and must not appear on a free-body diagram. The block is moving because of inertia (Newton's First Law) — it does not need an ongoing 'force of motion' to keep going. The correct FBD shows weight (down), normal (up), and friction (left, opposing motion). If something is also pushing the block, add the applied force as a separate labelled arrow.",
+      "marks": 3,
+      "explanation": "This is a classic misconception. Forces are pushes or pulls from other objects; an object's own motion is not a force. Only include forces that are FROM something else ON the block.",
+      "errorSignals": ["ERR_FBD_INCLUDES_VELOCITY", "ERR_FBD_INVENTS_FORCE_OF_MOTION"],
+      "passThreshold": 0.7
     }
   ],
   "_error_signal_vocabulary": {
@@ -333,6 +435,16 @@
     "ERR_LAW_CITATION_MISSING": "Performs the calculation correctly but does not state which law justifies it",
     "ERR_INERTIA_REQUIRES_FORCE": "Believes a forward force is needed to maintain forward motion at constant velocity",
     "ERR_APPARENT_WEIGHT_CONFUSION": "Confuses actual weight (mg) with apparent weight (normal force reading)",
-    "ERR_RATIO_DIRECTION": "Writes the acceleration ratio in the wrong order"
+    "ERR_RATIO_DIRECTION": "Writes the acceleration ratio in the wrong order",
+    "ERR_FBD_FORCE_COUNT": "Omits a required force or includes too many forces on the FBD",
+    "ERR_FBD_DIRECTION_INCLINE": "Draws weight along the incline instead of vertically downward",
+    "ERR_FBD_EXTRA_FORCE": "Includes a non-existent force (e.g. centrifugal, force of motion) on the FBD",
+    "ERR_FBD_FRICTION_DIRECTION": "Draws friction in the direction of motion instead of opposing it",
+    "ERR_FBD_DIRECTION_ANGLE": "Draws a force at the wrong angle on the FBD",
+    "ERR_FBD_ADDS_NORMAL_TO_HANGING": "Adds a normal force to a freely hanging or falling object",
+    "ERR_FBD_TENSION_DIRECTION": "Draws tension in the wrong direction (e.g. away from the pulley)",
+    "ERR_FBD_OMITS_FRICTION": "Omits friction or another required force from the FBD",
+    "ERR_FBD_INCLUDES_VELOCITY": "Draws velocity (or 'force of motion') as if it were a force",
+    "ERR_FBD_INVENTS_FORCE_OF_MOTION": "Adds a fictitious forward 'force of motion' to a moving object's FBD"
   }
 }
