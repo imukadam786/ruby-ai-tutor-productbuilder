@@ -9,7 +9,7 @@
 // skill (L1.T1.A1 — number formats). Skill-tree prerequisites gate progress
 // from there.
 
-export const HIGHEST_AVAILABLE_LEVEL = 10;
+export const HIGHEST_AVAILABLE_LEVEL = 12; // grade ceiling — visible Gr 10–12 (FET)
 export const LOWEST_AVAILABLE_LEVEL = 10; // grade floor for visibility in SubjectsHub
 
 export const MIN_TREE_LEVEL = 1;

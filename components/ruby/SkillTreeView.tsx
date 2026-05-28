@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import skillTreeData from "@/data/skill-tree.json";
 import { StudentProfile } from "@/types/ruby";
 import { getSkillStatus, getLevelById, friendlyMathsSkillName } from "@/lib/student-model";
@@ -58,6 +58,46 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
     return result;
   }, [profile]);
 
+  const { totalLevels, totalTiers, totalSkills, masteredLevels, masteredTiers, masteredSkills } = useMemo(() => {
+    let totalTiers = 0, totalSkills = 0, masteredTiers = 0, masteredSkills = 0, masteredLevels = 0;
+    const mastery = profile?.skill_mastery ?? {};
+    const isMastered = (id: string) => {
+      const s = mastery[id]?.status;
+      return s === "mastered" || s === "assumed";
+    };
+    for (const level of skillTreeData.levels) {
+      totalTiers += level.tiers.length;
+      let levelSkillCount = 0;
+      let levelMasteredCount = 0;
+      for (const tier of level.tiers) {
+        totalSkills += tier.atomic_skills.length;
+        const tierMastered = tier.atomic_skills.filter((s) => isMastered(s.id)).length;
+        masteredSkills += tierMastered;
+        levelSkillCount += tier.atomic_skills.length;
+        levelMasteredCount += tierMastered;
+        if (tier.atomic_skills.length > 0 && tierMastered === tier.atomic_skills.length) masteredTiers++;
+      }
+      if (levelSkillCount > 0 && levelMasteredCount === levelSkillCount) masteredLevels++;
+    }
+    return {
+      totalLevels: skillTreeData.levels.length,
+      totalTiers,
+      totalSkills,
+      masteredLevels,
+      masteredTiers,
+      masteredSkills,
+    };
+  }, [profile]);
+
+  const currentLevelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!profile) return;
+    const id = window.requestAnimationFrame(() => {
+      currentLevelRef.current?.scrollIntoView({ block: "start", behavior: "auto" });
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [profile?.current_level]);
+
   const autoCompletedIds = useMemo(
     () => new Set(profile?.placement?.autoCompletedSkillIds ?? []),
     [profile]
@@ -85,7 +125,9 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
       <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-blue-50 border-b border-blue-200 px-6 py-4">
         <h2 className="font-semibold text-blue-700 text-lg">{t("nav.maths_skill_tree")}</h2>
-        <p className="text-blue-400 text-sm">17 levels · 51 tiers · 72 atomic skills</p>
+        <p className="text-blue-400 text-sm">
+          {masteredLevels}/{totalLevels} Levels · {masteredTiers}/{totalTiers} Tiers · {masteredSkills}/{totalSkills} Atomic skills
+        </p>
       </div>
 
       <div className="flex-1 overflow-y-auto p-6">
@@ -150,7 +192,7 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
               const isExpanded = expandedLevels.has(level.id);
 
               return (
-                <div key={level.id}>
+                <div key={level.id} ref={isCurrent ? currentLevelRef : undefined}>
                   {/* Hard Gate barrier before Level 5 */}
                   {showHardGateBarrier && (
                     <div className="flex items-center gap-3 my-2 px-1">

@@ -1,15 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import treeData from "@/data/matric-physical-sciences-skill-tree.json";
 import EduBackground from "@/components/EduBackground";
 import { getMatricPhysSciMasteryMap } from "@/lib/matric-phys-sci-student-model";
-import type {
-  MatricPhysSciLevel,
-  MatricPhysSciSkillTree,
-} from "@/types/matric-phys-sci";
+import type { MatricPhysSciSkillTree } from "@/types/matric-phys-sci";
 
 const tree = treeData as unknown as MatricPhysSciSkillTree;
+
+const statusConfig = {
+  locked:      { bg: "bg-gray-100",  text: "text-gray-400",   border: "border-gray-200",   icon: "🔒", label: "Locked" },
+  available:   { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-200",  icon: "🚀", label: "Ready" },
+  in_progress: { bg: "bg-orange-50", text: "text-orange-700", border: "border-orange-200", icon: "⚡", label: "In Progress" },
+  mastered:    { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200",  icon: "🏆", label: "Mastered" },
+};
 
 interface Props {
   onPickSkill: (skillId: string) => void;
@@ -17,105 +21,168 @@ interface Props {
   onBack?: () => void;
 }
 
-function groupLevelsByPaper(levels: MatricPhysSciLevel[]): {
-  p1: MatricPhysSciLevel[];
-  p2: MatricPhysSciLevel[];
-} {
-  return {
-    p1: levels.filter((l) => l.paper === "P1"),
-    p2: levels.filter((l) => l.paper === "P2"),
-  };
-}
-
 export default function MatricPhysSciSkillTreeView({
   onPickSkill,
   masteryStatus,
   onBack,
 }: Props) {
-  // Mastery may be passed in by the parent session; otherwise read it from local profile.
   const [localMastery, setLocalMastery] = useState<Record<string, "mastered" | "in_progress" | "available">>({});
   useEffect(() => {
     if (!masteryStatus) setLocalMastery(getMatricPhysSciMasteryMap());
   }, [masteryStatus]);
   const mastery = masteryStatus ?? localMastery;
 
-  const { p1, p2 } = groupLevelsByPaper(tree.levels);
+  const [expandedLevels, setExpandedLevels] = useState<Set<number>>(() => new Set([tree.levels[0]?.id ?? 1]));
+  const toggleLevel = (id: number) =>
+    setExpandedLevels((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
 
-  function renderLevel(level: MatricPhysSciLevel) {
-    const skills = level.tiers.flatMap((t) => t.atomic_skills);
-    return (
-      <section key={level.id} className="mb-6">
-        <div className="flex items-baseline gap-2 mb-3 px-1">
-          <span className="text-xs font-bold text-gray-400">L{level.id}</span>
-          <h3 className="text-base sm:text-lg font-bold text-[#1a2744]">{level.title}</h3>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {skills.map((skill) => {
-            const status = mastery[skill.id] ?? "available";
-            const ringClass =
-              status === "mastered"
-                ? "ring-2 ring-green-400 bg-green-50"
-                : status === "in_progress"
-                ? "ring-2 ring-amber-400 bg-amber-50"
-                : "bg-white";
-            return (
-              <button
-                key={skill.id}
-                onClick={() => onPickSkill(skill.id)}
-                className={`${ringClass} rounded-2xl shadow-sm hover:shadow-md transition-all p-4 text-left border border-gray-100 active:scale-[0.98]`}
-                aria-label={skill.title}
-              >
-                <div className="text-[11px] font-semibold text-gray-400 mb-1">{skill.id}</div>
-                <div className="text-sm sm:text-base font-bold text-[#1a2744] leading-snug mb-1">
-                  {skill.title}
-                </div>
-                {status === "mastered" && (
-                  <div className="text-xs font-semibold text-green-700">Mastered</div>
-                )}
-                {status === "in_progress" && (
-                  <div className="text-xs font-semibold text-amber-700">In progress</div>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </section>
-    );
+  const { totalLevels, totalTiers, totalSkills, masteredLevels, masteredTiers, masteredSkills, levelProgress } = useMemo(() => {
+    let totalTiers = 0, totalSkills = 0, masteredTiers = 0, masteredSkills = 0, masteredLevels = 0;
+    const levelProgress: Record<number, number> = {};
+    for (const level of tree.levels) {
+      totalTiers += level.tiers.length;
+      let levelSkillCount = 0;
+      let levelMasteredCount = 0;
+      for (const tier of level.tiers) {
+        totalSkills += tier.atomic_skills.length;
+        const tierMastered = tier.atomic_skills.filter((s) => mastery[s.id] === "mastered").length;
+        masteredSkills += tierMastered;
+        levelSkillCount += tier.atomic_skills.length;
+        levelMasteredCount += tierMastered;
+        if (tier.atomic_skills.length > 0 && tierMastered === tier.atomic_skills.length) masteredTiers++;
+      }
+      if (levelSkillCount > 0 && levelMasteredCount === levelSkillCount) masteredLevels++;
+      levelProgress[level.id] = levelSkillCount > 0 ? Math.round((levelMasteredCount / levelSkillCount) * 100) : 0;
+    }
+    return {
+      totalLevels: tree.levels.length,
+      totalTiers,
+      totalSkills,
+      masteredLevels,
+      masteredTiers,
+      masteredSkills,
+      levelProgress,
+    };
+  }, [mastery]);
+
+  function statusFor(skillId: string): keyof typeof statusConfig {
+    return (mastery[skillId] ?? "available") as keyof typeof statusConfig;
   }
 
   return (
-    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
-      <EduBackground />
-      <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-5 pb-12 w-full">
-          {onBack && (
+    <div className="relative isolate flex flex-col h-full bg-gray-50">
+      <div className="absolute inset-0 -z-10"><EduBackground /></div>
+      <div className="hidden md:block bg-rose-50 border-b border-rose-200 px-6 py-4">
+        <h2 className="font-semibold text-rose-700 text-lg">Physical Sciences Skill Tree</h2>
+        <p className="text-rose-400 text-sm">
+          {masteredLevels}/{totalLevels} Levels · {masteredTiers}/{totalTiers} Tiers · {masteredSkills}/{totalSkills} Atomic skills
+        </p>
+      </div>
+
+      <div className="flex-1 overflow-y-auto p-6">
+        {onBack && (
+          <div className="max-w-2xl mx-auto mb-4">
             <button
               onClick={onBack}
-              className="mb-4 text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
+              className="text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
             >
               ← Subjects
             </button>
-          )}
-
-          <div className="mb-6">
-            <h1 className="text-2xl sm:text-3xl font-bold text-[#1a2744]">
-              Matric Physical Sciences
-            </h1>
-            <p className="text-gray-600 text-sm sm:text-base mt-1">
-              Grade 12 NSC · pick a skill to practise. Each skill has around 20 questions, including
-              past-paper lifts and freshly authored items.
-            </p>
           </div>
+        )}
 
-          <div className="mb-6">
-            <h2 className="text-lg sm:text-xl font-bold text-[#BE1832] mb-3">Paper 1 · Physics</h2>
-            {p1.map(renderLevel)}
-          </div>
+        <div className="max-w-2xl mx-auto space-y-4">
+          {tree.levels.map((level) => {
+            const progress = levelProgress[level.id] || 0;
+            const isExpanded = expandedLevels.has(level.id);
+            return (
+              <div
+                key={level.id}
+                className="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleLevel(level.id)}
+                  aria-expanded={isExpanded}
+                  className="w-full text-left px-5 py-4 hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <div className={`min-w-[2.25rem] h-8 px-1.5 rounded-lg flex items-center justify-center text-sm font-bold ${
+                        progress === 100
+                          ? "bg-green-500 text-white"
+                          : progress > 0
+                          ? "bg-orange-500 text-white"
+                          : "bg-gray-200 text-gray-500"
+                      }`}>
+                        L{level.id}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-900 text-sm">{level.title}</p>
+                        {level.description && (
+                          <p className="text-gray-400 text-xs">{level.description}</p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="text-right">
+                        <p className={`text-sm font-bold ${progress === 100 ? "text-green-600" : "text-gray-600"}`}>
+                          {progress}%
+                        </p>
+                      </div>
+                      <svg
+                        aria-hidden
+                        className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                    <div
+                      className={`h-full rounded-full transition-all ${progress === 100 ? "bg-green-500" : "bg-rose-500"}`}
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                </button>
 
-          <div className="mb-6">
-            <h2 className="text-lg sm:text-xl font-bold text-[#BE1832] mb-3">Paper 2 · Chemistry</h2>
-            {p2.map(renderLevel)}
-          </div>
+                {isExpanded && (
+                  <div className="px-5 pb-4">
+                    {level.tiers.map((tier) => (
+                      <div key={tier.id} className="mt-3">
+                        <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">
+                          {tier.title}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {tier.atomic_skills.map((skill) => {
+                            const status = statusFor(skill.id);
+                            const config = statusConfig[status];
+                            return (
+                              <button
+                                key={skill.id}
+                                type="button"
+                                onClick={() => onPickSkill(skill.id)}
+                                className={`px-3 py-1.5 rounded-lg border text-xs font-medium text-left ${config.bg} ${config.text} ${config.border} cursor-pointer hover:ring-2 hover:ring-rose-300 hover:shadow-sm transition-all`}
+                                title={`${skill.title} — ${config.label}`}
+                              >
+                                <span className="mr-1">{config.icon}</span>
+                                {skill.title}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -13,8 +13,9 @@ import UsageMeter from "@/components/UsageMeter";
 
 const QUICK_ACTIONS: { label: string; prompt: string }[] = [
   { label: "Help me with homework", prompt: "Help me with my homework." },
+  { label: "Help me solve for x", prompt: "Help me solve for x. I'll share the equation in my next message — please walk me through it step by step." },
   { label: "Teach me 10 English words", prompt: "Teach me 10 new English words I should know, with simple definitions and example sentences." },
-  { label: "Science", prompt: "Tell me something interesting about science and then ask me a question to check I understood." },
+  { label: "Help me with Biology", prompt: "Help me with Biology — ask me what topic I'm working on and then explain it, then check my understanding with a question." },
 ];
 
 interface ChatInterfaceProps {
@@ -393,8 +394,10 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
+      {/* Centered chat panel — patterned background shows on the sides */}
+      <div className="relative flex-1 flex flex-col min-h-0 w-full lg:max-w-4xl lg:mx-auto lg:my-4 lg:rounded-2xl lg:shadow-md bg-white overflow-hidden">
       {/* Header */}
-      <div className="relative hidden md:flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white/90 backdrop-blur">
+      <div className="hidden md:flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white">
         <div className="flex items-center gap-2.5">
           <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
           <h2 className="text-gray-900 font-semibold text-base sm:text-lg">Chat with Ruby</h2>
@@ -414,7 +417,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
       </div>
 
       {/* Messages */}
-      <div ref={messagesContainerRef} className="relative flex-1 overflow-y-auto py-6">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto py-6 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-8 space-y-6">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
@@ -507,7 +510,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
       )}
 
       {/* Input area */}
-      <div className="relative px-4 pb-4 pt-2 sm:px-8 sm:pb-6">
+      <div className="px-4 pb-4 pt-2 sm:px-8 sm:pb-6 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto">
 
         {/* Quick-action prompts — visible until the first message is sent */}
@@ -648,6 +651,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
 
         <p className="text-center text-sm text-gray-400 mt-2">Ruby can make mistakes. Double-check important info.</p>
         </div>
+      </div>
       </div>
     </div>
   );

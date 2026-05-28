@@ -439,14 +439,6 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
                   onSelect={() => setSelectedId(s.id)}
                 />
               ))}
-              {selected && selected.id !== "discover" && (
-                <button
-                  onClick={() => onNavigate(selected.navigateTo)}
-                  className="w-full mt-2 px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors shadow-sm"
-                >
-                  Open {selected.label} →
-                </button>
-              )}
             </aside>
 
             {/* Right: selected subject's skill tree (the journey) */}

@@ -432,7 +432,19 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       <main className="flex-1 overflow-hidden h-full">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
-        {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} onMathsContinue={continueMaths} onReadingContinue={continueReading} onAfrikaansPickSkill={startAfrikaansSkill} onSocialSciencesOpen={() => handleViewChange("social-sciences")} />}
+        {activeView === "progress" && <ProgressTracker
+          onMathsReplaySkill={startMathsReplay}
+          onReadingReplaySkill={startReadingReplay}
+          onMathsContinue={continueMaths}
+          onReadingContinue={continueReading}
+          onAfrikaansPickSkill={startAfrikaansSkill}
+          onSocialSciencesOpen={() => handleViewChange("social-sciences")}
+          onLifeSkillsPickTopic={() => handleViewChange("life-skills")}
+          onNstOpen={() => handleViewChange("natural-sciences-tech")}
+          onMatricPhysSciPickSkill={() => handleViewChange("matric-phys-sci")}
+          onMathsLiteracyContinue={continueMathsLiteracy}
+          onMathsLiteracyReplaySkill={startMathsLiteracyReplay}
+        />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} onContinue={continueMaths} onBack={() => handleViewChange("subjects")} />}

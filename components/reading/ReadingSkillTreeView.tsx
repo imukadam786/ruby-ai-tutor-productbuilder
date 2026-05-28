@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
 import { ReadingStudentProfile } from "@/types/reading";
 import { getReadingSkillStatus, getReadingLevelProgress, friendlyReadingSkillName } from "@/lib/reading-student-model";
@@ -69,6 +69,46 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
     return result;
   }, [profile]);
 
+  const { totalLevels, totalTiers, totalSkills, masteredLevels, masteredTiers, masteredSkills } = useMemo(() => {
+    let totalTiers = 0, totalSkills = 0, masteredTiers = 0, masteredSkills = 0, masteredLevels = 0;
+    const mastery = (profile?.skill_mastery ?? {}) as Record<string, { status?: string }>;
+    const isMastered = (id: string) => {
+      const s = mastery[id]?.status;
+      return s === "mastered" || s === "assumed";
+    };
+    for (const level of treeData.levels) {
+      totalTiers += level.tiers.length;
+      let levelSkillCount = 0;
+      let levelMasteredCount = 0;
+      for (const tier of level.tiers) {
+        totalSkills += tier.atomic_skills.length;
+        const tierMastered = tier.atomic_skills.filter((s) => isMastered(s.id)).length;
+        masteredSkills += tierMastered;
+        levelSkillCount += tier.atomic_skills.length;
+        levelMasteredCount += tierMastered;
+        if (tier.atomic_skills.length > 0 && tierMastered === tier.atomic_skills.length) masteredTiers++;
+      }
+      if (levelSkillCount > 0 && levelMasteredCount === levelSkillCount) masteredLevels++;
+    }
+    return {
+      totalLevels: treeData.levels.length,
+      totalTiers,
+      totalSkills,
+      masteredLevels,
+      masteredTiers,
+      masteredSkills,
+    };
+  }, [profile]);
+
+  const currentLevelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!profile) return;
+    const id = window.requestAnimationFrame(() => {
+      currentLevelRef.current?.scrollIntoView({ block: "start", behavior: "auto" });
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [profile?.current_level]);
+
   const autoCompletedIds = useMemo(
     () => new Set(profile?.placement?.autoCompletedSkillIds ?? []),
     [profile]
@@ -95,7 +135,9 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
       <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-purple-50 border-b border-purple-200 px-6 py-4">
         <h2 className="font-semibold text-purple-700 text-lg">{t("nav.reading_skill_tree")}</h2>
-        <p className="text-purple-400 text-sm">5 levels · 14 tiers · 34 atomic skills</p>
+        <p className="text-purple-400 text-sm">
+          {masteredLevels}/{totalLevels} Levels · {masteredTiers}/{totalTiers} Tiers · {masteredSkills}/{totalSkills} Atomic skills
+        </p>
       </div>
 
       <div className="flex-1 overflow-y-auto p-6">
@@ -112,7 +154,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
         {!profile ? (
           <div className="text-center py-12 text-gray-400">
             <p className="text-4xl mb-3">🌳</p>
-            <p className="font-medium text-gray-600">Start a reading session to unlock the skill tree</p>
+            <p className="font-medium text-gray-600">Start an English session to unlock the skill tree</p>
           </div>
         ) : (
           <div className="max-w-2xl mx-auto space-y-4">
@@ -162,7 +204,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
               const isExpanded = expandedLevels.has(level.id);
 
               return (
-                <div key={level.id}>
+                <div key={level.id} ref={isCurrent ? currentLevelRef : undefined}>
                 {/* Hard Gate barrier before Level 2 */}
                 {showHardGateBarrier && (
                   <div className="flex items-center gap-3 my-2 px-1">

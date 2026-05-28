@@ -100,12 +100,18 @@ export default function InstallPrompt({ onDismiss }: { onDismiss: () => void }) 
             <Step n={3} icon="💎" text={<>Tap <strong>Add</strong> and Ruby will appear on your home screen</>} />
           </div>
 
-          <div className="px-5 pb-5">
+          <div className="px-5 pb-5 space-y-2">
             <button
               onClick={onDismiss}
               className="w-full py-3.5 rounded-xl bg-[#B7182E] text-white font-bold text-base shadow-md"
             >
               Got it, I&apos;ll add it now
+            </button>
+            <button
+              onClick={dismiss}
+              className="w-full py-2.5 rounded-xl text-gray-500 hover:text-gray-700 font-medium text-sm"
+            >
+              Maybe later
             </button>
           </div>
         </div>
@@ -133,12 +139,18 @@ export default function InstallPrompt({ onDismiss }: { onDismiss: () => void }) 
           <Feature icon="📱" text="Full-screen, distraction-free learning" />
         </div>
 
-        <div className="px-5 pb-5">
+        <div className="px-5 pb-5 space-y-2">
           <button
             onClick={handleInstall}
             className="w-full py-3.5 rounded-xl bg-[#B7182E] text-white font-bold text-base shadow-md hover:bg-[#9e1427] transition-colors"
           >
             Install Ruby
+          </button>
+          <button
+            onClick={dismiss}
+            className="w-full py-2.5 rounded-xl text-gray-500 hover:text-gray-700 font-medium text-sm transition-colors"
+          >
+            Maybe later
           </button>
         </div>
       </div>
