@@ -161,7 +161,7 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
               onClick={handleMatricPrepClick}
               className="w-full h-full bg-gradient-to-br from-green-600 to-green-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
             >
-              <div className="flex items-start gap-3">
+              <div className="flex-1 flex items-start gap-3">
                 <span className="text-2xl">🎓</span>
                 <div className="min-w-0">
                   <p className="font-semibold text-white leading-tight">Matric Prep</p>
@@ -172,7 +172,7 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
                   </p>
                 </div>
               </div>
-              <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full self-end">
+              <span className="text-white font-semibold text-sm self-end mt-auto">
                 {hasMatricAccess ? "View →" : "Upgrade →"}
               </span>
             </button>
@@ -182,28 +182,28 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
                 onClick={() => setViewReport("maths")}
                 className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
               >
-                <div className="flex items-start gap-3">
+                <div className="flex-1 flex items-start gap-3">
                   <span className="text-2xl">🧮</span>
                   <div className="min-w-0">
                     <p className="font-semibold text-white leading-tight">Maths Discovery</p>
                     <p className="text-sm text-blue-100 mt-0.5 leading-snug">View your placement results</p>
                   </div>
                 </div>
-                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full self-end">View →</span>
+                <span className="text-white font-semibold text-sm self-end mt-auto">View →</span>
               </button>
             ) : (
               <button
                 onClick={() => onNavigate("discover-maths")}
                 className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
               >
-                <div className="flex items-start gap-3">
+                <div className="flex-1 flex items-start gap-3">
                   <span className="text-2xl">🧮</span>
                   <div className="min-w-0">
                     <p className="font-semibold text-white leading-tight">Start Maths Discovery</p>
                     <p className="text-sm text-blue-100 mt-0.5 leading-snug">Find your Maths level</p>
                   </div>
                 </div>
-                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full self-end">Start →</span>
+                <span className="text-white font-semibold text-sm self-end mt-auto">Start →</span>
               </button>
             )}
 
@@ -212,28 +212,28 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
                 onClick={() => setViewReport("reading")}
                 className="w-full h-full bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
               >
-                <div className="flex items-start gap-3">
+                <div className="flex-1 flex items-start gap-3">
                   <span className="text-2xl">📖</span>
                   <div className="min-w-0">
                     <p className="font-semibold text-white leading-tight">Reading Discovery</p>
                     <p className="text-sm text-purple-100 mt-0.5 leading-snug">View your placement results</p>
                   </div>
                 </div>
-                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full self-end">View →</span>
+                <span className="text-white font-semibold text-sm self-end mt-auto">View →</span>
               </button>
             ) : (
               <button
                 onClick={() => onNavigate("discover-reading")}
                 className="w-full h-full bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
               >
-                <div className="flex items-start gap-3">
+                <div className="flex-1 flex items-start gap-3">
                   <span className="text-2xl">📖</span>
                   <div className="min-w-0">
                     <p className="font-semibold text-white leading-tight">Start Reading Discovery</p>
                     <p className="text-sm text-purple-100 mt-0.5 leading-snug">Find your Reading level</p>
                   </div>
                 </div>
-                <span className="bg-white/20 text-white font-semibold text-xs px-3 py-1 rounded-full self-end">Start →</span>
+                <span className="text-white font-semibold text-sm self-end mt-auto">Start →</span>
               </button>
             )}
           </section>

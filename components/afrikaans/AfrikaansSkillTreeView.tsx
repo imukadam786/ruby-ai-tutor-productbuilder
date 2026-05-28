@@ -93,19 +93,6 @@ export default function AfrikaansSkillTreeView({
     });
   }, [level, profile]);
 
-  // Where to begin: the first in-progress skill, else the first ready one.
-  const startSkill = useMemo(() => {
-    for (const m of tierMeta) {
-      const ip = m.skills.find((s) => s.status === "in_progress");
-      if (ip) return ip;
-    }
-    for (const m of tierMeta) {
-      const av = m.skills.find((s) => s.status === "available");
-      if (av) return av;
-    }
-    return null;
-  }, [tierMeta]);
-
   const isOpen = (tierId: string, hasUnlocked: boolean) =>
     openOverride[tierId] ?? hasUnlocked;
   const toggle = (tierId: string, hasUnlocked: boolean) =>
@@ -175,26 +162,6 @@ export default function AfrikaansSkillTreeView({
               </div>
             </div>
           </div>
-
-          {/* Start here / Continue — jumps straight to the next skill so the
-              learner never has to scroll to find where to begin. */}
-          {startSkill && (
-            <button
-              onClick={() => onPickSkill(startSkill.skill.id)}
-              className="w-full mb-6 flex items-center gap-4 rounded-2xl border-2 border-emerald-300 bg-emerald-50 px-5 py-4 text-left hover:shadow-md active:scale-[0.99] transition-all"
-            >
-              <span className="text-3xl flex-shrink-0" aria-hidden>🚀</span>
-              <span className="flex-1 min-w-0">
-                <span className="block text-xs font-semibold uppercase tracking-wide text-emerald-700">
-                  {startSkill.status === "in_progress" ? "Continue where you left off" : "Start here"}
-                </span>
-                <span className="block text-base font-bold text-[#1a2744] leading-tight truncate">
-                  {startSkill.skill.title}
-                </span>
-              </span>
-              <span className="text-emerald-600 text-xl flex-shrink-0" aria-hidden>→</span>
-            </button>
-          )}
 
           {/* Strands — collapsible. Locked strands start collapsed. */}
           <div className="space-y-3">

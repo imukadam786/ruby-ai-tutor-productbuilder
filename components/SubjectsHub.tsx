@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
@@ -75,24 +75,24 @@ function SubjectRow({ subject, active, onSelect }: SubjectRowProps) {
     <button
       onClick={onSelect}
       aria-pressed={active}
-      className={`w-full text-left rounded-xl bg-white border transition-all flex items-center gap-3 px-3 py-2.5 hover:shadow-md hover:-translate-y-px ${
+      className={`w-full text-left rounded-xl bg-white border transition-all flex items-center gap-4 px-4 py-4 hover:shadow-md hover:-translate-y-px ${
         active ? "border-[#BE1832] ring-2 ring-[#BE1832]/15 shadow-md" : "border-gray-100"
       }`}
     >
       <div
-        className={`w-12 h-12 lg:w-14 lg:h-14 flex-shrink-0 rounded-lg bg-gradient-to-br ${subject.accentFrom} ${subject.accentTo} flex items-center justify-center overflow-hidden`}
+        className={`w-[72px] h-[72px] lg:w-[84px] lg:h-[84px] flex-shrink-0 rounded-lg bg-gradient-to-br ${subject.accentFrom} ${subject.accentTo} flex items-center justify-center overflow-hidden`}
       >
         {subject.thumbnail ? (
           <img src={subject.thumbnail} alt={subject.label} className="w-full h-full object-cover" />
         ) : (
-          <span className="text-2xl leading-none">{subject.placeholderEmoji}</span>
+          <span className="text-3xl leading-none">{subject.placeholderEmoji}</span>
         )}
       </div>
       <div className="min-w-0 flex-1">
-        <span className="block font-semibold text-gray-900 text-sm leading-tight">{subject.label}</span>
-        <span className="block text-[11px] text-gray-500 leading-snug line-clamp-2">{subject.caption}</span>
+        <span className="block font-semibold text-gray-900 text-base leading-tight">{subject.label}</span>
+        <span className="block text-xs text-gray-500 leading-snug line-clamp-2 mt-0.5">{subject.caption}</span>
         {subject.badge && (
-          <span className={`inline-block mt-1 text-[10px] font-semibold px-1.5 py-0.5 rounded-full whitespace-nowrap ${subject.badgeColor ?? "bg-gray-100 text-gray-600"}`}>
+          <span className={`inline-block mt-1.5 text-[11px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${subject.badgeColor ?? "bg-gray-100 text-gray-600"}`}>
             {subject.badge}
           </span>
         )}
@@ -346,47 +346,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     onNavigate("maths-literacy");
   };
 
-  // Each subject panel gets a ref so the left-column "table of contents"
-  // can scroll it into view, and so we can highlight the row whose panel is
-  // currently on screen.
-  const panelRefs = useRef<Record<SubjectId, HTMLDivElement | null>>({} as Record<SubjectId, HTMLDivElement | null>);
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const setPanelRef = (id: SubjectId) => (el: HTMLDivElement | null) => {
-    panelRefs.current[id] = el;
-  };
-
-  // Scroll-spy: as the user scrolls, the left row matching the in-view
-  // panel becomes the active highlight.
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    const handler = () => {
-      const top = container.scrollTop + 80;
-      let best: SubjectId | null = null;
-      let bestDelta = Number.POSITIVE_INFINITY;
-      for (const s of subjects) {
-        const el = panelRefs.current[s.id];
-        if (!el) continue;
-        const delta = Math.abs(el.offsetTop - top);
-        if (el.offsetTop <= top + container.clientHeight && delta < bestDelta) {
-          bestDelta = delta;
-          best = s.id;
-        }
-      }
-      if (best && best !== selectedId) setSelectedId(best);
-    };
-    container.addEventListener("scroll", handler, { passive: true });
-    return () => container.removeEventListener("scroll", handler);
-  }, [subjects, selectedId]);
-
-  const scrollToSubject = (id: SubjectId) => {
-    setSelectedId(id);
-    const el = panelRefs.current[id];
-    const container = scrollContainerRef.current;
-    if (el && container) {
-      container.scrollTo({ top: el.offsetTop - 16, behavior: "smooth" });
-    }
-  };
+  const selectedSubject = subjects.find((s) => s.id === selectedId) ?? subjects[0];
 
   function renderSubjectPanel(subject: SubjectMeta) {
     switch (subject.id) {
@@ -462,7 +422,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
 
-      <div ref={scrollContainerRef} className="relative flex-1 overflow-y-auto">
+      <div className="relative flex-1 overflow-y-auto">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
 
           <div className="mb-4">
@@ -470,55 +430,50 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             <p className="text-gray-500 text-sm mt-0.5">{t("subjects.subtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-4 items-start">
-            {/* Left: table of contents — sticky so it stays visible while scrolling */}
+          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-4 items-start">
+            {/* Left: subject picker — sticky so it stays visible while the
+                right panel scrolls internally. */}
             <aside className="space-y-2 lg:sticky lg:top-4 self-start">
               {subjects.map((s) => (
                 <SubjectRow
                   key={s.id}
                   subject={s}
                   active={s.id === selectedId}
-                  onSelect={() => scrollToSubject(s.id)}
+                  onSelect={() => setSelectedId(s.id)}
                 />
               ))}
             </aside>
 
-            {/* Right: every subject's panel stacked. Each shows only the
-                current section by default; "View full tree" inside the
-                panel expands it. */}
-            <div className="space-y-5">
-              {subjects.map((s) => (
-                <section
-                  key={s.id}
-                  ref={setPanelRef(s.id)}
-                  className={`bg-white border rounded-2xl shadow-sm overflow-hidden transition-all ${
-                    s.id === selectedId ? "border-[#BE1832]/40" : "border-gray-100"
-                  }`}
-                >
-                  <header className="flex items-center gap-3 px-5 py-4 border-b border-gray-100">
-                    <div className={`w-10 h-10 flex-shrink-0 rounded-lg bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center overflow-hidden`}>
-                      {s.thumbnail ? (
-                        <img src={s.thumbnail} alt={s.label} className="w-full h-full object-cover" />
-                      ) : (
-                        <span className="text-xl leading-none">{s.placeholderEmoji}</span>
-                      )}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h2 className="font-bold text-gray-900 text-base leading-tight">{s.label}</h2>
-                      <p className="text-xs text-gray-500 leading-snug">{s.caption}</p>
-                    </div>
-                    {s.badge && (
-                      <span className={`text-[10px] font-semibold px-2 py-1 rounded-full whitespace-nowrap ${s.badgeColor ?? "bg-gray-100 text-gray-600"}`}>
-                        {s.badge}
-                      </span>
+            {/* Right: just the selected subject's panel. Swaps instantly
+                when the learner picks a different subject on the left. */}
+            {selectedSubject && (
+              <section
+                key={selectedSubject.id}
+                className="bg-white border rounded-2xl shadow-sm overflow-hidden border-[#BE1832]/40"
+              >
+                <header className="flex items-center gap-3 px-5 py-4 border-b border-gray-100">
+                  <div className={`w-10 h-10 flex-shrink-0 rounded-lg bg-gradient-to-br ${selectedSubject.accentFrom} ${selectedSubject.accentTo} flex items-center justify-center overflow-hidden`}>
+                    {selectedSubject.thumbnail ? (
+                      <img src={selectedSubject.thumbnail} alt={selectedSubject.label} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="text-xl leading-none">{selectedSubject.placeholderEmoji}</span>
                     )}
-                  </header>
-                  <div className="h-[640px]">
-                    {renderSubjectPanel(s)}
                   </div>
-                </section>
-              ))}
-            </div>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="font-bold text-gray-900 text-base leading-tight">{selectedSubject.label}</h2>
+                    <p className="text-xs text-gray-500 leading-snug">{selectedSubject.caption}</p>
+                  </div>
+                  {selectedSubject.badge && (
+                    <span className={`text-[10px] font-semibold px-2 py-1 rounded-full whitespace-nowrap ${selectedSubject.badgeColor ?? "bg-gray-100 text-gray-600"}`}>
+                      {selectedSubject.badge}
+                    </span>
+                  )}
+                </header>
+                <div className="h-[640px]">
+                  {renderSubjectPanel(selectedSubject)}
+                </div>
+              </section>
+            )}
           </div>
 
         </div>
