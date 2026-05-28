@@ -14,6 +14,9 @@ interface Props {
   onReplaySkill?: (skillId: string) => void;
   onContinue?: () => void;
   onBack?: () => void;
+  /** When true, only the level containing the current skill renders by
+   *  default. A toggle reveals the full tree. */
+  compact?: boolean;
 }
 
 const STATUS_STYLE: Record<
@@ -31,8 +34,20 @@ export default function MathsLiteracySkillTreeView({
   onReplaySkill,
   onContinue,
   onBack,
+  compact,
 }: Props) {
-  const levels = useMemo(() => getMathsLiteracyLevels(), []);
+  const allLevels = useMemo(() => getMathsLiteracyLevels(), []);
+  const [showAllLevels, setShowAllLevels] = useState<boolean>(!compact);
+  useEffect(() => { setShowAllLevels(!compact); }, [compact]);
+  const currentLevelId = useMemo(() => {
+    const current = profileProp?.current_skill_id ?? "L1.T1.A1";
+    const m = current.match(/^L(\d+)/);
+    return m ? parseInt(m[1], 10) : 1;
+  }, [profileProp?.current_skill_id]);
+  const levels = useMemo(
+    () => (showAllLevels ? allLevels : allLevels.filter((l) => l.id === currentLevelId)),
+    [allLevels, showAllLevels, currentLevelId],
+  );
   const [loadedProfile, setLoadedProfile] = useState<MathsLiteracyStudentProfile | null>(
     profileProp ?? null
   );
@@ -171,6 +186,16 @@ export default function MathsLiteracySkillTreeView({
               </section>
             );
           })}
+
+          {compact && (
+            <button
+              type="button"
+              onClick={() => setShowAllLevels((v) => !v)}
+              className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+            >
+              {showAllLevels ? "Show only current level ▲" : "View full tree ▼"}
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
@@ -316,8 +316,6 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     }
   }, [subjects, selectedId]);
 
-  const selected = subjects.find((s) => s.id === selectedId);
-
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
   const startMathsReplay = (skillId: string) => {
     if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_replay_skill", skillId);
@@ -348,14 +346,55 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     onNavigate("maths-literacy");
   };
 
-  function renderRightPane() {
-    if (!selected) return null;
-    switch (selected.id) {
+  // Each subject panel gets a ref so the left-column "table of contents"
+  // can scroll it into view, and so we can highlight the row whose panel is
+  // currently on screen.
+  const panelRefs = useRef<Record<SubjectId, HTMLDivElement | null>>({} as Record<SubjectId, HTMLDivElement | null>);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const setPanelRef = (id: SubjectId) => (el: HTMLDivElement | null) => {
+    panelRefs.current[id] = el;
+  };
+
+  // Scroll-spy: as the user scrolls, the left row matching the in-view
+  // panel becomes the active highlight.
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const handler = () => {
+      const top = container.scrollTop + 80;
+      let best: SubjectId | null = null;
+      let bestDelta = Number.POSITIVE_INFINITY;
+      for (const s of subjects) {
+        const el = panelRefs.current[s.id];
+        if (!el) continue;
+        const delta = Math.abs(el.offsetTop - top);
+        if (el.offsetTop <= top + container.clientHeight && delta < bestDelta) {
+          bestDelta = delta;
+          best = s.id;
+        }
+      }
+      if (best && best !== selectedId) setSelectedId(best);
+    };
+    container.addEventListener("scroll", handler, { passive: true });
+    return () => container.removeEventListener("scroll", handler);
+  }, [subjects, selectedId]);
+
+  const scrollToSubject = (id: SubjectId) => {
+    setSelectedId(id);
+    const el = panelRefs.current[id];
+    const container = scrollContainerRef.current;
+    if (el && container) {
+      container.scrollTo({ top: el.offsetTop - 16, behavior: "smooth" });
+    }
+  };
+
+  function renderSubjectPanel(subject: SubjectMeta) {
+    switch (subject.id) {
       case "discover":
         return (
           <div className="p-6 sm:p-8 flex flex-col items-center text-center gap-4">
             <div className="text-5xl">🧭</div>
-            <h3 className="text-lg font-bold text-gray-900">{selected.label}</h3>
+            <h3 className="text-lg font-bold text-gray-900">{subject.label}</h3>
             <p className="text-sm text-gray-600 max-w-md leading-relaxed">
               Discovery places you on the right starting rung of the Maths and Reading skill trees.
               {mathsDone && readingDone
@@ -378,6 +417,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             profile={mathsProfile}
             onReplaySkill={startMathsReplay}
             onContinue={continueMaths}
+            compact
           />
         );
       case "english":
@@ -386,10 +426,11 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             profile={readingProfile}
             onReplaySkill={startReadingReplay}
             onContinue={continueReading}
+            compact
           />
         );
       case "life-skills":
-        return <LifeSkillsSkillTreeView onPickTopic={() => onNavigate("life-skills")} />;
+        return <LifeSkillsSkillTreeView onPickTopic={() => onNavigate("life-skills")} compact />;
       case "afrikaans":
         return (
           <AfrikaansSkillTreeView
@@ -402,13 +443,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       case "nst":
         return <NstSkillTreeView onPickTopic={() => onNavigate("natural-sciences-tech")} />;
       case "matric-phys-sci":
-        return <MatricPhysSciSkillTreeView onPickSkill={() => onNavigate("matric-phys-sci")} />;
+        return <MatricPhysSciSkillTreeView onPickSkill={() => onNavigate("matric-phys-sci")} compact />;
       case "maths-literacy":
         return (
           <MathsLiteracySkillTreeView
             profile={mathsLiteracyProfile}
             onReplaySkill={startMathsLiteracyReplay}
             onContinue={continueMathsLiteracy}
+            compact
           />
         );
       default:
@@ -420,7 +462,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
 
-      <div className="relative flex-1 overflow-y-auto">
+      <div ref={scrollContainerRef} className="relative flex-1 overflow-y-auto">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
 
           <div className="mb-4">
@@ -428,23 +470,55 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             <p className="text-gray-500 text-sm mt-0.5">{t("subjects.subtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-4">
-            {/* Left: stacked subjects */}
-            <aside className="space-y-2">
+          <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-4 items-start">
+            {/* Left: table of contents — sticky so it stays visible while scrolling */}
+            <aside className="space-y-2 lg:sticky lg:top-4 self-start">
               {subjects.map((s) => (
                 <SubjectRow
                   key={s.id}
                   subject={s}
                   active={s.id === selectedId}
-                  onSelect={() => setSelectedId(s.id)}
+                  onSelect={() => scrollToSubject(s.id)}
                 />
               ))}
             </aside>
 
-            {/* Right: selected subject's skill tree (the journey) */}
-            <section className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden min-h-[60vh] lg:min-h-[70vh]">
-              {renderRightPane()}
-            </section>
+            {/* Right: every subject's panel stacked. Each shows only the
+                current section by default; "View full tree" inside the
+                panel expands it. */}
+            <div className="space-y-5">
+              {subjects.map((s) => (
+                <section
+                  key={s.id}
+                  ref={setPanelRef(s.id)}
+                  className={`bg-white border rounded-2xl shadow-sm overflow-hidden transition-all ${
+                    s.id === selectedId ? "border-[#BE1832]/40" : "border-gray-100"
+                  }`}
+                >
+                  <header className="flex items-center gap-3 px-5 py-4 border-b border-gray-100">
+                    <div className={`w-10 h-10 flex-shrink-0 rounded-lg bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center overflow-hidden`}>
+                      {s.thumbnail ? (
+                        <img src={s.thumbnail} alt={s.label} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-xl leading-none">{s.placeholderEmoji}</span>
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h2 className="font-bold text-gray-900 text-base leading-tight">{s.label}</h2>
+                      <p className="text-xs text-gray-500 leading-snug">{s.caption}</p>
+                    </div>
+                    {s.badge && (
+                      <span className={`text-[10px] font-semibold px-2 py-1 rounded-full whitespace-nowrap ${s.badgeColor ?? "bg-gray-100 text-gray-600"}`}>
+                        {s.badge}
+                      </span>
+                    )}
+                  </header>
+                  <div className="h-[640px]">
+                    {renderSubjectPanel(s)}
+                  </div>
+                </section>
+              ))}
+            </div>
           </div>
 
         </div>

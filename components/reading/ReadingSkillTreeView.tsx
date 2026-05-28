@@ -18,6 +18,9 @@ interface ReadingSkillTreeViewProps {
   onContinue?: () => void;
   /** Optional back action — shows a "← Subjects" button when provided. */
   onBack?: () => void;
+  /** When true, renders only the learner's current level by default and
+   *  exposes a "View full tree" toggle. */
+  compact?: boolean;
 }
 
 const statusConfig = {
@@ -46,12 +49,19 @@ type TreeData = {
 
 const treeData = readingSkillTreeData as unknown as TreeData;
 
-export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinue, onBack }: ReadingSkillTreeViewProps) {
+export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinue, onBack, compact }: ReadingSkillTreeViewProps) {
   const { t } = useT();
   // Per-level expand/collapse. Default: only the learner's current level is
   // expanded — others are collapsed so the page stays scannable.
   const [expandedLevels, setExpandedLevels] = useState<Set<number>>(
     () => new Set(profile ? [profile.current_level] : [1]),
+  );
+  const [showAllLevels, setShowAllLevels] = useState<boolean>(!compact);
+  useEffect(() => { setShowAllLevels(!compact); }, [compact]);
+  const currentLevelId = profile?.current_level ?? 1;
+  const visibleLevels = useMemo(
+    () => (showAllLevels ? treeData.levels : treeData.levels.filter((l) => l.id === currentLevelId)),
+    [showAllLevels, currentLevelId],
   );
   const toggleLevel = (id: number) =>
     setExpandedLevels((prev) => {
@@ -195,7 +205,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
               </div>
             )}
 
-            {treeData.levels.map((level) => {
+            {visibleLevels.map((level) => {
               const progress = levelProgress[level.id] || 0;
               const isCurrent = level.id === profile.current_level;
               // Hard gate barrier appears before Level 2 when gate is not cleared
@@ -372,6 +382,16 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
                 </div>
               );
             })}
+
+            {compact && (
+              <button
+                type="button"
+                onClick={() => setShowAllLevels((v) => !v)}
+                className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+              >
+                {showAllLevels ? "Show only current level ▲" : "View full tree ▼"}
+              </button>
+            )}
           </div>
         )}
       </div>

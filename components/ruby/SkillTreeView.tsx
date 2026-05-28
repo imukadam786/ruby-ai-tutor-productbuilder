@@ -19,6 +19,10 @@ interface SkillTreeViewProps {
   onContinue?: () => void;
   /** Optional back action — shows a "← Subjects" button when provided. */
   onBack?: () => void;
+  /** When true, renders only the learner's current level by default and
+   *  exposes a "View full tree" toggle. Used by the Subjects and Progress
+   *  pages so the learner doesn't scroll past every completed level. */
+  compact?: boolean;
 }
 
 const statusConfig = {
@@ -32,13 +36,22 @@ const statusConfig = {
   entry_point:   { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-300",  icon: "🎯", label: "Entry Point" },
 };
 
-export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBack }: SkillTreeViewProps) {
+export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBack, compact }: SkillTreeViewProps) {
   const { t } = useT();
   // Per-level expand/collapse. Default: only the learner's current level is
   // expanded; others stay collapsed so the tree is scannable rather than
   // an endless scroll.
   const [expandedLevels, setExpandedLevels] = useState<Set<number>>(
     () => new Set(profile ? [profile.current_level] : [1]),
+  );
+  // Compact mode: render only the current level by default. Toggling reveals
+  // the full tree (with the current level still auto-expanded above).
+  const [showAllLevels, setShowAllLevels] = useState<boolean>(!compact);
+  useEffect(() => { setShowAllLevels(!compact); }, [compact]);
+  const currentLevelId = profile?.current_level ?? 1;
+  const visibleLevels = useMemo(
+    () => (showAllLevels ? skillTreeData.levels : skillTreeData.levels.filter((l) => l.id === currentLevelId)),
+    [showAllLevels, currentLevelId],
   );
   const toggleLevel = (id: number) =>
     setExpandedLevels((prev) => {
@@ -184,7 +197,7 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
               </div>
             )}
 
-            {skillTreeData.levels.map((level) => {
+            {visibleLevels.map((level) => {
               const progress = levelProgress[level.id] || 0;
               const isCurrent = level.id === profile.current_level;
               const isHardGateLevel = level.id === 5;
@@ -358,6 +371,16 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
                 </div>
               );
             })}
+
+            {compact && (
+              <button
+                type="button"
+                onClick={() => setShowAllLevels((v) => !v)}
+                className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+              >
+                {showAllLevels ? "Show only current level ▲" : "View full tree ▼"}
+              </button>
+            )}
           </div>
         )}
       </div>

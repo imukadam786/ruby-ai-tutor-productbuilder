@@ -256,6 +256,11 @@ export default function ProgressTracker({
   const [lifeSkillsExpanded, setLifeSkillsExpanded] = useState<Set<number>>(new Set());
   const [afrikaansExpanded, setAfrikaansExpanded] = useState<Set<number>>(new Set());
   const [socialSciencesExpanded, setSocialSciencesExpanded] = useState<Set<number>>(new Set());
+  // Compact-by-default: hide non-current grades behind a "View other grades"
+  // toggle so learners see only their current section.
+  const [showAllLifeSkills, setShowAllLifeSkills] = useState(false);
+  const [showAllAfrikaans, setShowAllAfrikaans] = useState(false);
+  const [showAllSocialSciences, setShowAllSocialSciences] = useState(false);
   const toggleSet = <T,>(setter: (fn: (prev: Set<T>) => Set<T>) => void) => (id: T) =>
     setter((prev) => {
       const next = new Set(prev);
@@ -438,15 +443,18 @@ export default function ProgressTracker({
 
             {/* Selected subject's tree */}
             <div className="mt-3 bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
-              {activeTab === "maths" && <SkillTreeView profile={profile} onReplaySkill={onMathsReplaySkill} onContinue={onMathsContinue} />}
-              {activeTab === "reading" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={onReadingReplaySkill} onContinue={onReadingContinue} />}
+              {activeTab === "maths" && <SkillTreeView profile={profile} onReplaySkill={onMathsReplaySkill} onContinue={onMathsContinue} compact />}
+              {activeTab === "reading" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={onReadingReplaySkill} onContinue={onReadingContinue} compact />}
 
               {activeTab === "lifeskills" && (
                 <div className="p-5 space-y-3">
                   {lifeSkillsTree.levels.length > 0 ? (
                     // Show every grade's topics, each grade as its own
                     // collapsible level header.
-                    lifeSkillsTree.levels.map((level) => {
+                    (showAllLifeSkills
+                      ? lifeSkillsTree.levels
+                      : lifeSkillsTree.levels.filter((l) => l.id === (grade ?? 1))
+                    ).map((level) => {
                       const isExpanded = lifeSkillsExpanded.has(level.id);
                       const skills = level.tiers[0]?.atomic_skills ?? [];
                       const isCurrentGrade = grade === level.id;
@@ -511,6 +519,15 @@ export default function ProgressTracker({
                   ) : (
                     <p className="text-sm text-gray-500">No Life Skills content yet.</p>
                   )}
+                  {lifeSkillsTree.levels.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => setShowAllLifeSkills((v) => !v)}
+                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+                    >
+                      {showAllLifeSkills ? "Show only current grade ▲" : "View other grades ▼"}
+                    </button>
+                  )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
                     <span className="inline-block mr-3">🏆 Mastered</span>
                     <span className="inline-block mr-3">⚡ In progress</span>
@@ -524,7 +541,10 @@ export default function ProgressTracker({
                   {afrikaansTree.levels.length > 0 ? (
                     // Show ALL grades' skills, each grade as its own collapsible
                     // level — was previously filtered to the learner's grade.
-                    afrikaansTree.levels.map((level) => {
+                    (showAllAfrikaans
+                      ? afrikaansTree.levels
+                      : afrikaansTree.levels.filter((l) => l.id === (grade ?? 1))
+                    ).map((level) => {
                       const isExpanded = afrikaansExpanded.has(level.id);
                       const skillCount = level.tiers.reduce((n, t) => n + t.atomic_skills.length, 0);
                       const isCurrentGrade = grade === level.id;
@@ -604,6 +624,15 @@ export default function ProgressTracker({
                   ) : (
                     <p className="text-sm text-gray-500">More Afrikaans grades coming soon.</p>
                   )}
+                  {afrikaansTree.levels.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => setShowAllAfrikaans((v) => !v)}
+                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+                    >
+                      {showAllAfrikaans ? "Show only current grade ▲" : "View other grades ▼"}
+                    </button>
+                  )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
                     <span className="inline-block mr-3">🏆 Mastered</span>
                     <span className="inline-block mr-3">⚡ In progress</span>
@@ -616,7 +645,10 @@ export default function ProgressTracker({
               {activeTab === "socialsciences" && (
                 <div className="p-5 space-y-3">
                   {socialSciencesTree.levels.length > 0 ? (
-                    socialSciencesTree.levels.map((level) => {
+                    (showAllSocialSciences
+                      ? socialSciencesTree.levels
+                      : socialSciencesTree.levels.filter((l) => l.id === (grade ?? 4))
+                    ).map((level) => {
                       const isExpanded = socialSciencesExpanded.has(level.id);
                       const skillCount = level.tiers.reduce((n, t) => n + t.atomic_skills.length, 0);
                       const isCurrentGrade = grade === level.id;
@@ -689,6 +721,15 @@ export default function ProgressTracker({
                   ) : (
                     <p className="text-sm text-gray-500">No Social Sciences content yet.</p>
                   )}
+                  {socialSciencesTree.levels.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => setShowAllSocialSciences((v) => !v)}
+                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+                    >
+                      {showAllSocialSciences ? "Show only current grade ▲" : "View other grades ▼"}
+                    </button>
+                  )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
                     <span className="inline-block mr-3">🏆 Mastered</span>
                     <span className="inline-block mr-3">⚡ In progress</span>
@@ -702,7 +743,7 @@ export default function ProgressTracker({
               )}
 
               {activeTab === "matricphyssci" && (
-                <MatricPhysSciSkillTreeView onPickSkill={(skillId) => onMatricPhysSciPickSkill?.(skillId)} />
+                <MatricPhysSciSkillTreeView onPickSkill={(skillId) => onMatricPhysSciPickSkill?.(skillId)} compact />
               )}
 
               {activeTab === "mathsliteracy" && (
@@ -710,6 +751,7 @@ export default function ProgressTracker({
                   profile={mathsLiteracyProfile}
                   onReplaySkill={onMathsLiteracyReplaySkill}
                   onContinue={onMathsLiteracyContinue}
+                  compact
                 />
               )}
             </div>

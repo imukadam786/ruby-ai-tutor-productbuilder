@@ -24,13 +24,19 @@ interface LifeSkillsSkillTreeViewProps {
   onPickTopic: (skillId: string) => void;
   masteryStatus?: Record<string, "mastered" | "in_progress" | "available">;
   onBack?: () => void;
+  /** When true, renders only the learner's current grade-level by default
+   *  and exposes a "View full tree" toggle. */
+  compact?: boolean;
 }
 
 export default function LifeSkillsSkillTreeView({
   onPickTopic,
   masteryStatus,
   onBack,
+  compact,
 }: LifeSkillsSkillTreeViewProps) {
+  const [showAllLevels, setShowAllLevels] = useState<boolean>(!compact);
+  useEffect(() => { setShowAllLevels(!compact); }, [compact]);
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -147,7 +153,7 @@ export default function LifeSkillsSkillTreeView({
             </div>
           )}
 
-          {tree.levels.map((level) => {
+          {(showAllLevels ? tree.levels : tree.levels.filter((l) => l.id === currentLevelId)).map((level) => {
             const progress = levelProgress[level.id] || 0;
             const isCurrent = level.id === currentLevelId;
             const isExpanded = expandedLevels.has(level.id);
@@ -245,6 +251,16 @@ export default function LifeSkillsSkillTreeView({
               </div>
             );
           })}
+
+          {compact && (
+            <button
+              type="button"
+              onClick={() => setShowAllLevels((v) => !v)}
+              className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+            >
+              {showAllLevels ? "Show only current level ▲" : "View full tree ▼"}
+            </button>
+          )}
         </div>
       </div>
     </div>

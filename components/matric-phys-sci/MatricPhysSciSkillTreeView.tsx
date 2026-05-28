@@ -19,13 +19,19 @@ interface Props {
   onPickSkill: (skillId: string) => void;
   masteryStatus?: Record<string, "mastered" | "in_progress" | "available">;
   onBack?: () => void;
+  /** When true, only the first level (or the level with the most progress)
+   *  renders by default. A toggle reveals the full tree. */
+  compact?: boolean;
 }
 
 export default function MatricPhysSciSkillTreeView({
   onPickSkill,
   masteryStatus,
   onBack,
+  compact,
 }: Props) {
+  const [showAllLevels, setShowAllLevels] = useState<boolean>(!compact);
+  useEffect(() => { setShowAllLevels(!compact); }, [compact]);
   const [localMastery, setLocalMastery] = useState<Record<string, "mastered" | "in_progress" | "available">>({});
   useEffect(() => {
     if (!masteryStatus) setLocalMastery(getMatricPhysSciMasteryMap());
@@ -96,7 +102,17 @@ export default function MatricPhysSciSkillTreeView({
         )}
 
         <div className="max-w-2xl mx-auto space-y-4">
-          {tree.levels.map((level) => {
+          {(showAllLevels
+            ? tree.levels
+            : (() => {
+                const inProg = tree.levels.find((l) =>
+                  l.tiers.some((t) => t.atomic_skills.some((s) => mastery[s.id] === "in_progress"))
+                );
+                if (inProg) return [inProg];
+                const partial = tree.levels.find((l) => (levelProgress[l.id] || 0) > 0 && (levelProgress[l.id] || 0) < 100);
+                return [partial ?? tree.levels[0]];
+              })()
+          ).map((level) => {
             const progress = levelProgress[level.id] || 0;
             const isExpanded = expandedLevels.has(level.id);
             return (
@@ -183,6 +199,16 @@ export default function MatricPhysSciSkillTreeView({
               </div>
             );
           })}
+
+          {compact && (
+            <button
+              type="button"
+              onClick={() => setShowAllLevels((v) => !v)}
+              className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+            >
+              {showAllLevels ? "Show only current level ▲" : "View full tree ▼"}
+            </button>
+          )}
         </div>
       </div>
     </div>
