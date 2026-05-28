@@ -1,0 +1,947 @@
+{
+  "version": "1.0",
+  "subject": "matric-physical-sciences",
+  "description": "Matric Physical Sciences skill tree (Grade 12 NSC, CAPS). 16 levels (one per CAPS topic) split across Physics (P1) and Chemistry (P2). 55 atomic skills. Items live in data/matric-physical-sciences-question-banks/<skill-id>.json.",
+  "grades_covered": [12],
+  "levels": [
+    {
+      "id": 1,
+      "title": "Newton's Laws and Application of Newton's Laws",
+      "paper": "P1",
+      "description": "Three Laws of Motion, free-body diagrams, single-body and connected-body problems, inclined planes, friction.",
+      "tiers": [
+        {
+          "id": "L1.T1",
+          "title": "Newton's Laws — concepts and applications",
+          "atomic_skills": [
+            {
+              "id": "L1.T1.A1",
+              "title": "State and explain Newton's three laws of motion",
+              "description": "Recall Newton's First, Second and Third Laws in CAPS-correct wording; identify which law applies to a described scenario.",
+              "prerequisites": [],
+              "templates": ["definition", "scenario", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses Newton's Third Law forces with balanced forces on the same body", "example": "Says the table's normal force on a book and the book's weight are a Newton's Third Law pair"},
+                {"type": "recall_slip", "description": "Omits 'unless acted on by a net force' from First Law statement", "example": "States First Law as 'an object stays at rest or moves at constant velocity'"}
+              ],
+              "recovery_strategy": "Anchor each law to a one-line picture: 1st = no net force ⇒ constant velocity; 2nd = Fnet = ma; 3rd = action-reaction pairs act on DIFFERENT objects. Force pairs on the same body are never Third Law pairs.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T1.A2",
+              "title": "Draw a free-body diagram for a single object",
+              "description": "Identify all forces acting on a chosen body and draw them as labelled vectors from a single point: weight, normal, applied, friction, tension, electric.",
+              "prerequisites": ["L1.T1.A1"],
+              "templates": ["diagram", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Includes forces the body exerts on something else", "example": "Adds 'force of block on table' on the block's FBD"},
+                {"type": "execution_slip", "description": "Forgets the weight when surface is non-horizontal", "example": "On inclined plane, omits the mg vector"}
+              ],
+              "recovery_strategy": "List forces touching or pulling the body (contact, gravity, applied, friction, tension, electric). Each force is FROM something else ON this body. Draw all from a single dot.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T1.A3",
+              "title": "Apply Newton's Second Law to a single body on horizontal or vertical surfaces",
+              "description": "Calculate acceleration, applied force, friction or normal force using Fnet = ma for one object on a horizontal or vertical surface.",
+              "prerequisites": ["L1.T1.A2"],
+              "templates": ["calculation", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Uses weight instead of net force", "example": "Sets mg = ma, gets a = g for a block being pushed across a floor"},
+                {"type": "sign_error", "description": "Treats friction as acting in the direction of motion", "example": "Adds friction to applied force instead of subtracting"}
+              ],
+              "recovery_strategy": "Sum forces along the direction of motion with consistent signs. Friction always opposes relative motion (or attempted motion). Plug into Fnet = ma.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T1.A4",
+              "title": "Apply Newton's Second Law to connected bodies (strings, pulleys)",
+              "description": "Two or more objects linked by an inextensible string or rope. Find shared acceleration and the tension in the string.",
+              "prerequisites": ["L1.T1.A3"],
+              "templates": ["calculation", "diagram", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats tension as different on the two ends of a single inextensible string", "example": "Calls the tension on the 2 kg block T₁ and on the 8 kg block T₂"},
+                {"type": "strategy_gap", "description": "Tries to solve one body in isolation without first finding the system acceleration", "example": "Writes Fnet = m₁a for the 2 kg block using only its own forces"}
+              ],
+              "recovery_strategy": "Treat the system as one mass to get acceleration, then isolate one body to get tension. Same string ⇒ same tension throughout.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T1.A5",
+              "title": "Apply Newton's Second Law on an inclined plane with friction",
+              "description": "Resolve weight into components parallel and perpendicular to the incline; find acceleration, applied force, or coefficient of friction.",
+              "prerequisites": ["L1.T1.A3"],
+              "templates": ["calculation", "diagram", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Uses mg as the parallel component instead of mg sinθ", "example": "Sets the down-slope force to mg directly"},
+                {"type": "execution_slip", "description": "Swaps sin and cos for the components", "example": "Writes parallel = mg cosθ and perpendicular = mg sinθ"}
+              ],
+              "recovery_strategy": "Tilt your axes with the incline: x = parallel to slope, y = perpendicular. Then weight component along slope = mg sinθ, perpendicular = mg cosθ. Normal force balances perpendicular weight only if no other perpendicular force.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Vertical Projectile Motion",
+      "paper": "P1",
+      "description": "Motion of objects projected vertically under gravity only. Kinematics, v-t and position-t graphs, multi-stage motion (including bounces).",
+      "tiers": [
+        {
+          "id": "L2.T1",
+          "title": "Vertical projectile motion",
+          "atomic_skills": [
+            {
+              "id": "L2.T1.A1",
+              "title": "Read and interpret v-t and position-t graphs for vertical projectile motion",
+              "description": "Read off displacement, velocity, time of flight, and direction of motion from a v-t or position-t graph for an object in free fall or projected vertically.",
+              "prerequisites": [],
+              "templates": ["graph", "interpretation"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reads area under v-t as velocity instead of displacement", "example": "Calculates the area under v-t to find the final velocity"},
+                {"type": "sign_error", "description": "Ignores the sign convention when reading velocity below the time axis", "example": "Reports a -5 m/s reading as 5 m/s upward"}
+              ],
+              "recovery_strategy": "Fix the positive direction first (usually upward). Area under v-t = displacement; gradient of v-t = acceleration. Negative v means downward motion.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L2.T1.A2",
+              "title": "Solve vertical projectile problems with kinematic equations",
+              "description": "Use the equations of motion (v = u + at, s = ut + ½at², v² = u² + 2as) with a = -g to find time, displacement, velocity for projectile problems.",
+              "prerequisites": ["L2.T1.A1"],
+              "templates": ["calculation", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "sign_error", "description": "Uses g = +9.8 with upward-positive sign convention", "example": "Substitutes a = +9.8 m/s² when upward is positive"},
+                {"type": "strategy_gap", "description": "Picks the wrong equation for the unknown", "example": "Uses s = ut + ½at² when only u, v and s are known"}
+              ],
+              "recovery_strategy": "Pick a positive direction and stick to it. With upward positive, a = -9.8 m/s². List u, v, s, a, t; pick the equation that uses three knowns and your one unknown.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L2.T1.A3",
+              "title": "Solve multi-stage vertical motion problems (e.g. bouncing ball)",
+              "description": "Track velocity, displacement and time across multiple stages of motion such as a ball thrown up, falling, bouncing, and rising again.",
+              "prerequisites": ["L2.T1.A2"],
+              "templates": ["calculation", "graph", "scenario"],
+              "error_signatures": [
+                {"type": "strategy_gap", "description": "Treats the whole trajectory as one stage", "example": "Applies a single kinematic equation across the bounce instant"},
+                {"type": "sign_error", "description": "Flips reference direction mid-problem", "example": "Switches positive direction after the bounce"}
+              ],
+              "recovery_strategy": "Break motion into stages with a clear start and end for each. Velocity reverses at the bounce; check that final velocity of one stage = initial of the next.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Work, Energy and Power",
+      "paper": "P1",
+      "description": "Work done by a force, work-energy theorem, conservation of mechanical energy, power calculations.",
+      "tiers": [
+        {
+          "id": "L3.T1",
+          "title": "Work, energy and power",
+          "atomic_skills": [
+            {
+              "id": "L3.T1.A1",
+              "title": "Define work, conservative force, mechanical energy and power",
+              "description": "State CAPS-correct definitions for work, conservative force, non-conservative force, mechanical energy, and power.",
+              "prerequisites": [],
+              "templates": ["definition", "concept"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Defines work as force × distance instead of including the cosine of the angle", "example": "Says W = Fd, omits the cosθ"},
+                {"type": "conceptual_gap", "description": "Confuses conservative and non-conservative forces", "example": "Lists friction as a conservative force"}
+              ],
+              "recovery_strategy": "Work = F·d·cosθ where θ is the angle between force and displacement. Conservative ⇒ work done is path-independent (gravity, spring); non-conservative ⇒ path-dependent (friction).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L3.T1.A2",
+              "title": "Apply the work-energy theorem",
+              "description": "Use Wnet = ΔKE to find work done, kinetic energy change, final speed, or net force across a displacement.",
+              "prerequisites": ["L1.T1.A3", "L3.T1.A1"],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "strategy_gap", "description": "Sums all individual work contributions wrong (sign convention)", "example": "Adds friction's work as positive"},
+                {"type": "execution_slip", "description": "Uses ½mv instead of ½mv² for kinetic energy", "example": "Writes KE = ½mv"}
+              ],
+              "recovery_strategy": "Net work = sum of (each force's work, with sign). Work by friction is always negative on the moving body. Set Wnet = ½m(v² − u²).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L3.T1.A3",
+              "title": "Apply conservation of mechanical energy",
+              "description": "Use Ei = Ef (KE + PE conserved) for systems acted on by conservative forces only; identify when the principle does not apply.",
+              "prerequisites": ["L3.T1.A2"],
+              "templates": ["calculation", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Applies conservation when friction is present", "example": "Sets ½mu² + mgh = ½mv² with a frictional surface in the system"},
+                {"type": "execution_slip", "description": "Uses inconsistent reference for PE", "example": "Picks two different heights as zero for the same problem"}
+              ],
+              "recovery_strategy": "Check first: are there only conservative forces (gravity, spring)? If friction or applied force does work, use work-energy theorem instead. Pick one reference height and use it everywhere.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L3.T1.A4",
+              "title": "Calculate power in physical situations",
+              "description": "Compute P = W/t or P = Fv for cars, lifts, pumps, motors, including the average vs instantaneous distinction.",
+              "prerequisites": ["L3.T1.A1"],
+              "templates": ["calculation", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to convert kW to W or hp to W before using SI formulas", "example": "Mixes kW with seconds and joules"},
+                {"type": "conceptual_gap", "description": "Uses P = Fv when v is changing", "example": "Treats average power = F × average v for a non-uniform motion"}
+              ],
+              "recovery_strategy": "Average power = total work ÷ total time. Instantaneous P = Fv only at constant velocity or as an instantaneous value. Always work in SI units (W, J, s).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Momentum and Impulse",
+      "paper": "P1",
+      "description": "Linear momentum, conservation of momentum in collisions and explosions, impulse and force-time graphs.",
+      "tiers": [
+        {
+          "id": "L4.T1",
+          "title": "Momentum and impulse",
+          "atomic_skills": [
+            {
+              "id": "L4.T1.A1",
+              "title": "Define and calculate linear momentum and apply conservation of momentum",
+              "description": "Define p = mv, state the principle of conservation of linear momentum for an isolated system, and identify when it applies.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Omits the direction sign when adding momenta", "example": "Adds two opposite-direction momenta as if both were positive"},
+                {"type": "conceptual_gap", "description": "Applies conservation when an external net force acts", "example": "Conserves momentum across a collision where the surface has friction acting on a body during the collision time"}
+              ],
+              "recovery_strategy": "Momentum is a vector — pick a positive direction. Conservation needs an ISOLATED system: no external net force during the interaction. Friction matters only if it has time to act significantly.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T1.A2",
+              "title": "Solve collision and explosion problems using conservation of momentum",
+              "description": "Apply Σp_before = Σp_after to elastic, inelastic, perfectly inelastic collisions and to explosions (one body splits into pieces).",
+              "prerequisites": ["L4.T1.A1"],
+              "templates": ["calculation", "scenario"],
+              "error_signatures": [
+                {"type": "strategy_gap", "description": "Sets KE before = KE after for inelastic collisions", "example": "Uses energy conservation for two stuck-together bodies"},
+                {"type": "sign_error", "description": "Doesn't account for direction reversal post-collision", "example": "Treats both final velocities as forward when one rebounds"}
+              ],
+              "recovery_strategy": "Write Σp_before = Σp_after with signed velocities. Inelastic ⇒ KE NOT conserved. Perfectly inelastic ⇒ shared final velocity. Sketch the directions before and after.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T1.A3",
+              "title": "Calculate impulse and apply the impulse-momentum theorem",
+              "description": "Use Δp = FΔt (impulse-momentum theorem); read impulse off a force-time graph as the area under the curve.",
+              "prerequisites": ["L4.T1.A1"],
+              "templates": ["calculation", "graph"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Computes Δp as m(v + u) instead of m(v − u)", "example": "Treats incoming velocity sign as positive when it should be negative"},
+                {"type": "conceptual_gap", "description": "Reads area under F-t as force × time instead of impulse", "example": "Treats the area as the average force"}
+              ],
+              "recovery_strategy": "Impulse = change in momentum = FΔt = area under F-t. Reversal of velocity makes Δp larger, not smaller. Always use signed velocities relative to chosen positive direction.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Doppler Effect",
+      "paper": "P1",
+      "description": "Doppler effect for sound (moving source/observer) and light (red shift / blue shift in astronomy).",
+      "tiers": [
+        {
+          "id": "L5.T1",
+          "title": "Doppler effect",
+          "atomic_skills": [
+            {
+              "id": "L5.T1.A1",
+              "title": "Define and explain the Doppler effect for sound and light",
+              "description": "State the Doppler effect; explain qualitatively why frequency shifts up when approaching and down when receding.",
+              "prerequisites": [],
+              "templates": ["definition", "explanation"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Defines Doppler as 'change in wavelength' without mentioning observer perception", "example": "Says it's just compression and rarefaction of waves"},
+                {"type": "conceptual_gap", "description": "Says the actual source frequency changes", "example": "Claims the siren itself sounds higher when approaching"}
+              ],
+              "recovery_strategy": "Doppler effect = apparent change in observed frequency (or wavelength) of a wave due to relative motion between source and observer. Source frequency itself is unchanged.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L5.T1.A2",
+              "title": "Apply the Doppler equation for moving source or observer (sound)",
+              "description": "Use f_L = f_s(v ± v_L)/(v ∓ v_s) to find observed frequency, source frequency, or speed of source/observer for sound problems.",
+              "prerequisites": ["L5.T1.A1"],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "sign_error", "description": "Wrong sign convention for approach/recede", "example": "Subtracts when source is approaching, gets f_L < f_s"},
+                {"type": "execution_slip", "description": "Swaps numerator and denominator", "example": "Uses (v ∓ v_s)/(v ± v_L) instead of (v ± v_L)/(v ∓ v_s)"}
+              ],
+              "recovery_strategy": "Sign rule: approach ⇒ frequency increases. Pick signs in the formula so that, when source approaches (v_s in denominator with minus), the denominator shrinks and f_L grows. Verify physically with a mental check.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L5.T1.A3",
+              "title": "Apply the Doppler effect to astronomy (red shift and blue shift)",
+              "description": "Interpret red shift (recession, longer wavelength) and blue shift (approach, shorter wavelength) for light from stars and galaxies; relate to expansion of the universe.",
+              "prerequisites": ["L5.T1.A1"],
+              "templates": ["explanation", "concept"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reverses red and blue shifts", "example": "Says a star approaching Earth has a red shift"},
+                {"type": "recall_slip", "description": "Forgets that distant galaxies are mostly red-shifted (expansion)", "example": "Predicts blue shift for distant galaxies"}
+              ],
+              "recovery_strategy": "Red shift = light stretched to LONGER wavelength = source moving AWAY. Blue shift = SHORTER wavelength = source moving TOWARDS. Most distant galaxies are red-shifted ⇒ universe expanding.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Electrostatics",
+      "paper": "P1",
+      "description": "Coulomb's Law, electric fields, combination of electric force with mechanics (FBDs with electrostatic forces).",
+      "tiers": [
+        {
+          "id": "L6.T1",
+          "title": "Electrostatics",
+          "atomic_skills": [
+            {
+              "id": "L6.T1.A1",
+              "title": "Apply Coulomb's Law to calculate force between point charges",
+              "description": "Use F = kQ₁Q₂/r² to compute the magnitude of the electrostatic force between two point charges; identify whether the force is attractive or repulsive.",
+              "prerequisites": [],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to square r in Coulomb's Law", "example": "Writes F = kQ₁Q₂/r"},
+                {"type": "sign_error", "description": "Uses signs of charges to get a 'negative force' and mistakes that for a vector", "example": "Reports F = -45 N and treats it as direction"}
+              ],
+              "recovery_strategy": "Coulomb's Law gives a magnitude; sign of charges tells you only attractive (opposite) or repulsive (same). Use absolute values and decide direction from geometry. Don't forget r² in the denominator.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L6.T1.A2",
+              "title": "Calculate electric field at a point (single and net)",
+              "description": "Use E = kQ/r² for a single point charge; combine vector contributions from multiple charges to find the net electric field.",
+              "prerequisites": ["L6.T1.A1"],
+              "templates": ["calculation", "diagram"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Adds field magnitudes when fields point in opposite directions", "example": "Reports net E as 5+3 = 8 N/C when they oppose"},
+                {"type": "execution_slip", "description": "Forgets to consider field direction (away from + / toward −)", "example": "Treats E as a scalar everywhere"}
+              ],
+              "recovery_strategy": "Electric field is a vector. From a + charge, E points OUTWARD; from a − charge, E points INWARD. Add as vectors (components or parallelogram). Same direction ⇒ add magnitudes; opposite ⇒ subtract.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L6.T1.A3",
+              "title": "Combine electric force with mechanics (FBDs including electric forces)",
+              "description": "Solve problems where a charged object is in equilibrium or accelerating under combined electric, gravitational, normal, tension and friction forces.",
+              "prerequisites": ["L6.T1.A1", "L1.T1.A2"],
+              "templates": ["calculation", "diagram", "scenario"],
+              "error_signatures": [
+                {"type": "strategy_gap", "description": "Treats the electric force as parallel to the surface by default", "example": "Adds Coulomb force into Fnet along incline without resolving its direction"},
+                {"type": "conceptual_gap", "description": "Omits weight when an electric force is present", "example": "Balances only tension and electric force on a hanging charged sphere"}
+              ],
+              "recovery_strategy": "Treat electric force as another vector on the FBD. Resolve all forces (including weight) along the chosen axes, then apply Newton's Second Law.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Electric Circuits",
+      "paper": "P1",
+      "description": "EMF, current, voltage, resistance, Ohm's Law, series and parallel circuits, internal resistance, AC quantities (RMS).",
+      "tiers": [
+        {
+          "id": "L7.T1",
+          "title": "Electric circuits",
+          "atomic_skills": [
+            {
+              "id": "L7.T1.A1",
+              "title": "Define EMF, current, voltage, resistance and apply Ohm's Law",
+              "description": "State CAPS-correct definitions for EMF (energy and charge basis), current, potential difference, resistance; apply V = IR to single-resistor problems.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Defines EMF as the voltage measured across the battery terminals", "example": "Says EMF = terminal voltage even with internal resistance"},
+                {"type": "execution_slip", "description": "Mixes up V, I, R in V = IR substitution", "example": "Rearranges to I = V × R"}
+              ],
+              "recovery_strategy": "EMF = energy supplied per unit charge by the source. Terminal voltage = EMF − Ir (lost to internal resistance). Memorise the triangle V, I, R for Ohm's Law substitution.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L7.T1.A2",
+              "title": "Calculate total resistance in series and parallel circuits",
+              "description": "Use R_series = R₁ + R₂ + … and 1/R_parallel = 1/R₁ + 1/R₂ + …; reduce mixed networks step by step.",
+              "prerequisites": ["L7.T1.A1"],
+              "templates": ["calculation", "diagram"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Adds parallel resistances directly", "example": "Computes 1/R = 1/4 + 1/4 then reports R = 0.5 Ω instead of inverting"},
+                {"type": "strategy_gap", "description": "Reduces the wrong branch first in a mixed circuit", "example": "Combines series sections that aren't actually in series"}
+              ],
+              "recovery_strategy": "Series: same current, voltages add ⇒ R adds. Parallel: same voltage, currents add ⇒ 1/R adds. After computing 1/R_parallel, INVERT it to get R. Reduce mixed circuits one block at a time.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L7.T1.A3",
+              "title": "Solve circuit problems with internal resistance",
+              "description": "Use EMF = I(R + r) to find EMF, current, internal resistance, or terminal voltage in circuits with non-ideal cells.",
+              "prerequisites": ["L7.T1.A2"],
+              "templates": ["calculation", "diagram"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats EMF and terminal voltage as the same thing", "example": "Reads voltmeter reading across terminals as EMF when current is flowing"},
+                {"type": "strategy_gap", "description": "Misses that open-circuit voltmeter reading = EMF", "example": "Calculates EMF from terminal voltage when switch is open"}
+              ],
+              "recovery_strategy": "EMF = I(R_ext + r). Open switch ⇒ I = 0 ⇒ voltmeter reads EMF. Closed switch ⇒ terminal voltage = EMF − Ir.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L7.T1.A4",
+              "title": "Calculate AC quantities (RMS voltage/current, average power, frequency)",
+              "description": "Use V_rms = V_max/√2, I_rms = I_max/√2, P_avg = V_rms × I_rms, T = 1/f for AC circuits.",
+              "prerequisites": ["L7.T1.A1"],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Uses V_max in average power instead of V_rms", "example": "Calculates P_avg = V_max × I_max / 2 incorrectly"},
+                {"type": "conceptual_gap", "description": "Confuses peak and RMS values", "example": "Reports 311 V (peak) as the value a multimeter would read"}
+              ],
+              "recovery_strategy": "RMS = peak / √2. Multimeters and labels (220 V mains) give RMS. P_avg = V_rms × I_rms = (V_max × I_max)/2 for purely resistive AC.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Electromagnetic Induction",
+      "paper": "P1",
+      "description": "Faraday's and Lenz's Laws, induced EMF, AC and DC generators and motors.",
+      "tiers": [
+        {
+          "id": "L8.T1",
+          "title": "Electromagnetic induction",
+          "atomic_skills": [
+            {
+              "id": "L8.T1.A1",
+              "title": "Explain Faraday's and Lenz's Laws of electromagnetic induction",
+              "description": "State Faraday's Law (induced EMF proportional to rate of change of flux) and Lenz's Law (induced current opposes the change); apply qualitatively to a coil and magnet scenario.",
+              "prerequisites": [],
+              "templates": ["definition", "explanation"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reverses Lenz's Law and says induced current supports the change", "example": "Says induced current flows in the same direction as the change in flux"},
+                {"type": "recall_slip", "description": "Forgets the rate-of-change part of Faraday", "example": "Says EMF is proportional to flux itself"}
+              ],
+              "recovery_strategy": "Faraday: EMF = -N × ΔΦ/Δt. The minus sign is Lenz's Law: induced current opposes the change that caused it. Magnet pushed in ⇒ coil acts to push it back out.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L8.T1.A2",
+              "title": "Calculate induced EMF in a coil",
+              "description": "Use EMF = -N × ΔΦ/Δt to find induced EMF when flux, number of turns, or change time varies.",
+              "prerequisites": ["L8.T1.A1"],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to multiply by N (number of turns)", "example": "Uses EMF = ΔΦ/Δt for a 50-turn coil"},
+                {"type": "execution_slip", "description": "Uses Φ instead of ΔΦ", "example": "Substitutes the final flux value as ΔΦ"}
+              ],
+              "recovery_strategy": "EMF = N × (change in flux) / (change in time). Always compute ΔΦ = Φ_final − Φ_initial, including signs. Multiply by N for multi-turn coils.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L8.T1.A3",
+              "title": "Describe AC and DC generators and motors",
+              "description": "Identify components (coil, brushes, slip rings vs split-ring commutator), explain how each produces AC or DC output (generator) or converts current to motion (motor).",
+              "prerequisites": ["L8.T1.A1"],
+              "templates": ["diagram", "explanation"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses slip rings with split-ring commutator", "example": "Says DC generator uses slip rings"},
+                {"type": "recall_slip", "description": "Reverses generator vs motor", "example": "Says generator converts electrical to mechanical energy"}
+              ],
+              "recovery_strategy": "Generator: mechanical ⇒ electrical (turn coil ⇒ EMF). Motor: electrical ⇒ mechanical (current ⇒ rotation). Slip rings ⇒ AC; split-ring commutator (flips contact) ⇒ DC.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Photons and Spectra",
+      "paper": "P1",
+      "description": "Photoelectric effect, work function, threshold frequency, maximum kinetic energy; emission and absorption spectra.",
+      "tiers": [
+        {
+          "id": "L9.T1",
+          "title": "Photons and spectra",
+          "atomic_skills": [
+            {
+              "id": "L9.T1.A1",
+              "title": "Explain the photoelectric effect and apply work function and threshold frequency",
+              "description": "Describe the photoelectric effect; use E = hf and W₀ = hf₀ to find work function or threshold frequency for a given metal.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says intensity (brightness) increases the kinetic energy of emitted electrons", "example": "Predicts brighter light = faster electrons"},
+                {"type": "execution_slip", "description": "Uses wavelength instead of frequency in E = hf", "example": "Substitutes λ for f in E = hf"}
+              ],
+              "recovery_strategy": "Photoelectric: light frequency f must exceed threshold f₀ to release electrons. Above threshold, intensity changes NUMBER of electrons, not their KE. Use c = fλ to convert between f and λ.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L9.T1.A2",
+              "title": "Calculate maximum kinetic energy of photoelectrons",
+              "description": "Use E_k(max) = hf − W₀ = hf − hf₀ to find KE_max given incident frequency or wavelength.",
+              "prerequisites": ["L9.T1.A1"],
+              "templates": ["calculation", "graph"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Adds W₀ instead of subtracting", "example": "Writes E_k = hf + hf₀"},
+                {"type": "conceptual_gap", "description": "Negative E_k reported when f < f₀ instead of recognising no emission", "example": "Reports a -2.1 eV kinetic energy"}
+              ],
+              "recovery_strategy": "Energy in (hf) minus energy needed to escape (W₀) = leftover kinetic energy of the freed electron. If hf < W₀, no electrons emitted at all.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L9.T1.A3",
+              "title": "Explain emission and absorption spectra",
+              "description": "Describe how line emission and absorption spectra arise from electron transitions between discrete energy levels; identify which element from a spectrum.",
+              "prerequisites": ["L9.T1.A1"],
+              "templates": ["explanation", "diagram"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says emission spectrum is continuous", "example": "Describes hydrogen emission as a smooth rainbow"},
+                {"type": "recall_slip", "description": "Confuses emission and absorption directions", "example": "Says absorption is when electron drops from higher to lower energy level"}
+              ],
+              "recovery_strategy": "Emission: electron drops from high to low energy level ⇒ photon released at that exact ΔE ⇒ bright line. Absorption: photon absorbed pushes electron up ⇒ dark line at that wavelength. Both are LINE spectra, not continuous.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Gravitation",
+      "paper": "P1",
+      "description": "Newton's Law of Universal Gravitation; weight and acceleration due to gravity g.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "Gravitation",
+          "atomic_skills": [
+            {
+              "id": "L10.T1.A1",
+              "title": "Apply Newton's Law of Universal Gravitation",
+              "description": "Use F = GMm/r² to find gravitational force between two masses; analyse how the force changes when masses or separation change.",
+              "prerequisites": [],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to square r in the denominator", "example": "Writes F = GMm/r"},
+                {"type": "conceptual_gap", "description": "Doubles r and predicts force halves (instead of quarters)", "example": "Predicts F → F/2 when r doubles"}
+              ],
+              "recovery_strategy": "F = GMm/r² — inverse square law. r doubles ⇒ F divides by 4. r halves ⇒ F multiplies by 4. Same applies if one mass changes.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L10.T1.A2",
+              "title": "Calculate weight and gravitational acceleration g",
+              "description": "Use w = mg and g = GM/r² to find weight on Earth, on another planet, or at altitude; relate to free-fall acceleration.",
+              "prerequisites": ["L10.T1.A1"],
+              "templates": ["calculation", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats mass as changing with planet", "example": "Says astronaut's mass is less on the Moon"},
+                {"type": "execution_slip", "description": "Substitutes r as planet radius from centre incorrectly (uses diameter)", "example": "Uses diameter as r in g = GM/r²"}
+              ],
+              "recovery_strategy": "Mass stays the same; weight changes with g. g = GM/r² where r is distance from CENTRE of the planet, not surface. Weight = mass × local g.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Organic Chemistry",
+      "paper": "P2",
+      "description": "IUPAC nomenclature, structural formulae, functional groups, physical properties vs structure/IMF, organic reactions.",
+      "tiers": [
+        {
+          "id": "L11.T1",
+          "title": "Organic chemistry",
+          "atomic_skills": [
+            {
+              "id": "L11.T1.A1",
+              "title": "Apply IUPAC nomenclature rules to name and identify organic compounds",
+              "description": "Name and identify alkanes, alkenes, alkynes, alcohols, haloalkanes, aldehydes, ketones, carboxylic acids, esters using IUPAC rules (parent chain, substituents, numbering, suffixes).",
+              "prerequisites": [],
+              "templates": ["symbolic", "naming"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Numbers the chain from the wrong end (gives substituent the higher locant)", "example": "Names 2-methylpentane as 4-methylpentane"},
+                {"type": "conceptual_gap", "description": "Confuses suffix for functional group", "example": "Names a ketone with -al instead of -one"}
+              ],
+              "recovery_strategy": "Find the longest chain CONTAINING the functional group. Number from the end nearest the principal functional group, then the lowest-locant substituent. Match suffix to functional group: -ane (alkane), -ene (alkene), -yne (alkyne), -ol (alcohol), -al (aldehyde), -one (ketone), -oic acid (carboxylic), -oate (ester).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L11.T1.A2",
+              "title": "Draw and identify structural formulae, condensed formulae, and structural isomers",
+              "description": "Convert between full structural, condensed and molecular formulae; identify and draw structural isomers (chain, positional, functional).",
+              "prerequisites": ["L11.T1.A1"],
+              "templates": ["diagram", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Draws a 'different' isomer that's actually the same molecule rotated", "example": "Drawing 2-methylpropane and 3-methylpropane as separate isomers"},
+                {"type": "conceptual_gap", "description": "Confuses positional isomer with functional isomer", "example": "Lists propan-1-ol and propanal as positional isomers"}
+              ],
+              "recovery_strategy": "Same molecular formula, different connectivity = isomer. Chain (branch position), positional (functional group on different carbon), functional (different functional group entirely, e.g. alcohol vs ether).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L11.T1.A3",
+              "title": "Identify functional groups and homologous series",
+              "description": "Recognise the functional groups of each homologous series; predict general molecular formula; identify a compound's series from its structure.",
+              "prerequisites": ["L11.T1.A1"],
+              "templates": ["identification", "diagram"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Mixes up aldehyde (-CHO at end) and ketone (>C=O in middle)", "example": "Calls a chain-end C=O a ketone"},
+                {"type": "execution_slip", "description": "Misidentifies an ester by missing the -COO- linkage", "example": "Reads R-COO-R' as an alcohol next to a carboxylic acid"}
+              ],
+              "recovery_strategy": "Memorise the functional groups visually: -OH (alcohol), -CHO at end (aldehyde), -C(=O)- middle (ketone), -COOH (carboxylic), -COO- (ester linkage), -X (haloalkane), C=C (alkene), C≡C (alkyne).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L11.T1.A4",
+              "title": "Relate physical properties to molecular structure and intermolecular forces",
+              "description": "Predict and explain trends in boiling point, melting point, viscosity, vapour pressure based on chain length, branching, and functional groups (IMF strength).",
+              "prerequisites": ["L11.T1.A3"],
+              "templates": ["explanation", "comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says longer chain has WEAKER IMF because lighter per atom", "example": "Predicts pentane has lower boiling point than butane"},
+                {"type": "execution_slip", "description": "Ignores branching effect on boiling point", "example": "Treats 2,2-dimethylpropane and n-pentane as identical"}
+              ],
+              "recovery_strategy": "Longer chain ⇒ more surface area ⇒ stronger London forces ⇒ higher boiling point. Branching ⇒ less contact ⇒ weaker London ⇒ lower bp. Hydrogen bonding (-OH, -NH) >> dipole-dipole > London.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L11.T1.A5",
+              "title": "Predict products of organic reactions (substitution, addition, elimination, esterification, oxidation)",
+              "description": "Identify reaction type and predict products for haloalkane substitution/elimination, alkene addition, alcohol elimination/oxidation, carboxylic-acid + alcohol esterification.",
+              "prerequisites": ["L11.T1.A3"],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reverses addition and elimination", "example": "Calls C=C + H₂ → CH-CH an elimination"},
+                {"type": "execution_slip", "description": "Forgets to remove H₂O in esterification", "example": "Writes ester product without showing water loss"}
+              ],
+              "recovery_strategy": "Substitution: swap one group for another (no double bonds change). Addition: C=C or C≡C becomes saturated. Elimination: lose a small molecule (HX or H₂O) and form C=C. Esterification: alcohol + carboxylic acid ⇌ ester + water (concentrated H₂SO₄ catalyst).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Electrochemistry",
+      "paper": "P2",
+      "description": "Galvanic and electrolytic cells, redox half-reactions, standard electrode potentials, cell EMF calculations.",
+      "tiers": [
+        {
+          "id": "L12.T1",
+          "title": "Electrochemistry",
+          "atomic_skills": [
+            {
+              "id": "L12.T1.A1",
+              "title": "Write balanced redox half-reactions and net cell reactions",
+              "description": "Identify oxidation and reduction half-reactions; balance for atoms and charge; combine into the net cell reaction.",
+              "prerequisites": [],
+              "templates": ["symbolic", "calculation"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Doesn't balance charge by adding electrons", "example": "Writes Fe → Fe²⁺ without the 2e⁻"},
+                {"type": "conceptual_gap", "description": "Adds the same number of electrons on both sides of the net equation", "example": "Combines half-reactions without cancelling matched electrons"}
+              ],
+              "recovery_strategy": "Oxidation = lose electrons (electrons on RIGHT). Reduction = gain electrons (electrons on LEFT). Balance atoms first, then charge with electrons. Multiply each half so electrons cancel when added.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L12.T1.A2",
+              "title": "Describe and analyse galvanic (voltaic) cells",
+              "description": "Identify anode (oxidation, negative terminal), cathode (reduction, positive terminal); write cell notation; describe electron and ion flow.",
+              "prerequisites": ["L12.T1.A1"],
+              "templates": ["diagram", "explanation"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps anode polarity convention between galvanic and electrolytic", "example": "Says galvanic anode is positive"},
+                {"type": "conceptual_gap", "description": "Says electrons flow through the salt bridge", "example": "Draws electron flow through the salt bridge instead of external wire"}
+              ],
+              "recovery_strategy": "Galvanic cell (spontaneous): anode = NEG, cathode = POS. Electrons flow through the external wire from anode to cathode. Ions flow through the salt bridge to maintain charge balance (cations toward cathode).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L12.T1.A3",
+              "title": "Describe and analyse electrolytic cells",
+              "description": "Identify anode (oxidation, POS terminal — opposite of galvanic), cathode (reduction, NEG terminal); describe electroplating, refining of copper, and electrolysis of NaCl solutions.",
+              "prerequisites": ["L12.T1.A1"],
+              "templates": ["diagram", "explanation"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Uses galvanic polarity convention for electrolytic cell", "example": "Calls the electrolytic anode negative"},
+                {"type": "conceptual_gap", "description": "Says the electrolytic cell produces its own current", "example": "Treats an electrolytic cell like a battery"}
+              ],
+              "recovery_strategy": "Electrolytic cell (non-spontaneous, needs external EMF): anode = POS, cathode = NEG. Oxidation still at anode, reduction still at cathode. External battery DRIVES the reaction.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L12.T1.A4",
+              "title": "Use standard electrode potentials to predict and calculate cell EMF",
+              "description": "Look up E° values from the table; predict which species is oxidised/reduced; calculate E°cell = E°cathode − E°anode (using the reduction-potential convention).",
+              "prerequisites": ["L12.T1.A2"],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Subtracts the reverse way (anode − cathode)", "example": "Reports a negative E°cell for a spontaneous cell"},
+                {"type": "conceptual_gap", "description": "Reverses sign of E° when half-reaction is written as oxidation", "example": "Changes E° sign in the cell EMF calc"}
+              ],
+              "recovery_strategy": "All E° values in the table are reduction potentials. E°cell = E°cathode − E°anode (both as reduction values). Positive E°cell ⇒ spontaneous (galvanic). Negative E°cell ⇒ non-spontaneous (electrolytic).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Chemical Equilibrium",
+      "paper": "P2",
+      "description": "Dynamic equilibrium, equilibrium constant Kc, Le Chatelier's Principle, ICE-table calculations, industrial applications (Haber, Contact).",
+      "tiers": [
+        {
+          "id": "L13.T1",
+          "title": "Chemical equilibrium",
+          "atomic_skills": [
+            {
+              "id": "L13.T1.A1",
+              "title": "Define dynamic equilibrium and write Kc expressions",
+              "description": "State the meaning of dynamic chemical equilibrium; write Kc expressions for given reversible reactions (excluding pure solids/liquids).",
+              "prerequisites": [],
+              "templates": ["definition", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Includes solids or pure liquids in Kc expression", "example": "Includes [CaCO₃] in Kc for CaCO₃(s) ⇌ CaO(s) + CO₂(g)"},
+                {"type": "conceptual_gap", "description": "Says rates are zero at equilibrium", "example": "Defines equilibrium as 'no reaction happening'"}
+              ],
+              "recovery_strategy": "Dynamic equilibrium: forward rate = reverse rate (both > 0). Kc = [products]^coeff / [reactants]^coeff for gases and aqueous species only. Pure solids and pure liquids excluded (activity = 1).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L13.T1.A2",
+              "title": "Apply Le Chatelier's Principle qualitatively",
+              "description": "Predict direction of equilibrium shift when concentration, pressure, volume, or temperature changes; account for catalyst (no shift, faster equilibration).",
+              "prerequisites": ["L13.T1.A1"],
+              "templates": ["explanation", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says a catalyst shifts equilibrium", "example": "Predicts more product when catalyst is added"},
+                {"type": "execution_slip", "description": "Reverses pressure shift", "example": "Predicts shift to MORE moles of gas when pressure increases"}
+              ],
+              "recovery_strategy": "Add concentration ⇒ shift away from added species. Increase pressure ⇒ shift to FEWER moles of gas. Increase temperature ⇒ shift in the ENDOTHERMIC direction. Catalyst: no shift, just faster.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L13.T1.A3",
+              "title": "Calculate Kc using ICE (Initial-Change-Equilibrium) tables",
+              "description": "Build ICE tables from initial concentrations and reaction stoichiometry; solve for Kc or for equilibrium concentrations given Kc.",
+              "prerequisites": ["L13.T1.A1"],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to apply stoichiometric ratios in the 'Change' row", "example": "Subtracts x from each reactant regardless of coefficient"},
+                {"type": "conceptual_gap", "description": "Uses moles instead of concentrations in Kc", "example": "Substitutes mol values directly without dividing by V"}
+              ],
+              "recovery_strategy": "ICE rows: Initial (start concentrations), Change (±stoich × x), Equilibrium (I + C). Kc uses concentrations [mol/dm³], not moles. Always check x makes physical sense (positive, < initial).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L13.T1.A4",
+              "title": "Apply equilibrium concepts to industrial processes (Haber, Contact, Ostwald)",
+              "description": "Explain how temperature, pressure, and catalyst choices in the Haber, Contact, and Ostwald processes are dictated by equilibrium and rate considerations.",
+              "prerequisites": ["L13.T1.A2"],
+              "templates": ["explanation", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says high temperature increases yield for exothermic forward reactions", "example": "Claims Haber should run at very high T for more NH₃"},
+                {"type": "recall_slip", "description": "Confuses Haber, Contact, Ostwald products", "example": "Says the Contact process makes ammonia"}
+              ],
+              "recovery_strategy": "Haber (N₂ + 3H₂ → 2NH₃, exothermic): high P shifts to fewer moles (good); moderate T (compromise between yield and rate); Fe catalyst. Contact: SO₂ → SO₃ → H₂SO₄. Ostwald: NH₃ → NO → HNO₃.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Acids and Bases",
+      "paper": "P2",
+      "description": "Brønsted-Lowry definitions, conjugate pairs, pH/pOH/Kw calculations, strong vs weak acids/bases, titrations.",
+      "tiers": [
+        {
+          "id": "L14.T1",
+          "title": "Acids and bases",
+          "atomic_skills": [
+            {
+              "id": "L14.T1.A1",
+              "title": "Apply the Brønsted-Lowry definition and identify conjugate acid-base pairs",
+              "description": "Identify acid, base, conjugate acid, conjugate base in a Brønsted-Lowry reaction; identify amphiprotic substances.",
+              "prerequisites": [],
+              "templates": ["identification", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Identifies a substance as both acid and base in the same direction of reaction", "example": "Says NH₃ is acid AND base on the same side"},
+                {"type": "execution_slip", "description": "Forgets the H⁺ transfer in identifying the conjugate", "example": "Calls HCl and Cl₂ a conjugate pair instead of HCl/Cl⁻"}
+              ],
+              "recovery_strategy": "Brønsted-Lowry acid = H⁺ DONOR. Base = H⁺ ACCEPTOR. Conjugate pair = differs by one H⁺. Amphiprotic = can donate OR accept (e.g. HCO₃⁻, H₂O).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L14.T1.A2",
+              "title": "Calculate pH, pOH, [H⁺], [OH⁻] using Kw",
+              "description": "Convert between [H⁺], [OH⁻], pH and pOH using pH = -log[H⁺], pH + pOH = 14, [H⁺][OH⁻] = 1×10⁻¹⁴ at 25°C.",
+              "prerequisites": ["L14.T1.A1"],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Drops the negative sign in pH definition", "example": "Writes pH = log[H⁺]"},
+                {"type": "execution_slip", "description": "Forgets to take antilog when going from pH back to [H⁺]", "example": "Reports [H⁺] = 3 for pH = 3"}
+              ],
+              "recovery_strategy": "pH = -log[H⁺]. [H⁺] = 10^(-pH). pH + pOH = 14 (at 25°C). Kw = [H⁺][OH⁻] = 1×10⁻¹⁴. Use the chain: if you have one, you can get all four.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L14.T1.A3",
+              "title": "Distinguish strong vs weak acids/bases and apply Ka/Kb",
+              "description": "Classify acids/bases as strong (fully dissociated) or weak; relate degree of ionisation to Ka/Kb; use conductivity, pH, and concentration comparisons.",
+              "prerequisites": ["L14.T1.A2"],
+              "templates": ["explanation", "comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Equates strong with concentrated (or weak with dilute)", "example": "Calls a 0.01 mol/dm³ HCl 'weak'"},
+                {"type": "recall_slip", "description": "Lists CH₃COOH as a strong acid", "example": "Treats acetic acid as fully ionised"}
+              ],
+              "recovery_strategy": "Strong/weak = degree of IONISATION. Concentrated/dilute = AMOUNT in a given volume. Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄ (first). Strong bases: NaOH, KOH, Ca(OH)₂, Ba(OH)₂. Most others are weak.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L14.T1.A4",
+              "title": "Solve titration calculations and select indicators",
+              "description": "Use n(acid) × stoichiometric ratio = n(base) (or pH at equivalence) to find unknown concentration, volume, or molar mass; select indicator based on type of acid/base.",
+              "prerequisites": ["L14.T1.A3"],
+              "templates": ["calculation", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Ignores stoichiometric ratio when not 1:1", "example": "Treats H₂SO₄ + NaOH as 1:1"},
+                {"type": "conceptual_gap", "description": "Picks indicator with pH range mismatched to the equivalence pH", "example": "Uses methyl orange for a weak acid + strong base titration"}
+              ],
+              "recovery_strategy": "c_a × V_a × n_a = c_b × V_b × n_b (n = mole coefficient). Equivalence pH: strong-strong ≈ 7; weak acid + strong base > 7 (phenolphthalein); strong acid + weak base < 7 (methyl orange).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Reaction Rate",
+      "paper": "P2",
+      "description": "Definition of reaction rate, collision theory, factors affecting rate, rate calculations from data and graphs.",
+      "tiers": [
+        {
+          "id": "L15.T1",
+          "title": "Reaction rate",
+          "atomic_skills": [
+            {
+              "id": "L15.T1.A1",
+              "title": "Define reaction rate and apply collision theory",
+              "description": "State reaction rate as change in amount per unit time; explain qualitatively using collision theory (frequency, energy, orientation).",
+              "prerequisites": [],
+              "templates": ["definition", "explanation"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Omits 'effective' or activation-energy requirement from collision theory", "example": "Says any collision produces a reaction"},
+                {"type": "conceptual_gap", "description": "Confuses 'effective collision' with 'any collision with enough energy'", "example": "Ignores orientation factor"}
+              ],
+              "recovery_strategy": "Rate = change in concentration (or moles, volume, mass) per unit time. Effective collision = sufficient KE (≥ Ea) AND correct orientation. Both required for reaction.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L15.T1.A2",
+              "title": "Explain factors affecting reaction rate",
+              "description": "Predict and explain the effect of concentration, surface area, temperature, catalyst (and pressure for gases) on the rate of a reaction.",
+              "prerequisites": ["L15.T1.A1"],
+              "templates": ["explanation", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says a catalyst increases the energy of reactant particles", "example": "Claims catalyst raises particle KE"},
+                {"type": "recall_slip", "description": "Says higher temperature lowers activation energy", "example": "Confuses 'more particles exceed Ea' with 'Ea is lower'"}
+              ],
+              "recovery_strategy": "Catalyst LOWERS Ea by providing an alternative pathway (doesn't change KE of particles). Higher T ⇒ more particles have KE ≥ Ea ⇒ faster rate. Higher concentration / smaller particles / higher pressure (gas) ⇒ more frequent collisions.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L15.T1.A3",
+              "title": "Calculate reaction rates from data and graphs",
+              "description": "Find average and instantaneous rates from concentration-time, mass-time, or volume-time graphs; relate rate ratios to stoichiometry.",
+              "prerequisites": ["L15.T1.A1"],
+              "templates": ["graph", "calculation"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Reports rate as a negative value (for reactants)", "example": "Says rate = -0.05 mol/s as the final answer"},
+                {"type": "conceptual_gap", "description": "Forgets stoichiometric coefficients when relating rates of different species", "example": "Says rate of N₂ consumption = rate of NH₃ production"}
+              ],
+              "recovery_strategy": "Rate is always reported as a positive value. For aA + bB → cC + dD: -(1/a)d[A]/dt = -(1/b)d[B]/dt = +(1/c)d[C]/dt = +(1/d)d[D]/dt. Average rate = slope of secant; instantaneous = slope of tangent.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Intermolecular Forces",
+      "paper": "P2",
+      "description": "Identifying types of intermolecular forces; relating IMF to physical properties (boiling/melting points, vapour pressure, surface tension, solubility).",
+      "tiers": [
+        {
+          "id": "L16.T1",
+          "title": "Intermolecular forces",
+          "atomic_skills": [
+            {
+              "id": "L16.T1.A1",
+              "title": "Identify intermolecular forces in compounds",
+              "description": "Identify London (dispersion), dipole-dipole, and hydrogen bonding interactions in a given compound from its structure.",
+              "prerequisites": [],
+              "templates": ["identification", "diagram"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says all polar molecules have hydrogen bonding", "example": "Lists HCl as having hydrogen bonds"},
+                {"type": "recall_slip", "description": "Lists London forces only for non-polar molecules", "example": "Says polar molecules have no London forces"}
+              ],
+              "recovery_strategy": "London (dispersion): in ALL molecules. Dipole-dipole: in polar molecules. Hydrogen bonding: when H is bonded to N, O or F. A polar molecule has both London + dipole-dipole; an H-bonder has all three.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L16.T1.A2",
+              "title": "Relate intermolecular forces to physical properties",
+              "description": "Predict and explain trends in boiling point, melting point, vapour pressure, surface tension, and solubility based on IMF strength.",
+              "prerequisites": ["L16.T1.A1"],
+              "templates": ["explanation", "comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says stronger IMF = HIGHER vapour pressure", "example": "Predicts water has higher vapour pressure than ethanol"},
+                {"type": "execution_slip", "description": "Forgets molecular size when comparing two compounds with same IMF type", "example": "Predicts methane and propane have the same boiling point"}
+              ],
+              "recovery_strategy": "Stronger IMF ⇒ harder to break apart ⇒ higher boiling/melting point, LOWER vapour pressure, higher surface tension. Within same IMF type, bigger molecule ⇒ stronger London ⇒ higher bp.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
