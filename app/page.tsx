@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 // ── Always-needed (static imports) ──────────────────────────────────────────
 import Sidebar from "@/components/Sidebar";
+import UsageMeter from "@/components/UsageMeter";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
@@ -366,7 +367,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <span className="flex-1 font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
+        <span className="flex-1 min-w-0 truncate font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
+        <UsageMeter variant="compact" theme="light" />
         {["chat", "ruby", "reading", "discover-maths", "discover-reading", "discover", "subjects"].includes(activeView) ? (
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("ruby-action"))}

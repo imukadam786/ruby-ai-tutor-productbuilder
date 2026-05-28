@@ -17,6 +17,9 @@ export async function checkTTSLimit(): Promise<boolean> {
       method: "POST",
       headers: { Authorization: `Bearer ${session.access_token}` },
     });
+    if (typeof document !== "undefined") {
+      document.dispatchEvent(new CustomEvent("ruby-usage-changed"));
+    }
     return res.ok;
   } catch {
     return true; // on network error, allow playback
