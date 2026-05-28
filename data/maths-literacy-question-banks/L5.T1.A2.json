@@ -1,0 +1,370 @@
+{
+  "skill": "L5.T1.A2",
+  "skill_title": "Compare bank accounts and loan options",
+  "grades": [12],
+  "caps_levels_target": [3, 4],
+  "version": "1.0",
+  "notes": "20-item bank, Grade 12 only. CAPS mix: 10 L3 / 10 L4. Compare account fees on a transaction profile, calculate loan repayments and total interest, recommend cheaper option.",
+  "items": [
+    {
+      "id": "L5.T1.A2.q01",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Account A**: monthly R85 + R3/transaction. **Account B**: R0 monthly + R8/transaction. User does 15 transactions/month."},
+      "question": "Calculate monthly cost on each.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Account A (R)", "expectedAnswer": 130, "tolerance": 1},
+        {"label": "Account B (R)", "expectedAnswer": 120, "tolerance": 1}
+      ],
+      "workingSteps": [
+        "A: R85 + 15 × R3 = R130.",
+        "B: 15 × R8 = R120."
+      ],
+      "errorSignals": ["ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q02",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Same accounts — A R130 vs B R120 at 15 transactions."},
+      "question": "Recommend the cheaper account.",
+      "answerMode": "multiChoice",
+      "options": ["Account A", "Account B", "Both same", "Neither"],
+      "expectedAnswer": "Account B",
+      "workingSteps": ["B costs R10 less at 15 transactions."],
+      "errorSignals": ["ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q03",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Account A R85 + R3/tx vs Account B R0 + R8/tx. Find crossover."},
+      "question": "At how many transactions do they cost the same?",
+      "answerMode": "numeric",
+      "expectedAnswer": 17,
+      "tolerance": 1,
+      "unit": "transactions",
+      "workingSteps": ["85 + 3n = 8n → 85 = 5n → n = 17."],
+      "errorSignals": ["ERR_INTERSECTION_READ", "ERR_EQUATION_SOLVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q04",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Loan calculation (simple model). Loan R30 000, term 12 months, interest R3 600 total."},
+      "question": "Calculate the monthly repayment.",
+      "answerMode": "numeric",
+      "expectedAnswer": 2800,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "Total repayment = R30 000 + R3 600 = R33 600.",
+        "Monthly = R33 600 ÷ 12 = R2 800."
+      ],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q05",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Loan R50 000, 24 months, interest R8 000 total."},
+      "question": "Calculate the monthly repayment.",
+      "answerMode": "numeric",
+      "expectedAnswer": 2416.67,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "Total = R58 000.",
+        "Monthly = R58 000 ÷ 24 ≈ R2 416,67."
+      ],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q06",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Personal loan R20 000, monthly repayment R900 for 30 months."},
+      "question": "Calculate total amount paid and total interest.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Total paid (R)", "expectedAnswer": 27000, "tolerance": 10},
+        {"label": "Total interest (R)", "expectedAnswer": 7000, "tolerance": 10}
+      ],
+      "workingSteps": [
+        "Total paid = 30 × R900 = R27 000.",
+        "Interest = R27 000 − R20 000 = R7 000."
+      ],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q07",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Two car-loan offers for R150 000:\n\n- Loan A: 60 months at R3 200/month.\n- Loan B: 72 months at R2 800/month."},
+      "question": "Calculate total interest paid on each.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "A interest (R)", "expectedAnswer": 42000, "tolerance": 20},
+        {"label": "B interest (R)", "expectedAnswer": 51600, "tolerance": 20}
+      ],
+      "workingSteps": [
+        "A total = 60 × R3 200 = R192 000; interest = R42 000.",
+        "B total = 72 × R2 800 = R201 600; interest = R51 600."
+      ],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q08",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Bank A**: monthly R100; first 5 transactions free; then R3/tx.\n**Bank B**: monthly R45; R5/tx (no free)."},
+      "question": "User does 12 transactions. Calculate cost of each.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Bank A (R)", "expectedAnswer": 121, "tolerance": 1},
+        {"label": "Bank B (R)", "expectedAnswer": 105, "tolerance": 1}
+      ],
+      "workingSteps": [
+        "A: R100 + 7 × R3 = R121.",
+        "B: R45 + 12 × R5 = R105."
+      ],
+      "errorSignals": ["ERR_TARIFF_BAND_BOUNDARY"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q09",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Loan A**: R20 000 over 12 months at R1 850/month.\n**Loan B**: R20 000 over 18 months at R1 350/month."},
+      "question": "Calculate total interest on each.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "A interest (R)", "expectedAnswer": 2200, "tolerance": 10},
+        {"label": "B interest (R)", "expectedAnswer": 4300, "tolerance": 10}
+      ],
+      "workingSteps": [
+        "A: 12 × R1 850 = R22 200; interest = R2 200.",
+        "B: 18 × R1 350 = R24 300; interest = R4 300."
+      ],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q10",
+      "skill": "L5.T1.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Longer loans → smaller monthly repayments but more total interest."},
+      "question": "From the previous example, which loan term gives the LOWER monthly repayment?",
+      "answerMode": "multiChoice",
+      "options": ["Loan A (12 months)", "Loan B (18 months)", "Same monthly", "Cannot tell"],
+      "expectedAnswer": "Loan B (18 months)",
+      "workingSteps": ["R1 350/month < R1 850/month."],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q11",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "User profile: 6 EFTs, 8 ATM (own bank), 25 card swipes per month.\n\n- **FNB Easy**: monthly R65; EFT R1,50; own ATM R8,50; card free.\n- **Capitec**: monthly R30; EFT R2,50; own ATM R6; card free."},
+      "question": "Calculate monthly cost on each.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "FNB Easy (R)", "expectedAnswer": 142, "tolerance": 2},
+        {"label": "Capitec (R)", "expectedAnswer": 93, "tolerance": 2}
+      ],
+      "workingSteps": [
+        "FNB: R65 + 6×1,50 + 8×8,50 + 0 = R65 + R9 + R68 = R142.",
+        "Capitec: R30 + 6×2,50 + 8×6 + 0 = R30 + R15 + R48 = R93."
+      ],
+      "errorSignals": ["ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q12",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "From previous: FNB R142 vs Capitec R93."},
+      "question": "Recommend cheaper account and calculate ANNUAL saving.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Cheaper account", "expectedAnswer": "Capitec"},
+        {"label": "Annual saving (R)", "expectedAnswer": 588, "tolerance": 10}
+      ],
+      "workingSteps": [
+        "Monthly saving: R142 − R93 = R49.",
+        "Annual: 12 × R49 = R588."
+      ],
+      "errorSignals": ["ERR_ANNUALISATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q13",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Loan R250 000 over 5 years at R5 416/month."},
+      "question": "Calculate total interest.",
+      "answerMode": "numeric",
+      "expectedAnswer": 74960,
+      "tolerance": 50,
+      "unit": "R",
+      "workingSteps": [
+        "Total = 5 × 12 × R5 416 = R324 960.",
+        "Interest = R324 960 − R250 000 = R74 960."
+      ],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q14",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Home loan offers for R800 000**:\n\n- Bank A: 20 years, R7 200/month.\n- Bank B: 25 years, R6 500/month."},
+      "question": "Calculate total interest on each.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "A interest (R)", "expectedAnswer": 928000, "tolerance": 100},
+        {"label": "B interest (R)", "expectedAnswer": 1150000, "tolerance": 100}
+      ],
+      "workingSteps": [
+        "A: 240 × R7 200 = R1 728 000; interest = R928 000.",
+        "B: 300 × R6 500 = R1 950 000; interest = R1 150 000."
+      ],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA", "ERR_LOAN_PERIOD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q15",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Same R800 000 loans."},
+      "question": "How much MORE interest is paid on Bank B?",
+      "answerMode": "numeric",
+      "expectedAnswer": 222000,
+      "tolerance": 100,
+      "unit": "R",
+      "workingSteps": ["R1 150 000 − R928 000 = R222 000."],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q16",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Loan repayments and bank fees combined. Account fee R65/month, plus loan repayment R2 400/month over 24 months."},
+      "question": "Calculate total bank-related cost over 2 years.",
+      "answerMode": "numeric",
+      "expectedAnswer": 59160,
+      "tolerance": 20,
+      "unit": "R",
+      "workingSteps": [
+        "Account fees: 24 × R65 = R1 560.",
+        "Loan: 24 × R2 400 = R57 600.",
+        "Total: R59 160."
+      ],
+      "errorSignals": ["ERR_BALANCE_RUNNING", "ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q17",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "User compares two banks at a more demanding usage profile (heavy transaction user). 30 EFTs/month, 10 ATM withdrawals/month.\n\n- **Bank A**: R150 monthly + R2 EFT + R6 ATM.\n- **Bank B**: R250 monthly, all transactions free."},
+      "question": "Calculate cost of each.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Bank A (R)", "expectedAnswer": 270, "tolerance": 2},
+        {"label": "Bank B (R)", "expectedAnswer": 250, "tolerance": 2}
+      ],
+      "workingSteps": [
+        "A: R150 + 30 × R2 + 10 × R6 = R150 + R60 + R60 = R270.",
+        "B: R250 (all free)."
+      ],
+      "errorSignals": ["ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q18",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Same comparison."},
+      "question": "Which is cheaper for this user and by how much?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Cheaper bank", "expectedAnswer": "Bank B"},
+        {"label": "Saving (R)", "expectedAnswer": 20, "tolerance": 2}
+      ],
+      "workingSteps": ["R270 − R250 = R20."],
+      "errorSignals": ["ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q19",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Personal loan** R30 000 over 18 months, monthly repayment R2 050."},
+      "question": "Calculate total interest paid.",
+      "answerMode": "numeric",
+      "expectedAnswer": 6900,
+      "tolerance": 20,
+      "unit": "R",
+      "workingSteps": [
+        "Total = 18 × R2 050 = R36 900.",
+        "Interest = R36 900 − R30 000 = R6 900."
+      ],
+      "errorSignals": ["ERR_LOAN_REPAY_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T1.A2.q20",
+      "skill": "L5.T1.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Annual cost analysis. User has FNB account with R65 monthly fee plus R200 in transactions per month."},
+      "question": "Calculate annual bank cost.",
+      "answerMode": "numeric",
+      "expectedAnswer": 3180,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": ["Monthly = R65 + R200 = R265. Annual = 12 × R265 = R3 180."],
+      "errorSignals": ["ERR_ANNUALISATION", "ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_BALANCE_RUNNING": "Sums fee items incorrectly.",
+    "ERR_TARIFF_BAND_BOUNDARY": "Doesn't apply free-transactions allowance correctly.",
+    "ERR_LOAN_REPAY_FORMULA": "Misapplies loan repayment / total interest formula.",
+    "ERR_LOAN_PERIOD": "Uses wrong number of monthly periods for the loan.",
+    "ERR_INTERSECTION_READ": "Identifies the wrong crossover.",
+    "ERR_EQUATION_SOLVE": "Solves the crossover equation incorrectly.",
+    "ERR_ANNUALISATION": "Misconverts monthly to annual."
+  }
+}

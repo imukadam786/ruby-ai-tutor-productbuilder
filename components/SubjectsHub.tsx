@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
+import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import { HIGHEST_AVAILABLE_LEVEL as LIFE_SKILLS_MAX_GRADE } from "@/lib/life-skills-grade-map";
 import { HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
@@ -16,6 +17,11 @@ import {
   HIGHEST_AVAILABLE_LEVEL as NST_MAX_GRADE,
   LOWEST_AVAILABLE_LEVEL as NST_MIN_GRADE,
 } from "@/lib/nst-grade-map";
+import {
+  HIGHEST_AVAILABLE_LEVEL as MATHS_LITERACY_MAX_GRADE,
+  LOWEST_AVAILABLE_LEVEL as MATHS_LITERACY_MIN_GRADE,
+} from "@/lib/maths-literacy-grade-map";
+import type { MathsLiteracyStudentProfile } from "@/types/maths-literacy";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
@@ -28,6 +34,7 @@ const AfrikaansSkillTreeView  = dynamic(() => import("@/components/afrikaans/Afr
 const SocialSciencesSkillTreeView = dynamic(() => import("@/components/social-sciences/SocialSciencesSkillTreeView"), { ssr: false });
 const NstSkillTreeView        = dynamic(() => import("@/components/nst/NstSkillTreeView"),                     { ssr: false });
 const MatricPhysSciSkillTreeView = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSkillTreeView"), { ssr: false });
+const MathsLiteracySkillTreeView = dynamic(() => import("@/components/maths-literacy/MathsLiteracySkillTreeView"), { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -37,7 +44,8 @@ type SubjectId =
   | "afrikaans"
   | "social-sciences"
   | "nst"
-  | "matric-phys-sci";
+  | "matric-phys-sci"
+  | "maths-literacy";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -97,6 +105,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const { t } = useT();
   const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
+  const [mathsLiteracyProfile, setMathsLiteracyProfile] = useState<MathsLiteracyStudentProfile | null>(null);
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedId, setSelectedId] = useState<SubjectId>(() => {
@@ -112,6 +121,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     ]).then(([mp, rp, auth]) => {
       setMathsProfile(mp ?? getStudentProfile());
       setReadingProfile((rp as ReadingStudentProfile | null) ?? getReadingProfile());
+      setMathsLiteracyProfile(getMathsLiteracyProfile());
       setGrade(auth?.grade ?? null);
       setLoading(false);
     });
@@ -129,6 +139,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showNst =
     learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE;
   const showMatricPhysSci = learnerGrade === 12;
+  const showMathsLiteracy =
+    learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE;
+
+  const mathsLiteracyMastered = mathsLiteracyProfile
+    ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
+        (m) => m.status === "mastered"
+      ).length
+    : 0;
+  const mathsLiteracyBadge = loading
+    ? "..."
+    : mathsLiteracyMastered > 0
+    ? `${mathsLiteracyMastered} mastered`
+    : "Not started";
 
   const mathsDone = mathsProfile?.placementCompleted ?? false;
   const readingDone = readingProfile?.placementCompleted ?? false;
@@ -264,12 +287,26 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "matric-phys-sci",
       });
     }
+    if (showMathsLiteracy) {
+      all.push({
+        id: "maths-literacy",
+        thumbnail: "/thumbnails/maths-literacy.jpeg",
+        label: "Maths Literacy",
+        caption: `Applied maths for Grades ${MATHS_LITERACY_MIN_GRADE}–${MATHS_LITERACY_MAX_GRADE} · 85 skills across 10 levels`,
+        badge: mathsLiteracyBadge,
+        badgeColor: mathsLiteracyMastered > 0 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600",
+        accentFrom: "from-indigo-500",
+        accentTo: "to-blue-600",
+        navigateTo: "maths-literacy",
+      });
+    }
     return all;
   }, [
     discoverBadge, discoverBadgeColor,
     mathsBadge, mathsBadgeColor,
     readingBadge, readingBadgeColor,
     showLifeSkills, showAfrikaans, showSocialSciences, showNst, showMatricPhysSci,
+    showMathsLiteracy, mathsLiteracyBadge, mathsLiteracyMastered,
   ]);
 
   // Keep selection valid if the chosen subject is no longer visible for this grade.
@@ -301,6 +338,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const startAfrikaansSkill = (skillId: string) => {
     if (typeof window !== "undefined") sessionStorage.setItem("ruby_afrikaans_target_skill", skillId);
     onNavigate("afrikaans-fal");
+  };
+  const startMathsLiteracyReplay = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_literacy_replay_skill", skillId);
+    onNavigate("maths-literacy");
+  };
+  const continueMathsLiteracy = () => {
+    if (typeof window !== "undefined") sessionStorage.removeItem("ruby_maths_literacy_replay_skill");
+    onNavigate("maths-literacy");
   };
 
   function renderRightPane() {
@@ -358,6 +403,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         return <NstSkillTreeView onPickTopic={() => onNavigate("natural-sciences-tech")} />;
       case "matric-phys-sci":
         return <MatricPhysSciSkillTreeView onPickSkill={() => onNavigate("matric-phys-sci")} />;
+      case "maths-literacy":
+        return (
+          <MathsLiteracySkillTreeView
+            profile={mathsLiteracyProfile}
+            onReplaySkill={startMathsLiteracyReplay}
+            onContinue={continueMathsLiteracy}
+          />
+        );
       default:
         return null;
     }

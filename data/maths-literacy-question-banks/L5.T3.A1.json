@@ -1,0 +1,361 @@
+{
+  "skill": "L5.T3.A1",
+  "skill_title": "Calculate the effect of inflation over single and multiple periods",
+  "grades": [12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "1.0",
+  "notes": "20-item bank, Grade 12 only. CAPS mix: 5 L1 / 8 L2 / 7 L3. Single period: new = old × (1 + i). Multi period (compound): new = old × (1 + i)^n.",
+  "items": [
+    {
+      "id": "L5.T3.A1.q01",
+      "skill": "L5.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Inflation: each year prices rise by i%. Single year formula: new = old × (1 + i)."},
+      "question": "Bread costs R20 today. With 6% inflation, what will it cost in 1 year?",
+      "answerMode": "numeric",
+      "expectedAnswer": 21.20,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": ["R20 × 1,06 = R21,20."],
+      "errorSignals": ["ERR_PERCENT_INCREASE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q02",
+      "skill": "L5.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Multiplier for inflation i = 0,06 is 1,06."},
+      "question": "Milk R20/L; 5% inflation. Price in 1 year?",
+      "answerMode": "numeric",
+      "expectedAnswer": 21,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": ["R20 × 1,05 = R21."],
+      "errorSignals": ["ERR_PERCENT_INCREASE"],
+      "possible": "Check: 0,05 × 20 = 1 → 20 + 1 = 21.",
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q03",
+      "skill": "L5.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Inflation increases prices."},
+      "question": "Cooking oil R45. After 8% inflation, what's the new price?",
+      "answerMode": "numeric",
+      "expectedAnswer": 48.60,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": ["R45 × 1,08 = R48,60."],
+      "errorSignals": ["ERR_PERCENT_INCREASE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q04",
+      "skill": "L5.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Inflation applied to a R-value."},
+      "question": "Petrol R23/L. After 4% inflation, new price?",
+      "answerMode": "numeric",
+      "expectedAnswer": 23.92,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": ["R23 × 1,04 = R23,92."],
+      "errorSignals": ["ERR_PERCENT_INCREASE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q05",
+      "skill": "L5.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Single-period inflation: % rise on the original."},
+      "question": "A basket of groceries costs R800. After 5% inflation, the new cost is:",
+      "answerMode": "numeric",
+      "expectedAnswer": 840,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["R800 × 1,05 = R840."],
+      "errorSignals": ["ERR_PERCENT_INCREASE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q06",
+      "skill": "L5.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Multi-period inflation (compound): new = old × (1 + i)^n."},
+      "question": "School fees R12 000 today. With 7% annual inflation, what will they be in 3 years? Round to the nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 14700,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": [
+        "Fee = R12 000 × 1,07³.",
+        "1,07³ = 1,225043.",
+        "= R14 700,52 ≈ R14 701."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q07",
+      "skill": "L5.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Bread R20 today, 6% annual inflation, 5 years."},
+      "question": "Calculate price in 5 years. Round to the nearest cent.",
+      "answerMode": "numeric",
+      "expectedAnswer": 26.76,
+      "tolerance": 0.1,
+      "unit": "R",
+      "workingSteps": [
+        "Price = R20 × 1,06⁵.",
+        "1,06⁵ = 1,338226.",
+        "= R26,76."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q08",
+      "skill": "L5.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Inflation is compound (each year is multiplied by the new factor)."},
+      "question": "Rent R5 000/month today. After 4 years at 8% annual inflation, what will rent be? Round to nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 6802,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": [
+        "Rent = R5 000 × 1,08⁴.",
+        "1,08⁴ = 1,36049.",
+        "= R6 802,44 ≈ R6 802."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q09",
+      "skill": "L5.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Petrol R23,50/L today; 5% inflation."},
+      "question": "Calculate price in 2 years.",
+      "answerMode": "numeric",
+      "expectedAnswer": 25.91,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": [
+        "Price = R23,50 × 1,05² = R23,50 × 1,1025 ≈ R25,91."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q10",
+      "skill": "L5.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Salary R20 000/month. 6% inflation each of 3 years."},
+      "question": "Calculate salary in year 3 (assuming salary keeps up with inflation). Round to nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 23820,
+      "tolerance": 20,
+      "unit": "R",
+      "workingSteps": [
+        "R20 000 × 1,06³.",
+        "1,06³ = 1,191016.",
+        "= R23 820,32 ≈ R23 820."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q11",
+      "skill": "L5.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Inflation 5%, 6 years."},
+      "question": "Loaf of bread R20 today. Price in 6 years?",
+      "answerMode": "numeric",
+      "expectedAnswer": 26.80,
+      "tolerance": 0.1,
+      "unit": "R",
+      "workingSteps": [
+        "R20 × 1,05⁶.",
+        "1,05⁶ = 1,340096.",
+        "= R26,80."
+      ],
+      "errorSignals": ["ERR_POWER_OF_FACTOR", "ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q12",
+      "skill": "L5.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Inflation reduces purchasing power over time."},
+      "question": "If a single-period inflation is 7%, multiplying by (1 + 0,07) gives the new price. What is the multiplier for 4 years compound?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.31,
+      "tolerance": 0.01,
+      "workingSteps": ["1,07⁴ = 1,31080. Round to 2 dp: 1,31."],
+      "errorSignals": ["ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q13",
+      "skill": "L5.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Convert annual inflation to a single-period multiplier."},
+      "question": "Annual inflation 9%. Single-period multiplier?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.09,
+      "tolerance": 0.01,
+      "workingSteps": ["1 + 0,09 = 1,09."],
+      "errorSignals": ["ERR_PERCENT_TO_DECIMAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q14",
+      "skill": "L5.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Salary R15 000 today, no annual raises, 6% inflation."},
+      "question": "Calculate real (inflation-adjusted) value of salary in 5 years' time. Round to nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 11209,
+      "tolerance": 20,
+      "unit": "R",
+      "workingSteps": [
+        "Real value = R15 000 ÷ 1,06⁵.",
+        "1,06⁵ = 1,338226.",
+        "= R15 000 ÷ 1,338226 ≈ R11 209."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q15",
+      "skill": "L5.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Multi-period inflation grows non-linearly."},
+      "question": "R100 today, 5% inflation/year. Price in 10 years (round to the nearest Rand)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 163,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "R100 × 1,05¹⁰.",
+        "1,05¹⁰ ≈ 1,62889.",
+        "= R162,89 ≈ R163."
+      ],
+      "errorSignals": ["ERR_POWER_OF_FACTOR", "ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q16",
+      "skill": "L5.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Multiple periods at different rates: Year 1: 6%, Year 2: 8%."},
+      "question": "Price R200 today. Calculate price after 2 years.",
+      "answerMode": "numeric",
+      "expectedAnswer": 228.96,
+      "tolerance": 0.5,
+      "unit": "R",
+      "workingSteps": [
+        "After Y1: R200 × 1,06 = R212.",
+        "After Y2: R212 × 1,08 = R228,96."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_PERCENT_SUCCESSIVE_ADD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q17",
+      "skill": "L5.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "School fees rising 8% per year. Today R30 000."},
+      "question": "Calculate fees in 4 years.",
+      "answerMode": "numeric",
+      "expectedAnswer": 40814,
+      "tolerance": 30,
+      "unit": "R",
+      "workingSteps": [
+        "R30 000 × 1,08⁴.",
+        "1,08⁴ = 1,36049.",
+        "= R40 814,70 ≈ R40 815."
+      ],
+      "errorSignals": ["ERR_POWER_OF_FACTOR", "ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q18",
+      "skill": "L5.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Salary keeping pace with inflation."},
+      "question": "Salary R25 000 today. After 5 years at 7% annual inflation, what salary is needed to preserve real value? Round to nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 35064,
+      "tolerance": 30,
+      "unit": "R",
+      "workingSteps": [
+        "R25 000 × 1,07⁵.",
+        "1,07⁵ = 1,402552.",
+        "= R35 063,80 ≈ R35 064."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q19",
+      "skill": "L5.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Reverse: today's value of a future amount."},
+      "question": "An amount R50 000 in 4 years (5% inflation). What is its TODAY's equivalent? Round to nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 41135,
+      "tolerance": 30,
+      "unit": "R",
+      "workingSteps": [
+        "Today = R50 000 ÷ 1,05⁴.",
+        "1,05⁴ = 1,215506.",
+        "= R41 135,12 ≈ R41 135."
+      ],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL", "ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A1.q20",
+      "skill": "L5.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Inflation over 10 years at constant 6%."},
+      "question": "Calculate the cumulative inflation multiplier over 10 years, round to 2 dp.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.79,
+      "tolerance": 0.02,
+      "workingSteps": ["1,06¹⁰ ≈ 1,79085 → 1,79."],
+      "errorSignals": ["ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_PERCENT_INCREASE": "Forgets to add inflation to the original amount.",
+    "ERR_PERCENT_TO_DECIMAL": "Misconverts inflation rate to decimal multiplier.",
+    "ERR_PERCENT_SUCCESSIVE_ADD": "Adds successive inflation rates instead of compounding.",
+    "ERR_COMPOUND_AS_SIMPLE": "Treats inflation as simple growth (adds the same amount each year).",
+    "ERR_POWER_OF_FACTOR": "Doesn't raise (1 + i) to the power n for multi-year inflation.",
+    "ERR_REAL_VS_NOMINAL": "Confuses today's vs future-Rand purchasing power."
+  }
+}

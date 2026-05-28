@@ -1,0 +1,357 @@
+{
+  "skill": "L5.T3.A2",
+  "skill_title": "Explain inflation's effect on buying power and salaries",
+  "grades": [12],
+  "caps_levels_target": [3, 4],
+  "version": "1.0",
+  "notes": "20-item bank, Grade 12 only. CAPS mix: 10 L3 / 10 L4. Argue with calculations: real vs nominal increases. Justify salary requests using inflation.",
+  "items": [
+    {
+      "id": "L5.T3.A2.q01",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "If salary rises by less than inflation, REAL purchasing power falls."},
+      "question": "Salary rose 5% but inflation was 8%. What was the change in real purchasing power?",
+      "answerMode": "multiChoice",
+      "options": ["+3% (real gain)", "−3% (real loss)", "0% (real unchanged)", "+13% (real gain)"],
+      "expectedAnswer": "−3% (real loss)",
+      "workingSteps": ["Approx: real change = nominal − inflation = 5% − 8% = −3%."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q02",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Salary R20 000 today, 6% inflation, no raise."},
+      "question": "Calculate REAL salary in 1 year (today's-Rand equivalent).",
+      "answerMode": "numeric",
+      "expectedAnswer": 18868,
+      "tolerance": 30,
+      "unit": "R",
+      "workingSteps": ["R20 000 ÷ 1,06 ≈ R18 867,92 ≈ R18 868."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q03",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Salary R15 000 rose to R15 750."},
+      "question": "Calculate the nominal % increase.",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": ["(R15 750 − R15 000) ÷ R15 000 × 100 = 5%."],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q04",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Nominal raise 5%, inflation 6%."},
+      "question": "Calculate approximate real % change.",
+      "answerMode": "numeric",
+      "expectedAnswer": -1,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": ["Real ≈ Nominal − Inflation = 5% − 6% = −1%."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q05",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Rent rose 7%, salary 5%. Argue the case for raise of 10%."},
+      "question": "What is the real % change in salary (salary 5% rise, inflation 7%)?",
+      "answerMode": "numeric",
+      "expectedAnswer": -2,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": ["5% − 7% = −2%. Real-terms decrease."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q06",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Purchasing power calculation: 1 / (1 + i)."},
+      "question": "With 6% inflation, what fraction of original purchasing power do you have after 1 year?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.94,
+      "tolerance": 0.01,
+      "workingSteps": ["1 ÷ 1,06 ≈ 0,9434 ≈ 0,94 (you have 94% of last year's buying power)."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q07",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Compare salaries adjusted for inflation."},
+      "question": "Worker A's salary rose from R20 000 to R22 000 (10% rise). Inflation was 8%. Did real income grow?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Yes — by about 2%.",
+        "No — real income fell by 2%.",
+        "No — real income stayed the same.",
+        "Yes — by 18%."
+      ],
+      "expectedAnswer": "Yes — by about 2%.",
+      "workingSteps": ["10% raise − 8% inflation ≈ +2% real income growth."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q08",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Buying power over 5 years at 6% inflation."},
+      "question": "What fraction of today's buying power does R100 have in 5 years?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.75,
+      "tolerance": 0.02,
+      "workingSteps": ["1 ÷ 1,06⁵ ≈ 1 ÷ 1,3382 ≈ 0,747 ≈ 0,75."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q09",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Argue a salary increase. Last year's salary R18 000. Inflation 6%."},
+      "question": "What is the MINIMUM new salary that keeps real income unchanged?",
+      "answerMode": "numeric",
+      "expectedAnswer": 19080,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": ["R18 000 × 1,06 = R19 080."],
+      "errorSignals": ["ERR_PERCENT_INCREASE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q10",
+      "skill": "L5.T3.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Adjust prices for inflation when comparing across years."},
+      "question": "Item cost R50 in 2020; in 2025 it costs R75. Was the price increase ABOVE or BELOW inflation if 5-year inflation was 35% cumulative?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Above inflation",
+        "Below inflation",
+        "Equal to inflation",
+        "Cannot tell"
+      ],
+      "expectedAnswer": "Above inflation",
+      "workingSteps": [
+        "Item rose: (75−50)/50 × 100 = 50%.",
+        "Inflation was 35%.",
+        "Item price grew faster than inflation → real price rose."
+      ],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL", "ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q11",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Pensioner has R5 000/month pension, no annual adjustment. 5 years of 6% inflation."},
+      "question": "Calculate the real value of the pension in 5 years' time (in today's Rand). Round to nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 3736,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": [
+        "Real = R5 000 ÷ 1,06⁵ = R5 000 ÷ 1,3382 ≈ R3 736."
+      ],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q12",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Compare two raise scenarios. Salary R20 000 today.\n\n- Plan A: +R1 000 fixed each year.\n- Plan B: +6% each year."},
+      "question": "After 5 years (compound), what is each salary? Round to nearest Rand.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Plan A (R)", "expectedAnswer": 25000, "tolerance": 5},
+        {"label": "Plan B (R)", "expectedAnswer": 26765, "tolerance": 30}
+      ],
+      "workingSteps": [
+        "Plan A: R20 000 + 5 × R1 000 = R25 000.",
+        "Plan B: R20 000 × 1,06⁵ = R20 000 × 1,3382 ≈ R26 765."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q13",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "From the previous example."},
+      "question": "Which plan is better after 5 years if inflation is 6%?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Plan A — bigger raises.",
+        "Plan B — matches inflation, preserving real value.",
+        "Both equal.",
+        "Plan A — keeps real value."
+      ],
+      "expectedAnswer": "Plan B — matches inflation, preserving real value.",
+      "workingSteps": ["Plan A loses to inflation; Plan B exactly matches inflation each year, so real income stays flat."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q14",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A union argues: 'A 5% raise in a 7% inflation year is no raise at all.' Justify with numbers."},
+      "question": "Salary R20 000. Calculate the real-terms loss in monthly Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 374,
+      "tolerance": 20,
+      "unit": "R",
+      "workingSteps": [
+        "Nominal new = R20 000 × 1,05 = R21 000.",
+        "Real (in today's Rand) = R21 000 ÷ 1,07 ≈ R19 626.",
+        "Loss ≈ R20 000 − R19 626 = R374."
+      ],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q15",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Real purchasing power over many years."},
+      "question": "Over 10 years at 7% inflation, what fraction of today's purchasing power remains? Round to 2 dp.",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.51,
+      "tolerance": 0.02,
+      "workingSteps": ["1 ÷ 1,07¹⁰ ≈ 1 ÷ 1,9672 ≈ 0,508 → 0,51."],
+      "errorSignals": ["ERR_POWER_OF_FACTOR", "ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q16",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A bond payment R6 800/month for 20 years."},
+      "question": "Total nominal cost over 20 years?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1632000,
+      "tolerance": 100,
+      "unit": "R",
+      "workingSteps": ["20 × 12 × R6 800 = R1 632 000."],
+      "errorSignals": ["ERR_ANNUALISATION", "ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q17",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Bread R20 today, R26 in 5 years. Inflation 6%/year."},
+      "question": "Is the bread price keeping up with inflation, exceeding it, or below?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Exceeding inflation",
+        "Below inflation",
+        "Exactly matching",
+        "Cannot determine"
+      ],
+      "expectedAnswer": "Below inflation",
+      "workingSteps": [
+        "Expected (matching): R20 × 1,06⁵ = R26,76.",
+        "Actual R26 < R26,76 → bread rose slightly below inflation."
+      ],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q18",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Justify a salary increase request. Salary R18 000, asking for 9% in a 6% inflation environment."},
+      "question": "What is the real % gain if granted?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": ["9% − 6% ≈ 3% real gain."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q19",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A learner says: 'Saving R1 000 today in a 0% interest account is the same as having R1 000 in 5 years.' Critique."},
+      "question": "Is the learner correct?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Yes — R1 000 is R1 000.",
+        "No — inflation makes the R1 000 less valuable in 5 years (it buys less).",
+        "No — interest accrues automatically.",
+        "Cannot tell."
+      ],
+      "expectedAnswer": "No — inflation makes the R1 000 less valuable in 5 years (it buys less).",
+      "workingSteps": ["Inflation reduces purchasing power. R1 000 nominal in 5 years buys less than R1 000 today."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T3.A2.q20",
+      "skill": "L5.T3.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Income tax brackets adjust below inflation (bracket creep). Suppose tax brackets rise by 4% but income rises by 6%."},
+      "question": "Does the worker pay more or less of their income as tax?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Less — the brackets are higher so they pay less.",
+        "More — incomes rise faster than the brackets, pushing income into higher brackets (bracket creep).",
+        "The same.",
+        "Cannot determine."
+      ],
+      "expectedAnswer": "More — incomes rise faster than the brackets, pushing income into higher brackets (bracket creep).",
+      "workingSteps": ["When bracket thresholds rise less than wages, real tax burden rises (bracket creep)."],
+      "errorSignals": ["ERR_REAL_VS_NOMINAL", "ERR_MARGINAL_RATE"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_REAL_VS_NOMINAL": "Confuses nominal Rand growth with real (inflation-adjusted) value.",
+    "ERR_PERCENT_CHANGE_DIVISOR": "Divides change by the wrong base.",
+    "ERR_PERCENT_INCREASE": "Doesn't apply (1 + r) to find new value.",
+    "ERR_COMPOUND_AS_SIMPLE": "Treats compound inflation as simple addition.",
+    "ERR_POWER_OF_FACTOR": "Doesn't raise (1 + i) to the power n.",
+    "ERR_ANNUALISATION": "Mis-converts monthly to annual.",
+    "ERR_BALANCE_RUNNING": "Sums total cost incorrectly.",
+    "ERR_MARGINAL_RATE": "Confuses marginal and average tax rates."
+  }
+}

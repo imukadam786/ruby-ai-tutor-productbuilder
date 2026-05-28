@@ -1,0 +1,352 @@
+{
+  "skill": "L2.T3.A1",
+  "skill_title": "Move between tables, equations and graphs",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 5 L1 / 8 L2 / 7 L3. Topics: substitute into equation, fill table from equation, write equation from table, predict from a graph point.",
+  "items": [
+    {
+      "id": "L2.T3.A1.q01",
+      "skill": "L2.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "C = 50 + 5n."},
+      "question": "Calculate C when n = 10.",
+      "answerMode": "numeric",
+      "expectedAnswer": 100,
+      "tolerance": 0.5,
+      "workingSteps": ["C = 50 + 5 × 10 = 50 + 50 = 100."],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA", "ERR_BODMAS_LEFT_TO_RIGHT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q02",
+      "skill": "L2.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Cost equation: C = 25 × k."},
+      "question": "What is C when k = 8?",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 0.5,
+      "workingSteps": ["C = 25 × 8 = 200."],
+      "errorSignals": ["ERR_BODMAS_LEFT_TO_RIGHT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q03",
+      "skill": "L2.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Wage formula: W = 80h + 200 (where h = hours worked)."},
+      "question": "Calculate W when h = 0.",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 1,
+      "workingSteps": ["W = 80 × 0 + 200 = 0 + 200 = 200 (the fixed component)."],
+      "errorSignals": ["ERR_Y_INTERCEPT", "ERR_BODMAS_LEFT_TO_RIGHT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q04",
+      "skill": "L2.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Cost (R) vs minutes:\n\n| Min (m) | Cost (R) |\n|---|---|\n| 0 | 100 |\n| 10 | 110 |\n| 20 | 120 |\n| 30 | 130 |"},
+      "question": "What is the cost per minute (the slope)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1,
+      "tolerance": 0.05,
+      "unit": "R/min",
+      "workingSteps": ["Difference of R10 per 10 minutes = R1/min."],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q05",
+      "skill": "L2.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Cost (R) vs minutes:\n\n| Min (m) | Cost (R) |\n|---|---|\n| 0 | 100 |\n| 10 | 110 |\n| 20 | 120 |\n| 30 | 130 |"},
+      "question": "Which equation matches this table?",
+      "answerMode": "multiChoice",
+      "options": ["C = 100m", "C = m + 100", "C = 100 + m", "C = 100 − m"],
+      "expectedAnswer": "C = 100 + m",
+      "workingSteps": ["At m = 0, C = 100 (fixed). Per minute, C rises by 1. → C = 100 + m."],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA", "ERR_SLOPE_INTERPRETATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q06",
+      "skill": "L2.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Fill the table from the equation C = 30 + 2k (where k = km driven):\n\n| k | C (R) |\n|---|---|\n| 0 | ? |\n| 10 | ? |\n| 20 | ? |\n| 50 | ? |"},
+      "question": "Fill in all four values.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "k = 0", "expectedAnswer": 30, "tolerance": 0.5},
+        {"label": "k = 10", "expectedAnswer": 50, "tolerance": 0.5},
+        {"label": "k = 20", "expectedAnswer": 70, "tolerance": 0.5},
+        {"label": "k = 50", "expectedAnswer": 130, "tolerance": 0.5}
+      ],
+      "workingSteps": [
+        "k = 0: 30 + 0 = 30.",
+        "k = 10: 30 + 20 = 50.",
+        "k = 20: 30 + 40 = 70.",
+        "k = 50: 30 + 100 = 130."
+      ],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q07",
+      "skill": "L2.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Write the equation from the table:\n\n| n | y |\n|---|---|\n| 0 | 12 |\n| 1 | 15 |\n| 2 | 18 |\n| 3 | 21 |"},
+      "question": "Which equation matches this table?",
+      "answerMode": "multiChoice",
+      "options": ["y = 12 + 3n", "y = 3n + 12n", "y = 12n + 3", "y = 12 × 3^n"],
+      "expectedAnswer": "y = 12 + 3n",
+      "workingSteps": ["At n = 0, y = 12. Per step of n, y rises by 3. → y = 12 + 3n."],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA", "ERR_Y_INTERCEPT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q08",
+      "skill": "L2.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "C = 100 + 4m (in Rand)."},
+      "question": "Calculate C when m = 75.",
+      "answerMode": "numeric",
+      "expectedAnswer": 400,
+      "tolerance": 0.5,
+      "unit": "R",
+      "workingSteps": ["C = 100 + 4 × 75 = 100 + 300 = 400."],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q09",
+      "skill": "L2.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Solve for x in the equation 50 + 4x = 130."},
+      "question": "Find x.",
+      "answerMode": "numeric",
+      "expectedAnswer": 20,
+      "tolerance": 0.5,
+      "workingSteps": [
+        "4x = 130 − 50 = 80.",
+        "x = 80 ÷ 4 = 20."
+      ],
+      "errorSignals": ["ERR_EQUATION_SOLVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q10",
+      "skill": "L2.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "An equation C = 200 + 1,50m models total cost C against minutes m."},
+      "question": "How many minutes give a cost of R500?",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 1,
+      "unit": "minutes",
+      "workingSteps": [
+        "500 = 200 + 1,50m.",
+        "1,50m = 300.",
+        "m = 200 min."
+      ],
+      "errorSignals": ["ERR_EQUATION_SOLVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q11",
+      "skill": "L2.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — A petrol-bill model:\n\n| Litres (L) | Cost (R) |\n|---|---|\n| 0 | 0 |\n| 10 | 235 |\n| 20 | 470 |\n| 30 | 705 |"},
+      "question": "Write the equation for cost C in terms of litres L.",
+      "answerMode": "multiChoice",
+      "options": ["C = 235L", "C = 23,5L", "C = 0 + 23,5L", "Both C = 23,5L and C = 0 + 23,5L"],
+      "expectedAnswer": "Both C = 23,5L and C = 0 + 23,5L",
+      "workingSteps": ["C goes through origin (0,0). Per L, C rises by R23,50. So C = 23,5L (with or without writing the +0)."],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION", "ERR_Y_INTERCEPT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q12",
+      "skill": "L2.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Fill the table from the equation y = 5x − 4:\n\n| x | y |\n|---|---|\n| 0 | ? |\n| 1 | ? |\n| 2 | ? |\n| 5 | ? |"},
+      "question": "Fill in all four values.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "x = 0", "expectedAnswer": -4, "tolerance": 0.5},
+        {"label": "x = 1", "expectedAnswer": 1, "tolerance": 0.5},
+        {"label": "x = 2", "expectedAnswer": 6, "tolerance": 0.5},
+        {"label": "x = 5", "expectedAnswer": 21, "tolerance": 0.5}
+      ],
+      "workingSteps": [
+        "x=0: 5(0)−4 = −4.",
+        "x=1: 5−4 = 1.",
+        "x=2: 10−4 = 6.",
+        "x=5: 25−4 = 21."
+      ],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA", "ERR_SIGNED_VALUE_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q13",
+      "skill": "L2.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Cost (R) for varying num of items:\n\n| Items | Cost (R) |\n|---|---|\n| 1 | 22 |\n| 2 | 44 |\n| 3 | 66 |\n| 4 | 88 |"},
+      "question": "Write the equation for cost C in terms of items n.",
+      "answerMode": "multiChoice",
+      "options": ["C = 22 + n", "C = 22n", "C = n + 22", "C = 22 × n²"],
+      "expectedAnswer": "C = 22n",
+      "workingSteps": ["Direct proportion through origin. Per item: R22. → C = 22n."],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA", "ERR_Y_INTERCEPT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q14",
+      "skill": "L2.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A plumber charges R250 callout + R450/hour. Equation: C = 250 + 450h."},
+      "question": "Calculate the cost of a 3,5-hour job.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1825,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["C = 250 + 450 × 3,5 = 250 + 1 575 = R1 825."],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA", "ERR_DECIMAL_PLACEMENT_PRODUCT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q15",
+      "skill": "L2.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A water tank empties at 8 L/min from an initial volume of 240 L. Equation: V = 240 − 8t (t in minutes)."},
+      "question": "After how many minutes is the tank empty (V = 0)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 30,
+      "tolerance": 0.1,
+      "unit": "minutes",
+      "workingSteps": [
+        "0 = 240 − 8t.",
+        "8t = 240.",
+        "t = 30 min."
+      ],
+      "errorSignals": ["ERR_EQUATION_SOLVE", "ERR_X_INTERCEPT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q16",
+      "skill": "L2.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Convert from Rand to USD at 1 USD = R18,75:\n\n| R | $ |\n|---|---|\n| 0 | 0 |\n| 187,50 | 10 |\n| 375 | 20 |\n| 750 | 40 |"},
+      "question": "Write an equation for USD ($) in terms of Rand (R).",
+      "answerMode": "multiChoice",
+      "options": ["$ = 18,75 × R", "$ = R ÷ 18,75", "$ = R × 18,75 ÷ 100", "$ = R + 18,75"],
+      "expectedAnswer": "$ = R ÷ 18,75",
+      "workingSteps": ["1 USD = R18,75, so USD = Rand ÷ rate = R ÷ 18,75."],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION", "ERR_SLOPE_INTERPRETATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q17",
+      "skill": "L2.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "C = 200 + 0,80m (cost in Rand)."},
+      "question": "Calculate C for m = 0 and m = 500.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "C at m = 0", "expectedAnswer": 200, "tolerance": 1},
+        {"label": "C at m = 500", "expectedAnswer": 600, "tolerance": 1}
+      ],
+      "workingSteps": [
+        "m = 0: C = 200 + 0 = R200.",
+        "m = 500: C = 200 + 400 = R600."
+      ],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q18",
+      "skill": "L2.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A graph passes through (0, 50) and (20, 250)."},
+      "question": "Write the equation y = mx + c for this line.",
+      "answerMode": "multiChoice",
+      "options": ["y = 10x + 50", "y = 50x + 10", "y = 10x", "y = 50 − 10x"],
+      "expectedAnswer": "y = 10x + 50",
+      "workingSteps": [
+        "y-intercept c = 50 (from (0, 50)).",
+        "Slope m = (250 − 50) ÷ (20 − 0) = 200 ÷ 20 = 10.",
+        "y = 10x + 50."
+      ],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION", "ERR_Y_INTERCEPT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q19",
+      "skill": "L2.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Cell phone Plan: C = 250 + 0,50m. The user is budgeting R600 monthly."},
+      "question": "How many minutes does R600 allow?",
+      "answerMode": "numeric",
+      "expectedAnswer": 700,
+      "tolerance": 5,
+      "unit": "minutes",
+      "workingSteps": [
+        "600 = 250 + 0,50m.",
+        "0,50m = 350.",
+        "m = 700 min."
+      ],
+      "errorSignals": ["ERR_EQUATION_SOLVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T3.A1.q20",
+      "skill": "L2.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** for plotting:\n\n| x | y |\n|---|---|\n| 0 | 100 |\n| 5 | 130 |\n| 10 | 160 |\n| 15 | 190 |"},
+      "question": "If this trend continues linearly, what is y at x = 25?",
+      "answerMode": "numeric",
+      "expectedAnswer": 250,
+      "tolerance": 2,
+      "workingSteps": [
+        "Slope = (130 − 100) ÷ 5 = 6 per unit.",
+        "y at x = 25: 100 + 6 × 25 = 100 + 150 = 250."
+      ],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION", "ERR_BRACKET_MISSING_FORMULA"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_BRACKET_MISSING_FORMULA": "Mis-applies BODMAS when substituting into a formula.",
+    "ERR_BODMAS_LEFT_TO_RIGHT": "Evaluates left-to-right ignoring BODMAS.",
+    "ERR_Y_INTERCEPT": "Misreads the y-intercept (the fixed-amount component).",
+    "ERR_X_INTERCEPT": "Misreads the x-intercept (where y = 0).",
+    "ERR_SLOPE_INTERPRETATION": "Misinterprets the slope (rate of change).",
+    "ERR_EQUATION_SOLVE": "Solves the equation incorrectly (e.g. drops a subtraction step).",
+    "ERR_UNIT_PRICE_INVERSION": "Divides the wrong way around (e.g. quantity ÷ price instead of price ÷ quantity).",
+    "ERR_SIGNED_VALUE_DIRECTION": "Drops or mishandles a sign when substituting.",
+    "ERR_DECIMAL_PLACEMENT_PRODUCT": "Misplaces the decimal in a product."
+  }
+}

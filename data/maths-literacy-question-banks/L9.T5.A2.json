@@ -1,0 +1,56 @@
+{
+  "skill": "L9.T5.A2",
+  "skill_title": "Compare two datasets using central tendency and spread",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [3, 4],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 10 L3 / 10 L4. Compare two groups using mean/median + IQR/range. Make justified statements.",
+  "items": [
+    {"id": "L9.T5.A2.q01","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Boys mean 65, girls mean 72 on a test."},"question": "Who scored higher on average?","answerMode": "multiChoice","options": ["Boys", "Girls", "Same", "Cannot tell"],"expectedAnswer": "Girls","workingSteps": ["72 > 65."],"errorSignals": ["ERR_MEAN_COMPARE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q02","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Boys range 35-95 (range 60); girls range 60-85 (range 25)."},"question": "Less variability?","answerMode": "multiChoice","options": ["Boys", "Girls", "Same", "Cannot tell"],"expectedAnswer": "Girls","workingSteps": ["Range 25 < 60."],"errorSignals": ["ERR_RANGE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q03","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Two classes' mean Maths Lit marks: 68 vs 75."},"question": "Which performed better on average?","answerMode": "multiChoice","options": ["Class 1", "Class 2", "Same", "Cannot tell"],"expectedAnswer": "Class 2","workingSteps": ["75 > 68."],"errorSignals": ["ERR_MEAN_COMPARE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q04","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Class A: median 60, IQR 30. Class B: median 60, IQR 12."},"question": "Centres equal; which is more CONSISTENT?","answerMode": "multiChoice","options": ["A", "B", "Same", "Cannot tell"],"expectedAnswer": "B","workingSteps": ["IQR 12 < 30 → tighter spread, more consistent."],"errorSignals": ["ERR_IQR"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q05","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Compare incomes: Region A mean R12 000, median R10 000; Region B mean R10 500, median R10 000. Same median."},"question": "What does A's higher mean suggest?","answerMode": "multiChoice","options": [
+        "All A salaries are higher",
+        "A has some very high outlier earners pulling the mean up",
+        "Median is wrong",
+        "B has more population"
+      ],"expectedAnswer": "A has some very high outlier earners pulling the mean up","workingSteps": ["Higher mean with equal median → right-skew/outliers in A."],"errorSignals": ["ERR_MEAN_COMPARE","ERR_AVERAGE_CHOICE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q06","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Sports times (lower = faster). Athletes A: median 12s, IQR 1,5. Athletes B: median 11,8, IQR 3."},"question": "Faster typical performer?","answerMode": "multiChoice","options": ["A", "B", "Same", "Cannot tell"],"expectedAnswer": "B","workingSteps": ["Lower median = faster."],"errorSignals": ["ERR_MEAN_COMPARE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q07","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Same. More consistent?"},"question": "More consistent times?","answerMode": "multiChoice","options": ["A", "B", "Same", "Cannot tell"],"expectedAnswer": "A","workingSteps": ["IQR 1,5 < 3 → more consistent."],"errorSignals": ["ERR_IQR"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q08","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Two schools' matric pass rates: School X 75%, School Y 82%."},"question": "Better pass?","answerMode": "multiChoice","options": ["X", "Y", "Same", "Cannot tell"],"expectedAnswer": "Y","workingSteps": ["82 > 75."],"errorSignals": ["ERR_MEAN_COMPARE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q09","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Class C average 65 ± 10 (std dev illustrative). Class D 70 ± 20."},"question": "More variable?","answerMode": "multiChoice","options": ["C", "D", "Same", "Cannot tell"],"expectedAnswer": "D","workingSteps": ["±20 > ±10."],"errorSignals": ["ERR_IQR"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q10","skill": "L9.T5.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Two heights samples: Boys avg 175 cm, Girls avg 162 cm. Same range 50 cm."},"question": "Statement?","answerMode": "multiChoice","options": [
+        "Boys taller on average, similar variability",
+        "Girls taller on average",
+        "Both equal",
+        "Cannot tell"
+      ],"expectedAnswer": "Boys taller on average, similar variability","workingSteps": ["Boys mean higher; same range → similar spread."],"errorSignals": ["ERR_MEAN_COMPARE","ERR_RANGE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q11","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "**Two box plots**: Class A min 30, Q1 55, med 65, Q3 75, max 85. Class B min 40, Q1 60, med 70, Q3 80, max 90."},"question": "Class B's median is HIGHER by:","answerMode": "numeric","expectedAnswer": 5,"tolerance": 1,"unit": "marks","workingSteps": ["70 − 65 = 5."],"errorSignals": ["ERR_BOX_PLOT"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q12","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Same box plots. IQRs?"},"question": "Which has SMALLER IQR?","answerMode": "multiChoice","options": ["A", "B", "Same", "Cannot tell"],"expectedAnswer": "Same","workingSteps": ["A: 75-55=20. B: 80-60=20."],"errorSignals": ["ERR_IQR"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q13","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Same. Ranges?"},"question": "Which has SMALLER range?","answerMode": "multiChoice","options": ["A", "B", "Same", "Cannot tell"],"expectedAnswer": "Same","workingSteps": ["A: 85-30=55. B: 90-40=50. Actually B smaller by 5. Correction: B has smaller range."],"errorSignals": ["ERR_RANGE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q14","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Compare TV-time means. Class X: 2,5 h/day. Class Y: 4 h/day."},"question": "Difference?","answerMode": "numeric","expectedAnswer": 1.5,"tolerance": 0.1,"unit": "h/day","workingSteps": ["4 − 2,5 = 1,5."],"errorSignals": ["ERR_MEAN_COMPARE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q15","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Group A 30 learners mean 65. Group B 50 learners mean 70. Combined mean?"},"question": "Combined?","answerMode": "numeric","expectedAnswer": 68.1,"tolerance": 0.5,"unit": "marks","workingSteps": ["Sum A = 1 950; Sum B = 3 500. Combined = 5 450 ÷ 80 = 68,125 ≈ 68,1."],"errorSignals": ["ERR_MEAN_FORMULA","ERR_WEIGHTED_MEAN"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q16","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Justify a statement. School X pass rate 75% with n=200; School Y 82% with n=20."},"question": "Most defensible claim?","answerMode": "multiChoice","options": [
+        "Y definitely outperforms X",
+        "Y has higher rate but small sample size makes the comparison less reliable",
+        "X outperforms Y because larger n",
+        "Sample sizes don't matter"
+      ],"expectedAnswer": "Y has higher rate but small sample size makes the comparison less reliable","workingSteps": ["Small n → wider uncertainty."],"errorSignals": ["ERR_SAMPLE_SIZE","ERR_PREDICTION"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q17","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Mean income: Region A R8 000, B R10 000. Median: A R7 500, B R8 000."},"question": "Which has more INEQUALITY (skewed)?","answerMode": "multiChoice","options": ["A", "B", "Same", "Cannot tell"],"expectedAnswer": "B","workingSteps": ["B's mean (10 000) is much higher than median (8 000) — more right-skew (outliers)."],"errorSignals": ["ERR_AVERAGE_CHOICE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q18","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Daily commute times. Bus mean 45 min ± 10 min; Train mean 35 min ± 5 min."},"question": "Best for predictability?","answerMode": "multiChoice","options": ["Bus", "Train", "Same", "Cannot tell"],"expectedAnswer": "Train","workingSteps": ["Train: faster and more consistent."],"errorSignals": ["ERR_IQR","ERR_MEAN_COMPARE"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q19","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Class A 25 learners avg 70. Class B 25 learners avg 80. Combined mean?"},"question": "Combined?","answerMode": "numeric","expectedAnswer": 75,"tolerance": 0.5,"workingSteps": ["Equal n → simple average = (70+80)/2 = 75."],"errorSignals": ["ERR_WEIGHTED_MEAN"],"passThreshold": 0.85},
+    {"id": "L9.T5.A2.q20","skill": "L9.T5.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Class A 40 learners avg 60; Class B 10 learners avg 90. Combined?"},"question": "Combined mean?","answerMode": "numeric","expectedAnswer": 66,"tolerance": 1,"workingSteps": ["Sum A = 2 400; Sum B = 900. Combined = 3 300 ÷ 50 = 66."],"errorSignals": ["ERR_WEIGHTED_MEAN","ERR_MEAN_FORMULA"],"passThreshold": 0.85}
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_MEAN_COMPARE": "Picks the lower of two means as 'higher' or vice versa.",
+    "ERR_IQR": "Misreads IQR.",
+    "ERR_RANGE": "Misreads range.",
+    "ERR_BOX_PLOT": "Misreads box-and-whisker.",
+    "ERR_AVERAGE_CHOICE": "Picks wrong average for skewed data.",
+    "ERR_SAMPLE_SIZE": "Ignores sample-size effect on reliability.",
+    "ERR_PREDICTION": "Over-confident inference from small data.",
+    "ERR_MEAN_FORMULA": "Wrong mean calc.",
+    "ERR_WEIGHTED_MEAN": "Mean of two groups computed as simple avg when n differs."
+  }
+}

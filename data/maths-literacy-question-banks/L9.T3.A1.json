@@ -1,0 +1,36 @@
+{
+  "skill": "L9.T3.A1",
+  "skill_title": "Calculate mean, median and mode",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 10 L1 / 10 L2. Mean = sum/count; median = middle (mean of two middles for even n); mode = most frequent.",
+  "items": [
+    {"id": "L9.T3.A1.q01","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "Mean of 4, 6, 8, 10, 12."},"question": "Mean?","answerMode": "numeric","expectedAnswer": 8,"tolerance": 0.5,"workingSteps": ["Sum 40 ÷ 5 = 8."],"errorSignals": ["ERR_MEAN_FORMULA"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q02","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "Median of 3, 7, 5, 8, 4."},"question": "Median?","answerMode": "numeric","expectedAnswer": 5,"tolerance": 0,"workingSteps": ["Sort: 3, 4, 5, 7, 8. Middle = 5."],"errorSignals": ["ERR_MEDIAN_SORT"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q03","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "Mode of 2, 3, 3, 4, 5, 3, 6."},"question": "Mode?","answerMode": "numeric","expectedAnswer": 3,"tolerance": 0,"workingSteps": ["3 appears 3 times — most frequent."],"errorSignals": ["ERR_MODE"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q04","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "Mean of 10, 20, 30."},"question": "Mean?","answerMode": "numeric","expectedAnswer": 20,"tolerance": 0,"workingSteps": ["60 ÷ 3 = 20."],"errorSignals": ["ERR_MEAN_FORMULA"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q05","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "Median of 1, 2, 4, 6 (even count)."},"question": "Median?","answerMode": "numeric","expectedAnswer": 3,"tolerance": 0.1,"workingSteps": ["Middles 2 and 4. Mean = 3."],"errorSignals": ["ERR_MEDIAN_EVEN"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q06","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "Marks: 70, 80, 90."},"question": "Mean?","answerMode": "numeric","expectedAnswer": 80,"tolerance": 0,"workingSteps": ["240 ÷ 3 = 80."],"errorSignals": ["ERR_MEAN_FORMULA"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q07","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "Data: 5, 7, 9, 11."},"question": "Median?","answerMode": "numeric","expectedAnswer": 8,"tolerance": 0.1,"workingSteps": ["Middles 7, 9. Mean = 8."],"errorSignals": ["ERR_MEDIAN_EVEN"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q08","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "Mode: 2, 4, 4, 5, 6, 6, 6, 7."},"question": "Mode?","answerMode": "numeric","expectedAnswer": 6,"tolerance": 0,"workingSteps": ["6 appears 3 times — most."],"errorSignals": ["ERR_MODE"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q09","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "Mean of 0, 5, 10, 15."},"question": "Mean?","answerMode": "numeric","expectedAnswer": 7.5,"tolerance": 0.1,"workingSteps": ["30 ÷ 4 = 7,5."],"errorSignals": ["ERR_MEAN_FORMULA"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q10","skill": "L9.T3.A1","caps_level": 1,"source": "fresh","stimulus": {"inline": "No repeated values: 1, 3, 5, 7."},"question": "Mode?","answerMode": "multiChoice","options": ["1", "3", "5", "No mode"],"expectedAnswer": "No mode","workingSteps": ["All values appear once → no mode."],"errorSignals": ["ERR_MODE"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q11","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "**Maths Lit class marks (out of 100)**: 65, 70, 72, 80, 85, 88, 90, 75, 78, 82."},"question": "Mean?","answerMode": "numeric","expectedAnswer": 78.5,"tolerance": 0.5,"workingSteps": ["Sum = 785 ÷ 10 = 78,5."],"errorSignals": ["ERR_MEAN_FORMULA"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q12","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Same. Sort: 65, 70, 72, 75, 78, 80, 82, 85, 88, 90."},"question": "Median?","answerMode": "numeric","expectedAnswer": 79,"tolerance": 0.5,"workingSteps": ["Middles 78, 80. (78 + 80) ÷ 2 = 79."],"errorSignals": ["ERR_MEDIAN_EVEN","ERR_MEDIAN_SORT"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q13","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Sales (in R): 250, 300, 400, 250, 500, 250, 700."},"question": "Mode?","answerMode": "numeric","expectedAnswer": 250,"tolerance": 0,"workingSteps": ["250 appears 3 times — most."],"errorSignals": ["ERR_MODE"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q14","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Daily temperatures Mon-Fri: 22, 24, 21, 19, 23."},"question": "Mean?","answerMode": "numeric","expectedAnswer": 21.8,"tolerance": 0.5,"workingSteps": ["Sum 109 ÷ 5 = 21,8."],"errorSignals": ["ERR_MEAN_FORMULA"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q15","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Class sizes (8 classes): 28, 32, 28, 35, 28, 30, 32, 28."},"question": "Mode?","answerMode": "numeric","expectedAnswer": 28,"tolerance": 0,"workingSteps": ["28 four times — most."],"errorSignals": ["ERR_MODE"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q16","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Same class sizes. Mean?"},"question": "Mean?","answerMode": "numeric","expectedAnswer": 30.1,"tolerance": 0.5,"workingSteps": ["Sum 241 ÷ 8 = 30,125 ≈ 30,1."],"errorSignals": ["ERR_MEAN_FORMULA"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q17","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Same. Sort: 28, 28, 28, 28, 30, 32, 32, 35. Median?"},"question": "Median?","answerMode": "numeric","expectedAnswer": 29,"tolerance": 0.5,"workingSteps": ["Middles 28 and 30 → (28+30)/2 = 29."],"errorSignals": ["ERR_MEDIAN_EVEN"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q18","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Match scores (test out of 20): 12, 15, 16, 18, 19, 20, 12, 13."},"question": "Median?","answerMode": "numeric","expectedAnswer": 15.5,"tolerance": 0.5,"workingSteps": ["Sort: 12, 12, 13, 15, 16, 18, 19, 20. Middles 15, 16 → 15,5."],"errorSignals": ["ERR_MEDIAN_EVEN"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q19","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Same. Mean?"},"question": "Mean?","answerMode": "numeric","expectedAnswer": 15.6,"tolerance": 0.5,"workingSteps": ["Sum 125 ÷ 8 = 15,625 ≈ 15,6."],"errorSignals": ["ERR_MEAN_FORMULA"],"passThreshold": 0.85},
+    {"id": "L9.T3.A1.q20","skill": "L9.T3.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Same. Mode?"},"question": "Mode?","answerMode": "numeric","expectedAnswer": 12,"tolerance": 0,"workingSteps": ["12 appears twice."],"errorSignals": ["ERR_MODE"],"passThreshold": 0.85}
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_MEAN_FORMULA": "Calculates mean wrong (sums or divides incorrectly).",
+    "ERR_MEDIAN_SORT": "Forgets to sort before finding median.",
+    "ERR_MEDIAN_EVEN": "Mishandles even-count median (skips averaging two middles).",
+    "ERR_MODE": "Misidentifies mode."
+  }
+}

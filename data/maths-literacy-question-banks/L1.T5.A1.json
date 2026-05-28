@@ -1,0 +1,355 @@
+{
+  "skill": "L1.T5.A1",
+  "skill_title": "Calculate and compare rates",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 5 L1 / 8 L2 / 7 L3. Rates: R/kg, R/L, L/100km, km/h. SA contexts: Pick n Pay grocery, petrol consumption, taxi vs Uber, biltong stalls.",
+  "items": [
+    {
+      "id": "L1.T5.A1.q01",
+      "skill": "L1.T5.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "A rate compares two different quantities, e.g. R/kg means Rand per kilogram."},
+      "question": "If 2 kg of apples costs R30, what is the rate in R/kg?",
+      "answerMode": "numeric",
+      "expectedAnswer": 15,
+      "tolerance": 0.01,
+      "unit": "R/kg",
+      "workingSteps": ["Rate = R30 ÷ 2 = R15/kg."],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q02",
+      "skill": "L1.T5.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Petrol consumption rate is measured in litres per 100 km (L/100km)."},
+      "question": "A car uses 8 L of petrol to travel 100 km. What is its consumption rate?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8,
+      "tolerance": 0.01,
+      "unit": "L/100km",
+      "workingSteps": ["Direct reading: 8 L per 100 km = 8 L/100km."],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q03",
+      "skill": "L1.T5.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Speed is the rate of distance per unit time."},
+      "question": "A minibus travels 240 km in 4 hours. Calculate its average speed.",
+      "answerMode": "numeric",
+      "expectedAnswer": 60,
+      "tolerance": 0.5,
+      "unit": "km/h",
+      "workingSteps": ["Speed = distance ÷ time = 240 ÷ 4 = 60 km/h."],
+      "errorSignals": ["ERR_SPEED_TIME_DISTANCE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q04",
+      "skill": "L1.T5.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Wage rates are expressed as Rand per hour."},
+      "question": "A casual worker earns R720 for an 8-hour shift. Calculate her hourly rate.",
+      "answerMode": "numeric",
+      "expectedAnswer": 90,
+      "tolerance": 0.01,
+      "unit": "R/h",
+      "workingSteps": ["Rate = R720 ÷ 8 = R90/h."],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q05",
+      "skill": "L1.T5.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "A simple R/kg rate compares the price of the same product at different shops."},
+      "question": "Spar sells potatoes at R36 for 3 kg. Calculate the price per kg.",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0.01,
+      "unit": "R/kg",
+      "workingSteps": ["Rate = R36 ÷ 3 = R12/kg."],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q06",
+      "skill": "L1.T5.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Boxer Superstore — sugar prices**\n\n| Pack | Price |\n|---|---|\n| 1 kg | R22,50 |\n| 2,5 kg | R52,50 |"},
+      "question": "Which pack is cheaper per kg?",
+      "answerMode": "multiChoice",
+      "options": ["1 kg pack", "2,5 kg pack", "Both are the same price per kg", "Cannot tell"],
+      "expectedAnswer": "2,5 kg pack",
+      "workingSteps": [
+        "1 kg pack: R22,50 ÷ 1 = R22,50/kg.",
+        "2,5 kg pack: R52,50 ÷ 2,5 = R21,00/kg.",
+        "R21,00 < R22,50, so the 2,5 kg pack is cheaper per kg."
+      ],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION", "ERR_RATE_COMPARE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q07",
+      "skill": "L1.T5.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Two cars are compared. Car A: 50 L for 500 km. Car B: 40 L for 500 km."},
+      "question": "Which car has the better fuel consumption (lower L/100km)?",
+      "answerMode": "multiChoice",
+      "options": ["Car A", "Car B", "They are the same", "Cannot tell without engine size"],
+      "expectedAnswer": "Car B",
+      "workingSteps": [
+        "Car A: 50 ÷ 500 × 100 = 10 L/100km.",
+        "Car B: 40 ÷ 500 × 100 = 8 L/100km.",
+        "Lower is better — Car B."
+      ],
+      "errorSignals": ["ERR_RATE_COMPARE", "ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q08",
+      "skill": "L1.T5.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Petrol costs R23,50 per litre. A car uses 60 L to fill up."},
+      "question": "Calculate the total cost of the tank.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1410,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": ["Total = rate × quantity = R23,50 × 60 = R1 410."],
+      "errorSignals": ["ERR_RATE_USE_OPERATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q09",
+      "skill": "L1.T5.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Three stalls sell biltong. Stall A: R85 for 250 g. Stall B: R150 for 500 g. Stall C: R270 for 1 kg."},
+      "question": "Which stall sells biltong at the lowest price per kg?",
+      "answerMode": "multiChoice",
+      "options": ["Stall A", "Stall B", "Stall C", "All the same"],
+      "expectedAnswer": "Stall C",
+      "workingSteps": [
+        "Stall A: R85 ÷ 0,25 = R340/kg.",
+        "Stall B: R150 ÷ 0,5 = R300/kg.",
+        "Stall C: R270 ÷ 1 = R270/kg.",
+        "Cheapest is Stall C."
+      ],
+      "errorSignals": ["ERR_RATE_COMPARE", "ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q10",
+      "skill": "L1.T5.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A delivery driver covers 270 km in 4,5 hours."},
+      "question": "Calculate his average speed.",
+      "answerMode": "numeric",
+      "expectedAnswer": 60,
+      "tolerance": 0.5,
+      "unit": "km/h",
+      "workingSteps": ["Speed = 270 ÷ 4,5 = 60 km/h."],
+      "errorSignals": ["ERR_SPEED_TIME_DISTANCE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q11",
+      "skill": "L1.T5.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A factory worker earns R85 per hour and worked 38 hours last week."},
+      "question": "Calculate the worker's gross wage for the week.",
+      "answerMode": "numeric",
+      "expectedAnswer": 3230,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": ["Wage = rate × hours = R85 × 38 = R3 230."],
+      "errorSignals": ["ERR_RATE_USE_OPERATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q12",
+      "skill": "L1.T5.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A taxi charges R12 per km. A passenger travels 6,5 km."},
+      "question": "Calculate the fare.",
+      "answerMode": "numeric",
+      "expectedAnswer": 78,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": ["Fare = R12 × 6,5 = R78."],
+      "errorSignals": ["ERR_RATE_USE_OPERATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q13",
+      "skill": "L1.T5.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A water meter reads 12 320 L at the start of a month and 13 760 L at month-end."},
+      "question": "What is the average daily water consumption for a 30-day month?",
+      "answerMode": "numeric",
+      "expectedAnswer": 48,
+      "tolerance": 0.5,
+      "unit": "L/day",
+      "workingSteps": [
+        "Monthly use = 13 760 − 12 320 = 1 440 L.",
+        "Daily = 1 440 ÷ 30 = 48 L/day."
+      ],
+      "errorSignals": ["ERR_RATE_USE_OPERATION", "ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q14",
+      "skill": "L1.T5.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A car has a consumption of 7,5 L/100km. The trip from Cape Town to Worcester is 110 km. Petrol costs R24,00/L."},
+      "question": "Calculate the petrol cost for the one-way trip.",
+      "answerMode": "numeric",
+      "expectedAnswer": 198,
+      "tolerance": 0.5,
+      "unit": "R",
+      "workingSteps": [
+        "Litres needed = 110 ÷ 100 × 7,5 = 8,25 L.",
+        "Cost = 8,25 × R24 = R198."
+      ],
+      "errorSignals": ["ERR_RATE_USE_OPERATION", "ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q15",
+      "skill": "L1.T5.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Uber charges R12/km. A regular metered taxi charges a flat R20 base + R8/km."},
+      "question": "For a 10 km trip, which is cheaper and by how much?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Cheaper option", "expectedAnswer": "Metered taxi"},
+        {"label": "Saving (R)", "expectedAnswer": 20, "tolerance": 0.05}
+      ],
+      "workingSteps": [
+        "Uber: 10 × R12 = R120.",
+        "Metered: R20 + 10 × R8 = R20 + R80 = R100.",
+        "Metered is cheaper by R20."
+      ],
+      "errorSignals": ["ERR_RATE_USE_OPERATION", "ERR_RATE_COMPARE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q16",
+      "skill": "L1.T5.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Pick n Pay sunflower oil — pack sizes**\n\n| Pack | Price |\n|---|---|\n| 750 ml | R44,99 |\n| 2 L | R109,99 |\n| 5 L | R269,99 |"},
+      "question": "Which pack offers the lowest price per litre?",
+      "answerMode": "multiChoice",
+      "options": ["750 ml", "2 L", "5 L", "All equal"],
+      "expectedAnswer": "5 L",
+      "workingSteps": [
+        "750 ml: R44,99 ÷ 0,75 = R59,99/L.",
+        "2 L: R109,99 ÷ 2 = R55,00/L.",
+        "5 L: R269,99 ÷ 5 = R54,00/L.",
+        "Cheapest per L is 5 L."
+      ],
+      "errorSignals": ["ERR_RATE_COMPARE", "ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q17",
+      "skill": "L1.T5.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A driver leaves Pretoria at 08:00 and arrives in Durban (587 km away) at 14:52, taking one 30-minute lunch break."},
+      "question": "Calculate the average driving speed (excluding the lunch break).",
+      "answerMode": "numeric",
+      "expectedAnswer": 92.7,
+      "tolerance": 1.5,
+      "unit": "km/h",
+      "workingSteps": [
+        "Total clock time = 6 h 52 min = 6,87 h.",
+        "Drive time = 6,87 − 0,5 = 6,37 h (approx).",
+        "Speed = 587 ÷ 6,37 ≈ 92,2–92,7 km/h."
+      ],
+      "errorSignals": ["ERR_SPEED_TIME_DISTANCE", "ERR_TIME_HM_TO_DECIMAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q18",
+      "skill": "L1.T5.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Eskom prepaid electricity costs R2,80/kWh in the first 350 kWh block. A geyser uses 4 kWh per day."},
+      "question": "Calculate the monthly (30-day) electricity cost of the geyser at this rate.",
+      "answerMode": "numeric",
+      "expectedAnswer": 336,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": [
+        "Monthly use = 4 × 30 = 120 kWh.",
+        "Cost = 120 × R2,80 = R336."
+      ],
+      "errorSignals": ["ERR_RATE_USE_OPERATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q19",
+      "skill": "L1.T5.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A printer prints 24 pages per minute. A book has 320 pages."},
+      "question": "How long (in minutes) does the printer take to print the book? Round to the nearest minute.",
+      "answerMode": "numeric",
+      "expectedAnswer": 13,
+      "tolerance": 0.5,
+      "unit": "minutes",
+      "workingSteps": [
+        "Time = pages ÷ rate = 320 ÷ 24 = 13,33 minutes.",
+        "Round to nearest minute = 13 minutes."
+      ],
+      "errorSignals": ["ERR_RATE_USE_OPERATION", "ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A1.q20",
+      "skill": "L1.T5.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A 100 g serving of yoghurt contains 5 g of protein."},
+      "question": "How many grams of protein are in a 250 g tub?",
+      "answerMode": "numeric",
+      "expectedAnswer": 12.5,
+      "tolerance": 0.1,
+      "unit": "g",
+      "workingSteps": [
+        "Rate = 5 g protein per 100 g.",
+        "For 250 g: 250 ÷ 100 × 5 = 12,5 g."
+      ],
+      "errorSignals": ["ERR_RATE_USE_OPERATION"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_UNIT_PRICE_INVERSION": "Divides quantity by price instead of price by quantity (or vice versa) when finding a unit rate.",
+    "ERR_RATE_COMPARE": "Compares two rates without converting both to the same base (e.g. R/kg vs R/g).",
+    "ERR_RATE_USE_OPERATION": "Uses the wrong operation when applying a known rate (multiplies when divide was needed, etc.).",
+    "ERR_SPEED_TIME_DISTANCE": "Confuses the speed = distance ÷ time relationship.",
+    "ERR_TIME_HM_TO_DECIMAL": "Treats hours and minutes as a decimal (6 h 52 min as 6,52 h instead of 6,87 h)."
+  }
+}

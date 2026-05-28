@@ -1,0 +1,410 @@
+{
+  "skill": "L1.T1.A1",
+  "skill_title": "Read and use numbers in different formats and conventions",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 10 L1 (recognition) + 10 L2 (apply within format). Fresh stimuli only: SA bank statement, SA Weather Service forecast card, cricket overs convention, Cape Town flat numbering, time conversions, negative balances.",
+  "items": [
+    {
+      "id": "L1.T1.A1.q01",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Mrs Naidoo is filling in a deposit slip at Capitec and needs to write the amount in figures."},
+      "question": "Write 'three hundred and forty-two thousand five hundred' in figures.",
+      "answerMode": "numeric",
+      "expectedAnswer": 342500,
+      "tolerance": 0,
+      "workingSteps": [
+        "Three hundred and forty-two thousand = 342 000",
+        "Plus five hundred = 500",
+        "Total: 342 500"
+      ],
+      "errorSignals": ["ERR_WORD_TO_FIGURE", "ERR_PLACE_VALUE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q02",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Standard South African school maths uses the decimal comma (,) as the decimal separator."},
+      "question": "Which of the following correctly writes 'two and three tenths' in South African convention?",
+      "answerMode": "multiChoice",
+      "options": ["2.3", "2,3", "23", "2 3/10"],
+      "expectedAnswer": "2,3",
+      "workingSteps": [
+        "The decimal separator in SA convention is the comma.",
+        "'Two and three tenths' = 2 + 0,3 = 2,3"
+      ],
+      "errorSignals": ["ERR_DECIMAL_NOTATION_CONFUSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q03",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "**Standard Bank Savings Account — March statement (Mrs N. Khumalo)**\n\n| Date | Description | Debit (R) | Credit (R) | Balance (R) |\n|---|---|---|---|---|\n| 01 Mar | Opening balance |  |  | 1 250,00 |\n| 03 Mar | Salary EFT |  | 8 500,00 | 9 750,00 |\n| 05 Mar | Pick n Pay groceries | 720,50 |  | 9 029,50 |\n| 08 Mar | Eskom prepaid electricity | 250,00 |  | 8 779,50 |\n| 12 Mar | Refund — Takealot |  | 199,00 | 8 978,50 |\n| 15 Mar | Closing balance |  |  | 8 978,50 |"},
+      "question": "What is the credit amount on 03 March?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8500,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Find the row dated 03 Mar.",
+        "Read the value in the 'Credit (R)' column.",
+        "Credit = R8 500,00"
+      ],
+      "errorSignals": ["ERR_THOUSANDS_SEPARATOR_MISREAD", "ERR_DEBIT_CREDIT_COLUMN"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q04",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "**Standard Bank Savings Account — March statement (Mrs N. Khumalo)**\n\n| Date | Description | Debit (R) | Credit (R) | Balance (R) |\n|---|---|---|---|---|\n| 01 Mar | Opening balance |  |  | 1 250,00 |\n| 03 Mar | Salary EFT |  | 8 500,00 | 9 750,00 |\n| 05 Mar | Pick n Pay groceries | 720,50 |  | 9 029,50 |\n| 08 Mar | Eskom prepaid electricity | 250,00 |  | 8 779,50 |\n| 12 Mar | Refund — Takealot |  | 199,00 | 8 978,50 |\n| 15 Mar | Closing balance |  |  | 8 978,50 |"},
+      "question": "Which transaction on the statement is a debit?",
+      "answerMode": "multiChoice",
+      "options": ["Salary EFT", "Pick n Pay groceries", "Refund — Takealot", "Opening balance"],
+      "expectedAnswer": "Pick n Pay groceries",
+      "workingSteps": [
+        "A debit reduces the account balance.",
+        "Pick n Pay groceries (R720,50) appears under the Debit column."
+      ],
+      "errorSignals": ["ERR_DEBIT_CREDIT_DIRECTION", "ERR_DEBIT_CREDIT_COLUMN"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q05",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "**SA Weather Service — Forecast for 1 July**\n\n| City | Min (°C) | Max (°C) |\n|---|---|---|\n| Sutherland | -7 | 12 |\n| Johannesburg | 3 | 18 |\n| Durban | 18 | 24 |\n| Cape Town | 9 | 17 |\n| Polokwane | 5 | 22 |"},
+      "question": "What is the minimum temperature forecast for Sutherland?",
+      "answerMode": "numeric",
+      "expectedAnswer": -7,
+      "tolerance": 0,
+      "unit": "°C",
+      "workingSteps": [
+        "Find the 'Sutherland' row.",
+        "Read the value in the 'Min (°C)' column.",
+        "Min = -7 °C (below zero)."
+      ],
+      "errorSignals": ["ERR_SIGNED_VALUE_DIRECTION", "ERR_TEMPERATURE_NEGATIVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q06",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "On a winter morning the Sutherland reading is -8 °C and the Cape Town reading is -2 °C."},
+      "question": "Which temperature is colder: -2 °C or -8 °C?",
+      "answerMode": "multiChoice",
+      "options": ["-2 °C", "-8 °C", "They are the same", "Cannot tell without the maximum"],
+      "expectedAnswer": "-8 °C",
+      "workingSteps": [
+        "On the number line, -8 lies further left than -2.",
+        "The more negative the temperature, the colder it is.",
+        "So -8 °C is colder."
+      ],
+      "errorSignals": ["ERR_NEGATIVE_COMPARISON", "ERR_TEMPERATURE_NEGATIVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q07",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "In cricket, one over consists of 6 legal balls. A scorecard records 'overs.balls' — for example '4.3' means a number of completed overs and a number of balls into the next over."},
+      "question": "On a cricket scorecard, a bowler's figures show 4.3 overs. This means the bowler has bowled:",
+      "answerMode": "multiChoice",
+      "options": ["4 overs and 3 balls", "4 overs and 30 balls", "43 balls", "4 and three-tenths of an over (counted as a decimal)"],
+      "expectedAnswer": "4 overs and 3 balls",
+      "workingSteps": [
+        "In cricket, the digit after the point counts balls into the next over, not tenths.",
+        "4.3 = 4 complete overs + 3 extra balls."
+      ],
+      "errorSignals": ["ERR_CRICKET_OVERS_AS_DECIMAL", "ERR_CODED_NUMBER_AS_QUANTITY"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q08",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "A news headline reports: 'Pick n Pay revenue rose to four million two hundred thousand Rand last week.'"},
+      "question": "Write 'four million two hundred thousand' in figures.",
+      "answerMode": "numeric",
+      "expectedAnswer": 4200000,
+      "tolerance": 0,
+      "workingSteps": [
+        "Four million = 4 000 000",
+        "Two hundred thousand = 200 000",
+        "Total: 4 200 000"
+      ],
+      "errorSignals": ["ERR_WORD_TO_FIGURE", "ERR_PLACE_VALUE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q09",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "A financial statement shows the figure R2 350 000."},
+      "question": "How is R2 350 000 read in words?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Two hundred and thirty-five thousand Rand",
+        "Two million, three hundred and fifty thousand Rand",
+        "Twenty-three million, five hundred thousand Rand",
+        "Twenty-three thousand, five hundred Rand"
+      ],
+      "expectedAnswer": "Two million, three hundred and fifty thousand Rand",
+      "workingSteps": [
+        "Group digits from the right: 2 350 000 = 2 | 350 | 000.",
+        "First group (millions): 2.",
+        "Second group (thousands): 350.",
+        "Reads as 'two million, three hundred and fifty thousand'."
+      ],
+      "errorSignals": ["ERR_FIGURE_TO_WORD", "ERR_THOUSANDS_SEPARATOR_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q10",
+      "skill": "L1.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "In a Cape Town apartment block, flat numbers are coded so that the first digit(s) indicate the floor and the last two digits the flat on that floor. For example, Flat 504 is on the 5th floor, flat 04."},
+      "question": "Using the same coding, on which floor is Flat 712?",
+      "answerMode": "numeric",
+      "expectedAnswer": 7,
+      "tolerance": 0,
+      "workingSteps": [
+        "Last two digits = flat number on the floor: 12.",
+        "Leading digit(s) = floor number: 7.",
+        "So Flat 712 is on the 7th floor."
+      ],
+      "errorSignals": ["ERR_CODED_NUMBER_AS_QUANTITY"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q11",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Standard Bank Savings Account — March statement (Mrs N. Khumalo)**\n\n| Date | Description | Debit (R) | Credit (R) | Balance (R) |\n|---|---|---|---|---|\n| 01 Mar | Opening balance |  |  | 1 250,00 |\n| 03 Mar | Salary EFT |  | 8 500,00 | 9 750,00 |\n| 05 Mar | Pick n Pay groceries | 720,50 |  | 9 029,50 |\n| 08 Mar | Eskom prepaid electricity | 250,00 |  | 8 779,50 |\n| 12 Mar | Refund — Takealot |  | 199,00 | 8 978,50 |\n| 15 Mar | Closing balance |  |  | 8 978,50 |"},
+      "question": "Calculate the total of all credits shown on the statement.",
+      "answerMode": "numeric",
+      "expectedAnswer": 8699,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Credits in the table: Salary EFT R8 500,00 and Refund R199,00.",
+        "Total = R8 500,00 + R199,00 = R8 699,00"
+      ],
+      "errorSignals": ["ERR_DEBIT_CREDIT_COLUMN", "ERR_THOUSANDS_SEPARATOR_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q12",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Standard Bank Savings Account — March statement (Mrs N. Khumalo)**\n\n| Date | Description | Debit (R) | Credit (R) | Balance (R) |\n|---|---|---|---|---|\n| 01 Mar | Opening balance |  |  | 1 250,00 |\n| 03 Mar | Salary EFT |  | 8 500,00 | 9 750,00 |\n| 05 Mar | Pick n Pay groceries | 720,50 |  | 9 029,50 |\n| 08 Mar | Eskom prepaid electricity | 250,00 |  | 8 779,50 |\n| 12 Mar | Refund — Takealot |  | 199,00 | 8 978,50 |\n| 15 Mar | Closing balance |  |  | 8 978,50 |"},
+      "question": "What is the balance immediately after the Eskom debit on 08 March?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8779.50,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Locate the row for 08 Mar (Eskom prepaid electricity).",
+        "Read the value in the 'Balance (R)' column.",
+        "Balance = R8 779,50"
+      ],
+      "errorSignals": ["ERR_THOUSANDS_SEPARATOR_MISREAD", "ERR_DECIMAL_NOTATION_CONFUSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q13",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**SA Weather Service — Forecast for 1 July**\n\n| City | Min (°C) | Max (°C) |\n|---|---|---|\n| Sutherland | -7 | 12 |\n| Johannesburg | 3 | 18 |\n| Durban | 18 | 24 |\n| Cape Town | 9 | 17 |\n| Polokwane | 5 | 22 |"},
+      "question": "Calculate the difference between Durban's minimum temperature and Sutherland's minimum temperature on 1 July.",
+      "answerMode": "numeric",
+      "expectedAnswer": 25,
+      "tolerance": 0,
+      "unit": "°C",
+      "workingSteps": [
+        "Durban min = 18 °C; Sutherland min = -7 °C.",
+        "Difference = 18 − (−7) = 18 + 7 = 25 °C"
+      ],
+      "errorSignals": ["ERR_NEGATIVE_SUBTRACTION", "ERR_SIGNED_VALUE_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q14",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "On a kitchen scale the display reads '5.5 kg'. A South African school book records the same mass as '5,5 kg'."},
+      "question": "Which statement about the two readings is correct?",
+      "answerMode": "multiChoice",
+      "options": [
+        "They represent the same value — the comma and point are different notations for the decimal separator.",
+        "5,5 kg is half of 5.5 kg.",
+        "5,5 kg actually means 55 kg in shorthand.",
+        "They cannot be compared because one is in metric and one is imperial."
+      ],
+      "expectedAnswer": "They represent the same value — the comma and point are different notations for the decimal separator.",
+      "workingSteps": [
+        "South Africa (and most of Europe) writes the decimal separator as a comma.",
+        "Calculator and US notation uses a point.",
+        "5,5 = 5.5 — they are the same value."
+      ],
+      "errorSignals": ["ERR_DECIMAL_NOTATION_CONFUSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q15",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "In cricket, 1 over = 6 legal balls. The scorecard notation 'X.Y' means X completed overs plus Y extra balls."},
+      "question": "A bowler has bowled 8.4 overs. How many balls is that in total?",
+      "answerMode": "numeric",
+      "expectedAnswer": 52,
+      "tolerance": 0,
+      "unit": "balls",
+      "workingSteps": [
+        "8 completed overs × 6 balls = 48 balls.",
+        "Plus 4 extra balls into the next over.",
+        "Total = 48 + 4 = 52 balls."
+      ],
+      "errorSignals": ["ERR_CRICKET_OVERS_AS_DECIMAL", "ERR_CODED_NUMBER_AS_QUANTITY"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q16",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A Shosholoza Meyl train leaves Cape Town at 22:15 (24-hour time) and arrives in Worcester at 00:45 the next morning."},
+      "question": "How long is the journey, in minutes?",
+      "answerMode": "numeric",
+      "expectedAnswer": 150,
+      "tolerance": 0,
+      "unit": "minutes",
+      "workingSteps": [
+        "From 22:15 to 24:00 (midnight) = 1 h 45 min = 105 min.",
+        "From 00:00 to 00:45 = 45 min.",
+        "Total = 105 + 45 = 150 min (or 2 h 30 min)."
+      ],
+      "errorSignals": ["ERR_TIME_DURATION_MIDNIGHT", "ERR_24H_TIME_CALC"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q17",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A business news article states: 'Pick n Pay's annual turnover for last year was approximately R97 billion.' In South African usage, one billion = one thousand million."},
+      "question": "Which figure best represents R97 billion?",
+      "answerMode": "multiChoice",
+      "options": [
+        "R97 000 000",
+        "R970 000 000",
+        "R97 000 000 000",
+        "R970 000 000 000"
+      ],
+      "expectedAnswer": "R97 000 000 000",
+      "workingSteps": [
+        "1 billion = 1 000 000 000 (nine zeros).",
+        "97 × 1 000 000 000 = 97 000 000 000."
+      ],
+      "errorSignals": ["ERR_WORD_TO_FIGURE", "ERR_PLACE_VALUE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q18",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A learner records her study time for the week as 1 hour 45 minutes per day."},
+      "question": "How many minutes is 1 hour 45 minutes?",
+      "answerMode": "numeric",
+      "expectedAnswer": 105,
+      "tolerance": 0,
+      "unit": "minutes",
+      "workingSteps": [
+        "1 hour = 60 minutes.",
+        "60 + 45 = 105 minutes."
+      ],
+      "errorSignals": ["ERR_TIME_HM_TO_MIN", "ERR_DECIMAL_TO_TIME"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q19",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A learner checks her FNB student-account app and sees the available balance is shown as -R250,00."},
+      "question": "What does a balance of -R250,00 mean for the account holder?",
+      "answerMode": "multiChoice",
+      "options": [
+        "The account is overdrawn — the holder owes the bank R250.",
+        "The holder has R250 saved in the account.",
+        "The bank owes the holder R250.",
+        "The balance has been zeroed out."
+      ],
+      "expectedAnswer": "The account is overdrawn — the holder owes the bank R250.",
+      "workingSteps": [
+        "A negative balance means more has been taken out than was paid in.",
+        "The account is 'in the red' (overdrawn) — the holder owes the bank that amount."
+      ],
+      "errorSignals": ["ERR_SIGNED_VALUE_DIRECTION", "ERR_DEBIT_CREDIT_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T1.A1.q20",
+      "skill": "L1.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Standard Bank Savings Account — March statement (Mrs N. Khumalo)**\n\n| Date | Description | Debit (R) | Credit (R) | Balance (R) |\n|---|---|---|---|---|\n| 01 Mar | Opening balance |  |  | 1 250,00 |\n| 03 Mar | Salary EFT |  | 8 500,00 | 9 750,00 |\n| 05 Mar | Pick n Pay groceries | 720,50 |  | 9 029,50 |\n| 08 Mar | Eskom prepaid electricity | 250,00 |  | 8 779,50 |\n| 12 Mar | Refund — Takealot |  | 199,00 | 8 978,50 |\n| 15 Mar | Closing balance |  |  | 8 978,50 |"},
+      "question": "What is the closing balance on the statement?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8978.50,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Read the value in the final row labelled 'Closing balance'.",
+        "Closing balance = R8 978,50."
+      ],
+      "errorSignals": ["ERR_THOUSANDS_SEPARATOR_MISREAD", "ERR_DECIMAL_NOTATION_CONFUSION"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_WORD_TO_FIGURE": "Misconverts a number written in words into figures (drops a zero, swaps a place-value group).",
+    "ERR_FIGURE_TO_WORD": "Misreads a figure into words (groups the digits wrongly).",
+    "ERR_PLACE_VALUE": "Confuses thousands / millions / billions place groups.",
+    "ERR_DECIMAL_NOTATION_CONFUSION": "Treats decimal comma and decimal point as different values, or rejects one as 'wrong'.",
+    "ERR_THOUSANDS_SEPARATOR_MISREAD": "Reads a space- or comma-separated number as if the separator were a decimal point.",
+    "ERR_SIGNED_VALUE_DIRECTION": "Drops or misinterprets the sign of a negative value.",
+    "ERR_NEGATIVE_COMPARISON": "Says the negative value with the larger magnitude is bigger (e.g. -8 > -2).",
+    "ERR_NEGATIVE_SUBTRACTION": "Fails to flip the sign when subtracting a negative number.",
+    "ERR_TEMPERATURE_NEGATIVE": "Misreads a sub-zero temperature as positive.",
+    "ERR_DEBIT_CREDIT_COLUMN": "Reads the wrong column on a bank statement (debit vs credit).",
+    "ERR_DEBIT_CREDIT_DIRECTION": "Confuses the direction of a debit/credit (treats debit as money in).",
+    "ERR_CODED_NUMBER_AS_QUANTITY": "Treats a coded number (flat number, over.balls) as a measured quantity to compute with.",
+    "ERR_CRICKET_OVERS_AS_DECIMAL": "Treats cricket 'overs.balls' notation as a normal decimal (e.g. reads 4.3 as 4,3 overs).",
+    "ERR_24H_TIME_CALC": "Calculates duration using 24-hour times incorrectly within a single day.",
+    "ERR_TIME_DURATION_MIDNIGHT": "Fails to split a duration that crosses midnight into the two day-segments.",
+    "ERR_TIME_HM_TO_MIN": "Converts hours+minutes to minutes incorrectly (multiplies the wrong unit or treats the colon as a decimal point).",
+    "ERR_DECIMAL_TO_TIME": "Treats 1,45 hours as 1 hour 45 minutes (decimal hours ≠ hours-and-minutes)."
+  }
+}

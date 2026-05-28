@@ -1,0 +1,85 @@
+{
+  "skill": "L9.T1.A1",
+  "skill_title": "Develop questions and choose a sample",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [2, 3, 4],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 8 L2 / 8 L3 / 4 L4. Avoid ambiguity/leading; pick a representative sample; recognise convenience-sample bias.",
+  "items": [
+    {"id": "L9.T1.A1.q01","skill": "L9.T1.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Survey question must be CLEAR with no ambiguity."},"question": "Which is the BEST survey question for 'how often do you exercise?'","answerMode": "multiChoice","options": ["Do you exercise sometimes?", "How many times per week did you exercise in the past 4 weeks?", "Why don't you exercise?", "Don't you think exercise is important?"],"expectedAnswer": "How many times per week did you exercise in the past 4 weeks?","workingSteps": ["The second is specific and unambiguous; others are vague or leading."],"errorSignals": ["ERR_QUESTION_BIAS","ERR_QUESTION_VAGUE"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q02","skill": "L9.T1.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Avoid LEADING questions."},"question": "Which is a LEADING question?","answerMode": "multiChoice","options": [
+        "Do you drink coffee?",
+        "Don't you agree that our coffee is the best?",
+        "How many cups of coffee per day?",
+        "Which brand of coffee do you buy?"
+      ],"expectedAnswer": "Don't you agree that our coffee is the best?","workingSteps": ["'Don't you agree' implies the desired answer."],"errorSignals": ["ERR_QUESTION_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q03","skill": "L9.T1.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Double-barrelled questions ask two things at once."},"question": "Which is double-barrelled?","answerMode": "multiChoice","options": [
+        "Do you like Nando's chicken AND fries?",
+        "Do you like Nando's chicken?",
+        "How spicy do you prefer Nando's?",
+        "How much do you spend at Nando's per visit?"
+      ],"expectedAnswer": "Do you like Nando's chicken AND fries?","workingSteps": ["Asks about both chicken and fries → can't tell which the answer refers to."],"errorSignals": ["ERR_QUESTION_DOUBLE_BARREL"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q04","skill": "L9.T1.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Choose a SAMPLE that REPRESENTS the population."},"question": "Best sample for 'all SA teens': sample at...","answerMode": "multiChoice","options": [
+        "Single rich-school class",
+        "Random students across various SA schools",
+        "Only matric learners at one school",
+        "All teens in one shopping mall"
+      ],"expectedAnswer": "Random students across various SA schools","workingSteps": ["Varied schools across SA represent the population better."],"errorSignals": ["ERR_SAMPLE_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q05","skill": "L9.T1.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Convenience samples (easy-to-reach people) bias results."},"question": "Surveying friends only is what kind of sample?","answerMode": "multiChoice","options": ["Random", "Convenience (biased)", "Representative", "Stratified"],"expectedAnswer": "Convenience (biased)","workingSteps": ["Friends share many characteristics — bias."],"errorSignals": ["ERR_SAMPLE_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q06","skill": "L9.T1.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Survey question quality."},"question": "Which is the BEST 'how often do you eat fruit' question?","answerMode": "multiChoice","options": [
+        "Do you eat fruit sometimes?",
+        "How many servings of fruit do you usually eat per day?",
+        "Why don't you eat more fruit?",
+        "Do you like apples and bananas?"
+      ],"expectedAnswer": "How many servings of fruit do you usually eat per day?","workingSteps": ["Specific, quantifiable, neutral."],"errorSignals": ["ERR_QUESTION_VAGUE","ERR_QUESTION_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q07","skill": "L9.T1.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Population: all matric learners at a school of 800."},"question": "A sample of 50 randomly chosen is what % of population?","answerMode": "numeric","expectedAnswer": 6.25,"tolerance": 0.5,"unit": "%","workingSteps": ["50 ÷ 800 × 100 = 6,25%."],"errorSignals": ["ERR_PERCENT_BASE_INVERTED"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q08","skill": "L9.T1.A1","caps_level": 2,"source": "fresh","stimulus": {"inline": "Picking only Gr 12 boys to ask about school food."},"question": "What's wrong?","answerMode": "multiChoice","options": [
+        "Nothing — it's fine.",
+        "Sample is biased — excludes Gr 8-11 and girls (the affected group).",
+        "Sample is too random.",
+        "School food is not measurable."
+      ],"expectedAnswer": "Sample is biased — excludes Gr 8-11 and girls (the affected group).","workingSteps": ["A sample missing major sub-groups is biased."],"errorSignals": ["ERR_SAMPLE_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q09","skill": "L9.T1.A1","caps_level": 3,"source": "fresh","stimulus": {"inline": "Stratified sampling: split population into groups (strata) and sample proportionally."},"question": "School has 60% girls 40% boys. Sample 50 students proportionally.","answerMode": "multiField","fields": [{"label": "Girls in sample", "expectedAnswer": 30, "tolerance": 1}, {"label": "Boys in sample", "expectedAnswer": 20, "tolerance": 1}],"workingSteps": ["Girls: 60% × 50 = 30. Boys: 40% × 50 = 20."],"errorSignals": ["ERR_SAMPLE_STRATIFIED","ERR_PERCENT_TO_DECIMAL"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q10","skill": "L9.T1.A1","caps_level": 3,"source": "fresh","stimulus": {"inline": "Population 5 000. Sample 200."},"question": "Sample as % of population?","answerMode": "numeric","expectedAnswer": 4,"tolerance": 0.5,"unit": "%","workingSteps": ["200 ÷ 5 000 × 100 = 4%."],"errorSignals": ["ERR_PERCENT_BASE_INVERTED"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q11","skill": "L9.T1.A1","caps_level": 3,"source": "fresh","stimulus": {"inline": "Critique: questionnaire asks 'Do you find our service excellent?' Yes/No."},"question": "Issue?","answerMode": "multiChoice","options": [
+        "None — clear question",
+        "Leading — implies 'excellent' is expected",
+        "Double-barrelled",
+        "Sample too small"
+      ],"expectedAnswer": "Leading — implies 'excellent' is expected","workingSteps": ["Using value-laden 'excellent' biases responses."],"errorSignals": ["ERR_QUESTION_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q12","skill": "L9.T1.A1","caps_level": 3,"source": "fresh","stimulus": {"inline": "Sampling problem: surveying only those who phoned in a complaint."},"question": "Bias?","answerMode": "multiChoice","options": ["No bias", "Self-selection bias — only complainers", "Over-sampled", "Stratified"],"expectedAnswer": "Self-selection bias — only complainers","workingSteps": ["Only unhappy customers volunteer → biased."],"errorSignals": ["ERR_SAMPLE_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q13","skill": "L9.T1.A1","caps_level": 3,"source": "fresh","stimulus": {"inline": "Strata. School has 5 grades, equal sizes."},"question": "Stratified sample of 100 — how many per grade?","answerMode": "numeric","expectedAnswer": 20,"tolerance": 1,"unit": "learners","workingSteps": ["100 ÷ 5 = 20 per grade."],"errorSignals": ["ERR_SAMPLE_STRATIFIED"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q14","skill": "L9.T1.A1","caps_level": 3,"source": "fresh","stimulus": {"inline": "Identifying good questions."},"question": "Best?","answerMode": "multiChoice","options": [
+        "Do you usually walk and like it?",
+        "How many days per week did you walk for 30+ min in the past 2 weeks?",
+        "You walk a lot, right?",
+        "Walking is healthy — agree?"
+      ],"expectedAnswer": "How many days per week did you walk for 30+ min in the past 2 weeks?","workingSteps": ["Specific, time-bounded, measurable."],"errorSignals": ["ERR_QUESTION_VAGUE","ERR_QUESTION_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q15","skill": "L9.T1.A1","caps_level": 3,"source": "fresh","stimulus": {"inline": "Sample size guidelines: bigger sample → less random error."},"question": "Compared to a sample of 50, a sample of 500 will:","answerMode": "multiChoice","options": [
+        "Have more random error",
+        "Have less random error",
+        "Always be wrong",
+        "Be biased"
+      ],"expectedAnswer": "Have less random error","workingSteps": ["Larger sample → narrower confidence intervals."],"errorSignals": ["ERR_SAMPLE_SIZE"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q16","skill": "L9.T1.A1","caps_level": 3,"source": "fresh","stimulus": {"inline": "Sample = 200 of 4 000 population."},"question": "Percent sampled?","answerMode": "numeric","expectedAnswer": 5,"tolerance": 0.5,"unit": "%","workingSteps": ["200 ÷ 4 000 × 100 = 5%."],"errorSignals": ["ERR_PERCENT_BASE_INVERTED"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q17","skill": "L9.T1.A1","caps_level": 4,"source": "fresh","stimulus": {"inline": "Population: SA matric learners. Survey only city schools."},"question": "Bias?","answerMode": "multiChoice","options": ["None", "Excludes rural schools → biased", "Random", "Stratified"],"expectedAnswer": "Excludes rural schools → biased","workingSteps": ["Missing a major sub-population (rural) → bias."],"errorSignals": ["ERR_SAMPLE_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q18","skill": "L9.T1.A1","caps_level": 4,"source": "fresh","stimulus": {"inline": "Conduct an online survey for a community without internet access."},"question": "Issue?","answerMode": "multiChoice","options": [
+        "None",
+        "Coverage bias — those without internet excluded",
+        "Sample too large",
+        "Stratified"
+      ],"expectedAnswer": "Coverage bias — those without internet excluded","workingSteps": ["Online surveys miss the offline population — coverage bias."],"errorSignals": ["ERR_SAMPLE_BIAS"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q19","skill": "L9.T1.A1","caps_level": 4,"source": "fresh","stimulus": {"inline": "Stratified by ethnicity for SA national survey. Population: 80% Black, 9% Coloured, 8% White, 3% Indian/Asian. Sample 1 000."},"question": "Number of Black respondents in sample?","answerMode": "numeric","expectedAnswer": 800,"tolerance": 10,"unit": "people","workingSteps": ["80% × 1 000 = 800."],"errorSignals": ["ERR_SAMPLE_STRATIFIED","ERR_PERCENT_TO_DECIMAL"],"passThreshold": 0.85},
+    {"id": "L9.T1.A1.q20","skill": "L9.T1.A1","caps_level": 4,"source": "fresh","stimulus": {"inline": "A 'gold standard' randomised sample of 500 from a population of 100 000."},"question": "Percent sampled?","answerMode": "numeric","expectedAnswer": 0.5,"tolerance": 0.05,"unit": "%","workingSteps": ["500 ÷ 100 000 × 100 = 0,5%."],"errorSignals": ["ERR_PERCENT_BASE_INVERTED"],"passThreshold": 0.85}
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_QUESTION_BIAS": "Picks a leading or biased question as best.",
+    "ERR_QUESTION_VAGUE": "Fails to spot vague/ambiguous wording.",
+    "ERR_QUESTION_DOUBLE_BARREL": "Doesn't recognise double-barrelled questions.",
+    "ERR_SAMPLE_BIAS": "Misses sampling bias (convenience, coverage, self-selection).",
+    "ERR_SAMPLE_STRATIFIED": "Misapplies stratified proportions.",
+    "ERR_SAMPLE_SIZE": "Confuses sample size with bias.",
+    "ERR_PERCENT_BASE_INVERTED": "Uses wrong base for sample %.",
+    "ERR_PERCENT_TO_DECIMAL": "Misconverts % to decimal."
+  }
+}

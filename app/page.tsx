@@ -35,6 +35,8 @@ const NstSession                   = dynamic(() => import("@/components/nst/NstS
 const NstSkillTreeView             = dynamic(() => import("@/components/nst/NstSkillTreeView"),                           { ssr: false });
 const MatricPhysSciSession         = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSession"),           { ssr: false });
 const MatricPhysSciSkillTreeView   = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSkillTreeView"),     { ssr: false });
+const MathsLiteracyEngine          = dynamic(() => import("@/components/maths-literacy/MathsLiteracyEngine"),              { ssr: false });
+const MathsLiteracySkillTreeView   = dynamic(() => import("@/components/maths-literacy/MathsLiteracySkillTreeView"),       { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -145,6 +147,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "natural-sciences-tech-skill-tree": "Natural Sciences & Tech · Topics",
     "matric-phys-sci": "Matric Physical Sciences",
     "matric-phys-sci-skill-tree": "Matric Physical Sciences · Skills",
+    "maths-literacy": "Maths Literacy",
+    "maths-literacy-skill-tree": "Maths Literacy · Skills",
   };
 
   const refreshStats = useCallback(() => {
@@ -331,6 +335,16 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     handleViewChange("reading");
   };
 
+  // ── Maths Literacy replay + continue ──────────────────────────────────────
+  const startMathsLiteracyReplay = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_literacy_replay_skill", skillId);
+    handleViewChange("maths-literacy");
+  };
+  const continueMathsLiteracy = () => {
+    if (typeof window !== "undefined") sessionStorage.removeItem("ruby_maths_literacy_replay_skill");
+    handleViewChange("maths-literacy");
+  };
+
   return (
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
       {/* ── Streak milestone toast ──────────────────────────────────────── */}
@@ -437,6 +451,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
         {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Maths Literacy — FET Phase (Gr 10–12) */}
+        {activeView === "maths-literacy" && <ErrorBoundary><MathsLiteracyEngine onBack={() => handleViewChange("subjects")} onExitReplay={() => handleViewChange("maths-literacy-skill-tree")} /></ErrorBoundary>}
+        {activeView === "maths-literacy-skill-tree" && <MathsLiteracySkillTreeView onReplaySkill={startMathsLiteracyReplay} onContinue={continueMathsLiteracy} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

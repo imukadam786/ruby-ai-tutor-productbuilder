@@ -1,0 +1,362 @@
+{
+  "skill": "L2.T1.A1",
+  "skill_title": "Read story-graphs and identify variables",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 5 L1 / 8 L2 / 7 L3. Graphs given as point tables + descriptive captions (no image). Topics: dependent vs independent, discrete vs continuous, plain-language description.",
+  "items": [
+    {
+      "id": "L2.T1.A1.q01",
+      "skill": "L2.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "**Graph A** — Distance travelled (km, vertical axis) over Time (hours, horizontal axis):\n\n| Time (h) | Distance (km) |\n|---|---|\n| 0 | 0 |\n| 1 | 60 |\n| 2 | 120 |\n| 3 | 180 |"},
+      "question": "What is the independent variable in Graph A?",
+      "answerMode": "multiChoice",
+      "options": ["Time (h)", "Distance (km)", "Speed (km/h)", "Direction"],
+      "expectedAnswer": "Time (h)",
+      "workingSteps": ["The independent variable is plotted on the horizontal axis and is the one we control."],
+      "errorSignals": ["ERR_INDEP_DEP_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q02",
+      "skill": "L2.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "**Graph A** — Distance travelled (km, vertical axis) over Time (hours, horizontal axis):\n\n| Time (h) | Distance (km) |\n|---|---|\n| 0 | 0 |\n| 1 | 60 |\n| 2 | 120 |\n| 3 | 180 |"},
+      "question": "What is the dependent variable in Graph A?",
+      "answerMode": "multiChoice",
+      "options": ["Time (h)", "Distance (km)", "Direction", "Speed"],
+      "expectedAnswer": "Distance (km)",
+      "workingSteps": ["The dependent variable is on the vertical axis and depends on time."],
+      "errorSignals": ["ERR_INDEP_DEP_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q03",
+      "skill": "L2.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Discrete data consists of separate, countable values (number of learners). Continuous data is measured on a scale (height, mass, temperature)."},
+      "question": "Which of these is continuous data?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Number of learners in a class",
+        "Height of a learner",
+        "Number of cars in a parking lot",
+        "Shoe size"
+      ],
+      "expectedAnswer": "Height of a learner",
+      "workingSteps": ["Height is measured (any value within a range), so it's continuous. The others are counted."],
+      "errorSignals": ["ERR_DATA_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q04",
+      "skill": "L2.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Discrete = countable separate values. Continuous = measured on a scale."},
+      "question": "Which of these is discrete data?",
+      "answerMode": "multiChoice",
+      "options": ["Mass of a parcel", "Time taken to run 100 m", "Number of goals scored", "Daily temperature"],
+      "expectedAnswer": "Number of goals scored",
+      "workingSteps": ["Goals can only be whole counted values — discrete."],
+      "errorSignals": ["ERR_DATA_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q05",
+      "skill": "L2.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "**Story-graph B** — A learner's height (cm, vertical axis) plotted against age (years, horizontal axis) shows steady growth from 100 cm at age 5 to 175 cm at age 18."},
+      "question": "Which variable is independent?",
+      "answerMode": "multiChoice",
+      "options": ["Height", "Age", "Time of day", "Mass"],
+      "expectedAnswer": "Age",
+      "workingSteps": ["Age progresses on its own; height depends on age."],
+      "errorSignals": ["ERR_INDEP_DEP_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q06",
+      "skill": "L2.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Story-graph C** — A taxi driver's earnings (R, vertical) over a 12-hour shift (hours, horizontal). Earnings rise steadily from R0 at 06:00 to R600 by 10:00, then stay flat (lunch break) until 12:00, then rise again to R1 200 by 18:00."},
+      "question": "What does the FLAT section between 10:00 and 12:00 represent?",
+      "answerMode": "multiChoice",
+      "options": [
+        "He earned more money very quickly.",
+        "He was not earning during those hours (e.g. lunch break).",
+        "His earnings were dropping.",
+        "He lost money."
+      ],
+      "expectedAnswer": "He was not earning during those hours (e.g. lunch break).",
+      "workingSteps": ["A flat section means the y-value (earnings) is not changing over time — no new earnings."],
+      "errorSignals": ["ERR_GRAPH_SHAPE_READ"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q07",
+      "skill": "L2.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Story-graph D** — A water tank's level (L, vertical) over time (minutes, horizontal). The graph DESCENDS from 200 L at 0 min down to 0 L at 40 min."},
+      "question": "In plain language, describe what the graph shows.",
+      "answerMode": "multiChoice",
+      "options": [
+        "The tank is filling at a steady rate.",
+        "The tank is emptying at a steady rate.",
+        "The tank's level is staying constant.",
+        "The tank is overflowing."
+      ],
+      "expectedAnswer": "The tank is emptying at a steady rate.",
+      "workingSteps": ["A descending straight line means y (litres) decreases at a constant rate as x (time) increases."],
+      "errorSignals": ["ERR_GRAPH_DIRECTION", "ERR_GRAPH_SHAPE_READ"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q08",
+      "skill": "L2.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Story-graph E** — Number of learners absent each day in a school week:\n\n| Day | Absent |\n|---|---|\n| Mon | 12 |\n| Tue | 8 |\n| Wed | 5 |\n| Thu | 6 |\n| Fri | 15 |"},
+      "question": "Is this DISCRETE or CONTINUOUS data?",
+      "answerMode": "multiChoice",
+      "options": ["Discrete", "Continuous", "Both", "Neither"],
+      "expectedAnswer": "Discrete",
+      "workingSteps": ["Number of learners is a count — only whole values — discrete."],
+      "errorSignals": ["ERR_DATA_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q09",
+      "skill": "L2.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Story-graph F** — Temperature in Joburg (°C, vertical) over 24 hours (hour, horizontal). Cool overnight (~10 °C), rises to peak (~26 °C) at 14:00, drops back."},
+      "question": "Which variable is dependent?",
+      "answerMode": "multiChoice",
+      "options": ["Time of day", "Temperature", "Day of week", "City"],
+      "expectedAnswer": "Temperature",
+      "workingSteps": ["Temperature changes as a function of time — temperature depends on time."],
+      "errorSignals": ["ERR_INDEP_DEP_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q10",
+      "skill": "L2.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Story-graph F** — Temperature in Joburg (°C, vertical) over 24 hours (hour, horizontal). Cool overnight (~10 °C), rises to peak (~26 °C) at 14:00, drops back."},
+      "question": "At approximately what time of day is the temperature highest?",
+      "answerMode": "multiChoice",
+      "options": ["06:00", "10:00", "14:00", "20:00"],
+      "expectedAnswer": "14:00",
+      "workingSteps": ["The peak is described as occurring at 14:00."],
+      "errorSignals": ["ERR_GRAPH_PEAK_READ"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q11",
+      "skill": "L2.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Graph G** — Mr Mokoena's car odometer reading (km, vertical) versus weeks (horizontal). Reading rose from 48 000 km in week 1 to 51 200 km in week 8."},
+      "question": "Calculate the average distance driven per week.",
+      "answerMode": "numeric",
+      "expectedAnswer": 400,
+      "tolerance": 5,
+      "unit": "km/week",
+      "workingSteps": [
+        "Change in km = 51 200 − 48 000 = 3 200 km.",
+        "Change in weeks = 8 − 1 = 7.",
+        "Average = 3 200 ÷ 7 ≈ 457 km/week.",
+        "(Or read 8 weeks of driving as 3 200 ÷ 8 = 400 km/week — accept either method.)"
+      ],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q12",
+      "skill": "L2.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Story-graph H** — Distance from home (km, vertical) as a learner walks from home to school over time (minutes, horizontal). The line goes UP from 0 km at 0 min to 2 km at 20 min, then comes back DOWN to 0 km at 40 min."},
+      "question": "What story does this graph tell?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Learner walks steadily to school and then home again.",
+        "Learner stays at home all day.",
+        "Learner runs in circles around the house.",
+        "Learner takes a taxi instead."
+      ],
+      "expectedAnswer": "Learner walks steadily to school and then home again.",
+      "workingSteps": ["Going up = moving away. Coming down = returning. Same distance up and back is a round trip."],
+      "errorSignals": ["ERR_GRAPH_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q13",
+      "skill": "L2.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Sales-graph J** — Pies sold per day at a stall over the first 5 days of trading:\n\n| Day | Pies sold |\n|---|---|\n| 1 | 25 |\n| 2 | 32 |\n| 3 | 38 |\n| 4 | 41 |\n| 5 | 47 |"},
+      "question": "Is the trend INCREASING, DECREASING, or CONSTANT?",
+      "answerMode": "multiChoice",
+      "options": ["Increasing", "Decreasing", "Constant", "Cannot tell"],
+      "expectedAnswer": "Increasing",
+      "workingSteps": ["Each day's value is larger than the previous — increasing trend."],
+      "errorSignals": ["ERR_GRAPH_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q14",
+      "skill": "L2.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Graph K** — Cooldrink remaining in a 2 L bottle (litres, vertical) over time during a party (hours, horizontal). Starts at 2,0 L. After 1 hour: 1,4 L. After 2 hours: 0,8 L. After 3 hours: 0,2 L."},
+      "question": "What is the average rate of consumption per hour?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.6,
+      "tolerance": 0.05,
+      "unit": "L/h",
+      "workingSteps": [
+        "Total drunk = 2,0 − 0,2 = 1,8 L over 3 hours.",
+        "Rate = 1,8 ÷ 3 = 0,6 L/h."
+      ],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION", "ERR_GRAPH_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q15",
+      "skill": "L2.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Story-graph L** — A jogger's heart rate (bpm, vertical) over a 30-minute run (minutes, horizontal). Starts at 70 bpm, rises to 160 bpm by 10 min, stays at 160 bpm until 20 min, then drops to 90 bpm by 30 min."},
+      "question": "What is happening between minute 10 and minute 20?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Heart rate is rising.",
+        "Heart rate is steady (jogger is running at constant effort).",
+        "Heart rate is falling (jogger is resting).",
+        "Heart rate is missing data."
+      ],
+      "expectedAnswer": "Heart rate is steady (jogger is running at constant effort).",
+      "workingSteps": ["A flat section means the dependent variable is not changing."],
+      "errorSignals": ["ERR_GRAPH_SHAPE_READ"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q16",
+      "skill": "L2.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Graph M** — Daily egg sales (vertical) by week of the year (horizontal). The line goes UP from January to June, then DOWN again to December, mirror-image around June."},
+      "question": "Describe this pattern in plain language.",
+      "answerMode": "multiChoice",
+      "options": [
+        "Steady (no change).",
+        "Increasing throughout the year.",
+        "Decreasing throughout the year.",
+        "Peaks mid-year, lower at the start and end (seasonal pattern)."
+      ],
+      "expectedAnswer": "Peaks mid-year, lower at the start and end (seasonal pattern).",
+      "workingSteps": ["Up then down with the peak in the middle is a seasonal/cyclic pattern."],
+      "errorSignals": ["ERR_GRAPH_SHAPE_READ", "ERR_GRAPH_PEAK_READ"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q17",
+      "skill": "L2.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Three datasets:\n\n- (i) Mass of newborn babies in a maternity ward.\n- (ii) Number of times a learner is late this term.\n- (iii) Daily rainfall in mm at OR Tambo Airport."},
+      "question": "Which datasets are continuous?",
+      "answerMode": "multiChoice",
+      "options": ["(i) only", "(ii) only", "(i) and (iii)", "All three"],
+      "expectedAnswer": "(i) and (iii)",
+      "workingSteps": [
+        "Mass is measured — continuous.",
+        "Number of times late is counted — discrete.",
+        "Rainfall is measured — continuous."
+      ],
+      "errorSignals": ["ERR_DATA_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q18",
+      "skill": "L2.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Story-graph N** — A geyser's water temperature (°C, vertical) over time (hours, horizontal) after switching on. Starts at 20 °C, rises QUICKLY at first to 50 °C in 1 hour, then SLOWS, reaching 60 °C at 2 hours and only 65 °C at 4 hours."},
+      "question": "Which best describes how the temperature changes over the 4 hours?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Constant — temperature does not change.",
+        "Linear — temperature rises by the same amount each hour.",
+        "Rising and then levelling off (heating slows as temperature approaches max).",
+        "Falling throughout."
+      ],
+      "expectedAnswer": "Rising and then levelling off (heating slows as temperature approaches max).",
+      "workingSteps": [
+        "Hour 0–1: rise of 30 °C.",
+        "Hour 1–2: rise of 10 °C.",
+        "Hour 2–4: rise of only 5 °C total.",
+        "Rate of rise decreases — graph levels off."
+      ],
+      "errorSignals": ["ERR_GRAPH_SHAPE_READ", "ERR_SLOPE_INTERPRETATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q19",
+      "skill": "L2.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Sales-graph P** — Ice-cream sales (R per week, vertical) vs week of year (horizontal). The dependent variable peaks in summer (week 1 = January) and is lowest in winter (week 28 ≈ July)."},
+      "question": "What does the relationship between ice-cream sales and time of year suggest is the REAL underlying driver?",
+      "answerMode": "multiChoice",
+      "options": [
+        "The day of the week.",
+        "The temperature / season.",
+        "The price of ice-cream.",
+        "The colour of the packaging."
+      ],
+      "expectedAnswer": "The temperature / season.",
+      "workingSteps": ["Sales rise when it's hot (summer) and fall when it's cold (winter) — temperature is the driver, time of year is the proxy."],
+      "errorSignals": ["ERR_GRAPH_SHAPE_READ"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T1.A1.q20",
+      "skill": "L2.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Graph Q** — Total marks (vertical) for a Maths Lit class plotted against hours studied per week (horizontal). The line rises steeply from 0 to 5 hours, then continues to rise but more gently to 15 hours."},
+      "question": "What story does this graph tell?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Studying more always helps the same amount per hour.",
+        "Studying more helps, but the extra benefit shrinks per additional hour.",
+        "Studying does not help marks.",
+        "Marks fall as hours rise."
+      ],
+      "expectedAnswer": "Studying more helps, but the extra benefit shrinks per additional hour.",
+      "workingSteps": ["Steep at first, gentler later means each extra hour adds fewer marks — diminishing returns."],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION", "ERR_GRAPH_SHAPE_READ"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_INDEP_DEP_SWAP": "Swaps independent and dependent variables.",
+    "ERR_DATA_TYPE": "Misclassifies discrete vs continuous data.",
+    "ERR_GRAPH_DIRECTION": "Reads a rising graph as falling (or vice versa).",
+    "ERR_GRAPH_SHAPE_READ": "Misinterprets the shape of a graph (e.g. ignores flat sections).",
+    "ERR_GRAPH_PEAK_READ": "Reads off the wrong x-value for a peak or minimum.",
+    "ERR_SLOPE_INTERPRETATION": "Misinterprets the slope (rate of change) of a line."
+  }
+}
