@@ -37,6 +37,8 @@ const MatricPhysSciSession         = dynamic(() => import("@/components/matric-p
 const MatricPhysSciSkillTreeView   = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSkillTreeView"),     { ssr: false });
 const MathsLiteracyEngine          = dynamic(() => import("@/components/maths-literacy/MathsLiteracyEngine"),              { ssr: false });
 const MathsLiteracySkillTreeView   = dynamic(() => import("@/components/maths-literacy/MathsLiteracySkillTreeView"),       { ssr: false });
+const LifeSciencesSession          = dynamic(() => import("@/components/life-sciences/LifeSciencesSession"),               { ssr: false });
+const LifeSciencesSkillTreeView    = dynamic(() => import("@/components/life-sciences/LifeSciencesSkillTreeView"),         { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -149,6 +151,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "matric-phys-sci-skill-tree": "Matric Physical Sciences · Skills",
     "maths-literacy": "Maths Literacy",
     "maths-literacy-skill-tree": "Maths Literacy · Skills",
+    "life-sciences": "Life Sciences",
+    "life-sciences-skill-tree": "Life Sciences · Topics",
   };
 
   const refreshStats = useCallback(() => {
@@ -466,6 +470,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* Maths Literacy — FET Phase (Gr 10–12) */}
         {activeView === "maths-literacy" && <ErrorBoundary><MathsLiteracyEngine onBack={() => handleViewChange("subjects")} onExitReplay={() => handleViewChange("maths-literacy-skill-tree")} /></ErrorBoundary>}
         {activeView === "maths-literacy-skill-tree" && <MathsLiteracySkillTreeView onReplaySkill={startMathsLiteracyReplay} onContinue={continueMathsLiteracy} onBack={() => handleViewChange("subjects")} />}
+        {/* Life Sciences — FET Phase (Gr 10–12), free like Reading */}
+        {activeView === "life-sciences" && <ErrorBoundary><LifeSciencesSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "life-sciences-skill-tree" && <LifeSciencesSkillTreeView onPickSkill={() => handleViewChange("life-sciences")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

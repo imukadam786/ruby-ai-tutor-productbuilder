@@ -18,7 +18,9 @@ export interface JudgeResult {
 
 export interface JudgeInput {
   studentAnswer: string;
-  sourceText: string;
+  /** Source passage (Reading L6). Optional for subjects whose questions stand
+   *  alone, e.g. Life Sciences short-response items. */
+  sourceText?: string;
   referenceMainIdea?: string;   // bank model answer (main-idea skill); optional
   /** What a correct answer must do for THIS skill. When set, the judge grades
    *  against this task instead of the default "main idea" framing. Used for
@@ -27,6 +29,14 @@ export interface JudgeInput {
   /** Binary checks (writing skills C1–C3). When set, the judge marks the
    *  answer against these and bands by how many pass. */
   checklist?: string[];
+  /** Rubric-checklist mode (Life Sciences short-response). The judge checks
+   *  whether the answer mentions every phrase in the list — paraphrasing is
+   *  fine. GREEN = all covered; RED with PARTIAL_RUBRIC = some covered; RED
+   *  with OFF_TOPIC = none covered. Strict: only GREEN counts as pass. */
+  mustMention?: string[];
+  /** Optional question text shown to the model in mustMention mode so it can
+   *  judge "does the answer respond to THIS question". */
+  questionText?: string;
 }
 
 /** Pluggable chat client (OpenAI-shaped). */
@@ -36,6 +46,18 @@ export type ChatComplete = (args: {
   response_format: { type: "json_object" };
   messages: { role: "system" | "user"; content: string }[];
 }) => Promise<{ choices: { message: { content: string | null } }[] }>;
+
+const MUST_MENTION_SYSTEM = `You grade a high-school learner's short written answer in a science subject.
+
+You are given the question, the learner's answer, and a list of REQUIRED points (the rubric). A required point counts as "covered" if the learner's answer mentions it in any wording — exact phrasing is NOT required, paraphrasing in everyday language is fine. Be lenient on spelling and grammar; judge meaning only.
+
+Rules:
+- GREEN: every required point is covered.
+- RED with firedError PARTIAL_RUBRIC: at least one required point is covered, but not all.
+- RED with firedError OFF_TOPIC: zero required points are covered, or the answer is empty / a non-attempt ("idk", "no").
+
+Respond ONLY with JSON:
+{"band":"GREEN|RED","firedError":"PARTIAL_RUBRIC|OFF_TOPIC|null","reason":"<=15 words","covered":<integer count of required points covered>}`;
 
 const SYSTEM = `You grade a Grade-4 child's ONE-SENTENCE statement of the MAIN IDEA of a text.
 
@@ -54,6 +76,35 @@ Respond ONLY with JSON: {"band":"GREEN|AMBER|RED","firedError":"DETAIL_AS_MAIN|T
 
 export function makeLLMJudge(complete: ChatComplete, model = "gpt-4o-mini") {
   return async (input: JudgeInput): Promise<JudgeResult> => {
+    // mustMention mode → use the rubric-checklist system prompt and a
+    // question-anchored user message. Returns strict GREEN/RED with a count.
+    if (input.mustMention && input.mustMention.length > 0) {
+      const user =
+        `QUESTION: ${input.questionText ?? "(see required points below)"}\n\n` +
+        `REQUIRED POINTS (the rubric):\n- ${input.mustMention.join("\n- ")}\n\n` +
+        `LEARNER'S ANSWER: ${input.studentAnswer}`;
+      const res = await complete({
+        model,
+        temperature: 0,
+        response_format: { type: "json_object" },
+        messages: [
+          { role: "system", content: MUST_MENTION_SYSTEM },
+          { role: "user", content: user },
+        ],
+      });
+      const raw = res.choices[0]?.message?.content ?? "{}";
+      let parsed: { band?: string; firedError?: string; reason?: string; covered?: number };
+      try { parsed = JSON.parse(raw); } catch { parsed = {}; }
+      const band = (parsed.band === "GREEN" ? "GREEN" : "RED") as JudgeBand;
+      const fe = parsed.firedError && parsed.firedError !== "null" ? parsed.firedError : null;
+      return {
+        band,
+        pass: band === "GREEN",
+        firedError: band === "GREEN" ? null : fe,
+        reason: (parsed.reason || "").slice(0, 120),
+      };
+    }
+
     let user: string;
     if (input.checklist && input.checklist.length > 0) {
       // Writing skills (C1–C3): mark against a checklist.

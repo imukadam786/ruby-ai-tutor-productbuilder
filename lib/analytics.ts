@@ -31,7 +31,8 @@ type Subject =
   | "afrikaans-fal"
   | "social-sciences"
   | "natural-sciences-tech"
-  | "matric-physical-sciences";
+  | "matric-physical-sciences"
+  | "life-sciences";
 
 export function trackPlacementStarted(opts: {
   subject: Subject;

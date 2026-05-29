@@ -45,7 +45,8 @@ type SubjectId =
   | "social-sciences"
   | "nst"
   | "matric-phys-sci"
-  | "maths-literacy";
+  | "maths-literacy"
+  | "life-sciences";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -121,6 +122,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showMatricPhysSci = learnerGrade === 12;
   const showMathsLiteracy =
     learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE;
+  // Life Sciences is a FET subject (Gr 10–12 only). Free for all plans.
+  const showLifeSciences = learnerGrade >= 10 && learnerGrade <= 12;
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -280,6 +283,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "maths-literacy",
       });
     }
+    if (showLifeSciences) {
+      all.push({
+        id: "life-sciences",
+        thumbnail: "/thumbnails/life-sciences.jpeg",
+        label: "Life Sciences",
+        caption: "Cells, life processes, ecology and diversity · Grades 10–12 · 70 topics",
+        badge: "FET",
+        badgeColor: "bg-emerald-100 text-emerald-700",
+        accentFrom: "from-emerald-500",
+        accentTo: "to-green-600",
+        navigateTo: "life-sciences",
+      });
+    }
     return all;
   }, [
     discoverBadge, discoverBadgeColor,
@@ -287,6 +303,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     readingBadge, readingBadgeColor,
     showLifeSkills, showAfrikaans, showSocialSciences, showNst, showMatricPhysSci,
     showMathsLiteracy, mathsLiteracyBadge, mathsLiteracyMastered,
+    showLifeSciences,
   ]);
 
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
