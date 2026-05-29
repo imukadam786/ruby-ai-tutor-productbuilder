@@ -248,9 +248,9 @@ describe("resolveEntryLevel — Grade 3", () => {
     expect(resolveEntryLevel(domainCorrect, domainTotal, 3)).toBe(3);
   });
 
-  test("a miss in a Grade 1 topic triggers the prerequisite-gap floor (Level 1)", () => {
+  test("11/12 with the one miss on a Grade 1 topic → Level 5 (slip, not a gap, under the >=75% override)", () => {
     const { domainCorrect, domainTotal } = tallies({ ...allCorrect, M001: [1, 2] });
-    expect(resolveEntryLevel(domainCorrect, domainTotal, 3)).toBe(1);
+    expect(resolveEntryLevel(domainCorrect, domainTotal, 3)).toBe(5);
   });
 
   test("everything failed → grade floor (Level 1)", () => {
