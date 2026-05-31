@@ -68,17 +68,17 @@ interface SubjectMeta {
 
 function SubjectRow({ subject }: { subject: SubjectMeta }) {
   return (
-    <div className="w-full h-full rounded-xl bg-white border border-gray-100 flex items-center gap-4 px-4 py-4">
+    <div className="w-full self-start flex flex-col items-start gap-3 px-1 pt-1">
       <div
-        className={`w-[72px] h-[72px] lg:w-[84px] lg:h-[84px] flex-shrink-0 rounded-lg bg-gradient-to-br ${subject.accentFrom} ${subject.accentTo} flex items-center justify-center overflow-hidden`}
+        className={`w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] flex-shrink-0 rounded-2xl bg-gradient-to-br ${subject.accentFrom} ${subject.accentTo} flex items-center justify-center overflow-hidden`}
       >
         {subject.thumbnail ? (
           <img src={subject.thumbnail} alt={subject.label} className="w-full h-full object-cover" />
         ) : (
-          <span className="text-3xl leading-none">{subject.placeholderEmoji}</span>
+          <span className="text-5xl leading-none">{subject.placeholderEmoji}</span>
         )}
       </div>
-      <div className="min-w-0 flex-1">
+      <div className="min-w-0 w-full">
         <span className="block font-semibold text-gray-900 text-base leading-tight">{subject.label}</span>
         <span className="block text-xs text-gray-500 leading-snug line-clamp-2 mt-0.5">{subject.caption}</span>
         {subject.badge && (
@@ -113,20 +113,27 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     });
   }, []);
 
-  const learnerGrade = grade ?? 1;
-  const showLifeSkills = learnerGrade <= LIFE_SKILLS_MAX_GRADE;
-  const showAfrikaans = learnerGrade <= AFRIKAANS_MAX_GRADE;
+  // Fail open: when the learner's grade can't be read (e.g. a legacy account
+  // with no saved grade), show every subject rather than silently defaulting
+  // to a grade and hiding the wrong ones. A learner with a known grade only
+  // ever sees the subjects that grade is entitled to.
+  const gradeKnown = grade !== null;
+  const learnerGrade = grade ?? 0;
+  const showLifeSkills = !gradeKnown || learnerGrade <= LIFE_SKILLS_MAX_GRADE;
+  const showAfrikaans = !gradeKnown || learnerGrade <= AFRIKAANS_MAX_GRADE;
   const showSocialSciences =
-    learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE;
+    !gradeKnown ||
+    (learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE);
   const showNst =
-    learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE;
-  const showMatricPhysSci = learnerGrade === 12;
+    !gradeKnown || (learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE);
+  const showMatricPhysSci = !gradeKnown || learnerGrade === 12;
   const showMathsLiteracy =
-    learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE;
+    !gradeKnown ||
+    (learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE);
   // Life Sciences is a FET subject (Gr 10–12 only). Free for all plans.
-  const showLifeSciences = learnerGrade >= 10 && learnerGrade <= 12;
+  const showLifeSciences = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // History is a FET subject (Gr 10–12 only). Free for all plans.
-  const showHistory = learnerGrade >= 10 && learnerGrade <= 12;
+  const showHistory = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -302,7 +309,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showHistory) {
       all.push({
         id: "history",
-        placeholderEmoji: "📜",
+        thumbnail: "/thumbnails/history.jpeg",
         label: "History",
         caption: "Precolonial African empires, source-work and argument-building · Grades 10–12",
         badge: "FET",

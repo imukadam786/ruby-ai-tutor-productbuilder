@@ -269,7 +269,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
   }, []);
 
-  const MATRIC_VIEWS: ActiveView[] = ["matrics", "matric", "prep-papers-2026", "study-guides", "matric-phys-sci", "matric-phys-sci-skill-tree"];
+  // Paid matric *features* only. The Physical Sciences subject tree
+  // (matric-phys-sci / matric-phys-sci-skill-tree) is a learning subject and is
+  // free for all plans, so it is intentionally NOT gated here.
+  const MATRIC_VIEWS: ActiveView[] = ["matrics", "matric", "prep-papers-2026", "study-guides"];
 
   const MATRIC_PLANS = ["master", "matric-pack"];
 
