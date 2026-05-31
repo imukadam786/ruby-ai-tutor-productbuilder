@@ -1,0 +1,302 @@
+{
+  "version": "1.0",
+  "subject": "business-studies",
+  "description": "Business Studies question bank, FET (Amended CAPS, Grades 10-12). Keyed by atomic skill id. Each pool targets 20 items, FET pass mark 0.6, no timer. Cognitive mix per CAPS: ~30% Knowledge/Comprehension (difficulty 1), ~50% Application/Analysis (difficulty 2), ~20% Synthesis/Evaluation (difficulty 3). Tap-based mechanics only (no free-text). v1.0: BUS.G10.T1.MICRO.A1 authored as the pipeline proof; remaining Grade 10 skills pending authoring.",
+  "topics": {
+    "BUS.G10.T1.MICRO.A1": {
+      "title": "The micro (internal) environment",
+      "description": "Components and features of the micro environment that management controls: vision, mission, goals and objectives, organisational culture, resources and structure.",
+      "grade": 10,
+      "strand": "T1 — Business environments, functions & sectors",
+      "skill_ids": ["BUS.G10.T1.MICRO.A1"],
+      "gate": "NONE",
+      "pass_threshold": 0.6,
+      "questions_for_mastery": 20,
+      "target_item_count": 20,
+      "caps_term": "G10 T1",
+      "caps_topic": "Micro, market and macro environments",
+      "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+      "recovery_strategy": "The micro environment is INSIDE the business and management CONTROLS it: vision, mission, goals, culture, resources, structure. If management cannot directly change it, it is not micro.",
+      "questions": [
+        {
+          "ref": "G10.MICRO.A1.01",
+          "question": "Which environment of a business is the one that management directly controls?",
+          "input_type": "choice",
+          "options": ["The micro (internal) environment", "The market environment", "The macro environment", "The international environment"],
+          "expected": "The micro (internal) environment",
+          "memo": "The micro environment is inside the business — its vision, resources, culture and structure — so management controls it directly. It can only influence the market and must adapt to the macro environment.",
+          "error_signals": ["ERR_BUS_MICRO_CONTROL"],
+          "difficulty": 1
+        },
+        {
+          "ref": "G10.MICRO.A1.02",
+          "question": "What does a vision statement describe?",
+          "input_type": "choice",
+          "options": ["What the business wants to become in the long term", "What the business does day to day right now", "How much profit the business made last year", "The names of the business's suppliers"],
+          "expected": "What the business wants to become in the long term",
+          "memo": "A vision is the long-term dream — where the business wants to be in future. The mission describes what the business does now to get there.",
+          "error_signals": ["ERR_BUS_VISION_MISSION"],
+          "difficulty": 1
+        },
+        {
+          "ref": "G10.MICRO.A1.03",
+          "question": "True or false: A mission statement explains what the business does and who it serves in the present.",
+          "input_type": "true-false",
+          "options": ["True", "False"],
+          "expected": "True",
+          "memo": "The mission is the present-tense purpose: what the business does, for whom, and how. The vision is the future aspiration.",
+          "error_signals": ["ERR_BUS_VISION_MISSION"],
+          "difficulty": 1
+        },
+        {
+          "ref": "G10.MICRO.A1.04",
+          "question": "The shared values, beliefs and 'way things are done' inside a business is called its organisational _________.",
+          "input_type": "cloze",
+          "options": ["culture", "structure", "vision", "market"],
+          "expected": "culture",
+          "memo": "Organisational culture is the shared values and habits of the people in the business. Structure is how roles and reporting lines are arranged.",
+          "error_signals": ["ERR_BUS_MICRO_CLASSIFY"],
+          "difficulty": 1
+        },
+        {
+          "ref": "G10.MICRO.A1.05",
+          "question": "Which of these is an example of a financial resource?",
+          "input_type": "choice",
+          "options": ["Capital available to run the business", "The factory building", "The employees' skills", "The customer database"],
+          "expected": "Capital available to run the business",
+          "memo": "Financial resources = money/capital. Physical = buildings and equipment. Human = employees and skills. Information = data the business uses.",
+          "error_signals": ["ERR_BUS_RESOURCES"],
+          "difficulty": 1
+        },
+        {
+          "ref": "G10.MICRO.A1.06",
+          "question": "True or false: The number of competitors in the market is part of a business's micro environment.",
+          "input_type": "true-false",
+          "options": ["True", "False"],
+          "expected": "False",
+          "memo": "Competitors belong to the market environment, which the business cannot control. The micro environment is only what is inside the business.",
+          "error_signals": ["ERR_BUS_MICRO_CLASSIFY"],
+          "difficulty": 1
+        },
+        {
+          "ref": "G10.MICRO.A1.07",
+          "question": "Sort each item into the resource type it belongs to.",
+          "input_type": "sort-buckets",
+          "buckets": [
+            {"id": "human", "label": "Human resource"},
+            {"id": "physical", "label": "Physical resource"},
+            {"id": "financial", "label": "Financial resource"}
+          ],
+          "items": [
+            {"id": "i1", "text": "A skilled production team", "correct_bucket": "human"},
+            {"id": "i2", "text": "Delivery trucks and machinery", "correct_bucket": "physical"},
+            {"id": "i3", "text": "A bank loan and retained profit", "correct_bucket": "financial"},
+            {"id": "i4", "text": "The warehouse building", "correct_bucket": "physical"},
+            {"id": "i5", "text": "Experienced managers", "correct_bucket": "human"},
+            {"id": "i6", "text": "Shareholders' capital", "correct_bucket": "financial"}
+          ],
+          "pass_threshold": 0.75,
+          "expected": "All six items in correct buckets (or ≥75%)",
+          "memo": "Human = people and their skills; physical = tangible things like buildings and equipment; financial = money and capital.",
+          "error_signals": ["ERR_BUS_RESOURCES"],
+          "difficulty": 2
+        },
+        {
+          "ref": "G10.MICRO.A1.08",
+          "question": "Sort each statement as belonging to the micro environment or NOT belonging to it.",
+          "input_type": "sort-buckets",
+          "buckets": [
+            {"id": "micro", "label": "Micro environment"},
+            {"id": "notmicro", "label": "Not the micro environment"}
+          ],
+          "items": [
+            {"id": "i1", "text": "The business's mission and objectives", "correct_bucket": "micro"},
+            {"id": "i2", "text": "A new tax law passed by government", "correct_bucket": "notmicro"},
+            {"id": "i3", "text": "The organisational culture", "correct_bucket": "micro"},
+            {"id": "i4", "text": "A supplier raising its prices", "correct_bucket": "notmicro"},
+            {"id": "i5", "text": "The business's organisational structure", "correct_bucket": "micro"},
+            {"id": "i6", "text": "The business's own employees and resources", "correct_bucket": "micro"}
+          ],
+          "pass_threshold": 0.75,
+          "expected": "All six items in correct buckets (or ≥75%)",
+          "memo": "Micro = inside and controllable (mission, culture, structure, resources). Tax laws and suppliers sit outside the business.",
+          "error_signals": ["ERR_BUS_MICRO_CLASSIFY"],
+          "difficulty": 2
+        },
+        {
+          "ref": "G10.MICRO.A1.09",
+          "question": "A business writes: 'To be the most trusted bakery in the province within ten years.' What is this an example of?",
+          "input_type": "choice",
+          "options": ["A vision statement", "A mission statement", "An organisational structure", "A financial resource"],
+          "expected": "A vision statement",
+          "memo": "It describes a long-term aspiration ('within ten years'), so it is a vision. A mission would say what the bakery does now.",
+          "error_signals": ["ERR_BUS_VISION_MISSION"],
+          "difficulty": 2
+        },
+        {
+          "ref": "G10.MICRO.A1.10",
+          "question": "Why is the micro environment described as the one the business can control?",
+          "input_type": "choice",
+          "options": ["Because management can change its vision, structure, culture and use of resources", "Because customers decide what the business does", "Because the government approves every internal decision", "Because competitors agree on shared rules"],
+          "expected": "Because management can change its vision, structure, culture and use of resources",
+          "memo": "Control means management can directly decide and change these internal elements. It cannot decide what customers, competitors or government do.",
+          "error_signals": ["ERR_BUS_MICRO_CONTROL"],
+          "difficulty": 2
+        },
+        {
+          "ref": "G10.MICRO.A1.11",
+          "question": "Goals and objectives in the micro environment are best described as _________.",
+          "input_type": "cloze",
+          "options": ["the targets the business sets to achieve its mission", "factors the business cannot control", "the competitors in the market", "laws the business must obey"],
+          "expected": "the targets the business sets to achieve its mission",
+          "memo": "Goals and objectives are internal targets that turn the mission into measurable steps. They are set and controlled by management.",
+          "error_signals": ["ERR_BUS_MICRO_CONTROL"],
+          "difficulty": 2
+        },
+        {
+          "ref": "G10.MICRO.A1.12",
+          "question": "Which sequence shows the correct order from broadest direction to specific targets?",
+          "input_type": "choice",
+          "options": ["Vision → mission → goals → objectives", "Objectives → goals → mission → vision", "Mission → vision → objectives → goals", "Goals → vision → mission → objectives"],
+          "expected": "Vision → mission → goals → objectives",
+          "memo": "The vision (long-term dream) shapes the mission (what we do), which is broken into goals and then specific, measurable objectives.",
+          "error_signals": ["ERR_BUS_VISION_MISSION"],
+          "difficulty": 2
+        },
+        {
+          "ref": "G10.MICRO.A1.13",
+          "question": "A manager wants to improve a weak organisational culture. Which action falls within her control in the micro environment?",
+          "input_type": "choice",
+          "options": ["Introducing shared values and recognising good teamwork", "Forcing competitors to lower their prices", "Changing the country's labour laws", "Stopping inflation from rising"],
+          "expected": "Introducing shared values and recognising good teamwork",
+          "memo": "Culture is internal, so a manager can shape it. Competitor prices, laws and inflation are outside the business's control.",
+          "error_signals": ["ERR_BUS_MICRO_CONTROL"],
+          "difficulty": 2
+        },
+        {
+          "ref": "G10.MICRO.A1.14",
+          "question": "True or false: Organisational structure refers to how roles, authority and reporting lines are arranged inside the business.",
+          "input_type": "true-false",
+          "options": ["True", "False"],
+          "expected": "True",
+          "memo": "Structure is the internal arrangement of jobs and reporting lines (who reports to whom). It is part of the micro environment.",
+          "error_signals": ["ERR_BUS_MICRO_CLASSIFY"],
+          "difficulty": 2
+        },
+        {
+          "ref": "G10.MICRO.A1.15",
+          "question": "Sort each element as a micro-environment component or a feature found OUTSIDE the business.",
+          "input_type": "sort-buckets",
+          "buckets": [
+            {"id": "inside", "label": "Micro component (inside)"},
+            {"id": "outside", "label": "Outside the business"}
+          ],
+          "items": [
+            {"id": "i1", "text": "Vision and mission", "correct_bucket": "inside"},
+            {"id": "i2", "text": "Information resources the business owns", "correct_bucket": "inside"},
+            {"id": "i3", "text": "Changing consumer tastes", "correct_bucket": "outside"},
+            {"id": "i4", "text": "Organisational culture", "correct_bucket": "inside"},
+            {"id": "i5", "text": "Exchange-rate movements", "correct_bucket": "outside"},
+            {"id": "i6", "text": "The business's own management team", "correct_bucket": "inside"}
+          ],
+          "pass_threshold": 0.75,
+          "expected": "All six items in correct buckets (or ≥75%)",
+          "memo": "If management can decide or change it, it is a micro component. Consumer tastes and exchange rates are outside forces.",
+          "error_signals": ["ERR_BUS_MICRO_CLASSIFY"],
+          "difficulty": 2
+        },
+        {
+          "ref": "G10.MICRO.A1.16",
+          "question": "A business has a clear vision but poorly managed resources and a negative culture. Which statement best evaluates this situation?",
+          "input_type": "choice",
+          "options": ["A strong vision alone is not enough; the business must also manage its internal resources and culture well to succeed", "The vision guarantees success regardless of the other components", "Resources and culture are part of the macro environment, so they do not matter", "The business should ignore culture and focus only on the vision"],
+          "expected": "A strong vision alone is not enough; the business must also manage its internal resources and culture well to succeed",
+          "memo": "All micro components work together. A vision sets direction, but weak resource management and a poor culture will undermine it.",
+          "error_signals": ["ERR_BUS_MICRO_CONTROL"],
+          "difficulty": 3
+        },
+        {
+          "ref": "G10.MICRO.A1.17",
+          "question": "Two businesses have identical products and prices, but one consistently outperforms the other. Which micro-environment explanation is most convincing?",
+          "input_type": "choice",
+          "options": ["A stronger organisational culture and better use of its resources give one business the edge", "The winning business controls the macro environment", "The losing business has more competitors", "Customers are not part of either business"],
+          "expected": "A stronger organisational culture and better use of its resources give one business the edge",
+          "memo": "When external factors (product, price) are equal, the difference lies inside — culture, management and how well resources are used.",
+          "error_signals": ["ERR_BUS_MICRO_CONTROL"],
+          "difficulty": 3
+        },
+        {
+          "ref": "G10.MICRO.A1.18",
+          "question": "Build a 3-part explanation of why the micro environment is the foundation of business success.",
+          "input_type": "paragraph-template",
+          "prompt": "Build a 3-part explanation of why the micro environment matters most for management.",
+          "template": [
+            {
+              "slot": "point",
+              "label": "Pick the main claim",
+              "options": [
+                {"id": "p1", "text": "The micro environment matters because it is the one level management can directly control", "correct": true},
+                {"id": "p2", "text": "The micro environment matters because the government controls it", "correct": false},
+                {"id": "p3", "text": "The micro environment matters because competitors design it", "correct": false}
+              ]
+            },
+            {
+              "slot": "evidence",
+              "label": "Pick the supporting evidence",
+              "options": [
+                {"id": "e1", "text": "Management sets the vision, shapes the culture, arranges the structure and decides how resources are used", "correct": true},
+                {"id": "e2", "text": "Management decides what laws parliament passes", "correct": false},
+                {"id": "e3", "text": "Management chooses how much customers earn", "correct": false}
+              ]
+            },
+            {
+              "slot": "explanation",
+              "label": "Pick the best explanation",
+              "options": [
+                {"id": "x1", "text": "Because these elements are internal, the business can improve them today, while it can only adapt to the market and macro environments", "correct": true},
+                {"id": "x2", "text": "Because the micro environment is the same as the macro environment", "correct": false},
+                {"id": "x3", "text": "Because nothing outside the business ever affects it", "correct": false}
+              ]
+            }
+          ],
+          "expected": ["p1", "e1", "x1"],
+          "memo": "Claim: the micro environment is controllable. Evidence: management sets vision, culture, structure, resources. Explanation: being internal, it can be changed now — unlike the market and macro levels.",
+          "error_signals": ["ERR_BUS_MICRO_CONTROL"],
+          "difficulty": 3
+        },
+        {
+          "ref": "G10.MICRO.A1.19",
+          "question": "A new manager says: 'Our objectives should be specific and measurable so we can track progress.' Which micro-environment principle does this show?",
+          "input_type": "choice",
+          "options": ["Objectives turn the mission into clear targets the business can control and measure", "Objectives are set by the business's competitors", "Objectives are part of the macro environment", "Objectives cannot be measured"],
+          "expected": "Objectives turn the mission into clear targets the business can control and measure",
+          "memo": "Good objectives are specific and measurable, letting management control and check progress toward the mission — an internal, controllable process.",
+          "error_signals": ["ERR_BUS_MICRO_CONTROL"],
+          "difficulty": 3
+        },
+        {
+          "ref": "G10.MICRO.A1.20",
+          "question": "Sort each business action as 'controllable in the micro environment' or 'only adaptable to (outside control)'.",
+          "input_type": "sort-buckets",
+          "buckets": [
+            {"id": "control", "label": "Controllable (micro)"},
+            {"id": "adapt", "label": "Only adaptable (outside)"}
+          ],
+          "items": [
+            {"id": "i1", "text": "Rewriting the mission statement", "correct_bucket": "control"},
+            {"id": "i2", "text": "Responding to a rise in fuel prices", "correct_bucket": "adapt"},
+            {"id": "i3", "text": "Restructuring the departments", "correct_bucket": "control"},
+            {"id": "i4", "text": "Reacting to a new competitor entering the market", "correct_bucket": "adapt"},
+            {"id": "i5", "text": "Training staff to strengthen the culture", "correct_bucket": "control"},
+            {"id": "i6", "text": "Adjusting to new consumer-protection legislation", "correct_bucket": "adapt"}
+          ],
+          "pass_threshold": 0.75,
+          "expected": "All six items in correct buckets (or ≥75%)",
+          "memo": "Internal decisions (mission, structure, staff training) are controllable. Fuel prices, competitors and legislation come from the market and macro environments — the business can only adapt.",
+          "error_signals": ["ERR_BUS_MICRO_CONTROL", "ERR_BUS_MICRO_CLASSIFY"],
+          "difficulty": 3
+        }
+      ]
+    }
+  }
+}

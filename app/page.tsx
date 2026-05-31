@@ -41,6 +41,8 @@ const LifeSciencesSession          = dynamic(() => import("@/components/life-sci
 const LifeSciencesSkillTreeView    = dynamic(() => import("@/components/life-sciences/LifeSciencesSkillTreeView"),         { ssr: false });
 const HistorySession               = dynamic(() => import("@/components/history/HistorySession"),                          { ssr: false });
 const HistorySkillTreeView         = dynamic(() => import("@/components/history/HistorySkillTreeView"),                    { ssr: false });
+const BusinessStudiesSession       = dynamic(() => import("@/components/business-studies/BusinessStudiesSession"),         { ssr: false });
+const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"),   { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -157,6 +159,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "life-sciences-skill-tree": "Life Sciences · Topics",
     "history": "History",
     "history-skill-tree": "History · Topics",
+    "business-studies": "Business Studies",
+    "business-studies-skill-tree": "Business Studies · Topics",
   };
 
   const refreshStats = useCallback(() => {
@@ -483,6 +487,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* History — FET Phase (Gr 10–12), free like Life Sciences */}
         {activeView === "history" && <ErrorBoundary><HistorySession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "history-skill-tree" && <HistorySkillTreeView onPickSkill={() => handleViewChange("history")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Business Studies — FET Phase (Gr 10–12), free like History */}
+        {activeView === "business-studies" && <ErrorBoundary><BusinessStudiesSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "business-studies-skill-tree" && <BusinessStudiesSkillTreeView onPickSkill={() => handleViewChange("business-studies")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

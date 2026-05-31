@@ -47,7 +47,8 @@ type SubjectId =
   | "matric-phys-sci"
   | "maths-literacy"
   | "life-sciences"
-  | "history";
+  | "history"
+  | "business-studies";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -134,6 +135,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showLifeSciences = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // History is a FET subject (Gr 10–12 only). Free for all plans.
   const showHistory = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
+  // Business Studies is a FET subject (Gr 10–12 only). Free for all plans.
+  const showBusinessStudies = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -319,6 +322,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "history",
       });
     }
+    if (showBusinessStudies) {
+      all.push({
+        id: "business-studies",
+        thumbnail: "/thumbnails/business-studies.jpeg",
+        label: "Business Studies",
+        caption: "Business environments, ventures, roles and operations · Grades 10–12",
+        badge: "FET",
+        badgeColor: "bg-sky-100 text-sky-700",
+        accentFrom: "from-sky-500",
+        accentTo: "to-blue-600",
+        navigateTo: "business-studies",
+      });
+    }
     return all;
   }, [
     discoverBadge, discoverBadgeColor,
@@ -328,6 +344,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showMathsLiteracy, mathsLiteracyBadge, mathsLiteracyMastered,
     showLifeSciences,
     showHistory,
+    showBusinessStudies,
   ]);
 
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
