@@ -1,7 +1,7 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "subject": "history",
-  "description": "History skill tree, FET Grades 10-12 (Amended CAPS Doc, History Grade 10-12). 17 CAPS topics, 53 atomic skills, ~1,060 question items. Tiers = CAPS terms within a grade (T1-T4). Mastery = 60% of 20-item pool (FET rule, no timer). ALL questions available — no prerequisites between skills, learner chooses any skill in any order. Input types: choice, true-false, cloze, sequence, image-match (existing) + sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison (new tap-based mechanics, no free-text). Any question may carry an optional 'source' block (text extract, image, map or cartoon with provenance). Items live in data/history-question-bank.json. v1.1: Grade 10 fully authored (19 skills, 380 items); Grade 11 structure authored (15 skills across 5 topics) with question banks pending head-of-ed review of this structure; Grade 12 scaffolded as an empty level.",
+  "description": "History skill tree, FET Grades 10-12 (Amended CAPS Doc, History Grade 10-12). 17 CAPS topics, 53 atomic skills, ~1,060 question items. Tiers = CAPS terms within a grade (T1-T4). Mastery = 60% of 20-item pool (FET rule, no timer). ALL questions available — no prerequisites between skills, learner chooses any skill in any order. Input types: choice, true-false, cloze, sequence, image-match (existing) + sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison (new tap-based mechanics, no free-text). Any question may carry an optional 'source' block (text extract, image, map or cartoon with provenance). Items live in data/history-question-bank.json. v1.2: Grade 10 fully authored (19 skills, 380 items); Grade 11 fully authored (15 skills, 300 items); Grade 12 structure authored (19 skills across 6 topics) with question banks pending head-of-ed review of this structure.",
   "grades_covered": [10, 11, 12],
   "levels": [
     {
@@ -616,8 +616,331 @@
       "id": 12,
       "grade": 12,
       "title": "Grade 12 — History",
-      "description": "Pending head-of-ed review of Grade 10 and authoring of Grade 11 before starting. 6 CAPS topics planned (SA Politics and Economics late 19/20th c., the National Question and party formation, Cold War and Anti-colonial Struggles, Era of Liberation Struggles and Apartheid SA, Role of Individual Leaders, Freedom and Democracy / TRC). Target ~19 atomic skills.",
-      "tiers": []
+      "description": "The anti-colonial struggles and the coming of democracy in 20th-century South Africa. 6 CAPS topics across 3 terms. T1: the Politics and Economics of SA (late 19th–20th c.) + the National Question and the formation of the ANC, NP, CPSA and other organisations. T2: the Cold War and anti-colonial struggles in southern Africa + the era of liberation struggles and apartheid SA on the continent (OAU). T3: the role of individual leaders (P.W. Botha and O.R. Tambo) + freedom and democracy / coming to terms with the past (negotiations, 1994, TRC, the Constitution). 19 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L12.T1",
+          "title": "Term 1 — Politics & Economics of SA + The National Question",
+          "atomic_skills": [
+            {
+              "id": "HIS.G12.T1.POLECON.A1",
+              "bank_skill_id": "HIS.G12.T1.POLECON.A1",
+              "title": "The mineral revolution, British imperialism and the Union of 1910",
+              "description": "How diamonds (Kimberley) and gold (the Witwatersrand) transformed South Africa. The rise of mining capital and international finance, the surge of British imperialism, and the conquest of the last independent African polities. The South African (Anglo-Boer) War of 1899–1902 and the Treaty of Vereeniging. The formation of the Union of South Africa in 1910 as a British dominion that united white English-speakers and Afrikaners while excluding the African majority from political rights.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The Politics and Economics of South Africa in the Late 19th and 20th Centuries",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the mineral revolution was only an economic event, missing its political consequences", "example": "Says diamonds and gold made South Africa rich but had nothing to do with imperialism or the Union"},
+                {"type": "recall_slip", "description": "Confuses who was included in or excluded from the Union of 1910", "example": "Says the Union of 1910 gave political rights to all South Africans"}
+              ],
+              "recovery_strategy": "Diamonds + gold = mining capital = a surge of British imperialism. That chain led to the conquest of African polities, the South African War (1899–1902), and the Union of 1910. The Union united whites (British + Afrikaner) and deliberately EXCLUDED the African majority from political power — economics and politics were one story.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.POLECON.A2",
+              "bank_skill_id": "HIS.G12.T1.POLECON.A2",
+              "title": "Racial capitalism: the colour bar, migrant labour and the 'poor white' problem",
+              "description": "How the South African economy was built on racial discrimination. The 'civilised labour' policy and the colour bar that reserved skilled, well-paid work for whites. Job reservation at state enterprises such as ISCOR and ESKOM. The migrant labour system that fed the mines with cheap, controlled African labour. The Great Depression and the 'poor white problem', and how the state solved it for whites while entrenching African poverty. Education organised along racial lines to serve this system.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The Politics and Economics of South Africa in the Late 19th and 20th Centuries",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats poverty and inequality as accidental, not built into the system by law", "example": "Says African workers were simply less skilled, so they earned less"},
+                {"type": "conceptual_gap", "description": "Thinks the 'poor white problem' was solved by the free market, not by racial state intervention", "example": "Says poor whites rose purely through hard work, with no special help"}
+              ],
+              "recovery_strategy": "The economy was RACIAL by design: the 'civilised labour' policy and colour bar reserved good jobs for whites; job reservation at ISCOR/ESKOM protected them; migrant labour kept African workers cheap and controlled. The state rescued poor whites (state jobs, protection) while keeping Africans poor. Inequality was legislated, not accidental.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.POLECON.A3",
+              "bank_skill_id": "HIS.G12.T1.POLECON.A3",
+              "title": "Workers' struggles and the birth of three movements",
+              "description": "How the mineral revolution gave rise to African nationalism, Afrikaner nationalism and a workers' (communist) movement. The white mineworkers' revolts of 1913 and 1922 and the 1920 African mineworkers' strike. The Industrial and Commercial Workers' Union (ICU) under Clements Kadalie. The Communist Party of South Africa, influenced by the 1917 Russian Revolution. The institutions of Afrikaner nationalism (the Broederbond, the FAK, the Dutch Reformed Church). Women's protest, including the 1913 anti-pass campaigns and Charlotte Maxeke.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The Politics and Economics of South Africa in the Late 19th and 20th Centuries",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses white and black workers' revolts, or which union was which", "example": "Says the ICU was a white craft union"},
+                {"type": "conceptual_gap", "description": "Misses that the same industrial system produced rival nationalisms and a workers' movement at once", "example": "Says African nationalism and Afrikaner nationalism had nothing in common in their origins"}
+              ],
+              "recovery_strategy": "The same mining economy bred THREE responses: African nationalism, Afrikaner nationalism, and a workers'/communist movement. Keep the revolts straight: white miners revolted in 1913 and 1922; African miners struck in 1920; the ICU (Kadalie) organised African workers. Afrikaner nationalism worked through the Broederbond, FAK and DRC. Women resisted too (1913 anti-pass, Charlotte Maxeke).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.NATQ.A1",
+              "bank_skill_id": "HIS.G12.T1.NATQ.A1",
+              "title": "What the 'national question' was — and the exclusion built into the Union",
+              "description": "The 'national question': who counts as a South African and who holds power in a single state shared by oppressor and oppressed. The Treaty of Vereeniging (1902) and the whites-only National Convention (1907–08) that built cooperation between British and Afrikaner whites. The Union of 1910 excluding over 80% of the population from citizenship. The difference (and the debate over whether there was one) between segregation and apartheid. The competing interpretations historians and activists used: liberal, Marxist, Afrikaner-nationalist, Africanist and African-nationalist.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The National Question in South Africa: the formation of the ANC, the National Party, the Communist Party of South Africa and other organisations",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the 'national question' is just about race, missing the question of who belongs to the nation and who holds power", "example": "Says the national question was only about skin colour"},
+                {"type": "conceptual_gap", "description": "Believes the 1910 Union created a democracy for all South Africans", "example": "Says everyone could vote in the Union of South Africa"}
+              ],
+              "recovery_strategy": "The 'national question' asks: in a country where oppressor and oppressed share the same space, who counts as a citizen and who holds power? At Union (1910), built on Vereeniging (1902) and a whites-only Convention, over 80% of people were locked out of citizenship. Different camps (liberal, Marxist, Africanist, African-nationalist) answered the question very differently.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.NATQ.A2",
+              "bank_skill_id": "HIS.G12.T1.NATQ.A2",
+              "title": "The organisations form: ANC, NP, CPSA and others",
+              "description": "The political organisations that emerged in response to exclusion. The South African Native National Congress (SANNC), founded in 1912 and later renamed the ANC, formed after the failure of the 1908–10 campaign for inclusion. The National Party (1914), expressing Afrikaner grievance. The Indian congresses (the Natal Indian Congress, 1895, and later the South African Indian Congress) and the African People's Organisation (APO, 1902) under Abdullah Abdurahman. The Communist Party of South Africa (1921) and its adoption of the 'Native Republic Thesis' in 1928. Who each organisation represented and why each was formed.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The National Question in South Africa: the formation of the ANC, the National Party, the Communist Party of South Africa and other organisations",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses the founding dates or which group each organisation represented", "example": "Says the National Party was formed to represent African workers"},
+                {"type": "conceptual_gap", "description": "Thinks all these organisations wanted the same thing", "example": "Says the NP and the SANNC had identical goals"}
+              ],
+              "recovery_strategy": "Match each organisation to its people and purpose: SANNC/ANC (1912) — Africans excluded from the Union; NP (1914) — aggrieved Afrikaners; NIC/APO — Indian and Coloured people; CPSA (1921) — workers, later embracing the 'Native Republic Thesis' (1928). They formed in response to the SAME exclusion but wanted very different futures.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.NATQ.A3",
+              "bank_skill_id": "HIS.G12.T1.NATQ.A3",
+              "title": "From segregation to apartheid and the Bantustans",
+              "description": "The hardening of segregation into apartheid after 1948 and the system's logic. How apartheid intensified and systematised the racial order that segregation had begun. The Bantustan (homeland) strategy: dividing Africans into ethnic 'homelands' as a way of stripping them of South African citizenship and denying the African majority any claim to the country as a whole. Why the Bantustans were central to apartheid's answer to the national question.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The National Question in South Africa: the formation of the ANC, the National Party, the Communist Party of South Africa and other organisations",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the Bantustans were genuine independent homelands for African peoples' benefit", "example": "Says the homelands were created to give African peoples their own free countries"},
+                {"type": "conceptual_gap", "description": "Sees no link between segregation and apartheid", "example": "Says apartheid appeared suddenly in 1948 with no roots in earlier segregation"}
+              ],
+              "recovery_strategy": "Apartheid (from 1948) was segregation made harsher and more systematic. The Bantustans were the key trick: by assigning Africans to ethnic 'homelands', the state could strip them of South African citizenship and claim the rest of the country for whites. The homelands were a tool of dispossession, not a gift of self-rule.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.NATQ.A4",
+              "bank_skill_id": "HIS.G12.T1.NATQ.A4",
+              "title": "Alternative visions: Sobukwe, the PAC and Black Consciousness",
+              "description": "Different imaginations of a future South Africa beyond the ANC's. Robert Sobukwe and the Pan Africanist Congress (PAC), which broke from the ANC to advance an Africanist alternative. The rise of Steve Biko and the Black Consciousness Movement (BCM) in the 1970s, and organisations such as the Azanian People's Organisation (AZAPO). What these movements added to the debate about the national question — psychological liberation, African self-reliance and a critique of how freedom should be defined.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The National Question in South Africa: the formation of the ANC, the National Party, the Communist Party of South Africa and other organisations",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses Sobukwe/PAC with Biko/Black Consciousness, or their dates", "example": "Says Steve Biko founded the PAC"},
+                {"type": "conceptual_gap", "description": "Thinks there was only one liberation tradition (the ANC's)", "example": "Says every anti-apartheid activist belonged to the ANC"}
+              ],
+              "recovery_strategy": "The liberation struggle had MORE than one vision. Sobukwe's PAC offered an Africanist alternative to the ANC. Biko's Black Consciousness Movement (1970s) and AZAPO stressed psychological liberation and Black self-reliance. Keep them apart: Sobukwe = PAC (Pan-Africanist); Biko = Black Consciousness/AZAPO. Each answered the national question differently.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T2",
+          "title": "Term 2 — Cold War & Anti-colonial Struggles + Liberation Struggles and the OAU",
+          "atomic_skills": [
+            {
+              "id": "HIS.G12.T2.COLDWAR.A1",
+              "bank_skill_id": "HIS.G12.T2.COLDWAR.A1",
+              "title": "Origins and nature of the Cold War",
+              "description": "Why the world split after the Second World War into a capitalist bloc led by the USA and a socialist bloc led by the USSR. The role of ideology and the nuclear arms race. Why it is called a 'cold' war — direct war between the superpowers was avoided because of nuclear weapons, so the conflict was fought through proxy wars, propaganda, espionage, and rivalry in technology, space and sport. The military alliances (NATO and the Warsaw Pact), the Berlin Wall, and the Cuban Missile Crisis as the high point of tension.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Cold War and the Rise of Anti-colonial Struggles in Southern Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the Cold War was a direct, open war between the USA and USSR", "example": "Says American and Soviet armies fought each other directly in big battles"},
+                {"type": "recall_slip", "description": "Mixes up which superpower led which bloc", "example": "Says the USA led the socialist bloc"}
+              ],
+              "recovery_strategy": "'Cold' = the superpowers never fought each other directly, because nuclear weapons made that suicidal. Instead it was ideology (USA capitalist vs USSR socialist), an arms race, and proxy wars fought through other countries. Anchors: NATO (West) vs Warsaw Pact (East), the Berlin Wall, the Cuban Missile Crisis.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.COLDWAR.A2",
+              "bank_skill_id": "HIS.G12.T2.COLDWAR.A2",
+              "title": "The Cold War comes to southern Africa: Angola and Cuito Cuanavale",
+              "description": "How the global Cold War played out as a hot war in southern Africa. South Africa's 1975 invasion of Angola, where the rival movements were backed by opposing powers — the USA and Zaire behind the FNLA, apartheid South Africa behind UNITA, and Cuba and the USSR behind the MPLA. The battle of Cuito Cuanavale (1987–88) and the South African Defence Force's involvement. How apartheid South Africa positioned itself as a Cold War ally of the West, and how this shaped the liberation struggle.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Cold War and the Rise of Anti-colonial Struggles in Southern Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses which outside power backed which Angolan movement", "example": "Says Cuba and the USSR backed UNITA"},
+                {"type": "conceptual_gap", "description": "Treats the Angolan war as purely local, missing the Cold War dimension", "example": "Says the war in Angola had nothing to do with the USA or USSR"}
+              ],
+              "recovery_strategy": "Angola was a Cold War battlefield. Match the backers: MPLA — Cuba + USSR; UNITA — apartheid South Africa; FNLA — USA + Zaire. South Africa invaded in 1975 and fought on to Cuito Cuanavale (1987–88), presenting itself as a Western Cold War ally to justify its actions.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.COLDWAR.A3",
+              "bank_skill_id": "HIS.G12.T2.COLDWAR.A3",
+              "title": "International solidarity and the 1973 UN vote",
+              "description": "How the world turned against apartheid during the Cold War. The international anti-apartheid solidarity movements in countries such as the USA and Britain, often campaigning against their own governments' support for South Africa. The sports and cultural boycotts. The 1973 United Nations vote declaring apartheid a crime against humanity (with the USA and Britain voting against, and the USSR, African and non-aligned countries voting in favour). How the end of the Cold War, with the dissolution of the USSR, changed the situation in southern Africa.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Cold War and the Rise of Anti-colonial Struggles in Southern Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Gets the 1973 UN vote backwards", "example": "Says the USA and Britain led the vote to condemn apartheid"},
+                {"type": "conceptual_gap", "description": "Thinks solidarity movements and their governments were on the same side", "example": "Says the British anti-apartheid movement and the British government both opposed apartheid"}
+              ],
+              "recovery_strategy": "Ordinary people abroad often opposed apartheid while their GOVERNMENTS protected it — that is what the solidarity movements (and sports/cultural boycotts) fought. In the 1973 UN vote, apartheid was declared a crime against humanity: the USSR, African and non-aligned states voted FOR; the USA and Britain voted AGAINST. The end of the Cold War later removed apartheid's 'anti-communist' excuse.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.LIBSTRUG.A1",
+              "bank_skill_id": "HIS.G12.T2.LIBSTRUG.A1",
+              "title": "The OAU and the Frontline States",
+              "description": "How newly independent African states organised to support liberation in southern Africa. The formation of the Organisation of African Unity (OAU) in 1963 (renamed the African Union in 2001) and its programme to complete the anti-colonial struggle against the white-minority regimes controlled by Portugal, Britain and South Africa. The role of the Frontline States in hosting liberation movements in exile and supporting people displaced by the white-minority regimes. The OAU Liberation Committee.",
+              "caps_term": "G12 T2",
+              "caps_topic": "The Era of the Liberation Struggles and the Politics of Apartheid South Africa on the African Continent",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses the OAU's founding date or its later name", "example": "Says the OAU was founded in 1994 and is still called the OAU"},
+                {"type": "conceptual_gap", "description": "Thinks African states played no part in the South African liberation struggle", "example": "Says the struggle against apartheid happened only inside South Africa"}
+              ],
+              "recovery_strategy": "The OAU (1963, later the AU in 2001) was Africa's united front against the remaining white-minority regimes. The Frontline States sheltered liberation movements in exile and the displaced, at real cost to themselves. The struggle was continental, not just internal.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.LIBSTRUG.A2",
+              "bank_skill_id": "HIS.G12.T2.LIBSTRUG.A2",
+              "title": "A continent divided: pro- and anti-liberation states",
+              "description": "Why independent African countries did not all support the liberation struggle equally. A comparative study of pro-liberation movement states (such as Tanzania, Zambia and Nigeria) and anti-liberation movement states (such as Malawi and Côte d'Ivoire). How each country's ideological alignment — and its economic ties to the former colonial powers and to South Africa — shaped whether it supported or opposed the liberation movements. Why some states maintained diplomatic and economic links with apartheid South Africa.",
+              "caps_term": "G12 T2",
+              "caps_topic": "The Era of the Liberation Struggles and the Politics of Apartheid South Africa on the African Continent",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Assumes all African states supported the liberation struggle equally", "example": "Says every independent African country backed the ANC and PAC"},
+                {"type": "recall_slip", "description": "Confuses which states were pro- and which were anti-liberation", "example": "Says Malawi was a leading supporter of the liberation struggle"}
+              ],
+              "recovery_strategy": "African support was FRACTURED. Pro-liberation: Tanzania, Zambia, Nigeria. Anti-liberation (kept links with apartheid SA): Malawi, Côte d'Ivoire. The deciding factor was usually ideological alignment and economic ties — countries tied to the West or to South Africa's economy were more reluctant to back the struggle.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.LIBSTRUG.A3",
+              "bank_skill_id": "HIS.G12.T2.LIBSTRUG.A3",
+              "title": "Apartheid's destabilisation of the region and the Harare Declaration",
+              "description": "How apartheid South Africa tried to crush the liberation struggle beyond its borders. The military and economic destabilisation of neighbouring states — raids, support for rebel movements, and economic pressure — to punish countries that sheltered liberation movements. The liberation of South West Africa (Namibia) and the role of the League of Nations and United Nations in that question. The Harare Declaration (1989) and the role of the OAU, the Non-Aligned Movement and the UN in setting conditions for a negotiated end to apartheid.",
+              "caps_term": "G12 T2",
+              "caps_topic": "The Era of the Liberation Struggles and the Politics of Apartheid South Africa on the African Continent",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks apartheid South Africa kept its violence inside its own borders", "example": "Says South Africa never attacked or pressured its neighbours"},
+                {"type": "recall_slip", "description": "Cannot place the Harare Declaration or its purpose", "example": "Says the Harare Declaration started the Second World War"}
+              ],
+              "recovery_strategy": "Apartheid South Africa hit BACK across its borders: military raids and economic pressure to destabilise neighbours who sheltered the movements. Namibia's liberation involved the League of Nations and the UN. The Harare Declaration (1989), backed by the OAU, Non-Aligned Movement and UN, set out conditions for negotiations — pointing toward the end of apartheid.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T3",
+          "title": "Term 3 — The Role of Individual Leaders + Freedom and Democracy / Coming to Terms with the Past",
+          "atomic_skills": [
+            {
+              "id": "HIS.G12.T3.LEADERS.A1",
+              "bank_skill_id": "HIS.G12.T3.LEADERS.A1",
+              "title": "Individuals in history, and P.W. Botha the securocrat",
+              "description": "The question of how much individual leaders shape history — they cannot change its course at will, but they can play a decisive role. P.W. Botha as Minister of Defence under Vorster and his part in South Africa's nuclear weapons programme and the destabilisation of the region (the 1975 invasion of Angola). Botha's shift of South Africa from a 'police state' toward a 'military state' run by securocrats. The 1985 State of Emergency and the vicious repression of popular resistance.",
+              "caps_term": "G12 T3",
+              "caps_topic": "The Role of Individual Leaders in History during the Apartheid Period",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks individuals either control history completely or not at all", "example": "Says one leader single-handedly decided everything that happened"},
+                {"type": "recall_slip", "description": "Confuses Botha's roles or the meaning of 'securocrat'", "example": "Says P.W. Botha was a leader of the ANC"}
+              ],
+              "recovery_strategy": "Leaders don't control history at will, but they can be decisive. Botha the SECUROCRAT: as Defence Minister he drove the nuclear programme and regional destabilisation (Angola, 1975); as leader he turned South Africa into a 'military state' and imposed the 1985 State of Emergency, crushing resistance. A 'securocrat' rules through the security forces.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.LEADERS.A2",
+              "bank_skill_id": "HIS.G12.T3.LEADERS.A2",
+              "title": "P.W. Botha the 'reformer' — and the limits of reform",
+              "description": "The other side of P.W. Botha: the leader who tried to reform apartheid without surrendering white power. The 1983 Tricameral Parliament, which gave limited representation to Coloured and Indian people but still excluded Africans, and the formation of the United Democratic Front (UDF) in response. The abolition of some 'petty apartheid' measures and the 1986–87 release of some political prisoners (such as Govan Mbeki and Walter Sisulu). The 'reformer or securocrat?' debate, and why Botha's reforms could never resolve the core injustice.",
+              "caps_term": "G12 T3",
+              "caps_topic": "The Role of Individual Leaders in History during the Apartheid Period",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Botha's reforms meant he intended to end apartheid", "example": "Says the Tricameral Parliament was a step toward giving everyone equal votes"},
+                {"type": "recall_slip", "description": "Thinks the Tricameral Parliament included Africans", "example": "Says the 1983 Tricameral Parliament gave Africans seats"}
+              ],
+              "recovery_strategy": "Botha reformed to PRESERVE white power, not to end apartheid. The 1983 Tricameral Parliament included Coloured and Indian people but still EXCLUDED the African majority — which is why the UDF formed against it. He scrapped some petty-apartheid laws and freed a few prisoners, but never touched the core. That is the heart of the 'reformer or securocrat' debate.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.LEADERS.A3",
+              "bank_skill_id": "HIS.G12.T3.LEADERS.A3",
+              "title": "O.R. Tambo and the ANC in exile",
+              "description": "Oliver Reginald Tambo's leadership of the ANC in exile after the liberation movements were banned following the Sharpeville Massacre (1960). How Tambo rebuilt the ANC abroad and held it together for three decades. The 'Four Pillars of the Struggle' — the underground struggle, international solidarity, the armed struggle (Umkhonto we Sizwe), and mass mobilisation. The impact of the 1976 Soweto uprising, which drove young activists into exile and into MK, and the educational route at the Solomon Mahlangu Freedom College (SOMAFCO) in Tanzania. Tambo's part in the Harare Declaration and his return to South Africa in 1990.",
+              "caps_term": "G12 T3",
+              "caps_topic": "The Role of Individual Leaders in History during the Apartheid Period",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Cannot name the Four Pillars or confuses MK with another body", "example": "Says Umkhonto we Sizwe was a trade union"},
+                {"type": "conceptual_gap", "description": "Thinks the struggle in exile was disorganised or unimportant", "example": "Says the ANC achieved nothing while in exile"}
+              ],
+              "recovery_strategy": "After Sharpeville (1960) and the bannings, Tambo rebuilt the ANC IN EXILE and led it for ~30 years. Learn the Four Pillars: (1) underground struggle, (2) international solidarity, (3) armed struggle (MK), (4) mass mobilisation. The 1976 Soweto uprising sent youth into exile — many to MK, some to SOMAFCO in Tanzania. Tambo helped craft the Harare Declaration and returned in 1990.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.DEMOC.A1",
+              "bank_skill_id": "HIS.G12.T3.DEMOC.A1",
+              "title": "Why negotiations began",
+              "description": "Why apartheid became unsustainable and talks began. The fall of the South African economy in 1985, as international creditors demanded repayment and economic sanctions and the cultural and sports boycotts bit. The well-publicised meetings between 1985 and 1988 in which business people, the media, opposition politicians and Afrikaans academics met the ANC-in-exile, and the UN's Eminent Persons Group. The secret talks between the National Party and the ANC. The unbanning of the liberation movements in February 1990 and the release of Nelson Mandela.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Freedom and Democracy in South Africa: Coming to Terms with the Past",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks apartheid ended purely out of goodwill, missing the economic and international pressure", "example": "Says the government freed Mandela simply because it changed its mind"},
+                {"type": "recall_slip", "description": "Misplaces the unbanning or Mandela's release", "example": "Says Mandela was released in 1976"}
+              ],
+              "recovery_strategy": "Apartheid became too costly to maintain: the 1985 economic crash, sanctions and boycotts forced the issue. Talks built up gradually — public meetings with the ANC-in-exile (1985–88), the Eminent Persons Group, then secret NP–ANC talks — leading to the unbanning of the movements and Mandela's release in February 1990. Pressure, not goodwill, opened the door.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.DEMOC.A2",
+              "bank_skill_id": "HIS.G12.T3.DEMOC.A2",
+              "title": "Negotiation, violence and the 1994 breakthrough",
+              "description": "The road from talks to democracy. The CODESA negotiations between the ANC, the NP government, the Bantustan leaders and others, and the compromises on both sides (such as Joe Slovo's 'Sunset Clause'). The violence that threatened to derail the process — the 'third force', conflict between the ANC and Inkatha, the murder of Chris Hani, and white right-wing violence (the AWB). The collapse of the Bantustans (such as the Bhisho massacre). The first democratic election of 27 April 1994 and the Government of National Unity.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Freedom and Democracy in South Africa: Coming to Terms with the Past",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the transition to democracy was smooth and peaceful", "example": "Says the move to democracy happened without any violence"},
+                {"type": "recall_slip", "description": "Confuses the key events or compromises of the negotiations", "example": "Says the Sunset Clause was a law banning the ANC"}
+              ],
+              "recovery_strategy": "The transition was negotiated AND violent at once. CODESA brought the parties together; compromises like the Sunset Clause (Joe Slovo) kept it alive. Meanwhile 'third force' violence, ANC–Inkatha conflict, the murder of Chris Hani, and AWB right-wing attacks nearly derailed it. Despite this, the 27 April 1994 election and a Government of National Unity delivered democracy.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.DEMOC.A3",
+              "bank_skill_id": "HIS.G12.T3.DEMOC.A3",
+              "title": "Coming to terms with the past: the TRC and the Constitution",
+              "description": "How the new South Africa tried to deal with its past. The Truth and Reconciliation Commission (TRC) and its model of restorative justice and amnesty in exchange for truth. The TRC's achievements in revealing apartheid atrocities, and its major limitations — that many apartheid officials never gave evidence, that white finance capital and the legal fraternity were never held to account, and that South Africa chose against Nuremberg-style trials. The 1996 Constitution and its Chapter 9 institutions. The recognition that political freedom was won while economic inequality largely remained.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Freedom and Democracy in South Africa: Coming to Terms with the Past",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the TRC fully delivered justice and closed the past", "example": "Says the TRC punished all those responsible for apartheid crimes"},
+                {"type": "conceptual_gap", "description": "Thinks political freedom in 1994 automatically brought economic equality", "example": "Says the end of apartheid made everyone economically equal"}
+              ],
+              "recovery_strategy": "The TRC offered restorative justice — truth and amnesty rather than trials. It exposed atrocities, but its limits matter: many officials stayed silent, white capital and the legal profession escaped scrutiny, and there were no Nuremberg-style trials. The 1996 Constitution and its Chapter 9 institutions secured political freedom — but economic inequality largely survived, so the struggle for economic freedom continued.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
     }
   ]
 }
