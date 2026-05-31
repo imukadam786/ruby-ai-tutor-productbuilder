@@ -1,0 +1,358 @@
+{
+  "version": "1.0",
+  "subject": "history",
+  "description": "History skill tree, FET Grades 10-12 (Amended CAPS Doc, History Grade 10-12). 17 CAPS topics, 53 atomic skills, ~1,060 question items. Tiers = CAPS terms within a grade (T1-T4). Mastery = 60% of 20-item pool (FET rule, no timer). ALL questions available — no prerequisites between skills, learner chooses any skill in any order. Input types: choice, true-false, cloze, sequence, image-match (existing) + sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison (new tap-based mechanics, no free-text). Any question may carry an optional 'source' block (text extract, image, map or cartoon with provenance). Items live in data/history-question-bank.json. v1.0: Grade 10 fully authored (19 skills), Grades 11 and 12 scaffolded as empty levels pending head-of-ed review of Grade 10.",
+  "grades_covered": [10, 11, 12],
+  "levels": [
+    {
+      "id": 10,
+      "grade": 10,
+      "title": "Grade 10 — History",
+      "description": "Precolonial African and wider-world history. 6 CAPS topics across 4 terms. T1: Societies of the Wider World + Ancient Ethiopia. T2: Mali Empire (case study). T3: Great Zimbabwe + Ethnic fluidity and the colonial invention of 'tribes'. T4: Achievements of African People since Ancient Times. 19 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "Term 1 — Societies of the Wider World & Ancient Ethiopia",
+          "atomic_skills": [
+            {
+              "id": "HIS.G10.T1.WIDER.A1",
+              "bank_skill_id": "HIS.G10.T1.WIDER.A1",
+              "title": "What 'civilisation' meant — and who decided",
+              "description": "The concept of 'civilisation' as a label built on comparison, not measurement. How European scholars used it to rank societies (Greek = supreme; African = uncivilised) and how the label justified conquest, slavery and racial hierarchies. Why the same complexity-tests (cities, writing, trade, central government) applied honestly produce very different rankings.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Societies of the Wider World in Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats 'civilisation' as a neutral, objective measure", "example": "Says Greek society was more civilised than Egyptian because it had philosophy"},
+                {"type": "conceptual_gap", "description": "Assumes pre-1500 African societies had no writing, trade or large-scale governance", "example": "Says Africa had no cities before European arrival"}
+              ],
+              "recovery_strategy": "'Civilisation' is a LABEL applied by people in power, not a measurement. Test any claim with evidence: were there cities? Writing? Long-distance trade? Centralised government? If yes, the society was complex regardless of who labelled it 'uncivilised'.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.WIDER.A2",
+              "bank_skill_id": "HIS.G10.T1.WIDER.A2",
+              "title": "Ancient societies side by side",
+              "description": "Comparing ancient Egyptian, Greek, Indian, Chinese and Mesoamerican (Maya, Aztec) societies on technology, trade networks, governance, religion and learning. Recognising parallel achievements rather than a single 'civilisation' ladder. Examples: Egyptian mathematics and architecture, Greek philosophy and democracy, Indian numeral system, Chinese paper/gunpowder/printing, Mayan calendar and astronomy.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Societies of the Wider World in Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "sequence", "source-comparison"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Attributes achievements to the wrong society", "example": "Says the Maya invented gunpowder"},
+                {"type": "conceptual_gap", "description": "Ranks societies on a single 'progress' scale instead of comparing across different areas", "example": "Says China was 'ahead of' Egypt rather than developing different strengths"}
+              ],
+              "recovery_strategy": "Anchor each society to 2 signature achievements: Egypt → pyramids + mathematics; Greece → philosophy + democracy; India → zero/decimal numerals; China → paper, printing, gunpowder, compass; Maya → calendar + astronomy; Aztec → urban planning (Tenochtitlan). Different strengths, not different rankings.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.WIDER.A3",
+              "bank_skill_id": "HIS.G10.T1.WIDER.A3",
+              "title": "The 'dark continent' myth and how it was disproven",
+              "description": "How 19th-century European scholarship built the racist 'dark continent' idea — claiming Africa had no history, no states, no learning before European contact. Why the myth was politically useful (justifying colonialism). The historical and archaeological evidence that refutes it: Aksum, Mali, Songhai, Great Zimbabwe, Benin City, Timbuktu's libraries.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Societies of the Wider World in Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats the 'dark continent' label as outdated description rather than active racist propaganda", "example": "Says Europeans called Africa 'dark' because there were no records — they just hadn't found them yet"},
+                {"type": "conceptual_gap", "description": "Cannot link the myth to its political purpose", "example": "Sees the myth as a mistake, not a tool that justified land seizure and slavery"}
+              ],
+              "recovery_strategy": "The 'dark continent' label was invented during the 19th-century scramble for colonies. It served a purpose: if Africa had 'no history', Europeans could claim they were 'bringing' civilisation rather than seizing it. Counter-evidence already existed at the time — Aksum's stelae, Timbuktu's manuscripts, the ruins of Great Zimbabwe were known and deliberately dismissed.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.ETHIOPIA.A1",
+              "bank_skill_id": "HIS.G10.T1.ETHIOPIA.A1",
+              "title": "Aksum: an African kingdom connected to the world",
+              "description": "The Kingdom of Aksum (ancient Ethiopia) at the crossroads of Africa, Arabia and the Mediterranean. Strategic control of Red Sea trade routes. Trade in ivory, gold, ebony and spices outward; wine, olive oil and textiles inward. Diplomatic ties with Egypt, Nubia, Rome, the Arabian Peninsula and India. Roman coins found at Axumite archaeological sites as evidence.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Ancient Ethiopia before 1600 C.E.",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "sequence", "highlight-source"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses ancient Ethiopia with the modern country's borders", "example": "Says ancient Ethiopia did not include parts of present-day Sudan or Eritrea"},
+                {"type": "conceptual_gap", "description": "Assumes ancient Africa was isolated from the outside world", "example": "Says Aksum had no contact with Rome or India"}
+              ],
+              "recovery_strategy": "Aksum was BIGGER than modern Ethiopia — including parts of Sudan, Eritrea, Djibouti, Somalia. It controlled the Red Sea, so trade ran in every direction: India and Arabia to the east, Rome and Greece to the north, Egypt and Nubia to the west. The Roman coins in Aksum's ruins are the receipt.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.ETHIOPIA.A2",
+              "bank_skill_id": "HIS.G10.T1.ETHIOPIA.A2",
+              "title": "Religion, Portuguese contact and civil war",
+              "description": "Ethiopian Orthodox Christianity as the state religion. Why Ethiopia sought Portuguese help: pressure from Islamic neighbours. Arrival of Portuguese mercenaries under Christopher da Gama in the early 16th century. Jesuit missionaries' attempt to convert Orthodox Christians to Roman Catholicism. The Ethiopian civil war (1627–1632), defeat and expulsion of the Jesuits.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Ancient Ethiopia before 1600 C.E.",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sequence", "source-comparison", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Portuguese arrived to convert non-Christians", "example": "Says the Jesuits brought Christianity to Ethiopia"},
+                {"type": "recall_slip", "description": "Confuses the outcome of the civil war", "example": "Says the Portuguese remained dominant after 1632"}
+              ],
+              "recovery_strategy": "Ethiopia was ALREADY Christian (Orthodox) when the Portuguese arrived. The conflict was Christian-on-Christian: Catholics trying to convert Orthodox believers. The 5-year civil war (1627–1632) ended with the Jesuits defeated and expelled, but the country was left bitterly divided.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.ETHIOPIA.A3",
+              "bank_skill_id": "HIS.G10.T1.ETHIOPIA.A3",
+              "title": "Fasilides and the rebirth of the monarchy",
+              "description": "After the civil war, King Fasilides re-centralised Ethiopia and founded the city of Gondar as the permanent capital. The Fasil Ghebbi castle complex as architectural symbol of restored royal power. The flourishing of churches and the arts under the restored Orthodox state. The relationship between the ruling elite and ordinary people (commoners, slaves, soldiers).",
+              "caps_term": "G10 T1",
+              "caps_topic": "Ancient Ethiopia before 1600 C.E.",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "highlight-source", "paragraph-template", "image-match"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Forgets which monarch established Gondar", "example": "Credits Mansa Musa or another ruler with founding Gondar"},
+                {"type": "conceptual_gap", "description": "Treats architecture as decoration only, missing its political role", "example": "Says Fasilides built Gondar's castle just for living in"}
+              ],
+              "recovery_strategy": "After a country has been torn apart by civil war, monarchs use architecture to say 'we are back, we are strong'. Fasilides built Gondar + his castle as a visible centre. The churches that followed locked in Orthodox Christianity as the state religion — not Catholicism.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T2",
+          "title": "Term 2 — The Mali Empire",
+          "atomic_skills": [
+            {
+              "id": "HIS.G10.T2.MALI.A1",
+              "bank_skill_id": "HIS.G10.T2.MALI.A1",
+              "title": "How Mali rose to power",
+              "description": "Origins of the Mali Empire: the Mande (Malinke) peoples of the Sudan-Sahel zone. Sundiata Keita's consolidation of the empire in the 13th century. Mali's control of trans-Saharan trade routes carrying gold (from West African mines) and salt (from the Sahara). The town of Jenne and the older settlement of Jenne-Jeno as predecessor trade centres dating back to the 3rd century BCE.",
+              "caps_term": "G10 T2",
+              "caps_topic": "The rise and fall of the Mali Empire (case study)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "sequence", "argument-builder"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Credits Mansa Musa with founding Mali instead of Sundiata Keita", "example": "Says Mansa Musa created the Mali Empire"},
+                {"type": "conceptual_gap", "description": "Thinks Arab traders started West African trade routes", "example": "Says trans-Saharan trade only began after the Arabs arrived in the 9th century"}
+              ],
+              "recovery_strategy": "Sundiata FOUNDED Mali; Mansa Musa made it famous later. West African trade was already old before Arab merchants arrived — Jenne-Jeno was a trade settlement from 300 BCE. The Mali Empire's wealth came from controlling, not inventing, the gold-salt trade.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T2.MALI.A2",
+              "bank_skill_id": "HIS.G10.T2.MALI.A2",
+              "title": "Mansa Musa and the spread of Islam",
+              "description": "Mansa Musa as the most famous emperor of Mali. The 1324 pilgrimage to Mecca: scale of his entourage, the gold he distributed in Cairo, and how it depressed the price of gold there for years. The pilgrimage's role in advertising Mali's wealth to Egypt, North Africa, Portugal and the Italian merchant cities. The Islamisation of Mali's rulers from the late 13th century; debate over whether Sundiata himself was Muslim or blended Islam with indigenous African religion.",
+              "caps_term": "G10 T2",
+              "caps_topic": "The rise and fall of the Mali Empire (case study)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Gets the year of Mansa Musa's pilgrimage wrong", "example": "Says the pilgrimage was in 1492"},
+                {"type": "conceptual_gap", "description": "Thinks Mali's entire population was Muslim from the start", "example": "Says every Malian was Muslim from Sundiata's time onwards"}
+              ],
+              "recovery_strategy": "1324 pilgrimage = Mansa Musa's gold so flooded Cairo that gold's price fell for years. Islam spread from the TOP (rulers) DOWN, slowly. Many ordinary Malians kept practising indigenous African religion alongside or instead of Islam. Sundiata himself probably blended both.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T2.MALI.A3",
+              "bank_skill_id": "HIS.G10.T2.MALI.A3",
+              "title": "Timbuktu and Jenne: African centres of learning",
+              "description": "Why Timbuktu and Jenne became hubs of Islamic scholarship in the 14th and 15th centuries. The architect Ishak-al Tuedjin brought back by Mansa Musa, and the building of mosques at Gao, Timbuktu and the audience chamber at Niani. Subjects taught in Timbuktu: Islamic sciences, grammar, poetry, mathematics, medicine, astronomy. Scholars travelling from across the Islamic world to study there.",
+              "caps_term": "G10 T2",
+              "caps_topic": "The rise and fall of the Mali Empire (case study)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "image-match", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats Timbuktu as a myth or trade town only, not as a real university centre", "example": "Says Timbuktu was just a desert trading post with no scholars"},
+                {"type": "recall_slip", "description": "Confuses what was studied at Timbuktu", "example": "Says only the Quran was taught — no maths or astronomy"}
+              ],
+              "recovery_strategy": "Timbuktu had REAL universities (Sankoré, Djinguereber) teaching grammar, poetry, mathematics, medicine, astronomy alongside Islamic sciences. The manuscripts still exist — many were rescued and preserved during the 2012 jihadist occupation. Timbuktu was a destination scholars TRAVELLED TO, not just a stopover.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T2.MALI.A4",
+              "bank_skill_id": "HIS.G10.T2.MALI.A4",
+              "title": "Why Mali fell",
+              "description": "The decline of the Mali Empire from the late 14th century onwards. Internal succession disputes weakening central control. Tuareg raids from the Sahara. The rise of Songhai to the east absorbing Mali's territory. The longer-term impact of the transatlantic slave trade redirecting West African wealth and population toward the Atlantic coast, ending the cultural flowering of Timbuktu and Jenne.",
+              "caps_term": "G10 T2",
+              "caps_topic": "The rise and fall of the Mali Empire (case study)",
+              "prerequisites": [],
+              "templates": ["choice", "sort-buckets", "sequence", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Attributes Mali's fall to a single cause", "example": "Says Mali fell only because of the Atlantic slave trade"},
+                {"type": "recall_slip", "description": "Confuses Mali's successor states", "example": "Says Mali was conquered directly by Europeans"}
+              ],
+              "recovery_strategy": "Mali fell for MANY reasons stacking up: succession fights at the top, Tuareg raids from the desert, Songhai rising to the east, and finally the Atlantic slave trade pulling trade and people toward the coast. No single cause did it. Songhai (not Europeans) directly absorbed Mali's core territory.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T3",
+          "title": "Term 3 — Great Zimbabwe & Ethnic Fluidity / The Invention of 'Tribes'",
+          "atomic_skills": [
+            {
+              "id": "HIS.G10.T3.ZIMBABWE.A1",
+              "bank_skill_id": "HIS.G10.T3.ZIMBABWE.A1",
+              "title": "The rise of Great Zimbabwe",
+              "description": "The emergence of Great Zimbabwe around 1100 CE. Trade with the Indian Ocean coast (Sofala, Kilwa) carrying gold and ivory out, glass beads and porcelain in. Cattle wealth as the basis of elite power. Environmental conditions enabling the rise: rainfall, grazing, gold deposits. Related southern African sites: Mapungubwe and Thulamela showing the regional pattern.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Precolonial African Kingdoms and Empires in southern Africa (Great Zimbabwe)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "image-match", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Great Zimbabwe was an isolated site with no regional pattern", "example": "Says Mapungubwe and Great Zimbabwe were unrelated"},
+                {"type": "recall_slip", "description": "Cannot name the trading goods that drove Great Zimbabwe's wealth", "example": "Says salt was the main export"}
+              ],
+              "recovery_strategy": "Great Zimbabwe was part of a REGIONAL pattern of southern African stone-walled kingdoms — Mapungubwe (older) and Thulamela (later) fit the same shape. Wealth came from GOLD + IVORY out, GLASS BEADS + CHINESE PORCELAIN in (via the Indian Ocean coast). Cattle = elite wealth.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.ZIMBABWE.A2",
+              "bank_skill_id": "HIS.G10.T3.ZIMBABWE.A2",
+              "title": "How Great Zimbabwe society was organised",
+              "description": "Class structure at Great Zimbabwe: ruling elite, religious authorities, ordinary farmers and herders. Religious life — Mwari worship, mediums, the role of ancestor veneration. The stone-walled Great Enclosure as elite/sacred space. The Hill Complex above. Estimated population at its peak (10,000–20,000) and what that size implies about food supply and governance.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Precolonial African Kingdoms and Empires in southern Africa (Great Zimbabwe)",
+              "prerequisites": [],
+              "templates": ["choice", "image-match", "highlight-source", "sort-buckets", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats the stone walls as defensive only, missing their status/religious meaning", "example": "Says the Great Enclosure was a fort to keep enemies out"},
+                {"type": "recall_slip", "description": "Confuses the layout of the site", "example": "Says the Hill Complex and Great Enclosure are the same building"}
+              ],
+              "recovery_strategy": "The walls were NOT military — they had no battlements or arrow slits. They marked SACRED and ELITE space, like cathedral walls. Hill Complex (above) = older religious/royal area. Great Enclosure (below) = later elite residence. A population of 10,000–20,000 needed organised agriculture and government.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.ZIMBABWE.A3",
+              "bank_skill_id": "HIS.G10.T3.ZIMBABWE.A3",
+              "title": "Who built it? The debate that won't die",
+              "description": "Decline and abandonment of Great Zimbabwe before 1500 CE: trade-route shifts, possible environmental degradation, political fragmentation. The racist 19th-century interpretations: Carl Mauch and others who refused to believe Africans built it, attributing it to Phoenicians, Arabs or biblical figures. The scientific archaeology that proved African origin: Randall-MacIver (1905) and Caton-Thompson (1929). How apartheid-era politics tried to suppress these findings. Why this debate is a case study in how politics shapes history.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Precolonial African Kingdoms and Empires in southern Africa (Great Zimbabwe)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats the 'who built it' debate as honest scientific disagreement", "example": "Says 19th-century scholars genuinely couldn't tell who built Great Zimbabwe"},
+                {"type": "recall_slip", "description": "Cannot name the archaeologists who proved African origin", "example": "Says no one ever proved Africans built it"}
+              ],
+              "recovery_strategy": "The 'Phoenician / Arab / Queen of Sheba' theories were NOT honest mistakes — they were racist refusals to credit Africans with sophisticated stone architecture. Randall-MacIver (1905) and Caton-Thompson (1929) proved African origin with proper archaeology. The Rhodesian and apartheid governments later tried to suppress these findings to protect white-supremacist narratives.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.TRIBES.A1",
+              "bank_skill_id": "HIS.G10.T3.TRIBES.A1",
+              "title": "Precolonial African identities were fluid, not fixed",
+              "description": "How precolonial Sotho-Tswana, Xhosa and Pedi societies actually worked: overlapping identities, porous boundaries, mobility, intermarriage, refugees joining stronger kingdoms (including under women rulers). Social divisions that mattered (rank, royals vs commoners, insiders vs outsiders) were NOT primarily 'tribal'. Migration patterns and why people settled in particular places. The diversity of decentralised chiefdoms alongside larger centralised kingdoms.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Ethnic fluidity in the deep past and the colonial creation of 'tribes'",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sort-buckets", "argument-builder", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Believes precolonial African societies were always organised into fixed, separate tribes", "example": "Says Zulu and Xhosa identities were rigid and unchanging before 1800"},
+                {"type": "recall_slip", "description": "Cannot give examples of fluid identity", "example": "Says people never moved between groups"}
+              ],
+              "recovery_strategy": "Precolonial societies were MOBILE and MIXED. Refugees from wars/epidemics joined whichever strong ruler protected them (including women rulers). Marriage, trade and migration crossed group lines constantly. Internal divisions (royal vs commoner, insider vs outsider) often mattered MORE than 'tribal' belonging.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.TRIBES.A2",
+              "bank_skill_id": "HIS.G10.T3.TRIBES.A2",
+              "title": "How colonisers and missionaries invented 'tribes'",
+              "description": "How European colonial administrators turned fluid African identities into fixed 'tribes' for administrative control. The role of Christian missionaries who reduced African languages to writing — often by picking one dialect as the 'standard', which froze speakers into one labelled group. Why colonial governments needed 'tribes': for indirect rule, land allocation, labour recruitment. How migrancy into colonial towns reinforced ethnic clustering (people gathered around those from their region for protection — 'moral ethnicity').",
+              "caps_term": "G10 T3",
+              "caps_topic": "Ethnic fluidity in the deep past and the colonial creation of 'tribes'",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "highlight-source", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks missionaries had no role in tribal classification", "example": "Says missionaries only translated the Bible, no political effect"},
+                {"type": "conceptual_gap", "description": "Believes Africans clustering in towns proves tribes were ancient and natural", "example": "Says Xhosa-speakers gathering in Cape Town shows tribalism was always there"}
+              ],
+              "recovery_strategy": "Missionaries PICKED one dialect as the standard written form, which made other dialects 'incorrect' — this froze fluid speech communities into hardened groups. Colonial governments NEEDED tribes: for indirect rule, for hut taxes, for labour recruitment. Africans clustering in colonial towns was SURVIVAL strategy in a hostile environment, not proof of ancient tribalism.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.TRIBES.A3",
+              "bank_skill_id": "HIS.G10.T3.TRIBES.A3",
+              "title": "Why tribalism still matters today",
+              "description": "How tribalism persists in modern South Africa and across Africa. Why politicians sometimes find tribalism useful (vote-mobilising, blame-shifting). The damage tribalism does to national development and social cohesion. The argument for treating ethnic identities as lived experience without letting them harden into political division. Why understanding the colonial roots of tribalism is the first step in overcoming it.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Ethnic fluidity in the deep past and the colonial creation of 'tribes'",
+              "prerequisites": [],
+              "templates": ["choice", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats tribalism as inevitable or 'natural' to Africans", "example": "Says tribalism in modern SA proves tribes are deep in African DNA"},
+                {"type": "conceptual_gap", "description": "Sees no link between colonial design and present-day tribalism", "example": "Says modern tribalism has nothing to do with apartheid or colonial rule"}
+              ],
+              "recovery_strategy": "Modern tribalism in SA and Africa is a DIRECT inheritance of colonial design: borders, ID classifications, Bantustans, labour recruitment by 'tribe'. Politicians who mobilise tribally are using a colonial tool. Naming the colonial origin is the first step in dismantling its present-day power. Ethnic identity as lived experience is fine; weaponised tribalism is not.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T4",
+          "title": "Term 4 — Achievements of African People since Ancient Times",
+          "atomic_skills": [
+            {
+              "id": "HIS.G10.T4.ACHIEVE.A1",
+              "bank_skill_id": "HIS.G10.T4.ACHIEVE.A1",
+              "title": "African science, mathematics and medicine",
+              "description": "Ancient Egyptian contributions to mathematics and geometry. The Ishango bone (Congo) as evidence of early counting/calendar use. African medicinal knowledge — plant-based medicines now used in modern pharmacology. Early surgery in African societies. Metallurgy — iron-smelting that began in Africa and spread elsewhere. Kushite (Sudan) and Dogon (Mali) astronomy: star-based calendars and observation traditions.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Achievements of African People since Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "true-false", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats African science as 'borrowed' from Europe or Asia", "example": "Says iron-smelting came to Africa from Europe"},
+                {"type": "recall_slip", "description": "Cannot identify which society made which contribution", "example": "Credits the Dogon with inventing geometry"}
+              ],
+              "recovery_strategy": "Iron-smelting started IN AFRICA and spread out. Egyptian geometry was the foundation Greek mathematicians later built on. The Ishango bone (~20,000 years old) shows tally-marking long before similar tools elsewhere. Dogon = astronomy. Kushite = star calendar. African plant medicine still feeds modern pharmacology (e.g. quinine derivatives).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T4.ACHIEVE.A2",
+              "bank_skill_id": "HIS.G10.T4.ACHIEVE.A2",
+              "title": "African art, music and architecture across the world",
+              "description": "Egyptian architecture's influence on Greek and Roman building styles. West African urban planning — Benin City (Nigeria) and Kumasi (capital of Asante) as examples of organised African cities with avenues, palaces and gardens. The African ancestry of Alexander Pushkin (Russian poet). The influence of African art on Pablo Picasso and the cubism movement (e.g. 'Three Musicians'). The role of African and African-diaspora musicians in jazz, blues and global music. African contributions to athletics, football, cricket, basketball and boxing.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Achievements of African People since Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "image-match", "sort-buckets", "highlight-source", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Sees Africa as receiving culture from Europe rather than exporting it", "example": "Says cubism influenced African art, not the other way round"},
+                {"type": "recall_slip", "description": "Cannot connect specific figures to their African heritage or influence", "example": "Says Pushkin had no African ancestry"}
+              ],
+              "recovery_strategy": "Cultural flow ran BOTH ways but African influence on Europe is often hidden: Egyptian architecture → Greek temple design; African masks → Picasso's cubism; African musical rhythms (via the diaspora) → jazz, blues, rock, hip-hop globally. Pushkin's great-grandfather was an African brought to Russia. Benin City and Kumasi had urban planning before many European cities.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T4.ACHIEVE.A3",
+              "bank_skill_id": "HIS.G10.T4.ACHIEVE.A3",
+              "title": "Ubuntu: an African philosophy for the world",
+              "description": "The philosophy of ubuntu/botho: 'umuntu ngumuntu ngabantu' — 'I am because you are'. Ubuntu's emphasis on shared humanity, community, and our connection to a wider universe. How ubuntu challenges individualism, greed, unhealthy competition and excessive self-enrichment. The philosophy's modern relevance — its place in the post-1994 SA constitution and in arguments about environmental responsibility and inequality.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Achievements of African People since Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "argument-builder", "paragraph-template", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reduces ubuntu to 'being nice' or generic kindness", "example": "Says ubuntu just means being polite"},
+                {"type": "conceptual_gap", "description": "Misses ubuntu's challenge to individualism and greed", "example": "Says ubuntu is compatible with extreme wealth inequality"}
+              ],
+              "recovery_strategy": "Ubuntu is a CLAIM about what makes us human: we become human THROUGH others. That's a serious philosophical position, not a politeness rule. It DIRECTLY challenges individualism, greed, and 'every-person-for-themselves' thinking. The post-1994 SA constitution invokes ubuntu in its founding values for exactly this reason.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "grade": 11,
+      "title": "Grade 11 — History",
+      "description": "Pending head-of-ed review of Grade 10 before authoring. 5 CAPS topics planned (Atlantic World 15-18th c., Atlantic World 16-19th c., Slavery and the Haitian Revolution, Southern African centralisation before colonisation, the Scramble for Africa). Target ~15 atomic skills.",
+      "tiers": []
+    },
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 — History",
+      "description": "Pending head-of-ed review of Grade 10 and authoring of Grade 11 before starting. 6 CAPS topics planned (SA Politics and Economics late 19/20th c., the National Question and party formation, Cold War and Anti-colonial Struggles, Era of Liberation Struggles and Apartheid SA, Role of Individual Leaders, Freedom and Democracy / TRC). Target ~19 atomic skills.",
+      "tiers": []
+    }
+  ]
+}

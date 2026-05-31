@@ -46,7 +46,8 @@ type SubjectId =
   | "nst"
   | "matric-phys-sci"
   | "maths-literacy"
-  | "life-sciences";
+  | "life-sciences"
+  | "history";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -124,6 +125,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE;
   // Life Sciences is a FET subject (Gr 10–12 only). Free for all plans.
   const showLifeSciences = learnerGrade >= 10 && learnerGrade <= 12;
+  // History is a FET subject (Gr 10–12 only). Free for all plans.
+  const showHistory = learnerGrade >= 10 && learnerGrade <= 12;
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -296,6 +299,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "life-sciences",
       });
     }
+    if (showHistory) {
+      all.push({
+        id: "history",
+        placeholderEmoji: "📜",
+        label: "History",
+        caption: "Precolonial African empires, source-work and argument-building · Grades 10–12",
+        badge: "FET",
+        badgeColor: "bg-amber-100 text-amber-700",
+        accentFrom: "from-amber-500",
+        accentTo: "to-orange-600",
+        navigateTo: "history",
+      });
+    }
     return all;
   }, [
     discoverBadge, discoverBadgeColor,
@@ -304,6 +320,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showLifeSkills, showAfrikaans, showSocialSciences, showNst, showMatricPhysSci,
     showMathsLiteracy, mathsLiteracyBadge, mathsLiteracyMastered,
     showLifeSciences,
+    showHistory,
   ]);
 
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
