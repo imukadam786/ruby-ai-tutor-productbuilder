@@ -1,0 +1,379 @@
+{
+  "skill": "L1.T2.A2",
+  "skill_title": "BODMAS, brackets, squares, roots and fractions",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 5 L1 (basic) + 8 L2 (one-step) + 7 L3 (formula substitution). Fresh contexts: SA-style perimeters and areas, BMI, simple interest, fraction shares, common percentages.",
+  "items": [
+    {
+      "id": "L1.T2.A2.q01",
+      "skill": "L1.T2.A2",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Order of operations: Brackets → Of/Order (powers, roots) → Division and Multiplication → Addition and Subtraction."},
+      "question": "Calculate 3 + 4 × 2.",
+      "answerMode": "numeric",
+      "expectedAnswer": 11,
+      "tolerance": 0,
+      "workingSteps": [
+        "Multiplication before addition (BODMAS).",
+        "4 × 2 = 8.",
+        "3 + 8 = 11."
+      ],
+      "errorSignals": ["ERR_BODMAS_LEFT_TO_RIGHT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q02",
+      "skill": "L1.T2.A2",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "5² means 5 × 5 (squaring)."},
+      "question": "Calculate 5².",
+      "answerMode": "numeric",
+      "expectedAnswer": 25,
+      "tolerance": 0,
+      "workingSteps": [
+        "5² = 5 × 5 = 25."
+      ],
+      "errorSignals": ["ERR_SQUARE_VS_DOUBLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q03",
+      "skill": "L1.T2.A2",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "√36 asks for the positive number that, when squared, gives 36."},
+      "question": "Calculate √36.",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0,
+      "workingSteps": [
+        "√36 is the positive number that squares to 36.",
+        "6 × 6 = 36, so √36 = 6."
+      ],
+      "errorSignals": ["ERR_ROOT_VS_DIVIDE", "ERR_ROOT_HALF"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q04",
+      "skill": "L1.T2.A2",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "To add fractions with different denominators, find a common denominator first."},
+      "question": "Calculate 1/2 + 1/4. Give your answer as a decimal.",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.75,
+      "tolerance": 0.01,
+      "workingSteps": [
+        "Common denominator is 4.",
+        "1/2 = 2/4.",
+        "2/4 + 1/4 = 3/4 = 0,75."
+      ],
+      "errorSignals": ["ERR_FRACTION_ADD_DENOMINATORS"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q05",
+      "skill": "L1.T2.A2",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Decimals can be written as equivalent fractions."},
+      "question": "Which fraction is equal to 0,5?",
+      "answerMode": "multiChoice",
+      "options": ["1/2", "1/5", "5/100", "1/10"],
+      "expectedAnswer": "1/2",
+      "workingSteps": [
+        "0,5 means five tenths = 5/10 = 1/2."
+      ],
+      "errorSignals": ["ERR_DECIMAL_TO_FRACTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q06",
+      "skill": "L1.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Operations inside brackets are done first."},
+      "question": "Calculate (8 + 4) ÷ 3.",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0,
+      "workingSteps": [
+        "Brackets first: 8 + 4 = 12.",
+        "12 ÷ 3 = 4."
+      ],
+      "errorSignals": ["ERR_BODMAS_LEFT_TO_RIGHT", "ERR_BRACKET_IGNORED"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q07",
+      "skill": "L1.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "2³ means 2 × 2 × 2 (cubing)."},
+      "question": "Calculate 2³ + 4.",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0,
+      "workingSteps": [
+        "Powers before addition.",
+        "2³ = 2 × 2 × 2 = 8.",
+        "8 + 4 = 12."
+      ],
+      "errorSignals": ["ERR_SQUARE_VS_DOUBLE", "ERR_BODMAS_LEFT_TO_RIGHT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q08",
+      "skill": "L1.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A community choir splits a donation of R200 so that the music director receives 3/4 of it."},
+      "question": "How much does the music director receive (3/4 of R200)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 150,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "3/4 × R200.",
+        "= 3 × R200 ÷ 4.",
+        "= R600 ÷ 4 = R150."
+      ],
+      "errorSignals": ["ERR_FRACTION_OF_AMOUNT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q09",
+      "skill": "L1.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Percentages can be written as decimals (÷100)."},
+      "question": "Which is 25% written as a decimal?",
+      "answerMode": "multiChoice",
+      "options": ["0,025", "0,25", "2,5", "25,0"],
+      "expectedAnswer": "0,25",
+      "workingSteps": [
+        "25% = 25 ÷ 100 = 0,25."
+      ],
+      "errorSignals": ["ERR_PERCENT_TO_DECIMAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q10",
+      "skill": "L1.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Order: powers before addition/subtraction."},
+      "question": "Calculate 5 + 3² − 4.",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0,
+      "workingSteps": [
+        "Powers first: 3² = 9.",
+        "5 + 9 − 4 = 10."
+      ],
+      "errorSignals": ["ERR_BODMAS_LEFT_TO_RIGHT", "ERR_SQUARE_VS_DOUBLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q11",
+      "skill": "L1.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Brackets are done before the square root operation."},
+      "question": "Calculate √(9 × 16).",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0,
+      "workingSteps": [
+        "Brackets first: 9 × 16 = 144.",
+        "√144 = 12."
+      ],
+      "errorSignals": ["ERR_BRACKET_IGNORED", "ERR_ROOT_VS_DIVIDE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q12",
+      "skill": "L1.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Adding fractions: find a common denominator first."},
+      "question": "Calculate 2/3 + 1/6. Give your answer as a decimal to 2 decimal places.",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.83,
+      "tolerance": 0.02,
+      "workingSteps": [
+        "Common denominator is 6.",
+        "2/3 = 4/6.",
+        "4/6 + 1/6 = 5/6 = 0,833... ≈ 0,83."
+      ],
+      "errorSignals": ["ERR_FRACTION_ADD_DENOMINATORS"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q13",
+      "skill": "L1.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A jersey is on sale: 'Get 15% off!' The original price is R80."},
+      "question": "Calculate 15% of R80 (the rand discount).",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "15% = 0,15.",
+        "0,15 × R80 = R12."
+      ],
+      "errorSignals": ["ERR_PERCENT_TO_DECIMAL", "ERR_FRACTION_OF_AMOUNT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q14",
+      "skill": "L1.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "The perimeter of a rectangular soccer field is given by **P = 2(L + B)**, where L is length and B is breadth (in metres)."},
+      "question": "Calculate the perimeter of a field with L = 12 m and B = 8 m.",
+      "answerMode": "numeric",
+      "expectedAnswer": 40,
+      "tolerance": 0,
+      "unit": "m",
+      "workingSteps": [
+        "Substitute: P = 2(12 + 8).",
+        "Brackets first: 12 + 8 = 20.",
+        "P = 2 × 20 = 40 m."
+      ],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA", "ERR_BODMAS_LEFT_TO_RIGHT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q15",
+      "skill": "L1.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "The area of a circular table is given by **A = π × r²**, where r is the radius. Use π = 3,14."},
+      "question": "Calculate the area of a table with radius r = 7 m. Round to 2 decimal places.",
+      "answerMode": "numeric",
+      "expectedAnswer": 153.86,
+      "tolerance": 0.05,
+      "unit": "m²",
+      "workingSteps": [
+        "Square the radius first: r² = 7² = 49.",
+        "A = 3,14 × 49.",
+        "A = 153,86 m²."
+      ],
+      "errorSignals": ["ERR_SQUARE_VS_DOUBLE", "ERR_BODMAS_LEFT_TO_RIGHT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q16",
+      "skill": "L1.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Body Mass Index (BMI) is calculated as **BMI = mass ÷ height²**, where mass is in kg and height in metres."},
+      "question": "Calculate the BMI of a person with mass 72 kg and height 1,75 m. Round to 2 decimal places.",
+      "answerMode": "numeric",
+      "expectedAnswer": 23.51,
+      "tolerance": 0.05,
+      "unit": "kg/m²",
+      "workingSteps": [
+        "Square the height: 1,75² = 3,0625.",
+        "BMI = 72 ÷ 3,0625.",
+        "BMI = 23,51 (to 2 dp)."
+      ],
+      "errorSignals": ["ERR_SQUARE_VS_DOUBLE", "ERR_DIVISOR_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q17",
+      "skill": "L1.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Simple interest is calculated as **I = (P × r × t) ÷ 100**, where P is the principal in Rand, r is the interest rate per year (%), and t is the time in years."},
+      "question": "Calculate the simple interest earned on R5 000 invested for 3 years at 8% per year.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1200,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": [
+        "Substitute: I = (5 000 × 8 × 3) ÷ 100.",
+        "Numerator: 5 000 × 8 × 3 = 120 000.",
+        "I = 120 000 ÷ 100 = R1 200."
+      ],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA", "ERR_PERCENT_TO_DECIMAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q18",
+      "skill": "L1.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Adding fractions with different denominators."},
+      "question": "Calculate 2/5 + 1/3. Give your answer as a decimal to 2 decimal places.",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.73,
+      "tolerance": 0.02,
+      "workingSteps": [
+        "Common denominator = 15.",
+        "2/5 = 6/15; 1/3 = 5/15.",
+        "Sum = 11/15 = 0,7333... ≈ 0,73."
+      ],
+      "errorSignals": ["ERR_FRACTION_ADD_DENOMINATORS"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q19",
+      "skill": "L1.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Mixed numbers can be added by first converting them to improper fractions or by adding whole parts and fractional parts separately."},
+      "question": "Calculate 2 1/4 + 1 1/2. Give your answer as a decimal.",
+      "answerMode": "numeric",
+      "expectedAnswer": 3.75,
+      "tolerance": 0.01,
+      "workingSteps": [
+        "Wholes: 2 + 1 = 3.",
+        "Fractions: 1/4 + 1/2 = 1/4 + 2/4 = 3/4 = 0,75.",
+        "Total = 3 + 0,75 = 3,75."
+      ],
+      "errorSignals": ["ERR_FRACTION_ADD_DENOMINATORS", "ERR_MIXED_NUMBER_ADD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A2.q20",
+      "skill": "L1.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Apply BODMAS to a multi-step expression with brackets and powers."},
+      "question": "Calculate (3,2 + 0,8)² × 5.",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0.01,
+      "workingSteps": [
+        "Brackets first: 3,2 + 0,8 = 4.",
+        "Square: 4² = 16.",
+        "Multiply: 16 × 5 = 80."
+      ],
+      "errorSignals": ["ERR_BRACKET_IGNORED", "ERR_SQUARE_VS_DOUBLE", "ERR_BODMAS_LEFT_TO_RIGHT"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_BODMAS_LEFT_TO_RIGHT": "Evaluates strictly left-to-right, ignoring BODMAS priority.",
+    "ERR_BRACKET_IGNORED": "Skips the brackets and applies outer operation first.",
+    "ERR_BRACKET_MISSING_FORMULA": "Drops the brackets when substituting into a formula like P = 2(L+B), so 2L+B is computed instead.",
+    "ERR_SQUARE_VS_DOUBLE": "Treats x² as 2x (e.g. 5² = 10).",
+    "ERR_ROOT_VS_DIVIDE": "Treats √x as x÷2 (e.g. √36 = 18).",
+    "ERR_ROOT_HALF": "Computes √x as x/2 (related to ERR_ROOT_VS_DIVIDE).",
+    "ERR_FRACTION_ADD_DENOMINATORS": "Adds numerators and denominators separately (1/2 + 1/3 = 2/5).",
+    "ERR_FRACTION_OF_AMOUNT": "Misapplies 'fraction of an amount' — multiplies by the denominator instead of dividing.",
+    "ERR_DECIMAL_TO_FRACTION": "Misconverts decimal to fraction (e.g. 0,5 → 1/5).",
+    "ERR_PERCENT_TO_DECIMAL": "Misconverts percentage to decimal (e.g. 25% → 0,025 or 2,5).",
+    "ERR_MIXED_NUMBER_ADD": "Adds the whole part to the fraction part without keeping them separate.",
+    "ERR_DIVISOR_INVERSION": "Divides the wrong way around in a formula substitution."
+  }
+}

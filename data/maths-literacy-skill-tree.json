@@ -1,0 +1,1585 @@
+{
+  "version": "2.0",
+  "subject": "maths-literacy",
+  "grades_covered": [10, 11, 12],
+  "caps_taxonomy_levels": [1, 2, 3, 4],
+  "notes": "v2.0 condensed from v1.0 (135 → 85 atomic skills) for cleaner skill-tree UX. L4 (13 skills) kept identical because L4 question banks reference these IDs. L4 prereq pointers remapped to the condensed L1/L2/L3 IDs.",
+  "levels": [
+    {
+      "id": 1,
+      "title": "Numbers, calculations and estimation",
+      "caps_topic": "Basic",
+      "caps_section": "Numbers and calculations with numbers",
+      "description": "Foundation number skills used in every Application Topic: formats, operations, estimation, rounding, ratio, proportion, rates, percentages.",
+      "tiers": [
+        {
+          "id": "L1.T1",
+          "title": "Number formats and conventions",
+          "atomic_skills": [
+            {
+              "id": "L1.T1.A1",
+              "title": "Read and use numbers in different formats and conventions",
+              "description": "Work with decimal comma and point, thousands separators (space and comma), word formats up to billions, signed values (debit/credit, temperature), and non-numerical number conventions in context (cricket overs, building numbering, time).",
+              "prerequisites": [],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2],
+              "templates": ["word-context", "symbolic", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "representation_confusion", "description": "Treats decimal comma and point as different numbers", "example": "Reads 1,2 as 12 instead of 1.2"},
+                {"type": "conceptual_gap", "description": "Performs arithmetic on a coded number as if it were a quantity", "example": "Adds two flat numbers like 1214 + 305 to find total floors"}
+              ],
+              "recovery_strategy": "Show the same value in two formats side by side. For coded numbers, ask the learner to describe what each digit represents before any arithmetic.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L1.T2",
+          "title": "Operations and calculator skills",
+          "atomic_skills": [
+            {
+              "id": "L1.T2.A1",
+              "title": "Add, subtract, multiply and divide; powers of 10",
+              "description": "Perform all four operations on whole numbers and decimals (with and without calculator). Multiply and divide by 10, 100, 1 000 mentally for unit conversions.",
+              "prerequisites": ["L1.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Misplaces decimal point in product or quotient", "example": "1,5 × 0,2 calculated as 0,03 or 3,0"},
+                {"type": "execution_slip", "description": "Shifts the decimal point the wrong direction for ×÷10/100/1000", "example": "Calculates 45,3 ÷ 100 as 4530 instead of 0,453"}
+              ],
+              "recovery_strategy": "Estimate first as a sanity check. For decimals, count decimal places in factors. For powers of 10, anchor with money (R1,50 × 100 = R150).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T2.A2",
+              "title": "BODMAS, brackets, squares, roots and fractions",
+              "description": "Apply order of operations (BODMAS). Use brackets correctly in formula substitution. Calculate squares, cubes, square roots with a basic calculator. Add, subtract, multiply, divide fractions; convert between fractions, decimals and percentages.",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Evaluates left-to-right ignoring BODMAS", "example": "Computes 5 + 2 × 3 as 21 instead of 11"},
+                {"type": "execution_slip", "description": "Adds fractions by adding numerators and denominators separately", "example": "1/2 + 1/3 = 2/5"}
+              ],
+              "recovery_strategy": "BODMAS: underline operations in priority order before computing. For fraction addition, force a common denominator first.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L1.T3",
+          "title": "Estimation and rounding",
+          "atomic_skills": [
+            {
+              "id": "L1.T3.A1",
+              "title": "Estimate, round and sense-check in context",
+              "description": "Estimate before calculating as a sanity check. Round off / up / down / to nearest 5, choosing the right rounding for context (money to 2dp, paint litres up, people whole, supermarket totals to 5c).",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Rounds in wrong direction for the context", "example": "Calculates 6,2 litres of paint and buys 6 litres instead of rounding up to next-available pack size"},
+                {"type": "conceptual_gap", "description": "Accepts a calculator answer that is orders of magnitude wrong", "example": "Accepts 101,098 for 198 × 5,1 (off by a factor of 10)"}
+              ],
+              "recovery_strategy": "Estimate by rounding each input to one significant figure first. For rounding direction, ask: what is being counted, and do you need at least the calculated amount or are you limited by what you have?",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L1.T4",
+          "title": "Ratio and proportion",
+          "atomic_skills": [
+            {
+              "id": "L1.T4.A1",
+              "title": "Work with ratios and direct proportion",
+              "description": "Convert between forms of a ratio (a:b, a/b, unit form). Find missing terms; divide a quantity in a given ratio. Apply direct proportion (price per unit, scaling quantities).",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "stimulus-with-resource", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats parts of a ratio as fractions of one whole", "example": "For ratio 1:2:2 with 50 wheelbarrows cement, gives 50/5 = 10 sand instead of 100"},
+                {"type": "execution_slip", "description": "Uses wrong operation when scaling", "example": "Given 50 m² costs R1 750, multiplies instead of dividing for 1 m² cost"}
+              ],
+              "recovery_strategy": "Add ratio parts to find total shares, then divide. For direct proportion, find the unit value first, then scale.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T4.A2",
+              "title": "Inverse (indirect) proportion in context",
+              "description": "When one quantity increases, the other decreases proportionally — product stays constant (e.g. teachers in a taxi scheme × cost per teacher = fixed monthly hire).",
+              "prerequisites": ["L1.T4.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats inverse proportion as direct", "example": "Says cost per teacher doubles when teachers double, instead of halves"}
+              ],
+              "recovery_strategy": "Ask: as one increases, does the other go up or down? If down, it's inverse — use total ÷ number.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L1.T5",
+          "title": "Rates and percentages",
+          "atomic_skills": [
+            {
+              "id": "L1.T5.A1",
+              "title": "Calculate and compare rates",
+              "description": "Cost rates (R/kg), consumption rates (L/100km), speed rates (km/h). Simplify to unit form to compare which is cheaper / faster / more efficient.",
+              "prerequisites": ["L1.T4.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Compares rates without converting to the same unit", "example": "Compares R42,99/4kg with R47,50/5kg by total instead of per-kg cost"}
+              ],
+              "recovery_strategy": "Always divide to get the per-unit value before comparing.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T5.A2",
+              "title": "Calculate percentages and percentage of value",
+              "description": "Find % of value (14% discount on R200). Increase a value by a % (5% price rise). Decrease a value by a % (10% sale). Includes VAT calculations.",
+              "prerequisites": ["L1.T4.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "stimulus-with-resource", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to add or subtract the % amount from the original", "example": "After a 5% increase on R8,20, gives R0,41 instead of R8,61"},
+                {"type": "conceptual_gap", "description": "Confuses 'percentage of' with 'percent off'", "example": "Treats '15% off R200' as R30 final price"}
+              ],
+              "recovery_strategy": "Two-step it: calculate the % amount, then add or subtract. Or use multiplier shortcut: ×1,05 for +5%, ×0,90 for -10%.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T5.A3",
+              "title": "Percentage change and reverse percentages",
+              "description": "Calculate % change between two values: (new − old) ÷ old × 100. Find the original value when given a value after a % change (reverse %).",
+              "prerequisites": ["L1.T5.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Divides change by new value instead of old", "example": "Computes (52,49 − 48,99) / 52,49 for the % rise"},
+                {"type": "conceptual_gap", "description": "Applies % to the new value when reversing", "example": "Adds 15% of R325 to R325 to find original, instead of dividing R325 by 0,85"}
+              ],
+              "recovery_strategy": "Anchor: percentage change is calculated against the STARTING value. For reverse %, set up new = original × (1 ± %) and solve.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Patterns, relationships and representations",
+      "caps_topic": "Basic",
+      "caps_section": "Patterns, relationships and representations",
+      "description": "Read and interpret graphs, identify the type of relationship between variables, move between tables / equations / graphs, and compare two or more relationships (Gr 11+12).",
+      "tiers": [
+        {
+          "id": "L2.T1",
+          "title": "Reading and interpreting graphs",
+          "atomic_skills": [
+            {
+              "id": "L2.T1.A1",
+              "title": "Read story-graphs and identify variables",
+              "description": "Describe in plain language what a graph shows. Identify dependent vs independent variables; distinguish discrete (counts) from continuous (measured) data.",
+              "prerequisites": [],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "representation_confusion", "description": "Describes shape without linking to variables", "example": "Says 'the line goes up' without naming what is increasing"},
+                {"type": "conceptual_gap", "description": "Reverses dependency", "example": "Says talktime depends on cost"}
+              ],
+              "recovery_strategy": "Force a sentence: 'As [x variable] increases, [y variable] [increases / decreases / stays the same].' Independent goes on horizontal axis.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L2.T1.A2",
+              "title": "Read critical points and paired values from graphs",
+              "description": "Find where a graph crosses axes, reaches max / min, or intersects another graph. Read off dependent value for given independent value (and vice versa).",
+              "prerequisites": ["L2.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3, 4],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Reads wrong axis at the critical point", "example": "At max, reports x-coordinate as the max value"},
+                {"type": "execution_slip", "description": "Reads values misaligned with grid lines", "example": "Reads x = 30 when point is at x = 35"}
+              ],
+              "recovery_strategy": "Trace down to x-axis AND across to y-axis; write both coordinates before deciding which answers the question. Use a ruler; check the scale.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L2.T2",
+          "title": "Types of relationships",
+          "atomic_skills": [
+            {
+              "id": "L2.T2.A1",
+              "title": "Identify constant and linear (constant-difference) relationships",
+              "description": "Constant: y stays the same (fixed monthly subscription). Linear: y increases by a constant amount per unit increase in x (R7,50 per litre).",
+              "prerequisites": ["L2.T1.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses a fixed-then-linear relationship with purely linear", "example": "Treats cell contract with 100 free minutes then R1,50/min as linear from 0"}
+              ],
+              "recovery_strategy": "Calculate difference between consecutive table values. Zero = constant. Same non-zero = linear. Changes mid-table = piecewise.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L2.T2.A2",
+              "title": "Identify inverse proportion relationships",
+              "description": "When y × x = constant: as x grows, y shrinks. Used in shared-cost scenarios.",
+              "prerequisites": ["L2.T2.A1", "L1.T4.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [2, 3],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "representation_confusion", "description": "Confuses inverse curve with a decreasing straight line", "example": "Draws inverse proportion as a straight line sloping down"}
+              ],
+              "recovery_strategy": "Check: does y × x stay the same for every pair? If yes, inverse. Graph is a curve approaching but never touching both axes.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L2.T2.A3",
+              "title": "Identify constant-ratio (compound growth) relationships",
+              "description": "Each term = previous term × fixed factor (compound interest: balance grows by 0,5% of previous month's balance). Grade 11+12 only.",
+              "prerequisites": ["L2.T2.A1", "L1.T5.A2"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["word-context", "stimulus-with-resource", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats compound growth as linear", "example": "Calculates 5% on original principal each period instead of running balance"}
+              ],
+              "recovery_strategy": "Check ratio between consecutive values. If new ÷ previous is constant, it's compound. Each period uses the new balance as the next base.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L2.T3",
+          "title": "Tables, equations and graphs as representations",
+          "atomic_skills": [
+            {
+              "id": "L2.T3.A1",
+              "title": "Move between tables, equations and graphs",
+              "description": "The same relationship can be shown three ways. Fill a table from an equation, plot a graph from a table, write an equation from a table. Substitute values; solve by trial-and-improvement. Plot graphs with appropriate scale, axes, labels.",
+              "prerequisites": ["L2.T2.A1", "L1.T2.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Plots points with x-value as y-coordinate", "example": "Plots (3, 22.50) as (22.50, 3)"},
+                {"type": "execution_slip", "description": "Substitutes value for the wrong variable", "example": "In cost = 1,50m + 100, substitutes 250 for m when 250 is cost"}
+              ],
+              "recovery_strategy": "Write coordinates as (independent, dependent). Read the equation out loud naming each variable. Always label axes with variable name AND unit.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L2.T4",
+          "title": "Comparing two or more relationships",
+          "atomic_skills": [
+            {
+              "id": "L2.T4.A1",
+              "title": "Identify intersection and compare options",
+              "description": "When two graphs cross, dependent value is the same for both. Use crossover to recommend best option for a given range, and justify with rates of change. Grade 11+12 only (Gr 12 = 2 or more relationships).",
+              "prerequisites": ["L2.T1.A2", "L2.T3.A1"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "States intersection without interpreting", "example": "Answers 'at x = 200' without explaining what it means"},
+                {"type": "conceptual_gap", "description": "Picks one option without noting it depends on range", "example": "Says 'Contract A always cheaper' ignoring 200-min crossover"}
+              ],
+              "recovery_strategy": "Finish with: 'At [crossover], [both options] give the same [dependent]. Below that, [A] wins; above that, [B].' Break range into intervals.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Finance: documents, income and budgets",
+      "caps_topic": "Application",
+      "caps_section": "Finance — Financial documents; Income, expenditure, profit/loss; Budgets; Cost price and selling price",
+      "description": "Read household financial documents. Compile income-and-expenditure statements and budgets. Determine cost and selling price.",
+      "tiers": [
+        {
+          "id": "L3.T1",
+          "title": "Reading financial documents",
+          "atomic_skills": [
+            {
+              "id": "L3.T1.A1",
+              "title": "Read household bills, till slips and bank statements",
+              "description": "Identify account holders, periods, consumption, charges, VAT, debits/credits, running balance. Verify totals from line items. Distinguish VAT-inclusive vs VAT-exclusive amounts.",
+              "prerequisites": ["L1.T2.A1", "L1.T5.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Adds VAT to an amount that already includes VAT", "example": "Multiplies VAT-inclusive amount by 1,15 again"},
+                {"type": "conceptual_gap", "description": "Treats a debit as adding to balance", "example": "Adds a -R450 grocery debit instead of subtracting"}
+              ],
+              "recovery_strategy": "Always check VAT inclusion before calculating. Anchor: debit = money out; credit = money in. Verify quoted total by summing line items.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L3.T1.A2",
+              "title": "Read a payslip",
+              "description": "Identify gross pay, deductions (PAYE, UIF, medical aid, pension), taxable income, net pay. Verify net pay = gross − total deductions.",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses gross and net pay", "example": "Treats net pay as the salary used for tax calculations"}
+              ],
+              "recovery_strategy": "Anchor: gross = before deductions; net = take-home. Tax is calculated on taxable income (gross minus certain pre-tax deductions).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L3.T2",
+          "title": "Income, expenditure, profit and loss",
+          "atomic_skills": [
+            {
+              "id": "L3.T2.A1",
+              "title": "Calculate income, expenditure and profit/loss",
+              "description": "Sum income sources and expenses for a household or business over a period. Profit = income − expenditure; report as profit (positive) or loss (negative magnitude).",
+              "prerequisites": ["L1.T2.A1", "L3.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Mixes income and expense items into a single total", "example": "Adds salary and rent into 'monthly cash flow'"},
+                {"type": "conceptual_gap", "description": "Reports a negative profit instead of naming it as a loss", "example": "Says 'profit = -R500' rather than 'loss of R500'"}
+              ],
+              "recovery_strategy": "Separate items into two columns (income vs expenditure) before summing. If expenditure exceeds income, name it a loss.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L3.T2.A2",
+              "title": "Construct an income-and-expenditure statement",
+              "description": "Arrange income items, expense items and resulting profit/loss into a structured statement for a household or small business.",
+              "prerequisites": ["L3.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Includes once-off lump sums in a monthly statement without prorating", "example": "Adds R12 000 annual school fees as a single monthly expense"}
+              ],
+              "recovery_strategy": "List every item with its frequency. Convert all to the same period (monthly) before tabulating.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L3.T3",
+          "title": "Budgets",
+          "atomic_skills": [
+            {
+              "id": "L3.T3.A1",
+              "title": "Classify expenses and construct a budget",
+              "description": "Classify expenses as fixed (same each period), variable (changes with use), or unexpected (one-off). Estimate income and expenses for a future period; allocate amounts; check planned expenses do not exceed expected income.",
+              "prerequisites": ["L3.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats all monthly bills as fixed regardless of consumption", "example": "Classifies electricity as fixed because it is billed monthly"},
+                {"type": "execution_slip", "description": "Omits recurring expense or plans no savings/contingency", "example": "Allocates 100% of income to known expenses, leaving no buffer"}
+              ],
+              "recovery_strategy": "Ask: would the amount be the same next month if usage changes? Use a checklist of common categories before finalising.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L3.T3.A2",
+              "title": "Compare actual vs budgeted values; identify variance",
+              "description": "Compare budgeted against actual. Calculate variance (actual − budget) and percentage variance. Identify over- and under-spend categories.",
+              "prerequisites": ["L3.T3.A1", "L1.T5.A3"],
+              "grades": [10, 11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats every overspend as bad without context", "example": "Flags a R100 overspend due to a guest as a budgeting failure"}
+              ],
+              "recovery_strategy": "Quantify variance in both Rand and percentage. Comment on which matter (>10% or large absolute) vs noise.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L3.T4",
+          "title": "Cost price and selling price",
+          "atomic_skills": [
+            {
+              "id": "L3.T4.A1",
+              "title": "Calculate cost price and selling price using markup",
+              "description": "Cost price = sum of component costs (materials + labour + overhead per item). Selling price = cost × (1 + markup %). Also calculate markup % given cost and selling price; distinguish markup from profit margin.",
+              "prerequisites": ["L1.T2.A1", "L1.T5.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Omits a component cost (labour or packaging)", "example": "Calculates cake cost from ingredients only, ignoring electricity and packaging"},
+                {"type": "conceptual_gap", "description": "Confuses markup with profit margin", "example": "Treats 'mark up 25%' as 'profit margin 25% of selling price'"}
+              ],
+              "recovery_strategy": "List every input that goes into one unit before adding. Markup is on cost price; margin is on selling price.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L3.T4.A2",
+              "title": "Calculate income from sales",
+              "description": "Income = selling price × volume sold. Project income for different sales volumes. Distinguish income from profit.",
+              "prerequisites": ["L3.T4.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses income with profit", "example": "Subtracts cost from income but reports the income value as the answer"}
+              ],
+              "recovery_strategy": "Income = total money in. Profit = income − total costs. Use both labels explicitly.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Finance: tariffs, interest and break-even",
+      "caps_topic": "Application",
+      "caps_section": "Finance — Tariff systems; Break-even analysis; Interest (simple and compound)",
+      "description": "Compare tariff structures (electricity, water, cell phone). Find break-even points. Calculate simple and compound interest. Model loan and investment scenarios.",
+      "tiers": [
+        {
+          "id": "L4.T1",
+          "title": "Tariff systems",
+          "atomic_skills": [
+            {
+              "id": "L4.T1.A1",
+              "title": "Read a tariff structure",
+              "description": "Interpret a tariff table or formula: fixed charge, per-unit rate, block tariffs (different rate at different usage levels), VAT inclusion.",
+              "prerequisites": ["L3.T1.A1", "L2.T1.A2"],
+              "grades": [11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "representation_confusion", "description": "Reads a stepped tariff as flat", "example": "Multiplies total kWh by the first-block rate without recognising the higher rate above the threshold"}
+              ],
+              "recovery_strategy": "Highlight each block boundary and the rate that applies in each block before any calculation.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T1.A2",
+              "title": "Calculate cost from a tariff and consumption",
+              "description": "Given a tariff and a consumption value, compute the total charge. Includes block tariffs (compute per-block then sum) and add-on fees.",
+              "prerequisites": ["L4.T1.A1", "L1.T5.A2"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Applies the highest block rate to all consumption rather than only the portion above the threshold", "example": "For 700 kWh on a 0-500 kWh @ R2 / 500+ @ R3 tariff, computes 700 × R3 instead of 500 × R2 + 200 × R3"}
+              ],
+              "recovery_strategy": "Split consumption into pieces that fit each block. Charge each piece at the block rate. Sum the pieces.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T1.A3",
+              "title": "Compare two tariff systems",
+              "description": "Build cost tables for two tariffs across a range of consumption. Identify which is cheaper at each usage level and explain the crossover.",
+              "prerequisites": ["L4.T1.A2", "L2.T4.A1"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Declares one tariff better without specifying usage range", "example": "Says 'Tariff A is cheaper' without noting it only holds below 200 kWh"}
+              ],
+              "recovery_strategy": "Always identify the crossover point. Below it, one tariff wins; above it, the other. State both ranges.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L4.T2",
+          "title": "Break-even analysis",
+          "atomic_skills": [
+            {
+              "id": "L4.T2.A1",
+              "title": "Define break-even in context",
+              "description": "Break-even = the point where total income equals total cost; profit = zero. Explain what 'break-even' means for a given business or scenario.",
+              "prerequisites": ["L3.T4.A2"],
+              "grades": [11, 12],
+              "caps_levels": [1, 2],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses break-even with the start of profit", "example": "Defines break-even as 'when you start making money' rather than the exact point where income = cost"}
+              ],
+              "recovery_strategy": "Anchor: at break-even, profit is zero. One more sale = first rand of profit. One less sale = first rand of loss.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T2.A2",
+              "title": "Find break-even from a table of values",
+              "description": "Given a table showing income and expenditure across different quantities (or time), identify the row where they are closest or equal.",
+              "prerequisites": ["L4.T2.A1", "L2.T1.A2"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Reports the first profitable row instead of the break-even row", "example": "Reports n = 51 as break-even when the table shows income = cost exactly at n = 50"}
+              ],
+              "recovery_strategy": "Look for the row where income − cost = 0, or where the sign of the difference flips.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T2.A3",
+              "title": "Find break-even from the intersection of two graphs",
+              "description": "Plot income and cost graphs on the same axes. Identify the point of intersection as break-even. Interpret regions on either side as profit / loss zones.",
+              "prerequisites": ["L4.T2.A2", "L2.T4.A1"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Identifies intersection but cannot label the regions", "example": "Names the break-even point but cannot say whether the region to the right is profit or loss"}
+              ],
+              "recovery_strategy": "After finding the intersection, pick one point to the left and one to the right. Compare income to cost at each. Label the regions accordingly.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T2.A4",
+              "title": "Interpret profit and loss zones from a cost/revenue graph",
+              "description": "Explain in plain language what the graph shows: minimum sales for survival, expected profit at planned volume, sensitivity to cost increases.",
+              "prerequisites": ["L4.T2.A3"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reports values without business interpretation", "example": "Says 'break-even is at 50 units' without explaining why this matters for the owner"}
+              ],
+              "recovery_strategy": "Translate every number into a decision: 'The owner must sell at least 50 cakes to cover costs. Selling 60 yields R200 profit.'",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L4.T3",
+          "title": "Simple interest",
+          "atomic_skills": [
+            {
+              "id": "L4.T3.A1",
+              "title": "Calculate simple interest",
+              "description": "Use A = P(1 + i × n). Identify principal (P), interest rate per period (i), number of periods (n). Compute interest earned or owed and total amount.",
+              "prerequisites": ["L1.T5.A2"],
+              "grades": [11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Uses interest rate as percentage instead of decimal", "example": "Substitutes i = 8 instead of i = 0,08 for 8% per annum"},
+                {"type": "conceptual_gap", "description": "Mismatches rate period and time period", "example": "Uses annual rate with months without converting"}
+              ],
+              "recovery_strategy": "Always convert % to decimal. Always check rate period matches time period (annual rate with years, monthly rate with months).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T3.A2",
+              "title": "Calculate total amount after simple interest",
+              "description": "Total amount A = P + interest = P(1 + in). Distinguish interest amount from total amount.",
+              "prerequisites": ["L4.T3.A1"],
+              "grades": [11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reports interest amount when asked for total amount (or vice versa)", "example": "When asked for 'final balance', gives the R interest figure not the principal + interest"}
+              ],
+              "recovery_strategy": "Read the question twice: are you asked for interest earned or total at end? Write the answer with a label.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L4.T4",
+          "title": "Compound interest",
+          "atomic_skills": [
+            {
+              "id": "L4.T4.A1",
+              "title": "Calculate compound interest manually period by period",
+              "description": "Compute interest on the new (growing) balance each period, not the original principal. Build a table showing opening balance, interest, closing balance.",
+              "prerequisites": ["L4.T3.A1", "L2.T2.A3"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Applies interest to original principal each period (treats as simple)", "example": "Computes year 3 interest as P × i instead of (year 2 closing balance) × i"}
+              ],
+              "recovery_strategy": "Build a 3-column table: opening balance, interest = opening × i, closing balance = opening + interest. The closing balance becomes next period's opening.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T4.A2",
+              "title": "Compare simple vs compound interest over the same period",
+              "description": "Calculate both on the same principal, rate, and time. Show in a table or graph how compound exceeds simple over multiple periods.",
+              "prerequisites": ["L4.T4.A1", "L4.T3.A2"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["stimulus-with-resource", "word-context", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Concludes they are equal because year 1 values match", "example": "Says simple = compound after seeing identical year 1 interest figures"}
+              ],
+              "recovery_strategy": "Always extend the comparison to at least 3 periods. The gap widens with each period.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T4.A3",
+              "title": "Model a loan or investment scenario",
+              "description": "Build a multi-row table showing month/year, opening balance, interest, repayment (loan) or contribution (investment), closing balance.",
+              "prerequisites": ["L4.T4.A1"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Applies the repayment before the interest", "example": "Reduces balance by repayment first, then computes interest on the reduced amount"}
+              ],
+              "recovery_strategy": "Order each row: opening → add interest → subtract repayment (or add contribution) → closing.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T4.A4",
+              "title": "Investigate impact of rate changes or extra repayments",
+              "description": "Re-run the loan/investment model with a changed interest rate or a higher monthly repayment. Compare total interest paid or final balance.",
+              "prerequisites": ["L4.T4.A3"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Compares only the monthly figures, not total cost", "example": "Reports that higher repayment 'costs more per month' without noting it shortens the loan and reduces total interest"}
+              ],
+              "recovery_strategy": "Always report two numbers: months to repay AND total interest paid over the loan life. Decisions depend on both.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Finance: banking, taxation, inflation, exchange rates",
+      "caps_topic": "Application",
+      "caps_section": "Finance — Banking, loans and investments; Taxation; Inflation; Exchange rates",
+      "description": "Read bank statements and fee schedules, compare accounts, calculate PAYE and UIF, work with tax brackets and rebates, calculate inflation, perform currency conversions.",
+      "tiers": [
+        {
+          "id": "L5.T1",
+          "title": "Banking and loans",
+          "atomic_skills": [
+            {
+              "id": "L5.T1.A1",
+              "title": "Read bank statements and calculate fees",
+              "description": "Distinguish account types. Identify debits, credits, fees, balances. Use a bank fee schedule (per-transaction, per-withdrawal, monthly) to calculate total charges.",
+              "prerequisites": ["L3.T1.A1"],
+              "grades": [12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Counts the same transaction twice when applying fees", "example": "Counts an ATM withdrawal as both withdrawal and balance enquiry"}
+              ],
+              "recovery_strategy": "Mark opening and closing balance lines first. For fees, categorise each transaction before counting and multiplying by per-category fee.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L5.T1.A2",
+              "title": "Compare bank accounts and loan options",
+              "description": "Given two or more account fee structures and a transaction profile, calculate total monthly cost on each and recommend the cheaper. For loans, use a model to determine monthly repayment, total amount paid, and total interest.",
+              "prerequisites": ["L5.T1.A1", "L4.T4.A3"],
+              "grades": [12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Recommends without tying it to the user's transaction profile", "example": "Says 'Account A is cheaper' without noting it only holds for heavy users"},
+                {"type": "conceptual_gap", "description": "Reports monthly loan cost while ignoring total cost of credit", "example": "Says 'R450/month is affordable' without computing R450 × 60 = R27 000 on a R20 000 loan"}
+              ],
+              "recovery_strategy": "Always tie recommendations to the user's profile. For loans, compute total paid AND total interest, not just monthly.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L5.T2",
+          "title": "Taxation",
+          "atomic_skills": [
+            {
+              "id": "L5.T2.A1",
+              "title": "Identify taxable income and use a tax deduction table",
+              "description": "Read a payslip to distinguish gross pay, pre-tax deductions, taxable income, PAYE, UIF, net pay. Use a SARS tax deduction table to find the monthly PAYE for a given taxable income.",
+              "prerequisites": ["L3.T1.A2"],
+              "grades": [12],
+              "caps_levels": [1, 2],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats gross pay as the basis for PAYE", "example": "Computes PAYE on R30 000 gross instead of R28 500 taxable income after pension deduction"},
+                {"type": "execution_slip", "description": "Reads the wrong row of the deduction table", "example": "For R28 500 income, reads off the R29 000 row by mistake"}
+              ],
+              "recovery_strategy": "Taxable income = gross − pre-tax deductions. Use a ruler to align the income value with the PAYE column.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L5.T2.A2",
+              "title": "Calculate PAYE from a tax bracket formula",
+              "description": "Use SARS tax bracket tables: identify the bracket the annual income falls in, apply 'base + rate × (income − threshold)' to compute annual tax.",
+              "prerequisites": ["L5.T2.A1", "L1.T2.A2"],
+              "grades": [12],
+              "caps_levels": [2, 3],
+              "templates": ["stimulus-with-resource", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Applies the rate to total income rather than excess above threshold", "example": "For R414 000 income in '226 001-353 100 + 26% above 226 000' bracket, computes 26% × R414 000 instead of 26% × (414 000 − 226 000)"}
+              ],
+              "recovery_strategy": "Rewrite the formula filling in threshold and income: tax = base + rate × (income − threshold). Compute the bracketed expression first.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L5.T2.A3",
+              "title": "Annualise income, apply rebates and calculate UIF",
+              "description": "Convert monthly salary to annual for bracket lookup (and back). Subtract age-band rebate from annual tax. Calculate UIF (1% of gross capped at SARS-set ceiling).",
+              "prerequisites": ["L5.T2.A2"],
+              "grades": [12],
+              "caps_levels": [2, 3],
+              "templates": ["stimulus-with-resource", "symbolic", "word-context"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to subtract the primary rebate", "example": "Reports R94 320 annual tax instead of R94 320 − R17 235 = R77 085 after rebate"},
+                {"type": "conceptual_gap", "description": "Forgets the UIF earnings cap", "example": "Calculates UIF as 1% of R30 000 gross when capped at lower ceiling"}
+              ],
+              "recovery_strategy": "Sequence: monthly × 12 = annual income → bracket formula → subtract rebate → ÷ 12 for monthly PAYE. For UIF, check the cap before applying 1%.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L5.T3",
+          "title": "Inflation",
+          "atomic_skills": [
+            {
+              "id": "L5.T3.A1",
+              "title": "Calculate the effect of inflation over single and multiple periods",
+              "description": "Single period: new = old × (1 + i). Multiple periods (compound inflation): new = old × (1 + i)^n. Recognise inflation as compound growth.",
+              "prerequisites": ["L1.T5.A2"],
+              "grades": [12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "symbolic", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Reports the increase amount instead of the new price", "example": "For R100 with 6% inflation, gives R6 instead of R106"},
+                {"type": "conceptual_gap", "description": "Multiplies the single-year increase by n instead of compounding", "example": "For 5 years at 6%, computes new = old × (1 + 0,06 × 5) instead of × 1,06^5"}
+              ],
+              "recovery_strategy": "Use the multiplier (1 + i) once per period. For multi-year, raise to the power of n (or table it year by year).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L5.T3.A2",
+              "title": "Explain inflation's effect on buying power and salaries",
+              "description": "Argue with calculations: a 5% salary increase in a 6% inflation year is a real-terms decrease. Justify a salary increase request using inflation data.",
+              "prerequisites": ["L5.T3.A1"],
+              "grades": [12],
+              "caps_levels": [3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats any pay rise as a real gain", "example": "Says '5% raise = better off' without comparing to inflation"}
+              ],
+              "recovery_strategy": "Frame: 'A raise is a real gain only if it exceeds inflation. Otherwise buying power has fallen.'",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L5.T4",
+          "title": "Exchange rates",
+          "atomic_skills": [
+            {
+              "id": "L5.T4.A1",
+              "title": "Convert between currencies and account for fees",
+              "description": "Given a rate (1 USD = R18,50), convert between currencies in either direction. Account for bank commission (% of amount + flat fee).",
+              "prerequisites": ["L1.T2.A1", "L1.T4.A1"],
+              "grades": [12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource", "word-context", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Multiplies when should divide (or vice versa)", "example": "To convert R3 700 to USD at R18,50/USD, multiplies instead of dividing"}
+              ],
+              "recovery_strategy": "Write the rate as a sentence: '1 USD = R18,50'. To go FROM R TO USD, divide. FROM USD TO R, multiply. Net fees before/after conversion consistently.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L5.T4.A2",
+              "title": "Compare prices across countries (e.g. Big Mac Index)",
+              "description": "Convert prices to a common currency. Discuss what the difference says about purchasing power and exchange rate fairness, paired with local wages.",
+              "prerequisites": ["L5.T4.A1"],
+              "grades": [12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Concludes 'cheaper country is better' without considering local wages", "example": "Says 'a Big Mac is cheaper in SA, so SA is cheaper to live in' without comparing average wage"}
+              ],
+              "recovery_strategy": "Pair every price comparison with a wage or cost-of-living comparison before drawing affordability conclusions.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Measurement: length, time, conversions",
+      "caps_topic": "Application",
+      "caps_section": "Measurement — Conversions; Measuring length, weight, volume, temperature; Time",
+      "description": "Foundation measurement: metric conversions, reading instruments, time formats and calculations, temperature.",
+      "tiers": [
+        {
+          "id": "L6.T1",
+          "title": "Conversions",
+          "atomic_skills": [
+            {
+              "id": "L6.T1.A1",
+              "title": "Convert metric units (length, mass, volume)",
+              "description": "Convert between mm/cm/m/km, g/kg/tonnes, ml/L/kL/m³ using powers of 10. Apply 1 m³ = 1 000 L for water tanks, pools, fuel.",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Wrong conversion factor (×10 vs ×100 vs ×1000)", "example": "Converts 2,5 km to m as 250 instead of 2 500"},
+                {"type": "conceptual_gap", "description": "Treats m³ as equivalent to m for purposes of conversion", "example": "Converts 5 m³ to litres as 5 000 (treating as 5 m of length)"}
+              ],
+              "recovery_strategy": "Memorise: 10mm=1cm, 100cm=1m, 1000m=1km; 1kg=1000g; 1m³=1000L. Going smaller unit, multiply. Going larger, divide.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L6.T1.A2",
+              "title": "Convert temperature (°C to °F)",
+              "description": "Apply the conversion formula F = 1,8 × C + 32 (or the reverse). Used for weather, baking from foreign sources.",
+              "prerequisites": ["L1.T2.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2],
+              "templates": ["symbolic", "word-context"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Adds 32 before multiplying by 1,8", "example": "For 20°C, computes (20+32) × 1,8 = 93,6°F instead of 1,8 × 20 + 32 = 68°F"}
+              ],
+              "recovery_strategy": "BODMAS: ×1,8 first, then +32.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L6.T2",
+          "title": "Measuring length and distance",
+          "atomic_skills": [
+            {
+              "id": "L6.T2.A1",
+              "title": "Measure accurately and apply measured lengths",
+              "description": "Read measurements to the nearest mm, account for zero offset, use appropriate instrument. Apply measured lengths to real-world tasks (carpeting, fencing, fitting objects).",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Starts measuring from end of ruler rather than zero mark", "example": "Reads a 5 cm rod as 5,5 cm because ruler zero is offset from edge"},
+                {"type": "execution_slip", "description": "Adds same dimension twice when calculating perimeter", "example": "For 4m × 3m room, computes perimeter as 4 + 3 = 7m"}
+              ],
+              "recovery_strategy": "Align zero mark (not the edge) with one end. Sketch shapes and label every side before adding.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L6.T3",
+          "title": "Time",
+          "atomic_skills": [
+            {
+              "id": "L6.T3.A1",
+              "title": "Read time formats and calculate intervals",
+              "description": "Convert 12-hour and 24-hour formats (14:30 ↔ 2:30 pm). Recognise 00:00 as midnight, 12:00 as noon. Calculate elapsed time, durations across midnight.",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats 12:00 as midnight instead of noon", "example": "Says 12:30 lunch is at half past midnight"},
+                {"type": "execution_slip", "description": "Subtracts hours and minutes as decimals", "example": "Computes 10:15 − 9:45 as 0,70 hours instead of 30 minutes"}
+              ],
+              "recovery_strategy": "Anchor: 12:00 = noon, 00:00 = midnight. For subtraction, do minutes first (borrowing 60 if needed), then hours.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L6.T3.A2",
+              "title": "Read and interpret timetables",
+              "description": "Use bus, train, flight timetables to find departure / arrival times, journey durations, connection times.",
+              "prerequisites": ["L6.T3.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Misreads row vs column on a timetable grid", "example": "Reports a stop's arrival time as the column header time"}
+              ],
+              "recovery_strategy": "Use finger or ruler to follow row and column. Verify cell value matches the question.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L6.T3.A3",
+              "title": "Plan trips using time, distance and speed",
+              "description": "Use distance ÷ speed = time. Plan a journey including stops, refuelling. Account for time zones in international travel.",
+              "prerequisites": ["L6.T3.A1", "L1.T5.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Ignores rest stops and breaks in journey planning", "example": "Plans a 14-hour drive with no rest breaks"}
+              ],
+              "recovery_strategy": "Add a buffer for stops. Total planned time = driving time + breaks.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L6.T4",
+          "title": "Temperature",
+          "atomic_skills": [
+            {
+              "id": "L6.T4.A1",
+              "title": "Read and interpret temperature",
+              "description": "Read thermometers (analog and digital). Interpret weather forecasts. Decide actions based on temperature (e.g. medical concerns above 38°C).",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "representation_confusion", "description": "Reads sub-zero temperatures as positive", "example": "Reads -3°C as 3°C, missing the negative"}
+              ],
+              "recovery_strategy": "Always check for the negative sign on a thermometer reading. Below zero on a scale means below freezing.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Measurement: perimeter, area, volume, mass",
+      "caps_topic": "Application",
+      "caps_section": "Measurement — Perimeter, area and volume; Mass / weight (dosage)",
+      "description": "Calculate perimeter, area, surface area, volume of basic and composite shapes. Apply to real-world tasks: paint, tiling, concrete, water tanks, packaging, dosage.",
+      "tiers": [
+        {
+          "id": "L7.T1",
+          "title": "Mass and dosage",
+          "atomic_skills": [
+            {
+              "id": "L7.T1.A1",
+              "title": "Calculate dosage and convert to medicine units",
+              "description": "Apply per-kg dosage rule to body weight to find safe dose (mg). Convert dose in mg to volume or count given concentration (e.g. 120 mg per 5 ml syrup, mg per tablet).",
+              "prerequisites": ["L1.T4.A1", "L6.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Confuses dose-per-kg with total dose", "example": "For 25 kg child and 10 mg/kg rule, gives 10 mg instead of 250 mg"},
+                {"type": "execution_slip", "description": "Inverts the concentration ratio", "example": "For 250 mg dose at 120 mg/5ml, gives 250 × 120 ÷ 5 instead of 250 × 5 ÷ 120"}
+              ],
+              "recovery_strategy": "weight (kg) × rate (mg/kg) = total dose. Set up volume conversion as proportion: (dose ÷ concentration) × volume per dose.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L7.T1.A2",
+              "title": "Interpret weight charts and BMI",
+              "description": "Read percentile growth charts. Calculate BMI = mass (kg) ÷ height² (m²) and interpret against standard categories.",
+              "prerequisites": ["L1.T2.A2", "L2.T1.A1"],
+              "grades": [11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Uses height in cm rather than m in BMI", "example": "For 1,7 m tall, divides by 170² instead of 1,7²"}
+              ],
+              "recovery_strategy": "BMI formula needs height in METRES. Convert cm to m before squaring.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L7.T2",
+          "title": "Perimeter",
+          "atomic_skills": [
+            {
+              "id": "L7.T2.A1",
+              "title": "Calculate perimeter of basic and composite shapes",
+              "description": "Rectangle: 2(l+b). Triangle: a+b+c. Circle (circumference): π × d. Composite: sum all outer sides; deduce unmarked sides from marked ones.",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Confuses perimeter formula with area formula", "example": "Computes rectangle perimeter as l × b"},
+                {"type": "execution_slip", "description": "Misses an interior side of an L-shape", "example": "For L-shape with 6 outer sides, sums only 4"}
+              ],
+              "recovery_strategy": "Perimeter = total length around the shape. Walk the perimeter with your finger and count every side.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L7.T3",
+          "title": "Area",
+          "atomic_skills": [
+            {
+              "id": "L7.T3.A1",
+              "title": "Calculate area of basic and composite shapes",
+              "description": "Rectangle: l × b. Triangle: ½ × base × perpendicular height. Circle: πr² (r from d ÷ 2). Composite: break into rectangles/triangles/semicircles; add or subtract for cut-outs.",
+              "prerequisites": ["L1.T2.A1", "L1.T2.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Uses slanted side instead of perpendicular height for triangle", "example": "For triangle base 6 cm hypotenuse 5 cm perpendicular height 4 cm, computes ½ × 6 × 5"},
+                {"type": "conceptual_gap", "description": "Adds cut-out instead of subtracting", "example": "For square with circular hole, sums square + circle areas instead of subtracting circle"}
+              ],
+              "recovery_strategy": "Triangle area uses perpendicular height (90° to base). For composites, mark each region 'add' or 'subtract' before calculating.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L7.T3.A2",
+              "title": "Apply area to real-world tasks (paint, tiles, garden)",
+              "description": "Use area calculations with a conversion ratio (e.g. 1 L paint covers 8 m²) to determine quantity to buy. Round up to next available pack size.",
+              "prerequisites": ["L7.T3.A1", "L1.T3.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reports exact litres without rounding up to available pack size", "example": "Reports needing 13,75 L paint without going to 4 × 5L = 20L"}
+              ],
+              "recovery_strategy": "Two rounding steps: round litres up to whole, then up to next-available pack size.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L7.T4",
+          "title": "Volume and surface area",
+          "atomic_skills": [
+            {
+              "id": "L7.T4.A1",
+              "title": "Calculate volume of basic 3D shapes",
+              "description": "Rectangular prism: l × b × h. Cylinder: π × r² × h. Apply to boxes, rooms, water tanks, cans, pipes. Convert to capacity via 1 m³ = 1 000 L.",
+              "prerequisites": ["L7.T3.A1", "L6.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Multiplies only two of three dimensions of a prism", "example": "For 2m × 1,5m × 1m tank, computes 2 × 1,5 = 3 m² instead of 3 m³"},
+                {"type": "execution_slip", "description": "Forgets to square the radius for a cylinder", "example": "Computes π × r × h instead of π × r² × h"}
+              ],
+              "recovery_strategy": "Volume always uses all three dimensions. Cylinder = circle (πr²) extended by height. Sketch and label first.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L7.T4.A2",
+              "title": "Calculate surface area of basic 3D shapes",
+              "description": "Rectangular prism: 2(lb + lh + bh). Cylinder: 2πr² + 2πrh. Use to find paint or wrapping required.",
+              "prerequisites": ["L7.T3.A1"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Counts only the visible faces", "example": "For a box, sums 3 faces instead of 6"}
+              ],
+              "recovery_strategy": "A closed prism has 6 faces (3 pairs). Cylinder has 2 circular ends + 1 curved side. Count carefully.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L7.T4.A3",
+              "title": "Apply volume / surface area to real-world tasks",
+              "description": "Concrete foundation volume, water tank capacity, packaging surface area, paint coverage on irregular surfaces.",
+              "prerequisites": ["L7.T4.A1", "L7.T4.A2", "L7.T3.A2"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Uses volume when surface area is required (or vice versa)", "example": "Computes paint needed using volume of room instead of total wall area"}
+              ],
+              "recovery_strategy": "Paint covers SURFACES (area / surface area). Material filling a space (water, concrete) uses VOLUME.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Maps, plans and physical world",
+      "caps_topic": "Application",
+      "caps_section": "Maps, plans and other representations of the physical world",
+      "description": "Use scale to convert between map / plan measurements and actual measurements. Read street and road maps. Interpret floor and elevation plans. Build and analyse models.",
+      "tiers": [
+        {
+          "id": "L8.T1",
+          "title": "Scale",
+          "atomic_skills": [
+            {
+              "id": "L8.T1.A1",
+              "title": "Interpret scale and convert map ↔ actual measurements",
+              "description": "Read numerical scales (1:100, 1:50 000) and bar scales. Measure on map, multiply by scale factor, convert to real-world unit. Convert actual distance to map by dividing by scale factor.",
+              "prerequisites": ["L1.T4.A1", "L6.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "representation_confusion", "description": "Misreads 1:50 000 scale interpretation", "example": "Computes actual length as map × 50 000 cm and forgets to convert cm to km"},
+                {"type": "execution_slip", "description": "Multiplies instead of dividing when going actual → map", "example": "For 5 m actual at 1:100, gives 500 cm map instead of 5 cm"}
+              ],
+              "recovery_strategy": "Map → actual: multiply (always bigger). Actual → map: divide (always smaller). Convert to readable unit at end.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L8.T1.A2",
+              "title": "Choose or critique an appropriate scale",
+              "description": "Pick a scale that fits a drawing to available paper / screen. Critique whether a given scale produces a readable representation.",
+              "prerequisites": ["L8.T1.A1"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Picks a scale that doesn't fit on the page", "example": "Chooses 1:10 for a 30 m building on A4"}
+              ],
+              "recovery_strategy": "Divide actual longest dimension by available paper length. Round to common scale (1:50, 1:100, 1:500).",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L8.T2",
+          "title": "Maps",
+          "atomic_skills": [
+            {
+              "id": "L8.T2.A1",
+              "title": "Read maps and give/follow directions",
+              "description": "Identify roads, landmarks, names, compass directions using a key. Provide and follow step-by-step directions using street names.",
+              "prerequisites": ["L8.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "representation_confusion", "description": "Confuses north on map with top of page when rotated", "example": "Reports a feature 'north' because it's at the top of a rotated map"},
+                {"type": "execution_slip", "description": "Mixes left/right from traveller's vs aerial perspective", "example": "Says 'turn left' when the route bends right from the traveller's heading"}
+              ],
+              "recovery_strategy": "Check the compass arrow before describing direction. Imagine walking the route, not looking down at it.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L8.T2.A2",
+              "title": "Use distance charts, plan routes, estimate time and fuel",
+              "description": "Read a distance chart matrix. Compare routes. Use distance ÷ speed = time; consumption rate × distance = fuel litres × R/litre = fuel cost.",
+              "prerequisites": ["L8.T2.A1", "L2.T1.A2", "L6.T3.A3"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to sum stop-to-stop distances on multi-leg route", "example": "Reports just the longest leg instead of total"},
+                {"type": "execution_slip", "description": "Uses consumption rate the wrong way (km/L vs L/100km)", "example": "Treats 8 L/100km as 8 km/L"}
+              ],
+              "recovery_strategy": "List each leg; sum all. For consumption, read unit carefully (L/100km = fuel for 100km; km/L = km on 1L).",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L8.T3",
+          "title": "Plans",
+          "atomic_skills": [
+            {
+              "id": "L8.T3.A1",
+              "title": "Read floor and elevation plans",
+              "description": "Identify rooms, dimensions, doors, windows using the plan key. Recognise scale. Match features across multiple views (north/south/east/west elevations to the floor plan).",
+              "prerequisites": ["L8.T1.A1"],
+              "grades": [12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "representation_confusion", "description": "Confuses door symbol with window symbol", "example": "Counts windows on a plan including door swings"},
+                {"type": "conceptual_gap", "description": "Cannot link elevation view to floor-plan side", "example": "Identifies a window on north elevation but cannot find it on the floor plan"}
+              ],
+              "recovery_strategy": "Check the key. Place the floor plan with compass arrow pointing north; each elevation is what you'd see standing outside, looking towards that side.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L8.T3.A2",
+              "title": "Use plans to solve real tasks and critique designs",
+              "description": "Use plan + scale to determine carpet, paint, flooring, fencing. Comment on a proposed layout (kitchen/bathroom efficiency, flow, dimensions).",
+              "prerequisites": ["L8.T3.A1", "L8.T1.A1", "L7.T3.A1"],
+              "grades": [12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Uses plan measurements directly without applying scale", "example": "Orders carpet using the 10 cm dimension shown on the plan"},
+                {"type": "conceptual_gap", "description": "Critiques aesthetic without grounding in function", "example": "Says layout is 'ugly' without identifying flow or use problems"}
+              ],
+              "recovery_strategy": "Apply scale first to get actual dimensions, then compute. Ground critique in function (e.g. 'bedroom door opens into kitchen workspace').",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L8.T4",
+          "title": "Models",
+          "atomic_skills": [
+            {
+              "id": "L8.T4.A1",
+              "title": "Build models and compare packaging options",
+              "description": "Construct 3D models from a flat net or dimensions. Compare two models by volume (capacity) and surface area (material cost) to recommend one for a given purpose.",
+              "prerequisites": ["L7.T4.A1"],
+              "grades": [12],
+              "caps_levels": [1, 2, 3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Folds a net in wrong order producing a broken shape", "example": "Folds a cube net with two faces overlapping"},
+                {"type": "conceptual_gap", "description": "Compares only on volume, ignoring material/cost", "example": "Recommends the larger box without noting it uses 30% more cardboard"}
+              ],
+              "recovery_strategy": "Pre-fold lightly; check pairs of opposite faces. Always report both volume and surface area before recommending.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L8.T4.A2",
+              "title": "Choose an appropriate scale for a model",
+              "description": "Pick a scale based on actual object size and available materials. Compute model dimensions from scale.",
+              "prerequisites": ["L8.T1.A2", "L8.T4.A1"],
+              "grades": [12],
+              "caps_levels": [3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Chooses scale that makes model too small to handle", "example": "Picks 1:1000 for a 5m car, making it 5mm long"}
+              ],
+              "recovery_strategy": "Aim for handleable model size (~10-50 cm in longest dimension). Pick scale accordingly.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Data handling",
+      "caps_topic": "Application",
+      "caps_section": "Data handling — Developing questions and collecting data; Classifying and organising; Measuring data; Representing data; Interpreting data",
+      "description": "The full data cycle: design and run a data collection, classify and organise, summarise with measures of central tendency and spread, represent in tables / charts, interpret and critique.",
+      "tiers": [
+        {
+          "id": "L9.T1",
+          "title": "Developing questions and collecting data",
+          "atomic_skills": [
+            {
+              "id": "L9.T1.A1",
+              "title": "Develop questions and choose a sample",
+              "description": "Write a survey question respondents can answer without ambiguity (avoid leading or double-barrelled). Pick a sample that reflects the population; recognise convenience samples introduce bias.",
+              "prerequisites": [],
+              "grades": [10, 11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Asks a double-barrelled question", "example": "'Do you eat fruit and vegetables daily?'"},
+                {"type": "conceptual_gap", "description": "Surveys friends only and generalises", "example": "Surveys 5 friends and reports as 'students think...'"}
+              ],
+              "recovery_strategy": "One concept per question. Ask: are all subgroups represented? Convenience samples are easy but biased.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L9.T1.A2",
+              "title": "Design, run and critique a questionnaire",
+              "description": "Construct a questionnaire of 5-10 well-formed questions. Administer to the sample. Critique a questionnaire for bias (leading wording, sample, missing options).",
+              "prerequisites": ["L9.T1.A1"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Asks open-text questions you can't analyse quantitatively", "example": "Asks 10 free-text questions that can't be tabulated"},
+                {"type": "conceptual_gap", "description": "Only critiques wording, missing sample bias", "example": "Edits a question but ignores that the sample was only male"}
+              ],
+              "recovery_strategy": "Use closed questions for things to count. Check three for bias: wording, sample, response options.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L9.T2",
+          "title": "Classifying and organising data",
+          "atomic_skills": [
+            {
+              "id": "L9.T2.A1",
+              "title": "Classify data types and complete frequency tables",
+              "description": "Distinguish categorical from numerical, discrete from continuous. Tally raw data; record counts in a frequency table; compute relative frequencies.",
+              "prerequisites": ["L9.T1.A1", "L1.T5.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2],
+              "templates": ["stimulus-with-resource", "symbolic", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Calls a count-based variable continuous", "example": "Calls 'number of cars per family' continuous"},
+                {"type": "execution_slip", "description": "Frequency totals don't match dataset size", "example": "Frequencies sum to 38 but dataset has 40"}
+              ],
+              "recovery_strategy": "Discrete = integer counts. Continuous = any value in a range. After tabulating, sum frequencies and confirm equals count.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L9.T2.A2",
+              "title": "Group continuous data into intervals",
+              "description": "Choose appropriate interval width. Group raw data into intervals (0-10, 10-20, ...). Decide endpoint convention (≤ vs <).",
+              "prerequisites": ["L9.T2.A1"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3],
+              "templates": ["stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Double-counts boundary values", "example": "Counts value 10 in both 0-10 and 10-20 intervals"}
+              ],
+              "recovery_strategy": "Use a single convention: 0 ≤ x < 10 means 10 goes in the next interval.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L9.T3",
+          "title": "Summarising data",
+          "atomic_skills": [
+            {
+              "id": "L9.T3.A1",
+              "title": "Calculate mean, median and mode",
+              "description": "Mean = sum ÷ count. Median = middle of sorted data (mean of two middle for even count). Mode = most frequent value.",
+              "prerequisites": ["L1.T2.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2],
+              "templates": ["symbolic", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Reports median without sorting first", "example": "For [3, 8, 5, 1, 9], picks 5 (middle of unsorted) by chance — fails when middle changes"},
+                {"type": "execution_slip", "description": "Divides by wrong count for mean", "example": "Divides by number of categories instead of items"}
+              ],
+              "recovery_strategy": "Always sort first for median. Count items first; that's the divisor for mean.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L9.T3.A2",
+              "title": "Calculate range, quartiles and choose the right average",
+              "description": "Range = max − min. Quartiles divide sorted data into 4 parts; IQR = Q3 − Q1. Decide which average best represents a dataset (mean for symmetric, median for outlier-prone, mode for categorical).",
+              "prerequisites": ["L9.T3.A1"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["symbolic", "stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses Q2 with mean", "example": "Reports Q2 as the dataset's mean"},
+                {"type": "conceptual_gap", "description": "Picks mean for skewed data; reports misleading 'typical'", "example": "Reports mean salary R45k when 9 of 10 earn R20k and one earns R270k"}
+              ],
+              "recovery_strategy": "Q2 = median. Q1 / Q3 = medians of lower / upper halves. For skewed data with outliers, median is more representative.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L9.T4",
+          "title": "Representing data",
+          "atomic_skills": [
+            {
+              "id": "L9.T4.A1",
+              "title": "Read and construct bar, pie, line and histogram charts",
+              "description": "Identify values, compare categories, note trends. Choose the right chart for the data type (bars for category comparison, pies for parts-of-whole, lines for change over time, histograms for grouped continuous data).",
+              "prerequisites": ["L9.T2.A1", "L2.T1.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["stimulus-with-resource", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Misreads pie chart percentage as count", "example": "Reports a 30% pie slice as '30 people'"},
+                {"type": "representation_confusion", "description": "Leaves gaps between histogram bars (confuses with bar chart)", "example": "Draws histogram of heights with spaces between bars"}
+              ],
+              "recovery_strategy": "Check chart legend and axis units. Histograms (continuous) touch; bar charts (categorical) have gaps.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L9.T4.A2",
+              "title": "Construct scatter plots and box-and-whisker",
+              "description": "Scatter: relationship between two variables. Box-and-whisker: distribution summary (min, Q1, median, Q3, max).",
+              "prerequisites": ["L9.T4.A1", "L9.T3.A2"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3],
+              "templates": ["stimulus-with-resource", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Uses line graph for unordered categorical data", "example": "Draws line graph connecting 'Apple', 'Banana', 'Cherry'"}
+              ],
+              "recovery_strategy": "Scatter for relationship between two numerical variables. Box-and-whisker needs the 5 summary values.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L9.T5",
+          "title": "Interpreting and critiquing data",
+          "atomic_skills": [
+            {
+              "id": "L9.T5.A1",
+              "title": "Analyse trends and critique misleading graphs",
+              "description": "Identify increasing / decreasing / cyclic patterns. Use trends to predict future values cautiously. Spot truncated axes, distorted scales, cherry-picked time ranges, 3D effects that mislead.",
+              "prerequisites": ["L9.T4.A1", "L2.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Extrapolates a trend without considering plausibility", "example": "Predicts a population doubles every decade for 200 years based on a 10-year trend"},
+                {"type": "conceptual_gap", "description": "Spots distortion but cannot explain the impact", "example": "Says 'the axis is wrong' without explaining how it overstates a small difference"}
+              ],
+              "recovery_strategy": "Trends project safely only a short distance beyond the data. Finish critique with: 'This makes [variable] look [bigger/smaller] than it is, because [reason].'",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L9.T5.A2",
+              "title": "Compare two datasets using central tendency and spread",
+              "description": "Use mean / median and IQR / range to compare two groups (e.g. boys vs girls in an exam). Make a justified statement.",
+              "prerequisites": ["L9.T3.A2"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Compares only means, ignoring spread", "example": "Says 'Group A is better' on mean alone when A has very high spread"}
+              ],
+              "recovery_strategy": "Report both a centre value AND a spread value before comparing.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Probability",
+      "caps_topic": "Application",
+      "caps_section": "Probability — Expressions of probability; Prediction; Evaluating",
+      "description": "Express, calculate, combine and critique probability in real-world contexts: weather, games, risk assessments, medical tests.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "Probability expressions and scale",
+          "atomic_skills": [
+            {
+              "id": "L10.T1.A1",
+              "title": "Identify outcomes and express probability",
+              "description": "List all possible outcomes of a single event (die, coin, card draw). Recognise the sample space. Express probability as fraction, decimal, or percentage; convert between forms.",
+              "prerequisites": ["L1.T5.A2", "L1.T2.A2"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2],
+              "templates": ["word-context", "symbolic", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Misses an outcome", "example": "Lists die outcomes as {1,2,3,4,5}, missing 6"},
+                {"type": "representation_confusion", "description": "Treats 0,25 and 25 as same probability value", "example": "Reports probability as 25 when it should be 0,25 or 25%"}
+              ],
+              "recovery_strategy": "Be systematic — list in order and count. Probability is always between 0 and 1 (or 0% and 100%).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L10.T1.A2",
+              "title": "Place probabilities on the 0-1 scale",
+              "description": "Anchor: 0 = impossible, 0,5 = even chance, 1 = certain. Place real-world probabilities (rain forecast, exam pass rate) on the scale and use matching language (likely/unlikely/very likely).",
+              "prerequisites": ["L10.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2],
+              "templates": ["word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Uses language inconsistent with numeric value", "example": "Calls 80% chance of rain 'unlikely'"}
+              ],
+              "recovery_strategy": "Match language to value. > 0,5 = more likely than not. Close to 1 = very likely. Close to 0 = very unlikely.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T2",
+          "title": "Calculating probability",
+          "atomic_skills": [
+            {
+              "id": "L10.T2.A1",
+              "title": "Calculate theoretical and experimental probability",
+              "description": "Theoretical: P(event) = favourable outcomes ÷ total outcomes (assumes equally likely). Experimental: P(event) ≈ times event occurred ÷ total trials.",
+              "prerequisites": ["L10.T1.A1"],
+              "grades": [10, 11, 12],
+              "caps_levels": [1, 2, 3],
+              "templates": ["symbolic", "word-context", "stimulus-with-resource"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Swaps numerator and denominator", "example": "For rolling a 4, gives 6/1 instead of 1/6"},
+                {"type": "conceptual_gap", "description": "Reports raw count instead of ratio", "example": "Reports 'heads occurred 53 times' as probability instead of 53/100"}
+              ],
+              "recovery_strategy": "Numerator = favourable ways; denominator = total possible. Probability is always a ratio.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L10.T2.A2",
+              "title": "Compare theoretical and experimental probability",
+              "description": "Compute both for the same scenario. Explain why they may differ in small samples and why they converge with more trials.",
+              "prerequisites": ["L10.T2.A1"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Claims result is 'wrong' if experimental and theoretical differ", "example": "Says 'experiment is broken' when 47 heads in 100 flips doesn't match 50/50"}
+              ],
+              "recovery_strategy": "Small samples can deviate. Larger samples (1000+) converge to theoretical probability.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T3",
+          "title": "Combined events",
+          "atomic_skills": [
+            {
+              "id": "L10.T3.A1",
+              "title": "Use tables / trees to calculate combined probabilities",
+              "description": "For two events, construct a two-way table or tree diagram to enumerate combined outcomes. Calculate P(combined) = favourable combined ÷ total combined. Interpret 'and' (multiply for independent) and 'or' (add for mutually exclusive).",
+              "prerequisites": ["L10.T2.A1"],
+              "grades": [11, 12],
+              "caps_levels": [2, 3, 4],
+              "templates": ["symbolic", "stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Misses branches on a tree diagram", "example": "For two coin flips, lists HH, HT, TT but omits TH"},
+                {"type": "conceptual_gap", "description": "Treats 'and' as 'or' (adds when should multiply)", "example": "For P(heads AND a 6), adds P(H) + P(6) instead of multiplying"}
+              ],
+              "recovery_strategy": "Each event 1 branch splits into all event 2 branches. Independent + 'and' = multiply. Mutually exclusive + 'or' = add.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T4",
+          "title": "Evaluating probability claims",
+          "atomic_skills": [
+            {
+              "id": "L10.T4.A1",
+              "title": "Critique claims and analyse fairness / risk",
+              "description": "Critique claims in media ('lottery numbers, weather predictions'). Calculate expected outcomes (probability × payoff) to determine if a game is fair. Analyse insurance / risk-band tables to explain pricing differences.",
+              "prerequisites": ["L10.T2.A1", "L10.T3.A1"],
+              "grades": [11, 12],
+              "caps_levels": [3, 4],
+              "templates": ["stimulus-with-resource", "word-context"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Accepts a misconception about independence", "example": "Agrees 'taking same lottery numbers improves chances' without noting independence"},
+                {"type": "conceptual_gap", "description": "Calls a game fair without checking expected value", "example": "Says R10 game with R30 prize on 1/4 chance is fair (expected R7,50 < R10 cost makes it unfair)"}
+              ],
+              "recovery_strategy": "Each draw is independent — past results don't change future probabilities. Fair game: expected payout = entry cost.",
+              "mastery_criteria": {"correct_required": 2, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

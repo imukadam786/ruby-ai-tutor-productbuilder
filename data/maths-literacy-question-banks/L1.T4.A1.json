@@ -1,0 +1,399 @@
+{
+  "skill": "L1.T4.A1",
+  "skill_title": "Work with ratios and direct proportion",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 5 L1 (recognise/simplify) + 8 L2 (one-step share/unit price) + 7 L3 (multi-part split or unit-then-scale). Fresh SA contexts: concrete mixes, recipe scaling, map scales, currency, fabric and tile pricing.",
+  "items": [
+    {
+      "id": "L1.T4.A1.q01",
+      "skill": "L1.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "A ratio is simplified by dividing both parts by their highest common factor."},
+      "question": "Simplify the ratio 6 : 9.",
+      "answerMode": "multiChoice",
+      "options": ["2 : 3", "3 : 2", "6 : 9", "1 : 3"],
+      "expectedAnswer": "2 : 3",
+      "workingSteps": [
+        "Highest common factor of 6 and 9 is 3.",
+        "6 ÷ 3 = 2; 9 ÷ 3 = 3.",
+        "Simplified: 2 : 3."
+      ],
+      "errorSignals": ["ERR_RATIO_SIMPLIFY_INCOMPLETE", "ERR_RATIO_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q02",
+      "skill": "L1.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Simplify by dividing both parts of the ratio by their highest common factor."},
+      "question": "Simplify the ratio 12 : 18.",
+      "answerMode": "multiChoice",
+      "options": ["2 : 3", "3 : 2", "6 : 9", "4 : 6"],
+      "expectedAnswer": "2 : 3",
+      "workingSteps": [
+        "Highest common factor of 12 and 18 is 6.",
+        "12 ÷ 6 = 2; 18 ÷ 6 = 3.",
+        "Simplified: 2 : 3 (note 6 : 9 and 4 : 6 are also equal but not fully simplified)."
+      ],
+      "errorSignals": ["ERR_RATIO_SIMPLIFY_INCOMPLETE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q03",
+      "skill": "L1.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Gogo's koeksister recipe uses 2 cups of flour for every 3 cups of sugar."},
+      "question": "What is the ratio of flour to sugar?",
+      "answerMode": "multiChoice",
+      "options": ["2 : 3", "3 : 2", "2 : 5", "1 : 1"],
+      "expectedAnswer": "2 : 3",
+      "workingSteps": [
+        "Flour first, sugar second (as in the question).",
+        "Ratio flour : sugar = 2 : 3."
+      ],
+      "errorSignals": ["ERR_RATIO_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q04",
+      "skill": "L1.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "The total number of parts in a ratio is the sum of its parts."},
+      "question": "How many total parts are in the ratio 1 : 4?",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0,
+      "workingSteps": [
+        "Total = 1 + 4 = 5 parts."
+      ],
+      "errorSignals": ["ERR_RATIO_TOTAL_PARTS", "ERR_RATIO_PART_AS_WHOLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q05",
+      "skill": "L1.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Two ratios are equivalent if one can be obtained from the other by multiplying both parts by the same number."},
+      "question": "Is the ratio 4 : 6 equivalent to 2 : 3?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Yes — both simplify to 2 : 3.",
+        "No — 4 : 6 simplifies to 4 : 3.",
+        "No — different numbers can never be equivalent.",
+        "Yes — only because both contain the digit 2."
+      ],
+      "expectedAnswer": "Yes — both simplify to 2 : 3.",
+      "workingSteps": [
+        "4 ÷ 2 = 2; 6 ÷ 2 = 3.",
+        "4 : 6 = 2 : 3. The ratios are equivalent."
+      ],
+      "errorSignals": ["ERR_RATIO_SIMPLIFY_INCOMPLETE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q06",
+      "skill": "L1.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Two sisters share R500 in the ratio 2 : 3 (the elder sister gets 3 parts)."},
+      "question": "How much does the elder sister receive?",
+      "answerMode": "numeric",
+      "expectedAnswer": 300,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Total parts = 2 + 3 = 5.",
+        "Value per part = R500 ÷ 5 = R100.",
+        "Elder sister: 3 × R100 = R300."
+      ],
+      "errorSignals": ["ERR_RATIO_PART_AS_WHOLE", "ERR_RATIO_TOTAL_PARTS"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q07",
+      "skill": "L1.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A standard SA concrete mix uses cement : sand : stone in the ratio 1 : 2 : 3 (by wheelbarrows). The total mix is 60 wheelbarrows."},
+      "question": "How many wheelbarrows of sand are needed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 20,
+      "tolerance": 0,
+      "unit": "wheelbarrows",
+      "workingSteps": [
+        "Total parts = 1 + 2 + 3 = 6.",
+        "Per part = 60 ÷ 6 = 10 wheelbarrows.",
+        "Sand = 2 × 10 = 20 wheelbarrows."
+      ],
+      "errorSignals": ["ERR_RATIO_PART_AS_WHOLE", "ERR_RATIO_TOTAL_PARTS"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q08",
+      "skill": "L1.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A bag of 5 oranges costs R12,50 at the Hatfield Market."},
+      "question": "What is the cost per orange?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2.50,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Cost per orange = Total ÷ Number.",
+        "R12,50 ÷ 5 = R2,50."
+      ],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION", "ERR_DIRECT_PROPORTION_OPERATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q09",
+      "skill": "L1.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A fabric shop charges R96 for 4 metres of plain cotton."},
+      "question": "What is the price per metre?",
+      "answerMode": "numeric",
+      "expectedAnswer": 24,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Price per metre = R96 ÷ 4 = R24."
+      ],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q10",
+      "skill": "L1.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A pap recipe for 4 people uses 200 g of mealie meal. The cook scales the recipe in direct proportion to the number of people."},
+      "question": "How much mealie meal is needed for 6 people?",
+      "answerMode": "numeric",
+      "expectedAnswer": 300,
+      "tolerance": 1,
+      "unit": "g",
+      "workingSteps": [
+        "Per person: 200 ÷ 4 = 50 g.",
+        "For 6 people: 6 × 50 = 300 g."
+      ],
+      "errorSignals": ["ERR_DIRECT_PROPORTION_OPERATION", "ERR_RECIPE_SCALE_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q11",
+      "skill": "L1.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A South African road map has a scale of 1 : 50 000. This means 1 cm on the map represents 50 000 cm on the ground."},
+      "question": "If two towns are 3 cm apart on the map, what is the actual distance in kilometres?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.5,
+      "tolerance": 0.01,
+      "unit": "km",
+      "workingSteps": [
+        "Actual distance = 3 × 50 000 cm = 150 000 cm.",
+        "Convert to km: 150 000 ÷ 100 000 = 1,5 km."
+      ],
+      "errorSignals": ["ERR_DIRECT_PROPORTION_OPERATION", "ERR_UNIT_CONVERSION_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q12",
+      "skill": "L1.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Thandi's car uses 16 litres of petrol to travel 200 km."},
+      "question": "Calculate the petrol consumption in litres per 100 km.",
+      "answerMode": "numeric",
+      "expectedAnswer": 8,
+      "tolerance": 0.05,
+      "unit": "L/100km",
+      "workingSteps": [
+        "16 L for 200 km, so for 100 km: 16 ÷ 2 = 8 L.",
+        "Or: L per km = 16 ÷ 200 = 0,08; × 100 = 8 L/100 km."
+      ],
+      "errorSignals": ["ERR_DIRECT_PROPORTION_OPERATION", "ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q13",
+      "skill": "L1.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A box of 12 eggs costs R49,99 at the Boxer supermarket in Tembisa."},
+      "question": "Calculate the price per egg, rounded to the nearest cent.",
+      "answerMode": "numeric",
+      "expectedAnswer": 4.17,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Per egg = R49,99 ÷ 12 = R4,1658...",
+        "Rounded to the nearest cent: R4,17."
+      ],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION", "ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q14",
+      "skill": "L1.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A grandmother divides her year-end gift of R8 400 between her three grandchildren in the ratio 3 : 5 : 6, based on age."},
+      "question": "How much does each grandchild receive?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "3-part share (R)", "expectedAnswer": 1800, "tolerance": 0.01},
+        {"label": "5-part share (R)", "expectedAnswer": 3000, "tolerance": 0.01},
+        {"label": "6-part share (R)", "expectedAnswer": 3600, "tolerance": 0.01}
+      ],
+      "workingSteps": [
+        "Total parts = 3 + 5 + 6 = 14.",
+        "Per part = R8 400 ÷ 14 = R600.",
+        "3-part: 3 × R600 = R1 800.",
+        "5-part: 5 × R600 = R3 000.",
+        "6-part: 6 × R600 = R3 600.",
+        "Check: R1 800 + R3 000 + R3 600 = R8 400. ✓"
+      ],
+      "errorSignals": ["ERR_RATIO_PART_AS_WHOLE", "ERR_RATIO_TOTAL_PARTS"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q15",
+      "skill": "L1.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A builder uses concrete with cement : sand : stone in the ratio 1 : 2 : 4 (by mass). He starts with 7 bags of cement (each 50 kg)."},
+      "question": "How many kilograms of sand and how many kilograms of stone does he need?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Sand (kg)", "expectedAnswer": 700, "tolerance": 0.5},
+        {"label": "Stone (kg)", "expectedAnswer": 1400, "tolerance": 0.5}
+      ],
+      "workingSteps": [
+        "Cement mass = 7 × 50 = 350 kg (this is the '1 part').",
+        "Sand = 2 × 350 = 700 kg.",
+        "Stone = 4 × 350 = 1 400 kg."
+      ],
+      "errorSignals": ["ERR_RATIO_PART_AS_WHOLE", "ERR_DIRECT_PROPORTION_OPERATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q16",
+      "skill": "L1.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A tile supplier in Pretoria charges R1 760 for 8 m² of porcelain tiles. The price is in direct proportion to area."},
+      "question": "How many square metres of tile can be bought for R6 600?",
+      "answerMode": "numeric",
+      "expectedAnswer": 30,
+      "tolerance": 0.1,
+      "unit": "m²",
+      "workingSteps": [
+        "Price per m² = R1 760 ÷ 8 = R220.",
+        "Area for R6 600 = R6 600 ÷ R220 = 30 m²."
+      ],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION", "ERR_DIRECT_PROPORTION_OPERATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q17",
+      "skill": "L1.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A photo is enlarged in the ratio 1 : 5 (the new photo is 5 times the size of the original in each dimension). The original measures 4 cm by 6 cm."},
+      "question": "What are the dimensions of the enlarged photo?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "New width (cm)", "expectedAnswer": 20, "tolerance": 0.1},
+        {"label": "New length (cm)", "expectedAnswer": 30, "tolerance": 0.1}
+      ],
+      "workingSteps": [
+        "Multiply each dimension by 5.",
+        "Width: 4 × 5 = 20 cm.",
+        "Length: 6 × 5 = 30 cm."
+      ],
+      "errorSignals": ["ERR_DIRECT_PROPORTION_OPERATION", "ERR_RATIO_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q18",
+      "skill": "L1.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A concrete batch of total mass 320 kg uses cement : sand : stone in the ratio 1 : 3 : 4 (by mass)."},
+      "question": "What is the mass of cement, sand and stone in the batch?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Cement (kg)", "expectedAnswer": 40, "tolerance": 0.5},
+        {"label": "Sand (kg)", "expectedAnswer": 120, "tolerance": 0.5},
+        {"label": "Stone (kg)", "expectedAnswer": 160, "tolerance": 0.5}
+      ],
+      "workingSteps": [
+        "Total parts = 1 + 3 + 4 = 8.",
+        "Per part = 320 ÷ 8 = 40 kg.",
+        "Cement: 1 × 40 = 40 kg.",
+        "Sand: 3 × 40 = 120 kg.",
+        "Stone: 4 × 40 = 160 kg.",
+        "Check: 40 + 120 + 160 = 320. ✓"
+      ],
+      "errorSignals": ["ERR_RATIO_TOTAL_PARTS", "ERR_RATIO_PART_AS_WHOLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q19",
+      "skill": "L1.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A rice recipe for 6 people uses 750 g of rice. The cook scales it for a family event of 10 people."},
+      "question": "How much rice is needed for 10 people?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1250,
+      "tolerance": 1,
+      "unit": "g",
+      "workingSteps": [
+        "Per person: 750 ÷ 6 = 125 g.",
+        "For 10: 10 × 125 = 1 250 g."
+      ],
+      "errorSignals": ["ERR_DIRECT_PROPORTION_OPERATION", "ERR_RECIPE_SCALE_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A1.q20",
+      "skill": "L1.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "On a particular day the exchange rate is 1 USD = R18,75."},
+      "question": "How many US Dollars can be bought with R3 750?",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 0.5,
+      "unit": "USD",
+      "workingSteps": [
+        "USD = Rand ÷ rate.",
+        "= 3 750 ÷ 18,75 = 200 USD."
+      ],
+      "errorSignals": ["ERR_DIRECT_PROPORTION_OPERATION", "ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_RATIO_PART_AS_WHOLE": "Treats one part of a ratio as a fraction of one whole instead of dividing by the total number of parts.",
+    "ERR_RATIO_DIRECTION": "Reverses the order of a ratio (gives b : a instead of a : b).",
+    "ERR_RATIO_SIMPLIFY_INCOMPLETE": "Simplifies a ratio only partially (e.g. 12 : 18 → 6 : 9 instead of 2 : 3).",
+    "ERR_RATIO_TOTAL_PARTS": "Forgets to add the parts to find the total number of shares before dividing.",
+    "ERR_DIRECT_PROPORTION_OPERATION": "Uses the wrong operation when scaling (multiplies when divide was needed, or vice versa).",
+    "ERR_UNIT_PRICE_INVERSION": "Divides the quantity by the price instead of the price by the quantity (or vice versa) when finding a unit rate.",
+    "ERR_RECIPE_SCALE_DIRECTION": "Scales a recipe in the wrong direction (scales up when scaling down was required, or vice versa).",
+    "ERR_UNIT_CONVERSION_DIRECTION": "Multiplies when the unit conversion required division (or vice versa).",
+    "ERR_ROUND_NEAREST_RULE": "Misapplies the rounding rule on the final answer."
+  }
+}

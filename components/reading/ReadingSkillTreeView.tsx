@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import readingSkillTreeData from "@/data/reading-skill-tree.json";
 import { ReadingStudentProfile } from "@/types/reading";
-import { getReadingSkillStatus, getReadingLevelProgress, friendlyReadingSkillName } from "@/lib/reading-student-model";
+import { getReadingSkillStatus, getReadingLevelProgress } from "@/lib/reading-student-model";
 import EduBackground from "@/components/EduBackground";
 import { useT } from "@/lib/i18n";
 
@@ -18,6 +18,9 @@ interface ReadingSkillTreeViewProps {
   onContinue?: () => void;
   /** Optional back action — shows a "← Subjects" button when provided. */
   onBack?: () => void;
+  /** When true, renders only the learner's current level by default and
+   *  exposes a "View full tree" toggle. */
+  compact?: boolean;
 }
 
 const statusConfig = {
@@ -46,12 +49,19 @@ type TreeData = {
 
 const treeData = readingSkillTreeData as unknown as TreeData;
 
-export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinue, onBack }: ReadingSkillTreeViewProps) {
+export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinue, onBack, compact }: ReadingSkillTreeViewProps) {
   const { t } = useT();
   // Per-level expand/collapse. Default: only the learner's current level is
   // expanded — others are collapsed so the page stays scannable.
   const [expandedLevels, setExpandedLevels] = useState<Set<number>>(
     () => new Set(profile ? [profile.current_level] : [1]),
+  );
+  const [showAllLevels, setShowAllLevels] = useState<boolean>(!compact);
+  useEffect(() => { setShowAllLevels(!compact); }, [compact]);
+  const currentLevelId = profile?.current_level ?? 1;
+  const visibleLevels = useMemo(
+    () => (showAllLevels ? treeData.levels : treeData.levels.filter((l) => l.id === currentLevelId)),
+    [showAllLevels, currentLevelId],
   );
   const toggleLevel = (id: number) =>
     setExpandedLevels((prev) => {
@@ -68,6 +78,46 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
     }
     return result;
   }, [profile]);
+
+  const { totalLevels, totalTiers, totalSkills, masteredLevels, masteredTiers, masteredSkills } = useMemo(() => {
+    let totalTiers = 0, totalSkills = 0, masteredTiers = 0, masteredSkills = 0, masteredLevels = 0;
+    const mastery = (profile?.skill_mastery ?? {}) as Record<string, { status?: string }>;
+    const isMastered = (id: string) => {
+      const s = mastery[id]?.status;
+      return s === "mastered" || s === "assumed";
+    };
+    for (const level of treeData.levels) {
+      totalTiers += level.tiers.length;
+      let levelSkillCount = 0;
+      let levelMasteredCount = 0;
+      for (const tier of level.tiers) {
+        totalSkills += tier.atomic_skills.length;
+        const tierMastered = tier.atomic_skills.filter((s) => isMastered(s.id)).length;
+        masteredSkills += tierMastered;
+        levelSkillCount += tier.atomic_skills.length;
+        levelMasteredCount += tierMastered;
+        if (tier.atomic_skills.length > 0 && tierMastered === tier.atomic_skills.length) masteredTiers++;
+      }
+      if (levelSkillCount > 0 && levelMasteredCount === levelSkillCount) masteredLevels++;
+    }
+    return {
+      totalLevels: treeData.levels.length,
+      totalTiers,
+      totalSkills,
+      masteredLevels,
+      masteredTiers,
+      masteredSkills,
+    };
+  }, [profile]);
+
+  const currentLevelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!profile) return;
+    const id = window.requestAnimationFrame(() => {
+      currentLevelRef.current?.scrollIntoView({ block: "start", behavior: "auto" });
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [profile?.current_level]);
 
   const autoCompletedIds = useMemo(
     () => new Set(profile?.placement?.autoCompletedSkillIds ?? []),
@@ -91,14 +141,16 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
   }
 
   return (
-    <div className="relative isolate flex flex-col h-full bg-gray-50">
+    <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>
       <div className="absolute inset-0 -z-10"><EduBackground /></div>
       <div className="hidden md:block bg-purple-50 border-b border-purple-200 px-6 py-4">
         <h2 className="font-semibold text-purple-700 text-lg">{t("nav.reading_skill_tree")}</h2>
-        <p className="text-purple-400 text-sm">5 levels · 14 tiers · 34 atomic skills</p>
+        <p className="text-purple-400 text-sm">
+          {masteredLevels}/{totalLevels} Levels · {masteredTiers}/{totalTiers} Tiers · {masteredSkills}/{totalSkills} Atomic skills
+        </p>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className={compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
         {onBack && (
           <div className="max-w-2xl mx-auto mb-4">
             <button
@@ -112,48 +164,11 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
         {!profile ? (
           <div className="text-center py-12 text-gray-400">
             <p className="text-4xl mb-3">🌳</p>
-            <p className="font-medium text-gray-600">Start a reading session to unlock the skill tree</p>
+            <p className="font-medium text-gray-600">Start an English session to unlock the skill tree</p>
           </div>
         ) : (
           <div className="max-w-2xl mx-auto space-y-4">
-            {/* Continue where you left off — jumps straight back into the
-                current skill so the learner never has to hunt for it. Same
-                button across Maths, Reading and Afrikaans. */}
-            {onContinue && currentSkillId && (
-              <button
-                onClick={onContinue}
-                className="w-full flex items-center gap-4 rounded-2xl border-2 border-emerald-300 bg-emerald-50 px-5 py-4 text-left hover:shadow-md active:scale-[0.99] transition-all"
-              >
-                <span className="text-3xl flex-shrink-0" aria-hidden>🚀</span>
-                <span className="flex-1 min-w-0">
-                  <span className="block text-xs font-semibold uppercase tracking-wide text-emerald-700">
-                    Continue where you left off
-                  </span>
-                  <span className="block text-base font-bold text-[#1a2744] leading-tight truncate">
-                    {friendlyReadingSkillName(currentSkillId)}
-                  </span>
-                </span>
-                <span className="text-emerald-600 text-xl flex-shrink-0" aria-hidden>→</span>
-              </button>
-            )}
-
-            {/* Placement summary banner */}
-            {profile.placementCompleted && profile.placement && (
-              <div className="bg-blue-50 border border-blue-200 rounded-2xl px-5 py-3 flex items-center gap-3">
-                <span className="text-2xl">🎯</span>
-                <div>
-                  <p className="text-blue-800 font-semibold text-sm">Placement complete</p>
-                  <p className="text-blue-600 text-xs">
-                    {autoCompletedIds.size} skill{autoCompletedIds.size !== 1 ? "s" : ""} auto-completed
-                    {" · "}Entry: <span className="font-semibold">{friendlyReadingSkillName(entrySkillId)}</span>
-                    {!hardGatePassed && " · "}
-                    {!hardGatePassed && <span className="text-amber-600 font-medium">🔒 Hard Gate active</span>}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {treeData.levels.map((level) => {
+            {visibleLevels.map((level) => {
               const progress = levelProgress[level.id] || 0;
               const isCurrent = level.id === profile.current_level;
               // Hard gate barrier appears before Level 2 when gate is not cleared
@@ -162,7 +177,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
               const isExpanded = expandedLevels.has(level.id);
 
               return (
-                <div key={level.id}>
+                <div key={level.id} ref={isCurrent ? currentLevelRef : undefined}>
                 {/* Hard Gate barrier before Level 2 */}
                 {showHardGateBarrier && (
                   <div className="flex items-center gap-3 my-2 px-1">
@@ -330,6 +345,16 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
                 </div>
               );
             })}
+
+            {compact && (
+              <button
+                type="button"
+                onClick={() => setShowAllLevels((v) => !v)}
+                className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+              >
+                {showAllLevels ? "Show only current level ▲" : "View full tree ▼"}
+              </button>
+            )}
           </div>
         )}
       </div>

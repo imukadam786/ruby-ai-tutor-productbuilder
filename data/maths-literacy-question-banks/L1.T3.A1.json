@@ -1,0 +1,398 @@
+{
+  "skill": "L1.T3.A1",
+  "skill_title": "Estimate, round and sense-check in context",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2, 3, 4],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 3 L1 / 7 L2 / 7 L3 / 3 L4. Fresh SA contexts: Pick n Pay 5c rounding, paint coverage, taxi seating, delivery-van capacity, sense-checking calculator outputs.",
+  "items": [
+    {
+      "id": "L1.T3.A1.q01",
+      "skill": "L1.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Round to the nearest 10: digits 0–4 round down, 5–9 round up."},
+      "question": "Round 437 to the nearest 10.",
+      "answerMode": "numeric",
+      "expectedAnswer": 440,
+      "tolerance": 0,
+      "workingSteps": [
+        "Units digit is 7, which is ≥ 5.",
+        "Round up: 437 → 440."
+      ],
+      "errorSignals": ["ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q02",
+      "skill": "L1.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Mr Pillay is rounding a Spar till total to the nearest Rand."},
+      "question": "Round R12,84 to the nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 13,
+      "tolerance": 0,
+      "unit": "R",
+      "workingSteps": [
+        "Cents portion is 84c, which is ≥ 50c.",
+        "Round up: R12,84 → R13,00."
+      ],
+      "errorSignals": ["ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q03",
+      "skill": "L1.T3.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Round to the nearest 100: tens digit decides direction."},
+      "question": "Round 5 738 to the nearest 100.",
+      "answerMode": "numeric",
+      "expectedAnswer": 5700,
+      "tolerance": 0,
+      "workingSteps": [
+        "Tens digit is 3, which is < 5.",
+        "Round down: 5 738 → 5 700."
+      ],
+      "errorSignals": ["ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q04",
+      "skill": "L1.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Since the 1c and 2c coins were withdrawn, Pick n Pay rounds till totals to the nearest 5 cents (the SARB 'rounding rule')."},
+      "question": "Round R47,82 to the nearest 5 cents.",
+      "answerMode": "numeric",
+      "expectedAnswer": 47.80,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "R47,82 is between R47,80 and R47,85.",
+        "82c is closer to 80c (difference 2c) than to 85c (difference 3c).",
+        "Round to R47,80."
+      ],
+      "errorSignals": ["ERR_ROUND_TO_NEAREST_5C", "ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q05",
+      "skill": "L1.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Mr Khoza needs 7,3 litres of wall paint for a bedroom. Builders Warehouse sells the paint only in 5-litre tins."},
+      "question": "How many 5-litre tins must Mr Khoza buy?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0,
+      "unit": "tins",
+      "workingSteps": [
+        "7,3 ÷ 5 = 1,46 tins.",
+        "1 tin (5 L) is not enough; must round UP to cover the job.",
+        "Buy 2 tins (giving 10 L)."
+      ],
+      "errorSignals": ["ERR_PAINT_ROUND_DOWN", "ERR_ROUND_DIRECTION_CONTEXT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q06",
+      "skill": "L1.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A high school in Soweto needs to transport 60 learners on an excursion. Each minibus taxi seats 14 learners."},
+      "question": "What is the minimum number of taxis needed to transport all 60 learners?",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0,
+      "unit": "taxis",
+      "workingSteps": [
+        "60 ÷ 14 = 4,29.",
+        "4 taxis seat 4 × 14 = 56 learners — not enough.",
+        "Round up: 5 taxis are needed (seating 70)."
+      ],
+      "errorSignals": ["ERR_ROUND_PEOPLE_DOWN", "ERR_ROUND_DIRECTION_CONTEXT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q07",
+      "skill": "L1.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A calculator output for a money amount must be rounded to 2 decimal places (cents)."},
+      "question": "Round R85,237 to 2 decimal places.",
+      "answerMode": "numeric",
+      "expectedAnswer": 85.24,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Third decimal is 7, which is ≥ 5.",
+        "Round up the second decimal: 23 → 24.",
+        "R85,237 → R85,24."
+      ],
+      "errorSignals": ["ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q08",
+      "skill": "L1.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Estimation by rounding each factor to one significant figure: 487 ≈ 500 and 23 ≈ 20."},
+      "question": "Which is the best estimate of 487 × 23?",
+      "answerMode": "multiChoice",
+      "options": ["About 1 000", "About 10 000", "About 100 000", "About 1 000 000"],
+      "expectedAnswer": "About 10 000",
+      "workingSteps": [
+        "Round to 1 sig fig: 500 × 20 = 10 000.",
+        "Actual: 487 × 23 = 11 201, which is closest to 10 000."
+      ],
+      "errorSignals": ["ERR_ESTIMATE_OOM"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q09",
+      "skill": "L1.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A measuring tape gives a length of 234,675 m. This must be reported to 1 decimal place."},
+      "question": "Round 234,675 m to 1 decimal place.",
+      "answerMode": "numeric",
+      "expectedAnswer": 234.7,
+      "tolerance": 0.05,
+      "unit": "m",
+      "workingSteps": [
+        "Second decimal is 7, which is ≥ 5.",
+        "Round up the first decimal: 6 → 7.",
+        "234,675 → 234,7."
+      ],
+      "errorSignals": ["ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q10",
+      "skill": "L1.T3.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A weather station reports the daily mean temperature as 18,67 °C. The newspaper rounds to the nearest whole degree."},
+      "question": "Round 18,67 °C to the nearest degree.",
+      "answerMode": "numeric",
+      "expectedAnswer": 19,
+      "tolerance": 0,
+      "unit": "°C",
+      "workingSteps": [
+        "First decimal is 6, which is ≥ 5.",
+        "Round up: 18,67 → 19 °C."
+      ],
+      "errorSignals": ["ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q11",
+      "skill": "L1.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Lerato calculates 198 × 5,1 on her calculator and writes down the result as R10 109,80."},
+      "question": "Use estimation to identify what went wrong. What should the answer be (approximately)?",
+      "answerMode": "multiChoice",
+      "options": [
+        "About R10 (Lerato is off by a factor of 1 000)",
+        "About R100 (Lerato is off by a factor of 100)",
+        "About R1 000 (Lerato is off by a factor of 10 — likely a decimal-point slip)",
+        "About R10 000 (Lerato is correct)"
+      ],
+      "expectedAnswer": "About R1 000 (Lerato is off by a factor of 10 — likely a decimal-point slip)",
+      "workingSteps": [
+        "Estimate: 200 × 5 = 1 000.",
+        "Actual answer should be about R1 000, not R10 000.",
+        "R10 109,80 is 10× too big — likely the decimal slipped one place."
+      ],
+      "errorSignals": ["ERR_CALCULATOR_OOM", "ERR_ESTIMATE_OOM"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q12",
+      "skill": "L1.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A shopper wants to estimate the cost of 12 items at R23,75 each before going to the till."},
+      "question": "Which is the closest estimate of the total?",
+      "answerMode": "multiChoice",
+      "options": ["About R200", "About R250", "About R350", "About R500"],
+      "expectedAnswer": "About R250",
+      "workingSteps": [
+        "Round R23,75 to R25; round 12 stays.",
+        "Estimate: 12 × R25 = R300.",
+        "Actual: 12 × R23,75 = R285.",
+        "Closest option to R285 is R250 (R300 is not in options)."
+      ],
+      "errorSignals": ["ERR_ESTIMATE_OOM"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q13",
+      "skill": "L1.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A church needs 350 cans of food for a winter drive. The wholesaler sells the cans in boxes of 24."},
+      "question": "What is the minimum number of full boxes that must be bought?",
+      "answerMode": "numeric",
+      "expectedAnswer": 15,
+      "tolerance": 0,
+      "unit": "boxes",
+      "workingSteps": [
+        "350 ÷ 24 = 14,58.",
+        "14 boxes = 336 cans — short by 14.",
+        "Round up: 15 boxes (= 360 cans) are needed."
+      ],
+      "errorSignals": ["ERR_ROUND_DIRECTION_CONTEXT", "ERR_PAINT_ROUND_DOWN"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q14",
+      "skill": "L1.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A school hall has 78 m² of wall to paint. The chosen paint covers 12 m² per litre and is sold only in whole-litre tins."},
+      "question": "How many full litres must be bought?",
+      "answerMode": "numeric",
+      "expectedAnswer": 7,
+      "tolerance": 0,
+      "unit": "L",
+      "workingSteps": [
+        "78 ÷ 12 = 6,5 L.",
+        "6 L covers 72 m² — not enough.",
+        "Round up: buy 7 L."
+      ],
+      "errorSignals": ["ERR_PAINT_ROUND_DOWN", "ERR_ROUND_DIRECTION_CONTEXT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q15",
+      "skill": "L1.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Sipho scores 67, 74 and 82 on three Maths Literacy tests."},
+      "question": "Calculate Sipho's average mark, rounded to 1 decimal place.",
+      "answerMode": "numeric",
+      "expectedAnswer": 74.3,
+      "tolerance": 0.1,
+      "unit": "%",
+      "workingSteps": [
+        "Sum: 67 + 74 + 82 = 223.",
+        "Average: 223 ÷ 3 = 74,333...",
+        "Round to 1 dp: 74,3."
+      ],
+      "errorSignals": ["ERR_ROUND_NEAREST_RULE", "ERR_OVER_ROUNDING_INTERMEDIATE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q16",
+      "skill": "L1.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Mr Mbeki's monthly cellphone bill last year was R487,32 each month."},
+      "question": "Estimate his annual cellphone cost to the nearest R100.",
+      "answerMode": "numeric",
+      "expectedAnswer": 5800,
+      "tolerance": 50,
+      "unit": "R",
+      "workingSteps": [
+        "Annual cost = 12 × R487,32 = R5 847,84.",
+        "Round to nearest R100: R5 800."
+      ],
+      "errorSignals": ["ERR_ROUND_NEAREST_RULE", "ERR_ESTIMATE_OOM"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q17",
+      "skill": "L1.T3.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Mrs Naidoo wants to estimate her grocery total. Three items in her trolley cost R34,99, R59,99 and R12,49."},
+      "question": "What is a sensible quick estimate of her total cost?",
+      "answerMode": "multiChoice",
+      "options": ["About R50", "About R75", "About R110", "About R200"],
+      "expectedAnswer": "About R110",
+      "workingSteps": [
+        "Round each: R35 + R60 + R12 ≈ R107.",
+        "Closest option is R110."
+      ],
+      "errorSignals": ["ERR_ESTIMATE_OOM"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q18",
+      "skill": "L1.T3.A1",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A delivery bakkie has a maximum load capacity of 1 200 kg. Each box of tinned food weighs 28 kg."},
+      "question": "What is the maximum number of full boxes the bakkie can legally carry?",
+      "answerMode": "numeric",
+      "expectedAnswer": 42,
+      "tolerance": 0,
+      "unit": "boxes",
+      "workingSteps": [
+        "1 200 ÷ 28 = 42,86.",
+        "43 boxes weigh 43 × 28 = 1 204 kg — over the limit.",
+        "Round DOWN (capacity ceiling): 42 boxes (= 1 176 kg)."
+      ],
+      "errorSignals": ["ERR_CAPACITY_ROUND_UP", "ERR_ROUND_DIRECTION_CONTEXT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q19",
+      "skill": "L1.T3.A1",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A learner calculates the cost of 32 chairs at R145 each and writes the answer as R46,40."},
+      "question": "Use a sense-check estimate to explain whether the answer is reasonable, and give the correct order of magnitude.",
+      "answerMode": "multiChoice",
+      "options": [
+        "Reasonable — about R46 is correct.",
+        "Unreasonable — should be about R460 (off by ×10).",
+        "Unreasonable — should be about R4 600 (off by ×100).",
+        "Unreasonable — should be about R46 000 (off by ×1 000)."
+      ],
+      "expectedAnswer": "Unreasonable — should be about R4 600 (off by ×100).",
+      "workingSteps": [
+        "Estimate: 30 × R150 = R4 500.",
+        "Actual: 32 × R145 = R4 640.",
+        "Learner's R46,40 is off by a factor of 100 — decimal point slipped two places."
+      ],
+      "errorSignals": ["ERR_CALCULATOR_OOM", "ERR_ESTIMATE_OOM"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T3.A1.q20",
+      "skill": "L1.T3.A1",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Mrs Pillay is sewing matric dance dresses for 9 learners. Each dress needs 2,4 m of fabric. The shop sells fabric only in whole metres."},
+      "question": "How many full metres of fabric must Mrs Pillay buy?",
+      "answerMode": "numeric",
+      "expectedAnswer": 22,
+      "tolerance": 0,
+      "unit": "m",
+      "workingSteps": [
+        "Total fabric needed = 9 × 2,4 = 21,6 m.",
+        "21 m is short by 0,6 m — at least one dress would not be cut.",
+        "Round UP (need at least the calculated amount): buy 22 m."
+      ],
+      "errorSignals": ["ERR_ROUND_DIRECTION_CONTEXT", "ERR_OVER_ROUNDING_INTERMEDIATE"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_ROUND_NEAREST_RULE": "Misapplies the 'round half up' rule (or rounds the wrong digit).",
+    "ERR_ROUND_DIRECTION_CONTEXT": "Rounds in the wrong direction for the context (up vs down for need-at-least vs limit-on-amount).",
+    "ERR_ROUND_TO_NEAREST_5C": "Rounds money to the nearest cent or whole Rand instead of the nearest 5c.",
+    "ERR_ROUND_PEOPLE_DOWN": "Accepts a fractional number of people/seats/taxis, or rounds down when capacity is needed.",
+    "ERR_PAINT_ROUND_DOWN": "Rounds paint litres / cans / packs down when the job needs at least the calculated amount.",
+    "ERR_CAPACITY_ROUND_UP": "Rounds up when a maximum capacity limit dictates rounding down.",
+    "ERR_ESTIMATE_OOM": "Estimate is off by an order of magnitude (factor of 10, 100, …).",
+    "ERR_CALCULATOR_OOM": "Accepts a calculator answer that is off by an order of magnitude.",
+    "ERR_OVER_ROUNDING_INTERMEDIATE": "Rounds intermediate steps too aggressively, propagating significant error to the final answer."
+  }
+}

@@ -1,0 +1,385 @@
+{
+  "skill": "L1.T2.A1",
+  "skill_title": "Add, subtract, multiply and divide; powers of 10",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 5 L1 (mechanical) + 8 L2 (one-step word) + 7 L3 (multi-step word). Fresh SA contexts: Pick n Pay till slips, fuel runs, payroll, unit conversions for distance and mass.",
+  "items": [
+    {
+      "id": "L1.T2.A1.q01",
+      "skill": "L1.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "A learner adds two amounts on her calculator: 1 234 and 567."},
+      "question": "Calculate 1 234 + 567.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1801,
+      "tolerance": 0,
+      "workingSteps": [
+        "Line up units, tens, hundreds and thousands.",
+        "1 234 + 567 = 1 801."
+      ],
+      "errorSignals": ["ERR_ADDITION_CARRY", "ERR_PLACE_VALUE_ALIGN"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q02",
+      "skill": "L1.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Multiplying by 100 moves the decimal comma two places to the right."},
+      "question": "Calculate 4,5 × 100.",
+      "answerMode": "numeric",
+      "expectedAnswer": 450,
+      "tolerance": 0,
+      "workingSteps": [
+        "Multiplying by 100 moves the decimal two places right.",
+        "4,5 → 45,0 → 450."
+      ],
+      "errorSignals": ["ERR_POWER_OF_10_DIRECTION", "ERR_DECIMAL_PLACEMENT_PRODUCT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q03",
+      "skill": "L1.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Dividing by 10 moves the decimal comma one place to the left."},
+      "question": "Calculate 8 760 ÷ 10.",
+      "answerMode": "numeric",
+      "expectedAnswer": 876,
+      "tolerance": 0,
+      "workingSteps": [
+        "Move the decimal one place to the left.",
+        "8 760 → 876,0 → 876."
+      ],
+      "errorSignals": ["ERR_POWER_OF_10_DIRECTION", "ERR_DECIMAL_PLACEMENT_QUOTIENT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q04",
+      "skill": "L1.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Mr Dlamini buys three items at Spar costing R150, R85 and R47. He totals them without VAT adjustments."},
+      "question": "Calculate the total: R150 + R85 + R47.",
+      "answerMode": "numeric",
+      "expectedAnswer": 282,
+      "tolerance": 0,
+      "unit": "R",
+      "workingSteps": [
+        "150 + 85 = 235.",
+        "235 + 47 = 282."
+      ],
+      "errorSignals": ["ERR_ADDITION_CARRY"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q05",
+      "skill": "L1.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "A learner subtracts two decimal numbers as a calculator check."},
+      "question": "Calculate 12,4 − 3,7.",
+      "answerMode": "numeric",
+      "expectedAnswer": 8.7,
+      "tolerance": 0.01,
+      "workingSteps": [
+        "Line up the decimal commas.",
+        "12,4 − 3,7 = 8,7."
+      ],
+      "errorSignals": ["ERR_SUBTRACTION_BORROW", "ERR_DECIMAL_ALIGN_SUB"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q06",
+      "skill": "L1.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Pick n Pay till slip — selected items**\n\n| Item | Price (R) |\n|---|---|\n| Loaf of brown bread | 18,50 |\n| 2 L milk | 32,99 |\n| Dozen eggs | 49,99 |"},
+      "question": "Calculate the total of the three items on the till slip.",
+      "answerMode": "numeric",
+      "expectedAnswer": 101.48,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "18,50 + 32,99 = 51,49.",
+        "51,49 + 49,99 = 101,48."
+      ],
+      "errorSignals": ["ERR_ADDITION_CARRY", "ERR_DECIMAL_ALIGN_SUB"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q07",
+      "skill": "L1.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Sipho pays with a R200 note at Spar for goods totalling R134,50."},
+      "question": "How much change should Sipho receive?",
+      "answerMode": "numeric",
+      "expectedAnswer": 65.50,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Change = Amount paid − Total.",
+        "R200,00 − R134,50 = R65,50."
+      ],
+      "errorSignals": ["ERR_SUBTRACTION_BORROW", "ERR_DECIMAL_ALIGN_SUB"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q08",
+      "skill": "L1.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Distance conversion: 1 km = 1 000 m."},
+      "question": "Convert 3,5 km to metres.",
+      "answerMode": "numeric",
+      "expectedAnswer": 3500,
+      "tolerance": 0,
+      "unit": "m",
+      "workingSteps": [
+        "Multiply by 1 000 (km → m).",
+        "3,5 × 1 000 = 3 500 m."
+      ],
+      "errorSignals": ["ERR_POWER_OF_10_DIRECTION", "ERR_UNIT_CONVERSION_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q09",
+      "skill": "L1.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Mrs Adams orders 6 loaves of brown bread at R18,50 each for a community soup kitchen."},
+      "question": "What is the total cost of the 6 loaves?",
+      "answerMode": "numeric",
+      "expectedAnswer": 111,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "6 × R18,50.",
+        "= R111,00."
+      ],
+      "errorSignals": ["ERR_DECIMAL_PLACEMENT_PRODUCT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q10",
+      "skill": "L1.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A casual worker is paid R450 per day and worked 5 days last week."},
+      "question": "Calculate the worker's gross pay for the week.",
+      "answerMode": "numeric",
+      "expectedAnswer": 2250,
+      "tolerance": 0,
+      "unit": "R",
+      "workingSteps": [
+        "5 × R450 = R2 250."
+      ],
+      "errorSignals": ["ERR_MULTIPLICATION_BASIC"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q11",
+      "skill": "L1.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Mass conversion: 1 kg = 1 000 g."},
+      "question": "A bag of mealie meal has a mass of 1 250 g. Convert this to kilograms.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.25,
+      "tolerance": 0.001,
+      "unit": "kg",
+      "workingSteps": [
+        "Divide by 1 000 (g → kg).",
+        "1 250 ÷ 1 000 = 1,25 kg."
+      ],
+      "errorSignals": ["ERR_POWER_OF_10_DIRECTION", "ERR_UNIT_CONVERSION_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q12",
+      "skill": "L1.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A spaza shop owner buys 12 packs of sweets for R204 total."},
+      "question": "Calculate the cost per pack.",
+      "answerMode": "numeric",
+      "expectedAnswer": 17,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Cost per pack = Total ÷ Number of packs.",
+        "R204 ÷ 12 = R17."
+      ],
+      "errorSignals": ["ERR_DIVISION_BASIC", "ERR_DIVISOR_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q13",
+      "skill": "L1.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A bakkie's odometer shows 87 654 km at the start of the month and 88 219 km at the end of the month."},
+      "question": "How many kilometres did the bakkie travel during the month?",
+      "answerMode": "numeric",
+      "expectedAnswer": 565,
+      "tolerance": 0,
+      "unit": "km",
+      "workingSteps": [
+        "Distance = Final − Initial.",
+        "88 219 − 87 654 = 565 km."
+      ],
+      "errorSignals": ["ERR_SUBTRACTION_BORROW", "ERR_SUBTRACTION_ORDER"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q14",
+      "skill": "L1.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Pick n Pay till slip — selected items**\n\n| Item | Qty | Unit price (R) |\n|---|---|---|\n| 2 L milk | 3 | 32,99 |\n| Loaf of brown bread | 4 | 18,50 |\n| Dozen eggs | 2 | 49,99 |\n\nMrs Khumalo pays with a R500 note."},
+      "question": "Calculate the change Mrs Khumalo should receive.",
+      "answerMode": "numeric",
+      "expectedAnswer": 227.05,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": [
+        "Milk: 3 × R32,99 = R98,97.",
+        "Bread: 4 × R18,50 = R74,00.",
+        "Eggs: 2 × R49,99 = R99,98.",
+        "Total = R98,97 + R74,00 + R99,98 = R272,95.",
+        "Change = R500,00 − R272,95 = R227,05."
+      ],
+      "errorSignals": ["ERR_DECIMAL_PLACEMENT_PRODUCT", "ERR_SUBTRACTION_BORROW"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q15",
+      "skill": "L1.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Thandi drives from Polokwane to Pretoria, a distance of 320 km. Her car uses 8 litres of petrol per 100 km. Petrol costs R23,50 per litre."},
+      "question": "Calculate the total petrol cost for the one-way trip.",
+      "answerMode": "numeric",
+      "expectedAnswer": 601.60,
+      "tolerance": 0.10,
+      "unit": "R",
+      "workingSteps": [
+        "Litres used = 320 ÷ 100 × 8 = 25,6 L.",
+        "Cost = 25,6 × R23,50.",
+        "= R601,60."
+      ],
+      "errorSignals": ["ERR_DECIMAL_PLACEMENT_PRODUCT", "ERR_DIVISOR_INVERSION", "ERR_UNIT_CONVERSION_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q16",
+      "skill": "L1.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Mr Naidoo earns a gross monthly salary of R18 400. The following monthly deductions apply: PAYE tax R2 870, UIF R184, pension fund R1 472."},
+      "question": "Calculate Mr Naidoo's net (take-home) monthly pay.",
+      "answerMode": "numeric",
+      "expectedAnswer": 13874,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": [
+        "Total deductions = R2 870 + R184 + R1 472 = R4 526.",
+        "Net pay = R18 400 − R4 526 = R13 874."
+      ],
+      "errorSignals": ["ERR_ADDITION_CARRY", "ERR_SUBTRACTION_BORROW"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q17",
+      "skill": "L1.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A rug measures 2,5 m × 3,2 m. The shop charges R280 per square metre."},
+      "question": "Calculate the total cost of the rug.",
+      "answerMode": "numeric",
+      "expectedAnswer": 2240,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Area = 2,5 × 3,2 = 8 m².",
+        "Cost = 8 × R280 = R2 240."
+      ],
+      "errorSignals": ["ERR_DECIMAL_PLACEMENT_PRODUCT", "ERR_AREA_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q18",
+      "skill": "L1.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A school orders 240 textbooks. The supplier offers a bulk price of R28 800 for the full order."},
+      "question": "Calculate the cost per textbook.",
+      "answerMode": "numeric",
+      "expectedAnswer": 120,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Cost per book = Total ÷ Number of books.",
+        "R28 800 ÷ 240 = R120."
+      ],
+      "errorSignals": ["ERR_DIVISION_BASIC", "ERR_DIVISOR_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q19",
+      "skill": "L1.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A bakkie at Makro carries 24 boxes of canned food per trip. The community needs 408 boxes delivered."},
+      "question": "How many full trips are needed to deliver all 408 boxes?",
+      "answerMode": "numeric",
+      "expectedAnswer": 17,
+      "tolerance": 0,
+      "unit": "trips",
+      "workingSteps": [
+        "Trips = Total boxes ÷ Boxes per trip.",
+        "408 ÷ 24 = 17 (exact, no remainder)."
+      ],
+      "errorSignals": ["ERR_DIVISION_BASIC", "ERR_DIVISION_REMAINDER_DROP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T2.A1.q20",
+      "skill": "L1.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Monthly household budget — Mthembu family**\n\n| Item | Amount (R) |\n|---|---|\n| Total monthly income | 22 500,00 |\n| Rent | 6 500,00 |\n| Groceries | 4 200,00 |\n| Eskom prepaid electricity | 1 350,00 |\n| Transport | 1 850,00 |\n| School fees | 2 000,00 |"},
+      "question": "Calculate how much the Mthembu family has left at the end of the month after paying all listed expenses.",
+      "answerMode": "numeric",
+      "expectedAnswer": 6600,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": [
+        "Total expenses = 6 500 + 4 200 + 1 350 + 1 850 + 2 000 = 15 900.",
+        "Left over = 22 500 − 15 900 = 6 600."
+      ],
+      "errorSignals": ["ERR_ADDITION_CARRY", "ERR_SUBTRACTION_BORROW"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_ADDITION_CARRY": "Drops a carry when adding multi-digit numbers (e.g. 1 234 + 567 = 1 791).",
+    "ERR_SUBTRACTION_BORROW": "Borrows incorrectly in column subtraction.",
+    "ERR_SUBTRACTION_ORDER": "Subtracts in the wrong order (smaller − larger when larger − smaller intended).",
+    "ERR_PLACE_VALUE_ALIGN": "Misaligns place value when stacking numbers for addition/subtraction.",
+    "ERR_MULTIPLICATION_BASIC": "Slip in single-digit multiplication facts.",
+    "ERR_DIVISION_BASIC": "Slip in division operation.",
+    "ERR_DIVISION_REMAINDER_DROP": "Drops a remainder when context requires rounding up (or treats exact division as inexact).",
+    "ERR_DIVISOR_INVERSION": "Divides the divisor by the dividend instead (or multiplies when divide was needed).",
+    "ERR_DECIMAL_PLACEMENT_PRODUCT": "Places the decimal comma incorrectly in a product (off by a factor of 10).",
+    "ERR_DECIMAL_PLACEMENT_QUOTIENT": "Places the decimal comma incorrectly in a quotient.",
+    "ERR_DECIMAL_ALIGN_SUB": "Misaligns decimal commas when adding/subtracting decimals.",
+    "ERR_POWER_OF_10_DIRECTION": "Shifts the decimal in the wrong direction when ×÷ 10/100/1000.",
+    "ERR_UNIT_CONVERSION_DIRECTION": "Multiplies when the conversion requires division (or vice versa).",
+    "ERR_AREA_FORMULA": "Misapplies area formula (e.g. adds dimensions instead of multiplying)."
+  }
+}

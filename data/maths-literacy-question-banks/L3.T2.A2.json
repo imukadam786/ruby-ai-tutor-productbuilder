@@ -1,0 +1,340 @@
+{
+  "skill": "L3.T2.A2",
+  "skill_title": "Construct an income-and-expenditure statement",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [2, 3, 4],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 8 L2 / 8 L3 / 4 L4. Classify line items, arrange income vs expenses, identify surplus/deficit, critique statements.",
+  "items": [
+    {
+      "id": "L3.T2.A2.q01",
+      "skill": "L3.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "An income-and-expenditure statement lists INCOME items first, totals them, then lists EXPENSE items and totals them, then shows surplus or deficit."},
+      "question": "Classify 'School fees paid' on a household income-and-expenditure statement.",
+      "answerMode": "multiChoice",
+      "options": ["Income", "Expense", "Profit", "Asset"],
+      "expectedAnswer": "Expense",
+      "workingSteps": ["School fees go out of the household — an expense."],
+      "errorSignals": ["ERR_INCOME_VS_EXPENSE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q02",
+      "skill": "L3.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "On a household income-and-expenditure statement."},
+      "question": "Classify 'rental received from a flat I own'.",
+      "answerMode": "multiChoice",
+      "options": ["Income", "Expense", "Surplus", "Asset"],
+      "expectedAnswer": "Income",
+      "workingSteps": ["Money coming IN regularly is an income item."],
+      "errorSignals": ["ERR_INCOME_VS_EXPENSE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q03",
+      "skill": "L3.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Mr Khoza — January**\n\nSalary R15 000; Side income tutoring R1 500.\nRent R5 000; Groceries R3 800; Electricity R900; Cellphone R350; Transport R1 200."},
+      "question": "Calculate total income.",
+      "answerMode": "numeric",
+      "expectedAnswer": 16500,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": ["R15 000 + R1 500 = R16 500."],
+      "errorSignals": ["ERR_INCOME_VS_EXPENSE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q04",
+      "skill": "L3.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Mr Khoza — January** — expenses: Rent R5 000; Groceries R3 800; Electricity R900; Cellphone R350; Transport R1 200."},
+      "question": "Calculate total expenditure.",
+      "answerMode": "numeric",
+      "expectedAnswer": 11250,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": ["R5 000 + R3 800 + R900 + R350 + R1 200 = R11 250."],
+      "errorSignals": ["ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q05",
+      "skill": "L3.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Mr Khoza — January** — income R16 500; expenditure R11 250."},
+      "question": "Calculate surplus/deficit.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Surplus or deficit (S or D)", "expectedAnswer": "S"},
+        {"label": "Amount (R)", "expectedAnswer": 5250, "tolerance": 5}
+      ],
+      "workingSteps": ["R16 500 − R11 250 = R5 250 surplus."],
+      "errorSignals": ["ERR_PROFIT_FORMULA", "ERR_PROFIT_LOSS_SIGN"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q06",
+      "skill": "L3.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Cafe — March**\n\n| Item | Amount (R) |\n|---|---|\n| Sales: food | 38 000 |\n| Sales: drinks | 12 000 |\n| Salaries | 14 000 |\n| Rent | 8 500 |\n| Stock | 16 000 |\n| Electricity | 1 800 |\n| Other | 1 200 |"},
+      "question": "Calculate total income.",
+      "answerMode": "numeric",
+      "expectedAnswer": 50000,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": ["R38 000 + R12 000 = R50 000."],
+      "errorSignals": ["ERR_INCOME_VS_EXPENSE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q07",
+      "skill": "L3.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Cafe — March** — Salaries R14 000; Rent R8 500; Stock R16 000; Electricity R1 800; Other R1 200."},
+      "question": "Calculate total expenditure.",
+      "answerMode": "numeric",
+      "expectedAnswer": 41500,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": ["R14 000 + R8 500 + R16 000 + R1 800 + R1 200 = R41 500."],
+      "errorSignals": ["ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q08",
+      "skill": "L3.T2.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Cafe — March** — Income R50 000; Expenses R41 500."},
+      "question": "Calculate the profit/loss.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Profit or loss (P or L)", "expectedAnswer": "P"},
+        {"label": "Amount (R)", "expectedAnswer": 8500, "tolerance": 5}
+      ],
+      "workingSteps": ["Profit = R50 000 − R41 500 = R8 500."],
+      "errorSignals": ["ERR_PROFIT_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q09",
+      "skill": "L3.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Mrs Adams — November**\n\nIncome: Salary R22 000; Bonus R3 500.\nExpenses: Bond payment R7 800; Rates R450; Groceries R5 200; Petrol R1 800; School fees R1 600; Cellphone R450; Other R800."},
+      "question": "Calculate total income.",
+      "answerMode": "numeric",
+      "expectedAnswer": 25500,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": ["R22 000 + R3 500 = R25 500."],
+      "errorSignals": ["ERR_INCOME_VS_EXPENSE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q10",
+      "skill": "L3.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Mrs Adams — November** — Bond R7 800; Rates R450; Groceries R5 200; Petrol R1 800; School fees R1 600; Cellphone R450; Other R800."},
+      "question": "Calculate total expenditure.",
+      "answerMode": "numeric",
+      "expectedAnswer": 18100,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": ["R7 800 + R450 + R5 200 + R1 800 + R1 600 + R450 + R800 = R18 100."],
+      "errorSignals": ["ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q11",
+      "skill": "L3.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Mrs Adams — November** — Income R25 500; Expenditure R18 100."},
+      "question": "Calculate surplus/deficit.",
+      "answerMode": "numeric",
+      "expectedAnswer": 7400,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": ["Surplus = R25 500 − R18 100 = R7 400."],
+      "errorSignals": ["ERR_PROFIT_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q12",
+      "skill": "L3.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Mrs Adams** — surplus R7 400 of R25 500 income."},
+      "question": "Calculate savings rate as % of income.",
+      "answerMode": "numeric",
+      "expectedAnswer": 29,
+      "tolerance": 1,
+      "unit": "%",
+      "workingSteps": ["R7 400 ÷ R25 500 × 100 ≈ 29,02%."],
+      "errorSignals": ["ERR_PERCENT_BASE_INVERTED"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q13",
+      "skill": "L3.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Cafe — Q1**\n\n| | Jan (R) | Feb (R) | Mar (R) |\n|---|---|---|---|\n| Income | 42 000 | 38 000 | 50 000 |\n| Expenses | 38 000 | 39 000 | 41 500 |"},
+      "question": "Calculate the cumulative quarterly profit/loss.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Profit or loss (P or L)", "expectedAnswer": "P"},
+        {"label": "Amount (R)", "expectedAnswer": 11500, "tolerance": 20}
+      ],
+      "workingSteps": [
+        "Total income Q1 = R42 000 + R38 000 + R50 000 = R130 000.",
+        "Total expenses Q1 = R38 000 + R39 000 + R41 500 = R118 500.",
+        "Profit = R130 000 − R118 500 = R11 500."
+      ],
+      "errorSignals": ["ERR_PROFIT_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q14",
+      "skill": "L3.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Cafe — Q1** — see prior table."},
+      "question": "Which month had a LOSS?",
+      "answerMode": "multiChoice",
+      "options": ["January", "February", "March", "None — all profitable"],
+      "expectedAnswer": "February",
+      "workingSteps": [
+        "Jan: R42 000 − R38 000 = +R4 000.",
+        "Feb: R38 000 − R39 000 = −R1 000 (loss).",
+        "Mar: R50 000 − R41 500 = +R8 500."
+      ],
+      "errorSignals": ["ERR_PROFIT_LOSS_SIGN"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q15",
+      "skill": "L3.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Household statement** — Income R20 000, Expenses R23 000."},
+      "question": "Calculate surplus/deficit and label it.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Surplus or deficit (S or D)", "expectedAnswer": "D"},
+        {"label": "Amount (R)", "expectedAnswer": 3000, "tolerance": 5}
+      ],
+      "workingSteps": ["Deficit = R23 000 − R20 000 = R3 000."],
+      "errorSignals": ["ERR_PROFIT_LOSS_SIGN", "ERR_PROFIT_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q16",
+      "skill": "L3.T2.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Mr Khoza's I&E statement (Jan)** — Income R16 500; Expenditure R11 250; Surplus R5 250."},
+      "question": "If income drops by 10% the next month with the same expenditure, calculate the new surplus.",
+      "answerMode": "numeric",
+      "expectedAnswer": 3600,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "New income = R16 500 × 0,90 = R14 850.",
+        "New surplus = R14 850 − R11 250 = R3 600."
+      ],
+      "errorSignals": ["ERR_PERCENT_DECREASE", "ERR_PROFIT_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q17",
+      "skill": "L3.T2.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Salon owner Lerato — September**\n\nIncome: Bookings R45 000; Product sales R8 000.\nExpenses: Salaries R18 000; Rent R6 500; Stock R9 200; Electricity R1 200; Marketing R1 100; Other R1 500."},
+      "question": "Construct the statement: total income, total expenses, profit.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Total income (R)", "expectedAnswer": 53000, "tolerance": 10},
+        {"label": "Total expenses (R)", "expectedAnswer": 37500, "tolerance": 10},
+        {"label": "Profit (R)", "expectedAnswer": 15500, "tolerance": 20}
+      ],
+      "workingSteps": [
+        "Income: R45 000 + R8 000 = R53 000.",
+        "Expenses: R18 000 + R6 500 + R9 200 + R1 200 + R1 100 + R1 500 = R37 500.",
+        "Profit: R53 000 − R37 500 = R15 500."
+      ],
+      "errorSignals": ["ERR_PROFIT_FORMULA", "ERR_BALANCE_RUNNING"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q18",
+      "skill": "L3.T2.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Lerato's salon — profit R15 500 of R53 000 income."},
+      "question": "Calculate profit as % of income. Round to 1 dp.",
+      "answerMode": "numeric",
+      "expectedAnswer": 29.2,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": ["R15 500 ÷ R53 000 × 100 ≈ 29,2%."],
+      "errorSignals": ["ERR_PERCENT_BASE_INVERTED"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q19",
+      "skill": "L3.T2.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Lerato's salon** — analyses which expense is largest as a % of expenses."},
+      "question": "Salaries R18 000 / Total expenses R37 500. Calculate as % to 1 dp.",
+      "answerMode": "numeric",
+      "expectedAnswer": 48,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": ["R18 000 ÷ R37 500 × 100 = 48,0%."],
+      "errorSignals": ["ERR_PERCENT_BASE_INVERTED"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L3.T2.A2.q20",
+      "skill": "L3.T2.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A learner constructs a statement and writes: 'Income = R10 000, Expenses = R12 000, Profit = R2 000.' Critique this."},
+      "question": "What is wrong with the learner's statement?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Nothing is wrong.",
+        "Profit should be R−2 000 — actually a loss of R2 000.",
+        "Income and expenses are swapped.",
+        "VAT is missing."
+      ],
+      "expectedAnswer": "Profit should be R−2 000 — actually a loss of R2 000.",
+      "workingSteps": ["Income < expenses → loss, not profit. The sign is wrong."],
+      "errorSignals": ["ERR_PROFIT_LOSS_SIGN", "ERR_PROFIT_FORMULA"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_INCOME_VS_EXPENSE": "Categorises an income item as expense or vice versa.",
+    "ERR_PROFIT_FORMULA": "Calculates profit incorrectly.",
+    "ERR_PROFIT_LOSS_SIGN": "Mislabels a loss as a profit or vice versa.",
+    "ERR_BALANCE_RUNNING": "Fails to sum the line items correctly.",
+    "ERR_PERCENT_BASE_INVERTED": "Uses the wrong base when finding what % one number is of another.",
+    "ERR_PERCENT_DECREASE": "Subtracts a % incorrectly when applying an income drop."
+  }
+}

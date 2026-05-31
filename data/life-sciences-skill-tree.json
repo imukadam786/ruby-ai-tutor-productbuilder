@@ -1,0 +1,1212 @@
+{
+  "version": "1.1",
+  "subject": "life-sciences",
+  "description": "Life Sciences skill tree, FET Grades 10-12 (CAPS). 4 Knowledge Strands: S1 Life at Molecular/Cellular/Tissue Level, S2 Life Processes in Plants and Animals, S3 Environmental Studies, S4 Diversity/Change/Continuity. Tiers = CAPS strands within a grade. Mastery = 60% of 20-item pool (FET rule, no timer). v1.1: G10 slimmed from 32 → 25 atomic skills via 7 merges. Items live in data/life-sciences-question-bank.json.",
+  "grades_covered": [10, 11, 12],
+  "levels": [
+    {
+      "id": 10,
+      "grade": 10,
+      "title": "Grade 10 — Life Sciences",
+      "description": "All four CAPS Knowledge Strands. Recommended teaching order: S1 (Molecules → Cells → Tissues) → S2 (Support and Transport) → S3 (Biosphere to Ecosystems) → S4 (Biodiversity, History of Life). 25 atomic skills.",
+      "tiers": [
+        {
+          "id": "L10.S1",
+          "title": "S1 — Life at the Molecular, Cellular and Tissue Level",
+          "atomic_skills": [
+            {
+              "id": "LSC.G10.S1.CHEM.A1",
+              "bank_skill_id": "LSC.G10.S1.CHEM.A1",
+              "title": "Inorganic compounds, food tests and nutritional analysis",
+              "description": "Water; macro/micro minerals (Na, K, Ca, P, Fe, I, nitrates, phosphates) with roles + deficiency diseases; fertilisers and eutrophication. Food tests: starch (iodine), reducing sugars (Benedict's), lipids (translucent spot), proteins (Biuret). Interpret nutritional information and compare diet vs RDA.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Chemistry of life",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "short-response", "data-interpret", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses macro and micro mineral elements", "example": "Lists iron as a macro element"},
+                {"type": "recall_slip", "description": "Swaps Benedict's and Biuret results", "example": "Says Benedict's turns purple for proteins"}
+              ],
+              "recovery_strategy": "Anchor each mineral to one role + one deficiency. Water = solvent + transport + temperature. Eutrophication = run-off → algae bloom → O2 drop → fish die. Food tests: iodine→starch (blue-black), Benedict's+HEAT→sugars (orange), Biuret→protein (purple), translucent paper→lipids.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S1.CHEM.A2",
+              "bank_skill_id": "LSC.G10.S1.CHEM.A2",
+              "title": "Organic compounds — carbohydrates, lipids, proteins, nucleic acids, vitamins",
+              "description": "Classify by element composition. Distinguish mono/di/polysaccharides; saturated vs unsaturated fats; cholesterol and heart disease; proteins as amino-acid chains sensitive to temperature and pH. Brief mention of nucleic acids and vitamins.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Chemistry of life",
+              "prerequisites": ["LSC.G10.S1.CHEM.A1"],
+              "templates": ["choice", "true-false", "match", "cloze", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses mono- vs disaccharide examples", "example": "Lists sucrose as a monosaccharide"},
+                {"type": "conceptual_gap", "description": "Thinks all fats are bad", "example": "Says unsaturated fats cause heart disease"}
+              ],
+              "recovery_strategy": "Mono = glucose, fructose; di = sucrose, maltose; poly = starch, cellulose, glycogen. Unsaturated = liquid at room temp, healthier; saturated + cholesterol = artery risk.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S1.CHEM.A3",
+              "bank_skill_id": "LSC.G10.S1.CHEM.A3",
+              "title": "Enzymes — properties and the Lock and Key Model",
+              "description": "Define enzyme as a biological catalyst (protein). Lock and Key Model. Effect of temperature and pH (denaturation). Everyday examples (biological washing powders, digestion).",
+              "caps_term": "G10 T1",
+              "caps_topic": "Chemistry of life",
+              "prerequisites": ["LSC.G10.S1.CHEM.A2"],
+              "templates": ["choice", "short-response", "data-interpret", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks high temperature always speeds enzymes up", "example": "Says enzymes work fastest at 100°C"},
+                {"type": "execution_slip", "description": "Confuses denaturation with destruction of substrate", "example": "Says high temperature destroys the food the enzyme is digesting"}
+              ],
+              "recovery_strategy": "Activity rises with temp UNTIL the optimum, then falls sharply (denaturation: active site changes shape). Each enzyme has an optimum pH.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S1.CELL.A1",
+              "bank_skill_id": "LSC.G10.S1.CELL.A1",
+              "title": "Cell structure — organelles and their functions",
+              "description": "Name and locate major organelles (cell wall, cell membrane, nucleus, cytoplasm, mitochondria, ribosomes, ER, Golgi, plastids, vacuole, lysosomes). State the function of each. Distinguish plant and animal cells.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Cells: the basic units of life",
+              "prerequisites": ["LSC.G10.S1.CHEM.A2"],
+              "templates": ["choice", "diagram-label", "match", "cloze"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps mitochondria and chloroplast roles", "example": "Says mitochondria photosynthesise"},
+                {"type": "conceptual_gap", "description": "Thinks animal cells have cell walls", "example": "Says cheek cells are bounded by cellulose"}
+              ],
+              "recovery_strategy": "Mito = energy. Chloroplast = energy capture (plants only). Cell wall = plants only. Vacuole = large in plants, small in animals.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S1.CELL.A2",
+              "bank_skill_id": "LSC.G10.S1.CELL.A2",
+              "title": "Cell membrane and transport — diffusion, osmosis, active transport",
+              "description": "Fluid mosaic model of the cell membrane. Distinguish diffusion, osmosis and active transport. Predict water movement in hypertonic, hypotonic and isotonic solutions.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Cells: the basic units of life",
+              "prerequisites": ["LSC.G10.S1.CELL.A1"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses direction of osmosis", "example": "Says water moves from low to high water concentration"},
+                {"type": "execution_slip", "description": "Treats active transport as passive", "example": "Says active transport happens down a gradient without ATP"}
+              ],
+              "recovery_strategy": "Diffusion = particles spread (high→low). Osmosis = WATER moves toward higher solute concentration (lower water). Active transport = against gradient, needs ATP.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S1.CELL.A3",
+              "bank_skill_id": "LSC.G10.S1.CELL.A3",
+              "title": "Microscopy and measuring cell size",
+              "description": "History of microscopy (lens → light → electron microscope) and cell theory. Calculate magnification using a scale line. Estimate field of view and cell size under a light microscope.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Cells: the basic units of life",
+              "prerequisites": ["LSC.G10.S1.CELL.A1"],
+              "templates": ["choice", "data-interpret", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Divides instead of multiplies in magnification formula", "example": "Says magnification = real size ÷ drawing size"},
+                {"type": "conceptual_gap", "description": "Confuses magnification with resolution", "example": "Says higher magnification always means a clearer image"}
+              ],
+              "recovery_strategy": "Magnification = drawing size ÷ real size (same units). Resolution = detail (electron > light). High magnification + poor resolution = bigger but blurry.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S1.MITO.A1",
+              "bank_skill_id": "LSC.G10.S1.MITO.A1",
+              "title": "The cell cycle and mitosis",
+              "description": "Cell cycle (interphase, mitosis, cytokinesis). Phases (prophase, metaphase, anaphase, telophase). Outcome: two genetically identical daughter cells. Role of mitosis (growth, repair, asexual reproduction). Plant vs animal cytokinesis.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Cell division: mitosis",
+              "prerequisites": ["LSC.G10.S1.CELL.A1"],
+              "templates": ["choice", "sequence", "diagram-label", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Mixes up phase order", "example": "Places anaphase before metaphase"},
+                {"type": "conceptual_gap", "description": "Thinks mitosis halves the chromosome number", "example": "Says mitosis produces gametes"}
+              ],
+              "recovery_strategy": "PMAT: Prophase → Metaphase → Anaphase → Telophase. Mitosis = identical copies (2n→2n). Plants build a cell plate; animals pinch in.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S1.MITO.A2",
+              "bank_skill_id": "LSC.G10.S1.MITO.A2",
+              "title": "Cancer and cell-division biotechnology",
+              "description": "Cancer as uncontrolled cell division — causes, treatments, attitudes. Cell-division biotechnology — cloning, stem-cell research, ethics, SA legislation.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Cell division: mitosis",
+              "prerequisites": ["LSC.G10.S1.MITO.A1"],
+              "templates": ["choice", "true-false", "scenario", "short-response", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks cancer is contagious", "example": "Says you can catch cancer from someone"},
+                {"type": "conceptual_gap", "description": "Confuses cloning with genetic modification", "example": "Says clones are designed to have different genes"}
+              ],
+              "recovery_strategy": "Cancer = cells ignore the stop-dividing signal. Not contagious. Cloning = genetic copy (same DNA). Embryonic stem cells = pluripotent; adult stem cells = limited.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S1.TISS.A1",
+              "bank_skill_id": "LSC.G10.S1.TISS.A1",
+              "title": "Plant and animal tissues",
+              "description": "Plant tissues (xylem, phloem, parenchyma, collenchyma, sclerenchyma, epidermis, meristematic) — structure and function. Four animal tissues (epithelial, connective, muscle, nerve) with examples.",
+              "caps_term": "G10 T1–T2",
+              "caps_topic": "Plant and animal tissues",
+              "prerequisites": ["LSC.G10.S1.CELL.A1"],
+              "templates": ["choice", "diagram-label", "match", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps xylem and phloem transport roles", "example": "Says phloem transports water"},
+                {"type": "recall_slip", "description": "Confuses connective and epithelial roles", "example": "Says epithelial tissue is blood"}
+              ],
+              "recovery_strategy": "Plant: Xylem=water (one-way, up); Phloem=sugar (both directions); Meristem=where cells divide. Animal: Epithelial covers, Connective supports (bone/blood), Muscle contracts, Nerve sends signals.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S1.TISS.A2",
+              "bank_skill_id": "LSC.G10.S1.TISS.A2",
+              "title": "Tissue biotechnology and indigenous knowledge",
+              "description": "Tissue-related medical biotechnology (immunity, vaccines, antibiotics, blood transfusions, in vitro fertilisation, tissue cloning). Indigenous knowledge applications (traditional healers, plant-based remedies, links to modern medicine).",
+              "caps_term": "G10 T2",
+              "caps_topic": "Plant and animal tissues",
+              "prerequisites": ["LSC.G10.S1.TISS.A1"],
+              "templates": ["choice", "scenario", "short-response", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses vaccines with antibiotics", "example": "Says antibiotics prevent measles"},
+                {"type": "recall_slip", "description": "Treats indigenous knowledge as anti-science", "example": "Says traditional healers reject all modern medicine"}
+              ],
+              "recovery_strategy": "Vaccine = teaches immune system in advance (viruses + bacteria). Antibiotic = kills bacteria (not viruses). Many SA traditional remedies (Hoodia, Pelargonium) are now scientifically studied.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.S2",
+          "title": "S2 — Life Processes in Plants and Animals",
+          "atomic_skills": [
+            {
+              "id": "LSC.G10.S2.PTRN.A1",
+              "bank_skill_id": "LSC.G10.S2.PTRN.A1",
+              "title": "Support systems in plants",
+              "description": "Distinguish herbaceous and woody plant support. Role of xylem (lignified secondary cell walls), sclerenchyma and collenchyma. Turgor pressure as support in soft plants.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Support and transport systems in plants",
+              "prerequisites": ["LSC.G10.S1.TISS.A1"],
+              "templates": ["choice", "diagram-label", "short-response", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks all plants need wood for support", "example": "Says lettuce stands up because of lignin"},
+                {"type": "execution_slip", "description": "Misuses 'turgor' for animal cells", "example": "Says animal cells get support from turgor"}
+              ],
+              "recovery_strategy": "Soft plants stand by water pressure (turgor). Woody plants stand by lignified xylem. Loss of water → wilting (loss of turgor).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S2.PTRN.A2",
+              "bank_skill_id": "LSC.G10.S2.PTRN.A2",
+              "title": "Plant transport and transpiration",
+              "description": "Structure of xylem (vessels, tracheids) and phloem (sieve tubes, companion cells). Transpiration as water-vapour loss; transpiration pull theory. Translocation in phloem. Environmental factors affecting transpiration (light, temperature, humidity, wind).",
+              "caps_term": "G10 T2",
+              "caps_topic": "Support and transport systems in plants",
+              "prerequisites": ["LSC.G10.S2.PTRN.A1"],
+              "templates": ["choice", "diagram-label", "data-interpret", "short-response", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps xylem and phloem direction", "example": "Says phloem transports water from roots to leaves"},
+                {"type": "conceptual_gap", "description": "Predicts higher humidity raises transpiration", "example": "Says wet air pulls more water out of leaves"}
+              ],
+              "recovery_strategy": "Xylem = WATER, root→leaf, one-way. Phloem = SUGAR, both directions. Transpiration rises with light, temp, wind; falls with humidity.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S2.ASUP.A1",
+              "bank_skill_id": "LSC.G10.S2.ASUP.A1",
+              "title": "Animal support — the human skeleton",
+              "description": "Functions of the skeleton (support, protection, movement, blood-cell formation, mineral storage). Axial vs appendicular skeleton. Structure of long bones and joint types.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Support systems in animals",
+              "prerequisites": ["LSC.G10.S1.TISS.A1"],
+              "templates": ["choice", "diagram-label", "match", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses axial and appendicular", "example": "Lists the femur as axial"},
+                {"type": "conceptual_gap", "description": "Misses bone marrow's blood role", "example": "Says blood is made in the heart"}
+              ],
+              "recovery_strategy": "Axial = skull, ribs, vertebrae (centre line). Appendicular = limbs + girdles. Long bones: compact outside, spongy inside, marrow makes blood cells.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S2.ASUP.A2",
+              "bank_skill_id": "LSC.G10.S2.ASUP.A2",
+              "title": "Bone disorders and indigenous knowledge of plant remedies",
+              "description": "Common bone disorders (osteoporosis, rickets, arthritis) and causes. Indigenous knowledge of plant-based treatments and links to modern medicine.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Support systems in animals",
+              "prerequisites": ["LSC.G10.S2.ASUP.A1"],
+              "templates": ["choice", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses rickets and osteoporosis", "example": "Says rickets affects only old people"},
+                {"type": "recall_slip", "description": "Misses Vitamin D / Ca link", "example": "Says iron prevents rickets"}
+              ],
+              "recovery_strategy": "Rickets = soft bones in children (Vit D / Ca). Osteoporosis = thinning bones in adults. Arthritis = joint inflammation. Many SA traditional remedies use plant extracts now studied scientifically.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S2.ASUP.A3",
+              "bank_skill_id": "LSC.G10.S2.ASUP.A3",
+              "title": "Muscles and movement",
+              "description": "Three muscle types (skeletal, smooth, cardiac). Antagonistic muscle pairs (biceps + triceps). Tendons (muscle-to-bone) and ligaments (bone-to-bone).",
+              "caps_term": "G10 T2",
+              "caps_topic": "Support systems in animals",
+              "prerequisites": ["LSC.G10.S2.ASUP.A1"],
+              "templates": ["choice", "diagram-label", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps tendon and ligament", "example": "Says tendons join bone to bone"},
+                {"type": "conceptual_gap", "description": "Thinks muscles push as well as pull", "example": "Says biceps push the arm down"}
+              ],
+              "recovery_strategy": "Tendon = muscle→bone. Ligament = bone→bone. Muscles only PULL. Pairs work in opposition.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S2.CIRC.A1",
+              "bank_skill_id": "LSC.G10.S2.CIRC.A1",
+              "title": "Heart structure, circulation and the cardiac cycle",
+              "description": "Label heart chambers, valves and major vessels. Double-circulation pathway (pulmonary + systemic). Why left ventricle wall is thicker. Cardiac cycle (atrial systole, ventricular systole, diastole). SA and AV nodes coordinating the heartbeat. Pulse rate and exercise.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Transport system in mammals",
+              "prerequisites": ["LSC.G10.S1.TISS.A1"],
+              "templates": ["choice", "diagram-label", "short-response", "scenario", "sequence", "data-interpret"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps atria and ventricles", "example": "Says blood leaves the heart through the atria"},
+                {"type": "conceptual_gap", "description": "Reverses oxygenated vs deoxygenated sides", "example": "Says oxygenated blood enters the right atrium"}
+              ],
+              "recovery_strategy": "RIGHT side = DEoxygenated (body→lungs). LEFT side = OXYGENATED (lungs→body). Left ventricle thicker for whole-body pump. Cycle: atria→ventricles→relax. SA node = pacemaker.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S2.CIRC.A2",
+              "bank_skill_id": "LSC.G10.S2.CIRC.A2",
+              "title": "Blood vessels, blood composition and lymph",
+              "description": "Distinguish arteries, veins and capillaries by structure and function. Blood components (red cells, white cells, platelets, plasma) and their functions. Lymphatic system.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Transport system in mammals",
+              "prerequisites": ["LSC.G10.S2.CIRC.A1"],
+              "templates": ["choice", "match", "diagram-label", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps red and white cell roles", "example": "Says red blood cells fight infection"},
+                {"type": "conceptual_gap", "description": "Treats arteries as always carrying oxygenated blood", "example": "Says the pulmonary artery carries oxygenated blood"}
+              ],
+              "recovery_strategy": "Arteries: thick walls, away from heart (mostly oxygenated — pulmonary artery is the exception). Veins: thin walls, valves, toward heart. Capillaries: one-cell-thick, where exchange happens.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S2.CIRC.A3",
+              "bank_skill_id": "LSC.G10.S2.CIRC.A3",
+              "title": "Cardiovascular disease and lifestyle",
+              "description": "Common cardiovascular diseases (hypertension, atherosclerosis, heart attack, stroke) and risk factors. Lifestyle choices that reduce risk. Interpret blood-pressure and cholesterol data.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Transport system in mammals",
+              "prerequisites": ["LSC.G10.S2.CIRC.A2"],
+              "templates": ["choice", "data-interpret", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks all cholesterol is bad", "example": "Says HDL causes heart disease"},
+                {"type": "recall_slip", "description": "Confuses stroke and heart attack", "example": "Says a stroke happens in the heart"}
+              ],
+              "recovery_strategy": "Heart attack = blocked coronary artery (heart muscle). Stroke = blocked or burst vessel in the brain. HDL = good, LDL = bad. Risk drops with no smoking, exercise, low saturated fat.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.S3",
+          "title": "S3 — Environmental Studies",
+          "atomic_skills": [
+            {
+              "id": "LSC.G10.S3.ECO.A1",
+              "bank_skill_id": "LSC.G10.S3.ECO.A1",
+              "title": "Biosphere, biomes and ecosystems",
+              "description": "Define biosphere, biome and ecosystem. SA biomes (Fynbos, Grassland, Savanna, Forest, Succulent Karoo, Nama Karoo, Desert, Thicket, Indian Ocean Coastal Belt). Abiotic vs biotic factors.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Biosphere to ecosystems",
+              "prerequisites": [],
+              "templates": ["choice", "match", "short-response", "data-interpret"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses biome and ecosystem", "example": "Calls a single pond a biome"},
+                {"type": "conceptual_gap", "description": "Treats abiotic and biotic as the same", "example": "Lists temperature as biotic"}
+              ],
+              "recovery_strategy": "Biosphere = all life + non-life on Earth. Biome = large climate-life region. Ecosystem = community + its abiotic environment. Abiotic = non-living; Biotic = living.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S3.ECO.A2",
+              "bank_skill_id": "LSC.G10.S3.ECO.A2",
+              "title": "Energy flow, food chains and food webs",
+              "description": "Draw and interpret food chains, food webs and energy pyramids. Producers, consumers (primary, secondary, tertiary), decomposers. Why energy decreases at each trophic level.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Biosphere to ecosystems",
+              "prerequisites": ["LSC.G10.S3.ECO.A1"],
+              "templates": ["choice", "data-interpret", "sequence", "short-response"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reverses arrow direction in a food chain", "example": "Says arrows point from predator to prey"},
+                {"type": "recall_slip", "description": "Confuses primary and secondary consumers", "example": "Calls a lion a primary consumer"}
+              ],
+              "recovery_strategy": "Arrows point in direction energy FLOWS (eaten → eater). Producer → primary → secondary → tertiary. Only ~10% energy passes up each level.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S3.ECO.A3",
+              "bank_skill_id": "LSC.G10.S3.ECO.A3",
+              "title": "Nutrient cycles — carbon, nitrogen, water",
+              "description": "Carbon, nitrogen and water cycles. Human disturbances at key steps (deforestation, fossil-fuel combustion, fertiliser use).",
+              "caps_term": "G10 T3",
+              "caps_topic": "Biosphere to ecosystems",
+              "prerequisites": ["LSC.G10.S3.ECO.A2"],
+              "templates": ["choice", "diagram-label", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Mixes up nitrification and denitrification", "example": "Says nitrification removes nitrogen from soil"},
+                {"type": "conceptual_gap", "description": "Thinks plants take nitrogen from the air directly", "example": "Says plant roots absorb N2 gas"}
+              ],
+              "recovery_strategy": "Carbon: photosynthesis ↔ respiration + combustion. Water: evaporation → condensation → precipitation. Nitrogen: fixation (N2→NH3 by bacteria) → nitrification (→NO3⁻) → uptake → denitrification (→N2).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S3.ECO.A4",
+              "bank_skill_id": "LSC.G10.S3.ECO.A4",
+              "title": "Ecological field study and seasonal change",
+              "description": "Design a simple ecological field study (abiotic + biotic factors). Compare seasons. Explain succession.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Biosphere to ecosystems",
+              "prerequisites": ["LSC.G10.S3.ECO.A3"],
+              "templates": ["scenario", "data-interpret", "short-response"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets a control variable", "example": "Compares two sites with different soil type and different light without flagging it"},
+                {"type": "conceptual_gap", "description": "Thinks succession means animals migrate", "example": "Says succession is birds flying away"}
+              ],
+              "recovery_strategy": "Field study: list abiotic + biotic factors, sample the same way, repeat across seasons. Succession = orderly replacement over time (pioneer → climax).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.S4",
+          "title": "S4 — Diversity, Change and Continuity",
+          "atomic_skills": [
+            {
+              "id": "LSC.G10.S4.BIO.A1",
+              "bank_skill_id": "LSC.G10.S4.BIO.A1",
+              "title": "Biodiversity, taxonomy and binomial naming",
+              "description": "Define biodiversity. Taxonomic hierarchy (Kingdom, Phylum, Class, Order, Family, Genus, Species). Five-kingdom system (Monera, Protista, Fungi, Plantae, Animalia). Use binomial nomenclature correctly (Genus species, italicised). Apply a simple dichotomous key.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Biodiversity and classification",
+              "prerequisites": [],
+              "templates": ["choice", "match", "sequence", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong taxonomic order", "example": "Lists Order before Class"},
+                {"type": "execution_slip", "description": "Doesn't capitalise the genus or italicise the name", "example": "Writes 'panthera Leo' instead of 'Panthera leo'"}
+              ],
+              "recovery_strategy": "Mnemonic: King Philip Came Over For Good Soup. Genus capitalised, species lowercase, both italic: *Homo sapiens*. Dichotomous key gives two choices at each step.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S4.BIO.A2",
+              "bank_skill_id": "LSC.G10.S4.BIO.A2",
+              "title": "South African biodiversity and conservation",
+              "description": "SA as a megadiverse country. Cape Floral Kingdom (Fynbos) as a global biodiversity hotspot. Threats (habitat loss, invasive species, poaching, climate change). Conservation responses (national parks, CITES, Red List).",
+              "caps_term": "G10 T4",
+              "caps_topic": "Biodiversity and classification",
+              "prerequisites": ["LSC.G10.S4.BIO.A1"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses endemic with endangered", "example": "Says endemic means rare"},
+                {"type": "recall_slip", "description": "Misses Fynbos as a biodiversity hotspot", "example": "Names Savanna as SA's most diverse biome"}
+              ],
+              "recovery_strategy": "Endemic = found ONLY in one place. Endangered = at risk of extinction. SA's Cape Floral Kingdom is the smallest of the six floral kingdoms but most species per area.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G10.S4.HOL.A1",
+              "bank_skill_id": "LSC.G10.S4.HOL.A1",
+              "title": "History of life, mass extinctions and South African fossil sites",
+              "description": "Define a fossil and how they form. Order major events in life's history. Five major mass extinctions and causes. SA fossil sites — Karoo (Permian-Triassic), Cradle of Humankind (Sterkfontein, Malapa, Naledi — hominins).",
+              "caps_term": "G10 T4",
+              "caps_topic": "History of life on Earth",
+              "prerequisites": ["LSC.G10.S4.BIO.A1"],
+              "templates": ["choice", "sequence", "data-interpret", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Places mammals before dinosaurs incorrectly", "example": "Says modern mammals evolved before dinosaurs"},
+                {"type": "conceptual_gap", "description": "Thinks all extinctions were caused by asteroid impacts", "example": "Says the end-Permian was an asteroid"}
+              ],
+              "recovery_strategy": "Simple cells (3.8 Gya) → photosynthesis → O2 → Cambrian explosion (~540 Mya) → dinosaurs (Mesozoic) → mammals (Cenozoic). End-Permian (252 Mya) = biggest (volcanic). End-Cretaceous (66 Mya) = killed dinosaurs (asteroid).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "grade": 11,
+      "title": "Grade 11 — Life Sciences",
+      "description": "Grade 11 covers Strands 2 (Life Processes), 3 (Environmental Studies) and 4 (Diversity, Change and Continuity). CAPS teaching order: S4 first (microorganisms → plants → animals), then S2 (energy + nutrition + respiration + gas exchange + excretion), then S3 (population ecology + human impact). 23 atomic skills.",
+      "tiers": [
+        {
+          "id": "L11.S4",
+          "title": "S4 — Diversity, Change and Continuity",
+          "atomic_skills": [
+            {
+              "id": "LSC.G11.S4.MICR.A1",
+              "bank_skill_id": "LSC.G11.S4.MICR.A1",
+              "title": "Classification of microorganisms — viruses, bacteria, protists, fungi",
+              "description": "Distinguish the four microbe groups by cellular features. Viruses (acellular, protein coat + nucleic acid). Bacteria (prokaryote, no nucleus). Protists (eukaryote, mostly single-celled). Fungi (eukaryote, chitin walls, absorptive). Examples for each.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Biodiversity — microorganisms",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "match", "diagram-label", "short-response"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats viruses as cells", "example": "Lists viruses in Monera kingdom"},
+                {"type": "recall_slip", "description": "Confuses fungi and plants", "example": "Says mushrooms photosynthesise"}
+              ],
+              "recovery_strategy": "Virus = no cell. Bacteria = prokaryote (no nucleus). Protist = eukaryote single-celled. Fungi = eukaryote chitin walls + absorptive feeding.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S4.MICR.A2",
+              "bank_skill_id": "LSC.G11.S4.MICR.A2",
+              "title": "Microorganisms in disease, food and biotechnology",
+              "description": "Microbe-caused diseases (TB, cholera, HIV/AIDS, malaria, COVID-19). Beneficial microbes in food (sorghum beer, amasi, bread, cheese). Antibiotics + resistance. Vaccines. Sewage treatment.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Biodiversity — microorganisms",
+              "prerequisites": ["LSC.G11.S4.MICR.A1"],
+              "templates": ["choice", "scenario", "short-response", "data-interpret", "true-false"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Antibiotic treats viral infection", "example": "Prescribes antibiotic for flu"},
+                {"type": "recall_slip", "description": "Confuses TB and HIV", "example": "Says TB is caused by a virus"}
+              ],
+              "recovery_strategy": "TB = bacterium (Mycobacterium tuberculosis). HIV = virus. Cholera = bacterium. Malaria = protist (Plasmodium). Antibiotics target bacteria. Vaccines train the immune system.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S4.PLNT.A1",
+              "bank_skill_id": "LSC.G11.S4.PLNT.A1",
+              "title": "Bryophytes and pteridophytes — mosses and ferns",
+              "description": "Bryophytes (mosses, liverworts) — no vascular tissue, no true roots, need water for fertilisation. Pteridophytes (ferns) — vascular, true roots/stems/leaves, still need water for fertilisation. Alternation of generations.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Biodiversity — plants",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "match", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Says mosses have true roots", "example": "Describes moss rhizoids as roots"},
+                {"type": "conceptual_gap", "description": "Thinks ferns produce seeds", "example": "Lists ferns as seed plants"}
+              ],
+              "recovery_strategy": "Mosses = no vascular, no real roots (rhizoids), water for fertilisation. Ferns = vascular but still no seeds, spores. Both need water for sperm to swim to egg.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S4.PLNT.A2",
+              "bank_skill_id": "LSC.G11.S4.PLNT.A2",
+              "title": "Gymnosperms and angiosperms — seed plants",
+              "description": "Gymnosperms (cycads, conifers) — naked seeds in cones, no flowers. Angiosperms — flowering plants with seeds in fruits. Monocots vs dicots. SA examples (cycads, fynbos, Marula, indigenous trees).",
+              "caps_term": "G11 T1",
+              "caps_topic": "Biodiversity — plants",
+              "prerequisites": ["LSC.G11.S4.PLNT.A1"],
+              "templates": ["choice", "match", "diagram-label", "short-response", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses monocot/dicot features", "example": "Says grass is a dicot"},
+                {"type": "conceptual_gap", "description": "Thinks gymnosperms have flowers", "example": "Says pine cones are flowers"}
+              ],
+              "recovery_strategy": "Gymnosperm = naked seeds in cones (pines, cycads). Angiosperm = seeds in fruits (most plants). Monocot: 1 cotyledon, parallel veins, fibrous roots. Dicot: 2 cotyledons, net veins, tap root.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S4.PREP.A1",
+              "bank_skill_id": "LSC.G11.S4.PREP.A1",
+              "title": "Flower structure and pollination",
+              "description": "Parts of a typical flower (sepals, petals, stamens with anther/filament, carpel with stigma/style/ovary). Types of pollination (wind, insect, bird). SA pollinators (sunbirds, carpenter bees, beetles, bats).",
+              "caps_term": "G11 T1",
+              "caps_topic": "Reproduction in plants",
+              "prerequisites": ["LSC.G11.S4.PLNT.A2"],
+              "templates": ["choice", "diagram-label", "scenario", "short-response", "match"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses stamen and carpel", "example": "Says the stigma makes pollen"},
+                {"type": "conceptual_gap", "description": "Thinks all flowers are insect-pollinated", "example": "Denies wind pollination exists"}
+              ],
+              "recovery_strategy": "Male = stamen (anther + filament). Female = carpel (stigma + style + ovary). Wind-pollinated = small/dull/no nectar. Insect/bird-pollinated = colourful, nectar, scent.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S4.PREP.A2",
+              "bank_skill_id": "LSC.G11.S4.PREP.A2",
+              "title": "Fertilisation, fruit, seed and dispersal",
+              "description": "Double fertilisation in angiosperms (zygote + endosperm). Fruit develops from ovary; seed develops from ovule. Seed structure (embryo, food store, testa). Types of seed dispersal (wind, water, animal, explosive). Germination conditions.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Reproduction in plants",
+              "prerequisites": ["LSC.G11.S4.PREP.A1"],
+              "templates": ["choice", "diagram-label", "scenario", "short-response", "sequence"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses fruit and seed origins", "example": "Says seed develops from ovary"},
+                {"type": "conceptual_gap", "description": "Misses double fertilisation", "example": "Says only one sperm cell is involved"}
+              ],
+              "recovery_strategy": "Ovary → fruit. Ovule → seed. Double fertilisation: 2 sperm cells = 1 makes zygote, 1 makes endosperm. Germination needs water + warmth + O2.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S4.ANIM.A1",
+              "bank_skill_id": "LSC.G11.S4.ANIM.A1",
+              "title": "Invertebrate phyla — main groups",
+              "description": "Major phyla: Porifera (sponges), Cnidaria (jellyfish, sea anemones), Platyhelminthes (flatworms), Nematoda (roundworms), Annelida (segmented worms), Mollusca (snails, octopus), Arthropoda (insects, crustaceans), Echinodermata (starfish). Distinguishing features + SA examples.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Biodiversity — animals",
+              "prerequisites": [],
+              "templates": ["choice", "match", "scenario", "short-response", "diagram-label"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Mixes up Cnidaria and Mollusca", "example": "Calls a snail a cnidarian"},
+                {"type": "conceptual_gap", "description": "Thinks insects are not animals", "example": "Says insects are a separate kingdom"}
+              ],
+              "recovery_strategy": "Arthropods = exoskeleton + jointed legs (insects, spiders, crabs). Molluscs = soft body, often shell (snail, octopus). Annelids = segmented. Echinoderms = five-fold radial symmetry (starfish).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S4.ANIM.A2",
+              "bank_skill_id": "LSC.G11.S4.ANIM.A2",
+              "title": "Chordates — fish, amphibians, reptiles, birds, mammals",
+              "description": "Phylum Chordata: notochord, dorsal nerve cord. Classes: Pisces, Amphibia, Reptilia, Aves, Mammalia. Defining features, evolutionary transitions, SA examples.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Biodiversity — animals",
+              "prerequisites": ["LSC.G11.S4.ANIM.A1"],
+              "templates": ["choice", "sequence", "match", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses amphibian and reptile", "example": "Calls a frog a reptile"},
+                {"type": "conceptual_gap", "description": "Thinks birds are reptiles", "example": "Says birds are cold-blooded"}
+              ],
+              "recovery_strategy": "Fish = gills, fins, scales. Amphibian = moist skin, larvae in water. Reptile = scales, lay eggs on land, cold-blooded. Birds = feathers, warm-blooded, beaks. Mammals = fur, milk, warm-blooded.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.S2",
+          "title": "S2 — Life Processes in Plants and Animals",
+          "atomic_skills": [
+            {
+              "id": "LSC.G11.S2.PHOT.A1",
+              "bank_skill_id": "LSC.G11.S2.PHOT.A1",
+              "title": "Photosynthesis — process and pigments",
+              "description": "Chloroplast structure (thylakoids, stroma, grana). Light-dependent reactions (light + water → ATP, NADPH, O2). Light-independent reactions / Calvin cycle (CO2 + ATP + NADPH → glucose). Overall word equation. Chlorophyll a, b, and accessory pigments.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Photosynthesis",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "sequence", "short-response", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Mixes up light/dark reactions", "example": "Says Calvin cycle needs light directly"},
+                {"type": "conceptual_gap", "description": "Says O2 comes from CO2", "example": "Claims oxygen comes from carbon dioxide splitting"}
+              ],
+              "recovery_strategy": "Light reactions: in thylakoids, water split → O2 + ATP + NADPH. Calvin cycle: in stroma, CO2 fixed using ATP/NADPH → glucose. O2 comes from water, NOT CO2.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S2.PHOT.A2",
+              "bank_skill_id": "LSC.G11.S2.PHOT.A2",
+              "title": "Photosynthesis — limiting factors and applications",
+              "description": "Light intensity, CO2, temperature, water as limiting factors. Interpret rate-of-photosynthesis graphs. Greenhouse use (CO2 enrichment, controlled temperature). Importance for SA food security.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Photosynthesis",
+              "prerequisites": ["LSC.G11.S2.PHOT.A1"],
+              "templates": ["choice", "data-interpret", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks light is unlimited", "example": "Says light never limits photosynthesis"},
+                {"type": "execution_slip", "description": "Wrong limiting-factor identification", "example": "Names CO2 even when light is clearly limiting"}
+              ],
+              "recovery_strategy": "Limiting factor = the one in short supply that holds back the rate. Plot rate vs each factor — the flat plateau tells you which factor is limiting and which isn't.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S2.NUTR.A1",
+              "bank_skill_id": "LSC.G11.S2.NUTR.A1",
+              "title": "Human digestive system — structure and processes",
+              "description": "Mouth → oesophagus → stomach → small intestine → large intestine → anus. Mechanical + chemical digestion. Enzymes (amylase, pepsin, lipase, trypsin). Absorption in villi. Role of liver and pancreas.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Animal nutrition",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "sequence", "match", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps pepsin and amylase locations", "example": "Says amylase digests protein"},
+                {"type": "conceptual_gap", "description": "Thinks the stomach absorbs all nutrients", "example": "Says food is absorbed in the stomach"}
+              ],
+              "recovery_strategy": "Amylase (saliva, pancreas) → starch. Pepsin (stomach) → protein. Lipase (pancreas) → fat. Absorption mainly in the small intestine via villi (huge surface area).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S2.NUTR.A2",
+              "bank_skill_id": "LSC.G11.S2.NUTR.A2",
+              "title": "Balanced diet, malnutrition and diet-related diseases",
+              "description": "Food groups + their roles. Balanced diet principles. Kwashiorkor (protein deficiency), marasmus (energy + protein deficiency), obesity, type 2 diabetes. SA public-health context. Reading food labels.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Animal nutrition",
+              "prerequisites": ["LSC.G11.S2.NUTR.A1"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses kwashiorkor and marasmus", "example": "Says kwashiorkor is total energy deficiency"},
+                {"type": "conceptual_gap", "description": "Thinks fat = always bad", "example": "Cuts ALL fat from diet"}
+              ],
+              "recovery_strategy": "Kwashiorkor = protein deficiency, swollen belly, hair changes. Marasmus = both energy + protein lacking, severe wasting. Obesity + Type 2 diabetes = excess + poor diet.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S2.RESP.A1",
+              "bank_skill_id": "LSC.G11.S2.RESP.A1",
+              "title": "Aerobic and anaerobic respiration",
+              "description": "Aerobic respiration: glycolysis → Krebs → ETC. Overall equation. Anaerobic respiration: lactic-acid fermentation in muscle; alcohol fermentation in yeast. ATP yields. Mitochondrial role.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Respiration",
+              "prerequisites": [],
+              "templates": ["choice", "sequence", "scenario", "short-response", "data-interpret"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Thinks anaerobic respiration uses oxygen", "example": "Says anaerobic respiration requires O2"},
+                {"type": "execution_slip", "description": "Wrong ATP yield comparison", "example": "Says anaerobic respiration gives more ATP"}
+              ],
+              "recovery_strategy": "Aerobic = needs O2, ~36 ATP, CO2 + H2O. Anaerobic = no O2, only 2 ATP. Muscles → lactic acid. Yeast → ethanol + CO2 (alcohol fermentation).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S2.RESP.A2",
+              "bank_skill_id": "LSC.G11.S2.RESP.A2",
+              "title": "Respiration vs photosynthesis; exercise effects",
+              "description": "Compare respiration and photosynthesis (reactants, products, location, energy flow). How they connect in living systems. Effects of exercise: increased breathing, heart rate, sweating. Oxygen debt and recovery.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Respiration",
+              "prerequisites": ["LSC.G11.S2.RESP.A1"],
+              "templates": ["choice", "data-interpret", "scenario", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says plants only photosynthesise", "example": "Denies plants respire"},
+                {"type": "conceptual_gap", "description": "Thinks oxygen debt = permanent damage", "example": "Says oxygen debt cannot be repaid"}
+              ],
+              "recovery_strategy": "Plants do BOTH — photosynthesise (day) AND respire (24/7). Oxygen debt = the extra O2 needed after exercise to oxidise the lactic acid built up.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S2.GAS.A1",
+              "bank_skill_id": "LSC.G11.S2.GAS.A1",
+              "title": "Gas exchange in mammals — lungs and ventilation",
+              "description": "Respiratory pathway: nose/mouth → trachea → bronchi → bronchioles → alveoli. Ventilation mechanism (intercostal muscles + diaphragm). Gas exchange across alveolar wall + capillary wall. Adaptations of alveoli (surface area, moisture, thin wall, blood supply).",
+              "caps_term": "G11 T2",
+              "caps_topic": "Gas exchange",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "sequence", "short-response", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Mixes up inhalation/exhalation muscle action", "example": "Says diaphragm relaxes during inhalation"},
+                {"type": "conceptual_gap", "description": "Thinks lungs muscles actively pull", "example": "Says lungs pull air in"}
+              ],
+              "recovery_strategy": "Inhalation: diaphragm contracts (flattens), intercostals contract, chest volume up → pressure drops → air rushes in. Exhalation: opposite. Alveoli features: 1-cell-thick + moist + huge area + capillaries.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S2.GAS.A2",
+              "bank_skill_id": "LSC.G11.S2.GAS.A2",
+              "title": "Gas exchange in plants, fish and insects",
+              "description": "Plants: stomata for CO2/O2 exchange in leaves. Fish: gills with countercurrent flow. Insects: tracheal system (spiracles, tracheae, tracheoles). Surface-area-to-volume principle.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Gas exchange",
+              "prerequisites": ["LSC.G11.S2.GAS.A1"],
+              "templates": ["choice", "match", "diagram-label", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Says fish use lungs", "example": "Describes fish breathing in lungs"},
+                {"type": "conceptual_gap", "description": "Thinks insects use lungs", "example": "Says insects have small lungs"}
+              ],
+              "recovery_strategy": "Plants: stomata (mainly underside of leaf). Fish: gills (gas-rich water flows opposite blood = countercurrent). Insects: tracheae deliver O2 directly to cells (no blood transport).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S2.EXCR.A1",
+              "bank_skill_id": "LSC.G11.S2.EXCR.A1",
+              "title": "Kidney structure and the nephron",
+              "description": "Kidney location, renal artery and vein. Nephron structure (Bowman's capsule, proximal tubule, loop of Henle, distal tubule, collecting duct). Three processes: ultrafiltration, selective reabsorption, secretion. Urine formation.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Excretion",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "sequence", "short-response", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses ultrafiltration and reabsorption", "example": "Says glucose is filtered out and not reabsorbed"},
+                {"type": "conceptual_gap", "description": "Thinks urine = pure waste", "example": "Says urine has no water"}
+              ],
+              "recovery_strategy": "Ultrafiltration in Bowman's capsule = blood squeezed → filtrate. Reabsorption in proximal tubule = useful stuff back (glucose, salts, water). Secretion = extra waste added.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S2.EXCR.A2",
+              "bank_skill_id": "LSC.G11.S2.EXCR.A2",
+              "title": "Excretory disorders and treatments",
+              "description": "Kidney failure causes (diabetes, hypertension, infection). Symptoms. Dialysis (haemodialysis, peritoneal). Kidney transplants. Lifestyle factors. SA access to dialysis context.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Excretion",
+              "prerequisites": ["LSC.G11.S2.EXCR.A1"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses dialysis with transplant", "example": "Says dialysis replaces the kidney"},
+                {"type": "conceptual_gap", "description": "Thinks kidney damage is reversible always", "example": "Says you can repair kidneys easily"}
+              ],
+              "recovery_strategy": "Dialysis = machine filters blood (does kidney's job). Transplant = donor kidney implanted. Major SA causes: diabetes + hypertension. Prevention = control BP, blood sugar, hydration.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.S3",
+          "title": "S3 — Environmental Studies",
+          "atomic_skills": [
+            {
+              "id": "LSC.G11.S3.POP.A1",
+              "bank_skill_id": "LSC.G11.S3.POP.A1",
+              "title": "Population growth and limiting factors",
+              "description": "Birth rate, death rate, immigration, emigration. Exponential (J) and logistic (S) growth curves. Carrying capacity. Density-dependent vs density-independent factors. Quadrat and mark-recapture sampling.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Population ecology",
+              "prerequisites": [],
+              "templates": ["choice", "data-interpret", "scenario", "short-response", "diagram-label"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses J and S curves", "example": "Says J-curve is logistic"},
+                {"type": "conceptual_gap", "description": "Misses carrying capacity", "example": "Says populations grow forever"}
+              ],
+              "recovery_strategy": "J-curve = unlimited resources, exponential. S-curve = approaches carrying capacity (K). Density-dependent: more crowded = more limiting (disease, food). Density-independent: same effect regardless of density (storms, fire).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S3.POP.A2",
+              "bank_skill_id": "LSC.G11.S3.POP.A2",
+              "title": "Community ecology and species interactions",
+              "description": "Predation, competition (intra/inter), parasitism, mutualism, commensalism. Niche concept. Ecological succession (primary, secondary). SA examples (lion–zebra, fynbos succession, mycorrhizae).",
+              "caps_term": "G11 T3",
+              "caps_topic": "Population ecology",
+              "prerequisites": ["LSC.G11.S3.POP.A1"],
+              "templates": ["choice", "match", "scenario", "short-response", "data-interpret"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses mutualism with parasitism", "example": "Says tick-cattle is mutualism"},
+                {"type": "conceptual_gap", "description": "Thinks two species can share an identical niche", "example": "Says competitive exclusion never happens"}
+              ],
+              "recovery_strategy": "Mutualism = both benefit. Commensalism = one benefits, other unaffected. Parasitism = one benefits, other harmed. Predation = one eats the other. Competition = same resource.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S3.IMP.A1",
+              "bank_skill_id": "LSC.G11.S3.IMP.A1",
+              "title": "Atmosphere — greenhouse effect, climate change and ozone",
+              "description": "Natural vs enhanced greenhouse effect. Main greenhouse gases (CO2, CH4, N2O, water vapour). Sources of human emissions. Consequences: warming, droughts, sea-level rise, ocean acidification. Ozone-layer depletion (CFCs). SA-specific impacts.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Human impact on the environment",
+              "prerequisites": [],
+              "templates": ["choice", "data-interpret", "scenario", "short-response", "true-false", "diagram-label"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses greenhouse effect with ozone depletion", "example": "Says CFCs cause global warming directly"},
+                {"type": "recall_slip", "description": "Says CO2 destroys ozone", "example": "Lists CO2 as ozone-layer chemical"}
+              ],
+              "recovery_strategy": "Greenhouse = traps heat (CO2, CH4). Ozone depletion = upper atmosphere thinning (CFCs). They are DIFFERENT problems — though both human-caused atmospheric harm.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S3.IMP.A2",
+              "bank_skill_id": "LSC.G11.S3.IMP.A2",
+              "title": "Water, soil and alien invasive species",
+              "description": "Water pollution sources (sewage, fertilisers, industrial). Eutrophication recap. Soil erosion + overgrazing. Alien invasive species (Black Wattle, Port Jackson, water hyacinth) and their water/biodiversity costs.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Human impact on the environment",
+              "prerequisites": ["LSC.G11.S3.IMP.A1"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses alien invasive with indigenous", "example": "Says Black Wattle is indigenous"},
+                {"type": "conceptual_gap", "description": "Misses alien species water cost", "example": "Says alien plants don't affect water supply"}
+              ],
+              "recovery_strategy": "Alien invasive = brought from outside, spreads aggressively, harms ecosystems. SA Working for Water programme clears them — saves water + restores indigenous vegetation.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G11.S3.IMP.A3",
+              "bank_skill_id": "LSC.G11.S3.IMP.A3",
+              "title": "Biodiversity loss and South African conservation responses",
+              "description": "Drivers: habitat loss, overharvesting (rhino, abalone), invasive species, climate change. SA conservation responses: SANParks, CapeNature, Working for Water, Wildlife Act, CITES. Flagship species. Sustainable use.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Human impact on the environment",
+              "prerequisites": ["LSC.G11.S3.IMP.A2"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks only government can conserve", "example": "Says private people can't help conservation"},
+                {"type": "recall_slip", "description": "Wrong SA park/region", "example": "Places Cape Floral Kingdom in Limpopo"}
+              ],
+              "recovery_strategy": "SA conservation = government (SANParks, CapeNature), NGOs (WWF-SA), communities, private land. CITES regulates international trade in endangered species. Demand reduction is also key.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 — Life Sciences",
+      "description": "Grade 12 covers Strands 1 (Molecular/Cellular — DNA/RNA/Meiosis), 2 (Life Processes — Reproduction, Nervous, Endocrine, Homeostasis) and 4 (Diversity — Evolution, Human Evolution). Strand 3 (Human Impact) is taught in Gr11 but examined in NSC at end of Gr12 — learners revising for matric should reference G11 IMP.A1–A3. 22 atomic skills.",
+      "tiers": [
+        {
+          "id": "L12.S1",
+          "title": "S1 — Life at the Molecular, Cellular and Tissue Level",
+          "atomic_skills": [
+            {
+              "id": "LSC.G12.S1.DNA.A1",
+              "bank_skill_id": "LSC.G12.S1.DNA.A1",
+              "title": "DNA structure and the genetic code",
+              "description": "Double helix; nucleotide structure (sugar, phosphate, base); base pairing A-T, G-C; Chargaff's rules; antiparallel strands.",
+              "caps_term": "G12 T1",
+              "caps_topic": "DNA: code of life",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "match", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong base pairing", "example": "Pairs A with G"},
+                {"type": "conceptual_gap", "description": "Confuses DNA backbone", "example": "Says bases form the sugar-phosphate backbone"}
+              ],
+              "recovery_strategy": "Double helix = two strands twisted. Backbone = sugar (deoxyribose) + phosphate. Bases inside: A-T (2 bonds), G-C (3 bonds). Strands run opposite directions (antiparallel).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S1.DNA.A2",
+              "bank_skill_id": "LSC.G12.S1.DNA.A2",
+              "title": "DNA replication",
+              "description": "Semi-conservative replication; DNA helicase, polymerase, leading and lagging strand basics; why exact copying matters.",
+              "caps_term": "G12 T1",
+              "caps_topic": "DNA: code of life",
+              "prerequisites": ["LSC.G12.S1.DNA.A1"],
+              "templates": ["choice", "sequence", "scenario", "short-response", "data-interpret"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Says replication is conservative", "example": "Claims both old strands stay together"},
+                {"type": "conceptual_gap", "description": "Replication = transcription", "example": "Says DNA replication produces RNA"}
+              ],
+              "recovery_strategy": "Semi-conservative = each new molecule has 1 old + 1 new strand. Helicase unzips. Polymerase adds bases to match. Result: 2 identical DNA molecules.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S1.PROT.A1",
+              "bank_skill_id": "LSC.G12.S1.PROT.A1",
+              "title": "Transcription and translation",
+              "description": "RNA (mRNA, tRNA, rRNA); transcription (DNA → mRNA); translation (mRNA → protein at ribosome); codon table; one gene → one polypeptide.",
+              "caps_term": "G12 T1",
+              "caps_topic": "RNA and protein synthesis",
+              "prerequisites": ["LSC.G12.S1.DNA.A1"],
+              "templates": ["choice", "diagram-label", "sequence", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps transcription and translation", "example": "Says protein is made in the nucleus"},
+                {"type": "conceptual_gap", "description": "Thinks all DNA is translated", "example": "Says every base codes for protein"}
+              ],
+              "recovery_strategy": "Transcription: DNA → mRNA (in nucleus). Translation: mRNA → protein (at ribosomes in cytoplasm). Codon = 3 mRNA bases = 1 amino acid.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S1.PROT.A2",
+              "bank_skill_id": "LSC.G12.S1.PROT.A2",
+              "title": "Mutations and genetic conditions",
+              "description": "Point mutations (substitution, deletion, insertion); frameshift; sickle cell, albinism, Down syndrome; mutagens (UV, smoke, radiation).",
+              "caps_term": "G12 T1",
+              "caps_topic": "RNA and protein synthesis",
+              "prerequisites": ["LSC.G12.S1.PROT.A1"],
+              "templates": ["choice", "scenario", "short-response", "data-interpret", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses point and frameshift", "example": "Says a deletion is a point mutation in the strict sense"},
+                {"type": "conceptual_gap", "description": "Thinks all mutations are harmful", "example": "Says no mutation is ever beneficial"}
+              ],
+              "recovery_strategy": "Point = one base. Frameshift = insertion/deletion that shifts the reading frame. Some mutations are neutral or beneficial; most harmful or neutral.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S1.MEI.A1",
+              "bank_skill_id": "LSC.G12.S1.MEI.A1",
+              "title": "Meiosis — process and stages",
+              "description": "Meiosis I (homologous chromosomes separate) and II (sister chromatids separate); crossing over (prophase I); reduction division (2n → n); independent assortment.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Meiosis",
+              "prerequisites": ["LSC.G12.S1.DNA.A1"],
+              "templates": ["choice", "sequence", "diagram-label", "short-response", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses meiosis I vs II", "example": "Says sister chromatids separate in meiosis I"},
+                {"type": "conceptual_gap", "description": "Thinks meiosis = mitosis with extra step", "example": "Says daughter cells are genetically identical"}
+              ],
+              "recovery_strategy": "Meiosis I = HOMOLOGUES separate (reduction). Meiosis II = SISTER CHROMATIDS separate (like mitosis). End result: 4 genetically different haploid cells.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S1.MEI.A2",
+              "bank_skill_id": "LSC.G12.S1.MEI.A2",
+              "title": "Significance of meiosis and chromosomal abnormalities",
+              "description": "Meiosis generates genetic variation (crossing over + independent assortment + fertilisation). Non-disjunction → trisomy/monosomy. Down syndrome (trisomy 21). Importance for evolution.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Meiosis",
+              "prerequisites": ["LSC.G12.S1.MEI.A1"],
+              "templates": ["choice", "scenario", "short-response", "data-interpret", "true-false"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks variation comes from mitosis", "example": "Says mitosis gives variation"},
+                {"type": "recall_slip", "description": "Wrong chromosome number for Down syndrome", "example": "Says Down syndrome is monosomy 21"}
+              ],
+              "recovery_strategy": "Meiosis = variation (3 sources). Non-disjunction = chromosome stays with sibling → trisomy or monosomy. Down syndrome = trisomy 21 (extra copy of chromosome 21).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.S2",
+          "title": "S2 — Life Processes in Plants and Animals",
+          "atomic_skills": [
+            {
+              "id": "LSC.G12.S2.VREP.A1",
+              "bank_skill_id": "LSC.G12.S2.VREP.A1",
+              "title": "Reproduction in vertebrates — strategies",
+              "description": "External vs internal fertilisation; oviparity, ovoviviparity, viviparity; parental care; r-selection vs K-selection.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Reproduction in vertebrates",
+              "prerequisites": [],
+              "templates": ["choice", "match", "scenario", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses oviparous and viviparous", "example": "Says a bird is viviparous"},
+                {"type": "conceptual_gap", "description": "Thinks parental care = always good", "example": "Says K-selection always wins"}
+              ],
+              "recovery_strategy": "External = fish/amphibians in water. Internal = reptiles/birds/mammals. Oviparous = lays eggs. Viviparous = live young. K-selection = few offspring + much care. r-selection = many offspring + little care.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.HREP.A1",
+              "bank_skill_id": "LSC.G12.S2.HREP.A1",
+              "title": "Human reproductive anatomy",
+              "description": "Male: testes, epididymis, vas deferens, prostate, seminal vesicle, penis. Female: ovaries, fallopian tubes, uterus, cervix, vagina. Gamete production.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Human reproduction",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "match", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Mixes male/female structures", "example": "Says fallopian tubes are in males"},
+                {"type": "recall_slip", "description": "Wrong sperm/egg origin", "example": "Says eggs are made in the uterus"}
+              ],
+              "recovery_strategy": "Sperm made in testes (continuously). Eggs released from ovaries (monthly). Fertilisation in fallopian tube. Implantation in uterus.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.HREP.A2",
+              "bank_skill_id": "LSC.G12.S2.HREP.A2",
+              "title": "Menstrual cycle, fertilisation and pregnancy",
+              "description": "Menstrual cycle phases (menstrual, follicular, ovulation, luteal); hormones (FSH, LH, oestrogen, progesterone); fertilisation; implantation; pregnancy; birth.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Human reproduction",
+              "prerequisites": ["LSC.G12.S2.HREP.A1"],
+              "templates": ["choice", "sequence", "data-interpret", "short-response", "diagram-label"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong cycle hormone order", "example": "Says progesterone peaks before ovulation"},
+                {"type": "conceptual_gap", "description": "Confuses ovulation timing", "example": "Says ovulation is day 1"}
+              ],
+              "recovery_strategy": "28-day cycle: Day 1 = menstruation; ~Day 14 = ovulation; Day 28 = end. FSH grows follicle, LH triggers ovulation, oestrogen and progesterone build up the uterus.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.HREP.A3",
+              "bank_skill_id": "LSC.G12.S2.HREP.A3",
+              "title": "Contraception and STIs",
+              "description": "Contraceptive methods (barrier, hormonal, IUD, sterilisation, natural). STIs: HIV/AIDS, gonorrhoea, syphilis, chlamydia, HPV. SA epidemiology. Prevention.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Human reproduction",
+              "prerequisites": ["LSC.G12.S2.HREP.A2"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Says condoms only prevent pregnancy", "example": "Forgets STI prevention role"},
+                {"type": "conceptual_gap", "description": "Thinks STIs only spread sexually", "example": "Forgets vertical transmission of HIV"}
+              ],
+              "recovery_strategy": "Condom = pregnancy + STI. Pill = pregnancy only. HIV = virus, ARV treatment + U=U. Many STIs are bacterial (curable with antibiotics).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.NRV.A1",
+              "bank_skill_id": "LSC.G12.S2.NRV.A1",
+              "title": "Central nervous system — brain and spinal cord",
+              "description": "Brain parts: cerebrum, cerebellum, medulla oblongata, hypothalamus. Functions of each. Spinal cord. Meninges. CSF.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Nervous system",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "match", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong cerebellum vs cerebrum", "example": "Says cerebellum is for thinking"},
+                {"type": "recall_slip", "description": "Wrong medulla function", "example": "Says medulla controls vision"}
+              ],
+              "recovery_strategy": "Cerebrum = thinking/voluntary. Cerebellum = balance/coordination. Medulla = heartbeat/breathing. Hypothalamus = temperature/water/hormones.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.NRV.A2",
+              "bank_skill_id": "LSC.G12.S2.NRV.A2",
+              "title": "Neurons, reflex arc and nervous disorders",
+              "description": "Neuron structure (dendrites, cell body, axon, myelin). Sensory, motor, relay neurons. Synapse. Reflex arc. Common disorders (Parkinson's, Alzheimer's, MS).",
+              "caps_term": "G12 T2",
+              "caps_topic": "Nervous system",
+              "prerequisites": ["LSC.G12.S2.NRV.A1"],
+              "templates": ["choice", "diagram-label", "sequence", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong reflex arc order", "example": "Says motor neuron comes before sensory"},
+                {"type": "conceptual_gap", "description": "Thinks reflex goes through brain", "example": "Says you 'decide' to pull hand away"}
+              ],
+              "recovery_strategy": "Reflex arc: stimulus → receptor → sensory neuron → spinal cord (relay) → motor neuron → effector → response. Bypasses brain for speed.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.SENS.A1",
+              "bank_skill_id": "LSC.G12.S2.SENS.A1",
+              "title": "The eye — structure, vision and defects",
+              "description": "Eye anatomy (cornea, iris, pupil, lens, retina, rods, cones, optic nerve). Image formation. Accommodation. Myopia (short-sighted), hypermetropia (long-sighted), cataracts, astigmatism.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Senses",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "scenario", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Rods/cones confusion", "example": "Says rods detect colour"},
+                {"type": "conceptual_gap", "description": "Wrong defect correction", "example": "Says myopia needs convex lens"}
+              ],
+              "recovery_strategy": "Rods = low-light, B&W. Cones = colour. Myopia = eyeball too long → can't focus far → CONCAVE lens. Hypermetropia = too short → can't focus near → CONVEX lens.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.SENS.A2",
+              "bank_skill_id": "LSC.G12.S2.SENS.A2",
+              "title": "The ear — hearing and balance",
+              "description": "Ear anatomy (outer, middle, inner). Sound transmission: pinna → eardrum → ossicles → oval window → cochlea → auditory nerve. Semicircular canals = balance. Deafness causes.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Senses",
+              "prerequisites": [],
+              "templates": ["choice", "diagram-label", "sequence", "scenario", "short-response"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong ossicle order", "example": "Says stirrup is first ossicle"},
+                {"type": "recall_slip", "description": "Confuses cochlea and semicircular canals", "example": "Says cochlea controls balance"}
+              ],
+              "recovery_strategy": "Sound: pinna catches → eardrum vibrates → hammer/anvil/stirrup amplify → oval window → cochlea (sound) or semicircular canals (balance).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.END.A1",
+              "bank_skill_id": "LSC.G12.S2.END.A1",
+              "title": "Endocrine system — major glands and hormones",
+              "description": "Hypothalamus, pituitary, thyroid, parathyroid, adrenal, pancreas, gonads. Major hormones and their target effects. Negative feedback.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Endocrine system",
+              "prerequisites": [],
+              "templates": ["choice", "match", "diagram-label", "short-response", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong gland-hormone pairing", "example": "Says thyroid makes insulin"},
+                {"type": "conceptual_gap", "description": "Misses feedback principle", "example": "Says hormones are unregulated"}
+              ],
+              "recovery_strategy": "Pituitary = master gland. Thyroid = thyroxine. Pancreas = insulin/glucagon. Adrenals = adrenaline/cortisol. Negative feedback keeps levels stable.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.END.A2",
+              "bank_skill_id": "LSC.G12.S2.END.A2",
+              "title": "Diabetes and hormone disorders",
+              "description": "Type 1 vs Type 2 diabetes; insulin therapy; symptoms; SA prevalence. Other disorders: goitre, dwarfism/gigantism, Addison's disease.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Endocrine system",
+              "prerequisites": ["LSC.G12.S2.END.A1"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses T1 and T2 diabetes", "example": "Says T1 caused by obesity"},
+                {"type": "conceptual_gap", "description": "Thinks diabetes is mild", "example": "Says diabetes has no complications"}
+              ],
+              "recovery_strategy": "T1 = autoimmune, no insulin produced, often young. T2 = insulin resistance, often middle-aged + lifestyle. Both need management. SA has rising T2 rates.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.HOM.A1",
+              "bank_skill_id": "LSC.G12.S2.HOM.A1",
+              "title": "Thermoregulation and osmoregulation",
+              "description": "Thermoregulation: skin response (sweating, shivering, vasoconstriction/dilation). Osmoregulation: kidney + ADH. Feedback loops.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Homeostasis",
+              "prerequisites": [],
+              "templates": ["choice", "scenario", "short-response", "true-false", "data-interpret"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong vasoconstriction effect", "example": "Says vasoconstriction cools you"},
+                {"type": "conceptual_gap", "description": "Thinks sweating works only by water loss", "example": "Says sweat cools by gravity"}
+              ],
+              "recovery_strategy": "Hot: sweat + vasodilation (more heat lost). Cold: shiver + vasoconstriction (less heat lost). Dry: ADH high → small concentrated urine.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S2.HOM.A2",
+              "bank_skill_id": "LSC.G12.S2.HOM.A2",
+              "title": "Glucose regulation",
+              "description": "Insulin (lowers blood sugar — uptake + glycogen storage). Glucagon (raises blood sugar — glycogen breakdown). Negative feedback loop. Link to diabetes.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Homeostasis",
+              "prerequisites": ["LSC.G12.S2.HOM.A1"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response", "diagram-label"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps insulin/glucagon", "example": "Says insulin raises blood sugar"},
+                {"type": "conceptual_gap", "description": "Wrong glycogen location", "example": "Says glycogen stored in skin"}
+              ],
+              "recovery_strategy": "Insulin LOWERS glucose. Glucagon RAISES glucose. Both made by pancreas. Glycogen stored in liver + muscle. Feedback keeps blood sugar steady.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.S4",
+          "title": "S4 — Diversity, Change and Continuity",
+          "atomic_skills": [
+            {
+              "id": "LSC.G12.S4.DAR.A1",
+              "bank_skill_id": "LSC.G12.S4.DAR.A1",
+              "title": "Darwinism and evidence for evolution",
+              "description": "Natural selection: variation → struggle → survival of fittest → inheritance. Evidence: fossils, biogeography, comparative anatomy, embryology, molecular (DNA).",
+              "caps_term": "G12 T3",
+              "caps_topic": "Darwinism and Natural Selection",
+              "prerequisites": [],
+              "templates": ["choice", "match", "scenario", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says evolution = individuals change", "example": "Says one giraffe stretched its neck"},
+                {"type": "recall_slip", "description": "Wrong types of evidence", "example": "Forgets molecular evidence"}
+              ],
+              "recovery_strategy": "Variation + struggle + selection + inheritance over generations. Evidence: 5 main types — fossils, biogeography, anatomy, embryology, DNA. Individuals don't evolve; populations do.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S4.DAR.A2",
+              "bank_skill_id": "LSC.G12.S4.DAR.A2",
+              "title": "Speciation and modern examples",
+              "description": "Speciation (allopatric, sympatric). Modern examples: antibiotic-resistant bacteria, peppered moth, pesticide resistance, SA examples (fynbos diversity, cichlids).",
+              "caps_term": "G12 T3",
+              "caps_topic": "Darwinism and Natural Selection",
+              "prerequisites": ["LSC.G12.S4.DAR.A1"],
+              "templates": ["choice", "scenario", "data-interpret", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong speciation type", "example": "Says allopatric = same place"},
+                {"type": "conceptual_gap", "description": "Thinks evolution stopped", "example": "Says antibiotic resistance isn't evolution"}
+              ],
+              "recovery_strategy": "Allopatric = geographic separation. Sympatric = same place but split (e.g. plants polyploidy). Resistance to antibiotics/pesticides = real-time natural selection.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S4.HUM.A1",
+              "bank_skill_id": "LSC.G12.S4.HUM.A1",
+              "title": "Hominin lineage — australopithecines to Homo",
+              "description": "Major hominin species: Australopithecus afarensis (Lucy), A. africanus, Homo habilis, H. erectus, H. neanderthalensis, H. sapiens. Bipedalism, brain size, tool use trends.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Human evolution",
+              "prerequisites": [],
+              "templates": ["choice", "sequence", "scenario", "short-response", "true-false"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong species order", "example": "Places Homo erectus before australopithecines"},
+                {"type": "conceptual_gap", "description": "Thinks humans evolved from chimps", "example": "Says chimps became humans"}
+              ],
+              "recovery_strategy": "Australopithecines (~4 Mya) → Homo habilis (~2.5 Mya) → H. erectus (~1.8 Mya) → H. sapiens (~300 kya). We share a common ancestor with chimps, not descended from them.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "LSC.G12.S4.HUM.A2",
+              "bank_skill_id": "LSC.G12.S4.HUM.A2",
+              "title": "South African fossils and Out-of-Africa",
+              "description": "Key SA fossils: Mrs Ples (A. africanus, Sterkfontein), Karabo (A. sediba, Malapa), Homo naledi (Rising Star). Out-of-Africa theory. SA scientists' contributions.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Human evolution",
+              "prerequisites": ["LSC.G12.S4.HUM.A1"],
+              "templates": ["choice", "scenario", "short-response", "true-false", "data-interpret"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Wrong fossil-species match", "example": "Says Mrs Ples is Homo naledi"},
+                {"type": "conceptual_gap", "description": "Misses Africa origin", "example": "Says humans evolved in Europe"}
+              ],
+              "recovery_strategy": "Mrs Ples = A. africanus. Karabo = A. sediba. Naledi = Homo naledi. Out-of-Africa: H. sapiens evolved in Africa ~300 kya, then spread globally. SA = key fossil region.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

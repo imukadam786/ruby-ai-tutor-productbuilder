@@ -1,0 +1,394 @@
+{
+  "skill": "L1.T5.A3",
+  "skill_title": "Percentage change and reverse percentages",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [2, 3, 4],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 8 L2 / 8 L3 / 4 L4. Topics: % change (increase/decrease), reverse VAT, reverse markup, find original. SA contexts: petrol price, salary raise, sale prices, VAT-inclusive totals.",
+  "items": [
+    {
+      "id": "L1.T5.A3.q01",
+      "skill": "L1.T5.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "% change = (new − old) ÷ old × 100."},
+      "question": "A litre of petrol rose from R20 to R23. Calculate the % increase.",
+      "answerMode": "numeric",
+      "expectedAnswer": 15,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": [
+        "Change = R23 − R20 = R3.",
+        "% increase = R3 ÷ R20 × 100 = 15%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q02",
+      "skill": "L1.T5.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "% decrease uses the original (old) value as the divisor."},
+      "question": "A laptop priced at R8 000 was reduced to R6 800. Calculate the % decrease.",
+      "answerMode": "numeric",
+      "expectedAnswer": 15,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": [
+        "Decrease = R8 000 − R6 800 = R1 200.",
+        "% decrease = R1 200 ÷ R8 000 × 100 = 15%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q03",
+      "skill": "L1.T5.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Always divide change by the OLD value, not the new one."},
+      "question": "Mrs Pillay's monthly salary rose from R12 000 to R13 200. Calculate the % increase.",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": [
+        "Increase = R13 200 − R12 000 = R1 200.",
+        "% increase = R1 200 ÷ R12 000 × 100 = 10%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q04",
+      "skill": "L1.T5.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A negative change means a decrease."},
+      "question": "A bakkie was bought for R250 000 and sold 3 years later for R200 000. Calculate the % decrease in value.",
+      "answerMode": "numeric",
+      "expectedAnswer": 20,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": [
+        "Decrease = R250 000 − R200 000 = R50 000.",
+        "% decrease = R50 000 ÷ R250 000 × 100 = 20%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q05",
+      "skill": "L1.T5.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A scholarship pays R12 500 per year, up from R10 000 last year."},
+      "question": "Calculate the % increase from last year.",
+      "answerMode": "numeric",
+      "expectedAnswer": 25,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": [
+        "Increase = R12 500 − R10 000 = R2 500.",
+        "% = R2 500 ÷ R10 000 × 100 = 25%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q06",
+      "skill": "L1.T5.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Calculate % change using (new − old) ÷ old × 100."},
+      "question": "A water-tank reading rose from 8 200 L to 9 020 L in a week. Calculate the % increase.",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": [
+        "Change = 9 020 − 8 200 = 820 L.",
+        "% = 820 ÷ 8 200 × 100 = 10%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q07",
+      "skill": "L1.T5.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Round % change to one decimal place when not exact."},
+      "question": "School enrolment fell from 950 to 893 learners. Calculate the % decrease to 1 decimal place.",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.2,
+      "unit": "%",
+      "workingSteps": [
+        "Decrease = 950 − 893 = 57.",
+        "% = 57 ÷ 950 × 100 = 6,0%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR", "ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q08",
+      "skill": "L1.T5.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A spaza shop's monthly profit fell from R6 800 to R5 100."},
+      "question": "Calculate the % decrease.",
+      "answerMode": "numeric",
+      "expectedAnswer": 25,
+      "tolerance": 0.5,
+      "unit": "%",
+      "workingSteps": [
+        "Decrease = R6 800 − R5 100 = R1 700.",
+        "% = R1 700 ÷ R6 800 × 100 = 25%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q09",
+      "skill": "L1.T5.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A VAT-inclusive amount = original × 1,15. So original = VAT-incl ÷ 1,15."},
+      "question": "A till slip's VAT-inclusive total is R287,50. Calculate the original (VAT-exclusive) amount.",
+      "answerMode": "numeric",
+      "expectedAnswer": 250,
+      "tolerance": 0.1,
+      "unit": "R",
+      "workingSteps": [
+        "VAT-excl = VAT-incl ÷ 1,15.",
+        "= R287,50 ÷ 1,15 = R250,00."
+      ],
+      "errorSignals": ["ERR_PERCENT_REVERSE_NAIVE", "ERR_VAT_RATE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q10",
+      "skill": "L1.T5.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Reverse % increase: original = new ÷ (1 + r/100)."},
+      "question": "After a 20% sale discount, a jersey costs R320. Calculate the original (pre-discount) price.",
+      "answerMode": "numeric",
+      "expectedAnswer": 400,
+      "tolerance": 0.5,
+      "unit": "R",
+      "workingSteps": [
+        "Sale price = original × (1 − 20/100) = original × 0,80.",
+        "Original = R320 ÷ 0,80 = R400."
+      ],
+      "errorSignals": ["ERR_PERCENT_REVERSE_NAIVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q11",
+      "skill": "L1.T5.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "After a salary raise, you know the new amount and the % raise."},
+      "question": "After an 8% raise, Mr Khoza now earns R16 200 per month. Calculate his previous salary.",
+      "answerMode": "numeric",
+      "expectedAnswer": 15000,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": [
+        "New = old × 1,08.",
+        "Old = R16 200 ÷ 1,08 = R15 000."
+      ],
+      "errorSignals": ["ERR_PERCENT_REVERSE_NAIVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q12",
+      "skill": "L1.T5.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "% change in 2 steps."},
+      "question": "Petrol rose from R23,50 to R25,40. Calculate the % increase to 1 decimal place.",
+      "answerMode": "numeric",
+      "expectedAnswer": 8.1,
+      "tolerance": 0.2,
+      "unit": "%",
+      "workingSteps": [
+        "Change = R25,40 − R23,50 = R1,90.",
+        "% = R1,90 ÷ R23,50 × 100 = 8,085... ≈ 8,1%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR", "ERR_ROUND_NEAREST_RULE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q13",
+      "skill": "L1.T5.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Reverse a markup: selling price = cost × (1 + markup%/100)."},
+      "question": "A retailer sells a kettle for R368 after a 15% markup. Calculate the cost price.",
+      "answerMode": "numeric",
+      "expectedAnswer": 320,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": [
+        "Sell = cost × 1,15.",
+        "Cost = R368 ÷ 1,15 = R320."
+      ],
+      "errorSignals": ["ERR_PERCENT_REVERSE_NAIVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q14",
+      "skill": "L1.T5.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Difference in % growth between two values can be compared."},
+      "question": "Suburb A's population grew from 10 000 to 11 500. Suburb B's grew from 8 000 to 9 200. Which had the higher % growth?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Suburb A — higher %",
+        "Suburb B — higher %",
+        "Both grew by the same %",
+        "Cannot tell without 2024 figures"
+      ],
+      "expectedAnswer": "Both grew by the same %",
+      "workingSteps": [
+        "Suburb A: 1 500 ÷ 10 000 × 100 = 15%.",
+        "Suburb B: 1 200 ÷ 8 000 × 100 = 15%.",
+        "Both grew by exactly 15%."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q15",
+      "skill": "L1.T5.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Find the original value given the final value and a % decrease."},
+      "question": "A car's value depreciated by 30% to reach R140 000. Calculate the original value.",
+      "answerMode": "numeric",
+      "expectedAnswer": 200000,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "Final = original × (1 − 0,30) = original × 0,70.",
+        "Original = R140 000 ÷ 0,70 = R200 000."
+      ],
+      "errorSignals": ["ERR_PERCENT_REVERSE_NAIVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q16",
+      "skill": "L1.T5.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Cell-phone contract: now R649 after a 10% loyalty discount."},
+      "question": "Calculate the original (full-price) monthly contract fee.",
+      "answerMode": "numeric",
+      "expectedAnswer": 721.11,
+      "tolerance": 0.5,
+      "unit": "R",
+      "workingSteps": [
+        "Discounted = original × 0,90.",
+        "Original = R649 ÷ 0,90 = R721,11."
+      ],
+      "errorSignals": ["ERR_PERCENT_REVERSE_NAIVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q17",
+      "skill": "L1.T5.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A learner is told: 'A salary rose 10%, then fell 10%. Therefore it's back to the original.'"},
+      "question": "Starting from R20 000, what is the final salary, and is the learner correct?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Final salary (R)", "expectedAnswer": 19800, "tolerance": 1},
+        {"label": "Is the learner correct? (yes/no)", "expectedAnswer": "no"}
+      ],
+      "workingSteps": [
+        "After 10% rise: R20 000 × 1,10 = R22 000.",
+        "After 10% fall: R22 000 × 0,90 = R19 800.",
+        "Final = R19 800. The learner is wrong — successive % changes don't cancel because the base changes."
+      ],
+      "errorSignals": ["ERR_PERCENT_SUCCESSIVE_ADD", "ERR_PERCENT_REVERSE_NAIVE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q18",
+      "skill": "L1.T5.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A small business reports revenue of R55 200 in March, up from R48 000 in February. Critique the claim: 'This is the same as a 15% increase.'"},
+      "question": "Calculate the actual % increase to 1 decimal place and judge the claim.",
+      "answerMode": "multiChoice",
+      "options": [
+        "Claim correct — exactly 15,0%.",
+        "Claim is approximately right — actual is 15,0%.",
+        "Claim is wrong — actual is 14,4%.",
+        "Claim is wrong — actual is 13,0%."
+      ],
+      "expectedAnswer": "Claim is approximately right — actual is 15,0%.",
+      "workingSteps": [
+        "Change = R55 200 − R48 000 = R7 200.",
+        "% = R7 200 ÷ R48 000 × 100 = 15,0%.",
+        "Claim is correct to one decimal place."
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q19",
+      "skill": "L1.T5.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A car insurance premium rose 5% in 2024 and a further 7% in 2025. Original premium R450/month."},
+      "question": "Calculate the 2025 premium, then the OVERALL % increase from the original.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "2025 premium (R)", "expectedAnswer": 505.58, "tolerance": 0.5},
+        {"label": "Overall % increase from original", "expectedAnswer": 12.35, "tolerance": 0.2}
+      ],
+      "workingSteps": [
+        "After 5% rise: R450 × 1,05 = R472,50.",
+        "After 7% rise: R472,50 × 1,07 = R505,58.",
+        "Overall % = (R505,58 − R450) ÷ R450 × 100 = 12,35%.",
+        "(Note: 5% + 7% ≠ 12% exactly — compound effect adds 0,35%.)"
+      ],
+      "errorSignals": ["ERR_PERCENT_SUCCESSIVE_ADD", "ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T5.A3.q20",
+      "skill": "L1.T5.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A grocer marks bread up by 20% over cost. The selling price is R23,40."},
+      "question": "Calculate (a) the cost price and (b) the rand profit per loaf.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Cost price (R)", "expectedAnswer": 19.50, "tolerance": 0.05},
+        {"label": "Profit per loaf (R)", "expectedAnswer": 3.90, "tolerance": 0.05}
+      ],
+      "workingSteps": [
+        "Sell = cost × 1,20.",
+        "Cost = R23,40 ÷ 1,20 = R19,50.",
+        "Profit = R23,40 − R19,50 = R3,90."
+      ],
+      "errorSignals": ["ERR_PERCENT_REVERSE_NAIVE"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_PERCENT_CHANGE_DIVISOR": "Divides change by the NEW value instead of the OLD value.",
+    "ERR_PERCENT_REVERSE_NAIVE": "Subtracts/adds a % of the new amount instead of dividing by (1 ± r/100) to recover the original.",
+    "ERR_PERCENT_SUCCESSIVE_ADD": "Adds two successive percentage changes (treats them as additive when they compound on a changing base).",
+    "ERR_VAT_RATE": "Uses the wrong VAT rate.",
+    "ERR_ROUND_NEAREST_RULE": "Misapplies the rounding rule on the final answer."
+  }
+}

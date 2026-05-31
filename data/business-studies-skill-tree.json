@@ -1,0 +1,356 @@
+{
+  "version": "1.0",
+  "subject": "business-studies",
+  "description": "Business Studies skill tree, FET (Amended CAPS, Business Studies Grades 10-12). Grade 10 first as proof. 4 CAPS knowledge areas (Business environment, Business venture, Business role, Business operation), each weighted 25%. Tiers = CAPS terms within a grade (T1-T4). 21 atomic skills (Grade 10). Mastery = 60% of a 20-item pool (FET rule, no timer). PROGRESSION-GATED: each skill lists the previous CAPS-order skill as a prerequisite, so the tree surfaces the current skill plus the upcoming (locked) ones. Input types: choice, true-false, cloze, sequence, image-match (existing) + sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison (tap-based mechanics, no free-text). Questions live in data/business-studies-question-bank.json. Grades 11-12 pending head-of-ed review of this structure.",
+  "grades_covered": [10],
+  "levels": [
+    {
+      "id": 10,
+      "grade": 10,
+      "title": "Grade 10 — Business Studies",
+      "description": "Foundations across all four CAPS knowledge areas. T1: business environments (micro/market/macro), the eight business functions, quality, and business sectors. T2: contemporary socio-economic issues, social responsibility, entrepreneurial qualities, forms of ownership. T3: creative thinking & problem-solving, business opportunity & SWOT, location, contracts, presentation, the business plan. T4: self-management and team performance. 21 atomic skills, progression-gated in CAPS teaching order.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "Term 1 — Business environments, functions & sectors",
+          "atomic_skills": [
+            {
+              "id": "BUS.G10.T1.MICRO.A1",
+              "bank_skill_id": "BUS.G10.T1.MICRO.A1",
+              "title": "The micro (internal) environment",
+              "description": "Components and features of the micro environment the business controls: vision, mission statement, goals and objectives, organisational culture, organisational resources (human, physical, financial, information) and the business organisational structure. Why the micro environment is the one level management directly controls.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses vision (long-term aspiration) with mission (what the business does now)", "example": "Says a mission statement describes where the business wants to be in 20 years"},
+                {"type": "classification_error", "description": "Places market/macro factors inside the micro environment", "example": "Lists competitors as part of the micro environment"}
+              ],
+              "recovery_strategy": "The micro environment is INSIDE the business and management CONTROLS it: vision, mission, goals, culture, resources, structure. If management cannot directly change it, it is not micro.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T1.FUNCTIONS.A1",
+              "bank_skill_id": "BUS.G10.T1.FUNCTIONS.A1",
+              "title": "The eight business functions",
+              "description": "Identification and brief description of the eight business functions — general management, purchasing, production, marketing, public relations, human resources, administration and financing — and how they are interrelated and operate in small, medium and big businesses.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": ["BUS.G10.T1.MICRO.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Matches a task to the wrong function", "example": "Says paying salaries is the purchasing function"}
+              ],
+              "recovery_strategy": "Tie each task to its function by its core purpose: purchasing buys stock, production makes the product, marketing sells it, HR manages people, finance handles money, admin handles information, PR manages image, general management coordinates all.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T1.MGMT.A1",
+              "bank_skill_id": "BUS.G10.T1.MGMT.A1",
+              "title": "Levels and tasks of general management",
+              "description": "The three levels of general management (top, middle, lower) and their responsibilities, plus the management tasks (planning, organising, activating/leading, controlling). The alignment between the levels and the link between good management and business success.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": ["BUS.G10.T1.FUNCTIONS.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses the management LEVEL with the management TASK", "example": "Says 'planning' is a level of management"}
+              ],
+              "recovery_strategy": "Levels = WHO (top/middle/lower). Tasks = WHAT every manager does (plan, organise, lead, control). Top management plans long-term; lower management supervises day-to-day.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T1.QUALITY.A1",
+              "bank_skill_id": "BUS.G10.T1.QUALITY.A1",
+              "title": "Quality and the business functions",
+              "description": "The concept of quality and how it applies to each business function (quality products, quality administration, a healthy financial function, quality management and a quality business image). The link between quality and a business achieving its objectives.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Quality of performance",
+              "prerequisites": ["BUS.G10.T1.MGMT.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats quality as relevant only to the product, not to every function", "example": "Says only the production function is responsible for quality"}
+              ],
+              "recovery_strategy": "Quality is everyone's job. Each function has a quality measure: production = defect-free goods, finance = accurate records, HR = skilled staff, PR = good image. Poor quality in any one drags the whole business down.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T1.MARKET.A1",
+              "bank_skill_id": "BUS.G10.T1.MARKET.A1",
+              "title": "The market environment",
+              "description": "Components of the market environment: the market (consumers/customers), suppliers, intermediaries, competitors and other organisations (CBOs, NGOs, regulators, strategic allies, unions). The opportunities and threats these create — and that the business has no direct control over them.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": ["BUS.G10.T1.QUALITY.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Believes the business controls the market environment", "example": "Says a business can control what its competitors do"}
+              ],
+              "recovery_strategy": "The market environment is OUTSIDE but CLOSE: suppliers, customers, competitors, intermediaries. The business can INFLUENCE it (e.g. negotiate, advertise) but cannot CONTROL it.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T1.MACRO.A1",
+              "bank_skill_id": "BUS.G10.T1.MACRO.A1",
+              "title": "The macro environment",
+              "description": "Components and features of the macro environment: physical/natural, economic, social/cultural/demographic, technological, legal/political, international/global and institutional. The business has no control over these and must adapt to them.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": ["BUS.G10.T1.MARKET.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Places a market-environment factor (e.g. a supplier) in the macro environment", "example": "Lists a single competitor as a macro-environment component"}
+              ],
+              "recovery_strategy": "The macro environment is the BIG outside world — the economy, laws, technology, society. The business has NO control and can only adapt. Market factors are specific people/firms; macro factors are broad forces.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T1.INTERREL.A1",
+              "bank_skill_id": "BUS.G10.T1.INTERREL.A1",
+              "title": "How the three environments interrelate",
+              "description": "The relationship between the micro, market and macro environments and the degree of control over each (full control over micro, influence over market, no control over macro). How changes in one environment ripple into the others.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": ["BUS.G10.T1.MACRO.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats the three environments as separate and unconnected", "example": "Says a macro change (e.g. interest rates) cannot affect the micro environment"}
+              ],
+              "recovery_strategy": "Control decreases as you move outward: micro (control) → market (influence) → macro (no control). The three are connected: a macro change (e.g. a new law) forces the business to change its micro decisions.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T1.SECTORS.A1",
+              "bank_skill_id": "BUS.G10.T1.SECTORS.A1",
+              "title": "Business sectors",
+              "description": "Classification of industries into primary, secondary and tertiary sectors; the difference between the formal and informal sectors; and the difference between the public and private sectors.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Business sectors",
+              "prerequisites": ["BUS.G10.T1.INTERREL.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Puts a manufacturing activity in the primary sector", "example": "Classifies a bakery (turns flour into bread) as primary"}
+              ],
+              "recovery_strategy": "Primary = extract raw materials (mining, farming). Secondary = make/process them (factories). Tertiary = services (shops, banks, transport). Formal vs informal = registered & taxed vs not. Public vs private = government-owned vs privately owned.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T2",
+          "title": "Term 2 — Socio-economic issues, social responsibility, entrepreneurship & ownership",
+          "atomic_skills": [
+            {
+              "id": "BUS.G10.T2.SOCIOECON.A1",
+              "bank_skill_id": "BUS.G10.T2.SOCIOECON.A1",
+              "title": "Contemporary socio-economic issues",
+              "description": "Identification and discussion of contemporary socio-economic issues that impact on business: inclusivity, unemployment, the skills levy, poverty, HIV/Aids, gambling, violence, riots/strikes, piracy (copyright, patent, trademark), counterfeiting/bootlegging and crime — and their effects on business.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Contemporary socioeconomic issues",
+              "prerequisites": ["BUS.G10.T1.SECTORS.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot connect a socio-economic issue to its concrete business impact", "example": "Says HIV/Aids has no effect on a business"}
+              ],
+              "recovery_strategy": "Every socio-economic issue hits business through cost or productivity: crime raises security costs, HIV/Aids reduces the labour force, strikes stop production, piracy steals sales.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T2.SOCRESP.A1",
+              "bank_skill_id": "BUS.G10.T2.SOCRESP.A1",
+              "title": "Social responsibility & CSR",
+              "description": "What social responsibility means and the definition of Corporate Social Responsibility (CSR). Ways a business can responsibly contribute to its immediate community, and initiatives businesses take to address socio-economic issues.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Social responsibility",
+              "prerequisites": ["BUS.G10.T2.SOCIOECON.A1"],
+              "templates": ["choice", "true-false", "cloze", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses social responsibility (voluntary giving back) with simply obeying the law", "example": "Says paying tax is an example of CSR"}
+              ],
+              "recovery_strategy": "Social responsibility = a business voluntarily giving back to society and the environment, beyond what the law requires. CSR = the company-wide programme that does this (e.g. funding a school, cleaning a river).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T2.ENTRE.A1",
+              "bank_skill_id": "BUS.G10.T2.ENTRE.A1",
+              "title": "Entrepreneurial qualities",
+              "description": "Identification of entrepreneurial qualities: desire for responsibility, risk-taking, perseverance, good management and leadership, confidence, high energy, passion, a clear vision, organisational skills, commitment and flexibility (ability to adapt).",
+              "caps_term": "G10 T2",
+              "caps_topic": "Entrepreneurship",
+              "prerequisites": ["BUS.G10.T2.SOCRESP.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses a personal quality with a business resource", "example": "Lists 'lots of money' as an entrepreneurial quality"}
+              ],
+              "recovery_strategy": "Entrepreneurial qualities are personal characteristics, not resources: how the person thinks and behaves (risk-taking, perseverance, vision) — not what they own.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T2.OWNERSHIP.A1",
+              "bank_skill_id": "BUS.G10.T2.OWNERSHIP.A1",
+              "title": "Forms of ownership: sole trader & partnership",
+              "description": "Definition, characteristics, advantages and disadvantages of the sole proprietor and the partnership, and the differences between them — focusing on capital, liability, continuity, taxation and division of profits.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Forms of ownership",
+              "prerequisites": ["BUS.G10.T2.ENTRE.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Believes a sole trader has limited liability", "example": "Says a sole trader's house is safe if the business has debts"}
+              ],
+              "recovery_strategy": "Sole trader and partnership both have UNLIMITED liability (owners are personally liable for debts) and no separate legal identity. Partnerships add more capital and shared skills but also shared liability.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T2.OWNERSHIP.A2",
+              "bank_skill_id": "BUS.G10.T2.OWNERSHIP.A2",
+              "title": "Forms of ownership: companies, CC & co-operatives",
+              "description": "Definition, characteristics, advantages and disadvantages of the close corporation, non-profit company, profit companies (private, personal liability, public, state-owned) and co-operatives — focusing on legal personality, limited liability, capital and taxation.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Forms of ownership",
+              "prerequisites": ["BUS.G10.T2.OWNERSHIP.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks a private company can sell shares to the public", "example": "Says a (Pty) Ltd can list on the JSE"}
+              ],
+              "recovery_strategy": "A company is a separate legal person with limited liability. Private (Pty) Ltd cannot sell shares to the public; public (Ltd) can. No NEW close corporations can be registered (Companies Act 71 of 2008), but existing ones continue.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T3",
+          "title": "Term 3 — Creative thinking, opportunity, location, contracts, presentation & the business plan",
+          "atomic_skills": [
+            {
+              "id": "BUS.G10.T3.CREATIVE.A1",
+              "bank_skill_id": "BUS.G10.T3.CREATIVE.A1",
+              "title": "Creative thinking & problem-solving",
+              "description": "How creative thinking contributes to sustainable business practice; the problem-solving cycle (identify, define, formulate strategy, implement, allocate resources, monitor, evaluate); problem-solving versus decision-making; and techniques (brainstorming, mind-mapping, Delphi, Nominal Group, Force-Field Analysis, Forced Combinations).",
+              "caps_term": "G10 T3",
+              "caps_topic": "Creative thinking and problem-solving",
+              "prerequisites": ["BUS.G10.T2.OWNERSHIP.A2"],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses problem-solving (finding solutions to a problem) with decision-making (choosing between options)", "example": "Treats the two terms as identical"}
+              ],
+              "recovery_strategy": "Problem-solving is the full cycle of fixing a problem; decision-making is one step inside it (choosing an option). Creative-thinking techniques (brainstorming, mind-maps) generate the options.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T3.OPPORTUNITY.A1",
+              "bank_skill_id": "BUS.G10.T3.OPPORTUNITY.A1",
+              "title": "Business opportunity, research & SWOT",
+              "description": "Developing a research instrument and assessing needs and desires; identifying business opportunities from researched needs; research instruments and data collection (questionnaires, interviews); research protocol/ethics; and applying a SWOT analysis to assess a viable venture.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Business opportunity and related factors",
+              "prerequisites": ["BUS.G10.T3.CREATIVE.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Misplaces a SWOT factor (internal vs external, positive vs negative)", "example": "Lists a new competitor as a 'weakness' instead of a 'threat'"}
+              ],
+              "recovery_strategy": "SWOT: Strengths & Weaknesses are INTERNAL (inside the business); Opportunities & Threats are EXTERNAL (outside). Strengths/Opportunities help; Weaknesses/Threats harm.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T3.LOCATION.A1",
+              "bank_skill_id": "BUS.G10.T3.LOCATION.A1",
+              "title": "Business location factors",
+              "description": "Factors that impact business location decisions: labour regulations, environmental factors, transport, infrastructure, cost of electricity and water, potential market, raw materials, labour market, climate, government/local regulations and taxes, and crime.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Business location",
+              "prerequisites": ["BUS.G10.T3.OPPORTUNITY.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot match a business type to the location factor that matters most for it", "example": "Says a mine should locate near its customers rather than near the ore"}
+              ],
+              "recovery_strategy": "Match the factor to the business: raw-material businesses locate near materials; service businesses locate near customers; factories weigh transport and labour costs.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T3.CONTRACTS.A1",
+              "bank_skill_id": "BUS.G10.T3.CONTRACTS.A1",
+              "title": "Contracts & legal implications",
+              "description": "Definition of a contract and the types relevant to business — employment, insurance, lease, hire-purchase and rental agreements — with the parties to each and their rights and responsibilities under the relevant Acts.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Contracts",
+              "prerequisites": ["BUS.G10.T3.LOCATION.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Mismatches the parties to a contract", "example": "Calls the parties to a lease the 'insurer' and 'insured'"}
+              ],
+              "recovery_strategy": "Learn the pair for each contract: employment = employer/employee; insurance = insurer/insured; lease = lessor/lessee; hire-purchase = seller/buyer; rental = landlord/tenant.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T3.PRESENT.A1",
+              "bank_skill_id": "BUS.G10.T3.PRESENT.A1",
+              "title": "Presentation of information",
+              "description": "Accurate, succinct verbal and non-verbal presentation of business information: reports with tables, graphs, diagrams and illustrations; verbal presentations with support materials (handouts, slides, charts); and the design and layout of a presentation using visual aids.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Presentation of information",
+              "prerequisites": ["BUS.G10.T3.CONTRACTS.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses verbal with non-verbal presentation formats", "example": "Calls a bar graph a verbal presentation"}
+              ],
+              "recovery_strategy": "Verbal = spoken/words (a talk, a report's text). Non-verbal = visuals (tables, graphs, diagrams, pictures). Good presentations put the most important information first and keep visuals clear.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T3.BUSPLAN.A1",
+              "bank_skill_id": "BUS.G10.T3.BUSPLAN.A1",
+              "title": "The business plan",
+              "description": "Development of a financially viable business plan: its components (cover page, executive summary, description of the business, vision/mission, ownership, product/service, legal requirements), SWOT analysis, and the marketing plan (market research and the marketing mix — the 4 or 7 Ps).",
+              "caps_term": "G10 T3",
+              "caps_topic": "Business plan",
+              "prerequisites": ["BUS.G10.T3.PRESENT.A1"],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot identify the purpose of a business plan component", "example": "Says the executive summary lists the owner's personal hobbies"}
+              ],
+              "recovery_strategy": "A business plan proves the venture is viable. Know each component's job: executive summary = short overview; marketing plan = how you reach customers (the Ps); financial analysis = does it make money.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T4",
+          "title": "Term 4 — Self-management & team performance",
+          "atomic_skills": [
+            {
+              "id": "BUS.G10.T4.SELFMAN.A1",
+              "bank_skill_id": "BUS.G10.T4.SELFMAN.A1",
+              "title": "Self-management",
+              "description": "The concept of self-management and its relevance in business: time management, personal goals, a balanced lifestyle, developing a professional image, personal analysis of strengths/weaknesses/talents, and concepts of self-knowledge, self-confidence, stress management and adaptability.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Self-management, professionalism and ethics",
+              "prerequisites": ["BUS.G10.T3.BUSPLAN.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses self-management with being managed by others", "example": "Says self-management means waiting for a supervisor to give instructions"}
+              ],
+              "recovery_strategy": "Self-management = managing yourself: your time, goals, image and stress, without being told. It is the foundation for managing others later.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G10.T4.TEAM.A1",
+              "bank_skill_id": "BUS.G10.T4.TEAM.A1",
+              "title": "Relationships & team performance",
+              "description": "How people work together to accomplish business objectives and the factors that influence these relationships (prejudice, beliefs, values, diversity); interpersonal relationships in the workplace; and the criteria for successful, collaborative team performance.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Relationship and team performance",
+              "prerequisites": ["BUS.G10.T4.SELFMAN.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot distinguish a criterion for good teamwork from a barrier to it", "example": "Lists 'prejudice' as a criterion for successful teamwork"}
+              ],
+              "recovery_strategy": "Good teams share: clear goals, openness, mutual respect and trust, commitment, sound relations. Barriers are the opposite: prejudice, poor communication, distrust. Diversity is a strength when managed well.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

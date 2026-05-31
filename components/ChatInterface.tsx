@@ -8,6 +8,15 @@ import rehypeKatex from "rehype-katex";
 import { Message } from "@/types";
 import { getMessages, saveMessages, incrementMessageCount } from "@/lib/storage";
 import { useT } from "@/lib/i18n";
+import EduBackground from "@/components/EduBackground";
+import UsageMeter from "@/components/UsageMeter";
+
+const QUICK_ACTIONS: { label: string; prompt: string }[] = [
+  { label: "Help me with homework", prompt: "Help me with my homework." },
+  { label: "Help me solve for x", prompt: "Help me solve for x. I'll share the equation in my next message — please walk me through it step by step." },
+  { label: "Teach me 10 English words", prompt: "Teach me 10 new English words I should know, with simple definitions and example sentences." },
+  { label: "Help me with Biology", prompt: "Help me with Biology — ask me what topic I'm working on and then explain it, then check my understanding with a question." },
+];
 
 interface ChatInterfaceProps {
   onMessageSent: () => void;
@@ -244,6 +253,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         saveMessages(updatedMessages.concat({ ...assistantMessage, content: fullText }));
         incrementMessageCount();
         onMessageSent();
+        document.dispatchEvent(new CustomEvent("ruby-usage-changed"));
 
         // No auto-play — user can press play button on each message
 
@@ -374,15 +384,27 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
     return () => document.removeEventListener("ruby-action", handler);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Show quick-action chips only when the chat has nothing but the welcome message
+  // (i.e. no real user/assistant exchanges yet). They auto-send a prompt to Ruby.
+  const showQuickActions =
+    !isLoading &&
+    messages.length <= 1 &&
+    !messages.some((m) => m.role === "user");
+
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
+      <EduBackground />
+      {/* Centered chat panel — patterned background shows on the sides */}
+      <div className="relative flex-1 flex flex-col min-h-0 w-full lg:max-w-4xl lg:mx-auto lg:my-4 lg:rounded-2xl lg:shadow-md bg-white overflow-hidden">
       {/* Header */}
       <div className="hidden md:flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white">
         <div className="flex items-center gap-2.5">
           <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
           <h2 className="text-gray-900 font-semibold text-base sm:text-lg">Chat with Ruby</h2>
         </div>
-        <button
+        <div className="flex items-center gap-3">
+          <UsageMeter variant="compact" theme="light" />
+          <button
           onClick={clearChat}
           className="p-1.5 rounded-lg text-gray-500 hover:text-red-600 hover:bg-red-50 border border-gray-200 hover:border-red-200 transition-all"
           title="Clear conversation"
@@ -391,10 +413,11 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
           </svg>
         </button>
+        </div>
       </div>
 
       {/* Messages */}
-      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto py-6">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto py-6 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-8 space-y-6">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
@@ -487,8 +510,23 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
       )}
 
       {/* Input area */}
-      <div className="px-4 pb-4 pt-2 sm:px-8 sm:pb-6 bg-white">
+      <div className="px-4 pb-4 pt-2 sm:px-8 sm:pb-6 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto">
+
+        {/* Quick-action prompts — visible until the first message is sent */}
+        {showQuickActions && (
+          <div className="flex flex-wrap justify-center gap-2 mb-3">
+            {QUICK_ACTIONS.map((action) => (
+              <button
+                key={action.label}
+                onClick={() => sendMessage(action.prompt)}
+                className="px-4 py-2 rounded-full bg-white border border-gray-200 text-sm font-medium text-gray-700 hover:border-[#BE1832] hover:text-[#BE1832] hover:shadow-sm transition-all"
+              >
+                {action.label}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Attachment preview */}
         {attachedFile && (
@@ -511,7 +549,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         )}
 
         {/* GPT-style input container */}
-        <div className="relative flex items-end gap-2 bg-gray-50 border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-[#B7182E] focus-within:ring-2 focus-within:ring-[#B7182E]/15 transition-all shadow-sm">
+        <div className="relative flex items-end gap-2 bg-white border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-[#B7182E] focus-within:ring-2 focus-within:ring-[#B7182E]/15 transition-all shadow-sm">
 
           {/* Upload button (inside container, left) */}
           <div className="relative flex-shrink-0 self-end pb-0.5" ref={uploadMenuRef}>
@@ -613,6 +651,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
 
         <p className="text-center text-sm text-gray-400 mt-2">Ruby can make mistakes. Double-check important info.</p>
         </div>
+      </div>
       </div>
     </div>
   );

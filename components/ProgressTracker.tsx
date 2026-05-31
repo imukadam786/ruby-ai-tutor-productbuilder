@@ -23,8 +23,21 @@ import {
   HIGHEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MAX_GRADE,
   LOWEST_AVAILABLE_LEVEL as SOCIAL_SCIENCES_MIN_GRADE,
 } from "@/lib/social-sciences-grade-map";
+import {
+  HIGHEST_AVAILABLE_LEVEL as NST_MAX_GRADE,
+  LOWEST_AVAILABLE_LEVEL as NST_MIN_GRADE,
+} from "@/lib/nst-grade-map";
+import {
+  HIGHEST_AVAILABLE_LEVEL as MATHS_LITERACY_MAX_GRADE,
+  LOWEST_AVAILABLE_LEVEL as MATHS_LITERACY_MIN_GRADE,
+} from "@/lib/maths-literacy-grade-map";
 import socialSciencesTreeData from "@/data/social-sciences-skill-tree.json";
 import type { SocialSciencesSkillTree } from "@/types/social-sciences";
+import NstSkillTreeView from "@/components/nst/NstSkillTreeView";
+import MatricPhysSciSkillTreeView from "@/components/matric-phys-sci/MatricPhysSciSkillTreeView";
+import MathsLiteracySkillTreeView from "@/components/maths-literacy/MathsLiteracySkillTreeView";
+import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
+import type { MathsLiteracyStudentProfile } from "@/types/maths-literacy";
 import {
   loadSocialSciencesProfile,
   hydrateSocialSciencesProfileFromSupabase,
@@ -43,7 +56,15 @@ const socialSciencesTree = socialSciencesTreeData as unknown as SocialSciencesSk
 
 // Subject tabs shown on the Progress screen. Only one tree renders at a time so
 // the page stays short regardless of how tall the Maths/Reading trees get.
-type SubjectTabId = "maths" | "reading" | "lifeskills" | "afrikaans" | "socialsciences";
+type SubjectTabId =
+  | "maths"
+  | "reading"
+  | "lifeskills"
+  | "afrikaans"
+  | "socialsciences"
+  | "nst"
+  | "matricphyssci"
+  | "mathsliteracy";
 interface SubjectConfig {
   id: SubjectTabId;
   emoji: string;
@@ -53,11 +74,14 @@ interface SubjectConfig {
   activeBorder: string;
 }
 const SUBJECTS: SubjectConfig[] = [
-  { id: "maths",          emoji: "🧮", label: "Maths",           hex: "#3b82f6", activeCard: "bg-blue-50",     activeBorder: "border-blue-400" },
-  { id: "reading",        emoji: "📖", label: "Reading",         hex: "#a855f7", activeCard: "bg-purple-50",   activeBorder: "border-purple-400" },
-  { id: "lifeskills",     emoji: "🌟", label: "Life Skills",     hex: "#f59e0b", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
-  { id: "afrikaans",      emoji: "🇿🇦", label: "Afrikaans",      hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
-  { id: "socialsciences", emoji: "🌍", label: "Social Sciences", hex: "#0ea5e9", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
+  { id: "maths",          emoji: "🧮", label: "Maths",             hex: "#3b82f6", activeCard: "bg-blue-50",     activeBorder: "border-blue-400" },
+  { id: "reading",        emoji: "📖", label: "English",           hex: "#a855f7", activeCard: "bg-purple-50",   activeBorder: "border-purple-400" },
+  { id: "lifeskills",     emoji: "🌟", label: "Life Skills",       hex: "#f59e0b", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
+  { id: "afrikaans",      emoji: "🇿🇦", label: "Afrikaans",         hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
+  { id: "socialsciences", emoji: "🌍", label: "Social Sciences",   hex: "#0ea5e9", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
+  { id: "nst",            emoji: "🔬", label: "Natural Sci & Tech", hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
+  { id: "matricphyssci",  emoji: "⚗️", label: "Physical Sciences", hex: "#e11d48", activeCard: "bg-rose-50",     activeBorder: "border-rose-400" },
+  { id: "mathsliteracy",  emoji: "📊", label: "Maths Literacy",    hex: "#6366f1", activeCard: "bg-indigo-50",   activeBorder: "border-indigo-400" },
 ];
 
 type LifeSkillsTopicStatus = "mastered" | "in_progress" | "available";
@@ -148,13 +172,40 @@ interface ProgressTrackerProps {
   onMathsReplaySkill?: (skillId: string) => void;
   /** Launch an isolated replay of a completed Reading skill (no progression change). */
   onReadingReplaySkill?: (skillId: string) => void;
+  /** Resume the learner's current Maths skill (progression on) — wires the
+   *  "Continue where you left off" CTA inside the Maths tree on this page. */
+  onMathsContinue?: () => void;
+  /** Resume the learner's current Reading skill (progression on). */
+  onReadingContinue?: () => void;
   /** Open the Afrikaans subject and start the picked (non-locked) skill. */
   onAfrikaansPickSkill?: (skillId: string) => void;
   /** Open the Social Sciences subject (lands on the topic tree for the learner's grade). */
   onSocialSciencesOpen?: () => void;
+  /** Open the Life Skills subject — clicking a topic opens that session. */
+  onLifeSkillsPickTopic?: (skillId: string) => void;
+  /** Open the NST subject for the learner's grade. */
+  onNstOpen?: () => void;
+  /** Open the Physical Sciences subject. */
+  onMatricPhysSciPickSkill?: (skillId: string) => void;
+  /** Resume current Maths Literacy skill. */
+  onMathsLiteracyContinue?: () => void;
+  /** Replay a completed Maths Literacy skill. */
+  onMathsLiteracyReplaySkill?: (skillId: string) => void;
 }
 
-export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySkill, onAfrikaansPickSkill, onSocialSciencesOpen }: ProgressTrackerProps = {}) {
+export default function ProgressTracker({
+  onMathsReplaySkill,
+  onReadingReplaySkill,
+  onMathsContinue,
+  onReadingContinue,
+  onAfrikaansPickSkill,
+  onSocialSciencesOpen,
+  onLifeSkillsPickTopic,
+  onNstOpen,
+  onMatricPhysSciPickSkill,
+  onMathsLiteracyContinue,
+  onMathsLiteracyReplaySkill,
+}: ProgressTrackerProps = {}) {
   const { t } = useT();
   const [progress, setProgress] = useState<ProgressData>({
     totalMessages: 0, topicsStudied: [], lessonsCompleted: 0,
@@ -199,11 +250,17 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
   const [grade, setGrade] = useState<number | null>(null);
   const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(null);
   const [socialSciencesMastery, setSocialSciencesMastery] = useState<Record<string, SocialSciencesTopicStatus>>({});
+  const [mathsLiteracyProfile, setMathsLiteracyProfile] = useState<MathsLiteracyStudentProfile | null>(null);
   // Per-level expand/collapse for Life Skills, Afrikaans, and Social Sciences trees.
   // Default: learner's own grade expanded; other grades collapsed.
   const [lifeSkillsExpanded, setLifeSkillsExpanded] = useState<Set<number>>(new Set());
   const [afrikaansExpanded, setAfrikaansExpanded] = useState<Set<number>>(new Set());
   const [socialSciencesExpanded, setSocialSciencesExpanded] = useState<Set<number>>(new Set());
+  // Compact-by-default: hide non-current grades behind a "View other grades"
+  // toggle so learners see only their current section.
+  const [showAllLifeSkills, setShowAllLifeSkills] = useState(false);
+  const [showAllAfrikaans, setShowAllAfrikaans] = useState(false);
+  const [showAllSocialSciences, setShowAllSocialSciences] = useState(false);
   const toggleSet = <T,>(setter: (fn: (prev: Set<T>) => Set<T>) => void) => (id: T) =>
     setter((prev) => {
       const next = new Set(prev);
@@ -228,6 +285,7 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
     else hydrateSocialSciencesProfileFromSupabase().then((p: SocialSciencesProfile | null) => {
       if (p) setSocialSciencesMastery(p.mastery ?? {});
     });
+    setMathsLiteracyProfile(getMathsLiteracyProfile());
   }, []);
 
   // Once the learner's grade is known, default-expand that grade's level in
@@ -246,6 +304,8 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
   const afrikaansMasteredCount = Object.values(afrikaansProfile?.skill_mastery ?? {})
     .filter((m) => m.status === "mastered" || m.status === "assumed").length;
   const socialSciencesMasteredCount = Object.values(socialSciencesMastery).filter((s) => s === "mastered").length;
+  const mathsLiteracyMasteredCount = Object.values(mathsLiteracyProfile?.skill_mastery ?? {})
+    .filter((m) => m.status === "mastered").length;
 
   // Mastered count per subject — drives the donut sizing and the card badges.
   const masteredCounts: Record<SubjectTabId, number> = {
@@ -254,6 +314,9 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
     lifeskills: lifeSkillsMasteredCount,
     afrikaans: afrikaansMasteredCount,
     socialsciences: socialSciencesMasteredCount,
+    nst: 0,
+    matricphyssci: 0,
+    mathsliteracy: mathsLiteracyMasteredCount,
   };
 
   // Each subject is gated by its own authored-content range, so it stays in
@@ -264,10 +327,18 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
   const showAfrikaans = learnerGrade <= AFRIKAANS_MAX_GRADE;
   const showSocialSciences =
     learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE;
+  const showNst =
+    learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE;
+  const showMatricPhysSci = learnerGrade === 12;
+  const showMathsLiteracy =
+    learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE;
   const visibleSubjects = SUBJECTS.filter((s) => {
     if (s.id === "lifeskills") return showLifeSkills;
     if (s.id === "afrikaans") return showAfrikaans;
     if (s.id === "socialsciences") return showSocialSciences;
+    if (s.id === "nst") return showNst;
+    if (s.id === "matricphyssci") return showMatricPhysSci;
+    if (s.id === "mathsliteracy") return showMathsLiteracy;
     return true;
   });
 
@@ -372,15 +443,18 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
 
             {/* Selected subject's tree */}
             <div className="mt-3 bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
-              {activeTab === "maths" && <SkillTreeView profile={profile} onReplaySkill={onMathsReplaySkill} />}
-              {activeTab === "reading" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={onReadingReplaySkill} />}
+              {activeTab === "maths" && <SkillTreeView profile={profile} onReplaySkill={onMathsReplaySkill} onContinue={onMathsContinue} compact />}
+              {activeTab === "reading" && <ReadingSkillTreeView profile={readingProfile} onReplaySkill={onReadingReplaySkill} onContinue={onReadingContinue} compact />}
 
               {activeTab === "lifeskills" && (
                 <div className="p-5 space-y-3">
                   {lifeSkillsTree.levels.length > 0 ? (
                     // Show every grade's topics, each grade as its own
                     // collapsible level header.
-                    lifeSkillsTree.levels.map((level) => {
+                    (showAllLifeSkills
+                      ? lifeSkillsTree.levels
+                      : lifeSkillsTree.levels.filter((l) => l.id === (grade ?? 1))
+                    ).map((level) => {
                       const isExpanded = lifeSkillsExpanded.has(level.id);
                       const skills = level.tiers[0]?.atomic_skills ?? [];
                       const isCurrentGrade = grade === level.id;
@@ -415,17 +489,25 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                                       ? "bg-green-50 text-green-700 border-green-200"
                                       : status === "in_progress"
                                       ? "bg-amber-50 text-amber-700 border-amber-300"
-                                      : "bg-gray-50 text-gray-500 border-gray-200";
-                                  const icon = status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : "·";
+                                      : "bg-amber-50 text-amber-700 border-amber-200";
+                                  const icon = status === "mastered" ? "🏆" : status === "in_progress" ? "⚡" : "🚀";
+                                  const canStart = !!onLifeSkillsPickTopic;
                                   return (
-                                    <span
+                                    <button
                                       key={skill.id}
-                                      className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass}`}
-                                      title={`${skill.title} — ${status.replace("_", " ")}`}
+                                      type="button"
+                                      disabled={!canStart}
+                                      onClick={() => canStart && onLifeSkillsPickTopic!(skill.id)}
+                                      className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${pillClass} ${
+                                        canStart
+                                          ? "cursor-pointer hover:ring-2 hover:ring-amber-300 hover:shadow-sm transition-all"
+                                          : "cursor-default"
+                                      }`}
+                                      title={`${skill.title} — ${status.replace("_", " ")} · Tap to open`}
                                     >
                                       <span className="mr-1">{icon}</span>
                                       {skill.title}
-                                    </span>
+                                    </button>
                                   );
                                 })}
                               </div>
@@ -436,6 +518,15 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                     })
                   ) : (
                     <p className="text-sm text-gray-500">No Life Skills content yet.</p>
+                  )}
+                  {lifeSkillsTree.levels.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => setShowAllLifeSkills((v) => !v)}
+                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+                    >
+                      {showAllLifeSkills ? "Show only current grade ▲" : "View other grades ▼"}
+                    </button>
                   )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
                     <span className="inline-block mr-3">🏆 Mastered</span>
@@ -450,7 +541,10 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                   {afrikaansTree.levels.length > 0 ? (
                     // Show ALL grades' skills, each grade as its own collapsible
                     // level — was previously filtered to the learner's grade.
-                    afrikaansTree.levels.map((level) => {
+                    (showAllAfrikaans
+                      ? afrikaansTree.levels
+                      : afrikaansTree.levels.filter((l) => l.id === (grade ?? 1))
+                    ).map((level) => {
                       const isExpanded = afrikaansExpanded.has(level.id);
                       const skillCount = level.tiers.reduce((n, t) => n + t.atomic_skills.length, 0);
                       const isCurrentGrade = grade === level.id;
@@ -530,6 +624,15 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                   ) : (
                     <p className="text-sm text-gray-500">More Afrikaans grades coming soon.</p>
                   )}
+                  {afrikaansTree.levels.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => setShowAllAfrikaans((v) => !v)}
+                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+                    >
+                      {showAllAfrikaans ? "Show only current grade ▲" : "View other grades ▼"}
+                    </button>
+                  )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
                     <span className="inline-block mr-3">🏆 Mastered</span>
                     <span className="inline-block mr-3">⚡ In progress</span>
@@ -542,7 +645,10 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
               {activeTab === "socialsciences" && (
                 <div className="p-5 space-y-3">
                   {socialSciencesTree.levels.length > 0 ? (
-                    socialSciencesTree.levels.map((level) => {
+                    (showAllSocialSciences
+                      ? socialSciencesTree.levels
+                      : socialSciencesTree.levels.filter((l) => l.id === (grade ?? 4))
+                    ).map((level) => {
                       const isExpanded = socialSciencesExpanded.has(level.id);
                       const skillCount = level.tiers.reduce((n, t) => n + t.atomic_skills.length, 0);
                       const isCurrentGrade = grade === level.id;
@@ -615,12 +721,38 @@ export default function ProgressTracker({ onMathsReplaySkill, onReadingReplaySki
                   ) : (
                     <p className="text-sm text-gray-500">No Social Sciences content yet.</p>
                   )}
+                  {socialSciencesTree.levels.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => setShowAllSocialSciences((v) => !v)}
+                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+                    >
+                      {showAllSocialSciences ? "Show only current grade ▲" : "View other grades ▼"}
+                    </button>
+                  )}
                   <div className="text-xs text-gray-400 pt-2 border-t border-gray-100">
                     <span className="inline-block mr-3">🏆 Mastered</span>
                     <span className="inline-block mr-3">⚡ In progress</span>
                     <span className="inline-block">🌍 Ready</span>
                   </div>
                 </div>
+              )}
+
+              {activeTab === "nst" && (
+                <NstSkillTreeView onPickTopic={() => onNstOpen?.()} />
+              )}
+
+              {activeTab === "matricphyssci" && (
+                <MatricPhysSciSkillTreeView onPickSkill={(skillId) => onMatricPhysSciPickSkill?.(skillId)} compact />
+              )}
+
+              {activeTab === "mathsliteracy" && (
+                <MathsLiteracySkillTreeView
+                  profile={mathsLiteracyProfile}
+                  onReplaySkill={onMathsLiteracyReplaySkill}
+                  onContinue={onMathsLiteracyContinue}
+                  compact
+                />
               )}
             </div>
           </div>

@@ -1,0 +1,464 @@
+{
+  "skill": "L4.T1.A1",
+  "skill_title": "Read a tariff structure",
+  "grades": [11, 12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "0.1-slice",
+  "notes": "Pilot slice for shape review. Source mix: 12 lifted+reskinned from P1 May/Jun 2025 Q2.3 (eThekwini water tariff), 12 fresh with two inline tariff stimuli.",
+  "items": [
+    {
+      "id": "L4.T1.A1.q01",
+      "skill": "L4.T1.A1",
+      "caps_level": 1,
+      "source": "lifted-from-paper",
+      "source_ref": "P1 May-Jun 2025 Q2.3",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png", "alt": "Table of eThekwini Municipality domestic water tariffs per kℓ, with five consumption bands (0-6, 6-25, 25-30, 30-45, >45 kℓ) across three financial years (Feb 2022, 2023, 2024). All tariffs exclude 15% VAT."},
+      "question": "What is the tariff per kℓ for monthly consumption in the 0-6 kℓ band in February 2024?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0,
+      "tolerance": 0,
+      "unit": "R/kℓ",
+      "workingSteps": ["Read the row '0-6 kℓ' and the column 'Feb 2024 Tariff'."],
+      "errorSignals": ["ERR_TARIFF_ROW_MISREAD", "ERR_TARIFF_COLUMN_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q02",
+      "skill": "L4.T1.A1",
+      "caps_level": 1,
+      "source": "lifted-from-paper",
+      "source_ref": "P1 May-Jun 2025 Q2.3",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "How many consumption bands are listed in the tariff table?",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0,
+      "workingSteps": ["Count the rows of consumption bands in the table."],
+      "errorSignals": ["ERR_TARIFF_BAND_COUNT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q03",
+      "skill": "L4.T1.A1",
+      "caps_level": 1,
+      "source": "lifted-from-paper",
+      "source_ref": "P1 May-Jun 2025 Q2.3",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "Are the tariffs in the table inclusive or exclusive of VAT?",
+      "answerMode": "multiChoice",
+      "options": ["Inclusive of 15% VAT", "Exclusive of 15% VAT", "Inclusive of 14% VAT", "VAT is not applicable to water"],
+      "expectedAnswer": "Exclusive of 15% VAT",
+      "workingSteps": ["Read the footnote: 'All tariffs exclude 15% VAT.'"],
+      "errorSignals": ["ERR_TARIFF_VAT_FOOTNOTE_MISSED"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q04",
+      "skill": "L4.T1.A1",
+      "caps_level": 1,
+      "source": "lifted-from-paper",
+      "source_ref": "P1 May-Jun 2025 Q2.3",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "What is the tariff per kℓ for monthly consumption of more than 45 kℓ in February 2022?",
+      "answerMode": "numeric",
+      "expectedAnswer": 78.10,
+      "tolerance": 0.01,
+      "unit": "R/kℓ",
+      "workingSteps": ["Read the row 'More than 45 kℓ' and the column 'Feb 2022 Tariff'."],
+      "errorSignals": ["ERR_TARIFF_ROW_MISREAD", "ERR_TARIFF_COLUMN_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q05",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "reskin-of-lifted-stimulus",
+      "source_ref": "P1 May-Jun 2025 Q2.3 (re-skinned)",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "A household used 15 kℓ of water in February 2024. Which tariff band do they fall in?",
+      "answerMode": "multiChoice",
+      "options": ["0-6 kℓ", "More than 6 kℓ to 25 kℓ", "More than 25 kℓ to 30 kℓ", "More than 30 kℓ to 45 kℓ"],
+      "expectedAnswer": "More than 6 kℓ to 25 kℓ",
+      "workingSteps": ["15 kℓ is between 6 kℓ and 25 kℓ, so it falls in the second band."],
+      "errorSignals": ["ERR_TARIFF_BAND_BOUNDARY"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q06",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "reskin-of-lifted-stimulus",
+      "source_ref": "P1 May-Jun 2025 Q2.3 (re-skinned)",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "What is the tariff per kℓ for consumption in the 25-30 kℓ band in February 2023?",
+      "answerMode": "numeric",
+      "expectedAnswer": 34.90,
+      "tolerance": 0.01,
+      "unit": "R/kℓ",
+      "workingSteps": ["Read row 'More than 25 kℓ to 30 kℓ' and column 'Feb 2023 Tariff'."],
+      "errorSignals": ["ERR_TARIFF_ROW_MISREAD", "ERR_TARIFF_COLUMN_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q07",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "reskin-of-lifted-stimulus",
+      "source_ref": "P1 May-Jun 2025 Q2.3 (re-skinned)",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "Calculate the increase in the per-kℓ tariff for the 6-25 kℓ band from February 2022 to February 2023.",
+      "answerMode": "numeric",
+      "expectedAnswer": 2.00,
+      "tolerance": 0.01,
+      "unit": "R/kℓ",
+      "workingSteps": ["Feb 2023 tariff: R25,60", "Feb 2022 tariff: R23,60", "Increase = R25,60 − R23,60 = R2,00"],
+      "errorSignals": ["ERR_SUBTRACTION_ORDER", "ERR_TARIFF_COLUMN_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q08",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "reskin-of-lifted-stimulus",
+      "source_ref": "P1 May-Jun 2025 Q2.3 (re-skinned)",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "In February 2022, what is the difference in per-kℓ tariff between the 6-25 kℓ band and the 25-30 kℓ band?",
+      "answerMode": "numeric",
+      "expectedAnswer": 9.60,
+      "tolerance": 0.01,
+      "unit": "R/kℓ",
+      "workingSteps": ["25-30 kℓ tariff: R33,20", "6-25 kℓ tariff: R23,60", "Difference = R33,20 − R23,60 = R9,60"],
+      "errorSignals": ["ERR_SUBTRACTION_ORDER", "ERR_TARIFF_ROW_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q09",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "reskin-of-lifted-stimulus",
+      "source_ref": "P1 May-Jun 2025 Q2.3 (re-skinned)",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "A household used exactly 6 kℓ of water in February 2024. What was their total water charge (excluding VAT)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0,
+      "tolerance": 0,
+      "unit": "R",
+      "workingSteps": ["6 kℓ falls entirely in the 0-6 kℓ band.", "Tariff for 0-6 kℓ in Feb 2024 = R0,00/kℓ.", "Total = 6 × R0,00 = R0,00 (free)."],
+      "errorSignals": ["ERR_TARIFF_BAND_BOUNDARY", "ERR_TARIFF_BLOCK_FLAT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q10",
+      "skill": "L4.T1.A1",
+      "caps_level": 3,
+      "source": "reskin-of-lifted-stimulus",
+      "source_ref": "P1 May-Jun 2025 Q2.3 (re-skinned)",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "A household used 28 kℓ of water in February 2024. Calculate their total water charge (excluding VAT).",
+      "answerMode": "numeric",
+      "expectedAnswer": 640.70,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": [
+        "Split 28 kℓ into the three applicable bands.",
+        "First 6 kℓ @ R0,00 = R0,00",
+        "Next 19 kℓ (6 to 25 kℓ) @ R27,80 = 19 × R27,80 = R528,20",
+        "Final 3 kℓ (25 to 28 kℓ) @ R37,50 = 3 × R37,50 = R112,50",
+        "Total = R0,00 + R528,20 + R112,50 = R640,70"
+      ],
+      "errorSignals": ["ERR_TARIFF_BLOCK_FLAT", "ERR_TARIFF_BAND_BOUNDARY"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q11",
+      "skill": "L4.T1.A1",
+      "caps_level": 3,
+      "source": "reskin-of-lifted-stimulus",
+      "source_ref": "P1 May-Jun 2025 Q2.3 (re-skinned)",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "What is the percentage increase in the per-kℓ tariff for the 6-25 kℓ band from February 2022 to February 2024? Round to one decimal place.",
+      "answerMode": "numeric",
+      "expectedAnswer": 17.8,
+      "tolerance": 0.2,
+      "unit": "%",
+      "workingSteps": [
+        "Feb 2022 tariff: R23,60",
+        "Feb 2024 tariff: R27,80",
+        "Increase = R27,80 − R23,60 = R4,20",
+        "% increase = R4,20 ÷ R23,60 × 100 = 17,796... ≈ 17,8%"
+      ],
+      "errorSignals": ["ERR_PERCENT_CHANGE_DIVISOR", "ERR_TARIFF_COLUMN_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q12",
+      "skill": "L4.T1.A1",
+      "caps_level": 3,
+      "source": "reskin-of-lifted-stimulus",
+      "source_ref": "P1 May-Jun 2025 Q2.3 (re-skinned)",
+      "stimulus": {"ref": "ethekwini-water-tariff-2022-2024.png"},
+      "question": "A household uses 12 kℓ of water each month. How much more do they pay (excluding VAT) in February 2024 compared to February 2022?",
+      "answerMode": "numeric",
+      "expectedAnswer": 25.20,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": [
+        "12 kℓ = first 6 kℓ free + next 6 kℓ at the band rate.",
+        "Feb 2022: 6 × R23,60 = R141,60",
+        "Feb 2024: 6 × R27,80 = R166,80",
+        "Difference = R166,80 − R141,60 = R25,20"
+      ],
+      "errorSignals": ["ERR_TARIFF_BLOCK_FLAT", "ERR_SUBTRACTION_ORDER"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q13",
+      "skill": "L4.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**MobiTalk Cell Phone Tariffs (per month):**\n\n| Plan | Monthly subscription | Call rate |\n|---|---|---|\n| Basic | R150,00 | R1,20 per minute |\n| Plus | R350,00 | R0,80 per minute |"
+      },
+      "question": "What is the monthly subscription for the Basic plan?",
+      "answerMode": "numeric",
+      "expectedAnswer": 150,
+      "tolerance": 0,
+      "unit": "R",
+      "workingSteps": ["Read the 'Basic' row, 'Monthly subscription' column."],
+      "errorSignals": ["ERR_TARIFF_ROW_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q14",
+      "skill": "L4.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**MobiTalk Cell Phone Tariffs (per month):**\n\n| Plan | Monthly subscription | Call rate |\n|---|---|---|\n| Basic | R150,00 | R1,20 per minute |\n| Plus | R350,00 | R0,80 per minute |"
+      },
+      "question": "What is the per-minute call rate on the Plus plan?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.80,
+      "tolerance": 0.01,
+      "unit": "R/min",
+      "workingSteps": ["Read the 'Plus' row, 'Call rate' column."],
+      "errorSignals": ["ERR_TARIFF_ROW_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q15",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**MobiTalk Cell Phone Tariffs (per month):**\n\n| Plan | Monthly subscription | Call rate |\n|---|---|---|\n| Basic | R150,00 | R1,20 per minute |\n| Plus | R350,00 | R0,80 per minute |"
+      },
+      "question": "A user on the Basic plan makes 200 minutes of calls in a month. What is the total monthly cost?",
+      "answerMode": "numeric",
+      "expectedAnswer": 390,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Subscription: R150,00",
+        "Calls: 200 × R1,20 = R240,00",
+        "Total: R150,00 + R240,00 = R390,00"
+      ],
+      "errorSignals": ["ERR_TARIFF_SUBSCRIPTION_FORGOTTEN", "ERR_TARIFF_BLOCK_FLAT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q16",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**MobiTalk Cell Phone Tariffs (per month):**\n\n| Plan | Monthly subscription | Call rate |\n|---|---|---|\n| Basic | R150,00 | R1,20 per minute |\n| Plus | R350,00 | R0,80 per minute |"
+      },
+      "question": "A user on the Plus plan makes 200 minutes of calls in a month. What is the total monthly cost?",
+      "answerMode": "numeric",
+      "expectedAnswer": 510,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Subscription: R350,00",
+        "Calls: 200 × R0,80 = R160,00",
+        "Total: R350,00 + R160,00 = R510,00"
+      ],
+      "errorSignals": ["ERR_TARIFF_SUBSCRIPTION_FORGOTTEN"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q17",
+      "skill": "L4.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**MobiTalk Cell Phone Tariffs (per month):**\n\n| Plan | Monthly subscription | Call rate |\n|---|---|---|\n| Basic | R150,00 | R1,20 per minute |\n| Plus | R350,00 | R0,80 per minute |"
+      },
+      "question": "At how many minutes of calls per month do the two plans cost the same?",
+      "answerMode": "numeric",
+      "expectedAnswer": 500,
+      "tolerance": 1,
+      "unit": "minutes",
+      "workingSteps": [
+        "Set total Basic = total Plus.",
+        "150 + 1,20m = 350 + 0,80m",
+        "0,40m = 200",
+        "m = 500 minutes"
+      ],
+      "errorSignals": ["ERR_EQUATION_SOLVE", "ERR_TARIFF_SUBSCRIPTION_FORGOTTEN"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q18",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**MobiTalk Cell Phone Tariffs (per month):**\n\n| Plan | Monthly subscription | Call rate |\n|---|---|---|\n| Basic | R150,00 | R1,20 per minute |\n| Plus | R350,00 | R0,80 per minute |"
+      },
+      "question": "A user makes 300 minutes of calls. What is the difference in total monthly cost between the two plans?",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Basic total: R150 + 300 × R1,20 = R150 + R360 = R510",
+        "Plus total: R350 + 300 × R0,80 = R350 + R240 = R590",
+        "Difference: R590 − R510 = R80 (Plus costs R80 more at 300 min)"
+      ],
+      "errorSignals": ["ERR_TARIFF_SUBSCRIPTION_FORGOTTEN"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q19",
+      "skill": "L4.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**MobiTalk Cell Phone Tariffs (per month):**\n\n| Plan | Monthly subscription | Call rate |\n|---|---|---|\n| Basic | R150,00 | R1,20 per minute |\n| Plus | R350,00 | R0,80 per minute |"
+      },
+      "question": "A user makes 400 minutes of calls per month. Which plan is cheaper for this user, and by how much?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Cheaper plan", "expectedAnswer": "Basic"},
+        {"label": "Saving in R", "expectedAnswer": 40, "tolerance": 0.01}
+      ],
+      "workingSteps": [
+        "Basic: R150 + 400 × R1,20 = R150 + R480 = R630",
+        "Plus: R350 + 400 × R0,80 = R350 + R320 = R670",
+        "Basic is cheaper by R40 at 400 minutes (which is below the 500-minute crossover)."
+      ],
+      "errorSignals": ["ERR_TARIFF_CROSSOVER_IGNORED", "ERR_SUBTRACTION_ORDER"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q20",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**MobiTalk Cell Phone Tariffs (per month):**\n\n| Plan | Monthly subscription | Call rate |\n|---|---|---|\n| Basic | R150,00 | R1,20 per minute |\n| Plus | R350,00 | R0,80 per minute |"
+      },
+      "question": "Which type of relationship best describes total monthly cost vs minutes of calls for the Basic plan?",
+      "answerMode": "multiChoice",
+      "options": ["Constant (fixed)", "Linear (constant difference)", "Inverse proportion", "Constant ratio (compound)"],
+      "expectedAnswer": "Linear (constant difference)",
+      "workingSteps": [
+        "Cost has a fixed start (R150 subscription) plus a constant amount per minute (R1,20).",
+        "Each extra minute adds the same amount. That is a linear / constant-difference relationship."
+      ],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q21",
+      "skill": "L4.T1.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**Domestic electricity tariff (Eskom-style two-block structure):**\n- 0 to 350 kWh per month: R2,10 per kWh\n- More than 350 kWh per month: R3,40 per kWh\n\n*All tariffs exclude 15% VAT.*"
+      },
+      "question": "What is the per-kWh tariff for monthly consumption above 350 kWh?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3.40,
+      "tolerance": 0.01,
+      "unit": "R/kWh",
+      "workingSteps": ["Read the second block: 'More than 350 kWh per month: R3,40 per kWh'."],
+      "errorSignals": ["ERR_TARIFF_ROW_MISREAD"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q22",
+      "skill": "L4.T1.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**Domestic electricity tariff:**\n- 0 to 350 kWh per month: R2,10 per kWh\n- More than 350 kWh per month: R3,40 per kWh\n\n*All tariffs exclude 15% VAT.*"
+      },
+      "question": "A household uses 280 kWh in a month. Which tariff band applies to all of their consumption?",
+      "answerMode": "multiChoice",
+      "options": ["0 to 350 kWh @ R2,10/kWh", "More than 350 kWh @ R3,40/kWh", "Both bands apply", "Neither — they get free electricity"],
+      "expectedAnswer": "0 to 350 kWh @ R2,10/kWh",
+      "workingSteps": ["280 kWh is less than 350 kWh, so the entire consumption falls in the first block."],
+      "errorSignals": ["ERR_TARIFF_BAND_BOUNDARY"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q23",
+      "skill": "L4.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**Domestic electricity tariff:**\n- 0 to 350 kWh per month: R2,10 per kWh\n- More than 350 kWh per month: R3,40 per kWh\n\n*All tariffs exclude 15% VAT.*"
+      },
+      "question": "A household uses 500 kWh in a month. Calculate the total electricity charge excluding VAT.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1245,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": [
+        "First 350 kWh @ R2,10 = 350 × R2,10 = R735,00",
+        "Remaining 150 kWh @ R3,40 = 150 × R3,40 = R510,00",
+        "Total = R735,00 + R510,00 = R1 245,00"
+      ],
+      "errorSignals": ["ERR_TARIFF_BLOCK_FLAT", "ERR_TARIFF_BAND_BOUNDARY"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T1.A1.q24",
+      "skill": "L4.T1.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {
+        "inline": "**Domestic electricity tariff:**\n- 0 to 350 kWh per month: R2,10 per kWh\n- More than 350 kWh per month: R3,40 per kWh\n\n*All tariffs exclude 15% VAT.*"
+      },
+      "question": "A household uses 500 kWh in a month. Calculate the total electricity charge INCLUDING 15% VAT. Round to the nearest cent.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1431.75,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": [
+        "VAT-excl total: 350 × R2,10 + 150 × R3,40 = R735 + R510 = R1 245,00",
+        "Add 15% VAT: R1 245,00 × 1,15 = R1 431,75"
+      ],
+      "errorSignals": ["ERR_TARIFF_VAT_DOUBLE_APPLIED", "ERR_TARIFF_VAT_FOOTNOTE_MISSED"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_TARIFF_ROW_MISREAD": "Reads the wrong tariff row (e.g. wrong consumption band)",
+    "ERR_TARIFF_COLUMN_MISREAD": "Reads the wrong tariff column (e.g. wrong year/period)",
+    "ERR_TARIFF_BAND_COUNT": "Miscounts the number of tariff bands in a table",
+    "ERR_TARIFF_VAT_FOOTNOTE_MISSED": "Fails to notice the VAT-inclusion footnote on a tariff",
+    "ERR_TARIFF_VAT_DOUBLE_APPLIED": "Adds VAT to a total that already includes it",
+    "ERR_TARIFF_BAND_BOUNDARY": "Confuses which side of a band boundary a value falls on",
+    "ERR_TARIFF_BLOCK_FLAT": "Treats a stepped/block tariff as a single flat rate applied to all consumption",
+    "ERR_TARIFF_SUBSCRIPTION_FORGOTTEN": "Omits the fixed monthly subscription when totalling a usage-based tariff",
+    "ERR_TARIFF_CROSSOVER_IGNORED": "Picks one plan as 'always cheaper' without noting the consumption-dependent crossover",
+    "ERR_SUBTRACTION_ORDER": "Subtracts in the wrong order (smaller − larger when larger − smaller intended)",
+    "ERR_PERCENT_CHANGE_DIVISOR": "Divides a percentage change by the new value instead of the old/original value",
+    "ERR_EQUATION_SOLVE": "Sets up or solves the equality incorrectly when finding a crossover",
+    "ERR_RELATIONSHIP_TYPE": "Misclassifies the type of relationship (linear, constant, inverse, compound)"
+  }
+}

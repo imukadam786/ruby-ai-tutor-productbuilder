@@ -30,11 +30,13 @@ const STRAND_EMOJI: Record<string, string> = {
   TAA: "🧩",
 };
 
+// Palette mirrors components/life-skills/LifeSkillsSkillTreeView.tsx so the two
+// trees read as one family.
 const statusConfig = {
-  locked:      { bg: "bg-gray-100",  text: "text-gray-400",   border: "border-gray-200",  icon: "🔒", label: "Locked" },
-  available:   { bg: "bg-white",     text: "text-[#1a2744]",  border: "border-amber-200", icon: "🚀", label: "Ready" },
-  in_progress: { bg: "bg-amber-50",  text: "text-amber-800",  border: "border-amber-300", icon: "⚡", label: "In progress" },
-  mastered:    { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-300", icon: "🏆", label: "Mastered" },
+  locked:      { bg: "bg-gray-100",  text: "text-gray-400",   border: "border-gray-200",   icon: "🔒", label: "Locked" },
+  available:   { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-200",  icon: "🚀", label: "Ready" },
+  in_progress: { bg: "bg-orange-50", text: "text-orange-700", border: "border-orange-200", icon: "⚡", label: "In progress" },
+  mastered:    { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200",  icon: "🏆", label: "Mastered" },
 };
 
 type SkillStatus = keyof typeof statusConfig;
@@ -93,18 +95,12 @@ export default function AfrikaansSkillTreeView({
     });
   }, [level, profile]);
 
-  // Where to begin: the first in-progress skill, else the first ready one.
-  const startSkill = useMemo(() => {
-    for (const m of tierMeta) {
-      const ip = m.skills.find((s) => s.status === "in_progress");
-      if (ip) return ip;
-    }
-    for (const m of tierMeta) {
-      const av = m.skills.find((s) => s.status === "available");
-      if (av) return av;
-    }
-    return null;
-  }, [tierMeta]);
+  // Header stats — mirrors the "X/Y Tiers · X/Y Atomic skills" line in the
+  // Life Skills tree header.
+  const totalStrands = tierMeta.length;
+  const masteredStrands = tierMeta.filter((t) => t.total > 0 && t.mastered === t.total).length;
+  const totalSkills = tierMeta.reduce((n, t) => n + t.total, 0);
+  const masteredSkills = tierMeta.reduce((n, t) => n + t.mastered, 0);
 
   const isOpen = (tierId: string, hasUnlocked: boolean) =>
     openOverride[tierId] ?? hasUnlocked;
@@ -130,70 +126,48 @@ export default function AfrikaansSkillTreeView({
   }
 
   return (
-    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
-      <EduBackground />
-      <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-5 pb-12 w-full">
-          {/* Back */}
-          {onBack && (
+    <div className="relative isolate flex flex-col h-full bg-gray-50">
+      <div className="absolute inset-0 -z-10"><EduBackground /></div>
+
+      {/* Amber header bar — mirrors the Life Skills tree header. */}
+      <div className="hidden md:block bg-amber-50 border-b border-amber-200 px-6 py-4">
+        <h2 className="font-semibold text-amber-700 text-lg">Afrikaans Skill Tree</h2>
+        <p className="text-amber-500 text-sm">
+          Graad {seed.level} · {masteredStrands}/{totalStrands} Strands · {masteredSkills}/{totalSkills} Skills · {progress}%
+        </p>
+      </div>
+
+      <div className="flex-1 overflow-y-auto p-6">
+        {/* Back */}
+        {onBack && (
+          <div className="max-w-2xl mx-auto mb-4">
             <button
               onClick={onBack}
-              className="mb-4 text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
+              className="text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
             >
               ← Subjects
             </button>
-          )}
+          </div>
+        )}
 
-          {/* Header */}
-          <div className="mb-5">
-            <h1 className="text-2xl sm:text-3xl font-bold text-[#1a2744]">
-              Afrikaans · Graad {seed.level}
-            </h1>
-            <p className="text-gray-600 text-sm sm:text-base mt-1">
+        <div className="max-w-2xl mx-auto space-y-4">
+          {/* Instruction note + progress, styled like the Life Skills info cards. */}
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3">
+            <p className="text-sm text-amber-700">
               Instructions are in English; you&apos;ll hear and answer in Afrikaans.
             </p>
-            {seed.beyondContent && (
-              <p className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2">
-                More grades coming soon. Here&apos;s Grade {HIGHEST_AVAILABLE_LEVEL} for now.
-              </p>
-            )}
-            {/* Level progress */}
-            <div className="mt-4">
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-                  Progress
-                </span>
-                <span className={`text-sm font-bold ${progress === 100 ? "text-green-600" : "text-amber-700"}`}>
-                  {progress}%
-                </span>
-              </div>
-              <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                <div
-                  className={`h-full rounded-full transition-all ${progress === 100 ? "bg-green-500" : "bg-amber-500"}`}
-                  style={{ width: `${progress}%` }}
-                />
-              </div>
+            <div className="mt-3 h-1.5 bg-amber-100 rounded-full overflow-hidden">
+              <div
+                className={`h-full rounded-full transition-all ${progress === 100 ? "bg-green-500" : "bg-amber-500"}`}
+                style={{ width: `${progress}%` }}
+              />
             </div>
           </div>
 
-          {/* Start here / Continue — jumps straight to the next skill so the
-              learner never has to scroll to find where to begin. */}
-          {startSkill && (
-            <button
-              onClick={() => onPickSkill(startSkill.skill.id)}
-              className="w-full mb-6 flex items-center gap-4 rounded-2xl border-2 border-emerald-300 bg-emerald-50 px-5 py-4 text-left hover:shadow-md active:scale-[0.99] transition-all"
-            >
-              <span className="text-3xl flex-shrink-0" aria-hidden>🚀</span>
-              <span className="flex-1 min-w-0">
-                <span className="block text-xs font-semibold uppercase tracking-wide text-emerald-700">
-                  {startSkill.status === "in_progress" ? "Continue where you left off" : "Start here"}
-                </span>
-                <span className="block text-base font-bold text-[#1a2744] leading-tight truncate">
-                  {startSkill.skill.title}
-                </span>
-              </span>
-              <span className="text-emerald-600 text-xl flex-shrink-0" aria-hidden>→</span>
-            </button>
+          {seed.beyondContent && (
+            <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3">
+              More grades coming soon. Here&apos;s Grade {HIGHEST_AVAILABLE_LEVEL} for now.
+            </p>
           )}
 
           {/* Strands — collapsible. Locked strands start collapsed. */}
@@ -201,7 +175,7 @@ export default function AfrikaansSkillTreeView({
             {tierMeta.map(({ tier, skills, hasUnlocked, mastered, total }) => {
               const open = isOpen(tier.id, hasUnlocked);
               return (
-                <div key={tier.id} className="rounded-2xl border border-gray-200 bg-white/70 overflow-hidden">
+                <div key={tier.id} className="rounded-2xl border border-gray-200 bg-white overflow-hidden">
                   <button
                     onClick={() => toggle(tier.id, hasUnlocked)}
                     aria-expanded={open}

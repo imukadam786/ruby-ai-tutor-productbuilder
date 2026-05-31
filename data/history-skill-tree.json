@@ -1,0 +1,946 @@
+{
+  "version": "1.2",
+  "subject": "history",
+  "description": "History skill tree, FET Grades 10-12 (Amended CAPS Doc, History Grade 10-12). 17 CAPS topics, 53 atomic skills, ~1,060 question items. Tiers = CAPS terms within a grade (T1-T4). Mastery = 60% of 20-item pool (FET rule, no timer). ALL questions available — no prerequisites between skills, learner chooses any skill in any order. Input types: choice, true-false, cloze, sequence, image-match (existing) + sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison (new tap-based mechanics, no free-text). Any question may carry an optional 'source' block (text extract, image, map or cartoon with provenance). Items live in data/history-question-bank.json. v1.2: Grade 10 fully authored (19 skills, 380 items); Grade 11 fully authored (15 skills, 300 items); Grade 12 structure authored (19 skills across 6 topics) with question banks pending head-of-ed review of this structure.",
+  "grades_covered": [10, 11, 12],
+  "levels": [
+    {
+      "id": 10,
+      "grade": 10,
+      "title": "Grade 10 — History",
+      "description": "Precolonial African and wider-world history. 6 CAPS topics across 4 terms. T1: Societies of the Wider World + Ancient Ethiopia. T2: Mali Empire (case study). T3: Great Zimbabwe + Ethnic fluidity and the colonial invention of 'tribes'. T4: Achievements of African People since Ancient Times. 19 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "Term 1 — Societies of the Wider World & Ancient Ethiopia",
+          "atomic_skills": [
+            {
+              "id": "HIS.G10.T1.WIDER.A1",
+              "bank_skill_id": "HIS.G10.T1.WIDER.A1",
+              "title": "What 'civilisation' meant — and who decided",
+              "description": "The concept of 'civilisation' as a label built on comparison, not measurement. How European scholars used it to rank societies (Greek = supreme; African = uncivilised) and how the label justified conquest, slavery and racial hierarchies. Why the same complexity-tests (cities, writing, trade, central government) applied honestly produce very different rankings.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Societies of the Wider World in Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats 'civilisation' as a neutral, objective measure", "example": "Says Greek society was more civilised than Egyptian because it had philosophy"},
+                {"type": "conceptual_gap", "description": "Assumes pre-1500 African societies had no writing, trade or large-scale governance", "example": "Says Africa had no cities before European arrival"}
+              ],
+              "recovery_strategy": "'Civilisation' is a LABEL applied by people in power, not a measurement. Test any claim with evidence: were there cities? Writing? Long-distance trade? Centralised government? If yes, the society was complex regardless of who labelled it 'uncivilised'.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.WIDER.A2",
+              "bank_skill_id": "HIS.G10.T1.WIDER.A2",
+              "title": "Ancient societies side by side",
+              "description": "Comparing ancient Egyptian, Greek, Indian, Chinese and Mesoamerican (Maya, Aztec) societies on technology, trade networks, governance, religion and learning. Recognising parallel achievements rather than a single 'civilisation' ladder. Examples: Egyptian mathematics and architecture, Greek philosophy and democracy, Indian numeral system, Chinese paper/gunpowder/printing, Mayan calendar and astronomy.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Societies of the Wider World in Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "sequence", "source-comparison"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Attributes achievements to the wrong society", "example": "Says the Maya invented gunpowder"},
+                {"type": "conceptual_gap", "description": "Ranks societies on a single 'progress' scale instead of comparing across different areas", "example": "Says China was 'ahead of' Egypt rather than developing different strengths"}
+              ],
+              "recovery_strategy": "Anchor each society to 2 signature achievements: Egypt → pyramids + mathematics; Greece → philosophy + democracy; India → zero/decimal numerals; China → paper, printing, gunpowder, compass; Maya → calendar + astronomy; Aztec → urban planning (Tenochtitlan). Different strengths, not different rankings.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.WIDER.A3",
+              "bank_skill_id": "HIS.G10.T1.WIDER.A3",
+              "title": "The 'dark continent' myth and how it was disproven",
+              "description": "How 19th-century European scholarship built the racist 'dark continent' idea — claiming Africa had no history, no states, no learning before European contact. Why the myth was politically useful (justifying colonialism). The historical and archaeological evidence that refutes it: Aksum, Mali, Songhai, Great Zimbabwe, Benin City, Timbuktu's libraries.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Societies of the Wider World in Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats the 'dark continent' label as outdated description rather than active racist propaganda", "example": "Says Europeans called Africa 'dark' because there were no records — they just hadn't found them yet"},
+                {"type": "conceptual_gap", "description": "Cannot link the myth to its political purpose", "example": "Sees the myth as a mistake, not a tool that justified land seizure and slavery"}
+              ],
+              "recovery_strategy": "The 'dark continent' label was invented during the 19th-century scramble for colonies. It served a purpose: if Africa had 'no history', Europeans could claim they were 'bringing' civilisation rather than seizing it. Counter-evidence already existed at the time — Aksum's stelae, Timbuktu's manuscripts, the ruins of Great Zimbabwe were known and deliberately dismissed.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.ETHIOPIA.A1",
+              "bank_skill_id": "HIS.G10.T1.ETHIOPIA.A1",
+              "title": "Aksum: an African kingdom connected to the world",
+              "description": "The Kingdom of Aksum (ancient Ethiopia) at the crossroads of Africa, Arabia and the Mediterranean. Strategic control of Red Sea trade routes. Trade in ivory, gold, ebony and spices outward; wine, olive oil and textiles inward. Diplomatic ties with Egypt, Nubia, Rome, the Arabian Peninsula and India. Roman coins found at Axumite archaeological sites as evidence.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Ancient Ethiopia before 1600 C.E.",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "sequence", "highlight-source"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses ancient Ethiopia with the modern country's borders", "example": "Says ancient Ethiopia did not include parts of present-day Sudan or Eritrea"},
+                {"type": "conceptual_gap", "description": "Assumes ancient Africa was isolated from the outside world", "example": "Says Aksum had no contact with Rome or India"}
+              ],
+              "recovery_strategy": "Aksum was BIGGER than modern Ethiopia — including parts of Sudan, Eritrea, Djibouti, Somalia. It controlled the Red Sea, so trade ran in every direction: India and Arabia to the east, Rome and Greece to the north, Egypt and Nubia to the west. The Roman coins in Aksum's ruins are the receipt.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.ETHIOPIA.A2",
+              "bank_skill_id": "HIS.G10.T1.ETHIOPIA.A2",
+              "title": "Religion, Portuguese contact and civil war",
+              "description": "Ethiopian Orthodox Christianity as the state religion. Why Ethiopia sought Portuguese help: pressure from Islamic neighbours. Arrival of Portuguese mercenaries under Christopher da Gama in the early 16th century. Jesuit missionaries' attempt to convert Orthodox Christians to Roman Catholicism. The Ethiopian civil war (1627–1632), defeat and expulsion of the Jesuits.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Ancient Ethiopia before 1600 C.E.",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sequence", "source-comparison", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Portuguese arrived to convert non-Christians", "example": "Says the Jesuits brought Christianity to Ethiopia"},
+                {"type": "recall_slip", "description": "Confuses the outcome of the civil war", "example": "Says the Portuguese remained dominant after 1632"}
+              ],
+              "recovery_strategy": "Ethiopia was ALREADY Christian (Orthodox) when the Portuguese arrived. The conflict was Christian-on-Christian: Catholics trying to convert Orthodox believers. The 5-year civil war (1627–1632) ended with the Jesuits defeated and expelled, but the country was left bitterly divided.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T1.ETHIOPIA.A3",
+              "bank_skill_id": "HIS.G10.T1.ETHIOPIA.A3",
+              "title": "Fasilides and the rebirth of the monarchy",
+              "description": "After the civil war, King Fasilides re-centralised Ethiopia and founded the city of Gondar as the permanent capital. The Fasil Ghebbi castle complex as architectural symbol of restored royal power. The flourishing of churches and the arts under the restored Orthodox state. The relationship between the ruling elite and ordinary people (commoners, slaves, soldiers).",
+              "caps_term": "G10 T1",
+              "caps_topic": "Ancient Ethiopia before 1600 C.E.",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "highlight-source", "paragraph-template", "image-match"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Forgets which monarch established Gondar", "example": "Credits Mansa Musa or another ruler with founding Gondar"},
+                {"type": "conceptual_gap", "description": "Treats architecture as decoration only, missing its political role", "example": "Says Fasilides built Gondar's castle just for living in"}
+              ],
+              "recovery_strategy": "After a country has been torn apart by civil war, monarchs use architecture to say 'we are back, we are strong'. Fasilides built Gondar + his castle as a visible centre. The churches that followed locked in Orthodox Christianity as the state religion — not Catholicism.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T2",
+          "title": "Term 2 — The Mali Empire",
+          "atomic_skills": [
+            {
+              "id": "HIS.G10.T2.MALI.A1",
+              "bank_skill_id": "HIS.G10.T2.MALI.A1",
+              "title": "How Mali rose to power",
+              "description": "Origins of the Mali Empire: the Mande (Malinke) peoples of the Sudan-Sahel zone. Sundiata Keita's consolidation of the empire in the 13th century. Mali's control of trans-Saharan trade routes carrying gold (from West African mines) and salt (from the Sahara). The town of Jenne and the older settlement of Jenne-Jeno as predecessor trade centres dating back to the 3rd century BCE.",
+              "caps_term": "G10 T2",
+              "caps_topic": "The rise and fall of the Mali Empire (case study)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "sequence", "argument-builder"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Credits Mansa Musa with founding Mali instead of Sundiata Keita", "example": "Says Mansa Musa created the Mali Empire"},
+                {"type": "conceptual_gap", "description": "Thinks Arab traders started West African trade routes", "example": "Says trans-Saharan trade only began after the Arabs arrived in the 9th century"}
+              ],
+              "recovery_strategy": "Sundiata FOUNDED Mali; Mansa Musa made it famous later. West African trade was already old before Arab merchants arrived — Jenne-Jeno was a trade settlement from 300 BCE. The Mali Empire's wealth came from controlling, not inventing, the gold-salt trade.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T2.MALI.A2",
+              "bank_skill_id": "HIS.G10.T2.MALI.A2",
+              "title": "Mansa Musa and the spread of Islam",
+              "description": "Mansa Musa as the most famous emperor of Mali. The 1324 pilgrimage to Mecca: scale of his entourage, the gold he distributed in Cairo, and how it depressed the price of gold there for years. The pilgrimage's role in advertising Mali's wealth to Egypt, North Africa, Portugal and the Italian merchant cities. The Islamisation of Mali's rulers from the late 13th century; debate over whether Sundiata himself was Muslim or blended Islam with indigenous African religion.",
+              "caps_term": "G10 T2",
+              "caps_topic": "The rise and fall of the Mali Empire (case study)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Gets the year of Mansa Musa's pilgrimage wrong", "example": "Says the pilgrimage was in 1492"},
+                {"type": "conceptual_gap", "description": "Thinks Mali's entire population was Muslim from the start", "example": "Says every Malian was Muslim from Sundiata's time onwards"}
+              ],
+              "recovery_strategy": "1324 pilgrimage = Mansa Musa's gold so flooded Cairo that gold's price fell for years. Islam spread from the TOP (rulers) DOWN, slowly. Many ordinary Malians kept practising indigenous African religion alongside or instead of Islam. Sundiata himself probably blended both.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T2.MALI.A3",
+              "bank_skill_id": "HIS.G10.T2.MALI.A3",
+              "title": "Timbuktu and Jenne: African centres of learning",
+              "description": "Why Timbuktu and Jenne became hubs of Islamic scholarship in the 14th and 15th centuries. The architect Ishak-al Tuedjin brought back by Mansa Musa, and the building of mosques at Gao, Timbuktu and the audience chamber at Niani. Subjects taught in Timbuktu: Islamic sciences, grammar, poetry, mathematics, medicine, astronomy. Scholars travelling from across the Islamic world to study there.",
+              "caps_term": "G10 T2",
+              "caps_topic": "The rise and fall of the Mali Empire (case study)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "image-match", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats Timbuktu as a myth or trade town only, not as a real university centre", "example": "Says Timbuktu was just a desert trading post with no scholars"},
+                {"type": "recall_slip", "description": "Confuses what was studied at Timbuktu", "example": "Says only the Quran was taught — no maths or astronomy"}
+              ],
+              "recovery_strategy": "Timbuktu had REAL universities (Sankoré, Djinguereber) teaching grammar, poetry, mathematics, medicine, astronomy alongside Islamic sciences. The manuscripts still exist — many were rescued and preserved during the 2012 jihadist occupation. Timbuktu was a destination scholars TRAVELLED TO, not just a stopover.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T2.MALI.A4",
+              "bank_skill_id": "HIS.G10.T2.MALI.A4",
+              "title": "Why Mali fell",
+              "description": "The decline of the Mali Empire from the late 14th century onwards. Internal succession disputes weakening central control. Tuareg raids from the Sahara. The rise of Songhai to the east absorbing Mali's territory. The longer-term impact of the transatlantic slave trade redirecting West African wealth and population toward the Atlantic coast, ending the cultural flowering of Timbuktu and Jenne.",
+              "caps_term": "G10 T2",
+              "caps_topic": "The rise and fall of the Mali Empire (case study)",
+              "prerequisites": [],
+              "templates": ["choice", "sort-buckets", "sequence", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Attributes Mali's fall to a single cause", "example": "Says Mali fell only because of the Atlantic slave trade"},
+                {"type": "recall_slip", "description": "Confuses Mali's successor states", "example": "Says Mali was conquered directly by Europeans"}
+              ],
+              "recovery_strategy": "Mali fell for MANY reasons stacking up: succession fights at the top, Tuareg raids from the desert, Songhai rising to the east, and finally the Atlantic slave trade pulling trade and people toward the coast. No single cause did it. Songhai (not Europeans) directly absorbed Mali's core territory.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T3",
+          "title": "Term 3 — Great Zimbabwe & Ethnic Fluidity / The Invention of 'Tribes'",
+          "atomic_skills": [
+            {
+              "id": "HIS.G10.T3.ZIMBABWE.A1",
+              "bank_skill_id": "HIS.G10.T3.ZIMBABWE.A1",
+              "title": "The rise of Great Zimbabwe",
+              "description": "The emergence of Great Zimbabwe around 1100 CE. Trade with the Indian Ocean coast (Sofala, Kilwa) carrying gold and ivory out, glass beads and porcelain in. Cattle wealth as the basis of elite power. Environmental conditions enabling the rise: rainfall, grazing, gold deposits. Related southern African sites: Mapungubwe and Thulamela showing the regional pattern.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Precolonial African Kingdoms and Empires in southern Africa (Great Zimbabwe)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "image-match", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Great Zimbabwe was an isolated site with no regional pattern", "example": "Says Mapungubwe and Great Zimbabwe were unrelated"},
+                {"type": "recall_slip", "description": "Cannot name the trading goods that drove Great Zimbabwe's wealth", "example": "Says salt was the main export"}
+              ],
+              "recovery_strategy": "Great Zimbabwe was part of a REGIONAL pattern of southern African stone-walled kingdoms — Mapungubwe (older) and Thulamela (later) fit the same shape. Wealth came from GOLD + IVORY out, GLASS BEADS + CHINESE PORCELAIN in (via the Indian Ocean coast). Cattle = elite wealth.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.ZIMBABWE.A2",
+              "bank_skill_id": "HIS.G10.T3.ZIMBABWE.A2",
+              "title": "How Great Zimbabwe society was organised",
+              "description": "Class structure at Great Zimbabwe: ruling elite, religious authorities, ordinary farmers and herders. Religious life — Mwari worship, mediums, the role of ancestor veneration. The stone-walled Great Enclosure as elite/sacred space. The Hill Complex above. Estimated population at its peak (10,000–20,000) and what that size implies about food supply and governance.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Precolonial African Kingdoms and Empires in southern Africa (Great Zimbabwe)",
+              "prerequisites": [],
+              "templates": ["choice", "image-match", "highlight-source", "sort-buckets", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats the stone walls as defensive only, missing their status/religious meaning", "example": "Says the Great Enclosure was a fort to keep enemies out"},
+                {"type": "recall_slip", "description": "Confuses the layout of the site", "example": "Says the Hill Complex and Great Enclosure are the same building"}
+              ],
+              "recovery_strategy": "The walls were NOT military — they had no battlements or arrow slits. They marked SACRED and ELITE space, like cathedral walls. Hill Complex (above) = older religious/royal area. Great Enclosure (below) = later elite residence. A population of 10,000–20,000 needed organised agriculture and government.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.ZIMBABWE.A3",
+              "bank_skill_id": "HIS.G10.T3.ZIMBABWE.A3",
+              "title": "Who built it? The debate that won't die",
+              "description": "Decline and abandonment of Great Zimbabwe before 1500 CE: trade-route shifts, possible environmental degradation, political fragmentation. The racist 19th-century interpretations: Carl Mauch and others who refused to believe Africans built it, attributing it to Phoenicians, Arabs or biblical figures. The scientific archaeology that proved African origin: Randall-MacIver (1905) and Caton-Thompson (1929). How apartheid-era politics tried to suppress these findings. Why this debate is a case study in how politics shapes history.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Precolonial African Kingdoms and Empires in southern Africa (Great Zimbabwe)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats the 'who built it' debate as honest scientific disagreement", "example": "Says 19th-century scholars genuinely couldn't tell who built Great Zimbabwe"},
+                {"type": "recall_slip", "description": "Cannot name the archaeologists who proved African origin", "example": "Says no one ever proved Africans built it"}
+              ],
+              "recovery_strategy": "The 'Phoenician / Arab / Queen of Sheba' theories were NOT honest mistakes — they were racist refusals to credit Africans with sophisticated stone architecture. Randall-MacIver (1905) and Caton-Thompson (1929) proved African origin with proper archaeology. The Rhodesian and apartheid governments later tried to suppress these findings to protect white-supremacist narratives.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.TRIBES.A1",
+              "bank_skill_id": "HIS.G10.T3.TRIBES.A1",
+              "title": "Precolonial African identities were fluid, not fixed",
+              "description": "How precolonial Sotho-Tswana, Xhosa and Pedi societies actually worked: overlapping identities, porous boundaries, mobility, intermarriage, refugees joining stronger kingdoms (including under women rulers). Social divisions that mattered (rank, royals vs commoners, insiders vs outsiders) were NOT primarily 'tribal'. Migration patterns and why people settled in particular places. The diversity of decentralised chiefdoms alongside larger centralised kingdoms.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Ethnic fluidity in the deep past and the colonial creation of 'tribes'",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sort-buckets", "argument-builder", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Believes precolonial African societies were always organised into fixed, separate tribes", "example": "Says Zulu and Xhosa identities were rigid and unchanging before 1800"},
+                {"type": "recall_slip", "description": "Cannot give examples of fluid identity", "example": "Says people never moved between groups"}
+              ],
+              "recovery_strategy": "Precolonial societies were MOBILE and MIXED. Refugees from wars/epidemics joined whichever strong ruler protected them (including women rulers). Marriage, trade and migration crossed group lines constantly. Internal divisions (royal vs commoner, insider vs outsider) often mattered MORE than 'tribal' belonging.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.TRIBES.A2",
+              "bank_skill_id": "HIS.G10.T3.TRIBES.A2",
+              "title": "How colonisers and missionaries invented 'tribes'",
+              "description": "How European colonial administrators turned fluid African identities into fixed 'tribes' for administrative control. The role of Christian missionaries who reduced African languages to writing — often by picking one dialect as the 'standard', which froze speakers into one labelled group. Why colonial governments needed 'tribes': for indirect rule, land allocation, labour recruitment. How migrancy into colonial towns reinforced ethnic clustering (people gathered around those from their region for protection — 'moral ethnicity').",
+              "caps_term": "G10 T3",
+              "caps_topic": "Ethnic fluidity in the deep past and the colonial creation of 'tribes'",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "highlight-source", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks missionaries had no role in tribal classification", "example": "Says missionaries only translated the Bible, no political effect"},
+                {"type": "conceptual_gap", "description": "Believes Africans clustering in towns proves tribes were ancient and natural", "example": "Says Xhosa-speakers gathering in Cape Town shows tribalism was always there"}
+              ],
+              "recovery_strategy": "Missionaries PICKED one dialect as the standard written form, which made other dialects 'incorrect' — this froze fluid speech communities into hardened groups. Colonial governments NEEDED tribes: for indirect rule, for hut taxes, for labour recruitment. Africans clustering in colonial towns was SURVIVAL strategy in a hostile environment, not proof of ancient tribalism.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T3.TRIBES.A3",
+              "bank_skill_id": "HIS.G10.T3.TRIBES.A3",
+              "title": "Why tribalism still matters today",
+              "description": "How tribalism persists in modern South Africa and across Africa. Why politicians sometimes find tribalism useful (vote-mobilising, blame-shifting). The damage tribalism does to national development and social cohesion. The argument for treating ethnic identities as lived experience without letting them harden into political division. Why understanding the colonial roots of tribalism is the first step in overcoming it.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Ethnic fluidity in the deep past and the colonial creation of 'tribes'",
+              "prerequisites": [],
+              "templates": ["choice", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats tribalism as inevitable or 'natural' to Africans", "example": "Says tribalism in modern SA proves tribes are deep in African DNA"},
+                {"type": "conceptual_gap", "description": "Sees no link between colonial design and present-day tribalism", "example": "Says modern tribalism has nothing to do with apartheid or colonial rule"}
+              ],
+              "recovery_strategy": "Modern tribalism in SA and Africa is a DIRECT inheritance of colonial design: borders, ID classifications, Bantustans, labour recruitment by 'tribe'. Politicians who mobilise tribally are using a colonial tool. Naming the colonial origin is the first step in dismantling its present-day power. Ethnic identity as lived experience is fine; weaponised tribalism is not.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T4",
+          "title": "Term 4 — Achievements of African People since Ancient Times",
+          "atomic_skills": [
+            {
+              "id": "HIS.G10.T4.ACHIEVE.A1",
+              "bank_skill_id": "HIS.G10.T4.ACHIEVE.A1",
+              "title": "African science, mathematics and medicine",
+              "description": "Ancient Egyptian contributions to mathematics and geometry. The Ishango bone (Congo) as evidence of early counting/calendar use. African medicinal knowledge — plant-based medicines now used in modern pharmacology. Early surgery in African societies. Metallurgy — iron-smelting that began in Africa and spread elsewhere. Kushite (Sudan) and Dogon (Mali) astronomy: star-based calendars and observation traditions.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Achievements of African People since Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "true-false", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats African science as 'borrowed' from Europe or Asia", "example": "Says iron-smelting came to Africa from Europe"},
+                {"type": "recall_slip", "description": "Cannot identify which society made which contribution", "example": "Credits the Dogon with inventing geometry"}
+              ],
+              "recovery_strategy": "Iron-smelting started IN AFRICA and spread out. Egyptian geometry was the foundation Greek mathematicians later built on. The Ishango bone (~20,000 years old) shows tally-marking long before similar tools elsewhere. Dogon = astronomy. Kushite = star calendar. African plant medicine still feeds modern pharmacology (e.g. quinine derivatives).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T4.ACHIEVE.A2",
+              "bank_skill_id": "HIS.G10.T4.ACHIEVE.A2",
+              "title": "African art, music and architecture across the world",
+              "description": "Egyptian architecture's influence on Greek and Roman building styles. West African urban planning — Benin City (Nigeria) and Kumasi (capital of Asante) as examples of organised African cities with avenues, palaces and gardens. The African ancestry of Alexander Pushkin (Russian poet). The influence of African art on Pablo Picasso and the cubism movement (e.g. 'Three Musicians'). The role of African and African-diaspora musicians in jazz, blues and global music. African contributions to athletics, football, cricket, basketball and boxing.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Achievements of African People since Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "image-match", "sort-buckets", "highlight-source", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Sees Africa as receiving culture from Europe rather than exporting it", "example": "Says cubism influenced African art, not the other way round"},
+                {"type": "recall_slip", "description": "Cannot connect specific figures to their African heritage or influence", "example": "Says Pushkin had no African ancestry"}
+              ],
+              "recovery_strategy": "Cultural flow ran BOTH ways but African influence on Europe is often hidden: Egyptian architecture → Greek temple design; African masks → Picasso's cubism; African musical rhythms (via the diaspora) → jazz, blues, rock, hip-hop globally. Pushkin's great-grandfather was an African brought to Russia. Benin City and Kumasi had urban planning before many European cities.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G10.T4.ACHIEVE.A3",
+              "bank_skill_id": "HIS.G10.T4.ACHIEVE.A3",
+              "title": "Ubuntu: an African philosophy for the world",
+              "description": "The philosophy of ubuntu/botho: 'umuntu ngumuntu ngabantu' — 'I am because you are'. Ubuntu's emphasis on shared humanity, community, and our connection to a wider universe. How ubuntu challenges individualism, greed, unhealthy competition and excessive self-enrichment. The philosophy's modern relevance — its place in the post-1994 SA constitution and in arguments about environmental responsibility and inequality.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Achievements of African People since Ancient Times",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "argument-builder", "paragraph-template", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reduces ubuntu to 'being nice' or generic kindness", "example": "Says ubuntu just means being polite"},
+                {"type": "conceptual_gap", "description": "Misses ubuntu's challenge to individualism and greed", "example": "Says ubuntu is compatible with extreme wealth inequality"}
+              ],
+              "recovery_strategy": "Ubuntu is a CLAIM about what makes us human: we become human THROUGH others. That's a serious philosophical position, not a politeness rule. It DIRECTLY challenges individualism, greed, and 'every-person-for-themselves' thinking. The post-1994 SA constitution invokes ubuntu in its founding values for exactly this reason.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "grade": 11,
+      "title": "Grade 11 — History",
+      "description": "European expansion, the Atlantic World and its impact on Africa and the Americas. 5 CAPS topics across 4 terms. T1: the Atlantic World — Spanish & Portuguese (15th–18th c.) and Dutch & English (16th–19th c.). T2: Slavery, Slave Resistance and the Haitian Revolution. T3: Political centralisation and African kingdoms in southern Africa before the 19th century (Bapedi and amaZulu). T4: the Scramble for Africa. 15 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L11.T1",
+          "title": "Term 1 — The Atlantic World (Spanish & Portuguese; Dutch & English)",
+          "atomic_skills": [
+            {
+              "id": "HIS.G11.T1.IBERIA.A1",
+              "bank_skill_id": "HIS.G11.T1.IBERIA.A1",
+              "title": "Why Europe set sail — and what 'the Atlantic World' was",
+              "description": "What drove Spanish and Portuguese expansion from the 15th century: the navigation and shipbuilding head-start (the caravel, mapping), mercantile trade in silver, gold, sugar and human cargo, and the backing of monarchies and the Catholic Church. Push factors (poverty, land hunger, religious conflict in Europe) versus pull factors (riches abroad). The concept of 'the Atlantic World' as the interconnected regions around the Atlantic — Western Europe, west Africa, the Americas and the Caribbean, and the Atlantic islands — linked by a triangular trade.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 15th to 18th centuries (Spanish and Portuguese)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Europeans sailed mainly out of curiosity or adventure, missing the profit and push factors", "example": "Says explorers left Europe just to discover new lands, not to get rich or escape hardship"},
+                {"type": "conceptual_gap", "description": "Treats 'the Atlantic World' as just Europe, ignoring Africa and the Americas as part of one connected system", "example": "Says the Atlantic World means the European countries that owned ships"}
+              ],
+              "recovery_strategy": "Europeans sailed for RICHES and were PUSHED by hardship at home (poverty, land shortage, religious war) as much as pulled by gold abroad. Monarchies and the Church bankrolled and blessed the voyages. 'The Atlantic World' is one connected system — Europe + west Africa + the Americas + the islands — tied together by a triangular trade where the most valuable 'cargo' was enslaved people.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.IBERIA.A2",
+              "bank_skill_id": "HIS.G11.T1.IBERIA.A2",
+              "title": "The Spanish conquest of the Americas",
+              "description": "How small Spanish forces toppled large empires: Columbus's invasion of Hispaniola (1492 onwards), Cortés's invasion of Aztec Mexico, and the Pizarros' invasion of Inca Peru. The decisive roles of guns and steel, of Indigenous allies who joined against their overlords, and above all of Old World disease (smallpox) that emptied the land ahead of the conquerors. The Catholic Church's part in justifying conquest, and the scale of the resulting decimation and genocide of Indigenous peoples.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 15th to 18th centuries (Spanish and Portuguese)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sequence", "highlight-source", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks tiny Spanish armies beat huge empires by military skill alone, ignoring disease and Indigenous allies", "example": "Says Cortés defeated the Aztecs simply because Spanish soldiers were braver"},
+                {"type": "conceptual_gap", "description": "Imagines conquest as peaceful settlement or trade rather than invasion and genocide", "example": "Says the Spanish arrived in the Americas to trade with the local people"}
+              ],
+              "recovery_strategy": "Guns mattered, but DISEASE and ALLIES mattered more. Smallpox killed huge numbers of Indigenous people before battles even began, and peoples crushed by the Aztecs and Incas often joined the Spanish. The Church declared the conquest holy. The result was not settlement — it was invasion, mass death and genocide of the original populations.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.IBERIA.A3",
+              "bank_skill_id": "HIS.G11.T1.IBERIA.A3",
+              "title": "A new racial order, disease and resistance",
+              "description": "The wider consequences of Iberian expansion. Portuguese reach into the Americas (Brazil), Africa and the East, and their central role in opening the Atlantic slave trade. The devastating impact of imported diseases and pathogens on Indigenous populations. The creation of a new racialised class structure that placed Europeans at the top, with mestizos and mulattoes given limited upward mobility above the Indigenous and enslaved — race, not just wealth, fixing a person's place. The continual resistance of Indigenous peoples and enslaved Africans to Spanish and Portuguese rule.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 15th to 18th centuries (Spanish and Portuguese)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the new colonial class system was based on wealth alone, not race", "example": "Says anyone in the colonies could rise to the top if they earned enough money"},
+                {"type": "recall_slip", "description": "Forgets that Indigenous people and enslaved Africans actively resisted, picturing them only as victims", "example": "Says the colonised people accepted Spanish and Portuguese rule without resistance"}
+              ],
+              "recovery_strategy": "The colonial order was RACIALISED: Europeans on top, then mestizos/mulattoes with limited mobility, then Indigenous people and enslaved Africans at the bottom — birth and race, not just money, fixed your place. Portugal opened the Atlantic slave trade and reached Brazil, Africa and the East. Disease devastated the Americas. And the colonised never simply accepted it — resistance was constant.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.DUTCHENG.A1",
+              "bank_skill_id": "HIS.G11.T1.DUTCHENG.A1",
+              "title": "The Dutch and English challenge Iberia",
+              "description": "How Holland and Britain became dominant Atlantic powers by imitating and then overtaking Spain and Portugal: copying their navigation and shipbuilding, raiding Spanish and Portuguese ships through piracy and privateering, and winning their own monarchies' backing. Their entry into mercantile trade in silver, gold, timber, sugar and enslaved Africans. The Dutch refreshment station at the Cape of Good Hope; the Dutch mid-Atlantic colonies (New Amsterdam) and how the English displaced them — renaming New Amsterdam as New York and later ousting the Dutch from the Cape too.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 16th to 19th centuries (Dutch and English)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the Dutch and English were the first European sea powers, not imitators of Spain and Portugal", "example": "Says the British invented ocean navigation and led the way into the Atlantic"},
+                {"type": "recall_slip", "description": "Confuses who took the Cape and who took New York from whom", "example": "Says the Dutch seized New York from the English"}
+              ],
+              "recovery_strategy": "The Dutch and English COPIED the Spanish and Portuguese — same ships, same navigation — and at first got ahead partly by PIRACY, robbing Iberian treasure ships. Then they overtook them. Track the takeovers: the English took New Amsterdam from the Dutch and renamed it New York, and the English later took the Cape from the Dutch.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.DUTCHENG.A2",
+              "bank_skill_id": "HIS.G11.T1.DUTCHENG.A2",
+              "title": "Slavery as the engine of Dutch and British wealth",
+              "description": "The central role of enslaved labour in the accumulation of Dutch and British capital. At least 12 million Africans carried across the Atlantic between the 16th and 19th centuries, with the slave ship at the heart of Atlantic history and the Middle Passage as its most brutal stage. The plantation economy of sugar, cotton and tobacco in the Caribbean and the southern British colonies. The comparison between white indentured servants and enslaved Africans — both unfree, but with the crucial difference that indenture was temporary and slavery was permanent, inherited and racialised.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 16th to 19th centuries (Dutch and English)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats slavery as a minor or side part of the economy rather than the engine of Dutch and British wealth", "example": "Says the Atlantic slave trade made little difference to European economies"},
+                {"type": "conceptual_gap", "description": "Thinks indentured servitude and chattel slavery were the same thing", "example": "Says white indentured servants and enslaved Africans were treated exactly alike"}
+              ],
+              "recovery_strategy": "Slavery was the ENGINE, not a sideshow: at least 12 million Africans were shipped across the Atlantic, and the profits built Dutch and British capital. Indenture vs slavery: an indentured servant was unfree for a FIXED term and then freed; an enslaved African was unfree for LIFE, the status was INHERITED by their children, and it was fixed by RACE.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.DUTCHENG.A3",
+              "bank_skill_id": "HIS.G11.T1.DUTCHENG.A3",
+              "title": "Genocide and the slave experience — the Cape and the Americas",
+              "description": "The human cost of Dutch and English expansion in two settings. How war, land dispossession and new epidemic diseases decimated the Native Americans in the Americas and the Khoisan at the Cape. The enslaved experience traced from capture in west and central Africa, through the Middle Passage, to the plantations, towns and cities of the New World — and the gendered differences in that experience, with enslaved women facing distinct forms of labour and abuse. The story of sugar as the commodity linking Africa, Europe, Asia and the Americas in a single brutal system.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 16th to 19th centuries (Dutch and English)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "highlight-source", "sequence", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the collapse of the Khoisan or Native American populations was natural and unrelated to colonisation", "example": "Says the Khoisan simply died out on their own"},
+                {"type": "conceptual_gap", "description": "Assumes every enslaved person's experience was identical, missing gendered and regional differences", "example": "Says enslaved men and women on plantations did exactly the same work and faced the same treatment"}
+              ],
+              "recovery_strategy": "The decline of the Khoisan and Native Americans was NOT natural — it was caused by war, land seizure and imported disease. Trace the enslaved journey as stages: capture in Africa → the Middle Passage → plantation/town. And the experience was GENDERED — enslaved women faced field labour plus distinct forms of abuse. Sugar was the thread linking all four continents.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T2",
+          "title": "Term 2 — Slavery, Slave Resistance and the Haitian Revolution",
+          "atomic_skills": [
+            {
+              "id": "HIS.G11.T2.HAITI.A1",
+              "bank_skill_id": "HIS.G11.T2.HAITI.A1",
+              "title": "Saint-Domingue: the richest slave colony, and everyday resistance",
+              "description": "Haiti's beginnings as the French colony of Saint-Domingue — the wealthiest plantation colony in the Americas and the very pinnacle of the Atlantic slave system, built on a brutal denial of freedom to the enslaved majority. The crushing mortality rate on the sugar plantations. The everyday, ongoing forms of resistance long before open revolt: escaping, burning crops, feigning sickness, working slowly. How enslaved people carved out spaces of autonomy by cultivating small plots and selling produce at local markets, creating spaces of cultural and intellectual freedom in which a political vision of liberty could grow.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Slavery, Slave Resistance and the Haitian Revolution",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks resistance to slavery only meant armed uprising, missing everyday resistance", "example": "Says the enslaved did nothing to resist until the revolution began"},
+                {"type": "recall_slip", "description": "Thinks Saint-Domingue was a poor or unimportant colony", "example": "Says Saint-Domingue was a small, struggling French settlement"}
+              ],
+              "recovery_strategy": "Saint-Domingue was the RICHEST plantation colony in the Americas — the top of the whole Atlantic slave system. And resistance did not start with the revolution: enslaved people resisted EVERY DAY by escaping, burning crops, feigning illness, working slowly, and farming their own plots. Those small spaces of autonomy are where the idea of freedom grew.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T2.HAITI.A2",
+              "bank_skill_id": "HIS.G11.T2.HAITI.A2",
+              "title": "The Revolution (1791–1804): Toussaint L'Ouverture and the French link",
+              "description": "The causes and course of the Haitian Revolution, 1791–1804. Its tight entanglement with the French Revolution of 1789, whose ideals of liberty, equality and fraternity explicitly excluded Africans on the grounds that the enslaved were 'not fully human'. The leadership of Toussaint L'Ouverture and the powerful influence of the large number of African-born enslaved people, who brought African political thought to the struggle. The participation of African women in both military combat and political debate. The outcome: Haiti as the first nation in the world led by formerly enslaved people.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Slavery, Slave Resistance and the Haitian Revolution",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sequence", "highlight-source", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the French Revolution had already freed the slaves, so Haiti's revolt was unnecessary", "example": "Says France gave Haitians their freedom in 1789"},
+                {"type": "recall_slip", "description": "Confuses the dates or leadership of the Haitian Revolution", "example": "Says the Haitian Revolution was led by Napoleon and ended in 1789"}
+              ],
+              "recovery_strategy": "The French Revolution's 'liberty, equality, fraternity' EXCLUDED enslaved Africans — they were not counted as fully human — so Haitians had to win freedom themselves. Anchor the facts: 1791–1804, led by Toussaint L'Ouverture, powered by African-born enslaved people (and women in combat and debate), ending with the first nation in history led by formerly enslaved people.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T2.HAITI.A3",
+              "bank_skill_id": "HIS.G11.T2.HAITI.A3",
+              "title": "A universal freedom — and the price Haiti paid",
+              "description": "Why the Haitian Revolution mattered to the whole world. It advanced a UNIVERSAL idea of freedom — insisting that liberty and equality had to include the emancipation of Black slaves — going further than either the American or French revolutions. The fear it struck into the United States government and American slave owners, and its inspiration to enslaved people resisting elsewhere. France and the US's hostile response, and the crippling indemnity (heavy fines) France forced on Haiti as punishment for its freedom. The long aftermath: Haiti's influence on the anti-slavery movement and on later anti-colonial struggles in the Caribbean and across Africa.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Slavery, Slave Resistance and the Haitian Revolution",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "argument-builder", "source-comparison", "paragraph-template", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Haiti's independence was welcomed and rewarded by other nations", "example": "Says France and the US congratulated Haiti and traded freely with it"},
+                {"type": "conceptual_gap", "description": "Thinks the Haitian Revolution had no influence beyond Haiti itself", "example": "Says the revolution changed nothing for enslaved or colonised people elsewhere"}
+              ],
+              "recovery_strategy": "Haiti went FURTHER than France or America: it said freedom must include EVERYONE, including Black slaves. For that it was PUNISHED, not rewarded — France forced a crushing indemnity and the US feared the example it set. But the idea spread: Haiti inspired anti-slavery and anti-colonial struggles across the Caribbean and Africa for generations.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T3",
+          "title": "Term 3 — Political Centralisation & African Kingdoms in Southern Africa",
+          "atomic_skills": [
+            {
+              "id": "HIS.G11.T3.CENTRAL.A1",
+              "bank_skill_id": "HIS.G11.T3.CENTRAL.A1",
+              "title": "Why larger, centralised states emerged",
+              "description": "How and why southern Africa shifted from small, scattered chiefdoms to larger, more centralised kingdoms in the late 1700s and early 1800s. The combination of factors at work: growing population, climatic change (drought), the pull of long-distance trade, and mounting pressure from areas of European control and settlement to the south. The historiographical debate over which factors mattered most. The key trade-off recognised by historians: centralisation brought military strength but also made political structures more hierarchical and coercive, eroding some of the democratic features of the older, smaller polities.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Political Centralisation and African kingdoms in southern Africa before the nineteenth century",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Attributes centralisation to a single cause, usually one ruler's genius", "example": "Says the only reason big kingdoms formed was because Shaka was a brilliant general"},
+                {"type": "conceptual_gap", "description": "Treats centralisation as pure progress with no downside", "example": "Says becoming a bigger kingdom made these societies better in every way"}
+              ],
+              "recovery_strategy": "MANY factors stacked up — population growth, drought, long-distance trade, and pressure from European settlement to the south. No single cause, and no single great man. And centralisation had a COST: bigger, stronger kingdoms also became more hierarchical and coercive, losing some of the consultative, democratic features (like the imbizo) of the smaller societies they replaced.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T3.CENTRAL.A2",
+              "bank_skill_id": "HIS.G11.T3.CENTRAL.A2",
+              "title": "Two models of power: the Bapedi and the amaZulu",
+              "description": "A comparison of how two kingdoms built and held power. The Bapedi (Maroteng) under King Thulare I consolidated through royal marriages — insisting subordinate chiefdoms take their principal wife from the Maroteng — through the accumulation of magadi/ilobolo (bridewealth), and through the Batseta system of monitoring subordinate chiefdoms; their mephato regiments were formed within local chiefdoms and gathered only when summoned. The amaZulu under Shaka kaSenzangakhona consolidated through military innovation (the shield, the stabbing spear, drilling) and through the amabutho — permanent, cross-chiefdom age regiments housed in amakhanda military towns, where young men lived for years directly under the king's authority and could marry only in their forties.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Political Centralisation and African kingdoms in southern Africa before the nineteenth century",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "sequence", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses the Pedi mephato with the Zulu amabutho", "example": "Says the Bapedi regiments lived permanently in military towns under the king like Shaka's"},
+                {"type": "conceptual_gap", "description": "Thinks Shaka invented southern African statehood from nothing", "example": "Says there were no organised kingdoms in the region before Shaka"}
+              ],
+              "recovery_strategy": "Two routes to power. BAPEDI/Maroteng = consolidation by MARRIAGE and DIPLOMACY (principal wives from the Maroteng, ilobolo, the Batseta monitors); their mephato stayed local and gathered only when called. ZULU = consolidation by MILITARY system (the amabutho lived for years in amakhanda barracks under the king, marrying only in their forties). The Pedi regiments were local and temporary; the Zulu regiments were permanent and centralised.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T3.CENTRAL.A3",
+              "bank_skill_id": "HIS.G11.T3.CENTRAL.A3",
+              "title": "The cost of centralisation and the clash with Britain",
+              "description": "The consequences of centralisation and its collision with British imperialism. The erosion of more democratic, consultative features such as the imbizo (public gathering) and the rise of authoritarian rule within the larger kingdoms. The encounters with British imperialism in 1879: the amaZulu victory at Isandlwana (22 January 1879) and the public outcry it caused in Britain, the subsequent Zulu defeat at Ulundi, and the Anglo-Pedi War in which the British defeated the Bapedi under Sekhukhune only with the help of Swazi mercenaries. The final loss of African land and sovereignty — and the bitter irony that the migrant labour system was later built on the very regiments these kingdoms had created.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Political Centralisation and African kingdoms in southern Africa before the nineteenth century",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sequence", "highlight-source", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks centralisation only strengthened these societies, missing the loss of consultative, democratic features", "example": "Says becoming centralised kingdoms gave ordinary people more say in government"},
+                {"type": "recall_slip", "description": "Thinks African kingdoms put up no real resistance to British invasion", "example": "Says the Zulu and Pedi were defeated instantly without ever winning a battle"}
+              ],
+              "recovery_strategy": "Centralisation came at the price of the imbizo and consultative rule — power moved up to the king. But these kingdoms RESISTED hard: the Zulu CRUSHED the British at Isandlwana (22 Jan 1879) before losing at Ulundi, and the Pedi held out until Britain brought in Swazi mercenaries. The cruel twist: the migrant labour system was later built on the same regiments these kingdoms had created.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T4",
+          "title": "Term 4 — The Scramble for Africa",
+          "atomic_skills": [
+            {
+              "id": "HIS.G11.T4.SCRAMBLE.A1",
+              "bank_skill_id": "HIS.G11.T4.SCRAMBLE.A1",
+              "title": "The Scramble and the Berlin Conference",
+              "description": "What the 'Scramble for Africa' was and how it was formalised. The generation after 1880 in which the industrialised nations of Europe partitioned, conquered and occupied a continent of over 28 million square kilometres. The meaning of imperialism, and why historians call it a 'scramble' — the competition and race between European nations to seize territory. The Berlin Conference of 1884–85 as the meeting that formalised the conquest and drew Africa's political boundaries, and the remarkable speed, coordination and (from the European point of view) ease with which the continent was carved up — with no African representation at the table.",
+              "caps_term": "G11 T4",
+              "caps_topic": "The Scramble for Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "highlight-source"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Africans were represented at or consulted in the Berlin Conference", "example": "Says African leaders attended the Berlin Conference to agree on the borders"},
+                {"type": "conceptual_gap", "description": "Thinks the colonisation of Africa was slow and uncoordinated rather than a rapid post-1880 scramble", "example": "Says Europe took over Africa gradually over several centuries with no rush"}
+              ],
+              "recovery_strategy": "The Berlin Conference (1884–85) is where Europeans drew Africa's borders — and NO Africans were there. It is called a 'scramble' because European nations RACED and competed to grab territory after 1880, carving up the whole continent with shocking speed and coordination. This was fast and deliberate, not slow and accidental.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T4.SCRAMBLE.A2",
+              "bank_skill_id": "HIS.G11.T4.SCRAMBLE.A2",
+              "title": "Why did it happen? The competing explanations",
+              "description": "The historiographical debate over why Europe partitioned Africa when and how it did. The main theories historians advance: economic (markets, raw materials, investment), Scientific Racism / Eugenics (the pseudo-scientific belief in European racial superiority used to justify conquest), diplomatic (rivalry and the European balance of power), and the African dimension (conditions within Africa itself). How Europeans justified colonisation to themselves and others, and the recognition that there is no single agreed cause — historians weigh these explanations differently.",
+              "caps_term": "G11 T4",
+              "caps_topic": "The Scramble for Africa",
+              "prerequisites": [],
+              "templates": ["choice", "sort-buckets", "argument-builder", "source-comparison", "highlight-source", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks there is one simple, agreed reason for the Scramble", "example": "Says everyone agrees Europe took Africa only for raw materials"},
+                {"type": "conceptual_gap", "description": "Treats 'scientific racism' as genuine science rather than ideology used to justify conquest", "example": "Says Europeans had scientifically proven they were a superior race"}
+              ],
+              "recovery_strategy": "Historians DISAGREE about the cause — economic, scientific racism/eugenics, diplomatic rivalry, and the African dimension are four competing explanations, not one answer. And 'scientific racism' was NOT real science: it was a pseudo-scientific ideology invented to make conquest look justified. Weighing these theories against each other is exactly what the topic asks you to do.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T4.SCRAMBLE.A3",
+              "bank_skill_id": "HIS.G11.T4.SCRAMBLE.A3",
+              "title": "Consequences: artificial borders, resistance and genocide",
+              "description": "The lasting effects of the Scramble. The artificiality of the colonial boundaries, which split peoples who culturally belonged together — for example the Shangaan/Tsonga divided between Mozambique and South Africa, and the British High Commission territories (Lesotho, Swaziland, Botswana) cut off from South Africa. African resistance, including the Battle of Adwa (1896), where Ethiopia defeated Italy in a rare and decisive early victory against the Scramble. The genocides that followed conquest, studied as case studies: the atrocities in the Belgian Congo and the German genocide of the Herero and Nama in South-West Africa (Namibia). Why these artificial borders and unhealed wounds still shape Africa today.",
+              "caps_term": "G11 T4",
+              "caps_topic": "The Scramble for Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks colonial borders followed existing ethnic or cultural lines", "example": "Says Europeans were careful to keep each African people inside its own colony"},
+                {"type": "recall_slip", "description": "Thinks Africans never successfully resisted the Scramble, or is unaware of the colonial genocides", "example": "Says no African society ever defeated a European army during the Scramble"}
+              ],
+              "recovery_strategy": "Colonial borders IGNORED African peoples — they split groups like the Shangaan/Tsonga across Mozambique and South Africa. Africans DID resist and sometimes won: Ethiopia defeated Italy at Adwa (1896). And conquest brought genocide — remember the Belgian Congo and the German killing of the Herero and Nama in Namibia. Those borders and wounds still shape Africa today.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 — History",
+      "description": "The anti-colonial struggles and the coming of democracy in 20th-century South Africa. 6 CAPS topics across 3 terms. T1: the Politics and Economics of SA (late 19th–20th c.) + the National Question and the formation of the ANC, NP, CPSA and other organisations. T2: the Cold War and anti-colonial struggles in southern Africa + the era of liberation struggles and apartheid SA on the continent (OAU). T3: the role of individual leaders (P.W. Botha and O.R. Tambo) + freedom and democracy / coming to terms with the past (negotiations, 1994, TRC, the Constitution). 19 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L12.T1",
+          "title": "Term 1 — Politics & Economics of SA + The National Question",
+          "atomic_skills": [
+            {
+              "id": "HIS.G12.T1.POLECON.A1",
+              "bank_skill_id": "HIS.G12.T1.POLECON.A1",
+              "title": "The mineral revolution, British imperialism and the Union of 1910",
+              "description": "How diamonds (Kimberley) and gold (the Witwatersrand) transformed South Africa. The rise of mining capital and international finance, the surge of British imperialism, and the conquest of the last independent African polities. The South African (Anglo-Boer) War of 1899–1902 and the Treaty of Vereeniging. The formation of the Union of South Africa in 1910 as a British dominion that united white English-speakers and Afrikaners while excluding the African majority from political rights.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The Politics and Economics of South Africa in the Late 19th and 20th Centuries",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the mineral revolution was only an economic event, missing its political consequences", "example": "Says diamonds and gold made South Africa rich but had nothing to do with imperialism or the Union"},
+                {"type": "recall_slip", "description": "Confuses who was included in or excluded from the Union of 1910", "example": "Says the Union of 1910 gave political rights to all South Africans"}
+              ],
+              "recovery_strategy": "Diamonds + gold = mining capital = a surge of British imperialism. That chain led to the conquest of African polities, the South African War (1899–1902), and the Union of 1910. The Union united whites (British + Afrikaner) and deliberately EXCLUDED the African majority from political power — economics and politics were one story.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.POLECON.A2",
+              "bank_skill_id": "HIS.G12.T1.POLECON.A2",
+              "title": "Racial capitalism: the colour bar, migrant labour and the 'poor white' problem",
+              "description": "How the South African economy was built on racial discrimination. The 'civilised labour' policy and the colour bar that reserved skilled, well-paid work for whites. Job reservation at state enterprises such as ISCOR and ESKOM. The migrant labour system that fed the mines with cheap, controlled African labour. The Great Depression and the 'poor white problem', and how the state solved it for whites while entrenching African poverty. Education organised along racial lines to serve this system.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The Politics and Economics of South Africa in the Late 19th and 20th Centuries",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats poverty and inequality as accidental, not built into the system by law", "example": "Says African workers were simply less skilled, so they earned less"},
+                {"type": "conceptual_gap", "description": "Thinks the 'poor white problem' was solved by the free market, not by racial state intervention", "example": "Says poor whites rose purely through hard work, with no special help"}
+              ],
+              "recovery_strategy": "The economy was RACIAL by design: the 'civilised labour' policy and colour bar reserved good jobs for whites; job reservation at ISCOR/ESKOM protected them; migrant labour kept African workers cheap and controlled. The state rescued poor whites (state jobs, protection) while keeping Africans poor. Inequality was legislated, not accidental.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.POLECON.A3",
+              "bank_skill_id": "HIS.G12.T1.POLECON.A3",
+              "title": "Workers' struggles and the birth of three movements",
+              "description": "How the mineral revolution gave rise to African nationalism, Afrikaner nationalism and a workers' (communist) movement. The white mineworkers' revolts of 1913 and 1922 and the 1920 African mineworkers' strike. The Industrial and Commercial Workers' Union (ICU) under Clements Kadalie. The Communist Party of South Africa, influenced by the 1917 Russian Revolution. The institutions of Afrikaner nationalism (the Broederbond, the FAK, the Dutch Reformed Church). Women's protest, including the 1913 anti-pass campaigns and Charlotte Maxeke.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The Politics and Economics of South Africa in the Late 19th and 20th Centuries",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses white and black workers' revolts, or which union was which", "example": "Says the ICU was a white craft union"},
+                {"type": "conceptual_gap", "description": "Misses that the same industrial system produced rival nationalisms and a workers' movement at once", "example": "Says African nationalism and Afrikaner nationalism had nothing in common in their origins"}
+              ],
+              "recovery_strategy": "The same mining economy bred THREE responses: African nationalism, Afrikaner nationalism, and a workers'/communist movement. Keep the revolts straight: white miners revolted in 1913 and 1922; African miners struck in 1920; the ICU (Kadalie) organised African workers. Afrikaner nationalism worked through the Broederbond, FAK and DRC. Women resisted too (1913 anti-pass, Charlotte Maxeke).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.NATQ.A1",
+              "bank_skill_id": "HIS.G12.T1.NATQ.A1",
+              "title": "What the 'national question' was — and the exclusion built into the Union",
+              "description": "The 'national question': who counts as a South African and who holds power in a single state shared by oppressor and oppressed. The Treaty of Vereeniging (1902) and the whites-only National Convention (1907–08) that built cooperation between British and Afrikaner whites. The Union of 1910 excluding over 80% of the population from citizenship. The difference (and the debate over whether there was one) between segregation and apartheid. The competing interpretations historians and activists used: liberal, Marxist, Afrikaner-nationalist, Africanist and African-nationalist.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The National Question in South Africa: the formation of the ANC, the National Party, the Communist Party of South Africa and other organisations",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the 'national question' is just about race, missing the question of who belongs to the nation and who holds power", "example": "Says the national question was only about skin colour"},
+                {"type": "conceptual_gap", "description": "Believes the 1910 Union created a democracy for all South Africans", "example": "Says everyone could vote in the Union of South Africa"}
+              ],
+              "recovery_strategy": "The 'national question' asks: in a country where oppressor and oppressed share the same space, who counts as a citizen and who holds power? At Union (1910), built on Vereeniging (1902) and a whites-only Convention, over 80% of people were locked out of citizenship. Different camps (liberal, Marxist, Africanist, African-nationalist) answered the question very differently.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.NATQ.A2",
+              "bank_skill_id": "HIS.G12.T1.NATQ.A2",
+              "title": "The organisations form: ANC, NP, CPSA and others",
+              "description": "The political organisations that emerged in response to exclusion. The South African Native National Congress (SANNC), founded in 1912 and later renamed the ANC, formed after the failure of the 1908–10 campaign for inclusion. The National Party (1914), expressing Afrikaner grievance. The Indian congresses (the Natal Indian Congress, 1895, and later the South African Indian Congress) and the African People's Organisation (APO, 1902) under Abdullah Abdurahman. The Communist Party of South Africa (1921) and its adoption of the 'Native Republic Thesis' in 1928. Who each organisation represented and why each was formed.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The National Question in South Africa: the formation of the ANC, the National Party, the Communist Party of South Africa and other organisations",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses the founding dates or which group each organisation represented", "example": "Says the National Party was formed to represent African workers"},
+                {"type": "conceptual_gap", "description": "Thinks all these organisations wanted the same thing", "example": "Says the NP and the SANNC had identical goals"}
+              ],
+              "recovery_strategy": "Match each organisation to its people and purpose: SANNC/ANC (1912) — Africans excluded from the Union; NP (1914) — aggrieved Afrikaners; NIC/APO — Indian and Coloured people; CPSA (1921) — workers, later embracing the 'Native Republic Thesis' (1928). They formed in response to the SAME exclusion but wanted very different futures.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.NATQ.A3",
+              "bank_skill_id": "HIS.G12.T1.NATQ.A3",
+              "title": "From segregation to apartheid and the Bantustans",
+              "description": "The hardening of segregation into apartheid after 1948 and the system's logic. How apartheid intensified and systematised the racial order that segregation had begun. The Bantustan (homeland) strategy: dividing Africans into ethnic 'homelands' as a way of stripping them of South African citizenship and denying the African majority any claim to the country as a whole. Why the Bantustans were central to apartheid's answer to the national question.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The National Question in South Africa: the formation of the ANC, the National Party, the Communist Party of South Africa and other organisations",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the Bantustans were genuine independent homelands for African peoples' benefit", "example": "Says the homelands were created to give African peoples their own free countries"},
+                {"type": "conceptual_gap", "description": "Sees no link between segregation and apartheid", "example": "Says apartheid appeared suddenly in 1948 with no roots in earlier segregation"}
+              ],
+              "recovery_strategy": "Apartheid (from 1948) was segregation made harsher and more systematic. The Bantustans were the key trick: by assigning Africans to ethnic 'homelands', the state could strip them of South African citizenship and claim the rest of the country for whites. The homelands were a tool of dispossession, not a gift of self-rule.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T1.NATQ.A4",
+              "bank_skill_id": "HIS.G12.T1.NATQ.A4",
+              "title": "Alternative visions: Sobukwe, the PAC and Black Consciousness",
+              "description": "Different imaginations of a future South Africa beyond the ANC's. Robert Sobukwe and the Pan Africanist Congress (PAC), which broke from the ANC to advance an Africanist alternative. The rise of Steve Biko and the Black Consciousness Movement (BCM) in the 1970s, and organisations such as the Azanian People's Organisation (AZAPO). What these movements added to the debate about the national question — psychological liberation, African self-reliance and a critique of how freedom should be defined.",
+              "caps_term": "G12 T1",
+              "caps_topic": "The National Question in South Africa: the formation of the ANC, the National Party, the Communist Party of South Africa and other organisations",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses Sobukwe/PAC with Biko/Black Consciousness, or their dates", "example": "Says Steve Biko founded the PAC"},
+                {"type": "conceptual_gap", "description": "Thinks there was only one liberation tradition (the ANC's)", "example": "Says every anti-apartheid activist belonged to the ANC"}
+              ],
+              "recovery_strategy": "The liberation struggle had MORE than one vision. Sobukwe's PAC offered an Africanist alternative to the ANC. Biko's Black Consciousness Movement (1970s) and AZAPO stressed psychological liberation and Black self-reliance. Keep them apart: Sobukwe = PAC (Pan-Africanist); Biko = Black Consciousness/AZAPO. Each answered the national question differently.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T2",
+          "title": "Term 2 — Cold War & Anti-colonial Struggles + Liberation Struggles and the OAU",
+          "atomic_skills": [
+            {
+              "id": "HIS.G12.T2.COLDWAR.A1",
+              "bank_skill_id": "HIS.G12.T2.COLDWAR.A1",
+              "title": "Origins and nature of the Cold War",
+              "description": "Why the world split after the Second World War into a capitalist bloc led by the USA and a socialist bloc led by the USSR. The role of ideology and the nuclear arms race. Why it is called a 'cold' war — direct war between the superpowers was avoided because of nuclear weapons, so the conflict was fought through proxy wars, propaganda, espionage, and rivalry in technology, space and sport. The military alliances (NATO and the Warsaw Pact), the Berlin Wall, and the Cuban Missile Crisis as the high point of tension.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Cold War and the Rise of Anti-colonial Struggles in Southern Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the Cold War was a direct, open war between the USA and USSR", "example": "Says American and Soviet armies fought each other directly in big battles"},
+                {"type": "recall_slip", "description": "Mixes up which superpower led which bloc", "example": "Says the USA led the socialist bloc"}
+              ],
+              "recovery_strategy": "'Cold' = the superpowers never fought each other directly, because nuclear weapons made that suicidal. Instead it was ideology (USA capitalist vs USSR socialist), an arms race, and proxy wars fought through other countries. Anchors: NATO (West) vs Warsaw Pact (East), the Berlin Wall, the Cuban Missile Crisis.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.COLDWAR.A2",
+              "bank_skill_id": "HIS.G12.T2.COLDWAR.A2",
+              "title": "The Cold War comes to southern Africa: Angola and Cuito Cuanavale",
+              "description": "How the global Cold War played out as a hot war in southern Africa. South Africa's 1975 invasion of Angola, where the rival movements were backed by opposing powers — the USA and Zaire behind the FNLA, apartheid South Africa behind UNITA, and Cuba and the USSR behind the MPLA. The battle of Cuito Cuanavale (1987–88) and the South African Defence Force's involvement. How apartheid South Africa positioned itself as a Cold War ally of the West, and how this shaped the liberation struggle.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Cold War and the Rise of Anti-colonial Struggles in Southern Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses which outside power backed which Angolan movement", "example": "Says Cuba and the USSR backed UNITA"},
+                {"type": "conceptual_gap", "description": "Treats the Angolan war as purely local, missing the Cold War dimension", "example": "Says the war in Angola had nothing to do with the USA or USSR"}
+              ],
+              "recovery_strategy": "Angola was a Cold War battlefield. Match the backers: MPLA — Cuba + USSR; UNITA — apartheid South Africa; FNLA — USA + Zaire. South Africa invaded in 1975 and fought on to Cuito Cuanavale (1987–88), presenting itself as a Western Cold War ally to justify its actions.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.COLDWAR.A3",
+              "bank_skill_id": "HIS.G12.T2.COLDWAR.A3",
+              "title": "International solidarity and the 1973 UN vote",
+              "description": "How the world turned against apartheid during the Cold War. The international anti-apartheid solidarity movements in countries such as the USA and Britain, often campaigning against their own governments' support for South Africa. The sports and cultural boycotts. The 1973 United Nations vote declaring apartheid a crime against humanity (with the USA and Britain voting against, and the USSR, African and non-aligned countries voting in favour). How the end of the Cold War, with the dissolution of the USSR, changed the situation in southern Africa.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Cold War and the Rise of Anti-colonial Struggles in Southern Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Gets the 1973 UN vote backwards", "example": "Says the USA and Britain led the vote to condemn apartheid"},
+                {"type": "conceptual_gap", "description": "Thinks solidarity movements and their governments were on the same side", "example": "Says the British anti-apartheid movement and the British government both opposed apartheid"}
+              ],
+              "recovery_strategy": "Ordinary people abroad often opposed apartheid while their GOVERNMENTS protected it — that is what the solidarity movements (and sports/cultural boycotts) fought. In the 1973 UN vote, apartheid was declared a crime against humanity: the USSR, African and non-aligned states voted FOR; the USA and Britain voted AGAINST. The end of the Cold War later removed apartheid's 'anti-communist' excuse.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.LIBSTRUG.A1",
+              "bank_skill_id": "HIS.G12.T2.LIBSTRUG.A1",
+              "title": "The OAU and the Frontline States",
+              "description": "How newly independent African states organised to support liberation in southern Africa. The formation of the Organisation of African Unity (OAU) in 1963 (renamed the African Union in 2001) and its programme to complete the anti-colonial struggle against the white-minority regimes controlled by Portugal, Britain and South Africa. The role of the Frontline States in hosting liberation movements in exile and supporting people displaced by the white-minority regimes. The OAU Liberation Committee.",
+              "caps_term": "G12 T2",
+              "caps_topic": "The Era of the Liberation Struggles and the Politics of Apartheid South Africa on the African Continent",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses the OAU's founding date or its later name", "example": "Says the OAU was founded in 1994 and is still called the OAU"},
+                {"type": "conceptual_gap", "description": "Thinks African states played no part in the South African liberation struggle", "example": "Says the struggle against apartheid happened only inside South Africa"}
+              ],
+              "recovery_strategy": "The OAU (1963, later the AU in 2001) was Africa's united front against the remaining white-minority regimes. The Frontline States sheltered liberation movements in exile and the displaced, at real cost to themselves. The struggle was continental, not just internal.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.LIBSTRUG.A2",
+              "bank_skill_id": "HIS.G12.T2.LIBSTRUG.A2",
+              "title": "A continent divided: pro- and anti-liberation states",
+              "description": "Why independent African countries did not all support the liberation struggle equally. A comparative study of pro-liberation movement states (such as Tanzania, Zambia and Nigeria) and anti-liberation movement states (such as Malawi and Côte d'Ivoire). How each country's ideological alignment — and its economic ties to the former colonial powers and to South Africa — shaped whether it supported or opposed the liberation movements. Why some states maintained diplomatic and economic links with apartheid South Africa.",
+              "caps_term": "G12 T2",
+              "caps_topic": "The Era of the Liberation Struggles and the Politics of Apartheid South Africa on the African Continent",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Assumes all African states supported the liberation struggle equally", "example": "Says every independent African country backed the ANC and PAC"},
+                {"type": "recall_slip", "description": "Confuses which states were pro- and which were anti-liberation", "example": "Says Malawi was a leading supporter of the liberation struggle"}
+              ],
+              "recovery_strategy": "African support was FRACTURED. Pro-liberation: Tanzania, Zambia, Nigeria. Anti-liberation (kept links with apartheid SA): Malawi, Côte d'Ivoire. The deciding factor was usually ideological alignment and economic ties — countries tied to the West or to South Africa's economy were more reluctant to back the struggle.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T2.LIBSTRUG.A3",
+              "bank_skill_id": "HIS.G12.T2.LIBSTRUG.A3",
+              "title": "Apartheid's destabilisation of the region and the Harare Declaration",
+              "description": "How apartheid South Africa tried to crush the liberation struggle beyond its borders. The military and economic destabilisation of neighbouring states — raids, support for rebel movements, and economic pressure — to punish countries that sheltered liberation movements. The liberation of South West Africa (Namibia) and the role of the League of Nations and United Nations in that question. The Harare Declaration (1989) and the role of the OAU, the Non-Aligned Movement and the UN in setting conditions for a negotiated end to apartheid.",
+              "caps_term": "G12 T2",
+              "caps_topic": "The Era of the Liberation Struggles and the Politics of Apartheid South Africa on the African Continent",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks apartheid South Africa kept its violence inside its own borders", "example": "Says South Africa never attacked or pressured its neighbours"},
+                {"type": "recall_slip", "description": "Cannot place the Harare Declaration or its purpose", "example": "Says the Harare Declaration started the Second World War"}
+              ],
+              "recovery_strategy": "Apartheid South Africa hit BACK across its borders: military raids and economic pressure to destabilise neighbours who sheltered the movements. Namibia's liberation involved the League of Nations and the UN. The Harare Declaration (1989), backed by the OAU, Non-Aligned Movement and UN, set out conditions for negotiations — pointing toward the end of apartheid.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T3",
+          "title": "Term 3 — The Role of Individual Leaders + Freedom and Democracy / Coming to Terms with the Past",
+          "atomic_skills": [
+            {
+              "id": "HIS.G12.T3.LEADERS.A1",
+              "bank_skill_id": "HIS.G12.T3.LEADERS.A1",
+              "title": "Individuals in history, and P.W. Botha the securocrat",
+              "description": "The question of how much individual leaders shape history — they cannot change its course at will, but they can play a decisive role. P.W. Botha as Minister of Defence under Vorster and his part in South Africa's nuclear weapons programme and the destabilisation of the region (the 1975 invasion of Angola). Botha's shift of South Africa from a 'police state' toward a 'military state' run by securocrats. The 1985 State of Emergency and the vicious repression of popular resistance.",
+              "caps_term": "G12 T3",
+              "caps_topic": "The Role of Individual Leaders in History during the Apartheid Period",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks individuals either control history completely or not at all", "example": "Says one leader single-handedly decided everything that happened"},
+                {"type": "recall_slip", "description": "Confuses Botha's roles or the meaning of 'securocrat'", "example": "Says P.W. Botha was a leader of the ANC"}
+              ],
+              "recovery_strategy": "Leaders don't control history at will, but they can be decisive. Botha the SECUROCRAT: as Defence Minister he drove the nuclear programme and regional destabilisation (Angola, 1975); as leader he turned South Africa into a 'military state' and imposed the 1985 State of Emergency, crushing resistance. A 'securocrat' rules through the security forces.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.LEADERS.A2",
+              "bank_skill_id": "HIS.G12.T3.LEADERS.A2",
+              "title": "P.W. Botha the 'reformer' — and the limits of reform",
+              "description": "The other side of P.W. Botha: the leader who tried to reform apartheid without surrendering white power. The 1983 Tricameral Parliament, which gave limited representation to Coloured and Indian people but still excluded Africans, and the formation of the United Democratic Front (UDF) in response. The abolition of some 'petty apartheid' measures and the 1986–87 release of some political prisoners (such as Govan Mbeki and Walter Sisulu). The 'reformer or securocrat?' debate, and why Botha's reforms could never resolve the core injustice.",
+              "caps_term": "G12 T3",
+              "caps_topic": "The Role of Individual Leaders in History during the Apartheid Period",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Botha's reforms meant he intended to end apartheid", "example": "Says the Tricameral Parliament was a step toward giving everyone equal votes"},
+                {"type": "recall_slip", "description": "Thinks the Tricameral Parliament included Africans", "example": "Says the 1983 Tricameral Parliament gave Africans seats"}
+              ],
+              "recovery_strategy": "Botha reformed to PRESERVE white power, not to end apartheid. The 1983 Tricameral Parliament included Coloured and Indian people but still EXCLUDED the African majority — which is why the UDF formed against it. He scrapped some petty-apartheid laws and freed a few prisoners, but never touched the core. That is the heart of the 'reformer or securocrat' debate.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.LEADERS.A3",
+              "bank_skill_id": "HIS.G12.T3.LEADERS.A3",
+              "title": "O.R. Tambo and the ANC in exile",
+              "description": "Oliver Reginald Tambo's leadership of the ANC in exile after the liberation movements were banned following the Sharpeville Massacre (1960). How Tambo rebuilt the ANC abroad and held it together for three decades. The 'Four Pillars of the Struggle' — the underground struggle, international solidarity, the armed struggle (Umkhonto we Sizwe), and mass mobilisation. The impact of the 1976 Soweto uprising, which drove young activists into exile and into MK, and the educational route at the Solomon Mahlangu Freedom College (SOMAFCO) in Tanzania. Tambo's part in the Harare Declaration and his return to South Africa in 1990.",
+              "caps_term": "G12 T3",
+              "caps_topic": "The Role of Individual Leaders in History during the Apartheid Period",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Cannot name the Four Pillars or confuses MK with another body", "example": "Says Umkhonto we Sizwe was a trade union"},
+                {"type": "conceptual_gap", "description": "Thinks the struggle in exile was disorganised or unimportant", "example": "Says the ANC achieved nothing while in exile"}
+              ],
+              "recovery_strategy": "After Sharpeville (1960) and the bannings, Tambo rebuilt the ANC IN EXILE and led it for ~30 years. Learn the Four Pillars: (1) underground struggle, (2) international solidarity, (3) armed struggle (MK), (4) mass mobilisation. The 1976 Soweto uprising sent youth into exile — many to MK, some to SOMAFCO in Tanzania. Tambo helped craft the Harare Declaration and returned in 1990.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.DEMOC.A1",
+              "bank_skill_id": "HIS.G12.T3.DEMOC.A1",
+              "title": "Why negotiations began",
+              "description": "Why apartheid became unsustainable and talks began. The fall of the South African economy in 1985, as international creditors demanded repayment and economic sanctions and the cultural and sports boycotts bit. The well-publicised meetings between 1985 and 1988 in which business people, the media, opposition politicians and Afrikaans academics met the ANC-in-exile, and the UN's Eminent Persons Group. The secret talks between the National Party and the ANC. The unbanning of the liberation movements in February 1990 and the release of Nelson Mandela.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Freedom and Democracy in South Africa: Coming to Terms with the Past",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks apartheid ended purely out of goodwill, missing the economic and international pressure", "example": "Says the government freed Mandela simply because it changed its mind"},
+                {"type": "recall_slip", "description": "Misplaces the unbanning or Mandela's release", "example": "Says Mandela was released in 1976"}
+              ],
+              "recovery_strategy": "Apartheid became too costly to maintain: the 1985 economic crash, sanctions and boycotts forced the issue. Talks built up gradually — public meetings with the ANC-in-exile (1985–88), the Eminent Persons Group, then secret NP–ANC talks — leading to the unbanning of the movements and Mandela's release in February 1990. Pressure, not goodwill, opened the door.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.DEMOC.A2",
+              "bank_skill_id": "HIS.G12.T3.DEMOC.A2",
+              "title": "Negotiation, violence and the 1994 breakthrough",
+              "description": "The road from talks to democracy. The CODESA negotiations between the ANC, the NP government, the Bantustan leaders and others, and the compromises on both sides (such as Joe Slovo's 'Sunset Clause'). The violence that threatened to derail the process — the 'third force', conflict between the ANC and Inkatha, the murder of Chris Hani, and white right-wing violence (the AWB). The collapse of the Bantustans (such as the Bhisho massacre). The first democratic election of 27 April 1994 and the Government of National Unity.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Freedom and Democracy in South Africa: Coming to Terms with the Past",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the transition to democracy was smooth and peaceful", "example": "Says the move to democracy happened without any violence"},
+                {"type": "recall_slip", "description": "Confuses the key events or compromises of the negotiations", "example": "Says the Sunset Clause was a law banning the ANC"}
+              ],
+              "recovery_strategy": "The transition was negotiated AND violent at once. CODESA brought the parties together; compromises like the Sunset Clause (Joe Slovo) kept it alive. Meanwhile 'third force' violence, ANC–Inkatha conflict, the murder of Chris Hani, and AWB right-wing attacks nearly derailed it. Despite this, the 27 April 1994 election and a Government of National Unity delivered democracy.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G12.T3.DEMOC.A3",
+              "bank_skill_id": "HIS.G12.T3.DEMOC.A3",
+              "title": "Coming to terms with the past: the TRC and the Constitution",
+              "description": "How the new South Africa tried to deal with its past. The Truth and Reconciliation Commission (TRC) and its model of restorative justice and amnesty in exchange for truth. The TRC's achievements in revealing apartheid atrocities, and its major limitations — that many apartheid officials never gave evidence, that white finance capital and the legal fraternity were never held to account, and that South Africa chose against Nuremberg-style trials. The 1996 Constitution and its Chapter 9 institutions. The recognition that political freedom was won while economic inequality largely remained.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Freedom and Democracy in South Africa: Coming to Terms with the Past",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "source-comparison", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the TRC fully delivered justice and closed the past", "example": "Says the TRC punished all those responsible for apartheid crimes"},
+                {"type": "conceptual_gap", "description": "Thinks political freedom in 1994 automatically brought economic equality", "example": "Says the end of apartheid made everyone economically equal"}
+              ],
+              "recovery_strategy": "The TRC offered restorative justice — truth and amnesty rather than trials. It exposed atrocities, but its limits matter: many officials stayed silent, white capital and the legal profession escaped scrutiny, and there were no Nuremberg-style trials. The 1996 Constitution and its Chapter 9 institutions secured political freedom — but economic inequality largely survived, so the struggle for economic freedom continued.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

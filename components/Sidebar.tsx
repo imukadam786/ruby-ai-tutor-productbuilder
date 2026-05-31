@@ -3,6 +3,7 @@
 import React from "react";
 import { ActiveView } from "@/types";
 import { useT } from "@/lib/i18n";
+import UsageMeter from "@/components/UsageMeter";
 
 interface SidebarProps {
   activeView: ActiveView;
@@ -179,6 +180,12 @@ export default function Sidebar({
 
         {/* Footer */}
         <div className={`pb-5 flex-shrink-0 space-y-1 ${collapsed ? "px-1" : "px-4"}`}>
+          {!collapsed && (
+            <div className="px-1 pb-2">
+              <p className="text-[10px] uppercase tracking-wider text-white/60 font-semibold mb-1.5">Today&apos;s usage</p>
+              <UsageMeter variant="compact" />
+            </div>
+          )}
           <button
             onClick={() => { onSettings?.(); onClose(); }}
             title={collapsed ? t("sidebar.settings") : undefined}

@@ -1,0 +1,55 @@
+{
+  "skill": "L10.T2.A2",
+  "skill_title": "Compare theoretical and experimental probability",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [3, 4],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 10 L3 / 10 L4. Compute both; explain why differ in small samples; convergence with more trials.",
+  "items": [
+    {"id": "L10.T2.A2.q01","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Theoretical P(heads) = 0,5. Tossed 20 times, got 12 heads."},"question": "Compare.","answerMode": "multiField","fields": [{"label": "Theoretical", "expectedAnswer": 0.5, "tolerance": 0.02}, {"label": "Experimental", "expectedAnswer": 0.6, "tolerance": 0.05}],"workingSteps": ["Theo: 0,5. Exp: 12/20 = 0,6."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q02","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Why might exp ≠ theo in small samples?"},"question": "Reason?","answerMode": "multiChoice","options": [
+        "Coin is biased",
+        "Small samples have random variation; long run converges to theoretical",
+        "Coin doesn't work",
+        "Theoretical is wrong"
+      ],"expectedAnswer": "Small samples have random variation; long run converges to theoretical","workingSteps": ["Law of large numbers."],"errorSignals": ["ERR_CONVERGENCE"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q03","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Tossed 1 000 times, got 510 heads. Exp P?"},"question": "Exp P?","answerMode": "numeric","expectedAnswer": 0.51,"tolerance": 0.02,"workingSteps": ["510/1000 = 0,51."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q04","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Same. Theoretical = 0,5. Close to theoretical?"},"question": "Closer than 0,6?","answerMode": "multiChoice","options": ["Yes — 0,51 is closer than 0,6", "No", "Same", "Cannot tell"],"expectedAnswer": "Yes — 0,51 is closer than 0,6","workingSteps": ["With more trials experimental converges to theoretical."],"errorSignals": ["ERR_CONVERGENCE"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q05","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Die rolled 6 times: 1,3,3,5,5,5. Exp P(5)?"},"question": "Exp P(5)?","answerMode": "numeric","expectedAnswer": 0.5,"tolerance": 0.05,"workingSteps": ["3/6 = 0,5."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q06","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Theoretical P(5) on a fair die = 1/6 ≈ 0,167."},"question": "Exp 0,5 vs theo 0,167. Why huge gap?","answerMode": "multiChoice","options": ["Sample too small", "Die is biased", "Both possible — repeat experiment to check", "Theoretical is wrong"],"expectedAnswer": "Both possible — repeat experiment to check","workingSteps": ["With n=6, big variation is normal but biased die also possible — repeat to test."],"errorSignals": ["ERR_CONVERGENCE","ERR_SAMPLE_SIZE"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q07","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Spinner has 4 colours (theoretical 1/4 each). Spun 100 times: R=20, B=30, G=25, Y=25."},"question": "Exp P(B)?","answerMode": "numeric","expectedAnswer": 0.3,"tolerance": 0.05,"workingSteps": ["30/100 = 0,3."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q08","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Spun 1 000 times: R=255, B=240, G=260, Y=245. Exp P(B)?"},"question": "Exp P?","answerMode": "numeric","expectedAnswer": 0.24,"tolerance": 0.02,"workingSteps": ["240/1000 = 0,24."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q09","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Closer to theoretical 0,25 — 100-spin or 1 000-spin estimate?"},"question": "Closer?","answerMode": "multiChoice","options": ["100 spins (0,30)", "1 000 spins (0,24)", "Same", "Cannot tell"],"expectedAnswer": "1 000 spins (0,24)","workingSteps": ["|0,24−0,25|=0,01 < |0,30−0,25|=0,05."],"errorSignals": ["ERR_CONVERGENCE"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q10","skill": "L10.T2.A2","caps_level": 3,"source": "fresh","stimulus": {"inline": "Insurance: theoretical car-accident rate 0,03. Of 1 000 cars, 35 had claims this year."},"question": "Exp P?","answerMode": "numeric","expectedAnswer": 0.035,"tolerance": 0.005,"workingSteps": ["35/1000 = 0,035."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q11","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Coin tossed 100 times: 53 heads."},"question": "Compute |exp − theo|.","answerMode": "numeric","expectedAnswer": 0.03,"tolerance": 0.01,"workingSteps": ["Exp 0,53; theo 0,5; |diff| = 0,03."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q12","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Same coin, 10 000 tosses: 5 010 heads."},"question": "Diff from theoretical?","answerMode": "numeric","expectedAnswer": 0.001,"tolerance": 0.001,"workingSteps": ["Exp 0,501; theo 0,5; diff 0,001."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q13","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Pattern: as n grows, diff shrinks. This is the law of:"},"question": "Law name?","answerMode": "multiChoice","options": ["Large numbers", "Small numbers", "Conservation", "Inverse"],"expectedAnswer": "Large numbers","workingSteps": ["Law of large numbers: exp converges to theo as n → ∞."],"errorSignals": ["ERR_CONVERGENCE"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q14","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Quality control. Theoretical defect rate 2%. Sample 500 items, 18 defects."},"question": "Exp P?","answerMode": "numeric","expectedAnswer": 0.036,"tolerance": 0.005,"workingSteps": ["18/500 = 0,036."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q15","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Defect 0,036 vs theo 0,02 — should we be worried?"},"question": "Action?","answerMode": "multiChoice","options": [
+        "No — within random variation",
+        "Yes — but check more samples to confirm",
+        "Definitely a bias",
+        "Theoretical wrong"
+      ],"expectedAnswer": "Yes — but check more samples to confirm","workingSteps": ["Higher than expected — flag for further investigation."],"errorSignals": ["ERR_CONVERGENCE"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q16","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Public transport: theoretical bus-on-time rate 80%. Sample 50 buses, 35 on time."},"question": "Exp P?","answerMode": "numeric","expectedAnswer": 0.7,"tolerance": 0.05,"workingSteps": ["35/50 = 0,7."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q17","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Conclude: exp 0,7 vs theo 0,8. Is service worse than expected?"},"question": "Action?","answerMode": "multiChoice","options": [
+        "Conclude service definitely worse",
+        "Small sample n=50 — observation might be random; sample more to confirm",
+        "Theoretical wrong",
+        "Both equal"
+      ],"expectedAnswer": "Small sample n=50 — observation might be random; sample more to confirm","workingSteps": ["50 buses is not enormous; gather more before concluding."],"errorSignals": ["ERR_CONVERGENCE","ERR_SAMPLE_SIZE"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q18","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Bag of marbles 4 R 6 B. Drew 20 with replacement, 14 R."},"question": "Exp P(R)?","answerMode": "numeric","expectedAnswer": 0.7,"tolerance": 0.05,"workingSteps": ["14/20 = 0,7."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q19","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Theoretical P(R) = 4/10 = 0,4. Exp 0,7. Likely explanation?"},"question": "Best?","answerMode": "multiChoice","options": [
+        "Small sample variation",
+        "Bag might not be as described — check contents",
+        "Both could apply — repeat & inspect",
+        "Theoretical is wrong"
+      ],"expectedAnswer": "Both could apply — repeat & inspect","workingSteps": ["Big gap with n=20 — could be random OR mislabel — investigate."],"errorSignals": ["ERR_CONVERGENCE","ERR_SAMPLE_SIZE"],"passThreshold": 0.85},
+    {"id": "L10.T2.A2.q20","skill": "L10.T2.A2","caps_level": 4,"source": "fresh","stimulus": {"inline": "Same bag drawn 1 000 times: 410 R."},"question": "Exp P now?","answerMode": "numeric","expectedAnswer": 0.41,"tolerance": 0.02,"workingSteps": ["410/1000 = 0,41."],"errorSignals": ["ERR_PROBABILITY_FORMULA"],"passThreshold": 0.85}
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_PROBABILITY_FORMULA": "Wrong P formula.",
+    "ERR_CONVERGENCE": "Doesn't recognise exp → theo as n grows.",
+    "ERR_SAMPLE_SIZE": "Misjudges sample-size effect."
+  }
+}

@@ -1,0 +1,763 @@
+{
+  "version": "1.0",
+  "subject": "natural-sciences-tech",
+  "description": "Natural Sciences & Technology skill tree. Intermediate Phase (Gr 4–6), CAPS. One strand per term: T1 Life and Living, T2 Matter and Materials, T3 Energy and Change, T4 Planet Earth and Beyond. Technology (Structures / Processing / Systems & Control) is woven into each strand. Topics do not prerequisite each other — all unlocked from day one.",
+  "levels": [
+    {
+      "id": 4,
+      "grade": 4,
+      "title": "Grade 4 — Natural Sciences & Technology",
+      "description": "CAPS Intermediate Phase Grade 4. 18 topics across the year, 3½ hours/week. Topics do not prerequisite each other — all unlocked from day one.",
+      "tiers": [
+        {
+          "id": "NST.L4.LL",
+          "title": "Life and Living",
+          "atomic_skills": [
+            {
+              "id": "NST.L4.LL.T01",
+              "bank_skill_id": "NST.L4.LL.T01",
+              "title": "Living and non-living things",
+              "description": "Differences between living plants and animals (seven life processes — feeding, growing, reproducing, breathing, excreting, sensing, moving) and non-living things. Germinating seeds, growing yeast.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.LL.T02",
+              "bank_skill_id": "NST.L4.LL.T02",
+              "title": "Structure of plants and animals",
+              "description": "Basic parts of plants (roots, stems, leaves, flowers, fruits, seeds) and animals (head, tail, body, limbs, sense organs). Visible differences between species.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.LL.T03",
+              "bank_skill_id": "NST.L4.LL.T03",
+              "title": "What plants need to grow",
+              "description": "Plants need light, water and air. New plants from cuttings and seeds. Seeds germinate with warmth and water.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.LL.T04",
+              "bank_skill_id": "NST.L4.LL.T04",
+              "title": "Habitats of animals",
+              "description": "Different habitats (grassland, forest, river, sea). Why animals need habitats for food, water, shelter, breeding and safety from danger.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.LL.T05",
+              "bank_skill_id": "NST.L4.LL.T05",
+              "title": "Structures for animal shelters",
+              "description": "Natural and human-made shelters. Shell vs frame structures. Designing an animal shelter for purpose, shape, size and materials.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "NST.L4.MM",
+          "title": "Matter and Materials",
+          "atomic_skills": [
+            {
+              "id": "NST.L4.MM.T01",
+              "bank_skill_id": "NST.L4.MM.T01",
+              "title": "Materials around us",
+              "description": "Solids, liquids and gases and their properties. Changes of state through heating and cooling (melting, freezing, evaporating, condensing). The water cycle.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.MM.T02",
+              "bank_skill_id": "NST.L4.MM.T02",
+              "title": "Solid materials",
+              "description": "Raw materials (sand, clay, coal, oil, wood, plant fibre, animal wool/hide) and what they become. Properties: hard/soft, stiff/flexible, strong/weak, waterproof/absorbent.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.MM.T03",
+              "bank_skill_id": "NST.L4.MM.T03",
+              "title": "Strengthening materials",
+              "description": "Folding paper into circular, triangular or square pillars; rolling paper into struts. Investigating which shape supports the most weight.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.MM.T04",
+              "bank_skill_id": "NST.L4.MM.T04",
+              "title": "Strong frame structures",
+              "description": "Triangular struts in roof trusses, bridges, cranes, pylons, skeletons. Indigenous frame structures (Zulu uguqa, Xhosa rontabile/ungqu-phantsi, Nama matjieshuis).",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "NST.L4.EC",
+          "title": "Energy and Change",
+          "atomic_skills": [
+            {
+              "id": "NST.L4.EC.T01",
+              "bank_skill_id": "NST.L4.EC.T01",
+              "title": "Energy and energy transfer",
+              "description": "Where energy for life comes from. Energy chain from the Sun → plants → animals/people.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.EC.T02",
+              "bank_skill_id": "NST.L4.EC.T02",
+              "title": "Energy around us",
+              "description": "Movement, heat, light, sound around us. Stored energy in food, wood, coal, oil products, natural gas. Input and output energy of common machines and appliances.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.EC.T03",
+              "bank_skill_id": "NST.L4.EC.T03",
+              "title": "Movement and energy in a system",
+              "description": "Musical instruments as systems with movement input (blowing, beating, plucking) and sound output. Indigenous musical instruments.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.EC.T04",
+              "bank_skill_id": "NST.L4.EC.T04",
+              "title": "Energy and sound",
+              "description": "Vibrations and sound. Loud/soft (volume), high/low (pitch). Noise pollution and protecting hearing.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "NST.L4.PEB",
+          "title": "Planet Earth and Beyond",
+          "atomic_skills": [
+            {
+              "id": "NST.L4.PEB.T01",
+              "bank_skill_id": "NST.L4.PEB.T01",
+              "title": "Planet Earth",
+              "description": "Earth as a sphere; land (rocks and soil), water, air; continents, oceans, islands. Earth as a planet in space.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.PEB.T02",
+              "bank_skill_id": "NST.L4.PEB.T02",
+              "title": "The Sun",
+              "description": "The Sun as our closest star — a ball of hot gas that gives heat and light. Very large, very far away.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.PEB.T03",
+              "bank_skill_id": "NST.L4.PEB.T03",
+              "title": "The Earth and the Sun",
+              "description": "Earth orbits the Sun. The Sun at the centre of the solar system. Earth as one of eight planets. The Sun's heat and light supports life.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.PEB.T04",
+              "bank_skill_id": "NST.L4.PEB.T04",
+              "title": "The Moon",
+              "description": "Moon as a ball of rock with no air or water. Phases of the Moon repeat every 29½ days. Cultural stories about the Moon.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L4.PEB.T05",
+              "bank_skill_id": "NST.L4.PEB.T05",
+              "title": "Rocket systems",
+              "description": "Rockets as systems to travel into space. Movement by pushing exhaust gases out the back. Designing and testing a balloon rocket.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "grade": 5,
+      "title": "Grade 5 — Natural Sciences & Technology",
+      "description": "CAPS Intermediate Phase Grade 5. 17 topics across the year, 3½ hours/week. Topics do not prerequisite each other — all unlocked from day one.",
+      "tiers": [
+        {
+          "id": "NST.L5.LL",
+          "title": "Life and Living",
+          "atomic_skills": [
+            {
+              "id": "NST.L5.LL.T01",
+              "bank_skill_id": "NST.L5.LL.T01",
+              "title": "Plants and animals on Earth",
+              "description": "Biodiversity in South Africa. Inter-dependence of plants, animals and the resources in their habitats. Vertebrates and invertebrates.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.LL.T02",
+              "bank_skill_id": "NST.L5.LL.T02",
+              "title": "Animal skeletons",
+              "description": "Vertebrate skeletons: skull, backbone, ribs, limbs, shoulder/hip girdles. Skeletons protect organs and support movement (muscles and joints).",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.LL.T03",
+              "bank_skill_id": "NST.L5.LL.T03",
+              "title": "Skeletons as structures",
+              "description": "Vertebrate skeleton as a frame structure. Some invertebrate skeletons as shell structures (e.g. crab). Modelling a skeleton from struts.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.LL.T04",
+              "bank_skill_id": "NST.L5.LL.T04",
+              "title": "Food chains",
+              "description": "Green plants make their own food and release oxygen. Herbivores, carnivores, omnivores. Energy flow from plant through animals in a food chain.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.LL.T05",
+              "bank_skill_id": "NST.L5.LL.T05",
+              "title": "Life cycles",
+              "description": "Stages in the life cycle of a plant (seed, seedling, adult, flowering, fruiting) and of a vertebrate animal. Generations, reproduction, care of young.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "NST.L5.MM",
+          "title": "Matter and Materials",
+          "atomic_skills": [
+            {
+              "id": "NST.L5.MM.T01",
+              "bank_skill_id": "NST.L5.MM.T01",
+              "title": "Metals and non-metals",
+              "description": "Properties of metals (shiny, hard, strong, malleable, ductile, high melting point) vs solid non-metals (dull, brittle). Metals mined from the Earth.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.MM.T02",
+              "bank_skill_id": "NST.L5.MM.T02",
+              "title": "Uses of metals",
+              "description": "Metals conduct heat; some are magnetic; only iron rusts. Everyday uses: coins, wire, jewellery, furniture, buildings, bridges, vehicles, utensils, roofs.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.MM.T03",
+              "bank_skill_id": "NST.L5.MM.T03",
+              "title": "Processing materials",
+              "description": "Combining materials to make new ones — plaster of Paris, concrete, glue paste, dough, jelly, clay bricks. Properties change after processing.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.MM.T04",
+              "bank_skill_id": "NST.L5.MM.T04",
+              "title": "Processed materials",
+              "description": "Plaster, concrete, fabrics, ceramics, glass, plastics, paints and their special properties. Traditional African processing of clay pots, plant-fibre baskets and roofs.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "NST.L5.EC",
+          "title": "Energy and Change",
+          "atomic_skills": [
+            {
+              "id": "NST.L5.EC.T01",
+              "bank_skill_id": "NST.L5.EC.T01",
+              "title": "Stored energy in fuels",
+              "description": "Wood, coal, petrol, paraffin, gas, candle wax as fuels. Burning needs heat and oxygen. Fire safety in communities — causes, prevention, what to do.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.EC.T02",
+              "bank_skill_id": "NST.L5.EC.T02",
+              "title": "Energy and electricity",
+              "description": "Energy stored in cells/batteries. A circuit as a system to transfer electrical energy. From power station to home via pylons, substations and wiring. Electrical safety.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.EC.T03",
+              "bank_skill_id": "NST.L5.EC.T03",
+              "title": "Energy and movement",
+              "description": "Stretched/twisted elastic and compressed springs store energy. Releasing gives movement energy — catapults, elastic-powered aeroplanes, jack-in-the-box.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.EC.T04",
+              "bank_skill_id": "NST.L5.EC.T04",
+              "title": "Systems for moving things",
+              "description": "Vehicles use wheels and axles to move easily. Identifying and making wheels-and-axles in everyday vehicles.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "NST.L5.PEB",
+          "title": "Planet Earth and Beyond",
+          "atomic_skills": [
+            {
+              "id": "NST.L5.PEB.T01",
+              "bank_skill_id": "NST.L5.PEB.T01",
+              "title": "Planet Earth",
+              "description": "Earth orbits the Sun (a year ≈ 365 days). Earth spins on its axis (a day ≈ 24 hours).",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.PEB.T02",
+              "bank_skill_id": "NST.L5.PEB.T02",
+              "title": "Surface of the Earth",
+              "description": "Earth's crust — rocks and soil. Topsoil formed from broken-down rocks. Sandy, clayey, loamy soils and what they hold. Importance of conserving topsoil.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.PEB.T03",
+              "bank_skill_id": "NST.L5.PEB.T03",
+              "title": "Sedimentary rocks",
+              "description": "How sedimentary rocks form over time from layers of mud and sand. Shale, sandstone, limestone and their uses (cement, building stone).",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L5.PEB.T04",
+              "bank_skill_id": "NST.L5.PEB.T04",
+              "title": "Fossils",
+              "description": "Body and trace fossils preserved in sedimentary rock. South Africa's fossil record — the Coelacanth, African dinosaurs, and the Cradle of Humankind.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "grade": 6,
+      "title": "Grade 6 — Natural Sciences & Technology",
+      "description": "CAPS Intermediate Phase Grade 6. 20 topics across the year, 3½ hours/week. Topics do not prerequisite each other — all unlocked from day one.",
+      "tiers": [
+        {
+          "id": "NST.L6.LL",
+          "title": "Life and Living",
+          "atomic_skills": [
+            {
+              "id": "NST.L6.LL.T01",
+              "bank_skill_id": "NST.L6.LL.T01",
+              "title": "Photosynthesis",
+              "description": "Plants make glucose from sunlight, carbon dioxide and water. Plants store some as starch and release oxygen. Testing foods for starch with iodine.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.LL.T02",
+              "bank_skill_id": "NST.L6.LL.T02",
+              "title": "Nutrients in food",
+              "description": "Four nutrient groups: carbohydrates, proteins, fats and oils, vitamins and minerals. Natural vs processed foods. Reading food labels for additives.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.LL.T03",
+              "bank_skill_id": "NST.L6.LL.T03",
+              "title": "Nutrition",
+              "description": "A balanced diet draws from all four nutrient groups plus water and fibre. Diet-related conditions — tooth decay, obesity, diabetes, deficiency diseases.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.LL.T04",
+              "bank_skill_id": "NST.L6.LL.T04",
+              "title": "Food processing",
+              "description": "Processing makes food edible (cooking), longer-lasting (preserving) or more nutritious (fermenting). Methods: combining, cooking, freezing, pickling, drying, salting.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.LL.T05",
+              "bank_skill_id": "NST.L6.LL.T05",
+              "title": "Ecosystems and food webs",
+              "description": "Different ecosystems (rivers, mountains, sea, ponds, wetlands, grasslands, forests, deserts). Producers, consumers (herbivores/carnivores/omnivores) and decomposers in a food web.",
+              "caps_term": "T1",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "NST.L6.MM",
+          "title": "Matter and Materials",
+          "atomic_skills": [
+            {
+              "id": "NST.L6.MM.T01",
+              "bank_skill_id": "NST.L6.MM.T01",
+              "title": "Solids, liquids and gases",
+              "description": "All matter is made of particles. Particle arrangement differs in each state — close-packed regular (solid), close-packed irregular (liquid), far apart (gas).",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.MM.T02",
+              "bank_skill_id": "NST.L6.MM.T02",
+              "title": "Mixtures",
+              "description": "Mixtures of solids, of solids and liquids, of two liquids. Separating by sieving, filtering, hand sorting, settling and decanting.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.MM.T03",
+              "bank_skill_id": "NST.L6.MM.T03",
+              "title": "Solutions as special mixtures",
+              "description": "Soluble vs insoluble substances. Saturated solutions. Recovering the solute by evaporating the solvent (crystallisation).",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.MM.T04",
+              "bank_skill_id": "NST.L6.MM.T04",
+              "title": "Dissolving",
+              "description": "Factors that change how fast a solute dissolves — temperature, stirring/shaking, grain size. Fair-test investigations.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.MM.T05",
+              "bank_skill_id": "NST.L6.MM.T05",
+              "title": "Mixtures and water resources",
+              "description": "Water pollution from soluble and insoluble substances and water-borne illnesses. Importance of natural wetlands for habitats and water quality.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.MM.T06",
+              "bank_skill_id": "NST.L6.MM.T06",
+              "title": "Processes to purify water",
+              "description": "Sieving, filtering, settling, decanting, boiling and adding chemicals to clean water. Designing and making a simple sand filter.",
+              "caps_term": "T2",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "NST.L6.EC",
+          "title": "Energy and Change",
+          "atomic_skills": [
+            {
+              "id": "NST.L6.EC.T01",
+              "bank_skill_id": "NST.L6.EC.T01",
+              "title": "Electric circuits",
+              "description": "A simple circuit: cell/battery, conducting wires, output device (bulb/buzzer/motor), switch. Drawing circuit diagrams with standard symbols.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.EC.T02",
+              "bank_skill_id": "NST.L6.EC.T02",
+              "title": "Electrical conductors and insulators",
+              "description": "Most metals conduct electricity; most non-metals (plastic, rubber, glass, ceramic) do not. Where insulators are used in real life.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.EC.T03",
+              "bank_skill_id": "NST.L6.EC.T03",
+              "title": "Systems to solve problems",
+              "description": "Circuits solve real problems — street lighting, alarms, traffic lights, fans, heaters. Designing a system with cells, wires, bulbs/buzzers and switches.",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.EC.T04",
+              "bank_skill_id": "NST.L6.EC.T04",
+              "title": "Mains electricity",
+              "description": "Coal as a fossil fuel and its use in power stations. Cost of electricity. Danger of illegal connections. Renewable ways to generate electricity (wind, solar, hydro).",
+              "caps_term": "T3",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        },
+        {
+          "id": "NST.L6.PEB",
+          "title": "Planet Earth and Beyond",
+          "atomic_skills": [
+            {
+              "id": "NST.L6.PEB.T01",
+              "bank_skill_id": "NST.L6.PEB.T01",
+              "title": "The Solar System",
+              "description": "Sun at the centre, eight planets (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune) and the asteroid belt. Rocky vs gas planets. Moons.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.PEB.T02",
+              "bank_skill_id": "NST.L6.PEB.T02",
+              "title": "Movements of the Earth and planets",
+              "description": "Rotation: Earth spins on its axis once every 24 hours (day and night). Revolution: Earth travels around the Sun once every 365¼ days (a year).",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.PEB.T03",
+              "bank_skill_id": "NST.L6.PEB.T03",
+              "title": "The movement of the Moon",
+              "description": "The Moon spins on its axis and revolves around the Earth — both take about 28 days. Together, Earth and Moon revolve around the Sun.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.PEB.T04",
+              "bank_skill_id": "NST.L6.PEB.T04",
+              "title": "Systems for looking into space",
+              "description": "Telescopes gather information from space. South Africa hosts some of the world's largest — SALT (Southern African Large Telescope) and SKA (Square Kilometre Array).",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            },
+            {
+              "id": "NST.L6.PEB.T05",
+              "bank_skill_id": "NST.L6.PEB.T05",
+              "title": "Systems to explore the Moon and Mars",
+              "description": "Moon Rovers carried astronauts; Mars Rovers explore Mars remotely. Their wheels and axles, cameras, mechanical arms and solar power. Building a model vehicle.",
+              "caps_term": "T4",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "text", "image"],
+              "error_signatures": [],
+              "recovery_strategy": "AUTHOR: per-topic remediation hint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 1, "allow_scaffolding": true }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

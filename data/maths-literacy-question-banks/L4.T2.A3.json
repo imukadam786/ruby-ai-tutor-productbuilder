@@ -1,0 +1,466 @@
+{
+  "skill": "L4.T2.A3",
+  "skill_title": "Find break-even from the intersection of two graphs",
+  "grades": [11, 12],
+  "caps_levels_target": [3, 4],
+  "version": "1.0",
+  "notes": "All items fresh with inline stimuli — no past-paper PNG suitable. Mix of SA small-business contexts.",
+  "items": [
+    {
+      "id": "L4.T2.A3.q01",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Bongi's Cake Bakery — cost vs income graphs**\n\n- Cost graph: starts at R1 000 fixed monthly cost (vertical intercept) and rises by R20 per cake (variable cost).\n- Income graph: starts at R0 (origin) and rises by R45 per cake sold."},
+      "question": "At how many cakes per month do the cost and income graphs intersect (break-even point)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 40,
+      "tolerance": 0,
+      "unit": "cakes",
+      "workingSteps": [
+        "Set total cost = total income.",
+        "1 000 + 20n = 45n",
+        "1 000 = 25n",
+        "n = 40 cakes"
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_BREAKEVEN_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q02",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Bongi's Cake Bakery — cost vs income graphs**\n\n- Cost graph: starts at R1 000 fixed monthly cost and rises by R20 per cake.\n- Income graph: starts at R0 and rises by R45 per cake sold."},
+      "question": "What is the Rand value at the break-even point (the y-coordinate of the intersection)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1800,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": [
+        "Break-even quantity: n = 1 000 ÷ (45 − 20) = 40 cakes.",
+        "Income at 40 cakes = 40 × R45 = R1 800.",
+        "(Cost at 40 cakes also equals R1 000 + 40 × R20 = R1 800 — same value, confirming intersection.)"
+      ],
+      "errorSignals": ["ERR_INTERSECTION_AXIS_SWAP", "ERR_BREAKEVEN_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q03",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Bongi's Cake Bakery — two straight-line graphs are drawn on the same axes (x = cakes sold per month, y = Rand).**\n\n- Graph A: passes through (0, 1 000) and rises with slope R20/cake.\n- Graph B: passes through (0, 0) and rises with slope R45/cake."},
+      "question": "Which graph represents INCOME?",
+      "answerMode": "multiChoice",
+      "options": ["Graph A (starts at R1 000)", "Graph B (starts at R0)", "Both A and B", "Cannot tell from the information"],
+      "expectedAnswer": "Graph B (starts at R0)",
+      "workingSteps": [
+        "Income starts at R0 when no cakes are sold.",
+        "Cost starts at the fixed cost of R1 000 (paid even if zero cakes are sold).",
+        "So Graph B (R0 intercept) is income; Graph A is cost."
+      ],
+      "errorSignals": ["ERR_GRAPH_INCOME_COST_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q04",
+      "skill": "L4.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Bongi's Cake Bakery — cost vs income graphs**\n\n- Cost graph: starts at R1 000 fixed monthly cost and rises by R20 per cake.\n- Income graph: starts at R0 and rises by R45 per cake sold.\n- The two graphs intersect at 40 cakes / R1 800."},
+      "question": "Explain what the intersection point means for Bongi's bakery.",
+      "answerMode": "text",
+      "expectedAnswer": "At 40 cakes per month, total income exactly covers total cost so profit is zero. Below 40 cakes Bongi makes a loss; above 40 cakes she makes a profit.",
+      "workingSteps": [
+        "At intersection: income = cost, so profit = 0.",
+        "Below intersection: cost graph is above income graph → loss zone.",
+        "Above intersection: income graph is above cost graph → profit zone.",
+        "Frame the answer in business terms: 'must sell 40 cakes to break even; every cake beyond 40 is profit'."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_INTERPRET", "ERR_BREAKEVEN_PROFIT_CONFUSE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q05",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Sipho's Taxi — monthly cost vs revenue**\n\n- Cost graph: fixed cost R5 000 per month (insurance, licence, etc) plus R8 per km running cost.\n- Revenue graph: passengers pay an average fare of R15 per km travelled."},
+      "question": "How many kilometres must Sipho drive per month to break even?",
+      "answerMode": "numeric",
+      "expectedAnswer": 715,
+      "tolerance": 1,
+      "unit": "km",
+      "workingSteps": [
+        "Set cost = revenue: 5 000 + 8n = 15n.",
+        "5 000 = 7n.",
+        "n = 5 000 ÷ 7 ≈ 714,29 km.",
+        "Round up to 715 km (must cover costs; partial km can't be billed reliably)."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_BREAKEVEN_DIVISOR", "ERR_ROUNDING_CONTEXT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q06",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Sipho's Taxi — monthly cost vs revenue**\n\n- Cost: R5 000 fixed + R8 per km.\n- Revenue: R15 per km.\n- Break-even ≈ 715 km."},
+      "question": "What is the revenue at the break-even point?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10725,
+      "tolerance": 15,
+      "unit": "R",
+      "workingSteps": [
+        "Use the rounded-up break-even of 715 km.",
+        "Revenue = 715 × R15 = R10 725."
+      ],
+      "errorSignals": ["ERR_INTERSECTION_AXIS_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q07",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Lerato's T-shirt printing — monthly cost vs income**\n\n- Cost graph: R3 000 fixed (printer hire) plus R30 per shirt (blank + ink).\n- Income graph: R80 per shirt sold."},
+      "question": "Find the break-even point. Give both the number of shirts and the Rand value.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Break-even shirts", "expectedAnswer": 60, "tolerance": 0},
+        {"label": "Break-even Rand", "expectedAnswer": 4800, "tolerance": 1}
+      ],
+      "workingSteps": [
+        "Set 3 000 + 30n = 80n → 3 000 = 50n → n = 60 shirts.",
+        "Income at 60 shirts = 60 × R80 = R4 800."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_INTERSECTION_AXIS_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q08",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Lerato's T-shirt printing — graphs above**\n\nBreak-even is at 60 shirts / R4 800."},
+      "question": "Lerato sells 50 shirts in March. Is she in the profit zone or loss zone?",
+      "answerMode": "multiChoice",
+      "options": ["Profit zone (above break-even)", "Loss zone (below break-even)", "Exactly at break-even", "Cannot tell"],
+      "expectedAnswer": "Loss zone (below break-even)",
+      "workingSteps": [
+        "50 shirts < 60 shirt break-even quantity → loss zone.",
+        "Cost at 50 = R3 000 + 50 × R30 = R4 500.",
+        "Income at 50 = 50 × R80 = R4 000.",
+        "Loss of R500 confirms loss zone."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_ZONE", "ERR_BREAKEVEN_PROFIT_CONFUSE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q09",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Lerato's T-shirt printing — break-even at 60 shirts / R4 800.**"},
+      "question": "Lerato sells 80 shirts in April. Calculate her profit.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1000,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": [
+        "Income at 80: 80 × R80 = R6 400.",
+        "Cost at 80: R3 000 + 80 × R30 = R5 400.",
+        "Profit = R6 400 − R5 400 = R1 000."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_PROFIT_CONFUSE", "ERR_SUBTRACTION_ORDER"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q10",
+      "skill": "L4.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Lerato's T-shirt printing — break-even at 60 shirts / R4 800.**\n\nThe printer hire price rises from R3 000 to R4 000 per month. All other costs and the selling price stay the same."},
+      "question": "What is the new break-even quantity?",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0,
+      "unit": "shirts",
+      "workingSteps": [
+        "New equation: 4 000 + 30n = 80n.",
+        "4 000 = 50n → n = 80 shirts.",
+        "Break-even has risen from 60 to 80 shirts because fixed cost is higher."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_BREAKEVEN_DIVISOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q11",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**School boerewors fundraiser — one Saturday**\n\n- Cost: R200 fixed (charcoal, fire-lighters, paper plates) plus R12 per roll (bread + sausage).\n- Income: R25 per roll sold."},
+      "question": "How many rolls must the school sell to break even?",
+      "answerMode": "numeric",
+      "expectedAnswer": 16,
+      "tolerance": 0,
+      "unit": "rolls",
+      "workingSteps": [
+        "200 + 12n = 25n → 200 = 13n → n ≈ 15,38.",
+        "Round up to 16 rolls (cannot break even at 15 — still in loss zone)."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_ROUNDING_CONTEXT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q12",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Boerewors fundraiser — break-even at 16 rolls.**"},
+      "question": "What revenue does the school need to break even (using 16 rolls)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 400,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["16 × R25 = R400."],
+      "errorSignals": ["ERR_INTERSECTION_AXIS_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q13",
+      "skill": "L4.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Boerewors fundraiser**\n\n- Cost: R200 fixed + R12 per roll.\n- Income: R25 per roll."},
+      "question": "Why does the school still face R200 in cost even if zero rolls are sold? Explain in one sentence what this means for the income vs cost graphs.",
+      "answerMode": "text",
+      "expectedAnswer": "The R200 covers fixed setup costs (charcoal, fire-lighters, plates) that must be paid regardless of how many rolls are sold; on the graph, the cost line crosses the y-axis at R200 while the income line passes through the origin.",
+      "workingSteps": [
+        "Identify the fixed costs as those incurred before the first sale.",
+        "Translate to the graph: cost graph's y-intercept = fixed cost; income's y-intercept = 0.",
+        "State both halves of the explanation."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_INTERPRET", "ERR_GRAPH_INCOME_COST_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q14",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Themba's lemonade stand at the market**\n\n- Cost: R50 fixed (table hire and ice) plus R4 per cup (lemons + sugar + cup).\n- Income: R10 per cup."},
+      "question": "Break-even quantity in cups?",
+      "answerMode": "numeric",
+      "expectedAnswer": 9,
+      "tolerance": 0,
+      "unit": "cups",
+      "workingSteps": [
+        "50 + 4n = 10n → 50 = 6n → n ≈ 8,33.",
+        "Round up to 9 cups."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_ROUNDING_CONTEXT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q15",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Themba's lemonade stand — break-even at 9 cups.**"},
+      "question": "Themba only sells 5 cups. What is his loss?",
+      "answerMode": "numeric",
+      "expectedAnswer": 20,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": [
+        "Cost at 5: R50 + 5 × R4 = R70.",
+        "Income at 5: 5 × R10 = R50.",
+        "Loss = R70 − R50 = R20."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_PROFIT_CONFUSE", "ERR_SUBTRACTION_ORDER"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q16",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Naledi's tutoring service**\n\n- Cost: R600 monthly venue rental + R30 per student (printed materials).\n- Income: R150 per student per month."},
+      "question": "Find the break-even number of students.",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0,
+      "unit": "students",
+      "workingSteps": [
+        "600 + 30n = 150n → 600 = 120n → n = 5 students."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q17",
+      "skill": "L4.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Naledi's tutoring service — break-even at 5 students with R150 fee.**\n\nNaledi is considering raising her fee from R150 to R200 per student per month. Everything else stays the same."},
+      "question": "What is the new break-even number of students?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0,
+      "unit": "students",
+      "workingSteps": [
+        "New equation: 600 + 30n = 200n → 600 = 170n → n ≈ 3,53.",
+        "Round up to 4 students.",
+        "Raising the fee lowers the break-even count from 5 to 4."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_ROUNDING_CONTEXT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q18",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Pretty's fudge stall**\n\n- Cost: R150 fixed weekly + R8 per fudge batch (ingredients).\n- Income: R20 per batch sold."},
+      "question": "Find the break-even point. Give both batches and Rand.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Break-even batches", "expectedAnswer": 13, "tolerance": 0},
+        {"label": "Break-even Rand", "expectedAnswer": 260, "tolerance": 1}
+      ],
+      "workingSteps": [
+        "150 + 8n = 20n → 150 = 12n → n = 12,5 → round up to 13 batches.",
+        "Income at 13: 13 × R20 = R260."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_ROUNDING_CONTEXT", "ERR_INTERSECTION_AXIS_SWAP"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q19",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Zama's samoosa business**\n\n- Cost: R400 fixed (gas + box hire) + R3 per samoosa (dough + filling).\n- Income: R8 per samoosa sold."},
+      "question": "Break-even number of samoosas?",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0,
+      "unit": "samoosas",
+      "workingSteps": ["400 + 3n = 8n → 400 = 5n → n = 80 samoosas."],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q20",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Zama's samoosa business — break-even at 80 samoosas.**"},
+      "question": "Zama sells 100 samoosas. State whether she is in profit or loss and calculate the amount.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Profit or loss", "expectedAnswer": "Profit"},
+        {"label": "Amount in R", "expectedAnswer": 100, "tolerance": 1}
+      ],
+      "workingSteps": [
+        "100 > 80 → above break-even → profit.",
+        "Cost at 100: R400 + 100 × R3 = R700.",
+        "Income at 100: 100 × R8 = R800.",
+        "Profit = R800 − R700 = R100."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_ZONE", "ERR_BREAKEVEN_PROFIT_CONFUSE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q21",
+      "skill": "L4.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Zama's samoosa business**\n\nThe price per samoosa drops from R8 to R6 due to competition. Costs unchanged (R400 fixed + R3 per samoosa)."},
+      "question": "Find the new break-even quantity and comment on how it has changed.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "New break-even samoosas", "expectedAnswer": 134, "tolerance": 1},
+        {"label": "Change vs old break-even (R8 price)", "expectedAnswer": "Increased by ~54"}
+      ],
+      "workingSteps": [
+        "New equation: 400 + 3n = 6n → 400 = 3n → n ≈ 133,33.",
+        "Round up to 134 samoosas.",
+        "Old break-even was 80. New is 134. Increased by ~54.",
+        "Lower selling price means Zama has to sell more samoosas to cover the same fixed cost."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_BREAKEVEN_INTERPRET"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q22",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Sandile's car wash**\n\n- Cost: R2 000 fixed monthly (water + soap + rental) + R15 per car (towels + tip share).\n- Income: R60 per car washed."},
+      "question": "Break-even number of cars per month?",
+      "answerMode": "numeric",
+      "expectedAnswer": 45,
+      "tolerance": 0,
+      "unit": "cars",
+      "workingSteps": [
+        "2 000 + 15n = 60n → 2 000 = 45n → n ≈ 44,44.",
+        "Round up to 45 cars."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_EQUATION", "ERR_ROUNDING_CONTEXT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q23",
+      "skill": "L4.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Sandile's car wash — break-even at 45 cars.**\n\nSandile typically washes 50 cars per month."},
+      "question": "Why is knowing the break-even point alone not enough for Sandile to decide whether the business is worth running? List at least two other factors he should consider.",
+      "answerMode": "text",
+      "expectedAnswer": "Break-even only tells him when income covers cost — it ignores the value of his time / labour (opportunity cost), how reliable demand is (seasonality, rain), and whether his profit at typical volume is enough to justify the effort versus alternative work or savings.",
+      "workingSteps": [
+        "Recognise break-even = zero profit, no real reward.",
+        "List 2+ additional factors: own labour cost not in fixed/variable costs, demand variability, alternative use of time, equipment wear, growth potential.",
+        "Frame as a decision-making argument."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_INTERPRET"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L4.T2.A3.q24",
+      "skill": "L4.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Two-graph cost/income picture — generic question**\n\nOn a set of axes, the cost graph (line C) and income graph (line I) are drawn for a small business. Line C has a positive y-intercept; line I passes through the origin. They cross at point P."},
+      "question": "Which statement is TRUE about point P?",
+      "answerMode": "multiChoice",
+      "options": [
+        "At P, profit equals fixed cost.",
+        "At P, total income equals total cost so profit is zero.",
+        "At P, the business is making its maximum profit.",
+        "P is where variable cost is highest."
+      ],
+      "expectedAnswer": "At P, total income equals total cost so profit is zero.",
+      "workingSteps": [
+        "Break-even definition: income = cost at P.",
+        "Profit = income − cost = 0 at P."
+      ],
+      "errorSignals": ["ERR_BREAKEVEN_INTERPRET", "ERR_BREAKEVEN_PROFIT_CONFUSE"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_BREAKEVEN_EQUATION": "Sets up the break-even equation incorrectly (e.g. fixed + variable = price, omitting the n on each side)",
+    "ERR_BREAKEVEN_DIVISOR": "Divides by the wrong quantity when solving for break-even (e.g. divides by price instead of (price − variable cost))",
+    "ERR_INTERSECTION_AXIS_SWAP": "Reports the x-coordinate when the y-coordinate is asked for at the intersection (or vice versa)",
+    "ERR_GRAPH_INCOME_COST_SWAP": "Confuses which graph is income vs cost (typically misses that income starts at origin while cost has a fixed-cost y-intercept)",
+    "ERR_BREAKEVEN_ZONE": "Identifies the wrong zone (profit vs loss) for a given volume",
+    "ERR_BREAKEVEN_PROFIT_CONFUSE": "Confuses break-even with the start of profit, or reports income at break-even as 'profit'",
+    "ERR_BREAKEVEN_INTERPRET": "States break-even quantity without explaining what it means for the business",
+    "ERR_ROUNDING_CONTEXT": "Reports a fractional break-even value (e.g. 8,33 cups) instead of rounding up to the next whole unit",
+    "ERR_SUBTRACTION_ORDER": "Subtracts in the wrong order when computing profit / loss"
+  }
+}

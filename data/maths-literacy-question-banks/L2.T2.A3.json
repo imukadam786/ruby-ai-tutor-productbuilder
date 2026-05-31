@@ -1,0 +1,380 @@
+{
+  "skill": "L2.T2.A3",
+  "skill_title": "Identify constant-ratio (compound growth) relationships",
+  "grades": [11, 12],
+  "caps_levels_target": [2, 3, 4],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 8 L2 / 8 L3 / 4 L4. Topics: compound interest, compound inflation, population growth — recognise multiplier r, calculate balance after n periods.",
+  "items": [
+    {
+      "id": "L2.T2.A3.q01",
+      "skill": "L2.T2.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Compound (constant-ratio) growth: each new term = previous × fixed factor."},
+      "question": "Which table shows COMPOUND growth?\n\n**Table A:**\n| Year | Balance (R) |\n|---|---|\n| 0 | 1 000 |\n| 1 | 1 100 |\n| 2 | 1 200 |\n| 3 | 1 300 |\n\n**Table B:**\n| Year | Balance (R) |\n|---|---|\n| 0 | 1 000 |\n| 1 | 1 100 |\n| 2 | 1 210 |\n| 3 | 1 331 |",
+      "answerMode": "multiChoice",
+      "options": ["Table A", "Table B", "Both", "Neither"],
+      "expectedAnswer": "Table B",
+      "workingSteps": [
+        "Table A: differences 100, 100, 100 — linear (constant difference).",
+        "Table B: ratios 1100/1000 = 1,10; 1210/1100 = 1,10; 1331/1210 = 1,10 — constant ratio → compound."
+      ],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE", "ERR_COMPOUND_VS_LINEAR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q02",
+      "skill": "L2.T2.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Compound growth: balance = principal × (1 + r)^n. For 5% per year: factor = 1,05."},
+      "question": "R1 000 invested at 5% compound per year for 2 years. Calculate the balance.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1102.50,
+      "tolerance": 0.5,
+      "unit": "R",
+      "workingSteps": [
+        "After 1 year: 1 000 × 1,05 = R1 050.",
+        "After 2 years: 1 050 × 1,05 = R1 102,50."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_PERCENT_TO_DECIMAL"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q03",
+      "skill": "L2.T2.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Inflation compounds — every year the new price is multiplied by (1 + inflation rate)."},
+      "question": "A loaf of bread costs R20 today. With 6% inflation per year, what will it cost in 1 year?",
+      "answerMode": "numeric",
+      "expectedAnswer": 21.20,
+      "tolerance": 0.05,
+      "unit": "R",
+      "workingSteps": ["Cost next year = R20 × 1,06 = R21,20."],
+      "errorSignals": ["ERR_PERCENT_INCREASE", "ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q04",
+      "skill": "L2.T2.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Compounding multiplies the previous balance by the factor each period."},
+      "question": "R5 000 grows at 10% compound per year for 2 years. Calculate the final balance.",
+      "answerMode": "numeric",
+      "expectedAnswer": 6050,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "After 1 year: 5 000 × 1,10 = R5 500.",
+        "After 2 years: 5 500 × 1,10 = R6 050."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q05",
+      "skill": "L2.T2.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Balance under compound interest at 8% per year, starting R10 000:\n\n| Year | Balance (R) |\n|---|---|\n| 0 | 10 000 |\n| 1 | 10 800 |\n| 2 | 11 664 |\n| 3 | 12 597 |"},
+      "question": "Confirm the ratio between consecutive balances (the growth factor).",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.08,
+      "tolerance": 0.01,
+      "workingSteps": ["10 800 ÷ 10 000 = 1,08. Constant ratio = 1,08 (i.e. 8% growth)."],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q06",
+      "skill": "L2.T2.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Population growth can be modelled as compound growth."},
+      "question": "A township's population is 50 000 and grows at 2% per year. What is the population after 1 year?",
+      "answerMode": "numeric",
+      "expectedAnswer": 51000,
+      "tolerance": 5,
+      "unit": "people",
+      "workingSteps": ["50 000 × 1,02 = 51 000."],
+      "errorSignals": ["ERR_PERCENT_INCREASE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q07",
+      "skill": "L2.T2.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Compound graphs are CURVES that get steeper over time (not straight lines)."},
+      "question": "Which describes a compound-growth graph?",
+      "answerMode": "multiChoice",
+      "options": [
+        "A horizontal line.",
+        "A straight line with positive slope.",
+        "A descending curve.",
+        "An upward curve that gets steeper over time."
+      ],
+      "expectedAnswer": "An upward curve that gets steeper over time.",
+      "workingSteps": ["Each year the rise is a percentage of a larger base — the curve steepens."],
+      "errorSignals": ["ERR_GRAPH_SHAPE_READ", "ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q08",
+      "skill": "L2.T2.A3",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Compound depreciation: each year the value is multiplied by (1 − r)."},
+      "question": "A laptop bought for R12 000 depreciates at 20% per year (compound). What is its value after 1 year?",
+      "answerMode": "numeric",
+      "expectedAnswer": 9600,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": ["R12 000 × (1 − 0,20) = R12 000 × 0,80 = R9 600."],
+      "errorSignals": ["ERR_PERCENT_DECREASE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q09",
+      "skill": "L2.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Formula: A = P × (1 + r)^n. r in decimal form, n = number of periods."},
+      "question": "R8 000 at 7% compound per year for 3 years. Calculate the final balance.",
+      "answerMode": "numeric",
+      "expectedAnswer": 9800.34,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": [
+        "A = 8 000 × 1,07³.",
+        "1,07³ = 1,225043.",
+        "A = R9 800,34."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q10",
+      "skill": "L2.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Compound inflation: future price = current price × (1 + i)^n."},
+      "question": "Today milk costs R20 per litre. At 7% annual inflation (compound), what will it cost in 3 years?",
+      "answerMode": "numeric",
+      "expectedAnswer": 24.50,
+      "tolerance": 0.1,
+      "unit": "R",
+      "workingSteps": [
+        "Cost = R20 × 1,07³.",
+        "1,07³ = 1,225043.",
+        "Cost = R24,50."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q11",
+      "skill": "L2.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Compound growth — extending out two years."},
+      "question": "R15 000 at 6% compound per year for 2 years. Calculate the final balance.",
+      "answerMode": "numeric",
+      "expectedAnswer": 16854,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "Year 1: 15 000 × 1,06 = R15 900.",
+        "Year 2: 15 900 × 1,06 = R16 854."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q12",
+      "skill": "L2.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Compare simple vs compound interest."},
+      "question": "R10 000 invested for 2 years at 5% per year. Calculate the simple interest balance and the compound interest balance.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Simple balance (R)", "expectedAnswer": 11000, "tolerance": 5},
+        {"label": "Compound balance (R)", "expectedAnswer": 11025, "tolerance": 5}
+      ],
+      "workingSteps": [
+        "Simple: 10 000 + 10 000 × 0,05 × 2 = R11 000.",
+        "Compound: 10 000 × 1,05² = 10 000 × 1,1025 = R11 025.",
+        "Compound is R25 more."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_SIMPLE_VS_COMPOUND"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q13",
+      "skill": "L2.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Compound interest formula A = P × (1 + r)^n."},
+      "question": "R20 000 at 4% compound for 5 years. Calculate the final balance to the nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 24333,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "A = 20 000 × 1,04⁵.",
+        "1,04⁵ = 1,21665.",
+        "A = R24 333,06 ≈ R24 333."
+      ],
+      "errorSignals": ["ERR_POWER_OF_FACTOR", "ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q14",
+      "skill": "L2.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Annual school fees rising at constant 8% per year:\n\n| Year | Fee (R) |\n|---|---|\n| 0 | 12 000 |\n| 1 | 12 960 |\n| 2 | 13 997 |\n| 3 | ? |"},
+      "question": "Calculate the fee in year 3 to the nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 15117,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": ["13 997 × 1,08 = R15 117 (to nearest Rand)."],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_PERCENT_INCREASE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q15",
+      "skill": "L2.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A car bought for R250 000 depreciates 15% per year (compound)."},
+      "question": "Calculate its value after 3 years to the nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 153531,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": [
+        "Value = 250 000 × 0,85³.",
+        "0,85³ = 0,614125.",
+        "Value = R153 531,25 ≈ R153 531."
+      ],
+      "errorSignals": ["ERR_PERCENT_DECREASE", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q16",
+      "skill": "L2.T2.A3",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Compound vs simple interest after long periods."},
+      "question": "R10 000 invested for 10 years at 8%/year. Calculate the simple interest balance and the compound interest balance.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Simple balance (R)", "expectedAnswer": 18000, "tolerance": 5},
+        {"label": "Compound balance (R)", "expectedAnswer": 21589, "tolerance": 10}
+      ],
+      "workingSteps": [
+        "Simple: 10 000 + 10 000 × 0,08 × 10 = R18 000.",
+        "Compound: 10 000 × 1,08¹⁰ = 10 000 × 2,158925 = R21 589."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_SIMPLE_VS_COMPOUND"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q17",
+      "skill": "L2.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A bank offers two accounts: Account X pays 8% simple per year. Account Y pays 7,5% compound per year. R50 000 invested for 5 years."},
+      "question": "Calculate the final balance in each account.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Account X balance (R)", "expectedAnswer": 70000, "tolerance": 5},
+        {"label": "Account Y balance (R)", "expectedAnswer": 71781, "tolerance": 30}
+      ],
+      "workingSteps": [
+        "X: 50 000 + 50 000 × 0,08 × 5 = R70 000.",
+        "Y: 50 000 × 1,075⁵ = 50 000 × 1,435629 = R71 781,47.",
+        "Y is the better account."
+      ],
+      "errorSignals": ["ERR_SIMPLE_VS_COMPOUND", "ERR_POWER_OF_FACTOR"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q18",
+      "skill": "L2.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A learner claims: 'Inflation of 6% per year for 3 years means 18% rise in prices total.'"},
+      "question": "Critique the claim — calculate the actual % rise to 1 decimal place.",
+      "answerMode": "numeric",
+      "expectedAnswer": 19.1,
+      "tolerance": 0.2,
+      "unit": "%",
+      "workingSteps": [
+        "Factor after 3 years: 1,06³ = 1,191016.",
+        "% rise = (1,191016 − 1) × 100 = 19,1%.",
+        "Actual is 19,1% > 18% — compound > simple sum."
+      ],
+      "errorSignals": ["ERR_PERCENT_SUCCESSIVE_ADD", "ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q19",
+      "skill": "L2.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Different account growth rates over 20 years."},
+      "question": "R20 000 invested at 6% compound for 20 years. Calculate the final balance to the nearest Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 64143,
+      "tolerance": 20,
+      "unit": "R",
+      "workingSteps": [
+        "A = 20 000 × 1,06²⁰.",
+        "1,06²⁰ ≈ 3,207135.",
+        "A ≈ R64 143."
+      ],
+      "errorSignals": ["ERR_POWER_OF_FACTOR", "ERR_COMPOUND_AS_SIMPLE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A3.q20",
+      "skill": "L2.T2.A3",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "A bookshop's annual sales rose from R200 000 to R243 000 over 3 years."},
+      "question": "Calculate the implied annual compound growth rate (%) to 1 decimal place.",
+      "answerMode": "numeric",
+      "expectedAnswer": 6.7,
+      "tolerance": 0.3,
+      "unit": "%",
+      "workingSteps": [
+        "243 000 = 200 000 × (1 + r)³.",
+        "(1 + r)³ = 1,215.",
+        "1 + r = 1,215^(1/3) ≈ 1,067.",
+        "r ≈ 0,067 = 6,7%."
+      ],
+      "errorSignals": ["ERR_COMPOUND_AS_SIMPLE", "ERR_PERCENT_CHANGE_DIVISOR"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_RELATIONSHIP_TYPE": "Misclassifies a relationship (constant, linear, inverse, compound).",
+    "ERR_COMPOUND_VS_LINEAR": "Confuses constant-difference (linear) with constant-ratio (compound).",
+    "ERR_COMPOUND_AS_SIMPLE": "Calculates compound growth as if it were simple (adds the same amount each period).",
+    "ERR_SIMPLE_VS_COMPOUND": "Conflates simple and compound interest in a comparison.",
+    "ERR_POWER_OF_FACTOR": "Multiplies (1 + r) by n instead of raising it to the power n.",
+    "ERR_PERCENT_INCREASE": "Adds the rise to the base instead of multiplying by (1 + r).",
+    "ERR_PERCENT_DECREASE": "Subtracts the fall from the base instead of multiplying by (1 − r).",
+    "ERR_PERCENT_TO_DECIMAL": "Misconverts percent to decimal (e.g. 5% → 5 instead of 0,05).",
+    "ERR_PERCENT_SUCCESSIVE_ADD": "Adds successive % changes (treats them as additive instead of compounding).",
+    "ERR_PERCENT_CHANGE_DIVISOR": "Divides change by the wrong base when finding an implied growth rate.",
+    "ERR_GRAPH_SHAPE_READ": "Misinterprets the shape of a compound-growth graph (e.g. thinks it's a straight line)."
+  }
+}

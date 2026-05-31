@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 // ── Always-needed (static imports) ──────────────────────────────────────────
 import Sidebar from "@/components/Sidebar";
+import UsageMeter from "@/components/UsageMeter";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
@@ -30,6 +31,18 @@ const AfrikaansSession         = dynamic(() => import("@/components/afrikaans/Af
 const AfrikaansSkillTreeView   = dynamic(() => import("@/components/afrikaans/AfrikaansSkillTreeView"),      { ssr: false });
 const SocialSciencesSession        = dynamic(() => import("@/components/social-sciences/SocialSciencesSession"),         { ssr: false });
 const SocialSciencesSkillTreeView  = dynamic(() => import("@/components/social-sciences/SocialSciencesSkillTreeView"),   { ssr: false });
+const NstSession                   = dynamic(() => import("@/components/nst/NstSession"),                                 { ssr: false });
+const NstSkillTreeView             = dynamic(() => import("@/components/nst/NstSkillTreeView"),                           { ssr: false });
+const MatricPhysSciSession         = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSession"),           { ssr: false });
+const MatricPhysSciSkillTreeView   = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSkillTreeView"),     { ssr: false });
+const MathsLiteracyEngine          = dynamic(() => import("@/components/maths-literacy/MathsLiteracyEngine"),              { ssr: false });
+const MathsLiteracySkillTreeView   = dynamic(() => import("@/components/maths-literacy/MathsLiteracySkillTreeView"),       { ssr: false });
+const LifeSciencesSession          = dynamic(() => import("@/components/life-sciences/LifeSciencesSession"),               { ssr: false });
+const LifeSciencesSkillTreeView    = dynamic(() => import("@/components/life-sciences/LifeSciencesSkillTreeView"),         { ssr: false });
+const HistorySession               = dynamic(() => import("@/components/history/HistorySession"),                          { ssr: false });
+const HistorySkillTreeView         = dynamic(() => import("@/components/history/HistorySkillTreeView"),                    { ssr: false });
+const BusinessStudiesSession       = dynamic(() => import("@/components/business-studies/BusinessStudiesSession"),         { ssr: false });
+const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"),   { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -136,6 +149,18 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "afrikaans-fal-skill-tree": "Afrikaans · Skills",
     "social-sciences": "Social Sciences",
     "social-sciences-skill-tree": "Social Sciences · Topics",
+    "natural-sciences-tech": "Natural Sciences & Tech",
+    "natural-sciences-tech-skill-tree": "Natural Sciences & Tech · Topics",
+    "matric-phys-sci": "Matric Physical Sciences",
+    "matric-phys-sci-skill-tree": "Matric Physical Sciences · Skills",
+    "maths-literacy": "Maths Literacy",
+    "maths-literacy-skill-tree": "Maths Literacy · Skills",
+    "life-sciences": "Life Sciences",
+    "life-sciences-skill-tree": "Life Sciences · Topics",
+    "history": "History",
+    "history-skill-tree": "History · Topics",
+    "business-studies": "Business Studies",
+    "business-studies-skill-tree": "Business Studies · Topics",
   };
 
   const refreshStats = useCallback(() => {
@@ -248,6 +273,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     void hydrateReadingProfileFromSupabase().then((p) => setReadingProfile(p));
   }, []);
 
+  // Paid matric *features* only. The Physical Sciences subject tree
+  // (matric-phys-sci / matric-phys-sci-skill-tree) is a learning subject and is
+  // free for all plans, so it is intentionally NOT gated here.
   const MATRIC_VIEWS: ActiveView[] = ["matrics", "matric", "prep-papers-2026", "study-guides"];
 
   const MATRIC_PLANS = ["master", "matric-pack"];
@@ -322,6 +350,16 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     handleViewChange("reading");
   };
 
+  // ── Maths Literacy replay + continue ──────────────────────────────────────
+  const startMathsLiteracyReplay = (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_literacy_replay_skill", skillId);
+    handleViewChange("maths-literacy");
+  };
+  const continueMathsLiteracy = () => {
+    if (typeof window !== "undefined") sessionStorage.removeItem("ruby_maths_literacy_replay_skill");
+    handleViewChange("maths-literacy");
+  };
+
   return (
     <div className="flex flex-col h-full overflow-hidden bg-gray-100">
       {/* ── Streak milestone toast ──────────────────────────────────────── */}
@@ -358,7 +396,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <span className="flex-1 font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
+        <span className="flex-1 min-w-0 truncate font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
+        <UsageMeter variant="compact" theme="light" />
         {["chat", "ruby", "reading", "discover-maths", "discover-reading", "discover", "subjects"].includes(activeView) ? (
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("ruby-action"))}
@@ -406,9 +445,21 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       {showLangPicker && <LanguagePickerModal onClose={() => setShowLangPicker(false)} />}
 
       <main className="flex-1 overflow-hidden h-full">
-        {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} />}
+        {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} />}
         {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
-        {activeView === "progress" && <ProgressTracker onMathsReplaySkill={startMathsReplay} onReadingReplaySkill={startReadingReplay} onAfrikaansPickSkill={startAfrikaansSkill} onSocialSciencesOpen={() => handleViewChange("social-sciences")} />}
+        {activeView === "progress" && <ProgressTracker
+          onMathsReplaySkill={startMathsReplay}
+          onReadingReplaySkill={startReadingReplay}
+          onMathsContinue={continueMaths}
+          onReadingContinue={continueReading}
+          onAfrikaansPickSkill={startAfrikaansSkill}
+          onSocialSciencesOpen={() => handleViewChange("social-sciences")}
+          onLifeSkillsPickTopic={() => handleViewChange("life-skills")}
+          onNstOpen={() => handleViewChange("natural-sciences-tech")}
+          onMatricPhysSciPickSkill={() => handleViewChange("matric-phys-sci")}
+          onMathsLiteracyContinue={continueMathsLiteracy}
+          onMathsLiteracyReplaySkill={startMathsLiteracyReplay}
+        />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
         {activeView === "skill-tree" && <SkillTreeView profile={rubyProfile} onReplaySkill={startMathsReplay} onContinue={continueMaths} onBack={() => handleViewChange("subjects")} />}
@@ -420,9 +471,25 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "life-skills-skill-tree" && <LifeSkillsSkillTreeView onPickTopic={() => handleViewChange("life-skills")} onBack={() => handleViewChange("subjects")} />}
         {activeView === "social-sciences" && <ErrorBoundary><SocialSciencesSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "social-sciences-skill-tree" && <SocialSciencesSkillTreeView onPickTopic={() => handleViewChange("social-sciences")} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "natural-sciences-tech" && <ErrorBoundary><NstSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "natural-sciences-tech-skill-tree" && <NstSkillTreeView onPickTopic={() => handleViewChange("natural-sciences-tech")} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "matric-phys-sci" && <ErrorBoundary><MatricPhysSciSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "matric-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView onPickSkill={() => handleViewChange("matric-phys-sci")} onBack={() => handleViewChange("subjects")} />}
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
         {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Maths Literacy — FET Phase (Gr 10–12) */}
+        {activeView === "maths-literacy" && <ErrorBoundary><MathsLiteracyEngine onBack={() => handleViewChange("subjects")} onExitReplay={() => handleViewChange("maths-literacy-skill-tree")} /></ErrorBoundary>}
+        {activeView === "maths-literacy-skill-tree" && <MathsLiteracySkillTreeView onReplaySkill={startMathsLiteracyReplay} onContinue={continueMathsLiteracy} onBack={() => handleViewChange("subjects")} />}
+        {/* Life Sciences — FET Phase (Gr 10–12), free like Reading */}
+        {activeView === "life-sciences" && <ErrorBoundary><LifeSciencesSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "life-sciences-skill-tree" && <LifeSciencesSkillTreeView onPickSkill={() => handleViewChange("life-sciences")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* History — FET Phase (Gr 10–12), free like Life Sciences */}
+        {activeView === "history" && <ErrorBoundary><HistorySession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "history-skill-tree" && <HistorySkillTreeView onPickSkill={() => handleViewChange("history")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Business Studies — FET Phase (Gr 10–12), free like History */}
+        {activeView === "business-studies" && <ErrorBoundary><BusinessStudiesSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "business-studies-skill-tree" && <BusinessStudiesSkillTreeView onPickSkill={() => handleViewChange("business-studies")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
@@ -504,11 +571,13 @@ function DiscoveryPromptScreen({
   grade,
   onSelect,
   onMatricPrep,
+  onSkip,
 }: {
   name: string;
   grade?: string;
   onSelect: (subject: "maths" | "reading") => void;
   onMatricPrep?: () => void;
+  onSkip: () => void;
 }) {
   const isGrade12 = grade === "12";
 
@@ -551,6 +620,12 @@ function DiscoveryPromptScreen({
             className="w-full py-4 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-base transition-colors shadow-md flex items-center justify-center gap-2"
           >
             <span>📖</span> Start Reading Discovery
+          </button>
+          <button
+            onClick={onSkip}
+            className="w-full py-2 text-sm text-gray-500 hover:text-gray-700 transition-colors"
+          >
+            I&apos;ll do this later
           </button>
         </div>
       </div>
@@ -729,6 +804,13 @@ export default function Home() {
         }}
         onMatricPrep={() => {
           setMatricPrepPending(true);
+          setAppState("app");
+        }}
+        onSkip={() => {
+          // User chose to skip Discovery for now — drop them straight into the app.
+          // They can still take it later from the Home or Subjects pages.
+          setPendingDiscovery(null);
+          setLastDiscovery(null);
           setAppState("app");
         }}
       />

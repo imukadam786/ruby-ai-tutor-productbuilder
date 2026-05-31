@@ -1,0 +1,357 @@
+{
+  "skill": "L5.T4.A2",
+  "skill_title": "Compare prices across countries (Big Mac Index style)",
+  "grades": [12],
+  "caps_levels_target": [3, 4],
+  "version": "1.0",
+  "notes": "20-item bank, Grade 12 only. CAPS mix: 10 L3 / 10 L4. Convert prices to common currency. Interpret purchasing-power differences. Pair with local wages.",
+  "items": [
+    {
+      "id": "L5.T4.A2.q01",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Big Mac Index — illustrative**\n\n| Country | Local price | Currency | Rate (per ZAR) |\n|---|---|---|---|\n| South Africa | R50 | ZAR | 1 |\n| USA | 5,40 USD | USD | 1 USD = R18,50 |\n| UK | 4,10 GBP | GBP | 1 GBP = R23,40 |\n| Australia | 7,20 AUD | AUD | 1 AUD = R12,30 |"},
+      "question": "Convert USA Big Mac price to Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 99.90,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["5,40 × R18,50 = R99,90."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q02",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Big Mac Index — same table."},
+      "question": "Convert UK price to Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 95.94,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["4,10 × R23,40 = R95,94."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q03",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Big Mac Index — same table."},
+      "question": "Convert Australia price to Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 88.56,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["7,20 × R12,30 = R88,56."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q04",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Same table — comparison."},
+      "question": "Which country has the cheapest Big Mac (in Rand-equivalent)?",
+      "answerMode": "multiChoice",
+      "options": ["South Africa (R50)", "USA (R99,90)", "UK (R95,94)", "Australia (R88,56)"],
+      "expectedAnswer": "South Africa (R50)",
+      "workingSteps": ["R50 < R88,56 < R95,94 < R99,90 → SA is cheapest."],
+      "errorSignals": ["ERR_RATE_COMPARE", "ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q05",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Implied exchange rate from Big Mac Index. If a Big Mac is 5,40 USD in USA and R50 in SA, the IMPLIED rate is R50 ÷ 5,40."},
+      "question": "Calculate the IMPLIED rate (R per USD).",
+      "answerMode": "numeric",
+      "expectedAnswer": 9.26,
+      "tolerance": 0.1,
+      "unit": "R/USD",
+      "workingSteps": ["R50 ÷ 5,40 ≈ R9,26/USD."],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q06",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Implied R/USD ≈ R9,26; actual R18,50/USD."},
+      "question": "Is the Rand UNDER- or OVER-valued vs the USD by Big Mac Index?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Over-valued — Rand stronger than implied.",
+        "Under-valued — Rand weaker than implied; SA goods are cheap relative to USA.",
+        "Exactly valued.",
+        "Cannot tell."
+      ],
+      "expectedAnswer": "Under-valued — Rand weaker than implied; SA goods are cheap relative to USA.",
+      "workingSteps": ["Actual rate (R18,50) > implied (R9,26): Rand buys less than the Big Mac index suggests it should. Rand under-valued."],
+      "errorSignals": ["ERR_FX_DIRECTION", "ERR_RATE_COMPARE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q07",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Multiple products in different countries. iPhone 15: 999 USD (USA) or R19 990 (SA). Rate R18,50."},
+      "question": "Which is cheaper in Rand-equivalent and by how much?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Cheaper country", "expectedAnswer": "USA"},
+        {"label": "Saving (R)", "expectedAnswer": 1508, "tolerance": 30}
+      ],
+      "workingSteps": [
+        "USA in Rand: 999 × R18,50 = R18 481,50.",
+        "SA price: R19 990.",
+        "Difference: R19 990 − R18 481,50 = R1 508,50."
+      ],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q08",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Wages paired with prices. SA minimum wage R27,58/hour; USA federal min wage 7,25 USD/hour."},
+      "question": "Convert USA wage to Rand/hour.",
+      "answerMode": "numeric",
+      "expectedAnswer": 134.13,
+      "tolerance": 1,
+      "unit": "R/h",
+      "workingSteps": ["7,25 × R18,50 = R134,13."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q09",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Big Mac Index — hours of work to afford one Big Mac. SA: R50 ÷ R27,58/h ≈ ? hours. USA: 5,40 USD ÷ 7,25 USD/h ≈ ? hours."},
+      "question": "Calculate hours of work for each country.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "SA hours", "expectedAnswer": 1.81, "tolerance": 0.1},
+        {"label": "USA hours", "expectedAnswer": 0.74, "tolerance": 0.1}
+      ],
+      "workingSteps": [
+        "SA: R50 ÷ R27,58 ≈ 1,81 h.",
+        "USA: 5,40 ÷ 7,25 ≈ 0,74 h."
+      ],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION", "ERR_RATE_COMPARE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q10",
+      "skill": "L5.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Same wage/price exercise."},
+      "question": "In which country does a minimum-wage worker afford a Big Mac with less work time?",
+      "answerMode": "multiChoice",
+      "options": ["South Africa", "USA", "Same time", "Cannot tell"],
+      "expectedAnswer": "USA",
+      "workingSteps": ["USA 0,74 h < SA 1,81 h. USA worker needs less time."],
+      "errorSignals": ["ERR_RATE_COMPARE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q11",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Two items priced in different currencies plus a 5% bank commission added to the conversion."},
+      "question": "Item costs 100 USD or R1 950 (SA). Rate R18,50/USD plus 5% commission. Which is cheaper for an SA buyer in Rand?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "USD item cost in Rand (incl. commission)", "expectedAnswer": 1942.50, "tolerance": 10},
+        {"label": "Cheaper option", "expectedAnswer": "USD item"}
+      ],
+      "workingSteps": [
+        "USD item raw: 100 × R18,50 = R1 850.",
+        "With 5% commission: R1 850 × 1,05 = R1 942,50.",
+        "vs R1 950 SA → USD item is R7,50 cheaper."
+      ],
+      "errorSignals": ["ERR_COMMISSION", "ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q12",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Comparing minimum wage to a basket of food across countries."},
+      "question": "If SA min wage R27,58/h and a basic monthly grocery basket costs R3 200; USA min wage 7,25/h with grocery basket 280 USD. How many work HOURS does each need for groceries?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "SA hours", "expectedAnswer": 116, "tolerance": 5},
+        {"label": "USA hours", "expectedAnswer": 38.6, "tolerance": 2}
+      ],
+      "workingSteps": [
+        "SA: R3 200 ÷ R27,58 ≈ 116 h.",
+        "USA: 280 ÷ 7,25 ≈ 38,6 h."
+      ],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q13",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Round-trip currency arbitrage (buy then sell)."},
+      "question": "Sipho buys 1 000 USD at R18,40/USD and sells at R18,60/USD. Calculate the Rand profit.",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "Buy: 1 000 × R18,40 = R18 400.",
+        "Sell: 1 000 × R18,60 = R18 600.",
+        "Profit: R200."
+      ],
+      "errorSignals": ["ERR_FX_DIRECTION", "ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q14",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Travel budget. Plan trip to UK for 14 days, need 60 GBP/day. Rate R23,40/GBP. Bank wants 1,5% commission on Rand."},
+      "question": "Calculate total Rand cost (with commission).",
+      "answerMode": "numeric",
+      "expectedAnswer": 19953.36,
+      "tolerance": 30,
+      "unit": "R",
+      "workingSteps": [
+        "GBP needed: 14 × 60 = 840 GBP.",
+        "Rand for GBP: 840 × R23,40 = R19 656.",
+        "With 1,5% commission added: R19 656 × 1,015 = R19 950,84.",
+        "(Accept R19 950–R19 960 in tolerance.)"
+      ],
+      "errorSignals": ["ERR_COMMISSION", "ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q15",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Compare implied vs actual rate. Item in SA costs R200; same item in USA costs 12 USD."},
+      "question": "Calculate implied R/USD rate.",
+      "answerMode": "numeric",
+      "expectedAnswer": 16.67,
+      "tolerance": 0.5,
+      "unit": "R/USD",
+      "workingSteps": ["R200 ÷ 12 ≈ R16,67/USD."],
+      "errorSignals": ["ERR_UNIT_PRICE_INVERSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q16",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Actual R18,50/USD vs implied R16,67/USD (from previous)."},
+      "question": "Is the Rand over- or under-valued by this product comparison?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Over-valued — Rand stronger than the product comparison suggests.",
+        "Under-valued — Rand weaker than the product comparison suggests.",
+        "Exactly valued.",
+        "Cannot tell."
+      ],
+      "expectedAnswer": "Under-valued — Rand weaker than the product comparison suggests.",
+      "workingSteps": ["Actual rate (R18,50) > implied (R16,67). Rand needs more units to buy USD = weaker than implied."],
+      "errorSignals": ["ERR_FX_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q17",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Cost of education. SA tuition R65 000/yr; UK tuition 12 000 GBP/yr (R23,40)."},
+      "question": "Calculate UK tuition in Rand and compare.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "UK in R", "expectedAnswer": 280800, "tolerance": 100},
+        {"label": "How many times SA tuition?", "expectedAnswer": 4.3, "tolerance": 0.2}
+      ],
+      "workingSteps": [
+        "UK: 12 000 × R23,40 = R280 800.",
+        "Multiple: R280 800 ÷ R65 000 ≈ 4,32 times."
+      ],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q18",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Wage parity in Rand."},
+      "question": "USA average hourly wage 28 USD/h, SA average R85/h. Convert USA to Rand, compute ratio.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "USA wage in R/h", "expectedAnswer": 518, "tolerance": 5},
+        {"label": "Ratio USA/SA", "expectedAnswer": 6.1, "tolerance": 0.3}
+      ],
+      "workingSteps": [
+        "USA: 28 × R18,50 = R518/h.",
+        "Ratio: R518 ÷ R85 ≈ 6,1."
+      ],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q19",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Big Mac in Norway (NOK) — 75 NOK; Rate 1 NOK = R1,80."},
+      "question": "Convert to Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 135,
+      "tolerance": 2,
+      "unit": "R",
+      "workingSteps": ["75 × R1,80 = R135."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A2.q20",
+      "skill": "L5.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Big Mac price comparison: SA R50, Norway R135."},
+      "question": "How many times more expensive is the Norwegian Big Mac (in Rand)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2.7,
+      "tolerance": 0.1,
+      "workingSteps": ["R135 ÷ R50 = 2,7 times."],
+      "errorSignals": ["ERR_RATE_COMPARE"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_CURRENCY_DIRECTION": "Multiplies when division was needed (or vice versa) for FX.",
+    "ERR_UNIT_PRICE_INVERSION": "Divides the wrong way around for implied rate or hours-per-product.",
+    "ERR_COMMISSION": "Misapplies commission or leaves it out.",
+    "ERR_RATE_COMPARE": "Compares two prices without converting both to the same currency.",
+    "ERR_FX_DIRECTION": "Misinterprets a strengthen/weaken or over-/under-valued reading."
+  }
+}

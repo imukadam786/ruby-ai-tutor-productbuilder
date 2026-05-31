@@ -78,3 +78,37 @@ export async function checkAndIncrement(
 
   return { allowed: true, used: currentCount + 1, limit };
 }
+
+/**
+ * Read today's usage for the user without incrementing. Returns a per-type
+ * { used, limit } map plus the resolved plan, so the client can render a counter.
+ */
+export async function getUsage(
+  userId: string,
+  plan?: string,
+): Promise<{ plan: string; usage: Record<UsageType, { used: number; limit: number }> }> {
+  const userPlan = plan ?? (await getUserPlan(userId));
+  const today = new Date().toISOString().split("T")[0];
+
+  const { data } = await supabaseAdmin
+    .from("daily_usage")
+    .select("chat_count, hint_count, tts_count")
+    .eq("user_id", userId)
+    .eq("date", today)
+    .maybeSingle();
+
+  const counts = {
+    chat: (data?.chat_count as number) ?? 0,
+    hint: (data?.hint_count as number) ?? 0,
+    tts:  (data?.tts_count  as number) ?? 0,
+  };
+
+  return {
+    plan: userPlan,
+    usage: {
+      chat: { used: counts.chat, limit: getLimit(userPlan, "chat") },
+      hint: { used: counts.hint, limit: getLimit(userPlan, "hint") },
+      tts:  { used: counts.tts,  limit: getLimit(userPlan, "tts")  },
+    },
+  };
+}

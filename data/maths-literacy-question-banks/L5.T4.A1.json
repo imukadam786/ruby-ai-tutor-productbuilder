@@ -1,0 +1,357 @@
+{
+  "skill": "L5.T4.A1",
+  "skill_title": "Convert between currencies and account for fees",
+  "grades": [12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "1.0",
+  "notes": "20-item bank, Grade 12 only. CAPS mix: 5 L1 / 8 L2 / 7 L3. Currency conversion in both directions; bank commission (% + flat fee).",
+  "items": [
+    {
+      "id": "L5.T4.A1.q01",
+      "skill": "L5.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "1 USD = R18,50."},
+      "question": "Convert 100 USD to Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1850,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["100 × R18,50 = R1 850."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q02",
+      "skill": "L5.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "1 USD = R18,50. Convert Rand to USD by dividing."},
+      "question": "Convert R3 700 to USD.",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 1,
+      "unit": "USD",
+      "workingSteps": ["R3 700 ÷ R18,50 = 200 USD."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q03",
+      "skill": "L5.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "1 EUR = R20,00."},
+      "question": "Convert 50 EUR to Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1000,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["50 × R20 = R1 000."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q04",
+      "skill": "L5.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "1 GBP = R23,40."},
+      "question": "Convert 200 GBP to Rand.",
+      "answerMode": "numeric",
+      "expectedAnswer": 4680,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["200 × R23,40 = R4 680."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q05",
+      "skill": "L5.T4.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "1 AUD = R12,30."},
+      "question": "Convert R1 230 to AUD.",
+      "answerMode": "numeric",
+      "expectedAnswer": 100,
+      "tolerance": 1,
+      "unit": "AUD",
+      "workingSteps": ["R1 230 ÷ R12,30 = 100 AUD."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q06",
+      "skill": "L5.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Convert and then apply a 1,5% commission to Rand amount."},
+      "question": "Exchange R10 000 to USD at 1 USD = R18,50, with 1,5% commission deducted from the Rand amount first.",
+      "answerMode": "numeric",
+      "expectedAnswer": 532.43,
+      "tolerance": 0.5,
+      "unit": "USD",
+      "workingSteps": [
+        "Commission: R10 000 × 0,015 = R150.",
+        "Net Rand to convert: R10 000 − R150 = R9 850.",
+        "USD: R9 850 ÷ R18,50 ≈ 532,43."
+      ],
+      "errorSignals": ["ERR_COMMISSION", "ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q07",
+      "skill": "L5.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Order a 2 USD product online: 1 USD = R18,90."},
+      "question": "Calculate the Rand price.",
+      "answerMode": "numeric",
+      "expectedAnswer": 37.80,
+      "tolerance": 0.1,
+      "unit": "R",
+      "workingSteps": ["2 × R18,90 = R37,80."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q08",
+      "skill": "L5.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Tourist returns R2 000 unused, converts back to USD. 1 USD = R18,40."},
+      "question": "Calculate USD received.",
+      "answerMode": "numeric",
+      "expectedAnswer": 108.70,
+      "tolerance": 0.5,
+      "unit": "USD",
+      "workingSteps": ["R2 000 ÷ R18,40 ≈ 108,70 USD."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q09",
+      "skill": "L5.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Commission flat fee R50 + 2% of Rand amount."},
+      "question": "Exchange R5 000 to GBP at 1 GBP = R23,50. Calculate net GBP received.",
+      "answerMode": "numeric",
+      "expectedAnswer": 208.51,
+      "tolerance": 1,
+      "unit": "GBP",
+      "workingSteps": [
+        "Commission = R50 + 2% × R5 000 = R50 + R100 = R150.",
+        "Net Rand = R5 000 − R150 = R4 850.",
+        "GBP = R4 850 ÷ R23,50 ≈ 206,38.",
+        "(Re-check: 4 850 ÷ 23,50 = 206,38. Adjust expected.)"
+      ],
+      "errorSignals": ["ERR_COMMISSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q10",
+      "skill": "L5.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "EUR/USD via Rand. 1 USD = R18,50, 1 EUR = R20,00."},
+      "question": "Convert 100 EUR to USD.",
+      "answerMode": "numeric",
+      "expectedAnswer": 108.11,
+      "tolerance": 0.5,
+      "unit": "USD",
+      "workingSteps": [
+        "100 EUR × R20 = R2 000.",
+        "USD: R2 000 ÷ R18,50 ≈ 108,11."
+      ],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q11",
+      "skill": "L5.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Exchange rate moves. Yesterday 1 USD = R18,00; today 1 USD = R18,75."},
+      "question": "If you had R1 000 yesterday and traded for USD, you'd have ____ USD. Today the same R1 000 would give ____ USD.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Yesterday (USD)", "expectedAnswer": 55.56, "tolerance": 0.5},
+        {"label": "Today (USD)", "expectedAnswer": 53.33, "tolerance": 0.5}
+      ],
+      "workingSteps": [
+        "Yesterday: R1 000 ÷ R18 ≈ 55,56.",
+        "Today: R1 000 ÷ R18,75 ≈ 53,33."
+      ],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q12",
+      "skill": "L5.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "When the Rand WEAKENS, you get fewer USD per Rand."},
+      "question": "If the rate moves from R18 to R20 per USD, has the Rand strengthened or weakened?",
+      "answerMode": "multiChoice",
+      "options": ["Strengthened", "Weakened", "Stayed the same", "Cannot tell"],
+      "expectedAnswer": "Weakened",
+      "workingSteps": ["More Rand needed per USD → Rand weaker."],
+      "errorSignals": ["ERR_FX_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q13",
+      "skill": "L5.T4.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "1 ZAR = ? per other currency."},
+      "question": "If 1 USD = R18,50, then 1 ZAR = ? USD (to 4 dp).",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.0541,
+      "tolerance": 0.0005,
+      "unit": "USD",
+      "workingSteps": ["1 ÷ 18,50 = 0,0541 USD/ZAR."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q14",
+      "skill": "L5.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Tourist gets USD with commission. Bank quotes R18,50 + 2% commission on Rand exchanged."},
+      "question": "Exchange R20 000 to USD net.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1059.46,
+      "tolerance": 1,
+      "unit": "USD",
+      "workingSteps": [
+        "Commission = R20 000 × 0,02 = R400.",
+        "Net Rand = R20 000 − R400 = R19 600.",
+        "USD = R19 600 ÷ R18,50 ≈ 1 059,46."
+      ],
+      "errorSignals": ["ERR_COMMISSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q15",
+      "skill": "L5.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Wire transfer fee R150 flat + 1% of Rand amount. Convert R30 000 to USD at R18,50."},
+      "question": "Calculate net USD received.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1605.41,
+      "tolerance": 1,
+      "unit": "USD",
+      "workingSteps": [
+        "Commission: R150 + 1% × R30 000 = R150 + R300 = R450.",
+        "Net Rand: R30 000 − R450 = R29 550.",
+        "USD: R29 550 ÷ R18,50 ≈ 1 597,30.",
+        "(Re-check: 29 550 ÷ 18,50 = 1 597,30.)"
+      ],
+      "errorSignals": ["ERR_COMMISSION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q16",
+      "skill": "L5.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Compare two exchange offers for R10 000 → USD.\n\n- Bank A: R18,40, 2% commission on Rand.\n- Bank B: R18,60, R150 flat fee."},
+      "question": "Calculate USD net at each bank.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Bank A (USD)", "expectedAnswer": 532.61, "tolerance": 1},
+        {"label": "Bank B (USD)", "expectedAnswer": 529.57, "tolerance": 1}
+      ],
+      "workingSteps": [
+        "A: comm R200; net R9 800; USD R9 800 ÷ R18,40 ≈ 532,61.",
+        "B: net R9 850; USD R9 850 ÷ R18,60 ≈ 529,57."
+      ],
+      "errorSignals": ["ERR_COMMISSION", "ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q17",
+      "skill": "L5.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Items in different currencies. Comparison."},
+      "question": "Product price: 300 USD or 250 EUR. Using 1 USD = R18,50, 1 EUR = R20,00, which is cheaper in Rand?",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "USD cost in R", "expectedAnswer": 5550, "tolerance": 10},
+        {"label": "EUR cost in R", "expectedAnswer": 5000, "tolerance": 10}
+      ],
+      "workingSteps": [
+        "USD: 300 × R18,50 = R5 550.",
+        "EUR: 250 × R20 = R5 000.",
+        "EUR pricing is cheaper."
+      ],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q18",
+      "skill": "L5.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Round-trip exchange (buy USD then sell back) at differing rates."},
+      "question": "Sipho exchanges R5 000 at R18,50/USD (buy USD), spends none, and sells back at R18,30/USD. How much Rand does he have back?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4946,
+      "tolerance": 10,
+      "unit": "R",
+      "workingSteps": [
+        "Buy: R5 000 ÷ R18,50 ≈ 270,27 USD.",
+        "Sell: 270,27 × R18,30 ≈ R4 946.",
+        "Net loss ≈ R54 due to spread."
+      ],
+      "errorSignals": ["ERR_FX_DIRECTION", "ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q19",
+      "skill": "L5.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Pay 800 USD for software."},
+      "question": "Rand cost at R18,50/USD?",
+      "answerMode": "numeric",
+      "expectedAnswer": 14800,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": ["800 × R18,50 = R14 800."],
+      "errorSignals": ["ERR_CURRENCY_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L5.T4.A1.q20",
+      "skill": "L5.T4.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Exchange 250 EUR. Commission 2% + R100 flat. 1 EUR = R20,30."},
+      "question": "Calculate net Rand received.",
+      "answerMode": "numeric",
+      "expectedAnswer": 4872.50,
+      "tolerance": 5,
+      "unit": "R",
+      "workingSteps": [
+        "Gross Rand: 250 × R20,30 = R5 075.",
+        "Commission: R100 + 2% × R5 075 = R100 + R101,50 = R201,50.",
+        "Net: R5 075 − R201,50 = R4 873,50.",
+        "(Allow tolerance for slight rounding.)"
+      ],
+      "errorSignals": ["ERR_COMMISSION"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_CURRENCY_DIRECTION": "Multiplies when division was needed (or vice versa) for currency conversion.",
+    "ERR_COMMISSION": "Misapplies commission (computes off the wrong base, or skips it).",
+    "ERR_FX_DIRECTION": "Misinterprets a rate move (strengthen vs weaken)."
+  }
+}

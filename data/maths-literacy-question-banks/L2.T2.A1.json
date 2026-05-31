@@ -1,0 +1,355 @@
+{
+  "skill": "L2.T2.A1",
+  "skill_title": "Identify constant and linear (constant-difference) relationships",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [1, 2, 3],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 5 L1 / 8 L2 / 7 L3. Topics: constant (flat line), linear (constant slope), recognise in tables, equations, real contexts.",
+  "items": [
+    {
+      "id": "L2.T2.A1.q01",
+      "skill": "L2.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "A CONSTANT relationship means y stays the same regardless of x. A LINEAR relationship means y changes by the same amount for each one-unit increase in x."},
+      "question": "Which of these is a CONSTANT relationship?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Total cost = R150 per month (no matter how many minutes you use).",
+        "Total cost = R150 + R1,20 per minute used.",
+        "Total cost doubles every month.",
+        "Total cost = R0,80 per minute used."
+      ],
+      "expectedAnswer": "Total cost = R150 per month (no matter how many minutes you use).",
+      "workingSteps": ["A fixed monthly fee that doesn't depend on usage is a constant relationship."],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q02",
+      "skill": "L2.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Linear relationships have a constant difference between consecutive y-values for each step in x."},
+      "question": "Which table shows a LINEAR relationship?\n\n**Table A:**\n| x | y |\n|---|---|\n| 1 | 3 |\n| 2 | 6 |\n| 3 | 9 |\n| 4 | 12 |\n\n**Table B:**\n| x | y |\n|---|---|\n| 1 | 2 |\n| 2 | 4 |\n| 3 | 8 |\n| 4 | 16 |",
+      "answerMode": "multiChoice",
+      "options": ["Table A", "Table B", "Both A and B", "Neither"],
+      "expectedAnswer": "Table A",
+      "workingSteps": [
+        "Table A: differences 6−3, 9−6, 12−9 = 3, 3, 3 — constant difference. Linear.",
+        "Table B: differences 2, 4, 8 — not constant. (This is a doubling/compound pattern.)"
+      ],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q03",
+      "skill": "L2.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "A line graph that is FLAT (horizontal) represents a constant relationship."},
+      "question": "On a graph of cost (y) vs minutes (x), a HORIZONTAL line at y = R150 means:",
+      "answerMode": "multiChoice",
+      "options": [
+        "Cost rises by R150 each minute.",
+        "Cost is R150 regardless of minutes used (constant).",
+        "Cost falls by R150 each minute.",
+        "There is no cost."
+      ],
+      "expectedAnswer": "Cost is R150 regardless of minutes used (constant).",
+      "workingSteps": ["A flat line means y does not change with x."],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE", "ERR_GRAPH_SHAPE_READ"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q04",
+      "skill": "L2.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "Linear graphs are straight lines that are not horizontal."},
+      "question": "Which scenario does NOT produce a straight-line (linear) cost graph?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Petrol cost at R23,50 per litre.",
+        "Taxi fare R20 + R8 per km.",
+        "Compound interest growing at 5% per year.",
+        "Wage at R85 per hour."
+      ],
+      "expectedAnswer": "Compound interest growing at 5% per year.",
+      "workingSteps": ["Compound interest multiplies by a factor each year — curved (not linear)."],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q05",
+      "skill": "L2.T2.A1",
+      "caps_level": 1,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Total cost (R) versus minutes called on a cell-phone plan:\n\n| Minutes | Cost (R) |\n|---|---|\n| 0 | 100 |\n| 50 | 175 |\n| 100 | 250 |\n| 150 | 325 |"},
+      "question": "What is the rate of cost per minute?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.50,
+      "tolerance": 0.05,
+      "unit": "R/min",
+      "workingSteps": [
+        "Difference per 50 minutes = R75.",
+        "Per minute = R75 ÷ 50 = R1,50/min."
+      ],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION", "ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q06",
+      "skill": "L2.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Plan X** — total cost C = R200 + R0,90 × m (where m = minutes called)."},
+      "question": "What is the FIXED (constant) part of the cost?",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": ["The constant R200 is paid regardless of minutes — the fixed part."],
+      "errorSignals": ["ERR_Y_INTERCEPT", "ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q07",
+      "skill": "L2.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Plan X** — total cost C = R200 + R0,90 × m."},
+      "question": "What is the cost per additional minute (the slope)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.90,
+      "tolerance": 0.01,
+      "unit": "R/min",
+      "workingSteps": ["Each additional minute adds R0,90 — the per-unit rate."],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q08",
+      "skill": "L2.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Plan X** — total cost C = R200 + R0,90 × m."},
+      "question": "Calculate the total cost for 300 minutes.",
+      "answerMode": "numeric",
+      "expectedAnswer": 470,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": [
+        "C = R200 + R0,90 × 300.",
+        "= R200 + R270 = R470."
+      ],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q09",
+      "skill": "L2.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Income vs hours worked at R85/hour:\n\n| Hours | Income (R) |\n|---|---|\n| 0 | 0 |\n| 8 | 680 |\n| 16 | 1 360 |\n| 24 | 2 040 |"},
+      "question": "What kind of relationship is this?",
+      "answerMode": "multiChoice",
+      "options": ["Constant", "Linear (constant difference)", "Inverse proportion", "Compound (constant ratio)"],
+      "expectedAnswer": "Linear (constant difference)",
+      "workingSteps": [
+        "Differences: 680, 680, 680. Constant difference per 8 hours.",
+        "Per hour: R85. Linear relationship through the origin."
+      ],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q10",
+      "skill": "L2.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Plan Y** — Flat monthly fee of R600 — no extra charge for usage."},
+      "question": "Which best describes the cost relationship for Plan Y?",
+      "answerMode": "multiChoice",
+      "options": ["Constant", "Linear with positive slope", "Linear with negative slope", "Compound growth"],
+      "expectedAnswer": "Constant",
+      "workingSteps": ["Cost doesn't depend on usage — constant at R600."],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q11",
+      "skill": "L2.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Plan Z** — Total cost C = R7,50 × L (where L = litres of petrol)."},
+      "question": "What is the cost for 25 L?",
+      "answerMode": "numeric",
+      "expectedAnswer": 187.50,
+      "tolerance": 0.5,
+      "unit": "R",
+      "workingSteps": ["C = R7,50 × 25 = R187,50."],
+      "errorSignals": ["ERR_DECIMAL_PLACEMENT_PRODUCT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q12",
+      "skill": "L2.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A direct-proportion linear relationship passes through the origin (y = mx)."},
+      "question": "Which of these is a DIRECT proportion?",
+      "answerMode": "multiChoice",
+      "options": [
+        "C = R200 + R0,90 × m",
+        "C = R7,50 × L",
+        "C = R150 (constant)",
+        "C = R100 × 1,05^t"
+      ],
+      "expectedAnswer": "C = R7,50 × L",
+      "workingSteps": ["Direct proportion: no fixed amount; y = m × x. C = R7,50 × L fits."],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE", "ERR_Y_INTERCEPT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q13",
+      "skill": "L2.T2.A1",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Hourly readings:\n\n| Hour | Distance (km) |\n|---|---|\n| 1 | 60 |\n| 2 | 120 |\n| 3 | 180 |\n| 4 | 240 |"},
+      "question": "What is the rate (the slope)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 60,
+      "tolerance": 1,
+      "unit": "km/h",
+      "workingSteps": ["Constant difference of 60 km per 1 hour = 60 km/h."],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q14",
+      "skill": "L2.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Plan A** — Taxi: R20 base + R8 per km."},
+      "question": "Write the equation for total cost C in terms of km driven (k).",
+      "answerMode": "multiChoice",
+      "options": ["C = 20k + 8", "C = 20 + 8k", "C = 20k × 8", "C = 28k"],
+      "expectedAnswer": "C = 20 + 8k",
+      "workingSteps": ["Fixed R20 + per-km R8 × k → C = 20 + 8k."],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA", "ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q15",
+      "skill": "L2.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Mr Khoza's earnings at a printing shop: R250 callout fee + R12 per A4 page printed."},
+      "question": "Calculate his earnings for printing 80 pages.",
+      "answerMode": "numeric",
+      "expectedAnswer": 1210,
+      "tolerance": 1,
+      "unit": "R",
+      "workingSteps": [
+        "Earnings = R250 + R12 × 80.",
+        "= R250 + R960 = R1 210."
+      ],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q16",
+      "skill": "L2.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Table** — Cost (R) vs litres bought:\n\n| Litres | Cost (R) |\n|---|---|\n| 0 | 0 |\n| 5 | 117,50 |\n| 10 | 235,00 |\n| 15 | 352,50 |"},
+      "question": "Calculate the price per litre.",
+      "answerMode": "numeric",
+      "expectedAnswer": 23.50,
+      "tolerance": 0.05,
+      "unit": "R/L",
+      "workingSteps": ["117,50 ÷ 5 = R23,50/L (direct proportion through origin)."],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION", "ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q17",
+      "skill": "L2.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Bus fare = R8 + R2 per km. Distance: 12 km."},
+      "question": "Calculate the bus fare.",
+      "answerMode": "numeric",
+      "expectedAnswer": 32,
+      "tolerance": 0.5,
+      "unit": "R",
+      "workingSteps": [
+        "Fare = R8 + R2 × 12.",
+        "= R8 + R24 = R32."
+      ],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q18",
+      "skill": "L2.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "Compare three plans:\n\n- Plan P1: R600 flat monthly fee.\n- Plan P2: R200 + R0,80/min.\n- Plan P3: R1,40/min, no monthly fee."},
+      "question": "Which plan has a CONSTANT relationship (cost independent of usage)?",
+      "answerMode": "multiChoice",
+      "options": ["P1", "P2", "P3", "All three"],
+      "expectedAnswer": "P1",
+      "workingSteps": ["P1 is a flat fee — constant. P2 is linear with fixed + variable. P3 is direct proportion (linear through origin)."],
+      "errorSignals": ["ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q19",
+      "skill": "L2.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Plan A** — R100 fixed + R5/unit. **Plan B** — R200 fixed + R3/unit."},
+      "question": "Calculate the cost of each plan at 50 units.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Plan A (R)", "expectedAnswer": 350, "tolerance": 1},
+        {"label": "Plan B (R)", "expectedAnswer": 350, "tolerance": 1}
+      ],
+      "workingSteps": [
+        "Plan A: 100 + 5 × 50 = R350.",
+        "Plan B: 200 + 3 × 50 = R350.",
+        "They cost the same at 50 units (crossover point)."
+      ],
+      "errorSignals": ["ERR_BRACKET_MISSING_FORMULA"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L2.T2.A1.q20",
+      "skill": "L2.T2.A1",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "An electric meter shows:\n\n| Day | Reading (kWh) |\n|---|---|\n| 1 | 1 200 |\n| 8 | 1 270 |\n| 15 | 1 340 |\n| 22 | 1 410 |"},
+      "question": "What is the average daily consumption (rate)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.5,
+      "unit": "kWh/day",
+      "workingSteps": [
+        "Difference per 7 days = 70 kWh.",
+        "Per day = 70 ÷ 7 = 10 kWh/day."
+      ],
+      "errorSignals": ["ERR_SLOPE_INTERPRETATION", "ERR_RELATIONSHIP_TYPE"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_RELATIONSHIP_TYPE": "Misclassifies a relationship (constant, linear, inverse, compound).",
+    "ERR_SLOPE_INTERPRETATION": "Misinterprets the slope (rate of change) of a line.",
+    "ERR_Y_INTERCEPT": "Misreads the y-intercept (fixed-amount component).",
+    "ERR_BRACKET_MISSING_FORMULA": "Mis-applies BODMAS when substituting into a formula (drops brackets).",
+    "ERR_DECIMAL_PLACEMENT_PRODUCT": "Places the decimal incorrectly in a product.",
+    "ERR_GRAPH_SHAPE_READ": "Misinterprets the shape of a graph."
+  }
+}

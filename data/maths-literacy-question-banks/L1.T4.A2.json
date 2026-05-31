@@ -1,0 +1,402 @@
+{
+  "skill": "L1.T4.A2",
+  "skill_title": "Inverse (indirect) proportion in context",
+  "grades": [10, 11, 12],
+  "caps_levels_target": [2, 3, 4],
+  "version": "1.0",
+  "notes": "20-item bank. CAPS mix: 8 L2 (recognise/apply with product=constant) + 8 L3 (find constant then solve) + 4 L4 (judge direct vs inverse, critique reasoning). Fresh SA contexts: teacher taxi scheme, painters and days, fixed-cost splits, pump fill times, speed/time trips.",
+  "items": [
+    {
+      "id": "L1.T4.A2.q01",
+      "skill": "L1.T4.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "When more workers do the same fixed job, the time taken decreases — workers × days stays constant. 6 painters take 8 days to paint a school hall."},
+      "question": "How long would 12 painters take to do the same job?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "days",
+      "workingSteps": [
+        "Total work = 6 × 8 = 48 painter-days (constant).",
+        "Days = 48 ÷ 12 = 4 days."
+      ],
+      "errorSignals": ["ERR_INVERSE_AS_DIRECT", "ERR_INVERSE_PRODUCT_CONSTANT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q02",
+      "skill": "L1.T4.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Mr Khumalo drives a fixed 240 km trip from Pretoria to Bloemfontein at 60 km/h, which takes 4 hours. Distance is fixed, so speed × time = 240 (constant)."},
+      "question": "If he drives the same trip at 80 km/h, how long does it take?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "hours",
+      "workingSteps": [
+        "Constant: speed × time = 240 km.",
+        "Time = 240 ÷ 80 = 3 hours."
+      ],
+      "errorSignals": ["ERR_SPEED_TIME_DISTANCE", "ERR_INVERSE_AS_DIRECT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q03",
+      "skill": "L1.T4.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Three teachers share a fixed monthly taxi-scheme fee of R7 500, paying R2 500 each. More teachers joining means the share per teacher decreases — total stays the same."},
+      "question": "If 5 teachers share the same R7 500 fee, how much does each one pay?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1500,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Total = R7 500 (constant).",
+        "Per teacher = R7 500 ÷ 5 = R1 500."
+      ],
+      "errorSignals": ["ERR_FIXED_COST_SPLIT_DIRECTION", "ERR_INVERSE_AS_DIRECT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q04",
+      "skill": "L1.T4.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A school must transport a fixed group of 80 learners. With 5 taxis, each taxi carries 16 learners (5 × 16 = 80)."},
+      "question": "If only 4 taxis are available, how many learners must each taxi carry?",
+      "answerMode": "numeric",
+      "expectedAnswer": 20,
+      "tolerance": 0,
+      "unit": "learners per taxi",
+      "workingSteps": [
+        "Total = 80 learners (constant).",
+        "Per taxi = 80 ÷ 4 = 20 learners."
+      ],
+      "errorSignals": ["ERR_INVERSE_PRODUCT_CONSTANT", "ERR_FIXED_COST_SPLIT_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q05",
+      "skill": "L1.T4.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Three identical pumps can fill a reservoir in 8 hours. Pumps × hours = constant work."},
+      "question": "How long would 4 pumps take to fill the same reservoir?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.05,
+      "unit": "hours",
+      "workingSteps": [
+        "Total work = 3 × 8 = 24 pump-hours.",
+        "Time = 24 ÷ 4 = 6 hours."
+      ],
+      "errorSignals": ["ERR_INVERSE_AS_DIRECT", "ERR_INVERSE_PRODUCT_CONSTANT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q06",
+      "skill": "L1.T4.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Gogo divides a 200 g packet of sweets equally between her grandchildren. If there are 5 grandchildren, each gets 40 g."},
+      "question": "If 8 grandchildren are sharing the same 200 g packet, how many grams does each one get?",
+      "answerMode": "numeric",
+      "expectedAnswer": 25,
+      "tolerance": 0.1,
+      "unit": "g",
+      "workingSteps": [
+        "Total = 200 g (constant).",
+        "Per child = 200 ÷ 8 = 25 g."
+      ],
+      "errorSignals": ["ERR_FIXED_COST_SPLIT_DIRECTION", "ERR_INVERSE_AS_DIRECT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q07",
+      "skill": "L1.T4.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "A 4 500 ml tank of cooldrink is poured equally into bottles. 6 bottles hold 750 ml each (6 × 750 = 4 500)."},
+      "question": "If only 4 bottles are used, how many millilitres does each bottle hold?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1125,
+      "tolerance": 1,
+      "unit": "ml",
+      "workingSteps": [
+        "Total = 4 500 ml (constant).",
+        "Per bottle = 4 500 ÷ 4 = 1 125 ml."
+      ],
+      "errorSignals": ["ERR_FIXED_COST_SPLIT_DIRECTION", "ERR_INVERSE_PRODUCT_CONSTANT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q08",
+      "skill": "L1.T4.A2",
+      "caps_level": 2,
+      "source": "fresh",
+      "stimulus": {"inline": "Two scenarios:\n\n**Scenario A:** The more kilometres you drive, the more petrol you use.\n\n**Scenario B:** The more people share a fixed-cost bus hire, the less each person pays."},
+      "question": "Which scenario describes inverse (indirect) proportion?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Scenario A only.",
+        "Scenario B only.",
+        "Both A and B.",
+        "Neither — these are both linear."
+      ],
+      "expectedAnswer": "Scenario B only.",
+      "workingSteps": [
+        "In A, both quantities increase together (direct proportion).",
+        "In B, as one (people) increases the other (cost per person) decreases, with product = fixed total (inverse)."
+      ],
+      "errorSignals": ["ERR_TYPE_OF_PROPORTION", "ERR_INVERSE_AS_DIRECT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q09",
+      "skill": "L1.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "15 workers complete a paving job in 12 days. Workers × days = constant total person-days."},
+      "question": "How many workers are needed to finish the same job in 9 days?",
+      "answerMode": "numeric",
+      "expectedAnswer": 20,
+      "tolerance": 0,
+      "unit": "workers",
+      "workingSteps": [
+        "Total person-days = 15 × 12 = 180.",
+        "Workers needed = 180 ÷ 9 = 20."
+      ],
+      "errorSignals": ["ERR_INVERSE_OPERATION", "ERR_INVERSE_PRODUCT_CONSTANT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q10",
+      "skill": "L1.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "4 identical trucks each carry 6 tonnes per trip, delivering a fixed load of 24 tonnes (4 × 6 = 24)."},
+      "question": "If 6 trucks are sent to deliver the same 24 tonnes, how many tonnes does each truck carry?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "tonnes",
+      "workingSteps": [
+        "Total = 24 tonnes (constant).",
+        "Per truck = 24 ÷ 6 = 4 tonnes."
+      ],
+      "errorSignals": ["ERR_FIXED_COST_SPLIT_DIRECTION", "ERR_INVERSE_AS_DIRECT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q11",
+      "skill": "L1.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "**Bus hire fee R6 000 — cost per learner depending on how many learners go:**\n\n| Learners | Cost per learner (R) |\n|---|---|\n| 20 | 300 |\n| 30 | 200 |\n| 40 | ? |\n| 50 | ? |"},
+      "question": "Fill in the missing values for 40 and 50 learners.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Cost per learner at 40 learners (R)", "expectedAnswer": 150, "tolerance": 0.5},
+        {"label": "Cost per learner at 50 learners (R)", "expectedAnswer": 120, "tolerance": 0.5}
+      ],
+      "workingSteps": [
+        "Constant total = 20 × R300 = R6 000.",
+        "At 40 learners: R6 000 ÷ 40 = R150.",
+        "At 50 learners: R6 000 ÷ 50 = R120."
+      ],
+      "errorSignals": ["ERR_INVERSE_PRODUCT_CONSTANT", "ERR_FIXED_COST_SPLIT_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q12",
+      "skill": "L1.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A school matric class of 25 learners shares a R1 500 prize money equally — each receives R60 (25 × R60 = R1 500)."},
+      "question": "If 30 learners had been in the class to share the same prize, how much would each one have received?",
+      "answerMode": "numeric",
+      "expectedAnswer": 50,
+      "tolerance": 0.01,
+      "unit": "R",
+      "workingSteps": [
+        "Total = R1 500 (constant).",
+        "Per learner = R1 500 ÷ 30 = R50."
+      ],
+      "errorSignals": ["ERR_FIXED_COST_SPLIT_DIRECTION", "ERR_INVERSE_AS_DIRECT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q13",
+      "skill": "L1.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "An ambulance must travel a fixed 180 km from Polokwane to Mokopane. The trip distance is constant — only speed and time vary."},
+      "question": "If the ambulance averages 90 km/h instead of 60 km/h, how long does the trip take?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "hours",
+      "workingSteps": [
+        "Distance = 180 km (constant).",
+        "At 90 km/h: time = 180 ÷ 90 = 2 hours.",
+        "(At 60 km/h it took 3 hours — faster speed, less time.)"
+      ],
+      "errorSignals": ["ERR_SPEED_TIME_DISTANCE", "ERR_INVERSE_AS_DIRECT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q14",
+      "skill": "L1.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A backup generator can supply a fixed total of 600 watt-hours of energy when fully charged."},
+      "question": "If a light bulb uses 50 watts, for how many hours can the generator power it?",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0.1,
+      "unit": "hours",
+      "workingSteps": [
+        "Watt-hours = watts × hours = 600 (constant).",
+        "Hours = 600 ÷ 50 = 12 hours."
+      ],
+      "errorSignals": ["ERR_INVERSE_PRODUCT_CONSTANT", "ERR_INVERSE_OPERATION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q15",
+      "skill": "L1.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A community garden has a fixed harvest of 480 kg of mealies. The harvest will be packed into bags."},
+      "question": "If the bags hold 12 kg each, how many bags are needed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 40,
+      "tolerance": 0,
+      "unit": "bags",
+      "workingSteps": [
+        "Total = 480 kg (constant).",
+        "Number of bags = 480 ÷ 12 = 40."
+      ],
+      "errorSignals": ["ERR_INVERSE_OPERATION", "ERR_INVERSE_PRODUCT_CONSTANT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q16",
+      "skill": "L1.T4.A2",
+      "caps_level": 3,
+      "source": "fresh",
+      "stimulus": {"inline": "A workshop produces 1 200 t-shirts per week regardless of how many machines run. With 4 machines, each machine produces 300 t-shirts."},
+      "question": "If 6 machines are running, how many t-shirts does each machine produce per week?",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 0.5,
+      "unit": "t-shirts",
+      "workingSteps": [
+        "Total = 1 200 t-shirts/week (constant).",
+        "Per machine = 1 200 ÷ 6 = 200 t-shirts."
+      ],
+      "errorSignals": ["ERR_INVERSE_AS_DIRECT", "ERR_FIXED_COST_SPLIT_DIRECTION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q17",
+      "skill": "L1.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Statement: 'If we double the number of workers on this job, the job will be done in half the time.'"},
+      "question": "Which assumption MUST hold for this statement to be true?",
+      "answerMode": "multiChoice",
+      "options": [
+        "All workers work at the same rate, and they can all work at the same time without getting in each other's way.",
+        "The job must take less than one day.",
+        "The workers must be paid the same wage.",
+        "The total cost of the job stays the same."
+      ],
+      "expectedAnswer": "All workers work at the same rate, and they can all work at the same time without getting in each other's way.",
+      "workingSteps": [
+        "Inverse proportion (workers × time = constant) needs the workers to be equally productive AND scalable on the same job.",
+        "If 2 painters can't actually fit on a one-room job, the doubling rule breaks down.",
+        "Pay and total cost are irrelevant to the time calculation."
+      ],
+      "errorSignals": ["ERR_TYPE_OF_PROPORTION", "ERR_INVERSE_PRODUCT_CONSTANT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q18",
+      "skill": "L1.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Two situations on the same school trip:**\n\n- Situation A: The school pays petrol per kilometre. The more km driven, the more rand spent.\n- Situation B: A fixed bus hire fee is split equally among the learners attending. The more learners attend, the less each one pays."},
+      "question": "Classify each situation correctly.",
+      "answerMode": "multiChoice",
+      "options": [
+        "A is direct; B is inverse.",
+        "A is inverse; B is direct.",
+        "Both are direct.",
+        "Both are inverse."
+      ],
+      "expectedAnswer": "A is direct; B is inverse.",
+      "workingSteps": [
+        "A: both km and rand go up together — direct proportion.",
+        "B: learners go up while cost per learner goes down — product (total) constant — inverse proportion."
+      ],
+      "errorSignals": ["ERR_TYPE_OF_PROPORTION", "ERR_INVERSE_AS_DIRECT"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q19",
+      "skill": "L1.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "**Workers and time for a fixed bricklaying job (inverse proportion):**\n\n| Workers | Days |\n|---|---|\n| 2 | 30 |\n| 3 | 20 |\n| 5 | 12 |\n| 6 | ? |\n| 10 | ? |"},
+      "question": "Use the constant product rule to fill in the missing values.",
+      "answerMode": "multiField",
+      "fields": [
+        {"label": "Days for 6 workers", "expectedAnswer": 10, "tolerance": 0.1},
+        {"label": "Days for 10 workers", "expectedAnswer": 6, "tolerance": 0.1}
+      ],
+      "workingSteps": [
+        "Constant: 2 × 30 = 60 worker-days (check: 3 × 20 = 60 ✓; 5 × 12 = 60 ✓).",
+        "6 workers: 60 ÷ 6 = 10 days.",
+        "10 workers: 60 ÷ 10 = 6 days."
+      ],
+      "errorSignals": ["ERR_INVERSE_PRODUCT_CONSTANT", "ERR_TABLE_PATTERN_RECOGNITION"],
+      "passThreshold": 0.85
+    },
+    {
+      "id": "L1.T4.A2.q20",
+      "skill": "L1.T4.A2",
+      "caps_level": 4,
+      "source": "fresh",
+      "stimulus": {"inline": "Critique of a planning claim — a builder says: 'If I bring in 4 extra builders on top of my current 6, the job that took 10 days will now take only 4 days.'"},
+      "question": "Assuming inverse proportion and all builders work at the same rate, is the builder's claim correct? If not, what is the correct number of days?",
+      "answerMode": "multiChoice",
+      "options": [
+        "Correct — 4 days is right.",
+        "Wrong — the correct answer is 6 days.",
+        "Wrong — the correct answer is 8 days.",
+        "Wrong — the correct answer is 2 days."
+      ],
+      "expectedAnswer": "Wrong — the correct answer is 6 days.",
+      "workingSteps": [
+        "Total person-days = 6 × 10 = 60 (constant).",
+        "New crew size: 6 + 4 = 10 builders.",
+        "Days = 60 ÷ 10 = 6 days. The builder's claim of 4 days is wrong."
+      ],
+      "errorSignals": ["ERR_INVERSE_PRODUCT_CONSTANT", "ERR_INVERSE_OPERATION"],
+      "passThreshold": 0.85
+    }
+  ],
+  "_error_signal_vocabulary": {
+    "ERR_INVERSE_AS_DIRECT": "Treats an inverse-proportion scenario as direct (e.g. says doubling workers doubles the time, not halves it).",
+    "ERR_INVERSE_PRODUCT_CONSTANT": "Does not recognise that the product of the two quantities is the constant in an inverse relationship.",
+    "ERR_INVERSE_OPERATION": "Uses the wrong operation (multiplies when division was needed) once the constant product has been found.",
+    "ERR_SPEED_TIME_DISTANCE": "Confuses the inverse relationship between speed and time for a fixed distance.",
+    "ERR_FIXED_COST_SPLIT_DIRECTION": "Splits a fixed cost in the wrong direction (e.g. divides cost by number of people but inverts).",
+    "ERR_TYPE_OF_PROPORTION": "Misclassifies a scenario as direct/inverse/linear.",
+    "ERR_TABLE_PATTERN_RECOGNITION": "Fails to identify a constant-product pattern in a table of paired values."
+  }
+}
