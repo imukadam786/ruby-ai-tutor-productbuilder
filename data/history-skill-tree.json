@@ -1,7 +1,7 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "subject": "history",
-  "description": "History skill tree, FET Grades 10-12 (Amended CAPS Doc, History Grade 10-12). 17 CAPS topics, 53 atomic skills, ~1,060 question items. Tiers = CAPS terms within a grade (T1-T4). Mastery = 60% of 20-item pool (FET rule, no timer). ALL questions available — no prerequisites between skills, learner chooses any skill in any order. Input types: choice, true-false, cloze, sequence, image-match (existing) + sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison (new tap-based mechanics, no free-text). Any question may carry an optional 'source' block (text extract, image, map or cartoon with provenance). Items live in data/history-question-bank.json. v1.0: Grade 10 fully authored (19 skills), Grades 11 and 12 scaffolded as empty levels pending head-of-ed review of Grade 10.",
+  "description": "History skill tree, FET Grades 10-12 (Amended CAPS Doc, History Grade 10-12). 17 CAPS topics, 53 atomic skills, ~1,060 question items. Tiers = CAPS terms within a grade (T1-T4). Mastery = 60% of 20-item pool (FET rule, no timer). ALL questions available — no prerequisites between skills, learner chooses any skill in any order. Input types: choice, true-false, cloze, sequence, image-match (existing) + sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison (new tap-based mechanics, no free-text). Any question may carry an optional 'source' block (text extract, image, map or cartoon with provenance). Items live in data/history-question-bank.json. v1.1: Grade 10 fully authored (19 skills, 380 items); Grade 11 structure authored (15 skills across 5 topics) with question banks pending head-of-ed review of this structure; Grade 12 scaffolded as an empty level.",
   "grades_covered": [10, 11, 12],
   "levels": [
     {
@@ -344,8 +344,273 @@
       "id": 11,
       "grade": 11,
       "title": "Grade 11 — History",
-      "description": "Pending head-of-ed review of Grade 10 before authoring. 5 CAPS topics planned (Atlantic World 15-18th c., Atlantic World 16-19th c., Slavery and the Haitian Revolution, Southern African centralisation before colonisation, the Scramble for Africa). Target ~15 atomic skills.",
-      "tiers": []
+      "description": "European expansion, the Atlantic World and its impact on Africa and the Americas. 5 CAPS topics across 4 terms. T1: the Atlantic World — Spanish & Portuguese (15th–18th c.) and Dutch & English (16th–19th c.). T2: Slavery, Slave Resistance and the Haitian Revolution. T3: Political centralisation and African kingdoms in southern Africa before the 19th century (Bapedi and amaZulu). T4: the Scramble for Africa. 15 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L11.T1",
+          "title": "Term 1 — The Atlantic World (Spanish & Portuguese; Dutch & English)",
+          "atomic_skills": [
+            {
+              "id": "HIS.G11.T1.IBERIA.A1",
+              "bank_skill_id": "HIS.G11.T1.IBERIA.A1",
+              "title": "Why Europe set sail — and what 'the Atlantic World' was",
+              "description": "What drove Spanish and Portuguese expansion from the 15th century: the navigation and shipbuilding head-start (the caravel, mapping), mercantile trade in silver, gold, sugar and human cargo, and the backing of monarchies and the Catholic Church. Push factors (poverty, land hunger, religious conflict in Europe) versus pull factors (riches abroad). The concept of 'the Atlantic World' as the interconnected regions around the Atlantic — Western Europe, west Africa, the Americas and the Caribbean, and the Atlantic islands — linked by a triangular trade.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 15th to 18th centuries (Spanish and Portuguese)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Europeans sailed mainly out of curiosity or adventure, missing the profit and push factors", "example": "Says explorers left Europe just to discover new lands, not to get rich or escape hardship"},
+                {"type": "conceptual_gap", "description": "Treats 'the Atlantic World' as just Europe, ignoring Africa and the Americas as part of one connected system", "example": "Says the Atlantic World means the European countries that owned ships"}
+              ],
+              "recovery_strategy": "Europeans sailed for RICHES and were PUSHED by hardship at home (poverty, land shortage, religious war) as much as pulled by gold abroad. Monarchies and the Church bankrolled and blessed the voyages. 'The Atlantic World' is one connected system — Europe + west Africa + the Americas + the islands — tied together by a triangular trade where the most valuable 'cargo' was enslaved people.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.IBERIA.A2",
+              "bank_skill_id": "HIS.G11.T1.IBERIA.A2",
+              "title": "The Spanish conquest of the Americas",
+              "description": "How small Spanish forces toppled large empires: Columbus's invasion of Hispaniola (1492 onwards), Cortés's invasion of Aztec Mexico, and the Pizarros' invasion of Inca Peru. The decisive roles of guns and steel, of Indigenous allies who joined against their overlords, and above all of Old World disease (smallpox) that emptied the land ahead of the conquerors. The Catholic Church's part in justifying conquest, and the scale of the resulting decimation and genocide of Indigenous peoples.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 15th to 18th centuries (Spanish and Portuguese)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sequence", "highlight-source", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks tiny Spanish armies beat huge empires by military skill alone, ignoring disease and Indigenous allies", "example": "Says Cortés defeated the Aztecs simply because Spanish soldiers were braver"},
+                {"type": "conceptual_gap", "description": "Imagines conquest as peaceful settlement or trade rather than invasion and genocide", "example": "Says the Spanish arrived in the Americas to trade with the local people"}
+              ],
+              "recovery_strategy": "Guns mattered, but DISEASE and ALLIES mattered more. Smallpox killed huge numbers of Indigenous people before battles even began, and peoples crushed by the Aztecs and Incas often joined the Spanish. The Church declared the conquest holy. The result was not settlement — it was invasion, mass death and genocide of the original populations.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.IBERIA.A3",
+              "bank_skill_id": "HIS.G11.T1.IBERIA.A3",
+              "title": "A new racial order, disease and resistance",
+              "description": "The wider consequences of Iberian expansion. Portuguese reach into the Americas (Brazil), Africa and the East, and their central role in opening the Atlantic slave trade. The devastating impact of imported diseases and pathogens on Indigenous populations. The creation of a new racialised class structure that placed Europeans at the top, with mestizos and mulattoes given limited upward mobility above the Indigenous and enslaved — race, not just wealth, fixing a person's place. The continual resistance of Indigenous peoples and enslaved Africans to Spanish and Portuguese rule.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 15th to 18th centuries (Spanish and Portuguese)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the new colonial class system was based on wealth alone, not race", "example": "Says anyone in the colonies could rise to the top if they earned enough money"},
+                {"type": "recall_slip", "description": "Forgets that Indigenous people and enslaved Africans actively resisted, picturing them only as victims", "example": "Says the colonised people accepted Spanish and Portuguese rule without resistance"}
+              ],
+              "recovery_strategy": "The colonial order was RACIALISED: Europeans on top, then mestizos/mulattoes with limited mobility, then Indigenous people and enslaved Africans at the bottom — birth and race, not just money, fixed your place. Portugal opened the Atlantic slave trade and reached Brazil, Africa and the East. Disease devastated the Americas. And the colonised never simply accepted it — resistance was constant.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.DUTCHENG.A1",
+              "bank_skill_id": "HIS.G11.T1.DUTCHENG.A1",
+              "title": "The Dutch and English challenge Iberia",
+              "description": "How Holland and Britain became dominant Atlantic powers by imitating and then overtaking Spain and Portugal: copying their navigation and shipbuilding, raiding Spanish and Portuguese ships through piracy and privateering, and winning their own monarchies' backing. Their entry into mercantile trade in silver, gold, timber, sugar and enslaved Africans. The Dutch refreshment station at the Cape of Good Hope; the Dutch mid-Atlantic colonies (New Amsterdam) and how the English displaced them — renaming New Amsterdam as New York and later ousting the Dutch from the Cape too.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 16th to 19th centuries (Dutch and English)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the Dutch and English were the first European sea powers, not imitators of Spain and Portugal", "example": "Says the British invented ocean navigation and led the way into the Atlantic"},
+                {"type": "recall_slip", "description": "Confuses who took the Cape and who took New York from whom", "example": "Says the Dutch seized New York from the English"}
+              ],
+              "recovery_strategy": "The Dutch and English COPIED the Spanish and Portuguese — same ships, same navigation — and at first got ahead partly by PIRACY, robbing Iberian treasure ships. Then they overtook them. Track the takeovers: the English took New Amsterdam from the Dutch and renamed it New York, and the English later took the Cape from the Dutch.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.DUTCHENG.A2",
+              "bank_skill_id": "HIS.G11.T1.DUTCHENG.A2",
+              "title": "Slavery as the engine of Dutch and British wealth",
+              "description": "The central role of enslaved labour in the accumulation of Dutch and British capital. At least 12 million Africans carried across the Atlantic between the 16th and 19th centuries, with the slave ship at the heart of Atlantic history and the Middle Passage as its most brutal stage. The plantation economy of sugar, cotton and tobacco in the Caribbean and the southern British colonies. The comparison between white indentured servants and enslaved Africans — both unfree, but with the crucial difference that indenture was temporary and slavery was permanent, inherited and racialised.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 16th to 19th centuries (Dutch and English)",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats slavery as a minor or side part of the economy rather than the engine of Dutch and British wealth", "example": "Says the Atlantic slave trade made little difference to European economies"},
+                {"type": "conceptual_gap", "description": "Thinks indentured servitude and chattel slavery were the same thing", "example": "Says white indentured servants and enslaved Africans were treated exactly alike"}
+              ],
+              "recovery_strategy": "Slavery was the ENGINE, not a sideshow: at least 12 million Africans were shipped across the Atlantic, and the profits built Dutch and British capital. Indenture vs slavery: an indentured servant was unfree for a FIXED term and then freed; an enslaved African was unfree for LIFE, the status was INHERITED by their children, and it was fixed by RACE.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T1.DUTCHENG.A3",
+              "bank_skill_id": "HIS.G11.T1.DUTCHENG.A3",
+              "title": "Genocide and the slave experience — the Cape and the Americas",
+              "description": "The human cost of Dutch and English expansion in two settings. How war, land dispossession and new epidemic diseases decimated the Native Americans in the Americas and the Khoisan at the Cape. The enslaved experience traced from capture in west and central Africa, through the Middle Passage, to the plantations, towns and cities of the New World — and the gendered differences in that experience, with enslaved women facing distinct forms of labour and abuse. The story of sugar as the commodity linking Africa, Europe, Asia and the Americas in a single brutal system.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atlantic World: Europe comes into contact with the wider world during the 16th to 19th centuries (Dutch and English)",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "highlight-source", "sequence", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the collapse of the Khoisan or Native American populations was natural and unrelated to colonisation", "example": "Says the Khoisan simply died out on their own"},
+                {"type": "conceptual_gap", "description": "Assumes every enslaved person's experience was identical, missing gendered and regional differences", "example": "Says enslaved men and women on plantations did exactly the same work and faced the same treatment"}
+              ],
+              "recovery_strategy": "The decline of the Khoisan and Native Americans was NOT natural — it was caused by war, land seizure and imported disease. Trace the enslaved journey as stages: capture in Africa → the Middle Passage → plantation/town. And the experience was GENDERED — enslaved women faced field labour plus distinct forms of abuse. Sugar was the thread linking all four continents.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T2",
+          "title": "Term 2 — Slavery, Slave Resistance and the Haitian Revolution",
+          "atomic_skills": [
+            {
+              "id": "HIS.G11.T2.HAITI.A1",
+              "bank_skill_id": "HIS.G11.T2.HAITI.A1",
+              "title": "Saint-Domingue: the richest slave colony, and everyday resistance",
+              "description": "Haiti's beginnings as the French colony of Saint-Domingue — the wealthiest plantation colony in the Americas and the very pinnacle of the Atlantic slave system, built on a brutal denial of freedom to the enslaved majority. The crushing mortality rate on the sugar plantations. The everyday, ongoing forms of resistance long before open revolt: escaping, burning crops, feigning sickness, working slowly. How enslaved people carved out spaces of autonomy by cultivating small plots and selling produce at local markets, creating spaces of cultural and intellectual freedom in which a political vision of liberty could grow.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Slavery, Slave Resistance and the Haitian Revolution",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks resistance to slavery only meant armed uprising, missing everyday resistance", "example": "Says the enslaved did nothing to resist until the revolution began"},
+                {"type": "recall_slip", "description": "Thinks Saint-Domingue was a poor or unimportant colony", "example": "Says Saint-Domingue was a small, struggling French settlement"}
+              ],
+              "recovery_strategy": "Saint-Domingue was the RICHEST plantation colony in the Americas — the top of the whole Atlantic slave system. And resistance did not start with the revolution: enslaved people resisted EVERY DAY by escaping, burning crops, feigning illness, working slowly, and farming their own plots. Those small spaces of autonomy are where the idea of freedom grew.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T2.HAITI.A2",
+              "bank_skill_id": "HIS.G11.T2.HAITI.A2",
+              "title": "The Revolution (1791–1804): Toussaint L'Ouverture and the French link",
+              "description": "The causes and course of the Haitian Revolution, 1791–1804. Its tight entanglement with the French Revolution of 1789, whose ideals of liberty, equality and fraternity explicitly excluded Africans on the grounds that the enslaved were 'not fully human'. The leadership of Toussaint L'Ouverture and the powerful influence of the large number of African-born enslaved people, who brought African political thought to the struggle. The participation of African women in both military combat and political debate. The outcome: Haiti as the first nation in the world led by formerly enslaved people.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Slavery, Slave Resistance and the Haitian Revolution",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sequence", "highlight-source", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the French Revolution had already freed the slaves, so Haiti's revolt was unnecessary", "example": "Says France gave Haitians their freedom in 1789"},
+                {"type": "recall_slip", "description": "Confuses the dates or leadership of the Haitian Revolution", "example": "Says the Haitian Revolution was led by Napoleon and ended in 1789"}
+              ],
+              "recovery_strategy": "The French Revolution's 'liberty, equality, fraternity' EXCLUDED enslaved Africans — they were not counted as fully human — so Haitians had to win freedom themselves. Anchor the facts: 1791–1804, led by Toussaint L'Ouverture, powered by African-born enslaved people (and women in combat and debate), ending with the first nation in history led by formerly enslaved people.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T2.HAITI.A3",
+              "bank_skill_id": "HIS.G11.T2.HAITI.A3",
+              "title": "A universal freedom — and the price Haiti paid",
+              "description": "Why the Haitian Revolution mattered to the whole world. It advanced a UNIVERSAL idea of freedom — insisting that liberty and equality had to include the emancipation of Black slaves — going further than either the American or French revolutions. The fear it struck into the United States government and American slave owners, and its inspiration to enslaved people resisting elsewhere. France and the US's hostile response, and the crippling indemnity (heavy fines) France forced on Haiti as punishment for its freedom. The long aftermath: Haiti's influence on the anti-slavery movement and on later anti-colonial struggles in the Caribbean and across Africa.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Slavery, Slave Resistance and the Haitian Revolution",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "argument-builder", "source-comparison", "paragraph-template", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Haiti's independence was welcomed and rewarded by other nations", "example": "Says France and the US congratulated Haiti and traded freely with it"},
+                {"type": "conceptual_gap", "description": "Thinks the Haitian Revolution had no influence beyond Haiti itself", "example": "Says the revolution changed nothing for enslaved or colonised people elsewhere"}
+              ],
+              "recovery_strategy": "Haiti went FURTHER than France or America: it said freedom must include EVERYONE, including Black slaves. For that it was PUNISHED, not rewarded — France forced a crushing indemnity and the US feared the example it set. But the idea spread: Haiti inspired anti-slavery and anti-colonial struggles across the Caribbean and Africa for generations.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T3",
+          "title": "Term 3 — Political Centralisation & African Kingdoms in Southern Africa",
+          "atomic_skills": [
+            {
+              "id": "HIS.G11.T3.CENTRAL.A1",
+              "bank_skill_id": "HIS.G11.T3.CENTRAL.A1",
+              "title": "Why larger, centralised states emerged",
+              "description": "How and why southern Africa shifted from small, scattered chiefdoms to larger, more centralised kingdoms in the late 1700s and early 1800s. The combination of factors at work: growing population, climatic change (drought), the pull of long-distance trade, and mounting pressure from areas of European control and settlement to the south. The historiographical debate over which factors mattered most. The key trade-off recognised by historians: centralisation brought military strength but also made political structures more hierarchical and coercive, eroding some of the democratic features of the older, smaller polities.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Political Centralisation and African kingdoms in southern Africa before the nineteenth century",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Attributes centralisation to a single cause, usually one ruler's genius", "example": "Says the only reason big kingdoms formed was because Shaka was a brilliant general"},
+                {"type": "conceptual_gap", "description": "Treats centralisation as pure progress with no downside", "example": "Says becoming a bigger kingdom made these societies better in every way"}
+              ],
+              "recovery_strategy": "MANY factors stacked up — population growth, drought, long-distance trade, and pressure from European settlement to the south. No single cause, and no single great man. And centralisation had a COST: bigger, stronger kingdoms also became more hierarchical and coercive, losing some of the consultative, democratic features (like the imbizo) of the smaller societies they replaced.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T3.CENTRAL.A2",
+              "bank_skill_id": "HIS.G11.T3.CENTRAL.A2",
+              "title": "Two models of power: the Bapedi and the amaZulu",
+              "description": "A comparison of how two kingdoms built and held power. The Bapedi (Maroteng) under King Thulare I consolidated through royal marriages — insisting subordinate chiefdoms take their principal wife from the Maroteng — through the accumulation of magadi/ilobolo (bridewealth), and through the Batseta system of monitoring subordinate chiefdoms; their mephato regiments were formed within local chiefdoms and gathered only when summoned. The amaZulu under Shaka kaSenzangakhona consolidated through military innovation (the shield, the stabbing spear, drilling) and through the amabutho — permanent, cross-chiefdom age regiments housed in amakhanda military towns, where young men lived for years directly under the king's authority and could marry only in their forties.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Political Centralisation and African kingdoms in southern Africa before the nineteenth century",
+              "prerequisites": [],
+              "templates": ["choice", "cloze", "sort-buckets", "sequence", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses the Pedi mephato with the Zulu amabutho", "example": "Says the Bapedi regiments lived permanently in military towns under the king like Shaka's"},
+                {"type": "conceptual_gap", "description": "Thinks Shaka invented southern African statehood from nothing", "example": "Says there were no organised kingdoms in the region before Shaka"}
+              ],
+              "recovery_strategy": "Two routes to power. BAPEDI/Maroteng = consolidation by MARRIAGE and DIPLOMACY (principal wives from the Maroteng, ilobolo, the Batseta monitors); their mephato stayed local and gathered only when called. ZULU = consolidation by MILITARY system (the amabutho lived for years in amakhanda barracks under the king, marrying only in their forties). The Pedi regiments were local and temporary; the Zulu regiments were permanent and centralised.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T3.CENTRAL.A3",
+              "bank_skill_id": "HIS.G11.T3.CENTRAL.A3",
+              "title": "The cost of centralisation and the clash with Britain",
+              "description": "The consequences of centralisation and its collision with British imperialism. The erosion of more democratic, consultative features such as the imbizo (public gathering) and the rise of authoritarian rule within the larger kingdoms. The encounters with British imperialism in 1879: the amaZulu victory at Isandlwana (22 January 1879) and the public outcry it caused in Britain, the subsequent Zulu defeat at Ulundi, and the Anglo-Pedi War in which the British defeated the Bapedi under Sekhukhune only with the help of Swazi mercenaries. The final loss of African land and sovereignty — and the bitter irony that the migrant labour system was later built on the very regiments these kingdoms had created.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Political Centralisation and African kingdoms in southern Africa before the nineteenth century",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "sequence", "highlight-source", "argument-builder", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks centralisation only strengthened these societies, missing the loss of consultative, democratic features", "example": "Says becoming centralised kingdoms gave ordinary people more say in government"},
+                {"type": "recall_slip", "description": "Thinks African kingdoms put up no real resistance to British invasion", "example": "Says the Zulu and Pedi were defeated instantly without ever winning a battle"}
+              ],
+              "recovery_strategy": "Centralisation came at the price of the imbizo and consultative rule — power moved up to the king. But these kingdoms RESISTED hard: the Zulu CRUSHED the British at Isandlwana (22 Jan 1879) before losing at Ulundi, and the Pedi held out until Britain brought in Swazi mercenaries. The cruel twist: the migrant labour system was later built on the same regiments these kingdoms had created.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T4",
+          "title": "Term 4 — The Scramble for Africa",
+          "atomic_skills": [
+            {
+              "id": "HIS.G11.T4.SCRAMBLE.A1",
+              "bank_skill_id": "HIS.G11.T4.SCRAMBLE.A1",
+              "title": "The Scramble and the Berlin Conference",
+              "description": "What the 'Scramble for Africa' was and how it was formalised. The generation after 1880 in which the industrialised nations of Europe partitioned, conquered and occupied a continent of over 28 million square kilometres. The meaning of imperialism, and why historians call it a 'scramble' — the competition and race between European nations to seize territory. The Berlin Conference of 1884–85 as the meeting that formalised the conquest and drew Africa's political boundaries, and the remarkable speed, coordination and (from the European point of view) ease with which the continent was carved up — with no African representation at the table.",
+              "caps_term": "G11 T4",
+              "caps_topic": "The Scramble for Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets", "highlight-source"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks Africans were represented at or consulted in the Berlin Conference", "example": "Says African leaders attended the Berlin Conference to agree on the borders"},
+                {"type": "conceptual_gap", "description": "Thinks the colonisation of Africa was slow and uncoordinated rather than a rapid post-1880 scramble", "example": "Says Europe took over Africa gradually over several centuries with no rush"}
+              ],
+              "recovery_strategy": "The Berlin Conference (1884–85) is where Europeans drew Africa's borders — and NO Africans were there. It is called a 'scramble' because European nations RACED and competed to grab territory after 1880, carving up the whole continent with shocking speed and coordination. This was fast and deliberate, not slow and accidental.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T4.SCRAMBLE.A2",
+              "bank_skill_id": "HIS.G11.T4.SCRAMBLE.A2",
+              "title": "Why did it happen? The competing explanations",
+              "description": "The historiographical debate over why Europe partitioned Africa when and how it did. The main theories historians advance: economic (markets, raw materials, investment), Scientific Racism / Eugenics (the pseudo-scientific belief in European racial superiority used to justify conquest), diplomatic (rivalry and the European balance of power), and the African dimension (conditions within Africa itself). How Europeans justified colonisation to themselves and others, and the recognition that there is no single agreed cause — historians weigh these explanations differently.",
+              "caps_term": "G11 T4",
+              "caps_topic": "The Scramble for Africa",
+              "prerequisites": [],
+              "templates": ["choice", "sort-buckets", "argument-builder", "source-comparison", "highlight-source", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks there is one simple, agreed reason for the Scramble", "example": "Says everyone agrees Europe took Africa only for raw materials"},
+                {"type": "conceptual_gap", "description": "Treats 'scientific racism' as genuine science rather than ideology used to justify conquest", "example": "Says Europeans had scientifically proven they were a superior race"}
+              ],
+              "recovery_strategy": "Historians DISAGREE about the cause — economic, scientific racism/eugenics, diplomatic rivalry, and the African dimension are four competing explanations, not one answer. And 'scientific racism' was NOT real science: it was a pseudo-scientific ideology invented to make conquest look justified. Weighing these theories against each other is exactly what the topic asks you to do.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "HIS.G11.T4.SCRAMBLE.A3",
+              "bank_skill_id": "HIS.G11.T4.SCRAMBLE.A3",
+              "title": "Consequences: artificial borders, resistance and genocide",
+              "description": "The lasting effects of the Scramble. The artificiality of the colonial boundaries, which split peoples who culturally belonged together — for example the Shangaan/Tsonga divided between Mozambique and South Africa, and the British High Commission territories (Lesotho, Swaziland, Botswana) cut off from South Africa. African resistance, including the Battle of Adwa (1896), where Ethiopia defeated Italy in a rare and decisive early victory against the Scramble. The genocides that followed conquest, studied as case studies: the atrocities in the Belgian Congo and the German genocide of the Herero and Nama in South-West Africa (Namibia). Why these artificial borders and unhealed wounds still shape Africa today.",
+              "caps_term": "G11 T4",
+              "caps_topic": "The Scramble for Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "highlight-source", "argument-builder", "source-comparison", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks colonial borders followed existing ethnic or cultural lines", "example": "Says Europeans were careful to keep each African people inside its own colony"},
+                {"type": "recall_slip", "description": "Thinks Africans never successfully resisted the Scramble, or is unaware of the colonial genocides", "example": "Says no African society ever defeated a European army during the Scramble"}
+              ],
+              "recovery_strategy": "Colonial borders IGNORED African peoples — they split groups like the Shangaan/Tsonga across Mozambique and South Africa. Africans DID resist and sometimes won: Ethiopia defeated Italy at Adwa (1896). And conquest brought genocide — remember the Belgian Congo and the German killing of the Herero and Nama in Namibia. Those borders and wounds still shape Africa today.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 12,
