@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { apiFetch } from "@/lib/fetch";
 import { seedForGrade } from "@/lib/maths-literacy-grade-map";
 import {
   getMathsLiteracyProfile,
@@ -107,7 +108,7 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
       const fieldsPayload = question.fields
         ? question.fields.map((f) => ({ label: f.label, value: studentFields[f.label] ?? "" }))
         : undefined;
-      const res = await fetch("/api/maths-literacy/submit-answer", {
+      const res = await apiFetch("/api/maths-literacy/submit-answer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -120,6 +121,8 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
           working_steps: question.working_steps,
         }),
       });
+      // Shared daily limit reached — apiFetch surfaced the upgrade modal.
+      if (res.status === 429) return;
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error ?? `HTTP ${res.status}`);

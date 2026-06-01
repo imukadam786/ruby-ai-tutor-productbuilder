@@ -232,7 +232,9 @@ export default function HistorySession({ onBack }: { onBack?: () => void } = {})
           body: JSON.stringify(payload),
         });
         if (!res.ok) {
-          setError("Could not check your answer. Please try again.");
+          // 429 = shared daily limit reached; apiFetch already surfaced the
+          // upgrade modal, so don't also flash an inline error.
+          if (res.status !== 429) setError("Could not check your answer. Please try again.");
           return;
         }
         const data = (await res.json()) as HistorySubmitAnswerResponse;

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireApiSecret } from "@/lib/api-auth";
-import { verifyToken } from "@/lib/server-usage";
+import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 import { getSkill } from "@/lib/matric-phys-sci-selector";
 import type {
   MatricPhysSciSubmitAnswerRequest,
@@ -112,6 +112,12 @@ export async function POST(req: NextRequest) {
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+
+  // Count this answered question against the shared daily Freebie pool (chat
+  // messages + subject questions, cap 5). Paid plans are unlimited; this 429s
+  // with `upgradeRequired` so the client shows the upgrade modal.
+  const limitResponse = await enforceSharedQuestionLimit(userId);
+  if (limitResponse) return limitResponse;
 
   try {
     const submission: MatricPhysSciSubmitAnswerRequest = await req.json();

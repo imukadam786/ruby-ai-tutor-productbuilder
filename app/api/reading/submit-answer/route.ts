@@ -5,6 +5,7 @@ import { selectPraise } from "@/lib/praise";
 import { getReadingSkillById } from "@/lib/reading-student-model";
 import { evaluateSequence } from "@/lib/reading-bank-evaluator";
 import { openAIJudge } from "@/lib/reading-llm-judge";
+import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 import {
   ReadingAnswerSubmission,
   ReadingDiagnosticResult,
@@ -108,6 +109,18 @@ function sanitiseErrorType(raw: string, fallback: ReadingErrorType): ReadingErro
 export async function POST(req: NextRequest) {
   try {
     const submission: ReadingAnswerSubmission = await req.json();
+
+    // Count this answered question against the shared daily Freebie pool (chat
+    // messages + subject questions, cap 5). Anonymous callers are not metered;
+    // paid plans are unlimited. 429s with `upgradeRequired` for the modal.
+    const token = req.headers.get("authorization")?.replace("Bearer ", "").trim();
+    if (token) {
+      const userId = await verifyToken(token);
+      if (userId) {
+        const limitResponse = await enforceSharedQuestionLimit(userId);
+        if (limitResponse) return limitResponse;
+      }
+    }
 
     const skill = getReadingSkillById(submission.skill_id);
     if (!skill) {

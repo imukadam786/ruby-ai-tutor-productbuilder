@@ -7,6 +7,7 @@ import type {
   MathsLiteracySubmitRequest,
   MathsLiteracySubmitResponse,
 } from "@/types/maths-literacy";
+import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 
 // ─── Number parsing (SA decimal-comma aware) ────────────────────────────────
 // "R5 400"   → 5400
@@ -98,6 +99,18 @@ function formatExpectedForFeedback(key: AnswerKey): string {
 export async function POST(req: NextRequest) {
   try {
     const submission: MathsLiteracySubmitRequest = await req.json();
+
+    // Count this answered question against the shared daily Freebie pool (chat
+    // messages + subject questions, cap 5). Anonymous callers are not metered;
+    // paid plans are unlimited. 429s with `upgradeRequired` for the modal.
+    const token = req.headers.get("authorization")?.replace("Bearer ", "").trim();
+    if (token) {
+      const userId = await verifyToken(token);
+      if (userId) {
+        const limitResponse = await enforceSharedQuestionLimit(userId);
+        if (limitResponse) return limitResponse;
+      }
+    }
 
     const skill = getMathsLiteracySkillById(submission.skill_id);
     if (!skill) {

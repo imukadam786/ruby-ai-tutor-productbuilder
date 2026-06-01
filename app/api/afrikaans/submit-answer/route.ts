@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireApiSecret } from "@/lib/api-auth";
-import { verifyToken } from "@/lib/server-usage";
+import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 import { getSkill } from "@/lib/afrikaans-selector";
 import type {
   AfrikaansSubmitAnswerRequest,
@@ -63,8 +63,8 @@ export async function POST(req: NextRequest) {
   const authError = requireApiSecret(req);
   if (authError) return authError;
 
-  // Auth required so progress can be tied to a user, but Afrikaans FAL is open
-  // to all plans (including freebie).
+  // Auth required so progress can be tied to a user and the answered question
+  // can be counted against the shared daily Freebie pool.
   const token = req.headers.get("authorization")?.replace("Bearer ", "").trim();
   if (!token) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -73,6 +73,12 @@ export async function POST(req: NextRequest) {
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+
+  // Count this answered question against the shared daily Freebie pool (chat
+  // messages + subject questions, cap 5). Paid plans are unlimited; this 429s
+  // with `upgradeRequired` so the client shows the upgrade modal.
+  const limitResponse = await enforceSharedQuestionLimit(userId);
+  if (limitResponse) return limitResponse;
 
   try {
     const submission: AfrikaansSubmitAnswerRequest = await req.json();
