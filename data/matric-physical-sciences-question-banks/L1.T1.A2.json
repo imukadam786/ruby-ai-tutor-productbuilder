@@ -1,9 +1,11 @@
 {
   "skill": "L1.T1.A2",
   "skill_title": "Apply Newton's Second Law to a single body on horizontal or vertical surfaces",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
-  "version": "1.0",
+  "version": "1.1",
   "notes": "20 items: 7 lifted from NSC P1 papers, 13 fresh. Single-body Fnet = ma on horizontal or vertical surfaces (no inclines, no connected bodies — those are A3). Includes friction on horizontal surfaces and apparent weight in lifts.",
   "items": [
     {
@@ -23,7 +25,9 @@
       "expectedAnswer": "The acceleration remains constant.",
       "marks": 2,
       "explanation": "By Newton's Second Law, a = Fnet / m. With constant Fnet and constant mass, acceleration is constant.",
-      "errorSignals": ["ERR_N2_PROPORTIONALITY"],
+      "errorSignals": [
+        "ERR_N2_PROPORTIONALITY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -43,7 +47,10 @@
       "expectedAnswer": "Equal to its weight, directed downward",
       "marks": 2,
       "explanation": "At the highest point velocity is zero, but acceleration is still g downward. The only force on the ball is its weight, mg downward. 'Zero velocity' does not mean 'zero force'.",
-      "errorSignals": ["ERR_N2_NET_FORCE_AT_REST", "ERR_INERTIA_REQUIRES_FORCE"],
+      "errorSignals": [
+        "ERR_N2_NET_FORCE_AT_REST",
+        "ERR_INERTIA_REQUIRES_FORCE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -54,11 +61,18 @@
       "source_ref": "P1 Predictive A 2026 Q1.2",
       "question": "Two forces of 3 N and 4 N act perpendicularly on an object. The resultant force is:",
       "answerMode": "choice",
-      "options": ["1 N", "5 N", "7 N", "12 N"],
+      "options": [
+        "1 N",
+        "5 N",
+        "7 N",
+        "12 N"
+      ],
       "expectedAnswer": "5 N",
       "marks": 2,
       "explanation": "Perpendicular vector addition: F_R = √(3² + 4²) = √25 = 5 N. Perpendicular forces don't simply add.",
-      "errorSignals": ["ERR_N2_VECTOR_ADDITION"],
+      "errorSignals": [
+        "ERR_N2_VECTOR_ADDITION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -69,12 +83,14 @@
       "source_ref": "P1 Predictive B 2026 Q1.5",
       "question": "A car decelerates uniformly from 30 m·s⁻¹ to rest over 150 m. The deceleration is:",
       "answerMode": "numeric",
-      "expectedAnswer": 3.0,
+      "expectedAnswer": 3,
       "tolerance": 0.05,
       "unit": "m·s⁻²",
       "marks": 2,
       "explanation": "Use v² = u² + 2as: 0 = 30² + 2(a)(150) ⇒ a = −900/300 = −3 m·s⁻². Magnitude of deceleration = 3 m·s⁻².",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -90,7 +106,10 @@
       "unit": "N",
       "marks": 4,
       "explanation": "Constant speed ⇒ Fnet = 0 in the vertical direction. Vertical: T cos50° + friction − weight = 0. T cos50° = (74 × 9.8) − 300 = 725.2 − 300 = 425.2 N. T = 425.2 / cos50° = 425.2 / 0.6428 ≈ 661.4 N.",
-      "errorSignals": ["ERR_N2_CONSTANT_VELOCITY_FNET", "ERR_TRIG_RESOLUTION"],
+      "errorSignals": [
+        "ERR_N2_CONSTANT_VELOCITY_FNET",
+        "ERR_TRIG_RESOLUTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -100,12 +119,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q2.4",
       "question": "A helicopter lifts a man (70 kg) attached to a tube (4 kg) by a rope at 50° to the vertical, with 300 N of friction acting upward on the tube. The helicopter now ACCELERATES upward. What effect does this acceleration have on the tension in the rope, compared with the constant-speed case? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "The tension INCREASES. The net upward force on the man-tube system must now be positive (Fnet = ma upward), so T cos50° + friction − weight > 0. Tension must rise to provide this net upward force.",
+      "answerMode": "choice",
+      "expectedAnswer": "Increases — an upward net force is now needed (Fnet = ma), so the tension must rise.",
       "marks": 2,
       "explanation": "When the system accelerates upward, the net upward force is no longer zero. The tension must be larger than the constant-speed case to produce the upward acceleration.",
-      "errorSignals": ["ERR_N2_ACCELERATION_EFFECT_ON_TENSION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_N2_ACCELERATION_EFFECT_ON_TENSION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Increases — an upward net force is now needed (Fnet = ma), so the tension must rise.",
+        "Stays the same — the load's weight has not changed.",
+        "Decreases — moving upward faster needs less tension."
+      ]
     },
     {
       "id": "L1.T1.A2.q07",
@@ -120,7 +146,10 @@
       "unit": "N",
       "marks": 5,
       "explanation": "Find deceleration: v² = u² + 2as ⇒ 0 = 16² + 2(a)(0.8) ⇒ a = −160 m·s⁻² (upward). Fnet = ma = 4 × 160 = 640 N upward. Fnet = F_up − mg ⇒ F_up = 640 + (4)(9.8) = 640 + 39.2 = 679.2 N.",
-      "errorSignals": ["ERR_N2_FORGETS_WEIGHT", "ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_N2_FORGETS_WEIGHT",
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -130,12 +159,14 @@
       "source": "fresh",
       "question": "A 5 kg block is pushed across a frictionless horizontal floor by a constant 20 N horizontal force. What is its acceleration?",
       "answerMode": "numeric",
-      "expectedAnswer": 4.0,
+      "expectedAnswer": 4,
       "tolerance": 0.05,
       "unit": "m·s⁻²",
       "marks": 2,
       "explanation": "Fnet = ma ⇒ a = 20 / 5 = 4 m·s⁻² in the direction of the applied force.",
-      "errorSignals": ["ERR_N2_DIVISION_ORDER"],
+      "errorSignals": [
+        "ERR_N2_DIVISION_ORDER"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -145,12 +176,15 @@
       "source": "fresh",
       "question": "A 10 kg crate is pushed along a rough horizontal floor by a horizontal force of 60 N. The kinetic friction force on the crate is 20 N. What is its acceleration?",
       "answerMode": "numeric",
-      "expectedAnswer": 4.0,
+      "expectedAnswer": 4,
       "tolerance": 0.05,
       "unit": "m·s⁻²",
       "marks": 3,
       "explanation": "Fnet = applied − friction = 60 − 20 = 40 N. a = Fnet/m = 40/10 = 4 m·s⁻².",
-      "errorSignals": ["ERR_N2_FRICTION_SIGN", "ERR_N2_DIVISION_ORDER"],
+      "errorSignals": [
+        "ERR_N2_FRICTION_SIGN",
+        "ERR_N2_DIVISION_ORDER"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -165,7 +199,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "Scale reading = normal force N. Fnet = N − mg = ma ⇒ N = m(g + a) = 50 × (9.8 + 2) = 50 × 11.8 = 590 N.",
-      "errorSignals": ["ERR_APPARENT_WEIGHT", "ERR_N2_NET_FORCE_SETUP"],
+      "errorSignals": [
+        "ERR_APPARENT_WEIGHT",
+        "ERR_N2_NET_FORCE_SETUP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -180,7 +217,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "Fnet = ma = m × g (downward). N − mg = m × (−g) ⇒ N = 0. The woman feels weightless because the scale exerts no force on her.",
-      "errorSignals": ["ERR_APPARENT_WEIGHT", "ERR_FREE_FALL_NORMAL"],
+      "errorSignals": [
+        "ERR_APPARENT_WEIGHT",
+        "ERR_FREE_FALL_NORMAL"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -195,7 +235,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "Fnet = mg − T = ma (down positive). T = m(g − a) = 2 × (9.8 − 1.5) = 2 × 8.3 = 16.6 N. Less than the weight (19.6 N) because the object is accelerating downward.",
-      "errorSignals": ["ERR_N2_NET_FORCE_SETUP", "ERR_N2_TENSION_SIGN"],
+      "errorSignals": [
+        "ERR_N2_NET_FORCE_SETUP",
+        "ERR_N2_TENSION_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -210,7 +253,9 @@
       "unit": "N",
       "marks": 2,
       "explanation": "Fnet = ma = 4 × 3 = 12 N. With no friction, the applied force is the only horizontal force, so F = 12 N.",
-      "errorSignals": ["ERR_N2_DIVISION_ORDER"],
+      "errorSignals": [
+        "ERR_N2_DIVISION_ORDER"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -225,7 +270,10 @@
       "unit": "m·s⁻²",
       "marks": 4,
       "explanation": "Normal force N = mg = 58.8 N. Friction f = μN = 0.2 × 58.8 = 11.76 N. Fnet = 30 − 11.76 = 18.24 N. a = 18.24/6 ≈ 3.04 m·s⁻².",
-      "errorSignals": ["ERR_FRICTION_MAGNITUDE", "ERR_N2_FRICTION_SIGN"],
+      "errorSignals": [
+        "ERR_FRICTION_MAGNITUDE",
+        "ERR_N2_FRICTION_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -240,7 +288,10 @@
       "unit": "m·s⁻²",
       "marks": 4,
       "explanation": "Fnet = T − mg = 14 000 − (1200 × 9.8) = 14 000 − 11 760 = 2240 N upward. a = 2240/1200 ≈ 1.87 m·s⁻² upward.",
-      "errorSignals": ["ERR_N2_NET_FORCE_SETUP", "ERR_N2_FORGETS_WEIGHT"],
+      "errorSignals": [
+        "ERR_N2_NET_FORCE_SETUP",
+        "ERR_N2_FORGETS_WEIGHT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -255,7 +306,9 @@
       "unit": "N",
       "marks": 2,
       "explanation": "Book at rest ⇒ Fnet = 0. N − mg = 0 ⇒ N = mg = 3 × 9.8 = 29.4 N.",
-      "errorSignals": ["ERR_NORMAL_FORCE_EQUILIBRIUM"],
+      "errorSignals": [
+        "ERR_NORMAL_FORCE_EQUILIBRIUM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -265,12 +318,15 @@
       "source": "fresh",
       "question": "A 1500 kg car experiences a forward driving force of 4000 N and a combined friction/air resistance of 1000 N. Calculate the car's acceleration.",
       "answerMode": "numeric",
-      "expectedAnswer": 2.0,
+      "expectedAnswer": 2,
       "tolerance": 0.05,
       "unit": "m·s⁻²",
       "marks": 3,
       "explanation": "Fnet = 4000 − 1000 = 3000 N. a = Fnet/m = 3000/1500 = 2.0 m·s⁻².",
-      "errorSignals": ["ERR_N2_FRICTION_SIGN", "ERR_N2_DIVISION_ORDER"],
+      "errorSignals": [
+        "ERR_N2_FRICTION_SIGN",
+        "ERR_N2_DIVISION_ORDER"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -279,12 +335,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'The harder you push a block, the faster it goes.' Is this statement strictly correct? Briefly explain in terms of Newton's Second Law.",
-      "answerMode": "text",
-      "expectedAnswer": "Not quite right. A bigger push gives a bigger NET force, which causes a bigger ACCELERATION (not necessarily a bigger speed at every instant). Speed only grows over time because the acceleration is positive. If friction equals the push, the speed would be constant even with a 'hard push'. The correct statement is: bigger net force ⇒ bigger acceleration.",
+      "answerMode": "choice",
+      "expectedAnswer": "Not quite — a bigger net force gives a bigger acceleration, not directly a bigger speed (Fnet = ma).",
       "marks": 3,
       "explanation": "Newton's Second Law: Fnet = ma. Force changes acceleration, not speed directly. The learner is conflating 'going faster' with 'accelerating'.",
-      "errorSignals": ["ERR_N2_FORCE_VS_VELOCITY_CONFUSION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_N2_FORCE_VS_VELOCITY_CONFUSION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Correct — force and speed are directly proportional.",
+        "Not quite — a bigger net force gives a bigger acceleration, not directly a bigger speed (Fnet = ma).",
+        "Correct — Fnet = ma means force equals speed × mass."
+      ]
     },
     {
       "id": "L1.T1.A2.q19",
@@ -298,7 +361,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "Fnet = T − mg = ma (up positive). T = m(g + a) = 2 × (9.8 + 3) = 25.6 N. Tension exceeds weight (19.6 N) because the ball accelerates upward.",
-      "errorSignals": ["ERR_N2_NET_FORCE_SETUP", "ERR_N2_TENSION_SIGN"],
+      "errorSignals": [
+        "ERR_N2_NET_FORCE_SETUP",
+        "ERR_N2_TENSION_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -313,7 +379,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "Fnet = ma = 5 × 3 = 15 N. Fnet = applied − friction ⇒ friction = 25 − 15 = 10 N.",
-      "errorSignals": ["ERR_N2_FRICTION_SIGN", "ERR_N2_NET_FORCE_SETUP"],
+      "errorSignals": [
+        "ERR_N2_FRICTION_SIGN",
+        "ERR_N2_NET_FORCE_SETUP"
+      ],
       "passThreshold": 0.7
     }
   ],
