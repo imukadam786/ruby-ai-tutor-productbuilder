@@ -36,6 +36,10 @@ import type { SocialSciencesSkillTree } from "@/types/social-sciences";
 import NstSkillTreeView from "@/components/nst/NstSkillTreeView";
 import MatricPhysSciSkillTreeView from "@/components/matric-phys-sci/MatricPhysSciSkillTreeView";
 import MathsLiteracySkillTreeView from "@/components/maths-literacy/MathsLiteracySkillTreeView";
+import LifeSciencesSkillTreeView from "@/components/life-sciences/LifeSciencesSkillTreeView";
+import HistorySkillTreeView from "@/components/history/HistorySkillTreeView";
+import BusinessStudiesSkillTreeView from "@/components/business-studies/BusinessStudiesSkillTreeView";
+import TourismSkillTreeView from "@/components/tourism/TourismSkillTreeView";
 import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
 import type { MathsLiteracyStudentProfile } from "@/types/maths-literacy";
 import {
@@ -64,7 +68,11 @@ type SubjectTabId =
   | "socialsciences"
   | "nst"
   | "matricphyssci"
-  | "mathsliteracy";
+  | "mathsliteracy"
+  | "lifesciences"
+  | "history"
+  | "businessstudies"
+  | "tourism";
 interface SubjectConfig {
   id: SubjectTabId;
   emoji: string;
@@ -82,6 +90,10 @@ const SUBJECTS: SubjectConfig[] = [
   { id: "nst",            emoji: "🔬", label: "Natural Sci & Tech", hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
   { id: "matricphyssci",  emoji: "⚗️", label: "Physical Sciences", hex: "#e11d48", activeCard: "bg-rose-50",     activeBorder: "border-rose-400" },
   { id: "mathsliteracy",  emoji: "📊", label: "Maths Literacy",    hex: "#6366f1", activeCard: "bg-indigo-50",   activeBorder: "border-indigo-400" },
+  { id: "lifesciences",   emoji: "🧬", label: "Life Sciences",     hex: "#16a34a", activeCard: "bg-green-50",    activeBorder: "border-green-400" },
+  { id: "history",        emoji: "📜", label: "History",           hex: "#d97706", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
+  { id: "businessstudies",emoji: "💼", label: "Business Studies",  hex: "#0284c7", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
+  { id: "tourism",        emoji: "🧳", label: "Tourism",           hex: "#0d9488", activeCard: "bg-teal-50",     activeBorder: "border-teal-400" },
 ];
 
 type LifeSkillsTopicStatus = "mastered" | "in_progress" | "available";
@@ -191,6 +203,14 @@ interface ProgressTrackerProps {
   onMathsLiteracyContinue?: () => void;
   /** Replay a completed Maths Literacy skill. */
   onMathsLiteracyReplaySkill?: (skillId: string) => void;
+  /** Open Life Sciences — clicking a topic opens that session. */
+  onLifeSciencesPickSkill?: (skillId: string) => void;
+  /** Open History — clicking a topic opens that session. */
+  onHistoryPickSkill?: (skillId: string) => void;
+  /** Open Business Studies — clicking a topic opens that session. */
+  onBusinessStudiesPickSkill?: (skillId: string) => void;
+  /** Open Tourism — clicking a topic opens that session. */
+  onTourismPickSkill?: (skillId: string) => void;
 }
 
 export default function ProgressTracker({
@@ -205,6 +225,10 @@ export default function ProgressTracker({
   onMatricPhysSciPickSkill,
   onMathsLiteracyContinue,
   onMathsLiteracyReplaySkill,
+  onLifeSciencesPickSkill,
+  onHistoryPickSkill,
+  onBusinessStudiesPickSkill,
+  onTourismPickSkill,
 }: ProgressTrackerProps = {}) {
   const { t } = useT();
   const [progress, setProgress] = useState<ProgressData>({
@@ -317,6 +341,10 @@ export default function ProgressTracker({
     nst: 0,
     matricphyssci: 0,
     mathsliteracy: mathsLiteracyMasteredCount,
+    lifesciences: 0,
+    history: 0,
+    businessstudies: 0,
+    tourism: 0,
   };
 
   // Each subject is gated by its own authored-content range, so it stays in
@@ -339,6 +367,9 @@ export default function ProgressTracker({
     if (s.id === "nst") return showNst;
     if (s.id === "matricphyssci") return showMatricPhysSci;
     if (s.id === "mathsliteracy") return showMathsLiteracy;
+    // FET subjects (Gr 10–12), free like the rest.
+    if (s.id === "lifesciences" || s.id === "history" || s.id === "businessstudies" || s.id === "tourism")
+      return learnerGrade >= 10 && learnerGrade <= 12;
     return true;
   });
 
@@ -753,6 +784,22 @@ export default function ProgressTracker({
                   onContinue={onMathsLiteracyContinue}
                   compact
                 />
+              )}
+
+              {activeTab === "lifesciences" && (
+                <LifeSciencesSkillTreeView onPickSkill={(id) => onLifeSciencesPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "history" && (
+                <HistorySkillTreeView onPickSkill={(id) => onHistoryPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "businessstudies" && (
+                <BusinessStudiesSkillTreeView onPickSkill={(id) => onBusinessStudiesPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "tourism" && (
+                <TourismSkillTreeView onPickSkill={(id) => onTourismPickSkill?.(id)} profile={null} compact />
               )}
             </div>
           </div>

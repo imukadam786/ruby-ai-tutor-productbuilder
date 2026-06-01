@@ -54,12 +54,15 @@ interface BusinessStudiesSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
   profile: BusinessStudiesStudentProfile | null;
   onBack?: () => void;
+  /** Embed inside another page (e.g. Progress): drop the full-page chrome. */
+  compact?: boolean;
 }
 
 export default function BusinessStudiesSkillTreeView({
   onPickSkill,
   profile,
   onBack,
+  compact,
 }: BusinessStudiesSkillTreeViewProps) {
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
@@ -133,10 +136,10 @@ export default function BusinessStudiesSkillTreeView({
   }
 
   return (
-    <div className="flex flex-col h-full bg-[#F4F4F5] relative">
-      <EduBackground />
-      <div className="relative flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-5 pb-12 w-full">
+    <div className={compact ? "relative" : "flex flex-col h-full bg-[#F4F4F5] relative"}>
+      {!compact && <EduBackground />}
+      <div className={compact ? "relative" : "relative flex-1 overflow-y-auto"}>
+        <div className={`max-w-3xl mx-auto w-full ${compact ? "px-1 pt-1 pb-4" : "px-5 sm:px-8 pt-5 pb-12"}`}>
           {onBack && (
             <button
               onClick={onBack}
