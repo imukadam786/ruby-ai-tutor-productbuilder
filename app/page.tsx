@@ -471,6 +471,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           onHistoryPickSkill={() => handleViewChange("history")}
           onBusinessStudiesPickSkill={() => handleViewChange("business-studies")}
           onTourismPickSkill={() => handleViewChange("tourism")}
+          onGeographyPickSkill={() => handleViewChange("geography")}
         />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}

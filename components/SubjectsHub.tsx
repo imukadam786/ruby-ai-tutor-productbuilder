@@ -375,7 +375,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "geography",
       });
     }
-    return all;
+    // "Discover" is the placement entry point, not a curriculum subject, so it
+    // stays pinned at the top. Every real subject is then ordered alphabetically
+    // by label — the same order for every grade.
+    const pinned = all.filter((s) => s.id === "discover");
+    const rest = all
+      .filter((s) => s.id !== "discover")
+      .sort((a, b) => a.label.localeCompare(b.label));
+    return [...pinned, ...rest];
   }, [
     discoverBadge, discoverBadgeColor,
     mathsBadge, mathsBadgeColor,

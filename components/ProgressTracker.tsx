@@ -40,6 +40,7 @@ import LifeSciencesSkillTreeView from "@/components/life-sciences/LifeSciencesSk
 import HistorySkillTreeView from "@/components/history/HistorySkillTreeView";
 import BusinessStudiesSkillTreeView from "@/components/business-studies/BusinessStudiesSkillTreeView";
 import TourismSkillTreeView from "@/components/tourism/TourismSkillTreeView";
+import GeographySkillTreeView from "@/components/geography/GeographySkillTreeView";
 import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
 import type { MathsLiteracyStudentProfile } from "@/types/maths-literacy";
 import {
@@ -72,7 +73,8 @@ type SubjectTabId =
   | "lifesciences"
   | "history"
   | "businessstudies"
-  | "tourism";
+  | "tourism"
+  | "geography";
 interface SubjectConfig {
   id: SubjectTabId;
   emoji: string;
@@ -81,18 +83,21 @@ interface SubjectConfig {
   activeCard: string;
   activeBorder: string;
 }
+// Ordered alphabetically by label (matches the Subjects page). "Maths" stays
+// the default-selected tab regardless of its position here.
 const SUBJECTS: SubjectConfig[] = [
-  { id: "maths",          emoji: "🧮", label: "Maths",             hex: "#3b82f6", activeCard: "bg-blue-50",     activeBorder: "border-blue-400" },
-  { id: "reading",        emoji: "📖", label: "English",           hex: "#a855f7", activeCard: "bg-purple-50",   activeBorder: "border-purple-400" },
-  { id: "lifeskills",     emoji: "🌟", label: "Life Skills",       hex: "#f59e0b", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
   { id: "afrikaans",      emoji: "🇿🇦", label: "Afrikaans",         hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
-  { id: "socialsciences", emoji: "🌍", label: "Social Sciences",   hex: "#0ea5e9", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
+  { id: "businessstudies",emoji: "💼", label: "Business Studies",  hex: "#0284c7", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
+  { id: "reading",        emoji: "📖", label: "English",           hex: "#a855f7", activeCard: "bg-purple-50",   activeBorder: "border-purple-400" },
+  { id: "geography",      emoji: "🗺️", label: "Geography",         hex: "#06b6d4", activeCard: "bg-cyan-50",     activeBorder: "border-cyan-400" },
+  { id: "history",        emoji: "📜", label: "History",           hex: "#d97706", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
+  { id: "lifesciences",   emoji: "🧬", label: "Life Sciences",     hex: "#16a34a", activeCard: "bg-green-50",    activeBorder: "border-green-400" },
+  { id: "lifeskills",     emoji: "🌟", label: "Life Skills",       hex: "#f59e0b", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
+  { id: "maths",          emoji: "🧮", label: "Maths",             hex: "#3b82f6", activeCard: "bg-blue-50",     activeBorder: "border-blue-400" },
+  { id: "mathsliteracy",  emoji: "📊", label: "Maths Literacy",    hex: "#6366f1", activeCard: "bg-indigo-50",   activeBorder: "border-indigo-400" },
   { id: "nst",            emoji: "🔬", label: "Natural Sci & Tech", hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
   { id: "matricphyssci",  emoji: "⚗️", label: "Physical Sciences", hex: "#e11d48", activeCard: "bg-rose-50",     activeBorder: "border-rose-400" },
-  { id: "mathsliteracy",  emoji: "📊", label: "Maths Literacy",    hex: "#6366f1", activeCard: "bg-indigo-50",   activeBorder: "border-indigo-400" },
-  { id: "lifesciences",   emoji: "🧬", label: "Life Sciences",     hex: "#16a34a", activeCard: "bg-green-50",    activeBorder: "border-green-400" },
-  { id: "history",        emoji: "📜", label: "History",           hex: "#d97706", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
-  { id: "businessstudies",emoji: "💼", label: "Business Studies",  hex: "#0284c7", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
+  { id: "socialsciences", emoji: "🌍", label: "Social Sciences",   hex: "#0ea5e9", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
   { id: "tourism",        emoji: "🧳", label: "Tourism",           hex: "#0d9488", activeCard: "bg-teal-50",     activeBorder: "border-teal-400" },
 ];
 
@@ -211,6 +216,8 @@ interface ProgressTrackerProps {
   onBusinessStudiesPickSkill?: (skillId: string) => void;
   /** Open Tourism — clicking a topic opens that session. */
   onTourismPickSkill?: (skillId: string) => void;
+  /** Open Geography — clicking a topic opens that session. */
+  onGeographyPickSkill?: (skillId: string) => void;
 }
 
 export default function ProgressTracker({
@@ -229,6 +236,7 @@ export default function ProgressTracker({
   onHistoryPickSkill,
   onBusinessStudiesPickSkill,
   onTourismPickSkill,
+  onGeographyPickSkill,
 }: ProgressTrackerProps = {}) {
   const { t } = useT();
   const [progress, setProgress] = useState<ProgressData>({
@@ -345,6 +353,7 @@ export default function ProgressTracker({
     history: 0,
     businessstudies: 0,
     tourism: 0,
+    geography: 0,
   };
 
   // Each subject is gated by its own authored-content range, so it stays in
@@ -368,7 +377,13 @@ export default function ProgressTracker({
     if (s.id === "matricphyssci") return showMatricPhysSci;
     if (s.id === "mathsliteracy") return showMathsLiteracy;
     // FET subjects (Gr 10–12), free like the rest.
-    if (s.id === "lifesciences" || s.id === "history" || s.id === "businessstudies" || s.id === "tourism")
+    if (
+      s.id === "lifesciences" ||
+      s.id === "history" ||
+      s.id === "businessstudies" ||
+      s.id === "tourism" ||
+      s.id === "geography"
+    )
       return learnerGrade >= 10 && learnerGrade <= 12;
     return true;
   });
@@ -800,6 +815,10 @@ export default function ProgressTracker({
 
               {activeTab === "tourism" && (
                 <TourismSkillTreeView onPickSkill={(id) => onTourismPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "geography" && (
+                <GeographySkillTreeView onPickSkill={(id) => onGeographyPickSkill?.(id)} profile={null} compact />
               )}
             </div>
           </div>
