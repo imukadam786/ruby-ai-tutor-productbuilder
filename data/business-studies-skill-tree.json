@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "subject": "business-studies",
-  "description": "Business Studies skill tree, FET (Amended CAPS, Business Studies Grades 10-12). Grade 10 first as proof. 4 CAPS knowledge areas (Business environment, Business venture, Business role, Business operation), each weighted 25%. Tiers = CAPS terms within a grade (T1-T4). 21 atomic skills (Grade 10). Mastery = 60% of a 20-item pool (FET rule, no timer). PROGRESSION-GATED: each skill lists the previous CAPS-order skill as a prerequisite, so the tree surfaces the current skill plus the upcoming (locked) ones. Input types: choice, true-false, cloze, sequence, image-match (existing) + sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison (tap-based mechanics, no free-text). Questions live in data/business-studies-question-bank.json. Grades 11-12 pending head-of-ed review of this structure.",
-  "grades_covered": [10],
+  "description": "Business Studies skill tree, FET (Amended CAPS, Business Studies Grades 10-12). Grade 10 first as proof. 4 CAPS knowledge areas (Business environment, Business venture, Business role, Business operation), each weighted 25%. Tiers = CAPS terms within a grade (T1-T4). 21 atomic skills (Grade 10). Mastery = 60% of a 20-item pool (FET rule, no timer). PROGRESSION-GATED: each skill lists the previous CAPS-order skill as a prerequisite, so the tree surfaces the current skill plus the upcoming (locked) ones. Input types: choice, true-false, cloze, sequence, image-match (existing) + sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison (tap-based mechanics, no free-text). Questions live in data/business-studies-question-bank.json. All three FET grades authored: Grade 10 (21 skills), Grade 11 (19 skills, 4 terms) and Grade 12 (15 skills, 3 teaching terms; term 4 is exam revision). Each grade is entered independently by self-reported grade and progression-gated within the grade in CAPS teaching order.",
+  "grades_covered": [10, 11, 12],
   "levels": [
     {
       "id": 10,
@@ -346,6 +346,574 @@
                 {"type": "conceptual_gap", "description": "Cannot distinguish a criterion for good teamwork from a barrier to it", "example": "Lists 'prejudice' as a criterion for successful teamwork"}
               ],
               "recovery_strategy": "Good teams share: clear goals, openness, mutual respect and trust, commitment, sound relations. Barriers are the opposite: prejudice, poor communication, distrust. Diversity is a strength when managed well.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "grade": 11,
+      "title": "Grade 11 — Business Studies",
+      "description": "Deepens all four CAPS knowledge areas. T1: influences and control over the three environments, their challenges and how a business adapts; socio-economic issues and industrial relations; sector links; the company vs other ownership forms; ways of acquiring a business. T2: advanced creative thinking; stress/crisis/change management; turning a business plan into an action plan; setting up a venture; professionalism & ethics; presenting information. T3: entrepreneurial success factors; citizenship; the marketing and production functions. T4: team dynamics & conflict; introduction to Human Resources. 19 atomic skills, progression-gated in CAPS teaching order.",
+      "tiers": [
+        {
+          "id": "L11.T1",
+          "title": "Term 1 — Business environments, socio-economic issues, sectors, ownership & acquiring a business",
+          "atomic_skills": [
+            {
+              "id": "BUS.G11.T1.INFLUENCE.A1",
+              "bank_skill_id": "BUS.G11.T1.INFLUENCE.A1",
+              "title": "Influences and control over the three environments",
+              "description": "The degree of control a business has over the micro (full control), market (no control, only influence) and macro (no control) environments, and ways to be involved in the macro environment when it benefits the business.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Believes a business can control the market or macro environment", "example": "Says a business controls inflation"}
+              ],
+              "recovery_strategy": "Control shrinks as you move out: micro = control, market = influence only, macro = no control (adapt). A business can still get involved in the macro environment (e.g. lobbying) when it helps.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T1.CHALLENGES.A1",
+              "bank_skill_id": "BUS.G11.T1.CHALLENGES.A1",
+              "title": "Challenges of the micro, market and macro environments",
+              "description": "Identifying the challenges of each environment: micro (difficult employees, lack of vision, weak management, strikes), market (competition, supply shortages, changing consumer behaviour) and macro (legislation, income changes, globalisation, socio-economic issues).",
+              "caps_term": "G11 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": ["BUS.G11.T1.INFLUENCE.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Places a challenge in the wrong environment", "example": "Calls a difficult employee a macro-environment challenge"}
+              ],
+              "recovery_strategy": "Sort the challenge by where it comes from: inside the business = micro (staff, vision, management); close outside = market (competitors, suppliers, customers); broad outside = macro (laws, economy, globalisation).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T1.ADAPT.A1",
+              "bank_skill_id": "BUS.G11.T1.ADAPT.A1",
+              "title": "Adapting to environmental challenges",
+              "description": "How a business adapts to challenges of the three environments: information management, strategic responses, mergers/takeovers/acquisitions/alliances, organisation design and flexibility, social responsibility, and lobbying, networking and power relationships.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": ["BUS.G11.T1.CHALLENGES.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses lobbying, networking and power relationships", "example": "Calls finding new customers 'lobbying'"}
+              ],
+              "recovery_strategy": "Lobbying = influencing decision-makers/regulators. Networking = building useful contacts (e.g. new customers). Power relationships = strategic alliances and persuading big investors. All are ways to cope with an environment the business cannot control.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T1.SOCIOECON.A1",
+              "bank_skill_id": "BUS.G11.T1.SOCIOECON.A1",
+              "title": "Socio-economic issues & industrial relations",
+              "description": "The impact of contemporary socio-economic issues (inflation, economic crime, ethical misconduct, population growth, illiteracy, resource exhaustion, piracy, strikes) on business operations, and developments in industrial relations: labour strikes/go-slows/lockouts, the Labour Relations Act, and the nature, history, roles and functions of trade unions.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Contemporary socioeconomic issues",
+              "prerequisites": ["BUS.G11.T1.ADAPT.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot state the role of a trade union", "example": "Says a trade union represents the employer"}
+              ],
+              "recovery_strategy": "A trade union represents workers — it negotiates wages and conditions and protects members. Socio-economic issues hit business through cost and productivity. A go-slow is working slowly; a lockout is the employer shutting workers out.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T1.SECTORS.A1",
+              "bank_skill_id": "BUS.G11.T1.SECTORS.A1",
+              "title": "Links between the business sectors",
+              "description": "Investigating the links between primary, secondary and tertiary enterprises — how raw materials from primary enterprises flow to secondary enterprises that process them and to tertiary enterprises that distribute and service them.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Business sectors",
+              "prerequisites": ["BUS.G11.T1.SOCIOECON.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Cannot trace a product through the sectors", "example": "Says a bakery (secondary) is a primary enterprise"}
+              ],
+              "recovery_strategy": "Follow the chain: primary extracts (farm grows wheat) → secondary processes (mill and bakery make bread) → tertiary sells/services (shop sells the bread). Each sector depends on the one before it.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T1.COMPANY.A1",
+              "bank_skill_id": "BUS.G11.T1.COMPANY.A1",
+              "title": "A company vs other forms of ownership",
+              "description": "The benefits and challenges of establishing a company versus a sole trader, partnership, close corporation or co-operative (including taxation), and the formation of companies — the Memorandum of Incorporation, the company name, incorporation and the prospectus.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Forms of ownership",
+              "prerequisites": ["BUS.G11.T1.SECTORS.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Misses limited liability and separate legal identity as company benefits", "example": "Says a company owner is personally liable for all company debts"}
+              ],
+              "recovery_strategy": "A company is a separate legal person with limited liability and continuity, but more paperwork and tax. A sole trader/partnership is simpler but has unlimited liability. Weigh capital, liability, tax and continuity.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T1.ACQUIRE.A1",
+              "bank_skill_id": "BUS.G11.T1.ACQUIRE.A1",
+              "title": "Avenues of acquiring a business",
+              "description": "Ways of acquiring a business — franchising, outsourcing and leasing — with their advantages, disadvantages and contractual implications (e.g. royalties, legalities).",
+              "caps_term": "G11 T1",
+              "caps_topic": "Contracts",
+              "prerequisites": ["BUS.G11.T1.COMPANY.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses franchising, outsourcing and leasing", "example": "Says franchising means renting equipment"}
+              ],
+              "recovery_strategy": "Franchising = buy the right to trade under a proven brand (pay royalties). Outsourcing = pay another firm to do a task for you. Leasing = rent an asset instead of buying it.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T2",
+          "title": "Term 2 — Creative thinking, stress & change, action plans, setting up, ethics & presentation",
+          "atomic_skills": [
+            {
+              "id": "BUS.G11.T2.CREATIVE.A1",
+              "bank_skill_id": "BUS.G11.T2.CREATIVE.A1",
+              "title": "Creative thinking & problem-solving (advanced)",
+              "description": "Applying creative thinking to address business problems and improve practice: routine vs creative thinking, mental blocks to creativity, more complex techniques (Delphi, force-field analysis), working with others to generate ideas, and conventional vs non-conventional (including indigenous) solutions.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Creative thinking and problem-solving",
+              "prerequisites": ["BUS.G11.T1.ACQUIRE.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses routine thinking with creative thinking", "example": "Calls following a fixed procedure 'creative thinking'"}
+              ],
+              "recovery_strategy": "Routine thinking follows known steps; creative thinking breaks the pattern to find new ideas. Mental blocks (fear of failure, assuming one right answer) stop creativity. Techniques like brainstorming and Delphi help generate options.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T2.STRESS.A1",
+              "bank_skill_id": "BUS.G11.T2.STRESS.A1",
+              "title": "Stress, crisis & change management",
+              "description": "Concepts relating to stress (and how to manage it), the importance of stress management in pressurised workplaces, crisis management (tight deadlines, loss of property, illness), and theories of change management — dealing with and adapting to change such as retrenchment, globalisation and affirmative action.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Stress, crisis, change and conflict management",
+              "prerequisites": ["BUS.G11.T2.CREATIVE.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses stress, crisis and change management", "example": "Says a crisis is the same as everyday stress"}
+              ],
+              "recovery_strategy": "Stress = pressure on a person (manage with time management, exercise, support). Crisis = a sudden serious threat to the business. Change management = leading people through change so they adapt rather than resist.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T2.ACTIONPLAN.A1",
+              "bank_skill_id": "BUS.G11.T2.ACTIONPLAN.A1",
+              "title": "From business plan to action plan",
+              "description": "Transforming a business plan into an action plan using planning tools — Gantt charts and a Work Breakdown Structure (WBS) with timelines and responsibilities — so that the plan becomes a sequence of dated, assigned tasks.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Business plan",
+              "prerequisites": ["BUS.G11.T2.STRESS.A1"],
+              "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses a business plan with an action plan", "example": "Says a Gantt chart belongs in the executive summary"}
+              ],
+              "recovery_strategy": "A business plan says WHAT and WHY; an action plan says WHO does WHICH task by WHEN. A Gantt chart shows tasks against a timeline; a WBS breaks the work into smaller tasks.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T2.SETUP.A1",
+              "bank_skill_id": "BUS.G11.T2.SETUP.A1",
+              "title": "Setting up a business venture",
+              "description": "Initiating and setting up a business venture based on an action plan to generate income, and acquiring funding where needed — equity capital, loans/debt and other sources of capital.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Setting up a business",
+              "prerequisites": ["BUS.G11.T2.ACTIONPLAN.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses equity capital with loan (debt) capital", "example": "Says a bank loan is equity capital"}
+              ],
+              "recovery_strategy": "Equity capital = the owner's own money or money from investors (no repayment, but shared ownership). Loan/debt capital = borrowed money that must be repaid with interest.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T2.PROFETHICS.A1",
+              "bank_skill_id": "BUS.G11.T2.PROFETHICS.A1",
+              "title": "Professionalism & ethics",
+              "description": "The theories and principles of professionalism and ethics and how they relate to business: the definitions of and differences between professionalism and ethics, good vs bad decisions, the concept of ethics and different perspectives on it, and the skills of professional, responsible, ethical and effective business practice.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Self-management, professionalism and ethics",
+              "prerequisites": ["BUS.G11.T2.SETUP.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses professionalism with ethics", "example": "Says being on time is an example of ethics"}
+              ],
+              "recovery_strategy": "Ethics = doing what is morally right (honest, fair). Professionalism = the standard of conduct in your work (reliable, respectful, competent). You can be professional and still face an ethical choice.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T2.PRESENT.A1",
+              "bank_skill_id": "BUS.G11.T2.PRESENT.A1",
+              "title": "Presentation & responding to feedback",
+              "description": "Accurate, succinct verbal and non-verbal presentation of business information (tables, graphs, diagrams, posters, handouts), written information such as reports and flyers, and responding to questions and feedback in a non-aggressive, professional manner.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Presentation of information",
+              "prerequisites": ["BUS.G11.T2.PROFETHICS.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Responds unprofessionally to questions", "example": "Says you should argue with anyone who criticises your presentation"}
+              ],
+              "recovery_strategy": "When questioned: answer all questions, make notes, do not argue, and apologise for any errors. Put the most important information first and keep visuals clear.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T3",
+          "title": "Term 3 — Entrepreneurial success, citizenship, marketing & production functions",
+          "atomic_skills": [
+            {
+              "id": "BUS.G11.T3.ENTRE.A1",
+              "bank_skill_id": "BUS.G11.T3.ENTRE.A1",
+              "title": "Entrepreneurial qualities & success factors",
+              "description": "Assessing the degree to which a business embraces entrepreneurial qualities (risk-taking, perseverance, good management) and critically reflecting on a venture to identify its key success factors (sustainability, profitability, customer base) and areas for improvement.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Entrepreneurship",
+              "prerequisites": ["BUS.G11.T2.PRESENT.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot identify a key success factor", "example": "Says the colour of the logo is a key success factor"}
+              ],
+              "recovery_strategy": "Key success factors are the things that make a business work: a loyal customer base, profitability, sustainability and good management. Judge a venture against the entrepreneurial qualities, then name what to improve.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T3.CITIZEN.A1",
+              "bank_skill_id": "BUS.G11.T3.CITIZEN.A1",
+              "title": "Citizenship roles & responsibilities",
+              "description": "The citizenship roles and responsibilities business practitioners perform: how citizens, through business, contribute to the social and economic development of their communities, the concept of the business community, and the role of business, civil society, NGOs and CBOs.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Social responsibility",
+              "prerequisites": ["BUS.G11.T3.ENTRE.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses an NGO with a CBO or with a government department", "example": "Says an NGO is a government body"}
+              ],
+              "recovery_strategy": "NGO = non-governmental organisation (independent, often national). CBO = community-based organisation (local). Business practitioners are citizens who can give time and effort to develop their communities.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T3.MARKETING.A1",
+              "bank_skill_id": "BUS.G11.T3.MARKETING.A1",
+              "title": "The marketing function",
+              "description": "Aspects of the marketing function: marketing activities, product policy (development, design, packaging, trademarks), pricing policy (techniques, factors, adjustments), distribution policy (channels, intermediaries, direct/indirect), communication policy (advertising, sales promotion, publicity, personal selling) and foreign marketing (imports and exports).",
+              "caps_term": "G11 T3",
+              "caps_topic": "Business functions",
+              "prerequisites": ["BUS.G11.T3.CITIZEN.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Assigns an activity to the wrong marketing policy", "example": "Calls choosing a delivery channel a 'pricing policy' decision"}
+              ],
+              "recovery_strategy": "Tie the activity to its policy: product = design/packaging/brand; pricing = setting the price; distribution = getting it to the customer (channels); communication = telling customers about it (advertising, selling).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T3.PRODUCTION.A1",
+              "bank_skill_id": "BUS.G11.T3.PRODUCTION.A1",
+              "title": "The production function",
+              "description": "Aspects of the production function: production systems (mass, batch, job), production planning and control (planning, routing, scheduling, loading; dispatching, follow-up, inspection, corrective action), safety management (the Occupational Health and Safety Act), quality control (SABS), and production cost calculations (total cost, unit cost, selling price, profit, break-even).",
+              "caps_term": "G11 T3",
+              "caps_topic": "Business functions",
+              "prerequisites": ["BUS.G11.T3.MARKETING.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Confuses the three production systems", "example": "Says making one custom wedding dress is mass production"}
+              ],
+              "recovery_strategy": "Job = one custom item; batch = a group of identical items at a time; mass = continuous large-scale identical output. Break-even is where total income equals total cost — no profit, no loss.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T4",
+          "title": "Term 4 — Team dynamics, conflict & Human Resources",
+          "atomic_skills": [
+            {
+              "id": "BUS.G11.T4.TEAM.A1",
+              "bank_skill_id": "BUS.G11.T4.TEAM.A1",
+              "title": "Team dynamics & conflict management",
+              "description": "Team development stages (forming, storming, norming, performing), team dynamics theories (Belbin roles, Jungian insights, group consensus), and conflict management — causes of conflict, conflict-management theories and skills to resolve differences, and the function of workplace forums.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Relationship and team performance",
+              "prerequisites": ["BUS.G11.T3.PRODUCTION.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Misorders the team development stages", "example": "Says performing comes before storming"}
+              ],
+              "recovery_strategy": "Team stages in order: forming (getting to know each other) → storming (conflict) → norming (settling) → performing (working well together). Conflict managed well can strengthen a team.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G11.T4.HR.A1",
+              "bank_skill_id": "BUS.G11.T4.HR.A1",
+              "title": "Introduction to Human Resources",
+              "description": "An introduction to the human resources function: recruitment, selection and interviewing procedures; the legalities of employment contracts; induction and placement; salary determination (piecemeal and time-related, including personal tax); and employee benefits (pension, medical, other). Relevant Acts: LRA, BCEA, EEA, COIDA.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Business functions",
+              "prerequisites": ["BUS.G11.T4.TEAM.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses recruitment with selection", "example": "Says recruitment means choosing the best candidate"}
+              ],
+              "recovery_strategy": "Recruitment = attracting applicants (advertising the post). Selection = choosing the best one (screening, interviewing). Induction = settling the new employee in. Each HR Act protects a different right.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 — Business Studies",
+      "description": "Final FET year, applying and evaluating across all four CAPS knowledge areas. T1: impact of recent legislation; the Human Resources function; ethics & professionalism; creative thinking in complex contexts; macro-environment business strategies. T2: social responsibility/CSR & CSI; human rights, inclusivity & environment; team performance & conflict; the business sector and its environment; management & leadership; quality of performance (TQM). T3: investment securities; insurance & assurance; forms of ownership and business success; presentation & data response. Term 4 is exam revision (no new content). 15 atomic skills, progression-gated in CAPS teaching order.",
+      "tiers": [
+        {
+          "id": "L12.T1",
+          "title": "Term 1 — Legislation, Human Resources, ethics, creative thinking & business strategies",
+          "atomic_skills": [
+            {
+              "id": "BUS.G12.T1.LEGISLATION.A1",
+              "bank_skill_id": "BUS.G12.T1.LEGISLATION.A1",
+              "title": "Impact of recent legislation on business",
+              "description": "The impact of recent legislation, developed for redress and equity, on small and large business: the Skills Development Act, Labour Relations Act, Employment Equity Act, Basic Conditions of Employment Act, COIDA, BEE and BBBEE, National Credit Act and Consumer Protection Act — their nature, purpose, advantages/disadvantages, rights and compliance, plus human rights, inclusivity and environmental issues.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Matches an Act to the wrong purpose", "example": "Says the Consumer Protection Act sets the minimum wage"}
+              ],
+              "recovery_strategy": "Tie each Act to its purpose: EEA = fair, equal workplaces; BCEA = minimum working conditions; LRA = fair labour relations and unions; SDA = skills and SETAs; CPA = consumer rights; NCA = fair credit; BBBEE = economic redress.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T1.HR.A1",
+              "bank_skill_id": "BUS.G12.T1.HR.A1",
+              "title": "The Human Resources function",
+              "description": "Relevant legislation and the aspects of the human resources function: recruitment and selection; employee contracts; induction and placement; salary administration (piecemeal and time-related, including personal tax); employee benefits; and skills development (the Skills Development Act, SETAs, learnerships, the NQF and SAQA).",
+              "caps_term": "G12 T1",
+              "caps_topic": "Business functions",
+              "prerequisites": ["BUS.G12.T1.LEGISLATION.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses time-related and piecemeal salary determination", "example": "Says piecemeal pay means being paid by the hour"}
+              ],
+              "recovery_strategy": "Time-related pay = paid for time worked (hourly/monthly). Piecemeal pay = paid per unit produced. Recruitment attracts applicants, selection chooses, induction settles them in, and skills development grows them.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T1.ETHICS.A1",
+              "bank_skill_id": "BUS.G12.T1.ETHICS.A1",
+              "title": "Ethics & professionalism",
+              "description": "How professional, responsible, ethical and effective business practice should be conducted in changing and challenging environments: the meaning of ethical behaviour, ethical vs unethical and professional vs unprofessional practice with examples, the link between the two, and strategies to address issues such as taxation, sexual harassment, unfair advertising and abuse of work time.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Self-management, professionalism and ethics",
+              "prerequisites": ["BUS.G12.T1.HR.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Labels an unethical practice as ethical (or vice versa)", "example": "Says unfair advertising is an ethical business practice"}
+              ],
+              "recovery_strategy": "Ethical practice is honest and fair (pay fair wages, pay tax, advertise truthfully). Unethical practice harms others for gain (corruption, unfair ads, abusing work time). Professional behaviour supports ethical behaviour.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T1.CREATIVE.A1",
+              "bank_skill_id": "BUS.G12.T1.CREATIVE.A1",
+              "title": "Creative thinking in complex contexts",
+              "description": "Applying creative thinking and advanced problem-solving skills to respond to challenges in dynamic and complex business contexts and case studies, building on the problem-solving cycle and techniques from earlier grades.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Creative thinking and problem-solving",
+              "prerequisites": ["BUS.G12.T1.ETHICS.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Applies a single fixed solution to a complex problem", "example": "Says there is only one correct answer to every business problem"}
+              ],
+              "recovery_strategy": "Complex problems need creative thinking: generate several options, weigh them against the real business situation, and choose the best. Advanced problem-solving combines techniques rather than relying on one fixed answer.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T1.STRATEGY.A1",
+              "bank_skill_id": "BUS.G12.T1.STRATEGY.A1",
+              "title": "Macro-environment business strategies",
+              "description": "Devising strategies for how a business can respond to challenges of the macro environment, then evaluating them: SWOT-based strategy formulation, implementation and evaluation; integration strategies (forward, backward, horizontal), intensive strategies (market penetration, market and product development), diversification strategies, and defensive strategies (retrenchment, divestiture, liquidation).",
+              "caps_term": "G12 T1",
+              "caps_topic": "Micro, market and macro environments",
+              "prerequisites": ["BUS.G12.T1.CREATIVE.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Confuses the strategy types", "example": "Calls buying out a supplier 'market penetration'"}
+              ],
+              "recovery_strategy": "Integration = take over another level (supplier = backward, distributor = forward, competitor = horizontal). Intensive = grow current/new products and markets. Diversification = move into new areas. Defensive = cut back (retrench, divest, liquidate).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T2",
+          "title": "Term 2 — CSR, human rights, teams, sector & environment, leadership & quality",
+          "atomic_skills": [
+            {
+              "id": "BUS.G12.T2.CSR.A1",
+              "bank_skill_id": "BUS.G12.T2.CSR.A1",
+              "title": "Social responsibility, CSR & CSI",
+              "description": "Critically examining social responsibility and its implications for business and communities: Corporate Social Responsibility (nature, process, benefits and challenges, components) and Corporate Social Investment (nature, projects, responsible business practice), and meaningfully contributing time and effort to others' well-being.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Social responsibility",
+              "prerequisites": ["BUS.G12.T1.STRATEGY.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses CSR with CSI", "example": "Says CSR and CSI mean exactly the same thing"}
+              ],
+              "recovery_strategy": "CSR = the whole responsible way a business operates (ethics, environment, health and safety). CSI = the specific projects/money a business invests in communities (a part of CSR). Both go beyond what the law requires.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T2.HUMANRIGHTS.A1",
+              "bank_skill_id": "BUS.G12.T2.HUMANRIGHTS.A1",
+              "title": "Human rights, inclusivity & environment",
+              "description": "Evaluating the extent to which a business venture addresses human rights (as defined in the Constitution), inclusivity (diversity of poverty, inequality, race, gender, language, age, disability) and environmental issues (protecting the environment and human health), and assessing a venture against these criteria.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Human rights, inclusivity and environmental issues",
+              "prerequisites": ["BUS.G12.T2.CSR.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+              "error_signatures": [
+                {"type": "classification_error", "description": "Confuses a human-rights issue with an environmental issue", "example": "Lists recycling as a human-rights issue"}
+              ],
+              "recovery_strategy": "Human rights = equality, dignity, fair treatment of people. Inclusivity = welcoming diversity (gender, race, disability, etc.). Environmental issues = protecting nature and health. Judge a venture against all three.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T2.TEAM.A1",
+              "bank_skill_id": "BUS.G12.T2.TEAM.A1",
+              "title": "Team performance & conflict management",
+              "description": "Collaborating to achieve objectives: criteria for successful team performance, self- and team-assessment against those criteria, performing a specific role in a team, problem-solving when working with others, correct procedures to deal with grievances, and ways of dealing with difficult people.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Relationship and team performance",
+              "prerequisites": ["BUS.G12.T2.HUMANRIGHTS.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Does not know the correct grievance procedure", "example": "Says the first step in a grievance is to resign"}
+              ],
+              "recovery_strategy": "Successful teams share clear goals, trust, communication and commitment. Handle grievances through the correct steps (raise it, discuss, escalate if unresolved). Deal with difficult people calmly and professionally.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T2.SECTORENV.A1",
+              "bank_skill_id": "BUS.G12.T2.SECTORENV.A1",
+              "title": "Business sector and its environment",
+              "description": "Selecting a business from each economic sector and describing the three business environments related to those sectors and the extent to which a business can control each environment.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Business sectors",
+              "prerequisites": ["BUS.G12.T2.TEAM.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says a business controls its macro environment regardless of sector", "example": "Says a mining business controls global commodity prices"}
+              ],
+              "recovery_strategy": "Whatever the sector (primary, secondary, tertiary), the rule holds: full control of the micro environment, influence over the market, no control over the macro environment.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T2.MGMTLEAD.A1",
+              "bank_skill_id": "BUS.G12.T2.MGMTLEAD.A1",
+              "title": "Management & leadership",
+              "description": "Differentiating between management and leadership styles and approaches: the difference between leadership and management, leadership styles (democratic, autocratic, etc.), theories of management and leadership (situational, transactional, transformational), and the role of personal attitude in success and leadership.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Management and leadership",
+              "prerequisites": ["BUS.G12.T2.SECTORENV.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses management with leadership", "example": "Says management and leadership are exactly the same"}
+              ],
+              "recovery_strategy": "Management = planning, organising and controlling the work. Leadership = inspiring and influencing people toward a vision. Autocratic leaders decide alone; democratic leaders involve the team.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T2.QUALITY.A1",
+              "bank_skill_id": "BUS.G12.T2.QUALITY.A1",
+              "title": "Quality of performance & TQM",
+              "description": "How the quality of performance within the business functions influences the success or failure of a business: the concept of quality, its relation to the various functions, and the elements of Total Quality Management (TQM) — continuous skills development, total client satisfaction and continuous improvement of processes and systems.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Quality of performance",
+              "prerequisites": ["BUS.G12.T2.MGMTLEAD.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats quality as only the product's job, not TQM across the business", "example": "Says TQM only applies to the production function"}
+              ],
+              "recovery_strategy": "TQM means everyone in every function continuously improves quality: total client satisfaction, ongoing skills development and constant improvement of processes. Poor quality in any function can sink the business.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T3",
+          "title": "Term 3 — Investment (securities & insurance), ownership & presentation",
+          "atomic_skills": [
+            {
+              "id": "BUS.G12.T3.SECURITIES.A1",
+              "bank_skill_id": "BUS.G12.T3.SECURITIES.A1",
+              "title": "Investment: securities",
+              "description": "A range of business investment opportunities: business investments and the JSE, types of shares, unit trusts and government retail bonds; returns such as dividends and interest; and calculations including the difference between simple and compound interest.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Investment: securities",
+              "prerequisites": ["BUS.G12.T2.QUALITY.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses simple and compound interest, or dividends and interest", "example": "Says compound interest is calculated only on the original amount"}
+              ],
+              "recovery_strategy": "Simple interest is on the original amount only; compound interest is on the amount plus past interest, so it grows faster. Shares pay dividends (a share of profit); savings/bonds pay interest.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T3.INSURANCE.A1",
+              "bank_skill_id": "BUS.G12.T3.INSURANCE.A1",
+              "title": "Investment: insurance & assurance",
+              "description": "Distinguishing assurance from insurance, compulsory and non-compulsory insurance, life insurance and retirement annuities, insurance of goods, the principle of average with over- and under-insurance calculations, and the compulsory funds — the Unemployment Insurance Fund (UIF) and Road Accident Fund (RAF).",
+              "caps_term": "G12 T3",
+              "caps_topic": "Investment: insurance",
+              "prerequisites": ["BUS.G12.T3.SECURITIES.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses assurance with insurance, or compulsory with non-compulsory", "example": "Says car insurance is assurance because the event is certain"}
+              ],
+              "recovery_strategy": "Assurance covers an event that WILL happen (death) — e.g. life cover. Insurance covers an event that MIGHT happen (fire, theft). UIF and RAF are compulsory. Under the principle of average, under-insuring means you are paid out proportionally less.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T3.OWNERSHIP.A1",
+              "bank_skill_id": "BUS.G12.T3.OWNERSHIP.A1",
+              "title": "Forms of ownership & business success",
+              "description": "Determining the extent to which a particular form of ownership contributes to the success or failure of a business, recapping the characteristics, advantages, disadvantages and comparison of forms of ownership with a focus on capacity, taxation, management, capital, division of profits and legislation.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Forms of ownership",
+              "prerequisites": ["BUS.G12.T3.INSURANCE.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot link a form of ownership to a success or failure factor", "example": "Says unlimited liability has no effect on a business's risk"}
+              ],
+              "recovery_strategy": "Judge a form of ownership by how it affects success: limited liability and continuity help a company raise capital and survive; unlimited liability and limited capital can hold a sole trader back. Match capital, tax, management and risk to the venture.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "BUS.G12.T3.PRESENT.A1",
+              "bank_skill_id": "BUS.G12.T3.PRESENT.A1",
+              "title": "Presentation & data response",
+              "description": "Accurate, succinct verbal and non-verbal presentation of business information, including the criteria for a logical and effective presentation, the process and style of using visual aids, responding professionally to questions and feedback, and amending plans and documents as necessary.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Presentation of information",
+              "prerequisites": ["BUS.G12.T3.OWNERSHIP.A1"],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Ignores feedback instead of amending the work", "example": "Says you should never change a presentation after feedback"}
+              ],
+              "recovery_strategy": "An effective presentation knows its audience, puts the most important information first, and uses clear visuals. After feedback, amend the plan and documents and carry the improvements into future work.",
               "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
             }
           ]

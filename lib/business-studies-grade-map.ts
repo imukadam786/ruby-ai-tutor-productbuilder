@@ -38,8 +38,8 @@ const GRADE_TO_LEVEL: Record<number, number> = {
 // being authored).
 const ENTRY_SKILL: Record<number, string> = {
   10: "BUS.G10.T1.MICRO.A1",
-  11: "",
-  12: "",
+  11: "BUS.G11.T1.INFLUENCE.A1",
+  12: "BUS.G12.T1.LEGISLATION.A1",
 };
 
 /** Normalise the onboarding grade ("10".."12", possibly "Grade 11") to a
