@@ -43,6 +43,10 @@ const HistorySession               = dynamic(() => import("@/components/history/
 const HistorySkillTreeView         = dynamic(() => import("@/components/history/HistorySkillTreeView"),                    { ssr: false });
 const BusinessStudiesSession       = dynamic(() => import("@/components/business-studies/BusinessStudiesSession"),         { ssr: false });
 const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"),   { ssr: false });
+const TourismSession               = dynamic(() => import("@/components/tourism/TourismSession"),                          { ssr: false });
+const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                    { ssr: false });
+const GeographySession             = dynamic(() => import("@/components/geography/GeographySession"),                      { ssr: false });
+const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),                { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -161,6 +165,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "history-skill-tree": "History · Topics",
     "business-studies": "Business Studies",
     "business-studies-skill-tree": "Business Studies · Topics",
+    "tourism": "Tourism",
+    "tourism-skill-tree": "Tourism · Topics",
+    "geography": "Geography",
+    "geography-skill-tree": "Geography · Topics",
   };
 
   const refreshStats = useCallback(() => {
@@ -459,6 +467,11 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           onMatricPhysSciPickSkill={() => handleViewChange("matric-phys-sci")}
           onMathsLiteracyContinue={continueMathsLiteracy}
           onMathsLiteracyReplaySkill={startMathsLiteracyReplay}
+          onLifeSciencesPickSkill={() => handleViewChange("life-sciences")}
+          onHistoryPickSkill={() => handleViewChange("history")}
+          onBusinessStudiesPickSkill={() => handleViewChange("business-studies")}
+          onTourismPickSkill={() => handleViewChange("tourism")}
+          onGeographyPickSkill={() => handleViewChange("geography")}
         />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
@@ -490,6 +503,12 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* Business Studies — FET Phase (Gr 10–12), free like History */}
         {activeView === "business-studies" && <ErrorBoundary><BusinessStudiesSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "business-studies-skill-tree" && <BusinessStudiesSkillTreeView onPickSkill={() => handleViewChange("business-studies")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Tourism — FET Phase (Gr 10–12), free like History */}
+        {activeView === "tourism" && <ErrorBoundary><TourismSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "tourism-skill-tree" && <TourismSkillTreeView onPickSkill={() => handleViewChange("tourism")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Geography — FET Phase (Gr 10–12), free like History */}
+        {activeView === "geography" && <ErrorBoundary><GeographySession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "geography-skill-tree" && <GeographySkillTreeView onPickSkill={() => handleViewChange("geography")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

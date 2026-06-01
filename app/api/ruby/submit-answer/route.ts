@@ -9,6 +9,7 @@ import {
   buildDiagnosticPrompt,
 } from "@/lib/diagnostic-engine";
 import { AnswerSubmission, DiagnosticResult, ErrorType, SkillAttempt } from "@/types/ruby";
+import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 
 const VALID_ERROR_TYPES: ErrorType[] = [
   "correct",
@@ -21,6 +22,18 @@ const VALID_ERROR_TYPES: ErrorType[] = [
 export async function POST(req: NextRequest) {
   try {
     const submission: AnswerSubmission = await req.json();
+
+    // Count this answered question against the shared daily Freebie pool (chat
+    // messages + subject questions, cap 5). Anonymous callers are not metered;
+    // paid plans are unlimited. 429s with `upgradeRequired` for the modal.
+    const token = req.headers.get("authorization")?.replace("Bearer ", "").trim();
+    if (token) {
+      const userId = await verifyToken(token);
+      if (userId) {
+        const limitResponse = await enforceSharedQuestionLimit(userId);
+        if (limitResponse) return limitResponse;
+      }
+    }
 
     const skill = getSkillById(submission.skill_id);
     if (!skill) {

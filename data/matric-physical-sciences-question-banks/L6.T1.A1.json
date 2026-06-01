@@ -1,7 +1,9 @@
 {
   "skill": "L6.T1.A1",
   "skill_title": "Apply Coulomb's Law to calculate force between point charges",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 11 lifted, 9 fresh. Coulomb's Law definition + force between two point charges; signs; inverse-square law; sharing charge through contact.",
@@ -13,12 +15,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2025 Q7.2",
       "question": "State COULOMB'S LAW in words.",
-      "answerMode": "text",
-      "expectedAnswer": "The electrostatic force between two point charges is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance between them. The force acts along the line joining the two charges.",
+      "answerMode": "choice",
+      "expectedAnswer": "The electrostatic force between two point charges is directly proportional to the product of the charges and inversely proportional to the square of the distance between them.",
       "marks": 3,
       "explanation": "Three marks: 'product of charges' + 'inversely proportional to r²' + 'along line joining charges'. F = kQ₁Q₂/r².",
-      "errorSignals": ["ERR_COULOMB_LAW_STATEMENT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_COULOMB_LAW_STATEMENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "...directly proportional to the product of the charges and inversely proportional to the distance between them.",
+        "...directly proportional to the distance and inversely proportional to the product of the charges.",
+        "The electrostatic force between two point charges is directly proportional to the product of the charges and inversely proportional to the square of the distance between them."
+      ]
     },
     {
       "id": "L6.T1.A1.q02",
@@ -28,11 +37,18 @@
       "source_ref": "P1 Predictive A 2026 Q1.6",
       "question": "Two point charges Q and 2Q are separated by distance r. The electrostatic force between them is F. If the distance is DOUBLED, the new force is:",
       "answerMode": "choice",
-      "options": ["F/4", "F/2", "2F", "4F"],
+      "options": [
+        "F/4",
+        "F/2",
+        "2F",
+        "4F"
+      ],
       "expectedAnswer": "F/4",
       "marks": 2,
       "explanation": "F ∝ 1/r². Doubling r ⇒ 1/r² × ¼ ⇒ F becomes F/4.",
-      "errorSignals": ["ERR_INVERSE_SQUARE_LAW"],
+      "errorSignals": [
+        "ERR_INVERSE_SQUARE_LAW"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -43,11 +59,19 @@
       "source_ref": "P1 May/Jun 2023 Q1.7",
       "question": "Sphere X has charge +2q and sphere Y has charge −6q. They are brought into contact and then separated. The original force between them was F. What is the new force after contact?",
       "answerMode": "choice",
-      "options": ["F", "F/3", "F/2", "F/3 (attractive)"],
+      "options": [
+        "F",
+        "F/3",
+        "F/2",
+        "F/3 (attractive)"
+      ],
       "expectedAnswer": "F/3",
       "marks": 2,
       "explanation": "Originally |F| ∝ |2q × 6q| = 12q². After contact (identical spheres): total charge −4q shared equally ⇒ −2q each. |F'| ∝ |2q × 2q| = 4q². Ratio = 4/12 = 1/3 (magnitude). So new force = F/3 (now repulsive, both negative).",
-      "errorSignals": ["ERR_CHARGE_SHARING", "ERR_COULOMB_MAGNITUDE_ONLY"],
+      "errorSignals": [
+        "ERR_CHARGE_SHARING",
+        "ERR_COULOMB_MAGNITUDE_ONLY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -63,7 +87,10 @@
       "unit": "m",
       "marks": 3,
       "explanation": "F = kQ₁Q₂/r² ⇒ r² = kQ₁Q₂/F = (9×10⁹)(5×10⁻⁹)(6×10⁻⁹)/(1.2×10⁻³) = 2.25×10⁻⁴. r = √(2.25×10⁻⁴) = 0.015 m.",
-      "errorSignals": ["ERR_COULOMB_REARRANGE", "ERR_INVERSE_SQUARE_LAW"],
+      "errorSignals": [
+        "ERR_COULOMB_REARRANGE",
+        "ERR_INVERSE_SQUARE_LAW"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -79,7 +106,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "F = kQ₁Q₂/r² = (9×10⁹)(7.2×10⁻⁹)(7.2×10⁻⁹)/(0.03²) = (9×10⁹)(5.184×10⁻¹⁷)/9×10⁻⁴ = 5.184×10⁻⁷·10⁵/1 = 5.184×10⁻⁴ N ≈ 5.18×10⁻⁴ N. Attractive (opposite signs).",
-      "errorSignals": ["ERR_COULOMB_R_SQUARED", "ERR_COULOMB_ARITHMETIC"],
+      "errorSignals": [
+        "ERR_COULOMB_R_SQUARED",
+        "ERR_COULOMB_ARITHMETIC"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -95,7 +125,10 @@
       "unit": "N",
       "marks": 4,
       "explanation": "F = kQ₁Q₂/r² = (9×10⁹)(4×10⁻⁶)(6×10⁻⁶)/(0.03²) = (9×10⁹)(2.4×10⁻¹¹)/(9×10⁻⁴) = (0.216)/(9×10⁻⁴) = 240 N. Attractive.",
-      "errorSignals": ["ERR_COULOMB_R_SQUARED", "ERR_COULOMB_UNITS"],
+      "errorSignals": [
+        "ERR_COULOMB_R_SQUARED",
+        "ERR_COULOMB_UNITS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -111,7 +144,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "F = kQ₁Q₂/r² = (9×10⁹)(4×10⁻⁶)(6×10⁻⁶)/(0.3²) = (216×10⁻³)/0.09 = 2.4 N. Attractive.",
-      "errorSignals": ["ERR_COULOMB_R_SQUARED", "ERR_COULOMB_UNITS"],
+      "errorSignals": [
+        "ERR_COULOMB_R_SQUARED",
+        "ERR_COULOMB_UNITS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -121,12 +157,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive B 2026 Q7.1",
       "question": "Q₁ = +5 × 10⁻⁶ C and Q₂ = +5 × 10⁻⁶ C are placed 0.4 m apart. Calculate the magnitude of the electrostatic force between them and state whether it is attractive or repulsive. (k = 9 × 10⁹.)",
-      "answerMode": "text",
-      "expectedAnswer": "F = (9×10⁹)(5×10⁻⁶)(5×10⁻⁶)/(0.4²) = (225×10⁻³)/0.16 ≈ 1.406 N. REPULSIVE (both positive).",
+      "answerMode": "choice",
+      "expectedAnswer": "≈ 1.41 N, repulsive (both charges are positive).",
       "marks": 4,
       "explanation": "Same-sign charges repel. F ≈ 1.41 N along the line joining the charges, directed outward from each.",
-      "errorSignals": ["ERR_COULOMB_R_SQUARED", "ERR_COULOMB_DIRECTION_SIGN"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_COULOMB_R_SQUARED",
+        "ERR_COULOMB_DIRECTION_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "≈ 1.41 N, repulsive (both charges are positive).",
+        "≈ 0.56 N, repulsive.",
+        "≈ 1.41 N, attractive."
+      ]
     },
     {
       "id": "L6.T1.A1.q09",
@@ -145,7 +189,9 @@
       "expectedAnswer": "Acceleration increases as r decreases",
       "marks": 2,
       "explanation": "F = kq₁q₂/r². As they approach, r decreases ⇒ F increases ⇒ a = F/m increases. (Both charges accelerate more rapidly the closer they get.)",
-      "errorSignals": ["ERR_INVERSE_SQUARE_LAW"],
+      "errorSignals": [
+        "ERR_INVERSE_SQUARE_LAW"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -155,12 +201,15 @@
       "source": "fresh",
       "question": "Two charges 5 nC and −2 nC are 0.10 m apart. Calculate the magnitude of the electrostatic force between them. (k = 9 × 10⁹ N·m²·C⁻².)",
       "answerMode": "numeric",
-      "expectedAnswer": 0.0000090,
-      "tolerance": 0.0000003,
+      "expectedAnswer": 0.000009,
+      "tolerance": 3e-7,
       "unit": "N",
       "marks": 3,
       "explanation": "F = (9×10⁹)(5×10⁻⁹)(2×10⁻⁹)/(0.10²) = (9×10⁻⁸)/(10⁻²) = 9 × 10⁻⁶ N. Attractive (opposite signs).",
-      "errorSignals": ["ERR_COULOMB_UNITS", "ERR_COULOMB_R_SQUARED"],
+      "errorSignals": [
+        "ERR_COULOMB_UNITS",
+        "ERR_COULOMB_R_SQUARED"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -175,7 +224,9 @@
       "unit": "N",
       "marks": 3,
       "explanation": "Touching identical spheres shares total charge equally — each still ends up with +6 μC (because they already had equal charges). So the force is unchanged: 4 N.",
-      "errorSignals": ["ERR_CHARGE_SHARING"],
+      "errorSignals": [
+        "ERR_CHARGE_SHARING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -185,11 +236,19 @@
       "source": "fresh",
       "question": "Two metal spheres carry charges of +8 μC and +2 μC and the force between them is F. They are briefly touched together and returned to their positions. What is the new force in terms of F?",
       "answerMode": "choice",
-      "options": ["F", "F/4", "25F/16", "16F/25"],
+      "options": [
+        "F",
+        "F/4",
+        "25F/16",
+        "16F/25"
+      ],
       "expectedAnswer": "25F/16",
       "marks": 3,
       "explanation": "Original: F ∝ 8 × 2 = 16. After contact: each sphere has (8+2)/2 = +5 μC. New ∝ 5 × 5 = 25. Ratio = 25/16. F' = (25/16)F.",
-      "errorSignals": ["ERR_CHARGE_SHARING", "ERR_COULOMB_RATIO"],
+      "errorSignals": [
+        "ERR_CHARGE_SHARING",
+        "ERR_COULOMB_RATIO"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -198,12 +257,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'Coulomb's force can have a negative magnitude.' Is this correct? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "No. Force MAGNITUDE is always positive. The negative sign in F = kQ₁Q₂/r² when one charge is negative just tells us the force is ATTRACTIVE (not 'pointing in the negative direction'). When reporting magnitudes, take the absolute value of the charges in the formula.",
+      "answerMode": "choice",
+      "expectedAnswer": "No — force magnitude is always positive; a negative sign only indicates an attractive force.",
       "marks": 2,
       "explanation": "The sign of Coulomb's force tells you attraction (negative product) or repulsion (positive product), not direction. Magnitude is a positive scalar.",
-      "errorSignals": ["ERR_COULOMB_MAGNITUDE_ONLY", "ERR_COULOMB_DIRECTION_SIGN"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_COULOMB_MAGNITUDE_ONLY",
+        "ERR_COULOMB_DIRECTION_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — when a charge is negative the force has a negative magnitude.",
+        "No — force magnitude is always positive; a negative sign only indicates an attractive force.",
+        "Yes — the magnitude is negative and points in the negative direction."
+      ]
     },
     {
       "id": "L6.T1.A1.q14",
@@ -217,7 +284,10 @@
       "unit": "electrons",
       "marks": 3,
       "explanation": "n = Q/e = 1.6 × 10⁻⁹ / 1.6 × 10⁻¹⁹ = 10¹⁰ = 1.0 × 10¹⁰ electrons removed.",
-      "errorSignals": ["ERR_CHARGE_QUANTIZED", "ERR_CHARGE_UNITS"],
+      "errorSignals": [
+        "ERR_CHARGE_QUANTIZED",
+        "ERR_CHARGE_UNITS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -232,7 +302,9 @@
       "unit": "N",
       "marks": 2,
       "explanation": "F ∝ 1/r². Halving r ⇒ F × 4. New F = 40 N.",
-      "errorSignals": ["ERR_INVERSE_SQUARE_LAW"],
+      "errorSignals": [
+        "ERR_INVERSE_SQUARE_LAW"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -247,7 +319,9 @@
       "unit": "N",
       "marks": 2,
       "explanation": "F ∝ Q₁ × Q₂. Tripling one charge triples F. New F = 72 N.",
-      "errorSignals": ["ERR_COULOMB_LAW_STATEMENT"],
+      "errorSignals": [
+        "ERR_COULOMB_LAW_STATEMENT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -257,12 +331,15 @@
       "source": "fresh",
       "question": "An electron and a proton are separated by 1.0 × 10⁻¹⁰ m. Calculate the magnitude of the electrostatic force between them. (k = 9 × 10⁹, e = 1.6 × 10⁻¹⁹ C.)",
       "answerMode": "numeric",
-      "expectedAnswer": 0.000000023,
-      "tolerance": 0.000000003,
+      "expectedAnswer": 2.3e-8,
+      "tolerance": 3e-9,
       "unit": "N",
       "marks": 4,
       "explanation": "F = (9×10⁹)(1.6×10⁻¹⁹)²/(10⁻¹⁰)² = (9×10⁹)(2.56×10⁻³⁸)/(10⁻²⁰) = 23.04 × 10⁻⁹ ≈ 2.3 × 10⁻⁸ N. Attractive.",
-      "errorSignals": ["ERR_COULOMB_UNITS", "ERR_COULOMB_R_SQUARED"],
+      "errorSignals": [
+        "ERR_COULOMB_UNITS",
+        "ERR_COULOMB_R_SQUARED"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -272,11 +349,18 @@
       "source": "fresh",
       "question": "What is the SI unit of charge?",
       "answerMode": "choice",
-      "options": ["Newton (N)", "Volt (V)", "Coulomb (C)", "Ampere (A)"],
+      "options": [
+        "Newton (N)",
+        "Volt (V)",
+        "Coulomb (C)",
+        "Ampere (A)"
+      ],
       "expectedAnswer": "Coulomb (C)",
       "marks": 1,
       "explanation": "1 C = charge transported by 1 A for 1 s.",
-      "errorSignals": ["ERR_CHARGE_UNITS"],
+      "errorSignals": [
+        "ERR_CHARGE_UNITS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -291,7 +375,9 @@
       "unit": "N",
       "marks": 3,
       "explanation": "F ∝ Q₁Q₂/r². Halve each Q ⇒ multiply by ¼. Halve r ⇒ multiply by 4. Net change: ¼ × 4 = 1. Force unchanged at 100 N.",
-      "errorSignals": ["ERR_COULOMB_RATIO"],
+      "errorSignals": [
+        "ERR_COULOMB_RATIO"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -300,12 +386,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Which TWO requirements does Coulomb's Law strictly assume about the charged objects?",
-      "answerMode": "text",
-      "expectedAnswer": "(1) The charges must be POINT CHARGES (or behave as such — small spheres at large separations approximate this). (2) The charges must be at REST relative to each other (or moving slowly enough that magnetic effects are negligible). Also: the medium is usually assumed to be vacuum/air.",
+      "answerMode": "choice",
+      "expectedAnswer": "The charges are point charges and are at rest (stationary).",
       "marks": 2,
       "explanation": "Point charges + at rest + uniform medium. For spheres, the centre-to-centre distance is used.",
-      "errorSignals": ["ERR_COULOMB_ASSUMPTIONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_COULOMB_ASSUMPTIONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The charges are equal in magnitude and opposite in sign.",
+        "The charges are moving and made of metal.",
+        "The charges are point charges and are at rest (stationary)."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

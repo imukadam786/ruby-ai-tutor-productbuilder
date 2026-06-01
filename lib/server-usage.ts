@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 
 export type UsageType = "chat" | "hint" | "tts";
@@ -111,4 +112,30 @@ export async function getUsage(
       tts:  { used: counts.tts,  limit: getLimit(userPlan, "tts")  },
     },
   };
+}
+
+/**
+ * Enforce the shared daily "active learning" pool for a subject question.
+ *
+ * On the Freebie plan, chat/homework messages AND subject questions answered
+ * all draw from the SAME counter (the `chat` type, cap 5) — so a learner gets
+ * 5 of either, in any mix, per day. Paid plans resolve to Infinity, so this is
+ * a no-op for them.
+ *
+ * Call this in a subject submit-answer route right after the learner is
+ * authenticated. It counts the answered question and returns a ready-to-send
+ * 429 (carrying `upgradeRequired` so the client knows to show the upgrade
+ * modal) when the cap is hit, or null when the answer may proceed.
+ */
+export async function enforceSharedQuestionLimit(
+  userId: string,
+): Promise<NextResponse | null> {
+  const result = await checkAndIncrement(userId, "chat");
+  if (!result.allowed) {
+    return NextResponse.json(
+      { error: "limit_reached", upgradeRequired: true, limit: result.limit },
+      { status: 429 },
+    );
+  }
+  return null;
 }

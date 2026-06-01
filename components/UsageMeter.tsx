@@ -17,7 +17,9 @@ interface UsageMeterProps {
 }
 
 const ROW_LABELS: Record<UsageType, string> = {
-  chat: "Chat",
+  // The `chat` counter is the shared daily pool: chat/homework messages AND
+  // subject questions answered both draw from it, so it's labelled for both.
+  chat: "Questions & chat",
   hint: "Hints",
   tts: "Audio",
 };

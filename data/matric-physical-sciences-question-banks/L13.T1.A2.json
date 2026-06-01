@@ -1,7 +1,9 @@
 {
   "skill": "L13.T1.A2",
   "skill_title": "Apply Le Chatelier's Principle and explain industrial processes",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 8 lifted, 12 fresh. Le Chatelier's principle (concentration, pressure, temperature, catalyst); industrial Haber, Contact, Ostwald processes.",
@@ -13,12 +15,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q6.1",
       "question": "State LE CHATELIER'S PRINCIPLE.",
-      "answerMode": "text",
-      "expectedAnswer": "When the equilibrium of a system is disturbed by a change in conditions (concentration, pressure, temperature), the system will shift to oppose the change and re-establish equilibrium.",
+      "answerMode": "choice",
+      "expectedAnswer": "When an equilibrium is disturbed, the system shifts to oppose the change and re-establish equilibrium.",
       "marks": 2,
       "explanation": "Two marks: 'system shifts' + 'to oppose the change'. Standard CAPS wording.",
-      "errorSignals": ["ERR_LECHATELIER_STATEMENT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LECHATELIER_STATEMENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A system at equilibrium always shifts to make more product.",
+        "Disturbing an equilibrium stops the reaction entirely.",
+        "When an equilibrium is disturbed, the system shifts to oppose the change and re-establish equilibrium."
+      ]
     },
     {
       "id": "L13.T1.A2.q02",
@@ -27,12 +36,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2021 Q1.4",
       "question": "The equilibrium 2CrO₄²⁻ (yellow) + 2H⁺ ⇌ Cr₂O₇²⁻ (orange) + H₂O is observed. Adding ACID to the solution causes the colour to change from yellow to orange. Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Adding acid increases [H⁺]. By Le Chatelier, the equilibrium shifts to oppose the increase, i.e. shifts to the RIGHT (forward direction) to use up H⁺. This produces more Cr₂O₇²⁻ (orange), so the solution turns orange.",
+      "answerMode": "choice",
+      "expectedAnswer": "Adding H⁺ shifts the equilibrium right (to use up H⁺), forming more orange Cr₂O₇²⁻.",
       "marks": 3,
       "explanation": "Add reactant ⇒ equilibrium shifts AWAY (toward products) to consume it.",
-      "errorSignals": ["ERR_LECHATELIER_CONCENTRATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LECHATELIER_CONCENTRATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Adding H⁺ shifts the equilibrium right (to use up H⁺), forming more orange Cr₂O₇²⁻.",
+        "Adding acid shifts it left, making more yellow CrO₄²⁻.",
+        "Adding acid has no effect on this equilibrium."
+      ]
     },
     {
       "id": "L13.T1.A2.q03",
@@ -51,7 +67,9 @@
       "expectedAnswer": "[H⁺] decreases; equilibrium shifts left (more yellow)",
       "marks": 2,
       "explanation": "NaOH provides OH⁻ which neutralises H⁺. So [H⁺] decreases. Equilibrium shifts LEFT to produce more H⁺, producing more CrO₄²⁻ (yellow).",
-      "errorSignals": ["ERR_LECHATELIER_CONCENTRATION"],
+      "errorSignals": [
+        "ERR_LECHATELIER_CONCENTRATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -60,12 +78,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "How does INCREASING the temperature affect an EXOTHERMIC equilibrium reaction?",
-      "answerMode": "text",
-      "expectedAnswer": "Increasing temperature shifts equilibrium in the ENDOTHERMIC direction (the reverse direction for an exothermic forward reaction). The system absorbs the added heat by favouring the reverse reaction. So [products] decrease and Kc DECREASES.",
+      "answerMode": "choice",
+      "expectedAnswer": "It shifts in the endothermic (reverse) direction, absorbing the added heat.",
       "marks": 3,
       "explanation": "Heat acts like a 'reactant' for exothermic. Add heat ⇒ system absorbs it ⇒ favours endothermic direction.",
-      "errorSignals": ["ERR_LECHATELIER_TEMPERATURE", "ERR_KC_TEMPERATURE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LECHATELIER_TEMPERATURE",
+        "ERR_KC_TEMPERATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It shifts forward — heat speeds up product formation.",
+        "It shifts in the endothermic (reverse) direction, absorbing the added heat.",
+        "There is no shift — temperature doesn't move equilibrium."
+      ]
     },
     {
       "id": "L13.T1.A2.q05",
@@ -74,12 +100,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q6.1.3",
       "question": "For the exothermic reaction H₂ + I₂ ⇌ 2HI (ΔH < 0). On a concentration-time graph, [HI] suddenly DECREASES at t₂. Was the system HEATED or COOLED?",
-      "answerMode": "text",
-      "expectedAnswer": "HEATED. For an exothermic forward reaction, increasing temperature favours the REVERSE (endothermic) direction. Reverse direction consumes HI ⇒ [HI] decreases. So the system was heated.",
+      "answerMode": "choice",
+      "expectedAnswer": "Heated — for an exothermic forward reaction, higher T favours the reverse, consuming HI.",
       "marks": 1,
       "explanation": "Exothermic forward ⇒ endothermic reverse. Heat ⇒ reverse favoured ⇒ HI consumed.",
-      "errorSignals": ["ERR_LECHATELIER_TEMPERATURE", "ERR_EXOTHERMIC_DIRECTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LECHATELIER_TEMPERATURE",
+        "ERR_EXOTHERMIC_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Cooled — lower temperature favours the reverse reaction.",
+        "Neither — the [HI] change is unrelated to temperature.",
+        "Heated — for an exothermic forward reaction, higher T favours the reverse, consuming HI."
+      ]
     },
     {
       "id": "L13.T1.A2.q06",
@@ -88,12 +122,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q6.3.1",
       "question": "For 2HI(g) ⇌ H₂(g) + I₂(g): Kc at 721 K = 0.02 and at 850 K = 0.09. Is the forward reaction EXOTHERMIC or ENDOTHERMIC?",
-      "answerMode": "text",
-      "expectedAnswer": "ENDOTHERMIC. Kc increases with increasing T. By Le Chatelier, increasing T favours the endothermic direction; if Kc increases (more products), the FORWARD direction must be endothermic.",
+      "answerMode": "choice",
+      "expectedAnswer": "Endothermic — Kc rises with temperature, so higher T favours the forward (endothermic) direction.",
       "marks": 1,
       "explanation": "T ↑, Kc ↑ ⇒ forward is endothermic. T ↑, Kc ↓ ⇒ forward is exothermic.",
-      "errorSignals": ["ERR_LECHATELIER_TEMPERATURE", "ERR_KC_TEMPERATURE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LECHATELIER_TEMPERATURE",
+        "ERR_KC_TEMPERATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Endothermic — Kc rises with temperature, so higher T favours the forward (endothermic) direction.",
+        "Exothermic — a rising Kc means more heat is released.",
+        "Neither — Kc does not depend on temperature."
+      ]
     },
     {
       "id": "L13.T1.A2.q07",
@@ -112,7 +154,10 @@
       "expectedAnswer": "Decrease temperature",
       "marks": 2,
       "explanation": "Kc changes ONLY with temperature. For exothermic forward, decreasing T shifts equilibrium toward more products, so Kc increases. Pressure and catalyst do not change Kc.",
-      "errorSignals": ["ERR_KC_TEMPERATURE", "ERR_KC_ONLY_TEMPERATURE"],
+      "errorSignals": [
+        "ERR_KC_TEMPERATURE",
+        "ERR_KC_ONLY_TEMPERATURE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -121,12 +166,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "How does INCREASING the PRESSURE affect the equilibrium N₂(g) + 3H₂(g) ⇌ 2NH₃(g)?",
-      "answerMode": "text",
-      "expectedAnswer": "Increasing pressure shifts equilibrium toward the side with FEWER moles of gas. Reactants: 1 + 3 = 4 mol of gas. Products: 2 mol of gas. So equilibrium shifts to the RIGHT (products, NH₃), reducing the total moles of gas to oppose the pressure increase.",
+      "answerMode": "choice",
+      "expectedAnswer": "It shifts right (to the products) — the side with fewer moles of gas (2 vs 4).",
       "marks": 3,
       "explanation": "More pressure ⇒ shift to fewer gas moles. Haber reaction: 4 mol → 2 mol ⇒ pressure favours products.",
-      "errorSignals": ["ERR_LECHATELIER_PRESSURE", "ERR_GAS_MOLES_COUNT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LECHATELIER_PRESSURE",
+        "ERR_GAS_MOLES_COUNT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It shifts left, toward the 4 moles of reactant gas.",
+        "It shifts right (to the products) — the side with fewer moles of gas (2 vs 4).",
+        "No shift — pressure doesn't affect gaseous equilibria."
+      ]
     },
     {
       "id": "L13.T1.A2.q09",
@@ -134,12 +187,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Does adding a CATALYST shift the position of an equilibrium?",
-      "answerMode": "text",
-      "expectedAnswer": "NO. A catalyst speeds up BOTH the forward and reverse reactions equally. The system reaches equilibrium FASTER, but at the SAME position (same Kc, same equilibrium concentrations). The catalyst does not change the equilibrium position.",
+      "answerMode": "choice",
+      "expectedAnswer": "No — a catalyst speeds both directions equally; equilibrium is reached faster at the same position.",
       "marks": 2,
       "explanation": "Catalyst: kinetic effect (rate ↑) but no thermodynamic effect (position unchanged). Kc unchanged.",
-      "errorSignals": ["ERR_CATALYST_SHIFT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CATALYST_SHIFT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — a catalyst shifts the equilibrium toward the products.",
+        "Yes — a catalyst increases the value of Kc.",
+        "No — a catalyst speeds both directions equally; equilibrium is reached faster at the same position."
+      ]
     },
     {
       "id": "L13.T1.A2.q10",
@@ -147,12 +207,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Describe the conditions used in the HABER process for producing ammonia (N₂ + 3H₂ ⇌ 2NH₃, exothermic).",
-      "answerMode": "text",
-      "expectedAnswer": "Haber process conditions: temperature ~400–500°C (a COMPROMISE — lower T gives higher equilibrium yield but slower rate; ~450°C is fast enough), pressure ~150–200 atm (HIGH — favours fewer-mole side, i.e. NH₃), iron (Fe) catalyst (with promoters) to speed equilibrium. NH₃ is removed to drive forward reaction.",
+      "answerMode": "choice",
+      "expectedAnswer": "Moderate temperature (~450 °C), high pressure (~200 atm), an iron catalyst.",
       "marks": 4,
       "explanation": "Standard CAPS Haber conditions: high P, moderate T, Fe catalyst. T is a kinetics/yield compromise.",
-      "errorSignals": ["ERR_HABER_CONDITIONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HABER_CONDITIONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Moderate temperature (~450 °C), high pressure (~200 atm), an iron catalyst.",
+        "Very low temperature (~25 °C) and low pressure (1 atm).",
+        "Very high temperature (~1000 °C) and a platinum catalyst."
+      ]
     },
     {
       "id": "L13.T1.A2.q11",
@@ -160,12 +227,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Describe the CONTACT process (sulfuric acid manufacture) in outline.",
-      "answerMode": "text",
-      "expectedAnswer": "Three main steps: (1) S + O₂ → SO₂; (2) 2SO₂ + O₂ ⇌ 2SO₃ (this is the key equilibrium step, exothermic, catalysed by V₂O₅ at ~450°C); (3) SO₃ + H₂O → H₂SO₄ (in practice via oleum). The Contact process makes sulfuric acid.",
+      "answerMode": "choice",
+      "expectedAnswer": "S → SO₂; then 2SO₂ + O₂ ⇌ 2SO₃ (V₂O₅ catalyst, ~450 °C); then SO₃ → H₂SO₄.",
       "marks": 3,
       "explanation": "Contact: S → SO₂ → SO₃ → H₂SO₄. V₂O₅ catalyst. Exothermic at the equilibrium step.",
-      "errorSignals": ["ERR_CONTACT_PROCESS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONTACT_PROCESS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "N₂ + 3H₂ ⇌ 2NH₃ over an iron catalyst.",
+        "S → SO₂; then 2SO₂ + O₂ ⇌ 2SO₃ (V₂O₅ catalyst, ~450 °C); then SO₃ → H₂SO₄.",
+        "Electrolysis of water to make sulfuric acid."
+      ]
     },
     {
       "id": "L13.T1.A2.q12",
@@ -174,11 +248,18 @@
       "source": "fresh",
       "question": "What is the principal product of the OSTWALD process?",
       "answerMode": "choice",
-      "options": ["Ammonia", "Sulfuric acid", "Nitric acid", "Hydrochloric acid"],
+      "options": [
+        "Ammonia",
+        "Sulfuric acid",
+        "Nitric acid",
+        "Hydrochloric acid"
+      ],
       "expectedAnswer": "Nitric acid",
       "marks": 2,
       "explanation": "Ostwald: NH₃ → NO → NO₂ → HNO₃ (nitric acid). Haber makes ammonia; Contact makes sulfuric acid; Ostwald makes nitric acid.",
-      "errorSignals": ["ERR_INDUSTRIAL_PROCESS_PRODUCT"],
+      "errorSignals": [
+        "ERR_INDUSTRIAL_PROCESS_PRODUCT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -187,12 +268,21 @@
       "gate": "A",
       "source": "fresh",
       "question": "For the equilibrium CO(g) + 2H₂(g) ⇌ CH₃OH(g) (exothermic), predict the effect on the EQUILIBRIUM POSITION of: (a) adding more CO; (b) increasing pressure; (c) increasing temperature.",
-      "answerMode": "text",
-      "expectedAnswer": "(a) Adding CO shifts equilibrium to the RIGHT (system uses up CO to oppose the addition); more CH₃OH forms. (b) Increasing pressure shifts to fewer gas moles: products (1 mol) < reactants (3 mol), so equilibrium shifts RIGHT; more CH₃OH. (c) Increasing temperature favours the endothermic (reverse) direction (forward is exothermic), so equilibrium shifts LEFT; less CH₃OH.",
+      "answerMode": "choice",
+      "expectedAnswer": "(a) adding CO → shifts right; (b) higher pressure → shifts right (fewer gas moles); (c) higher temperature → shifts left.",
       "marks": 4,
       "explanation": "Three Le Chatelier applications in one. Concentration, pressure (gas moles), temperature (exothermic).",
-      "errorSignals": ["ERR_LECHATELIER_CONCENTRATION", "ERR_LECHATELIER_PRESSURE", "ERR_LECHATELIER_TEMPERATURE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LECHATELIER_CONCENTRATION",
+        "ERR_LECHATELIER_PRESSURE",
+        "ERR_LECHATELIER_TEMPERATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "(a) right; (b) left; (c) right.",
+        "(a) left; (b) right; (c) right.",
+        "(a) adding CO → shifts right; (b) higher pressure → shifts right (fewer gas moles); (c) higher temperature → shifts left."
+      ]
     },
     {
       "id": "L13.T1.A2.q14",
@@ -200,12 +290,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is a MODERATE TEMPERATURE chosen for the Haber process even though the forward reaction is exothermic and lower temperatures favour higher equilibrium yields?",
-      "answerMode": "text",
-      "expectedAnswer": "Lower temperature gives higher equilibrium YIELD (favours exothermic forward direction) but lower RATE (kinetics slows). Higher temperature gives faster rate but lower yield. The choice of ~450°C is a COMPROMISE: high enough that the reaction proceeds at a useful industrial rate, low enough to keep yield reasonable. The catalyst (Fe) helps reach equilibrium faster at this moderate temperature.",
+      "answerMode": "choice",
+      "expectedAnswer": "It's a compromise — lower T gives higher yield but a slower rate; ~450 °C balances yield and speed.",
       "marks": 3,
       "explanation": "Trade-off: yield vs rate. Catalyst helps with rate; moderate T balances both.",
-      "errorSignals": ["ERR_KINETICS_VS_EQUILIBRIUM", "ERR_HABER_CONDITIONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KINETICS_VS_EQUILIBRIUM",
+        "ERR_HABER_CONDITIONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It's a compromise — lower T gives higher yield but a slower rate; ~450 °C balances yield and speed.",
+        "Because a higher temperature gives both higher yield and faster rate.",
+        "Because temperature has no effect on an exothermic reaction."
+      ]
     },
     {
       "id": "L13.T1.A2.q15",
@@ -213,12 +311,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "If an INERT GAS (e.g. He) is added at constant volume to the equilibrium N₂ + 3H₂ ⇌ 2NH₃, what happens to the equilibrium?",
-      "answerMode": "text",
-      "expectedAnswer": "NO SHIFT. Adding an inert gas at CONSTANT VOLUME does not change the partial pressures (or concentrations) of N₂, H₂ or NH₃. The total pressure rises but the partial pressures (which appear in Kc) are unchanged. So Le Chatelier predicts no shift.",
+      "answerMode": "choice",
+      "expectedAnswer": "No shift — at constant volume the partial pressures of the reacting gases are unchanged.",
       "marks": 3,
       "explanation": "Inert gas at constant V: total P up, partial P unchanged ⇒ no shift. At constant P (where V expands to keep P fixed), partial pressures decrease ⇒ shift to more moles of gas. CAPS-level usually expects no-shift answer.",
-      "errorSignals": ["ERR_INERT_GAS", "ERR_LECHATELIER_PRESSURE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_INERT_GAS",
+        "ERR_LECHATELIER_PRESSURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It shifts right, toward fewer gas moles.",
+        "No shift — at constant volume the partial pressures of the reacting gases are unchanged.",
+        "It shifts left because the total pressure rises."
+      ]
     },
     {
       "id": "L13.T1.A2.q16",
@@ -226,12 +332,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "For 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) (Contact process, exothermic): how does INCREASING PRESSURE affect the yield?",
-      "answerMode": "text",
-      "expectedAnswer": "Increasing pressure shifts equilibrium toward the side with FEWER moles of gas. Reactants: 2 + 1 = 3 mol. Products: 2 mol. So equilibrium shifts toward products ⇒ higher SO₃ yield. (However, in practice the Contact process uses moderate pressure because high pressure is expensive and the catalyst provides sufficient rate.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Higher yield — the equilibrium shifts to the products (fewer gas moles: 2 vs 3).",
       "marks": 3,
       "explanation": "Higher P ⇒ shift to fewer mol of gas. SO₃ side has fewer moles ⇒ yield ↑.",
-      "errorSignals": ["ERR_LECHATELIER_PRESSURE", "ERR_GAS_MOLES_COUNT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LECHATELIER_PRESSURE",
+        "ERR_GAS_MOLES_COUNT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Lower yield — the equilibrium shifts toward the reactants.",
+        "No effect — pressure doesn't change the yield.",
+        "Higher yield — the equilibrium shifts to the products (fewer gas moles: 2 vs 3)."
+      ]
     },
     {
       "id": "L13.T1.A2.q17",
@@ -239,12 +353,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'In the Haber process, using a higher temperature increases the rate AND the yield.' Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "Partially correct. Higher T DOES increase the rate (kinetics: more particles have sufficient energy). But the Haber reaction is EXOTHERMIC, so higher T DECREASES the equilibrium yield (Le Chatelier: favours endothermic reverse). The learner has the kinetics right but the equilibrium wrong.",
+      "answerMode": "choice",
+      "expectedAnswer": "Partially — higher T raises the rate, but (being exothermic) it lowers the equilibrium yield.",
       "marks": 3,
       "explanation": "Kinetics vs equilibrium trade-off. Rate ↑, yield ↓ for exothermic at higher T.",
-      "errorSignals": ["ERR_KINETICS_VS_EQUILIBRIUM"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KINETICS_VS_EQUILIBRIUM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Partially — higher T raises the rate, but (being exothermic) it lowers the equilibrium yield.",
+        "Correct — higher temperature improves both rate and yield.",
+        "Incorrect — higher temperature reduces both rate and yield."
+      ]
     },
     {
       "id": "L13.T1.A2.q18",
@@ -263,7 +384,9 @@
       "expectedAnswer": "Add water (dilute the solution)",
       "marks": 2,
       "explanation": "Adding water (the product of the forward) shifts equilibrium back to reactants. Equivalently, decreasing [Cl⁻] (by dilution) drives equilibrium left ⇒ more pink Co(H₂O)₆²⁺.",
-      "errorSignals": ["ERR_LECHATELIER_CONCENTRATION"],
+      "errorSignals": [
+        "ERR_LECHATELIER_CONCENTRATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -272,12 +395,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "If you DECREASE the volume of a sealed container containing the equilibrium 2NO₂(g) ⇌ N₂O₄(g), which way does the equilibrium shift and why?",
-      "answerMode": "text",
-      "expectedAnswer": "Decreasing volume increases total pressure. By Le Chatelier, the equilibrium shifts to the side with FEWER moles of gas. Reactants: 2 mol NO₂; products: 1 mol N₂O₄. So equilibrium shifts to the RIGHT (toward N₂O₄). The dark brown NO₂ would diminish and the colourless N₂O₄ would increase.",
+      "answerMode": "choice",
+      "expectedAnswer": "It shifts right toward N₂O₄ — the side with fewer moles of gas (1 vs 2).",
       "marks": 3,
       "explanation": "Compress ⇒ pressure up ⇒ shift to fewer-mole side. NO₂ → N₂O₄ goes from 2 mol to 1 mol of gas.",
-      "errorSignals": ["ERR_LECHATELIER_PRESSURE", "ERR_VOLUME_VS_PRESSURE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LECHATELIER_PRESSURE",
+        "ERR_VOLUME_VS_PRESSURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It shifts left, toward the 2 moles of NO₂.",
+        "It shifts right toward N₂O₄ — the side with fewer moles of gas (1 vs 2).",
+        "No shift — volume changes don't affect equilibrium."
+      ]
     },
     {
       "id": "L13.T1.A2.q20",
@@ -285,12 +416,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is a CATALYST important in industrial equilibrium processes even though it doesn't shift the equilibrium?",
-      "answerMode": "text",
-      "expectedAnswer": "A catalyst speeds the rate at which equilibrium is reached. Industrially, this means the desired equilibrium concentration is achieved in a much shorter time, making the process economically viable. Without the catalyst, low temperatures favourable for yield (in exothermic reactions) would give impractically slow rates.",
+      "answerMode": "choice",
+      "expectedAnswer": "It lets the system reach equilibrium faster, which is more economical industrially.",
       "marks": 3,
       "explanation": "Catalyst: time-to-equilibrium ↓. Without it, the trade-off between yield and rate forces unfavourable conditions.",
-      "errorSignals": ["ERR_CATALYST_SHIFT", "ERR_CATALYST_INDUSTRY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CATALYST_SHIFT",
+        "ERR_CATALYST_INDUSTRY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It increases the equilibrium yield.",
+        "It raises the value of Kc at the operating temperature.",
+        "It lets the system reach equilibrium faster, which is more economical industrially."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

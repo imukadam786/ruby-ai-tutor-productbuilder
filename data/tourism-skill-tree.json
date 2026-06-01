@@ -1,0 +1,2355 @@
+{
+  "version": "2.0",
+  "subject": "tourism",
+  "description": "Tourism skill tree, FET Grades 10-12 (CAPS FET Tourism Grades 10-12). All three grades authored. Tiers = CAPS terms within a grade (T1-T4). Mastery = 60% of a 20-item pool (FET rule, no timer). ALL questions available — no prerequisites between skills. Items live in data/tourism-question-bank.json.",
+  "grades_covered": [
+    10,
+    11,
+    12
+  ],
+  "levels": [
+    {
+      "id": 10,
+      "grade": 10,
+      "title": "Grade 10 — Tourism",
+      "description": "Foundations across eight of the nine CAPS topics (Foreign exchange begins in Grade 11). T1: tourism sectors — tourists, transport, accommodation, food & beverage, attractions, the industry structure, and payment. T2: map work & domestic tourism. T3: South African attractions, sustainable & responsible tourism, and marketing. T4: culture & heritage, communication & customer care. 28 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "Term 1 — Tourism sectors & payment",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G10.T1.INTRO.A1",
+              "bank_skill_id": "TOUR.G10.T1.INTRO.A1",
+              "title": "Introduction to tourism",
+              "description": "What tourism is; the difference between inbound and outbound tourism; the concepts domestic, regional and international tourism; what a tourist is; why people travel; and tourists' needs, preferences and expectations.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses inbound/outbound with domestic/international",
+                  "example": "Calls a South African holidaying in Cape Town an inbound tourist"
+                }
+              ],
+              "recovery_strategy": "Anchor on the traveller's home country and direction of travel: inbound = into SA from abroad; outbound = SA residents going abroad; domestic = travel inside one's own country.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T1.TYPES.A1",
+              "bank_skill_id": "TOUR.G10.T1.TYPES.A1",
+              "title": "Types of tourists & tourist profiles",
+              "description": "Recognising types of tourists (VFR, leisure, adventure, business, shopping, health, eco, cultural, religious, sport & recreation, education, special interest, incentive, backpacker/youth, gap year) and drawing up a tourist profile linking needs and preferences.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Matches the wrong tourist type to a motivation",
+                  "example": "Labels a person attending a trade fair an 'eco' tourist"
+                }
+              ],
+              "recovery_strategy": "Identify the main PURPOSE of the trip first — that purpose names the tourist type (visiting family = VFR; nature with low impact = eco; reward trip paid by employer = incentive).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T1.TRANSPORT.A1",
+              "bank_skill_id": "TOUR.G10.T1.TRANSPORT.A1",
+              "title": "Modes of transport",
+              "description": "Road, air, rail, water and extraordinary modes with examples; comparing them on comfort, cost, safety, carrying capacity, speed and reliability; advantages and disadvantages of each.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Misplaces a mode in the wrong category",
+                  "example": "Lists a tram under water transport"
+                }
+              ],
+              "recovery_strategy": "Sort by the surface the vehicle moves on: road (car/bus/taxi), rail (train/tram), air (plane/helicopter), water (cruise/yacht), extraordinary (camel/balloon).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T1.ACCOM.A1",
+              "bank_skill_id": "TOUR.G10.T1.ACCOM.A1",
+              "title": "Accommodation establishments — types, facilities & services",
+              "description": "Formal-service, guest, self-catering, caravan/camping and backpacker accommodation; the difference between a facility (what the tourist can use) and a service (what the establishment does for the tourist).",
+              "caps_term": "G10 T1",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a facility with a service",
+                  "example": "Calls a 24-hour laundry a facility"
+                }
+              ],
+              "recovery_strategy": "A facility is a THING the guest uses (pool, gym, gift shop). A service is an ACTION staff perform (laundry, guided walk, shuttle).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T1.GRADING.A1",
+              "bank_skill_id": "TOUR.G10.T1.GRADING.A1",
+              "title": "The South African grading system",
+              "description": "The star grading system; the role of the Tourism Grading Council of South Africa (TGCSA); the benefits of grading for tourists and establishments; the procedure to be graded; logos displayed on grading.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Thinks grading is compulsory or set by the establishment itself",
+                  "example": "Says a hotel awards its own stars"
+                }
+              ],
+              "recovery_strategy": "Grading in SA is VOLUNTARY and awarded by an independent body (TGCSA), not by the establishment. More stars = higher quality of facilities and service.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T1.ACCOMTERMS.A1",
+              "bank_skill_id": "TOUR.G10.T1.ACCOMTERMS.A1",
+              "title": "Accommodation terminology & in-room technology",
+              "description": "Concepts and abbreviations used in accommodation (twin/double/family room, suite, en suite, per person sharing, fully inclusive, B&B, a la carte, pp/pps/pppn/pppd) and in-room technology for entertainment, information, safety, comfort, work and environmental responsibility.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Misreads an abbreviation",
+                  "example": "Reads pps as 'per person sharing per night'"
+                }
+              ],
+              "recovery_strategy": "Break the abbreviation into parts: pp = per person, pps = per person sharing, pppn = per person per night, pppd = per person per day.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T1.FANDB.A1",
+              "bank_skill_id": "TOUR.G10.T1.FANDB.A1",
+              "title": "Food & beverage establishments",
+              "description": "Types of food and beverage establishments: full-service restaurants (fine-dining and family), coffee shops, fast-food/quick-service, pubs/bars, dessert/ice-cream stores, taverns/shebeens, street stalls and markets.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses service style across establishment types",
+                  "example": "Describes a fast-food outlet as fine dining"
+                }
+              ],
+              "recovery_strategy": "Match the establishment to its service style and speed: fine-dining = full table service; quick-service = fast, counter-based; coffee shop = light meals and drinks.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T1.ATTRSECTOR.A1",
+              "bank_skill_id": "TOUR.G10.T1.ATTRSECTOR.A1",
+              "title": "The attraction sector",
+              "description": "Attraction subsectors (gaming, leisure, conservation, sport & recreation, events & conferences); man-made vs natural attractions; primary vs secondary attractions; activities offered; linking an attraction to the tourist type it appeals to.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses primary and secondary attractions",
+                  "example": "Calls a museum visited on the side the primary reason for the trip"
+                }
+              ],
+              "recovery_strategy": "The PRIMARY attraction is the main reason for the trip; SECONDARY attractions are extras visited while there. Man-made is built by people; natural occurs in nature.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T1.INDUSTRY.A1",
+              "bank_skill_id": "TOUR.G10.T1.INDUSTRY.A1",
+              "title": "Structure of the SA tourism industry",
+              "description": "Tourism as a partnership between the public sector (national/provincial/local government and parastatals), the private sector (product owners that profit from tourism) and local communities; the logo, function and service of key associations (TBCSA, TGCSA, FTTSA, SATSA, FEDHASA, ASATA).",
+              "caps_term": "G10 T1",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Places a body in the wrong sector",
+                  "example": "Lists a private tour operator under the public sector"
+                }
+              ],
+              "recovery_strategy": "Public sector = government and its agencies (funded by the state). Private sector = businesses that make a profit from tourism. Communities = the people living where tourism happens.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T1.PAYMENT.A1",
+              "bank_skill_id": "TOUR.G10.T1.PAYMENT.A1",
+              "title": "Payment methods & technology in South Africa",
+              "description": "Payment methods and the technology behind them (internet payments, ATMs, cellphone payments, fixed and portable speed points, credit cards, debit cards, cheques); their advantages and disadvantages; choosing the most appropriate method for a situation.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Domestic, regional & international tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses credit and debit cards",
+                  "example": "Says a debit card lets you spend the bank's money on credit"
+                }
+              ],
+              "recovery_strategy": "A debit card spends YOUR OWN money already in the account; a credit card borrows the bank's money to be repaid later.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L10.T2",
+          "title": "Term 2 — Map work & domestic tourism",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G10.T2.MAPTERMS.A1",
+              "bank_skill_id": "TOUR.G10.T2.MAPTERMS.A1",
+              "title": "Map terminology & symbols",
+              "description": "Map concepts: scale, direction, distance indicators, legends, grid references, equator, hemispheres, poles, latitude, longitude, time zones, Universal Time Coordinate (UTC) and the International Date Line (IDL).",
+              "caps_term": "G10 T2",
+              "caps_topic": "Map work & tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "image-match"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses latitude and longitude",
+                  "example": "Says lines of longitude run east-west"
+                }
+              ],
+              "recovery_strategy": "Latitude lines run across (like rungs of a ladder, measuring north-south position); longitude lines run top-to-bottom between the poles (measuring east-west position).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T2.MAPTYPES.A1",
+              "bank_skill_id": "TOUR.G10.T2.MAPTYPES.A1",
+              "title": "Types of maps in a tourism context",
+              "description": "Road/street maps, political maps, physical maps, specialist maps (climate, airports, railways), tourist information maps, and electronic maps (GPS, Google Maps, Google Earth) — their uses and value in tourism.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Map work & tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "image-match"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Picks the wrong map for a task",
+                  "example": "Uses a political map to find mountain heights"
+                }
+              ],
+              "recovery_strategy": "Match the map to the question: borders/capitals = political; landforms = physical; getting from A to B = road/GPS; attractions in an area = tourist information map.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T2.SAMAP.A1",
+              "bank_skill_id": "TOUR.G10.T2.SAMAP.A1",
+              "title": "Locating features on a map of South Africa",
+              "description": "Locating South Africa's borders, provinces, capital cities, international airports, harbours, national highways, gateways, major mountains, rivers and dams on a colour map.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Map work & tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "image-match",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Misplaces a province or capital",
+                  "example": "Places Bloemfontein in the Western Cape"
+                }
+              ],
+              "recovery_strategy": "Build a mental map from the coast inward: coastal provinces (WC, EC, KZN) ring the south and east; the interior holds Free State, Gauteng, North West, Mpumalanga, Limpopo and Northern Cape.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T2.WORLDMAP.A1",
+              "bank_skill_id": "TOUR.G10.T2.WORLDMAP.A1",
+              "title": "Locating SADC, continents, oceans & tourism regions",
+              "description": "Locating South Africa and the SADC countries, the seven continents, three oceans, island groups and the major tourism regions (Far East, Middle East, UK, Europe, the Americas, Australasia) on a colour map of the world.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Map work & tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "image-match",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a continent with a tourism region",
+                  "example": "Lists 'Western Europe' as a continent"
+                }
+              ],
+              "recovery_strategy": "There are 7 continents (fixed) and 3 oceans; tourism regions are travel-industry groupings of countries within or across continents.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T2.DISTANCE.A1",
+              "bank_skill_id": "TOUR.G10.T2.DISTANCE.A1",
+              "title": "Distance indicators & distance tables",
+              "description": "Using distance indicators on maps and distance tables to work out distances between towns and cities, and linking distance to travelling time (roughly 100 km per hour).",
+              "caps_term": "G10 T2",
+              "caps_topic": "Map work & tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false",
+                "source-comparison"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Reads the wrong cell of a distance table",
+                  "example": "Reads across the wrong row when both cities are listed"
+                }
+              ],
+              "recovery_strategy": "Find one city on the top and the other down the side; the cell where the row and column meet is the distance. Divide km by 100 for an approximate drive in hours.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T2.DOMESTIC.A1",
+              "bank_skill_id": "TOUR.G10.T2.DOMESTIC.A1",
+              "title": "Domestic tourism — concepts, benefits & Sho't Left",
+              "description": "The concept of domestic tourism; its benefits for South Africa's economy, people and environment; and the Sho't Left campaign that promotes travel within South Africa.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Domestic, regional & international tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses domestic tourism with inbound tourism",
+                  "example": "Says foreign visitors are domestic tourists"
+                }
+              ],
+              "recovery_strategy": "Domestic tourism = residents travelling WITHIN their own country. Sho't Left encourages South Africans to take affordable local trips.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T2.DOMSTATS.A1",
+              "bank_skill_id": "TOUR.G10.T2.DOMSTATS.A1",
+              "title": "Interpreting domestic tourism statistics",
+              "description": "Concepts of statistics and intra- vs inter-provincial travel; interpreting statistics on purpose of trips, most-visited provinces, length of stay, average expenditure and seasonality.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Domestic, regional & international tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "source-comparison"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses intra- and inter-provincial travel",
+                  "example": "Calls travel between Gauteng and KZN intra-provincial"
+                }
+              ],
+              "recovery_strategy": "Intra- = WITHIN one province (intra = inside). Inter- = BETWEEN provinces. Read graph titles and axes before drawing a conclusion.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L10.T3",
+          "title": "Term 3 — Attractions, sustainability & marketing",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G10.T3.PROVATTR.A1",
+              "bank_skill_id": "TOUR.G10.T3.PROVATTR.A1",
+              "title": "Tourist attractions in the provinces of South Africa",
+              "description": "Key attractions in each of the nine provinces — their location (nearest city/town) and main focus — including World Heritage Sites such as the Cradle of Humankind, Robben Island, iSimangaliso and Mapungubwe.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Tourism attractions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "image-match",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Places an attraction in the wrong province",
+                  "example": "Locates Table Mountain in the Eastern Cape"
+                }
+              ],
+              "recovery_strategy": "Anchor each attraction to its nearest major city, then to that city's province (Table Mountain - Cape Town - Western Cape).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T3.SANPARKS.A1",
+              "bank_skill_id": "TOUR.G10.T3.SANPARKS.A1",
+              "title": "SANParks, transfrontier parks & private reserves",
+              "description": "What a national park is and why tourists visit; Kruger as the flagship; other national parks and their conservation focus; transfrontier parks and conservation areas; and luxury private game reserves (Shamwari, Madikwe, Phinda, Sabi Sabi).",
+              "caps_term": "G10 T3",
+              "caps_topic": "Tourism attractions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a transfrontier park with a single-country park",
+                  "example": "Says Kgalagadi is entirely inside South Africa"
+                }
+              ],
+              "recovery_strategy": "A transfrontier park crosses an international BORDER and is shared by two or more countries; a national park sits within one country.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T3.FAUNAFLORA.A1",
+              "bank_skill_id": "TOUR.G10.T3.FAUNAFLORA.A1",
+              "title": "South African fauna, flora & botanical gardens",
+              "description": "Concepts of biodiversity, ecosystem, species, habitat, endangered, indigenous, alien, poaching and culling in a tourism context; national botanical gardens with Kirstenbosch as the flagship.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Tourism attractions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses indigenous and alien species",
+                  "example": "Calls an introduced foreign plant indigenous"
+                }
+              ],
+              "recovery_strategy": "Indigenous = naturally occurring in that place; alien = brought in from elsewhere. Endangered = at risk of dying out; extinct = already gone.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T3.SUSTAIN.A1",
+              "bank_skill_id": "TOUR.G10.T3.SUSTAIN.A1",
+              "title": "Sustainable tourism — the three pillars",
+              "description": "What sustainability means in tourism; the need for sustainable practices; the three pillars (planet/environmental, people/social, profit/economic) and the impact of tourism businesses on each.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Sustainable & responsible tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Assigns an impact to the wrong pillar",
+                  "example": "Files 'creates local jobs' under the environmental pillar"
+                }
+              ],
+              "recovery_strategy": "Three Ps: Planet (environment), People (communities/society), Profit (economy). Ask which one an example most affects.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T3.RESPONSIBLE.A1",
+              "bank_skill_id": "TOUR.G10.T3.RESPONSIBLE.A1",
+              "title": "Responsible tourism & good environmental practices",
+              "description": "Responsible tourist behaviour towards the environment and host communities; the negative impacts of tourism; rules for behaviour in nature; and good environmental practices (litter control, conserving energy and water) and their benefits.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Sustainable & responsible tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "argument-builder",
+                "source-comparison"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses sustainable tourism (the goal) with responsible tourism (the behaviour)",
+                  "example": "Uses the terms interchangeably with no distinction"
+                }
+              ],
+              "recovery_strategy": "Sustainable tourism is the GOAL (lasting balance of planet/people/profit); responsible tourism is the BEHAVIOUR of tourists and businesses that helps reach it.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T3.GLOBALWARM.A1",
+              "bank_skill_id": "TOUR.G10.T3.GLOBALWARM.A1",
+              "title": "Global warming & the tourism industry",
+              "description": "The concepts of global warming and carbon footprint; causes of global warming; consequences of climate change for tourism; and how establishments and tourists can reduce their carbon footprint.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Sustainable & responsible tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses carbon footprint with general litter/pollution",
+                  "example": "Says recycling paper directly lowers a carbon footprint more than reducing flights"
+                }
+              ],
+              "recovery_strategy": "A carbon footprint measures greenhouse gases released by an activity. The biggest tourism contributors are transport (especially flights) and energy use.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T3.MARKETING.A1",
+              "bank_skill_id": "TOUR.G10.T3.MARKETING.A1",
+              "title": "Marketing of tourism products, services & sites",
+              "description": "Marketing concepts (market research, target market, market share, competitive edge, niche market); the purpose of marketing; the market-research process and the marketing mix (the five Ps: product, promotion, price, place, people).",
+              "caps_term": "G10 T3",
+              "caps_topic": "Marketing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses target market with market share",
+                  "example": "Defines market share as the group a product is aimed at"
+                }
+              ],
+              "recovery_strategy": "Target market = the GROUP you aim a product at. Market share = the PORTION of total sales a business holds. The five Ps are product, promotion, price, place, people.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L10.T4",
+          "title": "Term 4 — Culture, heritage & customer care",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G10.T4.CULTURE.A1",
+              "bank_skill_id": "TOUR.G10.T4.CULTURE.A1",
+              "title": "Culture & heritage — concepts and elements",
+              "description": "The concepts culture, heritage and cultural diversity; elements of culture (architecture, interiors, arts and crafts, cuisine, music and dance); and the importance of conserving heritage for future generations.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Culture & heritage tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses culture with heritage",
+                  "example": "Uses 'heritage' to mean only present-day customs"
+                }
+              ],
+              "recovery_strategy": "Culture = a group's shared way of life NOW (food, music, dress). Heritage = what is INHERITED from the past and worth conserving for the future.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T4.HERITSITES.A1",
+              "bank_skill_id": "TOUR.G10.T4.HERITSITES.A1",
+              "title": "Heritage sites in South Africa",
+              "description": "Cultural heritage sites (monuments, museums, historical buildings, graveyards) and natural heritage sites (mountains, waterfalls, caves); the difference between local, provincial and national heritage sites; and the heritage plaque that marks a national site.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Culture & heritage tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses cultural and natural heritage sites",
+                  "example": "Classifies a waterfall as a cultural heritage site"
+                }
+              ],
+              "recovery_strategy": "Cultural heritage = made or shaped by PEOPLE (monuments, buildings). Natural heritage = formed by NATURE (mountains, caves, waterfalls).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T4.COMMS.A1",
+              "bank_skill_id": "TOUR.G10.T4.COMMS.A1",
+              "title": "Communication & communication technology",
+              "description": "Equipment used to communicate in a tourism business (landlines, cellphones, fax, photocopiers, printers, computers with email, video- and teleconferencing) and their functions, advantages and disadvantages; verbal and written communication including email netiquette and tourism road/information signs.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Communication & customer care",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses verbal and written communication",
+                  "example": "Lists an email as verbal communication"
+                }
+              ],
+              "recovery_strategy": "Verbal = SPOKEN (face-to-face, phone). Written = recorded in TEXT (email, SMS, memo, fax). Netiquette = good manners when communicating online.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G10.T4.SERVICE.A1",
+              "bank_skill_id": "TOUR.G10.T4.SERVICE.A1",
+              "title": "Service excellence",
+              "description": "The concepts service and service excellence; the importance and value of quality service for a tourism business; the advantages of excellent service for the business and the tourist; the consequences of poor service; and recommendations for improvement.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Communication & customer care",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "argument-builder",
+                "source-comparison"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Sees service excellence as a cost rather than an investment",
+                  "example": "Says good service has no effect on profit"
+                }
+              ],
+              "recovery_strategy": "Excellent service brings repeat business, good word-of-mouth and a strong reputation — it drives profit. Poor service loses customers and damages the brand.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "grade": 11,
+      "title": "Grade 11 — Tourism",
+      "description": "Transport services in South Africa (airports, buses, trains, the Gautrain, cruise liners and car rental); the Domestic Tourism Growth Strategy and travel market segments; South African cultural uniqueness and heritage bodies; foreign exchange and currency conversion; regional tourism and the SADC countries; tour itineraries; marketing and global distribution systems; and customer care, complaints, quality service and tourism careers. No prerequisite gates — learners may attempt any skill in any order.",
+      "tiers": [
+        {
+          "id": "L11.T1",
+          "title": "Term 1 — Transport services in South Africa",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G11.T1.AIRPORTS.A1",
+              "bank_skill_id": "TOUR.G11.T1.AIRPORTS.A1",
+              "title": "Air travel concepts and South Africa's airports",
+              "description": "Use air-travel terms (gateway, inbound, outbound, domestic, regional, inter-continental, long-haul, chartered) and identify South Africa's main airports, ACSA, the airlines that operate here and how to read an airline timetable.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Tourism sectors — airports, airlines and airport operations",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses flight categories (domestic vs regional vs inter-continental) or airport status.",
+                  "example": "Calls a Johannesburg–London flight a regional flight."
+                }
+              ],
+              "recovery_strategy": "Re-teach the flight types using a South African departure board, then sort one flight example at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T1.AIRTERMS.A1",
+              "bank_skill_id": "TOUR.G11.T1.AIRTERMS.A1",
+              "title": "Airport, aircraft and seating terminology",
+              "description": "Identify airport areas (landside, terminal, airside), check-in and boarding procedures, baggage allowances, safety steps, aircraft parts (galley, cockpit, cargo hold) and seating configuration (wide-/narrow-body, business/economy, aisle/window/emergency-exit seats).",
+              "caps_term": "G11 T1",
+              "caps_topic": "Tourism sectors — airport and aircraft terminology",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Mislocates airport areas or aircraft parts, or muddles the check-in/boarding order.",
+                  "example": "Says the carousel is on the airside before security."
+                }
+              ],
+              "recovery_strategy": "Walk through a passenger's journey from kerb to seat, naming each area and step in order.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T1.AIRTECH.A1",
+              "bank_skill_id": "TOUR.G11.T1.AIRTECH.A1",
+              "title": "Technology used at airports",
+              "description": "Identify technology that helps travel at airports (baggage wrap, x-ray scanners, biometric and thermal scanners, metal detectors, information display boards, touch-screen systems) and the use of smartphones/PDIs for e-documents and boarding passes ('iTravel').",
+              "caps_term": "G11 T1",
+              "caps_topic": "Tourism sectors — technology at airports to facilitate travel",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the purpose of airport technologies.",
+                  "example": "Says a biometric scanner weighs your luggage."
+                }
+              ],
+              "recovery_strategy": "Match each device to the problem it solves (security, identification, information, convenience).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T1.BUS.A1",
+              "bank_skill_id": "TOUR.G11.T1.BUS.A1",
+              "title": "The tourism bus industry",
+              "description": "Identify major tourist transporters and the different types of buses (minibuses, coaches, megabuses, sleeper coaches, open-top sightseeing buses) and read the information given on a bus schedule.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Tourism sectors — the tourism bus industry",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Matches the wrong bus type to a traveller's need or misreads a bus schedule.",
+                  "example": "Recommends a sleeper coach for a one-hour city sightseeing trip."
+                }
+              ],
+              "recovery_strategy": "Match each bus type to a typical trip, then practise reading one schedule row at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T1.RAIL.A1",
+              "bank_skill_id": "TOUR.G11.T1.RAIL.A1",
+              "title": "The tourism train industry and the Gautrain",
+              "description": "Tell commuter trains (Metrorail) apart from tourist trains (Shosholoza Meyl), use train terminology (coupé, compartment, dining car, bedding ticket), recognise luxury and scenic trains (Blue Train, Rovos Rail, Premier Classe) and the Gautrain's features, technology and benefits.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Tourism sectors — the tourism train industry and the Gautrain",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses commuter and tourist trains or muddles train terminology.",
+                  "example": "Calls the Blue Train a commuter service like Metrorail."
+                }
+              ],
+              "recovery_strategy": "Contrast a daily commuter trip with a luxury tourist journey, then label train terms with pictures.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T1.CRUISE.A1",
+              "bank_skill_id": "TOUR.G11.T1.CRUISE.A1",
+              "title": "The luxury cruise liner industry",
+              "description": "Use cruise concepts (port, cruise terminal, state rooms, cabins, suites, decks), describe the facilities and entertainment on board, and read the information given on a cruise package.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Tourism sectors — the luxury cruise liner industry",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses cruise terms or what a cruise package includes.",
+                  "example": "Thinks a 'deck' is a type of cabin."
+                }
+              ],
+              "recovery_strategy": "Tour a cruise ship layout from port to cabin, naming each concept, then read one package detail at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T1.CARRENTAL.A1",
+              "bank_skill_id": "TOUR.G11.T1.CARRENTAL.A1",
+              "title": "Car rental: conditions, packages and costs",
+              "description": "Explain the conditions for renting a vehicle (age, licence, creditworthiness, contract), the rental packages and insurances (CDW, SCDW, TLW, PAI), and the additional, optional and incidental costs that affect a car-rental quotation.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Tourism sectors — car rental",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses insurance types or which charges are compulsory versus optional.",
+                  "example": "Thinks CDW pays for traffic fines."
+                }
+              ],
+              "recovery_strategy": "Group the charges into compulsory, optional and incidental, then walk through one quotation step by step.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L11.T2",
+          "title": "Term 2 — Domestic growth, culture and foreign exchange",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G11.T2.DTGS.A1",
+              "bank_skill_id": "TOUR.G11.T2.DTGS.A1",
+              "title": "The Domestic Tourism Growth Strategy",
+              "description": "Explain the purpose of the Domestic Tourism Growth Strategy (DTGS), its objectives (sustainable growth, transformation, empowerment and jobs) and the ways it grows domestic tourism (more trips, longer stays, reducing seasonality, better geographic spread, using events, improving safety).",
+              "caps_term": "G11 T2",
+              "caps_topic": "Domestic, regional and international tourism — the Domestic Tourism Growth Strategy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the strategy's objectives with its methods, or with international tourism.",
+                  "example": "Says the DTGS aims to attract more overseas visitors."
+                }
+              ],
+              "recovery_strategy": "Separate the 'why' (objectives) from the 'how' (methods), using one local example for each.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T2.SEGMENTS.A1",
+              "bank_skill_id": "TOUR.G11.T2.SEGMENTS.A1",
+              "title": "The seven domestic travel market segments",
+              "description": "Explain why domestic tourists are grouped into segments and recognise the seven DTGS segments (e.g. young and upcoming, striving families, golden active couples), matching each segment profile to the holiday products it prefers.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Domestic, regional and international tourism — the seven domestic travel market segments",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Matches a segment to the wrong product or confuses segment profiles.",
+                  "example": "Matches 'golden active couples' to a budget youth music festival."
+                }
+              ],
+              "recovery_strategy": "Describe each segment as a real person, then match that person to one suitable product at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T2.CULTURE.A1",
+              "bank_skill_id": "TOUR.G11.T2.CULTURE.A1",
+              "title": "South African cultural uniqueness",
+              "description": "Identify the cultural features that attract tourists to South Africa (folklore, dress, cuisine, gumboot dancing, Ndebele art, Zulu dance, sangomas and traditional healing, rickshaws, San heritage, art festivals) and explain how cultural diversity promotes inbound and domestic tourism.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Culture and heritage — South African cultural uniqueness",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses cultural features or their link to tourism.",
+                  "example": "Says Ndebele art is a type of South African cuisine."
+                }
+              ],
+              "recovery_strategy": "Link each cultural feature to the experience a tourist would have, then test one example at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T2.HERITAGE.A1",
+              "bank_skill_id": "TOUR.G11.T2.HERITAGE.A1",
+              "title": "South African heritage bodies",
+              "description": "Describe the South African Heritage Resources Agency (SAHRA) and provincial heritage agencies, their functions, and the protection rules and permits for heritage items (structures older than 60 years, archaeological and palaeontological sites, meteorites, shipwrecks, graves).",
+              "caps_term": "G11 T2",
+              "caps_topic": "Culture and heritage — South African heritage bodies",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses SAHRA's role or which items are protected.",
+                  "example": "Thinks you may remove a shipwreck artefact without a permit."
+                }
+              ],
+              "recovery_strategy": "Connect SAHRA's job to protecting specific items, then decide 'protected or not' for one example at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T2.FOREX.A1",
+              "bank_skill_id": "TOUR.G11.T2.FOREX.A1",
+              "title": "Foreign exchange and its value to the economy",
+              "description": "Use foreign-exchange concepts (local currency, foreign currency, exchange rate, fluctuations), recognise major world currencies, their codes and symbols, where currency is exchanged, and explain how spending by inbound tourists benefits locals directly and indirectly through the multiplier effect.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Foreign exchange — foreign exchange and its value to the South African economy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses currency codes/symbols or misunderstands the multiplier effect.",
+                  "example": "Thinks foreign tourist spending only benefits the hotel they stay in."
+                }
+              ],
+              "recovery_strategy": "Trace one tourist's rand from the hotel to the supplier to the worker, then match currencies to their codes.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T2.CURRENCY.A1",
+              "bank_skill_id": "TOUR.G11.T2.CURRENCY.A1",
+              "title": "Conversion of currencies",
+              "description": "Read a currency rate sheet from a foreign-exchange bureau and convert major currencies to South African rand and rand into a chosen currency, rounding to two decimals.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Foreign exchange — conversion of currencies",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Multiplies when they should divide (or vice versa) when converting between currencies.",
+                  "example": "Divides rand by the rate when changing rand into dollars instead of doing the correct operation."
+                }
+              ],
+              "recovery_strategy": "Fix the rule 'rand to foreign = divide by the rate; foreign to rand = multiply by the rate', then practise one conversion at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L11.T3",
+          "title": "Term 3 — Regional tourism, itineraries and marketing",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G11.T3.SADC.A1",
+              "bank_skill_id": "TOUR.G11.T3.SADC.A1",
+              "title": "Regional tourism and the SADC member countries",
+              "description": "Explain regional tourism and the Southern African Development Community (SADC), locate member countries and their capitals, describe how each is reached from South Africa (gateways: road, air, water), the role of Retosa, and the advantages of regional tourism.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Domestic, regional and international tourism — regional tourism and the SADC member countries",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses SADC countries with their capitals or which states are members.",
+                  "example": "Names Nairobi as the capital of a SADC country."
+                }
+              ],
+              "recovery_strategy": "Match each member country to its capital and main gateway, one country at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T3.SADCATTR.A1",
+              "bank_skill_id": "TOUR.G11.T3.SADCATTR.A1",
+              "title": "Main tourist attractions in the SADC countries",
+              "description": "Identify the main tourist attractions in the SADC countries (e.g. Okavango Delta, Victoria Falls, Mount Kilimanjaro, the Serengeti, Fish River Canyon, the Great Zimbabwe Ruins), the country each is in, and why each is a top attraction.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Tourism attractions — main tourist attractions in the SADC countries",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Places a SADC attraction in the wrong country.",
+                  "example": "Says the Serengeti is in Botswana."
+                }
+              ],
+              "recovery_strategy": "Match each attraction to its country and one reason it draws tourists, one at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T3.ITINERARY.A1",
+              "bank_skill_id": "TOUR.G11.T3.ITINERARY.A1",
+              "title": "The tour itinerary",
+              "description": "Use itinerary concepts (itinerary, logical tour planning, scheduled tours), apply the factors to consider when planning an itinerary, recognise different types of itineraries, and judge the logical spread and appropriateness of a day-by-day plan.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Map work and tour planning — the tour itinerary",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Plans an illogical route or ignores key planning factors.",
+                  "example": "Backtracks across the country instead of following a logical route."
+                }
+              ],
+              "recovery_strategy": "Plot stops on a map to show the logical order, then check a plan against the planning factors one by one.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T3.PROMO.A1",
+              "bank_skill_id": "TOUR.G11.T3.PROMO.A1",
+              "title": "Promotional and advertising techniques",
+              "description": "Tell above-the-line techniques (TV, radio, newspapers, magazines, billboards, web advertising) apart from below-the-line techniques (personal selling, sales promotions, in-store discounts, sponsorship, exhibitions and expos), and match a technique to the right customer.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Marketing — promotional and advertising techniques",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses above-the-line and below-the-line techniques.",
+                  "example": "Calls personal selling an above-the-line technique."
+                }
+              ],
+              "recovery_strategy": "Use the rule 'above-the-line = mass media; below-the-line = direct/targeted', then sort one technique at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T3.BUDGET.A1",
+              "bank_skill_id": "TOUR.G11.T3.BUDGET.A1",
+              "title": "The marketing budget",
+              "description": "Identify the costs that belong in a marketing budget (market research, communication costs such as printing, telephone and internet, local and overseas travel and vehicle/flight costs, and personnel costs).",
+              "caps_term": "G11 T3",
+              "caps_topic": "Marketing — the marketing budget",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Sorts a marketing cost into the wrong category, or includes a cost that is not a marketing cost.",
+                  "example": "Lists staff salaries for the kitchen as a marketing cost."
+                }
+              ],
+              "recovery_strategy": "Group costs under research, communication, travel and personnel, then place one cost at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T3.GDS.A1",
+              "bank_skill_id": "TOUR.G11.T3.GDS.A1",
+              "title": "Global distribution and central reservation systems",
+              "description": "Explain what a Global Distribution System (GDS) is and what it is used for, name the major GDSs (Amadeus, Galileo, Worldspan), and explain what a Central Reservation System (CRS) is, with a South African example (Micros-Fidelio Opera).",
+              "caps_term": "G11 T3",
+              "caps_topic": "Communication and customer care — global distribution systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a GDS with a CRS or misnames the systems.",
+                  "example": "Says Amadeus is a hotel's own in-house reservation system."
+                }
+              ],
+              "recovery_strategy": "Contrast a worldwide GDS that links many suppliers with a single property's CRS, then name examples of each.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L11.T4",
+          "title": "Term 4 — Customer care, quality service and careers",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G11.T4.CUSTCARE.A1",
+              "bank_skill_id": "TOUR.G11.T4.CUSTCARE.A1",
+              "title": "Customer care for foreign tourists",
+              "description": "Explain how foreign tourists should be treated and assisted, why their traditions, customs and behaviour must be respected, ways to communicate across cultures, and how excellent customer care benefits South Africa's tourism industry.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Communication and customer care — customer care for foreign tourists",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets",
+                "source-comparison"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Ignores cultural differences or the benefits of good customer care.",
+                  "example": "Assumes every visitor expects exactly the same service as a local."
+                }
+              ],
+              "recovery_strategy": "Role-play helping a visitor from a different culture, then identify the respectful, helpful choice in each case.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T4.COMPLAINTS.A1",
+              "bank_skill_id": "TOUR.G11.T4.COMPLAINTS.A1",
+              "title": "Customer complaints",
+              "description": "Recognise channels for complaints (in person, telephone, written), the value of complaints as a chance to improve, the six steps for handling a verbal complaint, and how to handle criticism in a mature, constructive way.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Communication and customer care — customer complaints",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Skips a step or uses the wrong order when handling a verbal complaint.",
+                  "example": "Offers a refund before listening to and apologising to the customer."
+                }
+              ],
+              "recovery_strategy": "Memorise the six steps in order (listen, ask, apologise, solve, offer, thank), then practise sequencing one complaint at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T4.QUALITY.A1",
+              "bank_skill_id": "TOUR.G11.T4.QUALITY.A1",
+              "title": "Managing quality service",
+              "description": "Identify the strategies companies use to achieve and maintain quality service (performance management, quality-control checks, customer surveys, team and peer reviews, in-service training) and explain how service in one sector affects service in another.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Communication and customer care — managing quality service",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses quality-service strategies or misses the knock-on effect between sectors.",
+                  "example": "Thinks poor airport service has no effect on a tour operator's reputation."
+                }
+              ],
+              "recovery_strategy": "Match each strategy to the problem it fixes, then trace how one weak link affects the whole tourism chain.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T4.CAREERS.A1",
+              "bank_skill_id": "TOUR.G11.T4.CAREERS.A1",
+              "title": "Job and career opportunities in tourism",
+              "description": "Identify job and career opportunities across the tourism sectors and sub-sectors (transport, hospitality, attractions, gaming, conservation, sport and recreation, events and conferences, tourism services and the travel trade).",
+              "caps_term": "G11 T4",
+              "caps_topic": "Tourism sectors — job and career opportunities in tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Places a job in the wrong tourism sector.",
+                  "example": "Lists a game ranger under the transport sector."
+                }
+              ],
+              "recovery_strategy": "Match each job to the sector it belongs to, one career at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T4.REQUIREMENTS.A1",
+              "bank_skill_id": "TOUR.G11.T4.REQUIREMENTS.A1",
+              "title": "Requirements and inherent qualities to work in tourism",
+              "description": "Identify the requirements and inherent qualities (personality type, characteristics and essential skills) needed to work in a particular tourism sector or career.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Tourism sectors — requirements and inherent qualities to work in tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Matches the wrong quality or skill to a tourism job.",
+                  "example": "Says a tour guide does not need good communication skills."
+                }
+              ],
+              "recovery_strategy": "Match each job to the qualities and skills it most needs, one role at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G11.T4.ENTREPRENEUR.A1",
+              "bank_skill_id": "TOUR.G11.T4.ENTREPRENEUR.A1",
+              "title": "Entrepreneurial opportunities in tourism",
+              "description": "Explain the concept of an entrepreneur, the skills needed to be one, how to identify tourism products or services suitable for a business, and opportunities to start your own tourism business.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Tourism sectors — entrepreneurial opportunities in tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses entrepreneurial skills or what makes a viable tourism business opportunity.",
+                  "example": "Thinks an entrepreneur takes no risk and needs no planning."
+                }
+              ],
+              "recovery_strategy": "Link each entrepreneurial skill to a real tourism business idea, then judge one opportunity at a time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 — Tourism",
+      "description": "The CAPS exit year, organised across four terms. T1: a professional image, conditions and contract of employment, codes of conduct and world time zones. T2: world-famous icons, what makes an attraction succeed, tour and route planning, day-by-day itineraries, tour budgets, health & safety and travel documentation. T3: World Heritage Sites and UNESCO, foreign exchange (strong/weak rand, currency conversions, BSR vs BBR, exchange-rate effects), forms of international payment, global events & unforeseen occurrences, and foreign market share. T4: the three pillars and responsible tourists, codes of conduct for tourist behaviour, role players in sustainable tourism, customer feedback & satisfaction, service & profitability, and marketing South Africa. 27 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L12.T1",
+          "title": "Term 1 — Professionalism & world time zones",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G12.T1.PROIMAGE.A1",
+              "bank_skill_id": "TOUR.G12.T1.PROIMAGE.A1",
+              "title": "Professional image in the tourism industry",
+              "description": "How the image of the company (name, logo, slogan, website, stationery, marketing material, product packaging, appearance of the business, environmental and customer-service policies) and the image of the staff (professional appearance, uniforms, dress code, personal hygiene, grooming, interaction with customers, communication skills) build a professional image.",
+              "caps_term": "G12 T4",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the company image with the staff image",
+                  "example": "Lists a uniform under 'company image' instead of 'staff image'"
+                }
+              ],
+              "recovery_strategy": "Ask WHO the factor belongs to: the BUSINESS (logo, slogan, website, stationery, policies) = company image; the PERSON serving you (uniform, grooming, hygiene, communication) = staff image. Both together create the professional image.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T1.CONDEMP.A1",
+              "bank_skill_id": "TOUR.G12.T1.CONDEMP.A1",
+              "title": "Conditions of employment",
+              "description": "Basic conditions of employment in a chosen tourism field (airlines, hotels or national parks): working hours, leave, remuneration and deductions, overtime, the role of the Basic Conditions of Employment Act and the Department of Labour in protecting workers.",
+              "caps_term": "G12 T4",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Thinks conditions of employment are decided only by the employer with no legal minimum",
+                  "example": "Says an employer can set any working hours they like"
+                }
+              ],
+              "recovery_strategy": "Remember there is a legal floor: the Basic Conditions of Employment Act sets minimums (hours, leave, notice). An employer may offer more than the minimum but not less.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T1.CONTRACT.A1",
+              "bank_skill_id": "TOUR.G12.T1.CONTRACT.A1",
+              "title": "Contract of employment",
+              "description": "The contract of employment as the written agreement describing basic conditions: working hours, uniform allowances, travel benefits, leave, core duties, fringe benefits, remuneration and deductions, termination of service, professional accountability and service ethics.",
+              "caps_term": "G12 T4",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a fringe benefit with a deduction",
+                  "example": "Lists a travel benefit as a deduction from pay"
+                }
+              ],
+              "recovery_strategy": "A fringe benefit is something EXTRA the worker GETS (travel perks, uniform allowance); a deduction is money TAKEN OFF pay (tax, UIF, pension). Sort each item by whether it adds to or subtracts from the worker.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T1.CODECON.A1",
+              "bank_skill_id": "TOUR.G12.T1.CODECON.A1",
+              "title": "Purpose & value of a code of conduct",
+              "description": "A code of conduct for staff: its purpose (spells out expected conduct in performing duties and guides staff facing ethical challenges) and its value (creates a co-operative, collaborative atmosphere and promotes integrity in the workplace).",
+              "caps_term": "G12 T4",
+              "caps_topic": "Tourism sectors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Treats a staff code of conduct as the same thing as a job contract",
+                  "example": "Says a code of conduct lists a worker's salary"
+                }
+              ],
+              "recovery_strategy": "A code of conduct is about BEHAVIOUR and ethics (how staff should act); a contract is about TERMS (pay, hours, leave). The code guides decisions; the contract sets the deal.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T1.TIMEZONES.A1",
+              "bank_skill_id": "TOUR.G12.T1.TIMEZONES.A1",
+              "title": "World time zones",
+              "description": "Time-zone concepts (UTC, Greenwich, hemispheres, equator, standard time, local time, the international date line, the 24-hour clock, latitude and longitude); reading a world time-zone map; daylight saving time; simple calculations of arrival and departure times; and jet lag, its symptoms and how to ease it.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Map work and tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Adds time when travelling west or subtracts when travelling east",
+                  "example": "Says flying from Johannesburg west to New York makes the local time later, not earlier"
+                }
+              ],
+              "recovery_strategy": "Travel EAST = clocks go FORWARD (add hours); travel WEST = clocks go BACK (subtract hours). UTC is the world reference time at Greenwich; add a place's offset to find its local time.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L12.T2",
+          "title": "Term 2 — World icons & tour planning",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G12.T2.ICONS.A1",
+              "bank_skill_id": "TOUR.G12.T2.ICONS.A1",
+              "title": "World-famous icons & attractions",
+              "description": "The difference between an attraction and an icon; why certain attractions or physical features are regarded as icons; the location (country and city/area) of world-famous icons such as the Eiffel Tower, Taj Mahal, Great Wall of China, Statue of Liberty, Sydney Opera House, Christ the Redeemer, Colosseum, Big Ben, the Pyramids of Giza and Machu Picchu; and the economic significance of icons for a country.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Tourism attractions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Places a world icon in the wrong country",
+                  "example": "Says the Taj Mahal is in Pakistan rather than India"
+                }
+              ],
+              "recovery_strategy": "Learn each icon as a pair: icon → country (and city). An icon is more than an attraction — it is instantly recognised and stands as a symbol of its country, e.g. Eiffel Tower → Paris, France.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T2.ATTRSUCCESS.A1",
+              "bank_skill_id": "TOUR.G12.T2.ATTRSUCCESS.A1",
+              "title": "Factors contributing to the success of a tourist attraction",
+              "description": "Factors behind a successful attraction (excellent marketing, sustainable and responsible management, efficient and ethical staff, positive visitor experience, safety and crime prevention, good appearance and upkeep, universal access for people with disabilities) and the characteristics of success (visitor numbers exceed targets, repeat visits, income exceeds target, positive impact on the local community and environment).",
+              "caps_term": "G12 T2",
+              "caps_topic": "Tourism attractions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a factor that CAUSES success with a sign that an attraction IS successful",
+                  "example": "Lists 'repeat visits' as a factor that creates success rather than a characteristic of it"
+                }
+              ],
+              "recovery_strategy": "Separate cause from result: FACTORS are things management does (market well, keep it safe and clean, train staff); CHARACTERISTICS are measurable results (visitor numbers and income beat targets, visitors return).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T2.TOURPLAN.A1",
+              "bank_skill_id": "TOUR.G12.T2.TOURPLAN.A1",
+              "title": "Tour plans & route planning",
+              "description": "Developing a tour plan to suit a tourist's profile, budget and available time; route planning; and choosing transport, accommodation, attractions and activities that match the customers' needs and preferences.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Map work and tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Plans a tour that ignores the tourist's profile, budget or time",
+                  "example": "Books five-star lodges for a backpacker on a tight budget"
+                }
+              ],
+              "recovery_strategy": "Start from the tourist PROFILE (who they are, how much money and time they have, what they like), then choose transport, accommodation and activities to fit it. The plan must suit the tourist, not the other way round.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T2.ITINERARY.A1",
+              "bank_skill_id": "TOUR.G12.T2.ITINERARY.A1",
+              "title": "Compiling a day-by-day itinerary",
+              "description": "The main aspects of an itinerary (transport, accommodation, attractions, activities and stops for meals); factors to consider when drawing one up (logical planning, sensible spread, variety and appropriateness); and arranging the days of a trip in a logical order.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Map work and tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Plans days that backtrack or ignore logical geography",
+                  "example": "Drives a group from Cape Town to Durban and back to Cape Town between two nearby stops"
+                }
+              ],
+              "recovery_strategy": "Plan in a logical line: group nearby places together, avoid backtracking, keep travel times sensible, and spread activities with variety and rest. An itinerary should flow smoothly day by day.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T2.BUDGET.A1",
+              "bank_skill_id": "TOUR.G12.T2.BUDGET.A1",
+              "title": "Compiling a tour budget",
+              "description": "Factors influencing the development of a tour budget and drawing up a basic budget showing expenses for travel, accommodation, meals, entrance to attractions, shopping and tips; simple addition of costs and working out what fits within a given budget.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Map work and tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Leaves out cost items or miscounts the total",
+                  "example": "Forgets to include meals and tips when totalling a tour budget"
+                }
+              ],
+              "recovery_strategy": "List every cost type (travel, accommodation, meals, attractions, shopping, tips), add them up carefully, then compare the total with the money available. If it is over budget, cut or downgrade an item.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T2.HEALTHSAFE.A1",
+              "bank_skill_id": "TOUR.G12.T2.HEALTHSAFE.A1",
+              "title": "Health & safety for travellers",
+              "description": "Health concepts (World Health Organisation, health certificates, travel clinics, compulsory and recommended vaccinations such as yellow fever); precautions for high-risk areas (malaria, bilharzia, cholera; bottled water, sun block, preventative medicine); and general safety precautions for tourists in a car, in public, in a hotel room, at the airport and after dark.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Map work and tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a health precaution with a safety precaution",
+                  "example": "Lists taking malaria tablets as a 'safety' measure rather than a 'health' measure"
+                }
+              ],
+              "recovery_strategy": "HEALTH precautions protect against illness (vaccinations, tablets, bottled water); SAFETY precautions protect against crime and accidents (lock doors, don't flash valuables, be careful after dark). Ask: illness or harm?",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T2.TRAVELDOC.A1",
+              "bank_skill_id": "TOUR.G12.T2.TRAVELDOC.A1",
+              "title": "Travel documentation",
+              "description": "Travel documents needed to visit a country (valid passport, visa, health certificate); obtaining a passport, visa and international driver's licence; and customs concepts — duty-free goods, prohibited goods, the green and red channels, to declare and travel allowances.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Map work and tour planning",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the green and red customs channels",
+                  "example": "Says a traveller with goods to declare should use the green channel"
+                }
+              ],
+              "recovery_strategy": "GREEN channel = nothing to declare; RED channel = goods to declare or over the allowance. A passport identifies you; a visa is permission to enter a specific country. Match each document and channel to its job.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L12.T3",
+          "title": "Term 3 — World Heritage Sites, foreign exchange & international travel",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G12.T3.WHSUNESCO.A1",
+              "bank_skill_id": "TOUR.G12.T3.WHSUNESCO.A1",
+              "title": "World Heritage Sites & the role of UNESCO",
+              "description": "The concept of a World Heritage Site; the role of UNESCO (its logo and main function of identifying and protecting sites of outstanding universal value); the difference between natural and cultural World Heritage Sites; and the value of World Heritage status to a country's tourism industry.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Culture and heritage tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses natural and cultural World Heritage Sites, or thinks the site owner declares the status",
+                  "example": "Calls a fossil hominid site a cultural site, or says a country awards itself World Heritage status"
+                }
+              ],
+              "recovery_strategy": "UNESCO (a United Nations body) declares and protects World Heritage Sites — not the site owner. NATURAL = made by nature (landscapes, fossils, wetlands); CULTURAL = made by people (buildings, rock art, settlements).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T3.WHSSA.A1",
+              "bank_skill_id": "TOUR.G12.T3.WHSSA.A1",
+              "title": "World Heritage Sites in South Africa",
+              "description": "South Africa's World Heritage Sites and their type and location — the Cradle of Humankind, Robben Island, iSimangaliso (Greater St Lucia) Wetland Park, uKhahlamba-Drakensberg Park, Mapungubwe, the Cape Floral Region, the Vredefort Dome, the Richtersveld and the Barberton Makhonjwa Mountains — and how each meets UNESCO criteria.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Culture and heritage tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Misclassifies a South African site or places it in the wrong province",
+                  "example": "Calls Robben Island a natural site, or places the Cradle of Humankind in the Western Cape"
+                }
+              ],
+              "recovery_strategy": "For each South African site, learn its type (natural or cultural) and province. Robben Island and Mapungubwe are cultural (human history); iSimangaliso and the Cape Floral Region are natural (ecosystems); the Cradle of Humankind (fossils) is in Gauteng.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T3.RAND.A1",
+              "bank_skill_id": "TOUR.G12.T3.RAND.A1",
+              "title": "The strong & weak rand",
+              "description": "The concepts of a strong and a weak rand; the relative strength or weakness of a currency at a given time; the link to gross domestic product (GDP) and the multiplier effect; and how a strong or weak rand affects the buying power of South Africans abroad and the cost of South Africa for inbound tourists.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Foreign exchange",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Thinks a strong rand is always good for tourism, or reverses who benefits",
+                  "example": "Says a weak rand makes South Africa expensive for foreign tourists"
+                }
+              ],
+              "recovery_strategy": "A STRONG rand buys more foreign currency — good for South Africans travelling out, but makes SA pricier for inbound tourists. A WEAK rand is the opposite: cheaper for inbound tourists, dearer for outbound South Africans. Ask who is travelling which way.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T3.FOREX.A1",
+              "bank_skill_id": "TOUR.G12.T3.FOREX.A1",
+              "title": "Currency conversions",
+              "description": "Reading a currency rate sheet and converting between South African rand and major currencies using rates given as 1 unit of foreign currency = a value in rand (e.g. 1 USD = R18). Working out how much foreign currency a rand amount buys, and how many rand a foreign amount costs, rounded to two decimals.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Foreign exchange",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Multiplies when they should divide (or vice versa) when converting",
+                  "example": "Divides rand by the rate to get foreign currency when they should follow the rate given"
+                }
+              ],
+              "recovery_strategy": "Use the rate exactly as written in the question. If 1 USD = R18, then to find rand multiply dollars by 18; to find dollars divide rand by 18. Always check the answer makes sense in size.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T3.BSRBBR.A1",
+              "bank_skill_id": "TOUR.G12.T3.BSRBBR.A1",
+              "title": "Bank selling rate vs bank buying rate",
+              "description": "The difference between the bank selling rate (BSR) and the bank buying rate (BBR); which rate applies when a traveller buys foreign currency before a trip and which applies when they sell unused foreign currency back; and why the two rates differ (the bank's margin).",
+              "caps_term": "G12 T3",
+              "caps_topic": "Foreign exchange",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Applies the BBR when the customer is buying foreign currency",
+                  "example": "Says you use the bank buying rate to buy dollars before a holiday"
+                }
+              ],
+              "recovery_strategy": "Read the rate from the BANK's point of view. BSR (bank SELLING) = the bank sells you foreign currency (you buy before the trip). BBR (bank BUYING) = the bank buys back your leftover foreign currency. The selling rate is less favourable to you.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T3.EXRATE.A1",
+              "bank_skill_id": "TOUR.G12.T3.EXRATE.A1",
+              "title": "Effect of exchange-rate fluctuations on tourism",
+              "description": "How rises and falls in the exchange rate affect both inbound and outbound tourism; how a weak or strong rand changes the travel patterns of South Africans heading to developing and developed countries; and the impact of fluctuations on the affordability of destinations.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Foreign exchange",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot trace a rate change through to its effect on tourist numbers",
+                  "example": "Says a weakening rand will reduce the number of foreign tourists coming to South Africa"
+                }
+              ],
+              "recovery_strategy": "Trace the chain: a weaker rand makes SA CHEAPER for inbound tourists (more arrivals) and makes overseas trips DEARER for South Africans (fewer outbound). A stronger rand reverses both. Follow the money to the tourist's wallet.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T3.PAYMENT.A1",
+              "bank_skill_id": "TOUR.G12.T3.PAYMENT.A1",
+              "title": "Forms of payment when travelling internationally",
+              "description": "Forms of payment for international travel — electronic fund transfers (EFT), telegraphic/SWIFT transfers, bank drafts, internet payments, foreign bank notes (cash), credit cards, traveller's cheques and preloaded foreign-currency cards — and the advantages and disadvantages of each.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Domestic, regional and international tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Mismatches a payment form with its main advantage or disadvantage",
+                  "example": "Says carrying large amounts of cash is the safest form of payment abroad"
+                }
+              ],
+              "recovery_strategy": "Weigh each form on safety, convenience and cost. Cash is convenient but risky if lost or stolen; cards and preloaded cards are safer and can be cancelled; traveller's cheques are replaceable but less widely accepted today.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T3.GLOBALEVENTS.A1",
+              "bank_skill_id": "TOUR.G12.T3.GLOBALEVENTS.A1",
+              "title": "Global events & unforeseen occurrences",
+              "description": "The concept of a global event (e.g. the FIFA World Cup, Olympic Games); the positive and negative impact of hosting on international and domestic tourism and on the host economy (infrastructure, investment, foreign-exchange income, the multiplier effect); and unforeseen occurrences of international significance (natural disasters, disease, recession, political unrest, terrorism) and their impact on tourism.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Domestic, regional and international tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a planned global event with an unforeseen occurrence",
+                  "example": "Lists an earthquake as a 'global event' that a country chooses to host"
+                }
+              ],
+              "recovery_strategy": "A GLOBAL EVENT is planned and hosted on purpose (World Cup, Olympics) and usually boosts tourism; an UNFORESEEN OCCURRENCE is sudden and unwanted (tsunami, pandemic, unrest) and usually harms it. Ask: planned or unexpected?",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T3.MARKETSHARE.A1",
+              "bank_skill_id": "TOUR.G12.T3.MARKETSHARE.A1",
+              "title": "Foreign market share & inbound statistics",
+              "description": "Interpreting inbound international tourism statistics — foreign arrivals to South Africa (land and air), how arrivals determine foreign market share, the most-visited provinces, length of stay, average expenditure per tourist and activities undertaken — using sources such as StatsSA and South African Tourism reports.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Domestic, regional and international tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "source-comparison"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Misreads a statistics table or confuses market share with raw arrivals",
+                  "example": "Reads the column for length of stay as the number of arrivals"
+                }
+              ],
+              "recovery_strategy": "Read the table heading and units before answering. Market SHARE is a country's portion of total arrivals (a percentage of the whole); raw arrivals is a count. Match each question to the correct column.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L12.T4",
+          "title": "Term 4 — Responsible tourism, customer satisfaction & marketing SA",
+          "atomic_skills": [
+            {
+              "id": "TOUR.G12.T4.PILLARS.A1",
+              "bank_skill_id": "TOUR.G12.T4.PILLARS.A1",
+              "title": "The three pillars & responsible tourists",
+              "description": "The three pillars of sustainable tourism (people, profit, planet) and the triple bottom-line approach; good environmental practices (resource, waste and pollution management; indigenous flora; control of alien plants); the responsible role of business (ownership, employment, local procurement); social effects and corporate social investment (CSI); and what makes a responsible tourist.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Sustainable and responsible tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Sorts an action under the wrong pillar",
+                  "example": "Places 'recycling waste' under People instead of Planet"
+                }
+              ],
+              "recovery_strategy": "Match each action to its pillar: PLANET = the environment (energy, water, waste, wildlife); PEOPLE = communities and culture (jobs, CSI, respect); PROFIT = the business running responsibly and staying viable. Ask which the action mainly protects.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T4.TOURISTCODE.A1",
+              "bank_skill_id": "TOUR.G12.T4.TOURISTCODE.A1",
+              "title": "Codes of conduct & demand for responsible tourism",
+              "description": "Codes of conduct for tourist behaviour (social, economic and environmental); how a destination can attract responsible, conscious tourists; the growing demand for responsible tourism; and the role of Fair Trade Tourism South Africa (FTTSA) in encouraging responsible and sustainable practices.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Sustainable and responsible tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot classify a behaviour as social, economic or environmental",
+                  "example": "Calls 'buying local crafts' an environmental rather than an economic action"
+                }
+              ],
+              "recovery_strategy": "Sort responsible behaviour by the pillar it serves: SOCIAL = respect people and culture; ECONOMIC = support local business and fair pay; ENVIRONMENTAL = protect nature and reduce waste. FTTSA certifies businesses meeting these standards.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T4.ROLEPLAYERS.A1",
+              "bank_skill_id": "TOUR.G12.T4.ROLEPLAYERS.A1",
+              "title": "Role players in responsible & sustainable tourism",
+              "description": "The role players who drive responsible and sustainable tourism — government and local authorities, tourism businesses, communities, tourists themselves and organisations such as FTTSA — and how each contributes through policy, practice, behaviour and certification.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Sustainable and responsible tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Assigns a responsibility to the wrong role player",
+                  "example": "Says individual tourists set national tourism policy"
+                }
+              ],
+              "recovery_strategy": "Match the job to the player: GOVERNMENT makes policy and laws; BUSINESSES run sustainably and create jobs; COMMUNITIES protect heritage and benefit locally; TOURISTS behave responsibly; FTTSA certifies fair-trade operators.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T4.FEEDBACK.A1",
+              "bank_skill_id": "TOUR.G12.T4.FEEDBACK.A1",
+              "title": "Customer feedback & measuring satisfaction",
+              "description": "The concept and purpose of customer feedback; methods to obtain it (surveys, questionnaires, feedback cards, follow-up calls, SMS messages, web-based responses); and how to analyse feedback — capturing the data, identifying common complaints, deciding on an action plan and starting an intervention — to measure customer satisfaction.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Communication and customer care",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Thinks gathering feedback alone improves service, with no analysis or action",
+                  "example": "Says handing out feedback cards is enough, without acting on the results"
+                }
+              ],
+              "recovery_strategy": "Feedback is a cycle: COLLECT (surveys, cards, calls) → ANALYSE (find common complaints) → ACT (make an action plan) → IMPROVE (start the intervention). Collecting without acting changes nothing.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T4.SERVICE.A1",
+              "bank_skill_id": "TOUR.G12.T4.SERVICE.A1",
+              "title": "Service differences & profitability",
+              "description": "Reasons why the level of service differs from one organisation to another (training, staff attitude, management, resources, standards) and the impact of the service an organisation delivers on its business profitability — how good service builds repeat business and reputation while poor service drives customers away.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Communication and customer care",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "argument-builder"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Does not link service quality to profit",
+                  "example": "Says the standard of service has no effect on how much money a business makes"
+                }
+              ],
+              "recovery_strategy": "Trace the link: good service → satisfied customers → repeat visits, recommendations and good reviews → more income and profit. Poor service → lost customers and bad reputation → falling profit. Service and profit are connected.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TOUR.G12.T4.MARKETSA.A1",
+              "bank_skill_id": "TOUR.G12.T4.MARKETSA.A1",
+              "title": "Marketing South Africa as a tourism destination",
+              "description": "The importance of marketing South Africa internationally (more foreign arrivals, greater awareness); the core business of South African Tourism; marketing opportunities such as ITB Berlin, the World Travel Market, the Tourism Indaba and the Getaway show; the funding role of TOMSA; and the concept of branding and South Africa's brand logo.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Marketing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the bodies and events that market South Africa",
+                  "example": "Says TOMSA is a trade show rather than the levy that funds marketing"
+                }
+              ],
+              "recovery_strategy": "Keep the roles straight: SA TOURISM markets the country internationally; TOMSA is the levy that FUNDS that marketing; the INDABA, ITB Berlin and World Travel Market are trade SHOWS where SA is promoted. Match each name to its job.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

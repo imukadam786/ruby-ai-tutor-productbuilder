@@ -24,5 +24,50 @@ export async function apiFetch(
     headers.set("Authorization", `Bearer ${session.access_token}`);
   }
 
-  return fetch(input, { ...init, headers });
+  const res = await fetch(input, { ...init, headers });
+
+  // Subject answer routes return 429 with `{ upgradeRequired: true }` once the
+  // learner has used up their shared daily Freebie pool (chat messages +
+  // subject questions). Surface the upgrade modal centrally so every subject
+  // session gets it without bespoke handling. Read a clone so the caller still
+  // gets the body. Chat keeps its own 429 path (it does not send this marker),
+  // so the modal never double-fires.
+  if (res.status === 429 && typeof document !== "undefined") {
+    res
+      .clone()
+      .json()
+      .then((body) => {
+        if (body?.upgradeRequired) {
+          document.dispatchEvent(
+            new CustomEvent("ruby-upgrade-needed", {
+              detail: {
+                reason:
+                  "You've used your 5 free questions and messages for today. Upgrade to keep learning.",
+              },
+            }),
+          );
+        }
+      })
+      .catch(() => {
+        /* non-JSON 429 body — nothing to surface */
+      });
+  }
+
+  // Keep the usage meter live: a successful subject answer just spent one unit
+  // of the shared daily pool, so tell the meter to refetch its counts. (Chat
+  // and voice fire this event from their own flows; placement quizzes hit the
+  // diagnostic routes, not "/submit-answer", so they're correctly skipped.)
+  if (res.ok && typeof document !== "undefined") {
+    const url =
+      typeof input === "string"
+        ? input
+        : input instanceof URL
+        ? input.href
+        : (input as Request).url;
+    if (url.includes("/submit-answer")) {
+      document.dispatchEvent(new CustomEvent("ruby-usage-changed"));
+    }
+  }
+
+  return res;
 }

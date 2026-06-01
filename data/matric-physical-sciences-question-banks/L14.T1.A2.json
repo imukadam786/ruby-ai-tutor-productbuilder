@@ -1,7 +1,9 @@
 {
   "skill": "L14.T1.A2",
   "skill_title": "Calculate pH, pOH, [H⁺], [OH⁻] using Kw",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 5 lifted, 15 fresh. pH/pOH calculations, conversion between [H⁺] and pH, using Kw relation.",
@@ -12,12 +14,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define pH.",
-      "answerMode": "text",
-      "expectedAnswer": "pH = −log₁₀[H⁺] (or equivalently −log₁₀[H₃O⁺]). It is the negative logarithm (base 10) of the hydrogen ion (or hydronium ion) concentration in mol·dm⁻³.",
+      "answerMode": "choice",
+      "expectedAnswer": "pH = −log₁₀[H⁺] (the negative log of the hydrogen-ion concentration).",
       "marks": 2,
       "explanation": "pH definition: −log₁₀ of [H⁺]. Lower pH = more acidic.",
-      "errorSignals": ["ERR_PH_DEFINITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_PH_DEFINITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "pH = +log₁₀[H⁺].",
+        "pH = −log₁₀[H⁺] (the negative log of the hydrogen-ion concentration).",
+        "pH = −log₁₀[OH⁻]."
+      ]
     },
     {
       "id": "L14.T1.A2.q02",
@@ -32,7 +41,9 @@
       "unit": "mol·dm⁻³",
       "marks": 3,
       "explanation": "[H₃O⁺] = 10⁻ᵖᴴ = 10⁻² = 0.01 mol·dm⁻³.",
-      "errorSignals": ["ERR_PH_REVERSE"],
+      "errorSignals": [
+        "ERR_PH_REVERSE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -48,7 +59,10 @@
       "unit": "(no units)",
       "marks": 4,
       "explanation": "NaOH is a strong base ⇒ fully ionised. [OH⁻] = 0.2 mol·dm⁻³. pOH = −log(0.2) ≈ 0.699. pH = 14 − pOH = 14 − 0.699 ≈ 13.3.",
-      "errorSignals": ["ERR_POH_PH_RELATION", "ERR_BASE_TO_POH"],
+      "errorSignals": [
+        "ERR_POH_PH_RELATION",
+        "ERR_BASE_TO_POH"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -57,12 +71,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "State the relationship between pH and pOH at 25°C.",
-      "answerMode": "text",
-      "expectedAnswer": "At 25°C, pH + pOH = 14. This follows from Kw = [H⁺][OH⁻] = 1 × 10⁻¹⁴, so −log[H⁺] + (−log[OH⁻]) = 14.",
+      "answerMode": "choice",
+      "expectedAnswer": "pH + pOH = 14 (at 25 °C).",
       "marks": 2,
       "explanation": "Standard at 25°C: pH + pOH = 14. At other temperatures, Kw changes and so does this sum.",
-      "errorSignals": ["ERR_POH_PH_RELATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_POH_PH_RELATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "pH + pOH = 7.",
+        "pH × pOH = 14.",
+        "pH + pOH = 14 (at 25 °C)."
+      ]
     },
     {
       "id": "L14.T1.A2.q05",
@@ -72,13 +93,25 @@
       "question": "A solution at 25°C has [OH⁻] = 1 × 10⁻³ mol·dm⁻³. Calculate (a) pOH, (b) pH, and (c) [H⁺].",
       "answerMode": "multiField",
       "fields": [
-        {"label": "pOH", "expectedAnswer": "3"},
-        {"label": "pH", "expectedAnswer": "11"},
-        {"label": "[H⁺] (mol/dm³)", "expectedAnswer": "1e-11"}
+        {
+          "label": "pOH",
+          "expectedAnswer": "3"
+        },
+        {
+          "label": "pH",
+          "expectedAnswer": "11"
+        },
+        {
+          "label": "[H⁺] (mol/dm³)",
+          "expectedAnswer": "1e-11"
+        }
       ],
       "marks": 4,
       "explanation": "pOH = −log(10⁻³) = 3. pH = 14 − 3 = 11. [H⁺] = 10⁻ᵖᴴ = 10⁻¹¹ mol·dm⁻³.",
-      "errorSignals": ["ERR_POH_PH_RELATION", "ERR_KW_RELATION"],
+      "errorSignals": [
+        "ERR_POH_PH_RELATION",
+        "ERR_KW_RELATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -87,12 +120,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "What is Kw at 25°C, and what is its physical significance?",
-      "answerMode": "text",
-      "expectedAnswer": "Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ mol²·dm⁻⁶ at 25°C. It is the ion product of water — describing the equilibrium constant for water's self-ionisation: H₂O ⇌ H⁺ + OH⁻. Any aqueous solution at 25°C satisfies [H⁺][OH⁻] = 10⁻¹⁴.",
+      "answerMode": "choice",
+      "expectedAnswer": "Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ — the ion product of water.",
       "marks": 2,
       "explanation": "Kw = self-ionisation constant of water. Sets the inverse relationship between [H⁺] and [OH⁻].",
-      "errorSignals": ["ERR_KW_DEFINITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KW_DEFINITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ — the ion product of water.",
+        "Kw = 1.0 × 10⁻⁷.",
+        "Kw = 14."
+      ]
     },
     {
       "id": "L14.T1.A2.q07",
@@ -107,7 +147,10 @@
       "unit": "(no units)",
       "marks": 8,
       "explanation": "H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O. Moles H⁺ available = 2 × 0.01 = 0.02. Moles OH⁻ available = 0.024. Excess OH⁻ = 0.024 − 0.020 = 0.004 mol. [OH⁻] = 0.004/0.2 = 0.02 mol·dm⁻³. pOH = −log(0.02) ≈ 1.7. pH = 14 − 1.7 = 12.3.",
-      "errorSignals": ["ERR_NEUTRALISATION_EXCESS", "ERR_DIPROTIC_NEUTRALISATION"],
+      "errorSignals": [
+        "ERR_NEUTRALISATION_EXCESS",
+        "ERR_DIPROTIC_NEUTRALISATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -122,7 +165,10 @@
       "unit": "(no units)",
       "marks": 3,
       "explanation": "HCl is a strong acid ⇒ fully ionised. [H⁺] = 0.05 mol·dm⁻³. pH = −log(0.05) ≈ 1.30.",
-      "errorSignals": ["ERR_PH_REVERSE", "ERR_STRONG_ACID_PH"],
+      "errorSignals": [
+        "ERR_PH_REVERSE",
+        "ERR_STRONG_ACID_PH"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -133,12 +179,21 @@
       "question": "A solution has pH = 5.7. Calculate [H⁺] and [OH⁻] at 25°C.",
       "answerMode": "multiField",
       "fields": [
-        {"label": "[H⁺] (mol/dm³)", "expectedAnswer": "2e-6"},
-        {"label": "[OH⁻] (mol/dm³)", "expectedAnswer": "5e-9"}
+        {
+          "label": "[H⁺] (mol/dm³)",
+          "expectedAnswer": "2e-6"
+        },
+        {
+          "label": "[OH⁻] (mol/dm³)",
+          "expectedAnswer": "5e-9"
+        }
       ],
       "marks": 4,
       "explanation": "[H⁺] = 10⁻⁵·⁷ ≈ 2.0 × 10⁻⁶ mol·dm⁻³. [OH⁻] = Kw/[H⁺] = 10⁻¹⁴/(2×10⁻⁶) = 5 × 10⁻⁹ mol·dm⁻³.",
-      "errorSignals": ["ERR_PH_REVERSE", "ERR_KW_RELATION"],
+      "errorSignals": [
+        "ERR_PH_REVERSE",
+        "ERR_KW_RELATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -153,7 +208,10 @@
       "unit": "(no units)",
       "marks": 2,
       "explanation": "pH = −log(4 × 10⁻³) = −log(4) − log(10⁻³) ≈ −0.602 + 3 = 2.40.",
-      "errorSignals": ["ERR_PH_DEFINITION", "ERR_LOG_CALCULATION"],
+      "errorSignals": [
+        "ERR_PH_DEFINITION",
+        "ERR_LOG_CALCULATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -162,12 +220,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Is a solution with pH = 7.0 always neutral? Briefly explain.",
-      "answerMode": "text",
-      "expectedAnswer": "At 25°C, pH = 7 corresponds to [H⁺] = [OH⁻] = 10⁻⁷ mol·dm⁻³ (NEUTRAL). At other temperatures, Kw changes, so neutral water has a different pH. For example, at higher T, Kw > 10⁻¹⁴, so neutral water has pH < 7 (but still equal [H⁺] and [OH⁻]).",
+      "answerMode": "choice",
+      "expectedAnswer": "Only at 25 °C — Kw changes with temperature, so neutral pH differs at other temperatures.",
       "marks": 3,
       "explanation": "pH 7 = neutral at 25°C only. Neutral generally means [H⁺] = [OH⁻], not pH = 7.",
-      "errorSignals": ["ERR_NEUTRAL_PH_TEMPERATURE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_NEUTRAL_PH_TEMPERATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — pH 7 is neutral at any temperature.",
+        "Only at 25 °C — Kw changes with temperature, so neutral pH differs at other temperatures.",
+        "No — pH 7 is always acidic."
+      ]
     },
     {
       "id": "L14.T1.A2.q12",
@@ -176,12 +241,15 @@
       "source": "fresh",
       "question": "A solution has pH = 9. Calculate [OH⁻].",
       "answerMode": "numeric",
-      "expectedAnswer": 1e-5,
-      "tolerance": 1e-6,
+      "expectedAnswer": 0.00001,
+      "tolerance": 0.000001,
       "unit": "mol·dm⁻³",
       "marks": 3,
       "explanation": "pOH = 14 − 9 = 5. [OH⁻] = 10⁻⁵ mol·dm⁻³. (Or from [H⁺] = 10⁻⁹ and Kw: [OH⁻] = 10⁻¹⁴/10⁻⁹ = 10⁻⁵.)",
-      "errorSignals": ["ERR_POH_PH_RELATION", "ERR_KW_RELATION"],
+      "errorSignals": [
+        "ERR_POH_PH_RELATION",
+        "ERR_KW_RELATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -201,7 +269,9 @@
       "expectedAnswer": "[H₃O⁺] increases; Kw remains the same",
       "marks": 2,
       "explanation": "Adding strong acid increases [H₃O⁺]. Kw depends only on temperature (= 10⁻¹⁴ at 25°C), unchanged by adding acid.",
-      "errorSignals": ["ERR_KW_DEPENDENCE"],
+      "errorSignals": [
+        "ERR_KW_DEPENDENCE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -212,12 +282,20 @@
       "question": "A 0.10 mol·dm⁻³ solution of a weak acid HA has pH = 3.0. Calculate (a) [H⁺], (b) Ka. (Assume monoprotic, and that the change in [HA] is small enough that [HA] ≈ 0.10 mol·dm⁻³ at equilibrium.)",
       "answerMode": "multiField",
       "fields": [
-        {"label": "[H⁺] (mol/dm³)", "expectedAnswer": "1e-3"},
-        {"label": "Ka (mol/dm³)", "expectedAnswer": "1e-5"}
+        {
+          "label": "[H⁺] (mol/dm³)",
+          "expectedAnswer": "1e-3"
+        },
+        {
+          "label": "Ka (mol/dm³)",
+          "expectedAnswer": "1e-5"
+        }
       ],
       "marks": 5,
       "explanation": "[H⁺] = 10⁻³ mol·dm⁻³. Ka = [H⁺][A⁻]/[HA] ≈ (10⁻³)(10⁻³)/0.10 = 10⁻⁵ mol·dm⁻³.",
-      "errorSignals": ["ERR_KA_CALCULATION"],
+      "errorSignals": [
+        "ERR_KA_CALCULATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -232,7 +310,10 @@
       "unit": "(no units)",
       "marks": 4,
       "explanation": "Ca(OH)₂ → Ca²⁺ + 2OH⁻. [OH⁻] = 2 × 0.005 = 0.01 mol·dm⁻³. pOH = −log(0.01) = 2. pH = 14 − 2 = 12.",
-      "errorSignals": ["ERR_DIPROTIC_BASE_OH", "ERR_POH_PH_RELATION"],
+      "errorSignals": [
+        "ERR_DIPROTIC_BASE_OH",
+        "ERR_POH_PH_RELATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -241,12 +322,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "If you DILUTE an acid solution 10-fold (with water), what happens to (a) [H⁺] and (b) pH?",
-      "answerMode": "text",
-      "expectedAnswer": "(a) [H⁺] DECREASES by a factor of 10. (b) pH INCREASES by 1 unit (since pH = −log[H⁺], dividing [H⁺] by 10 adds 1 to pH). e.g. pH 2 → pH 3 on 10× dilution. (Limiting case: very dilute acid approaches pH 7.)",
+      "answerMode": "choice",
+      "expectedAnswer": "[H⁺] decreases 10-fold; pH increases by 1 unit.",
       "marks": 3,
       "explanation": "10× dilution: [H⁺] ÷ 10, pH + 1. Log relationship.",
-      "errorSignals": ["ERR_DILUTION_PH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_DILUTION_PH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "[H⁺] increases 10-fold; pH decreases by 1.",
+        "Both [H⁺] and pH stay the same.",
+        "[H⁺] decreases 10-fold; pH increases by 1 unit."
+      ]
     },
     {
       "id": "L14.T1.A2.q17",
@@ -261,7 +349,9 @@
       "unit": "mol·dm⁻³",
       "marks": 3,
       "explanation": "[OH⁻] = 0.2 (strong base). [H⁺] = Kw/[OH⁻] = 10⁻¹⁴/0.2 = 5 × 10⁻¹⁴ mol·dm⁻³.",
-      "errorSignals": ["ERR_KW_RELATION"],
+      "errorSignals": [
+        "ERR_KW_RELATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -270,12 +360,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'A solution with [H⁺] = 10⁻⁸ mol·dm⁻³ is acidic because pH = 8 is less than 14.' Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. pH 8 > pH 7, so the solution is BASIC (alkaline), not acidic, at 25°C. The acidic-basic-neutral classification uses pH 7 as the dividing line at 25°C: acidic (pH < 7), neutral (pH = 7), basic (pH > 7).",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — pH 8 is greater than 7, so the solution is basic (at 25 °C).",
       "marks": 2,
       "explanation": "Common slip: pH 8 means slightly basic, not acidic. 'Less than 14' isn't the relevant comparison.",
-      "errorSignals": ["ERR_PH_ACID_BASE_THRESHOLD"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_PH_ACID_BASE_THRESHOLD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Incorrect — pH 8 is greater than 7, so the solution is basic (at 25 °C).",
+        "Correct — pH 8 is acidic because it is below 14.",
+        "Correct — any pH below 14 is acidic."
+      ]
     },
     {
       "id": "L14.T1.A2.q19",
@@ -289,7 +386,10 @@
       "unit": "(no units)",
       "marks": 5,
       "explanation": "Moles HCl = 0.10 × 0.1 = 0.010 mol. Moles NaOH = 0.05 × 0.1 = 0.005 mol. HCl excess = 0.010 − 0.005 = 0.005 mol. Total V = 0.2 dm³. [H⁺] = 0.005/0.2 = 0.025 mol·dm⁻³. pH = −log(0.025) ≈ 1.60.",
-      "errorSignals": ["ERR_NEUTRALISATION_EXCESS", "ERR_DILUTION_PH"],
+      "errorSignals": [
+        "ERR_NEUTRALISATION_EXCESS",
+        "ERR_DILUTION_PH"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -298,12 +398,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does pure water have pH = 7 at 25°C?",
-      "answerMode": "text",
-      "expectedAnswer": "Pure water self-ionises: H₂O ⇌ H⁺ + OH⁻ with Kw = [H⁺][OH⁻] = 10⁻¹⁴ at 25°C. Since the ionisation is symmetric, [H⁺] = [OH⁻] = √(10⁻¹⁴) = 10⁻⁷ mol·dm⁻³. Therefore pH = −log(10⁻⁷) = 7.",
+      "answerMode": "choice",
+      "expectedAnswer": "Self-ionisation gives [H⁺] = [OH⁻] = 10⁻⁷ mol·dm⁻³, so pH = 7.",
       "marks": 3,
       "explanation": "Self-ionisation of pure water + Kw symmetry ⇒ pH 7 at 25°C.",
-      "errorSignals": ["ERR_PURE_WATER_PH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_PURE_WATER_PH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because pure water contains no ions at all.",
+        "Self-ionisation gives [H⁺] = [OH⁻] = 10⁻⁷ mol·dm⁻³, so pH = 7.",
+        "Because water's pH is defined as 7 by convention."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

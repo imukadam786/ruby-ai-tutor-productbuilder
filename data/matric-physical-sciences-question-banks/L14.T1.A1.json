@@ -1,7 +1,9 @@
 {
   "skill": "L14.T1.A1",
   "skill_title": "Apply the Brønsted-Lowry definition and identify conjugate acid-base pairs",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 8 lifted, 12 fresh. Brønsted-Lowry (H⁺ donor/acceptor); conjugate pairs; amphiprotic species.",
@@ -13,12 +15,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q7.1.1",
       "question": "Define an ACID according to the Brønsted-Lowry theory.",
-      "answerMode": "text",
-      "expectedAnswer": "An acid is a proton (H⁺) DONOR.",
+      "answerMode": "choice",
+      "expectedAnswer": "A proton (H⁺) donor.",
       "marks": 2,
       "explanation": "Brønsted-Lowry: acid donates H⁺. Base accepts H⁺. Simple, transfer-based definition.",
-      "errorSignals": ["ERR_BRONSTED_ACID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BRONSTED_ACID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A proton (H⁺) donor.",
+        "A proton (H⁺) acceptor.",
+        "A substance that produces OH⁻ in water."
+      ]
     },
     {
       "id": "L14.T1.A1.q02",
@@ -26,12 +35,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define a BASE according to the Brønsted-Lowry theory.",
-      "answerMode": "text",
-      "expectedAnswer": "A base is a proton (H⁺) ACCEPTOR.",
+      "answerMode": "choice",
+      "expectedAnswer": "A proton (H⁺) acceptor.",
       "marks": 2,
       "explanation": "Brønsted-Lowry base: accepts H⁺. (NH₃ + H⁺ → NH₄⁺: NH₃ is a base.)",
-      "errorSignals": ["ERR_BRONSTED_BASE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BRONSTED_BASE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A proton (H⁺) donor.",
+        "A proton (H⁺) acceptor.",
+        "A substance that produces H⁺ in water."
+      ]
     },
     {
       "id": "L14.T1.A1.q03",
@@ -40,12 +56,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2025 Q7.1",
       "question": "Define an ACID according to the ARRHENIUS theory.",
-      "answerMode": "text",
-      "expectedAnswer": "An acid is a substance that produces hydrogen ions (H⁺) or hydronium ions (H₃O⁺) in aqueous solution.",
+      "answerMode": "choice",
+      "expectedAnswer": "A substance that produces H⁺ (or H₃O⁺) ions in aqueous solution.",
       "marks": 2,
       "explanation": "Arrhenius: acid produces H⁺ in water. Brønsted-Lowry is more general (doesn't require water).",
-      "errorSignals": ["ERR_ARRHENIUS_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ARRHENIUS_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A proton acceptor in any solvent.",
+        "A substance that produces OH⁻ ions in water.",
+        "A substance that produces H⁺ (or H₃O⁺) ions in aqueous solution."
+      ]
     },
     {
       "id": "L14.T1.A1.q04",
@@ -64,7 +87,9 @@
       "expectedAnswer": "Acid − H⁺ → conjugate base",
       "marks": 2,
       "explanation": "Conjugate base = acid that has DONATED its H⁺. Lose one H⁺ ⇒ conjugate base. (Lose another and you get conjugate base of conjugate base.)",
-      "errorSignals": ["ERR_CONJUGATE_BASE_FORMATION"],
+      "errorSignals": [
+        "ERR_CONJUGATE_BASE_FORMATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -73,12 +98,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "In the reaction HCl + H₂O → H₃O⁺ + Cl⁻, identify the acid, base, conjugate acid, and conjugate base.",
-      "answerMode": "text",
-      "expectedAnswer": "Acid (donates H⁺): HCl. Base (accepts H⁺): H₂O. Conjugate acid (of H₂O, after gaining H⁺): H₃O⁺. Conjugate base (of HCl, after losing H⁺): Cl⁻. Conjugate pairs: HCl/Cl⁻ and H₂O/H₃O⁺.",
+      "answerMode": "choice",
+      "expectedAnswer": "Acid: HCl; base: H₂O; conjugate acid: H₃O⁺; conjugate base: Cl⁻.",
       "marks": 4,
       "explanation": "Identify the H⁺ donor (acid) and acceptor (base) on the reactant side. Conjugates differ by one H⁺.",
-      "errorSignals": ["ERR_CONJUGATE_PAIR_ID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONJUGATE_PAIR_ID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Acid: HCl; base: H₂O; conjugate acid: H₃O⁺; conjugate base: Cl⁻.",
+        "Acid: H₂O; base: HCl; conjugate acid: Cl⁻; conjugate base: H₃O⁺.",
+        "Acid: HCl; base: H₂O; conjugate acid: Cl⁻; conjugate base: H₃O⁺."
+      ]
     },
     {
       "id": "L14.T1.A1.q06",
@@ -87,12 +119,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2025 Q1.7",
       "question": "In the equilibrium HSO₄⁻(aq) + NH₃(aq) ⇌ SO₄²⁻(aq) + NH₄⁺(aq), identify the TWO acids.",
-      "answerMode": "text",
-      "expectedAnswer": "The two acids are HSO₄⁻ (donates H⁺ to NH₃ in the forward direction) and NH₄⁺ (donates H⁺ to SO₄²⁻ in the reverse direction). Both donate H⁺ in their respective directions.",
+      "answerMode": "choice",
+      "expectedAnswer": "HSO₄⁻ and NH₄⁺ (each donates H⁺ in one direction).",
       "marks": 2,
       "explanation": "Two acids in an equilibrium: the original (forward direction H⁺ donor) and the conjugate acid (formed on the products side).",
-      "errorSignals": ["ERR_CONJUGATE_PAIR_ID", "ERR_BRONSTED_ACID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONJUGATE_PAIR_ID",
+        "ERR_BRONSTED_ACID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "NH₃ and SO₄²⁻.",
+        "HSO₄⁻ and NH₄⁺ (each donates H⁺ in one direction).",
+        "HSO₄⁻ and SO₄²⁻."
+      ]
     },
     {
       "id": "L14.T1.A1.q07",
@@ -101,12 +141,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q1.8",
       "question": "Consider: H₂PO₄⁻ ⇌ H⁺ + HPO₄²⁻ AND HPO₄²⁻ ⇌ H⁺ + PO₄³⁻. Identify X and Y where the steps go H₃PO₄ → H₂PO₄⁻ → X → Y.",
-      "answerMode": "text",
-      "expectedAnswer": "X = HPO₄²⁻ (loss of second H⁺). Y = PO₄³⁻ (loss of third H⁺). Successive ionisation: H₃PO₄ → H₂PO₄⁻ → HPO₄²⁻ → PO₄³⁻ (triprotic acid).",
+      "answerMode": "choice",
+      "expectedAnswer": "X = HPO₄²⁻; Y = PO₄³⁻.",
       "marks": 2,
       "explanation": "Phosphoric acid is triprotic. Each step loses one H⁺, charge becomes more negative.",
-      "errorSignals": ["ERR_POLYPROTIC_STEPS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_POLYPROTIC_STEPS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "X = H₂PO₄⁻; Y = HPO₄²⁻.",
+        "X = PO₄³⁻; Y = HPO₄²⁻.",
+        "X = HPO₄²⁻; Y = PO₄³⁻."
+      ]
     },
     {
       "id": "L14.T1.A1.q08",
@@ -114,12 +161,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define an AMPHIPROTIC species. Give an example.",
-      "answerMode": "text",
-      "expectedAnswer": "An amphiprotic species is one that can either DONATE or ACCEPT a proton (depending on the reaction partner). Example: H₂O (can act as acid by donating H⁺ to give OH⁻, or as base by accepting H⁺ to give H₃O⁺). Other examples: HCO₃⁻, HSO₄⁻, NH₃.",
+      "answerMode": "choice",
+      "expectedAnswer": "A species that can either donate or accept a proton; e.g. H₂O.",
       "marks": 3,
       "explanation": "Amphiprotic: donates AND accepts H⁺. Often species that already have one ionisable H plus a lone pair.",
-      "errorSignals": ["ERR_AMPHIPROTIC_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_AMPHIPROTIC_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A species that can either donate or accept a proton; e.g. H₂O.",
+        "A species that can only donate protons; e.g. HCl.",
+        "A species containing both H and O; e.g. H₂O₂."
+      ]
     },
     {
       "id": "L14.T1.A1.q09",
@@ -127,12 +181,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "In the equation NH₃ + H₂O ⇌ NH₄⁺ + OH⁻, identify the acid, base, conjugate acid, and conjugate base.",
-      "answerMode": "text",
-      "expectedAnswer": "Acid (forward): H₂O (donates H⁺ to NH₃). Base (forward): NH₃ (accepts H⁺). Conjugate acid of NH₃ is NH₄⁺. Conjugate base of H₂O is OH⁻. Conjugate pairs: NH₃/NH₄⁺ and H₂O/OH⁻.",
+      "answerMode": "choice",
+      "expectedAnswer": "Acid: H₂O; base: NH₃; conjugate acid: NH₄⁺; conjugate base: OH⁻.",
       "marks": 4,
       "explanation": "H₂O is amphiprotic — here it's an acid. The conjugate pairs differ by one H⁺.",
-      "errorSignals": ["ERR_CONJUGATE_PAIR_ID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONJUGATE_PAIR_ID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Acid: NH₃; base: H₂O; conjugate acid: OH⁻; conjugate base: NH₄⁺.",
+        "Acid: H₂O; base: NH₃; conjugate acid: NH₄⁺; conjugate base: OH⁻.",
+        "Acid: H₂O; base: NH₃; conjugate acid: OH⁻; conjugate base: NH₄⁺."
+      ]
     },
     {
       "id": "L14.T1.A1.q10",
@@ -140,12 +201,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "What is the conjugate base of: (a) HCl; (b) H₂SO₄ (first ionisation); (c) NH₄⁺; (d) HSO₄⁻?",
-      "answerMode": "text",
-      "expectedAnswer": "(a) Cl⁻ (HCl − H⁺); (b) HSO₄⁻ (H₂SO₄ − H⁺); (c) NH₃ (NH₄⁺ − H⁺); (d) SO₄²⁻ (HSO₄⁻ − H⁺).",
+      "answerMode": "choice",
+      "expectedAnswer": "Cl⁻, HSO₄⁻, NH₃, SO₄²⁻.",
       "marks": 4,
       "explanation": "Conjugate base: remove one H⁺ and decrease charge by 1.",
-      "errorSignals": ["ERR_CONJUGATE_BASE_FORMATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONJUGATE_BASE_FORMATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Cl₂, SO₄²⁻, NH₂⁻, SO₃²⁻.",
+        "H₂Cl⁺, H₃SO₄⁺, NH₅²⁺, H₂SO₄.",
+        "Cl⁻, HSO₄⁻, NH₃, SO₄²⁻."
+      ]
     },
     {
       "id": "L14.T1.A1.q11",
@@ -153,12 +221,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "What is the conjugate acid of: (a) NH₃; (b) OH⁻; (c) Cl⁻; (d) H₂O?",
-      "answerMode": "text",
-      "expectedAnswer": "(a) NH₄⁺ (NH₃ + H⁺); (b) H₂O (OH⁻ + H⁺); (c) HCl (Cl⁻ + H⁺); (d) H₃O⁺ (H₂O + H⁺).",
+      "answerMode": "choice",
+      "expectedAnswer": "NH₄⁺, H₂O, HCl, H₃O⁺.",
       "marks": 4,
       "explanation": "Conjugate acid: add one H⁺ and increase charge by 1.",
-      "errorSignals": ["ERR_CONJUGATE_ACID_FORMATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONJUGATE_ACID_FORMATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "NH₄⁺, H₂O, HCl, H₃O⁺.",
+        "NH₂⁻, O²⁻, Cl₂, OH⁻.",
+        "NH₄⁺, H₂O, HCl₂, H₃O₂⁺."
+      ]
     },
     {
       "id": "L14.T1.A1.q12",
@@ -166,12 +241,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Identify whether each species below is acting as an ACID or a BASE in the reaction: CO₃²⁻ + H₂O ⇌ HCO₃⁻ + OH⁻.",
-      "answerMode": "text",
-      "expectedAnswer": "CO₃²⁻ accepts a proton (H⁺) ⇒ acts as a BASE. H₂O donates a proton ⇒ acts as an ACID. (H₂O is amphiprotic — here it's the acid.) Conjugate pairs: CO₃²⁻/HCO₃⁻ and H₂O/OH⁻.",
+      "answerMode": "choice",
+      "expectedAnswer": "CO₃²⁻ acts as a base (accepts H⁺); H₂O acts as an acid (donates H⁺).",
       "marks": 3,
       "explanation": "Look at where the H⁺ moves. CO₃²⁻ gains it (base); H₂O loses it (acid).",
-      "errorSignals": ["ERR_BRONSTED_BASE", "ERR_BRONSTED_ACID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BRONSTED_BASE",
+        "ERR_BRONSTED_ACID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CO₃²⁻ acts as an acid; H₂O acts as a base.",
+        "CO₃²⁻ acts as a base (accepts H⁺); H₂O acts as an acid (donates H⁺).",
+        "Both CO₃²⁻ and H₂O act as acids."
+      ]
     },
     {
       "id": "L14.T1.A1.q13",
@@ -179,12 +262,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is H₂O described as AMPHIPROTIC?",
-      "answerMode": "text",
-      "expectedAnswer": "H₂O can act as either an acid or a base, depending on what it reacts with. With a stronger acid (e.g. HCl), H₂O acts as a base: H₂O + HCl → H₃O⁺ + Cl⁻. With a stronger base (e.g. NH₃), H₂O acts as an acid: H₂O + NH₃ → OH⁻ + NH₄⁺. Capable of both donating AND accepting H⁺.",
+      "answerMode": "choice",
+      "expectedAnswer": "It can act as an acid or a base, depending on the species it reacts with.",
       "marks": 3,
       "explanation": "Water's amphiprotic nature underlies its self-ionisation (Kw) and its role in many acid-base reactions.",
-      "errorSignals": ["ERR_AMPHIPROTIC_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_AMPHIPROTIC_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because it contains both hydrogen and oxygen atoms.",
+        "Because it is a strong acid and a strong base at the same time.",
+        "It can act as an acid or a base, depending on the species it reacts with."
+      ]
     },
     {
       "id": "L14.T1.A1.q14",
@@ -192,12 +282,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A student says: 'HCl and Cl₂ are a conjugate acid-base pair.' Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. HCl and Cl⁻ are a conjugate acid-base pair (differ by one H⁺). HCl and Cl₂ are NOT a conjugate pair — Cl₂ is a different species (involves a different oxidation state of Cl and is not formed by loss of H⁺ from HCl). Conjugate pairs differ by exactly ONE proton.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — HCl and Cl⁻ are the conjugate pair; Cl₂ is a different species.",
       "marks": 2,
       "explanation": "Conjugates differ by exactly one H⁺. Cl⁻ (not Cl₂) is the conjugate base of HCl.",
-      "errorSignals": ["ERR_CONJUGATE_PAIR_ID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONJUGATE_PAIR_ID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Incorrect — HCl and Cl⁻ are the conjugate pair; Cl₂ is a different species.",
+        "Correct — HCl and Cl₂ differ by one H⁺.",
+        "Correct — any two chlorine species form a conjugate pair."
+      ]
     },
     {
       "id": "L14.T1.A1.q15",
@@ -206,12 +303,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2025 Q7.2.3",
       "question": "From {HCO₃⁻, NaCl, CaCO₃, H₂SO₄, NH₃}, identify ONE species that is an AMPHIPROTIC ion or amphiprotic substance.",
-      "answerMode": "text",
-      "expectedAnswer": "HCO₃⁻ (bicarbonate) is amphiprotic — it can donate H⁺ (to form CO₃²⁻) or accept H⁺ (to form H₂CO₃). NH₃ is also a valid answer (amphiprotic in special cases — can accept H⁺ to NH₄⁺ or donate H⁺ to NH₂⁻ in strong base).",
+      "answerMode": "choice",
+      "expectedAnswer": "HCO₃⁻ (it can donate or accept a proton).",
       "marks": 1,
       "explanation": "HCO₃⁻ and HSO₄⁻ are classic amphiprotic ions. H₂O is the prototype.",
-      "errorSignals": ["ERR_AMPHIPROTIC_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_AMPHIPROTIC_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "NaCl.",
+        "HCO₃⁻ (it can donate or accept a proton).",
+        "H₂SO₄."
+      ]
     },
     {
       "id": "L14.T1.A1.q16",
@@ -219,12 +323,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Identify the conjugate pairs in the equation: HSO₄⁻ + H₂O ⇌ SO₄²⁻ + H₃O⁺.",
-      "answerMode": "text",
-      "expectedAnswer": "Conjugate pair 1: HSO₄⁻ (acid) / SO₄²⁻ (conjugate base) — differ by one H⁺. Conjugate pair 2: H₃O⁺ (conjugate acid) / H₂O (base) — differ by one H⁺. In this equation HSO₄⁻ acts as the acid, H₂O as the base.",
+      "answerMode": "choice",
+      "expectedAnswer": "HSO₄⁻/SO₄²⁻ and H₃O⁺/H₂O.",
       "marks": 4,
       "explanation": "Identify the two pairs by H⁺ transfer. HSO₄⁻/SO₄²⁻ and H₂O/H₃O⁺.",
-      "errorSignals": ["ERR_CONJUGATE_PAIR_ID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONJUGATE_PAIR_ID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "HSO₄⁻/H₃O⁺ and SO₄²⁻/H₂O.",
+        "HSO₄⁻/H₂O and SO₄²⁻/H₃O⁺.",
+        "HSO₄⁻/SO₄²⁻ and H₃O⁺/H₂O."
+      ]
     },
     {
       "id": "L14.T1.A1.q17",
@@ -232,12 +343,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is the Brønsted-Lowry definition more general than the Arrhenius definition?",
-      "answerMode": "text",
-      "expectedAnswer": "The Arrhenius definition applies only to AQUEOUS solutions (produces H⁺ or OH⁻ in water). The Brønsted-Lowry definition applies to ANY proton-transfer reaction, regardless of solvent (including non-aqueous solvents and the gas phase). Brønsted-Lowry includes Arrhenius as a special case but is broader.",
+      "answerMode": "choice",
+      "expectedAnswer": "It applies to any proton-transfer reaction, not just to aqueous solutions.",
       "marks": 3,
       "explanation": "Arrhenius requires water; Brønsted-Lowry is about H⁺ transfer (any medium).",
-      "errorSignals": ["ERR_ARRHENIUS_VS_BRONSTED"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ARRHENIUS_VS_BRONSTED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It applies to any proton-transfer reaction, not just to aqueous solutions.",
+        "Because Arrhenius applies to all solvents and Brønsted-Lowry only to water.",
+        "Because Brønsted-Lowry describes only strong acids."
+      ]
     },
     {
       "id": "L14.T1.A1.q18",
@@ -245,12 +363,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Show the proton transfer step by step: NH₃ + HCl → NH₄Cl. Which is the acid?",
-      "answerMode": "text",
-      "expectedAnswer": "HCl donates H⁺ to NH₃. Acid: HCl (proton donor). Base: NH₃ (proton acceptor). NH₃ + HCl → NH₄⁺ + Cl⁻ (in solution; in gas phase, they pair as NH₄Cl). Conjugate pairs: HCl/Cl⁻ and NH₃/NH₄⁺.",
+      "answerMode": "choice",
+      "expectedAnswer": "HCl (the proton donor).",
       "marks": 3,
       "explanation": "Acid-base reaction without water. H⁺ transferred from HCl to NH₃.",
-      "errorSignals": ["ERR_BRONSTED_ACID", "ERR_CONJUGATE_PAIR_ID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BRONSTED_ACID",
+        "ERR_CONJUGATE_PAIR_ID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "NH₃ is the acid.",
+        "HCl (the proton donor).",
+        "NH₄Cl is the acid."
+      ]
     },
     {
       "id": "L14.T1.A1.q19",
@@ -258,12 +384,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why can H₂O behave as both an acid (with NH₃) and a base (with HCl)?",
-      "answerMode": "text",
-      "expectedAnswer": "H₂O is amphiprotic. It has both an O-H bond (allowing it to donate H⁺) and a lone pair on O (allowing it to accept H⁺). When reacting with a stronger acid (HCl), it accepts a proton (acts as base). When reacting with a stronger base (NH₃), it donates a proton (acts as acid).",
+      "answerMode": "choice",
+      "expectedAnswer": "It is amphiprotic — it can donate H⁺ (to NH₃) or accept H⁺ (from HCl).",
       "marks": 3,
       "explanation": "Amphiprotic nature of water: O-H bond donates, lone pair accepts.",
-      "errorSignals": ["ERR_AMPHIPROTIC_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_AMPHIPROTIC_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because water is always neutral.",
+        "Because water is a strong acid with NH₃ and a strong base with HCl.",
+        "It is amphiprotic — it can donate H⁺ (to NH₃) or accept H⁺ (from HCl)."
+      ]
     },
     {
       "id": "L14.T1.A1.q20",
@@ -271,12 +404,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Identify the species in CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺ as acid, base, conjugate acid, or conjugate base.",
-      "answerMode": "text",
-      "expectedAnswer": "CH₃COOH: acid (donates H⁺). H₂O: base (accepts H⁺). CH₃COO⁻: conjugate base (of CH₃COOH). H₃O⁺: conjugate acid (of H₂O). Pairs: CH₃COOH/CH₃COO⁻ and H₂O/H₃O⁺.",
+      "answerMode": "choice",
+      "expectedAnswer": "Acid: CH₃COOH; base: H₂O; conjugate base: CH₃COO⁻; conjugate acid: H₃O⁺.",
       "marks": 4,
       "explanation": "Weak acid (ethanoic acid) partially donates H⁺ to water. Standard equilibrium.",
-      "errorSignals": ["ERR_CONJUGATE_PAIR_ID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONJUGATE_PAIR_ID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Acid: CH₃COOH; base: H₂O; conjugate base: CH₃COO⁻; conjugate acid: H₃O⁺.",
+        "Acid: H₂O; base: CH₃COOH; conjugate acid: CH₃COO⁻; conjugate base: H₃O⁺.",
+        "Acid: CH₃COOH; base: H₂O; conjugate acid: CH₃COO⁻; conjugate base: H₃O⁺."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

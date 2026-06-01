@@ -1,7 +1,9 @@
 {
   "skill": "L6.T1.A2",
   "skill_title": "Calculate electric field at a point (single and net)",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 9 lifted, 11 fresh. Electric field E = kQ/r² from a single point charge; vector addition of fields from multiple charges; field-line patterns; E-vs-Q and E-vs-1/r² graphical analysis.",
@@ -14,11 +16,18 @@
       "source_ref": "P1 Predictive B 2026 Q1.7",
       "question": "The magnitude of the electric field at a distance r from a point charge Q is given by:",
       "answerMode": "choice",
-      "options": ["kQ/r²", "kQ/r", "kQ·r²", "F·Q"],
+      "options": [
+        "kQ/r²",
+        "kQ/r",
+        "kQ·r²",
+        "F·Q"
+      ],
       "expectedAnswer": "kQ/r²",
       "marks": 2,
       "explanation": "E = F/q (for a test charge q) = kQ/r². Inverse-square law, just like Coulomb's force.",
-      "errorSignals": ["ERR_E_FIELD_FORMULA"],
+      "errorSignals": [
+        "ERR_E_FIELD_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -38,7 +47,9 @@
       "expectedAnswer": "Straight line through origin (E ∝ Q)",
       "marks": 2,
       "explanation": "E = kQ/r². At fixed r, E ∝ Q. Linear graph through the origin with positive gradient.",
-      "errorSignals": ["ERR_E_VS_Q_GRAPH"],
+      "errorSignals": [
+        "ERR_E_VS_Q_GRAPH"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -54,7 +65,10 @@
       "unit": "N·C⁻¹",
       "marks": 3,
       "explanation": "E = kQ/r² = (9×10⁹)(4×10⁻⁹)/(0.025²) = 36/(6.25×10⁻⁴) = 57 600 N·C⁻¹.",
-      "errorSignals": ["ERR_E_FIELD_FORMULA", "ERR_E_FIELD_R_SQUARED"],
+      "errorSignals": [
+        "ERR_E_FIELD_FORMULA",
+        "ERR_E_FIELD_R_SQUARED"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -70,7 +84,10 @@
       "unit": "N·C⁻¹",
       "marks": 3,
       "explanation": "E_Q1 = kQ/r² = (9×10⁹)(5×10⁻⁶)/(0.2²) = 45 000/0.04 = 1.125 × 10⁶ N·C⁻¹, directed away from Q₁ (towards Q₂).",
-      "errorSignals": ["ERR_E_FIELD_R_SQUARED", "ERR_E_FIELD_DIRECTION"],
+      "errorSignals": [
+        "ERR_E_FIELD_R_SQUARED",
+        "ERR_E_FIELD_DIRECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -80,12 +97,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2025 Q7.1",
       "question": "Describe the electric field pattern around an ISOLATED POSITIVELY charged sphere. (You may describe instead of drawing.)",
-      "answerMode": "text",
-      "expectedAnswer": "Field lines radiate OUTWARD from the centre of the positive sphere in all directions (radially). Lines are straight, evenly spaced near the sphere, and decrease in density (further apart) as r increases — reflecting that the field weakens with distance.",
+      "answerMode": "choice",
+      "expectedAnswer": "Field lines radiate outward in all directions, denser near the sphere and farther apart with distance.",
       "marks": 3,
       "explanation": "Three marks: outward direction + radial pattern + density decreases with r.",
-      "errorSignals": ["ERR_FIELD_LINE_DIRECTION", "ERR_FIELD_LINE_DENSITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FIELD_LINE_DIRECTION",
+        "ERR_FIELD_LINE_DENSITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Field lines radiate outward in all directions, denser near the sphere and farther apart with distance.",
+        "Field lines point inward, towards the sphere.",
+        "Field lines radiate outward but are evenly spaced everywhere."
+      ]
     },
     {
       "id": "L6.T1.A2.q06",
@@ -94,12 +119,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2024 Q7.1.1",
       "question": "Describe (in words) the electric field pattern around a +4 nC point charge.",
-      "answerMode": "text",
-      "expectedAnswer": "Radially outward from the +4 nC charge in all directions. At least 8 evenly spaced straight arrows pointing away. Lines are denser near the charge and farther apart with distance.",
+      "answerMode": "choice",
+      "expectedAnswer": "Straight lines radiating outward (away) from the charge in all directions.",
       "marks": 2,
       "explanation": "Positive ⇒ outward arrows. Spacing reflects field magnitude.",
-      "errorSignals": ["ERR_FIELD_LINE_DIRECTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FIELD_LINE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Straight lines pointing inward, towards the charge.",
+        "Straight lines radiating outward (away) from the charge in all directions.",
+        "Circular loops around the charge."
+      ]
     },
     {
       "id": "L6.T1.A2.q07",
@@ -118,7 +150,10 @@
       "expectedAnswer": "S positive, T negative",
       "marks": 2,
       "explanation": "Field lines start on positive charges (S) and end on negative charges (T). Conventional rule: out of +, into −.",
-      "errorSignals": ["ERR_FIELD_LINE_DIRECTION", "ERR_FIELD_LINE_TERMINATE"],
+      "errorSignals": [
+        "ERR_FIELD_LINE_DIRECTION",
+        "ERR_FIELD_LINE_TERMINATE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -128,12 +163,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q7.2.1",
       "question": "A graph of electric field E versus 1/r² is plotted for a charged sphere. What does the SHAPE of this graph indicate about the relationship between E and 1/r²?",
-      "answerMode": "text",
-      "expectedAnswer": "If the graph is a straight line through the origin, E is directly proportional to 1/r² — i.e. E = kQ × (1/r²). The gradient of the line equals kQ.",
+      "answerMode": "choice",
+      "expectedAnswer": "A straight line through the origin means E is directly proportional to 1/r² (gradient = kQ).",
       "marks": 1,
       "explanation": "Linear E vs 1/r² ⇒ confirms inverse-square dependence of E on r. Gradient gives kQ.",
-      "errorSignals": ["ERR_E_VS_INVERSE_R_SQ"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_E_VS_INVERSE_R_SQ"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A curve means E is directly proportional to 1/r².",
+        "A straight line means E is independent of distance.",
+        "A straight line through the origin means E is directly proportional to 1/r² (gradient = kQ)."
+      ]
     },
     {
       "id": "L6.T1.A2.q09",
@@ -143,12 +185,15 @@
       "source_ref": "P1 May/Jun 2022 Q7.2.2",
       "question": "The gradient of an E vs 1/r² graph for charge A is 680 N·m²·C⁻¹. Calculate the charge on sphere A. (k = 9 × 10⁹ N·m²·C⁻².)",
       "answerMode": "numeric",
-      "expectedAnswer": 0.0000000756,
-      "tolerance": 0.000000005,
+      "expectedAnswer": 7.56e-8,
+      "tolerance": 5e-9,
       "unit": "C",
       "marks": 4,
       "explanation": "Gradient = kQ ⇒ Q = gradient/k = 680/(9×10⁹) ≈ 7.56 × 10⁻⁸ C.",
-      "errorSignals": ["ERR_E_VS_INVERSE_R_SQ", "ERR_GRAPH_GRADIENT_REARRANGE"],
+      "errorSignals": [
+        "ERR_E_VS_INVERSE_R_SQ",
+        "ERR_GRAPH_GRADIENT_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -163,7 +208,10 @@
       "unit": "N·C⁻¹",
       "marks": 4,
       "explanation": "At the midpoint (0.10 m from each): E_Q1 = (9×10⁹)(6×10⁻⁹)/(0.1²) = 5400 N·C⁻¹ pointing away from Q₁ (towards Q₂). E_Q2 = 5400 N·C⁻¹ pointing towards Q₂ (so same direction). Same direction ⇒ add: E_net = 10 800 N·C⁻¹.",
-      "errorSignals": ["ERR_E_FIELD_VECTOR_ADD", "ERR_E_FIELD_DIRECTION"],
+      "errorSignals": [
+        "ERR_E_FIELD_VECTOR_ADD",
+        "ERR_E_FIELD_DIRECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -178,7 +226,10 @@
       "unit": "N·C⁻¹",
       "marks": 3,
       "explanation": "At the midpoint, E_Q1 and E_Q2 have equal magnitudes but OPPOSITE directions (each points away from its own +). They cancel ⇒ net E = 0.",
-      "errorSignals": ["ERR_E_FIELD_VECTOR_ADD", "ERR_E_FIELD_DIRECTION"],
+      "errorSignals": [
+        "ERR_E_FIELD_VECTOR_ADD",
+        "ERR_E_FIELD_DIRECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -187,12 +238,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define ELECTRIC FIELD at a point.",
-      "answerMode": "text",
-      "expectedAnswer": "The electric field at a point is the electrostatic force per unit positive test charge experienced at that point: E = F/q. It is a vector quantity with direction the same as the force on a positive test charge. SI unit: newton per coulomb (N·C⁻¹) or volt per metre (V·m⁻¹).",
+      "answerMode": "choice",
+      "expectedAnswer": "The electrostatic force per unit positive test charge at a point: E = F/q (unit N·C⁻¹).",
       "marks": 2,
       "explanation": "Two marks: 'force per unit positive test charge' + 'vector / N·C⁻¹'.",
-      "errorSignals": ["ERR_E_FIELD_DEF", "ERR_E_FIELD_UNITS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_E_FIELD_DEF",
+        "ERR_E_FIELD_UNITS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The electrostatic force per unit positive test charge at a point: E = F/q (unit N·C⁻¹).",
+        "The total force on a charge at a point (unit N).",
+        "The charge per unit area on a surface (unit C·m⁻²)."
+      ]
     },
     {
       "id": "L6.T1.A2.q13",
@@ -202,11 +261,13 @@
       "question": "An electric field of 200 N·C⁻¹ acts on a point charge of −5 nC at a point. Calculate the magnitude of the force on the charge.",
       "answerMode": "numeric",
       "expectedAnswer": 0.000001,
-      "tolerance": 0.00000005,
+      "tolerance": 5e-8,
       "unit": "N",
       "marks": 2,
       "explanation": "F = |E·q| = 200 × 5 × 10⁻⁹ = 1 × 10⁻⁶ N. Direction is opposite to E (because charge is negative).",
-      "errorSignals": ["ERR_E_FIELD_F_EQUALS_EQ"],
+      "errorSignals": [
+        "ERR_E_FIELD_F_EQUALS_EQ"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -225,7 +286,9 @@
       "expectedAnswer": "Zero",
       "marks": 2,
       "explanation": "Equal positive charges at equal distances on opposite sides ⇒ fields at the centre are equal in magnitude and opposite in direction ⇒ cancel ⇒ net zero.",
-      "errorSignals": ["ERR_E_FIELD_VECTOR_ADD"],
+      "errorSignals": [
+        "ERR_E_FIELD_VECTOR_ADD"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -234,12 +297,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner draws field lines for a NEGATIVE point charge with arrows pointing OUTWARD. What's wrong?",
-      "answerMode": "text",
-      "expectedAnswer": "Field lines around a negative charge must point INWARD (towards the charge). By convention, lines start on positive charges and END on negative charges. A negative charge alone has field lines coming inward from infinity.",
+      "answerMode": "choice",
+      "expectedAnswer": "Field lines around a negative charge must point inward — lines end on negative charges.",
       "marks": 2,
       "explanation": "Convention: + outward, − inward. Critical for getting field patterns right.",
-      "errorSignals": ["ERR_FIELD_LINE_DIRECTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FIELD_LINE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Nothing — field lines always point outward from any charge.",
+        "Field lines around a negative charge must point inward — lines end on negative charges.",
+        "The lines should be curved, not straight."
+      ]
     },
     {
       "id": "L6.T1.A2.q16",
@@ -249,12 +319,15 @@
       "source_ref": "P1 May/Jun 2023 Q7.5",
       "question": "Charges X (−7.2 × 10⁻⁹ C) at origin, Y (+7.2 × 10⁻⁹ C) at 0.03 m to the right, and Z (positive, magnitude unknown) at 0.01 m to the LEFT of X. The resultant electric field at point X is 4.91 × 10⁵ N·C⁻¹ directed to the RIGHT. Calculate the magnitude of charge Z.",
       "answerMode": "numeric",
-      "expectedAnswer": 0.0000000047,
-      "tolerance": 0.000000001,
+      "expectedAnswer": 4.7e-9,
+      "tolerance": 1e-9,
       "unit": "C",
       "marks": 5,
       "explanation": "Find E from Y at X: E_Y = (9×10⁹)(7.2×10⁻⁹)/(0.03²) ≈ 72 000 N·C⁻¹ toward Y (right). Net E at X = 4.91×10⁵ N·C⁻¹ right. So E from Z = 4.91×10⁵ − 7.2×10⁴ = 4.19×10⁵ N·C⁻¹ (right). Z is positive and 0.01 m left of X, so its field at X also points right (away from +Z). E_Z = kQ_Z/r² ⇒ Q_Z = E_Z × r²/k = 4.19×10⁵ × (0.01²)/(9×10⁹) ≈ 4.66 × 10⁻⁹ C.",
-      "errorSignals": ["ERR_E_FIELD_VECTOR_ADD", "ERR_E_FIELD_DIRECTION"],
+      "errorSignals": [
+        "ERR_E_FIELD_VECTOR_ADD",
+        "ERR_E_FIELD_DIRECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -273,7 +346,9 @@
       "expectedAnswer": "Lines can split or join at points",
       "marks": 2,
       "explanation": "Field lines never cross (E has a unique direction at each point). They don't split or join. They start on + and end on −, and show the direction of force on a positive test charge.",
-      "errorSignals": ["ERR_FIELD_LINE_CROSSING"],
+      "errorSignals": [
+        "ERR_FIELD_LINE_CROSSING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -282,12 +357,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "A 2 μC charge is at the origin. Calculate the electric field at a point P, 0.30 m to the right of the charge. State magnitude AND direction. (k = 9 × 10⁹.)",
-      "answerMode": "text",
-      "expectedAnswer": "E = kQ/r² = (9×10⁹)(2×10⁻⁶)/(0.3²) = 18 000/0.09 = 2 × 10⁵ N·C⁻¹. Direction: AWAY from the +2 μC charge — i.e. to the RIGHT at point P.",
+      "answerMode": "choice",
+      "expectedAnswer": "2 × 10⁵ N·C⁻¹, directed away from the charge (to the right at P).",
       "marks": 4,
       "explanation": "Magnitude from kQ/r². Direction: away from positive charge.",
-      "errorSignals": ["ERR_E_FIELD_FORMULA", "ERR_E_FIELD_DIRECTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_E_FIELD_FORMULA",
+        "ERR_E_FIELD_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "6 × 10⁵ N·C⁻¹, to the right.",
+        "2 × 10⁵ N·C⁻¹, towards the charge (to the left).",
+        "2 × 10⁵ N·C⁻¹, directed away from the charge (to the right at P)."
+      ]
     },
     {
       "id": "L6.T1.A2.q19",
@@ -296,12 +379,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q7.2.3",
       "question": "On an E vs 1/r² graph plotted for two charged spheres, sphere B's gradient is GREATER than sphere A's. Compare the charges on B and A and explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Sphere B has a GREATER charge than sphere A. The gradient of E vs 1/r² is kQ, so a steeper gradient implies a larger Q.",
+      "answerMode": "choice",
+      "expectedAnswer": "B has the greater charge — the gradient of E vs 1/r² equals kQ, so a steeper gradient means a larger Q.",
       "marks": 3,
       "explanation": "Gradient = kQ. Same k for both. Bigger gradient ⇒ bigger Q.",
-      "errorSignals": ["ERR_E_VS_INVERSE_R_SQ", "ERR_GRAPH_GRADIENT_REARRANGE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_E_VS_INVERSE_R_SQ",
+        "ERR_GRAPH_GRADIENT_REARRANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "B has the greater charge — the gradient of E vs 1/r² equals kQ, so a steeper gradient means a larger Q.",
+        "A has the greater charge — a steeper gradient means a smaller charge.",
+        "They have equal charge; the gradient depends only on distance."
+      ]
     },
     {
       "id": "L6.T1.A2.q20",
@@ -315,7 +406,10 @@
       "unit": "N·C⁻¹",
       "marks": 5,
       "explanation": "E_Q1 at (1,0) = (9×10⁹)(4×10⁻⁶)/(1.0²) = 36 000 N·C⁻¹ to the right (away from +). E_Q2 at (1,0) = (9×10⁹)(2×10⁻⁶)/(0.5²) = 72 000 N·C⁻¹ to the LEFT (towards −Q₂). E_net = 72 000 − 36 000 = 36 000 N·C⁻¹ to the LEFT. (Magnitude 36 000 N·C⁻¹.)",
-      "errorSignals": ["ERR_E_FIELD_VECTOR_ADD", "ERR_E_FIELD_DIRECTION"],
+      "errorSignals": [
+        "ERR_E_FIELD_VECTOR_ADD",
+        "ERR_E_FIELD_DIRECTION"
+      ],
       "passThreshold": 0.7
     }
   ],

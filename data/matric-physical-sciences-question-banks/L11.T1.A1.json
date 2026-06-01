@@ -1,7 +1,9 @@
 {
   "skill": "L11.T1.A1",
   "skill_title": "Apply IUPAC nomenclature rules to name and identify organic compounds",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 6 lifted (paper-style), 14 fresh. Naming alkanes/alkenes/alkynes, alcohols, haloalkanes, aldehydes/ketones, carboxylic acids, esters using IUPAC rules. Naming-from-structure and structure-from-name.",
@@ -13,12 +15,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2021 Q2.2.2 (representative)",
       "question": "Write the IUPAC name of the compound CH₃-CH(CH₃)-CH₂-CH₃.",
-      "answerMode": "text",
-      "expectedAnswer": "2-methylbutane.",
+      "answerMode": "choice",
+      "expectedAnswer": "2-methylbutane",
       "marks": 3,
       "explanation": "Longest chain has 4 carbons (butane). Methyl substituent on C2. Numbering from the end nearest the substituent: 2-methyl gives the lowest locant.",
-      "errorSignals": ["ERR_IUPAC_NUMBERING", "ERR_IUPAC_CHAIN_LENGTH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_NUMBERING",
+        "ERR_IUPAC_CHAIN_LENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "2-methylbutane",
+        "3-methylbutane",
+        "2-methylpropane"
+      ]
     },
     {
       "id": "L11.T1.A1.q02",
@@ -28,11 +38,18 @@
       "source_ref": "P2 May/Jun 2021 Q1.2",
       "question": "To which HOMOLOGOUS SERIES does a compound with molecular formula C₆H₁₂O₂ belong?",
       "answerMode": "choice",
-      "options": ["Alkanes", "Alcohols", "Aldehydes", "Carboxylic acids (or esters)"],
+      "options": [
+        "Alkanes",
+        "Alcohols",
+        "Aldehydes",
+        "Carboxylic acids (or esters)"
+      ],
       "expectedAnswer": "Carboxylic acids (or esters)",
       "marks": 2,
       "explanation": "CnH(2n)O₂ matches both carboxylic acids and esters (functional isomers). With n=6: C₆H₁₂O₂ fits both.",
-      "errorSignals": ["ERR_HOMOLOGOUS_FROM_FORMULA"],
+      "errorSignals": [
+        "ERR_HOMOLOGOUS_FROM_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -52,7 +69,9 @@
       "expectedAnswer": "Carboxylic acid + alcohol",
       "marks": 2,
       "explanation": "Esterification: R-COOH + R'-OH ⇌ R-COO-R' + H₂O (acid catalyst, e.g. H₂SO₄).",
-      "errorSignals": ["ERR_ESTER_FUNCTIONAL_GROUPS"],
+      "errorSignals": [
+        "ERR_ESTER_FUNCTIONAL_GROUPS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -61,12 +80,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the IUPAC name of CH₃-CH₂-CH₂-OH.",
-      "answerMode": "text",
-      "expectedAnswer": "Propan-1-ol (or 1-propanol).",
+      "answerMode": "choice",
+      "expectedAnswer": "Propan-1-ol",
       "marks": 2,
       "explanation": "3-carbon chain with -OH on C1. Suffix -ol (alcohol); locant 1.",
-      "errorSignals": ["ERR_IUPAC_SUFFIX_FOR_GROUP", "ERR_IUPAC_NUMBERING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_SUFFIX_FOR_GROUP",
+        "ERR_IUPAC_NUMBERING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Propan-2-ol",
+        "Propan-1-ol",
+        "Propanal"
+      ]
     },
     {
       "id": "L11.T1.A1.q05",
@@ -74,12 +101,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the IUPAC name of CH₃-CH₂-COOH.",
-      "answerMode": "text",
-      "expectedAnswer": "Propanoic acid.",
+      "answerMode": "choice",
+      "expectedAnswer": "Propanoic acid",
       "marks": 2,
       "explanation": "3-carbon carboxylic acid: parent = propane, suffix = -oic acid. The -COOH carbon is C1.",
-      "errorSignals": ["ERR_IUPAC_SUFFIX_FOR_GROUP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_SUFFIX_FOR_GROUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ethanoic acid",
+        "Propanal",
+        "Propanoic acid"
+      ]
     },
     {
       "id": "L11.T1.A1.q06",
@@ -87,12 +121,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the IUPAC name of CH₃-CO-CH₂-CH₃.",
-      "answerMode": "text",
-      "expectedAnswer": "Butan-2-one (or 2-butanone).",
+      "answerMode": "choice",
+      "expectedAnswer": "Butan-2-one",
       "marks": 2,
       "explanation": "4-carbon ketone (C=O in middle, between C2 and C3, but the carbonyl carbon is C2). Suffix -one; locant 2.",
-      "errorSignals": ["ERR_IUPAC_SUFFIX_FOR_GROUP", "ERR_KETONE_VS_ALDEHYDE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_SUFFIX_FOR_GROUP",
+        "ERR_KETONE_VS_ALDEHYDE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Butan-2-one",
+        "Butanal",
+        "Butan-3-one"
+      ]
     },
     {
       "id": "L11.T1.A1.q07",
@@ -100,12 +142,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Name the compound CH₃-CH=CH-CH₃.",
-      "answerMode": "text",
-      "expectedAnswer": "But-2-ene (or 2-butene).",
+      "answerMode": "choice",
+      "expectedAnswer": "But-2-ene",
       "marks": 2,
       "explanation": "4-carbon chain with a C=C double bond between C2 and C3. Parent = butene; locant of double bond = 2.",
-      "errorSignals": ["ERR_IUPAC_DOUBLE_BOND_LOCANT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_DOUBLE_BOND_LOCANT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "But-1-ene",
+        "But-2-ene",
+        "Butane"
+      ]
     },
     {
       "id": "L11.T1.A1.q08",
@@ -113,12 +162,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "Write the IUPAC name of CH₃-CH(Br)-CH₂-CH₂-CH₃.",
-      "answerMode": "text",
-      "expectedAnswer": "2-bromopentane.",
+      "answerMode": "choice",
+      "expectedAnswer": "2-bromopentane",
       "marks": 3,
       "explanation": "5-carbon chain (pentane). Bromo substituent on C2 (numbering from the end that gives the lowest locant).",
-      "errorSignals": ["ERR_IUPAC_NUMBERING", "ERR_HALOALKANE_PREFIX"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_NUMBERING",
+        "ERR_HALOALKANE_PREFIX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "4-bromopentane",
+        "2-bromobutane",
+        "2-bromopentane"
+      ]
     },
     {
       "id": "L11.T1.A1.q09",
@@ -126,12 +183,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "Write the IUPAC name of CH₃-CH(CH₃)-CH(CH₃)-CH₃.",
-      "answerMode": "text",
-      "expectedAnswer": "2,3-dimethylbutane.",
+      "answerMode": "choice",
+      "expectedAnswer": "2,3-dimethylbutane",
       "marks": 3,
       "explanation": "Longest chain = 4 carbons (butane). Two methyl substituents on C2 and C3. Prefix '2,3-dimethyl'.",
-      "errorSignals": ["ERR_IUPAC_CHAIN_LENGTH", "ERR_IUPAC_MULTIPLE_SUBSTITUENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_CHAIN_LENGTH",
+        "ERR_IUPAC_MULTIPLE_SUBSTITUENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "2,3-dimethylbutane",
+        "2,3-dimethylpentane",
+        "2-methylpentane"
+      ]
     },
     {
       "id": "L11.T1.A1.q10",
@@ -139,12 +204,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Draw or describe the structural formula for methyl ethanoate (an ester).",
-      "answerMode": "text",
-      "expectedAnswer": "CH₃-COO-CH₃ (structurally: a methyl group bonded to the oxygen, and a -C(=O)- carbonyl bonded to the other methyl, all connected: H₃C-C(=O)-O-CH₃). Comes from methanol + ethanoic acid.",
+      "answerMode": "choice",
+      "expectedAnswer": "CH₃-COO-CH₃ (a methyl group on the oxygen of an ethanoate)",
       "marks": 3,
       "explanation": "Ester: -COO- linkage. 'Methyl ethanoate' = methyl from alcohol part, ethanoate from acid (ethanoic acid = CH₃COOH).",
-      "errorSignals": ["ERR_ESTER_NAMING", "ERR_ESTER_DRAWING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ESTER_NAMING",
+        "ERR_ESTER_DRAWING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "H-COO-CH₂-CH₃ (that is ethyl methanoate — acid and alcohol swapped)",
+        "CH₃-COO-CH₃ (a methyl group on the oxygen of an ethanoate)",
+        "CH₃-CH₂-COOH (that is propanoic acid, not an ester)"
+      ]
     },
     {
       "id": "L11.T1.A1.q11",
@@ -152,12 +225,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Match the suffix to its homologous series: (a) -ane, (b) -ene, (c) -yne, (d) -ol, (e) -al, (f) -one, (g) -oic acid.",
-      "answerMode": "text",
-      "expectedAnswer": "(a) -ane = alkane; (b) -ene = alkene; (c) -yne = alkyne; (d) -ol = alcohol; (e) -al = aldehyde; (f) -one = ketone; (g) -oic acid = carboxylic acid.",
+      "answerMode": "choice",
+      "expectedAnswer": "-ane=alkane, -ene=alkene, -yne=alkyne, -ol=alcohol, -al=aldehyde, -one=ketone, -oic acid=carboxylic acid",
       "marks": 4,
       "explanation": "Standard CAPS-required suffix table. Esters end in -oate (split: alkyl-name + acid-name minus 'ic' + 'oate').",
-      "errorSignals": ["ERR_IUPAC_SUFFIX_FOR_GROUP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_SUFFIX_FOR_GROUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the same, but -al=alcohol and -ol=aldehyde",
+        "the same, but -one=aldehyde and -al=ketone",
+        "-ane=alkane, -ene=alkene, -yne=alkyne, -ol=alcohol, -al=aldehyde, -one=ketone, -oic acid=carboxylic acid"
+      ]
     },
     {
       "id": "L11.T1.A1.q12",
@@ -165,12 +245,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Name the compound HCHO (formaldehyde).",
-      "answerMode": "text",
-      "expectedAnswer": "Methanal.",
+      "answerMode": "choice",
+      "expectedAnswer": "Methanal",
       "marks": 1,
       "explanation": "Single-carbon aldehyde: parent = methane → methanal. -CHO is at the end; the carbonyl carbon is C1.",
-      "errorSignals": ["ERR_IUPAC_SUFFIX_FOR_GROUP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_SUFFIX_FOR_GROUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Methanal",
+        "Methanol",
+        "Ethanal"
+      ]
     },
     {
       "id": "L11.T1.A1.q13",
@@ -180,11 +267,18 @@
       "source_ref": "P2 May/Jun 2021 Q2.1.1 (representative)",
       "question": "From the structures CH₃-CHO, CH₃-CO-CH₃, CH₃-CH₂-OH, CH₃-COOH, identify which is a KETONE.",
       "answerMode": "choice",
-      "options": ["CH₃-CHO", "CH₃-CO-CH₃", "CH₃-CH₂-OH", "CH₃-COOH"],
+      "options": [
+        "CH₃-CHO",
+        "CH₃-CO-CH₃",
+        "CH₃-CH₂-OH",
+        "CH₃-COOH"
+      ],
       "expectedAnswer": "CH₃-CO-CH₃",
       "marks": 1,
       "explanation": "Ketone: C=O between two carbon groups (not at chain end). CH₃-CO-CH₃ (propanone/acetone).",
-      "errorSignals": ["ERR_KETONE_VS_ALDEHYDE"],
+      "errorSignals": [
+        "ERR_KETONE_VS_ALDEHYDE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -193,12 +287,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "Write the IUPAC name of CH₃-CH(OH)-CH₂-CH₂-CH₃.",
-      "answerMode": "text",
-      "expectedAnswer": "Pentan-2-ol (or 2-pentanol).",
+      "answerMode": "choice",
+      "expectedAnswer": "Pentan-2-ol",
       "marks": 3,
       "explanation": "5-carbon chain with -OH on C2 (numbering from the end closest to the alcohol). Suffix -ol; locant 2.",
-      "errorSignals": ["ERR_IUPAC_NUMBERING", "ERR_IUPAC_SUFFIX_FOR_GROUP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_NUMBERING",
+        "ERR_IUPAC_SUFFIX_FOR_GROUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Pentan-4-ol",
+        "Pentan-2-ol",
+        "Pentan-2-one"
+      ]
     },
     {
       "id": "L11.T1.A1.q15",
@@ -206,12 +308,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "Name the compound (CH₃)₃C-CH₂-Br.",
-      "answerMode": "text",
-      "expectedAnswer": "1-bromo-2,2-dimethylpropane.",
+      "answerMode": "choice",
+      "expectedAnswer": "1-bromo-2,2-dimethylpropane",
       "marks": 4,
       "explanation": "Parent chain: 3 carbons (propane). Two methyl groups on C2 and Br on C1. Numbering from the Br end gives the lowest locants.",
-      "errorSignals": ["ERR_IUPAC_NUMBERING", "ERR_IUPAC_MULTIPLE_SUBSTITUENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_NUMBERING",
+        "ERR_IUPAC_MULTIPLE_SUBSTITUENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "3-bromo-2,2-dimethylpropane",
+        "1-bromo-2-methylbutane",
+        "1-bromo-2,2-dimethylpropane"
+      ]
     },
     {
       "id": "L11.T1.A1.q16",
@@ -220,11 +330,18 @@
       "source": "fresh",
       "question": "Identify the homologous series of an organic compound with the molecular formula C₃H₆.",
       "answerMode": "choice",
-      "options": ["Alkanes", "Alkenes", "Alkynes", "Alcohols"],
+      "options": [
+        "Alkanes",
+        "Alkenes",
+        "Alkynes",
+        "Alcohols"
+      ],
       "expectedAnswer": "Alkenes",
       "marks": 2,
       "explanation": "CnH(2n) is the alkene general formula. C₃H₆ fits with n=3 (propene).",
-      "errorSignals": ["ERR_HOMOLOGOUS_FROM_FORMULA"],
+      "errorSignals": [
+        "ERR_HOMOLOGOUS_FROM_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -233,12 +350,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Name the structural formula HC≡C-CH₃.",
-      "answerMode": "text",
-      "expectedAnswer": "Propyne (prop-1-yne).",
+      "answerMode": "choice",
+      "expectedAnswer": "Prop-1-yne (propyne)",
       "marks": 2,
       "explanation": "3-carbon alkyne (triple bond at C1). Suffix -yne; locant 1 (often omitted because position is unambiguous).",
-      "errorSignals": ["ERR_IUPAC_TRIPLE_BOND", "ERR_IUPAC_SUFFIX_FOR_GROUP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_TRIPLE_BOND",
+        "ERR_IUPAC_SUFFIX_FOR_GROUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Prop-1-yne (propyne)",
+        "Prop-2-yne",
+        "Propene"
+      ]
     },
     {
       "id": "L11.T1.A1.q18",
@@ -246,12 +371,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "Write the structural formula corresponding to the IUPAC name 3-methylpentan-2-one.",
-      "answerMode": "text",
-      "expectedAnswer": "CH₃-CO-CH(CH₃)-CH₂-CH₃. Parent: 5-carbon pentanone with C=O at C2 and a methyl on C3.",
+      "answerMode": "choice",
+      "expectedAnswer": "CH₃-CO-CH(CH₃)-CH₂-CH₃",
       "marks": 4,
       "explanation": "Pentan-2-one = 5 C ketone at C2. 3-methyl = methyl on C3.",
-      "errorSignals": ["ERR_IUPAC_REVERSE", "ERR_IUPAC_NUMBERING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_REVERSE",
+        "ERR_IUPAC_NUMBERING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CH₃-CH(CH₃)-CO-CH₂-CH₃",
+        "CH₃-CO-CH(CH₃)-CH₂-CH₃",
+        "CH₃-CO-CH₂-CH(CH₃)-CH₃"
+      ]
     },
     {
       "id": "L11.T1.A1.q19",
@@ -260,11 +393,19 @@
       "source": "fresh",
       "question": "Which of these is the correct IUPAC name for the alcohol with structure CH₃-CH(OH)-CH₃?",
       "answerMode": "choice",
-      "options": ["1-propanol", "2-propanol", "Propan-3-ol", "Propanal"],
+      "options": [
+        "1-propanol",
+        "2-propanol",
+        "Propan-3-ol",
+        "Propanal"
+      ],
       "expectedAnswer": "2-propanol",
       "marks": 2,
       "explanation": "-OH on the middle C of propane = C2. Either '2-propanol' or 'propan-2-ol' is acceptable.",
-      "errorSignals": ["ERR_IUPAC_NUMBERING", "ERR_IUPAC_SUFFIX_FOR_GROUP"],
+      "errorSignals": [
+        "ERR_IUPAC_NUMBERING",
+        "ERR_IUPAC_SUFFIX_FOR_GROUP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -273,12 +414,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "What is the IUPAC name of CH₃-COOH?",
-      "answerMode": "text",
-      "expectedAnswer": "Ethanoic acid.",
+      "answerMode": "choice",
+      "expectedAnswer": "Ethanoic acid",
       "marks": 2,
       "explanation": "2-carbon carboxylic acid: parent ethane → ethanoic acid. (Common name: acetic acid.)",
-      "errorSignals": ["ERR_IUPAC_SUFFIX_FOR_GROUP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IUPAC_SUFFIX_FOR_GROUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Methanoic acid",
+        "Ethanal",
+        "Ethanoic acid"
+      ]
     }
   ],
   "_error_signal_vocabulary": {

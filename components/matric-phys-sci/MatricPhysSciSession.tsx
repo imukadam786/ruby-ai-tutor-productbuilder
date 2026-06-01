@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
 import EduBackground from "@/components/EduBackground";
 import MatricPhysSciSkillTreeView from "./MatricPhysSciSkillTreeView";
+import SequenceQuestion from "./SequenceQuestion";
 import treeData from "@/data/matric-physical-sciences-skill-tree.json";
 import bankData from "@/data/matric-physical-sciences-question-bank.json";
 import { supabase } from "@/lib/supabase";
@@ -210,7 +211,9 @@ export default function MatricPhysSciSession({ onBack }: Props) {
           body: JSON.stringify(payload),
         });
         if (!res.ok) {
-          setError("Could not check your answer. Please try again.");
+          // 429 = shared daily limit reached; apiFetch already surfaced the
+          // upgrade modal, so don't also flash an inline error.
+          if (res.status !== 429) setError("Could not check your answer. Please try again.");
           setSubmitting(false);
           return;
         }
@@ -477,7 +480,18 @@ function MatricAnswerInput({
   onSubmit,
   submitting,
 }: AnswerInputProps) {
-  const { answerMode, options, fields, unit } = question;
+  const { answerMode, options, fields, items, unit } = question;
+
+  if (answerMode === "sequence" && items) {
+    return (
+      <SequenceQuestion
+        key={question.question_ref}
+        items={items}
+        submitting={submitting}
+        onSubmit={onSubmit}
+      />
+    );
+  }
 
   if (answerMode === "choice" && options) {
     return (

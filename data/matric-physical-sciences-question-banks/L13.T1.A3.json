@@ -1,7 +1,9 @@
 {
   "skill": "L13.T1.A3",
   "skill_title": "Calculate Kc using ICE (Initial-Change-Equilibrium) tables",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 4 lifted, 16 fresh. Building ICE tables to solve for Kc or for equilibrium concentrations given Kc.",
@@ -19,7 +21,10 @@
       "unit": "mol·dm⁻³",
       "marks": 9,
       "explanation": "ICE: I: HI = 1, H₂ = 0, I₂ = 0. C: HI changes by −2x, H₂ by +x, I₂ by +x. E: HI = 1−2x, H₂ = x, I₂ = x. Kc = x²/(1−2x)² = 0.04 ⇒ x/(1−2x) = 0.2 ⇒ x = 0.2 − 0.4x ⇒ 1.4x = 0.2 ⇒ x = 0.143 mol·dm⁻³. (At equilibrium [I₂] ≈ 0.143; some textbooks give 0.167 depending on rounding/initial conditions.)",
-      "errorSignals": ["ERR_ICE_SETUP", "ERR_ICE_CHANGE_COEFFICIENT"],
+      "errorSignals": [
+        "ERR_ICE_SETUP",
+        "ERR_ICE_CHANGE_COEFFICIENT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -35,7 +40,11 @@
       "unit": "mol·dm⁻³",
       "marks": 6,
       "explanation": "ICE: I: HI = 2, H₂ = 0, I₂ = 0. C: −2x, +x, +x. E: 2−2x, x, x. Kc = x²/(2−2x)² = 0.09 ⇒ x/(2−2x) = 0.3 ⇒ x = 0.6 − 0.6x ⇒ 1.6x = 0.6 ⇒ x = 0.375. [HI] = 2 − 2(0.375) = 1.25 mol·dm⁻³. (Allow ~1.18–1.25 mol/dm³.)",
-      "errorSignals": ["ERR_ICE_SETUP", "ERR_ICE_CHANGE_COEFFICIENT", "ERR_KC_SQUARE_ROOT"],
+      "errorSignals": [
+        "ERR_ICE_SETUP",
+        "ERR_ICE_CHANGE_COEFFICIENT",
+        "ERR_KC_SQUARE_ROOT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -51,7 +60,10 @@
       "unit": "mol·dm⁻³",
       "marks": 4,
       "explanation": "Kc = [H₂][I₂]/[HI]² ⇒ 0.02 = (0.04)²/[HI]² ⇒ [HI]² = 0.0016/0.02 = 0.08 ⇒ [HI] = √0.08 ≈ 0.283 mol·dm⁻³.",
-      "errorSignals": ["ERR_KC_SUBSTITUTION", "ERR_KC_SQUARE_ROOT"],
+      "errorSignals": [
+        "ERR_KC_SUBSTITUTION",
+        "ERR_KC_SQUARE_ROOT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -66,7 +78,10 @@
       "unit": "(no units)",
       "marks": 5,
       "explanation": "ICE: I: 1, 1, 0. C: −0.8, −0.8, +1.6 (since 2 HI formed per H₂ consumed). E: 0.2, 0.2, 1.6. Kc = (1.6)²/(0.2×0.2) = 2.56/0.04 = 64.",
-      "errorSignals": ["ERR_ICE_CHANGE_COEFFICIENT", "ERR_ICE_SETUP"],
+      "errorSignals": [
+        "ERR_ICE_CHANGE_COEFFICIENT",
+        "ERR_ICE_SETUP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -81,7 +96,10 @@
       "unit": "mol·dm⁻³",
       "marks": 5,
       "explanation": "ICE: I: 0.5, 0. C: −x, +2x. E: 0.5−x, 2x. 2x = 0.4 ⇒ x = 0.2. So [N₂O₄] at eq = 0.5 − 0.2 = 0.3. Kc = (0.4)²/(0.3) = 0.16/0.3 ≈ 0.533 mol·dm⁻³.",
-      "errorSignals": ["ERR_ICE_CHANGE_COEFFICIENT", "ERR_ICE_SETUP"],
+      "errorSignals": [
+        "ERR_ICE_CHANGE_COEFFICIENT",
+        "ERR_ICE_SETUP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -90,12 +108,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "In an ICE table, the 'Change' row entries are usually written with a sign and multiplied by the stoichiometric coefficient. For the reaction A + 2B ⇌ 3C, if x mol of A reacts, what is the change in B and C?",
-      "answerMode": "text",
-      "expectedAnswer": "Change in B: −2x (twice as much B reacts as A, by stoichiometry). Change in C: +3x (three times as much C is formed). So if A loses x, B loses 2x, C gains 3x. (Reactants negative, products positive.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Change in B = −2x; change in C = +3x (signs and coefficients applied).",
       "marks": 3,
       "explanation": "Stoichiometry drives the C-row. Coefficients matter. Sign: − for reactants, + for products.",
-      "errorSignals": ["ERR_ICE_CHANGE_COEFFICIENT", "ERR_ICE_SIGN"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ICE_CHANGE_COEFFICIENT",
+        "ERR_ICE_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Change in B = −2x; change in C = +3x (signs and coefficients applied).",
+        "Change in B = −x; change in C = +x (coefficients ignored).",
+        "Change in B = +2x; change in C = −3x (signs reversed)."
+      ]
     },
     {
       "id": "L13.T1.A3.q07",
@@ -109,7 +135,10 @@
       "unit": "mol·dm⁻³",
       "marks": 5,
       "explanation": "ICE in mol (V = 1 dm³ so [.] = moles): I: 0.6, 0, 0. C: −0.2, +0.2, +0.2. E: 0.4, 0.2, 0.2. Kc = (0.2)(0.2)/(0.4) = 0.04/0.4 = 0.1 mol·dm⁻³.",
-      "errorSignals": ["ERR_ICE_SETUP", "ERR_KC_SUBSTITUTION"],
+      "errorSignals": [
+        "ERR_ICE_SETUP",
+        "ERR_KC_SUBSTITUTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -118,12 +147,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "For 2CO(g) + O₂(g) ⇌ 2CO₂(g) at a certain T, Kc = 10⁴ mol⁻¹·dm³. Initial [CO] = [O₂] = 0.10 mol·dm⁻³, [CO₂] = 0. After equilibrium, [O₂] = 0.005 mol·dm⁻³. Calculate Kc using your ICE table and check.",
-      "answerMode": "text",
-      "expectedAnswer": "Δ[O₂] = 0.10 − 0.005 = 0.095 mol/dm³ reacted ⇒ x = 0.095. Change in CO: −2x = −0.190 (so [CO] at eq = 0.10 − 0.190 = −0.09 — IMPOSSIBLE). The numbers given are inconsistent with reality; only x ≤ 0.05 is physically allowed (since [CO] starts at 0.10 and consumes 2x). Recheck the problem setup.",
+      "answerMode": "choice",
+      "expectedAnswer": "The data is inconsistent — x = 0.095 would give [CO] = 0.10 − 2(0.095) = −0.09, which is impossible.",
       "marks": 4,
       "explanation": "Checking ICE: the change in CO is 2× the change in O₂. If [O₂] dropped by 0.095, [CO] would drop by 0.19 — but only 0.10 is available. So this scenario is physically impossible. Always check x is feasible.",
-      "errorSignals": ["ERR_ICE_FEASIBILITY", "ERR_ICE_CHANGE_COEFFICIENT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ICE_FEASIBILITY",
+        "ERR_ICE_CHANGE_COEFFICIENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kc = 10⁴, consistent with the data given.",
+        "The data is inconsistent — x = 0.095 would give [CO] = 0.10 − 2(0.095) = −0.09, which is impossible.",
+        "x = 0.095 gives [CO] = 0.09 mol·dm⁻³ at equilibrium."
+      ]
     },
     {
       "id": "L13.T1.A3.q09",
@@ -137,7 +174,10 @@
       "unit": "mol²·dm⁻⁶",
       "marks": 3,
       "explanation": "Solid NH₄Cl excluded from Kc. Kc = [NH₃][HCl] = (0.10)(0.10) = 0.01 mol²·dm⁻⁶.",
-      "errorSignals": ["ERR_KC_INCLUDES_SOLID", "ERR_KC_SUBSTITUTION"],
+      "errorSignals": [
+        "ERR_KC_INCLUDES_SOLID",
+        "ERR_KC_SUBSTITUTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -152,7 +192,10 @@
       "unit": "mol·dm⁻³",
       "marks": 5,
       "explanation": "ICE: I: 0.5, 0.5, 0. C: −x, −x, +2x. E: 0.5−x, 0.5−x, 2x. Kc = (2x)²/(0.5−x)² = 64. Taking sqrt: 2x/(0.5−x) = 8 ⇒ 2x = 4 − 8x ⇒ 10x = 4 ⇒ x = 0.4. [HBr] = 2(0.4) = 0.8 mol·dm⁻³.",
-      "errorSignals": ["ERR_ICE_SETUP", "ERR_KC_SQUARE_ROOT"],
+      "errorSignals": [
+        "ERR_ICE_SETUP",
+        "ERR_KC_SQUARE_ROOT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -161,12 +204,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner uses MOLES instead of CONCENTRATIONS in their Kc calculation. Is this OK?",
-      "answerMode": "text",
-      "expectedAnswer": "Generally NO. Kc is defined in terms of CONCENTRATIONS (mol·dm⁻³). Using moles directly is only correct when the container volume is exactly 1 dm³ (so moles = concentration numerically). For any other volume, you must DIVIDE moles by volume to get concentration before substituting into Kc.",
+      "answerMode": "choice",
+      "expectedAnswer": "No — Kc uses concentrations; moles are only valid if the volume is exactly 1 dm³.",
       "marks": 3,
       "explanation": "Kc uses concentrations. Convert moles to mol·dm⁻³ first (divide by volume in dm³).",
-      "errorSignals": ["ERR_KC_MOLES_VS_CONC"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_MOLES_VS_CONC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — moles and concentrations always give the same Kc.",
+        "Yes — Kc is defined using moles, not concentrations.",
+        "No — Kc uses concentrations; moles are only valid if the volume is exactly 1 dm³."
+      ]
     },
     {
       "id": "L13.T1.A3.q12",
@@ -180,7 +230,11 @@
       "unit": "mol⁻¹·dm³",
       "marks": 5,
       "explanation": "Concentrations: I: [NO] = 0.2, [O₂] = 0.1, [NO₂] = 0 (V = 2 dm³). At eq: [NO₂] = 0.2/2 = 0.1. So x corresponding (2x = 0.1, x = 0.05): C: NO: −2(0.05) = −0.1; O₂: −0.05; NO₂: +0.1. E: NO = 0.1; O₂ = 0.05; NO₂ = 0.1. Kc = (0.1)²/((0.1)²(0.05)) = 0.01/(0.0005) = 20 mol⁻¹·dm³. (Different rounding gives 10-20 range.)",
-      "errorSignals": ["ERR_ICE_SETUP", "ERR_VOLUME_CORRECTION", "ERR_KC_MOLES_VS_CONC"],
+      "errorSignals": [
+        "ERR_ICE_SETUP",
+        "ERR_VOLUME_CORRECTION",
+        "ERR_KC_MOLES_VS_CONC"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -189,12 +243,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "In an ICE table for an equilibrium, what does the 'I' row represent?",
-      "answerMode": "text",
-      "expectedAnswer": "The 'I' (Initial) row lists the starting concentrations (or moles, then divided by V) of all species at the start of the experiment, before any reaction occurs.",
+      "answerMode": "choice",
+      "expectedAnswer": "The Initial concentrations of all species, before any reaction occurs.",
       "marks": 1,
       "explanation": "I: initial; C: change; E: equilibrium.",
-      "errorSignals": ["ERR_ICE_SETUP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ICE_SETUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The Initial concentrations of all species, before any reaction occurs.",
+        "The increase in concentration during the reaction.",
+        "The final (equilibrium) concentrations."
+      ]
     },
     {
       "id": "L13.T1.A3.q14",
@@ -208,7 +269,10 @@
       "unit": "mol·dm⁻³",
       "marks": 5,
       "explanation": "ICE: I: 1, 1, 0, 0. C: −x, −x, +x, +x. E: 1−x, 1−x, x, x. Kc = x²/(1−x)² = 4 ⇒ x/(1−x) = 2 ⇒ x = 2 − 2x ⇒ 3x = 2 ⇒ x = 0.667 mol·dm⁻³.",
-      "errorSignals": ["ERR_ICE_SETUP", "ERR_KC_SQUARE_ROOT"],
+      "errorSignals": [
+        "ERR_ICE_SETUP",
+        "ERR_KC_SQUARE_ROOT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -217,12 +281,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why must you check that x is PHYSICALLY REASONABLE after solving an ICE problem?",
-      "answerMode": "text",
-      "expectedAnswer": "x must be POSITIVE (a chemical change can't be negative) and must be LESS than the initial reactant concentration divided by its coefficient (you can't consume more than is initially present). If your algebra gives a value of x that violates either condition, you've made an error or assumed the wrong direction.",
+      "answerMode": "choice",
+      "expectedAnswer": "x must be positive and cannot exceed the available reactant (initial conc ÷ coefficient).",
       "marks": 2,
       "explanation": "Always verify: 0 < x < (initial reactant / coefficient). Otherwise the answer is unphysical.",
-      "errorSignals": ["ERR_ICE_FEASIBILITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ICE_FEASIBILITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because x may take any value, positive or negative.",
+        "x must be positive and cannot exceed the available reactant (initial conc ÷ coefficient).",
+        "Because x must always equal the initial concentration."
+      ]
     },
     {
       "id": "L13.T1.A3.q16",
@@ -236,7 +307,10 @@
       "unit": "mol·dm⁻³",
       "marks": 5,
       "explanation": "ICE: I: 0.20, 0. C: −2x, +x. E: 0.20−2x, x. Kc = x/(0.20−2x)² = 5. Trial: x = 0.04 ⇒ 0.04/(0.12)² = 0.04/0.0144 ≈ 2.78 (too small). x = 0.07 ⇒ 0.07/(0.06)² = 0.07/0.0036 ≈ 19.4 (too large). Iterate: x ≈ 0.06 ⇒ 0.06/(0.08)² ≈ 9.4. The solution is approximately x ≈ 0.04–0.06; full quadratic gives ≈ 0.057. (Marker tolerance is wide; expect ~0.04–0.06.)",
-      "errorSignals": ["ERR_ICE_SETUP", "ERR_KC_SQUARE_ROOT"],
+      "errorSignals": [
+        "ERR_ICE_SETUP",
+        "ERR_KC_SQUARE_ROOT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -247,12 +321,21 @@
       "question": "An initial mixture has [HI] = 4.0 mol·dm⁻³ at the start of the reaction 2HI ⇌ H₂ + I₂. At equilibrium, [I₂] = 0.5 mol·dm⁻³. What are [HI] and [H₂] at equilibrium?",
       "answerMode": "multiField",
       "fields": [
-        {"label": "[HI] at eq (mol/dm³)", "expectedAnswer": "3.0"},
-        {"label": "[H₂] at eq (mol/dm³)", "expectedAnswer": "0.5"}
+        {
+          "label": "[HI] at eq (mol/dm³)",
+          "expectedAnswer": "3.0"
+        },
+        {
+          "label": "[H₂] at eq (mol/dm³)",
+          "expectedAnswer": "0.5"
+        }
       ],
       "marks": 4,
       "explanation": "x = 0.5 (= [I₂] at eq). Change in HI = −2x = −1.0. So [HI] = 4.0 − 1.0 = 3.0. [H₂] = x = 0.5.",
-      "errorSignals": ["ERR_ICE_CHANGE_COEFFICIENT", "ERR_ICE_SETUP"],
+      "errorSignals": [
+        "ERR_ICE_CHANGE_COEFFICIENT",
+        "ERR_ICE_SETUP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -261,12 +344,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "If you ADD more product to an equilibrium mixture, what happens to Q (reaction quotient) and to the equilibrium position?",
-      "answerMode": "text",
-      "expectedAnswer": "Q (the reaction quotient, with the same form as Kc but with current concentrations) increases above Kc. Since Q > Kc, the system is no longer at equilibrium — it shifts BACKWARD (toward reactants) to reduce Q back to Kc. Eventually, a new equilibrium is established at the same Kc but with different concentrations.",
+      "answerMode": "choice",
+      "expectedAnswer": "Q rises above Kc, so the equilibrium shifts backward (to the left).",
       "marks": 3,
       "explanation": "Q > Kc ⇒ shift left. Q < Kc ⇒ shift right. Q = Kc ⇒ equilibrium.",
-      "errorSignals": ["ERR_Q_VS_KC"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_Q_VS_KC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Q falls below Kc, so the equilibrium shifts forward (to the right).",
+        "Q stays equal to Kc, so no shift occurs.",
+        "Q rises above Kc, so the equilibrium shifts backward (to the left)."
+      ]
     },
     {
       "id": "L13.T1.A3.q19",
@@ -280,7 +370,10 @@
       "unit": "mol·dm⁻³",
       "marks": 5,
       "explanation": "ICE: I: 1, 1, 0. C: −x, −x, +x. E: 1−x, 1−x, x. Kc = x/(1−x)² = 10. Try x = 0.7: 0.7/(0.3)² = 0.7/0.09 ≈ 7.8 (too small). x = 0.75: 0.75/(0.25)² = 0.75/0.0625 = 12 (too big). x ≈ 0.73 gives 0.73/(0.27)² ≈ 10.0. So [C] ≈ 0.73 mol·dm⁻³.",
-      "errorSignals": ["ERR_ICE_SETUP", "ERR_KC_QUADRATIC"],
+      "errorSignals": [
+        "ERR_ICE_SETUP",
+        "ERR_KC_QUADRATIC"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -289,12 +382,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Summarise the steps for solving a typical ICE-table problem.",
-      "answerMode": "text",
-      "expectedAnswer": "Steps: (1) Write the balanced equation. (2) Tabulate Initial concentrations (convert moles to mol/dm³). (3) Define x = change in concentration of a chosen species; write Change row using stoichiometric coefficients (signed). (4) Compute Equilibrium row = I + C. (5) Substitute into Kc expression. (6) Solve for x (may need square root or quadratic). (7) Check x is physically reasonable (0 < x < initial/coefficient). (8) Substitute x back to find requested concentrations.",
+      "answerMode": "choice",
+      "expectedAnswer": "Balanced equation → Initial → Change (±x with coefficients) → Equilibrium → substitute into Kc → solve for x → check x is reasonable.",
       "marks": 5,
       "explanation": "Standard 8-step ICE procedure. Step 7 (feasibility) is crucial.",
-      "errorSignals": ["ERR_ICE_PROCEDURE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ICE_PROCEDURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Balanced equation → Initial → Change (±x with coefficients) → Equilibrium → substitute into Kc → solve for x → check x is reasonable.",
+        "Solve for x first, then write the equation, then tabulate concentrations.",
+        "Substitute moles straight into Kc without an ICE table."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

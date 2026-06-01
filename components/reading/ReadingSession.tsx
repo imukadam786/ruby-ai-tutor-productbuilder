@@ -446,6 +446,10 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
         }),
       });
 
+      // Shared daily limit reached — apiFetch surfaced the upgrade modal.
+      // Stay on the current question rather than parsing an error body.
+      if (res.status === 429) return;
+
       const data = await res.json();
       const { result, attempt }: { result: ReadingDiagnosticResult; attempt: ReadingSkillAttempt } = data;
 

@@ -1,7 +1,9 @@
 {
   "skill": "L2.T1.A1",
   "skill_title": "Solve vertical projectile problems with kinematic equations and graphs",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 11 lifted, 9 fresh. Single-stage vertical projectile problems: free-fall definition, max height, time to max height, displacement, velocity at a given time, v-t and y-t graph reading. Multi-stage / bounce problems live in A2.",
@@ -13,12 +15,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2025 Q3.1",
       "question": "Give the definition of FREE FALL.",
-      "answerMode": "text",
-      "expectedAnswer": "Motion of an object under the influence of gravitational force only (no air resistance / no other forces act on it).",
+      "answerMode": "choice",
+      "expectedAnswer": "Motion of an object under the influence of gravity only (no air resistance or other forces).",
       "marks": 2,
       "explanation": "Two marks: (1) 'motion of an object'; (2) 'under gravity only / no air resistance'. The defining feature is that gravity is the SOLE force.",
-      "errorSignals": ["ERR_FREE_FALL_DEF_INCOMPLETE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FREE_FALL_DEF_INCOMPLETE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Motion of an object under the influence of gravity only (no air resistance or other forces).",
+        "Any downward motion of an object toward the Earth.",
+        "Motion of an object that simply speeds up as it falls."
+      ]
     },
     {
       "id": "L2.T1.A1.q02",
@@ -27,12 +36,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q3.1",
       "question": "Define the term PROJECTILE.",
-      "answerMode": "text",
-      "expectedAnswer": "A projectile is an object that moves under the influence of gravity only (no other forces).",
+      "answerMode": "choice",
+      "expectedAnswer": "An object moving under the influence of gravity only (no other forces).",
       "marks": 2,
       "explanation": "Same idea as free fall — gravity is the only force acting. Distinguished from free fall by emphasis on a launched object.",
-      "errorSignals": ["ERR_FREE_FALL_DEF_INCOMPLETE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FREE_FALL_DEF_INCOMPLETE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Any object that has been thrown forward through the air.",
+        "An object moving under the influence of gravity only (no other forces).",
+        "An object that moves in a curved path because a force keeps pushing it along."
+      ]
     },
     {
       "id": "L2.T1.A1.q03",
@@ -47,7 +63,10 @@
       "unit": "m·s⁻²",
       "marks": 2,
       "explanation": "9.8 m·s⁻² downward. The only force acting is gravity, so the acceleration equals g throughout the flight — independent of position or velocity.",
-      "errorSignals": ["ERR_ACCEL_AT_TOP_ZERO", "ERR_ACCEL_VARIES_WITH_T"],
+      "errorSignals": [
+        "ERR_ACCEL_AT_TOP_ZERO",
+        "ERR_ACCEL_VARIES_WITH_T"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -63,7 +82,10 @@
       "unit": "m",
       "marks": 3,
       "explanation": "From rest, y = ½gt² = ½ × 9.8 × 9 = 44.1 m.",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT", "ERR_SIGN_CONVENTION_VPM"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT",
+        "ERR_SIGN_CONVENTION_VPM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -79,7 +101,9 @@
       "unit": "m·s⁻¹",
       "marks": 3,
       "explanation": "v = v₀ + gt = 0 + 9.8 × 1 = 9.8 m·s⁻¹ downward.",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -95,7 +119,10 @@
       "unit": "s",
       "marks": 3,
       "explanation": "At max height v = 0. Using v = v₀ − gt: 0 = 15 − 9.8t ⇒ t = 15/9.8 ≈ 1.53 s.",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT", "ERR_AT_TOP_V_NONZERO"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT",
+        "ERR_AT_TOP_V_NONZERO"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -111,7 +138,10 @@
       "unit": "m",
       "marks": 4,
       "explanation": "Height above roof at max: v² = v₀² − 2gΔy ⇒ 0 = 225 − 2(9.8)Δy ⇒ Δy = 11.48 m. Above ground = 30 + 11.48 ≈ 41.5 m.",
-      "errorSignals": ["ERR_REFERENCE_HEIGHT", "ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_REFERENCE_HEIGHT",
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -127,7 +157,9 @@
       "unit": "s",
       "marks": 3,
       "explanation": "h = ½gt² ⇒ 15.2 = 4.9 t² ⇒ t² = 3.102 ⇒ t ≈ 1.76 s.",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -143,7 +175,10 @@
       "unit": "m",
       "marks": 3,
       "explanation": "At max height v = 0. v² = v₀² + 2aΔy ⇒ 0 = 625 + 2(−10)Δy ⇒ Δy = 31.25 m.",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT", "ERR_SIGN_CONVENTION_VPM"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT",
+        "ERR_SIGN_CONVENTION_VPM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -153,12 +188,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive A 2026 Q3.5",
       "question": "A ball is thrown upward at 25 m·s⁻¹ (g = 10 m·s⁻²). At what time(s) is the SPEED of the ball equal to 15 m·s⁻¹? (Use upward positive.)",
-      "answerMode": "text",
-      "expectedAnswer": "Speed 15 m·s⁻¹ means velocity = +15 (going up) or −15 (coming down). v = v₀ + at = 25 − 10t. (1) 15 = 25 − 10t ⇒ t = 1.0 s (going up). (2) −15 = 25 − 10t ⇒ t = 4.0 s (coming down). Speed equals 15 m·s⁻¹ at t = 1.0 s and t = 4.0 s.",
+      "answerMode": "choice",
+      "expectedAnswer": "t = 1.0 s (going up) and t = 4.0 s (coming down).",
       "marks": 4,
       "explanation": "SPEED is the magnitude of velocity, so both +15 and −15 satisfy. By symmetry the two times are equidistant from the peak (t = 2.5 s).",
-      "errorSignals": ["ERR_SPEED_VS_VELOCITY", "ERR_VPM_SYMMETRY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SPEED_VS_VELOCITY",
+        "ERR_VPM_SYMMETRY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "t = 1.0 s only.",
+        "t = 2.5 s, at maximum height.",
+        "t = 1.0 s (going up) and t = 4.0 s (coming down)."
+      ]
     },
     {
       "id": "L2.T1.A1.q11",
@@ -173,7 +216,10 @@
       "unit": "m",
       "marks": 3,
       "explanation": "Max height above cliff: v² = v₀² + 2aΔy ⇒ 0 = 400 + 2(−10)Δy ⇒ Δy = 20 m. Above ground = 45 + 20 = 65 m.",
-      "errorSignals": ["ERR_REFERENCE_HEIGHT", "ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_REFERENCE_HEIGHT",
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -192,7 +238,9 @@
       "expectedAnswer": "Velocity is zero and acceleration is 9.8 m·s⁻² downward",
       "marks": 2,
       "explanation": "At the highest point velocity instantaneously becomes zero, but gravity is still acting, so acceleration is g downward throughout the entire flight.",
-      "errorSignals": ["ERR_ACCEL_AT_TOP_ZERO"],
+      "errorSignals": [
+        "ERR_ACCEL_AT_TOP_ZERO"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -211,7 +259,9 @@
       "expectedAnswer": "Straight line, positive constant gradient through the origin",
       "marks": 2,
       "explanation": "Constant acceleration (g) gives a straight line on a v-t graph. From rest ⇒ starts at origin. Downward positive ⇒ positive gradient.",
-      "errorSignals": ["ERR_VT_GRAPH_INTERPRET"],
+      "errorSignals": [
+        "ERR_VT_GRAPH_INTERPRET"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -221,11 +271,18 @@
       "source": "fresh",
       "question": "On a velocity-time graph for a vertical projectile, what does the AREA between the curve and the time axis represent?",
       "answerMode": "choice",
-      "options": ["Acceleration", "Velocity", "Displacement", "Force"],
+      "options": [
+        "Acceleration",
+        "Velocity",
+        "Displacement",
+        "Force"
+      ],
       "expectedAnswer": "Displacement",
       "marks": 1,
       "explanation": "Area under a v-t graph = displacement (or change in position). Gradient of v-t = acceleration.",
-      "errorSignals": ["ERR_VT_AREA_MEANING"],
+      "errorSignals": [
+        "ERR_VT_AREA_MEANING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -240,7 +297,10 @@
       "unit": "m·s⁻¹",
       "marks": 3,
       "explanation": "By symmetry, the ball returns to the launch point with the same SPEED as it was thrown — 30 m·s⁻¹ — but now moving DOWNWARD. (Magnitude unchanged when no air resistance.)",
-      "errorSignals": ["ERR_VPM_SYMMETRY", "ERR_SPEED_VS_VELOCITY"],
+      "errorSignals": [
+        "ERR_VPM_SYMMETRY",
+        "ERR_SPEED_VS_VELOCITY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -255,7 +315,9 @@
       "unit": "m·s⁻¹",
       "marks": 2,
       "explanation": "At max height v = 0. v = v₀ − gt ⇒ 0 = v₀ − 9.8(2.5) ⇒ v₀ = 24.5 m·s⁻¹.",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -270,7 +332,10 @@
       "unit": "m·s⁻¹",
       "marks": 3,
       "explanation": "v² = v₀² + 2gy = 25 + 2(9.8)(25) = 25 + 490 = 515. v = √515 ≈ 22.69 m·s⁻¹.",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT", "ERR_INITIAL_VELOCITY_SIGN"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT",
+        "ERR_INITIAL_VELOCITY_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -279,12 +344,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'When the projectile reaches maximum height, the force of gravity is zero because velocity is zero.' Is this correct? Briefly explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. Velocity and force are independent. At the peak, the projectile is momentarily at rest (v = 0), but gravity still acts: weight = mg downward, acceleration = g downward. This is what immediately reverses the motion. Zero velocity does NOT mean zero force.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — at the peak v = 0 but gravity still acts (weight mg down, a = g down).",
       "marks": 3,
       "explanation": "Common confusion. Gravity is always present; what changes is velocity. The acceleration is constant throughout the flight (g downward).",
-      "errorSignals": ["ERR_ACCEL_AT_TOP_ZERO", "ERR_VELOCITY_FORCE_CONFLATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ACCEL_AT_TOP_ZERO",
+        "ERR_VELOCITY_FORCE_CONFLATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Incorrect — at the peak v = 0 but gravity still acts (weight mg down, a = g down).",
+        "Correct — with zero velocity there is no force on the projectile.",
+        "Incorrect — gravity isn't zero, but the acceleration is zero at the top."
+      ]
     },
     {
       "id": "L2.T1.A1.q19",
@@ -294,12 +367,20 @@
       "question": "A ball is dropped from rest. After 2 s, calculate (a) its velocity and (b) the distance it has fallen. (g = 9.8 m·s⁻².)",
       "answerMode": "multiField",
       "fields": [
-        {"label": "Velocity (m·s⁻¹)", "expectedAnswer": "19.6"},
-        {"label": "Distance fallen (m)", "expectedAnswer": "19.6"}
+        {
+          "label": "Velocity (m·s⁻¹)",
+          "expectedAnswer": "19.6"
+        },
+        {
+          "label": "Distance fallen (m)",
+          "expectedAnswer": "19.6"
+        }
       ],
       "marks": 4,
       "explanation": "v = gt = 9.8 × 2 = 19.6 m·s⁻¹. y = ½gt² = ½ × 9.8 × 4 = 19.6 m. (Numerically coincide because t = 2; in general they don't.)",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -318,7 +399,10 @@
       "expectedAnswer": "Straight line with NEGATIVE constant gradient",
       "marks": 2,
       "explanation": "Acceleration is g downward (= −g with upward positive). Constant acceleration ⇒ straight line. Negative acceleration ⇒ negative gradient. Velocity starts positive, decreases through zero at peak, becomes negative as ball falls.",
-      "errorSignals": ["ERR_VT_GRAPH_INTERPRET", "ERR_SIGN_CONVENTION_VPM"],
+      "errorSignals": [
+        "ERR_VT_GRAPH_INTERPRET",
+        "ERR_SIGN_CONVENTION_VPM"
+      ],
       "passThreshold": 0.7
     }
   ],

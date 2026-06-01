@@ -1,77 +1,45 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import skillTreeData from "@/data/skill-tree.json";
 import { StudentProfile } from "@/types/ruby";
 import { getSkillStatus } from "@/lib/student-model";
 import { getLevelProgress } from "@/lib/mastery-engine";
-import EduBackground from "@/components/EduBackground";
 import { useT } from "@/lib/i18n";
+import SkillTreeShell, { type TreeLevel, type SkillTreeStatus } from "@/components/shared/SkillTreeShell";
 
 interface SkillTreeViewProps {
   profile: StudentProfile | null;
   /** When provided, skills the student has already completed/attained become
    *  tappable to replay (extra practice — no progression is changed). */
   onReplaySkill?: (skillId: string) => void;
-  /** When provided, shows a "Continue where you left off" button (and makes the
-   *  active skill tile tappable) that resumes the current skill's session.
-   *  Mirrors the Afrikaans tree so every subject resumes the same way. */
+  /** When provided, shows a "Continue where you left off" affordance (and makes
+   *  the active skill tile tappable) that resumes the current skill's session. */
   onContinue?: () => void;
   /** Optional back action — shows a "← Subjects" button when provided. */
   onBack?: () => void;
   /** When true, renders only the learner's current level by default and
-   *  exposes a "View full tree" toggle. Used by the Subjects and Progress
-   *  pages so the learner doesn't scroll past every completed level. */
+   *  exposes a "View full tree" toggle. */
   compact?: boolean;
 }
 
-const statusConfig = {
-  locked:        { bg: "bg-gray-100",  text: "text-gray-400",   border: "border-gray-200",  icon: "🔒", label: "Locked" },
-  available:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-200", icon: "🚀", label: "Ready" },
-  in_progress:   { bg: "bg-orange-50", text: "text-orange-700", border: "border-orange-200",icon: "⚡",  label: "In Progress" },
-  mastered:      { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200", icon: "🏆", label: "Mastered" },
-  active:        { bg: "bg-blue-100",  text: "text-blue-800",   border: "border-blue-400",  icon: "▶",  label: "Active" },
-  hard_gate:     { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-amber-300", icon: "🔒", label: "Locked" },
-  auto_complete: { bg: "bg-green-50",  text: "text-green-600",  border: "border-green-200", icon: "✦",  label: "Auto-completed" },
-  entry_point:   { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-300",  icon: "🎯", label: "Entry Point" },
-};
-
 export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBack, compact }: SkillTreeViewProps) {
   const { t } = useT();
-  // Per-level expand/collapse. Default: only the learner's current level is
-  // expanded; others stay collapsed so the tree is scannable rather than
-  // an endless scroll.
-  const [expandedLevels, setExpandedLevels] = useState<Set<number>>(
-    () => new Set(profile ? [profile.current_level] : [1]),
-  );
-  // Compact mode: render only the current level by default. Toggling reveals
-  // the full tree (with the current level still auto-expanded above).
   const [showAllLevels, setShowAllLevels] = useState<boolean>(!compact);
   useEffect(() => { setShowAllLevels(!compact); }, [compact]);
   const currentLevelId = profile?.current_level ?? 1;
-  const visibleLevels = useMemo(
-    () => (showAllLevels ? skillTreeData.levels : skillTreeData.levels.filter((l) => l.id === currentLevelId)),
-    [showAllLevels, currentLevelId],
-  );
-  const toggleLevel = (id: number) =>
-    setExpandedLevels((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id); else next.add(id);
-      return next;
-    });
+
   const levelProgress = useMemo(() => {
-    if (!profile) return {};
+    if (!profile) return {} as Record<number, number>;
     const result: Record<number, number> = {};
     for (const level of skillTreeData.levels) {
-      const allSkillIds = level.tiers.flatMap((t) =>
-        t.atomic_skills.map((s) => s.id)
-      );
+      const allSkillIds = level.tiers.flatMap((t) => t.atomic_skills.map((s) => s.id));
       result[level.id] = getLevelProgress(allSkillIds, profile.skill_mastery);
     }
     return result;
   }, [profile]);
 
-  const { totalLevels, totalTiers, totalSkills, masteredLevels, masteredTiers, masteredSkills } = useMemo(() => {
+  const statline = useMemo(() => {
     let totalTiers = 0, totalSkills = 0, masteredTiers = 0, masteredSkills = 0, masteredLevels = 0;
     const mastery = profile?.skill_mastery ?? {};
     const isMastered = (id: string) => {
@@ -80,8 +48,7 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
     };
     for (const level of skillTreeData.levels) {
       totalTiers += level.tiers.length;
-      let levelSkillCount = 0;
-      let levelMasteredCount = 0;
+      let levelSkillCount = 0, levelMasteredCount = 0;
       for (const tier of level.tiers) {
         totalSkills += tier.atomic_skills.length;
         const tierMastered = tier.atomic_skills.filter((s) => isMastered(s.id)).length;
@@ -92,261 +59,107 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
       }
       if (levelSkillCount > 0 && levelMasteredCount === levelSkillCount) masteredLevels++;
     }
-    return {
-      totalLevels: skillTreeData.levels.length,
-      totalTiers,
-      totalSkills,
-      masteredLevels,
-      masteredTiers,
-      masteredSkills,
-    };
+    return `${masteredLevels}/${skillTreeData.levels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills`;
   }, [profile]);
-
-  const currentLevelRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!profile) return;
-    const id = window.requestAnimationFrame(() => {
-      currentLevelRef.current?.scrollIntoView({ block: "start", behavior: "auto" });
-    });
-    return () => window.cancelAnimationFrame(id);
-  }, [profile?.current_level]);
 
   const autoCompletedIds = useMemo(
     () => new Set(profile?.placement?.autoCompletedSkillIds ?? []),
-    [profile]
+    [profile],
   );
   const entrySkillId = profile?.placement?.entrySkillId ?? null;
   const hardGatePassed = profile?.placement?.hardGatePassed ?? true;
 
-  function getExtendedStatus(skillId: string) {
-    if (!profile) return "locked" as const;
-    if (skillId === profile.current_skill_id) return "active" as const;
-    if (skillId === entrySkillId && !autoCompletedIds.has(skillId)) return "entry_point" as const;
-    if (autoCompletedIds.has(skillId)) return "auto_complete" as const;
-    const base = getSkillStatus(skillId, profile);
-    // Hard gate: locked skills at Level 5+ when gate has not been cleared
+  function getExtendedStatus(skillId: string): SkillTreeStatus {
+    if (!profile) return "locked";
+    if (skillId === profile.current_skill_id) return "active";
+    if (skillId === entrySkillId && !autoCompletedIds.has(skillId)) return "entry_point";
+    if (autoCompletedIds.has(skillId)) return "auto_complete";
+    const base = getSkillStatus(skillId, profile) as SkillTreeStatus;
     if (!hardGatePassed && base === "locked") {
       const level = parseInt(skillId.split(".")[0].replace("L", ""));
-      if (level >= 5) return "hard_gate" as const;
+      if (level >= 5) return "hard_gate";
     }
     return base;
   }
 
-  return (
-    <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>
-      <div className="absolute inset-0 -z-10"><EduBackground /></div>
-      <div className="hidden md:block bg-blue-50 border-b border-blue-200 px-6 py-4">
-        <h2 className="font-semibold text-blue-700 text-lg">{t("nav.maths_skill_tree")}</h2>
-        <p className="text-blue-400 text-sm">
-          {masteredLevels}/{totalLevels} Levels · {masteredTiers}/{totalTiers} Tiers · {masteredSkills}/{totalSkills} Atomic skills
-        </p>
-      </div>
+  const levels: TreeLevel[] = useMemo(() => {
+    if (!profile) return [];
+    const source = showAllLevels
+      ? skillTreeData.levels
+      : skillTreeData.levels.filter((l) => l.id === currentLevelId);
+    return source.map((level): TreeLevel => {
+      const progress = levelProgress[level.id] || 0;
+      const isCurrent = level.id === profile.current_level;
+      const isHardGateLevel = level.id === 5;
 
-      <div className={compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
-        {onBack && (
-          <div className="max-w-2xl mx-auto mb-4">
-            <button
-              onClick={onBack}
-              className="text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
-            >
-              ← Subjects
-            </button>
-          </div>
-        )}
-        {!profile ? (
+      let banner: TreeLevel["banner"];
+      if (isHardGateLevel && !hardGatePassed) {
+        banner = { tone: "amber", icon: "🔒", text: "Hard Gate — multiplication mastery required before advancing" };
+      } else if (isHardGateLevel && hardGatePassed && profile.placementCompleted) {
+        banner = { tone: "green", icon: "✅", text: "Hard Gate passed" };
+      }
+
+      const preBarrier =
+        level.id === 5 && !hardGatePassed && profile.placementCompleted
+          ? { text: "Hard Gate — master multiplication to unlock advanced maths" }
+          : undefined;
+
+      return {
+        id: level.id,
+        badge: `L${level.id}`,
+        title: level.title,
+        description: level.description,
+        progressPct: progress,
+        isCurrent,
+        defaultOpen: isCurrent,
+        banner,
+        preBarrier,
+        tiers: level.tiers.map((tier) => ({
+          id: tier.id,
+          title: tier.title,
+          skills: tier.atomic_skills.map((skill) => {
+            const status = getExtendedStatus(skill.id);
+            const isActive = status === "active";
+            const canReplay = !!onReplaySkill && (status === "mastered" || status === "auto_complete");
+            const canResume = !!onContinue && isActive;
+            return {
+              id: skill.id,
+              title: skill.title,
+              status,
+              replay: canReplay,
+              hardGateNote: status === "hard_gate" ? "Complete this challenge to unlock" : undefined,
+              onClick: canResume ? onContinue : canReplay ? () => onReplaySkill!(skill.id) : undefined,
+            };
+          }),
+        })),
+      };
+    });
+  }, [profile, showAllLevels, currentLevelId, levelProgress, hardGatePassed, autoCompletedIds, entrySkillId, onReplaySkill, onContinue]);
+
+  return (
+    <SkillTreeShell
+      accent="blue"
+      title={t("nav.maths_skill_tree")}
+      statline={statline}
+      levels={levels}
+      compact={compact}
+      onBack={onBack}
+      emptyState={
+        !profile ? (
           <div className="text-center py-12 text-gray-400">
             <p className="text-4xl mb-3">🌳</p>
             <p className="font-medium text-gray-600">Start a diagnostic session to unlock the skill tree</p>
           </div>
-        ) : (
-          <div className="max-w-2xl mx-auto space-y-4">
-            {visibleLevels.map((level) => {
-              const progress = levelProgress[level.id] || 0;
-              const isCurrent = level.id === profile.current_level;
-              const isHardGateLevel = level.id === 5;
-              const showHardGateBarrier = level.id === 5 && !hardGatePassed && profile.placementCompleted;
-              const isExpanded = expandedLevels.has(level.id);
-
-              return (
-                <div key={level.id} ref={isCurrent ? currentLevelRef : undefined}>
-                  {/* Hard Gate barrier before Level 5 */}
-                  {showHardGateBarrier && (
-                    <div className="flex items-center gap-3 my-2 px-1">
-                      <div className="flex-1 h-px bg-amber-300" />
-                      <div className="bg-amber-100 border border-amber-300 rounded-xl px-3 py-1.5 flex items-center gap-2 text-amber-700 text-xs font-semibold">
-                        <span>🔒</span>
-                        <span>Hard Gate — master multiplication to unlock advanced maths</span>
-                      </div>
-                      <div className="flex-1 h-px bg-amber-300" />
-                    </div>
-                  )}
-                  <div
-                    className={`bg-white border rounded-2xl overflow-hidden transition-all ${
-                      isCurrent ? "border-blue-300 shadow-md shadow-blue-500/10" : "border-gray-200"
-                    }`}
-                  >
-                    {/* Hard gate banner inside Level 5 card */}
-                    {isHardGateLevel && !hardGatePassed && (
-                      <div className="bg-amber-50 border-b border-amber-200 px-5 py-2 flex items-center gap-2">
-                        <span className="text-amber-500">🔒</span>
-                        <p className="text-amber-700 text-xs font-medium">
-                          Hard Gate — multiplication mastery required before advancing
-                        </p>
-                      </div>
-                    )}
-                    {isHardGateLevel && hardGatePassed && profile.placementCompleted && (
-                      <div className="bg-green-50 border-b border-green-100 px-5 py-2 flex items-center gap-2">
-                        <span className="text-green-500">✅</span>
-                        <p className="text-green-700 text-xs font-medium">Hard Gate passed</p>
-                      </div>
-                    )}
-
-                    {/* Level header — click to expand/collapse */}
-                    <button
-                      type="button"
-                      onClick={() => toggleLevel(level.id)}
-                      aria-expanded={isExpanded}
-                      aria-controls={`level-body-${level.id}`}
-                      className={`w-full text-left px-5 py-4 ${isCurrent ? "bg-blue-50" : ""} hover:bg-gray-50 transition-colors`}
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-3">
-                          <div className={`min-w-[2.25rem] h-8 px-1.5 rounded-lg flex items-center justify-center text-sm font-bold ${
-                            progress === 100
-                              ? "bg-green-500 text-white"
-                              : isCurrent
-                              ? "bg-blue-500 text-white"
-                              : progress > 0
-                              ? "bg-orange-500 text-white"
-                              : "bg-gray-200 text-gray-500"
-                          }`}>
-                            L{level.id}
-                          </div>
-                          <div>
-                            <p className="font-semibold text-gray-900 text-sm">{level.title}</p>
-                            <p className="text-gray-400 text-xs">{level.description}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="text-right">
-                            <p className={`text-sm font-bold ${progress === 100 ? "text-green-600" : "text-gray-600"}`}>
-                              {progress}%
-                            </p>
-                            {isCurrent && (
-                              <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">
-                                Current
-                              </span>
-                            )}
-                          </div>
-                          <svg
-                            aria-hidden
-                            className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </div>
-                      </div>
-                      {/* Progress bar */}
-                      <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                        <div
-                          className={`h-full rounded-full transition-all ${
-                            progress === 100 ? "bg-green-500" : "bg-blue-500"
-                          }`}
-                          style={{ width: `${progress}%` }}
-                        />
-                      </div>
-                    </button>
-
-                    {/* Skills grid — collapsed by default; user expands per level. */}
-                    {isExpanded && (
-                      <div id={`level-body-${level.id}`} className="px-5 pb-4">
-                        {level.tiers.map((tier) => (
-                          <div key={tier.id} className="mt-3">
-                            <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">
-                              {tier.title}
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                              {tier.atomic_skills.map((skill) => {
-                                const extStatus = getExtendedStatus(skill.id);
-                                const config = statusConfig[extStatus as keyof typeof statusConfig] ?? statusConfig.locked;
-                                const isActive = extStatus === "active";
-                                const isHardGateSkill = extStatus === "hard_gate";
-                                // Replay is allowed only on skills the student has already
-                                // completed/attained (mastered, or auto-completed via placement).
-                                const canReplay = !!onReplaySkill && (extStatus === "mastered" || extStatus === "auto_complete");
-                                // The active (current) skill resumes the session when tapped,
-                                // so the ▶ tile isn't a dead click.
-                                const canResume = !!onContinue && isActive;
-
-                                const tileClass = `px-3 py-1.5 rounded-lg border text-xs font-medium text-left ${config.bg} ${config.text} ${config.border} ${
-                                  isActive ? "ring-2 ring-blue-500 ring-offset-1 animate-pulse shadow-sm shadow-blue-300" : ""
-                                } ${(canReplay || canResume) ? "cursor-pointer hover:ring-2 hover:ring-blue-300 hover:shadow-sm transition-all" : ""}`;
-                                const tileInner = (
-                                  <>
-                                    <span className="mr-1">{config.icon}</span>
-                                    {skill.title}
-                                    {canReplay && <span className="ml-1 text-blue-400" aria-hidden>🔁</span>}
-                                    {isHardGateSkill && (
-                                      <span className="block text-amber-600 text-[10px] leading-tight mt-0.5">
-                                        Complete this challenge to unlock
-                                      </span>
-                                    )}
-                                  </>
-                                );
-
-                                return canReplay ? (
-                                  <button
-                                    key={skill.id}
-                                    type="button"
-                                    onClick={() => onReplaySkill!(skill.id)}
-                                    className={tileClass}
-                                    title={`${skill.title} — ${config.label} · Tap to practise again`}
-                                  >
-                                    {tileInner}
-                                  </button>
-                                ) : canResume ? (
-                                  <button
-                                    key={skill.id}
-                                    type="button"
-                                    onClick={onContinue}
-                                    className={tileClass}
-                                    title={`${skill.title} — ${config.label} · Tap to continue`}
-                                  >
-                                    {tileInner}
-                                  </button>
-                                ) : (
-                                  <div
-                                    key={skill.id}
-                                    className={tileClass}
-                                    title={`${skill.title} — ${config.label}${isActive ? " (current)" : ""}${isHardGateSkill ? " — complete multiplication gate first" : ""}`}
-                                  >
-                                    {tileInner}
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-
-            {compact && (
-              <button
-                type="button"
-                onClick={() => setShowAllLevels((v) => !v)}
-                className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
-              >
-                {showAllLevels ? "Show only current level ▲" : "View full tree ▼"}
-              </button>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
+        ) : undefined
+      }
+      footerToggle={
+        compact && profile
+          ? {
+              label: showAllLevels ? "Show only current level ▲" : "View full tree ▼",
+              onClick: () => setShowAllLevels((v) => !v),
+            }
+          : undefined
+      }
+    />
   );
 }

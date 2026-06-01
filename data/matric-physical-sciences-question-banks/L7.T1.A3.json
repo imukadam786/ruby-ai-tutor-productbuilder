@@ -1,7 +1,9 @@
 {
   "skill": "L7.T1.A3",
   "skill_title": "Calculate AC quantities (RMS voltage/current, average power, frequency)",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 10 lifted, 10 fresh. AC vs DC; V_rms = V_max/√2 and I_rms = I_max/√2; average power P_avg = V_rms × I_rms; period and frequency.",
@@ -23,7 +25,9 @@
       "expectedAnswer": "Both I and II",
       "marks": 2,
       "explanation": "Both true: AC reverses direction periodically (50 Hz in SA mains). DC flows in one direction, so it doesn't oscillate — its 'frequency' is zero.",
-      "errorSignals": ["ERR_AC_DC_DEFINITION"],
+      "errorSignals": [
+        "ERR_AC_DC_DEFINITION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -33,12 +37,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2024 Q9.3",
       "question": "Define V_rms (root mean square voltage).",
-      "answerMode": "text",
-      "expectedAnswer": "V_rms is the equivalent DC voltage that would produce the same power dissipation in a resistor as the AC voltage does. V_rms = V_max/√2 for a sinusoidal AC waveform.",
+      "answerMode": "choice",
+      "expectedAnswer": "The equivalent DC voltage that delivers the same average power as the AC; V_rms = V_max/√2.",
       "marks": 2,
       "explanation": "RMS gives you the 'effective DC equivalent' of an AC. P_avg in a resistor = V_rms²/R = V_rms × I_rms.",
-      "errorSignals": ["ERR_RMS_DEFINITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_RMS_DEFINITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The peak voltage of the AC waveform.",
+        "The equivalent DC voltage that delivers the same average power as the AC; V_rms = V_max/√2.",
+        "The average of all instantaneous voltages over a cycle (which is zero)."
+      ]
     },
     {
       "id": "L7.T1.A3.q03",
@@ -53,7 +64,9 @@
       "unit": "V",
       "marks": 3,
       "explanation": "V_rms = V_max/√2 = 125/1.414 ≈ 88.4 V.",
-      "errorSignals": ["ERR_RMS_FORMULA"],
+      "errorSignals": [
+        "ERR_RMS_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -69,7 +82,9 @@
       "unit": "A",
       "marks": 3,
       "explanation": "I_max = V_max/R = 125/42.4 ≈ 2.95 A.",
-      "errorSignals": ["ERR_OHM_REARRANGE"],
+      "errorSignals": [
+        "ERR_OHM_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -85,7 +100,10 @@
       "unit": "Ω",
       "marks": 4,
       "explanation": "I_rms = I_max/√2 = 6/√2 ≈ 4.243 A. R = V_rms/I_rms = 200/4.243 ≈ 47.1 Ω.",
-      "errorSignals": ["ERR_RMS_FORMULA", "ERR_OHM_REARRANGE"],
+      "errorSignals": [
+        "ERR_RMS_FORMULA",
+        "ERR_OHM_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -101,7 +119,10 @@
       "unit": "J",
       "marks": 4,
       "explanation": "P_avg = 200 × 4.243 ≈ 848.6 W. E = P × t = 848.6 × (2 × 3600) ≈ 6.11 × 10⁶ J.",
-      "errorSignals": ["ERR_RMS_POWER", "ERR_TIME_UNITS"],
+      "errorSignals": [
+        "ERR_RMS_POWER",
+        "ERR_TIME_UNITS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -117,7 +138,10 @@
       "unit": "s",
       "marks": 5,
       "explanation": "200 = 311 sin(2π × 50 × t) ⇒ sin(2π·50·t) = 200/311 = 0.6431. 2π·50·t = arcsin(0.6431) ≈ 0.6946 rad. t = 0.6946/(100π) ≈ 2.21 × 10⁻³ s.",
-      "errorSignals": ["ERR_INSTANTANEOUS_V_AC", "ERR_ARCSIN_RADIANS"],
+      "errorSignals": [
+        "ERR_INSTANTANEOUS_V_AC",
+        "ERR_ARCSIN_RADIANS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -133,7 +157,10 @@
       "unit": "J",
       "marks": 5,
       "explanation": "V_rms = 311/√2 ≈ 219.9 V. P_avg = V_rms²/R = 220²/100 = 484 W. E = Pt = 484 × 60 = 29 040 J.",
-      "errorSignals": ["ERR_RMS_POWER", "ERR_RMS_FORMULA"],
+      "errorSignals": [
+        "ERR_RMS_POWER",
+        "ERR_RMS_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -149,7 +176,10 @@
       "unit": "Ω",
       "marks": 3,
       "explanation": "P = V_rms²/R ⇒ R = V_rms²/P = 220²/100 = 484 Ω. (Mains AC ratings use RMS values.)",
-      "errorSignals": ["ERR_RMS_POWER", "ERR_RMS_RATING"],
+      "errorSignals": [
+        "ERR_RMS_POWER",
+        "ERR_RMS_RATING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -169,7 +199,9 @@
       "expectedAnswer": "Peak V doubles; period halves",
       "marks": 2,
       "explanation": "Doubling rotation speed doubles f (so T = 1/f halves) and doubles the peak EMF (because peak EMF ∝ ω = 2πf).",
-      "errorSignals": ["ERR_GENERATOR_SPEED_PEAK"],
+      "errorSignals": [
+        "ERR_GENERATOR_SPEED_PEAK"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -178,12 +210,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why are AC mains voltages and currents usually quoted as RMS values rather than peak values?",
-      "answerMode": "text",
-      "expectedAnswer": "RMS values represent the equivalent DC value that would produce the same average power. Multimeters measure RMS, and household appliances (like a 220 V/1500 W kettle) are rated for the AVERAGE power they dissipate, which is calculated using RMS. Peak values are higher (V_peak = √2 × V_rms ≈ 311 V for 220 V mains) and don't directly tell you the power.",
+      "answerMode": "choice",
+      "expectedAnswer": "RMS values give the equivalent DC that produces the same average power; meters and appliance ratings use RMS.",
       "marks": 3,
       "explanation": "Power is what matters in practice; RMS gives consistent power calculations.",
-      "errorSignals": ["ERR_RMS_DEFINITION", "ERR_RMS_RATING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_RMS_DEFINITION",
+        "ERR_RMS_RATING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "RMS is just the peak value, which is easier to measure.",
+        "RMS is the average current, which equals zero for AC.",
+        "RMS values give the equivalent DC that produces the same average power; meters and appliance ratings use RMS."
+      ]
     },
     {
       "id": "L7.T1.A3.q12",
@@ -193,12 +233,21 @@
       "question": "A South African mains supply is 220 V (rms) at 50 Hz. What are the peak voltage and the period of one cycle?",
       "answerMode": "multiField",
       "fields": [
-        {"label": "Peak voltage (V)", "expectedAnswer": "311"},
-        {"label": "Period (s)", "expectedAnswer": "0.02"}
+        {
+          "label": "Peak voltage (V)",
+          "expectedAnswer": "311"
+        },
+        {
+          "label": "Period (s)",
+          "expectedAnswer": "0.02"
+        }
       ],
       "marks": 4,
       "explanation": "V_max = V_rms × √2 = 220 × 1.414 ≈ 311 V. T = 1/f = 1/50 = 0.02 s = 20 ms.",
-      "errorSignals": ["ERR_RMS_FORMULA", "ERR_PERIOD_FREQ"],
+      "errorSignals": [
+        "ERR_RMS_FORMULA",
+        "ERR_PERIOD_FREQ"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -209,12 +258,21 @@
       "question": "A heater is rated 1500 W at 220 V (rms). Calculate the RMS current and the peak current it draws.",
       "answerMode": "multiField",
       "fields": [
-        {"label": "I_rms (A)", "expectedAnswer": "6.82"},
-        {"label": "I_max (A)", "expectedAnswer": "9.65"}
+        {
+          "label": "I_rms (A)",
+          "expectedAnswer": "6.82"
+        },
+        {
+          "label": "I_max (A)",
+          "expectedAnswer": "9.65"
+        }
       ],
       "marks": 4,
       "explanation": "P = V_rms × I_rms ⇒ I_rms = 1500/220 ≈ 6.82 A. I_max = I_rms × √2 ≈ 9.65 A.",
-      "errorSignals": ["ERR_RMS_FORMULA", "ERR_RMS_RATING"],
+      "errorSignals": [
+        "ERR_RMS_FORMULA",
+        "ERR_RMS_RATING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -229,7 +287,9 @@
       "unit": "A",
       "marks": 2,
       "explanation": "I_rms = I_max/√2 = 8/1.414 ≈ 5.66 A.",
-      "errorSignals": ["ERR_RMS_FORMULA"],
+      "errorSignals": [
+        "ERR_RMS_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -244,7 +304,10 @@
       "unit": "W",
       "marks": 2,
       "explanation": "The rating is the average power: 60 W. P_avg = V_rms × I_rms = 60 W (by definition of the rated power at the rated voltage).",
-      "errorSignals": ["ERR_RMS_POWER", "ERR_RMS_RATING"],
+      "errorSignals": [
+        "ERR_RMS_POWER",
+        "ERR_RMS_RATING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -263,7 +326,9 @@
       "expectedAnswer": "V_peak = V_rms × √2",
       "marks": 2,
       "explanation": "V_rms = V_max/√2 ⇒ V_peak = V_rms × √2. Equivalently V_peak ≈ 1.414 × V_rms.",
-      "errorSignals": ["ERR_RMS_FORMULA"],
+      "errorSignals": [
+        "ERR_RMS_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -274,13 +339,25 @@
       "question": "An AC source: V_max = 50 V, R = 25 Ω, f = 60 Hz. Find: (a) V_rms; (b) I_rms; (c) average power dissipated.",
       "answerMode": "multiField",
       "fields": [
-        {"label": "V_rms (V)", "expectedAnswer": "35.36"},
-        {"label": "I_rms (A)", "expectedAnswer": "1.41"},
-        {"label": "P_avg (W)", "expectedAnswer": "50"}
+        {
+          "label": "V_rms (V)",
+          "expectedAnswer": "35.36"
+        },
+        {
+          "label": "I_rms (A)",
+          "expectedAnswer": "1.41"
+        },
+        {
+          "label": "P_avg (W)",
+          "expectedAnswer": "50"
+        }
       ],
       "marks": 5,
       "explanation": "V_rms = 50/√2 ≈ 35.36 V. I_rms = V_rms/R ≈ 1.414 A. P = V_rms × I_rms ≈ 50 W (also P = V_max × I_max/2).",
-      "errorSignals": ["ERR_RMS_FORMULA", "ERR_RMS_POWER"],
+      "errorSignals": [
+        "ERR_RMS_FORMULA",
+        "ERR_RMS_POWER"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -295,7 +372,9 @@
       "unit": "s",
       "marks": 2,
       "explanation": "T = 1/f = 1/50 = 0.02 s.",
-      "errorSignals": ["ERR_PERIOD_FREQ"],
+      "errorSignals": [
+        "ERR_PERIOD_FREQ"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -304,12 +383,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner asks: 'When AC current alternates direction, doesn't the average current have to be zero?' Briefly explain why P_avg is still nonzero.",
-      "answerMode": "text",
-      "expectedAnswer": "Yes — the AVERAGE current (over a full cycle) is zero, but the average POWER is not. Power = I²R is always positive (current is squared, so both halves of the cycle contribute equally to power). The RMS current squares first, then averages, so I_rms gives the proper effective value for power calculations.",
+      "answerMode": "choice",
+      "expectedAnswer": "The average current over a cycle is zero, but power = I²R is always positive, so the average power is nonzero.",
       "marks": 3,
       "explanation": "Squaring removes the sign. The 'RMS' construction is exactly designed so I_rms²R = P_avg.",
-      "errorSignals": ["ERR_AC_AVG_POWER_INTUITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_AC_AVG_POWER_INTUITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The average current over a cycle is zero, but power = I²R is always positive, so the average power is nonzero.",
+        "The average power is also zero, since the current averages to zero.",
+        "The power is nonzero because the average current is actually positive."
+      ]
     },
     {
       "id": "L7.T1.A3.q20",
@@ -318,12 +404,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2024 Q9.6",
       "question": "An AC generator delivers I_max = 2.95 A at frequency 20 Hz. Describe (or sketch) the current vs time graph for TWO complete rotations of the coil.",
-      "answerMode": "text",
-      "expectedAnswer": "Sinusoidal graph with period T = 1/20 = 0.05 s, so two cycles take 0.10 s. Amplitude I_max = 2.95 A. The curve starts at I = 0 at t = 0, rises to +2.95 A at T/4 = 0.0125 s, returns to 0 at T/2 = 0.025 s, falls to −2.95 A at 3T/4 = 0.0375 s, returns to 0 at T = 0.05 s. Repeats once more.",
+      "answerMode": "choice",
+      "expectedAnswer": "A sine curve, amplitude 2.95 A, period 0.05 s, showing two cycles over 0.10 s.",
       "marks": 4,
       "explanation": "Sinusoidal current; period and amplitude clearly identified; two cycles plotted.",
-      "errorSignals": ["ERR_PERIOD_FREQ", "ERR_AC_WAVEFORM_SHAPE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_PERIOD_FREQ",
+        "ERR_AC_WAVEFORM_SHAPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A sine curve, amplitude 2.95 A, period 20 s.",
+        "A sine curve, amplitude 2.95 A, period 0.05 s, showing two cycles over 0.10 s.",
+        "A straight horizontal line at 2.95 A."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

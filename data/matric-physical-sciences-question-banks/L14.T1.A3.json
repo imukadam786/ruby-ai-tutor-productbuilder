@@ -1,7 +1,9 @@
 {
   "skill": "L14.T1.A3",
   "skill_title": "Distinguish strong vs weak acids/bases and apply Ka/Kb",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 6 lifted, 14 fresh. Strong vs weak (degree of ionisation); Ka/Kb magnitude; pH/conductivity/concentration tests; common examples.",
@@ -12,12 +14,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Distinguish between STRONG and WEAK acids in terms of ionisation in water.",
-      "answerMode": "text",
-      "expectedAnswer": "A STRONG acid ionises COMPLETELY in water (essentially 100%): HA → H⁺ + A⁻ (essentially irreversible). A WEAK acid ionises only PARTIALLY in water: HA ⇌ H⁺ + A⁻ (equilibrium with mostly un-ionised HA). Strength refers to the EXTENT of ionisation, not concentration.",
+      "answerMode": "choice",
+      "expectedAnswer": "A strong acid ionises completely; a weak acid ionises only partially (an equilibrium).",
       "marks": 3,
       "explanation": "Strong: complete ionisation. Weak: partial ionisation (equilibrium). Different from concentrated/dilute (which is about amount).",
-      "errorSignals": ["ERR_STRONG_WEAK_DEF", "ERR_STRONG_VS_CONCENTRATED"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_STRONG_WEAK_DEF",
+        "ERR_STRONG_VS_CONCENTRATED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Strong acids are concentrated; weak acids are dilute.",
+        "Strong acids ionise partially; weak acids ionise completely.",
+        "A strong acid ionises completely; a weak acid ionises only partially (an equilibrium)."
+      ]
     },
     {
       "id": "L14.T1.A3.q02",
@@ -25,12 +35,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Name THREE common STRONG acids and THREE common STRONG bases.",
-      "answerMode": "text",
-      "expectedAnswer": "Strong acids (any three): HCl (hydrochloric), HBr (hydrobromic), HI (hydroiodic), HNO₃ (nitric), H₂SO₄ (first ionisation only). Strong bases (any three): NaOH, KOH, Ca(OH)₂, Ba(OH)₂, LiOH.",
+      "answerMode": "choice",
+      "expectedAnswer": "Strong acids: HCl, HNO₃, H₂SO₄. Strong bases: NaOH, KOH, Ca(OH)₂.",
       "marks": 4,
       "explanation": "Standard list of strong acids/bases that learners should memorise.",
-      "errorSignals": ["ERR_STRONG_ACIDS_LIST", "ERR_STRONG_BASES_LIST"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_STRONG_ACIDS_LIST",
+        "ERR_STRONG_BASES_LIST"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Strong acids: HCl, HNO₃, H₂SO₄. Strong bases: NaOH, KOH, Ca(OH)₂.",
+        "Strong acids: CH₃COOH, H₂CO₃, HF. Strong bases: NH₃, CH₃NH₂, Al(OH)₃.",
+        "Strong acids: HCl, HF, CH₃COOH. Strong bases: NaOH, NH₃, KOH."
+      ]
     },
     {
       "id": "L14.T1.A3.q03",
@@ -40,11 +58,18 @@
       "source_ref": "P2 May/Jun 2024 Q1.8",
       "question": "Four weak acids have Ka values: A = 4.5 × 10⁻⁶, B = 1.8 × 10⁻⁵, C = 6.3 × 10⁻⁵, D = 4.5 × 10⁻⁴. Which is the WEAKEST acid?",
       "answerMode": "choice",
-      "options": ["A", "B", "C", "D"],
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
       "expectedAnswer": "A",
       "marks": 2,
       "explanation": "Smaller Ka = less ionisation = weaker acid. Ka of A (4.5×10⁻⁶) is the smallest.",
-      "errorSignals": ["ERR_KA_STRENGTH"],
+      "errorSignals": [
+        "ERR_KA_STRENGTH"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -54,12 +79,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q7.1.2",
       "question": "Two acids HX (pH = 2.7) and HY (pH = 0.7) have the SAME concentration. Which is the STRONGER acid?",
-      "answerMode": "text",
-      "expectedAnswer": "HY is the stronger acid. Same concentration but LOWER pH (0.7 vs 2.7) ⇒ HY has produced more H⁺ ⇒ greater degree of ionisation ⇒ stronger.",
+      "answerMode": "choice",
+      "expectedAnswer": "HY — at the same concentration it has the lower pH, so it is more ionised.",
       "marks": 2,
       "explanation": "Lower pH at the same concentration = stronger acid. HY ionises more completely.",
-      "errorSignals": ["ERR_STRONG_VS_WEAK_PH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_STRONG_VS_WEAK_PH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "HX — its higher pH means more ionisation.",
+        "HY — at the same concentration it has the lower pH, so it is more ionised.",
+        "Equal — the same concentration means the same strength."
+      ]
     },
     {
       "id": "L14.T1.A3.q05",
@@ -68,12 +100,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q7.1.3",
       "question": "For weak acid HX with Ka = 1.8 × 10⁻⁵, is [H₃O⁺] GREATER than, EQUAL to, or LESS than [HX] in solution?",
-      "answerMode": "text",
-      "expectedAnswer": "[HX] >> [H₃O⁺]. Ka is small (1.8 × 10⁻⁵), so HX is weakly ionised. Most of the acid remains as un-ionised HX; only a small fraction has dissociated into H⁺ and X⁻.",
+      "answerMode": "choice",
+      "expectedAnswer": "[HX] >> [H₃O⁺] — the small Ka means the acid is only slightly ionised.",
       "marks": 2,
       "explanation": "Small Ka ⇒ little ionisation ⇒ [HA] >> [H⁺]. The reverse would be the case for a strong acid.",
-      "errorSignals": ["ERR_KA_STRENGTH", "ERR_WEAK_ACID_EQUILIBRIUM"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KA_STRENGTH",
+        "ERR_WEAK_ACID_EQUILIBRIUM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "[H₃O⁺] >> [HX] — the acid is mostly ionised.",
+        "[H₃O⁺] = [HX] — they are always equal.",
+        "[HX] >> [H₃O⁺] — the small Ka means the acid is only slightly ionised."
+      ]
     },
     {
       "id": "L14.T1.A3.q06",
@@ -82,12 +122,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q7.1.2",
       "question": "Two acid solutions at the same concentration light up two bulbs: bulb A (H₂SO₄) and bulb B (HNO₃). Which bulb is BRIGHTER and why?",
-      "answerMode": "text",
-      "expectedAnswer": "Bulb A (H₂SO₄) is brighter. Both H₂SO₄ and HNO₃ are strong acids (fully ionised), but H₂SO₄ is DIPROTIC — each molecule produces 2 H⁺ ions. HNO₃ is monoprotic (1 H⁺ per molecule). At the same concentration, H₂SO₄ produces more ions ⇒ better conductivity ⇒ brighter bulb.",
+      "answerMode": "choice",
+      "expectedAnswer": "H₂SO₄ — it is diprotic, releasing 2 H⁺ per molecule, so more ions conduct.",
       "marks": 2,
       "explanation": "Both strong, but H₂SO₄ produces twice the H⁺ ⇒ more ions ⇒ better conductor.",
-      "errorSignals": ["ERR_DIPROTIC_IONS", "ERR_CONDUCTIVITY_IONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_DIPROTIC_IONS",
+        "ERR_CONDUCTIVITY_IONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "H₂SO₄ — it is diprotic, releasing 2 H⁺ per molecule, so more ions conduct.",
+        "HNO₃ — it is a stronger acid than H₂SO₄.",
+        "Equal — both are strong acids."
+      ]
     },
     {
       "id": "L14.T1.A3.q07",
@@ -96,12 +144,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q7.1.3",
       "question": "Bulb B (HNO₃) and bulb C (CH₃COOH) — same concentration. Which is brighter? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Bulb B (HNO₃) is brighter. HNO₃ is a STRONG acid (fully ionised) ⇒ many ions in solution ⇒ good conductivity. CH₃COOH (ethanoic acid) is a WEAK acid (partially ionised) ⇒ fewer ions ⇒ poor conductivity at the same concentration.",
+      "answerMode": "choice",
+      "expectedAnswer": "HNO₃ — a strong acid is fully ionised, giving more ions and better conductivity.",
       "marks": 2,
       "explanation": "Strong = fully ionised = more ions. Weak = partial = fewer ions. Conductivity reflects ion concentration.",
-      "errorSignals": ["ERR_STRONG_VS_WEAK_PH", "ERR_CONDUCTIVITY_IONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_STRONG_VS_WEAK_PH",
+        "ERR_CONDUCTIVITY_IONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CH₃COOH — weak acids conduct better.",
+        "HNO₃ — a strong acid is fully ionised, giving more ions and better conductivity.",
+        "Equal — concentration alone sets the brightness."
+      ]
     },
     {
       "id": "L14.T1.A3.q08",
@@ -109,12 +165,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'A 0.01 mol·dm⁻³ HCl solution is a WEAK acid.' Is this correct? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. HCl is a STRONG acid (fully ionised) regardless of concentration. The given solution is DILUTE (low concentration) but still STRONG (because ionisation is complete). 'Strong/weak' refers to the EXTENT of ionisation; 'concentrated/dilute' refers to AMOUNT in solution.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — HCl is a strong acid at any concentration; this solution is just dilute.",
       "marks": 3,
       "explanation": "Common confusion. Strong/weak ≠ concentrated/dilute. HCl is strong at all concentrations.",
-      "errorSignals": ["ERR_STRONG_VS_CONCENTRATED"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_STRONG_VS_CONCENTRATED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Correct — low concentration makes HCl a weak acid.",
+        "Correct — HCl is weak below 0.1 mol·dm⁻³.",
+        "Incorrect — HCl is a strong acid at any concentration; this solution is just dilute."
+      ]
     },
     {
       "id": "L14.T1.A3.q09",
@@ -123,12 +186,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2025 Q1.8",
       "question": "1 mol·dm⁻³ HNO₃ (strong acid) and 1 mol·dm⁻³ CH₃COOH (weak acid) light up bulbs A and B respectively. Which is brighter, and which solution has the lower pH?",
-      "answerMode": "text",
-      "expectedAnswer": "Bulb A (HNO₃) is BRIGHTER (strong acid = fully ionised = more ions = better conductor). HNO₃ also has the LOWER pH (more H⁺ in solution).",
+      "answerMode": "choice",
+      "expectedAnswer": "HNO₃ is brighter and also has the lower pH (fully ionised ⇒ more H⁺).",
       "marks": 2,
       "explanation": "Strong acid: brighter bulb (more ions) AND lower pH (more H⁺).",
-      "errorSignals": ["ERR_CONDUCTIVITY_IONS", "ERR_STRONG_VS_WEAK_PH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONDUCTIVITY_IONS",
+        "ERR_STRONG_VS_WEAK_PH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "HNO₃ is brighter and also has the lower pH (fully ionised ⇒ more H⁺).",
+        "CH₃COOH is brighter and has the lower pH.",
+        "HNO₃ is brighter, but CH₃COOH has the lower pH."
+      ]
     },
     {
       "id": "L14.T1.A3.q10",
@@ -136,12 +207,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define Ka, the acid dissociation constant.",
-      "answerMode": "text",
-      "expectedAnswer": "Ka is the equilibrium constant for the dissociation of an acid in water: HA + H₂O ⇌ H₃O⁺ + A⁻. Ka = [H₃O⁺][A⁻]/[HA]. Large Ka ⇒ strong acid; small Ka ⇒ weak acid.",
+      "answerMode": "choice",
+      "expectedAnswer": "The equilibrium constant for acid dissociation: Ka = [H₃O⁺][A⁻]/[HA].",
       "marks": 3,
       "explanation": "Ka measures the extent of ionisation. Strong acids have Ka >> 1; weak acids have Ka << 1.",
-      "errorSignals": ["ERR_KA_EXPRESSION", "ERR_KA_STRENGTH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KA_EXPRESSION",
+        "ERR_KA_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ka = [HA]/([H₃O⁺][A⁻]).",
+        "The equilibrium constant for acid dissociation: Ka = [H₃O⁺][A⁻]/[HA].",
+        "Ka is the concentration of acid that ionises."
+      ]
     },
     {
       "id": "L14.T1.A3.q11",
@@ -149,12 +228,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Order the following by ACID STRENGTH (strongest first): HF (Ka = 6.6 × 10⁻⁴), HCN (Ka = 4.9 × 10⁻¹⁰), CH₃COOH (Ka = 1.8 × 10⁻⁵), HClO (Ka = 3.0 × 10⁻⁸).",
-      "answerMode": "text",
-      "expectedAnswer": "Strongest to weakest: HF > CH₃COOH > HClO > HCN. Larger Ka = stronger acid.",
+      "answerMode": "choice",
+      "expectedAnswer": "HF > CH₃COOH > HClO > HCN (larger Ka = stronger).",
       "marks": 3,
       "explanation": "Larger Ka = more ionised = stronger.",
-      "errorSignals": ["ERR_KA_STRENGTH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KA_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "HCN > HClO > CH₃COOH > HF.",
+        "CH₃COOH > HF > HCN > HClO.",
+        "HF > CH₃COOH > HClO > HCN (larger Ka = stronger)."
+      ]
     },
     {
       "id": "L14.T1.A3.q12",
@@ -162,12 +248,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does a weak acid show an equilibrium arrow (⇌) in its ionisation equation, while a strong acid shows a single arrow (→)?",
-      "answerMode": "text",
-      "expectedAnswer": "A weak acid is only PARTIALLY ionised, so the un-ionised form (HA) and the ions (H⁺ + A⁻) coexist in equilibrium — hence ⇌. A strong acid is FULLY ionised, with essentially no un-ionised HA remaining, so the reaction goes essentially to completion — hence →.",
+      "answerMode": "choice",
+      "expectedAnswer": "A weak acid is only partially ionised (HA and ions coexist ⇌); a strong acid is fully ionised (→).",
       "marks": 3,
       "explanation": "Single arrow = complete reaction (strong). Double arrow = equilibrium (weak).",
-      "errorSignals": ["ERR_WEAK_ACID_EQUILIBRIUM"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WEAK_ACID_EQUILIBRIUM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A weak acid is only partially ionised (HA and ions coexist ⇌); a strong acid is fully ionised (→).",
+        "Weak acids are fully ionised; strong acids are partially ionised.",
+        "There is no real difference; both arrows mean the same."
+      ]
     },
     {
       "id": "L14.T1.A3.q13",
@@ -176,11 +269,19 @@
       "source": "fresh",
       "question": "Which of the following is a WEAK base?",
       "answerMode": "choice",
-      "options": ["NaOH", "KOH", "NH₃", "Ca(OH)₂"],
+      "options": [
+        "NaOH",
+        "KOH",
+        "NH₃",
+        "Ca(OH)₂"
+      ],
       "expectedAnswer": "NH₃",
       "marks": 2,
       "explanation": "NH₃ (ammonia) is a weak base: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻ (only partial ionisation). The others are strong bases (fully ionised in water).",
-      "errorSignals": ["ERR_WEAK_BASE_ID", "ERR_STRONG_BASES_LIST"],
+      "errorSignals": [
+        "ERR_WEAK_BASE_ID",
+        "ERR_STRONG_BASES_LIST"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -189,12 +290,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "How does the pH of a 0.1 mol·dm⁻³ weak acid compare to a 0.1 mol·dm⁻³ strong acid of the same monoprotic kind?",
-      "answerMode": "text",
-      "expectedAnswer": "The weak acid has a HIGHER pH (less acidic) than the strong acid at the same concentration. This is because the weak acid only partially ionises, producing fewer H⁺ ions than the fully-ionised strong acid.",
+      "answerMode": "choice",
+      "expectedAnswer": "The weak acid has a higher pH — it ionises only partially, giving fewer H⁺.",
       "marks": 2,
       "explanation": "Same concentration, weak acid → less H⁺ → higher pH.",
-      "errorSignals": ["ERR_STRONG_VS_WEAK_PH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_STRONG_VS_WEAK_PH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The weak acid has a lower pH.",
+        "The weak acid has a higher pH — it ionises only partially, giving fewer H⁺.",
+        "They have the same pH at equal concentration."
+      ]
     },
     {
       "id": "L14.T1.A3.q15",
@@ -208,7 +316,10 @@
       "unit": "mol·dm⁻³",
       "marks": 5,
       "explanation": "Ka ≈ [H⁺]²/[HA] (if x << initial conc). [H⁺] = √(Ka × c) = √(1.8 × 10⁻⁵ × 0.10) = √(1.8 × 10⁻⁶) ≈ 1.34 × 10⁻³ mol·dm⁻³. pH ≈ 2.87.",
-      "errorSignals": ["ERR_KA_CALCULATION", "ERR_WEAK_ACID_APPROXIMATION"],
+      "errorSignals": [
+        "ERR_KA_CALCULATION",
+        "ERR_WEAK_ACID_APPROXIMATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -217,12 +328,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is H₂SO₄ a strong acid only for its FIRST ionisation?",
-      "answerMode": "text",
-      "expectedAnswer": "The first ionisation of H₂SO₄ (H₂SO₄ → H⁺ + HSO₄⁻) goes essentially to completion ⇒ strong. The second ionisation (HSO₄⁻ ⇌ H⁺ + SO₄²⁻) is only partial — HSO₄⁻ is a weak acid (Ka₂ ≈ 1.2 × 10⁻²). So H₂SO₄ behaves as a strong acid for the first H⁺ but a weak acid for the second.",
+      "answerMode": "choice",
+      "expectedAnswer": "The first ionisation goes to completion (strong); the second (HSO₄⁻) is only partial (weak).",
       "marks": 2,
       "explanation": "Diprotic acids often have very different Ka₁ and Ka₂. H₂SO₄: strong then weak.",
-      "errorSignals": ["ERR_POLYPROTIC_STRENGTH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_POLYPROTIC_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because both ionisations are equally strong.",
+        "Because the second ionisation is stronger than the first.",
+        "The first ionisation goes to completion (strong); the second (HSO₄⁻) is only partial (weak)."
+      ]
     },
     {
       "id": "L14.T1.A3.q17",
@@ -230,12 +348,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define Kb, the base dissociation constant.",
-      "answerMode": "text",
-      "expectedAnswer": "Kb is the equilibrium constant for the ionisation of a weak base in water: B + H₂O ⇌ BH⁺ + OH⁻. Kb = [BH⁺][OH⁻]/[B]. Large Kb ⇒ strong base; small Kb ⇒ weak base. (For NH₃: Kb = 1.8 × 10⁻⁵.)",
+      "answerMode": "choice",
+      "expectedAnswer": "The equilibrium constant for base ionisation: Kb = [BH⁺][OH⁻]/[B].",
       "marks": 3,
       "explanation": "Kb is the base equivalent of Ka. Similar form: products/reactant.",
-      "errorSignals": ["ERR_KB_EXPRESSION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KB_EXPRESSION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The equilibrium constant for base ionisation: Kb = [BH⁺][OH⁻]/[B].",
+        "Kb = [B]/([BH⁺][OH⁻]).",
+        "Kb is the concentration of OH⁻ produced."
+      ]
     },
     {
       "id": "L14.T1.A3.q18",
@@ -243,12 +368,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does ethanoic acid (CH₃COOH) not fully ionise in water, while HCl does?",
-      "answerMode": "text",
-      "expectedAnswer": "The conjugate base CH₃COO⁻ (acetate) is a relatively stable, weak base — it doesn't easily release H⁺ but is happy to recapture it (reverse reaction). So the equilibrium CH₃COOH ⇌ H⁺ + CH₃COO⁻ doesn't go to completion. For HCl, the conjugate base Cl⁻ is extremely weak (doesn't recapture H⁺), so the forward ionisation is irreversible. Conjugate base stability determines acid strength.",
+      "answerMode": "choice",
+      "expectedAnswer": "Its conjugate base (acetate) is a stable weak base that readily recaptures H⁺, so ionisation is partial.",
       "marks": 3,
       "explanation": "Acid strength tied to conjugate base stability. Strong conjugate base = weak acid; very weak conjugate base = strong acid.",
-      "errorSignals": ["ERR_CONJUGATE_BASE_STABILITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONJUGATE_BASE_STABILITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because ethanoic acid is more concentrated than HCl.",
+        "Its conjugate base (acetate) is a stable weak base that readily recaptures H⁺, so ionisation is partial.",
+        "Because ethanoic acid has no ionisable hydrogen."
+      ]
     },
     {
       "id": "L14.T1.A3.q19",
@@ -258,11 +390,18 @@
       "source_ref": "P2 May/Jun 2021 Q1.7",
       "question": "Which statements about H₂SO₄ are CORRECT? I. H₂SO₄ is a strong acid. II. H₂SO₄ ionises completely in both steps.",
       "answerMode": "choice",
-      "options": ["I only", "I and II", "II only", "Neither"],
+      "options": [
+        "I only",
+        "I and II",
+        "II only",
+        "Neither"
+      ],
       "expectedAnswer": "I only",
       "marks": 2,
       "explanation": "H₂SO₄ is a strong acid (statement I correct). But it only ionises COMPLETELY in the FIRST step; the second ionisation (HSO₄⁻ ⇌ H⁺ + SO₄²⁻) is partial.",
-      "errorSignals": ["ERR_POLYPROTIC_STRENGTH"],
+      "errorSignals": [
+        "ERR_POLYPROTIC_STRENGTH"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -271,12 +410,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is a concentrated weak acid NOT the same as a dilute strong acid?",
-      "answerMode": "text",
-      "expectedAnswer": "A concentrated weak acid has a HIGH AMOUNT of dissolved acid molecules but only PARTIAL ionisation, so [H⁺] is moderately high but [HA] is much higher. A dilute strong acid has FEW dissolved molecules but COMPLETE ionisation, so [HA] ≈ 0 and [H⁺] equals the (low) total concentration. The two solutions have very different equilibrium compositions and different [H⁺] values.",
+      "answerMode": "choice",
+      "expectedAnswer": "A concentrated weak acid has much acid but only partial ionisation; a dilute strong acid has little acid but full ionisation.",
       "marks": 3,
       "explanation": "Concentration (amount) and strength (extent of ionisation) are independent properties.",
-      "errorSignals": ["ERR_STRONG_VS_CONCENTRATED"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_STRONG_VS_CONCENTRATED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They are the same — both have the same [H⁺].",
+        "A concentrated weak acid is always more acidic than any strong acid.",
+        "A concentrated weak acid has much acid but only partial ionisation; a dilute strong acid has little acid but full ionisation."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

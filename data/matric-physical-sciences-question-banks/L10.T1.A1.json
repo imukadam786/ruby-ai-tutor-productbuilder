@@ -1,7 +1,9 @@
 {
   "skill": "L10.T1.A1",
   "skill_title": "Apply Newton's Law of Universal Gravitation",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 4 lifted, 16 fresh. F = GMm/r², inverse-square law, gravitational force calculations between point masses or planets.",
@@ -14,11 +16,18 @@
       "source_ref": "P1 May/Jun 2022 Q1.4",
       "question": "The gravitational force between two objects is F. The DISTANCE between the objects is DOUBLED. What is the new gravitational force?",
       "answerMode": "choice",
-      "options": ["F/4", "F/2", "2F", "4F"],
+      "options": [
+        "F/4",
+        "F/2",
+        "2F",
+        "4F"
+      ],
       "expectedAnswer": "F/4",
       "marks": 2,
       "explanation": "F ∝ 1/r². If r doubles, F' = F/4.",
-      "errorSignals": ["ERR_GRAV_INVERSE_SQUARE"],
+      "errorSignals": [
+        "ERR_GRAV_INVERSE_SQUARE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -29,11 +38,19 @@
       "source_ref": "P1 May/Jun 2023 Q1.4",
       "question": "Object X (mass m₁) and Y (mass m₂) are separated by distance r. X exerts a force F on Y. If the mass of X is DOUBLED (keeping r and m₂ same), what force does Y now exert on X?",
       "answerMode": "choice",
-      "options": ["F", "F/2", "2F", "4F"],
+      "options": [
+        "F",
+        "F/2",
+        "2F",
+        "4F"
+      ],
       "expectedAnswer": "2F",
       "marks": 2,
       "explanation": "F = Gm₁m₂/r². Doubling m₁ doubles F. By Newton's 3rd Law, X on Y and Y on X are equal in magnitude ⇒ Y exerts 2F on X.",
-      "errorSignals": ["ERR_GRAV_FORCE_SYMMETRY", "ERR_GRAV_LAW_SCALING"],
+      "errorSignals": [
+        "ERR_GRAV_FORCE_SYMMETRY",
+        "ERR_GRAV_LAW_SCALING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -44,11 +61,19 @@
       "source_ref": "P1 May/Jun 2025 Q1.2",
       "question": "The gravitational force between objects X and Y is F. The mass of X is DOUBLED AND the distance between them is DOUBLED. What is the new force?",
       "answerMode": "choice",
-      "options": ["F/2", "F", "2F", "4F"],
+      "options": [
+        "F/2",
+        "F",
+        "2F",
+        "4F"
+      ],
       "expectedAnswer": "F/2",
       "marks": 2,
       "explanation": "F = Gm₁m₂/r². New F = G(2m₁)m₂/(2r)² = 2Gm₁m₂/4r² = ½F.",
-      "errorSignals": ["ERR_GRAV_LAW_SCALING", "ERR_GRAV_INVERSE_SQUARE"],
+      "errorSignals": [
+        "ERR_GRAV_LAW_SCALING",
+        "ERR_GRAV_INVERSE_SQUARE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -59,11 +84,19 @@
       "source_ref": "P1 May/Jun 2021 Q1.2",
       "question": "A planet has the same mass as Earth but DOUBLE the radius of Earth. An object weighs w on Earth. What is its weight on this planet?",
       "answerMode": "choice",
-      "options": ["w/4", "w/2", "2w", "4w"],
+      "options": [
+        "w/4",
+        "w/2",
+        "2w",
+        "4w"
+      ],
       "expectedAnswer": "w/4",
       "marks": 2,
       "explanation": "Weight = mg, g = GM/r². With same M and double r: g' = GM/(2r)² = g/4. So weight = w/4.",
-      "errorSignals": ["ERR_GRAV_G_PLANET", "ERR_GRAV_INVERSE_SQUARE"],
+      "errorSignals": [
+        "ERR_GRAV_G_PLANET",
+        "ERR_GRAV_INVERSE_SQUARE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -72,12 +105,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "State NEWTON'S LAW OF UNIVERSAL GRAVITATION in words.",
-      "answerMode": "text",
-      "expectedAnswer": "Every particle in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between them. The force acts along the line joining the centres of the two particles.",
+      "answerMode": "choice",
+      "expectedAnswer": "Every particle attracts every other with a force directly proportional to the product of their masses and inversely proportional to the square of the distance between them.",
       "marks": 3,
       "explanation": "Three parts: product of masses + inverse-square distance + along the line joining them.",
-      "errorSignals": ["ERR_GRAV_LAW_STATEMENT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GRAV_LAW_STATEMENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "...directly proportional to the product of their masses and inversely proportional to the distance between them.",
+        "...directly proportional to the distance and inversely proportional to their masses.",
+        "Every particle attracts every other with a force directly proportional to the product of their masses and inversely proportional to the square of the distance between them."
+      ]
     },
     {
       "id": "L10.T1.A1.q06",
@@ -86,12 +126,14 @@
       "source": "fresh",
       "question": "Two 1500 kg cars are parked 5 m apart (centre to centre). Calculate the gravitational force between them. (G = 6.67 × 10⁻¹¹ N·m²·kg⁻².)",
       "answerMode": "numeric",
-      "expectedAnswer": 0.0000060,
+      "expectedAnswer": 0.000006,
       "tolerance": 1e-7,
       "unit": "N",
       "marks": 3,
       "explanation": "F = GMm/r² = (6.67×10⁻¹¹)(1500)(1500)/(5²) = (6.67×10⁻¹¹)(2.25×10⁶)/25 = 1.5×10⁻⁴/25 ≈ 6.0×10⁻⁶ N. Very small force.",
-      "errorSignals": ["ERR_GRAV_FORMULA"],
+      "errorSignals": [
+        "ERR_GRAV_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -101,12 +143,15 @@
       "source": "fresh",
       "question": "Calculate the gravitational force between Earth (mass 6.0 × 10²⁴ kg) and the Moon (mass 7.4 × 10²² kg), separated by 3.84 × 10⁸ m centre-to-centre.",
       "answerMode": "numeric",
-      "expectedAnswer": 2.01e+20,
-      "tolerance": 5e+18,
+      "expectedAnswer": 201000000000000000000,
+      "tolerance": 5000000000000000000,
       "unit": "N",
       "marks": 4,
       "explanation": "F = (6.67×10⁻¹¹)(6.0×10²⁴)(7.4×10²²)/(3.84×10⁸)² ≈ (6.67 × 6.0 × 7.4 × 10⁻¹¹+²⁴+²²)/(1.475 × 10¹⁷) ≈ (296.1 × 10³⁵)/(1.475 × 10¹⁷) ≈ 2.01 × 10²⁰ N.",
-      "errorSignals": ["ERR_GRAV_FORMULA", "ERR_GRAV_UNITS"],
+      "errorSignals": [
+        "ERR_GRAV_FORMULA",
+        "ERR_GRAV_UNITS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -121,7 +166,9 @@
       "unit": "fraction of F",
       "marks": 2,
       "explanation": "F ∝ m₁ × m₂. Halving each ⇒ multiply by ½ × ½ = ¼ ⇒ F → F/4 = 0.25 F.",
-      "errorSignals": ["ERR_GRAV_LAW_SCALING"],
+      "errorSignals": [
+        "ERR_GRAV_LAW_SCALING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -131,11 +178,18 @@
       "source": "fresh",
       "question": "The gravitational force between two masses is F at distance r. At distance r/2 (half the original), the new force is:",
       "answerMode": "choice",
-      "options": ["F/4", "F/2", "2F", "4F"],
+      "options": [
+        "F/4",
+        "F/2",
+        "2F",
+        "4F"
+      ],
       "expectedAnswer": "4F",
       "marks": 2,
       "explanation": "F ∝ 1/r². Halving r ⇒ multiply by 4 ⇒ F → 4F.",
-      "errorSignals": ["ERR_GRAV_INVERSE_SQUARE"],
+      "errorSignals": [
+        "ERR_GRAV_INVERSE_SQUARE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -150,7 +204,9 @@
       "unit": "kg",
       "marks": 4,
       "explanation": "F = GM²/r² ⇒ M² = Fr²/G = (5×10⁻⁹)(4)/(6.67×10⁻¹¹) = 20×10⁻⁹/6.67×10⁻¹¹ ≈ 299 850 ⇒ M ≈ 547 kg.",
-      "errorSignals": ["ERR_GRAV_REARRANGE"],
+      "errorSignals": [
+        "ERR_GRAV_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -169,7 +225,9 @@
       "expectedAnswer": "It only applies between very large astronomical objects",
       "marks": 2,
       "explanation": "Gravity acts between ALL masses. The force is small for small objects but still present.",
-      "errorSignals": ["ERR_GRAV_UNIVERSALITY"],
+      "errorSignals": [
+        "ERR_GRAV_UNIVERSALITY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -178,12 +236,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Which of the following objects experience a MUTUAL gravitational force?",
-      "answerMode": "text",
-      "expectedAnswer": "ALL pairs of objects with mass. The Earth attracts a book on a table, and the book attracts the Earth. The force is mutual (Newton's Third Law: equal in magnitude, opposite in direction, on different bodies). The only reason we don't see the book pulling Earth is that Earth's enormous mass makes its acceleration negligible.",
+      "answerMode": "choice",
+      "expectedAnswer": "All pairs of objects with mass — e.g. the Earth and a book attract each other equally (Newton's Third Law).",
       "marks": 2,
       "explanation": "Universality: every mass attracts every other. Newton's Third Law applies to gravity.",
-      "errorSignals": ["ERR_GRAV_UNIVERSALITY", "ERR_GRAV_FORCE_SYMMETRY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GRAV_UNIVERSALITY",
+        "ERR_GRAV_FORCE_SYMMETRY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "All pairs of objects with mass — e.g. the Earth and a book attract each other equally (Newton's Third Law).",
+        "Only very massive objects like planets and stars.",
+        "The Earth pulls the book, but the book does not pull the Earth."
+      ]
     },
     {
       "id": "L10.T1.A1.q13",
@@ -197,7 +263,10 @@
       "unit": "N",
       "marks": 4,
       "explanation": "F = (6.67×10⁻¹¹)(70)(6×10²⁴)/(6.37×10⁶)² ≈ (6.67 × 70 × 6 / (6.37²)) × 10⁻¹¹⁺²⁴⁻¹² ≈ (2801/40.6) × 10¹ ≈ 69 × 10 ≈ 690 N. This is the person's weight on Earth (mg ≈ 70 × 9.8 = 686 N — consistent).",
-      "errorSignals": ["ERR_GRAV_FORMULA", "ERR_GRAV_UNITS"],
+      "errorSignals": [
+        "ERR_GRAV_FORMULA",
+        "ERR_GRAV_UNITS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -212,7 +281,9 @@
       "unit": "m",
       "marks": 3,
       "explanation": "F/9 ⇒ r² has multiplied by 9 ⇒ r has multiplied by 3. New r = 30 m.",
-      "errorSignals": ["ERR_GRAV_INVERSE_SQUARE"],
+      "errorSignals": [
+        "ERR_GRAV_INVERSE_SQUARE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -221,12 +292,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "An astronaut in orbit feels weightless. Does this mean gravity is zero on them?",
-      "answerMode": "text",
-      "expectedAnswer": "No. Gravity is NOT zero in orbit — Earth's gravity provides the centripetal force keeping the spacecraft in orbit (g is only slightly less than at Earth's surface). The astronaut FEELS weightless because they are in free fall along with the spacecraft, so there is no normal force from the floor pushing up on them. 'Weightless' means 'apparent weightless', not 'no gravity'.",
+      "answerMode": "choice",
+      "expectedAnswer": "No — gravity provides the centripetal force for the orbit; the astronaut only feels weightless because they are in free fall.",
       "marks": 3,
       "explanation": "Free fall ≠ no gravity. Astronauts orbit because gravity pulls them toward Earth's centre.",
-      "errorSignals": ["ERR_WEIGHTLESS_VS_NO_GRAVITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WEIGHTLESS_VS_NO_GRAVITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — there is no gravity in space, so the astronaut weighs nothing.",
+        "No — gravity provides the centripetal force for the orbit; the astronaut only feels weightless because they are in free fall.",
+        "Yes — the spacecraft's speed cancels out gravity."
+      ]
     },
     {
       "id": "L10.T1.A1.q16",
@@ -240,7 +318,10 @@
       "unit": "m·s⁻²",
       "marks": 4,
       "explanation": "r = 6370 + 200 = 6570 km = 6.57 × 10⁶ m. g = GM/r² = (6.67×10⁻¹¹)(6×10²⁴)/(6.57×10⁶)² = (4.0×10¹⁴)/(4.32×10¹³) ≈ 9.27 m·s⁻². Only slightly less than at Earth's surface (9.8).",
-      "errorSignals": ["ERR_GRAV_G_PLANET", "ERR_GRAV_INVERSE_SQUARE"],
+      "errorSignals": [
+        "ERR_GRAV_G_PLANET",
+        "ERR_GRAV_INVERSE_SQUARE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -250,11 +331,18 @@
       "source": "fresh",
       "question": "What is the SI unit of the gravitational constant G?",
       "answerMode": "choice",
-      "options": ["N·m·kg⁻¹", "N·m²·kg⁻²", "N·kg⁻²", "N/m²"],
+      "options": [
+        "N·m·kg⁻¹",
+        "N·m²·kg⁻²",
+        "N·kg⁻²",
+        "N/m²"
+      ],
       "expectedAnswer": "N·m²·kg⁻²",
       "marks": 2,
       "explanation": "Solving F = GMm/r² for G: G = Fr²/(Mm) ⇒ units = N·m²/kg² = N·m²·kg⁻².",
-      "errorSignals": ["ERR_G_UNITS"],
+      "errorSignals": [
+        "ERR_G_UNITS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -269,7 +357,10 @@
       "unit": "N",
       "marks": 4,
       "explanation": "F = G·M_sun·M_earth/r² = (6.67×10⁻¹¹)(1.99×10³⁰)(6×10²⁴)/(1.5×10¹¹)² ≈ (6.67 × 1.99 × 6 × 10⁻¹¹+³⁰+²⁴)/(2.25 × 10²²) = (79.6 × 10⁴³)/(2.25 × 10²²) ≈ 3.54 × 10²² N.",
-      "errorSignals": ["ERR_GRAV_FORMULA", "ERR_GRAV_UNITS"],
+      "errorSignals": [
+        "ERR_GRAV_FORMULA",
+        "ERR_GRAV_UNITS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -278,12 +369,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does the gravitational force between everyday objects (like two chairs) seem negligible compared to Earth's pull on them?",
-      "answerMode": "text",
-      "expectedAnswer": "G is very small (6.67 × 10⁻¹¹), and the masses of everyday objects (kilograms) are tiny compared to Earth's mass (10²⁴ kg). The force between two chairs is on the order of 10⁻⁹ N — undetectable in normal life. Earth's mass makes its gravity vastly dominate.",
+      "answerMode": "choice",
+      "expectedAnswer": "G is tiny (6.67 × 10⁻¹¹) and everyday masses are small compared with Earth's huge mass.",
       "marks": 2,
       "explanation": "G is small + everyday masses small ⇒ tiny forces compared to Earth.",
-      "errorSignals": ["ERR_GRAV_EVERYDAY_SCALE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GRAV_EVERYDAY_SCALE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Everyday objects have no gravitational field of their own.",
+        "Friction with the air cancels the gravitational force between them.",
+        "G is tiny (6.67 × 10⁻¹¹) and everyday masses are small compared with Earth's huge mass."
+      ]
     },
     {
       "id": "L10.T1.A1.q20",
@@ -291,12 +389,19 @@
       "gate": "B",
       "source": "fresh",
       "question": "Two stars of masses M and 3M are separated by distance d. At what distance from the lighter star (along the line joining them) is the net gravitational field zero?",
-      "answerMode": "text",
-      "expectedAnswer": "Let x be the distance from M (lighter). Then distance from 3M is d − x. Equating field magnitudes: M/x² = 3M/(d − x)² ⇒ (d − x)² = 3x² ⇒ d − x = √3 · x ⇒ x = d/(1 + √3) ≈ d/2.732 ≈ 0.366 d.",
+      "answerMode": "choice",
+      "expectedAnswer": "At x = d/(1 + √3) ≈ 0.37d from the lighter star (where M/x² = 3M/(d − x)²).",
       "marks": 5,
       "explanation": "Set the two fields equal (point closer to lighter star — that's where the smaller gravitational pull from M balances the stronger pull from 3M at the larger distance).",
-      "errorSignals": ["ERR_GRAV_FIELD_BALANCE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GRAV_FIELD_BALANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "At x = d/(1 + √3) ≈ 0.37d from the lighter star (where M/x² = 3M/(d − x)²).",
+        "At the midpoint, x = d/2.",
+        "At x = d/4, closer to the heavier star."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

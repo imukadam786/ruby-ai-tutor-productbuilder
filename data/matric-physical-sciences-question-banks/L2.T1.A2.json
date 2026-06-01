@@ -1,7 +1,9 @@
 {
   "skill": "L2.T1.A2",
   "skill_title": "Solve multi-stage vertical motion problems (e.g. bouncing ball)",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 7 lifted, 13 fresh. Multi-stage problems: bouncing balls, two-object meet-up problems (one falling, one launched), and motion across distinct stages with reversed velocity.",
@@ -23,7 +25,10 @@
       "expectedAnswer": "A point where v crosses zero (between negative and positive values)",
       "marks": 2,
       "explanation": "Just after the first bounce the velocity is upward (negative on a downward-positive axis). The ball decelerates, reaches v = 0 at maximum height, then accelerates downward (positive). So the maximum-height instant is when v crosses zero between negative and positive values.",
-      "errorSignals": ["ERR_VT_GRAPH_INTERPRET", "ERR_BOUNCE_SIGN"],
+      "errorSignals": [
+        "ERR_VT_GRAPH_INTERPRET",
+        "ERR_BOUNCE_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -39,7 +44,10 @@
       "unit": "s",
       "marks": 4,
       "explanation": "Time from bounce to max height: v = v₀ − gt ⇒ 0 = 7.2 − 9.8 t ⇒ t = 0.735 s. Total t₃ = 1.44 + 0.2 (contact) + 0.735 = 2.375 s ≈ 2.38 s.",
-      "errorSignals": ["ERR_BOUNCE_SEGMENTS", "ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_BOUNCE_SEGMENTS",
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -55,7 +63,10 @@
       "unit": "m·s⁻¹",
       "marks": 5,
       "explanation": "Time for A to fall first 3.2 m: 3.2 = ½(9.8)t₁² ⇒ t₁ ≈ 0.808 s. Time left until A hits ground: 1.76 − 0.808 ≈ 0.952 s. B is launched at this moment and returns to ground in 0.952 s. By symmetry the time to peak = 0.476 s, so v_B = g × 0.476 ≈ 4.67 m·s⁻¹.",
-      "errorSignals": ["ERR_TIMING_ALIGNMENT", "ERR_VPM_SYMMETRY"],
+      "errorSignals": [
+        "ERR_TIMING_ALIGNMENT",
+        "ERR_VPM_SYMMETRY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -71,7 +82,10 @@
       "unit": "s",
       "marks": 6,
       "explanation": "Track positions from the ground. C at time t (since C launch): y_C = 30 + 15t − 4.9t². B at time t' (since B launch, with t = t' + 0.5): y_B = 40 t' − 4.9 t'². Set y_B = y_C with t = t' + 0.5 and solve numerically — gives t' ≈ 0.93 s. (Some marker memos give slightly different values depending on rounding.)",
-      "errorSignals": ["ERR_TIMING_ALIGNMENT", "ERR_TWO_OBJECT_REFERENCE"],
+      "errorSignals": [
+        "ERR_TIMING_ALIGNMENT",
+        "ERR_TWO_OBJECT_REFERENCE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -87,7 +101,10 @@
       "unit": "m",
       "marks": 4,
       "explanation": "Both balls are in free fall from the same height starting at the same instant, but ball 1 starts with v = 0 going down… wait, ball 1 just reached max so v = 0. So both balls start from 31.25 m, at rest, at the same time, and fall identically. They are never separated — they meet at all heights from 31.25 m down to 0. This is a trick question. (Some predictive papers assume ball 1 is launched up from ground, ball 2 dropped at the same instant — in which case meeting height = 15.625 m if we compute crossing point.) Use whichever interpretation the marker scheme expects.",
-      "errorSignals": ["ERR_TWO_OBJECT_REFERENCE", "ERR_TIMING_ALIGNMENT"],
+      "errorSignals": [
+        "ERR_TWO_OBJECT_REFERENCE",
+        "ERR_TIMING_ALIGNMENT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -103,7 +120,10 @@
       "unit": "m·s⁻¹",
       "marks": 4,
       "explanation": "Use energy or kinematics from start to landing. Taking UP positive: v² = v₀² + 2(−g)(−h) ⇒ v² = v₀² + 2gh. So 8.21² = v₀² + 2(9.8)(3) ⇒ 67.4 = v₀² + 58.8 ⇒ v₀² = 8.6 ⇒ v₀ ≈ 2.93 m·s⁻¹. (The 2021 paper memo gives ≈ 5.88 m·s⁻¹ when interpreting the landing speed differently; check the original v-t graph carefully.)",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT", "ERR_SIGN_CONVENTION_VPM"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT",
+        "ERR_SIGN_CONVENTION_VPM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -119,7 +139,10 @@
       "unit": "s",
       "marks": 3,
       "explanation": "y = v₀ t + ½ g t² ⇒ 15 = 3.4 t + 4.9 t² ⇒ 4.9 t² + 3.4 t − 15 = 0. Quadratic formula gives t ≈ 1.44 s.",
-      "errorSignals": ["ERR_INITIAL_VELOCITY_SIGN", "ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_INITIAL_VELOCITY_SIGN",
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -138,7 +161,10 @@
       "expectedAnswer": "Each velocity spike is smaller than the previous one",
       "marks": 2,
       "explanation": "On bounce, velocity reverses (negative → positive on upward-positive axis). Each bounce loses energy, so the rebound speed (and subsequent peak height) is less than before.",
-      "errorSignals": ["ERR_BOUNCE_ENERGY_LOSS", "ERR_VT_GRAPH_INTERPRET"],
+      "errorSignals": [
+        "ERR_BOUNCE_ENERGY_LOSS",
+        "ERR_VT_GRAPH_INTERPRET"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -153,7 +179,10 @@
       "unit": "m·s⁻¹",
       "marks": 3,
       "explanation": "Just before hitting the ground: v² = 2gh = 2(9.8)(5) = 98 ⇒ v = √98 ≈ 9.9 m·s⁻¹ downward.",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT", "ERR_BOUNCE_SEGMENTS"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT",
+        "ERR_BOUNCE_SEGMENTS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -168,7 +197,10 @@
       "unit": "m·s⁻¹",
       "marks": 3,
       "explanation": "From rebound to max height: v² = v₀² − 2gh ⇒ 0 = v₀² − 2(9.8)(3.2) ⇒ v₀ = √62.72 ≈ 7.92 m·s⁻¹ upward.",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT", "ERR_BOUNCE_SEGMENTS"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT",
+        "ERR_BOUNCE_SEGMENTS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -183,7 +215,10 @@
       "unit": "m",
       "marks": 3,
       "explanation": "After bounce: v² = v₀² − 2gh ⇒ 0 = 144 − 19.6h ⇒ h ≈ 7.35 m. (Contact time doesn't affect the post-bounce trajectory directly.)",
-      "errorSignals": ["ERR_KINEMATIC_EQUATION_SELECT", "ERR_BOUNCE_SEGMENTS"],
+      "errorSignals": [
+        "ERR_KINEMATIC_EQUATION_SELECT",
+        "ERR_BOUNCE_SEGMENTS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -198,7 +233,10 @@
       "unit": "s",
       "marks": 4,
       "explanation": "Take upward positive, ground as origin. X position: y_X = 50 − ½gt². Y position: y_Y = 20t − ½gt². Set y_X = y_Y: 50 − ½gt² = 20t − ½gt² ⇒ 50 = 20t ⇒ t = 2.5 s.",
-      "errorSignals": ["ERR_TWO_OBJECT_REFERENCE", "ERR_TIMING_ALIGNMENT"],
+      "errorSignals": [
+        "ERR_TWO_OBJECT_REFERENCE",
+        "ERR_TIMING_ALIGNMENT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -213,7 +251,10 @@
       "unit": "m",
       "marks": 3,
       "explanation": "Substitute t = 2.5 s into y_Y = 20(2.5) − ½(9.8)(2.5)² = 50 − 30.625 = 19.375 m ≈ 19.4 m.",
-      "errorSignals": ["ERR_TWO_OBJECT_REFERENCE", "ERR_REFERENCE_HEIGHT"],
+      "errorSignals": [
+        "ERR_TWO_OBJECT_REFERENCE",
+        "ERR_REFERENCE_HEIGHT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -222,12 +263,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'During the bounce on the ground, the only force on the ball is gravity.' Is this correct? Briefly explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. During the bounce (while the ball is in contact with the ground), the ground exerts a large upward NORMAL force on the ball, in addition to gravity. This is what reverses the ball's velocity. The ball is only in free fall (gravity alone) BEFORE and AFTER the bounce, not during it.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — during contact the ground exerts a large upward normal force as well as gravity.",
       "marks": 3,
       "explanation": "While in contact, two forces act on the ball: gravity and normal. The contact normal force is huge (because the velocity changes a lot in a short time), and acts upward.",
-      "errorSignals": ["ERR_BOUNCE_FORCES", "ERR_FREE_FALL_DURING_BOUNCE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BOUNCE_FORCES",
+        "ERR_FREE_FALL_DURING_BOUNCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Correct — the ball is in free fall the whole time, so only gravity acts.",
+        "Incorrect — during contact the ground exerts a large upward normal force as well as gravity.",
+        "Incorrect — only friction with the ground acts during the bounce."
+      ]
     },
     {
       "id": "L2.T1.A2.q15",
@@ -245,7 +294,9 @@
       "expectedAnswer": "Because the only force is gravity, giving constant acceleration g",
       "marks": 2,
       "explanation": "Between bounces the ball is in free fall (no air resistance). Constant g ⇒ constant acceleration ⇒ straight v-t graph.",
-      "errorSignals": ["ERR_BOUNCE_FORCES"],
+      "errorSignals": [
+        "ERR_BOUNCE_FORCES"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -260,7 +311,10 @@
       "unit": "m·s⁻²",
       "marks": 5,
       "explanation": "Just before contact: v_in = √(2gh) = √(2·9.8·1.8) = √35.28 ≈ 5.94 m·s⁻¹ downward. After contact: v_out = √(2gh') = √(2·9.8·1.0) = √19.6 ≈ 4.43 m·s⁻¹ upward. Δv = 4.43 − (−5.94) = 10.37 m·s⁻¹. a_avg = Δv/Δt = 10.37/0.05 ≈ 207 m·s⁻² (upward).",
-      "errorSignals": ["ERR_BOUNCE_SIGN", "ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_BOUNCE_SIGN",
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -275,7 +329,10 @@
       "unit": "s",
       "marks": 4,
       "explanation": "Take launch point as origin, up positive. Ground is at y = −25. y = v₀t + ½(−g)t² ⇒ −25 = 10t − 4.9t² ⇒ 4.9t² − 10t − 25 = 0. t = (10 + √(100 + 490))/9.8 = (10 + 24.29)/9.8 ≈ 3.50 s. (Allow 3.4–3.5 s depending on rounding.)",
-      "errorSignals": ["ERR_REFERENCE_HEIGHT", "ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_REFERENCE_HEIGHT",
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -294,7 +351,9 @@
       "expectedAnswer": "Parabola opening downward (peak at top)",
       "marks": 2,
       "explanation": "Position y = v₀t − ½gt² is a quadratic in t with negative coefficient on t² ⇒ inverted parabola. Peak corresponds to max height.",
-      "errorSignals": ["ERR_YT_GRAPH_SHAPE"],
+      "errorSignals": [
+        "ERR_YT_GRAPH_SHAPE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -313,7 +372,10 @@
       "expectedAnswer": "Speed",
       "marks": 2,
       "explanation": "By energy conservation, the speed at any given height is the same on the way up and the way down. The velocity (vector) reverses direction, displacement is the same but direction of motion differs.",
-      "errorSignals": ["ERR_SPEED_VS_VELOCITY", "ERR_VPM_SYMMETRY"],
+      "errorSignals": [
+        "ERR_SPEED_VS_VELOCITY",
+        "ERR_VPM_SYMMETRY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -328,7 +390,9 @@
       "unit": "(dimensionless)",
       "marks": 3,
       "explanation": "KE just before bounce ∝ h_before = 4.0. KE just after ∝ h_after = 2.5. Fraction = 2.5/4.0 = 0.625 (62.5% of KE retained).",
-      "errorSignals": ["ERR_BOUNCE_ENERGY_LOSS"],
+      "errorSignals": [
+        "ERR_BOUNCE_ENERGY_LOSS"
+      ],
       "passThreshold": 0.7
     }
   ],

@@ -1,0 +1,1146 @@
+{
+  "version": "1.0",
+  "subject": "geography",
+  "description": "Geography skill tree, FET Grades 10-12 (CAPS Geography Grades 10-12). Tiers = CAPS topic clusters (≈ terms). Mastery = 60% of a 20-item pool (FET rule, no timer). ALL questions available — no prerequisites between skills, learner chooses any skill in any order. LIGHT-VISUAL build: stimulus is text or inline data tables (data-interpret); the only images are a one-time library of ~12 generic SVG diagrams referenced by image_refs (diagram-label). No sourced 1:50 000 maps, orthophotos or per-question graphs — live-map interpretation is handed to the matric papers section. Mapwork is taught as given-number calculations (choice/scenario) plus map/GIS concepts. Input types reuse existing engine templates: choice, true-false, cloze, scenario, match, sort-buckets, sequence, data-interpret, diagram-label, highlight-source — no new mechanics. Items live in data/geography-question-bank.json. v1.1: ALL THREE GRADES authored — Grade 10 (20 skills), Grade 11 (21 skills), Grade 12 (23 skills) = 64 skills across 15 tiers, 1,280 items. 23 diagram SVGs referenced by image_refs still to be drawn (image gaps). Head-of-ed review pending.",
+  "grades_covered": [10, 11, 12],
+  "levels": [
+    {
+      "id": 10,
+      "grade": 10,
+      "title": "Grade 10 — Geography",
+      "description": "Four CAPS topics plus a cross-cutting mapwork strand. Mapwork & techniques (calculations, GIS concepts). The Atmosphere (composition, heating, moisture, synoptic weather maps). Geomorphology (Earth structure, plate tectonics, folding & faulting, earthquakes, volcanoes). Population (distribution, structure, growth, movement, HIV/AIDS). Water resources (water in the world, oceans, water management in SA, floods). 20 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L10.MAP",
+          "title": "Mapwork & Techniques",
+          "atomic_skills": [
+            {
+              "id": "GEO.G10.MAP.A1",
+              "bank_skill_id": "GEO.G10.MAP.A1",
+              "title": "Map calculations",
+              "description": "Working out real-world answers from given map values on a 1:50 000 map: scale and the meaning of ratio scale, straight-line and curved distance, gradient (vertical interval ÷ horizontal distance), magnetic bearing and magnetic declination, area, and vertical exaggeration. Every value needed is supplied in the question — no map image required.",
+              "caps_term": "G10 (all terms)",
+              "caps_topic": "Geographical skills and techniques",
+              "prerequisites": [],
+              "templates": ["choice", "scenario", "cloze", "sequence"],
+              "error_signatures": [
+                {"type": "procedural_error", "description": "Confuses the 1:50 000 ratio (1 cm = 0,5 km), e.g. treats 1 cm as 50 km or 5 km", "example": "Says 4 cm on a 1:50 000 map is 200 km"},
+                {"type": "procedural_error", "description": "Forgets to convert units before dividing in a gradient calculation", "example": "Divides vertical interval in metres by horizontal distance in cm"}
+              ],
+              "recovery_strategy": "On a 1:50 000 map, 1 cm on the map = 0,5 km (500 m) on the ground. Distance: measure cm × 0,5 = km. Gradient: VI ÷ HD with BOTH in metres, written as 1:n. Magnetic bearing = true bearing + magnetic declination. Always convert units to match BEFORE you divide.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.MAP.A2",
+              "bank_skill_id": "GEO.G10.MAP.A2",
+              "title": "Map & GIS concepts",
+              "description": "Reading the language of maps without needing a live map: latitude/longitude and how position is given in degrees, minutes and seconds; map symbols and contour basics; the difference between a topographic map, an aerial photograph and an orthophoto map and what each is used for; and the core ideas of GIS — layers, raster vs vector data, remote sensing and why GIS is useful.",
+              "caps_term": "G10 (all terms)",
+              "caps_topic": "Geographical skills and techniques",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot distinguish an orthophoto (corrected, to scale) from an ordinary aerial photograph", "example": "Says you can measure true distance directly off any aerial photo"},
+                {"type": "conceptual_gap", "description": "Thinks GIS is just a digital picture of a map rather than layered, queryable data", "example": "Says GIS and a scanned paper map are the same thing"}
+              ],
+              "recovery_strategy": "A topographic map is drawn to scale with symbols and contours. An aerial photo is a raw picture (distortion at the edges). An orthophoto is an aerial photo corrected to true scale, so you CAN measure on it. GIS stores information in separate layers you can switch on/off and query — it is data, not just a picture.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T1.ATM",
+          "title": "Term 1 — The Atmosphere",
+          "atomic_skills": [
+            {
+              "id": "GEO.G10.T1.ATM.A1",
+              "bank_skill_id": "GEO.G10.T1.ATM.A1",
+              "title": "Composition & structure of the atmosphere",
+              "description": "Why the atmosphere matters; the gases that make it up (mostly nitrogen and oxygen); the four layers — troposphere, stratosphere, mesosphere, thermosphere — and how temperature changes through each; the ozone layer in the stratosphere; and the causes, effects of, and ways to reduce ozone depletion.",
+              "caps_term": "G10 T1",
+              "caps_topic": "The Atmosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "sequence", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses ozone depletion (stratosphere) with the greenhouse effect / global warming (troposphere)", "example": "Says the ozone hole is what causes global warming"},
+                {"type": "factual_error", "description": "Gets the layer order or their temperature behaviour wrong", "example": "Says temperature always falls with height through every layer"}
+              ],
+              "recovery_strategy": "Order from the ground up: TROPOsphere (weather, gets colder with height) → STRATOsphere (ozone layer, gets warmer with height) → MESOsphere (coldest) → THERMOsphere (very hot). Ozone depletion is a stratosphere problem (lets in UV); the greenhouse effect is a troposphere problem (traps heat). They are different.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T1.ATM.A2",
+              "bank_skill_id": "GEO.G10.T1.ATM.A2",
+              "title": "Heating of the atmosphere",
+              "description": "How the atmosphere is heated — insolation, reflection, scattering, absorption, radiation, conduction and convection; the factors that make some places warmer than others (latitude, altitude, ocean currents, distance from the sea); the greenhouse effect and its impact; and global warming — its evidence, causes and consequences for Africa.",
+              "caps_term": "G10 T1",
+              "caps_topic": "The Atmosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "data-interpret", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks the atmosphere is heated mainly directly by the Sun from above rather than from the Earth's surface upward", "example": "Says air high up is hottest because it is closest to the Sun"},
+                {"type": "conceptual_gap", "description": "Cannot explain why altitude lowers temperature", "example": "Says mountains are cold because they are closer to the Sun"}
+              ],
+              "recovery_strategy": "The Sun heats the GROUND; the ground then heats the air above it — so air is warmest near the surface and gets colder with altitude (about 6,5 °C per 1 000 m). Four big controls on temperature: LATITUDE (low = hotter), ALTITUDE (high = colder), OCEAN CURRENTS (warm/cold), and DISTANCE FROM SEA (coast = milder).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T1.ATM.A3",
+              "bank_skill_id": "GEO.G10.T1.ATM.A3",
+              "title": "Moisture in the atmosphere",
+              "description": "Water in the air as vapour and liquid; evaporation, condensation and precipitation; dew point, condensation level, humidity and relative humidity; how and why clouds form and what cloud types tell us; forms of precipitation (rain, hail, snow, dew, frost); and the three rainfall types — relief, convectional and frontal.",
+              "caps_term": "G10 T1",
+              "caps_topic": "The Atmosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "scenario", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses the three rainfall mechanisms (relief, convectional, frontal)", "example": "Calls afternoon thunderstorm rain 'relief rainfall'"},
+                {"type": "conceptual_gap", "description": "Misunderstands relative humidity as the actual amount of water rather than a percentage of capacity", "example": "Says 100% humidity means the air is half water"}
+              ],
+              "recovery_strategy": "Air holds water vapour; warm air holds more. Cool air to its DEW POINT and vapour condenses into cloud/dew. Relative humidity = how full the air is, as a % of what it could hold at that temperature. Three rainfalls: RELIEF (air forced up a mountain), CONVECTIONAL (hot ground, rising air, afternoon storms), FRONTAL (warm air rides over cold air at a front).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T1.ATM.A4",
+              "bank_skill_id": "GEO.G10.T1.ATM.A4",
+              "title": "Reading & interpreting synoptic weather maps",
+              "description": "The weather elements shown on a synoptic chart — temperature, dew-point, cloud cover, wind direction and speed, atmospheric pressure; reading station-model data (given as a small table or symbol key, not a sourced chart); and interpreting basic pressure patterns (highs, lows, isobars) and the weather they bring. Atmospheric pressure is introduced here and developed in Grade 11.",
+              "caps_term": "G10 T1",
+              "caps_topic": "The Atmosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "data-interpret", "diagram-label", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reads a station-model wind barb backwards (direction wind blows TO rather than FROM)", "example": "Says a north wind blows towards the north"},
+                {"type": "conceptual_gap", "description": "Confuses high- and low-pressure cells and their weather", "example": "Says a low brings clear, dry weather"}
+              ],
+              "recovery_strategy": "Wind is named by where it comes FROM (a south wind blows from the south). On a synoptic map, closely-spaced isobars = strong wind. LOW pressure = rising air = cloud and rain; HIGH pressure = sinking air = clear, dry weather. Read each station-model value off the key one at a time.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T2.GEO",
+          "title": "Term 2 — Geomorphology",
+          "atomic_skills": [
+            {
+              "id": "GEO.G10.T2.GEO.A1",
+              "bank_skill_id": "GEO.G10.T2.GEO.A1",
+              "title": "The structure of the Earth",
+              "description": "The internal layers of the Earth — crust (continental and oceanic), mantle, outer core and inner core — and their key features; the difference between continental and oceanic crust; and how heat from the core drives convection currents in the mantle.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "sequence", "match"],
+              "error_signatures": [
+                {"type": "factual_error", "description": "Reverses the density/thickness of continental vs oceanic crust", "example": "Says oceanic crust is thicker and lighter than continental crust"},
+                {"type": "conceptual_gap", "description": "Does not link mantle convection to the heat of the core", "example": "Says the mantle moves because of the Moon's gravity"}
+              ],
+              "recovery_strategy": "From the outside in: CRUST (thin, solid) → MANTLE (hot, slowly flowing rock) → OUTER CORE (liquid iron/nickel) → INNER CORE (solid, hottest). Oceanic crust is THINNER but DENSER; continental crust is THICKER but lighter. Heat from the core makes the mantle churn in convection currents — that movement drags the plates.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T2.GEO.A2",
+              "bank_skill_id": "GEO.G10.T2.GEO.A2",
+              "title": "Plate tectonics",
+              "description": "The theory of plate tectonics and the evidence for it (continental fit, fossils, rock matches); the three plate boundaries — divergent (spreading), convergent (colliding), transform (sliding past) — and the landforms and events each produces; and how mantle convection moves the plates.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "sort-buckets", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Mixes up the three boundary types and their results", "example": "Says plates moving apart cause mountains to fold up"},
+                {"type": "conceptual_gap", "description": "Thinks plates float on liquid rather than being dragged by convection", "example": "Says continents drift because the sea pushes them"}
+              ],
+              "recovery_strategy": "Three boundaries: DIVERGENT (plates move APART — new crust, mid-ocean ridges, rift valleys), CONVERGENT (plates COLLIDE — mountains, ocean trenches, volcanoes), TRANSFORM (plates SLIDE past — earthquakes, e.g. San Andreas). The engine is mantle convection dragging the plates from below.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T2.GEO.A3",
+              "bank_skill_id": "GEO.G10.T2.GEO.A3",
+              "title": "Folding & faulting",
+              "description": "How compression folds rock layers — anticlines (up-folds) and synclines (down-folds) — and the fold mountains this builds; how tension and compression fracture rock along faults — normal, reverse and the landforms like fault scarps, block mountains (horsts) and rift valleys (grabens).",
+              "caps_term": "G10 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "match", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Swaps anticline and syncline", "example": "Calls a down-fold an anticline"},
+                {"type": "conceptual_gap", "description": "Confuses folding (bending) with faulting (breaking)", "example": "Says a fault is a bend in rock layers"}
+              ],
+              "recovery_strategy": "FOLDING = rock BENDS under compression: anticline = arch (up), syncline = trough (down). FAULTING = rock BREAKS and moves along a crack: a raised block between two faults is a horst (block mountain); a dropped block is a graben (rift valley). Folds bend, faults break.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T2.GEO.A4",
+              "bank_skill_id": "GEO.G10.T2.GEO.A4",
+              "title": "Earthquakes",
+              "description": "What causes earthquakes (sudden release of stress along faults); focus and epicentre; measuring magnitude and intensity; where earthquakes happen and why; their effects on people and the environment; and how people prepare for and respond to them.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses focus (underground origin) with epicentre (point on the surface above it)", "example": "Says the epicentre is deep underground"},
+                {"type": "conceptual_gap", "description": "Thinks magnitude and intensity are the same thing", "example": "Says a high magnitude always means the most damage everywhere"}
+              ],
+              "recovery_strategy": "The FOCUS is where the rock slips underground; the EPICENTRE is the point on the surface directly above it. MAGNITUDE = energy released (one number, e.g. Richter); INTENSITY = how much shaking/damage is felt at a place (varies with distance, ground and buildings). Most quakes happen along plate boundaries.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T2.GEO.A5",
+              "bank_skill_id": "GEO.G10.T2.GEO.A5",
+              "title": "Volcanoes",
+              "description": "How volcanoes form and erupt; the parts of a volcano (magma chamber, vent, crater); types of volcanic activity and landforms; where volcanoes occur and why (plate boundaries and hotspots); and the negative and positive effects of volcanoes on people and the environment.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "scenario", "sort-buckets"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Uses magma and lava interchangeably", "example": "Says magma flows down the outside of the volcano"},
+                {"type": "conceptual_gap", "description": "Sees volcanoes as only harmful, missing benefits", "example": "Says volcanoes have no positive effects at all"}
+              ],
+              "recovery_strategy": "MAGMA is molten rock UNDERGROUND; once it erupts onto the surface it is LAVA. Volcanoes cluster at plate boundaries and hotspots. They are dangerous (ash, lava, gases, lahars) BUT also bring benefits: very fertile soils, geothermal energy, minerals and tourism.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T3.POP",
+          "title": "Term 3 — Population",
+          "atomic_skills": [
+            {
+              "id": "GEO.G10.T3.POP.A1",
+              "bank_skill_id": "GEO.G10.T3.POP.A1",
+              "title": "Population distribution & density",
+              "description": "The difference between distribution (where people are) and density (how crowded, people per km²); how to calculate population density; the physical and human factors that draw people to or push them from an area; and reading population distribution from a choropleth-style data table.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Population",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "data-interpret", "scenario", "sort-buckets"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Uses 'distribution' and 'density' as if identical", "example": "Says a country with high density must have an even distribution"},
+                {"type": "procedural_error", "description": "Calculates density without dividing by area", "example": "Calls the total population the density"}
+              ],
+              "recovery_strategy": "DISTRIBUTION = the PATTERN of where people live (even, clustered, sparse). DENSITY = a NUMBER: total people ÷ area in km². High density spots are pulled by water, flat land, good climate, jobs and cities; deserts, mountains and dense forest are sparse.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T3.POP.A2",
+              "bank_skill_id": "GEO.G10.T3.POP.A2",
+              "title": "Population structure",
+              "description": "Reading a population pyramid — age and sex structure; the shapes of expansive (wide-base), constrictive and stationary pyramids and what they tell us; dependency ratio; and what a country's structure implies for its future and its services.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Population",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "data-interpret", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot link pyramid shape to growth rate", "example": "Says a wide-based pyramid means a shrinking population"},
+                {"type": "conceptual_gap", "description": "Misreads which sex/age the two sides and bars represent", "example": "Reads the longest bar as the oldest age group"}
+              ],
+              "recovery_strategy": "A population pyramid stacks age groups (youngest at the bottom) with males on one side, females on the other. WIDE base = many children = fast-growing (expansive). Narrowing base = slowing growth (constrictive). Straight sides = stable (stationary). A wide base means lots of dependents to feed, school and care for.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T3.POP.A3",
+              "bank_skill_id": "GEO.G10.T3.POP.A3",
+              "title": "Population growth",
+              "description": "Birth rate, death rate and natural increase; how to calculate natural increase and growth rate; the demographic transition model in plain terms; factors that change birth and death rates; and world case studies of fast- and slow-growing populations.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Population",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "data-interpret", "scenario", "sequence"],
+              "error_signatures": [
+                {"type": "procedural_error", "description": "Calculates natural increase by adding birth and death rates instead of subtracting", "example": "Adds birth rate and death rate to get growth"},
+                {"type": "conceptual_gap", "description": "Thinks population can only grow through births, ignoring migration in total change", "example": "Says natural increase already includes migration"}
+              ],
+              "recovery_strategy": "NATURAL INCREASE = birth rate − death rate (per 1 000 people), then ÷10 for a %. It does NOT include migration — that is added separately for TOTAL change. As countries develop, death rates fall first (better health), then birth rates fall later, so growth is fast in between and slow at the end.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T3.POP.A4",
+              "bank_skill_id": "GEO.G10.T3.POP.A4",
+              "title": "Population movements",
+              "description": "Migration concepts — emigration, immigration, internal vs international, voluntary vs forced; push and pull factors; rural-to-urban migration and urbanisation; and the effects of migration on both the source and the destination area, with case studies.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Population",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "sort-buckets", "scenario", "match"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Swaps emigration (leaving) and immigration (arriving)", "example": "Says someone emigrates INTO a country"},
+                {"type": "conceptual_gap", "description": "Mislabels push and pull factors", "example": "Calls 'better jobs in the city' a push factor"}
+              ],
+              "recovery_strategy": "EMIGRATE = Exit (leave a country); IMMIGRATE = come In. PUSH factors drive people AWAY from where they are (drought, war, no jobs); PULL factors attract them to a new place (jobs, safety, services). Most internal migration in developing countries is rural → urban, driving urbanisation.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T3.POP.A5",
+              "bank_skill_id": "GEO.G10.T3.POP.A5",
+              "title": "HIV and AIDS",
+              "description": "The difference between HIV and AIDS; how the pandemic affects population structure, life expectancy, the workforce and dependency; its social and economic impact with reference to Africa; and prevention, treatment and management strategies.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Population",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "data-interpret", "sort-buckets"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Treats HIV and AIDS as the same thing", "example": "Says everyone with HIV has AIDS"},
+                {"type": "conceptual_gap", "description": "Cannot connect the pandemic to changes in population structure", "example": "Says HIV/AIDS has no effect on a population pyramid"}
+              ],
+              "recovery_strategy": "HIV is the VIRUS; AIDS is the advanced STAGE of illness it can cause if untreated. A heavy HIV/AIDS burden removes many working-age adults, lowering life expectancy, leaving orphans, and shrinking the middle of the population pyramid. Treatment (ARVs), education and prevention reduce the impact.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L10.T4.WAT",
+          "title": "Term 4 — Water Resources",
+          "atomic_skills": [
+            {
+              "id": "GEO.G10.T4.WAT.A1",
+              "bank_skill_id": "GEO.G10.T4.WAT.A1",
+              "title": "Water in the world",
+              "description": "The water cycle and its processes; the distribution of fresh and salt water and why fresh water is scarce; the value of water as a resource; and the idea of water as a shared, finite resource under pressure.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Water resources",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "sequence", "scenario"],
+              "error_signatures": [
+                {"type": "factual_error", "description": "Overestimates how much of Earth's water is fresh and usable", "example": "Says most of the planet's water is drinkable fresh water"},
+                {"type": "vocabulary", "description": "Confuses water-cycle processes (evaporation, condensation, precipitation, transpiration)", "example": "Calls cloud formation 'precipitation'"}
+              ],
+              "recovery_strategy": "Almost all Earth's water (about 97%) is salt water in the oceans; only ~3% is fresh, and most of that is locked in ice and groundwater — so usable fresh water is tiny and precious. Water cycle order: EVAPORATION → CONDENSATION (clouds) → PRECIPITATION → runoff/infiltration → back to the sea.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T4.WAT.A2",
+              "bank_skill_id": "GEO.G10.T4.WAT.A2",
+              "title": "The world's oceans",
+              "description": "The oceans as part of the global system; ocean currents — warm and cold — and how they affect the climate of nearby coasts; the Benguela (cold) and Agulhas (warm) currents around South Africa; and the importance of oceans to people.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Water resources",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "match", "data-interpret"],
+              "error_signatures": [
+                {"type": "factual_error", "description": "Swaps which SA current is warm and which is cold", "example": "Says the Benguela on the west coast is warm"},
+                {"type": "conceptual_gap", "description": "Cannot link a cold current to a dry coast and a warm current to a wetter coast", "example": "Says the cold west coast is wetter than the warm east coast"}
+              ],
+              "recovery_strategy": "Around South Africa: the BENGUELA current (WEST coast) is COLD → dry air, little rain, west coast is arid. The AGULHAS current (EAST coast) is WARM → moist air, more rain, lush east coast. Warm currents warm and wet the coast they pass; cold currents cool and dry it.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T4.WAT.A3",
+              "bank_skill_id": "GEO.G10.T4.WAT.A3",
+              "title": "Water management in South Africa",
+              "description": "South Africa as a water-scarce country; where our water comes from (rivers, dams, groundwater, inter-basin transfers); the causes of water shortages; and strategies to manage and conserve water at home, in farming and in industry.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Water resources",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "factual_error", "description": "Assumes South Africa has plentiful water", "example": "Says South Africa gets more rain than the world average"},
+                {"type": "conceptual_gap", "description": "Cannot match a water problem to a sensible management strategy", "example": "Says building more lawns saves water"}
+              ],
+              "recovery_strategy": "South Africa is a WATER-SCARCE country: rainfall is low (about half the world average) and unevenly spread. We rely on dams, rivers, groundwater and inter-basin transfers (moving water between catchments). Manage demand by saving water, fixing leaks, drip irrigation, recycling and protecting catchments.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G10.T4.WAT.A4",
+              "bank_skill_id": "GEO.G10.T4.WAT.A4",
+              "title": "Floods",
+              "description": "What causes floods (heavy or prolonged rain, snowmelt, dam failure, poor drainage); the difference between natural and human contributing factors; the effects of floods on people, property and the environment; and ways to reduce flood risk and respond to floods.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Water resources",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "sequence"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Sees floods as purely natural, ignoring human causes like building on floodplains", "example": "Says people can never make a flood worse"},
+                {"type": "conceptual_gap", "description": "Confuses flood causes with flood effects", "example": "Lists 'heavy rain' as an effect of a flood"}
+              ],
+              "recovery_strategy": "CAUSES of floods: heavy/long rain, snowmelt, dam failure — made worse by HUMAN actions (clearing vegetation, hard paved surfaces, building on floodplains, blocked drains). EFFECTS: lost lives, damaged homes and crops, disease, eroded soil. Reduce risk with drainage, wetlands, flood barriers, warnings and zoning.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "grade": 11,
+      "title": "Grade 11 — Geography",
+      "description": "Four CAPS topics plus the mapwork strand. The Atmosphere (energy balance, global air circulation, Africa's weather & climate, droughts & desertification). Geomorphology (topography of horizontal, inclined and igneous rocks, slopes, mass movements). Development geography (concept, frameworks, trade, issues, aid). Resources & sustainability (using resources, soil erosion, conventional & non-conventional energy, energy management). 21 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L11.MAP",
+          "title": "Mapwork & Techniques",
+          "atomic_skills": [
+            {
+              "id": "GEO.G11.MAP.A1",
+              "bank_skill_id": "GEO.G11.MAP.A1",
+              "title": "Topographic map techniques (cross-sections, gradient, intervisibility)",
+              "description": "Applying 1:50 000 map skills with given values: matching contours to landforms, building and reading cross-sections, calculating vertical exaggeration, working out gradient, judging intervisibility (can two points see each other), and calculating area — all from numbers supplied in the question.",
+              "caps_term": "G11 (all terms)",
+              "caps_topic": "Geographical skills and techniques",
+              "prerequisites": [],
+              "templates": ["choice", "scenario", "cloze", "sequence"],
+              "error_signatures": [
+                {"type": "procedural_error", "description": "Computes vertical exaggeration with the scales the wrong way up", "example": "Divides horizontal scale by vertical scale"},
+                {"type": "conceptual_gap", "description": "Thinks a hidden valley between two hills does not affect intervisibility", "example": "Says two hilltops are always intervisible regardless of land between"}
+              ],
+              "recovery_strategy": "Vertical exaggeration = vertical scale ÷ horizontal scale. Gradient = VI ÷ HD (both in metres) as 1:n. Intervisibility: draw the cross-section — if higher ground or a hill rises into the line of sight between two points, they CANNOT see each other.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.MAP.A2",
+              "bank_skill_id": "GEO.G11.MAP.A2",
+              "title": "Aerial photos, orthophotos & GIS data",
+              "description": "Interpreting oblique vs vertical aerial photographs using tone, texture and shadow; identifying features on orthophoto maps and orienting them to a topographic map; and GIS data ideas — spatially referenced data, spatial vs spectral resolution, data types (point, line, area, attribute) and raster vs vector.",
+              "caps_term": "G11 (all terms)",
+              "caps_topic": "Geographical skills and techniques",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses oblique and vertical aerial photographs", "example": "Says a vertical photo shows the sides of buildings"},
+                {"type": "conceptual_gap", "description": "Mixes up spatial resolution (pixel size) with spectral resolution (wavelength bands)", "example": "Says higher spatial resolution means more colour bands"}
+              ],
+              "recovery_strategy": "Vertical photo = straight down (like a map, only tops visible); oblique = at an angle (sides visible, gives a 3-D feel). On photos use TONE (light/dark), TEXTURE (smooth/rough) and SHADOW to identify features. Spatial resolution = how small a pixel covers on the ground; spectral resolution = how many wavelength bands are sensed.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T1.ATM",
+          "title": "Term 1 — The Atmosphere",
+          "atomic_skills": [
+            {
+              "id": "GEO.G11.T1.ATM.A1",
+              "bank_skill_id": "GEO.G11.T1.ATM.A1",
+              "title": "The Earth's energy balance",
+              "description": "The unequal heating of the atmosphere by latitude and season; the significance of the Earth's tilted axis and its revolution around the Sun; and how energy is transferred and balanced around the planet by ocean currents and winds.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atmosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "scenario", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks seasons are caused by the Earth being closer to the Sun, not by axial tilt", "example": "Says summer happens because Earth is nearest the Sun"},
+                {"type": "conceptual_gap", "description": "Cannot explain why the equator receives more concentrated energy than the poles", "example": "Says the poles get the same insolation as the equator"}
+              ],
+              "recovery_strategy": "The equator gets concentrated, near-vertical sunlight (energy SURPLUS); the poles get slanted, spread-out sunlight (energy DEFICIT). Winds and ocean currents move heat from surplus to deficit areas — the energy balance. Seasons come from the 23,5° AXIAL TILT, not distance to the Sun.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T1.ATM.A2",
+              "bank_skill_id": "GEO.G11.T1.ATM.A2",
+              "title": "Global air circulation",
+              "description": "Global circulation as a response to unequal heating; world pressure belts; the tri-cellular model (Hadley, Ferrel and polar cells); the link between temperature, pressure and wind; pressure gradient, the Coriolis force and geostrophic flow; the global wind belts (westerlies, tropical and polar easterlies); and regional/local winds (monsoons, Föhn/berg).",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atmosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "sequence", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reverses the link between rising air and pressure", "example": "Says rising warm air creates high pressure"},
+                {"type": "conceptual_gap", "description": "Gets the order or names of the three cells wrong", "example": "Places the polar cell at the equator"}
+              ],
+              "recovery_strategy": "Hot air RISES → LOW pressure (equator); cool air SINKS → HIGH pressure (about 30° and the poles). Three cells from equator to pole: HADLEY → FERREL → POLAR. The Coriolis force bends winds (right in the north, left in the south), creating the trade winds and westerlies.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T1.ATM.A3",
+              "bank_skill_id": "GEO.G11.T1.ATM.A3",
+              "title": "Africa's weather and climate",
+              "description": "Africa's climate regions; subsidence and convergence and their link to rainfall; the role of the surrounding oceans in controlling Africa's climate; the El Niño and La Niña processes and their effects on Africa; and reading synoptic weather maps over Africa.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atmosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "data-interpret", "scenario", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Links subsidence (sinking air) to rain rather than to dry conditions", "example": "Says sinking air at 30° causes heavy rainfall"},
+                {"type": "factual_error", "description": "Swaps the typical effects of El Niño and La Niña on southern Africa", "example": "Says El Niño usually brings wetter conditions to southern Africa"}
+              ],
+              "recovery_strategy": "CONVERGENCE (air meeting and rising) → rain (e.g. the equatorial belt). SUBSIDENCE (sinking air at ~30°) → dry deserts (Sahara, Kalahari). El Niño often brings DRIER, drought conditions to southern Africa; La Niña often brings WETTER conditions.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T1.ATM.A4",
+              "bank_skill_id": "GEO.G11.T1.ATM.A4",
+              "title": "Droughts and desertification",
+              "description": "Areas at risk at regional and local scales; the causes of drought; the causes of desertification; the effects of drought and desertification on people and the environment (including differences in vulnerability); and management strategies, with case studies.",
+              "caps_term": "G11 T1",
+              "caps_topic": "The Atmosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Treats drought and desertification as the same thing", "example": "Says a single dry season is desertification"},
+                {"type": "conceptual_gap", "description": "Sees desertification as purely natural, ignoring human causes like overgrazing", "example": "Says people cannot contribute to desertification"}
+              ],
+              "recovery_strategy": "DROUGHT = a temporary period of below-normal rainfall. DESERTIFICATION = land permanently degrading to desert-like conditions, often from human pressure (overgrazing, deforestation, poor farming) ON TOP of dry climate. Manage with sustainable land use, reforestation, water harvesting and grazing control.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T2.GEO",
+          "title": "Term 2 — Geomorphology",
+          "atomic_skills": [
+            {
+              "id": "GEO.G11.T2.GEO.A1",
+              "bank_skill_id": "GEO.G11.T2.GEO.A1",
+              "title": "Topography of horizontally layered rocks",
+              "description": "Landscapes formed on flat-lying rock — hilly landscapes, basaltic plateaus, canyon and Karoo landscapes (mesa, butte, conical hill); the concept of scarp retreat (back-wasting); and how people use these landscapes.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "sequence", "scenario"],
+              "error_signatures": [
+                {"type": "factual_error", "description": "Cannot order mesa → butte → conical hill by size as erosion proceeds", "example": "Says a butte is larger than a mesa"},
+                {"type": "conceptual_gap", "description": "Does not link these flat-topped landforms to a resistant cap rock", "example": "Says a mesa keeps its flat top with no hard rock layer"}
+              ],
+              "recovery_strategy": "Flat-lying hard 'cap rock' protects the softer rock below. As scarp retreat eats away the edges, a wide flat-topped MESA shrinks to a smaller flat-topped BUTTE, then to a CONICAL HILL once the cap is gone. Mesa > butte > conical hill.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T2.GEO.A2",
+              "bank_skill_id": "GEO.G11.T2.GEO.A2",
+              "title": "Topography of inclined/tilted strata",
+              "description": "Landforms on tilted rock layers — scarp slope and dip slope, cuesta, homoclinal ridge, hogsback, cuesta basin and cuesta dome; the processes that develop them; and how people use these landscapes.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "match", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses the steep scarp slope with the gentle dip slope of a cuesta", "example": "Says the dip slope is the steeper side"},
+                {"type": "factual_error", "description": "Cannot distinguish cuesta, homoclinal ridge and hogsback by their angle of dip", "example": "Says a hogsback has a gentle dip slope like a cuesta"}
+              ],
+              "recovery_strategy": "On tilted strata the GENTLE side following the rock dip is the DIP SLOPE; the STEEP cut-across side is the SCARP SLOPE. Steepness of dip tells the landform: gentle dip = CUESTA; moderate = HOMOCLINAL RIDGE; very steep/near-vertical = HOGSBACK.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T2.GEO.A3",
+              "bank_skill_id": "GEO.G11.T2.GEO.A3",
+              "title": "Topography of massive igneous rocks",
+              "description": "Identifying intrusive igneous bodies — batholiths, laccoliths, lopoliths, dykes and sills; and the characteristics and development of granite domes and tors.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "match", "sort-buckets"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses a dyke (cuts across layers, vertical) with a sill (runs along layers, horizontal)", "example": "Says a sill cuts vertically across the rock layers"},
+                {"type": "conceptual_gap", "description": "Thinks tors form by deposition rather than by weathering of jointed granite", "example": "Says tors are piles of rock dropped by rivers"}
+              ],
+              "recovery_strategy": "Intrusions: BATHOLITH = huge deep mass; LACCOLITH = dome-shaped, pushes layers up; LOPOLITH = saucer/basin shape; DYKE = cuts ACROSS layers (often vertical); SILL = runs ALONG (parallel to) layers. Tors are clusters of blocks left when jointed granite weathers and the loose material is removed.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T2.GEO.A4",
+              "bank_skill_id": "GEO.G11.T2.GEO.A4",
+              "title": "Slopes",
+              "description": "An overview of South Africa's topography; types of slopes; the slope elements — crest, cliff (free face/scarp), talus (scree/debris) and pediment — and their characteristics; how slopes develop over time; and the concept of slope retreat.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "sequence", "match"],
+              "error_signatures": [
+                {"type": "factual_error", "description": "Cannot order the slope elements from top to bottom", "example": "Places the pediment above the cliff"},
+                {"type": "vocabulary", "description": "Confuses talus (the loose rock) with the cliff that supplies it", "example": "Says the talus is the vertical rock face"}
+              ],
+              "recovery_strategy": "From top to bottom: CREST (rounded top) → CLIFF / FREE FACE (steep bare rock) → TALUS / SCREE (loose broken rock piled below the cliff) → PEDIMENT (gentle rock surface at the base). Slope retreat means the whole slope moves back while keeping its shape.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T2.GEO.A5",
+              "bank_skill_id": "GEO.G11.T2.GEO.A5",
+              "title": "Mass movements & human responses",
+              "description": "The concept of mass movement; the main types — soil creep, solifluction, landslides, rockfalls, mudflows and slumps; their impact on people and the environment; and strategies to prevent or reduce their effects, with South African case studies.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks all mass movements are fast and sudden, missing slow creep", "example": "Says soil creep happens in seconds like a rockfall"},
+                {"type": "conceptual_gap", "description": "Ignores the role of water and gravity as triggers", "example": "Says heavy rain has no effect on landslides"}
+              ],
+              "recovery_strategy": "Mass movement = the downhill movement of rock/soil under GRAVITY. Speed varies: SOIL CREEP is very slow (millimetres a year); ROCKFALLS and LANDSLIDES are sudden and fast. Water often triggers them. Reduce risk with drainage, terracing, retaining walls, planting and avoiding building on unstable slopes.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T3.DEV",
+          "title": "Term 3 — Development Geography",
+          "atomic_skills": [
+            {
+              "id": "GEO.G11.T3.DEV.A1",
+              "bank_skill_id": "GEO.G11.T3.DEV.A1",
+              "title": "The concept of development",
+              "description": "Development terminology (developed/developing, MEDC/LEDC, industrialised); the meaning of development — economic, social, sustainable, appropriate-scale and spatial aspects; and the indicators used to measure it (GNP, GDP, HDI, Gini coefficient, life expectancy, infant mortality).",
+              "caps_term": "G11 T3",
+              "caps_topic": "Development geography",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "data-interpret", "match", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reduces development to wealth alone, ignoring health, education and sustainability", "example": "Says a rich country is automatically fully developed"},
+                {"type": "conceptual_gap", "description": "Misreads the HDI or Gini coefficient direction", "example": "Says a higher Gini coefficient means more equality"}
+              ],
+              "recovery_strategy": "Development is more than money: it includes health, education, equality and sustainability. HDI combines income, education and life expectancy (higher = more developed). The GINI coefficient measures inequality (higher = MORE unequal). Infant mortality FALLS as development rises.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T3.DEV.A2",
+              "bank_skill_id": "GEO.G11.T3.DEV.A2",
+              "title": "Frameworks for development",
+              "description": "Factors that affect development (resources, energy, history, trade imbalances, population growth, education, environmental degradation) and their inter-related nature; development models (free-market/Rostow with criticisms, core-periphery, sustainability models); and community-based rural and urban development.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Development geography",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats development factors as independent rather than inter-related", "example": "Says education has nothing to do with the economy"},
+                {"type": "conceptual_gap", "description": "Cannot describe the core-periphery relationship", "example": "Says the periphery exploits the core"}
+              ],
+              "recovery_strategy": "Development factors interlink (e.g. poor education → low skills → weak economy → less money for schools). Rostow's model says countries pass through growth stages (criticised as too 'one path'). CORE-PERIPHERY: a wealthy CORE draws resources, money and people from a poorer PERIPHERY.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T3.DEV.A3",
+              "bank_skill_id": "GEO.G11.T3.DEV.A3",
+              "title": "Trade and development",
+              "description": "International trade and world markets (commodities and terms of trade); trading relationships — free trade, trade barriers, subsidies and fair trade; globalisation and its impact on development; and export-led development, critically examined.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Development geography",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot explain why exporting raw materials and importing manufactured goods disadvantages a country", "example": "Says selling raw materials always makes a country rich"},
+                {"type": "vocabulary", "description": "Confuses free trade, fair trade and trade barriers", "example": "Says fair trade means no rules at all"}
+              ],
+              "recovery_strategy": "Many developing countries export cheap RAW materials and import expensive MANUFACTURED goods — poor 'terms of trade' that keep them dependent. FREE TRADE = no barriers; TRADE BARRIERS = tariffs/quotas to protect local industry; FAIR TRADE = better prices and conditions for producers.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T3.DEV.A4",
+              "bank_skill_id": "GEO.G11.T3.DEV.A4",
+              "title": "Development issues and challenges",
+              "description": "The role of women in development (gender, power, access to resources and attitudes); the effect of development on the environment; and the role of the state and business in South African development (central state control, weak state control and public-private partnerships).",
+              "caps_term": "G11 T3",
+              "caps_topic": "Development geography",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Overlooks how empowering women drives wider development", "example": "Says women's education has no effect on a country's development"},
+                {"type": "conceptual_gap", "description": "Assumes economic development never harms the environment", "example": "Says growth and the environment never conflict"}
+              ],
+              "recovery_strategy": "Empowering women (education, jobs, rights, healthcare) lowers birth rates and lifts whole communities — a powerful development driver. Development can harm the environment (pollution, resource depletion), so it must be balanced. The state and business can lead development together via public-private partnerships.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T3.DEV.A5",
+              "bank_skill_id": "GEO.G11.T3.DEV.A5",
+              "title": "The role of development aid",
+              "description": "The concepts of development aid and development co-operation; types of aid — technical, conditional and humanitarian; and the positive and negative impacts of aid on development, with case studies.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Development geography",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "match"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses the three aid types (technical, conditional, humanitarian)", "example": "Calls emergency disaster relief 'conditional aid'"},
+                {"type": "conceptual_gap", "description": "Sees aid as only good or only bad, missing the trade-offs", "example": "Says aid always solves a country's problems"}
+              ],
+              "recovery_strategy": "TECHNICAL aid = skills/expertise; CONDITIONAL aid = comes with strings attached (the receiver must do certain things); HUMANITARIAN aid = emergency relief after disasters. Aid can help (infrastructure, emergencies) BUT may create dependency, debt or serve the donor's interests — weigh both sides.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L11.T4.RES",
+          "title": "Term 4 — Resources & Sustainability",
+          "atomic_skills": [
+            {
+              "id": "GEO.G11.T4.RES.A1",
+              "bank_skill_id": "GEO.G11.T4.RES.A1",
+              "title": "Using resources",
+              "description": "The relationship between resources and economic development; the exploitation and depletion of resources; and the concepts of sustainability and sustainable use of resources.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Resources and sustainability",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "match"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses renewable and non-renewable resources", "example": "Calls coal a renewable resource"},
+                {"type": "conceptual_gap", "description": "Misunderstands sustainability as never using resources at all", "example": "Says sustainable use means using nothing"}
+              ],
+              "recovery_strategy": "RENEWABLE resources replenish (sun, wind, water, forests if managed); NON-RENEWABLE resources run out (coal, oil, minerals). Sustainable use means meeting today's needs WITHOUT preventing future generations from meeting theirs — use wisely, not not at all.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T4.RES.A2",
+              "bank_skill_id": "GEO.G11.T4.RES.A2",
+              "title": "Soil and soil erosion",
+              "description": "How soils form; soil as a resource; the human, animal and physical causes of soil erosion (past and present); evidence of soil erosion in South Africa; its effects on people and the environment; and strategies to prevent and control it.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Resources and sustainability",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "diagram-label"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Sees soil erosion as purely natural, ignoring overgrazing and poor farming", "example": "Says people cannot cause soil erosion"},
+                {"type": "vocabulary", "description": "Confuses sheet, rill, gully (donga) and wind erosion", "example": "Calls a deep gully 'sheet erosion'"}
+              ],
+              "recovery_strategy": "Soil forms slowly from weathered rock + organic matter — it is a precious, slow-to-replace resource. Erosion is sped up by overgrazing, ploughing, deforestation and bare soil. Types: SHEET (thin layer), RILL (small channels), GULLY/DONGA (deep). Control with contour ploughing, terracing, cover crops and managed grazing.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T4.RES.A3",
+              "bank_skill_id": "GEO.G11.T4.RES.A3",
+              "title": "Conventional energy sources",
+              "description": "Thermal, hydro and nuclear energy production in South Africa; coal-based thermal generation (principles and processes); the environmental impact of coal mining and power stations (despoliation, solid waste, waste gases, acid rain); a nuclear case study; and South Africa's long-term conventional energy potential.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Resources and sustainability",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "data-interpret", "sort-buckets"],
+              "error_signatures": [
+                {"type": "factual_error", "description": "Does not know coal dominates South Africa's electricity supply", "example": "Says most SA electricity comes from nuclear power"},
+                {"type": "conceptual_gap", "description": "Overlooks the environmental costs of coal (acid rain, CO₂)", "example": "Says burning coal has no environmental impact"}
+              ],
+              "recovery_strategy": "South Africa relies heavily on COAL-fired thermal power (cheap, abundant, but high CO₂, air pollution, acid rain and ash). Nuclear (Koeberg) gives steady, low-carbon power but raises waste and safety concerns. Conventional sources are reliable but non-renewable and polluting.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T4.RES.A4",
+              "bank_skill_id": "GEO.G11.T4.RES.A4",
+              "title": "Non-conventional energy sources",
+              "description": "Solar and wind energy with examples from South Africa and the world; the future of non-conventional energy in South Africa; and the possible effects of using more non-conventional energy on the economy and the environment.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Resources and sustainability",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks renewables have no drawbacks at all", "example": "Says solar power works equally well at night"},
+                {"type": "factual_error", "description": "Does not recognise South Africa's strong solar and wind potential", "example": "Says South Africa has poor solar resources"}
+              ],
+              "recovery_strategy": "South Africa has excellent SOLAR (sunny interior) and WIND (coastal) potential. Renewables are clean and inexhaustible BUT can be intermittent (no sun at night, variable wind), need storage, and have upfront costs and land/visual impacts. They cut emissions and create new industries and jobs.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G11.T4.RES.A5",
+              "bank_skill_id": "GEO.G11.T4.RES.A5",
+              "title": "Energy management in South Africa",
+              "description": "South Africa's changing energy needs; and energy management towards greener economies and sustainable lifestyles — the responsibilities of governments, businesses and individuals.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Resources and sustainability",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks only the government is responsible for energy management", "example": "Says individuals can do nothing to save energy"},
+                {"type": "vocabulary", "description": "Confuses energy efficiency (using less for the same task) with simply going without", "example": "Says efficiency means switching everything off permanently"}
+              ],
+              "recovery_strategy": "Managing energy is a SHARED responsibility: governments (policy, renewables, grid), businesses (efficient processes, cleaner tech) and individuals (saving electricity, efficient appliances). Energy EFFICIENCY means getting the same result using LESS energy — a key route to a greener economy.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 — Geography",
+      "description": "Climate & weather (mid-latitude and tropical cyclones, subtropical anticyclones, valley and urban climates). Geomorphology (drainage systems, fluvial processes, catchment management). Settlement (rural and urban settlement, hierarchies, structure and issues). Economic geography of South Africa (economic structure, agriculture, mining, secondary/tertiary, industrial development, informal sector). Plus the mapwork strand. 23 atomic skills, all unlocked, learner-chosen order.",
+      "tiers": [
+        {
+          "id": "L12.MAP",
+          "title": "Mapwork & Techniques",
+          "atomic_skills": [
+            {
+              "id": "GEO.G12.MAP.A1",
+              "bank_skill_id": "GEO.G12.MAP.A1",
+              "title": "Synoptic & topographic map techniques",
+              "description": "Reading synoptic weather maps and satellite-image data; grid referencing; direction with magnetic north, true north and magnetic declination; gradient; contours and cross-sections; and intervisibility — all from values given in the question.",
+              "caps_term": "G12 (all terms)",
+              "caps_topic": "Geographical skills and techniques",
+              "prerequisites": [],
+              "templates": ["choice", "scenario", "cloze", "match", "data-interpret"],
+              "error_signatures": [
+                {"type": "procedural_error", "description": "Applies magnetic declination in the wrong direction when converting bearings", "example": "Subtracts a western declination instead of adding it"},
+                {"type": "conceptual_gap", "description": "Confuses true north, magnetic north and grid north", "example": "Says a compass points to true north"}
+              ],
+              "recovery_strategy": "Magnetic bearing = true bearing + magnetic declination (for a western declination). A compass points to MAGNETIC north, which drifts over time. Read synoptic maps in order: pressure cells → isobar spacing (wind) → station data → overall weather.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.MAP.A2",
+              "bank_skill_id": "GEO.G12.MAP.A2",
+              "title": "GIS & photo interpretation",
+              "description": "Interpreting vertical aerial photos and orthophoto maps and comparing them with topographic maps; and GIS concepts — remote sensing and resolution, spatial vs attribute data, raster vs vector, data standardisation/sharing/security, and data manipulation (integration, buffering, querying, statistical analysis).",
+              "caps_term": "G12 (all terms)",
+              "caps_topic": "Geographical skills and techniques",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "sort-buckets"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses GIS operations such as buffering and querying", "example": "Says buffering means deleting data"},
+                {"type": "conceptual_gap", "description": "Mixes up spatial data (where) and attribute data (what)", "example": "Says attribute data is the map's coordinates"}
+              ],
+              "recovery_strategy": "GIS stores SPATIAL data (where things are) and ATTRIBUTE data (facts about them) in layers. BUFFERING = a zone around a feature (e.g. 500 m around a river); QUERYING = asking the data a question to select features; data INTEGRATION = combining layers. An orthophoto is corrected to true scale, so it can be measured like a map.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T1.CLI",
+          "title": "Term 1 — Climate & Weather",
+          "atomic_skills": [
+            {
+              "id": "GEO.G12.T1.CLI.A1",
+              "bank_skill_id": "GEO.G12.T1.CLI.A1",
+              "title": "Mid-latitude cyclones",
+              "description": "General characteristics and where mid-latitude cyclones form; the conditions needed; the stages of development and their weather; the weather of cold, warm and occluded fronts; and reading satellite images and synoptic maps.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Climate and weather",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "sequence", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Swaps the weather of a cold front and a warm front", "example": "Says the warm front brings sudden heavy thunderstorms and gusty cold air"},
+                {"type": "factual_error", "description": "Does not link mid-latitude cyclones to the westerlies / 30–60° belts", "example": "Says mid-latitude cyclones form at the equator"}
+              ],
+              "recovery_strategy": "Mid-latitude cyclones form at ~30–60° where warm and cold air meet (the westerlies). A COLD front = steep, sudden heavy rain then colder, clearer air. A WARM front = gentle, prolonged lighter rain then warmer air. An OCCLUDED front is where the cold front catches the warm front. They affect the Western Cape in winter.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T1.CLI.A2",
+              "bank_skill_id": "GEO.G12.T1.CLI.A2",
+              "title": "Tropical cyclones",
+              "description": "General characteristics and where tropical cyclones form; the factors needed for formation; their stages of development and weather; reading satellite/synoptic data; a southern-African case study; their impact on people and the environment; and preparation and management strategies.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Climate and weather",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "scenario", "sort-buckets"],
+              "error_signatures": [
+                {"type": "factual_error", "description": "Thinks tropical cyclones form over land or cold water", "example": "Says a tropical cyclone strengthens once it moves over land"},
+                {"type": "conceptual_gap", "description": "Confuses the calm 'eye' with the destructive eye wall", "example": "Says the strongest winds are in the eye"}
+              ],
+              "recovery_strategy": "Tropical cyclones need WARM ocean water (≥ 26–27 °C), so they form over tropical seas and WEAKEN over land or cold water. The EYE is calm and clear; the EYE WALL around it has the strongest winds and heaviest rain. They bring extreme wind, rain, flooding and storm surge (e.g. Cyclone Idai).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T1.CLI.A3",
+              "bank_skill_id": "GEO.G12.T1.CLI.A3",
+              "title": "Subtropical anticyclones & South Africa's weather",
+              "description": "The high-pressure cells affecting South Africa (South Atlantic, South Indian, Kalahari highs); their general characteristics; anticyclonic circulation and its influence on weather and climate; travelling disturbances (moisture front, line thunderstorms, coastal lows, berg winds); and reading the related synoptic maps.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Climate and weather",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "scenario", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Cannot explain why berg winds are hot and dry", "example": "Says berg winds bring cold, wet weather to the coast"},
+                {"type": "factual_error", "description": "Names the wrong high-pressure cells around South Africa", "example": "Says a low-pressure cell sits permanently over the Kalahari in winter"}
+              ],
+              "recovery_strategy": "Three highs steer SA's weather: the South Atlantic HP (west), South Indian HP (east) and the Kalahari/continental HP (interior, strong in winter). Anticyclonic (sinking) air brings dry, stable weather. BERG WINDS blow from the interior to the coast, warming and drying as they descend — hot, dry coastal conditions.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T1.CLI.A4",
+              "bank_skill_id": "GEO.G12.T1.CLI.A4",
+              "title": "Valley climates",
+              "description": "The micro-climate of valleys and the effect of slope aspect; the development of anabatic and katabatic winds, temperature inversions, frost pockets and radiation fog; and the influence of these local climates on settlement and farming.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Climate and weather",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "scenario", "sequence"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Swaps anabatic (upslope, day) and katabatic (downslope, night) winds", "example": "Says katabatic winds blow up the valley during the day"},
+                {"type": "conceptual_gap", "description": "Cannot link katabatic flow to frost pockets at the valley floor", "example": "Says the coldest night air collects on the hilltops"}
+              ],
+              "recovery_strategy": "ANABATIC winds blow UP-slope by DAY (warm air rises). KATABATIC winds drain cold dense air DOWN-slope at NIGHT, pooling on the valley floor → temperature INVERSION, FROST POCKETS and radiation fog at the bottom. Farmers plant frost-sensitive crops on the warmer mid-slopes, not the cold floor.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T1.CLI.A5",
+              "bank_skill_id": "GEO.G12.T1.CLI.A5",
+              "title": "Urban climates",
+              "description": "Why urban and rural climates differ; the urban heat island — its causes and effects; pollution domes — their causes and effects; and strategies to reduce the heat-island effect.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Climate and weather",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Thinks cities are cooler than surrounding countryside", "example": "Says the city centre is the coolest part of a region"},
+                {"type": "conceptual_gap", "description": "Cannot link concrete, tar and waste heat to the heat-island effect", "example": "Says building materials have no effect on city temperature"}
+              ],
+              "recovery_strategy": "Cities are WARMER than the countryside (the urban HEAT ISLAND): dark concrete and tar absorb heat, buildings block wind, and cars, factories and air-conditioners release waste heat. A POLLUTION DOME traps dirty air over the city. Reduce it with parks, trees, green roofs and lighter, reflective surfaces.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T1.GEO",
+          "title": "Term 1 — Geomorphology",
+          "atomic_skills": [
+            {
+              "id": "GEO.G12.T1.GEO.A1",
+              "bank_skill_id": "GEO.G12.T1.GEO.A1",
+              "title": "Drainage systems in South Africa",
+              "description": "Key concepts (drainage basin, catchment, watershed, tributary, confluence, source, mouth, water table, run-off, groundwater); types of rivers (permanent, periodic, episodic, exotic); drainage patterns (dendritic, trellis, rectangular, radial, centripetal, deranged, parallel); drainage density and stream order; and laminar vs turbulent flow.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "match", "scenario"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses watershed (the dividing high ground) with the river itself", "example": "Says the watershed is the main river channel"},
+                {"type": "conceptual_gap", "description": "Cannot match a drainage pattern to its underlying rock structure", "example": "Says a trellis pattern forms on uniform flat rock"}
+              ],
+              "recovery_strategy": "A DRAINAGE BASIN/CATCHMENT is all the land drained by one river system; the WATERSHED is the high ground dividing basins. Patterns reflect the rock: DENDRITIC (tree-like) on uniform rock; TRELLIS (rectangular branching) on alternating hard/soft tilted rock; RADIAL (outward) off a dome/mountain; CENTRIPETAL (inward) into a basin.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T1.GEO.A2",
+              "bank_skill_id": "GEO.G12.T1.GEO.A2",
+              "title": "Fluvial processes & landforms",
+              "description": "Transverse and longitudinal river profiles and river stages; fluvial landforms (meanders, oxbow lakes, braided streams, floodplains, natural levees, waterfalls, rapids, deltas); river grading; rejuvenation features (knickpoints, terraces, incised meanders); river capture/stream piracy; and superimposed and antecedent drainage.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "sequence", "match"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses upper-course features (V-valleys, waterfalls) with lower-course features (meanders, deltas)", "example": "Says deltas form in the upper course"},
+                {"type": "conceptual_gap", "description": "Cannot explain how an oxbow lake forms from a meander", "example": "Says oxbow lakes form on straight river sections"}
+              ],
+              "recovery_strategy": "UPPER course = steep, fast, eroding: V-shaped valleys, waterfalls, rapids. LOWER course = gentle, depositing: meanders, oxbow lakes, floodplains, levees, deltas. An OXBOW LAKE forms when a looping meander is cut off and abandoned. Rejuvenation (renewed erosion) gives knickpoints, river terraces and incised meanders.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T1.GEO.A3",
+              "bank_skill_id": "GEO.G12.T1.GEO.A3",
+              "title": "Catchment & river management",
+              "description": "Why managing drainage basins and catchments matters; the impact of people on catchments; and a South African catchment-management case study.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Geomorphology",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats upstream and downstream as unconnected", "example": "Says pollution upstream does not affect downstream users"},
+                {"type": "conceptual_gap", "description": "Overlooks how alien vegetation or farming affects water yield", "example": "Says clearing alien trees has no effect on river flow"}
+              ],
+              "recovery_strategy": "A catchment is one connected system — what happens upstream (pollution, farming, alien plants, building) affects everyone downstream. Good management protects water QUALITY and QUANTITY: control pollution, clear water-hungry alien plants, protect wetlands and coordinate users across the whole basin.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T2.SET",
+          "title": "Term 2 — Settlement Geography",
+          "atomic_skills": [
+            {
+              "id": "GEO.G12.T2.SET.A1",
+              "bank_skill_id": "GEO.G12.T2.SET.A1",
+              "title": "Study of settlements",
+              "description": "The concept of settlement; site versus situation; rural and urban settlements; and classifying settlements by size, complexity, pattern and function.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Settlement",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "match", "sort-buckets"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses site (the actual land a settlement is built on) with situation (its position relative to other places)", "example": "Says 'near a major road junction' describes the site"},
+                {"type": "conceptual_gap", "description": "Cannot classify a settlement by function", "example": "Says all settlements have the same function"}
+              ],
+              "recovery_strategy": "SITE = the actual ground a settlement stands on (flat land, near water, defensible). SITUATION = where it sits in relation to other places (on routes, near resources, central). Settlements are classified by SIZE, PATTERN (shape), and FUNCTION (what they mainly do — mining, port, market).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T2.SET.A2",
+              "bank_skill_id": "GEO.G12.T2.SET.A2",
+              "title": "Rural settlements",
+              "description": "How site and situation affect the location of rural settlements; classifying them by pattern and function; reasons for different shapes (round, linear, T-shaped, cross-road); and land use in rural settlements.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Settlement",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "match", "scenario"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses nucleated (clustered) and dispersed (scattered) rural patterns", "example": "Calls scattered farmsteads a 'nucleated' settlement"},
+                {"type": "conceptual_gap", "description": "Cannot link a settlement shape to its cause (e.g. linear along a road or river)", "example": "Says a linear village forms for no reason"}
+              ],
+              "recovery_strategy": "NUCLEATED = houses clustered together (often around water or a crossroads); DISPERSED = scattered farmsteads. Shapes follow the cause: LINEAR along a road/river/valley; CROSS-ROAD or T-SHAPED at route junctions; ROUND/clustered around a central point like a water source.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T2.SET.A3",
+              "bank_skill_id": "GEO.G12.T2.SET.A3",
+              "title": "Rural settlement issues",
+              "description": "Rural-urban migration; the causes and consequences of rural depopulation for people and the economy; a case study of depopulation and responses; and social-justice issues in rural areas (access to resources and land reform).",
+              "caps_term": "G12 T2",
+              "caps_topic": "Settlement",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses depopulation (loss of people) with overpopulation", "example": "Says rural depopulation means too many people in the countryside"},
+                {"type": "conceptual_gap", "description": "Misses that mostly young, able adults leave, ageing the rural population", "example": "Says depopulation removes mainly the elderly"}
+              ],
+              "recovery_strategy": "Rural DEPOPULATION = the countryside losing people, mainly young working-age adults moving to cities for jobs and services. This leaves an ageing population, labour shortages, closed schools/shops and weakened local economies. Land reform and rural development aim to address the inequalities that drive it.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T2.SET.A4",
+              "bank_skill_id": "GEO.G12.T2.SET.A4",
+              "title": "Urban settlements",
+              "description": "The origin and development of urban settlements and the urbanisation of the world's population; how site and situation affect urban location; and classifying urban settlements by function (central places, trade/transport, break-of-bulk points, specialised cities, junction and gateway/gap towns).",
+              "caps_term": "G12 T2",
+              "caps_topic": "Settlement",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "match", "sort-buckets"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Cannot explain a break-of-bulk point", "example": "Says a break-of-bulk point is where a city runs out of land"},
+                {"type": "conceptual_gap", "description": "Confuses urban function types (port, junction, gateway)", "example": "Calls an inland mining town a 'port city'"}
+              ],
+              "recovery_strategy": "Urban FUNCTION = a town's main job: PORT/break-of-bulk (where goods change transport, e.g. ship to rail), JUNCTION (route crossing), GATEWAY/GAP (controls a route through a barrier), SPECIALISED (mining, university, resort), CENTRAL PLACE (services for a surrounding area).",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T2.SET.A5",
+              "bank_skill_id": "GEO.G12.T2.SET.A5",
+              "title": "Urban hierarchies",
+              "description": "The concepts of urban hierarchy, central place, threshold population, sphere of influence and range of goods; lower- and higher-order functions and services; and lower- and higher-order centres.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Settlement",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "match", "data-interpret"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Swaps low-order and high-order goods/services", "example": "Calls a daily loaf of bread a high-order good"},
+                {"type": "conceptual_gap", "description": "Cannot link threshold population to range of goods", "example": "Says a small village can support a specialist hospital"}
+              ],
+              "recovery_strategy": "LOW-ORDER goods/services are cheap, bought often, with a small THRESHOLD and short RANGE (bread, spaza shop) — found in many small centres. HIGH-ORDER goods are expensive, bought rarely, needing a large threshold and long range (specialist hospital, university) — found only in a few large cities. Hence the hierarchy: many small centres, few big ones.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T2.SET.A6",
+              "bank_skill_id": "GEO.G12.T2.SET.A6",
+              "title": "Urban structure & patterns",
+              "description": "The internal structure of cities — land-use zones, the urban profile, and factors shaping a city's morphology; models of urban structure (multiple-nuclei, modern Western city, Third-World city, South African city); and changing urban patterns and land use in South African cities.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Settlement",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "diagram-label", "match", "scenario"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Cannot identify the CBD or explain its characteristics", "example": "Says the CBD has the lowest land values and tallest trees"},
+                {"type": "conceptual_gap", "description": "Misses how apartheid shaped the South African city model", "example": "Says South African cities developed exactly like American ones"}
+              ],
+              "recovery_strategy": "The CBD (central business district) has the highest land values, tallest buildings and best accessibility. Land value generally FALLS outwards. The SOUTH AFRICAN city is distinctive: apartheid planning placed townships and 'buffer zones' that separated communities — patterns that still shape cities today.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T2.SET.A7",
+              "bank_skill_id": "GEO.G12.T2.SET.A7",
+              "title": "Urban settlement issues",
+              "description": "Recent urbanisation patterns in South Africa; issues from rapid urbanisation (poor planning, housing shortages, overcrowding, traffic congestion, service problems); the growth of informal settlements; and case studies of how SA urban areas manage environmental, economic and social-justice challenges.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Settlement",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Blames informal settlements on residents rather than housing shortages and inequality", "example": "Says informal settlements exist because people refuse formal housing"},
+                {"type": "conceptual_gap", "description": "Cannot connect rapid urbanisation to its service and infrastructure pressures", "example": "Says fast city growth causes no service problems"}
+              ],
+              "recovery_strategy": "Rapid urbanisation outpaces housing and services, producing INFORMAL SETTLEMENTS, overcrowding, traffic and strained water/sanitation. The cause is structural — too little affordable housing and deep inequality — not personal choice. Responses include upgrading settlements, integrated housing and better transport and services.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        },
+        {
+          "id": "L12.T3.ECO",
+          "title": "Term 3 — Economic Geography of South Africa",
+          "atomic_skills": [
+            {
+              "id": "GEO.G12.T3.ECO.A1",
+              "bank_skill_id": "GEO.G12.T3.ECO.A1",
+              "title": "Structure of the economy",
+              "description": "The economic sectors (primary, secondary, tertiary, quaternary); their contribution to the South African economy by value and employment; and the use of statistical and graphical information.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Economic geography of South Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "data-interpret", "match", "sort-buckets"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Misclassifies activities into the wrong economic sector", "example": "Calls a car factory a primary-sector activity"},
+                {"type": "conceptual_gap", "description": "Cannot read sector contribution from a graph or table", "example": "Says the largest sector by employment must be the largest by value"}
+              ],
+              "recovery_strategy": "PRIMARY = extracting raw materials (farming, mining, fishing). SECONDARY = making/manufacturing (factories). TERTIARY = services (shops, banks, transport). QUATERNARY = knowledge/research (IT, R&D). In South Africa the tertiary sector dominates GDP; sectors can differ in their share of VALUE versus EMPLOYMENT.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T3.ECO.A2",
+              "bank_skill_id": "GEO.G12.T3.ECO.A2",
+              "title": "Agriculture",
+              "description": "Agriculture's contribution to the economy; the role of small-scale and large-scale farmers; main products for home and export markets; factors that favour and hinder farming (climate, soil, land ownership, trade); and food security in South Africa, with case studies.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Economic geography of South Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses food security with simply producing lots of food", "example": "Says a country with big farms automatically has food security"},
+                {"type": "conceptual_gap", "description": "Overlooks how limited water/arable land constrains SA farming", "example": "Says climate and water never limit South African agriculture"}
+              ],
+              "recovery_strategy": "FOOD SECURITY = all people having reliable ACCESS to enough safe, nutritious food — it depends on availability, affordability AND access, not just total production. SA farming is limited by low, variable rainfall and limited arable land, and shaped by the history of land ownership; large commercial and small-scale farmers play different roles.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T3.ECO.A3",
+              "bank_skill_id": "GEO.G12.T3.ECO.A3",
+              "title": "Mining",
+              "description": "Mining's contribution to the economy; its significance for South Africa's development; the factors that favour and hinder mining; and a case study of one major South African mineral.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Economic geography of South Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "data-interpret"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Sees mining as only beneficial, ignoring its environmental and social costs", "example": "Says mining has no downside for communities or the environment"},
+                {"type": "conceptual_gap", "description": "Misses the risk of depending on a finite, price-volatile resource", "example": "Says mineral income will last forever and never changes"}
+              ],
+              "recovery_strategy": "Mining built South Africa's economy (gold, platinum, coal, diamonds) — earning foreign exchange and jobs. BUT minerals are FINITE and prices swing; mining also causes environmental damage (acid mine drainage, dust, land), health risks and reliance on a single sector. Diversifying the economy reduces this risk.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T3.ECO.A4",
+              "bank_skill_id": "GEO.G12.T3.ECO.A4",
+              "title": "Secondary & tertiary sectors",
+              "description": "The contribution of the secondary and tertiary sectors; types of industry (heavy, light, raw-material- vs market-oriented, footloose, ubiquitous, bridge/break-of-bulk); factors influencing industrial location; and South Africa's main industrial regions (Gauteng/PWV, Durban-Pinetown, PE-Uitenhage, SW Cape).",
+              "caps_term": "G12 T3",
+              "caps_topic": "Economic geography of South Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "match", "sort-buckets"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses raw-material-oriented and market-oriented industries", "example": "Says a heavy steel works should locate far from its raw materials"},
+                {"type": "vocabulary", "description": "Cannot define a footloose industry", "example": "Says a footloose industry must be near a mine"}
+              ],
+              "recovery_strategy": "RAW-MATERIAL-oriented industries (heavy, bulky inputs that lose weight, e.g. steel) locate near the raw material; MARKET-oriented industries (products bulky/perishable, e.g. bread) locate near customers. FOOTLOOSE industries (e.g. electronics, IT) can locate almost anywhere. Gauteng (PWV) is SA's largest industrial region.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T3.ECO.A5",
+              "bank_skill_id": "GEO.G12.T3.ECO.A5",
+              "title": "Strategies for industrial development",
+              "description": "Apartheid and post-apartheid industrial-development strategies; the concept and distribution of Industrial Development Zones (IDZs); case studies of Spatial Development Initiatives (SDIs, e.g. the Maputo Corridor); and the issues of industrial centralisation versus decentralisation.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Economic geography of South Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "match", "sort-buckets"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Confuses centralisation and decentralisation of industry", "example": "Says decentralisation means concentrating industry in one big city"},
+                {"type": "conceptual_gap", "description": "Cannot explain the purpose of an IDZ or SDI", "example": "Says an SDI is a type of mineral"}
+              ],
+              "recovery_strategy": "DECENTRALISATION spreads industry AWAY from crowded cores to develop poorer regions and ease congestion; CENTRALISATION concentrates it for shared infrastructure and markets. IDZs offer incentives to attract export industry (often near ports); SDIs (e.g. the Maputo Development Corridor) develop transport routes to unlock a region's economic potential.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "GEO.G12.T3.ECO.A6",
+              "bank_skill_id": "GEO.G12.T3.ECO.A6",
+              "title": "Informal sector",
+              "description": "The concept and characteristics of informal-sector employment; the reasons for high informal-sector employment in South Africa; and the challenges facing the sector, with South African case studies.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Economic geography of South Africa",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sort-buckets", "match"],
+              "error_signatures": [
+                {"type": "vocabulary", "description": "Cannot distinguish formal- and informal-sector work", "example": "Says a street vendor pays company tax and has a formal contract"},
+                {"type": "conceptual_gap", "description": "Sees the informal sector as unimportant rather than a vital source of income", "example": "Says the informal sector provides no benefit to the economy"}
+              ],
+              "recovery_strategy": "The INFORMAL sector is unregistered, untaxed, small-scale work (street vendors, spaza shops, casual labour) — no contracts, benefits or job security. It is large in South Africa because of high unemployment and limited formal jobs. It provides vital income and goods but faces low pay, insecurity and little legal protection.",
+              "mastery_criteria": {"correct_required": 12, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

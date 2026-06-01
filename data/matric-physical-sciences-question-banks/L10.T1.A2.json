@@ -1,7 +1,9 @@
 {
   "skill": "L10.T1.A2",
   "skill_title": "Calculate weight and gravitational acceleration g",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 2 lifted, 18 fresh. Weight w = mg vs gravitational force; g = GM/r² for planets; free-fall acceleration; varying g with altitude or planet.",
@@ -14,11 +16,19 @@
       "source_ref": "P1 May/Jun 2021 Q1.2",
       "question": "A planet has the SAME mass as Earth but DOUBLE Earth's radius. The gravitational acceleration g_p at the planet's surface, compared to Earth's g (9.8 m·s⁻²), is:",
       "answerMode": "choice",
-      "options": ["g/4", "g/2", "2g", "4g"],
+      "options": [
+        "g/4",
+        "g/2",
+        "2g",
+        "4g"
+      ],
       "expectedAnswer": "g/4",
       "marks": 2,
       "explanation": "g = GM/r². Same M, double r ⇒ g' = GM/(2r)² = g/4. (So g_p ≈ 2.45 m·s⁻².)",
-      "errorSignals": ["ERR_G_PLANET_FORMULA", "ERR_GRAV_INVERSE_SQUARE"],
+      "errorSignals": [
+        "ERR_G_PLANET_FORMULA",
+        "ERR_GRAV_INVERSE_SQUARE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -33,7 +43,9 @@
       "unit": "N",
       "marks": 2,
       "explanation": "w = mg = 70 × 1.6 = 112 N.",
-      "errorSignals": ["ERR_WEIGHT_FORMULA"],
+      "errorSignals": [
+        "ERR_WEIGHT_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -48,7 +60,9 @@
       "unit": "kg",
       "marks": 2,
       "explanation": "MASS does not change with location. Only WEIGHT (a force) changes because g changes. Mass = 80 kg everywhere.",
-      "errorSignals": ["ERR_MASS_VS_WEIGHT"],
+      "errorSignals": [
+        "ERR_MASS_VS_WEIGHT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -63,7 +77,9 @@
       "unit": "m·s⁻²",
       "marks": 4,
       "explanation": "g = GM/R² = (6.67×10⁻¹¹)(6.0×10²⁴)/(6.37×10⁶)² ≈ (4.00×10¹⁴)/(4.06×10¹³) ≈ 9.86 m·s⁻².",
-      "errorSignals": ["ERR_G_PLANET_FORMULA"],
+      "errorSignals": [
+        "ERR_G_PLANET_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -73,11 +89,19 @@
       "source": "fresh",
       "question": "On planet X (mass M, radius R), surface gravity is g_X. If a second planet Y has DOUBLE the mass and HALF the radius of X, what is g_Y in terms of g_X?",
       "answerMode": "choice",
-      "options": ["2 g_X", "4 g_X", "8 g_X", "g_X/2"],
+      "options": [
+        "2 g_X",
+        "4 g_X",
+        "8 g_X",
+        "g_X/2"
+      ],
       "expectedAnswer": "8 g_X",
       "marks": 3,
       "explanation": "g = GM/R². Double M ⇒ multiply by 2. Half R ⇒ R² becomes ¼ ⇒ divide by ¼ = multiply by 4. Combined: 2 × 4 = 8. g_Y = 8 g_X.",
-      "errorSignals": ["ERR_G_PLANET_FORMULA", "ERR_GRAV_LAW_SCALING"],
+      "errorSignals": [
+        "ERR_G_PLANET_FORMULA",
+        "ERR_GRAV_LAW_SCALING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -86,12 +110,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "What is the difference between MASS and WEIGHT?",
-      "answerMode": "text",
-      "expectedAnswer": "Mass is the AMOUNT OF MATTER in an object (kg) — a scalar that does not change with location. Weight is the GRAVITATIONAL FORCE on an object (newtons) — a vector that depends on the local g (which varies between planets, with altitude, etc.). w = mg.",
+      "answerMode": "choice",
+      "expectedAnswer": "Mass is the amount of matter (kg, scalar, unchanging); weight is the gravitational force on it (N, vector, varies with g).",
       "marks": 3,
       "explanation": "Mass: invariant scalar in kg. Weight: gravitational force in N, changes with g.",
-      "errorSignals": ["ERR_MASS_VS_WEIGHT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_MASS_VS_WEIGHT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Mass and weight are the same thing measured in different units.",
+        "Mass is the amount of matter (kg, scalar, unchanging); weight is the gravitational force on it (N, vector, varies with g).",
+        "Mass is the force of gravity; weight is the amount of matter."
+      ]
     },
     {
       "id": "L10.T1.A2.q07",
@@ -101,12 +132,21 @@
       "question": "An object weighs 980 N on Earth. Calculate its mass and its weight on Mars, where g_Mars = 3.7 m·s⁻². (g_Earth = 9.8 m·s⁻².)",
       "answerMode": "multiField",
       "fields": [
-        {"label": "Mass (kg)", "expectedAnswer": "100"},
-        {"label": "Weight on Mars (N)", "expectedAnswer": "370"}
+        {
+          "label": "Mass (kg)",
+          "expectedAnswer": "100"
+        },
+        {
+          "label": "Weight on Mars (N)",
+          "expectedAnswer": "370"
+        }
       ],
       "marks": 4,
       "explanation": "Mass = w/g = 980/9.8 = 100 kg. Weight on Mars = 100 × 3.7 = 370 N.",
-      "errorSignals": ["ERR_WEIGHT_FORMULA", "ERR_MASS_VS_WEIGHT"],
+      "errorSignals": [
+        "ERR_WEIGHT_FORMULA",
+        "ERR_MASS_VS_WEIGHT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -115,12 +155,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does the gravitational acceleration DECREASE with ALTITUDE above Earth's surface?",
-      "answerMode": "text",
-      "expectedAnswer": "g = GM/r², where r is the distance from EARTH'S CENTRE. Increasing altitude increases r, so g decreases (inverse-square). On a mountaintop, r is slightly larger than at sea level, so g is slightly smaller.",
+      "answerMode": "choice",
+      "expectedAnswer": "g = GM/r²; greater altitude means a larger r (from Earth's centre), so g decreases (inverse-square).",
       "marks": 2,
       "explanation": "r in the denominator. As r grows, g shrinks ∝ 1/r².",
-      "errorSignals": ["ERR_G_ALTITUDE", "ERR_GRAV_INVERSE_SQUARE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_G_ALTITUDE",
+        "ERR_GRAV_INVERSE_SQUARE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Higher up there is less air, so gravity is weaker.",
+        "g increases with altitude because you are closer to the Sun.",
+        "g = GM/r²; greater altitude means a larger r (from Earth's centre), so g decreases (inverse-square)."
+      ]
     },
     {
       "id": "L10.T1.A2.q09",
@@ -134,7 +182,10 @@
       "unit": "(ratio)",
       "marks": 3,
       "explanation": "g ∝ M/R². Ratio = (318)/(11²) = 318/121 ≈ 2.63. Jupiter's surface gravity ≈ 25.8 m·s⁻².",
-      "errorSignals": ["ERR_G_PLANET_FORMULA", "ERR_GRAV_LAW_SCALING"],
+      "errorSignals": [
+        "ERR_G_PLANET_FORMULA",
+        "ERR_GRAV_LAW_SCALING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -149,7 +200,10 @@
       "unit": "m",
       "marks": 4,
       "explanation": "g/g_surface = R²/r² ⇒ 8.5/9.8 = (R/r)² ⇒ r/R = √(9.8/8.5) ≈ 1.0735. r ≈ 1.0735 × 6.37 × 10⁶ ≈ 6.84 × 10⁶ m. Altitude = r − R ≈ 0.47 × 10⁶ m ≈ 470 km.",
-      "errorSignals": ["ERR_G_ALTITUDE", "ERR_GRAV_REARRANGE"],
+      "errorSignals": [
+        "ERR_G_ALTITUDE",
+        "ERR_GRAV_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -160,12 +214,21 @@
       "question": "An object of mass 4 kg is in FREE FALL near Earth's surface. What is the gravitational force on it, and what is its acceleration?",
       "answerMode": "multiField",
       "fields": [
-        {"label": "Force (N)", "expectedAnswer": "39.2"},
-        {"label": "Acceleration (m·s⁻²)", "expectedAnswer": "9.8"}
+        {
+          "label": "Force (N)",
+          "expectedAnswer": "39.2"
+        },
+        {
+          "label": "Acceleration (m·s⁻²)",
+          "expectedAnswer": "9.8"
+        }
       ],
       "marks": 3,
       "explanation": "F = mg = 4 × 9.8 = 39.2 N downward. a = F/m = g = 9.8 m·s⁻² downward (since gravity is the only force).",
-      "errorSignals": ["ERR_WEIGHT_FORMULA", "ERR_FREE_FALL_G"],
+      "errorSignals": [
+        "ERR_WEIGHT_FORMULA",
+        "ERR_FREE_FALL_G"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -184,7 +247,9 @@
       "expectedAnswer": "They hit simultaneously",
       "marks": 2,
       "explanation": "Both experience the same acceleration g. Free-fall time depends only on height: t = √(2h/g). Mass cancels.",
-      "errorSignals": ["ERR_FREE_FALL_MASS"],
+      "errorSignals": [
+        "ERR_FREE_FALL_MASS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -199,7 +264,10 @@
       "unit": "s",
       "marks": 3,
       "explanation": "h = ½gt² ⇒ t = √(2h/g) = √(24/4) = √6 ≈ 2.45 s.",
-      "errorSignals": ["ERR_FREE_FALL_G", "ERR_KINEMATIC_EQUATION_SELECT"],
+      "errorSignals": [
+        "ERR_FREE_FALL_G",
+        "ERR_KINEMATIC_EQUATION_SELECT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -208,12 +276,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'An astronaut weighs nothing in orbit because the spacecraft has cancelled Earth's gravity.' Is this correct? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. The spacecraft does NOT cancel gravity. The astronaut feels 'weightless' because the spacecraft is in FREE FALL toward Earth (along with the astronaut), and there is no normal force from the floor to give a sensation of weight. Gravity still pulls on the astronaut — that's what keeps them in orbit.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — gravity is not cancelled; the astronaut feels weightless because they free-fall with the spacecraft.",
       "marks": 3,
       "explanation": "Free fall ≠ no gravity. Orbit is constant free-falling 'sideways' fast enough to miss Earth.",
-      "errorSignals": ["ERR_WEIGHTLESS_VS_NO_GRAVITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WEIGHTLESS_VS_NO_GRAVITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Incorrect — gravity is not cancelled; the astronaut feels weightless because they free-fall with the spacecraft.",
+        "Correct — the spacecraft shields the astronaut from Earth's gravity.",
+        "Correct — at orbital height Earth's gravity is zero."
+      ]
     },
     {
       "id": "L10.T1.A2.q15",
@@ -227,7 +302,10 @@
       "unit": "m·s⁻²",
       "marks": 4,
       "explanation": "r = (6370 + 1000) × 10³ = 7.37 × 10⁶ m. g = GM/r² = (6.67×10⁻¹¹)(6×10²⁴)/(7.37×10⁶)² ≈ 4×10¹⁴/5.43×10¹³ ≈ 7.36 m·s⁻².",
-      "errorSignals": ["ERR_G_ALTITUDE", "ERR_G_PLANET_FORMULA"],
+      "errorSignals": [
+        "ERR_G_ALTITUDE",
+        "ERR_G_PLANET_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -236,12 +314,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why doesn't a 1 kg object always weigh exactly 9.8 N on Earth?",
-      "answerMode": "text",
-      "expectedAnswer": "Because g varies slightly with location: it's lower at the equator (Earth bulges out, so r is larger) and higher at the poles, lower at high altitude (mountains), and even varies with local rock density. Standard 'g = 9.8 m·s⁻²' is the textbook average value; in practice g ranges from ~9.78 at the equator to ~9.83 at the poles.",
+      "answerMode": "choice",
+      "expectedAnswer": "g varies with location — lower at the equator and at high altitude, higher at the poles.",
       "marks": 3,
       "explanation": "Earth isn't a perfect sphere; g depends on r and local mass distribution.",
-      "errorSignals": ["ERR_G_VARIATION", "ERR_G_ALTITUDE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_G_VARIATION",
+        "ERR_G_ALTITUDE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because the object's mass changes with location.",
+        "g varies with location — lower at the equator and at high altitude, higher at the poles.",
+        "Because 9.8 N·kg⁻¹ is only correct on the Moon."
+      ]
     },
     {
       "id": "L10.T1.A2.q17",
@@ -255,7 +341,9 @@
       "unit": "m·s⁻²",
       "marks": 2,
       "explanation": "g = w/m = 450/50 = 9 m·s⁻².",
-      "errorSignals": ["ERR_WEIGHT_FORMULA"],
+      "errorSignals": [
+        "ERR_WEIGHT_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -270,7 +358,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "Scale reads normal force. Fnet = N − mg = ma ⇒ N = m(g + a) = 30 × (9.8 + 1.5) = 30 × 11.3 = 339 N.",
-      "errorSignals": ["ERR_APPARENT_WEIGHT", "ERR_WEIGHT_FORMULA"],
+      "errorSignals": [
+        "ERR_APPARENT_WEIGHT",
+        "ERR_WEIGHT_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -285,7 +376,9 @@
       "unit": "m·s⁻²",
       "marks": 3,
       "explanation": "g = GM/R² = (6.67×10⁻¹¹)(4×10²²)/(2×10⁶)² = (2.668×10¹²)/(4×10¹²) ≈ 0.667 m·s⁻². Very low gravity!",
-      "errorSignals": ["ERR_G_PLANET_FORMULA"],
+      "errorSignals": [
+        "ERR_G_PLANET_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -294,12 +387,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Two students compute the gravitational acceleration on a planet but get different answers. One uses the planet's DIAMETER as r in g = GM/r²; the other uses the RADIUS. Which is correct, and what is the relationship between the two results?",
-      "answerMode": "text",
-      "expectedAnswer": "The student who used the RADIUS is correct (r in g = GM/r² is the distance from the planet's CENTRE, which is the radius for a surface object). Using diameter gives g_wrong = GM/(2R)² = g/4. The diameter-user's answer is one-quarter of the correct value.",
+      "answerMode": "choice",
+      "expectedAnswer": "The student who used the radius is correct — r is the distance from the planet's centre.",
       "marks": 3,
       "explanation": "r in g = GM/r² is from CENTRE. Diameter is 2R, giving a factor-of-4 error.",
-      "errorSignals": ["ERR_G_PLANET_FORMULA", "ERR_RADIUS_VS_DIAMETER"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_G_PLANET_FORMULA",
+        "ERR_RADIUS_VS_DIAMETER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The student who used the diameter is correct — r is the full width of the planet.",
+        "Both are correct; r can be either as long as it is used consistently.",
+        "The student who used the radius is correct — r is the distance from the planet's centre."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

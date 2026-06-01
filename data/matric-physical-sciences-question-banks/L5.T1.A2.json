@@ -1,7 +1,9 @@
 {
   "skill": "L5.T1.A2",
   "skill_title": "Apply the Doppler effect to astronomy (red shift and blue shift)",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 6 lifted, 14 fresh. Astronomical Doppler: red shift (recession, longer wavelength) and blue shift (approach, shorter wavelength). Connection to expansion of the universe.",
@@ -23,7 +25,10 @@
       "expectedAnswer": "Lower frequency (red shift)",
       "marks": 2,
       "explanation": "Star moving away ⇒ wavelength stretched ⇒ shifts toward the RED end of the spectrum (longer wavelength, lower frequency).",
-      "errorSignals": ["ERR_RED_BLUE_REVERSE", "ERR_SHIFT_DIRECTION"],
+      "errorSignals": [
+        "ERR_RED_BLUE_REVERSE",
+        "ERR_SHIFT_DIRECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -43,7 +48,9 @@
       "expectedAnswer": "Blue-shifted (higher frequency)",
       "marks": 2,
       "explanation": "Star approaching ⇒ wavelength shortens ⇒ shifts toward the BLUE end of the spectrum (shorter wavelength, higher frequency).",
-      "errorSignals": ["ERR_RED_BLUE_REVERSE"],
+      "errorSignals": [
+        "ERR_RED_BLUE_REVERSE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -63,7 +70,10 @@
       "expectedAnswer": "Observed frequency higher than source; star moving towards Earth",
       "marks": 2,
       "explanation": "Blue shift = shorter wavelength = higher observed frequency = source approaching.",
-      "errorSignals": ["ERR_RED_BLUE_REVERSE", "ERR_SHIFT_DIRECTION"],
+      "errorSignals": [
+        "ERR_RED_BLUE_REVERSE",
+        "ERR_SHIFT_DIRECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -83,7 +93,9 @@
       "expectedAnswer": "Star B is moving faster (recession speed) than star A",
       "marks": 2,
       "explanation": "Greater red shift ⇒ larger fractional wavelength change ⇒ greater relative recession speed. Distance is not directly given by single-shot Doppler; it's the SPEED that determines the shift magnitude.",
-      "errorSignals": ["ERR_REDSHIFT_DISTANCE_VS_SPEED"],
+      "errorSignals": [
+        "ERR_REDSHIFT_DISTANCE_VS_SPEED"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -93,12 +105,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2023 Q6.2",
       "question": "A star is moving AWAY from Earth. How does the frequency of its light observed on Earth compare to the source frequency? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "The observed frequency is LOWER than the source frequency (red shift). When the source moves away, successive wavefronts are emitted from further and further away, so they arrive at the observer with a longer interval — longer wavelength and lower observed frequency.",
+      "answerMode": "choice",
+      "expectedAnswer": "Lower than the source frequency (red shift) — receding motion stretches the wavelengths.",
       "marks": 2,
       "explanation": "Standard recession explanation. Wavelength stretches, frequency drops.",
-      "errorSignals": ["ERR_SHIFT_DIRECTION", "ERR_RED_BLUE_REVERSE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SHIFT_DIRECTION",
+        "ERR_RED_BLUE_REVERSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Higher than the source frequency (blue shift).",
+        "The same — motion does not affect the observed frequency.",
+        "Lower than the source frequency (red shift) — receding motion stretches the wavelengths."
+      ]
     },
     {
       "id": "L5.T1.A2.q06",
@@ -117,7 +137,9 @@
       "expectedAnswer": "Moving away, then approaching",
       "marks": 2,
       "explanation": "Lower frequency ⇒ moving away (red shift). Higher frequency ⇒ moving towards (blue shift). So first away, then towards. (Acoustic analogue of red/blue shift.)",
-      "errorSignals": ["ERR_RED_BLUE_REVERSE"],
+      "errorSignals": [
+        "ERR_RED_BLUE_REVERSE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -126,12 +148,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Most distant galaxies show a RED shift when observed from Earth. What does this tell us about the universe?",
-      "answerMode": "text",
-      "expectedAnswer": "Most distant galaxies are moving AWAY from us, which means the universe is EXPANDING. (This is Hubble's observation: galaxies recede with speeds roughly proportional to their distance — the basis of the expanding-universe model.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Distant galaxies are moving away from us — the universe is expanding.",
       "marks": 2,
       "explanation": "Red shift everywhere ⇒ galaxies receding ⇒ universe expanding. Foundational evidence for Big Bang cosmology.",
-      "errorSignals": ["ERR_EXPANDING_UNIVERSE", "ERR_REDSHIFT_INTERPRETATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EXPANDING_UNIVERSE",
+        "ERR_REDSHIFT_INTERPRETATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Distant galaxies are moving away from us — the universe is expanding.",
+        "Distant galaxies are moving towards us — the universe is contracting.",
+        "The galaxies are stationary; the red shift is caused by dust."
+      ]
     },
     {
       "id": "L5.T1.A2.q08",
@@ -139,12 +169,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define RED SHIFT in the context of light from a star.",
-      "answerMode": "text",
-      "expectedAnswer": "Red shift is the increase in observed wavelength (decrease in observed frequency) of light from a source that is moving AWAY from the observer. The light appears shifted toward the red end of the visible spectrum.",
+      "answerMode": "choice",
+      "expectedAnswer": "An increase in observed wavelength (lower frequency) from a source moving away.",
       "marks": 2,
       "explanation": "Two marks: 'longer wavelength / lower frequency' + 'source moving away'.",
-      "errorSignals": ["ERR_RED_DEFINITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_RED_DEFINITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A decrease in observed wavelength from a source moving away.",
+        "An increase in observed wavelength (lower frequency) from a source moving away.",
+        "A change in a star's colour caused by its surface temperature."
+      ]
     },
     {
       "id": "L5.T1.A2.q09",
@@ -152,12 +189,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define BLUE SHIFT in the context of light from a star.",
-      "answerMode": "text",
-      "expectedAnswer": "Blue shift is the decrease in observed wavelength (increase in observed frequency) of light from a source that is moving TOWARDS the observer. The light appears shifted toward the blue end of the visible spectrum.",
+      "answerMode": "choice",
+      "expectedAnswer": "A decrease in observed wavelength (higher frequency) from a source moving towards the observer.",
       "marks": 2,
       "explanation": "Two marks: 'shorter wavelength / higher frequency' + 'source approaching'.",
-      "errorSignals": ["ERR_BLUE_DEFINITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BLUE_DEFINITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "An increase in observed wavelength from a source moving towards the observer.",
+        "A blue glow emitted by very hot stars.",
+        "A decrease in observed wavelength (higher frequency) from a source moving towards the observer."
+      ]
     },
     {
       "id": "L5.T1.A2.q10",
@@ -175,7 +219,9 @@
       "expectedAnswer": "A red shift means the star's actual emission frequency has decreased",
       "marks": 2,
       "explanation": "The star's actual emission frequency does NOT change. Only the OBSERVED frequency on Earth differs because of relative motion (Doppler effect).",
-      "errorSignals": ["ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"],
+      "errorSignals": [
+        "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -194,7 +240,10 @@
       "expectedAnswer": "Galaxy moving away from Earth, red-shifted",
       "marks": 2,
       "explanation": "Observed wavelength (700) > source wavelength (656) ⇒ stretched ⇒ red shift ⇒ recession.",
-      "errorSignals": ["ERR_REDSHIFT_INTERPRETATION", "ERR_RED_BLUE_REVERSE"],
+      "errorSignals": [
+        "ERR_REDSHIFT_INTERPRETATION",
+        "ERR_RED_BLUE_REVERSE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -209,7 +258,9 @@
       "unit": "m·s⁻¹",
       "marks": 4,
       "explanation": "Δλ = 4 nm. Δλ/λ = 4/486 ≈ 0.00823. v ≈ 0.00823 × 3 × 10⁸ ≈ 2.47 × 10⁶ m·s⁻¹. (Note: the CAPS Doppler formula is for sound; this astronomical version is informational.)",
-      "errorSignals": ["ERR_REDSHIFT_RATIO"],
+      "errorSignals": [
+        "ERR_REDSHIFT_RATIO"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -228,7 +279,9 @@
       "expectedAnswer": "It is moving towards Earth",
       "marks": 2,
       "explanation": "Blue shift = shorter wavelength = approaching. (Andromeda Galaxy is the most famous nearby example.)",
-      "errorSignals": ["ERR_RED_BLUE_REVERSE"],
+      "errorSignals": [
+        "ERR_RED_BLUE_REVERSE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -237,12 +290,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "The Andromeda Galaxy shows a BLUE shift. What does this imply about Andromeda's motion relative to Earth?",
-      "answerMode": "text",
-      "expectedAnswer": "Andromeda is moving TOWARDS the Milky Way (and Earth). Blue shift indicates approach, so the observed wavelength is shorter than emitted. Note that despite the overall expansion of the universe, nearby galaxies can still approach due to their local gravitational attraction.",
+      "answerMode": "choice",
+      "expectedAnswer": "Andromeda is moving towards the Milky Way (blue shift means approach).",
       "marks": 3,
       "explanation": "Blue shift = approaching. Local gravitational pull can override cosmic expansion at short distances.",
-      "errorSignals": ["ERR_RED_BLUE_REVERSE", "ERR_EXPANDING_UNIVERSE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_RED_BLUE_REVERSE",
+        "ERR_EXPANDING_UNIVERSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Andromeda is moving towards the Milky Way (blue shift means approach).",
+        "Andromeda is moving away from us (blue shift means recession).",
+        "Andromeda is stationary; the shift is due to the expanding universe."
+      ]
     },
     {
       "id": "L5.T1.A2.q15",
@@ -260,7 +321,9 @@
       "expectedAnswer": "Its known rest wavelength (atomic origin)",
       "marks": 2,
       "explanation": "Each element emits/absorbs at well-known rest wavelengths (e.g. hydrogen Balmer lines). Comparing observed wavelength to the known rest wavelength reveals the Doppler shift.",
-      "errorSignals": ["ERR_REDSHIFT_DETECTION"],
+      "errorSignals": [
+        "ERR_REDSHIFT_DETECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -269,12 +332,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A distant quasar's hydrogen line is observed at TWICE its rest wavelength. Has it been red-shifted or blue-shifted, and what does that imply?",
-      "answerMode": "text",
-      "expectedAnswer": "Red-shifted (observed wavelength longer than rest). It is moving away from Earth at a substantial fraction of the speed of light — a strong red shift indicates very large recession speed and great distance (consistent with the expanding universe).",
+      "answerMode": "choice",
+      "expectedAnswer": "Red-shifted — it is moving away at a large fraction of the speed of light.",
       "marks": 2,
       "explanation": "λ_observed > λ_rest ⇒ red shift. Large shift ⇒ large recession speed.",
-      "errorSignals": ["ERR_REDSHIFT_INTERPRETATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_REDSHIFT_INTERPRETATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Blue-shifted — it is moving rapidly towards us.",
+        "Red-shifted — it is moving away at a large fraction of the speed of light.",
+        "Not shifted — a longer wavelength just means it is a cooler object."
+      ]
     },
     {
       "id": "L5.T1.A2.q17",
@@ -282,12 +352,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner asks: 'If we see a star's light shifted to a longer wavelength, did the star really emit different light?' Briefly explain.",
-      "answerMode": "text",
-      "expectedAnswer": "No, the star emitted the SAME (rest-frame) light. The shift is in the OBSERVED wavelength due to the star's motion relative to Earth. From the star's own frame, its emission spectrum is unchanged.",
+      "answerMode": "choice",
+      "expectedAnswer": "No — the star emitted the same light; the observed wavelength is shifted by its motion relative to Earth.",
       "marks": 2,
       "explanation": "Source frequency in the star's frame is constant. Doppler shift is a frame-dependent observation.",
-      "errorSignals": ["ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — the star physically emitted longer-wavelength light.",
+        "Yes — the light changed wavelength on its own as it travelled through space.",
+        "No — the star emitted the same light; the observed wavelength is shifted by its motion relative to Earth."
+      ]
     },
     {
       "id": "L5.T1.A2.q18",
@@ -295,12 +372,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "If a star is BOTH bright AND red-shifted, what does each piece of information tell us?",
-      "answerMode": "text",
-      "expectedAnswer": "Brightness alone does not tell us its speed — only its apparent intensity. The red shift tells us the star is moving AWAY from us. Combining brightness with known stellar properties can suggest distance, but the red-shift specifically indicates recession.",
+      "answerMode": "choice",
+      "expectedAnswer": "Brightness gives only apparent intensity; the red shift tells us it is moving away.",
       "marks": 2,
       "explanation": "Brightness ≠ shift. Red shift = motion (away).",
-      "errorSignals": ["ERR_REDSHIFT_VS_BRIGHTNESS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_REDSHIFT_VS_BRIGHTNESS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Brightness gives only apparent intensity; the red shift tells us it is moving away.",
+        "Brightness tells us its speed and the red shift tells us its distance.",
+        "Both tell us the same thing — that the star is moving away."
+      ]
     },
     {
       "id": "L5.T1.A2.q19",
@@ -318,7 +402,9 @@
       "expectedAnswer": "The universe is expanding",
       "marks": 2,
       "explanation": "Universal red shift ⇒ galaxies receding ⇒ expanding universe (the basic evidence for Big Bang cosmology).",
-      "errorSignals": ["ERR_EXPANDING_UNIVERSE"],
+      "errorSignals": [
+        "ERR_EXPANDING_UNIVERSE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -327,12 +413,21 @@
       "gate": "A",
       "source": "fresh",
       "question": "Compare red shift and blue shift in one sentence each.",
-      "answerMode": "text",
-      "expectedAnswer": "Red shift: observed wavelength LONGER than rest wavelength, indicating the source is moving AWAY. Blue shift: observed wavelength SHORTER than rest wavelength, indicating the source is moving TOWARDS the observer.",
+      "answerMode": "choice",
+      "expectedAnswer": "Red shift: longer observed wavelength, source moving away. Blue shift: shorter observed wavelength, source moving towards.",
       "marks": 2,
       "explanation": "Two clean one-liners describing each shift and its direction implication.",
-      "errorSignals": ["ERR_RED_BLUE_REVERSE", "ERR_RED_DEFINITION", "ERR_BLUE_DEFINITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_RED_BLUE_REVERSE",
+        "ERR_RED_DEFINITION",
+        "ERR_BLUE_DEFINITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Red shift: source moving towards. Blue shift: source moving away.",
+        "Red shift: longer observed wavelength, source moving away. Blue shift: shorter observed wavelength, source moving towards.",
+        "Red shift: shorter wavelength. Blue shift: longer wavelength."
+      ]
     }
   ],
   "_error_signal_vocabulary": {
