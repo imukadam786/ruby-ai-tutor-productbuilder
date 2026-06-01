@@ -1,7 +1,9 @@
 {
   "skill": "L12.T1.A2",
   "skill_title": "Describe and analyse galvanic and electrolytic cells",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 10 lifted, 10 fresh. Galvanic cells (spontaneous, anode = NEG); electrolytic cells (driven, anode = POS); cell notation; electron flow; salt bridge; electroplating; refining; NaCl electrolysis.",
@@ -13,12 +15,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q9.1",
       "question": "Define ELECTROLYSIS.",
-      "answerMode": "text",
-      "expectedAnswer": "Electrolysis is the process of using electrical energy from an external source to drive a non-spontaneous chemical (redox) reaction.",
+      "answerMode": "choice",
+      "expectedAnswer": "Using electrical energy from an external source to drive a non-spontaneous redox reaction.",
       "marks": 2,
       "explanation": "Key features: electrical energy IN, non-spontaneous reaction, external power source.",
-      "errorSignals": ["ERR_ELECTROLYSIS_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ELECTROLYSIS_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Producing electrical energy from a spontaneous reaction.",
+        "Breaking a substance down by heating it strongly.",
+        "Using electrical energy from an external source to drive a non-spontaneous redox reaction."
+      ]
     },
     {
       "id": "L12.T1.A2.q02",
@@ -27,12 +36,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q9.1",
       "question": "Define an ELECTROLYTIC CELL.",
-      "answerMode": "text",
-      "expectedAnswer": "An electrolytic cell is a cell in which electrical energy is used to drive a non-spontaneous chemical reaction. The cell requires an external power source (e.g. a battery) to operate.",
+      "answerMode": "choice",
+      "expectedAnswer": "A cell that uses electrical energy (external power) to drive a non-spontaneous reaction.",
       "marks": 2,
       "explanation": "Same idea as electrolysis: external source drives non-spontaneous redox.",
-      "errorSignals": ["ERR_ELECTROLYTIC_CELL_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ELECTROLYTIC_CELL_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A cell that uses electrical energy (external power) to drive a non-spontaneous reaction.",
+        "A cell that generates electricity from a spontaneous reaction.",
+        "A cell that operates with no external connections."
+      ]
     },
     {
       "id": "L12.T1.A2.q03",
@@ -41,12 +57,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2021 Q8.2.2",
       "question": "State the energy conversion in a GALVANIC CELL.",
-      "answerMode": "text",
-      "expectedAnswer": "Chemical (potential) energy is converted to electrical energy.",
+      "answerMode": "choice",
+      "expectedAnswer": "Chemical (potential) energy into electrical energy.",
       "marks": 1,
       "explanation": "Galvanic: spontaneous redox releases energy ⇒ chemical → electrical. (Opposite of electrolytic.)",
-      "errorSignals": ["ERR_GALVANIC_ENERGY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GALVANIC_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Electrical energy into chemical energy.",
+        "Chemical (potential) energy into electrical energy.",
+        "Heat energy into electrical energy."
+      ]
     },
     {
       "id": "L12.T1.A2.q04",
@@ -55,12 +78,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q8.2",
       "question": "State the function of the SALT BRIDGE in an electrochemical (galvanic) cell.",
-      "answerMode": "text",
-      "expectedAnswer": "The salt bridge maintains electrical neutrality in each half-cell by allowing ions to flow between the two half-cells. Cations move toward the cathode side and anions move toward the anode side to balance the charge build-up that would otherwise stop the reaction. It also completes the circuit.",
+      "answerMode": "choice",
+      "expectedAnswer": "It maintains electrical neutrality by allowing ions to flow between the half-cells.",
       "marks": 2,
       "explanation": "Key roles: (1) maintain neutrality; (2) complete circuit (ion flow, not electron flow).",
-      "errorSignals": ["ERR_SALT_BRIDGE_FUNCTION", "ERR_SALT_BRIDGE_ELECTRONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SALT_BRIDGE_FUNCTION",
+        "ERR_SALT_BRIDGE_ELECTRONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It carries electrons between the two half-cells.",
+        "It speeds up the reaction, acting like a catalyst.",
+        "It maintains electrical neutrality by allowing ions to flow between the half-cells."
+      ]
     },
     {
       "id": "L12.T1.A2.q05",
@@ -68,12 +99,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "In a GALVANIC cell, which electrode is the ANODE — POSITIVE or NEGATIVE? At which electrode does oxidation occur?",
-      "answerMode": "text",
-      "expectedAnswer": "Anode = NEGATIVE in a galvanic cell. Oxidation occurs at the anode (always — by definition). In a galvanic cell, electrons flow externally FROM the anode (−) to the cathode (+).",
+      "answerMode": "choice",
+      "expectedAnswer": "Anode = negative; oxidation occurs at the anode.",
       "marks": 3,
       "explanation": "Galvanic anode: NEG. Oxidation always at anode. Cathode in galvanic is POS.",
-      "errorSignals": ["ERR_GALVANIC_POLARITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GALVANIC_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Anode = negative; oxidation occurs at the anode.",
+        "Anode = positive; oxidation occurs at the anode.",
+        "Anode = negative; reduction occurs at the anode."
+      ]
     },
     {
       "id": "L12.T1.A2.q06",
@@ -92,7 +130,9 @@
       "expectedAnswer": "The positive terminal of the external battery (anode = POS)",
       "marks": 2,
       "explanation": "Electrolytic cell anode = POSITIVE (connected to + terminal of battery). Opposite of galvanic. Oxidation still occurs at the anode (definition unchanged).",
-      "errorSignals": ["ERR_ELECTROLYTIC_POLARITY"],
+      "errorSignals": [
+        "ERR_ELECTROLYTIC_POLARITY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -101,12 +141,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "In which direction do ELECTRONS flow in the external circuit of a galvanic cell?",
-      "answerMode": "text",
-      "expectedAnswer": "Electrons flow from the ANODE (negative electrode, where oxidation produces electrons) to the CATHODE (positive electrode, where reduction consumes them), through the external wire/circuit.",
+      "answerMode": "choice",
+      "expectedAnswer": "From the anode (−) to the cathode (+) through the external wire.",
       "marks": 2,
       "explanation": "External: anode → cathode (electrons). Internal (salt bridge): ions move to maintain neutrality.",
-      "errorSignals": ["ERR_ELECTRON_FLOW_DIRECTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ELECTRON_FLOW_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "From the cathode to the anode through the external wire.",
+        "From the anode (−) to the cathode (+) through the external wire.",
+        "Through the salt bridge, from anode to cathode."
+      ]
     },
     {
       "id": "L12.T1.A2.q08",
@@ -115,12 +162,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q9.2.3",
       "question": "In the electrolysis of NaCl(aq), in which direction do ELECTRONS flow in the external circuit?",
-      "answerMode": "text",
-      "expectedAnswer": "Electrons flow from the anode to the cathode through the external circuit. In an electrolytic cell, the external battery pushes electrons OUT of its negative terminal (to the cell's cathode) and pulls electrons INTO its positive terminal (from the cell's anode). External electron flow: anode → cathode (same as galvanic; the difference is the battery DRIVES it).",
+      "answerMode": "choice",
+      "expectedAnswer": "From the anode to the cathode through the external circuit.",
       "marks": 1,
       "explanation": "External flow: anode → cathode in BOTH cell types. Power source drives the flow in electrolytic.",
-      "errorSignals": ["ERR_ELECTRON_FLOW_DIRECTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ELECTRON_FLOW_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "From the cathode to the anode in the external circuit.",
+        "Through the electrolyte solution itself.",
+        "From the anode to the cathode through the external circuit."
+      ]
     },
     {
       "id": "L12.T1.A2.q09",
@@ -129,12 +183,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q8.1.5",
       "question": "Write the CELL NOTATION for a galvanic cell with aluminium anode and oxygen cathode (Al → Al³⁺; O₂ → H₂O at Pt electrode).",
-      "answerMode": "text",
-      "expectedAnswer": "Al(s) | Al³⁺(aq) || H⁺(aq), O₂(g) | Pt(s).",
+      "answerMode": "choice",
+      "expectedAnswer": "Al(s) | Al³⁺(aq) || H⁺(aq), O₂(g) | Pt(s)",
       "marks": 3,
       "explanation": "Cell notation: anode on left, cathode on right; '|' is phase boundary; '||' is salt bridge. Pt is used as an inert electrode for the gas half-cell.",
-      "errorSignals": ["ERR_CELL_NOTATION_FORMAT", "ERR_CELL_NOTATION_ORDER"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CELL_NOTATION_FORMAT",
+        "ERR_CELL_NOTATION_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Al(s) | Al³⁺(aq) || H⁺(aq), O₂(g) | Pt(s)",
+        "Pt(s) | O₂(g), H⁺(aq) || Al³⁺(aq) | Al(s)",
+        "Al(s) || Al³⁺(aq) | H⁺(aq) || O₂(g) | Pt(s)"
+      ]
     },
     {
       "id": "L12.T1.A2.q10",
@@ -143,12 +205,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2021 Q8.2.1",
       "question": "In cell notation, what does a SINGLE LINE '|' represent?",
-      "answerMode": "text",
-      "expectedAnswer": "A single line '|' represents a phase boundary — an interface between two different phases (e.g. solid electrode and aqueous solution).",
+      "answerMode": "choice",
+      "expectedAnswer": "A phase boundary (interface between two different phases).",
       "marks": 1,
       "explanation": "'|' = phase boundary; '||' = salt bridge.",
-      "errorSignals": ["ERR_CELL_NOTATION_SYMBOL"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CELL_NOTATION_SYMBOL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The salt bridge.",
+        "A phase boundary (interface between two different phases).",
+        "The external wire connection."
+      ]
     },
     {
       "id": "L12.T1.A2.q11",
@@ -157,12 +226,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q9.2",
       "question": "In the zinc electroplating of a steel spring using a Zn(NO₃)₂ electrolyte, which electrode is the ANODE: the zinc electrode or the steel spring?",
-      "answerMode": "text",
-      "expectedAnswer": "The ZINC electrode is the anode (oxidation: Zn → Zn²⁺ + 2e⁻ replenishes Zn²⁺ in solution). The steel spring is the CATHODE (where Zn²⁺ + 2e⁻ → Zn deposits zinc onto the spring).",
+      "answerMode": "choice",
+      "expectedAnswer": "The zinc electrode is the anode (Zn → Zn²⁺ + 2e⁻).",
       "marks": 2,
       "explanation": "Electroplating: object to be plated = cathode; metal source = anode. The metal anode dissolves and is replated on the cathode.",
-      "errorSignals": ["ERR_ELECTROPLATING_ANODE", "ERR_ELECTROPLATING_CATHODE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ELECTROPLATING_ANODE",
+        "ERR_ELECTROPLATING_CATHODE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The steel spring is the anode.",
+        "Both electrodes act as the anode.",
+        "The zinc electrode is the anode (Zn → Zn²⁺ + 2e⁻)."
+      ]
     },
     {
       "id": "L12.T1.A2.q12",
@@ -171,12 +248,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q9.3.1",
       "question": "Write the half-reaction at the metal spring (cathode) in the electroplating cell from the previous question.",
-      "answerMode": "text",
-      "expectedAnswer": "Zn²⁺ + 2e⁻ → Zn (reduction: zinc metal deposits onto the spring).",
+      "answerMode": "choice",
+      "expectedAnswer": "Zn²⁺ + 2e⁻ → Zn (reduction — zinc deposits onto the spring).",
       "marks": 2,
       "explanation": "Cathode: reduction. Zn²⁺ from the solution is reduced to Zn metal, plating the spring.",
-      "errorSignals": ["ERR_HALF_REACTION_BALANCE", "ERR_ELECTROPLATING_HALF_REACTIONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HALF_REACTION_BALANCE",
+        "ERR_ELECTROPLATING_HALF_REACTIONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Zn²⁺ + 2e⁻ → Zn (reduction — zinc deposits onto the spring).",
+        "Zn → Zn²⁺ + 2e⁻",
+        "2H₂O + 2e⁻ → H₂ + 2OH⁻"
+      ]
     },
     {
       "id": "L12.T1.A2.q13",
@@ -185,12 +270,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q9.3",
       "question": "In the electrolysis of NaCl(aq), does the pH of the solution INCREASE, DECREASE or STAY THE SAME during electrolysis? Give a reason.",
-      "answerMode": "text",
-      "expectedAnswer": "pH INCREASES. At the cathode, water is reduced to H₂ + 2OH⁻. The accumulation of OH⁻ ions makes the solution more alkaline (higher pH).",
+      "answerMode": "choice",
+      "expectedAnswer": "pH increases — water is reduced at the cathode, producing OH⁻.",
       "marks": 2,
       "explanation": "Cathode produces OH⁻ ⇒ solution becomes basic ⇒ pH rises.",
-      "errorSignals": ["ERR_NACL_ELECTROLYSIS_PH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_NACL_ELECTROLYSIS_PH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "pH decreases — H⁺ accumulates at the cathode.",
+        "pH increases — water is reduced at the cathode, producing OH⁻.",
+        "pH stays the same — electrolysis doesn't affect pH."
+      ]
     },
     {
       "id": "L12.T1.A2.q14",
@@ -209,7 +301,9 @@
       "expectedAnswer": "An external power source (electrolysis)",
       "marks": 2,
       "explanation": "Decomposing a stable ionic compound into its elements is non-spontaneous ⇒ requires electrolysis (electrical energy input).",
-      "errorSignals": ["ERR_ELECTROLYSIS_NEED"],
+      "errorSignals": [
+        "ERR_ELECTROLYSIS_NEED"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -218,12 +312,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Compare GALVANIC vs ELECTROLYTIC cells: state TWO key differences.",
-      "answerMode": "text",
-      "expectedAnswer": "(1) Galvanic = SPONTANEOUS (produces electrical energy); electrolytic = NON-SPONTANEOUS (consumes electrical energy from an external source). (2) Galvanic anode = NEGATIVE, cathode = POSITIVE; in electrolytic cell, anode = POSITIVE, cathode = NEGATIVE. (Other valid differences: galvanic uses two half-cells with a salt bridge; electrolytic typically uses one container.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Galvanic = spontaneous (anode negative); electrolytic = non-spontaneous, needs external power (anode positive).",
       "marks": 4,
       "explanation": "Spontaneity and polarity convention are the two main differences. Oxidation is always at the anode in both.",
-      "errorSignals": ["ERR_GALVANIC_VS_ELECTROLYTIC"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GALVANIC_VS_ELECTROLYTIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Galvanic = non-spontaneous; electrolytic = spontaneous.",
+        "Both are spontaneous and both have a negative anode.",
+        "Galvanic = spontaneous (anode negative); electrolytic = non-spontaneous, needs external power (anode positive)."
+      ]
     },
     {
       "id": "L12.T1.A2.q16",
@@ -231,12 +332,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "In a Cu/Zn galvanic cell, identify the (a) anode, (b) cathode, (c) overall cell reaction. (E°(Cu²⁺/Cu) = +0.34 V; E°(Zn²⁺/Zn) = −0.76 V.)",
-      "answerMode": "text",
-      "expectedAnswer": "(a) Anode: Zn (more negative E°, easier to oxidise). Oxidation: Zn → Zn²⁺ + 2e⁻. (b) Cathode: Cu (more positive E°). Reduction: Cu²⁺ + 2e⁻ → Cu. (c) Overall: Zn + Cu²⁺ → Zn²⁺ + Cu. E°_cell = +0.34 − (−0.76) = +1.10 V.",
+      "answerMode": "choice",
+      "expectedAnswer": "Anode: Zn (Zn → Zn²⁺ + 2e⁻); cathode: Cu (Cu²⁺ + 2e⁻ → Cu); overall: Zn + Cu²⁺ → Zn²⁺ + Cu.",
       "marks": 4,
       "explanation": "More negative E° = anode. Standard galvanic cell example.",
-      "errorSignals": ["ERR_ANODE_FROM_E", "ERR_GALVANIC_POLARITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ANODE_FROM_E",
+        "ERR_GALVANIC_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Anode: Zn (Zn → Zn²⁺ + 2e⁻); cathode: Cu (Cu²⁺ + 2e⁻ → Cu); overall: Zn + Cu²⁺ → Zn²⁺ + Cu.",
+        "Anode: Cu; cathode: Zn; overall: Cu + Zn²⁺ → Cu²⁺ + Zn.",
+        "Anode: Zn (positive); cathode: Cu (negative)."
+      ]
     },
     {
       "id": "L12.T1.A2.q17",
@@ -244,12 +353,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "In the refining of copper, an impure copper anode is dissolved into solution and pure copper deposits on the cathode. What is the cell type, and which is the anode?",
-      "answerMode": "text",
-      "expectedAnswer": "It is an ELECTROLYTIC cell (driven by external power). The IMPURE COPPER is the anode (oxidised: Cu → Cu²⁺ + 2e⁻). Pure copper is the cathode (Cu²⁺ + 2e⁻ → Cu). Impurities fall to the bottom as 'anode slime'.",
+      "answerMode": "choice",
+      "expectedAnswer": "An electrolytic cell; the impure copper is the anode.",
       "marks": 3,
       "explanation": "Refining = electrolytic. Impure source is the anode (dissolves); pure metal deposits on cathode.",
-      "errorSignals": ["ERR_REFINING_ANODE", "ERR_ELECTROLYTIC_CELL_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_REFINING_ANODE",
+        "ERR_ELECTROLYTIC_CELL_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A galvanic cell; the pure copper is the anode.",
+        "An electrolytic cell; the impure copper is the anode.",
+        "An electrolytic cell; the pure copper is the anode."
+      ]
     },
     {
       "id": "L12.T1.A2.q18",
@@ -257,12 +374,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'Electrons flow through the salt bridge in a galvanic cell.' Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. Electrons do NOT flow through the salt bridge — they flow through the EXTERNAL WIRE/CIRCUIT (from anode to cathode). The salt bridge allows IONS (cations and anions in solution) to move between half-cells to maintain electrical neutrality.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — electrons flow through the external wire; the salt bridge carries ions.",
       "marks": 2,
       "explanation": "Common misconception. External wire: electrons. Salt bridge: ions.",
-      "errorSignals": ["ERR_SALT_BRIDGE_ELECTRONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SALT_BRIDGE_ELECTRONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Correct — electrons flow through the salt bridge.",
+        "Correct — both electrons and ions flow through the salt bridge.",
+        "Incorrect — electrons flow through the external wire; the salt bridge carries ions."
+      ]
     },
     {
       "id": "L12.T1.A2.q19",
@@ -270,12 +394,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does the mass of the ANODE in a galvanic cell DECREASE over time?",
-      "answerMode": "text",
-      "expectedAnswer": "The anode is the site of OXIDATION. Atoms of the anode metal lose electrons and dissolve into the electrolyte as positive ions (e.g. Zn → Zn²⁺ + 2e⁻). As atoms leave the solid electrode, its mass decreases. Meanwhile, mass typically accumulates at the cathode (where metal ions are reduced and deposited).",
+      "answerMode": "choice",
+      "expectedAnswer": "Oxidation occurs there — metal atoms lose electrons and dissolve as ions.",
       "marks": 3,
       "explanation": "Anode loses material to solution; cathode gains material from solution. Standard galvanic cell behaviour.",
-      "errorSignals": ["ERR_ANODE_MASS_LOSS", "ERR_CATHODE_MASS_GAIN"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ANODE_MASS_LOSS",
+        "ERR_CATHODE_MASS_GAIN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Oxidation occurs there — metal atoms lose electrons and dissolve as ions.",
+        "Metal ions from solution deposit onto it.",
+        "The anode evaporates because of the heat produced."
+      ]
     },
     {
       "id": "L12.T1.A2.q20",
@@ -283,12 +415,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "In an electrolytic cell, why doesn't the anode of an inert electrode (e.g. carbon) typically dissolve, even though oxidation occurs there?",
-      "answerMode": "text",
-      "expectedAnswer": "Inert electrodes (like platinum or graphite) are chosen because they do NOT participate chemically in the reaction. Oxidation at an inert anode involves species in the SOLUTION (e.g. Cl⁻ → ½Cl₂ + e⁻ in NaCl(aq)), not the electrode itself. The electrode just provides a surface and conducts the current.",
+      "answerMode": "choice",
+      "expectedAnswer": "An inert electrode doesn't react itself; species in the solution are oxidised instead.",
       "marks": 3,
       "explanation": "Inert electrode: surface for reaction, doesn't oxidise. Active electrode: itself oxidises.",
-      "errorSignals": ["ERR_INERT_ELECTRODE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_INERT_ELECTRODE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Carbon is a metal that strongly resists oxidation.",
+        "An inert electrode doesn't react itself; species in the solution are oxidised instead.",
+        "No oxidation actually occurs at an inert anode."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

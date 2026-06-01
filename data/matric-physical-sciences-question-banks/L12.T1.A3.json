@@ -1,7 +1,9 @@
 {
   "skill": "L12.T1.A3",
   "skill_title": "Use standard electrode potentials to predict and calculate cell EMF",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 8 lifted, 12 fresh. Standard E° values: predict spontaneity, identify oxidising/reducing agents, calculate E°_cell = E°_cathode − E°_anode.",
@@ -13,12 +15,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q8.1",
       "question": "State the STANDARD CONDITIONS for measuring standard electrode potentials.",
-      "answerMode": "text",
-      "expectedAnswer": "Standard conditions: temperature = 25°C (298 K); all aqueous concentrations = 1 mol·dm⁻³; pressure of any gases = 101.3 kPa (1 atm); pure substances (e.g. metal electrodes) in their standard state.",
+      "answerMode": "choice",
+      "expectedAnswer": "25 °C (298 K), all concentrations 1 mol·dm⁻³, gas pressure 101.3 kPa.",
       "marks": 3,
       "explanation": "Standard state: 1 M, 1 atm, 298 K, pure solids/liquids.",
-      "errorSignals": ["ERR_STANDARD_CONDITIONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_STANDARD_CONDITIONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "0 °C, 1 mol·dm⁻³, 100 kPa.",
+        "25 °C, any concentration, any pressure.",
+        "25 °C (298 K), all concentrations 1 mol·dm⁻³, gas pressure 101.3 kPa."
+      ]
     },
     {
       "id": "L12.T1.A3.q02",
@@ -33,7 +42,10 @@
       "unit": "V",
       "marks": 4,
       "explanation": "Anode (left) = Pb (more negative E°). Cathode (right) = Fe³⁺/Fe²⁺. E°_cell = E°_cathode − E°_anode = +0.77 − (−0.13) = +0.90 V.",
-      "errorSignals": ["ERR_EMF_FORMULA", "ERR_ANODE_FROM_E"],
+      "errorSignals": [
+        "ERR_EMF_FORMULA",
+        "ERR_ANODE_FROM_E"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -53,7 +65,10 @@
       "expectedAnswer": "Li⁺/Li (E° = −3.04 V)",
       "marks": 2,
       "explanation": "Hg is the cathode (highest E°). The anode should have the MOST NEGATIVE E° to maximise (E°_cathode − E°_anode). Li gives the largest EMF.",
-      "errorSignals": ["ERR_EMF_FORMULA", "ERR_ANODE_FROM_E"],
+      "errorSignals": [
+        "ERR_EMF_FORMULA",
+        "ERR_ANODE_FROM_E"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -69,7 +84,10 @@
       "unit": "V",
       "marks": 5,
       "explanation": "E°_cell = E°_cathode − E°_anode = E°_X − (−1.66) = E°_X + 1.66 = 2.89 ⇒ E°_X = +1.23 V. This matches the O₂/H₂O electrode in acidic solution. So X = O₂.",
-      "errorSignals": ["ERR_EMF_FORMULA", "ERR_EMF_REARRANGE"],
+      "errorSignals": [
+        "ERR_EMF_FORMULA",
+        "ERR_EMF_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -84,7 +102,9 @@
       "unit": "V",
       "marks": 3,
       "explanation": "Zn is anode (more negative E°). Cu is cathode. E°_cell = 0.34 − (−0.76) = +1.10 V (positive ⇒ spontaneous).",
-      "errorSignals": ["ERR_EMF_FORMULA"],
+      "errorSignals": [
+        "ERR_EMF_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -93,12 +113,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A galvanic cell has E°_cell = −0.50 V. What does this tell you about the reaction as written?",
-      "answerMode": "text",
-      "expectedAnswer": "Negative E°_cell means the reaction as written is NON-SPONTANEOUS. The cell would not operate spontaneously in this direction. If we reverse the reaction (swap anode and cathode), the magnitude becomes +0.50 V, which is the spontaneous direction.",
+      "answerMode": "choice",
+      "expectedAnswer": "The reaction as written is non-spontaneous.",
       "marks": 2,
       "explanation": "Sign of E°_cell predicts spontaneity. Positive ⇒ spontaneous (galvanic). Negative ⇒ non-spontaneous (requires electrolysis to run).",
-      "errorSignals": ["ERR_EMF_SPONTANEITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMF_SPONTANEITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The reaction as written is non-spontaneous.",
+        "The reaction runs spontaneously, since it has a measurable EMF.",
+        "The reaction is at equilibrium."
+      ]
     },
     {
       "id": "L12.T1.A3.q07",
@@ -107,12 +134,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q8.1.3",
       "question": "In a cell consisting of an Al electrode and an O₂/H⁺ electrode, identify the REDUCING agent.",
-      "answerMode": "text",
-      "expectedAnswer": "Al (aluminium). Al is oxidised at the anode (loses electrons: Al → Al³⁺ + 3e⁻); the species that is oxidised IS the reducing agent (it reduces the other species by donating electrons).",
+      "answerMode": "choice",
+      "expectedAnswer": "Al — the species that is oxidised is the reducing agent.",
       "marks": 1,
       "explanation": "Reducing agent = species that gets oxidised (loses electrons to reduce something else).",
-      "errorSignals": ["ERR_OXIDISING_REDUCING_AGENT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_OXIDISING_REDUCING_AGENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "O₂ is the reducing agent.",
+        "Al — the species that is oxidised is the reducing agent.",
+        "H⁺ is the reducing agent."
+      ]
     },
     {
       "id": "L12.T1.A3.q08",
@@ -121,12 +155,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q8.3",
       "question": "An electrode X gains mass when connected to a standard hydrogen electrode (SHE). EMF = +1.20 V. Identify X. (E°(SHE) = 0 V.)",
-      "answerMode": "text",
-      "expectedAnswer": "X gains mass ⇒ X is the cathode (M²⁺ + 2e⁻ → M deposits). E°_cell = E°_X − 0 = +1.20 V ⇒ E°_X = +1.20 V. From the standard table, the electrode with E° ≈ +1.20 V matches Au³⁺/Au (≈ +1.50 V) is too high; +1.20 V is unusual — could be a custom or approximate value matching the question's standard table. The exact identification depends on the table provided.",
+      "answerMode": "choice",
+      "expectedAnswer": "X is the cathode (it gains mass); E°(X) = +1.20 V (e.g. Au³⁺/Au).",
       "marks": 5,
       "explanation": "Cathode = mass gain. E°_cell = E°_X (since SHE is 0). Look up E° = +1.20 V in the standard table.",
-      "errorSignals": ["ERR_EMF_FORMULA", "ERR_SHE_REFERENCE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMF_FORMULA",
+        "ERR_SHE_REFERENCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "X is the anode, with E°(X) = −1.20 V.",
+        "X has E° = 0 V, the same as the SHE.",
+        "X is the cathode (it gains mass); E°(X) = +1.20 V (e.g. Au³⁺/Au)."
+      ]
     },
     {
       "id": "L12.T1.A3.q09",
@@ -135,12 +177,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2023 Q8.5",
       "question": "Arrange Au³⁺ (E° = +1.50 V), H⁺ (E° = 0.00 V), and Zn²⁺ (E° = −0.76 V) as OXIDISING AGENTS from STRONGEST to WEAKEST.",
-      "answerMode": "text",
-      "expectedAnswer": "Strongest to weakest oxidising agent: Au³⁺ > H⁺ > Zn²⁺. More positive E° ⇒ more easily reduced ⇒ stronger oxidising agent.",
+      "answerMode": "choice",
+      "expectedAnswer": "Au³⁺ > H⁺ > Zn²⁺ (more positive E° ⇒ stronger oxidising agent).",
       "marks": 3,
       "explanation": "Higher E° = stronger oxidiser (better at gaining electrons). Reverse order for reducing-agent strength.",
-      "errorSignals": ["ERR_OXIDISING_STRENGTH_ORDER"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_OXIDISING_STRENGTH_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Au³⁺ > H⁺ > Zn²⁺ (more positive E° ⇒ stronger oxidising agent).",
+        "Zn²⁺ > H⁺ > Au³⁺.",
+        "H⁺ > Au³⁺ > Zn²⁺."
+      ]
     },
     {
       "id": "L12.T1.A3.q10",
@@ -149,11 +198,19 @@
       "source": "fresh",
       "question": "From the table of standard electrode potentials, which has the STRONGEST reducing agent: Na (E° = −2.71 V), Mg (−2.38 V), Zn (−0.76 V), Cu (+0.34 V)?",
       "answerMode": "choice",
-      "options": ["Na", "Mg", "Zn", "Cu"],
+      "options": [
+        "Na",
+        "Mg",
+        "Zn",
+        "Cu"
+      ],
       "expectedAnswer": "Na",
       "marks": 2,
       "explanation": "Strongest reducing agent has the MOST NEGATIVE E° (most easily oxidised). Na has the most negative E° among these ⇒ strongest reducing agent.",
-      "errorSignals": ["ERR_REDUCING_STRENGTH_ORDER", "ERR_OXIDISING_REDUCING_AGENT"],
+      "errorSignals": [
+        "ERR_REDUCING_STRENGTH_ORDER",
+        "ERR_OXIDISING_REDUCING_AGENT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -162,12 +219,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner reverses a reduction half-reaction (writes it as an oxidation) and CHANGES the sign of E°. Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "When writing the formula E°_cell = E°_cathode − E°_anode, you should use the REDUCTION POTENTIAL values from the table for BOTH half-reactions (don't change signs). However, if you want the actual potential for an oxidation (e.g. as a 'half-cell potential' in another convention), then yes, the sign reverses. Be careful with whichever convention you use.",
+      "answerMode": "choice",
+      "expectedAnswer": "Use the table's reduction potentials directly in E°cell = E°cathode − E°anode; don't change the sign.",
       "marks": 3,
       "explanation": "CAPS convention: use reduction potentials in E°_cell = E°_cath − E°_anode. Don't flip signs.",
-      "errorSignals": ["ERR_SIGN_FLIPPING", "ERR_EMF_FORMULA"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SIGN_FLIPPING",
+        "ERR_EMF_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — you must flip the sign of E° whenever you reverse a half-reaction in the formula.",
+        "Use the table's reduction potentials directly in E°cell = E°cathode − E°anode; don't change the sign.",
+        "It makes no difference how the sign is handled."
+      ]
     },
     {
       "id": "L12.T1.A3.q12",
@@ -181,7 +246,10 @@
       "unit": "V",
       "marks": 4,
       "explanation": "Sn²⁺ is reduced (cathode); Al is oxidised (anode). E°_cell = E°_cathode − E°_anode = −0.14 − (−1.66) = +1.52 V. Positive ⇒ spontaneous.",
-      "errorSignals": ["ERR_EMF_FORMULA", "ERR_ANODE_FROM_E"],
+      "errorSignals": [
+        "ERR_EMF_FORMULA",
+        "ERR_ANODE_FROM_E"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -191,12 +259,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q8.2",
       "question": "A Ni²⁺ solution needs to be stored in a metal container. Should COPPER or ZINC be used? Explain using standard electrode potentials. (E°(Cu²⁺/Cu) = +0.34 V; E°(Zn²⁺/Zn) = −0.76 V; E°(Ni²⁺/Ni) = −0.27 V.)",
-      "answerMode": "text",
-      "expectedAnswer": "Use COPPER. The container will be safe if its metal is a WEAKER reducing agent than the metal in solution. Copper (E° = +0.34 V) is a weaker reducing agent than Ni (E° = −0.27 V), so Cu will NOT reduce Ni²⁺ — no reaction. Zinc (E° = −0.76 V) is a STRONGER reducing agent than Ni, so Zn would react with Ni²⁺ (Zn + Ni²⁺ → Zn²⁺ + Ni), corroding the container.",
+      "answerMode": "choice",
+      "expectedAnswer": "Copper — it is a weaker reducing agent than Ni, so it won't react with the Ni²⁺ solution.",
       "marks": 4,
       "explanation": "Compare E°: the container must have HIGHER (more positive) E° than the ion in solution to avoid being oxidised.",
-      "errorSignals": ["ERR_DISPLACEMENT_PREDICTION", "ERR_REDUCING_STRENGTH_ORDER"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_DISPLACEMENT_PREDICTION",
+        "ERR_REDUCING_STRENGTH_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Zinc — it is cheaper and a stronger metal.",
+        "Either works; the container metal does not react with the solution.",
+        "Copper — it is a weaker reducing agent than Ni, so it won't react with the Ni²⁺ solution."
+      ]
     },
     {
       "id": "L12.T1.A3.q14",
@@ -204,12 +280,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Will the reaction Cu + 2H⁺ → Cu²⁺ + H₂ occur spontaneously at standard conditions? (E°(Cu²⁺/Cu) = +0.34 V; E°(2H⁺/H₂) = 0.00 V.)",
-      "answerMode": "text",
-      "expectedAnswer": "No. For the reaction as written, Cu is oxidised (anode, E° = +0.34 V) and H⁺ is reduced (cathode, E° = 0). E°_cell = 0 − 0.34 = −0.34 V (NEGATIVE) ⇒ NON-spontaneous. Copper does NOT react with dilute acid (e.g. HCl). The reverse direction is spontaneous, but the forward is not.",
+      "answerMode": "choice",
+      "expectedAnswer": "No — E°cell = 0 − 0.34 = −0.34 V (negative), so it is non-spontaneous.",
       "marks": 3,
       "explanation": "Negative E°_cell ⇒ non-spontaneous. Cu is less reactive than H ⇒ doesn't displace H₂ from acid.",
-      "errorSignals": ["ERR_EMF_SPONTANEITY", "ERR_EMF_FORMULA"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMF_SPONTANEITY",
+        "ERR_EMF_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "No — E°cell = 0 − 0.34 = −0.34 V (negative), so it is non-spontaneous.",
+        "Yes — E°cell = +0.34 V, so it is spontaneous.",
+        "Yes — all metals react with acids."
+      ]
     },
     {
       "id": "L12.T1.A3.q15",
@@ -217,12 +301,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Will the reaction Zn + 2H⁺ → Zn²⁺ + H₂ occur spontaneously? (E°(Zn²⁺/Zn) = −0.76 V; E°(2H⁺/H₂) = 0.00 V.)",
-      "answerMode": "text",
-      "expectedAnswer": "Yes. Zn is oxidised (anode, −0.76 V) and H⁺ is reduced (cathode, 0.00 V). E°_cell = 0 − (−0.76) = +0.76 V (POSITIVE) ⇒ SPONTANEOUS. Zn does react with dilute acid to produce H₂ gas.",
+      "answerMode": "choice",
+      "expectedAnswer": "Yes — E°cell = 0 − (−0.76) = +0.76 V (positive), so it is spontaneous.",
       "marks": 3,
       "explanation": "Zn is more reactive than H ⇒ displaces H₂ from acid. Standard 'reactive metal in acid' demo.",
-      "errorSignals": ["ERR_EMF_SPONTANEITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMF_SPONTANEITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "No — E°cell = −0.76 V, so it is non-spontaneous.",
+        "Yes — E°cell = 0 − (−0.76) = +0.76 V (positive), so it is spontaneous.",
+        "No — zinc does not react with acids."
+      ]
     },
     {
       "id": "L12.T1.A3.q16",
@@ -231,12 +322,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2021 Q1.8",
       "question": "In a galvanic cell with two half-cells, the voltmeter shows a POSITIVE reading. What does this indicate?",
-      "answerMode": "text",
-      "expectedAnswer": "A positive voltmeter reading indicates that the cell reaction (as set up) is SPONTANEOUS — the polarities are correctly identified (cathode on the side connected to the voltmeter's positive terminal). E°_cell = +ve.",
+      "answerMode": "choice",
+      "expectedAnswer": "The cell reaction (as set up) is spontaneous.",
       "marks": 2,
       "explanation": "Positive voltmeter reading = spontaneous direction. Reversing the cell would give a negative reading.",
-      "errorSignals": ["ERR_EMF_SPONTANEITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMF_SPONTANEITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The cell reaction is non-spontaneous.",
+        "The cell has reached equilibrium (no reaction).",
+        "The cell reaction (as set up) is spontaneous."
+      ]
     },
     {
       "id": "L12.T1.A3.q17",
@@ -250,7 +348,9 @@
       "unit": "V",
       "marks": 3,
       "explanation": "Mg is anode (more negative E°). Ag is cathode. E°_cell = 0.80 − (−2.38) = +3.18 V. (A high-EMF cell.)",
-      "errorSignals": ["ERR_EMF_FORMULA"],
+      "errorSignals": [
+        "ERR_EMF_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -259,12 +359,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does CHANGING the concentration of an electrolyte ABOVE 1 M (or temperature ABOVE 25°C) change the cell EMF from the standard E° value?",
-      "answerMode": "text",
-      "expectedAnswer": "Standard electrode potentials are defined at 1 mol·dm⁻³ concentrations and 25°C. Deviation from these conditions shifts the equilibrium (Nernst equation): higher concentration of the reactant ⇒ stronger oxidising or reducing capability for that half-cell ⇒ EMF deviates from E°.",
+      "answerMode": "choice",
+      "expectedAnswer": "The conditions now differ from standard, so the equilibrium (and EMF) shifts — the Nernst effect.",
       "marks": 3,
       "explanation": "Non-standard conditions ⇒ Nernst equation applies; cell EMF deviates from tabulated E°.",
-      "errorSignals": ["ERR_STANDARD_CONDITIONS", "ERR_NERNST"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_STANDARD_CONDITIONS",
+        "ERR_NERNST"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The conditions now differ from standard, so the equilibrium (and EMF) shifts — the Nernst effect.",
+        "E° values are fixed and never change with conditions.",
+        "Higher temperature always increases the EMF."
+      ]
     },
     {
       "id": "L12.T1.A3.q19",
@@ -272,12 +380,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Predict whether the following reaction will occur spontaneously at standard conditions: Cu²⁺ + 2Ag → Cu + 2Ag⁺. (E°(Cu²⁺/Cu) = +0.34 V; E°(Ag⁺/Ag) = +0.80 V.)",
-      "answerMode": "text",
-      "expectedAnswer": "Cu²⁺ would be reduced (cathode, +0.34 V) and Ag would be oxidised (anode, +0.80 V). E°_cell = 0.34 − 0.80 = −0.46 V (NEGATIVE) ⇒ NON-SPONTANEOUS. Silver does NOT reduce Cu²⁺. The reverse reaction (Cu + Ag⁺ → Ag + Cu²⁺) is spontaneous.",
+      "answerMode": "choice",
+      "expectedAnswer": "No — E°cell = 0.34 − 0.80 = −0.46 V (negative), so it is non-spontaneous.",
       "marks": 3,
       "explanation": "Negative E°_cell ⇒ non-spontaneous. Ag is less reactive than Cu, so cannot displace Cu²⁺.",
-      "errorSignals": ["ERR_EMF_SPONTANEITY", "ERR_DISPLACEMENT_PREDICTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMF_SPONTANEITY",
+        "ERR_DISPLACEMENT_PREDICTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — silver readily reduces copper ions.",
+        "No — E°cell = 0.34 − 0.80 = −0.46 V (negative), so it is non-spontaneous.",
+        "Yes — E°cell = +0.46 V."
+      ]
     },
     {
       "id": "L12.T1.A3.q20",
@@ -285,12 +401,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "What does a HIGH POSITIVE E°_cell (e.g. > 2 V) tell you practically about a galvanic cell?",
-      "answerMode": "text",
-      "expectedAnswer": "It indicates a strongly spontaneous reaction that can supply a relatively large voltage to an external circuit. The cell delivers significant electrical energy per coulomb of charge. Practical batteries (e.g. lithium-ion: ~3.7 V; alkaline: ~1.5 V; lead-acid: ~2 V per cell) use these reactions. Higher EMF = more useful electrical output (at standard conditions).",
+      "answerMode": "choice",
+      "expectedAnswer": "A strongly spontaneous reaction that supplies a large voltage to the external circuit.",
       "marks": 2,
       "explanation": "High E° ⇒ strongly spontaneous ⇒ useful voltage for batteries.",
-      "errorSignals": ["ERR_EMF_PRACTICAL"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMF_PRACTICAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A non-spontaneous reaction that needs external power.",
+        "A cell that cannot deliver any current.",
+        "A strongly spontaneous reaction that supplies a large voltage to the external circuit."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

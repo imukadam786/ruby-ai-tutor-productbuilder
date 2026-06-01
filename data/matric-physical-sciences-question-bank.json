@@ -2,7 +2,7 @@
   "subject": "matric-physical-sciences",
   "version": "1.0",
   "description": "Combined Matric Physical Sciences question bank, produced by scripts/build-matric-phys-sci-bank.mjs from data/matric-physical-sciences-question-banks/*.json. Re-run after editing any per-skill bank.",
-  "built_at": "2026-06-01T09:46:56.429Z",
+  "built_at": "2026-06-01T09:55:38.099Z",
   "skills": {
     "L1.T1.A1": {
       "skill": "L1.T1.A1",
@@ -4124,14 +4124,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q8.1.1",
           "question": "Define REDUCTION in terms of electrons.",
-          "answerMode": "text",
-          "expectedAnswer": "Reduction is the GAIN of electrons by a species (equivalently, a DECREASE in the oxidation state of the species).",
+          "answerMode": "choice",
+          "expectedAnswer": "The gain of electrons by a species (a decrease in oxidation state).",
           "marks": 2,
           "explanation": "Two marks: 'gain of electrons' + 'decrease in oxidation state'. Standard CAPS definition.",
           "errorSignals": [
             "ERR_REDUCTION_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The gain of electrons by a species (a decrease in oxidation state).",
+            "The loss of electrons by a species (an increase in oxidation state).",
+            "The breakdown of a compound by heating it."
+          ]
         },
         {
           "id": "L12.T1.A1.q02",
@@ -4139,14 +4144,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define OXIDATION in terms of electrons.",
-          "answerMode": "text",
-          "expectedAnswer": "Oxidation is the LOSS of electrons by a species (equivalently, an INCREASE in oxidation state).",
+          "answerMode": "choice",
+          "expectedAnswer": "The loss of electrons by a species (an increase in oxidation state).",
           "marks": 2,
           "explanation": "OIL RIG: Oxidation Is Loss (of electrons), Reduction Is Gain.",
           "errorSignals": [
             "ERR_OXIDATION_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The gain of electrons by a species (a decrease in oxidation state).",
+            "The loss of electrons by a species (an increase in oxidation state).",
+            "The addition of water to a substance."
+          ]
         },
         {
           "id": "L12.T1.A1.q03",
@@ -4155,15 +4165,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q8.1.2",
           "question": "Write the REDUCTION half-reaction when sodium reacts with water.",
-          "answerMode": "text",
-          "expectedAnswer": "2H₂O + 2e⁻ → H₂ + 2OH⁻ (or equivalently 2H⁺ + 2e⁻ → H₂ in acidic media; for the reaction with neutral/basic water the H₂O form is conventional).",
+          "answerMode": "choice",
+          "expectedAnswer": "2H₂O + 2e⁻ → H₂ + 2OH⁻",
           "marks": 2,
           "explanation": "Hydrogen is reduced from +1 to 0. Electrons appear on the left (reduction = gain).",
           "errorSignals": [
             "ERR_HALF_REACTION_BALANCE",
             "ERR_REDUCTION_SIDE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "2H₂O → H₂ + 2OH⁻ + 2e⁻",
+            "Na → Na⁺ + e⁻",
+            "2H₂O + 2e⁻ → H₂ + 2OH⁻"
+          ]
         },
         {
           "id": "L12.T1.A1.q04",
@@ -4171,15 +4186,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the oxidation half-reaction for magnesium metal becoming Mg²⁺.",
-          "answerMode": "text",
-          "expectedAnswer": "Mg → Mg²⁺ + 2e⁻.",
+          "answerMode": "choice",
+          "expectedAnswer": "Mg → Mg²⁺ + 2e⁻",
           "marks": 2,
           "explanation": "Mg loses 2 electrons to form Mg²⁺. Electrons appear on the RIGHT (oxidation = lose).",
           "errorSignals": [
             "ERR_OXIDATION_SIDE",
             "ERR_ELECTRON_COUNT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Mg → Mg²⁺ + 2e⁻",
+            "Mg²⁺ + 2e⁻ → Mg",
+            "Mg → Mg²⁺ + e⁻"
+          ]
         },
         {
           "id": "L12.T1.A1.q05",
@@ -4188,15 +4208,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q8.1.3",
           "question": "Write the OVERALL balanced equation for sodium reacting with water.",
-          "answerMode": "text",
-          "expectedAnswer": "2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g).",
+          "answerMode": "choice",
+          "expectedAnswer": "2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g)",
           "marks": 3,
           "explanation": "Oxidation: 2Na → 2Na⁺ + 2e⁻. Reduction: 2H₂O + 2e⁻ → H₂ + 2OH⁻. Add (electrons cancel): 2Na + 2H₂O → 2Na⁺ + 2OH⁻ + H₂ = 2NaOH + H₂.",
           "errorSignals": [
             "ERR_NET_EQUATION",
             "ERR_ELECTRON_CANCEL"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Na(s) + H₂O(l) → NaOH(aq) + H₂(g)",
+            "2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g)",
+            "2Na + 2H₂O → 2NaOH + H₂ + 2e⁻"
+          ]
         },
         {
           "id": "L12.T1.A1.q06",
@@ -4204,15 +4229,20 @@
           "gate": "B",
           "source": "fresh",
           "question": "Combine the half-reactions Zn → Zn²⁺ + 2e⁻ and Cu²⁺ + 2e⁻ → Cu into a net cell equation.",
-          "answerMode": "text",
-          "expectedAnswer": "Zn + Cu²⁺ → Zn²⁺ + Cu. The 2 electrons cancel from both sides.",
+          "answerMode": "choice",
+          "expectedAnswer": "Zn + Cu²⁺ → Zn²⁺ + Cu",
           "marks": 3,
           "explanation": "Same number of electrons in each half-reaction ⇒ add directly; electrons cancel.",
           "errorSignals": [
             "ERR_NET_EQUATION",
             "ERR_ELECTRON_CANCEL"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Zn + Cu²⁺ + 2e⁻ → Zn²⁺ + Cu + 2e⁻",
+            "Zn²⁺ + Cu → Zn + Cu²⁺",
+            "Zn + Cu²⁺ → Zn²⁺ + Cu"
+          ]
         },
         {
           "id": "L12.T1.A1.q07",
@@ -4220,8 +4250,8 @@
           "gate": "B",
           "source": "fresh",
           "question": "Combine the half-reactions Al → Al³⁺ + 3e⁻ and Cu²⁺ + 2e⁻ → Cu into a balanced net equation.",
-          "answerMode": "text",
-          "expectedAnswer": "2Al + 3Cu²⁺ → 2Al³⁺ + 3Cu. Multiply Al half by 2 (gives 6e⁻) and Cu half by 3 (also 6e⁻); add and cancel electrons.",
+          "answerMode": "choice",
+          "expectedAnswer": "2Al + 3Cu²⁺ → 2Al³⁺ + 3Cu",
           "marks": 4,
           "explanation": "Match electron count: LCM of 3 and 2 is 6. Scale each half-reaction so both have 6 electrons.",
           "errorSignals": [
@@ -4229,7 +4259,12 @@
             "ERR_ELECTRON_CANCEL",
             "ERR_LCM_BALANCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "2Al + 3Cu²⁺ → 2Al³⁺ + 3Cu",
+            "Al + Cu²⁺ → Al³⁺ + Cu",
+            "3Al + 2Cu²⁺ → 3Al³⁺ + 2Cu"
+          ]
         },
         {
           "id": "L12.T1.A1.q08",
@@ -4238,15 +4273,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q8.1.4",
           "question": "Write the cathode half-reaction for an oxygen electrode in acidic solution.",
-          "answerMode": "text",
-          "expectedAnswer": "O₂ + 4H⁺ + 4e⁻ → 2H₂O.",
+          "answerMode": "choice",
+          "expectedAnswer": "O₂ + 4H⁺ + 4e⁻ → 2H₂O",
           "marks": 2,
           "explanation": "O₂ is reduced (O goes from 0 to −2). Acidic conditions: H⁺ balances oxygen as water; 4 e⁻ balance charge.",
           "errorSignals": [
             "ERR_HALF_REACTION_BALANCE",
             "ERR_O2_REDUCTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "O₂ + 2H₂O + 4e⁻ → 4OH⁻",
+            "O₂ + 4H⁺ + 4e⁻ → 2H₂O",
+            "2H₂O → O₂ + 4H⁺ + 4e⁻"
+          ]
         },
         {
           "id": "L12.T1.A1.q09",
@@ -4255,15 +4295,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q8.4",
           "question": "Write the oxidation half-reaction at a hydrogen electrode (H₂ → H⁺).",
-          "answerMode": "text",
-          "expectedAnswer": "H₂ → 2H⁺ + 2e⁻.",
+          "answerMode": "choice",
+          "expectedAnswer": "H₂ → 2H⁺ + 2e⁻",
           "marks": 2,
           "explanation": "H is oxidised from 0 (in H₂) to +1 (in H⁺). 2 electrons released per H₂ molecule.",
           "errorSignals": [
             "ERR_HALF_REACTION_BALANCE",
             "ERR_OXIDATION_SIDE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "2H⁺ + 2e⁻ → H₂",
+            "H₂ → H⁺ + e⁻",
+            "H₂ → 2H⁺ + 2e⁻"
+          ]
         },
         {
           "id": "L12.T1.A1.q10",
@@ -4272,15 +4317,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q9.2.1",
           "question": "Write the ANODE half-reaction in an electrolytic cell of CuCl₂(aq) with carbon electrodes.",
-          "answerMode": "text",
-          "expectedAnswer": "2Cl⁻ → Cl₂ + 2e⁻.",
+          "answerMode": "choice",
+          "expectedAnswer": "2Cl⁻ → Cl₂ + 2e⁻",
           "marks": 2,
           "explanation": "At the anode (positive electrode in electrolytic cells), oxidation occurs. Cl⁻ is oxidised to Cl₂ gas.",
           "errorSignals": [
             "ERR_HALF_REACTION_BALANCE",
             "ERR_ANODE_CATHODE_ELECTROLYTIC"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "2Cl⁻ → Cl₂ + 2e⁻",
+            "Cu²⁺ + 2e⁻ → Cu",
+            "Cl₂ + 2e⁻ → 2Cl⁻"
+          ]
         },
         {
           "id": "L12.T1.A1.q11",
@@ -4289,15 +4339,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q9.2.2",
           "question": "Write the cathode half-reaction in the electrolysis of NaCl(aq).",
-          "answerMode": "text",
-          "expectedAnswer": "2H₂O + 2e⁻ → H₂ + 2OH⁻.",
+          "answerMode": "choice",
+          "expectedAnswer": "2H₂O + 2e⁻ → H₂ + 2OH⁻",
           "marks": 2,
           "explanation": "In aqueous NaCl, water is reduced at the cathode rather than Na⁺ (water has higher E° than Na). H₂ gas + hydroxide produced.",
           "errorSignals": [
             "ERR_HALF_REACTION_BALANCE",
             "ERR_AQ_NACL_CATHODE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Na⁺ + e⁻ → Na",
+            "2H₂O + 2e⁻ → H₂ + 2OH⁻",
+            "2Cl⁻ → Cl₂ + 2e⁻"
+          ]
         },
         {
           "id": "L12.T1.A1.q12",
@@ -4306,14 +4361,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q9.2.4",
           "question": "Write the NET cell reaction for the electrolysis of NaCl(aq).",
-          "answerMode": "text",
-          "expectedAnswer": "2Cl⁻ + 2H₂O → Cl₂ + H₂ + 2OH⁻. (Anode: 2Cl⁻ → Cl₂ + 2e⁻; Cathode: 2H₂O + 2e⁻ → H₂ + 2OH⁻. Add — electrons cancel.)",
+          "answerMode": "choice",
+          "expectedAnswer": "2Cl⁻ + 2H₂O → Cl₂ + H₂ + 2OH⁻",
           "marks": 3,
           "explanation": "Electrons balance with 2e⁻ on each side. Net: Cl₂ + H₂ + OH⁻ produced.",
           "errorSignals": [
             "ERR_NET_EQUATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "2Na⁺ + 2Cl⁻ → 2Na + Cl₂",
+            "2H₂O → 2H₂ + O₂",
+            "2Cl⁻ + 2H₂O → Cl₂ + H₂ + 2OH⁻"
+          ]
         },
         {
           "id": "L12.T1.A1.q13",
@@ -4321,15 +4381,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "In the reaction Cu(s) + 2AgNO₃(aq) → Cu(NO₃)₂(aq) + 2Ag(s), which species is OXIDISED and which is REDUCED?",
-          "answerMode": "text",
-          "expectedAnswer": "Cu is OXIDISED (Cu → Cu²⁺ + 2e⁻, loses electrons). Ag⁺ is REDUCED (Ag⁺ + e⁻ → Ag, gains electrons). Total: 2 e⁻ transferred from Cu to two Ag⁺ ions.",
+          "answerMode": "choice",
+          "expectedAnswer": "Cu is oxidised (loses electrons); Ag⁺ is reduced (gains electrons).",
           "marks": 3,
           "explanation": "Use OIL RIG. Cu's oxidation state: 0 → +2 (oxidised). Ag: +1 → 0 (reduced).",
           "errorSignals": [
             "ERR_OIL_RIG",
             "ERR_OXIDATION_STATE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Cu is oxidised (loses electrons); Ag⁺ is reduced (gains electrons).",
+            "Cu is reduced; Ag⁺ is oxidised.",
+            "Cu is oxidised; NO₃⁻ is reduced."
+          ]
         },
         {
           "id": "L12.T1.A1.q14",
@@ -4337,15 +4402,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the oxidation half-reaction and the reduction half-reaction for the redox reaction: Fe + Cl₂ → Fe³⁺ + 2Cl⁻ (Fe is oxidised from 0 to +3).",
-          "answerMode": "text",
-          "expectedAnswer": "Oxidation: Fe → Fe³⁺ + 3e⁻. Reduction: Cl₂ + 2e⁻ → 2Cl⁻.",
+          "answerMode": "choice",
+          "expectedAnswer": "Oxidation: Fe → Fe³⁺ + 3e⁻; Reduction: Cl₂ + 2e⁻ → 2Cl⁻",
           "marks": 4,
           "explanation": "Electrons on right for oxidation; on left for reduction. To balance the overall, multiply Fe by 2 and Cl₂ by 3 (6 e⁻ each).",
           "errorSignals": [
             "ERR_HALF_REACTION_BALANCE",
             "ERR_OXIDATION_STATE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Oxidation: Fe → Fe²⁺ + 2e⁻; Reduction: Cl₂ + 2e⁻ → 2Cl⁻",
+            "Oxidation: Fe → Fe³⁺ + 3e⁻; Reduction: Cl₂ + 2e⁻ → 2Cl⁻",
+            "Oxidation: Fe → Fe³⁺ + 2e⁻; Reduction: Cl₂ + e⁻ → 2Cl⁻"
+          ]
         },
         {
           "id": "L12.T1.A1.q15",
@@ -4353,15 +4423,20 @@
           "gate": "B",
           "source": "fresh",
           "question": "Balance the half-reaction: MnO₄⁻ + H⁺ → Mn²⁺ + H₂O (acidic conditions).",
-          "answerMode": "text",
-          "expectedAnswer": "MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O. Balance O with H₂O, H with H⁺, then balance charge with electrons. Mn goes from +7 to +2 (5e⁻ gained).",
+          "answerMode": "choice",
+          "expectedAnswer": "MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O",
           "marks": 5,
           "explanation": "Standard procedure: 1) balance non-H/O atoms; 2) balance O with H₂O; 3) balance H with H⁺; 4) balance charge with e⁻.",
           "errorSignals": [
             "ERR_HALF_REACTION_BALANCE",
             "ERR_ELECTRON_COUNT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "MnO₄⁻ + 8H⁺ + 3e⁻ → Mn²⁺ + 4H₂O",
+            "MnO₄⁻ + 4H⁺ + 5e⁻ → Mn²⁺ + 2H₂O",
+            "MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O"
+          ]
         },
         {
           "id": "L12.T1.A1.q16",
@@ -4369,15 +4444,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'In a balanced redox reaction, the electrons should appear on BOTH sides of the net equation.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. In a properly balanced NET redox equation, the electrons should CANCEL out and NOT appear in the final equation. Each half-reaction has electrons (one side), and when combined the same number is on each side ⇒ they cancel.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — in a balanced net equation the electrons cancel and do not appear.",
           "marks": 2,
           "explanation": "Half-reactions: e⁻ on one side. Combined: balance electrons so they cancel.",
           "errorSignals": [
             "ERR_ELECTRON_CANCEL",
             "ERR_NET_EQUATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — in a balanced net equation the electrons cancel and do not appear.",
+            "Correct — electrons appear on both sides of the net equation.",
+            "Correct — electrons appear only on the reactant side."
+          ]
         },
         {
           "id": "L12.T1.A1.q17",
@@ -4385,14 +4465,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "In the reaction 2Al + 3Cu²⁺ → 2Al³⁺ + 3Cu, identify the OXIDISING agent and the REDUCING agent.",
-          "answerMode": "text",
-          "expectedAnswer": "Oxidising agent: Cu²⁺ (it gains electrons / it causes Al to be oxidised). Reducing agent: Al (it loses electrons / it causes Cu²⁺ to be reduced).",
+          "answerMode": "choice",
+          "expectedAnswer": "Oxidising agent: Cu²⁺; reducing agent: Al.",
           "marks": 3,
           "explanation": "Oxidising agent gets reduced; reducing agent gets oxidised. Identify by the change in oxidation state.",
           "errorSignals": [
             "ERR_OXIDISING_REDUCING_AGENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Oxidising agent: Al; reducing agent: Cu²⁺.",
+            "Oxidising agent: Cu²⁺; reducing agent: Al.",
+            "Oxidising agent: Al³⁺; reducing agent: Cu."
+          ]
         },
         {
           "id": "L12.T1.A1.q18",
@@ -4400,15 +4485,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the half-reaction for the reduction of Cr³⁺ to Cr metal.",
-          "answerMode": "text",
-          "expectedAnswer": "Cr³⁺ + 3e⁻ → Cr.",
+          "answerMode": "choice",
+          "expectedAnswer": "Cr³⁺ + 3e⁻ → Cr",
           "marks": 2,
           "explanation": "Cr³⁺ gains 3 electrons to become Cr (oxidation state 0). Electrons on left because it's reduction.",
           "errorSignals": [
             "ERR_HALF_REACTION_BALANCE",
             "ERR_REDUCTION_SIDE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Cr → Cr³⁺ + 3e⁻",
+            "Cr³⁺ + 2e⁻ → Cr",
+            "Cr³⁺ + 3e⁻ → Cr"
+          ]
         },
         {
           "id": "L12.T1.A1.q19",
@@ -4416,15 +4506,20 @@
           "gate": "B",
           "source": "fresh",
           "question": "Combine the half-reactions Fe → Fe²⁺ + 2e⁻ and Cu²⁺ + 2e⁻ → Cu. Identify which is oxidation and which is reduction, and write the net equation.",
-          "answerMode": "text",
-          "expectedAnswer": "Fe → Fe²⁺ + 2e⁻ is OXIDATION (Fe loses electrons). Cu²⁺ + 2e⁻ → Cu is REDUCTION (Cu²⁺ gains electrons). Net: Fe + Cu²⁺ → Fe²⁺ + Cu (electrons cancel).",
+          "answerMode": "choice",
+          "expectedAnswer": "Fe → Fe²⁺ + 2e⁻ is oxidation; Cu²⁺ + 2e⁻ → Cu is reduction; net: Fe + Cu²⁺ → Fe²⁺ + Cu.",
           "marks": 4,
           "explanation": "Identify, balance electrons (already equal), combine.",
           "errorSignals": [
             "ERR_OIL_RIG",
             "ERR_NET_EQUATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Fe → Fe²⁺ + 2e⁻ is oxidation; Cu²⁺ + 2e⁻ → Cu is reduction; net: Fe + Cu²⁺ → Fe²⁺ + Cu.",
+            "Fe is reduced and Cu²⁺ is oxidised; net: Fe²⁺ + Cu → Fe + Cu²⁺.",
+            "Both are oxidation; net: Fe + Cu²⁺ → Fe²⁺ + Cu²⁺."
+          ]
         },
         {
           "id": "L12.T1.A1.q20",
@@ -4432,14 +4527,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "In a redox reaction, what does the term 'half-reaction' mean?",
-          "answerMode": "text",
-          "expectedAnswer": "A half-reaction shows EITHER the oxidation OR the reduction part of the overall reaction, with explicit electrons (e⁻) included. Two half-reactions (one oxidation, one reduction) combine into the full redox reaction; the electrons should cancel when added.",
+          "answerMode": "choice",
+          "expectedAnswer": "It shows either the oxidation OR the reduction part, with the electrons (e⁻) shown explicitly.",
           "marks": 2,
           "explanation": "Half-reactions are the building blocks. Each is balanced for atoms AND charge using electrons.",
           "errorSignals": [
             "ERR_HALF_REACTION_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It is the full equation with all electrons already cancelled.",
+            "It shows either the oxidation OR the reduction part, with the electrons (e⁻) shown explicitly.",
+            "It is a reaction that proceeds only halfway to completion."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -4478,14 +4578,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q9.1",
           "question": "Define ELECTROLYSIS.",
-          "answerMode": "text",
-          "expectedAnswer": "Electrolysis is the process of using electrical energy from an external source to drive a non-spontaneous chemical (redox) reaction.",
+          "answerMode": "choice",
+          "expectedAnswer": "Using electrical energy from an external source to drive a non-spontaneous redox reaction.",
           "marks": 2,
           "explanation": "Key features: electrical energy IN, non-spontaneous reaction, external power source.",
           "errorSignals": [
             "ERR_ELECTROLYSIS_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Producing electrical energy from a spontaneous reaction.",
+            "Breaking a substance down by heating it strongly.",
+            "Using electrical energy from an external source to drive a non-spontaneous redox reaction."
+          ]
         },
         {
           "id": "L12.T1.A2.q02",
@@ -4494,14 +4599,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q9.1",
           "question": "Define an ELECTROLYTIC CELL.",
-          "answerMode": "text",
-          "expectedAnswer": "An electrolytic cell is a cell in which electrical energy is used to drive a non-spontaneous chemical reaction. The cell requires an external power source (e.g. a battery) to operate.",
+          "answerMode": "choice",
+          "expectedAnswer": "A cell that uses electrical energy (external power) to drive a non-spontaneous reaction.",
           "marks": 2,
           "explanation": "Same idea as electrolysis: external source drives non-spontaneous redox.",
           "errorSignals": [
             "ERR_ELECTROLYTIC_CELL_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A cell that uses electrical energy (external power) to drive a non-spontaneous reaction.",
+            "A cell that generates electricity from a spontaneous reaction.",
+            "A cell that operates with no external connections."
+          ]
         },
         {
           "id": "L12.T1.A2.q03",
@@ -4510,14 +4620,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q8.2.2",
           "question": "State the energy conversion in a GALVANIC CELL.",
-          "answerMode": "text",
-          "expectedAnswer": "Chemical (potential) energy is converted to electrical energy.",
+          "answerMode": "choice",
+          "expectedAnswer": "Chemical (potential) energy into electrical energy.",
           "marks": 1,
           "explanation": "Galvanic: spontaneous redox releases energy ⇒ chemical → electrical. (Opposite of electrolytic.)",
           "errorSignals": [
             "ERR_GALVANIC_ENERGY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Electrical energy into chemical energy.",
+            "Chemical (potential) energy into electrical energy.",
+            "Heat energy into electrical energy."
+          ]
         },
         {
           "id": "L12.T1.A2.q04",
@@ -4526,15 +4641,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q8.2",
           "question": "State the function of the SALT BRIDGE in an electrochemical (galvanic) cell.",
-          "answerMode": "text",
-          "expectedAnswer": "The salt bridge maintains electrical neutrality in each half-cell by allowing ions to flow between the two half-cells. Cations move toward the cathode side and anions move toward the anode side to balance the charge build-up that would otherwise stop the reaction. It also completes the circuit.",
+          "answerMode": "choice",
+          "expectedAnswer": "It maintains electrical neutrality by allowing ions to flow between the half-cells.",
           "marks": 2,
           "explanation": "Key roles: (1) maintain neutrality; (2) complete circuit (ion flow, not electron flow).",
           "errorSignals": [
             "ERR_SALT_BRIDGE_FUNCTION",
             "ERR_SALT_BRIDGE_ELECTRONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It carries electrons between the two half-cells.",
+            "It speeds up the reaction, acting like a catalyst.",
+            "It maintains electrical neutrality by allowing ions to flow between the half-cells."
+          ]
         },
         {
           "id": "L12.T1.A2.q05",
@@ -4542,14 +4662,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "In a GALVANIC cell, which electrode is the ANODE — POSITIVE or NEGATIVE? At which electrode does oxidation occur?",
-          "answerMode": "text",
-          "expectedAnswer": "Anode = NEGATIVE in a galvanic cell. Oxidation occurs at the anode (always — by definition). In a galvanic cell, electrons flow externally FROM the anode (−) to the cathode (+).",
+          "answerMode": "choice",
+          "expectedAnswer": "Anode = negative; oxidation occurs at the anode.",
           "marks": 3,
           "explanation": "Galvanic anode: NEG. Oxidation always at anode. Cathode in galvanic is POS.",
           "errorSignals": [
             "ERR_GALVANIC_POLARITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Anode = negative; oxidation occurs at the anode.",
+            "Anode = positive; oxidation occurs at the anode.",
+            "Anode = negative; reduction occurs at the anode."
+          ]
         },
         {
           "id": "L12.T1.A2.q06",
@@ -4579,14 +4704,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "In which direction do ELECTRONS flow in the external circuit of a galvanic cell?",
-          "answerMode": "text",
-          "expectedAnswer": "Electrons flow from the ANODE (negative electrode, where oxidation produces electrons) to the CATHODE (positive electrode, where reduction consumes them), through the external wire/circuit.",
+          "answerMode": "choice",
+          "expectedAnswer": "From the anode (−) to the cathode (+) through the external wire.",
           "marks": 2,
           "explanation": "External: anode → cathode (electrons). Internal (salt bridge): ions move to maintain neutrality.",
           "errorSignals": [
             "ERR_ELECTRON_FLOW_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "From the cathode to the anode through the external wire.",
+            "From the anode (−) to the cathode (+) through the external wire.",
+            "Through the salt bridge, from anode to cathode."
+          ]
         },
         {
           "id": "L12.T1.A2.q08",
@@ -4595,14 +4725,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q9.2.3",
           "question": "In the electrolysis of NaCl(aq), in which direction do ELECTRONS flow in the external circuit?",
-          "answerMode": "text",
-          "expectedAnswer": "Electrons flow from the anode to the cathode through the external circuit. In an electrolytic cell, the external battery pushes electrons OUT of its negative terminal (to the cell's cathode) and pulls electrons INTO its positive terminal (from the cell's anode). External electron flow: anode → cathode (same as galvanic; the difference is the battery DRIVES it).",
+          "answerMode": "choice",
+          "expectedAnswer": "From the anode to the cathode through the external circuit.",
           "marks": 1,
           "explanation": "External flow: anode → cathode in BOTH cell types. Power source drives the flow in electrolytic.",
           "errorSignals": [
             "ERR_ELECTRON_FLOW_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "From the cathode to the anode in the external circuit.",
+            "Through the electrolyte solution itself.",
+            "From the anode to the cathode through the external circuit."
+          ]
         },
         {
           "id": "L12.T1.A2.q09",
@@ -4611,15 +4746,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q8.1.5",
           "question": "Write the CELL NOTATION for a galvanic cell with aluminium anode and oxygen cathode (Al → Al³⁺; O₂ → H₂O at Pt electrode).",
-          "answerMode": "text",
-          "expectedAnswer": "Al(s) | Al³⁺(aq) || H⁺(aq), O₂(g) | Pt(s).",
+          "answerMode": "choice",
+          "expectedAnswer": "Al(s) | Al³⁺(aq) || H⁺(aq), O₂(g) | Pt(s)",
           "marks": 3,
           "explanation": "Cell notation: anode on left, cathode on right; '|' is phase boundary; '||' is salt bridge. Pt is used as an inert electrode for the gas half-cell.",
           "errorSignals": [
             "ERR_CELL_NOTATION_FORMAT",
             "ERR_CELL_NOTATION_ORDER"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Al(s) | Al³⁺(aq) || H⁺(aq), O₂(g) | Pt(s)",
+            "Pt(s) | O₂(g), H⁺(aq) || Al³⁺(aq) | Al(s)",
+            "Al(s) || Al³⁺(aq) | H⁺(aq) || O₂(g) | Pt(s)"
+          ]
         },
         {
           "id": "L12.T1.A2.q10",
@@ -4628,14 +4768,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q8.2.1",
           "question": "In cell notation, what does a SINGLE LINE '|' represent?",
-          "answerMode": "text",
-          "expectedAnswer": "A single line '|' represents a phase boundary — an interface between two different phases (e.g. solid electrode and aqueous solution).",
+          "answerMode": "choice",
+          "expectedAnswer": "A phase boundary (interface between two different phases).",
           "marks": 1,
           "explanation": "'|' = phase boundary; '||' = salt bridge.",
           "errorSignals": [
             "ERR_CELL_NOTATION_SYMBOL"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The salt bridge.",
+            "A phase boundary (interface between two different phases).",
+            "The external wire connection."
+          ]
         },
         {
           "id": "L12.T1.A2.q11",
@@ -4644,15 +4789,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q9.2",
           "question": "In the zinc electroplating of a steel spring using a Zn(NO₃)₂ electrolyte, which electrode is the ANODE: the zinc electrode or the steel spring?",
-          "answerMode": "text",
-          "expectedAnswer": "The ZINC electrode is the anode (oxidation: Zn → Zn²⁺ + 2e⁻ replenishes Zn²⁺ in solution). The steel spring is the CATHODE (where Zn²⁺ + 2e⁻ → Zn deposits zinc onto the spring).",
+          "answerMode": "choice",
+          "expectedAnswer": "The zinc electrode is the anode (Zn → Zn²⁺ + 2e⁻).",
           "marks": 2,
           "explanation": "Electroplating: object to be plated = cathode; metal source = anode. The metal anode dissolves and is replated on the cathode.",
           "errorSignals": [
             "ERR_ELECTROPLATING_ANODE",
             "ERR_ELECTROPLATING_CATHODE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The steel spring is the anode.",
+            "Both electrodes act as the anode.",
+            "The zinc electrode is the anode (Zn → Zn²⁺ + 2e⁻)."
+          ]
         },
         {
           "id": "L12.T1.A2.q12",
@@ -4661,15 +4811,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q9.3.1",
           "question": "Write the half-reaction at the metal spring (cathode) in the electroplating cell from the previous question.",
-          "answerMode": "text",
-          "expectedAnswer": "Zn²⁺ + 2e⁻ → Zn (reduction: zinc metal deposits onto the spring).",
+          "answerMode": "choice",
+          "expectedAnswer": "Zn²⁺ + 2e⁻ → Zn (reduction — zinc deposits onto the spring).",
           "marks": 2,
           "explanation": "Cathode: reduction. Zn²⁺ from the solution is reduced to Zn metal, plating the spring.",
           "errorSignals": [
             "ERR_HALF_REACTION_BALANCE",
             "ERR_ELECTROPLATING_HALF_REACTIONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Zn²⁺ + 2e⁻ → Zn (reduction — zinc deposits onto the spring).",
+            "Zn → Zn²⁺ + 2e⁻",
+            "2H₂O + 2e⁻ → H₂ + 2OH⁻"
+          ]
         },
         {
           "id": "L12.T1.A2.q13",
@@ -4678,14 +4833,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q9.3",
           "question": "In the electrolysis of NaCl(aq), does the pH of the solution INCREASE, DECREASE or STAY THE SAME during electrolysis? Give a reason.",
-          "answerMode": "text",
-          "expectedAnswer": "pH INCREASES. At the cathode, water is reduced to H₂ + 2OH⁻. The accumulation of OH⁻ ions makes the solution more alkaline (higher pH).",
+          "answerMode": "choice",
+          "expectedAnswer": "pH increases — water is reduced at the cathode, producing OH⁻.",
           "marks": 2,
           "explanation": "Cathode produces OH⁻ ⇒ solution becomes basic ⇒ pH rises.",
           "errorSignals": [
             "ERR_NACL_ELECTROLYSIS_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "pH decreases — H⁺ accumulates at the cathode.",
+            "pH increases — water is reduced at the cathode, producing OH⁻.",
+            "pH stays the same — electrolysis doesn't affect pH."
+          ]
         },
         {
           "id": "L12.T1.A2.q14",
@@ -4715,14 +4875,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Compare GALVANIC vs ELECTROLYTIC cells: state TWO key differences.",
-          "answerMode": "text",
-          "expectedAnswer": "(1) Galvanic = SPONTANEOUS (produces electrical energy); electrolytic = NON-SPONTANEOUS (consumes electrical energy from an external source). (2) Galvanic anode = NEGATIVE, cathode = POSITIVE; in electrolytic cell, anode = POSITIVE, cathode = NEGATIVE. (Other valid differences: galvanic uses two half-cells with a salt bridge; electrolytic typically uses one container.)",
+          "answerMode": "choice",
+          "expectedAnswer": "Galvanic = spontaneous (anode negative); electrolytic = non-spontaneous, needs external power (anode positive).",
           "marks": 4,
           "explanation": "Spontaneity and polarity convention are the two main differences. Oxidation is always at the anode in both.",
           "errorSignals": [
             "ERR_GALVANIC_VS_ELECTROLYTIC"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Galvanic = non-spontaneous; electrolytic = spontaneous.",
+            "Both are spontaneous and both have a negative anode.",
+            "Galvanic = spontaneous (anode negative); electrolytic = non-spontaneous, needs external power (anode positive)."
+          ]
         },
         {
           "id": "L12.T1.A2.q16",
@@ -4730,15 +4895,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "In a Cu/Zn galvanic cell, identify the (a) anode, (b) cathode, (c) overall cell reaction. (E°(Cu²⁺/Cu) = +0.34 V; E°(Zn²⁺/Zn) = −0.76 V.)",
-          "answerMode": "text",
-          "expectedAnswer": "(a) Anode: Zn (more negative E°, easier to oxidise). Oxidation: Zn → Zn²⁺ + 2e⁻. (b) Cathode: Cu (more positive E°). Reduction: Cu²⁺ + 2e⁻ → Cu. (c) Overall: Zn + Cu²⁺ → Zn²⁺ + Cu. E°_cell = +0.34 − (−0.76) = +1.10 V.",
+          "answerMode": "choice",
+          "expectedAnswer": "Anode: Zn (Zn → Zn²⁺ + 2e⁻); cathode: Cu (Cu²⁺ + 2e⁻ → Cu); overall: Zn + Cu²⁺ → Zn²⁺ + Cu.",
           "marks": 4,
           "explanation": "More negative E° = anode. Standard galvanic cell example.",
           "errorSignals": [
             "ERR_ANODE_FROM_E",
             "ERR_GALVANIC_POLARITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Anode: Zn (Zn → Zn²⁺ + 2e⁻); cathode: Cu (Cu²⁺ + 2e⁻ → Cu); overall: Zn + Cu²⁺ → Zn²⁺ + Cu.",
+            "Anode: Cu; cathode: Zn; overall: Cu + Zn²⁺ → Cu²⁺ + Zn.",
+            "Anode: Zn (positive); cathode: Cu (negative)."
+          ]
         },
         {
           "id": "L12.T1.A2.q17",
@@ -4746,15 +4916,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "In the refining of copper, an impure copper anode is dissolved into solution and pure copper deposits on the cathode. What is the cell type, and which is the anode?",
-          "answerMode": "text",
-          "expectedAnswer": "It is an ELECTROLYTIC cell (driven by external power). The IMPURE COPPER is the anode (oxidised: Cu → Cu²⁺ + 2e⁻). Pure copper is the cathode (Cu²⁺ + 2e⁻ → Cu). Impurities fall to the bottom as 'anode slime'.",
+          "answerMode": "choice",
+          "expectedAnswer": "An electrolytic cell; the impure copper is the anode.",
           "marks": 3,
           "explanation": "Refining = electrolytic. Impure source is the anode (dissolves); pure metal deposits on cathode.",
           "errorSignals": [
             "ERR_REFINING_ANODE",
             "ERR_ELECTROLYTIC_CELL_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A galvanic cell; the pure copper is the anode.",
+            "An electrolytic cell; the impure copper is the anode.",
+            "An electrolytic cell; the pure copper is the anode."
+          ]
         },
         {
           "id": "L12.T1.A2.q18",
@@ -4762,14 +4937,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'Electrons flow through the salt bridge in a galvanic cell.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. Electrons do NOT flow through the salt bridge — they flow through the EXTERNAL WIRE/CIRCUIT (from anode to cathode). The salt bridge allows IONS (cations and anions in solution) to move between half-cells to maintain electrical neutrality.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — electrons flow through the external wire; the salt bridge carries ions.",
           "marks": 2,
           "explanation": "Common misconception. External wire: electrons. Salt bridge: ions.",
           "errorSignals": [
             "ERR_SALT_BRIDGE_ELECTRONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — electrons flow through the salt bridge.",
+            "Correct — both electrons and ions flow through the salt bridge.",
+            "Incorrect — electrons flow through the external wire; the salt bridge carries ions."
+          ]
         },
         {
           "id": "L12.T1.A2.q19",
@@ -4777,15 +4957,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does the mass of the ANODE in a galvanic cell DECREASE over time?",
-          "answerMode": "text",
-          "expectedAnswer": "The anode is the site of OXIDATION. Atoms of the anode metal lose electrons and dissolve into the electrolyte as positive ions (e.g. Zn → Zn²⁺ + 2e⁻). As atoms leave the solid electrode, its mass decreases. Meanwhile, mass typically accumulates at the cathode (where metal ions are reduced and deposited).",
+          "answerMode": "choice",
+          "expectedAnswer": "Oxidation occurs there — metal atoms lose electrons and dissolve as ions.",
           "marks": 3,
           "explanation": "Anode loses material to solution; cathode gains material from solution. Standard galvanic cell behaviour.",
           "errorSignals": [
             "ERR_ANODE_MASS_LOSS",
             "ERR_CATHODE_MASS_GAIN"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Oxidation occurs there — metal atoms lose electrons and dissolve as ions.",
+            "Metal ions from solution deposit onto it.",
+            "The anode evaporates because of the heat produced."
+          ]
         },
         {
           "id": "L12.T1.A2.q20",
@@ -4793,14 +4978,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "In an electrolytic cell, why doesn't the anode of an inert electrode (e.g. carbon) typically dissolve, even though oxidation occurs there?",
-          "answerMode": "text",
-          "expectedAnswer": "Inert electrodes (like platinum or graphite) are chosen because they do NOT participate chemically in the reaction. Oxidation at an inert anode involves species in the SOLUTION (e.g. Cl⁻ → ½Cl₂ + e⁻ in NaCl(aq)), not the electrode itself. The electrode just provides a surface and conducts the current.",
+          "answerMode": "choice",
+          "expectedAnswer": "An inert electrode doesn't react itself; species in the solution are oxidised instead.",
           "marks": 3,
           "explanation": "Inert electrode: surface for reaction, doesn't oxidise. Active electrode: itself oxidises.",
           "errorSignals": [
             "ERR_INERT_ELECTRODE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Carbon is a metal that strongly resists oxidation.",
+            "An inert electrode doesn't react itself; species in the solution are oxidised instead.",
+            "No oxidation actually occurs at an inert anode."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -4845,14 +5035,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q8.1",
           "question": "State the STANDARD CONDITIONS for measuring standard electrode potentials.",
-          "answerMode": "text",
-          "expectedAnswer": "Standard conditions: temperature = 25°C (298 K); all aqueous concentrations = 1 mol·dm⁻³; pressure of any gases = 101.3 kPa (1 atm); pure substances (e.g. metal electrodes) in their standard state.",
+          "answerMode": "choice",
+          "expectedAnswer": "25 °C (298 K), all concentrations 1 mol·dm⁻³, gas pressure 101.3 kPa.",
           "marks": 3,
           "explanation": "Standard state: 1 M, 1 atm, 298 K, pure solids/liquids.",
           "errorSignals": [
             "ERR_STANDARD_CONDITIONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "0 °C, 1 mol·dm⁻³, 100 kPa.",
+            "25 °C, any concentration, any pressure.",
+            "25 °C (298 K), all concentrations 1 mol·dm⁻³, gas pressure 101.3 kPa."
+          ]
         },
         {
           "id": "L12.T1.A3.q02",
@@ -4938,14 +5133,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A galvanic cell has E°_cell = −0.50 V. What does this tell you about the reaction as written?",
-          "answerMode": "text",
-          "expectedAnswer": "Negative E°_cell means the reaction as written is NON-SPONTANEOUS. The cell would not operate spontaneously in this direction. If we reverse the reaction (swap anode and cathode), the magnitude becomes +0.50 V, which is the spontaneous direction.",
+          "answerMode": "choice",
+          "expectedAnswer": "The reaction as written is non-spontaneous.",
           "marks": 2,
           "explanation": "Sign of E°_cell predicts spontaneity. Positive ⇒ spontaneous (galvanic). Negative ⇒ non-spontaneous (requires electrolysis to run).",
           "errorSignals": [
             "ERR_EMF_SPONTANEITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The reaction as written is non-spontaneous.",
+            "The reaction runs spontaneously, since it has a measurable EMF.",
+            "The reaction is at equilibrium."
+          ]
         },
         {
           "id": "L12.T1.A3.q07",
@@ -4954,14 +5154,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q8.1.3",
           "question": "In a cell consisting of an Al electrode and an O₂/H⁺ electrode, identify the REDUCING agent.",
-          "answerMode": "text",
-          "expectedAnswer": "Al (aluminium). Al is oxidised at the anode (loses electrons: Al → Al³⁺ + 3e⁻); the species that is oxidised IS the reducing agent (it reduces the other species by donating electrons).",
+          "answerMode": "choice",
+          "expectedAnswer": "Al — the species that is oxidised is the reducing agent.",
           "marks": 1,
           "explanation": "Reducing agent = species that gets oxidised (loses electrons to reduce something else).",
           "errorSignals": [
             "ERR_OXIDISING_REDUCING_AGENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "O₂ is the reducing agent.",
+            "Al — the species that is oxidised is the reducing agent.",
+            "H⁺ is the reducing agent."
+          ]
         },
         {
           "id": "L12.T1.A3.q08",
@@ -4970,15 +5175,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q8.3",
           "question": "An electrode X gains mass when connected to a standard hydrogen electrode (SHE). EMF = +1.20 V. Identify X. (E°(SHE) = 0 V.)",
-          "answerMode": "text",
-          "expectedAnswer": "X gains mass ⇒ X is the cathode (M²⁺ + 2e⁻ → M deposits). E°_cell = E°_X − 0 = +1.20 V ⇒ E°_X = +1.20 V. From the standard table, the electrode with E° ≈ +1.20 V matches Au³⁺/Au (≈ +1.50 V) is too high; +1.20 V is unusual — could be a custom or approximate value matching the question's standard table. The exact identification depends on the table provided.",
+          "answerMode": "choice",
+          "expectedAnswer": "X is the cathode (it gains mass); E°(X) = +1.20 V (e.g. Au³⁺/Au).",
           "marks": 5,
           "explanation": "Cathode = mass gain. E°_cell = E°_X (since SHE is 0). Look up E° = +1.20 V in the standard table.",
           "errorSignals": [
             "ERR_EMF_FORMULA",
             "ERR_SHE_REFERENCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "X is the anode, with E°(X) = −1.20 V.",
+            "X has E° = 0 V, the same as the SHE.",
+            "X is the cathode (it gains mass); E°(X) = +1.20 V (e.g. Au³⁺/Au)."
+          ]
         },
         {
           "id": "L12.T1.A3.q09",
@@ -4987,14 +5197,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q8.5",
           "question": "Arrange Au³⁺ (E° = +1.50 V), H⁺ (E° = 0.00 V), and Zn²⁺ (E° = −0.76 V) as OXIDISING AGENTS from STRONGEST to WEAKEST.",
-          "answerMode": "text",
-          "expectedAnswer": "Strongest to weakest oxidising agent: Au³⁺ > H⁺ > Zn²⁺. More positive E° ⇒ more easily reduced ⇒ stronger oxidising agent.",
+          "answerMode": "choice",
+          "expectedAnswer": "Au³⁺ > H⁺ > Zn²⁺ (more positive E° ⇒ stronger oxidising agent).",
           "marks": 3,
           "explanation": "Higher E° = stronger oxidiser (better at gaining electrons). Reverse order for reducing-agent strength.",
           "errorSignals": [
             "ERR_OXIDISING_STRENGTH_ORDER"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Au³⁺ > H⁺ > Zn²⁺ (more positive E° ⇒ stronger oxidising agent).",
+            "Zn²⁺ > H⁺ > Au³⁺.",
+            "H⁺ > Au³⁺ > Zn²⁺."
+          ]
         },
         {
           "id": "L12.T1.A3.q10",
@@ -5024,15 +5239,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner reverses a reduction half-reaction (writes it as an oxidation) and CHANGES the sign of E°. Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "When writing the formula E°_cell = E°_cathode − E°_anode, you should use the REDUCTION POTENTIAL values from the table for BOTH half-reactions (don't change signs). However, if you want the actual potential for an oxidation (e.g. as a 'half-cell potential' in another convention), then yes, the sign reverses. Be careful with whichever convention you use.",
+          "answerMode": "choice",
+          "expectedAnswer": "Use the table's reduction potentials directly in E°cell = E°cathode − E°anode; don't change the sign.",
           "marks": 3,
           "explanation": "CAPS convention: use reduction potentials in E°_cell = E°_cath − E°_anode. Don't flip signs.",
           "errorSignals": [
             "ERR_SIGN_FLIPPING",
             "ERR_EMF_FORMULA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — you must flip the sign of E° whenever you reverse a half-reaction in the formula.",
+            "Use the table's reduction potentials directly in E°cell = E°cathode − E°anode; don't change the sign.",
+            "It makes no difference how the sign is handled."
+          ]
         },
         {
           "id": "L12.T1.A3.q12",
@@ -5059,15 +5279,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q8.2",
           "question": "A Ni²⁺ solution needs to be stored in a metal container. Should COPPER or ZINC be used? Explain using standard electrode potentials. (E°(Cu²⁺/Cu) = +0.34 V; E°(Zn²⁺/Zn) = −0.76 V; E°(Ni²⁺/Ni) = −0.27 V.)",
-          "answerMode": "text",
-          "expectedAnswer": "Use COPPER. The container will be safe if its metal is a WEAKER reducing agent than the metal in solution. Copper (E° = +0.34 V) is a weaker reducing agent than Ni (E° = −0.27 V), so Cu will NOT reduce Ni²⁺ — no reaction. Zinc (E° = −0.76 V) is a STRONGER reducing agent than Ni, so Zn would react with Ni²⁺ (Zn + Ni²⁺ → Zn²⁺ + Ni), corroding the container.",
+          "answerMode": "choice",
+          "expectedAnswer": "Copper — it is a weaker reducing agent than Ni, so it won't react with the Ni²⁺ solution.",
           "marks": 4,
           "explanation": "Compare E°: the container must have HIGHER (more positive) E° than the ion in solution to avoid being oxidised.",
           "errorSignals": [
             "ERR_DISPLACEMENT_PREDICTION",
             "ERR_REDUCING_STRENGTH_ORDER"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Zinc — it is cheaper and a stronger metal.",
+            "Either works; the container metal does not react with the solution.",
+            "Copper — it is a weaker reducing agent than Ni, so it won't react with the Ni²⁺ solution."
+          ]
         },
         {
           "id": "L12.T1.A3.q14",
@@ -5075,15 +5300,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Will the reaction Cu + 2H⁺ → Cu²⁺ + H₂ occur spontaneously at standard conditions? (E°(Cu²⁺/Cu) = +0.34 V; E°(2H⁺/H₂) = 0.00 V.)",
-          "answerMode": "text",
-          "expectedAnswer": "No. For the reaction as written, Cu is oxidised (anode, E° = +0.34 V) and H⁺ is reduced (cathode, E° = 0). E°_cell = 0 − 0.34 = −0.34 V (NEGATIVE) ⇒ NON-spontaneous. Copper does NOT react with dilute acid (e.g. HCl). The reverse direction is spontaneous, but the forward is not.",
+          "answerMode": "choice",
+          "expectedAnswer": "No — E°cell = 0 − 0.34 = −0.34 V (negative), so it is non-spontaneous.",
           "marks": 3,
           "explanation": "Negative E°_cell ⇒ non-spontaneous. Cu is less reactive than H ⇒ doesn't displace H₂ from acid.",
           "errorSignals": [
             "ERR_EMF_SPONTANEITY",
             "ERR_EMF_FORMULA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "No — E°cell = 0 − 0.34 = −0.34 V (negative), so it is non-spontaneous.",
+            "Yes — E°cell = +0.34 V, so it is spontaneous.",
+            "Yes — all metals react with acids."
+          ]
         },
         {
           "id": "L12.T1.A3.q15",
@@ -5091,14 +5321,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Will the reaction Zn + 2H⁺ → Zn²⁺ + H₂ occur spontaneously? (E°(Zn²⁺/Zn) = −0.76 V; E°(2H⁺/H₂) = 0.00 V.)",
-          "answerMode": "text",
-          "expectedAnswer": "Yes. Zn is oxidised (anode, −0.76 V) and H⁺ is reduced (cathode, 0.00 V). E°_cell = 0 − (−0.76) = +0.76 V (POSITIVE) ⇒ SPONTANEOUS. Zn does react with dilute acid to produce H₂ gas.",
+          "answerMode": "choice",
+          "expectedAnswer": "Yes — E°cell = 0 − (−0.76) = +0.76 V (positive), so it is spontaneous.",
           "marks": 3,
           "explanation": "Zn is more reactive than H ⇒ displaces H₂ from acid. Standard 'reactive metal in acid' demo.",
           "errorSignals": [
             "ERR_EMF_SPONTANEITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "No — E°cell = −0.76 V, so it is non-spontaneous.",
+            "Yes — E°cell = 0 − (−0.76) = +0.76 V (positive), so it is spontaneous.",
+            "No — zinc does not react with acids."
+          ]
         },
         {
           "id": "L12.T1.A3.q16",
@@ -5107,14 +5342,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q1.8",
           "question": "In a galvanic cell with two half-cells, the voltmeter shows a POSITIVE reading. What does this indicate?",
-          "answerMode": "text",
-          "expectedAnswer": "A positive voltmeter reading indicates that the cell reaction (as set up) is SPONTANEOUS — the polarities are correctly identified (cathode on the side connected to the voltmeter's positive terminal). E°_cell = +ve.",
+          "answerMode": "choice",
+          "expectedAnswer": "The cell reaction (as set up) is spontaneous.",
           "marks": 2,
           "explanation": "Positive voltmeter reading = spontaneous direction. Reversing the cell would give a negative reading.",
           "errorSignals": [
             "ERR_EMF_SPONTANEITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The cell reaction is non-spontaneous.",
+            "The cell has reached equilibrium (no reaction).",
+            "The cell reaction (as set up) is spontaneous."
+          ]
         },
         {
           "id": "L12.T1.A3.q17",
@@ -5139,15 +5379,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does CHANGING the concentration of an electrolyte ABOVE 1 M (or temperature ABOVE 25°C) change the cell EMF from the standard E° value?",
-          "answerMode": "text",
-          "expectedAnswer": "Standard electrode potentials are defined at 1 mol·dm⁻³ concentrations and 25°C. Deviation from these conditions shifts the equilibrium (Nernst equation): higher concentration of the reactant ⇒ stronger oxidising or reducing capability for that half-cell ⇒ EMF deviates from E°.",
+          "answerMode": "choice",
+          "expectedAnswer": "The conditions now differ from standard, so the equilibrium (and EMF) shifts — the Nernst effect.",
           "marks": 3,
           "explanation": "Non-standard conditions ⇒ Nernst equation applies; cell EMF deviates from tabulated E°.",
           "errorSignals": [
             "ERR_STANDARD_CONDITIONS",
             "ERR_NERNST"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The conditions now differ from standard, so the equilibrium (and EMF) shifts — the Nernst effect.",
+            "E° values are fixed and never change with conditions.",
+            "Higher temperature always increases the EMF."
+          ]
         },
         {
           "id": "L12.T1.A3.q19",
@@ -5155,15 +5400,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Predict whether the following reaction will occur spontaneously at standard conditions: Cu²⁺ + 2Ag → Cu + 2Ag⁺. (E°(Cu²⁺/Cu) = +0.34 V; E°(Ag⁺/Ag) = +0.80 V.)",
-          "answerMode": "text",
-          "expectedAnswer": "Cu²⁺ would be reduced (cathode, +0.34 V) and Ag would be oxidised (anode, +0.80 V). E°_cell = 0.34 − 0.80 = −0.46 V (NEGATIVE) ⇒ NON-SPONTANEOUS. Silver does NOT reduce Cu²⁺. The reverse reaction (Cu + Ag⁺ → Ag + Cu²⁺) is spontaneous.",
+          "answerMode": "choice",
+          "expectedAnswer": "No — E°cell = 0.34 − 0.80 = −0.46 V (negative), so it is non-spontaneous.",
           "marks": 3,
           "explanation": "Negative E°_cell ⇒ non-spontaneous. Ag is less reactive than Cu, so cannot displace Cu²⁺.",
           "errorSignals": [
             "ERR_EMF_SPONTANEITY",
             "ERR_DISPLACEMENT_PREDICTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — silver readily reduces copper ions.",
+            "No — E°cell = 0.34 − 0.80 = −0.46 V (negative), so it is non-spontaneous.",
+            "Yes — E°cell = +0.46 V."
+          ]
         },
         {
           "id": "L12.T1.A3.q20",
@@ -5171,14 +5421,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What does a HIGH POSITIVE E°_cell (e.g. > 2 V) tell you practically about a galvanic cell?",
-          "answerMode": "text",
-          "expectedAnswer": "It indicates a strongly spontaneous reaction that can supply a relatively large voltage to an external circuit. The cell delivers significant electrical energy per coulomb of charge. Practical batteries (e.g. lithium-ion: ~3.7 V; alkaline: ~1.5 V; lead-acid: ~2 V per cell) use these reactions. Higher EMF = more useful electrical output (at standard conditions).",
+          "answerMode": "choice",
+          "expectedAnswer": "A strongly spontaneous reaction that supplies a large voltage to the external circuit.",
           "marks": 2,
           "explanation": "High E° ⇒ strongly spontaneous ⇒ useful voltage for batteries.",
           "errorSignals": [
             "ERR_EMF_PRACTICAL"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A non-spontaneous reaction that needs external power.",
+            "A cell that cannot deliver any current.",
+            "A strongly spontaneous reaction that supplies a large voltage to the external circuit."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -5214,15 +5469,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q6.1",
           "question": "Define CHEMICAL EQUILIBRIUM.",
-          "answerMode": "text",
-          "expectedAnswer": "Chemical equilibrium is the dynamic state in a reversible reaction where the rate of the forward reaction equals the rate of the reverse reaction, so the concentrations of reactants and products remain CONSTANT over time.",
+          "answerMode": "choice",
+          "expectedAnswer": "The dynamic state where the forward and reverse reaction rates are equal, so concentrations stay constant.",
           "marks": 2,
           "explanation": "Two marks: 'forward rate = reverse rate' + 'concentrations constant (over time, dynamic)'. Both rates are non-zero (it's dynamic).",
           "errorSignals": [
             "ERR_EQUILIBRIUM_DEF",
             "ERR_DYNAMIC_NATURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The dynamic state where the forward and reverse reaction rates are equal, so concentrations stay constant.",
+            "The state where the reaction has stopped completely.",
+            "The state where reactant and product concentrations become equal."
+          ]
         },
         {
           "id": "L13.T1.A1.q02",
@@ -5231,14 +5491,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q6.2.1",
           "question": "Define a REVERSIBLE REACTION.",
-          "answerMode": "text",
-          "expectedAnswer": "A reversible reaction is one that can proceed in both the forward and reverse directions under the same conditions, so that products can re-form reactants and vice versa.",
+          "answerMode": "choice",
+          "expectedAnswer": "A reaction that can proceed in both the forward and reverse directions under the same conditions.",
           "marks": 1,
           "explanation": "Reversible: both directions possible at the same conditions. Written with ⇌ (double arrow).",
           "errorSignals": [
             "ERR_REVERSIBLE_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A reaction that goes only forward, to completion.",
+            "A reaction that can proceed in both the forward and reverse directions under the same conditions.",
+            "A reaction that can be reversed by stirring it."
+          ]
         },
         {
           "id": "L13.T1.A1.q03",
@@ -5246,15 +5511,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the Kc expression for the equilibrium: N₂(g) + 3H₂(g) ⇌ 2NH₃(g).",
-          "answerMode": "text",
-          "expectedAnswer": "Kc = [NH₃]² / ([N₂] × [H₂]³). Powers from stoichiometric coefficients. Products in numerator, reactants in denominator.",
+          "answerMode": "choice",
+          "expectedAnswer": "Kc = [NH₃]² / ([N₂][H₂]³)",
           "marks": 3,
           "explanation": "All species are gases ⇒ all appear in Kc. Powers from coefficients (2 for NH₃, 1 for N₂, 3 for H₂).",
           "errorSignals": [
             "ERR_KC_EXPRESSION",
             "ERR_KC_POWERS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kc = ([N₂][H₂]³) / [NH₃]²",
+            "Kc = [NH₃] / ([N₂][H₂])",
+            "Kc = [NH₃]² / ([N₂][H₂]³)"
+          ]
         },
         {
           "id": "L13.T1.A1.q04",
@@ -5262,15 +5532,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the Kc expression for: CaCO₃(s) ⇌ CaO(s) + CO₂(g).",
-          "answerMode": "text",
-          "expectedAnswer": "Kc = [CO₂]. Pure solids (CaCO₃ and CaO) are EXCLUDED from Kc (their 'activity' is 1). Only gases and aqueous species appear.",
+          "answerMode": "choice",
+          "expectedAnswer": "Kc = [CO₂] (pure solids are excluded).",
           "marks": 3,
           "explanation": "Critical rule: omit pure solids and pure liquids from Kc. Only [CO₂] (gas) appears here.",
           "errorSignals": [
             "ERR_KC_INCLUDES_SOLID",
             "ERR_KC_EXPRESSION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kc = [CO₂] (pure solids are excluded).",
+            "Kc = [CaO][CO₂] / [CaCO₃]",
+            "Kc = [CO₂] / [CaCO₃]"
+          ]
         },
         {
           "id": "L13.T1.A1.q05",
@@ -5278,15 +5553,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the Kc expression for: 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) (Contact process).",
-          "answerMode": "text",
-          "expectedAnswer": "Kc = [SO₃]² / ([SO₂]² × [O₂]). Powers from coefficients.",
+          "answerMode": "choice",
+          "expectedAnswer": "Kc = [SO₃]² / ([SO₂]²[O₂])",
           "marks": 3,
           "explanation": "All gases ⇒ all in Kc. Powers match coefficients.",
           "errorSignals": [
             "ERR_KC_EXPRESSION",
             "ERR_KC_POWERS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kc = ([SO₂]²[O₂]) / [SO₃]²",
+            "Kc = [SO₃]² / ([SO₂]²[O₂])",
+            "Kc = [SO₃] / ([SO₂][O₂])"
+          ]
         },
         {
           "id": "L13.T1.A1.q06",
@@ -5294,14 +5574,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the Kc expression for: AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq).",
-          "answerMode": "text",
-          "expectedAnswer": "Kc = [Ag⁺] × [Cl⁻]. The pure solid AgCl is excluded. (This Kc is also called the solubility product Ksp.)",
+          "answerMode": "choice",
+          "expectedAnswer": "Kc = [Ag⁺][Cl⁻] (the pure solid is excluded).",
           "marks": 3,
           "explanation": "Exclude solid AgCl. Aqueous species are included.",
           "errorSignals": [
             "ERR_KC_INCLUDES_SOLID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kc = [Ag⁺][Cl⁻] / [AgCl]",
+            "Kc = [AgCl] / ([Ag⁺][Cl⁻])",
+            "Kc = [Ag⁺][Cl⁻] (the pure solid is excluded)."
+          ]
         },
         {
           "id": "L13.T1.A1.q07",
@@ -5352,14 +5637,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "If Kc for a reaction is very LARGE (e.g. 10⁶), what does this tell you about the position of the equilibrium?",
-          "answerMode": "text",
-          "expectedAnswer": "A large Kc means [products] >> [reactants] at equilibrium. The equilibrium 'lies to the right' (products side); the forward reaction has essentially gone to completion.",
+          "answerMode": "choice",
+          "expectedAnswer": "Products far exceed reactants; the equilibrium lies to the right.",
           "marks": 2,
           "explanation": "Large Kc = products favoured. Small Kc = reactants favoured. Kc ≈ 1 = comparable amounts.",
           "errorSignals": [
             "ERR_KC_INTERPRETATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Products far exceed reactants; the equilibrium lies to the right.",
+            "Reactants far exceed products; the equilibrium lies to the left.",
+            "Reactants and products are present in equal amounts."
+          ]
         },
         {
           "id": "L13.T1.A1.q10",
@@ -5368,14 +5658,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q6.2.1",
           "question": "On a concentration-time graph for the reaction 2HI(g) ⇌ H₂(g) + I₂(g), one curve DECREASES then becomes constant, and the others INCREASE then become constant. Which curve represents the PRODUCTS?",
-          "answerMode": "text",
-          "expectedAnswer": "The curves that INCREASE and then level off represent the PRODUCTS (H₂ and I₂). The curve that DECREASES and levels off represents the REACTANT (HI).",
+          "answerMode": "choice",
+          "expectedAnswer": "The curve that decreases and then levels off is the reactant (HI).",
           "marks": 2,
           "explanation": "Reactants decrease; products grow. Both level off when equilibrium is reached.",
           "errorSignals": [
             "ERR_CONC_TIME_GRAPH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The curves that increase and level off are the reactant.",
+            "The curve that decreases and then levels off is the reactant (HI).",
+            "All curves are products; the reactant is not shown."
+          ]
         },
         {
           "id": "L13.T1.A1.q11",
@@ -5405,15 +5700,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the Kc expression for: 2NO(g) + O₂(g) ⇌ 2NO₂(g).",
-          "answerMode": "text",
-          "expectedAnswer": "Kc = [NO₂]² / ([NO]² × [O₂]).",
+          "answerMode": "choice",
+          "expectedAnswer": "Kc = [NO₂]² / ([NO]²[O₂])",
           "marks": 3,
           "explanation": "All gaseous; powers from coefficients.",
           "errorSignals": [
             "ERR_KC_EXPRESSION",
             "ERR_KC_POWERS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kc = ([NO]²[O₂]) / [NO₂]²",
+            "Kc = [NO₂] / ([NO][O₂])",
+            "Kc = [NO₂]² / ([NO]²[O₂])"
+          ]
         },
         {
           "id": "L13.T1.A1.q13",
@@ -5421,15 +5721,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'At equilibrium, the concentrations of reactants and products are equal.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. At equilibrium, the concentrations remain CONSTANT (don't change over time), but they are NOT necessarily equal. The actual concentrations depend on the value of Kc and the initial amounts. Equilibrium does NOT mean equal concentrations.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — concentrations stay constant at equilibrium, but they are not necessarily equal.",
           "marks": 3,
           "explanation": "Common misconception. 'Constant' ≠ 'equal'. Kc dictates the ratio; the position depends on Kc and initial conditions.",
           "errorSignals": [
             "ERR_EQUILIBRIUM_DEF",
             "ERR_EQUAL_VS_CONSTANT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — concentrations stay constant at equilibrium, but they are not necessarily equal.",
+            "Correct — at equilibrium reactant and product concentrations are equal.",
+            "Correct — equilibrium means all concentrations fall to zero."
+          ]
         },
         {
           "id": "L13.T1.A1.q14",
@@ -5437,14 +5742,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the units of Kc for the equilibrium H₂(g) + I₂(g) ⇌ 2HI(g) (concentrations in mol·dm⁻³).",
-          "answerMode": "text",
-          "expectedAnswer": "Units cancel: Kc = [HI]² / ([H₂][I₂]) has units (mol·dm⁻³)² / ((mol·dm⁻³)(mol·dm⁻³)) = (mol·dm⁻³)² / (mol·dm⁻³)² = dimensionless (no units). For this particular reaction, Kc is unitless.",
+          "answerMode": "choice",
+          "expectedAnswer": "No units (dimensionless) — the concentration units cancel.",
           "marks": 2,
           "explanation": "Kc units depend on the difference in powers between products and reactants. For this reaction the powers cancel: dimensionless.",
           "errorSignals": [
             "ERR_KC_UNITS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "mol·dm⁻³",
+            "No units (dimensionless) — the concentration units cancel.",
+            "mol²·dm⁻⁶"
+          ]
         },
         {
           "id": "L13.T1.A1.q15",
@@ -5452,14 +5762,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the units of Kc for: N₂(g) + 3H₂(g) ⇌ 2NH₃(g).",
-          "answerMode": "text",
-          "expectedAnswer": "Kc = [NH₃]² / ([N₂][H₂]³). Units: (mol·dm⁻³)² / ((mol·dm⁻³)(mol·dm⁻³)³) = (mol·dm⁻³)² / (mol·dm⁻³)⁴ = (mol·dm⁻³)⁻² = mol⁻²·dm⁶.",
+          "answerMode": "choice",
+          "expectedAnswer": "mol⁻²·dm⁶",
           "marks": 3,
           "explanation": "Units = (mol·dm⁻³)^(Δn) where Δn = (sum products' coefficients) − (sum reactants' coefficients) = 2 − 4 = −2.",
           "errorSignals": [
             "ERR_KC_UNITS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "No units (dimensionless).",
+            "mol²·dm⁻⁶",
+            "mol⁻²·dm⁶"
+          ]
         },
         {
           "id": "L13.T1.A1.q16",
@@ -5467,14 +5782,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "For the reaction H₂(g) + Cl₂(g) ⇌ 2HCl(g) with Kc = 4 × 10⁵, write Kc for the REVERSE reaction (2HCl ⇌ H₂ + Cl₂).",
-          "answerMode": "text",
-          "expectedAnswer": "Kc(reverse) = 1/Kc(forward) = 1/(4 × 10⁵) = 2.5 × 10⁻⁶.",
+          "answerMode": "choice",
+          "expectedAnswer": "Kc(reverse) = 1 / (4 × 10⁵) = 2.5 × 10⁻⁶",
           "marks": 3,
           "explanation": "Reverse reaction Kc is the reciprocal. (And reverse reaction equilibrium is far to the reactants if forward Kc is large.)",
           "errorSignals": [
             "ERR_KC_REVERSE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kc(reverse) = 1 / (4 × 10⁵) = 2.5 × 10⁻⁶",
+            "Kc(reverse) = −4 × 10⁵ (change the sign).",
+            "Kc(reverse) = 4 × 10⁵ (unchanged)."
+          ]
         },
         {
           "id": "L13.T1.A1.q17",
@@ -5482,14 +5802,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Which conditions must be met for a chemical equilibrium to be established?",
-          "answerMode": "text",
-          "expectedAnswer": "(1) The reaction must be REVERSIBLE; (2) The system must be CLOSED (no matter enters or leaves); (3) Constant temperature; (4) Sufficient time for the forward and reverse rates to equalise.",
+          "answerMode": "choice",
+          "expectedAnswer": "The reaction is reversible, the system is closed, and the temperature is constant.",
           "marks": 3,
           "explanation": "Open systems lose products (e.g. gas escaping) so equilibrium never reaches.",
           "errorSignals": [
             "ERR_EQUILIBRIUM_CONDITIONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The reaction must go to completion in an open container.",
+            "The reaction is reversible, the system is closed, and the temperature is constant.",
+            "Equal moles of reactants and products must be present."
+          ]
         },
         {
           "id": "L13.T1.A1.q18",
@@ -5497,14 +5822,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the Kc expression for: BaSO₄(s) ⇌ Ba²⁺(aq) + SO₄²⁻(aq).",
-          "answerMode": "text",
-          "expectedAnswer": "Kc = [Ba²⁺] × [SO₄²⁻]. BaSO₄ is a pure solid and is excluded.",
+          "answerMode": "choice",
+          "expectedAnswer": "Kc = [Ba²⁺][SO₄²⁻] (the pure solid is excluded).",
           "marks": 3,
           "explanation": "This Kc is the solubility product Ksp. Solid excluded.",
           "errorSignals": [
             "ERR_KC_INCLUDES_SOLID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kc = [Ba²⁺][SO₄²⁻] / [BaSO₄]",
+            "Kc = [BaSO₄] / ([Ba²⁺][SO₄²⁻])",
+            "Kc = [Ba²⁺][SO₄²⁻] (the pure solid is excluded)."
+          ]
         },
         {
           "id": "L13.T1.A1.q19",
@@ -5512,14 +5842,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Write the Kc expression for: H₂O(l) ⇌ H⁺(aq) + OH⁻(aq).",
-          "answerMode": "text",
-          "expectedAnswer": "Kc (or Kw) = [H⁺] × [OH⁻]. Pure water (liquid) is excluded from the Kc expression.",
+          "answerMode": "choice",
+          "expectedAnswer": "Kc = [H⁺][OH⁻] (the pure liquid water is excluded).",
           "marks": 3,
           "explanation": "Pure liquid H₂O excluded. This Kc is the ion product of water (Kw = 10⁻¹⁴ at 25°C).",
           "errorSignals": [
             "ERR_KC_INCLUDES_LIQUID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kc = [H⁺][OH⁻] (the pure liquid water is excluded).",
+            "Kc = [H⁺][OH⁻] / [H₂O]",
+            "Kc = [H₂O] / ([H⁺][OH⁻])"
+          ]
         },
         {
           "id": "L13.T1.A1.q20",
@@ -5527,15 +5862,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why do PURE SOLIDS and PURE LIQUIDS not appear in Kc expressions?",
-          "answerMode": "text",
-          "expectedAnswer": "Pure solids and pure liquids have CONSTANT activity (essentially constant 'effective concentration') because their density and amount in pure form do not change during the reaction. Their contribution is absorbed into the Kc constant. Aqueous and gaseous species have varying concentration ⇒ they appear in Kc.",
+          "answerMode": "choice",
+          "expectedAnswer": "Their activity (effective concentration) is constant, so it is built into Kc.",
           "marks": 3,
           "explanation": "Activity = 1 for pure phases. Only varying-concentration species are in Kc.",
           "errorSignals": [
             "ERR_KC_INCLUDES_SOLID",
             "ERR_KC_INCLUDES_LIQUID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "They react too slowly to matter.",
+            "Their activity (effective concentration) is constant, so it is built into Kc.",
+            "Their concentrations are always zero."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -5572,14 +5912,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q6.1",
           "question": "State LE CHATELIER'S PRINCIPLE.",
-          "answerMode": "text",
-          "expectedAnswer": "When the equilibrium of a system is disturbed by a change in conditions (concentration, pressure, temperature), the system will shift to oppose the change and re-establish equilibrium.",
+          "answerMode": "choice",
+          "expectedAnswer": "When an equilibrium is disturbed, the system shifts to oppose the change and re-establish equilibrium.",
           "marks": 2,
           "explanation": "Two marks: 'system shifts' + 'to oppose the change'. Standard CAPS wording.",
           "errorSignals": [
             "ERR_LECHATELIER_STATEMENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A system at equilibrium always shifts to make more product.",
+            "Disturbing an equilibrium stops the reaction entirely.",
+            "When an equilibrium is disturbed, the system shifts to oppose the change and re-establish equilibrium."
+          ]
         },
         {
           "id": "L13.T1.A2.q02",
@@ -5588,14 +5933,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q1.4",
           "question": "The equilibrium 2CrO₄²⁻ (yellow) + 2H⁺ ⇌ Cr₂O₇²⁻ (orange) + H₂O is observed. Adding ACID to the solution causes the colour to change from yellow to orange. Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Adding acid increases [H⁺]. By Le Chatelier, the equilibrium shifts to oppose the increase, i.e. shifts to the RIGHT (forward direction) to use up H⁺. This produces more Cr₂O₇²⁻ (orange), so the solution turns orange.",
+          "answerMode": "choice",
+          "expectedAnswer": "Adding H⁺ shifts the equilibrium right (to use up H⁺), forming more orange Cr₂O₇²⁻.",
           "marks": 3,
           "explanation": "Add reactant ⇒ equilibrium shifts AWAY (toward products) to consume it.",
           "errorSignals": [
             "ERR_LECHATELIER_CONCENTRATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Adding H⁺ shifts the equilibrium right (to use up H⁺), forming more orange Cr₂O₇²⁻.",
+            "Adding acid shifts it left, making more yellow CrO₄²⁻.",
+            "Adding acid has no effect on this equilibrium."
+          ]
         },
         {
           "id": "L13.T1.A2.q03",
@@ -5625,15 +5975,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does INCREASING the temperature affect an EXOTHERMIC equilibrium reaction?",
-          "answerMode": "text",
-          "expectedAnswer": "Increasing temperature shifts equilibrium in the ENDOTHERMIC direction (the reverse direction for an exothermic forward reaction). The system absorbs the added heat by favouring the reverse reaction. So [products] decrease and Kc DECREASES.",
+          "answerMode": "choice",
+          "expectedAnswer": "It shifts in the endothermic (reverse) direction, absorbing the added heat.",
           "marks": 3,
           "explanation": "Heat acts like a 'reactant' for exothermic. Add heat ⇒ system absorbs it ⇒ favours endothermic direction.",
           "errorSignals": [
             "ERR_LECHATELIER_TEMPERATURE",
             "ERR_KC_TEMPERATURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It shifts forward — heat speeds up product formation.",
+            "It shifts in the endothermic (reverse) direction, absorbing the added heat.",
+            "There is no shift — temperature doesn't move equilibrium."
+          ]
         },
         {
           "id": "L13.T1.A2.q05",
@@ -5642,15 +5997,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q6.1.3",
           "question": "For the exothermic reaction H₂ + I₂ ⇌ 2HI (ΔH < 0). On a concentration-time graph, [HI] suddenly DECREASES at t₂. Was the system HEATED or COOLED?",
-          "answerMode": "text",
-          "expectedAnswer": "HEATED. For an exothermic forward reaction, increasing temperature favours the REVERSE (endothermic) direction. Reverse direction consumes HI ⇒ [HI] decreases. So the system was heated.",
+          "answerMode": "choice",
+          "expectedAnswer": "Heated — for an exothermic forward reaction, higher T favours the reverse, consuming HI.",
           "marks": 1,
           "explanation": "Exothermic forward ⇒ endothermic reverse. Heat ⇒ reverse favoured ⇒ HI consumed.",
           "errorSignals": [
             "ERR_LECHATELIER_TEMPERATURE",
             "ERR_EXOTHERMIC_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Cooled — lower temperature favours the reverse reaction.",
+            "Neither — the [HI] change is unrelated to temperature.",
+            "Heated — for an exothermic forward reaction, higher T favours the reverse, consuming HI."
+          ]
         },
         {
           "id": "L13.T1.A2.q06",
@@ -5659,15 +6019,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q6.3.1",
           "question": "For 2HI(g) ⇌ H₂(g) + I₂(g): Kc at 721 K = 0.02 and at 850 K = 0.09. Is the forward reaction EXOTHERMIC or ENDOTHERMIC?",
-          "answerMode": "text",
-          "expectedAnswer": "ENDOTHERMIC. Kc increases with increasing T. By Le Chatelier, increasing T favours the endothermic direction; if Kc increases (more products), the FORWARD direction must be endothermic.",
+          "answerMode": "choice",
+          "expectedAnswer": "Endothermic — Kc rises with temperature, so higher T favours the forward (endothermic) direction.",
           "marks": 1,
           "explanation": "T ↑, Kc ↑ ⇒ forward is endothermic. T ↑, Kc ↓ ⇒ forward is exothermic.",
           "errorSignals": [
             "ERR_LECHATELIER_TEMPERATURE",
             "ERR_KC_TEMPERATURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Endothermic — Kc rises with temperature, so higher T favours the forward (endothermic) direction.",
+            "Exothermic — a rising Kc means more heat is released.",
+            "Neither — Kc does not depend on temperature."
+          ]
         },
         {
           "id": "L13.T1.A2.q07",
@@ -5698,15 +6063,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does INCREASING the PRESSURE affect the equilibrium N₂(g) + 3H₂(g) ⇌ 2NH₃(g)?",
-          "answerMode": "text",
-          "expectedAnswer": "Increasing pressure shifts equilibrium toward the side with FEWER moles of gas. Reactants: 1 + 3 = 4 mol of gas. Products: 2 mol of gas. So equilibrium shifts to the RIGHT (products, NH₃), reducing the total moles of gas to oppose the pressure increase.",
+          "answerMode": "choice",
+          "expectedAnswer": "It shifts right (to the products) — the side with fewer moles of gas (2 vs 4).",
           "marks": 3,
           "explanation": "More pressure ⇒ shift to fewer gas moles. Haber reaction: 4 mol → 2 mol ⇒ pressure favours products.",
           "errorSignals": [
             "ERR_LECHATELIER_PRESSURE",
             "ERR_GAS_MOLES_COUNT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It shifts left, toward the 4 moles of reactant gas.",
+            "It shifts right (to the products) — the side with fewer moles of gas (2 vs 4).",
+            "No shift — pressure doesn't affect gaseous equilibria."
+          ]
         },
         {
           "id": "L13.T1.A2.q09",
@@ -5714,14 +6084,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Does adding a CATALYST shift the position of an equilibrium?",
-          "answerMode": "text",
-          "expectedAnswer": "NO. A catalyst speeds up BOTH the forward and reverse reactions equally. The system reaches equilibrium FASTER, but at the SAME position (same Kc, same equilibrium concentrations). The catalyst does not change the equilibrium position.",
+          "answerMode": "choice",
+          "expectedAnswer": "No — a catalyst speeds both directions equally; equilibrium is reached faster at the same position.",
           "marks": 2,
           "explanation": "Catalyst: kinetic effect (rate ↑) but no thermodynamic effect (position unchanged). Kc unchanged.",
           "errorSignals": [
             "ERR_CATALYST_SHIFT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — a catalyst shifts the equilibrium toward the products.",
+            "Yes — a catalyst increases the value of Kc.",
+            "No — a catalyst speeds both directions equally; equilibrium is reached faster at the same position."
+          ]
         },
         {
           "id": "L13.T1.A2.q10",
@@ -5729,14 +6104,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Describe the conditions used in the HABER process for producing ammonia (N₂ + 3H₂ ⇌ 2NH₃, exothermic).",
-          "answerMode": "text",
-          "expectedAnswer": "Haber process conditions: temperature ~400–500°C (a COMPROMISE — lower T gives higher equilibrium yield but slower rate; ~450°C is fast enough), pressure ~150–200 atm (HIGH — favours fewer-mole side, i.e. NH₃), iron (Fe) catalyst (with promoters) to speed equilibrium. NH₃ is removed to drive forward reaction.",
+          "answerMode": "choice",
+          "expectedAnswer": "Moderate temperature (~450 °C), high pressure (~200 atm), an iron catalyst.",
           "marks": 4,
           "explanation": "Standard CAPS Haber conditions: high P, moderate T, Fe catalyst. T is a kinetics/yield compromise.",
           "errorSignals": [
             "ERR_HABER_CONDITIONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Moderate temperature (~450 °C), high pressure (~200 atm), an iron catalyst.",
+            "Very low temperature (~25 °C) and low pressure (1 atm).",
+            "Very high temperature (~1000 °C) and a platinum catalyst."
+          ]
         },
         {
           "id": "L13.T1.A2.q11",
@@ -5744,14 +6124,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Describe the CONTACT process (sulfuric acid manufacture) in outline.",
-          "answerMode": "text",
-          "expectedAnswer": "Three main steps: (1) S + O₂ → SO₂; (2) 2SO₂ + O₂ ⇌ 2SO₃ (this is the key equilibrium step, exothermic, catalysed by V₂O₅ at ~450°C); (3) SO₃ + H₂O → H₂SO₄ (in practice via oleum). The Contact process makes sulfuric acid.",
+          "answerMode": "choice",
+          "expectedAnswer": "S → SO₂; then 2SO₂ + O₂ ⇌ 2SO₃ (V₂O₅ catalyst, ~450 °C); then SO₃ → H₂SO₄.",
           "marks": 3,
           "explanation": "Contact: S → SO₂ → SO₃ → H₂SO₄. V₂O₅ catalyst. Exothermic at the equilibrium step.",
           "errorSignals": [
             "ERR_CONTACT_PROCESS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "N₂ + 3H₂ ⇌ 2NH₃ over an iron catalyst.",
+            "S → SO₂; then 2SO₂ + O₂ ⇌ 2SO₃ (V₂O₅ catalyst, ~450 °C); then SO₃ → H₂SO₄.",
+            "Electrolysis of water to make sulfuric acid."
+          ]
         },
         {
           "id": "L13.T1.A2.q12",
@@ -5780,8 +6165,8 @@
           "gate": "A",
           "source": "fresh",
           "question": "For the equilibrium CO(g) + 2H₂(g) ⇌ CH₃OH(g) (exothermic), predict the effect on the EQUILIBRIUM POSITION of: (a) adding more CO; (b) increasing pressure; (c) increasing temperature.",
-          "answerMode": "text",
-          "expectedAnswer": "(a) Adding CO shifts equilibrium to the RIGHT (system uses up CO to oppose the addition); more CH₃OH forms. (b) Increasing pressure shifts to fewer gas moles: products (1 mol) < reactants (3 mol), so equilibrium shifts RIGHT; more CH₃OH. (c) Increasing temperature favours the endothermic (reverse) direction (forward is exothermic), so equilibrium shifts LEFT; less CH₃OH.",
+          "answerMode": "choice",
+          "expectedAnswer": "(a) adding CO → shifts right; (b) higher pressure → shifts right (fewer gas moles); (c) higher temperature → shifts left.",
           "marks": 4,
           "explanation": "Three Le Chatelier applications in one. Concentration, pressure (gas moles), temperature (exothermic).",
           "errorSignals": [
@@ -5789,7 +6174,12 @@
             "ERR_LECHATELIER_PRESSURE",
             "ERR_LECHATELIER_TEMPERATURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "(a) right; (b) left; (c) right.",
+            "(a) left; (b) right; (c) right.",
+            "(a) adding CO → shifts right; (b) higher pressure → shifts right (fewer gas moles); (c) higher temperature → shifts left."
+          ]
         },
         {
           "id": "L13.T1.A2.q14",
@@ -5797,15 +6187,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is a MODERATE TEMPERATURE chosen for the Haber process even though the forward reaction is exothermic and lower temperatures favour higher equilibrium yields?",
-          "answerMode": "text",
-          "expectedAnswer": "Lower temperature gives higher equilibrium YIELD (favours exothermic forward direction) but lower RATE (kinetics slows). Higher temperature gives faster rate but lower yield. The choice of ~450°C is a COMPROMISE: high enough that the reaction proceeds at a useful industrial rate, low enough to keep yield reasonable. The catalyst (Fe) helps reach equilibrium faster at this moderate temperature.",
+          "answerMode": "choice",
+          "expectedAnswer": "It's a compromise — lower T gives higher yield but a slower rate; ~450 °C balances yield and speed.",
           "marks": 3,
           "explanation": "Trade-off: yield vs rate. Catalyst helps with rate; moderate T balances both.",
           "errorSignals": [
             "ERR_KINETICS_VS_EQUILIBRIUM",
             "ERR_HABER_CONDITIONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It's a compromise — lower T gives higher yield but a slower rate; ~450 °C balances yield and speed.",
+            "Because a higher temperature gives both higher yield and faster rate.",
+            "Because temperature has no effect on an exothermic reaction."
+          ]
         },
         {
           "id": "L13.T1.A2.q15",
@@ -5813,15 +6208,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "If an INERT GAS (e.g. He) is added at constant volume to the equilibrium N₂ + 3H₂ ⇌ 2NH₃, what happens to the equilibrium?",
-          "answerMode": "text",
-          "expectedAnswer": "NO SHIFT. Adding an inert gas at CONSTANT VOLUME does not change the partial pressures (or concentrations) of N₂, H₂ or NH₃. The total pressure rises but the partial pressures (which appear in Kc) are unchanged. So Le Chatelier predicts no shift.",
+          "answerMode": "choice",
+          "expectedAnswer": "No shift — at constant volume the partial pressures of the reacting gases are unchanged.",
           "marks": 3,
           "explanation": "Inert gas at constant V: total P up, partial P unchanged ⇒ no shift. At constant P (where V expands to keep P fixed), partial pressures decrease ⇒ shift to more moles of gas. CAPS-level usually expects no-shift answer.",
           "errorSignals": [
             "ERR_INERT_GAS",
             "ERR_LECHATELIER_PRESSURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It shifts right, toward fewer gas moles.",
+            "No shift — at constant volume the partial pressures of the reacting gases are unchanged.",
+            "It shifts left because the total pressure rises."
+          ]
         },
         {
           "id": "L13.T1.A2.q16",
@@ -5829,15 +6229,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "For 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) (Contact process, exothermic): how does INCREASING PRESSURE affect the yield?",
-          "answerMode": "text",
-          "expectedAnswer": "Increasing pressure shifts equilibrium toward the side with FEWER moles of gas. Reactants: 2 + 1 = 3 mol. Products: 2 mol. So equilibrium shifts toward products ⇒ higher SO₃ yield. (However, in practice the Contact process uses moderate pressure because high pressure is expensive and the catalyst provides sufficient rate.)",
+          "answerMode": "choice",
+          "expectedAnswer": "Higher yield — the equilibrium shifts to the products (fewer gas moles: 2 vs 3).",
           "marks": 3,
           "explanation": "Higher P ⇒ shift to fewer mol of gas. SO₃ side has fewer moles ⇒ yield ↑.",
           "errorSignals": [
             "ERR_LECHATELIER_PRESSURE",
             "ERR_GAS_MOLES_COUNT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Lower yield — the equilibrium shifts toward the reactants.",
+            "No effect — pressure doesn't change the yield.",
+            "Higher yield — the equilibrium shifts to the products (fewer gas moles: 2 vs 3)."
+          ]
         },
         {
           "id": "L13.T1.A2.q17",
@@ -5845,14 +6250,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'In the Haber process, using a higher temperature increases the rate AND the yield.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Partially correct. Higher T DOES increase the rate (kinetics: more particles have sufficient energy). But the Haber reaction is EXOTHERMIC, so higher T DECREASES the equilibrium yield (Le Chatelier: favours endothermic reverse). The learner has the kinetics right but the equilibrium wrong.",
+          "answerMode": "choice",
+          "expectedAnswer": "Partially — higher T raises the rate, but (being exothermic) it lowers the equilibrium yield.",
           "marks": 3,
           "explanation": "Kinetics vs equilibrium trade-off. Rate ↑, yield ↓ for exothermic at higher T.",
           "errorSignals": [
             "ERR_KINETICS_VS_EQUILIBRIUM"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Partially — higher T raises the rate, but (being exothermic) it lowers the equilibrium yield.",
+            "Correct — higher temperature improves both rate and yield.",
+            "Incorrect — higher temperature reduces both rate and yield."
+          ]
         },
         {
           "id": "L13.T1.A2.q18",
@@ -5882,15 +6292,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "If you DECREASE the volume of a sealed container containing the equilibrium 2NO₂(g) ⇌ N₂O₄(g), which way does the equilibrium shift and why?",
-          "answerMode": "text",
-          "expectedAnswer": "Decreasing volume increases total pressure. By Le Chatelier, the equilibrium shifts to the side with FEWER moles of gas. Reactants: 2 mol NO₂; products: 1 mol N₂O₄. So equilibrium shifts to the RIGHT (toward N₂O₄). The dark brown NO₂ would diminish and the colourless N₂O₄ would increase.",
+          "answerMode": "choice",
+          "expectedAnswer": "It shifts right toward N₂O₄ — the side with fewer moles of gas (1 vs 2).",
           "marks": 3,
           "explanation": "Compress ⇒ pressure up ⇒ shift to fewer-mole side. NO₂ → N₂O₄ goes from 2 mol to 1 mol of gas.",
           "errorSignals": [
             "ERR_LECHATELIER_PRESSURE",
             "ERR_VOLUME_VS_PRESSURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It shifts left, toward the 2 moles of NO₂.",
+            "It shifts right toward N₂O₄ — the side with fewer moles of gas (1 vs 2).",
+            "No shift — volume changes don't affect equilibrium."
+          ]
         },
         {
           "id": "L13.T1.A2.q20",
@@ -5898,15 +6313,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is a CATALYST important in industrial equilibrium processes even though it doesn't shift the equilibrium?",
-          "answerMode": "text",
-          "expectedAnswer": "A catalyst speeds the rate at which equilibrium is reached. Industrially, this means the desired equilibrium concentration is achieved in a much shorter time, making the process economically viable. Without the catalyst, low temperatures favourable for yield (in exothermic reactions) would give impractically slow rates.",
+          "answerMode": "choice",
+          "expectedAnswer": "It lets the system reach equilibrium faster, which is more economical industrially.",
           "marks": 3,
           "explanation": "Catalyst: time-to-equilibrium ↓. Without it, the trade-off between yield and rate forces unfavourable conditions.",
           "errorSignals": [
             "ERR_CATALYST_SHIFT",
             "ERR_CATALYST_INDUSTRY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It increases the equilibrium yield.",
+            "It raises the value of Kc at the operating temperature.",
+            "It lets the system reach equilibrium faster, which is more economical industrially."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -6038,15 +6458,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "In an ICE table, the 'Change' row entries are usually written with a sign and multiplied by the stoichiometric coefficient. For the reaction A + 2B ⇌ 3C, if x mol of A reacts, what is the change in B and C?",
-          "answerMode": "text",
-          "expectedAnswer": "Change in B: −2x (twice as much B reacts as A, by stoichiometry). Change in C: +3x (three times as much C is formed). So if A loses x, B loses 2x, C gains 3x. (Reactants negative, products positive.)",
+          "answerMode": "choice",
+          "expectedAnswer": "Change in B = −2x; change in C = +3x (signs and coefficients applied).",
           "marks": 3,
           "explanation": "Stoichiometry drives the C-row. Coefficients matter. Sign: − for reactants, + for products.",
           "errorSignals": [
             "ERR_ICE_CHANGE_COEFFICIENT",
             "ERR_ICE_SIGN"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Change in B = −2x; change in C = +3x (signs and coefficients applied).",
+            "Change in B = −x; change in C = +x (coefficients ignored).",
+            "Change in B = +2x; change in C = −3x (signs reversed)."
+          ]
         },
         {
           "id": "L13.T1.A3.q07",
@@ -6072,15 +6497,20 @@
           "gate": "B",
           "source": "fresh",
           "question": "For 2CO(g) + O₂(g) ⇌ 2CO₂(g) at a certain T, Kc = 10⁴ mol⁻¹·dm³. Initial [CO] = [O₂] = 0.10 mol·dm⁻³, [CO₂] = 0. After equilibrium, [O₂] = 0.005 mol·dm⁻³. Calculate Kc using your ICE table and check.",
-          "answerMode": "text",
-          "expectedAnswer": "Δ[O₂] = 0.10 − 0.005 = 0.095 mol/dm³ reacted ⇒ x = 0.095. Change in CO: −2x = −0.190 (so [CO] at eq = 0.10 − 0.190 = −0.09 — IMPOSSIBLE). The numbers given are inconsistent with reality; only x ≤ 0.05 is physically allowed (since [CO] starts at 0.10 and consumes 2x). Recheck the problem setup.",
+          "answerMode": "choice",
+          "expectedAnswer": "The data is inconsistent — x = 0.095 would give [CO] = 0.10 − 2(0.095) = −0.09, which is impossible.",
           "marks": 4,
           "explanation": "Checking ICE: the change in CO is 2× the change in O₂. If [O₂] dropped by 0.095, [CO] would drop by 0.19 — but only 0.10 is available. So this scenario is physically impossible. Always check x is feasible.",
           "errorSignals": [
             "ERR_ICE_FEASIBILITY",
             "ERR_ICE_CHANGE_COEFFICIENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kc = 10⁴, consistent with the data given.",
+            "The data is inconsistent — x = 0.095 would give [CO] = 0.10 − 2(0.095) = −0.09, which is impossible.",
+            "x = 0.095 gives [CO] = 0.09 mol·dm⁻³ at equilibrium."
+          ]
         },
         {
           "id": "L13.T1.A3.q09",
@@ -6124,14 +6554,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner uses MOLES instead of CONCENTRATIONS in their Kc calculation. Is this OK?",
-          "answerMode": "text",
-          "expectedAnswer": "Generally NO. Kc is defined in terms of CONCENTRATIONS (mol·dm⁻³). Using moles directly is only correct when the container volume is exactly 1 dm³ (so moles = concentration numerically). For any other volume, you must DIVIDE moles by volume to get concentration before substituting into Kc.",
+          "answerMode": "choice",
+          "expectedAnswer": "No — Kc uses concentrations; moles are only valid if the volume is exactly 1 dm³.",
           "marks": 3,
           "explanation": "Kc uses concentrations. Convert moles to mol·dm⁻³ first (divide by volume in dm³).",
           "errorSignals": [
             "ERR_KC_MOLES_VS_CONC"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — moles and concentrations always give the same Kc.",
+            "Yes — Kc is defined using moles, not concentrations.",
+            "No — Kc uses concentrations; moles are only valid if the volume is exactly 1 dm³."
+          ]
         },
         {
           "id": "L13.T1.A3.q12",
@@ -6158,14 +6593,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "In an ICE table for an equilibrium, what does the 'I' row represent?",
-          "answerMode": "text",
-          "expectedAnswer": "The 'I' (Initial) row lists the starting concentrations (or moles, then divided by V) of all species at the start of the experiment, before any reaction occurs.",
+          "answerMode": "choice",
+          "expectedAnswer": "The Initial concentrations of all species, before any reaction occurs.",
           "marks": 1,
           "explanation": "I: initial; C: change; E: equilibrium.",
           "errorSignals": [
             "ERR_ICE_SETUP"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The Initial concentrations of all species, before any reaction occurs.",
+            "The increase in concentration during the reaction.",
+            "The final (equilibrium) concentrations."
+          ]
         },
         {
           "id": "L13.T1.A3.q14",
@@ -6191,14 +6631,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why must you check that x is PHYSICALLY REASONABLE after solving an ICE problem?",
-          "answerMode": "text",
-          "expectedAnswer": "x must be POSITIVE (a chemical change can't be negative) and must be LESS than the initial reactant concentration divided by its coefficient (you can't consume more than is initially present). If your algebra gives a value of x that violates either condition, you've made an error or assumed the wrong direction.",
+          "answerMode": "choice",
+          "expectedAnswer": "x must be positive and cannot exceed the available reactant (initial conc ÷ coefficient).",
           "marks": 2,
           "explanation": "Always verify: 0 < x < (initial reactant / coefficient). Otherwise the answer is unphysical.",
           "errorSignals": [
             "ERR_ICE_FEASIBILITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because x may take any value, positive or negative.",
+            "x must be positive and cannot exceed the available reactant (initial conc ÷ coefficient).",
+            "Because x must always equal the initial concentration."
+          ]
         },
         {
           "id": "L13.T1.A3.q16",
@@ -6249,14 +6694,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "If you ADD more product to an equilibrium mixture, what happens to Q (reaction quotient) and to the equilibrium position?",
-          "answerMode": "text",
-          "expectedAnswer": "Q (the reaction quotient, with the same form as Kc but with current concentrations) increases above Kc. Since Q > Kc, the system is no longer at equilibrium — it shifts BACKWARD (toward reactants) to reduce Q back to Kc. Eventually, a new equilibrium is established at the same Kc but with different concentrations.",
+          "answerMode": "choice",
+          "expectedAnswer": "Q rises above Kc, so the equilibrium shifts backward (to the left).",
           "marks": 3,
           "explanation": "Q > Kc ⇒ shift left. Q < Kc ⇒ shift right. Q = Kc ⇒ equilibrium.",
           "errorSignals": [
             "ERR_Q_VS_KC"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Q falls below Kc, so the equilibrium shifts forward (to the right).",
+            "Q stays equal to Kc, so no shift occurs.",
+            "Q rises above Kc, so the equilibrium shifts backward (to the left)."
+          ]
         },
         {
           "id": "L13.T1.A3.q19",
@@ -6282,14 +6732,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Summarise the steps for solving a typical ICE-table problem.",
-          "answerMode": "text",
-          "expectedAnswer": "Steps: (1) Write the balanced equation. (2) Tabulate Initial concentrations (convert moles to mol/dm³). (3) Define x = change in concentration of a chosen species; write Change row using stoichiometric coefficients (signed). (4) Compute Equilibrium row = I + C. (5) Substitute into Kc expression. (6) Solve for x (may need square root or quadratic). (7) Check x is physically reasonable (0 < x < initial/coefficient). (8) Substitute x back to find requested concentrations.",
+          "answerMode": "choice",
+          "expectedAnswer": "Balanced equation → Initial → Change (±x with coefficients) → Equilibrium → substitute into Kc → solve for x → check x is reasonable.",
           "marks": 5,
           "explanation": "Standard 8-step ICE procedure. Step 7 (feasibility) is crucial.",
           "errorSignals": [
             "ERR_ICE_PROCEDURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Balanced equation → Initial → Change (±x with coefficients) → Equilibrium → substitute into Kc → solve for x → check x is reasonable.",
+            "Solve for x first, then write the equation, then tabulate concentrations.",
+            "Substitute moles straight into Kc without an ICE table."
+          ]
         }
       ],
       "_error_signal_vocabulary": {

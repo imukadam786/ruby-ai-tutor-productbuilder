@@ -1,7 +1,9 @@
 {
   "skill": "L13.T1.A1",
   "skill_title": "Define dynamic equilibrium and write Kc expressions",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 5 lifted, 15 fresh. Defining chemical equilibrium; writing Kc expressions (gases and aqueous only, excluding pure solids and liquids).",
@@ -13,12 +15,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2021 Q6.1",
       "question": "Define CHEMICAL EQUILIBRIUM.",
-      "answerMode": "text",
-      "expectedAnswer": "Chemical equilibrium is the dynamic state in a reversible reaction where the rate of the forward reaction equals the rate of the reverse reaction, so the concentrations of reactants and products remain CONSTANT over time.",
+      "answerMode": "choice",
+      "expectedAnswer": "The dynamic state where the forward and reverse reaction rates are equal, so concentrations stay constant.",
       "marks": 2,
       "explanation": "Two marks: 'forward rate = reverse rate' + 'concentrations constant (over time, dynamic)'. Both rates are non-zero (it's dynamic).",
-      "errorSignals": ["ERR_EQUILIBRIUM_DEF", "ERR_DYNAMIC_NATURE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EQUILIBRIUM_DEF",
+        "ERR_DYNAMIC_NATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The dynamic state where the forward and reverse reaction rates are equal, so concentrations stay constant.",
+        "The state where the reaction has stopped completely.",
+        "The state where reactant and product concentrations become equal."
+      ]
     },
     {
       "id": "L13.T1.A1.q02",
@@ -27,12 +37,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2022 Q6.2.1",
       "question": "Define a REVERSIBLE REACTION.",
-      "answerMode": "text",
-      "expectedAnswer": "A reversible reaction is one that can proceed in both the forward and reverse directions under the same conditions, so that products can re-form reactants and vice versa.",
+      "answerMode": "choice",
+      "expectedAnswer": "A reaction that can proceed in both the forward and reverse directions under the same conditions.",
       "marks": 1,
       "explanation": "Reversible: both directions possible at the same conditions. Written with ⇌ (double arrow).",
-      "errorSignals": ["ERR_REVERSIBLE_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_REVERSIBLE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A reaction that goes only forward, to completion.",
+        "A reaction that can proceed in both the forward and reverse directions under the same conditions.",
+        "A reaction that can be reversed by stirring it."
+      ]
     },
     {
       "id": "L13.T1.A1.q03",
@@ -40,12 +57,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the Kc expression for the equilibrium: N₂(g) + 3H₂(g) ⇌ 2NH₃(g).",
-      "answerMode": "text",
-      "expectedAnswer": "Kc = [NH₃]² / ([N₂] × [H₂]³). Powers from stoichiometric coefficients. Products in numerator, reactants in denominator.",
+      "answerMode": "choice",
+      "expectedAnswer": "Kc = [NH₃]² / ([N₂][H₂]³)",
       "marks": 3,
       "explanation": "All species are gases ⇒ all appear in Kc. Powers from coefficients (2 for NH₃, 1 for N₂, 3 for H₂).",
-      "errorSignals": ["ERR_KC_EXPRESSION", "ERR_KC_POWERS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_EXPRESSION",
+        "ERR_KC_POWERS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kc = ([N₂][H₂]³) / [NH₃]²",
+        "Kc = [NH₃] / ([N₂][H₂])",
+        "Kc = [NH₃]² / ([N₂][H₂]³)"
+      ]
     },
     {
       "id": "L13.T1.A1.q04",
@@ -53,12 +78,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the Kc expression for: CaCO₃(s) ⇌ CaO(s) + CO₂(g).",
-      "answerMode": "text",
-      "expectedAnswer": "Kc = [CO₂]. Pure solids (CaCO₃ and CaO) are EXCLUDED from Kc (their 'activity' is 1). Only gases and aqueous species appear.",
+      "answerMode": "choice",
+      "expectedAnswer": "Kc = [CO₂] (pure solids are excluded).",
       "marks": 3,
       "explanation": "Critical rule: omit pure solids and pure liquids from Kc. Only [CO₂] (gas) appears here.",
-      "errorSignals": ["ERR_KC_INCLUDES_SOLID", "ERR_KC_EXPRESSION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_INCLUDES_SOLID",
+        "ERR_KC_EXPRESSION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kc = [CO₂] (pure solids are excluded).",
+        "Kc = [CaO][CO₂] / [CaCO₃]",
+        "Kc = [CO₂] / [CaCO₃]"
+      ]
     },
     {
       "id": "L13.T1.A1.q05",
@@ -66,12 +99,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the Kc expression for: 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) (Contact process).",
-      "answerMode": "text",
-      "expectedAnswer": "Kc = [SO₃]² / ([SO₂]² × [O₂]). Powers from coefficients.",
+      "answerMode": "choice",
+      "expectedAnswer": "Kc = [SO₃]² / ([SO₂]²[O₂])",
       "marks": 3,
       "explanation": "All gases ⇒ all in Kc. Powers match coefficients.",
-      "errorSignals": ["ERR_KC_EXPRESSION", "ERR_KC_POWERS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_EXPRESSION",
+        "ERR_KC_POWERS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kc = ([SO₂]²[O₂]) / [SO₃]²",
+        "Kc = [SO₃]² / ([SO₂]²[O₂])",
+        "Kc = [SO₃] / ([SO₂][O₂])"
+      ]
     },
     {
       "id": "L13.T1.A1.q06",
@@ -79,12 +120,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the Kc expression for: AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq).",
-      "answerMode": "text",
-      "expectedAnswer": "Kc = [Ag⁺] × [Cl⁻]. The pure solid AgCl is excluded. (This Kc is also called the solubility product Ksp.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Kc = [Ag⁺][Cl⁻] (the pure solid is excluded).",
       "marks": 3,
       "explanation": "Exclude solid AgCl. Aqueous species are included.",
-      "errorSignals": ["ERR_KC_INCLUDES_SOLID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_INCLUDES_SOLID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kc = [Ag⁺][Cl⁻] / [AgCl]",
+        "Kc = [AgCl] / ([Ag⁺][Cl⁻])",
+        "Kc = [Ag⁺][Cl⁻] (the pure solid is excluded)."
+      ]
     },
     {
       "id": "L13.T1.A1.q07",
@@ -102,7 +150,9 @@
       "expectedAnswer": "The forward and reverse reaction rates are zero",
       "marks": 2,
       "explanation": "At equilibrium, both forward and reverse rates are EQUAL but NOT zero — that's why it's called DYNAMIC.",
-      "errorSignals": ["ERR_DYNAMIC_NATURE"],
+      "errorSignals": [
+        "ERR_DYNAMIC_NATURE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -122,7 +172,9 @@
       "expectedAnswer": "Equilibrium lies far to the reactants",
       "marks": 2,
       "explanation": "Very small Kc (<<1) means products are scarce ⇒ equilibrium 'lies to the left' (reactants).",
-      "errorSignals": ["ERR_KC_INTERPRETATION"],
+      "errorSignals": [
+        "ERR_KC_INTERPRETATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -131,12 +183,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "If Kc for a reaction is very LARGE (e.g. 10⁶), what does this tell you about the position of the equilibrium?",
-      "answerMode": "text",
-      "expectedAnswer": "A large Kc means [products] >> [reactants] at equilibrium. The equilibrium 'lies to the right' (products side); the forward reaction has essentially gone to completion.",
+      "answerMode": "choice",
+      "expectedAnswer": "Products far exceed reactants; the equilibrium lies to the right.",
       "marks": 2,
       "explanation": "Large Kc = products favoured. Small Kc = reactants favoured. Kc ≈ 1 = comparable amounts.",
-      "errorSignals": ["ERR_KC_INTERPRETATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_INTERPRETATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Products far exceed reactants; the equilibrium lies to the right.",
+        "Reactants far exceed products; the equilibrium lies to the left.",
+        "Reactants and products are present in equal amounts."
+      ]
     },
     {
       "id": "L13.T1.A1.q10",
@@ -145,12 +204,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P2 May/Jun 2021 Q6.2.1",
       "question": "On a concentration-time graph for the reaction 2HI(g) ⇌ H₂(g) + I₂(g), one curve DECREASES then becomes constant, and the others INCREASE then become constant. Which curve represents the PRODUCTS?",
-      "answerMode": "text",
-      "expectedAnswer": "The curves that INCREASE and then level off represent the PRODUCTS (H₂ and I₂). The curve that DECREASES and levels off represents the REACTANT (HI).",
+      "answerMode": "choice",
+      "expectedAnswer": "The curve that decreases and then levels off is the reactant (HI).",
       "marks": 2,
       "explanation": "Reactants decrease; products grow. Both level off when equilibrium is reached.",
-      "errorSignals": ["ERR_CONC_TIME_GRAPH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CONC_TIME_GRAPH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The curves that increase and level off are the reactant.",
+        "The curve that decreases and then levels off is the reactant (HI).",
+        "All curves are products; the reactant is not shown."
+      ]
     },
     {
       "id": "L13.T1.A1.q11",
@@ -160,11 +226,18 @@
       "source_ref": "P2 May/Jun 2021 Q6.2.2",
       "question": "Before equilibrium is reached, is the rate of the FORWARD reaction GREATER THAN, EQUAL TO, or LESS THAN the rate of the REVERSE reaction?",
       "answerMode": "choice",
-      "options": ["Greater than", "Equal to", "Less than", "Cannot be determined"],
+      "options": [
+        "Greater than",
+        "Equal to",
+        "Less than",
+        "Cannot be determined"
+      ],
       "expectedAnswer": "Greater than",
       "marks": 1,
       "explanation": "Before equilibrium, the system is still net-producing products, so forward rate > reverse rate. At equilibrium they become equal.",
-      "errorSignals": ["ERR_PRE_EQUILIBRIUM_RATES"],
+      "errorSignals": [
+        "ERR_PRE_EQUILIBRIUM_RATES"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -173,12 +246,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the Kc expression for: 2NO(g) + O₂(g) ⇌ 2NO₂(g).",
-      "answerMode": "text",
-      "expectedAnswer": "Kc = [NO₂]² / ([NO]² × [O₂]).",
+      "answerMode": "choice",
+      "expectedAnswer": "Kc = [NO₂]² / ([NO]²[O₂])",
       "marks": 3,
       "explanation": "All gaseous; powers from coefficients.",
-      "errorSignals": ["ERR_KC_EXPRESSION", "ERR_KC_POWERS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_EXPRESSION",
+        "ERR_KC_POWERS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kc = ([NO]²[O₂]) / [NO₂]²",
+        "Kc = [NO₂] / ([NO][O₂])",
+        "Kc = [NO₂]² / ([NO]²[O₂])"
+      ]
     },
     {
       "id": "L13.T1.A1.q13",
@@ -186,12 +267,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'At equilibrium, the concentrations of reactants and products are equal.' Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. At equilibrium, the concentrations remain CONSTANT (don't change over time), but they are NOT necessarily equal. The actual concentrations depend on the value of Kc and the initial amounts. Equilibrium does NOT mean equal concentrations.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — concentrations stay constant at equilibrium, but they are not necessarily equal.",
       "marks": 3,
       "explanation": "Common misconception. 'Constant' ≠ 'equal'. Kc dictates the ratio; the position depends on Kc and initial conditions.",
-      "errorSignals": ["ERR_EQUILIBRIUM_DEF", "ERR_EQUAL_VS_CONSTANT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EQUILIBRIUM_DEF",
+        "ERR_EQUAL_VS_CONSTANT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Incorrect — concentrations stay constant at equilibrium, but they are not necessarily equal.",
+        "Correct — at equilibrium reactant and product concentrations are equal.",
+        "Correct — equilibrium means all concentrations fall to zero."
+      ]
     },
     {
       "id": "L13.T1.A1.q14",
@@ -199,12 +288,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the units of Kc for the equilibrium H₂(g) + I₂(g) ⇌ 2HI(g) (concentrations in mol·dm⁻³).",
-      "answerMode": "text",
-      "expectedAnswer": "Units cancel: Kc = [HI]² / ([H₂][I₂]) has units (mol·dm⁻³)² / ((mol·dm⁻³)(mol·dm⁻³)) = (mol·dm⁻³)² / (mol·dm⁻³)² = dimensionless (no units). For this particular reaction, Kc is unitless.",
+      "answerMode": "choice",
+      "expectedAnswer": "No units (dimensionless) — the concentration units cancel.",
       "marks": 2,
       "explanation": "Kc units depend on the difference in powers between products and reactants. For this reaction the powers cancel: dimensionless.",
-      "errorSignals": ["ERR_KC_UNITS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_UNITS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "mol·dm⁻³",
+        "No units (dimensionless) — the concentration units cancel.",
+        "mol²·dm⁻⁶"
+      ]
     },
     {
       "id": "L13.T1.A1.q15",
@@ -212,12 +308,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the units of Kc for: N₂(g) + 3H₂(g) ⇌ 2NH₃(g).",
-      "answerMode": "text",
-      "expectedAnswer": "Kc = [NH₃]² / ([N₂][H₂]³). Units: (mol·dm⁻³)² / ((mol·dm⁻³)(mol·dm⁻³)³) = (mol·dm⁻³)² / (mol·dm⁻³)⁴ = (mol·dm⁻³)⁻² = mol⁻²·dm⁶.",
+      "answerMode": "choice",
+      "expectedAnswer": "mol⁻²·dm⁶",
       "marks": 3,
       "explanation": "Units = (mol·dm⁻³)^(Δn) where Δn = (sum products' coefficients) − (sum reactants' coefficients) = 2 − 4 = −2.",
-      "errorSignals": ["ERR_KC_UNITS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_UNITS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "No units (dimensionless).",
+        "mol²·dm⁻⁶",
+        "mol⁻²·dm⁶"
+      ]
     },
     {
       "id": "L13.T1.A1.q16",
@@ -225,12 +328,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "For the reaction H₂(g) + Cl₂(g) ⇌ 2HCl(g) with Kc = 4 × 10⁵, write Kc for the REVERSE reaction (2HCl ⇌ H₂ + Cl₂).",
-      "answerMode": "text",
-      "expectedAnswer": "Kc(reverse) = 1/Kc(forward) = 1/(4 × 10⁵) = 2.5 × 10⁻⁶.",
+      "answerMode": "choice",
+      "expectedAnswer": "Kc(reverse) = 1 / (4 × 10⁵) = 2.5 × 10⁻⁶",
       "marks": 3,
       "explanation": "Reverse reaction Kc is the reciprocal. (And reverse reaction equilibrium is far to the reactants if forward Kc is large.)",
-      "errorSignals": ["ERR_KC_REVERSE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_REVERSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kc(reverse) = 1 / (4 × 10⁵) = 2.5 × 10⁻⁶",
+        "Kc(reverse) = −4 × 10⁵ (change the sign).",
+        "Kc(reverse) = 4 × 10⁵ (unchanged)."
+      ]
     },
     {
       "id": "L13.T1.A1.q17",
@@ -238,12 +348,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Which conditions must be met for a chemical equilibrium to be established?",
-      "answerMode": "text",
-      "expectedAnswer": "(1) The reaction must be REVERSIBLE; (2) The system must be CLOSED (no matter enters or leaves); (3) Constant temperature; (4) Sufficient time for the forward and reverse rates to equalise.",
+      "answerMode": "choice",
+      "expectedAnswer": "The reaction is reversible, the system is closed, and the temperature is constant.",
       "marks": 3,
       "explanation": "Open systems lose products (e.g. gas escaping) so equilibrium never reaches.",
-      "errorSignals": ["ERR_EQUILIBRIUM_CONDITIONS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EQUILIBRIUM_CONDITIONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The reaction must go to completion in an open container.",
+        "The reaction is reversible, the system is closed, and the temperature is constant.",
+        "Equal moles of reactants and products must be present."
+      ]
     },
     {
       "id": "L13.T1.A1.q18",
@@ -251,12 +368,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the Kc expression for: BaSO₄(s) ⇌ Ba²⁺(aq) + SO₄²⁻(aq).",
-      "answerMode": "text",
-      "expectedAnswer": "Kc = [Ba²⁺] × [SO₄²⁻]. BaSO₄ is a pure solid and is excluded.",
+      "answerMode": "choice",
+      "expectedAnswer": "Kc = [Ba²⁺][SO₄²⁻] (the pure solid is excluded).",
       "marks": 3,
       "explanation": "This Kc is the solubility product Ksp. Solid excluded.",
-      "errorSignals": ["ERR_KC_INCLUDES_SOLID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_INCLUDES_SOLID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kc = [Ba²⁺][SO₄²⁻] / [BaSO₄]",
+        "Kc = [BaSO₄] / ([Ba²⁺][SO₄²⁻])",
+        "Kc = [Ba²⁺][SO₄²⁻] (the pure solid is excluded)."
+      ]
     },
     {
       "id": "L13.T1.A1.q19",
@@ -264,12 +388,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Write the Kc expression for: H₂O(l) ⇌ H⁺(aq) + OH⁻(aq).",
-      "answerMode": "text",
-      "expectedAnswer": "Kc (or Kw) = [H⁺] × [OH⁻]. Pure water (liquid) is excluded from the Kc expression.",
+      "answerMode": "choice",
+      "expectedAnswer": "Kc = [H⁺][OH⁻] (the pure liquid water is excluded).",
       "marks": 3,
       "explanation": "Pure liquid H₂O excluded. This Kc is the ion product of water (Kw = 10⁻¹⁴ at 25°C).",
-      "errorSignals": ["ERR_KC_INCLUDES_LIQUID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_INCLUDES_LIQUID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kc = [H⁺][OH⁻] (the pure liquid water is excluded).",
+        "Kc = [H⁺][OH⁻] / [H₂O]",
+        "Kc = [H₂O] / ([H⁺][OH⁻])"
+      ]
     },
     {
       "id": "L13.T1.A1.q20",
@@ -277,12 +408,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why do PURE SOLIDS and PURE LIQUIDS not appear in Kc expressions?",
-      "answerMode": "text",
-      "expectedAnswer": "Pure solids and pure liquids have CONSTANT activity (essentially constant 'effective concentration') because their density and amount in pure form do not change during the reaction. Their contribution is absorbed into the Kc constant. Aqueous and gaseous species have varying concentration ⇒ they appear in Kc.",
+      "answerMode": "choice",
+      "expectedAnswer": "Their activity (effective concentration) is constant, so it is built into Kc.",
       "marks": 3,
       "explanation": "Activity = 1 for pure phases. Only varying-concentration species are in Kc.",
-      "errorSignals": ["ERR_KC_INCLUDES_SOLID", "ERR_KC_INCLUDES_LIQUID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KC_INCLUDES_SOLID",
+        "ERR_KC_INCLUDES_LIQUID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They react too slowly to matter.",
+        "Their activity (effective concentration) is constant, so it is built into Kc.",
+        "Their concentrations are always zero."
+      ]
     }
   ],
   "_error_signal_vocabulary": {
