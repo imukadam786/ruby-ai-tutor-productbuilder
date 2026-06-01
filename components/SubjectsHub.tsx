@@ -48,7 +48,9 @@ type SubjectId =
   | "maths-literacy"
   | "life-sciences"
   | "history"
-  | "business-studies";
+  | "business-studies"
+  | "tourism"
+  | "geography";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -67,9 +69,17 @@ interface SubjectMeta {
   navigateTo: ActiveView;
 }
 
-function SubjectRow({ subject }: { subject: SubjectMeta }) {
+function SubjectRow({ subject, onClick }: { subject: SubjectMeta; onClick?: () => void }) {
+  const Wrapper: "button" | "div" = onClick ? "button" : "div";
   return (
-    <div className="w-full self-start flex flex-col items-start gap-3 px-1 pt-1">
+    <Wrapper
+      onClick={onClick}
+      className={`w-full self-start flex flex-col items-start gap-3 px-1 pt-1 text-left ${
+        onClick
+          ? "cursor-pointer rounded-2xl hover:opacity-95 active:scale-[0.99] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
+          : ""
+      }`}
+    >
       <div
         className={`w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] flex-shrink-0 rounded-2xl bg-gradient-to-br ${subject.accentFrom} ${subject.accentTo} flex items-center justify-center overflow-hidden`}
       >
@@ -88,7 +98,7 @@ function SubjectRow({ subject }: { subject: SubjectMeta }) {
           </span>
         )}
       </div>
-    </div>
+    </Wrapper>
   );
 }
 
@@ -137,6 +147,10 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showHistory = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Business Studies is a FET subject (Gr 10–12 only). Free for all plans.
   const showBusinessStudies = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
+  // Tourism is a FET subject (Gr 10–12 only). Free for all plans.
+  const showTourism = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
+  // Geography is a FET subject (Gr 10–12 only). Free for all plans.
+  const showGeography = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -335,6 +349,32 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "business-studies",
       });
     }
+    if (showTourism) {
+      all.push({
+        id: "tourism",
+        thumbnail: "/thumbnails/tourism.jpeg",
+        label: "Tourism",
+        caption: "Tourist sectors, map work, attractions, sustainability & customer care · Grades 10–12",
+        badge: "FET",
+        badgeColor: "bg-teal-100 text-teal-700",
+        accentFrom: "from-teal-500",
+        accentTo: "to-cyan-600",
+        navigateTo: "tourism",
+      });
+    }
+    if (showGeography) {
+      all.push({
+        id: "geography",
+        thumbnail: "/thumbnails/geography.jpeg",
+        label: "Geography",
+        caption: "Atmosphere, geomorphology, settlement, mapwork · Grades 10–12",
+        badge: "FET",
+        badgeColor: "bg-cyan-100 text-cyan-700",
+        accentFrom: "from-cyan-500",
+        accentTo: "to-sky-600",
+        navigateTo: "geography",
+      });
+    }
     return all;
   }, [
     discoverBadge, discoverBadgeColor,
@@ -345,6 +385,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showLifeSciences,
     showHistory,
     showBusinessStudies,
+    showTourism,
+    showGeography,
   ]);
 
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
@@ -436,6 +478,26 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             compact
           />
         );
+      // FET click-through subjects: the card itself opens the topic picker, so
+      // the panel is a simple prompt rather than an inline tree.
+      case "life-sciences":
+      case "history":
+      case "business-studies":
+      case "tourism":
+      case "geography":
+        return (
+          <div className="p-5 flex flex-col items-center justify-center text-center gap-3 h-full min-h-[160px]">
+            <p className="text-sm text-gray-600 leading-relaxed max-w-xs">
+              Open {subject.label} and pick any topic — every topic is unlocked, in any order.
+            </p>
+            <button
+              onClick={() => onNavigate(subject.navigateTo)}
+              className="px-4 py-2 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors shadow-sm"
+            >
+              Open {subject.label} →
+            </button>
+          </div>
+        );
       default:
         return null;
     }
@@ -458,7 +520,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-4 gap-y-3">
             {subjects.map((s) => (
               <Fragment key={s.id}>
-                <SubjectRow subject={s} />
+                <SubjectRow
+                  subject={s}
+                  onClick={
+                    ["life-sciences", "history", "business-studies", "tourism", "geography"].includes(s.id)
+                      ? () => onNavigate(s.navigateTo)
+                      : undefined
+                  }
+                />
                 <section className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
                   {renderSubjectPanel(s)}
                 </section>
