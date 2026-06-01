@@ -1,7 +1,9 @@
 {
   "skill": "L9.T1.A2",
   "skill_title": "Explain emission and absorption spectra",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 5 lifted, 15 fresh. Atomic energy levels; emission spectra (electrons drop to lower level, photon emitted); absorption spectra (electrons absorb photons, dark lines); identification of elements; line spectra are discrete.",
@@ -13,12 +15,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q10.2",
       "question": "Explain how an EMISSION SPECTRUM is formed.",
-      "answerMode": "text",
-      "expectedAnswer": "When electrons in excited atoms drop from higher to lower energy levels, they emit photons with specific energies E = hf = E_high − E_low. Each transition produces a photon of a particular frequency (or wavelength). The collection of all possible transitions in an atom produces a series of bright (emission) lines at characteristic wavelengths — the emission spectrum.",
+      "answerMode": "choice",
+      "expectedAnswer": "Excited electrons drop from higher to lower energy levels, emitting photons of specific energies (bright lines).",
       "marks": 2,
       "explanation": "Bright-line spectrum: high → low transition emits photon of energy = ΔE. Discrete because energy levels are discrete.",
-      "errorSignals": ["ERR_EMISSION_DEFINITION", "ERR_EMISSION_DIRECTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMISSION_DEFINITION",
+        "ERR_EMISSION_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Excited electrons drop from higher to lower energy levels, emitting photons of specific energies (bright lines).",
+        "Electrons absorb photons and jump to higher levels, forming bright lines.",
+        "The metal glows continuously when it is heated."
+      ]
     },
     {
       "id": "L9.T1.A2.q02",
@@ -37,7 +47,9 @@
       "expectedAnswer": "Dark lines on a continuous (rainbow) background",
       "marks": 2,
       "explanation": "Absorption: continuous light passing through cold gas, photons matching ΔE between levels are absorbed, leaving dark lines at those wavelengths.",
-      "errorSignals": ["ERR_ABSORPTION_DEFINITION"],
+      "errorSignals": [
+        "ERR_ABSORPTION_DEFINITION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -57,7 +69,9 @@
       "expectedAnswer": "E₄ to E₃",
       "marks": 2,
       "explanation": "Lowest frequency = smallest photon energy = smallest energy gap between levels. The transition between two ADJACENT high levels (E₄ to E₃) usually has the smallest ΔE.",
-      "errorSignals": ["ERR_ENERGY_LEVEL_TRANSITION"],
+      "errorSignals": [
+        "ERR_ENERGY_LEVEL_TRANSITION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -77,7 +91,10 @@
       "expectedAnswer": "A photon is absorbed with energy y − x",
       "marks": 2,
       "explanation": "Moving UP in energy levels requires absorbing a photon of exactly the energy difference ΔE = y − x. Moving DOWN emits a photon.",
-      "errorSignals": ["ERR_EMISSION_DIRECTION", "ERR_ABSORPTION_DIRECTION"],
+      "errorSignals": [
+        "ERR_EMISSION_DIRECTION",
+        "ERR_ABSORPTION_DIRECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -87,12 +104,15 @@
       "source": "fresh",
       "question": "An electron in a hydrogen atom drops from the n = 3 level (E₃ = −2.42 × 10⁻¹⁹ J) to the n = 2 level (E₂ = −5.45 × 10⁻¹⁹ J). Calculate the frequency of the emitted photon. (h = 6.63 × 10⁻³⁴.)",
       "answerMode": "numeric",
-      "expectedAnswer": 4.57e+14,
-      "tolerance": 5e+12,
+      "expectedAnswer": 457000000000000,
+      "tolerance": 5000000000000,
       "unit": "Hz",
       "marks": 4,
       "explanation": "ΔE = |E₂ − E₃| = |(−5.45) − (−2.42)| × 10⁻¹⁹ = 3.03 × 10⁻¹⁹ J. f = ΔE/h = 3.03×10⁻¹⁹/6.63×10⁻³⁴ ≈ 4.57 × 10¹⁴ Hz (red light, in the visible).",
-      "errorSignals": ["ERR_ENERGY_LEVEL_DELTA", "ERR_PHOTON_ENERGY_HF"],
+      "errorSignals": [
+        "ERR_ENERGY_LEVEL_DELTA",
+        "ERR_PHOTON_ENERGY_HF"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -101,12 +121,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why are atomic emission and absorption spectra DISCRETE (line spectra) rather than continuous?",
-      "answerMode": "text",
-      "expectedAnswer": "Atoms have DISCRETE energy levels — electrons can only occupy specific energies. A transition between two levels has a specific ΔE, so the photon emitted (or absorbed) has a specific frequency f = ΔE/h. Only certain frequencies appear ⇒ discrete lines. A continuous spectrum would require electrons to have any energy, which they don't in isolated atoms.",
+      "answerMode": "choice",
+      "expectedAnswer": "Atoms have discrete energy levels, so transitions emit or absorb only specific photon energies.",
       "marks": 3,
       "explanation": "Quantisation of energy levels ⇒ quantisation of photon frequencies.",
-      "errorSignals": ["ERR_LINE_SPECTRUM_REASON", "ERR_ENERGY_QUANTIZATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LINE_SPECTRUM_REASON",
+        "ERR_ENERGY_QUANTIZATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Atoms can have any energy, but only certain colours escape the atom.",
+        "Atoms have discrete energy levels, so transitions emit or absorb only specific photon energies.",
+        "The spectrometer can only detect certain wavelengths."
+      ]
     },
     {
       "id": "L9.T1.A2.q07",
@@ -114,12 +142,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "An emission spectrum has THREE bright lines. What does this tell you about the number of possible electron transitions in the atom?",
-      "answerMode": "text",
-      "expectedAnswer": "Three downward transitions are responsible for the three lines. If the atom has n energy levels, the maximum number of distinct emission lines is n(n−1)/2 (all pairs). Three lines could come from, e.g., three transitions among 3 levels (3·2/2 = 3 transitions: 3→1, 3→2, 2→1).",
+      "answerMode": "choice",
+      "expectedAnswer": "Three downward transitions produced the three lines.",
       "marks": 3,
       "explanation": "Three lines ⇔ three transitions. For 3 levels there are exactly 3 possible transitions.",
-      "errorSignals": ["ERR_LEVEL_TRANSITION_COUNT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LEVEL_TRANSITION_COUNT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The atom has exactly three energy levels.",
+        "Three electrons were ejected from the atom.",
+        "Three downward transitions produced the three lines."
+      ]
     },
     {
       "id": "L9.T1.A2.q08",
@@ -127,12 +162,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "How can astronomers identify the composition of a distant star using its absorption spectrum?",
-      "answerMode": "text",
-      "expectedAnswer": "Each element has a unique 'fingerprint' of absorption lines at known wavelengths. By matching the dark lines in a star's continuous spectrum to laboratory-measured absorption lines of various elements, astronomers can identify which elements are present in the star's atmosphere.",
+      "answerMode": "choice",
+      "expectedAnswer": "Each element has a unique pattern of absorption lines; matching them to lab spectra identifies the elements.",
       "marks": 3,
       "explanation": "Spectroscopic fingerprinting: each element has unique discrete wavelengths. Astronomy uses this for compositional analysis.",
-      "errorSignals": ["ERR_SPECTROSCOPY_APPLICATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SPECTROSCOPY_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Each element has a unique pattern of absorption lines; matching them to lab spectra identifies the elements.",
+        "The star's colour alone reveals its exact composition.",
+        "The brightness of the lines gives the star's chemical makeup."
+      ]
     },
     {
       "id": "L9.T1.A2.q09",
@@ -150,7 +192,9 @@
       "expectedAnswer": "Emission and absorption lines occur at the SAME wavelengths (one bright, one dark)",
       "marks": 2,
       "explanation": "Same transitions ⇒ same wavelengths. Emission: photon RELEASED at λ; absorption: photon REMOVED at λ. The dark lines in absorption match the bright lines in emission, for the same element.",
-      "errorSignals": ["ERR_EMISSION_ABSORPTION_WAVELENGTHS"],
+      "errorSignals": [
+        "ERR_EMISSION_ABSORPTION_WAVELENGTHS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -169,7 +213,9 @@
       "expectedAnswer": "Balmer series (visible)",
       "marks": 2,
       "explanation": "Balmer series = transitions ending at n = 2, with lines in the visible spectrum. Lyman ends at n = 1 (UV). Paschen at n = 3 (IR).",
-      "errorSignals": ["ERR_HYDROGEN_SERIES"],
+      "errorSignals": [
+        "ERR_HYDROGEN_SERIES"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -178,12 +224,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'Atoms emit ALL frequencies of light continuously.' Is this correct? Briefly explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. Atoms emit only DISCRETE wavelengths corresponding to the differences between their quantised energy levels. A heated solid (like an incandescent bulb filament) can emit a continuous spectrum due to many overlapping interactions, but ISOLATED atoms in a gas produce only line spectra at specific wavelengths.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — atoms emit only discrete wavelengths set by their quantised energy-level differences.",
       "marks": 2,
       "explanation": "Continuous vs line spectrum: solids ⇒ continuous; gases (isolated atoms) ⇒ line.",
-      "errorSignals": ["ERR_LINE_SPECTRUM_REASON"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LINE_SPECTRUM_REASON"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Correct — atoms emit a continuous range of all frequencies.",
+        "Incorrect — atoms emit only discrete wavelengths set by their quantised energy-level differences.",
+        "Correct — only very hot atoms emit discrete lines."
+      ]
     },
     {
       "id": "L9.T1.A2.q12",
@@ -197,7 +250,9 @@
       "unit": "different photon energies",
       "marks": 3,
       "explanation": "Possible transitions: 3→1 (6.5 eV), 3→2 (3.5 eV), 2→1 (3.0 eV) = 3 distinct photon energies.",
-      "errorSignals": ["ERR_LEVEL_TRANSITION_COUNT"],
+      "errorSignals": [
+        "ERR_LEVEL_TRANSITION_COUNT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -206,12 +261,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "Continuing: of the three transitions in the previous question, which produces the LONGEST wavelength photon?",
-      "answerMode": "text",
-      "expectedAnswer": "The 2 → 1 transition (smallest ΔE = 3.0 eV). Longest wavelength ⇔ smallest photon energy (E = hc/λ; smaller E ⇒ larger λ).",
+      "answerMode": "choice",
+      "expectedAnswer": "The transition with the smallest energy gap (longest wavelength means smallest photon energy).",
       "marks": 2,
       "explanation": "Inverse relationship: small ΔE → long λ. The 2→1 transition has the smallest energy gap.",
-      "errorSignals": ["ERR_WAVELENGTH_FREQUENCY", "ERR_ENERGY_LEVEL_DELTA"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WAVELENGTH_FREQUENCY",
+        "ERR_ENERGY_LEVEL_DELTA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The transition with the largest energy gap.",
+        "The transition between the two highest levels, regardless of the gap.",
+        "The transition with the smallest energy gap (longest wavelength means smallest photon energy)."
+      ]
     },
     {
       "id": "L9.T1.A2.q14",
@@ -219,12 +282,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "What does each DARK LINE in the absorption spectrum of a star tell you?",
-      "answerMode": "text",
-      "expectedAnswer": "Each dark line corresponds to a specific wavelength where photons (from the continuous solar/starlight) have been absorbed by atoms in the star's (cooler) outer atmosphere. The wavelength of each dark line matches a transition between two energy levels in a particular element, so the pattern of dark lines identifies which elements are present.",
+      "answerMode": "choice",
+      "expectedAnswer": "Photons of that wavelength were absorbed by atoms in the star's cooler outer layers.",
       "marks": 3,
       "explanation": "Dark lines = absorbed wavelengths. Each one identifies an element through its known transition wavelengths.",
-      "errorSignals": ["ERR_ABSORPTION_DEFINITION", "ERR_SPECTROSCOPY_APPLICATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ABSORPTION_DEFINITION",
+        "ERR_SPECTROSCOPY_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Photons of that wavelength were absorbed by atoms in the star's cooler outer layers.",
+        "Extra photons of that wavelength were emitted by the star.",
+        "The star produces no light at all at that wavelength."
+      ]
     },
     {
       "id": "L9.T1.A2.q15",
@@ -238,7 +309,10 @@
       "unit": "m",
       "marks": 5,
       "explanation": "ΔE = E₃ − E₁ = (−1.51) − (−13.6) = 12.09 eV = 12.09 × 1.6×10⁻¹⁹ ≈ 1.934 × 10⁻¹⁸ J. λ = hc/ΔE = (6.63×10⁻³⁴ × 3×10⁸)/1.934×10⁻¹⁸ ≈ 1.03 × 10⁻⁷ m (UV).",
-      "errorSignals": ["ERR_ENERGY_LEVEL_DELTA", "ERR_WAVELENGTH_FREQUENCY"],
+      "errorSignals": [
+        "ERR_ENERGY_LEVEL_DELTA",
+        "ERR_WAVELENGTH_FREQUENCY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -247,12 +321,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is sodium street lighting YELLOW?",
-      "answerMode": "text",
-      "expectedAnswer": "Sodium vapour emits strongly in the yellow region of the visible spectrum (a 'doublet' near 589 nm) when its electrons drop between specific energy levels. The dominant transitions correspond to yellow light, so a sodium lamp appears yellow.",
+      "answerMode": "choice",
+      "expectedAnswer": "Sodium's electron transitions emit strongly near 589 nm, in the yellow part of the spectrum.",
       "marks": 2,
       "explanation": "Sodium D-lines: 589 nm doublet. Bright, narrow yellow emission characteristic of sodium.",
-      "errorSignals": ["ERR_SPECTROSCOPY_APPLICATION", "ERR_EMISSION_COLOUR_LINK"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SPECTROSCOPY_APPLICATION",
+        "ERR_EMISSION_COLOUR_LINK"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sodium gas filters out all colours except yellow.",
+        "Sodium's electron transitions emit strongly near 589 nm, in the yellow part of the spectrum.",
+        "The yellow colour comes from the glass of the lamp."
+      ]
     },
     {
       "id": "L9.T1.A2.q17",
@@ -260,12 +342,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A continuous spectrum is observed from an incandescent bulb. When the light passes through cold hydrogen gas, dark lines appear at the SAME wavelengths as the hydrogen Balmer emission lines. Why?",
-      "answerMode": "text",
-      "expectedAnswer": "The cold hydrogen gas absorbs photons of exactly the energies corresponding to transitions FROM the n = 2 level UP to higher levels (the Balmer transitions in reverse). These specific wavelengths are removed from the transmitted light, producing dark lines exactly where hydrogen would normally EMIT in its emission spectrum.",
+      "answerMode": "choice",
+      "expectedAnswer": "Cold hydrogen absorbs exactly the photon energies matching its transitions, removing those wavelengths (dark lines).",
       "marks": 3,
       "explanation": "Same transitions absorb (cold) and emit (hot) at the same wavelengths — Kirchhoff's reciprocity.",
-      "errorSignals": ["ERR_EMISSION_ABSORPTION_WAVELENGTHS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMISSION_ABSORPTION_WAVELENGTHS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The hydrogen emits new bright lines on top of the continuous spectrum.",
+        "The hydrogen shifts all the wavelengths to longer values.",
+        "Cold hydrogen absorbs exactly the photon energies matching its transitions, removing those wavelengths (dark lines)."
+      ]
     },
     {
       "id": "L9.T1.A2.q18",
@@ -283,7 +372,9 @@
       "expectedAnswer": "Bright coloured lines on a dark background",
       "marks": 2,
       "explanation": "Emission: discrete bright lines (each from an electron transition) on an otherwise dark background.",
-      "errorSignals": ["ERR_EMISSION_DEFINITION"],
+      "errorSignals": [
+        "ERR_EMISSION_DEFINITION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -292,12 +383,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A hydrogen emission spectrum has several distinct lines. What CHANGES between hydrogen at room temperature and hydrogen at very high temperature?",
-      "answerMode": "text",
-      "expectedAnswer": "At higher temperatures, more atoms are excited to higher energy levels (more thermal energy ⇒ more populated upper states). So the higher-frequency emission lines (corresponding to transitions from higher upper states) become BRIGHTER (more electrons available to make those transitions). The set of wavelengths remains the same — only the intensities change.",
+      "answerMode": "choice",
+      "expectedAnswer": "At higher temperature more atoms are excited to higher levels, so more (higher-energy) emission lines appear.",
       "marks": 3,
       "explanation": "Temperature affects intensity (population), not the line positions (set by atomic structure).",
-      "errorSignals": ["ERR_TEMPERATURE_SPECTRUM"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_TEMPERATURE_SPECTRUM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "At higher temperature more atoms are excited to higher levels, so more (higher-energy) emission lines appear.",
+        "At higher temperature the lines disappear and the spectrum becomes continuous.",
+        "Temperature has no effect on the emission spectrum."
+      ]
     },
     {
       "id": "L9.T1.A2.q20",
@@ -305,12 +403,21 @@
       "gate": "A",
       "source": "fresh",
       "question": "Explain the difference between an EMISSION spectrum and an ABSORPTION spectrum in one or two sentences each.",
-      "answerMode": "text",
-      "expectedAnswer": "Emission: bright lines on a dark background, produced when electrons in excited atoms drop from high to low energy levels and emit photons. Absorption: dark lines on a continuous rainbow background, produced when atoms absorb specific photons matching their energy-level differences. Same atom ⇒ same wavelengths but inverted in appearance.",
+      "answerMode": "choice",
+      "expectedAnswer": "Emission: bright lines from electrons dropping to lower levels. Absorption: dark lines where those same wavelengths are absorbed.",
       "marks": 4,
       "explanation": "Bright vs dark; same wavelengths for the same element; emission = drop, absorption = jump.",
-      "errorSignals": ["ERR_EMISSION_DEFINITION", "ERR_ABSORPTION_DEFINITION", "ERR_EMISSION_ABSORPTION_WAVELENGTHS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMISSION_DEFINITION",
+        "ERR_ABSORPTION_DEFINITION",
+        "ERR_EMISSION_ABSORPTION_WAVELENGTHS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Emission: dark lines; Absorption: bright lines.",
+        "Emission: bright lines from electrons dropping to lower levels. Absorption: dark lines where those same wavelengths are absorbed.",
+        "Both show a continuous band of all colours."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

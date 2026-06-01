@@ -1,7 +1,9 @@
 {
   "skill": "L5.T1.A1",
   "skill_title": "Explain and apply the Doppler equation for sound",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 14 lifted, 6 fresh. Doppler effect for sound: definition, qualitative direction-of-shift, and Doppler-equation calculations for moving source or moving observer (or both). Speed of sound problems and wavelength.",
@@ -13,12 +15,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2025 Q6.1",
       "question": "Define the DOPPLER EFFECT.",
-      "answerMode": "text",
-      "expectedAnswer": "The apparent change in the observed frequency (or pitch) of a wave as perceived by an observer, due to the relative motion between the source of the wave and the observer.",
+      "answerMode": "choice",
+      "expectedAnswer": "The apparent change in observed frequency (pitch) of a wave due to relative motion between the source and the observer.",
       "marks": 2,
       "explanation": "Two marks: 'apparent change in frequency' + 'relative motion between source and observer'. The actual source frequency does not change — only the observed value.",
-      "errorSignals": ["ERR_DOPPLER_DEF_OMITS_RELATIVE", "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_DOPPLER_DEF_OMITS_RELATIVE",
+        "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The apparent change in observed frequency (pitch) of a wave due to relative motion between the source and the observer.",
+        "A change in the actual frequency emitted by the source as it moves.",
+        "The change in a wave's frequency as it passes through different materials."
+      ]
     },
     {
       "id": "L5.T1.A1.q02",
@@ -28,11 +38,18 @@
       "source_ref": "P1 Predictive A 2026 Q1.5",
       "question": "A source of sound moves TOWARDS a stationary observer. The frequency heard by the observer compared to the emitted frequency is:",
       "answerMode": "choice",
-      "options": ["Higher", "Lower", "The same", "Zero"],
+      "options": [
+        "Higher",
+        "Lower",
+        "The same",
+        "Zero"
+      ],
       "expectedAnswer": "Higher",
       "marks": 2,
       "explanation": "Source approaching ⇒ wavefronts compressed ⇒ observed wavelength shorter ⇒ observed frequency higher.",
-      "errorSignals": ["ERR_DOPPLER_DIRECTION_QUALITATIVE"],
+      "errorSignals": [
+        "ERR_DOPPLER_DIRECTION_QUALITATIVE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -43,11 +60,18 @@
       "source_ref": "P1 Predictive B 2026 Q1.6",
       "question": "An ambulance moves AWAY from a stationary person. The person hears the siren at a frequency that is:",
       "answerMode": "choice",
-      "options": ["Higher than emitted", "Lower than emitted", "The same as emitted", "Zero"],
+      "options": [
+        "Higher than emitted",
+        "Lower than emitted",
+        "The same as emitted",
+        "Zero"
+      ],
       "expectedAnswer": "Lower than emitted",
       "marks": 2,
       "explanation": "Source receding ⇒ wavefronts stretched ⇒ longer wavelength ⇒ lower frequency.",
-      "errorSignals": ["ERR_DOPPLER_DIRECTION_QUALITATIVE"],
+      "errorSignals": [
+        "ERR_DOPPLER_DIRECTION_QUALITATIVE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -63,7 +87,10 @@
       "unit": "Hz",
       "marks": 4,
       "explanation": "Moving observer, stationary source: f_L = f_s × (v + v_L)/v = 880 × (340 + 10)/340 = 880 × 350/340 ≈ 905.9 Hz.",
-      "errorSignals": ["ERR_DOPPLER_SIGN_CONVENTION", "ERR_DOPPLER_NUMER_DENOM"],
+      "errorSignals": [
+        "ERR_DOPPLER_SIGN_CONVENTION",
+        "ERR_DOPPLER_NUMER_DENOM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -79,7 +106,10 @@
       "unit": "Hz",
       "marks": 3,
       "explanation": "Moving source towards stationary observer: f_L = f_s × v/(v − v_s) = 1200 × 340/(340 − 30) = 1200 × 340/310 ≈ 1316 Hz.",
-      "errorSignals": ["ERR_DOPPLER_NUMER_DENOM", "ERR_DOPPLER_SIGN_CONVENTION"],
+      "errorSignals": [
+        "ERR_DOPPLER_NUMER_DENOM",
+        "ERR_DOPPLER_SIGN_CONVENTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -95,7 +125,10 @@
       "unit": "Hz",
       "marks": 3,
       "explanation": "Source receding from stationary observer: f_L = f_s × v/(v + v_s) = 1200 × 340/(340 + 30) = 1200 × 340/370 ≈ 1102.7 Hz.",
-      "errorSignals": ["ERR_DOPPLER_NUMER_DENOM", "ERR_DOPPLER_SIGN_CONVENTION"],
+      "errorSignals": [
+        "ERR_DOPPLER_NUMER_DENOM",
+        "ERR_DOPPLER_SIGN_CONVENTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -111,7 +144,9 @@
       "unit": "Hz",
       "marks": 3,
       "explanation": "f_L = f_s × v/(v − v_s) = 850 × 340/315 ≈ 917.5 Hz.",
-      "errorSignals": ["ERR_DOPPLER_NUMER_DENOM"],
+      "errorSignals": [
+        "ERR_DOPPLER_NUMER_DENOM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -127,7 +162,9 @@
       "unit": "Hz",
       "marks": 3,
       "explanation": "f_L = f_s × v/(v + v_s) = 850 × 340/365 ≈ 791.8 Hz.",
-      "errorSignals": ["ERR_DOPPLER_NUMER_DENOM"],
+      "errorSignals": [
+        "ERR_DOPPLER_NUMER_DENOM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -143,7 +180,10 @@
       "unit": "m·s⁻¹",
       "marks": 5,
       "explanation": "Approaching: 615 = f_s × v/(v − 26). Receding: 526 = f_s × v/(v + 26). Divide: 615/526 = (v + 26)/(v − 26) ⇒ 1.169(v − 26) = v + 26 ⇒ 1.169v − 30.4 = v + 26 ⇒ 0.169v = 56.4 ⇒ v ≈ 333 m·s⁻¹.",
-      "errorSignals": ["ERR_DOPPLER_DUAL_EQUATIONS", "ERR_DOPPLER_NUMER_DENOM"],
+      "errorSignals": [
+        "ERR_DOPPLER_DUAL_EQUATIONS",
+        "ERR_DOPPLER_NUMER_DENOM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -155,12 +195,21 @@
       "question": "Using v ≈ 333 m·s⁻¹ and the 615 Hz approaching reading from a 26 m·s⁻¹ police car, calculate the source frequency f_s and the wavelength of the siren.",
       "answerMode": "multiField",
       "fields": [
-        {"label": "Source frequency (Hz)", "expectedAnswer": "567"},
-        {"label": "Wavelength (m)", "expectedAnswer": "0.587"}
+        {
+          "label": "Source frequency (Hz)",
+          "expectedAnswer": "567"
+        },
+        {
+          "label": "Wavelength (m)",
+          "expectedAnswer": "0.587"
+        }
       ],
       "marks": 4,
       "explanation": "f_s = f_L × (v − v_s)/v = 615 × 307/333 ≈ 567 Hz. λ = v/f_s = 333/567 ≈ 0.587 m.",
-      "errorSignals": ["ERR_DOPPLER_NUMER_DENOM", "ERR_WAVELENGTH_FORMULA"],
+      "errorSignals": [
+        "ERR_DOPPLER_NUMER_DENOM",
+        "ERR_WAVELENGTH_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -176,7 +225,10 @@
       "unit": "m·s⁻¹",
       "marks": 4,
       "explanation": "Echo formula (double Doppler — bat is moving observer of a moving 'source' at the cliff that re-radiates the frequency the cliff detected): f_L = f_0(v + v_B)/(v − v_B). 52 000(340 − v_B) = 50 000(340 + v_B) ⇒ 1.04(340 − v_B) = 340 + v_B ⇒ 353.6 − 1.04 v_B = 340 + v_B ⇒ 13.6 = 2.04 v_B ⇒ v_B ≈ 6.67 m·s⁻¹.",
-      "errorSignals": ["ERR_DOPPLER_DOUBLE_REFLECTION", "ERR_DOPPLER_NUMER_DENOM"],
+      "errorSignals": [
+        "ERR_DOPPLER_DOUBLE_REFLECTION",
+        "ERR_DOPPLER_NUMER_DENOM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -186,12 +238,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2025 Q6.4",
       "question": "Name ONE application of the Doppler effect in MEDICINE.",
-      "answerMode": "text",
-      "expectedAnswer": "Examples: Doppler ultrasound to measure blood flow velocity; echocardiography (heart imaging); foetal heartbeat monitoring; detecting blocked arteries.",
+      "answerMode": "choice",
+      "expectedAnswer": "Doppler ultrasound to measure blood flow (or foetal heartbeat monitoring).",
       "marks": 2,
       "explanation": "Any reasonable medical Doppler application earns the marks.",
-      "errorSignals": ["ERR_DOPPLER_APPLICATION_MED"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_DOPPLER_APPLICATION_MED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "X-ray imaging of broken bones.",
+        "Doppler ultrasound to measure blood flow (or foetal heartbeat monitoring).",
+        "MRI scanning using magnetic fields."
+      ]
     },
     {
       "id": "L5.T1.A1.q13",
@@ -200,12 +259,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive B 2026 Q6.4",
       "question": "Give ONE application of the Doppler effect used by traffic authorities.",
-      "answerMode": "text",
-      "expectedAnswer": "Speed traps / radar guns. Police use Doppler radar to measure the speed of moving vehicles by comparing the emitted radar frequency with the reflected (Doppler-shifted) frequency.",
+      "answerMode": "choice",
+      "expectedAnswer": "Speed traps / radar guns measuring vehicle speed.",
       "marks": 2,
       "explanation": "Standard application: traffic-enforcement speed radar.",
-      "errorSignals": ["ERR_DOPPLER_APPLICATION_TRAFFIC"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_DOPPLER_APPLICATION_TRAFFIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Traffic lights timing the flow of cars.",
+        "Cameras reading number plates.",
+        "Speed traps / radar guns measuring vehicle speed."
+      ]
     },
     {
       "id": "L5.T1.A1.q14",
@@ -214,12 +280,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive B 2026 Q6.5",
       "question": "A learner says: 'The Doppler shift occurs because the speed of sound changes.' Is this correct? Briefly explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. The speed of sound in a given medium is constant. The Doppler shift is caused by the relative motion of source and observer, which changes the WAVELENGTH (and hence the observed frequency) of the wavefronts received, NOT the wave speed.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — the speed of sound in a medium is constant; relative motion changes the observed wavelength and frequency.",
       "marks": 1,
       "explanation": "Common misconception. v is fixed by the medium; λ changes due to relative motion ⇒ f_observed changes.",
-      "errorSignals": ["ERR_DOPPLER_SPEED_CHANGES", "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_DOPPLER_SPEED_CHANGES",
+        "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Incorrect — the speed of sound in a medium is constant; relative motion changes the observed wavelength and frequency.",
+        "Correct — the Doppler shift happens because sound speeds up as the source approaches.",
+        "Incorrect — it is the source's emitted frequency that actually changes."
+      ]
     },
     {
       "id": "L5.T1.A1.q15",
@@ -228,11 +302,18 @@
       "source": "fresh",
       "question": "An observer is stationary. A source moves towards the observer at constant speed. Compared with when the source is stationary, the observed frequency is:",
       "answerMode": "choice",
-      "options": ["Lower and decreasing", "Higher and constant", "Higher and decreasing", "The same"],
+      "options": [
+        "Lower and decreasing",
+        "Higher and constant",
+        "Higher and decreasing",
+        "The same"
+      ],
       "expectedAnswer": "Higher and constant",
       "marks": 2,
       "explanation": "While approaching at constant speed, the observed frequency is constantly higher than the source frequency. It stays HIGH (not gradually increasing or decreasing) until the source passes the observer.",
-      "errorSignals": ["ERR_DOPPLER_TIME_VARYING"],
+      "errorSignals": [
+        "ERR_DOPPLER_TIME_VARYING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -247,7 +328,9 @@
       "unit": "Hz",
       "marks": 3,
       "explanation": "f_L = f_s × v/(v − v_s) = 500 × 340/320 ≈ 531.3 Hz.",
-      "errorSignals": ["ERR_DOPPLER_NUMER_DENOM"],
+      "errorSignals": [
+        "ERR_DOPPLER_NUMER_DENOM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -262,7 +345,10 @@
       "unit": "Hz",
       "marks": 3,
       "explanation": "Moving observer receding: f_L = f_s × (v − v_L)/v = 1000 × 335/340 ≈ 985.3 Hz.",
-      "errorSignals": ["ERR_DOPPLER_SIGN_CONVENTION", "ERR_DOPPLER_NUMER_DENOM"],
+      "errorSignals": [
+        "ERR_DOPPLER_SIGN_CONVENTION",
+        "ERR_DOPPLER_NUMER_DENOM"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -281,7 +367,9 @@
       "expectedAnswer": "Towards-observer perceives the higher frequency",
       "marks": 2,
       "explanation": "Approaching observer: shorter wavelength ⇒ higher frequency. Receding observer: longer wavelength ⇒ lower frequency.",
-      "errorSignals": ["ERR_DOPPLER_DIRECTION_QUALITATIVE"],
+      "errorSignals": [
+        "ERR_DOPPLER_DIRECTION_QUALITATIVE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -296,7 +384,9 @@
       "unit": "m",
       "marks": 4,
       "explanation": "Observed frequency: f_L = 600 × 340/(340 − 17) = 600 × 340/323 ≈ 631.6 Hz. Wavelength = v/f_L = 340/631.6 ≈ 0.538 m. Equivalently, λ_observed = (v − v_s)/f_s = 323/600 = 0.538 m.",
-      "errorSignals": ["ERR_DOPPLER_WAVELENGTH"],
+      "errorSignals": [
+        "ERR_DOPPLER_WAVELENGTH"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -305,12 +395,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'The actual frequency emitted by the siren changes when the ambulance approaches.' Is this correct? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. The siren itself still emits the same frequency in its own frame. The Doppler effect changes the OBSERVED (perceived) frequency for an outside listener because the wavefronts arrive more often when the source approaches. The driver of the ambulance hears the normal siren frequency at all times.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — the siren emits the same frequency; only the observed frequency changes for the listener.",
       "marks": 3,
       "explanation": "The source frequency is fixed. The observed frequency depends on relative motion. Standard misconception.",
-      "errorSignals": ["ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Correct — the siren physically emits a higher frequency as it approaches.",
+        "Incorrect — the siren emits the same frequency; only the observed frequency changes for the listener.",
+        "Correct — the sound waves speed up, raising the emitted frequency."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

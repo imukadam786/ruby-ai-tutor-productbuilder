@@ -1,7 +1,9 @@
 {
   "skill": "L7.T1.A1",
   "skill_title": "Apply Ohm's Law and calculate resistance in series and parallel circuits",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 12 lifted, 8 fresh. Definitions of EMF/current/potential difference; Ohm's Law V=IR; series and parallel resistance combinations; circuit reduction.",
@@ -13,12 +15,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2025 Q8.1",
       "question": "State OHM'S LAW in words.",
-      "answerMode": "text",
-      "expectedAnswer": "The current in a conductor is directly proportional to the potential difference across it, provided the temperature (and other physical conditions) remain constant.",
+      "answerMode": "choice",
+      "expectedAnswer": "The current in a conductor is directly proportional to the potential difference across it, provided the temperature stays constant.",
       "marks": 2,
       "explanation": "Two marks: 'I ∝ V' + 'at constant temperature'. The temperature condition is essential — without it, the law isn't strictly true for many conductors.",
-      "errorSignals": ["ERR_OHM_LAW_OMITS_TEMPERATURE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_OHM_LAW_OMITS_TEMPERATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The current in a conductor is directly proportional to the potential difference across it, provided the temperature stays constant.",
+        "The current in a conductor is directly proportional to the potential difference across it.",
+        "The resistance of a conductor is directly proportional to the current through it."
+      ]
     },
     {
       "id": "L7.T1.A1.q02",
@@ -27,12 +36,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q8.1",
       "question": "Define an OHMIC CONDUCTOR.",
-      "answerMode": "text",
-      "expectedAnswer": "An ohmic conductor is one that obeys Ohm's Law — the ratio V/I (resistance) remains constant at constant temperature. A V-I graph for an ohmic conductor is a straight line through the origin.",
+      "answerMode": "choice",
+      "expectedAnswer": "One that obeys Ohm's Law — V/I (resistance) stays constant at constant temperature (a straight-line V–I graph).",
       "marks": 2,
       "explanation": "Two marks: 'obeys Ohm's law / V/I = constant' + 'at constant temperature' (or linear V-I graph through origin).",
-      "errorSignals": ["ERR_OHMIC_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_OHMIC_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "One whose resistance increases as the current increases.",
+        "One that obeys Ohm's Law — V/I (resistance) stays constant at constant temperature (a straight-line V–I graph).",
+        "Any conductor that allows a current to flow."
+      ]
     },
     {
       "id": "L7.T1.A1.q03",
@@ -51,7 +67,9 @@
       "expectedAnswer": "In parallel with the component, with high resistance",
       "marks": 2,
       "explanation": "A voltmeter measures p.d. ACROSS a component ⇒ parallel connection. High internal resistance prevents it from drawing significant current that would disturb the circuit.",
-      "errorSignals": ["ERR_VOLTMETER_CONNECTION"],
+      "errorSignals": [
+        "ERR_VOLTMETER_CONNECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -67,7 +85,9 @@
       "unit": "Ω",
       "marks": 2,
       "explanation": "1/R_p = 1/6 + 1/3 = 1/6 + 2/6 = 3/6 = 1/2 ⇒ R_p = 2 Ω.",
-      "errorSignals": ["ERR_PARALLEL_FORGETS_INVERT"],
+      "errorSignals": [
+        "ERR_PARALLEL_FORGETS_INVERT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -83,7 +103,9 @@
       "unit": "Ω",
       "marks": 2,
       "explanation": "Series: R_ext = R₁ + R_p = 4 + 2 = 6 Ω.",
-      "errorSignals": ["ERR_SERIES_PARALLEL_REDUCTION"],
+      "errorSignals": [
+        "ERR_SERIES_PARALLEL_REDUCTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -99,7 +121,9 @@
       "unit": "Ω",
       "marks": 2,
       "explanation": "1/R_p = 1/4 + 1/6 = 3/12 + 2/12 = 5/12 ⇒ R_p = 12/5 = 2.4 Ω.",
-      "errorSignals": ["ERR_PARALLEL_FORGETS_INVERT"],
+      "errorSignals": [
+        "ERR_PARALLEL_FORGETS_INVERT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -115,7 +139,9 @@
       "unit": "V",
       "marks": 3,
       "explanation": "V_p = I × R_p = 1.85 × 2 = 3.70 V.",
-      "errorSignals": ["ERR_OHM_REARRANGE"],
+      "errorSignals": [
+        "ERR_OHM_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -131,7 +157,9 @@
       "unit": "A",
       "marks": 3,
       "explanation": "I_2 = V_p / R_2 = 3.69 / 6 ≈ 0.615 A.",
-      "errorSignals": ["ERR_OHM_REARRANGE"],
+      "errorSignals": [
+        "ERR_OHM_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -147,7 +175,9 @@
       "unit": "W",
       "marks": 3,
       "explanation": "P = I²R = (1.5)² × 3 = 2.25 × 3 = 6.75 W.",
-      "errorSignals": ["ERR_POWER_FORMULA_PIR"],
+      "errorSignals": [
+        "ERR_POWER_FORMULA_PIR"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -158,11 +188,18 @@
       "source_ref": "P1 May/Jun 2023 Q1.8",
       "question": "R₁ is in SERIES with the parallel combination of R₂ and R₃ (all identical resistance R). The power dissipated in R₁ is P. What is the power dissipated in R₂?",
       "answerMode": "choice",
-      "options": ["P/2", "P/4", "P", "2P"],
+      "options": [
+        "P/2",
+        "P/4",
+        "P",
+        "2P"
+      ],
       "expectedAnswer": "P/4",
       "marks": 2,
       "explanation": "R_parallel = R/2. Total R = 3R/2. I_total flows through R₁ and splits equally between R₂ and R₃. P_R1 = I²R. P_R2 = (I/2)²R = I²R/4 = P/4.",
-      "errorSignals": ["ERR_POWER_BRANCH_CURRENT"],
+      "errorSignals": [
+        "ERR_POWER_BRANCH_CURRENT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -178,7 +215,9 @@
       "unit": "A",
       "marks": 3,
       "explanation": "V = IR ⇒ I = V/R = 3.2/4 = 0.8 A.",
-      "errorSignals": ["ERR_OHM_REARRANGE"],
+      "errorSignals": [
+        "ERR_OHM_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -198,7 +237,9 @@
       "expectedAnswer": "A3 or A4 (branches with higher resistance)",
       "marks": 2,
       "explanation": "In a parallel network, less current flows through branches with higher resistance (I = V_p / R_branch). A1 in the main line carries the largest current.",
-      "errorSignals": ["ERR_PARALLEL_CURRENT_SHARING"],
+      "errorSignals": [
+        "ERR_PARALLEL_CURRENT_SHARING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -207,12 +248,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define POTENTIAL DIFFERENCE between two points in a circuit.",
-      "answerMode": "text",
-      "expectedAnswer": "The energy transferred per unit positive charge passing between the two points. p.d. = energy/charge = W/Q. SI unit: volt (V = J/C).",
+      "answerMode": "choice",
+      "expectedAnswer": "The energy transferred per unit charge between the two points (V = W/Q, unit volt).",
       "marks": 2,
       "explanation": "Two marks: 'energy per unit charge' + 'between two points / volt'.",
-      "errorSignals": ["ERR_PD_DEFINITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_PD_DEFINITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The current flowing per unit resistance between the two points.",
+        "The total charge stored between the two points.",
+        "The energy transferred per unit charge between the two points (V = W/Q, unit volt)."
+      ]
     },
     {
       "id": "L7.T1.A1.q14",
@@ -226,7 +274,10 @@
       "unit": "A",
       "marks": 3,
       "explanation": "R_total = 1 + 2 + 3 = 6 Ω. I = V/R = 6/6 = 1 A.",
-      "errorSignals": ["ERR_SERIES_PARALLEL_REDUCTION", "ERR_OHM_REARRANGE"],
+      "errorSignals": [
+        "ERR_SERIES_PARALLEL_REDUCTION",
+        "ERR_OHM_REARRANGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -241,7 +292,10 @@
       "unit": "Ω",
       "marks": 2,
       "explanation": "1/R_p = 1/6 + 1/6 = 2/6 ⇒ R_p = 3 Ω. Two equal resistors in parallel ⇒ half of each.",
-      "errorSignals": ["ERR_PARALLEL_FORGETS_INVERT", "ERR_PARALLEL_ADD"],
+      "errorSignals": [
+        "ERR_PARALLEL_FORGETS_INVERT",
+        "ERR_PARALLEL_ADD"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -256,7 +310,9 @@
       "unit": "A",
       "marks": 4,
       "explanation": "R_parallel = (6×12)/(6+12) = 72/18 = 4 Ω. R_total = 4 + 4 = 8 Ω. I = 12/8 = 1.5 A.",
-      "errorSignals": ["ERR_SERIES_PARALLEL_REDUCTION"],
+      "errorSignals": [
+        "ERR_SERIES_PARALLEL_REDUCTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -275,7 +331,9 @@
       "expectedAnswer": "Current is the same everywhere; voltages add",
       "marks": 2,
       "explanation": "Series: single loop ⇒ same I throughout. Each resistor drops part of the EMF ⇒ V_total = V₁ + V₂ + ... Resistances add.",
-      "errorSignals": ["ERR_SERIES_RULES"],
+      "errorSignals": [
+        "ERR_SERIES_RULES"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -294,7 +352,10 @@
       "expectedAnswer": "Voltage across each branch is the same; currents through branches add to give total",
       "marks": 2,
       "explanation": "Parallel: same V across each branch (they share endpoints). I_total = I₁ + I₂ + … 1/R_p adds. Higher-R branches carry LESS current.",
-      "errorSignals": ["ERR_PARALLEL_RULES", "ERR_PARALLEL_CURRENT_SHARING"],
+      "errorSignals": [
+        "ERR_PARALLEL_RULES",
+        "ERR_PARALLEL_CURRENT_SHARING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -305,12 +366,21 @@
       "question": "A 10 V battery is connected to a 5 Ω resistor. Find the (a) current, (b) power dissipated in the resistor.",
       "answerMode": "multiField",
       "fields": [
-        {"label": "Current (A)", "expectedAnswer": "2"},
-        {"label": "Power (W)", "expectedAnswer": "20"}
+        {
+          "label": "Current (A)",
+          "expectedAnswer": "2"
+        },
+        {
+          "label": "Power (W)",
+          "expectedAnswer": "20"
+        }
       ],
       "marks": 3,
       "explanation": "I = V/R = 10/5 = 2 A. P = VI = 10 × 2 = 20 W (or I²R = 4 × 5 = 20 W).",
-      "errorSignals": ["ERR_OHM_REARRANGE", "ERR_POWER_FORMULA_PIR"],
+      "errorSignals": [
+        "ERR_OHM_REARRANGE",
+        "ERR_POWER_FORMULA_PIR"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -319,12 +389,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'Adding resistors in parallel always DECREASES the equivalent resistance.' Is this correct? Briefly explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Yes — correct. Adding a new branch in parallel always provides an additional path for current, increasing total conductance (1/R_p adds), so R_p decreases. The equivalent resistance of any parallel combination is LESS than the smallest individual resistor.",
+      "answerMode": "choice",
+      "expectedAnswer": "Correct — each added parallel branch gives current another path, so the equivalent resistance decreases.",
       "marks": 2,
       "explanation": "Adding parallel ⇒ R decreases. Adding series ⇒ R increases.",
-      "errorSignals": ["ERR_PARALLEL_RULES"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_PARALLEL_RULES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Correct — each added parallel branch gives current another path, so the equivalent resistance decreases.",
+        "Incorrect — adding resistors in parallel increases the equivalent resistance.",
+        "Incorrect — parallel resistors add directly, like series resistors."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

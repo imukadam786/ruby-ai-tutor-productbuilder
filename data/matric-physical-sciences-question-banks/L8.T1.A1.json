@@ -1,7 +1,9 @@
 {
   "skill": "L8.T1.A1",
   "skill_title": "Apply Faraday's and Lenz's Laws to calculate induced EMF",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 8 lifted, 12 fresh. Faraday's Law (EMF = -N ΔΦ/Δt); Lenz's Law (induced current opposes the change); EMF calculations with changing flux.",
@@ -13,12 +15,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive A 2026 Q9.1",
       "question": "State FARADAY'S LAW of electromagnetic induction.",
-      "answerMode": "text",
-      "expectedAnswer": "The magnitude of the induced EMF across the ends of a conductor is directly proportional to the rate of change of magnetic flux linkage through the conductor: |ε| = N × |ΔΦ/Δt|.",
+      "answerMode": "choice",
+      "expectedAnswer": "The induced EMF is directly proportional to the rate of change of magnetic flux linkage.",
       "marks": 2,
       "explanation": "Two marks: 'EMF' + 'rate of change of flux (linkage)'. The N (turns) multiplier matters for coils.",
-      "errorSignals": ["ERR_FARADAY_STATEMENT", "ERR_FARADAY_RATE_OF_CHANGE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FARADAY_STATEMENT",
+        "ERR_FARADAY_RATE_OF_CHANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The induced EMF is directly proportional to the magnetic flux through the conductor.",
+        "The induced EMF is directly proportional to the strength of the magnetic field.",
+        "The induced EMF is directly proportional to the rate of change of magnetic flux linkage."
+      ]
     },
     {
       "id": "L8.T1.A1.q02",
@@ -27,12 +37,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive B 2026 Q9.1",
       "question": "State LENZ'S LAW.",
-      "answerMode": "text",
-      "expectedAnswer": "The induced current flows in a direction such that the magnetic field it creates OPPOSES the change in magnetic flux that caused it.",
+      "answerMode": "choice",
+      "expectedAnswer": "The induced current flows so that its magnetic field opposes the change in flux that caused it.",
       "marks": 2,
       "explanation": "Two marks: 'induced current direction' + 'opposes the change in flux'. This is the source of the minus sign in EMF = -N ΔΦ/Δt.",
-      "errorSignals": ["ERR_LENZ_STATEMENT", "ERR_LENZ_REVERSED"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LENZ_STATEMENT",
+        "ERR_LENZ_REVERSED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The induced current flows so that its magnetic field opposes the change in flux that caused it.",
+        "The induced current flows so that its magnetic field reinforces the change in flux.",
+        "The induced current always flows in the same direction as the applied field."
+      ]
     },
     {
       "id": "L8.T1.A1.q03",
@@ -41,12 +59,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive B 2026 Q9.4",
       "question": "A bar magnet is thrust QUICKLY into a coil connected to a galvanometer. The galvanometer deflects. Explain why using Faraday's Law.",
-      "answerMode": "text",
-      "expectedAnswer": "As the magnet moves into the coil, the magnetic flux through the coil increases over time. By Faraday's Law, the rate of change of flux induces an EMF in the coil. The EMF drives a current through the galvanometer, causing the deflection.",
+      "answerMode": "choice",
+      "expectedAnswer": "Moving the magnet changes the flux through the coil; the rate of change of flux induces an EMF (Faraday's Law).",
       "marks": 3,
       "explanation": "Change in flux ⇒ induced EMF ⇒ current ⇒ deflection. Direction of deflection is governed by Lenz's Law.",
-      "errorSignals": ["ERR_FARADAY_APPLICATION", "ERR_FARADAY_RATE_OF_CHANGE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FARADAY_APPLICATION",
+        "ERR_FARADAY_RATE_OF_CHANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The magnet's field directly pushes the electrons around the coil.",
+        "Moving the magnet changes the flux through the coil; the rate of change of flux induces an EMF (Faraday's Law).",
+        "The constant strength of the magnet induces a steady EMF."
+      ]
     },
     {
       "id": "L8.T1.A1.q04",
@@ -55,12 +81,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive B 2026 Q9.5",
       "question": "The magnet is then held STATIONARY inside the coil. What happens to the galvanometer reading and why?",
-      "answerMode": "text",
-      "expectedAnswer": "The galvanometer reads zero. With the magnet stationary, the magnetic flux through the coil is NOT changing (dΦ/dt = 0). By Faraday's Law, ε = 0, so no current flows.",
+      "answerMode": "choice",
+      "expectedAnswer": "The reading is zero — a stationary magnet means no change in flux (dΦ/dt = 0), so no EMF.",
       "marks": 2,
       "explanation": "No change in flux ⇒ no induced EMF ⇒ no current. Stationary magnet = no induction.",
-      "errorSignals": ["ERR_FARADAY_STATIC_FLUX"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FARADAY_STATIC_FLUX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The reading is steady and large — the magnet's strong field maintains the EMF.",
+        "The reading increases — the magnet keeps adding flux while inside.",
+        "The reading is zero — a stationary magnet means no change in flux (dΦ/dt = 0), so no EMF."
+      ]
     },
     {
       "id": "L8.T1.A1.q05",
@@ -69,12 +102,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive B 2026 Q9.6",
       "question": "State ONE way to INCREASE the induced EMF in a coil where a magnet is being pushed in or out.",
-      "answerMode": "text",
-      "expectedAnswer": "Any one of: (1) Increase the number of turns N in the coil; (2) Move the magnet faster (increase rate of change of flux, Δt smaller); (3) Use a stronger magnet (higher B); (4) Increase the area of the coil.",
+      "answerMode": "choice",
+      "expectedAnswer": "Move the magnet faster (or add more turns, or use a stronger magnet).",
       "marks": 2,
       "explanation": "ε = -N × ΔΦ/Δt. Increasing N, B, A, or speed (smaller Δt) all increase induced EMF.",
-      "errorSignals": ["ERR_FARADAY_INCREASE_EMF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FARADAY_INCREASE_EMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Move the magnet faster (or add more turns, or use a stronger magnet).",
+        "Hold the magnet still inside the coil.",
+        "Use a thicker wire for the coil."
+      ]
     },
     {
       "id": "L8.T1.A1.q06",
@@ -89,7 +129,10 @@
       "unit": "V",
       "marks": 3,
       "explanation": "ε_peak = NBAω where ω = 2πf = 2π × 50 = 100π rad/s. ε_peak = 400 × 0.8 × 0.05 × 100π = 400 × 0.04 × 100π = 1600π ≈ 5026.5 V.",
-      "errorSignals": ["ERR_PEAK_EMF_FORMULA", "ERR_ANGULAR_FREQ"],
+      "errorSignals": [
+        "ERR_PEAK_EMF_FORMULA",
+        "ERR_ANGULAR_FREQ"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -101,12 +144,21 @@
       "question": "An AC generator produces an alternating EMF described by ε(t) = 200 sin(100πt) volts. Write down the peak EMF and the frequency.",
       "answerMode": "multiField",
       "fields": [
-        {"label": "Peak EMF (V)", "expectedAnswer": "200"},
-        {"label": "Frequency (Hz)", "expectedAnswer": "50"}
+        {
+          "label": "Peak EMF (V)",
+          "expectedAnswer": "200"
+        },
+        {
+          "label": "Frequency (Hz)",
+          "expectedAnswer": "50"
+        }
       ],
       "marks": 3,
       "explanation": "ε = ε_max sin(ωt). ε_max = 200 V (amplitude). ω = 100π = 2πf ⇒ f = 50 Hz.",
-      "errorSignals": ["ERR_ANGULAR_FREQ", "ERR_PEAK_EMF_FORMULA"],
+      "errorSignals": [
+        "ERR_ANGULAR_FREQ",
+        "ERR_PEAK_EMF_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -121,7 +173,10 @@
       "unit": "V",
       "marks": 4,
       "explanation": "ΔΦ = A × ΔB = 0.04 × 1 = 0.04 Wb. |ε| = N × |ΔΦ/Δt| = 200 × 0.04/0.2 = 40 V.",
-      "errorSignals": ["ERR_FLUX_FORMULA", "ERR_FARADAY_N_MULTIPLIER"],
+      "errorSignals": [
+        "ERR_FLUX_FORMULA",
+        "ERR_FARADAY_N_MULTIPLIER"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -136,7 +191,10 @@
       "unit": "V",
       "marks": 3,
       "explanation": "|ε| = N × |ΔΦ/Δt| = 50 × (8×10⁻³ − 2×10⁻³)/0.05 = 50 × 6×10⁻³/0.05 = 50 × 0.12 = 6 V.",
-      "errorSignals": ["ERR_FARADAY_N_MULTIPLIER", "ERR_FARADAY_DELTA_PHI"],
+      "errorSignals": [
+        "ERR_FARADAY_N_MULTIPLIER",
+        "ERR_FARADAY_DELTA_PHI"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -145,12 +203,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define MAGNETIC FLUX through a coil.",
-      "answerMode": "text",
-      "expectedAnswer": "Magnetic flux Φ = B × A × cosθ, where B is the magnetic field strength, A is the coil area, and θ is the angle between B and the area's normal. SI unit: weber (Wb = T·m²). Flux measures the 'amount' of magnetic field passing through the area.",
+      "answerMode": "choice",
+      "expectedAnswer": "Φ = B·A·cosθ — field strength × area × cosine of the angle to the normal (unit weber).",
       "marks": 2,
       "explanation": "Φ depends on B, A and angle. When B is perpendicular to coil (θ = 0), Φ = BA (maximum).",
-      "errorSignals": ["ERR_FLUX_DEFINITION", "ERR_FLUX_FORMULA"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FLUX_DEFINITION",
+        "ERR_FLUX_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Φ = B·A·sinθ.",
+        "Φ = B·A·cosθ — field strength × area × cosine of the angle to the normal (unit weber).",
+        "The rate at which the magnetic field changes."
+      ]
     },
     {
       "id": "L8.T1.A1.q11",
@@ -159,11 +225,18 @@
       "source": "fresh",
       "question": "A bar magnet is pushed INTO a coil. The induced current creates a magnetic pole at the near end of the coil that REPELS the incoming magnet. This is an example of:",
       "answerMode": "choice",
-      "options": ["Faraday's Law only", "Lenz's Law", "Newton's Third Law", "Ohm's Law"],
+      "options": [
+        "Faraday's Law only",
+        "Lenz's Law",
+        "Newton's Third Law",
+        "Ohm's Law"
+      ],
       "expectedAnswer": "Lenz's Law",
       "marks": 2,
       "explanation": "Lenz's Law: the induced current opposes the change. Pushing in a magnet ⇒ flux increases ⇒ induced current creates a field that REPELS the magnet (tries to keep flux unchanged).",
-      "errorSignals": ["ERR_LENZ_REVERSED"],
+      "errorSignals": [
+        "ERR_LENZ_REVERSED"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -172,12 +245,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "If you PULL a magnet OUT of a coil, what type of magnetic pole forms at the near end of the coil (due to the induced current)?",
-      "answerMode": "text",
-      "expectedAnswer": "An opposite pole. As the magnet is withdrawn, flux DECREASES; by Lenz's Law, the induced current produces a magnetic field that OPPOSES the change — meaning it tries to maintain the original flux. So the near end of the coil acts like the OPPOSITE pole of the magnet (attracting it, resisting the withdrawal).",
+      "answerMode": "choice",
+      "expectedAnswer": "An opposite pole — the induced current opposes the falling flux and attracts the magnet (Lenz's Law).",
       "marks": 3,
       "explanation": "Lenz applied to withdrawal: induced current tries to KEEP the magnet (attract it back). If you pull out an N pole, the near end of the coil acts like a S pole.",
-      "errorSignals": ["ERR_LENZ_REVERSED", "ERR_LENZ_DIRECTION_OF_INDUCED"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LENZ_REVERSED",
+        "ERR_LENZ_DIRECTION_OF_INDUCED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A like pole — the induced current pushes the magnet away as it leaves.",
+        "No pole forms — pulling the magnet out induces no current.",
+        "An opposite pole — the induced current opposes the falling flux and attracts the magnet (Lenz's Law)."
+      ]
     },
     {
       "id": "L8.T1.A1.q13",
@@ -195,7 +276,9 @@
       "expectedAnswer": "A magnet moving relative to the coil",
       "marks": 2,
       "explanation": "Induction requires a CHANGE in flux. Only relative motion of magnet and coil (or a changing field) creates that change.",
-      "errorSignals": ["ERR_FARADAY_STATIC_FLUX"],
+      "errorSignals": [
+        "ERR_FARADAY_STATIC_FLUX"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -210,7 +293,10 @@
       "unit": "V",
       "marks": 4,
       "explanation": "Initial Φ = BA cos0° = 0.6 × 0.01 = 0.006 Wb. Final Φ = BA cos90° = 0. ΔΦ = 0.006 Wb. |ε| = N|ΔΦ/Δt| = 100 × 0.006/0.05 = 12 V.",
-      "errorSignals": ["ERR_FLUX_FORMULA", "ERR_FARADAY_N_MULTIPLIER"],
+      "errorSignals": [
+        "ERR_FLUX_FORMULA",
+        "ERR_FARADAY_N_MULTIPLIER"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -219,12 +305,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'Faraday's Law shows that a larger magnetic field always produces a larger induced EMF.' Is this correct? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Not by itself. EMF depends on the RATE OF CHANGE of flux (ΔΦ/Δt), not just the field strength. A huge but unchanging magnetic field induces ZERO EMF. To increase EMF you must change the field, area, orientation, or number of turns — and how QUICKLY this change occurs matters.",
+      "answerMode": "choice",
+      "expectedAnswer": "Not by itself — EMF depends on the rate of change of flux; a large but unchanging field induces zero EMF.",
       "marks": 3,
       "explanation": "Critical distinction: induction requires change. Big B with no change ⇒ no induced EMF.",
-      "errorSignals": ["ERR_FARADAY_RATE_OF_CHANGE", "ERR_FARADAY_STATIC_FLUX"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FARADAY_RATE_OF_CHANGE",
+        "ERR_FARADAY_STATIC_FLUX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Not by itself — EMF depends on the rate of change of flux; a large but unchanging field induces zero EMF.",
+        "Correct — a stronger magnetic field always induces a larger EMF.",
+        "Correct — field strength is the only factor in Faraday's Law."
+      ]
     },
     {
       "id": "L8.T1.A1.q16",
@@ -232,12 +326,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "What does the MINUS SIGN in EMF = −N × ΔΦ/Δt represent?",
-      "answerMode": "text",
-      "expectedAnswer": "It encodes LENZ'S LAW: the induced EMF (and current) acts in a direction such that it OPPOSES the change in flux that caused it. The minus sign ensures the induced current creates a magnetic field opposing the flux change.",
+      "answerMode": "choice",
+      "expectedAnswer": "It represents Lenz's Law — the induced EMF opposes the change in flux that caused it.",
       "marks": 2,
       "explanation": "Lenz's Law via the minus sign. Direction of induced current is set by this sign convention.",
-      "errorSignals": ["ERR_LENZ_STATEMENT", "ERR_FARADAY_MINUS_SIGN"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LENZ_STATEMENT",
+        "ERR_FARADAY_MINUS_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It means the induced EMF is always negative.",
+        "It represents Lenz's Law — the induced EMF opposes the change in flux that caused it.",
+        "It represents the energy lost as heat in the coil."
+      ]
     },
     {
       "id": "L8.T1.A1.q17",
@@ -251,7 +353,10 @@
       "unit": "V",
       "marks": 3,
       "explanation": "|ε| = N|ΔΦ/Δt| = 500 × 4×10⁻⁴/0.01 = 500 × 0.04 = 20 V.",
-      "errorSignals": ["ERR_FARADAY_N_MULTIPLIER", "ERR_FARADAY_DELTA_PHI"],
+      "errorSignals": [
+        "ERR_FARADAY_N_MULTIPLIER",
+        "ERR_FARADAY_DELTA_PHI"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -270,7 +375,9 @@
       "expectedAnswer": "Increases EMF proportionally",
       "marks": 2,
       "explanation": "ε ∝ N (each turn contributes its own induced EMF; they add). Doubling N doubles ε.",
-      "errorSignals": ["ERR_FARADAY_N_MULTIPLIER"],
+      "errorSignals": [
+        "ERR_FARADAY_N_MULTIPLIER"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -285,7 +392,10 @@
       "unit": "V",
       "marks": 4,
       "explanation": "ε_peak = NBAω = 200 × 0.4 × 0.025 × (2π × 30) = 200 × 0.4 × 0.025 × 188.5 ≈ 377 V.",
-      "errorSignals": ["ERR_PEAK_EMF_FORMULA", "ERR_ANGULAR_FREQ"],
+      "errorSignals": [
+        "ERR_PEAK_EMF_FORMULA",
+        "ERR_ANGULAR_FREQ"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -294,12 +404,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "An induction stove transfers energy to a metal pot. Briefly explain (using Faraday's/Lenz's Law) why an induction stove cannot heat a wooden spoon.",
-      "answerMode": "text",
-      "expectedAnswer": "Induction heating uses a rapidly changing magnetic field to induce eddy currents in conductors. Metal pots (conductors) experience induced currents which dissipate heat through their resistance. A wooden spoon is an INSULATOR — no free charges to form currents, so no induced currents, no heat. (Same reason: Faraday's Law produces an EMF in any conductor, but only conductors can carry the resulting current.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Induction induces eddy currents only in conductors; wood is an insulator, so no current and no heating.",
       "marks": 3,
       "explanation": "Eddy current heating requires free charges (conductor). Insulators have no induced currents to dissipate energy.",
-      "errorSignals": ["ERR_FARADAY_APPLICATION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FARADAY_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Wood reflects the magnetic field, so it cannot be heated.",
+        "The magnetic field is too weak to reach the wooden spoon.",
+        "Induction induces eddy currents only in conductors; wood is an insulator, so no current and no heating."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

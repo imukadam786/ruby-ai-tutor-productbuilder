@@ -2,7 +2,7 @@
   "subject": "matric-physical-sciences",
   "version": "1.0",
   "description": "Combined Matric Physical Sciences question bank, produced by scripts/build-matric-phys-sci-bank.mjs from data/matric-physical-sciences-question-banks/*.json. Re-run after editing any per-skill bank.",
-  "built_at": "2026-06-01T09:24:48.770Z",
+  "built_at": "2026-06-01T09:35:13.746Z",
   "skills": {
     "L1.T1.A1": {
       "skill": "L1.T1.A1",
@@ -1572,14 +1572,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "State NEWTON'S LAW OF UNIVERSAL GRAVITATION in words.",
-          "answerMode": "text",
-          "expectedAnswer": "Every particle in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between them. The force acts along the line joining the centres of the two particles.",
+          "answerMode": "choice",
+          "expectedAnswer": "Every particle attracts every other with a force directly proportional to the product of their masses and inversely proportional to the square of the distance between them.",
           "marks": 3,
           "explanation": "Three parts: product of masses + inverse-square distance + along the line joining them.",
           "errorSignals": [
             "ERR_GRAV_LAW_STATEMENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "...directly proportional to the product of their masses and inversely proportional to the distance between them.",
+            "...directly proportional to the distance and inversely proportional to their masses.",
+            "Every particle attracts every other with a force directly proportional to the product of their masses and inversely proportional to the square of the distance between them."
+          ]
         },
         {
           "id": "L10.T1.A1.q06",
@@ -1698,15 +1703,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Which of the following objects experience a MUTUAL gravitational force?",
-          "answerMode": "text",
-          "expectedAnswer": "ALL pairs of objects with mass. The Earth attracts a book on a table, and the book attracts the Earth. The force is mutual (Newton's Third Law: equal in magnitude, opposite in direction, on different bodies). The only reason we don't see the book pulling Earth is that Earth's enormous mass makes its acceleration negligible.",
+          "answerMode": "choice",
+          "expectedAnswer": "All pairs of objects with mass — e.g. the Earth and a book attract each other equally (Newton's Third Law).",
           "marks": 2,
           "explanation": "Universality: every mass attracts every other. Newton's Third Law applies to gravity.",
           "errorSignals": [
             "ERR_GRAV_UNIVERSALITY",
             "ERR_GRAV_FORCE_SYMMETRY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "All pairs of objects with mass — e.g. the Earth and a book attract each other equally (Newton's Third Law).",
+            "Only very massive objects like planets and stars.",
+            "The Earth pulls the book, but the book does not pull the Earth."
+          ]
         },
         {
           "id": "L10.T1.A1.q13",
@@ -1749,14 +1759,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "An astronaut in orbit feels weightless. Does this mean gravity is zero on them?",
-          "answerMode": "text",
-          "expectedAnswer": "No. Gravity is NOT zero in orbit — Earth's gravity provides the centripetal force keeping the spacecraft in orbit (g is only slightly less than at Earth's surface). The astronaut FEELS weightless because they are in free fall along with the spacecraft, so there is no normal force from the floor pushing up on them. 'Weightless' means 'apparent weightless', not 'no gravity'.",
+          "answerMode": "choice",
+          "expectedAnswer": "No — gravity provides the centripetal force for the orbit; the astronaut only feels weightless because they are in free fall.",
           "marks": 3,
           "explanation": "Free fall ≠ no gravity. Astronauts orbit because gravity pulls them toward Earth's centre.",
           "errorSignals": [
             "ERR_WEIGHTLESS_VS_NO_GRAVITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — there is no gravity in space, so the astronaut weighs nothing.",
+            "No — gravity provides the centripetal force for the orbit; the astronaut only feels weightless because they are in free fall.",
+            "Yes — the spacecraft's speed cancels out gravity."
+          ]
         },
         {
           "id": "L10.T1.A1.q16",
@@ -1821,14 +1836,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does the gravitational force between everyday objects (like two chairs) seem negligible compared to Earth's pull on them?",
-          "answerMode": "text",
-          "expectedAnswer": "G is very small (6.67 × 10⁻¹¹), and the masses of everyday objects (kilograms) are tiny compared to Earth's mass (10²⁴ kg). The force between two chairs is on the order of 10⁻⁹ N — undetectable in normal life. Earth's mass makes its gravity vastly dominate.",
+          "answerMode": "choice",
+          "expectedAnswer": "G is tiny (6.67 × 10⁻¹¹) and everyday masses are small compared with Earth's huge mass.",
           "marks": 2,
           "explanation": "G is small + everyday masses small ⇒ tiny forces compared to Earth.",
           "errorSignals": [
             "ERR_GRAV_EVERYDAY_SCALE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Everyday objects have no gravitational field of their own.",
+            "Friction with the air cancels the gravitational force between them.",
+            "G is tiny (6.67 × 10⁻¹¹) and everyday masses are small compared with Earth's huge mass."
+          ]
         },
         {
           "id": "L10.T1.A1.q20",
@@ -1836,14 +1856,19 @@
           "gate": "B",
           "source": "fresh",
           "question": "Two stars of masses M and 3M are separated by distance d. At what distance from the lighter star (along the line joining them) is the net gravitational field zero?",
-          "answerMode": "text",
-          "expectedAnswer": "Let x be the distance from M (lighter). Then distance from 3M is d − x. Equating field magnitudes: M/x² = 3M/(d − x)² ⇒ (d − x)² = 3x² ⇒ d − x = √3 · x ⇒ x = d/(1 + √3) ≈ d/2.732 ≈ 0.366 d.",
+          "answerMode": "choice",
+          "expectedAnswer": "At x = d/(1 + √3) ≈ 0.37d from the lighter star (where M/x² = 3M/(d − x)²).",
           "marks": 5,
           "explanation": "Set the two fields equal (point closer to lighter star — that's where the smaller gravitational pull from M balances the stronger pull from 3M at the larger distance).",
           "errorSignals": [
             "ERR_GRAV_FIELD_BALANCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "At x = d/(1 + √3) ≈ 0.37d from the lighter star (where M/x² = 3M/(d − x)²).",
+            "At the midpoint, x = d/2.",
+            "At x = d/4, closer to the heavier star."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -1974,14 +1999,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What is the difference between MASS and WEIGHT?",
-          "answerMode": "text",
-          "expectedAnswer": "Mass is the AMOUNT OF MATTER in an object (kg) — a scalar that does not change with location. Weight is the GRAVITATIONAL FORCE on an object (newtons) — a vector that depends on the local g (which varies between planets, with altitude, etc.). w = mg.",
+          "answerMode": "choice",
+          "expectedAnswer": "Mass is the amount of matter (kg, scalar, unchanging); weight is the gravitational force on it (N, vector, varies with g).",
           "marks": 3,
           "explanation": "Mass: invariant scalar in kg. Weight: gravitational force in N, changes with g.",
           "errorSignals": [
             "ERR_MASS_VS_WEIGHT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Mass and weight are the same thing measured in different units.",
+            "Mass is the amount of matter (kg, scalar, unchanging); weight is the gravitational force on it (N, vector, varies with g).",
+            "Mass is the force of gravity; weight is the amount of matter."
+          ]
         },
         {
           "id": "L10.T1.A2.q07",
@@ -2014,15 +2044,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does the gravitational acceleration DECREASE with ALTITUDE above Earth's surface?",
-          "answerMode": "text",
-          "expectedAnswer": "g = GM/r², where r is the distance from EARTH'S CENTRE. Increasing altitude increases r, so g decreases (inverse-square). On a mountaintop, r is slightly larger than at sea level, so g is slightly smaller.",
+          "answerMode": "choice",
+          "expectedAnswer": "g = GM/r²; greater altitude means a larger r (from Earth's centre), so g decreases (inverse-square).",
           "marks": 2,
           "explanation": "r in the denominator. As r grows, g shrinks ∝ 1/r².",
           "errorSignals": [
             "ERR_G_ALTITUDE",
             "ERR_GRAV_INVERSE_SQUARE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Higher up there is less air, so gravity is weaker.",
+            "g increases with altitude because you are closer to the Sun.",
+            "g = GM/r²; greater altitude means a larger r (from Earth's centre), so g decreases (inverse-square)."
+          ]
         },
         {
           "id": "L10.T1.A2.q09",
@@ -2130,14 +2165,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'An astronaut weighs nothing in orbit because the spacecraft has cancelled Earth's gravity.' Is this correct? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. The spacecraft does NOT cancel gravity. The astronaut feels 'weightless' because the spacecraft is in FREE FALL toward Earth (along with the astronaut), and there is no normal force from the floor to give a sensation of weight. Gravity still pulls on the astronaut — that's what keeps them in orbit.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — gravity is not cancelled; the astronaut feels weightless because they free-fall with the spacecraft.",
           "marks": 3,
           "explanation": "Free fall ≠ no gravity. Orbit is constant free-falling 'sideways' fast enough to miss Earth.",
           "errorSignals": [
             "ERR_WEIGHTLESS_VS_NO_GRAVITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — gravity is not cancelled; the astronaut feels weightless because they free-fall with the spacecraft.",
+            "Correct — the spacecraft shields the astronaut from Earth's gravity.",
+            "Correct — at orbital height Earth's gravity is zero."
+          ]
         },
         {
           "id": "L10.T1.A2.q15",
@@ -2163,15 +2203,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why doesn't a 1 kg object always weigh exactly 9.8 N on Earth?",
-          "answerMode": "text",
-          "expectedAnswer": "Because g varies slightly with location: it's lower at the equator (Earth bulges out, so r is larger) and higher at the poles, lower at high altitude (mountains), and even varies with local rock density. Standard 'g = 9.8 m·s⁻²' is the textbook average value; in practice g ranges from ~9.78 at the equator to ~9.83 at the poles.",
+          "answerMode": "choice",
+          "expectedAnswer": "g varies with location — lower at the equator and at high altitude, higher at the poles.",
           "marks": 3,
           "explanation": "Earth isn't a perfect sphere; g depends on r and local mass distribution.",
           "errorSignals": [
             "ERR_G_VARIATION",
             "ERR_G_ALTITUDE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because the object's mass changes with location.",
+            "g varies with location — lower at the equator and at high altitude, higher at the poles.",
+            "Because 9.8 N·kg⁻¹ is only correct on the Moon."
+          ]
         },
         {
           "id": "L10.T1.A2.q17",
@@ -2231,15 +2276,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Two students compute the gravitational acceleration on a planet but get different answers. One uses the planet's DIAMETER as r in g = GM/r²; the other uses the RADIUS. Which is correct, and what is the relationship between the two results?",
-          "answerMode": "text",
-          "expectedAnswer": "The student who used the RADIUS is correct (r in g = GM/r² is the distance from the planet's CENTRE, which is the radius for a surface object). Using diameter gives g_wrong = GM/(2R)² = g/4. The diameter-user's answer is one-quarter of the correct value.",
+          "answerMode": "choice",
+          "expectedAnswer": "The student who used the radius is correct — r is the distance from the planet's centre.",
           "marks": 3,
           "explanation": "r in g = GM/r² is from CENTRE. Diameter is 2R, giving a factor-of-4 error.",
           "errorSignals": [
             "ERR_G_PLANET_FORMULA",
             "ERR_RADIUS_VS_DIAMETER"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The student who used the diameter is correct — r is the full width of the planet.",
+            "Both are correct; r can be either as long as it is used consistently.",
+            "The student who used the radius is correct — r is the distance from the planet's centre."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -11803,15 +11853,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q6.1",
           "question": "Define the DOPPLER EFFECT.",
-          "answerMode": "text",
-          "expectedAnswer": "The apparent change in the observed frequency (or pitch) of a wave as perceived by an observer, due to the relative motion between the source of the wave and the observer.",
+          "answerMode": "choice",
+          "expectedAnswer": "The apparent change in observed frequency (pitch) of a wave due to relative motion between the source and the observer.",
           "marks": 2,
           "explanation": "Two marks: 'apparent change in frequency' + 'relative motion between source and observer'. The actual source frequency does not change — only the observed value.",
           "errorSignals": [
             "ERR_DOPPLER_DEF_OMITS_RELATIVE",
             "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The apparent change in observed frequency (pitch) of a wave due to relative motion between the source and the observer.",
+            "A change in the actual frequency emitted by the source as it moves.",
+            "The change in a wave's frequency as it passes through different materials."
+          ]
         },
         {
           "id": "L5.T1.A1.q02",
@@ -12021,14 +12076,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q6.4",
           "question": "Name ONE application of the Doppler effect in MEDICINE.",
-          "answerMode": "text",
-          "expectedAnswer": "Examples: Doppler ultrasound to measure blood flow velocity; echocardiography (heart imaging); foetal heartbeat monitoring; detecting blocked arteries.",
+          "answerMode": "choice",
+          "expectedAnswer": "Doppler ultrasound to measure blood flow (or foetal heartbeat monitoring).",
           "marks": 2,
           "explanation": "Any reasonable medical Doppler application earns the marks.",
           "errorSignals": [
             "ERR_DOPPLER_APPLICATION_MED"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "X-ray imaging of broken bones.",
+            "Doppler ultrasound to measure blood flow (or foetal heartbeat monitoring).",
+            "MRI scanning using magnetic fields."
+          ]
         },
         {
           "id": "L5.T1.A1.q13",
@@ -12037,14 +12097,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q6.4",
           "question": "Give ONE application of the Doppler effect used by traffic authorities.",
-          "answerMode": "text",
-          "expectedAnswer": "Speed traps / radar guns. Police use Doppler radar to measure the speed of moving vehicles by comparing the emitted radar frequency with the reflected (Doppler-shifted) frequency.",
+          "answerMode": "choice",
+          "expectedAnswer": "Speed traps / radar guns measuring vehicle speed.",
           "marks": 2,
           "explanation": "Standard application: traffic-enforcement speed radar.",
           "errorSignals": [
             "ERR_DOPPLER_APPLICATION_TRAFFIC"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Traffic lights timing the flow of cars.",
+            "Cameras reading number plates.",
+            "Speed traps / radar guns measuring vehicle speed."
+          ]
         },
         {
           "id": "L5.T1.A1.q14",
@@ -12053,15 +12118,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q6.5",
           "question": "A learner says: 'The Doppler shift occurs because the speed of sound changes.' Is this correct? Briefly explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. The speed of sound in a given medium is constant. The Doppler shift is caused by the relative motion of source and observer, which changes the WAVELENGTH (and hence the observed frequency) of the wavefronts received, NOT the wave speed.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — the speed of sound in a medium is constant; relative motion changes the observed wavelength and frequency.",
           "marks": 1,
           "explanation": "Common misconception. v is fixed by the medium; λ changes due to relative motion ⇒ f_observed changes.",
           "errorSignals": [
             "ERR_DOPPLER_SPEED_CHANGES",
             "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — the speed of sound in a medium is constant; relative motion changes the observed wavelength and frequency.",
+            "Correct — the Doppler shift happens because sound speeds up as the source approaches.",
+            "Incorrect — it is the source's emitted frequency that actually changes."
+          ]
         },
         {
           "id": "L5.T1.A1.q15",
@@ -12163,14 +12233,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'The actual frequency emitted by the siren changes when the ambulance approaches.' Is this correct? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. The siren itself still emits the same frequency in its own frame. The Doppler effect changes the OBSERVED (perceived) frequency for an outside listener because the wavefronts arrive more often when the source approaches. The driver of the ambulance hears the normal siren frequency at all times.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — the siren emits the same frequency; only the observed frequency changes for the listener.",
           "marks": 3,
           "explanation": "The source frequency is fixed. The observed frequency depends on relative motion. Standard misconception.",
           "errorSignals": [
             "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — the siren physically emits a higher frequency as it approaches.",
+            "Incorrect — the siren emits the same frequency; only the observed frequency changes for the listener.",
+            "Correct — the sound waves speed up, raising the emitted frequency."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -12296,15 +12371,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2023 Q6.2",
           "question": "A star is moving AWAY from Earth. How does the frequency of its light observed on Earth compare to the source frequency? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "The observed frequency is LOWER than the source frequency (red shift). When the source moves away, successive wavefronts are emitted from further and further away, so they arrive at the observer with a longer interval — longer wavelength and lower observed frequency.",
+          "answerMode": "choice",
+          "expectedAnswer": "Lower than the source frequency (red shift) — receding motion stretches the wavelengths.",
           "marks": 2,
           "explanation": "Standard recession explanation. Wavelength stretches, frequency drops.",
           "errorSignals": [
             "ERR_SHIFT_DIRECTION",
             "ERR_RED_BLUE_REVERSE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Higher than the source frequency (blue shift).",
+            "The same — motion does not affect the observed frequency.",
+            "Lower than the source frequency (red shift) — receding motion stretches the wavelengths."
+          ]
         },
         {
           "id": "L5.T1.A2.q06",
@@ -12334,15 +12414,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Most distant galaxies show a RED shift when observed from Earth. What does this tell us about the universe?",
-          "answerMode": "text",
-          "expectedAnswer": "Most distant galaxies are moving AWAY from us, which means the universe is EXPANDING. (This is Hubble's observation: galaxies recede with speeds roughly proportional to their distance — the basis of the expanding-universe model.)",
+          "answerMode": "choice",
+          "expectedAnswer": "Distant galaxies are moving away from us — the universe is expanding.",
           "marks": 2,
           "explanation": "Red shift everywhere ⇒ galaxies receding ⇒ universe expanding. Foundational evidence for Big Bang cosmology.",
           "errorSignals": [
             "ERR_EXPANDING_UNIVERSE",
             "ERR_REDSHIFT_INTERPRETATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Distant galaxies are moving away from us — the universe is expanding.",
+            "Distant galaxies are moving towards us — the universe is contracting.",
+            "The galaxies are stationary; the red shift is caused by dust."
+          ]
         },
         {
           "id": "L5.T1.A2.q08",
@@ -12350,14 +12435,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define RED SHIFT in the context of light from a star.",
-          "answerMode": "text",
-          "expectedAnswer": "Red shift is the increase in observed wavelength (decrease in observed frequency) of light from a source that is moving AWAY from the observer. The light appears shifted toward the red end of the visible spectrum.",
+          "answerMode": "choice",
+          "expectedAnswer": "An increase in observed wavelength (lower frequency) from a source moving away.",
           "marks": 2,
           "explanation": "Two marks: 'longer wavelength / lower frequency' + 'source moving away'.",
           "errorSignals": [
             "ERR_RED_DEFINITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A decrease in observed wavelength from a source moving away.",
+            "An increase in observed wavelength (lower frequency) from a source moving away.",
+            "A change in a star's colour caused by its surface temperature."
+          ]
         },
         {
           "id": "L5.T1.A2.q09",
@@ -12365,14 +12455,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define BLUE SHIFT in the context of light from a star.",
-          "answerMode": "text",
-          "expectedAnswer": "Blue shift is the decrease in observed wavelength (increase in observed frequency) of light from a source that is moving TOWARDS the observer. The light appears shifted toward the blue end of the visible spectrum.",
+          "answerMode": "choice",
+          "expectedAnswer": "A decrease in observed wavelength (higher frequency) from a source moving towards the observer.",
           "marks": 2,
           "explanation": "Two marks: 'shorter wavelength / higher frequency' + 'source approaching'.",
           "errorSignals": [
             "ERR_BLUE_DEFINITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "An increase in observed wavelength from a source moving towards the observer.",
+            "A blue glow emitted by very hot stars.",
+            "A decrease in observed wavelength (higher frequency) from a source moving towards the observer."
+          ]
         },
         {
           "id": "L5.T1.A2.q10",
@@ -12461,15 +12556,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "The Andromeda Galaxy shows a BLUE shift. What does this imply about Andromeda's motion relative to Earth?",
-          "answerMode": "text",
-          "expectedAnswer": "Andromeda is moving TOWARDS the Milky Way (and Earth). Blue shift indicates approach, so the observed wavelength is shorter than emitted. Note that despite the overall expansion of the universe, nearby galaxies can still approach due to their local gravitational attraction.",
+          "answerMode": "choice",
+          "expectedAnswer": "Andromeda is moving towards the Milky Way (blue shift means approach).",
           "marks": 3,
           "explanation": "Blue shift = approaching. Local gravitational pull can override cosmic expansion at short distances.",
           "errorSignals": [
             "ERR_RED_BLUE_REVERSE",
             "ERR_EXPANDING_UNIVERSE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Andromeda is moving towards the Milky Way (blue shift means approach).",
+            "Andromeda is moving away from us (blue shift means recession).",
+            "Andromeda is stationary; the shift is due to the expanding universe."
+          ]
         },
         {
           "id": "L5.T1.A2.q15",
@@ -12498,14 +12598,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A distant quasar's hydrogen line is observed at TWICE its rest wavelength. Has it been red-shifted or blue-shifted, and what does that imply?",
-          "answerMode": "text",
-          "expectedAnswer": "Red-shifted (observed wavelength longer than rest). It is moving away from Earth at a substantial fraction of the speed of light — a strong red shift indicates very large recession speed and great distance (consistent with the expanding universe).",
+          "answerMode": "choice",
+          "expectedAnswer": "Red-shifted — it is moving away at a large fraction of the speed of light.",
           "marks": 2,
           "explanation": "λ_observed > λ_rest ⇒ red shift. Large shift ⇒ large recession speed.",
           "errorSignals": [
             "ERR_REDSHIFT_INTERPRETATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Blue-shifted — it is moving rapidly towards us.",
+            "Red-shifted — it is moving away at a large fraction of the speed of light.",
+            "Not shifted — a longer wavelength just means it is a cooler object."
+          ]
         },
         {
           "id": "L5.T1.A2.q17",
@@ -12513,14 +12618,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner asks: 'If we see a star's light shifted to a longer wavelength, did the star really emit different light?' Briefly explain.",
-          "answerMode": "text",
-          "expectedAnswer": "No, the star emitted the SAME (rest-frame) light. The shift is in the OBSERVED wavelength due to the star's motion relative to Earth. From the star's own frame, its emission spectrum is unchanged.",
+          "answerMode": "choice",
+          "expectedAnswer": "No — the star emitted the same light; the observed wavelength is shifted by its motion relative to Earth.",
           "marks": 2,
           "explanation": "Source frequency in the star's frame is constant. Doppler shift is a frame-dependent observation.",
           "errorSignals": [
             "ERR_DOPPLER_DEF_ACTUAL_FREQ_CHANGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — the star physically emitted longer-wavelength light.",
+            "Yes — the light changed wavelength on its own as it travelled through space.",
+            "No — the star emitted the same light; the observed wavelength is shifted by its motion relative to Earth."
+          ]
         },
         {
           "id": "L5.T1.A2.q18",
@@ -12528,14 +12638,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "If a star is BOTH bright AND red-shifted, what does each piece of information tell us?",
-          "answerMode": "text",
-          "expectedAnswer": "Brightness alone does not tell us its speed — only its apparent intensity. The red shift tells us the star is moving AWAY from us. Combining brightness with known stellar properties can suggest distance, but the red-shift specifically indicates recession.",
+          "answerMode": "choice",
+          "expectedAnswer": "Brightness gives only apparent intensity; the red shift tells us it is moving away.",
           "marks": 2,
           "explanation": "Brightness ≠ shift. Red shift = motion (away).",
           "errorSignals": [
             "ERR_REDSHIFT_VS_BRIGHTNESS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Brightness gives only apparent intensity; the red shift tells us it is moving away.",
+            "Brightness tells us its speed and the red shift tells us its distance.",
+            "Both tell us the same thing — that the star is moving away."
+          ]
         },
         {
           "id": "L5.T1.A2.q19",
@@ -12564,8 +12679,8 @@
           "gate": "A",
           "source": "fresh",
           "question": "Compare red shift and blue shift in one sentence each.",
-          "answerMode": "text",
-          "expectedAnswer": "Red shift: observed wavelength LONGER than rest wavelength, indicating the source is moving AWAY. Blue shift: observed wavelength SHORTER than rest wavelength, indicating the source is moving TOWARDS the observer.",
+          "answerMode": "choice",
+          "expectedAnswer": "Red shift: longer observed wavelength, source moving away. Blue shift: shorter observed wavelength, source moving towards.",
           "marks": 2,
           "explanation": "Two clean one-liners describing each shift and its direction implication.",
           "errorSignals": [
@@ -12573,7 +12688,12 @@
             "ERR_RED_DEFINITION",
             "ERR_BLUE_DEFINITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Red shift: source moving towards. Blue shift: source moving away.",
+            "Red shift: longer observed wavelength, source moving away. Blue shift: shorter observed wavelength, source moving towards.",
+            "Red shift: shorter wavelength. Blue shift: longer wavelength."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -12607,14 +12727,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q7.2",
           "question": "State COULOMB'S LAW in words.",
-          "answerMode": "text",
-          "expectedAnswer": "The electrostatic force between two point charges is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance between them. The force acts along the line joining the two charges.",
+          "answerMode": "choice",
+          "expectedAnswer": "The electrostatic force between two point charges is directly proportional to the product of the charges and inversely proportional to the square of the distance between them.",
           "marks": 3,
           "explanation": "Three marks: 'product of charges' + 'inversely proportional to r²' + 'along line joining charges'. F = kQ₁Q₂/r².",
           "errorSignals": [
             "ERR_COULOMB_LAW_STATEMENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "...directly proportional to the product of the charges and inversely proportional to the distance between them.",
+            "...directly proportional to the distance and inversely proportional to the product of the charges.",
+            "The electrostatic force between two point charges is directly proportional to the product of the charges and inversely proportional to the square of the distance between them."
+          ]
         },
         {
           "id": "L6.T1.A1.q02",
@@ -12744,15 +12869,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q7.1",
           "question": "Q₁ = +5 × 10⁻⁶ C and Q₂ = +5 × 10⁻⁶ C are placed 0.4 m apart. Calculate the magnitude of the electrostatic force between them and state whether it is attractive or repulsive. (k = 9 × 10⁹.)",
-          "answerMode": "text",
-          "expectedAnswer": "F = (9×10⁹)(5×10⁻⁶)(5×10⁻⁶)/(0.4²) = (225×10⁻³)/0.16 ≈ 1.406 N. REPULSIVE (both positive).",
+          "answerMode": "choice",
+          "expectedAnswer": "≈ 1.41 N, repulsive (both charges are positive).",
           "marks": 4,
           "explanation": "Same-sign charges repel. F ≈ 1.41 N along the line joining the charges, directed outward from each.",
           "errorSignals": [
             "ERR_COULOMB_R_SQUARED",
             "ERR_COULOMB_DIRECTION_SIGN"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "≈ 1.41 N, repulsive (both charges are positive).",
+            "≈ 0.56 N, repulsive.",
+            "≈ 1.41 N, attractive."
+          ]
         },
         {
           "id": "L6.T1.A1.q09",
@@ -12839,15 +12969,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'Coulomb's force can have a negative magnitude.' Is this correct? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "No. Force MAGNITUDE is always positive. The negative sign in F = kQ₁Q₂/r² when one charge is negative just tells us the force is ATTRACTIVE (not 'pointing in the negative direction'). When reporting magnitudes, take the absolute value of the charges in the formula.",
+          "answerMode": "choice",
+          "expectedAnswer": "No — force magnitude is always positive; a negative sign only indicates an attractive force.",
           "marks": 2,
           "explanation": "The sign of Coulomb's force tells you attraction (negative product) or repulsion (positive product), not direction. Magnitude is a positive scalar.",
           "errorSignals": [
             "ERR_COULOMB_MAGNITUDE_ONLY",
             "ERR_COULOMB_DIRECTION_SIGN"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — when a charge is negative the force has a negative magnitude.",
+            "No — force magnitude is always positive; a negative sign only indicates an attractive force.",
+            "Yes — the magnitude is negative and points in the negative direction."
+          ]
         },
         {
           "id": "L6.T1.A1.q14",
@@ -12963,14 +13098,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Which TWO requirements does Coulomb's Law strictly assume about the charged objects?",
-          "answerMode": "text",
-          "expectedAnswer": "(1) The charges must be POINT CHARGES (or behave as such — small spheres at large separations approximate this). (2) The charges must be at REST relative to each other (or moving slowly enough that magnetic effects are negligible). Also: the medium is usually assumed to be vacuum/air.",
+          "answerMode": "choice",
+          "expectedAnswer": "The charges are point charges and are at rest (stationary).",
           "marks": 2,
           "explanation": "Point charges + at rest + uniform medium. For spheres, the centre-to-centre distance is used.",
           "errorSignals": [
             "ERR_COULOMB_ASSUMPTIONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The charges are equal in magnitude and opposite in sign.",
+            "The charges are moving and made of metal.",
+            "The charges are point charges and are at rest (stationary)."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -13088,15 +13228,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q7.1",
           "question": "Describe the electric field pattern around an ISOLATED POSITIVELY charged sphere. (You may describe instead of drawing.)",
-          "answerMode": "text",
-          "expectedAnswer": "Field lines radiate OUTWARD from the centre of the positive sphere in all directions (radially). Lines are straight, evenly spaced near the sphere, and decrease in density (further apart) as r increases — reflecting that the field weakens with distance.",
+          "answerMode": "choice",
+          "expectedAnswer": "Field lines radiate outward in all directions, denser near the sphere and farther apart with distance.",
           "marks": 3,
           "explanation": "Three marks: outward direction + radial pattern + density decreases with r.",
           "errorSignals": [
             "ERR_FIELD_LINE_DIRECTION",
             "ERR_FIELD_LINE_DENSITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Field lines radiate outward in all directions, denser near the sphere and farther apart with distance.",
+            "Field lines point inward, towards the sphere.",
+            "Field lines radiate outward but are evenly spaced everywhere."
+          ]
         },
         {
           "id": "L6.T1.A2.q06",
@@ -13105,14 +13250,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q7.1.1",
           "question": "Describe (in words) the electric field pattern around a +4 nC point charge.",
-          "answerMode": "text",
-          "expectedAnswer": "Radially outward from the +4 nC charge in all directions. At least 8 evenly spaced straight arrows pointing away. Lines are denser near the charge and farther apart with distance.",
+          "answerMode": "choice",
+          "expectedAnswer": "Straight lines radiating outward (away) from the charge in all directions.",
           "marks": 2,
           "explanation": "Positive ⇒ outward arrows. Spacing reflects field magnitude.",
           "errorSignals": [
             "ERR_FIELD_LINE_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Straight lines pointing inward, towards the charge.",
+            "Straight lines radiating outward (away) from the charge in all directions.",
+            "Circular loops around the charge."
+          ]
         },
         {
           "id": "L6.T1.A2.q07",
@@ -13144,14 +13294,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q7.2.1",
           "question": "A graph of electric field E versus 1/r² is plotted for a charged sphere. What does the SHAPE of this graph indicate about the relationship between E and 1/r²?",
-          "answerMode": "text",
-          "expectedAnswer": "If the graph is a straight line through the origin, E is directly proportional to 1/r² — i.e. E = kQ × (1/r²). The gradient of the line equals kQ.",
+          "answerMode": "choice",
+          "expectedAnswer": "A straight line through the origin means E is directly proportional to 1/r² (gradient = kQ).",
           "marks": 1,
           "explanation": "Linear E vs 1/r² ⇒ confirms inverse-square dependence of E on r. Gradient gives kQ.",
           "errorSignals": [
             "ERR_E_VS_INVERSE_R_SQ"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A curve means E is directly proportional to 1/r².",
+            "A straight line means E is independent of distance.",
+            "A straight line through the origin means E is directly proportional to 1/r² (gradient = kQ)."
+          ]
         },
         {
           "id": "L6.T1.A2.q09",
@@ -13214,15 +13369,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define ELECTRIC FIELD at a point.",
-          "answerMode": "text",
-          "expectedAnswer": "The electric field at a point is the electrostatic force per unit positive test charge experienced at that point: E = F/q. It is a vector quantity with direction the same as the force on a positive test charge. SI unit: newton per coulomb (N·C⁻¹) or volt per metre (V·m⁻¹).",
+          "answerMode": "choice",
+          "expectedAnswer": "The electrostatic force per unit positive test charge at a point: E = F/q (unit N·C⁻¹).",
           "marks": 2,
           "explanation": "Two marks: 'force per unit positive test charge' + 'vector / N·C⁻¹'.",
           "errorSignals": [
             "ERR_E_FIELD_DEF",
             "ERR_E_FIELD_UNITS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The electrostatic force per unit positive test charge at a point: E = F/q (unit N·C⁻¹).",
+            "The total force on a charge at a point (unit N).",
+            "The charge per unit area on a surface (unit C·m⁻²)."
+          ]
         },
         {
           "id": "L6.T1.A2.q13",
@@ -13268,14 +13428,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner draws field lines for a NEGATIVE point charge with arrows pointing OUTWARD. What's wrong?",
-          "answerMode": "text",
-          "expectedAnswer": "Field lines around a negative charge must point INWARD (towards the charge). By convention, lines start on positive charges and END on negative charges. A negative charge alone has field lines coming inward from infinity.",
+          "answerMode": "choice",
+          "expectedAnswer": "Field lines around a negative charge must point inward — lines end on negative charges.",
           "marks": 2,
           "explanation": "Convention: + outward, − inward. Critical for getting field patterns right.",
           "errorSignals": [
             "ERR_FIELD_LINE_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Nothing — field lines always point outward from any charge.",
+            "Field lines around a negative charge must point inward — lines end on negative charges.",
+            "The lines should be curved, not straight."
+          ]
         },
         {
           "id": "L6.T1.A2.q16",
@@ -13323,15 +13488,20 @@
           "gate": "B",
           "source": "fresh",
           "question": "A 2 μC charge is at the origin. Calculate the electric field at a point P, 0.30 m to the right of the charge. State magnitude AND direction. (k = 9 × 10⁹.)",
-          "answerMode": "text",
-          "expectedAnswer": "E = kQ/r² = (9×10⁹)(2×10⁻⁶)/(0.3²) = 18 000/0.09 = 2 × 10⁵ N·C⁻¹. Direction: AWAY from the +2 μC charge — i.e. to the RIGHT at point P.",
+          "answerMode": "choice",
+          "expectedAnswer": "2 × 10⁵ N·C⁻¹, directed away from the charge (to the right at P).",
           "marks": 4,
           "explanation": "Magnitude from kQ/r². Direction: away from positive charge.",
           "errorSignals": [
             "ERR_E_FIELD_FORMULA",
             "ERR_E_FIELD_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "6 × 10⁵ N·C⁻¹, to the right.",
+            "2 × 10⁵ N·C⁻¹, towards the charge (to the left).",
+            "2 × 10⁵ N·C⁻¹, directed away from the charge (to the right at P)."
+          ]
         },
         {
           "id": "L6.T1.A2.q19",
@@ -13340,15 +13510,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q7.2.3",
           "question": "On an E vs 1/r² graph plotted for two charged spheres, sphere B's gradient is GREATER than sphere A's. Compare the charges on B and A and explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Sphere B has a GREATER charge than sphere A. The gradient of E vs 1/r² is kQ, so a steeper gradient implies a larger Q.",
+          "answerMode": "choice",
+          "expectedAnswer": "B has the greater charge — the gradient of E vs 1/r² equals kQ, so a steeper gradient means a larger Q.",
           "marks": 3,
           "explanation": "Gradient = kQ. Same k for both. Bigger gradient ⇒ bigger Q.",
           "errorSignals": [
             "ERR_E_VS_INVERSE_R_SQ",
             "ERR_GRAPH_GRADIENT_REARRANGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "B has the greater charge — the gradient of E vs 1/r² equals kQ, so a steeper gradient means a larger Q.",
+            "A has the greater charge — a steeper gradient means a smaller charge.",
+            "They have equal charge; the gradient depends only on distance."
+          ]
         },
         {
           "id": "L6.T1.A2.q20",
@@ -13403,15 +13578,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q7.2",
           "question": "Q₁ = +5 μC and Q₂ = +5 μC are placed 0.4 m apart on a horizontal line. A third charge Q₃ = −2 μC is placed midway between them (0.2 m from each). Calculate the magnitude of the net electrostatic force on Q₃ and state its direction. (k = 9 × 10⁹.)",
-          "answerMode": "text",
-          "expectedAnswer": "F from each +5 μC on Q₃: F₁ = (9×10⁹)(5×10⁻⁶)(2×10⁻⁶)/(0.2²) = 90×10⁻³/0.04 = 2.25 N (attractive, towards each + charge). The two forces are equal in magnitude and opposite in direction along the line ⇒ they CANCEL. Net force = 0 N.",
+          "answerMode": "choice",
+          "expectedAnswer": "Zero — the two attractive forces on Q₃ are equal in magnitude and opposite in direction, so they cancel.",
           "marks": 5,
           "explanation": "Symmetric configuration: two equal attractive forces in opposite directions cancel. Net force is zero (this is a classic equilibrium check).",
           "errorSignals": [
             "ERR_NET_FORCE_VECTOR_ADD",
             "ERR_COULOMB_DIRECTION_SIGN"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "4.5 N, towards the nearer charge.",
+            "Zero — the two attractive forces on Q₃ are equal in magnitude and opposite in direction, so they cancel.",
+            "2.25 N — the value of one of the two forces."
+          ]
         },
         {
           "id": "L6.T1.A3.q02",
@@ -13420,8 +13600,8 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive A 2026 Q7.3",
           "question": "Q₁ = +4 × 10⁻⁶ C at A, Q₂ = −6 × 10⁻⁶ C at B (0.3 m to the right of A). Test charge Q₃ = +1 × 10⁻⁶ C at C, which is 0.2 m to the right of B (i.e. 0.5 m from A). Calculate the net force on Q₃ and state its direction.",
-          "answerMode": "text",
-          "expectedAnswer": "F₁ (Q₁ on Q₃): (9×10⁹)(4×10⁻⁶)(1×10⁻⁶)/(0.5²) = 0.144 N to the RIGHT (both +, repulsive). F₂ (Q₂ on Q₃): (9×10⁹)(6×10⁻⁶)(1×10⁻⁶)/(0.2²) = 1.35 N to the LEFT (Q₂ −, Q₃ +, attractive ⇒ towards Q₂, i.e. left). Net F = 1.35 − 0.144 = 1.206 N to the LEFT.",
+          "answerMode": "choice",
+          "expectedAnswer": "≈ 1.21 N to the left (1.35 N left from Q₂ minus 0.144 N right from Q₁).",
           "marks": 5,
           "explanation": "Compute each force separately with the correct direction, then sum as vectors along the line.",
           "errorSignals": [
@@ -13429,7 +13609,12 @@
             "ERR_COULOMB_DIRECTION_SIGN",
             "ERR_COULOMB_DISTANCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "≈ 1.49 N to the left (adding the two magnitudes).",
+            "≈ 1.21 N to the right.",
+            "≈ 1.21 N to the left (1.35 N left from Q₂ minus 0.144 N right from Q₁)."
+          ]
         },
         {
           "id": "L6.T1.A3.q03",
@@ -13457,15 +13642,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2023 Q7.4",
           "question": "Charge X (−7.2 × 10⁻⁹ C) lies between Y (+7.2 × 10⁻⁹ C, 0.03 m to the right of X) and Z (positive, 0.01 m to the LEFT of X). Draw or describe a vector diagram showing all electric forces acting on X.",
-          "answerMode": "text",
-          "expectedAnswer": "Force by Y on X: Y is positive and X negative ⇒ ATTRACTIVE ⇒ force points from X TOWARDS Y, i.e. to the RIGHT. Force by Z on X: Z is positive and X negative ⇒ attractive ⇒ force points from X TOWARDS Z, i.e. to the LEFT. The two forces act in opposite directions along the same horizontal line.",
+          "answerMode": "choice",
+          "expectedAnswer": "The force from Y points right (towards Y) and the force from Z points left (towards Z) — both attractive.",
           "marks": 2,
           "explanation": "Each force has a sign relative to the charge pair: opposite signs ⇒ attractive (towards the other charge).",
           "errorSignals": [
             "ERR_COULOMB_DIRECTION_SIGN",
             "ERR_FORCE_PAIR_VECTOR"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The force from Y points right (towards Y) and the force from Z points left (towards Z) — both attractive.",
+            "Both forces point right, away from Z and towards Y.",
+            "The force from Y points left and the force from Z points right (repulsive)."
+          ]
         },
         {
           "id": "L6.T1.A3.q05",
@@ -13474,15 +13664,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q7.3",
           "question": "Sphere S (mass 0.01 kg, charge −6 nC) sits on a 25° smooth incline and is held in equilibrium by a light string connecting it (along the incline) to sphere R (+5 nC) located further down the slope. Describe (or sketch) the free-body diagram for sphere S, including the electrostatic force.",
-          "answerMode": "text",
-          "expectedAnswer": "Forces on S (all from a single dot): (1) Weight mg vertically DOWN; (2) Normal N perpendicular to the inclined surface (pointing away from surface); (3) Tension T along the string (toward R, i.e. down the slope or along the line joining S to R); (4) Electrostatic force F_RS along the line joining R and S — since R is positive and S is negative, F is ATTRACTIVE on S, pointing from S towards R.",
+          "answerMode": "choice",
+          "expectedAnswer": "Weight (down), normal (perpendicular to the incline), tension (along the incline) and the electrostatic force from R.",
           "marks": 4,
           "explanation": "Standard incline FBD with the electrostatic force added as a fourth vector along the S–R line.",
           "errorSignals": [
             "ERR_FBD_ADD_E_FORCE",
             "ERR_FBD_INCLINE_FORCES"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Weight, normal and tension only — no electrostatic force.",
+            "Weight (down), normal (perpendicular to the incline), tension (along the incline) and the electrostatic force from R.",
+            "Weight (down the slope), normal (vertical), tension and electrostatic force."
+          ]
         },
         {
           "id": "L6.T1.A3.q06",
@@ -13583,14 +13778,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner draws the FBD for a charged sphere hanging between two parallel plates (one + and one −, vertical orientation). They include weight downward and tension along the string but omit the electric force. What's missing?",
-          "answerMode": "text",
-          "expectedAnswer": "The electrostatic force on the charged sphere due to the uniform field between the plates is missing. It should be drawn as a HORIZONTAL arrow on the dot, in the direction qE (positive charge ⇒ from + plate to − plate; negative charge ⇒ opposite). Without it, the FBD doesn't account for the equilibrium that causes the string to tilt.",
+          "answerMode": "choice",
+          "expectedAnswer": "The electrostatic force is missing — add a horizontal arrow in the direction of the field (towards the negative plate for a positive charge).",
           "marks": 3,
           "explanation": "Critical FBD principle: every force present must appear. Electric force is its own arrow alongside weight and tension.",
           "errorSignals": [
             "ERR_FBD_ADD_E_FORCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Nothing is missing — weight and tension are the only forces.",
+            "The normal force from the plates is missing.",
+            "The electrostatic force is missing — add a horizontal arrow in the direction of the field (towards the negative plate for a positive charge)."
+          ]
         },
         {
           "id": "L6.T1.A3.q12",
@@ -13672,15 +13872,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "An oil droplet of mass m and charge −Q is HELD STATIONARY between horizontal parallel plates. The lower plate is positive. What is the magnitude of the electric field E between the plates?",
-          "answerMode": "text",
-          "expectedAnswer": "For the droplet to be stationary, the upward electric force on the negative charge must balance gravity: qE = mg ⇒ E = mg/Q. The field between the plates points UPWARD (from + lower plate to − upper plate? no — from + to − is downward; the upward force on −Q from a downward E equals qE upward, which balances mg).",
+          "answerMode": "choice",
+          "expectedAnswer": "E = mg/Q, directed upward (so the upward force on the negative charge balances gravity).",
           "marks": 3,
           "explanation": "Classic Millikan-style equilibrium. E points from + to −. Force on negative charge is opposite to E. The condition is qE = mg.",
           "errorSignals": [
             "ERR_PENDULUM_EQUILIBRIUM",
             "ERR_E_FIELD_DIRECTION_NEG_CHARGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "E = mg/Q, directed upward (so the upward force on the negative charge balances gravity).",
+            "E = Qg/m, directed downward.",
+            "E = mg/Q, directed downward."
+          ]
         },
         {
           "id": "L6.T1.A3.q17",
@@ -13727,15 +13932,20 @@
           "gate": "B",
           "source": "fresh",
           "question": "A horizontal uniform electric field of 5000 N·C⁻¹ acts on a 1 g ball with charge +4 μC. The ball sits on a frictionless horizontal surface. Calculate the magnitude and direction of the ball's acceleration.",
-          "answerMode": "text",
-          "expectedAnswer": "F = qE = 4×10⁻⁶ × 5000 = 0.02 N (in the direction of E). a = F/m = 0.02/0.001 = 20 m·s⁻² in the same direction as E (because q > 0).",
+          "answerMode": "choice",
+          "expectedAnswer": "F = qE = 0.02 N; a = F/m = 20 m·s⁻² in the direction of E.",
           "marks": 3,
           "explanation": "Force on positive charge is along E. a = qE/m.",
           "errorSignals": [
             "ERR_E_FIELD_F_EQUALS_EQ",
             "ERR_N2_DIVISION_ORDER"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "a = 0.02 m·s⁻² in the direction of E.",
+            "F = qE = 0.02 N; a = F/m = 20 m·s⁻² in the direction of E.",
+            "a = 5000 m·s⁻² (dividing the force by the charge)."
+          ]
         },
         {
           "id": "L6.T1.A3.q20",
@@ -13743,15 +13953,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "On the FBD of a charged sphere sitting on a horizontal frictionless surface in a vertical electric field pointing UP, with the sphere positive, list the forces and their directions.",
-          "answerMode": "text",
-          "expectedAnswer": "Three forces (all from a single dot): (1) Weight mg DOWN; (2) Normal force N UP from the surface; (3) Electrostatic force qE UP (positive charge in an upward field). Net force balance (vertical, no acceleration if sphere stays on surface): N + qE = mg. If qE > mg the sphere lifts off.",
+          "answerMode": "choice",
+          "expectedAnswer": "Weight (down), normal force (up) and electrostatic force qE (up); the normal force is less than the weight.",
           "marks": 3,
           "explanation": "Three vertical forces; note that the electric force can be in either vertical direction depending on field/charge signs.",
           "errorSignals": [
             "ERR_FBD_ADD_E_FORCE",
             "ERR_NORMAL_FORCE_EQUILIBRIUM"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Weight (down) and normal (up) only — no electrostatic force.",
+            "Weight (down), normal (up) and electrostatic force (down).",
+            "Weight (down), normal force (up) and electrostatic force qE (up); the normal force is less than the weight."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -13789,14 +14004,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q8.1",
           "question": "State OHM'S LAW in words.",
-          "answerMode": "text",
-          "expectedAnswer": "The current in a conductor is directly proportional to the potential difference across it, provided the temperature (and other physical conditions) remain constant.",
+          "answerMode": "choice",
+          "expectedAnswer": "The current in a conductor is directly proportional to the potential difference across it, provided the temperature stays constant.",
           "marks": 2,
           "explanation": "Two marks: 'I ∝ V' + 'at constant temperature'. The temperature condition is essential — without it, the law isn't strictly true for many conductors.",
           "errorSignals": [
             "ERR_OHM_LAW_OMITS_TEMPERATURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The current in a conductor is directly proportional to the potential difference across it, provided the temperature stays constant.",
+            "The current in a conductor is directly proportional to the potential difference across it.",
+            "The resistance of a conductor is directly proportional to the current through it."
+          ]
         },
         {
           "id": "L7.T1.A1.q02",
@@ -13805,14 +14025,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q8.1",
           "question": "Define an OHMIC CONDUCTOR.",
-          "answerMode": "text",
-          "expectedAnswer": "An ohmic conductor is one that obeys Ohm's Law — the ratio V/I (resistance) remains constant at constant temperature. A V-I graph for an ohmic conductor is a straight line through the origin.",
+          "answerMode": "choice",
+          "expectedAnswer": "One that obeys Ohm's Law — V/I (resistance) stays constant at constant temperature (a straight-line V–I graph).",
           "marks": 2,
           "explanation": "Two marks: 'obeys Ohm's law / V/I = constant' + 'at constant temperature' (or linear V-I graph through origin).",
           "errorSignals": [
             "ERR_OHMIC_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "One whose resistance increases as the current increases.",
+            "One that obeys Ohm's Law — V/I (resistance) stays constant at constant temperature (a straight-line V–I graph).",
+            "Any conductor that allows a current to flow."
+          ]
         },
         {
           "id": "L7.T1.A1.q03",
@@ -14012,14 +14237,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define POTENTIAL DIFFERENCE between two points in a circuit.",
-          "answerMode": "text",
-          "expectedAnswer": "The energy transferred per unit positive charge passing between the two points. p.d. = energy/charge = W/Q. SI unit: volt (V = J/C).",
+          "answerMode": "choice",
+          "expectedAnswer": "The energy transferred per unit charge between the two points (V = W/Q, unit volt).",
           "marks": 2,
           "explanation": "Two marks: 'energy per unit charge' + 'between two points / volt'.",
           "errorSignals": [
             "ERR_PD_DEFINITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The current flowing per unit resistance between the two points.",
+            "The total charge stored between the two points.",
+            "The energy transferred per unit charge between the two points (V = W/Q, unit volt)."
+          ]
         },
         {
           "id": "L7.T1.A1.q14",
@@ -14148,14 +14378,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'Adding resistors in parallel always DECREASES the equivalent resistance.' Is this correct? Briefly explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Yes — correct. Adding a new branch in parallel always provides an additional path for current, increasing total conductance (1/R_p adds), so R_p decreases. The equivalent resistance of any parallel combination is LESS than the smallest individual resistor.",
+          "answerMode": "choice",
+          "expectedAnswer": "Correct — each added parallel branch gives current another path, so the equivalent resistance decreases.",
           "marks": 2,
           "explanation": "Adding parallel ⇒ R decreases. Adding series ⇒ R increases.",
           "errorSignals": [
             "ERR_PARALLEL_RULES"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — each added parallel branch gives current another path, so the equivalent resistance decreases.",
+            "Incorrect — adding resistors in parallel increases the equivalent resistance.",
+            "Incorrect — parallel resistors add directly, like series resistors."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -14191,15 +14426,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q8.1",
           "question": "Define EMF of a battery in TWO ways: (a) in terms of energy, and (b) as measured directly in a circuit.",
-          "answerMode": "text",
-          "expectedAnswer": "(a) Energy definition: The EMF is the energy (work done) per unit charge supplied by the battery, or equivalently the total energy per coulomb when no charge is delivered. (b) Circuit definition: The EMF equals the terminal voltage when no current flows (open-circuit voltage), i.e. when the external switch is open.",
+          "answerMode": "choice",
+          "expectedAnswer": "(a) The energy supplied per unit charge by the battery; (b) the terminal voltage measured when no current flows (open circuit).",
           "marks": 2,
           "explanation": "(a) ε = W/Q (energy per charge); (b) ε = V_terminal at I = 0.",
           "errorSignals": [
             "ERR_EMF_DEF_ENERGY",
             "ERR_EMF_DEF_OPEN_CIRCUIT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "(a) The energy used per unit charge by the resistor; (b) the voltage across the largest resistor.",
+            "(a) The energy supplied per unit charge by the battery; (b) the terminal voltage measured when no current flows (open circuit).",
+            "(a) The current per unit charge; (b) the voltage measured at full load."
+          ]
         },
         {
           "id": "L7.T1.A2.q02",
@@ -14307,14 +14547,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q8.3.2",
           "question": "Explain why a battery HEATS UP during operation.",
-          "answerMode": "text",
-          "expectedAnswer": "Current flows through the battery's internal resistance r. This dissipates power P = I²r as HEAT in the battery, raising its temperature.",
+          "answerMode": "choice",
+          "expectedAnswer": "Current through the battery's internal resistance dissipates power (P = I²r) as heat.",
           "marks": 2,
           "explanation": "Internal resistance ⇒ power lost as heat. The bigger I or r, the more heating.",
           "errorSignals": [
             "ERR_INTERNAL_RESISTANCE_HEATING"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The chemical reactions release light, which warms the battery.",
+            "The external resistors push heat back into the battery.",
+            "Current through the battery's internal resistance dissipates power (P = I²r) as heat."
+          ]
         },
         {
           "id": "L7.T1.A2.q08",
@@ -14396,15 +14641,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive A 2026 Q8.8",
           "question": "In a circuit with R₁ (series) and R₂ ∥ R₃ (parallel), R₃ is suddenly DISCONNECTED. Explain qualitatively what happens to the brightness of R₁.",
-          "answerMode": "text",
-          "expectedAnswer": "Disconnecting R₃ removes a parallel path ⇒ R_parallel INCREASES (only R₂ remains). So R_total INCREASES ⇒ total current DECREASES ⇒ less current flows through R₁ ⇒ R₁ becomes DIMMER.",
+          "answerMode": "choice",
+          "expectedAnswer": "Dimmer — removing the parallel branch raises the total resistance, lowering the current through R₁.",
           "marks": 4,
           "explanation": "Removing a parallel branch increases R_parallel and thus R_total. Less current ⇒ less power dissipated in the series resistor ⇒ dimmer.",
           "errorSignals": [
             "ERR_PARALLEL_RULES",
             "ERR_INTERNAL_R_FORGOT_IN_TOTAL"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Dimmer — removing the parallel branch raises the total resistance, lowering the current through R₁.",
+            "Brighter — removing R₃ lets more current flow through R₁.",
+            "Unchanged — R₁ is in series, so its current is fixed."
+          ]
         },
         {
           "id": "L7.T1.A2.q13",
@@ -14413,15 +14663,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q8.8",
           "question": "If R₁ in the external circuit is INCREASED, what happens to the terminal voltage of the battery? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "If R₁ increases ⇒ R_total increases ⇒ current I decreases. 'Lost voltage' across the internal resistance V_lost = I × r decreases. So V_terminal = ε − Ir INCREASES (gets closer to ε).",
+          "answerMode": "choice",
+          "expectedAnswer": "Terminal voltage increases — higher R lowers the current, so the lost volts (Ir) across the internal resistance fall.",
           "marks": 3,
           "explanation": "Less current ⇒ less voltage dropped internally ⇒ more voltage available externally.",
           "errorSignals": [
             "ERR_INTERNAL_R_FORGOT_IN_TOTAL",
             "ERR_EMF_EQN_SETUP"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Terminal voltage decreases — higher external resistance always lowers the terminal voltage.",
+            "Terminal voltage increases — higher R lowers the current, so the lost volts (Ir) across the internal resistance fall.",
+            "Terminal voltage stays equal to the EMF regardless of R₁."
+          ]
         },
         {
           "id": "L7.T1.A2.q14",
@@ -14449,15 +14704,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q8.5",
           "question": "In a circuit with parallel branches controlled by switches, S₂ (controlling one parallel branch) is OPENED. Describe the effect on the (a) ammeter reading in the main line, (b) brightness of a bulb in the remaining parallel branch.",
-          "answerMode": "text",
-          "expectedAnswer": "(a) Opening S₂ removes one parallel branch ⇒ external resistance INCREASES ⇒ total current from the battery DECREASES ⇒ main ammeter reading DECREASES. (b) Less current overall means less Ir voltage drop, so terminal voltage INCREASES. The voltage across the remaining parallel branch INCREASES, so MORE current flows through the bulb in it ⇒ bulb gets BRIGHTER.",
+          "answerMode": "choice",
+          "expectedAnswer": "The main ammeter reading decreases — opening a parallel branch raises the total resistance, lowering the total current.",
           "marks": 3,
           "explanation": "Removing a parallel branch: R_total ↑, I_total ↓, V_terminal ↑, current in remaining branch ↑, brightness ↑.",
           "errorSignals": [
             "ERR_PARALLEL_RULES",
             "ERR_INTERNAL_R_FORGOT_IN_TOTAL"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The main ammeter reading increases — fewer branches means more current overall.",
+            "The main ammeter reading is unchanged — the main-line current is fixed by the battery.",
+            "The main ammeter reading decreases — opening a parallel branch raises the total resistance, lowering the total current."
+          ]
         },
         {
           "id": "L7.T1.A2.q16",
@@ -14535,14 +14795,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'The internal resistance of a battery is fixed at zero in idealised problems.' Is the second part of that statement correct, and what's the point of including a non-zero r?",
-          "answerMode": "text",
-          "expectedAnswer": "An ideal cell has r = 0 (terminal voltage always equals EMF). In practice, real cells have small r > 0, which causes the terminal voltage to DROP when current flows (V_terminal = ε − Ir). Including r in problems reflects real behaviour: dimmer bulbs at high current, heat dissipation in the battery, and limits on maximum current.",
+          "answerMode": "choice",
+          "expectedAnswer": "Only ideal cells have r = 0; real cells have r > 0, which lowers the terminal voltage when current flows.",
           "marks": 3,
           "explanation": "Ideal: r = 0. Real: r > 0 causes voltage drop and heating during current flow.",
           "errorSignals": [
             "ERR_IDEAL_VS_REAL_BATTERY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Only ideal cells have r = 0; real cells have r > 0, which lowers the terminal voltage when current flows.",
+            "Correct — all batteries have zero internal resistance.",
+            "Correct — internal resistance only matters in AC circuits."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -14597,14 +14862,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q9.3",
           "question": "Define V_rms (root mean square voltage).",
-          "answerMode": "text",
-          "expectedAnswer": "V_rms is the equivalent DC voltage that would produce the same power dissipation in a resistor as the AC voltage does. V_rms = V_max/√2 for a sinusoidal AC waveform.",
+          "answerMode": "choice",
+          "expectedAnswer": "The equivalent DC voltage that delivers the same average power as the AC; V_rms = V_max/√2.",
           "marks": 2,
           "explanation": "RMS gives you the 'effective DC equivalent' of an AC. P_avg in a resistor = V_rms²/R = V_rms × I_rms.",
           "errorSignals": [
             "ERR_RMS_DEFINITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The peak voltage of the AC waveform.",
+            "The equivalent DC voltage that delivers the same average power as the AC; V_rms = V_max/√2.",
+            "The average of all instantaneous voltages over a cycle (which is zero)."
+          ]
         },
         {
           "id": "L7.T1.A3.q03",
@@ -14765,15 +15035,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why are AC mains voltages and currents usually quoted as RMS values rather than peak values?",
-          "answerMode": "text",
-          "expectedAnswer": "RMS values represent the equivalent DC value that would produce the same average power. Multimeters measure RMS, and household appliances (like a 220 V/1500 W kettle) are rated for the AVERAGE power they dissipate, which is calculated using RMS. Peak values are higher (V_peak = √2 × V_rms ≈ 311 V for 220 V mains) and don't directly tell you the power.",
+          "answerMode": "choice",
+          "expectedAnswer": "RMS values give the equivalent DC that produces the same average power; meters and appliance ratings use RMS.",
           "marks": 3,
           "explanation": "Power is what matters in practice; RMS gives consistent power calculations.",
           "errorSignals": [
             "ERR_RMS_DEFINITION",
             "ERR_RMS_RATING"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "RMS is just the peak value, which is easier to measure.",
+            "RMS is the average current, which equals zero for AC.",
+            "RMS values give the equivalent DC that produces the same average power; meters and appliance ratings use RMS."
+          ]
         },
         {
           "id": "L7.T1.A3.q12",
@@ -14933,14 +15208,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner asks: 'When AC current alternates direction, doesn't the average current have to be zero?' Briefly explain why P_avg is still nonzero.",
-          "answerMode": "text",
-          "expectedAnswer": "Yes — the AVERAGE current (over a full cycle) is zero, but the average POWER is not. Power = I²R is always positive (current is squared, so both halves of the cycle contribute equally to power). The RMS current squares first, then averages, so I_rms gives the proper effective value for power calculations.",
+          "answerMode": "choice",
+          "expectedAnswer": "The average current over a cycle is zero, but power = I²R is always positive, so the average power is nonzero.",
           "marks": 3,
           "explanation": "Squaring removes the sign. The 'RMS' construction is exactly designed so I_rms²R = P_avg.",
           "errorSignals": [
             "ERR_AC_AVG_POWER_INTUITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The average current over a cycle is zero, but power = I²R is always positive, so the average power is nonzero.",
+            "The average power is also zero, since the current averages to zero.",
+            "The power is nonzero because the average current is actually positive."
+          ]
         },
         {
           "id": "L7.T1.A3.q20",
@@ -14949,15 +15229,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q9.6",
           "question": "An AC generator delivers I_max = 2.95 A at frequency 20 Hz. Describe (or sketch) the current vs time graph for TWO complete rotations of the coil.",
-          "answerMode": "text",
-          "expectedAnswer": "Sinusoidal graph with period T = 1/20 = 0.05 s, so two cycles take 0.10 s. Amplitude I_max = 2.95 A. The curve starts at I = 0 at t = 0, rises to +2.95 A at T/4 = 0.0125 s, returns to 0 at T/2 = 0.025 s, falls to −2.95 A at 3T/4 = 0.0375 s, returns to 0 at T = 0.05 s. Repeats once more.",
+          "answerMode": "choice",
+          "expectedAnswer": "A sine curve, amplitude 2.95 A, period 0.05 s, showing two cycles over 0.10 s.",
           "marks": 4,
           "explanation": "Sinusoidal current; period and amplitude clearly identified; two cycles plotted.",
           "errorSignals": [
             "ERR_PERIOD_FREQ",
             "ERR_AC_WAVEFORM_SHAPE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A sine curve, amplitude 2.95 A, period 20 s.",
+            "A sine curve, amplitude 2.95 A, period 0.05 s, showing two cycles over 0.10 s.",
+            "A straight horizontal line at 2.95 A."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -14993,15 +15278,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive A 2026 Q9.1",
           "question": "State FARADAY'S LAW of electromagnetic induction.",
-          "answerMode": "text",
-          "expectedAnswer": "The magnitude of the induced EMF across the ends of a conductor is directly proportional to the rate of change of magnetic flux linkage through the conductor: |ε| = N × |ΔΦ/Δt|.",
+          "answerMode": "choice",
+          "expectedAnswer": "The induced EMF is directly proportional to the rate of change of magnetic flux linkage.",
           "marks": 2,
           "explanation": "Two marks: 'EMF' + 'rate of change of flux (linkage)'. The N (turns) multiplier matters for coils.",
           "errorSignals": [
             "ERR_FARADAY_STATEMENT",
             "ERR_FARADAY_RATE_OF_CHANGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The induced EMF is directly proportional to the magnetic flux through the conductor.",
+            "The induced EMF is directly proportional to the strength of the magnetic field.",
+            "The induced EMF is directly proportional to the rate of change of magnetic flux linkage."
+          ]
         },
         {
           "id": "L8.T1.A1.q02",
@@ -15010,15 +15300,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q9.1",
           "question": "State LENZ'S LAW.",
-          "answerMode": "text",
-          "expectedAnswer": "The induced current flows in a direction such that the magnetic field it creates OPPOSES the change in magnetic flux that caused it.",
+          "answerMode": "choice",
+          "expectedAnswer": "The induced current flows so that its magnetic field opposes the change in flux that caused it.",
           "marks": 2,
           "explanation": "Two marks: 'induced current direction' + 'opposes the change in flux'. This is the source of the minus sign in EMF = -N ΔΦ/Δt.",
           "errorSignals": [
             "ERR_LENZ_STATEMENT",
             "ERR_LENZ_REVERSED"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The induced current flows so that its magnetic field opposes the change in flux that caused it.",
+            "The induced current flows so that its magnetic field reinforces the change in flux.",
+            "The induced current always flows in the same direction as the applied field."
+          ]
         },
         {
           "id": "L8.T1.A1.q03",
@@ -15027,15 +15322,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q9.4",
           "question": "A bar magnet is thrust QUICKLY into a coil connected to a galvanometer. The galvanometer deflects. Explain why using Faraday's Law.",
-          "answerMode": "text",
-          "expectedAnswer": "As the magnet moves into the coil, the magnetic flux through the coil increases over time. By Faraday's Law, the rate of change of flux induces an EMF in the coil. The EMF drives a current through the galvanometer, causing the deflection.",
+          "answerMode": "choice",
+          "expectedAnswer": "Moving the magnet changes the flux through the coil; the rate of change of flux induces an EMF (Faraday's Law).",
           "marks": 3,
           "explanation": "Change in flux ⇒ induced EMF ⇒ current ⇒ deflection. Direction of deflection is governed by Lenz's Law.",
           "errorSignals": [
             "ERR_FARADAY_APPLICATION",
             "ERR_FARADAY_RATE_OF_CHANGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The magnet's field directly pushes the electrons around the coil.",
+            "Moving the magnet changes the flux through the coil; the rate of change of flux induces an EMF (Faraday's Law).",
+            "The constant strength of the magnet induces a steady EMF."
+          ]
         },
         {
           "id": "L8.T1.A1.q04",
@@ -15044,14 +15344,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q9.5",
           "question": "The magnet is then held STATIONARY inside the coil. What happens to the galvanometer reading and why?",
-          "answerMode": "text",
-          "expectedAnswer": "The galvanometer reads zero. With the magnet stationary, the magnetic flux through the coil is NOT changing (dΦ/dt = 0). By Faraday's Law, ε = 0, so no current flows.",
+          "answerMode": "choice",
+          "expectedAnswer": "The reading is zero — a stationary magnet means no change in flux (dΦ/dt = 0), so no EMF.",
           "marks": 2,
           "explanation": "No change in flux ⇒ no induced EMF ⇒ no current. Stationary magnet = no induction.",
           "errorSignals": [
             "ERR_FARADAY_STATIC_FLUX"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The reading is steady and large — the magnet's strong field maintains the EMF.",
+            "The reading increases — the magnet keeps adding flux while inside.",
+            "The reading is zero — a stationary magnet means no change in flux (dΦ/dt = 0), so no EMF."
+          ]
         },
         {
           "id": "L8.T1.A1.q05",
@@ -15060,14 +15365,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q9.6",
           "question": "State ONE way to INCREASE the induced EMF in a coil where a magnet is being pushed in or out.",
-          "answerMode": "text",
-          "expectedAnswer": "Any one of: (1) Increase the number of turns N in the coil; (2) Move the magnet faster (increase rate of change of flux, Δt smaller); (3) Use a stronger magnet (higher B); (4) Increase the area of the coil.",
+          "answerMode": "choice",
+          "expectedAnswer": "Move the magnet faster (or add more turns, or use a stronger magnet).",
           "marks": 2,
           "explanation": "ε = -N × ΔΦ/Δt. Increasing N, B, A, or speed (smaller Δt) all increase induced EMF.",
           "errorSignals": [
             "ERR_FARADAY_INCREASE_EMF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Move the magnet faster (or add more turns, or use a stronger magnet).",
+            "Hold the magnet still inside the coil.",
+            "Use a thicker wire for the coil."
+          ]
         },
         {
           "id": "L8.T1.A1.q06",
@@ -15156,15 +15466,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define MAGNETIC FLUX through a coil.",
-          "answerMode": "text",
-          "expectedAnswer": "Magnetic flux Φ = B × A × cosθ, where B is the magnetic field strength, A is the coil area, and θ is the angle between B and the area's normal. SI unit: weber (Wb = T·m²). Flux measures the 'amount' of magnetic field passing through the area.",
+          "answerMode": "choice",
+          "expectedAnswer": "Φ = B·A·cosθ — field strength × area × cosine of the angle to the normal (unit weber).",
           "marks": 2,
           "explanation": "Φ depends on B, A and angle. When B is perpendicular to coil (θ = 0), Φ = BA (maximum).",
           "errorSignals": [
             "ERR_FLUX_DEFINITION",
             "ERR_FLUX_FORMULA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Φ = B·A·sinθ.",
+            "Φ = B·A·cosθ — field strength × area × cosine of the angle to the normal (unit weber).",
+            "The rate at which the magnetic field changes."
+          ]
         },
         {
           "id": "L8.T1.A1.q11",
@@ -15193,15 +15508,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "If you PULL a magnet OUT of a coil, what type of magnetic pole forms at the near end of the coil (due to the induced current)?",
-          "answerMode": "text",
-          "expectedAnswer": "An opposite pole. As the magnet is withdrawn, flux DECREASES; by Lenz's Law, the induced current produces a magnetic field that OPPOSES the change — meaning it tries to maintain the original flux. So the near end of the coil acts like the OPPOSITE pole of the magnet (attracting it, resisting the withdrawal).",
+          "answerMode": "choice",
+          "expectedAnswer": "An opposite pole — the induced current opposes the falling flux and attracts the magnet (Lenz's Law).",
           "marks": 3,
           "explanation": "Lenz applied to withdrawal: induced current tries to KEEP the magnet (attract it back). If you pull out an N pole, the near end of the coil acts like a S pole.",
           "errorSignals": [
             "ERR_LENZ_REVERSED",
             "ERR_LENZ_DIRECTION_OF_INDUCED"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A like pole — the induced current pushes the magnet away as it leaves.",
+            "No pole forms — pulling the magnet out induces no current.",
+            "An opposite pole — the induced current opposes the falling flux and attracts the magnet (Lenz's Law)."
+          ]
         },
         {
           "id": "L8.T1.A1.q13",
@@ -15248,15 +15568,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'Faraday's Law shows that a larger magnetic field always produces a larger induced EMF.' Is this correct? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Not by itself. EMF depends on the RATE OF CHANGE of flux (ΔΦ/Δt), not just the field strength. A huge but unchanging magnetic field induces ZERO EMF. To increase EMF you must change the field, area, orientation, or number of turns — and how QUICKLY this change occurs matters.",
+          "answerMode": "choice",
+          "expectedAnswer": "Not by itself — EMF depends on the rate of change of flux; a large but unchanging field induces zero EMF.",
           "marks": 3,
           "explanation": "Critical distinction: induction requires change. Big B with no change ⇒ no induced EMF.",
           "errorSignals": [
             "ERR_FARADAY_RATE_OF_CHANGE",
             "ERR_FARADAY_STATIC_FLUX"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Not by itself — EMF depends on the rate of change of flux; a large but unchanging field induces zero EMF.",
+            "Correct — a stronger magnetic field always induces a larger EMF.",
+            "Correct — field strength is the only factor in Faraday's Law."
+          ]
         },
         {
           "id": "L8.T1.A1.q16",
@@ -15264,15 +15589,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "What does the MINUS SIGN in EMF = −N × ΔΦ/Δt represent?",
-          "answerMode": "text",
-          "expectedAnswer": "It encodes LENZ'S LAW: the induced EMF (and current) acts in a direction such that it OPPOSES the change in flux that caused it. The minus sign ensures the induced current creates a magnetic field opposing the flux change.",
+          "answerMode": "choice",
+          "expectedAnswer": "It represents Lenz's Law — the induced EMF opposes the change in flux that caused it.",
           "marks": 2,
           "explanation": "Lenz's Law via the minus sign. Direction of induced current is set by this sign convention.",
           "errorSignals": [
             "ERR_LENZ_STATEMENT",
             "ERR_FARADAY_MINUS_SIGN"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It means the induced EMF is always negative.",
+            "It represents Lenz's Law — the induced EMF opposes the change in flux that caused it.",
+            "It represents the energy lost as heat in the coil."
+          ]
         },
         {
           "id": "L8.T1.A1.q17",
@@ -15337,14 +15667,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "An induction stove transfers energy to a metal pot. Briefly explain (using Faraday's/Lenz's Law) why an induction stove cannot heat a wooden spoon.",
-          "answerMode": "text",
-          "expectedAnswer": "Induction heating uses a rapidly changing magnetic field to induce eddy currents in conductors. Metal pots (conductors) experience induced currents which dissipate heat through their resistance. A wooden spoon is an INSULATOR — no free charges to form currents, so no induced currents, no heat. (Same reason: Faraday's Law produces an EMF in any conductor, but only conductors can carry the resulting current.)",
+          "answerMode": "choice",
+          "expectedAnswer": "Induction induces eddy currents only in conductors; wood is an insulator, so no current and no heating.",
           "marks": 3,
           "explanation": "Eddy current heating requires free charges (conductor). Insulators have no induced currents to dissipate energy.",
           "errorSignals": [
             "ERR_FARADAY_APPLICATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Wood reflects the magnetic field, so it cannot be heated.",
+            "The magnetic field is too weak to reach the wooden spoon.",
+            "Induction induces eddy currents only in conductors; wood is an insulator, so no current and no heating."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -15426,14 +15761,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q9.1.1",
           "question": "State the ENERGY CONVERSION that takes place in a DC MOTOR.",
-          "answerMode": "text",
-          "expectedAnswer": "Electrical energy is converted into mechanical (kinetic) energy.",
+          "answerMode": "choice",
+          "expectedAnswer": "Electrical energy into mechanical (kinetic) energy.",
           "marks": 1,
           "explanation": "Motors: electrical IN → mechanical OUT. Generators: mechanical IN → electrical OUT.",
           "errorSignals": [
             "ERR_MOTOR_VS_GENERATOR_ENERGY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Electrical energy into mechanical (kinetic) energy.",
+            "Mechanical energy into electrical energy.",
+            "Chemical energy into electrical energy."
+          ]
         },
         {
           "id": "L8.T1.A2.q04",
@@ -15442,14 +15782,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q9.2",
           "question": "State the ENERGY CONVERSION in an AC generator.",
-          "answerMode": "text",
-          "expectedAnswer": "Mechanical (kinetic) energy is converted into electrical energy.",
+          "answerMode": "choice",
+          "expectedAnswer": "Mechanical (kinetic) energy into electrical energy.",
           "marks": 1,
           "explanation": "Generator: mechanical → electrical. Mechanical input (rotating coil) ⇒ induced EMF (electrical output).",
           "errorSignals": [
             "ERR_MOTOR_VS_GENERATOR_ENERGY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Electrical energy into mechanical energy.",
+            "Mechanical (kinetic) energy into electrical energy.",
+            "Electrical energy into heat energy."
+          ]
         },
         {
           "id": "L8.T1.A2.q05",
@@ -15458,14 +15803,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q9.1.2",
           "question": "Does a DC motor use AC or DC current at its input?",
-          "answerMode": "text",
+          "answerMode": "choice",
           "expectedAnswer": "DC (direct current).",
           "marks": 1,
           "explanation": "DC motor takes DC input; the commutator handles the internal current reversal to keep torque continuous.",
           "errorSignals": [
             "ERR_MOTOR_INPUT_CURRENT_TYPE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "AC (alternating current).",
+            "Either AC or DC interchangeably.",
+            "DC (direct current)."
+          ]
         },
         {
           "id": "L8.T1.A2.q06",
@@ -15474,14 +15824,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q9.1.3",
           "question": "State the function of the COMMUTATOR in a DC motor.",
-          "answerMode": "text",
-          "expectedAnswer": "The commutator reverses the direction of current in the coil every half rotation, ensuring the coil continues to rotate in one direction.",
+          "answerMode": "choice",
+          "expectedAnswer": "It reverses the current direction in the coil every half turn, keeping it rotating one way.",
           "marks": 1,
           "explanation": "Same role as in DC generator: split-ring contact flip provides continuous one-direction torque.",
           "errorSignals": [
             "ERR_COMMUTATOR_FUNCTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It reverses the current direction in the coil every half turn, keeping it rotating one way.",
+            "It keeps the current flowing in a constant direction in the coil.",
+            "It increases the voltage supplied to the coil."
+          ]
         },
         {
           "id": "L8.T1.A2.q07",
@@ -15512,14 +15867,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q9.2",
           "question": "Give TWO ways in which the MAXIMUM EMF of an AC generator can be INCREASED.",
-          "answerMode": "text",
-          "expectedAnswer": "Any TWO of: (1) Increase the SPEED of rotation; (2) Increase the NUMBER OF TURNS in the coil; (3) Use a STRONGER magnetic field (larger B); (4) Increase the AREA of the coil; (5) Use a soft-iron core to concentrate the flux.",
+          "answerMode": "choice",
+          "expectedAnswer": "Rotate the coil faster and increase the number of turns (or use a stronger field / larger area).",
           "marks": 2,
           "explanation": "ε_max = NBAω. Any factor that increases N, B, A, or ω increases the peak EMF.",
           "errorSignals": [
             "ERR_GENERATOR_MAX_EMF_FACTORS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Slow the rotation and reduce the number of turns.",
+            "Rotate the coil faster and increase the number of turns (or use a stronger field / larger area).",
+            "Use a weaker magnet and a smaller coil area."
+          ]
         },
         {
           "id": "L8.T1.A2.q09",
@@ -15528,14 +15888,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q9.1",
           "question": "In an AC generator diagram, a rotating coil contacts the external circuit through component X. Name component X.",
-          "answerMode": "text",
+          "answerMode": "choice",
           "expectedAnswer": "Slip rings.",
           "marks": 1,
           "explanation": "Slip rings = pair of complete rings that maintain continuous electrical contact with the brushes; allow AC output.",
           "errorSignals": [
             "ERR_SLIP_RINGS_VS_COMMUTATOR"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A split-ring commutator.",
+            "The brushes.",
+            "Slip rings."
+          ]
         },
         {
           "id": "L8.T1.A2.q10",
@@ -15544,14 +15909,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q9.2",
           "question": "State the function of the BRUSHES in a generator.",
-          "answerMode": "text",
-          "expectedAnswer": "The brushes maintain electrical contact between the rotating slip rings (or commutator) and the stationary external circuit, allowing current to flow from the coil to the external circuit.",
+          "answerMode": "choice",
+          "expectedAnswer": "They maintain electrical contact between the rotating rings and the stationary external circuit.",
           "marks": 1,
           "explanation": "Brushes are stationary; slip rings/commutator rotate against them. They bridge the rotating coil to the fixed external wires.",
           "errorSignals": [
             "ERR_BRUSH_FUNCTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "They maintain electrical contact between the rotating rings and the stationary external circuit.",
+            "They reverse the current direction every half turn.",
+            "They generate the magnetic field for the coil."
+          ]
         },
         {
           "id": "L8.T1.A2.q11",
@@ -15560,14 +15930,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q9.3",
           "question": "Explain how an EMF is induced in the rotating coil of an AC generator (using Faraday's Law).",
-          "answerMode": "text",
-          "expectedAnswer": "As the coil rotates between the magnetic poles, the magnetic flux through the coil changes continuously with time (Φ = BA cos(ωt)). By Faraday's Law, a changing flux induces an EMF in the coil: ε = -N dΦ/dt = NBA ω sin(ωt). The EMF varies sinusoidally with the coil's angular position.",
+          "answerMode": "choice",
+          "expectedAnswer": "As the coil rotates, the flux through it changes continuously, inducing an EMF (Faraday's Law).",
           "marks": 2,
           "explanation": "Generator output is sinusoidal because flux varies cosinusoidally with time (as the coil rotates) and Faraday's Law gives ε = -dΦ/dt.",
           "errorSignals": [
             "ERR_GENERATOR_INDUCTION_MECHANISM"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The brushes push current into the coil to create the EMF.",
+            "As the coil rotates, the flux through it changes continuously, inducing an EMF (Faraday's Law).",
+            "The constant magnetic field directly creates a steady EMF."
+          ]
         },
         {
           "id": "L8.T1.A2.q12",
@@ -15576,14 +15951,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive A 2026 Q9.7",
           "question": "State ONE difference between an AC generator and a DC generator.",
-          "answerMode": "text",
-          "expectedAnswer": "Any one of: AC generator uses SLIP RINGS and produces an alternating (sinusoidal) current/voltage. DC generator uses a SPLIT-RING COMMUTATOR, which reverses the polarity of the output every half cycle so that the output is always in the same direction (pulsating DC).",
+          "answerMode": "choice",
+          "expectedAnswer": "An AC generator uses slip rings (alternating output); a DC generator uses a split-ring commutator (one-direction output).",
           "marks": 1,
           "explanation": "Key difference: slip rings (AC) vs split-ring commutator (DC). Output: alternating vs same-direction.",
           "errorSignals": [
             "ERR_AC_DC_GENERATOR_DIFF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "An AC generator uses a commutator; a DC generator uses slip rings.",
+            "They are identical except for the type of magnet used.",
+            "An AC generator uses slip rings (alternating output); a DC generator uses a split-ring commutator (one-direction output)."
+          ]
         },
         {
           "id": "L8.T1.A2.q13",
@@ -15633,14 +16013,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "On the EMF-vs-time output of an AC generator, what does the PEAK value correspond to physically?",
-          "answerMode": "text",
-          "expectedAnswer": "The peak EMF occurs when the coil's plane is PARALLEL to the magnetic field (and the area normal is perpendicular to B). At that instant the rate of change of flux is largest, so ε is maximum. ε_peak = NBAω.",
+          "answerMode": "choice",
+          "expectedAnswer": "The coil's plane is parallel to the field, so the flux is changing fastest.",
           "marks": 2,
           "explanation": "Peak EMF when coil is moving through the field at maximum perpendicular speed. Flux is changing fastest at that orientation.",
           "errorSignals": [
             "ERR_PEAK_EMF_GEOMETRY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The coil's plane is parallel to the field, so the flux is changing fastest.",
+            "The coil's plane is perpendicular to the field, where the flux is greatest.",
+            "The coil is momentarily at rest at the peak."
+          ]
         },
         {
           "id": "L8.T1.A2.q16",
@@ -15648,14 +16033,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does the OUTPUT of a DC generator (with a split-ring commutator) differ from that of an AC generator on a V-t graph?",
-          "answerMode": "text",
-          "expectedAnswer": "AC generator: sinusoidal output that alternates between positive and negative values. DC generator: pulsating DC — the negative half-cycle is flipped to positive by the commutator, so the output is always positive (looks like the absolute value of a sine wave).",
+          "answerMode": "choice",
+          "expectedAnswer": "AC is sinusoidal (alternating ±); DC (commutator) is pulsating DC with the negative halves flipped positive.",
           "marks": 2,
           "explanation": "DC commutator flips every half-cycle ⇒ rectifies AC waveform to one polarity. Output is pulsating DC, not pure DC.",
           "errorSignals": [
             "ERR_GENERATOR_OUTPUT_SHAPE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "AC is a flat line; DC is sinusoidal.",
+            "AC is sinusoidal (alternating ±); DC (commutator) is pulsating DC with the negative halves flipped positive.",
+            "Both are identical smooth sine waves."
+          ]
         },
         {
           "id": "L8.T1.A2.q17",
@@ -15663,15 +16053,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A DC motor 'runs as a generator' (back-EMF) when its coil rotates. How does this back-EMF affect the current drawn by the motor?",
-          "answerMode": "text",
-          "expectedAnswer": "When the motor's coil rotates, it produces an induced EMF (back-EMF) that OPPOSES the supply voltage (Lenz's Law). The net voltage driving current is the supply minus the back-EMF, so the current DECREASES as the motor speeds up. This explains why motors draw a large current at startup (no back-EMF) and less when running at full speed.",
+          "answerMode": "choice",
+          "expectedAnswer": "Back-EMF opposes the supply voltage, reducing the net voltage and the current drawn (largest current at start-up).",
           "marks": 3,
           "explanation": "Back-EMF is a Lenz-Law phenomenon: induction opposes the change. Net V = V_supply − ε_back ⇒ less I at higher speed.",
           "errorSignals": [
             "ERR_BACK_EMF_DIRECTION",
             "ERR_MOTOR_STARTUP_CURRENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Back-EMF adds to the supply voltage, increasing the current drawn.",
+            "Back-EMF has no effect on the current drawn.",
+            "Back-EMF opposes the supply voltage, reducing the net voltage and the current drawn (largest current at start-up)."
+          ]
         },
         {
           "id": "L8.T1.A2.q18",
@@ -15701,15 +16096,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2023 Q9.1.3",
           "question": "Sketch (in words) an EMF-vs-time graph for TWO complete rotations of an AC generator coil. What characterises this output?",
-          "answerMode": "text",
-          "expectedAnswer": "Sinusoidal wave. Two complete cycles shown (i.e. two peaks above and two troughs below the time axis). Peak EMF ε_max labelled on the y-axis. Period T = 1/f marked on the time axis. The waveform alternates between +ε_max and −ε_max, repeating every T.",
+          "answerMode": "choice",
+          "expectedAnswer": "A sine wave with two complete cycles, peak ε_max marked, period T = 1/f.",
           "marks": 3,
           "explanation": "Sinusoidal AC output. Peaks every half cycle, alternating sign.",
           "errorSignals": [
             "ERR_GENERATOR_OUTPUT_SHAPE",
             "ERR_AC_WAVEFORM_LABELS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A sine wave with two complete cycles, peak ε_max marked, period T = 1/f.",
+            "A straight line, since the EMF is constant during rotation.",
+            "A pulsating all-positive curve (DC output)."
+          ]
         },
         {
           "id": "L8.T1.A2.q20",
@@ -15717,14 +16117,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does an electric motor experience a TORQUE on its current-carrying coil in a magnetic field?",
-          "answerMode": "text",
-          "expectedAnswer": "Each side of the coil carries current in opposite directions. The magnetic field exerts a force F = BIL on each side (Fleming's left-hand / motor rule). These two forces act in opposite directions on opposite sides of the coil, creating a turning effect (torque) about the coil's rotation axis. The torque causes the coil to spin.",
+          "answerMode": "choice",
+          "expectedAnswer": "Opposite sides of the coil carry current in opposite directions; the field exerts forces (F = BIL) that form a couple, turning the coil.",
           "marks": 3,
           "explanation": "Two opposite forces on opposite sides of the coil ⇒ couple ⇒ torque. This is what spins the motor.",
           "errorSignals": [
             "ERR_MOTOR_TORQUE_ORIGIN"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The coil is attracted directly to the nearest magnetic pole.",
+            "Opposite sides of the coil carry current in opposite directions; the field exerts forces (F = BIL) that form a couple, turning the coil.",
+            "The commutator physically spins the coil."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -15762,14 +16167,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q10.1.1",
           "question": "Define the PHOTOELECTRIC EFFECT.",
-          "answerMode": "text",
-          "expectedAnswer": "The photoelectric effect is the process whereby electrons are ejected from the surface of a metal when electromagnetic radiation of sufficient frequency (above the threshold) shines on it.",
+          "answerMode": "choice",
+          "expectedAnswer": "The ejection of electrons from a metal surface when light of sufficient frequency (above the threshold) shines on it.",
           "marks": 2,
           "explanation": "Two marks: 'electrons ejected from metal surface' + 'EM radiation of sufficient frequency'.",
           "errorSignals": [
             "ERR_PE_DEFINITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The heating of a metal surface when any light shines on it.",
+            "The emission of light from a metal when it is heated.",
+            "The ejection of electrons from a metal surface when light of sufficient frequency (above the threshold) shines on it."
+          ]
         },
         {
           "id": "L9.T1.A1.q02",
@@ -15778,14 +16188,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q10.1",
           "question": "Define the WORK FUNCTION of a metal.",
-          "answerMode": "text",
-          "expectedAnswer": "The work function (W₀) is the MINIMUM energy needed to eject an electron from the surface of a metal.",
+          "answerMode": "choice",
+          "expectedAnswer": "The minimum energy needed to eject an electron from the metal's surface.",
           "marks": 2,
           "explanation": "Two marks: 'minimum energy' + 'eject electron from surface'. W₀ = h × f₀ (threshold frequency).",
           "errorSignals": [
             "ERR_WORK_FUNCTION_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The minimum energy needed to eject an electron from the metal's surface.",
+            "The maximum energy an ejected electron can have.",
+            "The energy carried by the incoming photon."
+          ]
         },
         {
           "id": "L9.T1.A1.q03",
@@ -15922,15 +16337,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive A 2026 Q10.3",
           "question": "Continuing: photon energy = 5.30 × 10⁻¹⁹ J, W₀ (zinc) = 6.88 × 10⁻¹⁹ J. Calculate the maximum kinetic energy of emitted photoelectrons OR explain if none are emitted.",
-          "answerMode": "text",
-          "expectedAnswer": "E_k = E_photon − W₀ = 5.30 × 10⁻¹⁹ − 6.88 × 10⁻¹⁹ = −1.58 × 10⁻¹⁹ J. A negative result means the photon energy is LESS than the work function. So NO photoelectrons are emitted. The light frequency is below the threshold frequency of zinc.",
+          "answerMode": "choice",
+          "expectedAnswer": "No electrons are emitted — the photon energy (5.30 × 10⁻¹⁹ J) is less than the work function (6.88 × 10⁻¹⁹ J).",
           "marks": 3,
           "explanation": "If hf < W₀, no electrons are emitted at all. Negative 'KE' is unphysical — the answer is 'no emission'.",
           "errorSignals": [
             "ERR_EK_MAX_FORMULA",
             "ERR_NEGATIVE_KE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "E_k = 1.58 × 10⁻¹⁹ J (taking the magnitude of the difference).",
+            "No electrons are emitted — the photon energy (5.30 × 10⁻¹⁹ J) is less than the work function (6.88 × 10⁻¹⁹ J).",
+            "E_k = 1.22 × 10⁻¹⁸ J (adding the two energies)."
+          ]
         },
         {
           "id": "L9.T1.A1.q10",
@@ -15957,15 +16377,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q10.5",
           "question": "The intensity of light incident on a metal surface (above threshold) is DOUBLED. What is the effect on the MAXIMUM KINETIC ENERGY of the emitted photoelectrons?",
-          "answerMode": "text",
-          "expectedAnswer": "E_k(max) REMAINS THE SAME. Intensity determines the NUMBER of photons per second (and hence the number of electrons emitted per second), but each electron absorbs only ONE photon. The maximum KE depends only on the frequency of the light (E_k = hf − W₀), not on intensity.",
+          "answerMode": "choice",
+          "expectedAnswer": "E_k(max) stays the same — intensity changes the number of electrons emitted, not the energy of each.",
           "marks": 2,
           "explanation": "Critical concept. Intensity controls electron NUMBER; frequency controls electron ENERGY.",
           "errorSignals": [
             "ERR_INTENSITY_VS_KE",
             "ERR_INTENSITY_VS_NUMBER"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "E_k(max) doubles, since twice the light energy is absorbed per electron.",
+            "E_k(max) halves, as the energy is shared among more electrons.",
+            "E_k(max) stays the same — intensity changes the number of electrons emitted, not the energy of each."
+          ]
         },
         {
           "id": "L9.T1.A1.q12",
@@ -16094,15 +16519,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q10.3.2",
           "question": "UV light shines on a negatively-charged zinc plate in an electroscope. Explain why the gold leaf COLLAPSES.",
-          "answerMode": "text",
-          "expectedAnswer": "UV photons have frequency above the threshold frequency of zinc, so they have enough energy to eject electrons from the zinc plate (photoelectric effect). The negatively-charged plate progressively loses electrons, reducing its negative charge. As the plate becomes less negative, the gold leaf is less repelled and FALLS BACK toward the stem (collapses).",
+          "answerMode": "choice",
+          "expectedAnswer": "UV ejects electrons from the zinc, removing negative charge, so the leaf falls.",
           "marks": 3,
           "explanation": "UV ⇒ photoelectrons ejected ⇒ plate loses negative charge ⇒ less repulsion ⇒ leaf falls.",
           "errorSignals": [
             "ERR_PE_DEFINITION",
             "ERR_PE_ELECTROSCOPE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "UV ejects electrons from the zinc, removing negative charge, so the leaf falls.",
+            "UV adds electrons to the zinc, increasing the charge so the leaf rises.",
+            "UV heats the zinc, melting the gold leaf."
+          ]
         },
         {
           "id": "L9.T1.A1.q19",
@@ -16111,15 +16541,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q10.3.3",
           "question": "If GREEN light (at higher intensity than the original UV) replaces the UV on the same zinc electroscope, will the leaf collapse? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "NO. Green light has a LOWER frequency than UV, BELOW the threshold frequency of zinc. No photoelectric emission occurs, no matter how intense the green light is. Higher intensity provides more photons but each photon still has insufficient energy individually (hf < W₀). The leaf will not collapse.",
+          "answerMode": "choice",
+          "expectedAnswer": "No — green light is below zinc's threshold frequency, so no electrons are emitted no matter how intense.",
           "marks": 2,
           "explanation": "Frequency is what matters for ejection. Below threshold ⇒ no emission, regardless of intensity.",
           "errorSignals": [
             "ERR_INTENSITY_VS_KE",
             "ERR_FREQUENCY_THRESHOLD"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — higher intensity always ejects electrons regardless of colour.",
+            "No — green light is below zinc's threshold frequency, so no electrons are emitted no matter how intense.",
+            "Yes — green light has a higher frequency than UV."
+          ]
         },
         {
           "id": "L9.T1.A1.q20",
@@ -16127,15 +16562,20 @@
           "gate": "B",
           "source": "fresh",
           "question": "On a graph of E_k(max) (y-axis) versus frequency f (x-axis) for a photoelectric experiment with a given metal, what do (a) the gradient, (b) the x-intercept, and (c) the y-intercept represent?",
-          "answerMode": "text",
-          "expectedAnswer": "(a) Gradient = Planck's constant h ≈ 6.63 × 10⁻³⁴ J·s. (b) x-intercept = threshold frequency f₀ (where E_k = 0). (c) y-intercept = −W₀ (the negative of the work function; the line is E_k = hf − W₀, so when f = 0, E_k = −W₀ — but this part of the graph is unphysical because no emission occurs below f₀).",
+          "answerMode": "choice",
+          "expectedAnswer": "Gradient = Planck's constant h; x-intercept = threshold frequency f₀; y-intercept = −W₀.",
           "marks": 4,
           "explanation": "E_k = hf − W₀ ⇒ linear graph with gradient h and x-intercept f₀.",
           "errorSignals": [
             "ERR_EK_F_GRAPH_GRADIENT",
             "ERR_EK_F_GRAPH_INTERCEPTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Gradient = work function; x-intercept = h; y-intercept = f₀.",
+            "Gradient = threshold frequency; the line passes through the origin.",
+            "Gradient = Planck's constant h; x-intercept = threshold frequency f₀; y-intercept = −W₀."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -16175,15 +16615,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q10.2",
           "question": "Explain how an EMISSION SPECTRUM is formed.",
-          "answerMode": "text",
-          "expectedAnswer": "When electrons in excited atoms drop from higher to lower energy levels, they emit photons with specific energies E = hf = E_high − E_low. Each transition produces a photon of a particular frequency (or wavelength). The collection of all possible transitions in an atom produces a series of bright (emission) lines at characteristic wavelengths — the emission spectrum.",
+          "answerMode": "choice",
+          "expectedAnswer": "Excited electrons drop from higher to lower energy levels, emitting photons of specific energies (bright lines).",
           "marks": 2,
           "explanation": "Bright-line spectrum: high → low transition emits photon of energy = ΔE. Discrete because energy levels are discrete.",
           "errorSignals": [
             "ERR_EMISSION_DEFINITION",
             "ERR_EMISSION_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Excited electrons drop from higher to lower energy levels, emitting photons of specific energies (bright lines).",
+            "Electrons absorb photons and jump to higher levels, forming bright lines.",
+            "The metal glows continuously when it is heated."
+          ]
         },
         {
           "id": "L9.T1.A2.q02",
@@ -16276,15 +16721,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why are atomic emission and absorption spectra DISCRETE (line spectra) rather than continuous?",
-          "answerMode": "text",
-          "expectedAnswer": "Atoms have DISCRETE energy levels — electrons can only occupy specific energies. A transition between two levels has a specific ΔE, so the photon emitted (or absorbed) has a specific frequency f = ΔE/h. Only certain frequencies appear ⇒ discrete lines. A continuous spectrum would require electrons to have any energy, which they don't in isolated atoms.",
+          "answerMode": "choice",
+          "expectedAnswer": "Atoms have discrete energy levels, so transitions emit or absorb only specific photon energies.",
           "marks": 3,
           "explanation": "Quantisation of energy levels ⇒ quantisation of photon frequencies.",
           "errorSignals": [
             "ERR_LINE_SPECTRUM_REASON",
             "ERR_ENERGY_QUANTIZATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Atoms can have any energy, but only certain colours escape the atom.",
+            "Atoms have discrete energy levels, so transitions emit or absorb only specific photon energies.",
+            "The spectrometer can only detect certain wavelengths."
+          ]
         },
         {
           "id": "L9.T1.A2.q07",
@@ -16292,14 +16742,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "An emission spectrum has THREE bright lines. What does this tell you about the number of possible electron transitions in the atom?",
-          "answerMode": "text",
-          "expectedAnswer": "Three downward transitions are responsible for the three lines. If the atom has n energy levels, the maximum number of distinct emission lines is n(n−1)/2 (all pairs). Three lines could come from, e.g., three transitions among 3 levels (3·2/2 = 3 transitions: 3→1, 3→2, 2→1).",
+          "answerMode": "choice",
+          "expectedAnswer": "Three downward transitions produced the three lines.",
           "marks": 3,
           "explanation": "Three lines ⇔ three transitions. For 3 levels there are exactly 3 possible transitions.",
           "errorSignals": [
             "ERR_LEVEL_TRANSITION_COUNT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The atom has exactly three energy levels.",
+            "Three electrons were ejected from the atom.",
+            "Three downward transitions produced the three lines."
+          ]
         },
         {
           "id": "L9.T1.A2.q08",
@@ -16307,14 +16762,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "How can astronomers identify the composition of a distant star using its absorption spectrum?",
-          "answerMode": "text",
-          "expectedAnswer": "Each element has a unique 'fingerprint' of absorption lines at known wavelengths. By matching the dark lines in a star's continuous spectrum to laboratory-measured absorption lines of various elements, astronomers can identify which elements are present in the star's atmosphere.",
+          "answerMode": "choice",
+          "expectedAnswer": "Each element has a unique pattern of absorption lines; matching them to lab spectra identifies the elements.",
           "marks": 3,
           "explanation": "Spectroscopic fingerprinting: each element has unique discrete wavelengths. Astronomy uses this for compositional analysis.",
           "errorSignals": [
             "ERR_SPECTROSCOPY_APPLICATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Each element has a unique pattern of absorption lines; matching them to lab spectra identifies the elements.",
+            "The star's colour alone reveals its exact composition.",
+            "The brightness of the lines gives the star's chemical makeup."
+          ]
         },
         {
           "id": "L9.T1.A2.q09",
@@ -16364,14 +16824,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'Atoms emit ALL frequencies of light continuously.' Is this correct? Briefly explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. Atoms emit only DISCRETE wavelengths corresponding to the differences between their quantised energy levels. A heated solid (like an incandescent bulb filament) can emit a continuous spectrum due to many overlapping interactions, but ISOLATED atoms in a gas produce only line spectra at specific wavelengths.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — atoms emit only discrete wavelengths set by their quantised energy-level differences.",
           "marks": 2,
           "explanation": "Continuous vs line spectrum: solids ⇒ continuous; gases (isolated atoms) ⇒ line.",
           "errorSignals": [
             "ERR_LINE_SPECTRUM_REASON"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — atoms emit a continuous range of all frequencies.",
+            "Incorrect — atoms emit only discrete wavelengths set by their quantised energy-level differences.",
+            "Correct — only very hot atoms emit discrete lines."
+          ]
         },
         {
           "id": "L9.T1.A2.q12",
@@ -16396,15 +16861,20 @@
           "gate": "B",
           "source": "fresh",
           "question": "Continuing: of the three transitions in the previous question, which produces the LONGEST wavelength photon?",
-          "answerMode": "text",
-          "expectedAnswer": "The 2 → 1 transition (smallest ΔE = 3.0 eV). Longest wavelength ⇔ smallest photon energy (E = hc/λ; smaller E ⇒ larger λ).",
+          "answerMode": "choice",
+          "expectedAnswer": "The transition with the smallest energy gap (longest wavelength means smallest photon energy).",
           "marks": 2,
           "explanation": "Inverse relationship: small ΔE → long λ. The 2→1 transition has the smallest energy gap.",
           "errorSignals": [
             "ERR_WAVELENGTH_FREQUENCY",
             "ERR_ENERGY_LEVEL_DELTA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The transition with the largest energy gap.",
+            "The transition between the two highest levels, regardless of the gap.",
+            "The transition with the smallest energy gap (longest wavelength means smallest photon energy)."
+          ]
         },
         {
           "id": "L9.T1.A2.q14",
@@ -16412,15 +16882,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "What does each DARK LINE in the absorption spectrum of a star tell you?",
-          "answerMode": "text",
-          "expectedAnswer": "Each dark line corresponds to a specific wavelength where photons (from the continuous solar/starlight) have been absorbed by atoms in the star's (cooler) outer atmosphere. The wavelength of each dark line matches a transition between two energy levels in a particular element, so the pattern of dark lines identifies which elements are present.",
+          "answerMode": "choice",
+          "expectedAnswer": "Photons of that wavelength were absorbed by atoms in the star's cooler outer layers.",
           "marks": 3,
           "explanation": "Dark lines = absorbed wavelengths. Each one identifies an element through its known transition wavelengths.",
           "errorSignals": [
             "ERR_ABSORPTION_DEFINITION",
             "ERR_SPECTROSCOPY_APPLICATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Photons of that wavelength were absorbed by atoms in the star's cooler outer layers.",
+            "Extra photons of that wavelength were emitted by the star.",
+            "The star produces no light at all at that wavelength."
+          ]
         },
         {
           "id": "L9.T1.A2.q15",
@@ -16446,15 +16921,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is sodium street lighting YELLOW?",
-          "answerMode": "text",
-          "expectedAnswer": "Sodium vapour emits strongly in the yellow region of the visible spectrum (a 'doublet' near 589 nm) when its electrons drop between specific energy levels. The dominant transitions correspond to yellow light, so a sodium lamp appears yellow.",
+          "answerMode": "choice",
+          "expectedAnswer": "Sodium's electron transitions emit strongly near 589 nm, in the yellow part of the spectrum.",
           "marks": 2,
           "explanation": "Sodium D-lines: 589 nm doublet. Bright, narrow yellow emission characteristic of sodium.",
           "errorSignals": [
             "ERR_SPECTROSCOPY_APPLICATION",
             "ERR_EMISSION_COLOUR_LINK"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Sodium gas filters out all colours except yellow.",
+            "Sodium's electron transitions emit strongly near 589 nm, in the yellow part of the spectrum.",
+            "The yellow colour comes from the glass of the lamp."
+          ]
         },
         {
           "id": "L9.T1.A2.q17",
@@ -16462,14 +16942,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A continuous spectrum is observed from an incandescent bulb. When the light passes through cold hydrogen gas, dark lines appear at the SAME wavelengths as the hydrogen Balmer emission lines. Why?",
-          "answerMode": "text",
-          "expectedAnswer": "The cold hydrogen gas absorbs photons of exactly the energies corresponding to transitions FROM the n = 2 level UP to higher levels (the Balmer transitions in reverse). These specific wavelengths are removed from the transmitted light, producing dark lines exactly where hydrogen would normally EMIT in its emission spectrum.",
+          "answerMode": "choice",
+          "expectedAnswer": "Cold hydrogen absorbs exactly the photon energies matching its transitions, removing those wavelengths (dark lines).",
           "marks": 3,
           "explanation": "Same transitions absorb (cold) and emit (hot) at the same wavelengths — Kirchhoff's reciprocity.",
           "errorSignals": [
             "ERR_EMISSION_ABSORPTION_WAVELENGTHS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The hydrogen emits new bright lines on top of the continuous spectrum.",
+            "The hydrogen shifts all the wavelengths to longer values.",
+            "Cold hydrogen absorbs exactly the photon energies matching its transitions, removing those wavelengths (dark lines)."
+          ]
         },
         {
           "id": "L9.T1.A2.q18",
@@ -16498,14 +16983,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A hydrogen emission spectrum has several distinct lines. What CHANGES between hydrogen at room temperature and hydrogen at very high temperature?",
-          "answerMode": "text",
-          "expectedAnswer": "At higher temperatures, more atoms are excited to higher energy levels (more thermal energy ⇒ more populated upper states). So the higher-frequency emission lines (corresponding to transitions from higher upper states) become BRIGHTER (more electrons available to make those transitions). The set of wavelengths remains the same — only the intensities change.",
+          "answerMode": "choice",
+          "expectedAnswer": "At higher temperature more atoms are excited to higher levels, so more (higher-energy) emission lines appear.",
           "marks": 3,
           "explanation": "Temperature affects intensity (population), not the line positions (set by atomic structure).",
           "errorSignals": [
             "ERR_TEMPERATURE_SPECTRUM"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "At higher temperature more atoms are excited to higher levels, so more (higher-energy) emission lines appear.",
+            "At higher temperature the lines disappear and the spectrum becomes continuous.",
+            "Temperature has no effect on the emission spectrum."
+          ]
         },
         {
           "id": "L9.T1.A2.q20",
@@ -16513,8 +17003,8 @@
           "gate": "A",
           "source": "fresh",
           "question": "Explain the difference between an EMISSION spectrum and an ABSORPTION spectrum in one or two sentences each.",
-          "answerMode": "text",
-          "expectedAnswer": "Emission: bright lines on a dark background, produced when electrons in excited atoms drop from high to low energy levels and emit photons. Absorption: dark lines on a continuous rainbow background, produced when atoms absorb specific photons matching their energy-level differences. Same atom ⇒ same wavelengths but inverted in appearance.",
+          "answerMode": "choice",
+          "expectedAnswer": "Emission: bright lines from electrons dropping to lower levels. Absorption: dark lines where those same wavelengths are absorbed.",
           "marks": 4,
           "explanation": "Bright vs dark; same wavelengths for the same element; emission = drop, absorption = jump.",
           "errorSignals": [
@@ -16522,7 +17012,12 @@
             "ERR_ABSORPTION_DEFINITION",
             "ERR_EMISSION_ABSORPTION_WAVELENGTHS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Emission: dark lines; Absorption: bright lines.",
+            "Emission: bright lines from electrons dropping to lower levels. Absorption: dark lines where those same wavelengths are absorbed.",
+            "Both show a continuous band of all colours."
+          ]
         }
       ],
       "_error_signal_vocabulary": {

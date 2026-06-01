@@ -1,7 +1,9 @@
 {
   "skill": "L8.T1.A2",
   "skill_title": "Describe AC and DC generators and motors",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 12 lifted, 8 fresh. AC vs DC generators (slip rings vs split-ring commutator); motors (electrical → mechanical); generator energy conversion; uses of right-hand and Fleming's rules.",
@@ -23,7 +25,9 @@
       "expectedAnswer": "Reverses the direction of the current in the coil every half rotation",
       "marks": 2,
       "explanation": "Split-ring commutator: at the moment the coil crosses the field's normal, it flips the contact, reversing the coil current — so the torque stays in the SAME rotational direction (continuous rotation in one direction).",
-      "errorSignals": ["ERR_COMMUTATOR_FUNCTION"],
+      "errorSignals": [
+        "ERR_COMMUTATOR_FUNCTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -34,11 +38,18 @@
       "source_ref": "P1 May/Jun 2024 Q1.9",
       "question": "An electrical machine has SLIP RINGS (not a commutator). What type of machine is this?",
       "answerMode": "choice",
-      "options": ["DC motor", "DC generator", "AC motor", "AC generator"],
+      "options": [
+        "DC motor",
+        "DC generator",
+        "AC motor",
+        "AC generator"
+      ],
       "expectedAnswer": "AC generator",
       "marks": 2,
       "explanation": "Slip rings = continuous contact ⇒ output current alternates (AC). DC machines use split-ring commutators to convert to one direction.",
-      "errorSignals": ["ERR_SLIP_RINGS_VS_COMMUTATOR"],
+      "errorSignals": [
+        "ERR_SLIP_RINGS_VS_COMMUTATOR"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -48,12 +59,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q9.1.1",
       "question": "State the ENERGY CONVERSION that takes place in a DC MOTOR.",
-      "answerMode": "text",
-      "expectedAnswer": "Electrical energy is converted into mechanical (kinetic) energy.",
+      "answerMode": "choice",
+      "expectedAnswer": "Electrical energy into mechanical (kinetic) energy.",
       "marks": 1,
       "explanation": "Motors: electrical IN → mechanical OUT. Generators: mechanical IN → electrical OUT.",
-      "errorSignals": ["ERR_MOTOR_VS_GENERATOR_ENERGY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_MOTOR_VS_GENERATOR_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Electrical energy into mechanical (kinetic) energy.",
+        "Mechanical energy into electrical energy.",
+        "Chemical energy into electrical energy."
+      ]
     },
     {
       "id": "L8.T1.A2.q04",
@@ -62,12 +80,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2024 Q9.2",
       "question": "State the ENERGY CONVERSION in an AC generator.",
-      "answerMode": "text",
-      "expectedAnswer": "Mechanical (kinetic) energy is converted into electrical energy.",
+      "answerMode": "choice",
+      "expectedAnswer": "Mechanical (kinetic) energy into electrical energy.",
       "marks": 1,
       "explanation": "Generator: mechanical → electrical. Mechanical input (rotating coil) ⇒ induced EMF (electrical output).",
-      "errorSignals": ["ERR_MOTOR_VS_GENERATOR_ENERGY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_MOTOR_VS_GENERATOR_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Electrical energy into mechanical energy.",
+        "Mechanical (kinetic) energy into electrical energy.",
+        "Electrical energy into heat energy."
+      ]
     },
     {
       "id": "L8.T1.A2.q05",
@@ -76,12 +101,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q9.1.2",
       "question": "Does a DC motor use AC or DC current at its input?",
-      "answerMode": "text",
+      "answerMode": "choice",
       "expectedAnswer": "DC (direct current).",
       "marks": 1,
       "explanation": "DC motor takes DC input; the commutator handles the internal current reversal to keep torque continuous.",
-      "errorSignals": ["ERR_MOTOR_INPUT_CURRENT_TYPE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_MOTOR_INPUT_CURRENT_TYPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "AC (alternating current).",
+        "Either AC or DC interchangeably.",
+        "DC (direct current)."
+      ]
     },
     {
       "id": "L8.T1.A2.q06",
@@ -90,12 +122,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q9.1.3",
       "question": "State the function of the COMMUTATOR in a DC motor.",
-      "answerMode": "text",
-      "expectedAnswer": "The commutator reverses the direction of current in the coil every half rotation, ensuring the coil continues to rotate in one direction.",
+      "answerMode": "choice",
+      "expectedAnswer": "It reverses the current direction in the coil every half turn, keeping it rotating one way.",
       "marks": 1,
       "explanation": "Same role as in DC generator: split-ring contact flip provides continuous one-direction torque.",
-      "errorSignals": ["ERR_COMMUTATOR_FUNCTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_COMMUTATOR_FUNCTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It reverses the current direction in the coil every half turn, keeping it rotating one way.",
+        "It keeps the current flowing in a constant direction in the coil.",
+        "It increases the voltage supplied to the coil."
+      ]
     },
     {
       "id": "L8.T1.A2.q07",
@@ -114,7 +153,9 @@
       "expectedAnswer": "(i) and (iii)",
       "marks": 2,
       "explanation": "Reversing magnetic poles or reversing the current both reverse the torque direction (force on each wire reverses). Increasing voltage only makes it spin faster, not in the opposite direction.",
-      "errorSignals": ["ERR_MOTOR_DIRECTION_REVERSAL"],
+      "errorSignals": [
+        "ERR_MOTOR_DIRECTION_REVERSAL"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -124,12 +165,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2025 Q9.2",
       "question": "Give TWO ways in which the MAXIMUM EMF of an AC generator can be INCREASED.",
-      "answerMode": "text",
-      "expectedAnswer": "Any TWO of: (1) Increase the SPEED of rotation; (2) Increase the NUMBER OF TURNS in the coil; (3) Use a STRONGER magnetic field (larger B); (4) Increase the AREA of the coil; (5) Use a soft-iron core to concentrate the flux.",
+      "answerMode": "choice",
+      "expectedAnswer": "Rotate the coil faster and increase the number of turns (or use a stronger field / larger area).",
       "marks": 2,
       "explanation": "ε_max = NBAω. Any factor that increases N, B, A, or ω increases the peak EMF.",
-      "errorSignals": ["ERR_GENERATOR_MAX_EMF_FACTORS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GENERATOR_MAX_EMF_FACTORS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Slow the rotation and reduce the number of turns.",
+        "Rotate the coil faster and increase the number of turns (or use a stronger field / larger area).",
+        "Use a weaker magnet and a smaller coil area."
+      ]
     },
     {
       "id": "L8.T1.A2.q09",
@@ -138,12 +186,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2021 Q9.1",
       "question": "In an AC generator diagram, a rotating coil contacts the external circuit through component X. Name component X.",
-      "answerMode": "text",
+      "answerMode": "choice",
       "expectedAnswer": "Slip rings.",
       "marks": 1,
       "explanation": "Slip rings = pair of complete rings that maintain continuous electrical contact with the brushes; allow AC output.",
-      "errorSignals": ["ERR_SLIP_RINGS_VS_COMMUTATOR"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SLIP_RINGS_VS_COMMUTATOR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A split-ring commutator.",
+        "The brushes.",
+        "Slip rings."
+      ]
     },
     {
       "id": "L8.T1.A2.q10",
@@ -152,12 +207,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2021 Q9.2",
       "question": "State the function of the BRUSHES in a generator.",
-      "answerMode": "text",
-      "expectedAnswer": "The brushes maintain electrical contact between the rotating slip rings (or commutator) and the stationary external circuit, allowing current to flow from the coil to the external circuit.",
+      "answerMode": "choice",
+      "expectedAnswer": "They maintain electrical contact between the rotating rings and the stationary external circuit.",
       "marks": 1,
       "explanation": "Brushes are stationary; slip rings/commutator rotate against them. They bridge the rotating coil to the fixed external wires.",
-      "errorSignals": ["ERR_BRUSH_FUNCTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BRUSH_FUNCTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They maintain electrical contact between the rotating rings and the stationary external circuit.",
+        "They reverse the current direction every half turn.",
+        "They generate the magnetic field for the coil."
+      ]
     },
     {
       "id": "L8.T1.A2.q11",
@@ -166,12 +228,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2021 Q9.3",
       "question": "Explain how an EMF is induced in the rotating coil of an AC generator (using Faraday's Law).",
-      "answerMode": "text",
-      "expectedAnswer": "As the coil rotates between the magnetic poles, the magnetic flux through the coil changes continuously with time (Φ = BA cos(ωt)). By Faraday's Law, a changing flux induces an EMF in the coil: ε = -N dΦ/dt = NBA ω sin(ωt). The EMF varies sinusoidally with the coil's angular position.",
+      "answerMode": "choice",
+      "expectedAnswer": "As the coil rotates, the flux through it changes continuously, inducing an EMF (Faraday's Law).",
       "marks": 2,
       "explanation": "Generator output is sinusoidal because flux varies cosinusoidally with time (as the coil rotates) and Faraday's Law gives ε = -dΦ/dt.",
-      "errorSignals": ["ERR_GENERATOR_INDUCTION_MECHANISM"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GENERATOR_INDUCTION_MECHANISM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The brushes push current into the coil to create the EMF.",
+        "As the coil rotates, the flux through it changes continuously, inducing an EMF (Faraday's Law).",
+        "The constant magnetic field directly creates a steady EMF."
+      ]
     },
     {
       "id": "L8.T1.A2.q12",
@@ -180,12 +249,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive A 2026 Q9.7",
       "question": "State ONE difference between an AC generator and a DC generator.",
-      "answerMode": "text",
-      "expectedAnswer": "Any one of: AC generator uses SLIP RINGS and produces an alternating (sinusoidal) current/voltage. DC generator uses a SPLIT-RING COMMUTATOR, which reverses the polarity of the output every half cycle so that the output is always in the same direction (pulsating DC).",
+      "answerMode": "choice",
+      "expectedAnswer": "An AC generator uses slip rings (alternating output); a DC generator uses a split-ring commutator (one-direction output).",
       "marks": 1,
       "explanation": "Key difference: slip rings (AC) vs split-ring commutator (DC). Output: alternating vs same-direction.",
-      "errorSignals": ["ERR_AC_DC_GENERATOR_DIFF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_AC_DC_GENERATOR_DIFF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "An AC generator uses a commutator; a DC generator uses slip rings.",
+        "They are identical except for the type of magnet used.",
+        "An AC generator uses slip rings (alternating output); a DC generator uses a split-ring commutator (one-direction output)."
+      ]
     },
     {
       "id": "L8.T1.A2.q13",
@@ -194,11 +270,18 @@
       "source": "fresh",
       "question": "Which of the following is NOT a component of a typical AC generator?",
       "answerMode": "choice",
-      "options": ["Coil (armature)", "Magnets", "Split-ring commutator", "Slip rings"],
+      "options": [
+        "Coil (armature)",
+        "Magnets",
+        "Split-ring commutator",
+        "Slip rings"
+      ],
       "expectedAnswer": "Split-ring commutator",
       "marks": 2,
       "explanation": "AC generators use slip rings (continuous contact for both directions). Split-ring commutators belong to DC generators / motors.",
-      "errorSignals": ["ERR_SLIP_RINGS_VS_COMMUTATOR"],
+      "errorSignals": [
+        "ERR_SLIP_RINGS_VS_COMMUTATOR"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -217,7 +300,9 @@
       "expectedAnswer": "Direction of energy conversion (electrical ↔ mechanical)",
       "marks": 2,
       "explanation": "Same hardware (coil, magnets, brushes, commutator). Motor: electrical → mechanical. Generator: mechanical → electrical. They're each other's inverse.",
-      "errorSignals": ["ERR_MOTOR_VS_GENERATOR_ENERGY"],
+      "errorSignals": [
+        "ERR_MOTOR_VS_GENERATOR_ENERGY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -226,12 +311,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "On the EMF-vs-time output of an AC generator, what does the PEAK value correspond to physically?",
-      "answerMode": "text",
-      "expectedAnswer": "The peak EMF occurs when the coil's plane is PARALLEL to the magnetic field (and the area normal is perpendicular to B). At that instant the rate of change of flux is largest, so ε is maximum. ε_peak = NBAω.",
+      "answerMode": "choice",
+      "expectedAnswer": "The coil's plane is parallel to the field, so the flux is changing fastest.",
       "marks": 2,
       "explanation": "Peak EMF when coil is moving through the field at maximum perpendicular speed. Flux is changing fastest at that orientation.",
-      "errorSignals": ["ERR_PEAK_EMF_GEOMETRY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_PEAK_EMF_GEOMETRY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The coil's plane is parallel to the field, so the flux is changing fastest.",
+        "The coil's plane is perpendicular to the field, where the flux is greatest.",
+        "The coil is momentarily at rest at the peak."
+      ]
     },
     {
       "id": "L8.T1.A2.q16",
@@ -239,12 +331,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "How does the OUTPUT of a DC generator (with a split-ring commutator) differ from that of an AC generator on a V-t graph?",
-      "answerMode": "text",
-      "expectedAnswer": "AC generator: sinusoidal output that alternates between positive and negative values. DC generator: pulsating DC — the negative half-cycle is flipped to positive by the commutator, so the output is always positive (looks like the absolute value of a sine wave).",
+      "answerMode": "choice",
+      "expectedAnswer": "AC is sinusoidal (alternating ±); DC (commutator) is pulsating DC with the negative halves flipped positive.",
       "marks": 2,
       "explanation": "DC commutator flips every half-cycle ⇒ rectifies AC waveform to one polarity. Output is pulsating DC, not pure DC.",
-      "errorSignals": ["ERR_GENERATOR_OUTPUT_SHAPE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GENERATOR_OUTPUT_SHAPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "AC is a flat line; DC is sinusoidal.",
+        "AC is sinusoidal (alternating ±); DC (commutator) is pulsating DC with the negative halves flipped positive.",
+        "Both are identical smooth sine waves."
+      ]
     },
     {
       "id": "L8.T1.A2.q17",
@@ -252,12 +351,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "A DC motor 'runs as a generator' (back-EMF) when its coil rotates. How does this back-EMF affect the current drawn by the motor?",
-      "answerMode": "text",
-      "expectedAnswer": "When the motor's coil rotates, it produces an induced EMF (back-EMF) that OPPOSES the supply voltage (Lenz's Law). The net voltage driving current is the supply minus the back-EMF, so the current DECREASES as the motor speeds up. This explains why motors draw a large current at startup (no back-EMF) and less when running at full speed.",
+      "answerMode": "choice",
+      "expectedAnswer": "Back-EMF opposes the supply voltage, reducing the net voltage and the current drawn (largest current at start-up).",
       "marks": 3,
       "explanation": "Back-EMF is a Lenz-Law phenomenon: induction opposes the change. Net V = V_supply − ε_back ⇒ less I at higher speed.",
-      "errorSignals": ["ERR_BACK_EMF_DIRECTION", "ERR_MOTOR_STARTUP_CURRENT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BACK_EMF_DIRECTION",
+        "ERR_MOTOR_STARTUP_CURRENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Back-EMF adds to the supply voltage, increasing the current drawn.",
+        "Back-EMF has no effect on the current drawn.",
+        "Back-EMF opposes the supply voltage, reducing the net voltage and the current drawn (largest current at start-up)."
+      ]
     },
     {
       "id": "L8.T1.A2.q18",
@@ -275,7 +382,9 @@
       "expectedAnswer": "Motors convert electrical to mechanical energy",
       "marks": 2,
       "explanation": "Motors: electrical → mechanical. Generators: mechanical → electrical.",
-      "errorSignals": ["ERR_MOTOR_VS_GENERATOR_ENERGY"],
+      "errorSignals": [
+        "ERR_MOTOR_VS_GENERATOR_ENERGY"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -285,12 +394,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2023 Q9.1.3",
       "question": "Sketch (in words) an EMF-vs-time graph for TWO complete rotations of an AC generator coil. What characterises this output?",
-      "answerMode": "text",
-      "expectedAnswer": "Sinusoidal wave. Two complete cycles shown (i.e. two peaks above and two troughs below the time axis). Peak EMF ε_max labelled on the y-axis. Period T = 1/f marked on the time axis. The waveform alternates between +ε_max and −ε_max, repeating every T.",
+      "answerMode": "choice",
+      "expectedAnswer": "A sine wave with two complete cycles, peak ε_max marked, period T = 1/f.",
       "marks": 3,
       "explanation": "Sinusoidal AC output. Peaks every half cycle, alternating sign.",
-      "errorSignals": ["ERR_GENERATOR_OUTPUT_SHAPE", "ERR_AC_WAVEFORM_LABELS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_GENERATOR_OUTPUT_SHAPE",
+        "ERR_AC_WAVEFORM_LABELS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A sine wave with two complete cycles, peak ε_max marked, period T = 1/f.",
+        "A straight line, since the EMF is constant during rotation.",
+        "A pulsating all-positive curve (DC output)."
+      ]
     },
     {
       "id": "L8.T1.A2.q20",
@@ -298,12 +415,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does an electric motor experience a TORQUE on its current-carrying coil in a magnetic field?",
-      "answerMode": "text",
-      "expectedAnswer": "Each side of the coil carries current in opposite directions. The magnetic field exerts a force F = BIL on each side (Fleming's left-hand / motor rule). These two forces act in opposite directions on opposite sides of the coil, creating a turning effect (torque) about the coil's rotation axis. The torque causes the coil to spin.",
+      "answerMode": "choice",
+      "expectedAnswer": "Opposite sides of the coil carry current in opposite directions; the field exerts forces (F = BIL) that form a couple, turning the coil.",
       "marks": 3,
       "explanation": "Two opposite forces on opposite sides of the coil ⇒ couple ⇒ torque. This is what spins the motor.",
-      "errorSignals": ["ERR_MOTOR_TORQUE_ORIGIN"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_MOTOR_TORQUE_ORIGIN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The coil is attracted directly to the nearest magnetic pole.",
+        "Opposite sides of the coil carry current in opposite directions; the field exerts forces (F = BIL) that form a couple, turning the coil.",
+        "The commutator physically spins the coil."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

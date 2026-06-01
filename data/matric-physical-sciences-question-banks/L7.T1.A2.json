@@ -1,7 +1,9 @@
 {
   "skill": "L7.T1.A2",
   "skill_title": "Solve circuit problems with internal resistance",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 13 lifted, 7 fresh. EMF = I(R + r); terminal voltage; reading EMF from an open switch; effect on terminal voltage when R is added or removed.",
@@ -13,12 +15,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2021 Q8.1",
       "question": "Define EMF of a battery in TWO ways: (a) in terms of energy, and (b) as measured directly in a circuit.",
-      "answerMode": "text",
-      "expectedAnswer": "(a) Energy definition: The EMF is the energy (work done) per unit charge supplied by the battery, or equivalently the total energy per coulomb when no charge is delivered. (b) Circuit definition: The EMF equals the terminal voltage when no current flows (open-circuit voltage), i.e. when the external switch is open.",
+      "answerMode": "choice",
+      "expectedAnswer": "(a) The energy supplied per unit charge by the battery; (b) the terminal voltage measured when no current flows (open circuit).",
       "marks": 2,
       "explanation": "(a) ε = W/Q (energy per charge); (b) ε = V_terminal at I = 0.",
-      "errorSignals": ["ERR_EMF_DEF_ENERGY", "ERR_EMF_DEF_OPEN_CIRCUIT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_EMF_DEF_ENERGY",
+        "ERR_EMF_DEF_OPEN_CIRCUIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "(a) The energy used per unit charge by the resistor; (b) the voltage across the largest resistor.",
+        "(a) The energy supplied per unit charge by the battery; (b) the terminal voltage measured when no current flows (open circuit).",
+        "(a) The current per unit charge; (b) the voltage measured at full load."
+      ]
     },
     {
       "id": "L7.T1.A2.q02",
@@ -37,7 +47,9 @@
       "expectedAnswer": "The maximum energy (work done) per unit charge by the cell",
       "marks": 2,
       "explanation": "EMF = max work per coulomb = total energy supplied per charge by the cell.",
-      "errorSignals": ["ERR_EMF_VS_TERMINAL_VOLTAGE"],
+      "errorSignals": [
+        "ERR_EMF_VS_TERMINAL_VOLTAGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -57,7 +69,9 @@
       "expectedAnswer": "No current flows",
       "marks": 2,
       "explanation": "V_terminal = ε − Ir. When I = 0 (open switch), V_terminal = ε.",
-      "errorSignals": ["ERR_EMF_VS_TERMINAL_VOLTAGE"],
+      "errorSignals": [
+        "ERR_EMF_VS_TERMINAL_VOLTAGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -73,7 +87,10 @@
       "unit": "Ω",
       "marks": 8,
       "explanation": "Open: ε = 2.8 V. Closed: V_terminal = 2.63 V. V_lost = ε − V_terminal = 0.17 V. V_lost = Ir ⇒ r = 0.17/0.85 = 0.2 Ω.",
-      "errorSignals": ["ERR_INTERNAL_R_FROM_LOST_VOLTAGE", "ERR_EMF_VS_TERMINAL_VOLTAGE"],
+      "errorSignals": [
+        "ERR_INTERNAL_R_FROM_LOST_VOLTAGE",
+        "ERR_EMF_VS_TERMINAL_VOLTAGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -89,7 +106,9 @@
       "unit": "V",
       "marks": 2,
       "explanation": "Open switch ⇒ I = 0 ⇒ V_terminal = ε. So ε = 2.8 V (the open-circuit voltmeter reading).",
-      "errorSignals": ["ERR_EMF_VS_TERMINAL_VOLTAGE"],
+      "errorSignals": [
+        "ERR_EMF_VS_TERMINAL_VOLTAGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -105,7 +124,9 @@
       "unit": "V",
       "marks": 4,
       "explanation": "ε = V_terminal + Ir = 3.2 + (0.8)(0.5) = 3.2 + 0.4 = 3.6 V.",
-      "errorSignals": ["ERR_EMF_EQN_SETUP"],
+      "errorSignals": [
+        "ERR_EMF_EQN_SETUP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -115,12 +136,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q8.3.2",
       "question": "Explain why a battery HEATS UP during operation.",
-      "answerMode": "text",
-      "expectedAnswer": "Current flows through the battery's internal resistance r. This dissipates power P = I²r as HEAT in the battery, raising its temperature.",
+      "answerMode": "choice",
+      "expectedAnswer": "Current through the battery's internal resistance dissipates power (P = I²r) as heat.",
       "marks": 2,
       "explanation": "Internal resistance ⇒ power lost as heat. The bigger I or r, the more heating.",
-      "errorSignals": ["ERR_INTERNAL_RESISTANCE_HEATING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_INTERNAL_RESISTANCE_HEATING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The chemical reactions release light, which warms the battery.",
+        "The external resistors push heat back into the battery.",
+        "Current through the battery's internal resistance dissipates power (P = I²r) as heat."
+      ]
     },
     {
       "id": "L7.T1.A2.q08",
@@ -135,7 +163,9 @@
       "unit": "A",
       "marks": 3,
       "explanation": "I = ε / (R_ext + r) = 12 / (6 + 0.5) = 12/6.5 ≈ 1.846 A.",
-      "errorSignals": ["ERR_INTERNAL_R_FORGOT_IN_TOTAL"],
+      "errorSignals": [
+        "ERR_INTERNAL_R_FORGOT_IN_TOTAL"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -151,7 +181,10 @@
       "unit": "V",
       "marks": 3,
       "explanation": "V_terminal = ε − Ir = 12 − (1.85)(0.5) = 12 − 0.923 = 11.08 V.",
-      "errorSignals": ["ERR_EMF_EQN_SETUP", "ERR_EMF_VS_TERMINAL_VOLTAGE"],
+      "errorSignals": [
+        "ERR_EMF_EQN_SETUP",
+        "ERR_EMF_VS_TERMINAL_VOLTAGE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -167,7 +200,9 @@
       "unit": "A",
       "marks": 3,
       "explanation": "I = ε/(R_ext + r) = 9/(5.4 + 1) = 9/6.4 ≈ 1.406 A.",
-      "errorSignals": ["ERR_INTERNAL_R_FORGOT_IN_TOTAL"],
+      "errorSignals": [
+        "ERR_INTERNAL_R_FORGOT_IN_TOTAL"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -183,7 +218,9 @@
       "unit": "V",
       "marks": 3,
       "explanation": "V_terminal = ε − Ir = 9 − (1.406)(1) = 9 − 1.406 ≈ 7.59 V.",
-      "errorSignals": ["ERR_EMF_EQN_SETUP"],
+      "errorSignals": [
+        "ERR_EMF_EQN_SETUP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -193,12 +230,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive A 2026 Q8.8",
       "question": "In a circuit with R₁ (series) and R₂ ∥ R₃ (parallel), R₃ is suddenly DISCONNECTED. Explain qualitatively what happens to the brightness of R₁.",
-      "answerMode": "text",
-      "expectedAnswer": "Disconnecting R₃ removes a parallel path ⇒ R_parallel INCREASES (only R₂ remains). So R_total INCREASES ⇒ total current DECREASES ⇒ less current flows through R₁ ⇒ R₁ becomes DIMMER.",
+      "answerMode": "choice",
+      "expectedAnswer": "Dimmer — removing the parallel branch raises the total resistance, lowering the current through R₁.",
       "marks": 4,
       "explanation": "Removing a parallel branch increases R_parallel and thus R_total. Less current ⇒ less power dissipated in the series resistor ⇒ dimmer.",
-      "errorSignals": ["ERR_PARALLEL_RULES", "ERR_INTERNAL_R_FORGOT_IN_TOTAL"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_PARALLEL_RULES",
+        "ERR_INTERNAL_R_FORGOT_IN_TOTAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Dimmer — removing the parallel branch raises the total resistance, lowering the current through R₁.",
+        "Brighter — removing R₃ lets more current flow through R₁.",
+        "Unchanged — R₁ is in series, so its current is fixed."
+      ]
     },
     {
       "id": "L7.T1.A2.q13",
@@ -207,12 +252,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive B 2026 Q8.8",
       "question": "If R₁ in the external circuit is INCREASED, what happens to the terminal voltage of the battery? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "If R₁ increases ⇒ R_total increases ⇒ current I decreases. 'Lost voltage' across the internal resistance V_lost = I × r decreases. So V_terminal = ε − Ir INCREASES (gets closer to ε).",
+      "answerMode": "choice",
+      "expectedAnswer": "Terminal voltage increases — higher R lowers the current, so the lost volts (Ir) across the internal resistance fall.",
       "marks": 3,
       "explanation": "Less current ⇒ less voltage dropped internally ⇒ more voltage available externally.",
-      "errorSignals": ["ERR_INTERNAL_R_FORGOT_IN_TOTAL", "ERR_EMF_EQN_SETUP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_INTERNAL_R_FORGOT_IN_TOTAL",
+        "ERR_EMF_EQN_SETUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Terminal voltage decreases — higher external resistance always lowers the terminal voltage.",
+        "Terminal voltage increases — higher R lowers the current, so the lost volts (Ir) across the internal resistance fall.",
+        "Terminal voltage stays equal to the EMF regardless of R₁."
+      ]
     },
     {
       "id": "L7.T1.A2.q14",
@@ -227,7 +280,10 @@
       "unit": "V",
       "marks": 5,
       "explanation": "ε = I(R_ext + r) = 3.64 × (1.42 + 0.5) = 3.64 × 1.92 ≈ 6.99 V.",
-      "errorSignals": ["ERR_EMF_EQN_SETUP", "ERR_INTERNAL_R_FORGOT_IN_TOTAL"],
+      "errorSignals": [
+        "ERR_EMF_EQN_SETUP",
+        "ERR_INTERNAL_R_FORGOT_IN_TOTAL"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -237,12 +293,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2025 Q8.5",
       "question": "In a circuit with parallel branches controlled by switches, S₂ (controlling one parallel branch) is OPENED. Describe the effect on the (a) ammeter reading in the main line, (b) brightness of a bulb in the remaining parallel branch.",
-      "answerMode": "text",
-      "expectedAnswer": "(a) Opening S₂ removes one parallel branch ⇒ external resistance INCREASES ⇒ total current from the battery DECREASES ⇒ main ammeter reading DECREASES. (b) Less current overall means less Ir voltage drop, so terminal voltage INCREASES. The voltage across the remaining parallel branch INCREASES, so MORE current flows through the bulb in it ⇒ bulb gets BRIGHTER.",
+      "answerMode": "choice",
+      "expectedAnswer": "The main ammeter reading decreases — opening a parallel branch raises the total resistance, lowering the total current.",
       "marks": 3,
       "explanation": "Removing a parallel branch: R_total ↑, I_total ↓, V_terminal ↑, current in remaining branch ↑, brightness ↑.",
-      "errorSignals": ["ERR_PARALLEL_RULES", "ERR_INTERNAL_R_FORGOT_IN_TOTAL"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_PARALLEL_RULES",
+        "ERR_INTERNAL_R_FORGOT_IN_TOTAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The main ammeter reading increases — fewer branches means more current overall.",
+        "The main ammeter reading is unchanged — the main-line current is fixed by the battery.",
+        "The main ammeter reading decreases — opening a parallel branch raises the total resistance, lowering the total current."
+      ]
     },
     {
       "id": "L7.T1.A2.q16",
@@ -256,7 +320,10 @@
       "unit": "Ω",
       "marks": 3,
       "explanation": "ε = I(R + r) ⇒ R = ε/I − r = 9/2 − 0.5 = 4.5 − 0.5 = 4 Ω.",
-      "errorSignals": ["ERR_INTERNAL_R_FORGOT_IN_TOTAL", "ERR_EMF_EQN_SETUP"],
+      "errorSignals": [
+        "ERR_INTERNAL_R_FORGOT_IN_TOTAL",
+        "ERR_EMF_EQN_SETUP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -271,7 +338,9 @@
       "unit": "V",
       "marks": 3,
       "explanation": "I = 6/(2 + 1) = 2 A. V_R = IR = 2 × 2 = 4 V. (This equals the terminal voltage.)",
-      "errorSignals": ["ERR_INTERNAL_R_FORGOT_IN_TOTAL"],
+      "errorSignals": [
+        "ERR_INTERNAL_R_FORGOT_IN_TOTAL"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -286,7 +355,9 @@
       "unit": "A",
       "marks": 3,
       "explanation": "Short circuit: R_ext ≈ 0. I_max = ε/r = 4/0.2 = 20 A. This is the largest current the battery can deliver — usually dangerous (burns out the battery).",
-      "errorSignals": ["ERR_SHORT_CIRCUIT_CURRENT"],
+      "errorSignals": [
+        "ERR_SHORT_CIRCUIT_CURRENT"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -302,7 +373,9 @@
       "unit": "V",
       "marks": 3,
       "explanation": "V_terminal = ε − Ir = 12 − (1.3)(0.2) = 12 − 0.26 = 11.74 V.",
-      "errorSignals": ["ERR_EMF_EQN_SETUP"],
+      "errorSignals": [
+        "ERR_EMF_EQN_SETUP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -311,12 +384,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'The internal resistance of a battery is fixed at zero in idealised problems.' Is the second part of that statement correct, and what's the point of including a non-zero r?",
-      "answerMode": "text",
-      "expectedAnswer": "An ideal cell has r = 0 (terminal voltage always equals EMF). In practice, real cells have small r > 0, which causes the terminal voltage to DROP when current flows (V_terminal = ε − Ir). Including r in problems reflects real behaviour: dimmer bulbs at high current, heat dissipation in the battery, and limits on maximum current.",
+      "answerMode": "choice",
+      "expectedAnswer": "Only ideal cells have r = 0; real cells have r > 0, which lowers the terminal voltage when current flows.",
       "marks": 3,
       "explanation": "Ideal: r = 0. Real: r > 0 causes voltage drop and heating during current flow.",
-      "errorSignals": ["ERR_IDEAL_VS_REAL_BATTERY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IDEAL_VS_REAL_BATTERY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Only ideal cells have r = 0; real cells have r > 0, which lowers the terminal voltage when current flows.",
+        "Correct — all batteries have zero internal resistance.",
+        "Correct — internal resistance only matters in AC circuits."
+      ]
     }
   ],
   "_error_signal_vocabulary": {
