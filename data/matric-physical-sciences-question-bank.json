@@ -2,7 +2,7 @@
   "subject": "matric-physical-sciences",
   "version": "1.0",
   "description": "Combined Matric Physical Sciences question bank, produced by scripts/build-matric-phys-sci-bank.mjs from data/matric-physical-sciences-question-banks/*.json. Re-run after editing any per-skill bank.",
-  "built_at": "2026-06-01T09:10:25.269Z",
+  "built_at": "2026-06-01T09:24:48.770Z",
   "skills": {
     "L1.T1.A1": {
       "skill": "L1.T1.A1",
@@ -8859,14 +8859,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q3.1",
           "question": "Give the definition of FREE FALL.",
-          "answerMode": "text",
-          "expectedAnswer": "Motion of an object under the influence of gravitational force only (no air resistance / no other forces act on it).",
+          "answerMode": "choice",
+          "expectedAnswer": "Motion of an object under the influence of gravity only (no air resistance or other forces).",
           "marks": 2,
           "explanation": "Two marks: (1) 'motion of an object'; (2) 'under gravity only / no air resistance'. The defining feature is that gravity is the SOLE force.",
           "errorSignals": [
             "ERR_FREE_FALL_DEF_INCOMPLETE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Motion of an object under the influence of gravity only (no air resistance or other forces).",
+            "Any downward motion of an object toward the Earth.",
+            "Motion of an object that simply speeds up as it falls."
+          ]
         },
         {
           "id": "L2.T1.A1.q02",
@@ -8875,14 +8880,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q3.1",
           "question": "Define the term PROJECTILE.",
-          "answerMode": "text",
-          "expectedAnswer": "A projectile is an object that moves under the influence of gravity only (no other forces).",
+          "answerMode": "choice",
+          "expectedAnswer": "An object moving under the influence of gravity only (no other forces).",
           "marks": 2,
           "explanation": "Same idea as free fall — gravity is the only force acting. Distinguished from free fall by emphasis on a launched object.",
           "errorSignals": [
             "ERR_FREE_FALL_DEF_INCOMPLETE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Any object that has been thrown forward through the air.",
+            "An object moving under the influence of gravity only (no other forces).",
+            "An object that moves in a curved path because a force keeps pushing it along."
+          ]
         },
         {
           "id": "L2.T1.A1.q03",
@@ -9022,15 +9032,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive A 2026 Q3.5",
           "question": "A ball is thrown upward at 25 m·s⁻¹ (g = 10 m·s⁻²). At what time(s) is the SPEED of the ball equal to 15 m·s⁻¹? (Use upward positive.)",
-          "answerMode": "text",
-          "expectedAnswer": "Speed 15 m·s⁻¹ means velocity = +15 (going up) or −15 (coming down). v = v₀ + at = 25 − 10t. (1) 15 = 25 − 10t ⇒ t = 1.0 s (going up). (2) −15 = 25 − 10t ⇒ t = 4.0 s (coming down). Speed equals 15 m·s⁻¹ at t = 1.0 s and t = 4.0 s.",
+          "answerMode": "choice",
+          "expectedAnswer": "t = 1.0 s (going up) and t = 4.0 s (coming down).",
           "marks": 4,
           "explanation": "SPEED is the magnitude of velocity, so both +15 and −15 satisfy. By symmetry the two times are equidistant from the peak (t = 2.5 s).",
           "errorSignals": [
             "ERR_SPEED_VS_VELOCITY",
             "ERR_VPM_SYMMETRY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "t = 1.0 s only.",
+            "t = 2.5 s, at maximum height.",
+            "t = 1.0 s (going up) and t = 4.0 s (coming down)."
+          ]
         },
         {
           "id": "L2.T1.A1.q11",
@@ -9173,15 +9188,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'When the projectile reaches maximum height, the force of gravity is zero because velocity is zero.' Is this correct? Briefly explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. Velocity and force are independent. At the peak, the projectile is momentarily at rest (v = 0), but gravity still acts: weight = mg downward, acceleration = g downward. This is what immediately reverses the motion. Zero velocity does NOT mean zero force.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — at the peak v = 0 but gravity still acts (weight mg down, a = g down).",
           "marks": 3,
           "explanation": "Common confusion. Gravity is always present; what changes is velocity. The acceleration is constant throughout the flight (g downward).",
           "errorSignals": [
             "ERR_ACCEL_AT_TOP_ZERO",
             "ERR_VELOCITY_FORCE_CONFLATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — at the peak v = 0 but gravity still acts (weight mg down, a = g down).",
+            "Correct — with zero velocity there is no force on the projectile.",
+            "Incorrect — gravity isn't zero, but the acceleration is zero at the top."
+          ]
         },
         {
           "id": "L2.T1.A1.q19",
@@ -9511,15 +9531,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'During the bounce on the ground, the only force on the ball is gravity.' Is this correct? Briefly explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. During the bounce (while the ball is in contact with the ground), the ground exerts a large upward NORMAL force on the ball, in addition to gravity. This is what reverses the ball's velocity. The ball is only in free fall (gravity alone) BEFORE and AFTER the bounce, not during it.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — during contact the ground exerts a large upward normal force as well as gravity.",
           "marks": 3,
           "explanation": "While in contact, two forces act on the ball: gravity and normal. The contact normal force is huge (because the velocity changes a lot in a short time), and acts upward.",
           "errorSignals": [
             "ERR_BOUNCE_FORCES",
             "ERR_FREE_FALL_DURING_BOUNCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — the ball is in free fall the whole time, so only gravity acts.",
+            "Incorrect — during contact the ground exerts a large upward normal force as well as gravity.",
+            "Incorrect — only friction with the ground acts during the bounce."
+          ]
         },
         {
           "id": "L2.T1.A2.q15",
@@ -9674,14 +9699,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q5.1",
           "question": "Define POWER in words.",
-          "answerMode": "text",
-          "expectedAnswer": "Power is the rate at which work is done, or equivalently the rate at which energy is transferred.",
+          "answerMode": "choice",
+          "expectedAnswer": "The rate at which work is done (or energy is transferred).",
           "marks": 2,
           "explanation": "Two marks: 'rate' + 'work done / energy transferred'. P = W/t. SI unit watts (W = J/s).",
           "errorSignals": [
             "ERR_POWER_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The total amount of work done by a force.",
+            "The force needed to move an object a certain distance.",
+            "The rate at which work is done (or energy is transferred)."
+          ]
         },
         {
           "id": "L3.T1.A1.q02",
@@ -9690,14 +9720,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q5.3",
           "question": "Define a CONSERVATIVE force.",
-          "answerMode": "text",
-          "expectedAnswer": "A force for which the work done in moving an object between two points is independent of the path taken (depends only on initial and final positions).",
+          "answerMode": "choice",
+          "expectedAnswer": "A force whose work between two points is independent of the path taken.",
           "marks": 2,
           "explanation": "Examples: gravity, spring force, electrostatic force. The work depends only on start/end positions.",
           "errorSignals": [
             "ERR_CONSERVATIVE_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A force whose work between two points is independent of the path taken.",
+            "A force whose work depends on the path taken.",
+            "A force that does no work on a moving object."
+          ]
         },
         {
           "id": "L3.T1.A1.q03",
@@ -9706,14 +9741,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2023 Q5.1",
           "question": "Define a NON-CONSERVATIVE force.",
-          "answerMode": "text",
-          "expectedAnswer": "A force for which the work done in moving an object between two points DEPENDS on the path taken; the work done is not recoverable as mechanical energy.",
+          "answerMode": "choice",
+          "expectedAnswer": "A force whose work between two points depends on the path taken (energy not recoverable as mechanical energy).",
           "marks": 2,
           "explanation": "Examples: friction, air resistance, applied force, normal during inelastic collisions. Work done varies with path; mechanical energy is not conserved when these forces act.",
           "errorSignals": [
             "ERR_CONSERVATIVE_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A force whose work is independent of the path taken.",
+            "A force whose work between two points depends on the path taken (energy not recoverable as mechanical energy).",
+            "A force that always acts opposite to motion and never does work."
+          ]
         },
         {
           "id": "L3.T1.A1.q04",
@@ -9722,14 +9762,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q5.4",
           "question": "A demolition ball swings into a wall, causing the wall to crack and pieces of brick to fly off. Is the force the wall exerts on the ball CONSERVATIVE or NON-CONSERVATIVE? Give a reason.",
-          "answerMode": "text",
-          "expectedAnswer": "Non-conservative. The work depends on the deformation/path; energy is dissipated as heat, sound and broken brick rather than being recoverable as mechanical energy.",
+          "answerMode": "choice",
+          "expectedAnswer": "Non-conservative — energy is dissipated (heat, sound, broken brick), not recoverable.",
           "marks": 1,
           "explanation": "Permanent deformation = energy lost. Non-conservative forces convert mechanical energy to other forms.",
           "errorSignals": [
             "ERR_CONSERVATIVE_IDENTIFY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Conservative — the force depends only on start and end positions.",
+            "Conservative — all contact forces are conservative.",
+            "Non-conservative — energy is dissipated (heat, sound, broken brick), not recoverable."
+          ]
         },
         {
           "id": "L3.T1.A1.q05",
@@ -9760,14 +9805,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q5.5",
           "question": "Describe the energy conversion that takes place as a demolition ball swings DOWNWARD from its highest point on a chain.",
-          "answerMode": "text",
-          "expectedAnswer": "Gravitational potential energy is converted to kinetic energy.",
+          "answerMode": "choice",
+          "expectedAnswer": "Gravitational potential energy converts to kinetic energy.",
           "marks": 1,
           "explanation": "As height decreases, PE decreases; speed increases, so KE increases. The chain (idealised as massless and inextensible) does no work, so mechanical energy is conserved.",
           "errorSignals": [
             "ERR_ENERGY_CONVERSION_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Gravitational potential energy converts to kinetic energy.",
+            "Kinetic energy converts to gravitational potential energy.",
+            "Chemical potential energy converts to kinetic energy."
+          ]
         },
         {
           "id": "L3.T1.A1.q07",
@@ -9857,14 +9907,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define the WORK done by a constant force on an object as it undergoes a displacement.",
-          "answerMode": "text",
-          "expectedAnswer": "Work done = F·d·cosθ, where F is the magnitude of the force, d is the displacement, and θ is the angle between the force and the displacement.",
+          "answerMode": "choice",
+          "expectedAnswer": "W = F·d·cosθ, where θ is the angle between the force and the displacement.",
           "marks": 2,
           "explanation": "Two marks: 'F·d·cosθ' OR explicit statement including the angle between F and d. Forgetting cosθ is a common slip.",
           "errorSignals": [
             "ERR_WORK_DEF_OMITS_COSINE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "W = F·d (force times displacement).",
+            "W = F·d·cosθ, where θ is the angle between the force and the displacement.",
+            "W = F·d·sinθ."
+          ]
         },
         {
           "id": "L3.T1.A1.q12",
@@ -10020,14 +10075,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define MECHANICAL ENERGY of an object.",
-          "answerMode": "text",
-          "expectedAnswer": "The sum of the gravitational potential energy and the kinetic energy of the object: E_mech = PE + KE = mgh + ½mv².",
+          "answerMode": "choice",
+          "expectedAnswer": "The sum of an object's kinetic and gravitational potential energy (KE + PE).",
           "marks": 2,
           "explanation": "Mechanical energy includes only kinetic and gravitational potential energy in CAPS context. Heat, sound and chemical energy are not part of mechanical energy.",
           "errorSignals": [
             "ERR_MECH_ENERGY_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The total kinetic energy of an object.",
+            "The energy an object has due to its temperature.",
+            "The sum of an object's kinetic and gravitational potential energy (KE + PE)."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -10064,14 +10124,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q5.1",
           "question": "State the WORK-ENERGY THEOREM.",
-          "answerMode": "text",
-          "expectedAnswer": "The net work done on an object equals the change in kinetic energy of the object: W_net = ΔKE = ½m(v² − u²).",
+          "answerMode": "choice",
+          "expectedAnswer": "The net work done on an object equals its change in kinetic energy (W_net = ΔKE).",
           "marks": 2,
           "explanation": "Two marks: 'net work' + 'change in kinetic energy'. The theorem applies to any object regardless of whether forces are conservative or not.",
           "errorSignals": [
             "ERR_WET_STATEMENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The net work done on an object equals its change in kinetic energy (W_net = ΔKE).",
+            "The work done by gravity equals the change in potential energy.",
+            "The net work done on an object equals its change in momentum."
+          ]
         },
         {
           "id": "L3.T1.A2.q02",
@@ -10080,14 +10145,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q5.3",
           "question": "State the WORK-ENERGY THEOREM in symbols.",
-          "answerMode": "text",
-          "expectedAnswer": "W_net = ΔKE = ½mv² − ½mu², where W_net is the net work done by all forces on the object, m is its mass, u is initial velocity, and v is final velocity.",
+          "answerMode": "choice",
+          "expectedAnswer": "W_net = ½mv² − ½mu²",
           "marks": 2,
           "explanation": "Two marks for the symbolic statement plus clear identification of variables.",
           "errorSignals": [
             "ERR_WET_STATEMENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "W_net = mgh_f − mgh_i",
+            "W_net = ½mv² − ½mu²",
+            "W_net = m(v − u)"
+          ]
         },
         {
           "id": "L3.T1.A2.q03",
@@ -10096,14 +10166,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q5.2",
           "question": "A 30 000 kg truck moving at 33 m·s⁻¹ enters an ascending arrester bed and decelerates to rest. State why the NET WORK done on the truck is NEGATIVE.",
-          "answerMode": "text",
-          "expectedAnswer": "The truck decelerates (slows from 33 m·s⁻¹ to rest), so its kinetic energy decreases. By the work-energy theorem (W_net = ΔKE), a decrease in KE means W_net is negative.",
+          "answerMode": "choice",
+          "expectedAnswer": "Its KE decreases (slows to rest), and W_net = ΔKE, so W_net is negative.",
           "marks": 1,
           "explanation": "Direct application: ΔKE = KE_final − KE_initial = 0 − ½mv² < 0 ⇒ W_net < 0.",
           "errorSignals": [
             "ERR_WET_SIGN_OF_NET_WORK"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It moves uphill, and uphill motion always means negative work.",
+            "Its momentum decreases, so the work is negative.",
+            "Its KE decreases (slows to rest), and W_net = ΔKE, so W_net is negative."
+          ]
         },
         {
           "id": "L3.T1.A2.q04",
@@ -10131,15 +10206,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q5.4",
           "question": "Continuing the arrester-bed problem: the truck enters at the same speed but going DOWNHILL. Would the truck stop in a SHORTER or LONGER distance? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "LONGER distance. Going downhill, the component of gravity along the slope is in the SAME direction as motion (adding to KE / doing positive work), while only friction does negative work. Less net negative work per metre ⇒ more distance needed to dissipate the same initial KE.",
+          "answerMode": "choice",
+          "expectedAnswer": "Longer — gravity's component now does positive work (adds KE), so friction must remove more, over more distance.",
           "marks": 3,
           "explanation": "Friction still opposes motion (negative work). But gravity, instead of opposing motion (as on the way up), now does POSITIVE work along the slope. Net braking is weaker ⇒ longer stopping distance.",
           "errorSignals": [
             "ERR_WET_FORCES_INCLINE",
             "ERR_GRAVITY_INCLINE_SIGN"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Longer — gravity's component now does positive work (adds KE), so friction must remove more, over more distance.",
+            "Shorter — going downhill the truck stops faster.",
+            "The same — slope direction doesn't affect stopping distance."
+          ]
         },
         {
           "id": "L3.T1.A2.q06",
@@ -10187,14 +10267,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q5.5",
           "question": "Same setup: 18 kg crate down a frictionless slope from height h, then rough horizontal from B to C with friction 40.6 N. If point A were at a LOWER height (less than 3 m), how would the distance from B to C compare? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Distance B to C would be SHORTER. Lower starting height ⇒ less GPE converted ⇒ smaller KE at B ⇒ less initial KE for friction to dissipate ⇒ shorter stopping distance.",
+          "answerMode": "choice",
+          "expectedAnswer": "Shorter — less height ⇒ less KE at B ⇒ less for friction to dissipate.",
           "marks": 3,
           "explanation": "Energy conservation on the frictionless slope: KE_B = mgh. Then on the rough horizontal: f·d = KE_B. So d ∝ h. Smaller h ⇒ smaller d.",
           "errorSignals": [
             "ERR_WET_KE_PROPORTIONALITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Longer — a lower start means the crate travels further.",
+            "Shorter — less height ⇒ less KE at B ⇒ less for friction to dissipate.",
+            "The same — friction dissipates energy at the same rate regardless of start height."
+          ]
         },
         {
           "id": "L3.T1.A2.q09",
@@ -10371,14 +10456,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner writes: 'W_net = ½mv − ½mu.' What's wrong with this statement?",
-          "answerMode": "text",
-          "expectedAnswer": "Kinetic energy is ½mv² (with v SQUARED), not ½mv. The correct work-energy theorem is W_net = ½mv² − ½mu². The given expression has the wrong units and gives the wrong result.",
+          "answerMode": "choice",
+          "expectedAnswer": "KE is ½mv² (v squared), not ½mv — the velocities must be squared.",
           "marks": 2,
           "explanation": "Common slip. ½mv would have units of kg·m/s = N·s (momentum), not joules.",
           "errorSignals": [
             "ERR_WET_KE_FORMULA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Nothing — ½mv − ½mu is the correct theorem.",
+            "It should be ½m(v − u)² with the bracket squared.",
+            "KE is ½mv² (v squared), not ½mv — the velocities must be squared."
+          ]
         },
         {
           "id": "L3.T1.A2.q19",
@@ -10451,15 +10541,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q5.1",
           "question": "State the principle of CONSERVATION OF MECHANICAL ENERGY.",
-          "answerMode": "text",
-          "expectedAnswer": "The total mechanical energy (kinetic + gravitational potential) of an isolated system remains constant when only conservative forces (such as gravity) do work on the system.",
+          "answerMode": "choice",
+          "expectedAnswer": "Total mechanical energy stays constant when only conservative forces do work on the system.",
           "marks": 2,
           "explanation": "Two marks: 'total mechanical energy' + 'conservative forces only / no non-conservative work'. If friction or other non-conservative forces act, mechanical energy is NOT conserved.",
           "errorSignals": [
             "ERR_CME_STATEMENT",
             "ERR_CME_CONDITIONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Total mechanical energy stays constant when only conservative forces do work on the system.",
+            "Total mechanical energy stays constant in all situations.",
+            "Energy is always created and destroyed in equal amounts."
+          ]
         },
         {
           "id": "L3.T1.A3.q02",
@@ -10570,14 +10665,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Under what conditions is mechanical energy conserved?",
-          "answerMode": "text",
-          "expectedAnswer": "Mechanical energy is conserved when only conservative forces (e.g. gravity, spring force) do work on the system — equivalently, when there is no net work done by non-conservative forces (friction, applied force, air resistance).",
+          "answerMode": "choice",
+          "expectedAnswer": "When only conservative forces do work (no net work by non-conservative forces like friction).",
           "marks": 2,
           "explanation": "Friction, applied forces, normal force during inelastic collisions all break conservation. The textbook 'frictionless and no air resistance' is the usual simplification.",
           "errorSignals": [
             "ERR_CME_CONDITIONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Whenever the object is moving.",
+            "When only conservative forces do work (no net work by non-conservative forces like friction).",
+            "Only when the object moves in a straight line."
+          ]
         },
         {
           "id": "L3.T1.A3.q08",
@@ -10638,15 +10738,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'Total mechanical energy is conserved when a block slides down a rough incline.' Is this correct? Briefly explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. Friction is a non-conservative force, and it does negative work on the block. So mechanical energy is NOT conserved — some is dissipated as heat. Use the work-energy theorem (including friction) instead, or write PE_top = KE_bottom + |W_friction|.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — friction is non-conservative and dissipates energy, so mechanical energy is not conserved.",
           "marks": 3,
           "explanation": "Conservation of mechanical energy applies only when non-conservative forces do no net work. Friction breaks the assumption.",
           "errorSignals": [
             "ERR_CME_FRICTION_ABSENT",
             "ERR_CME_CONDITIONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — mechanical energy is always conserved on an incline.",
+            "Correct — friction only changes direction, not total energy.",
+            "Incorrect — friction is non-conservative and dissipates energy, so mechanical energy is not conserved."
+          ]
         },
         {
           "id": "L3.T1.A3.q12",
@@ -10771,15 +10876,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does the tension in a swinging pendulum string do NO work on the pendulum bob?",
-          "answerMode": "text",
-          "expectedAnswer": "The tension is always directed along the string, perpendicular to the motion of the bob (which moves in a circular arc). Since W = F·d·cosθ and θ = 90°, cosθ = 0, so tension does zero work. Only gravity does work, allowing mechanical energy to be conserved.",
+          "answerMode": "choice",
+          "expectedAnswer": "Tension is along the string, perpendicular to the motion (θ = 90°), so W = Fd cos90° = 0.",
           "marks": 3,
           "explanation": "This is why pendulum problems are great for energy conservation: only gravity does work; tension is always perpendicular to instantaneous motion.",
           "errorSignals": [
             "ERR_TENSION_WORK",
             "ERR_WORK_NO_DISPLACEMENT"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Tension is along the string, perpendicular to the motion (θ = 90°), so W = Fd cos90° = 0.",
+            "Because the string doesn't stretch.",
+            "Because the bob has no displacement."
+          ]
         },
         {
           "id": "L3.T1.A3.q19",
@@ -10805,15 +10915,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Two identical balls are released from rest from the same height — one falls straight down, the other slides down a frictionless curved ramp. Compare their SPEEDS at ground level.",
-          "answerMode": "text",
-          "expectedAnswer": "Speeds are EQUAL. Both balls drop the same vertical height under conservative forces only (gravity; normal force does no work on the ramp because it's perpendicular to motion). By energy conservation, v = √(2gh) regardless of path. (Time taken differs, but final speed is the same.)",
+          "answerMode": "choice",
+          "expectedAnswer": "Equal — same drop height, only gravity does work, so v = √(2gh) regardless of path.",
           "marks": 3,
           "explanation": "Path independence of conservative forces. Same start and end heights ⇒ same KE at the bottom ⇒ same speed.",
           "errorSignals": [
             "ERR_CONSERVATIVE_IDENTIFY",
             "ERR_PATH_INDEPENDENCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The straight-down ball is faster because its path is shorter.",
+            "Equal — same drop height, only gravity does work, so v = √(2gh) regardless of path.",
+            "The ramp ball is faster because it gains speed along the slope."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -10851,15 +10966,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q4.1",
           "question": "State the principle of CONSERVATION OF LINEAR MOMENTUM.",
-          "answerMode": "text",
-          "expectedAnswer": "The total linear momentum of an isolated (closed) system remains constant. (Equivalently, when the net external force on a system is zero, the total momentum does not change.)",
+          "answerMode": "choice",
+          "expectedAnswer": "The total linear momentum of an isolated system (no net external force) stays constant.",
           "marks": 2,
           "explanation": "Two marks: 'total linear momentum' + 'isolated / no net external force'. Without the 'isolated' qualifier, the statement is incomplete.",
           "errorSignals": [
             "ERR_COM_DEF_NO_ISOLATED",
             "ERR_COM_OMITS_EXTERNAL_FORCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The total linear momentum of any system always stays constant.",
+            "Momentum is conserved as long as the objects keep moving.",
+            "The total linear momentum of an isolated system (no net external force) stays constant."
+          ]
         },
         {
           "id": "L4.T1.A1.q02",
@@ -10868,14 +10988,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2022 Q4.1",
           "question": "Define the term ISOLATED SYSTEM in the context of momentum.",
-          "answerMode": "text",
-          "expectedAnswer": "A system on which the net external force is zero (no net external force acts on the system).",
+          "answerMode": "choice",
+          "expectedAnswer": "A system on which the net external force is zero.",
           "marks": 2,
           "explanation": "Internal forces between parts of the system can be present (collisions, explosions); only the net EXTERNAL force must be zero.",
           "errorSignals": [
             "ERR_ISOLATED_SYSTEM_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A system on which the net external force is zero.",
+            "A system that contains only one object.",
+            "A system where no objects touch each other."
+          ]
         },
         {
           "id": "L4.T1.A1.q03",
@@ -10989,15 +11114,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q4.3",
           "question": "Trolley A (2 kg) moves right at 0.7 m·s⁻¹ and collides with a stationary trolley B (3 kg). After the collision, A moves right at 0.1 m·s⁻¹ and B moves right at 0.4 m·s⁻¹. Was the collision ELASTIC? Show with a calculation.",
-          "answerMode": "text",
-          "expectedAnswer": "KE_before = ½(2)(0.7²) = 0.49 J. KE_after = ½(2)(0.1²) + ½(3)(0.4²) = 0.01 + 0.24 = 0.25 J. KE_after ≠ KE_before, so the collision is NOT elastic — it is inelastic. About 0.24 J of KE was lost (to heat, sound, deformation).",
+          "answerMode": "choice",
+          "expectedAnswer": "Inelastic — KE drops from 0.49 J to 0.25 J, so kinetic energy is not conserved.",
           "marks": 4,
           "explanation": "Elastic ⇔ KE conserved. Compute KE before and after; compare.",
           "errorSignals": [
             "ERR_ELASTIC_DEF",
             "ERR_KE_CHECK"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Elastic — momentum is conserved, so KE must be too.",
+            "Inelastic — KE drops from 0.49 J to 0.25 J, so kinetic energy is not conserved.",
+            "Elastic — KE before (0.49 J) equals KE after."
+          ]
         },
         {
           "id": "L4.T1.A1.q09",
@@ -11025,14 +11155,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q4.4",
           "question": "Continuing: trolley C has a LARGER mass than B (same spring, same compression, same partner A). How does the velocity of C after release compare to that of B? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "C will have a SMALLER velocity than B. By conservation of momentum: m_A·v_A = m_other·v_other (where m_A·v_A is the same in both runs because the spring/compression and trolley A are unchanged). Larger m_other ⇒ smaller v_other.",
+          "answerMode": "choice",
+          "expectedAnswer": "Smaller — by conservation of momentum, the larger mass leaves with the smaller velocity.",
           "marks": 3,
           "explanation": "Same impulse on the other side (because the spring exerts the same impulse) ⇒ same momentum gained ⇒ heavier mass means smaller velocity.",
           "errorSignals": [
             "ERR_COM_EXPLOSION_MASS_VELOCITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Larger — a heavier trolley carries more velocity.",
+            "The same — the spring gives every trolley the same velocity.",
+            "Smaller — by conservation of momentum, the larger mass leaves with the smaller velocity."
+          ]
         },
         {
           "id": "L4.T1.A1.q11",
@@ -11115,14 +11250,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define the LINEAR MOMENTUM of an object.",
-          "answerMode": "text",
-          "expectedAnswer": "The product of an object's mass and its velocity: p = m × v. It is a vector quantity, with the same direction as the velocity. SI unit: kg·m·s⁻¹ (or N·s).",
+          "answerMode": "choice",
+          "expectedAnswer": "The product of mass and velocity (p = mv); a vector, in the direction of the velocity.",
           "marks": 2,
           "explanation": "Two marks: 'p = mv' + 'vector / direction same as velocity'.",
           "errorSignals": [
             "ERR_MOMENTUM_DEF_SCALAR"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The product of mass and velocity (p = mv); a vector, in the direction of the velocity.",
+            "The product of mass and velocity; a scalar quantity.",
+            "The product of mass and acceleration."
+          ]
         },
         {
           "id": "L4.T1.A1.q16",
@@ -11166,15 +11306,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'Momentum is conserved in EVERY collision, even if external forces act.' Is this strictly correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Not strictly. Conservation of linear momentum applies to an ISOLATED system — one with no net external force. If external forces act during the collision (e.g. strong friction acting throughout), they cause momentum to change and conservation does not strictly hold. In practice, collisions are so brief that external impulses are negligible, so the principle is usually a good approximation.",
+          "answerMode": "choice",
+          "expectedAnswer": "Not strictly — only for an isolated system; external forces change total momentum.",
           "marks": 3,
           "explanation": "Strict statement: isolated system required. In practice, internal collision forces are huge compared to external forces over the short collision time.",
           "errorSignals": [
             "ERR_COM_OMITS_EXTERNAL_FORCE",
             "ERR_ISOLATED_SYSTEM_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — momentum is always conserved in any collision.",
+            "Not strictly — only for an isolated system; external forces change total momentum.",
+            "Correct — collisions are always isolated systems."
+          ]
         },
         {
           "id": "L4.T1.A1.q19",
@@ -11270,14 +11415,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q4.3",
           "question": "What physical quantity does the AREA under a force-time graph represent?",
-          "answerMode": "text",
-          "expectedAnswer": "Impulse — equivalently, the change in momentum (Δp).",
+          "answerMode": "choice",
+          "expectedAnswer": "Impulse — the change in momentum (Δp).",
           "marks": 1,
           "explanation": "Impulse = ∫F dt = area under F-t curve. By the impulse-momentum theorem, this equals Δp.",
           "errorSignals": [
             "ERR_FT_AREA_MEANING"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The work done by the force.",
+            "The average force on the object.",
+            "Impulse — the change in momentum (Δp)."
+          ]
         },
         {
           "id": "L4.T1.A2.q03",
@@ -11420,14 +11570,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 Predictive B 2026 Q4.3",
           "question": "State the direction of the average force the bat exerts on the cricket ball (given the ball was initially moving toward the bat and rebounds in the opposite direction).",
-          "answerMode": "text",
-          "expectedAnswer": "The force is in the direction OPPOSITE to the ball's initial velocity — i.e. in the direction the ball moves AFTER being hit.",
+          "answerMode": "choice",
+          "expectedAnswer": "Opposite to the ball's initial velocity (the direction it moves after being hit).",
           "marks": 1,
           "explanation": "The impulse (force × time) must reverse the ball's motion, so the force is in the new direction of motion.",
           "errorSignals": [
             "ERR_IMPULSE_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Opposite to the ball's initial velocity (the direction it moves after being hit).",
+            "The same direction as the ball's initial velocity (toward the bat).",
+            "Perpendicular to the ball's motion."
+          ]
         },
         {
           "id": "L4.T1.A2.q11",
@@ -11435,14 +11590,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define IMPULSE.",
-          "answerMode": "text",
-          "expectedAnswer": "The product of the average force on an object and the time interval during which the force acts: J = F × Δt. It equals the change in momentum of the object (impulse-momentum theorem). Impulse is a vector; SI units N·s = kg·m·s⁻¹.",
+          "answerMode": "choice",
+          "expectedAnswer": "The product of the average force and the time it acts (J = FΔt); equals the change in momentum.",
           "marks": 2,
           "explanation": "Two marks: 'F × Δt' + 'equals Δp / vector'.",
           "errorSignals": [
             "ERR_IMPULSE_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The product of force and displacement.",
+            "The product of the average force and the time it acts (J = FΔt); equals the change in momentum.",
+            "The rate of change of momentum."
+          ]
         },
         {
           "id": "L4.T1.A2.q12",
@@ -11486,14 +11646,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A car has airbags to reduce injury during a crash. Explain in terms of impulse why airbags help.",
-          "answerMode": "text",
-          "expectedAnswer": "The driver's change in momentum (Δp) during a crash is fixed (they go from some speed to rest). Airbags INCREASE the time over which this change occurs. Since impulse = F × Δt = Δp, a larger Δt means a smaller average force on the driver — reducing injury.",
+          "answerMode": "choice",
+          "expectedAnswer": "Δp is fixed; airbags increase the contact time Δt, so the average force F = Δp/Δt is smaller.",
           "marks": 3,
           "explanation": "Same Δp, longer contact time ⇒ smaller force. The classic safety-by-impulse argument.",
           "errorSignals": [
             "ERR_IMPULSE_CONTACT_TIME"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Airbags reduce the driver's change in momentum to nearly zero.",
+            "Airbags increase the force over a shorter time to stop the driver faster.",
+            "Δp is fixed; airbags increase the contact time Δt, so the average force F = Δp/Δt is smaller."
+          ]
         },
         {
           "id": "L4.T1.A2.q15",
@@ -11554,14 +11719,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2021 Q4.4",
           "question": "Following an internal explosion, part A of a rocket exerts a forward force F_AB on part B during a time interval. By Newton's Third Law, part B exerts an equal and opposite force on A. If F_AB is plotted as a positive rectangular pulse, sketch (in words) the force that B exerts on A as a function of time, and state the direction convention.",
-          "answerMode": "text",
-          "expectedAnswer": "The force B exerts on A is a rectangular pulse of the SAME magnitude but in the OPPOSITE direction (negative on the same axes), over the same time interval. Newton's Third Law: equal and opposite, simultaneous, on different bodies.",
+          "answerMode": "choice",
+          "expectedAnswer": "A pulse of equal magnitude but opposite direction (negative), over the same time interval.",
           "marks": 2,
           "explanation": "Newton's Third Law in graphical form: equal magnitude, opposite sign, identical time interval.",
           "errorSignals": [
             "ERR_FT_NEWTON_3_PAIR"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A pulse of equal magnitude but opposite direction (negative), over the same time interval.",
+            "A pulse of equal magnitude in the same direction, over the same interval.",
+            "A larger pulse, because B is pushed harder than A."
+          ]
         },
         {
           "id": "L4.T1.A2.q19",
@@ -11570,15 +11740,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2024 Q1.4",
           "question": "An object has initial momentum p₁ rightward and final momentum p₂ rightward (with p₂ > p₁). The change in momentum Δp = p₂ − p₁ is therefore rightward (positive). On a graph showing momentum versus time, which feature represents this change?",
-          "answerMode": "text",
-          "expectedAnswer": "A graph where the momentum value increases (jumps up) over time — i.e. the curve rises from p₁ to p₂. The change Δp = p₂ − p₁ is positive (rightward), so the impulse acted to the right and is shown as the vertical change on the graph.",
+          "answerMode": "choice",
+          "expectedAnswer": "The momentum–time curve rises from p₁ to p₂ (a positive, upward change).",
           "marks": 2,
           "explanation": "Momentum increases ⇒ positive impulse ⇒ Δp positive. The vertical jump on p-t = impulse.",
           "errorSignals": [
             "ERR_IMPULSE_SIGN_REBOUND",
             "ERR_IMPULSE_DIRECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The curve falls from p₁ to p₂.",
+            "The momentum–time curve rises from p₁ to p₂ (a positive, upward change).",
+            "A horizontal line, since momentum is conserved."
+          ]
         },
         {
           "id": "L4.T1.A2.q20",

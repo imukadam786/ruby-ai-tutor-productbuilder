@@ -1,7 +1,9 @@
 {
   "skill": "L4.T1.A2",
   "skill_title": "Calculate impulse and apply the impulse-momentum theorem",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 10 lifted, 10 fresh. Impulse = FΔt = Δp; area under F-t graph; sign conventions on rebounds; safety applications (extending contact time).",
@@ -23,7 +25,9 @@
       "expectedAnswer": "The impulse on it",
       "marks": 2,
       "explanation": "Impulse-momentum theorem: Impulse = FΔt = Δp = m(v − u).",
-      "errorSignals": ["ERR_IMPULSE_DEF"],
+      "errorSignals": [
+        "ERR_IMPULSE_DEF"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -33,12 +37,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2021 Q4.3",
       "question": "What physical quantity does the AREA under a force-time graph represent?",
-      "answerMode": "text",
-      "expectedAnswer": "Impulse — equivalently, the change in momentum (Δp).",
+      "answerMode": "choice",
+      "expectedAnswer": "Impulse — the change in momentum (Δp).",
       "marks": 1,
       "explanation": "Impulse = ∫F dt = area under F-t curve. By the impulse-momentum theorem, this equals Δp.",
-      "errorSignals": ["ERR_FT_AREA_MEANING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FT_AREA_MEANING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The work done by the force.",
+        "The average force on the object.",
+        "Impulse — the change in momentum (Δp)."
+      ]
     },
     {
       "id": "L4.T1.A2.q03",
@@ -57,7 +68,9 @@
       "expectedAnswer": "Increase the contact time and so decrease the force on the hands",
       "marks": 2,
       "explanation": "Δp is fixed (ball comes to rest). Impulse = F·Δt = Δp. Larger Δt ⇒ smaller F. The hands experience less force — safer for the catcher.",
-      "errorSignals": ["ERR_IMPULSE_CONTACT_TIME"],
+      "errorSignals": [
+        "ERR_IMPULSE_CONTACT_TIME"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -73,7 +86,10 @@
       "unit": "kg·m·s⁻¹",
       "marks": 3,
       "explanation": "Take initial direction as positive. Δp = m(v_f − v_i) = 0.15(−40 − 30) = 0.15(−70) = −10.5 kg·m·s⁻¹. Magnitude 10.5 N·s, directed opposite to the ball's initial motion.",
-      "errorSignals": ["ERR_IMPULSE_SIGN_REBOUND", "ERR_IMPULSE_M_DELTA_V"],
+      "errorSignals": [
+        "ERR_IMPULSE_SIGN_REBOUND",
+        "ERR_IMPULSE_M_DELTA_V"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -89,7 +105,9 @@
       "unit": "N",
       "marks": 3,
       "explanation": "F = |Δp|/Δt = 10.5/0.005 = 2100 N.",
-      "errorSignals": ["ERR_IMPULSE_TIME_DIVIDE"],
+      "errorSignals": [
+        "ERR_IMPULSE_TIME_DIVIDE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -105,7 +123,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "Δp_B = 5.3 × (0.23 − 0) = 1.219 kg·m·s⁻¹. F = Δp/Δt = 1.219/0.02 ≈ 60.95 N in direction of motion.",
-      "errorSignals": ["ERR_IMPULSE_M_DELTA_V", "ERR_IMPULSE_TIME_DIVIDE"],
+      "errorSignals": [
+        "ERR_IMPULSE_M_DELTA_V",
+        "ERR_IMPULSE_TIME_DIVIDE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -121,7 +142,9 @@
       "unit": "s",
       "marks": 3,
       "explanation": "Impulse = FΔt = m·v. 4.2·Δt = 2.6 × 0.492 ⇒ Δt = 1.279/4.2 ≈ 0.305 s.",
-      "errorSignals": ["ERR_IMPULSE_TIME_DIVIDE"],
+      "errorSignals": [
+        "ERR_IMPULSE_TIME_DIVIDE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -137,7 +160,10 @@
       "unit": "N",
       "marks": 5,
       "explanation": "Same Δp ⇒ F₁Δt₁ = F₂Δt₂. (200)(0.05) = F₂(0.20) ⇒ F₂ = 10/0.20 = 50 N. Quadrupling contact time quarters the average force.",
-      "errorSignals": ["ERR_IMPULSE_CONTACT_TIME", "ERR_IMPULSE_DEF"],
+      "errorSignals": [
+        "ERR_IMPULSE_CONTACT_TIME",
+        "ERR_IMPULSE_DEF"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -153,7 +179,10 @@
       "unit": "N·s",
       "marks": 3,
       "explanation": "Impulse = Δp = m(v_f − v_i) = 800(7.5 − (−15)) = 800 × 22.5 = 18 000 N·s east.",
-      "errorSignals": ["ERR_IMPULSE_M_DELTA_V", "ERR_IMPULSE_SIGN_REBOUND"],
+      "errorSignals": [
+        "ERR_IMPULSE_M_DELTA_V",
+        "ERR_IMPULSE_SIGN_REBOUND"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -163,12 +192,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 Predictive B 2026 Q4.3",
       "question": "State the direction of the average force the bat exerts on the cricket ball (given the ball was initially moving toward the bat and rebounds in the opposite direction).",
-      "answerMode": "text",
-      "expectedAnswer": "The force is in the direction OPPOSITE to the ball's initial velocity — i.e. in the direction the ball moves AFTER being hit.",
+      "answerMode": "choice",
+      "expectedAnswer": "Opposite to the ball's initial velocity (the direction it moves after being hit).",
       "marks": 1,
       "explanation": "The impulse (force × time) must reverse the ball's motion, so the force is in the new direction of motion.",
-      "errorSignals": ["ERR_IMPULSE_DIRECTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMPULSE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Opposite to the ball's initial velocity (the direction it moves after being hit).",
+        "The same direction as the ball's initial velocity (toward the bat).",
+        "Perpendicular to the ball's motion."
+      ]
     },
     {
       "id": "L4.T1.A2.q11",
@@ -176,12 +212,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Define IMPULSE.",
-      "answerMode": "text",
-      "expectedAnswer": "The product of the average force on an object and the time interval during which the force acts: J = F × Δt. It equals the change in momentum of the object (impulse-momentum theorem). Impulse is a vector; SI units N·s = kg·m·s⁻¹.",
+      "answerMode": "choice",
+      "expectedAnswer": "The product of the average force and the time it acts (J = FΔt); equals the change in momentum.",
       "marks": 2,
       "explanation": "Two marks: 'F × Δt' + 'equals Δp / vector'.",
-      "errorSignals": ["ERR_IMPULSE_DEF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMPULSE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The product of force and displacement.",
+        "The product of the average force and the time it acts (J = FΔt); equals the change in momentum.",
+        "The rate of change of momentum."
+      ]
     },
     {
       "id": "L4.T1.A2.q12",
@@ -195,7 +238,10 @@
       "unit": "kg·m·s⁻¹",
       "marks": 3,
       "explanation": "Take initial direction positive. Δp = 0.4 × (−6 − 8) = 0.4 × (−14) = −5.6 kg·m·s⁻¹.",
-      "errorSignals": ["ERR_IMPULSE_SIGN_REBOUND", "ERR_IMPULSE_M_DELTA_V"],
+      "errorSignals": [
+        "ERR_IMPULSE_SIGN_REBOUND",
+        "ERR_IMPULSE_M_DELTA_V"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -210,7 +256,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "F = |Δp|/Δt = 5.6/0.01 = 560 N, in the direction the ball rebounds.",
-      "errorSignals": ["ERR_IMPULSE_TIME_DIVIDE", "ERR_IMPULSE_DIRECTION"],
+      "errorSignals": [
+        "ERR_IMPULSE_TIME_DIVIDE",
+        "ERR_IMPULSE_DIRECTION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -219,12 +268,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A car has airbags to reduce injury during a crash. Explain in terms of impulse why airbags help.",
-      "answerMode": "text",
-      "expectedAnswer": "The driver's change in momentum (Δp) during a crash is fixed (they go from some speed to rest). Airbags INCREASE the time over which this change occurs. Since impulse = F × Δt = Δp, a larger Δt means a smaller average force on the driver — reducing injury.",
+      "answerMode": "choice",
+      "expectedAnswer": "Δp is fixed; airbags increase the contact time Δt, so the average force F = Δp/Δt is smaller.",
       "marks": 3,
       "explanation": "Same Δp, longer contact time ⇒ smaller force. The classic safety-by-impulse argument.",
-      "errorSignals": ["ERR_IMPULSE_CONTACT_TIME"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMPULSE_CONTACT_TIME"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Airbags reduce the driver's change in momentum to nearly zero.",
+        "Airbags increase the force over a shorter time to stop the driver faster.",
+        "Δp is fixed; airbags increase the contact time Δt, so the average force F = Δp/Δt is smaller."
+      ]
     },
     {
       "id": "L4.T1.A2.q15",
@@ -238,7 +294,9 @@
       "unit": "m·s⁻¹",
       "marks": 3,
       "explanation": "Impulse = FΔt = 5 × 0.3 = 1.5 N·s. Δp = m × v_f (since u = 0) ⇒ v_f = 1.5/0.2 = 7.5 m·s⁻¹.",
-      "errorSignals": ["ERR_IMPULSE_M_DELTA_V"],
+      "errorSignals": [
+        "ERR_IMPULSE_M_DELTA_V"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -253,7 +311,10 @@
       "unit": "kg·m·s⁻¹",
       "marks": 4,
       "explanation": "Δp = area under F-t graph = area of triangle = ½ × base × height = ½ × 0.04 × 80 = 1.6 N·s = 1.6 kg·m·s⁻¹.",
-      "errorSignals": ["ERR_FT_AREA_MEANING", "ERR_TRIANGLE_AREA"],
+      "errorSignals": [
+        "ERR_FT_AREA_MEANING",
+        "ERR_TRIANGLE_AREA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -268,7 +329,9 @@
       "unit": "N·s",
       "marks": 3,
       "explanation": "Impulse = Δp = m(v − u) = 1500(25 − 10) = 1500 × 15 = 22 500 N·s in the direction of motion.",
-      "errorSignals": ["ERR_IMPULSE_M_DELTA_V"],
+      "errorSignals": [
+        "ERR_IMPULSE_M_DELTA_V"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -278,12 +341,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2021 Q4.4",
       "question": "Following an internal explosion, part A of a rocket exerts a forward force F_AB on part B during a time interval. By Newton's Third Law, part B exerts an equal and opposite force on A. If F_AB is plotted as a positive rectangular pulse, sketch (in words) the force that B exerts on A as a function of time, and state the direction convention.",
-      "answerMode": "text",
-      "expectedAnswer": "The force B exerts on A is a rectangular pulse of the SAME magnitude but in the OPPOSITE direction (negative on the same axes), over the same time interval. Newton's Third Law: equal and opposite, simultaneous, on different bodies.",
+      "answerMode": "choice",
+      "expectedAnswer": "A pulse of equal magnitude but opposite direction (negative), over the same time interval.",
       "marks": 2,
       "explanation": "Newton's Third Law in graphical form: equal magnitude, opposite sign, identical time interval.",
-      "errorSignals": ["ERR_FT_NEWTON_3_PAIR"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FT_NEWTON_3_PAIR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A pulse of equal magnitude but opposite direction (negative), over the same time interval.",
+        "A pulse of equal magnitude in the same direction, over the same interval.",
+        "A larger pulse, because B is pushed harder than A."
+      ]
     },
     {
       "id": "L4.T1.A2.q19",
@@ -292,12 +362,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2024 Q1.4",
       "question": "An object has initial momentum p₁ rightward and final momentum p₂ rightward (with p₂ > p₁). The change in momentum Δp = p₂ − p₁ is therefore rightward (positive). On a graph showing momentum versus time, which feature represents this change?",
-      "answerMode": "text",
-      "expectedAnswer": "A graph where the momentum value increases (jumps up) over time — i.e. the curve rises from p₁ to p₂. The change Δp = p₂ − p₁ is positive (rightward), so the impulse acted to the right and is shown as the vertical change on the graph.",
+      "answerMode": "choice",
+      "expectedAnswer": "The momentum–time curve rises from p₁ to p₂ (a positive, upward change).",
       "marks": 2,
       "explanation": "Momentum increases ⇒ positive impulse ⇒ Δp positive. The vertical jump on p-t = impulse.",
-      "errorSignals": ["ERR_IMPULSE_SIGN_REBOUND", "ERR_IMPULSE_DIRECTION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMPULSE_SIGN_REBOUND",
+        "ERR_IMPULSE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The curve falls from p₁ to p₂.",
+        "The momentum–time curve rises from p₁ to p₂ (a positive, upward change).",
+        "A horizontal line, since momentum is conserved."
+      ]
     },
     {
       "id": "L4.T1.A2.q20",
@@ -311,7 +389,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "Δp = 0.06 × (0 − 25) = −1.5 kg·m·s⁻¹. F = Δp/Δt = −1.5/0.3 = −5 N (i.e. 5 N opposing the ball's motion).",
-      "errorSignals": ["ERR_IMPULSE_TIME_DIVIDE", "ERR_IMPULSE_M_DELTA_V"],
+      "errorSignals": [
+        "ERR_IMPULSE_TIME_DIVIDE",
+        "ERR_IMPULSE_M_DELTA_V"
+      ],
       "passThreshold": 0.7
     }
   ],

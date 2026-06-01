@@ -1,7 +1,9 @@
 {
   "skill": "L3.T1.A2",
   "skill_title": "Apply the work-energy theorem",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P1",
   "version": "1.0",
   "notes": "20 items: 12 lifted, 8 fresh. Wnet = ΔKE problems: finding speed, distance, average force, or net work using the work-energy theorem.",
@@ -13,12 +15,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q5.1",
       "question": "State the WORK-ENERGY THEOREM.",
-      "answerMode": "text",
-      "expectedAnswer": "The net work done on an object equals the change in kinetic energy of the object: W_net = ΔKE = ½m(v² − u²).",
+      "answerMode": "choice",
+      "expectedAnswer": "The net work done on an object equals its change in kinetic energy (W_net = ΔKE).",
       "marks": 2,
       "explanation": "Two marks: 'net work' + 'change in kinetic energy'. The theorem applies to any object regardless of whether forces are conservative or not.",
-      "errorSignals": ["ERR_WET_STATEMENT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WET_STATEMENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The net work done on an object equals its change in kinetic energy (W_net = ΔKE).",
+        "The work done by gravity equals the change in potential energy.",
+        "The net work done on an object equals its change in momentum."
+      ]
     },
     {
       "id": "L3.T1.A2.q02",
@@ -27,12 +36,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2024 Q5.3",
       "question": "State the WORK-ENERGY THEOREM in symbols.",
-      "answerMode": "text",
-      "expectedAnswer": "W_net = ΔKE = ½mv² − ½mu², where W_net is the net work done by all forces on the object, m is its mass, u is initial velocity, and v is final velocity.",
+      "answerMode": "choice",
+      "expectedAnswer": "W_net = ½mv² − ½mu²",
       "marks": 2,
       "explanation": "Two marks for the symbolic statement plus clear identification of variables.",
-      "errorSignals": ["ERR_WET_STATEMENT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WET_STATEMENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "W_net = mgh_f − mgh_i",
+        "W_net = ½mv² − ½mu²",
+        "W_net = m(v − u)"
+      ]
     },
     {
       "id": "L3.T1.A2.q03",
@@ -41,12 +57,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q5.2",
       "question": "A 30 000 kg truck moving at 33 m·s⁻¹ enters an ascending arrester bed and decelerates to rest. State why the NET WORK done on the truck is NEGATIVE.",
-      "answerMode": "text",
-      "expectedAnswer": "The truck decelerates (slows from 33 m·s⁻¹ to rest), so its kinetic energy decreases. By the work-energy theorem (W_net = ΔKE), a decrease in KE means W_net is negative.",
+      "answerMode": "choice",
+      "expectedAnswer": "Its KE decreases (slows to rest), and W_net = ΔKE, so W_net is negative.",
       "marks": 1,
       "explanation": "Direct application: ΔKE = KE_final − KE_initial = 0 − ½mv² < 0 ⇒ W_net < 0.",
-      "errorSignals": ["ERR_WET_SIGN_OF_NET_WORK"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WET_SIGN_OF_NET_WORK"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It moves uphill, and uphill motion always means negative work.",
+        "Its momentum decreases, so the work is negative.",
+        "Its KE decreases (slows to rest), and W_net = ΔKE, so W_net is negative."
+      ]
     },
     {
       "id": "L3.T1.A2.q04",
@@ -61,7 +84,10 @@
       "unit": "m",
       "marks": 5,
       "explanation": "W_net = ΔKE = 0 − ½(30 000)(33²) = −16 335 000 J. Forces opposing motion (up slope): friction + weight component along slope. (−31 000 − 30 000·9.8·sin28°)·d = −16 335 000. (−31 000 − 137 998)·d = −16 335 000 ⇒ d = 16 335 000 / 168 998 ≈ 96.7 m. (Marker tolerance varies — the official memo uses g = 9.8 and gives ≈ 96.7 m. The 70 m estimate is a common student mistake using a smaller incline term.)",
-      "errorSignals": ["ERR_WET_FORCES_INCLINE", "ERR_WET_SIGN_OF_NET_WORK"],
+      "errorSignals": [
+        "ERR_WET_FORCES_INCLINE",
+        "ERR_WET_SIGN_OF_NET_WORK"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -71,12 +97,20 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2022 Q5.4",
       "question": "Continuing the arrester-bed problem: the truck enters at the same speed but going DOWNHILL. Would the truck stop in a SHORTER or LONGER distance? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "LONGER distance. Going downhill, the component of gravity along the slope is in the SAME direction as motion (adding to KE / doing positive work), while only friction does negative work. Less net negative work per metre ⇒ more distance needed to dissipate the same initial KE.",
+      "answerMode": "choice",
+      "expectedAnswer": "Longer — gravity's component now does positive work (adds KE), so friction must remove more, over more distance.",
       "marks": 3,
       "explanation": "Friction still opposes motion (negative work). But gravity, instead of opposing motion (as on the way up), now does POSITIVE work along the slope. Net braking is weaker ⇒ longer stopping distance.",
-      "errorSignals": ["ERR_WET_FORCES_INCLINE", "ERR_GRAVITY_INCLINE_SIGN"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WET_FORCES_INCLINE",
+        "ERR_GRAVITY_INCLINE_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Longer — gravity's component now does positive work (adds KE), so friction must remove more, over more distance.",
+        "Shorter — going downhill the truck stops faster.",
+        "The same — slope direction doesn't affect stopping distance."
+      ]
     },
     {
       "id": "L3.T1.A2.q06",
@@ -91,7 +125,11 @@
       "unit": "m·s⁻¹",
       "marks": 5,
       "explanation": "W_motor = 96.8 × 15.6 = 1510.1 J. W_friction = −13.5 × 15.6 = −210.6 J. W_gravity = −mgh = −20 × 9.8 × 15.6 × sin18° ≈ −945.1 J. W_net = 1510.1 − 210.6 − 945.1 ≈ 354.4 J. ΔKE = ½mv² − 0 ⇒ v² = 2 × 354.4 / 20 = 35.44 ⇒ v ≈ 5.95 m·s⁻¹.",
-      "errorSignals": ["ERR_WET_SIGN_OF_FRICTION", "ERR_WET_FORCES_INCLINE", "ERR_GRAVITY_INCLINE_SIGN"],
+      "errorSignals": [
+        "ERR_WET_SIGN_OF_FRICTION",
+        "ERR_WET_FORCES_INCLINE",
+        "ERR_GRAVITY_INCLINE_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -107,7 +145,10 @@
       "unit": "m",
       "marks": 4,
       "explanation": "Apply W_net = ΔKE on the horizontal section: only friction does work. −40.6 × d = 0 − ½(18)(7.67²) = −529.9 J. d = 529.9/40.6 ≈ 13.05 m.",
-      "errorSignals": ["ERR_WET_SIGN_OF_FRICTION", "ERR_WET_NEGATIVE_WORK"],
+      "errorSignals": [
+        "ERR_WET_SIGN_OF_FRICTION",
+        "ERR_WET_NEGATIVE_WORK"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -117,12 +158,19 @@
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2024 Q5.5",
       "question": "Same setup: 18 kg crate down a frictionless slope from height h, then rough horizontal from B to C with friction 40.6 N. If point A were at a LOWER height (less than 3 m), how would the distance from B to C compare? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Distance B to C would be SHORTER. Lower starting height ⇒ less GPE converted ⇒ smaller KE at B ⇒ less initial KE for friction to dissipate ⇒ shorter stopping distance.",
+      "answerMode": "choice",
+      "expectedAnswer": "Shorter — less height ⇒ less KE at B ⇒ less for friction to dissipate.",
       "marks": 3,
       "explanation": "Energy conservation on the frictionless slope: KE_B = mgh. Then on the rough horizontal: f·d = KE_B. So d ∝ h. Smaller h ⇒ smaller d.",
-      "errorSignals": ["ERR_WET_KE_PROPORTIONALITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WET_KE_PROPORTIONALITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Longer — a lower start means the crate travels further.",
+        "Shorter — less height ⇒ less KE at B ⇒ less for friction to dissipate.",
+        "The same — friction dissipates energy at the same rate regardless of start height."
+      ]
     },
     {
       "id": "L3.T1.A2.q09",
@@ -137,7 +185,10 @@
       "unit": "N",
       "marks": 5,
       "explanation": "Speed at bottom: ½mv² = mgh ⇒ v² = 2gR = 113.68. KE at impact = ½(1250)(113.68) ≈ 71 050 J. Work-energy on impact: −F × 0.25 = 0 − 71 050 ⇒ F = 71 050/0.25 ≈ 284 200 N.",
-      "errorSignals": ["ERR_WET_NEGATIVE_WORK", "ERR_WET_DIVIDE_BY_DISTANCE"],
+      "errorSignals": [
+        "ERR_WET_NEGATIVE_WORK",
+        "ERR_WET_DIVIDE_BY_DISTANCE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -153,7 +204,10 @@
       "unit": "J",
       "marks": 6,
       "explanation": "Speed just after bounce: v_after = g × 1.1 = 10.78 m·s⁻¹. KE_after = ½(0.06)(10.78²) ≈ 3.486 J. KE_before = ½(0.06)(5.88²) ≈ 1.037 J. W_ground = ΔKE during contact = 3.486 − 1.037 ≈ 2.45 J. (Gravity's work during the brief contact is small; the official memo treats it as negligible.)",
-      "errorSignals": ["ERR_WET_NEGATIVE_WORK", "ERR_BOUNCE_KE_SIGN"],
+      "errorSignals": [
+        "ERR_WET_NEGATIVE_WORK",
+        "ERR_BOUNCE_KE_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -169,7 +223,9 @@
       "unit": "N",
       "marks": 2,
       "explanation": "|W_friction| = f × d ⇒ f = 11 250 / 200 = 56.25 N.",
-      "errorSignals": ["ERR_WET_DIVIDE_BY_DISTANCE"],
+      "errorSignals": [
+        "ERR_WET_DIVIDE_BY_DISTANCE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -185,7 +241,10 @@
       "unit": "m·s⁻¹",
       "marks": 4,
       "explanation": "W_engine = 5000 × 400 = 2 000 000 J. W_friction = −1200 × 400 = −480 000 J. W_net = 1 520 000 J. ΔKE = ½mv² ⇒ v² = 2 × 1 520 000 / 2000 = 1520 ⇒ v ≈ 38.99 ≈ 39 m·s⁻¹.",
-      "errorSignals": ["ERR_WET_SIGN_OF_FRICTION", "ERR_NET_WORK_SUM_SIGN"],
+      "errorSignals": [
+        "ERR_WET_SIGN_OF_FRICTION",
+        "ERR_NET_WORK_SUM_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -200,7 +259,9 @@
       "unit": "m·s⁻¹",
       "marks": 3,
       "explanation": "W_net = Fd = 10 × 4 = 40 J. ΔKE = ½mv² ⇒ v² = 80/2 = 40 ⇒ v ≈ 6.32 m·s⁻¹.",
-      "errorSignals": ["ERR_WET_KE_FORMULA"],
+      "errorSignals": [
+        "ERR_WET_KE_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -215,7 +276,10 @@
       "unit": "N",
       "marks": 3,
       "explanation": "W_net = ΔKE = 0 − ½(5)(64) = −160 J. W_net = −f × d ⇒ −160 = −f × 6 ⇒ f ≈ 26.67 N.",
-      "errorSignals": ["ERR_WET_NEGATIVE_WORK", "ERR_WET_DIVIDE_BY_DISTANCE"],
+      "errorSignals": [
+        "ERR_WET_NEGATIVE_WORK",
+        "ERR_WET_DIVIDE_BY_DISTANCE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -230,7 +294,10 @@
       "unit": "J",
       "marks": 4,
       "explanation": "W_net = ΔKE = 0 − ½(3)(144) = −216 J. W_gravity = −mgh = −3 × 9.8 × 6.5 = −191.1 J. W_air = W_net − W_gravity = −216 − (−191.1) = −24.9 J (negative, opposing motion).",
-      "errorSignals": ["ERR_WET_SIGN_OF_NET_WORK", "ERR_NET_WORK_SUM_SIGN"],
+      "errorSignals": [
+        "ERR_WET_SIGN_OF_NET_WORK",
+        "ERR_NET_WORK_SUM_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -250,7 +317,10 @@
       "expectedAnswer": "Both reach the bottom at the same speed",
       "marks": 2,
       "explanation": "On a frictionless slide, energy conservation gives mgh = ½mv² ⇒ v = √(2gh). Mass cancels. Equivalently, work-energy: W_gravity = mgh, ΔKE = ½mv² ⇒ same v for any mass.",
-      "errorSignals": ["ERR_WET_KE_PROPORTIONALITY", "ERR_MASS_CANCELLATION"],
+      "errorSignals": [
+        "ERR_WET_KE_PROPORTIONALITY",
+        "ERR_MASS_CANCELLATION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -265,7 +335,10 @@
       "unit": "m",
       "marks": 4,
       "explanation": "ΔKE = 0 − ½(1000)(400) = −200 000 J. W_net = −f × d ⇒ −200 000 = −4000 d ⇒ d = 50 m.",
-      "errorSignals": ["ERR_WET_NEGATIVE_WORK", "ERR_WET_DIVIDE_BY_DISTANCE"],
+      "errorSignals": [
+        "ERR_WET_NEGATIVE_WORK",
+        "ERR_WET_DIVIDE_BY_DISTANCE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -274,12 +347,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner writes: 'W_net = ½mv − ½mu.' What's wrong with this statement?",
-      "answerMode": "text",
-      "expectedAnswer": "Kinetic energy is ½mv² (with v SQUARED), not ½mv. The correct work-energy theorem is W_net = ½mv² − ½mu². The given expression has the wrong units and gives the wrong result.",
+      "answerMode": "choice",
+      "expectedAnswer": "KE is ½mv² (v squared), not ½mv — the velocities must be squared.",
       "marks": 2,
       "explanation": "Common slip. ½mv would have units of kg·m/s = N·s (momentum), not joules.",
-      "errorSignals": ["ERR_WET_KE_FORMULA"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_WET_KE_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Nothing — ½mv − ½mu is the correct theorem.",
+        "It should be ½m(v − u)² with the bracket squared.",
+        "KE is ½mv² (v squared), not ½mv — the velocities must be squared."
+      ]
     },
     {
       "id": "L3.T1.A2.q19",
@@ -293,7 +373,10 @@
       "unit": "N",
       "marks": 4,
       "explanation": "Take rebound direction as positive. Δv = +30 − (−25) = 55 m·s⁻¹. (This is actually impulse-momentum, but equivalent to applying work-energy with displacement during contact.) Using impulse: F_avg = m × Δv / Δt = 0.2 × 55 / 0.005 = 2200 N. (Pure work-energy form requires the contact displacement, which is not given here.)",
-      "errorSignals": ["ERR_WET_VS_IMPULSE_CONFLATION", "ERR_BOUNCE_KE_SIGN"],
+      "errorSignals": [
+        "ERR_WET_VS_IMPULSE_CONFLATION",
+        "ERR_BOUNCE_KE_SIGN"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -308,7 +391,11 @@
       "unit": "m·s⁻¹",
       "marks": 5,
       "explanation": "W_applied = 80 × 5 = 400 J. W_friction = −15 × 5 = −75 J. h = 5 sin20° ≈ 1.71 m. W_gravity = −mgh = −10 × 9.8 × 1.71 ≈ −167.6 J. W_net = 400 − 75 − 167.6 ≈ 157.4 J. ½mv² = 157.4 ⇒ v² = 31.48 ⇒ v ≈ 4.61 m·s⁻¹. (Allow 4.4–4.7 m·s⁻¹ depending on rounding.)",
-      "errorSignals": ["ERR_WET_FORCES_INCLINE", "ERR_GRAVITY_INCLINE_SIGN", "ERR_WET_SIGN_OF_FRICTION"],
+      "errorSignals": [
+        "ERR_WET_FORCES_INCLINE",
+        "ERR_GRAVITY_INCLINE_SIGN",
+        "ERR_WET_SIGN_OF_FRICTION"
+      ],
       "passThreshold": 0.7
     }
   ],
