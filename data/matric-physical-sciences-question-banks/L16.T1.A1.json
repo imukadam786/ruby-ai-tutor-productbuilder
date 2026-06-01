@@ -1,7 +1,9 @@
 {
   "skill": "L16.T1.A1",
   "skill_title": "Identify intermolecular forces in compounds",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 3 lifted-style, 17 fresh. Identify London (dispersion), dipole-dipole, and hydrogen bonding interactions in given compounds from structure.",
@@ -12,12 +14,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Name the THREE types of intermolecular forces (IMFs) covered in CAPS Physical Sciences.",
-      "answerMode": "text",
-      "expectedAnswer": "(1) LONDON forces (also called dispersion forces or instantaneous dipole-induced dipole forces); (2) DIPOLE-DIPOLE forces (between permanent dipoles in polar molecules); (3) HYDROGEN BONDING (a special, strong dipole-dipole between an H attached to N, O or F and another N/O/F).",
+      "answerMode": "choice",
+      "expectedAnswer": "London (dispersion), dipole-dipole, and hydrogen bonding.",
       "marks": 3,
       "explanation": "London (in all molecules), dipole-dipole (polar molecules), hydrogen bonding (H attached to N/O/F).",
-      "errorSignals": ["ERR_IMF_TYPES"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMF_TYPES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "London (dispersion), dipole-dipole, and hydrogen bonding.",
+        "Ionic, covalent, and metallic bonds.",
+        "London, dipole-dipole, and ionic bonding."
+      ]
     },
     {
       "id": "L16.T1.A1.q02",
@@ -26,11 +35,18 @@
       "source": "fresh",
       "question": "Identify the strongest intermolecular force present in liquid H₂O.",
       "answerMode": "choice",
-      "options": ["London", "Dipole-dipole", "Hydrogen bonding", "Ionic"],
+      "options": [
+        "London",
+        "Dipole-dipole",
+        "Hydrogen bonding",
+        "Ionic"
+      ],
       "expectedAnswer": "Hydrogen bonding",
       "marks": 2,
       "explanation": "H is bonded to O (an N/O/F atom) ⇒ hydrogen bonding possible. H-bonding is the strongest of the three IMFs present in water.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS"],
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -39,12 +55,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "What intermolecular forces are present in liquid CH₄ (methane)?",
-      "answerMode": "text",
-      "expectedAnswer": "Only LONDON (dispersion) forces. CH₄ is a non-polar molecule (symmetric tetrahedral C-H bonds, no net dipole) — so no dipole-dipole forces. H is bonded to C (not N/O/F) — so no hydrogen bonding. Just London forces between methane molecules.",
+      "answerMode": "choice",
+      "expectedAnswer": "London (dispersion) forces only — CH₄ is non-polar.",
       "marks": 2,
       "explanation": "Non-polar tetrahedral methane: London only.",
-      "errorSignals": ["ERR_NONPOLAR_IMF", "ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_NONPOLAR_IMF",
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "London + dipole-dipole (CH₄ is polar).",
+        "London (dispersion) forces only — CH₄ is non-polar.",
+        "Hydrogen bonding (H bonded to C)."
+      ]
     },
     {
       "id": "L16.T1.A1.q04",
@@ -52,12 +76,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "What intermolecular forces are present in liquid HCl?",
-      "answerMode": "text",
-      "expectedAnswer": "London forces AND dipole-dipole forces. HCl is a POLAR molecule (Cl is more electronegative than H, so the molecule has a permanent dipole). However, H is bonded to Cl (not N/O/F), so NO hydrogen bonding.",
+      "answerMode": "choice",
+      "expectedAnswer": "London + dipole-dipole (HCl is polar, but Cl doesn't allow H-bonding).",
       "marks": 3,
       "explanation": "Polar molecules have London + dipole-dipole. H-bonding requires H on N/O/F — Cl doesn't qualify in CAPS.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS", "ERR_POLAR_IMF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS",
+        "ERR_POLAR_IMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "London + dipole-dipole + hydrogen bonding.",
+        "London only (HCl is non-polar).",
+        "London + dipole-dipole (HCl is polar, but Cl doesn't allow H-bonding)."
+      ]
     },
     {
       "id": "L16.T1.A1.q05",
@@ -65,12 +97,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "What intermolecular forces are present in liquid NH₃ (ammonia)?",
-      "answerMode": "text",
-      "expectedAnswer": "London + dipole-dipole + HYDROGEN BONDING. NH₃ is polar (N pulls electron density), and H is bonded to N — so hydrogen bonding occurs (N-H...N type).",
+      "answerMode": "choice",
+      "expectedAnswer": "London + dipole-dipole + hydrogen bonding (N-H allows H-bonding).",
       "marks": 3,
       "explanation": "Polar + H bonded to N ⇒ all three IMFs. H-bonding is the strongest.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "London + dipole-dipole + hydrogen bonding (N-H allows H-bonding).",
+        "London + dipole-dipole only (no H-bonding).",
+        "London forces only."
+      ]
     },
     {
       "id": "L16.T1.A1.q06",
@@ -78,12 +117,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A student says: 'All POLAR molecules have hydrogen bonding.' Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. Polar molecules have dipole-dipole forces. Hydrogen bonding additionally requires an H atom bonded DIRECTLY to N, O, or F. For example, HCl is polar but does not have H-bonding (H is on Cl, not N/O/F). H₂S is polar but does not H-bond (H is on S).",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — H-bonding also needs an H bonded directly to N, O, or F.",
       "marks": 3,
       "explanation": "Polar ⇒ dipole-dipole. H-bonding requires the H-on-N/O/F structural feature in addition.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Correct — every polar molecule hydrogen-bonds.",
+        "Incorrect — H-bonding also needs an H bonded directly to N, O, or F.",
+        "Correct — polarity and hydrogen bonding are the same thing."
+      ]
     },
     {
       "id": "L16.T1.A1.q07",
@@ -91,12 +137,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "A student says: 'Non-polar molecules don't have any intermolecular forces.' Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. ALL molecules (polar or non-polar) have LONDON (dispersion) forces. These arise from temporary fluctuations in electron distribution. Polar molecules ADDITIONALLY have dipole-dipole; H-bonders have H-bonding too. But London is universal.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — all molecules have London (dispersion) forces.",
       "marks": 3,
       "explanation": "London is in EVERY molecule. Non-polar molecules have only London (no dipole-dipole or H-bonding).",
-      "errorSignals": ["ERR_NONPOLAR_IMF", "ERR_LONDON_UNIVERSAL"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_NONPOLAR_IMF",
+        "ERR_LONDON_UNIVERSAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Correct — non-polar molecules have no intermolecular forces.",
+        "Correct — only polar molecules experience London forces.",
+        "Incorrect — all molecules have London (dispersion) forces."
+      ]
     },
     {
       "id": "L16.T1.A1.q08",
@@ -104,12 +158,21 @@
       "gate": "A",
       "source": "fresh",
       "question": "Identify the IMFs present in each: (a) Cl₂; (b) H₂O; (c) CH₃OH; (d) CO₂.",
-      "answerMode": "text",
-      "expectedAnswer": "(a) Cl₂: London only (non-polar, symmetric); (b) H₂O: London + dipole-dipole + hydrogen bonding (H on O); (c) CH₃OH (methanol): London + dipole-dipole + hydrogen bonding (H on O of -OH); (d) CO₂: London only (linear, non-polar — although C=O bonds are polar, the symmetric linear shape cancels the net dipole).",
+      "answerMode": "choice",
+      "expectedAnswer": "Cl₂: London; H₂O: London+dipole+H-bond; CH₃OH: London+dipole+H-bond; CO₂: London only.",
       "marks": 4,
       "explanation": "Check polarity (shape matters!) + check H on N/O/F. CO₂ is a classic non-polar despite polar bonds.",
-      "errorSignals": ["ERR_POLAR_IMF", "ERR_HBONDING_REQUIREMENTS", "ERR_SHAPE_POLARITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_POLAR_IMF",
+        "ERR_HBONDING_REQUIREMENTS",
+        "ERR_SHAPE_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Cl₂: London; H₂O: London+dipole+H-bond; CH₃OH: London+dipole+H-bond; CO₂: London only.",
+        "Cl₂: dipole-dipole; H₂O: London only; CH₃OH: London only; CO₂: H-bonding.",
+        "All four have hydrogen bonding."
+      ]
     },
     {
       "id": "L16.T1.A1.q09",
@@ -117,12 +180,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Which of the following CAN form hydrogen bonds with itself: CH₃OH, CH₃Br, CH₃F, CH₃NH₂, CH₃COOH?",
-      "answerMode": "text",
-      "expectedAnswer": "CH₃OH (alcohol; H on O), CH₃NH₂ (amine; H on N), and CH₃COOH (carboxylic acid; H on O of -COOH) can form H-bonds. CH₃Br: H bonded to C, not N/O/F. CH₃F: H bonded to C (the F is not bonded to H); doesn't H-bond with itself, although CH₃F can ACCEPT H-bonds from H-bond donors via F.",
+      "answerMode": "choice",
+      "expectedAnswer": "CH₃OH, CH₃NH₂, and CH₃COOH (each has H bonded to O or N).",
       "marks": 4,
       "explanation": "H-bond donor needs H bonded to N/O/F. Check each structure for such an H.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CH₃OH, CH₃F, and CH₃Br.",
+        "CH₃OH, CH₃NH₂, and CH₃COOH (each has H bonded to O or N).",
+        "All five can hydrogen bond with themselves."
+      ]
     },
     {
       "id": "L16.T1.A1.q10",
@@ -131,11 +201,18 @@
       "source": "fresh",
       "question": "Which intermolecular force is the WEAKEST in general?",
       "answerMode": "choice",
-      "options": ["London (dispersion)", "Dipole-dipole", "Hydrogen bonding", "Ionic"],
+      "options": [
+        "London (dispersion)",
+        "Dipole-dipole",
+        "Hydrogen bonding",
+        "Ionic"
+      ],
       "expectedAnswer": "London (dispersion)",
       "marks": 2,
       "explanation": "Strength ranking: H-bonding > dipole-dipole > London (within similar molecular sizes). London is the weakest per pair of molecules, BUT for large non-polar molecules, total London can be larger than dipole-dipole on smaller polar molecules.",
-      "errorSignals": ["ERR_IMF_STRENGTH_ORDER"],
+      "errorSignals": [
+        "ERR_IMF_STRENGTH_ORDER"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -144,12 +221,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why do LONDON forces increase in strength as the molecule grows larger?",
-      "answerMode": "text",
-      "expectedAnswer": "London forces arise from temporary, instantaneous dipoles created by electron movement. Larger molecules have MORE electrons (more polarisable) AND more SURFACE AREA for contact between molecules ⇒ stronger and more numerous temporary dipoles ⇒ stronger London forces overall.",
+      "answerMode": "choice",
+      "expectedAnswer": "Larger molecules have more electrons (more polarisable) and more surface contact.",
       "marks": 3,
       "explanation": "More electrons + more surface contact ⇒ stronger London. Long alkanes can have very strong total London despite being non-polar.",
-      "errorSignals": ["ERR_LONDON_SIZE_DEPENDENCE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LONDON_SIZE_DEPENDENCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because larger molecules are more polar.",
+        "Because larger molecules have more hydrogen bonds.",
+        "Larger molecules have more electrons (more polarisable) and more surface contact."
+      ]
     },
     {
       "id": "L16.T1.A1.q12",
@@ -157,12 +241,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Determine the IMFs in liquid CH₃CHO (ethanal/acetaldehyde).",
-      "answerMode": "text",
-      "expectedAnswer": "London + dipole-dipole. The C=O bond is polar (O more electronegative than C), and the asymmetric shape gives a net dipole, so the molecule is polar. However, the H atoms are bonded to C, NOT to N/O/F, so NO hydrogen bonding (in the classical sense).",
+      "answerMode": "choice",
+      "expectedAnswer": "London + dipole-dipole (polar C=O, but no H on O ⇒ no H-bonding).",
       "marks": 3,
       "explanation": "Aldehyde: polar (C=O dipole), but no H-on-O so no H-bonding.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS", "ERR_POLAR_IMF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS",
+        "ERR_POLAR_IMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "London + dipole-dipole (polar C=O, but no H on O ⇒ no H-bonding).",
+        "London + dipole-dipole + hydrogen bonding.",
+        "London only (ethanal is non-polar)."
+      ]
     },
     {
       "id": "L16.T1.A1.q13",
@@ -170,12 +262,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does HF form unusually strong hydrogen bonds?",
-      "answerMode": "text",
-      "expectedAnswer": "F is the most electronegative atom; the H-F bond is very polar (H carries a large δ+ and F a large δ−). This creates very strong attraction between F (with its lone pairs) on one molecule and the H on another. So H-bonding in HF is exceptionally strong, leading to HF's anomalously high boiling point (~20°C) for a small molecule.",
+      "answerMode": "choice",
+      "expectedAnswer": "F is the most electronegative atom, so the H-F bond is very polar.",
       "marks": 2,
       "explanation": "Strongest electronegativity difference + small atomic size of F ⇒ very strong H-bonds.",
-      "errorSignals": ["ERR_HBONDING_STRENGTH"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because HF is a very large, heavy molecule.",
+        "F is the most electronegative atom, so the H-F bond is very polar.",
+        "Because fluorine has many lone pairs to share."
+      ]
     },
     {
       "id": "L16.T1.A1.q14",
@@ -183,12 +282,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Identify the IMFs present between two molecules of CH₃OCH₃ (dimethyl ether).",
-      "answerMode": "text",
-      "expectedAnswer": "London + dipole-dipole. The C-O-C structure has a net dipole (O carries δ−, the alkyl C's have δ+), so the molecule is polar ⇒ dipole-dipole. The H atoms are bonded to C, not to O directly — so NO hydrogen bonding within ether molecules. (Note: ethers can act as H-bond ACCEPTORS for water etc., but pure ether doesn't self-H-bond.)",
+      "answerMode": "choice",
+      "expectedAnswer": "London + dipole-dipole (polar C-O-C, but no O-H ⇒ no H-bonding).",
       "marks": 3,
       "explanation": "Ether: polar molecule, but no H-on-O ⇒ no self-H-bonding. London + dipole-dipole.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS", "ERR_POLAR_IMF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS",
+        "ERR_POLAR_IMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "London + dipole-dipole + hydrogen bonding.",
+        "London only (the ether is non-polar).",
+        "London + dipole-dipole (polar C-O-C, but no O-H ⇒ no H-bonding)."
+      ]
     },
     {
       "id": "L16.T1.A1.q15",
@@ -196,12 +303,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner draws a hydrogen bond between two CH₃Cl molecules. Is this correct? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. CH₃Cl is a polar molecule, but the H atoms are bonded to C (not to N/O/F). Hydrogen bonding requires an H directly bonded to N, O, or F. So CH₃Cl does NOT form hydrogen bonds; only London + dipole-dipole interactions are present.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — the H atoms are bonded to C, not to N/O/F, so no H-bonding.",
       "marks": 2,
       "explanation": "H-on-Cl or H-on-C doesn't qualify for H-bonding in CAPS.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Incorrect — the H atoms are bonded to C, not to N/O/F, so no H-bonding.",
+        "Correct — CH₃Cl is polar, so it hydrogen bonds.",
+        "Correct — chlorine allows hydrogen bonding like F."
+      ]
     },
     {
       "id": "L16.T1.A1.q16",
@@ -209,12 +323,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "List the IMFs in propan-1-ol (CH₃CH₂CH₂OH).",
-      "answerMode": "text",
-      "expectedAnswer": "London + dipole-dipole + HYDROGEN BONDING. The -OH group provides H bonded to O ⇒ H-bonding. The molecule is also polar ⇒ dipole-dipole. London forces present in all molecules.",
+      "answerMode": "choice",
+      "expectedAnswer": "London + dipole-dipole + hydrogen bonding (the -OH provides H on O).",
       "marks": 3,
       "explanation": "Alcohol: -OH ⇒ H-bonding capable. All three IMFs present.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "London + dipole-dipole only (no H-bonding).",
+        "London + dipole-dipole + hydrogen bonding (the -OH provides H on O).",
+        "London forces only."
+      ]
     },
     {
       "id": "L16.T1.A1.q17",
@@ -222,12 +343,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does CO₂ (linear) have NO net dipole moment despite having polar C=O bonds?",
-      "answerMode": "text",
-      "expectedAnswer": "CO₂ has TWO C=O bond dipoles pointing in OPPOSITE directions (O=C=O linear structure). The two dipoles CANCEL each other vectorially, giving zero net dipole moment. So CO₂ is a NON-POLAR molecule despite having polar bonds.",
+      "answerMode": "choice",
+      "expectedAnswer": "CO₂ is linear, so its two C=O bond dipoles point opposite and cancel.",
       "marks": 3,
       "explanation": "Symmetry can cancel bond dipoles. Linear CO₂: O=C=O bonds opposite ⇒ cancel.",
-      "errorSignals": ["ERR_SHAPE_POLARITY", "ERR_BOND_VS_MOLECULAR_DIPOLE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SHAPE_POLARITY",
+        "ERR_BOND_VS_MOLECULAR_DIPOLE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because the C=O bonds are actually non-polar.",
+        "Because CO₂ is a bent molecule.",
+        "CO₂ is linear, so its two C=O bond dipoles point opposite and cancel."
+      ]
     },
     {
       "id": "L16.T1.A1.q18",
@@ -235,12 +364,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Which has STRONGER intermolecular forces: CH₃CH₂CH₃ (propane) or CH₃CH₂OH (ethanol)?",
-      "answerMode": "text",
-      "expectedAnswer": "Ethanol (CH₃CH₂OH) has stronger IMFs. Both molecules are similar in size (London forces are comparable). Propane has only London. Ethanol additionally has dipole-dipole AND hydrogen bonding (from -OH). H-bonding is much stronger than London, so ethanol has overall stronger IMFs ⇒ much higher boiling point (~78°C vs −42°C).",
+      "answerMode": "choice",
+      "expectedAnswer": "Ethanol — it has hydrogen bonding (the -OH), which propane lacks.",
       "marks": 3,
       "explanation": "H-bonding dominates between molecules of similar size. Ethanol > propane in IMF strength.",
-      "errorSignals": ["ERR_IMF_RANKING", "ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMF_RANKING",
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ethanol — it has hydrogen bonding (the -OH), which propane lacks.",
+        "Propane — it is a larger, heavier molecule.",
+        "Equal — both are similar-sized organic molecules."
+      ]
     },
     {
       "id": "L16.T1.A1.q19",
@@ -248,12 +385,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "True or False: 'A small polar molecule (like HCl) has stronger IMFs than a long non-polar molecule (like decane, C₁₀H₂₂).' Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "FALSE. While HCl has dipole-dipole forces in addition to London, decane is a much LARGER molecule with many more electrons and much more surface area for London contact. Long-chain non-polar molecules can have very strong CUMULATIVE London forces — often stronger than the IMFs of small polar molecules. This is why decane (BP ≈ 174°C) has a much higher BP than HCl (BP ≈ −85°C).",
+      "answerMode": "choice",
+      "expectedAnswer": "False — decane is much larger, so its many London forces exceed HCl's forces.",
       "marks": 3,
       "explanation": "Size of London matters: cumulative London on a long chain can outweigh dipole-dipole on a small polar molecule.",
-      "errorSignals": ["ERR_LONDON_SIZE_DEPENDENCE", "ERR_IMF_RANKING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LONDON_SIZE_DEPENDENCE",
+        "ERR_IMF_RANKING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "True — polar molecules always have stronger IMFs than non-polar ones.",
+        "False — decane is much larger, so its many London forces exceed HCl's forces.",
+        "True — small molecules always have stronger forces."
+      ]
     },
     {
       "id": "L16.T1.A1.q20",
@@ -261,12 +406,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does HF have a higher boiling point than HCl, despite Cl being heavier than F?",
-      "answerMode": "text",
-      "expectedAnswer": "HF can form HYDROGEN BONDS (H bonded to F, a small electronegative atom). HCl has only London + dipole-dipole (Cl doesn't qualify for H-bonding under CAPS). H-bonding in HF is much stronger than the IMFs in HCl, so more energy is needed to vaporise HF ⇒ higher BP. (HF BP ≈ 20°C; HCl BP ≈ −85°C.)",
+      "answerMode": "choice",
+      "expectedAnswer": "HF can hydrogen bond (H on F); HCl cannot, so HF boils higher despite Cl being heavier.",
       "marks": 3,
       "explanation": "H-bonding in HF >> London + dipole-dipole in HCl. H-bonding wins despite HF being smaller.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS", "ERR_IMF_RANKING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS",
+        "ERR_IMF_RANKING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Cl is heavier, so HCl should boil higher — the statement is wrong.",
+        "Because HCl is non-polar and HF is polar.",
+        "HF can hydrogen bond (H on F); HCl cannot, so HF boils higher despite Cl being heavier."
+      ]
     }
   ],
   "_error_signal_vocabulary": {

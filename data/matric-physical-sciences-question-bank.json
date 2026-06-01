@@ -2,7 +2,7 @@
   "subject": "matric-physical-sciences",
   "version": "1.0",
   "description": "Combined Matric Physical Sciences question bank, produced by scripts/build-matric-phys-sci-bank.mjs from data/matric-physical-sciences-question-banks/*.json. Re-run after editing any per-skill bank.",
-  "built_at": "2026-06-01T09:55:38.099Z",
+  "built_at": "2026-06-01T10:05:40.551Z",
   "skills": {
     "L1.T1.A1": {
       "skill": "L1.T1.A1",
@@ -6779,14 +6779,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q7.1.1",
           "question": "Define an ACID according to the Brønsted-Lowry theory.",
-          "answerMode": "text",
-          "expectedAnswer": "An acid is a proton (H⁺) DONOR.",
+          "answerMode": "choice",
+          "expectedAnswer": "A proton (H⁺) donor.",
           "marks": 2,
           "explanation": "Brønsted-Lowry: acid donates H⁺. Base accepts H⁺. Simple, transfer-based definition.",
           "errorSignals": [
             "ERR_BRONSTED_ACID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A proton (H⁺) donor.",
+            "A proton (H⁺) acceptor.",
+            "A substance that produces OH⁻ in water."
+          ]
         },
         {
           "id": "L14.T1.A1.q02",
@@ -6794,14 +6799,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define a BASE according to the Brønsted-Lowry theory.",
-          "answerMode": "text",
-          "expectedAnswer": "A base is a proton (H⁺) ACCEPTOR.",
+          "answerMode": "choice",
+          "expectedAnswer": "A proton (H⁺) acceptor.",
           "marks": 2,
           "explanation": "Brønsted-Lowry base: accepts H⁺. (NH₃ + H⁺ → NH₄⁺: NH₃ is a base.)",
           "errorSignals": [
             "ERR_BRONSTED_BASE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A proton (H⁺) donor.",
+            "A proton (H⁺) acceptor.",
+            "A substance that produces H⁺ in water."
+          ]
         },
         {
           "id": "L14.T1.A1.q03",
@@ -6810,14 +6820,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2025 Q7.1",
           "question": "Define an ACID according to the ARRHENIUS theory.",
-          "answerMode": "text",
-          "expectedAnswer": "An acid is a substance that produces hydrogen ions (H⁺) or hydronium ions (H₃O⁺) in aqueous solution.",
+          "answerMode": "choice",
+          "expectedAnswer": "A substance that produces H⁺ (or H₃O⁺) ions in aqueous solution.",
           "marks": 2,
           "explanation": "Arrhenius: acid produces H⁺ in water. Brønsted-Lowry is more general (doesn't require water).",
           "errorSignals": [
             "ERR_ARRHENIUS_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A proton acceptor in any solvent.",
+            "A substance that produces OH⁻ ions in water.",
+            "A substance that produces H⁺ (or H₃O⁺) ions in aqueous solution."
+          ]
         },
         {
           "id": "L14.T1.A1.q04",
@@ -6847,14 +6862,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "In the reaction HCl + H₂O → H₃O⁺ + Cl⁻, identify the acid, base, conjugate acid, and conjugate base.",
-          "answerMode": "text",
-          "expectedAnswer": "Acid (donates H⁺): HCl. Base (accepts H⁺): H₂O. Conjugate acid (of H₂O, after gaining H⁺): H₃O⁺. Conjugate base (of HCl, after losing H⁺): Cl⁻. Conjugate pairs: HCl/Cl⁻ and H₂O/H₃O⁺.",
+          "answerMode": "choice",
+          "expectedAnswer": "Acid: HCl; base: H₂O; conjugate acid: H₃O⁺; conjugate base: Cl⁻.",
           "marks": 4,
           "explanation": "Identify the H⁺ donor (acid) and acceptor (base) on the reactant side. Conjugates differ by one H⁺.",
           "errorSignals": [
             "ERR_CONJUGATE_PAIR_ID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Acid: HCl; base: H₂O; conjugate acid: H₃O⁺; conjugate base: Cl⁻.",
+            "Acid: H₂O; base: HCl; conjugate acid: Cl⁻; conjugate base: H₃O⁺.",
+            "Acid: HCl; base: H₂O; conjugate acid: Cl⁻; conjugate base: H₃O⁺."
+          ]
         },
         {
           "id": "L14.T1.A1.q06",
@@ -6863,15 +6883,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2025 Q1.7",
           "question": "In the equilibrium HSO₄⁻(aq) + NH₃(aq) ⇌ SO₄²⁻(aq) + NH₄⁺(aq), identify the TWO acids.",
-          "answerMode": "text",
-          "expectedAnswer": "The two acids are HSO₄⁻ (donates H⁺ to NH₃ in the forward direction) and NH₄⁺ (donates H⁺ to SO₄²⁻ in the reverse direction). Both donate H⁺ in their respective directions.",
+          "answerMode": "choice",
+          "expectedAnswer": "HSO₄⁻ and NH₄⁺ (each donates H⁺ in one direction).",
           "marks": 2,
           "explanation": "Two acids in an equilibrium: the original (forward direction H⁺ donor) and the conjugate acid (formed on the products side).",
           "errorSignals": [
             "ERR_CONJUGATE_PAIR_ID",
             "ERR_BRONSTED_ACID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "NH₃ and SO₄²⁻.",
+            "HSO₄⁻ and NH₄⁺ (each donates H⁺ in one direction).",
+            "HSO₄⁻ and SO₄²⁻."
+          ]
         },
         {
           "id": "L14.T1.A1.q07",
@@ -6880,14 +6905,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q1.8",
           "question": "Consider: H₂PO₄⁻ ⇌ H⁺ + HPO₄²⁻ AND HPO₄²⁻ ⇌ H⁺ + PO₄³⁻. Identify X and Y where the steps go H₃PO₄ → H₂PO₄⁻ → X → Y.",
-          "answerMode": "text",
-          "expectedAnswer": "X = HPO₄²⁻ (loss of second H⁺). Y = PO₄³⁻ (loss of third H⁺). Successive ionisation: H₃PO₄ → H₂PO₄⁻ → HPO₄²⁻ → PO₄³⁻ (triprotic acid).",
+          "answerMode": "choice",
+          "expectedAnswer": "X = HPO₄²⁻; Y = PO₄³⁻.",
           "marks": 2,
           "explanation": "Phosphoric acid is triprotic. Each step loses one H⁺, charge becomes more negative.",
           "errorSignals": [
             "ERR_POLYPROTIC_STEPS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "X = H₂PO₄⁻; Y = HPO₄²⁻.",
+            "X = PO₄³⁻; Y = HPO₄²⁻.",
+            "X = HPO₄²⁻; Y = PO₄³⁻."
+          ]
         },
         {
           "id": "L14.T1.A1.q08",
@@ -6895,14 +6925,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define an AMPHIPROTIC species. Give an example.",
-          "answerMode": "text",
-          "expectedAnswer": "An amphiprotic species is one that can either DONATE or ACCEPT a proton (depending on the reaction partner). Example: H₂O (can act as acid by donating H⁺ to give OH⁻, or as base by accepting H⁺ to give H₃O⁺). Other examples: HCO₃⁻, HSO₄⁻, NH₃.",
+          "answerMode": "choice",
+          "expectedAnswer": "A species that can either donate or accept a proton; e.g. H₂O.",
           "marks": 3,
           "explanation": "Amphiprotic: donates AND accepts H⁺. Often species that already have one ionisable H plus a lone pair.",
           "errorSignals": [
             "ERR_AMPHIPROTIC_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A species that can either donate or accept a proton; e.g. H₂O.",
+            "A species that can only donate protons; e.g. HCl.",
+            "A species containing both H and O; e.g. H₂O₂."
+          ]
         },
         {
           "id": "L14.T1.A1.q09",
@@ -6910,14 +6945,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "In the equation NH₃ + H₂O ⇌ NH₄⁺ + OH⁻, identify the acid, base, conjugate acid, and conjugate base.",
-          "answerMode": "text",
-          "expectedAnswer": "Acid (forward): H₂O (donates H⁺ to NH₃). Base (forward): NH₃ (accepts H⁺). Conjugate acid of NH₃ is NH₄⁺. Conjugate base of H₂O is OH⁻. Conjugate pairs: NH₃/NH₄⁺ and H₂O/OH⁻.",
+          "answerMode": "choice",
+          "expectedAnswer": "Acid: H₂O; base: NH₃; conjugate acid: NH₄⁺; conjugate base: OH⁻.",
           "marks": 4,
           "explanation": "H₂O is amphiprotic — here it's an acid. The conjugate pairs differ by one H⁺.",
           "errorSignals": [
             "ERR_CONJUGATE_PAIR_ID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Acid: NH₃; base: H₂O; conjugate acid: OH⁻; conjugate base: NH₄⁺.",
+            "Acid: H₂O; base: NH₃; conjugate acid: NH₄⁺; conjugate base: OH⁻.",
+            "Acid: H₂O; base: NH₃; conjugate acid: OH⁻; conjugate base: NH₄⁺."
+          ]
         },
         {
           "id": "L14.T1.A1.q10",
@@ -6925,14 +6965,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What is the conjugate base of: (a) HCl; (b) H₂SO₄ (first ionisation); (c) NH₄⁺; (d) HSO₄⁻?",
-          "answerMode": "text",
-          "expectedAnswer": "(a) Cl⁻ (HCl − H⁺); (b) HSO₄⁻ (H₂SO₄ − H⁺); (c) NH₃ (NH₄⁺ − H⁺); (d) SO₄²⁻ (HSO₄⁻ − H⁺).",
+          "answerMode": "choice",
+          "expectedAnswer": "Cl⁻, HSO₄⁻, NH₃, SO₄²⁻.",
           "marks": 4,
           "explanation": "Conjugate base: remove one H⁺ and decrease charge by 1.",
           "errorSignals": [
             "ERR_CONJUGATE_BASE_FORMATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Cl₂, SO₄²⁻, NH₂⁻, SO₃²⁻.",
+            "H₂Cl⁺, H₃SO₄⁺, NH₅²⁺, H₂SO₄.",
+            "Cl⁻, HSO₄⁻, NH₃, SO₄²⁻."
+          ]
         },
         {
           "id": "L14.T1.A1.q11",
@@ -6940,14 +6985,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What is the conjugate acid of: (a) NH₃; (b) OH⁻; (c) Cl⁻; (d) H₂O?",
-          "answerMode": "text",
-          "expectedAnswer": "(a) NH₄⁺ (NH₃ + H⁺); (b) H₂O (OH⁻ + H⁺); (c) HCl (Cl⁻ + H⁺); (d) H₃O⁺ (H₂O + H⁺).",
+          "answerMode": "choice",
+          "expectedAnswer": "NH₄⁺, H₂O, HCl, H₃O⁺.",
           "marks": 4,
           "explanation": "Conjugate acid: add one H⁺ and increase charge by 1.",
           "errorSignals": [
             "ERR_CONJUGATE_ACID_FORMATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "NH₄⁺, H₂O, HCl, H₃O⁺.",
+            "NH₂⁻, O²⁻, Cl₂, OH⁻.",
+            "NH₄⁺, H₂O, HCl₂, H₃O₂⁺."
+          ]
         },
         {
           "id": "L14.T1.A1.q12",
@@ -6955,15 +7005,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Identify whether each species below is acting as an ACID or a BASE in the reaction: CO₃²⁻ + H₂O ⇌ HCO₃⁻ + OH⁻.",
-          "answerMode": "text",
-          "expectedAnswer": "CO₃²⁻ accepts a proton (H⁺) ⇒ acts as a BASE. H₂O donates a proton ⇒ acts as an ACID. (H₂O is amphiprotic — here it's the acid.) Conjugate pairs: CO₃²⁻/HCO₃⁻ and H₂O/OH⁻.",
+          "answerMode": "choice",
+          "expectedAnswer": "CO₃²⁻ acts as a base (accepts H⁺); H₂O acts as an acid (donates H⁺).",
           "marks": 3,
           "explanation": "Look at where the H⁺ moves. CO₃²⁻ gains it (base); H₂O loses it (acid).",
           "errorSignals": [
             "ERR_BRONSTED_BASE",
             "ERR_BRONSTED_ACID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "CO₃²⁻ acts as an acid; H₂O acts as a base.",
+            "CO₃²⁻ acts as a base (accepts H⁺); H₂O acts as an acid (donates H⁺).",
+            "Both CO₃²⁻ and H₂O act as acids."
+          ]
         },
         {
           "id": "L14.T1.A1.q13",
@@ -6971,14 +7026,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is H₂O described as AMPHIPROTIC?",
-          "answerMode": "text",
-          "expectedAnswer": "H₂O can act as either an acid or a base, depending on what it reacts with. With a stronger acid (e.g. HCl), H₂O acts as a base: H₂O + HCl → H₃O⁺ + Cl⁻. With a stronger base (e.g. NH₃), H₂O acts as an acid: H₂O + NH₃ → OH⁻ + NH₄⁺. Capable of both donating AND accepting H⁺.",
+          "answerMode": "choice",
+          "expectedAnswer": "It can act as an acid or a base, depending on the species it reacts with.",
           "marks": 3,
           "explanation": "Water's amphiprotic nature underlies its self-ionisation (Kw) and its role in many acid-base reactions.",
           "errorSignals": [
             "ERR_AMPHIPROTIC_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because it contains both hydrogen and oxygen atoms.",
+            "Because it is a strong acid and a strong base at the same time.",
+            "It can act as an acid or a base, depending on the species it reacts with."
+          ]
         },
         {
           "id": "L14.T1.A1.q14",
@@ -6986,14 +7046,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A student says: 'HCl and Cl₂ are a conjugate acid-base pair.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. HCl and Cl⁻ are a conjugate acid-base pair (differ by one H⁺). HCl and Cl₂ are NOT a conjugate pair — Cl₂ is a different species (involves a different oxidation state of Cl and is not formed by loss of H⁺ from HCl). Conjugate pairs differ by exactly ONE proton.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — HCl and Cl⁻ are the conjugate pair; Cl₂ is a different species.",
           "marks": 2,
           "explanation": "Conjugates differ by exactly one H⁺. Cl⁻ (not Cl₂) is the conjugate base of HCl.",
           "errorSignals": [
             "ERR_CONJUGATE_PAIR_ID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — HCl and Cl⁻ are the conjugate pair; Cl₂ is a different species.",
+            "Correct — HCl and Cl₂ differ by one H⁺.",
+            "Correct — any two chlorine species form a conjugate pair."
+          ]
         },
         {
           "id": "L14.T1.A1.q15",
@@ -7002,14 +7067,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2025 Q7.2.3",
           "question": "From {HCO₃⁻, NaCl, CaCO₃, H₂SO₄, NH₃}, identify ONE species that is an AMPHIPROTIC ion or amphiprotic substance.",
-          "answerMode": "text",
-          "expectedAnswer": "HCO₃⁻ (bicarbonate) is amphiprotic — it can donate H⁺ (to form CO₃²⁻) or accept H⁺ (to form H₂CO₃). NH₃ is also a valid answer (amphiprotic in special cases — can accept H⁺ to NH₄⁺ or donate H⁺ to NH₂⁻ in strong base).",
+          "answerMode": "choice",
+          "expectedAnswer": "HCO₃⁻ (it can donate or accept a proton).",
           "marks": 1,
           "explanation": "HCO₃⁻ and HSO₄⁻ are classic amphiprotic ions. H₂O is the prototype.",
           "errorSignals": [
             "ERR_AMPHIPROTIC_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "NaCl.",
+            "HCO₃⁻ (it can donate or accept a proton).",
+            "H₂SO₄."
+          ]
         },
         {
           "id": "L14.T1.A1.q16",
@@ -7017,14 +7087,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Identify the conjugate pairs in the equation: HSO₄⁻ + H₂O ⇌ SO₄²⁻ + H₃O⁺.",
-          "answerMode": "text",
-          "expectedAnswer": "Conjugate pair 1: HSO₄⁻ (acid) / SO₄²⁻ (conjugate base) — differ by one H⁺. Conjugate pair 2: H₃O⁺ (conjugate acid) / H₂O (base) — differ by one H⁺. In this equation HSO₄⁻ acts as the acid, H₂O as the base.",
+          "answerMode": "choice",
+          "expectedAnswer": "HSO₄⁻/SO₄²⁻ and H₃O⁺/H₂O.",
           "marks": 4,
           "explanation": "Identify the two pairs by H⁺ transfer. HSO₄⁻/SO₄²⁻ and H₂O/H₃O⁺.",
           "errorSignals": [
             "ERR_CONJUGATE_PAIR_ID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "HSO₄⁻/H₃O⁺ and SO₄²⁻/H₂O.",
+            "HSO₄⁻/H₂O and SO₄²⁻/H₃O⁺.",
+            "HSO₄⁻/SO₄²⁻ and H₃O⁺/H₂O."
+          ]
         },
         {
           "id": "L14.T1.A1.q17",
@@ -7032,14 +7107,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is the Brønsted-Lowry definition more general than the Arrhenius definition?",
-          "answerMode": "text",
-          "expectedAnswer": "The Arrhenius definition applies only to AQUEOUS solutions (produces H⁺ or OH⁻ in water). The Brønsted-Lowry definition applies to ANY proton-transfer reaction, regardless of solvent (including non-aqueous solvents and the gas phase). Brønsted-Lowry includes Arrhenius as a special case but is broader.",
+          "answerMode": "choice",
+          "expectedAnswer": "It applies to any proton-transfer reaction, not just to aqueous solutions.",
           "marks": 3,
           "explanation": "Arrhenius requires water; Brønsted-Lowry is about H⁺ transfer (any medium).",
           "errorSignals": [
             "ERR_ARRHENIUS_VS_BRONSTED"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It applies to any proton-transfer reaction, not just to aqueous solutions.",
+            "Because Arrhenius applies to all solvents and Brønsted-Lowry only to water.",
+            "Because Brønsted-Lowry describes only strong acids."
+          ]
         },
         {
           "id": "L14.T1.A1.q18",
@@ -7047,15 +7127,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Show the proton transfer step by step: NH₃ + HCl → NH₄Cl. Which is the acid?",
-          "answerMode": "text",
-          "expectedAnswer": "HCl donates H⁺ to NH₃. Acid: HCl (proton donor). Base: NH₃ (proton acceptor). NH₃ + HCl → NH₄⁺ + Cl⁻ (in solution; in gas phase, they pair as NH₄Cl). Conjugate pairs: HCl/Cl⁻ and NH₃/NH₄⁺.",
+          "answerMode": "choice",
+          "expectedAnswer": "HCl (the proton donor).",
           "marks": 3,
           "explanation": "Acid-base reaction without water. H⁺ transferred from HCl to NH₃.",
           "errorSignals": [
             "ERR_BRONSTED_ACID",
             "ERR_CONJUGATE_PAIR_ID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "NH₃ is the acid.",
+            "HCl (the proton donor).",
+            "NH₄Cl is the acid."
+          ]
         },
         {
           "id": "L14.T1.A1.q19",
@@ -7063,14 +7148,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why can H₂O behave as both an acid (with NH₃) and a base (with HCl)?",
-          "answerMode": "text",
-          "expectedAnswer": "H₂O is amphiprotic. It has both an O-H bond (allowing it to donate H⁺) and a lone pair on O (allowing it to accept H⁺). When reacting with a stronger acid (HCl), it accepts a proton (acts as base). When reacting with a stronger base (NH₃), it donates a proton (acts as acid).",
+          "answerMode": "choice",
+          "expectedAnswer": "It is amphiprotic — it can donate H⁺ (to NH₃) or accept H⁺ (from HCl).",
           "marks": 3,
           "explanation": "Amphiprotic nature of water: O-H bond donates, lone pair accepts.",
           "errorSignals": [
             "ERR_AMPHIPROTIC_DEF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because water is always neutral.",
+            "Because water is a strong acid with NH₃ and a strong base with HCl.",
+            "It is amphiprotic — it can donate H⁺ (to NH₃) or accept H⁺ (from HCl)."
+          ]
         },
         {
           "id": "L14.T1.A1.q20",
@@ -7078,14 +7168,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Identify the species in CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺ as acid, base, conjugate acid, or conjugate base.",
-          "answerMode": "text",
-          "expectedAnswer": "CH₃COOH: acid (donates H⁺). H₂O: base (accepts H⁺). CH₃COO⁻: conjugate base (of CH₃COOH). H₃O⁺: conjugate acid (of H₂O). Pairs: CH₃COOH/CH₃COO⁻ and H₂O/H₃O⁺.",
+          "answerMode": "choice",
+          "expectedAnswer": "Acid: CH₃COOH; base: H₂O; conjugate base: CH₃COO⁻; conjugate acid: H₃O⁺.",
           "marks": 4,
           "explanation": "Weak acid (ethanoic acid) partially donates H⁺ to water. Standard equilibrium.",
           "errorSignals": [
             "ERR_CONJUGATE_PAIR_ID"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Acid: CH₃COOH; base: H₂O; conjugate base: CH₃COO⁻; conjugate acid: H₃O⁺.",
+            "Acid: H₂O; base: CH₃COOH; conjugate acid: CH₃COO⁻; conjugate base: H₃O⁺.",
+            "Acid: CH₃COOH; base: H₂O; conjugate acid: CH₃COO⁻; conjugate base: H₃O⁺."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -7116,14 +7211,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define pH.",
-          "answerMode": "text",
-          "expectedAnswer": "pH = −log₁₀[H⁺] (or equivalently −log₁₀[H₃O⁺]). It is the negative logarithm (base 10) of the hydrogen ion (or hydronium ion) concentration in mol·dm⁻³.",
+          "answerMode": "choice",
+          "expectedAnswer": "pH = −log₁₀[H⁺] (the negative log of the hydrogen-ion concentration).",
           "marks": 2,
           "explanation": "pH definition: −log₁₀ of [H⁺]. Lower pH = more acidic.",
           "errorSignals": [
             "ERR_PH_DEFINITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "pH = +log₁₀[H⁺].",
+            "pH = −log₁₀[H⁺] (the negative log of the hydrogen-ion concentration).",
+            "pH = −log₁₀[OH⁻]."
+          ]
         },
         {
           "id": "L14.T1.A2.q02",
@@ -7168,14 +7268,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "State the relationship between pH and pOH at 25°C.",
-          "answerMode": "text",
-          "expectedAnswer": "At 25°C, pH + pOH = 14. This follows from Kw = [H⁺][OH⁻] = 1 × 10⁻¹⁴, so −log[H⁺] + (−log[OH⁻]) = 14.",
+          "answerMode": "choice",
+          "expectedAnswer": "pH + pOH = 14 (at 25 °C).",
           "marks": 2,
           "explanation": "Standard at 25°C: pH + pOH = 14. At other temperatures, Kw changes and so does this sum.",
           "errorSignals": [
             "ERR_POH_PH_RELATION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "pH + pOH = 7.",
+            "pH × pOH = 14.",
+            "pH + pOH = 14 (at 25 °C)."
+          ]
         },
         {
           "id": "L14.T1.A2.q05",
@@ -7212,14 +7317,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What is Kw at 25°C, and what is its physical significance?",
-          "answerMode": "text",
-          "expectedAnswer": "Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ mol²·dm⁻⁶ at 25°C. It is the ion product of water — describing the equilibrium constant for water's self-ionisation: H₂O ⇌ H⁺ + OH⁻. Any aqueous solution at 25°C satisfies [H⁺][OH⁻] = 10⁻¹⁴.",
+          "answerMode": "choice",
+          "expectedAnswer": "Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ — the ion product of water.",
           "marks": 2,
           "explanation": "Kw = self-ionisation constant of water. Sets the inverse relationship between [H⁺] and [OH⁻].",
           "errorSignals": [
             "ERR_KW_DEFINITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ — the ion product of water.",
+            "Kw = 1.0 × 10⁻⁷.",
+            "Kw = 14."
+          ]
         },
         {
           "id": "L14.T1.A2.q07",
@@ -7307,14 +7417,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Is a solution with pH = 7.0 always neutral? Briefly explain.",
-          "answerMode": "text",
-          "expectedAnswer": "At 25°C, pH = 7 corresponds to [H⁺] = [OH⁻] = 10⁻⁷ mol·dm⁻³ (NEUTRAL). At other temperatures, Kw changes, so neutral water has a different pH. For example, at higher T, Kw > 10⁻¹⁴, so neutral water has pH < 7 (but still equal [H⁺] and [OH⁻]).",
+          "answerMode": "choice",
+          "expectedAnswer": "Only at 25 °C — Kw changes with temperature, so neutral pH differs at other temperatures.",
           "marks": 3,
           "explanation": "pH 7 = neutral at 25°C only. Neutral generally means [H⁺] = [OH⁻], not pH = 7.",
           "errorSignals": [
             "ERR_NEUTRAL_PH_TEMPERATURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — pH 7 is neutral at any temperature.",
+            "Only at 25 °C — Kw changes with temperature, so neutral pH differs at other temperatures.",
+            "No — pH 7 is always acidic."
+          ]
         },
         {
           "id": "L14.T1.A2.q12",
@@ -7404,14 +7519,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "If you DILUTE an acid solution 10-fold (with water), what happens to (a) [H⁺] and (b) pH?",
-          "answerMode": "text",
-          "expectedAnswer": "(a) [H⁺] DECREASES by a factor of 10. (b) pH INCREASES by 1 unit (since pH = −log[H⁺], dividing [H⁺] by 10 adds 1 to pH). e.g. pH 2 → pH 3 on 10× dilution. (Limiting case: very dilute acid approaches pH 7.)",
+          "answerMode": "choice",
+          "expectedAnswer": "[H⁺] decreases 10-fold; pH increases by 1 unit.",
           "marks": 3,
           "explanation": "10× dilution: [H⁺] ÷ 10, pH + 1. Log relationship.",
           "errorSignals": [
             "ERR_DILUTION_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "[H⁺] increases 10-fold; pH decreases by 1.",
+            "Both [H⁺] and pH stay the same.",
+            "[H⁺] decreases 10-fold; pH increases by 1 unit."
+          ]
         },
         {
           "id": "L14.T1.A2.q17",
@@ -7437,14 +7557,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'A solution with [H⁺] = 10⁻⁸ mol·dm⁻³ is acidic because pH = 8 is less than 14.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. pH 8 > pH 7, so the solution is BASIC (alkaline), not acidic, at 25°C. The acidic-basic-neutral classification uses pH 7 as the dividing line at 25°C: acidic (pH < 7), neutral (pH = 7), basic (pH > 7).",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — pH 8 is greater than 7, so the solution is basic (at 25 °C).",
           "marks": 2,
           "explanation": "Common slip: pH 8 means slightly basic, not acidic. 'Less than 14' isn't the relevant comparison.",
           "errorSignals": [
             "ERR_PH_ACID_BASE_THRESHOLD"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — pH 8 is greater than 7, so the solution is basic (at 25 °C).",
+            "Correct — pH 8 is acidic because it is below 14.",
+            "Correct — any pH below 14 is acidic."
+          ]
         },
         {
           "id": "L14.T1.A2.q19",
@@ -7470,14 +7595,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does pure water have pH = 7 at 25°C?",
-          "answerMode": "text",
-          "expectedAnswer": "Pure water self-ionises: H₂O ⇌ H⁺ + OH⁻ with Kw = [H⁺][OH⁻] = 10⁻¹⁴ at 25°C. Since the ionisation is symmetric, [H⁺] = [OH⁻] = √(10⁻¹⁴) = 10⁻⁷ mol·dm⁻³. Therefore pH = −log(10⁻⁷) = 7.",
+          "answerMode": "choice",
+          "expectedAnswer": "Self-ionisation gives [H⁺] = [OH⁻] = 10⁻⁷ mol·dm⁻³, so pH = 7.",
           "marks": 3,
           "explanation": "Self-ionisation of pure water + Kw symmetry ⇒ pH 7 at 25°C.",
           "errorSignals": [
             "ERR_PURE_WATER_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because pure water contains no ions at all.",
+            "Self-ionisation gives [H⁺] = [OH⁻] = 10⁻⁷ mol·dm⁻³, so pH = 7.",
+            "Because water's pH is defined as 7 by convention."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -7516,15 +7646,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Distinguish between STRONG and WEAK acids in terms of ionisation in water.",
-          "answerMode": "text",
-          "expectedAnswer": "A STRONG acid ionises COMPLETELY in water (essentially 100%): HA → H⁺ + A⁻ (essentially irreversible). A WEAK acid ionises only PARTIALLY in water: HA ⇌ H⁺ + A⁻ (equilibrium with mostly un-ionised HA). Strength refers to the EXTENT of ionisation, not concentration.",
+          "answerMode": "choice",
+          "expectedAnswer": "A strong acid ionises completely; a weak acid ionises only partially (an equilibrium).",
           "marks": 3,
           "explanation": "Strong: complete ionisation. Weak: partial ionisation (equilibrium). Different from concentrated/dilute (which is about amount).",
           "errorSignals": [
             "ERR_STRONG_WEAK_DEF",
             "ERR_STRONG_VS_CONCENTRATED"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Strong acids are concentrated; weak acids are dilute.",
+            "Strong acids ionise partially; weak acids ionise completely.",
+            "A strong acid ionises completely; a weak acid ionises only partially (an equilibrium)."
+          ]
         },
         {
           "id": "L14.T1.A3.q02",
@@ -7532,15 +7667,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Name THREE common STRONG acids and THREE common STRONG bases.",
-          "answerMode": "text",
-          "expectedAnswer": "Strong acids (any three): HCl (hydrochloric), HBr (hydrobromic), HI (hydroiodic), HNO₃ (nitric), H₂SO₄ (first ionisation only). Strong bases (any three): NaOH, KOH, Ca(OH)₂, Ba(OH)₂, LiOH.",
+          "answerMode": "choice",
+          "expectedAnswer": "Strong acids: HCl, HNO₃, H₂SO₄. Strong bases: NaOH, KOH, Ca(OH)₂.",
           "marks": 4,
           "explanation": "Standard list of strong acids/bases that learners should memorise.",
           "errorSignals": [
             "ERR_STRONG_ACIDS_LIST",
             "ERR_STRONG_BASES_LIST"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Strong acids: HCl, HNO₃, H₂SO₄. Strong bases: NaOH, KOH, Ca(OH)₂.",
+            "Strong acids: CH₃COOH, H₂CO₃, HF. Strong bases: NH₃, CH₃NH₂, Al(OH)₃.",
+            "Strong acids: HCl, HF, CH₃COOH. Strong bases: NaOH, NH₃, KOH."
+          ]
         },
         {
           "id": "L14.T1.A3.q03",
@@ -7571,14 +7711,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q7.1.2",
           "question": "Two acids HX (pH = 2.7) and HY (pH = 0.7) have the SAME concentration. Which is the STRONGER acid?",
-          "answerMode": "text",
-          "expectedAnswer": "HY is the stronger acid. Same concentration but LOWER pH (0.7 vs 2.7) ⇒ HY has produced more H⁺ ⇒ greater degree of ionisation ⇒ stronger.",
+          "answerMode": "choice",
+          "expectedAnswer": "HY — at the same concentration it has the lower pH, so it is more ionised.",
           "marks": 2,
           "explanation": "Lower pH at the same concentration = stronger acid. HY ionises more completely.",
           "errorSignals": [
             "ERR_STRONG_VS_WEAK_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "HX — its higher pH means more ionisation.",
+            "HY — at the same concentration it has the lower pH, so it is more ionised.",
+            "Equal — the same concentration means the same strength."
+          ]
         },
         {
           "id": "L14.T1.A3.q05",
@@ -7587,15 +7732,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2022 Q7.1.3",
           "question": "For weak acid HX with Ka = 1.8 × 10⁻⁵, is [H₃O⁺] GREATER than, EQUAL to, or LESS than [HX] in solution?",
-          "answerMode": "text",
-          "expectedAnswer": "[HX] >> [H₃O⁺]. Ka is small (1.8 × 10⁻⁵), so HX is weakly ionised. Most of the acid remains as un-ionised HX; only a small fraction has dissociated into H⁺ and X⁻.",
+          "answerMode": "choice",
+          "expectedAnswer": "[HX] >> [H₃O⁺] — the small Ka means the acid is only slightly ionised.",
           "marks": 2,
           "explanation": "Small Ka ⇒ little ionisation ⇒ [HA] >> [H⁺]. The reverse would be the case for a strong acid.",
           "errorSignals": [
             "ERR_KA_STRENGTH",
             "ERR_WEAK_ACID_EQUILIBRIUM"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "[H₃O⁺] >> [HX] — the acid is mostly ionised.",
+            "[H₃O⁺] = [HX] — they are always equal.",
+            "[HX] >> [H₃O⁺] — the small Ka means the acid is only slightly ionised."
+          ]
         },
         {
           "id": "L14.T1.A3.q06",
@@ -7604,15 +7754,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q7.1.2",
           "question": "Two acid solutions at the same concentration light up two bulbs: bulb A (H₂SO₄) and bulb B (HNO₃). Which bulb is BRIGHTER and why?",
-          "answerMode": "text",
-          "expectedAnswer": "Bulb A (H₂SO₄) is brighter. Both H₂SO₄ and HNO₃ are strong acids (fully ionised), but H₂SO₄ is DIPROTIC — each molecule produces 2 H⁺ ions. HNO₃ is monoprotic (1 H⁺ per molecule). At the same concentration, H₂SO₄ produces more ions ⇒ better conductivity ⇒ brighter bulb.",
+          "answerMode": "choice",
+          "expectedAnswer": "H₂SO₄ — it is diprotic, releasing 2 H⁺ per molecule, so more ions conduct.",
           "marks": 2,
           "explanation": "Both strong, but H₂SO₄ produces twice the H⁺ ⇒ more ions ⇒ better conductor.",
           "errorSignals": [
             "ERR_DIPROTIC_IONS",
             "ERR_CONDUCTIVITY_IONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "H₂SO₄ — it is diprotic, releasing 2 H⁺ per molecule, so more ions conduct.",
+            "HNO₃ — it is a stronger acid than H₂SO₄.",
+            "Equal — both are strong acids."
+          ]
         },
         {
           "id": "L14.T1.A3.q07",
@@ -7621,15 +7776,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q7.1.3",
           "question": "Bulb B (HNO₃) and bulb C (CH₃COOH) — same concentration. Which is brighter? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Bulb B (HNO₃) is brighter. HNO₃ is a STRONG acid (fully ionised) ⇒ many ions in solution ⇒ good conductivity. CH₃COOH (ethanoic acid) is a WEAK acid (partially ionised) ⇒ fewer ions ⇒ poor conductivity at the same concentration.",
+          "answerMode": "choice",
+          "expectedAnswer": "HNO₃ — a strong acid is fully ionised, giving more ions and better conductivity.",
           "marks": 2,
           "explanation": "Strong = fully ionised = more ions. Weak = partial = fewer ions. Conductivity reflects ion concentration.",
           "errorSignals": [
             "ERR_STRONG_VS_WEAK_PH",
             "ERR_CONDUCTIVITY_IONS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "CH₃COOH — weak acids conduct better.",
+            "HNO₃ — a strong acid is fully ionised, giving more ions and better conductivity.",
+            "Equal — concentration alone sets the brightness."
+          ]
         },
         {
           "id": "L14.T1.A3.q08",
@@ -7637,14 +7797,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'A 0.01 mol·dm⁻³ HCl solution is a WEAK acid.' Is this correct? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. HCl is a STRONG acid (fully ionised) regardless of concentration. The given solution is DILUTE (low concentration) but still STRONG (because ionisation is complete). 'Strong/weak' refers to the EXTENT of ionisation; 'concentrated/dilute' refers to AMOUNT in solution.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — HCl is a strong acid at any concentration; this solution is just dilute.",
           "marks": 3,
           "explanation": "Common confusion. Strong/weak ≠ concentrated/dilute. HCl is strong at all concentrations.",
           "errorSignals": [
             "ERR_STRONG_VS_CONCENTRATED"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — low concentration makes HCl a weak acid.",
+            "Correct — HCl is weak below 0.1 mol·dm⁻³.",
+            "Incorrect — HCl is a strong acid at any concentration; this solution is just dilute."
+          ]
         },
         {
           "id": "L14.T1.A3.q09",
@@ -7653,15 +7818,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2025 Q1.8",
           "question": "1 mol·dm⁻³ HNO₃ (strong acid) and 1 mol·dm⁻³ CH₃COOH (weak acid) light up bulbs A and B respectively. Which is brighter, and which solution has the lower pH?",
-          "answerMode": "text",
-          "expectedAnswer": "Bulb A (HNO₃) is BRIGHTER (strong acid = fully ionised = more ions = better conductor). HNO₃ also has the LOWER pH (more H⁺ in solution).",
+          "answerMode": "choice",
+          "expectedAnswer": "HNO₃ is brighter and also has the lower pH (fully ionised ⇒ more H⁺).",
           "marks": 2,
           "explanation": "Strong acid: brighter bulb (more ions) AND lower pH (more H⁺).",
           "errorSignals": [
             "ERR_CONDUCTIVITY_IONS",
             "ERR_STRONG_VS_WEAK_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "HNO₃ is brighter and also has the lower pH (fully ionised ⇒ more H⁺).",
+            "CH₃COOH is brighter and has the lower pH.",
+            "HNO₃ is brighter, but CH₃COOH has the lower pH."
+          ]
         },
         {
           "id": "L14.T1.A3.q10",
@@ -7669,15 +7839,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define Ka, the acid dissociation constant.",
-          "answerMode": "text",
-          "expectedAnswer": "Ka is the equilibrium constant for the dissociation of an acid in water: HA + H₂O ⇌ H₃O⁺ + A⁻. Ka = [H₃O⁺][A⁻]/[HA]. Large Ka ⇒ strong acid; small Ka ⇒ weak acid.",
+          "answerMode": "choice",
+          "expectedAnswer": "The equilibrium constant for acid dissociation: Ka = [H₃O⁺][A⁻]/[HA].",
           "marks": 3,
           "explanation": "Ka measures the extent of ionisation. Strong acids have Ka >> 1; weak acids have Ka << 1.",
           "errorSignals": [
             "ERR_KA_EXPRESSION",
             "ERR_KA_STRENGTH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Ka = [HA]/([H₃O⁺][A⁻]).",
+            "The equilibrium constant for acid dissociation: Ka = [H₃O⁺][A⁻]/[HA].",
+            "Ka is the concentration of acid that ionises."
+          ]
         },
         {
           "id": "L14.T1.A3.q11",
@@ -7685,14 +7860,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Order the following by ACID STRENGTH (strongest first): HF (Ka = 6.6 × 10⁻⁴), HCN (Ka = 4.9 × 10⁻¹⁰), CH₃COOH (Ka = 1.8 × 10⁻⁵), HClO (Ka = 3.0 × 10⁻⁸).",
-          "answerMode": "text",
-          "expectedAnswer": "Strongest to weakest: HF > CH₃COOH > HClO > HCN. Larger Ka = stronger acid.",
+          "answerMode": "choice",
+          "expectedAnswer": "HF > CH₃COOH > HClO > HCN (larger Ka = stronger).",
           "marks": 3,
           "explanation": "Larger Ka = more ionised = stronger.",
           "errorSignals": [
             "ERR_KA_STRENGTH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "HCN > HClO > CH₃COOH > HF.",
+            "CH₃COOH > HF > HCN > HClO.",
+            "HF > CH₃COOH > HClO > HCN (larger Ka = stronger)."
+          ]
         },
         {
           "id": "L14.T1.A3.q12",
@@ -7700,14 +7880,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does a weak acid show an equilibrium arrow (⇌) in its ionisation equation, while a strong acid shows a single arrow (→)?",
-          "answerMode": "text",
-          "expectedAnswer": "A weak acid is only PARTIALLY ionised, so the un-ionised form (HA) and the ions (H⁺ + A⁻) coexist in equilibrium — hence ⇌. A strong acid is FULLY ionised, with essentially no un-ionised HA remaining, so the reaction goes essentially to completion — hence →.",
+          "answerMode": "choice",
+          "expectedAnswer": "A weak acid is only partially ionised (HA and ions coexist ⇌); a strong acid is fully ionised (→).",
           "marks": 3,
           "explanation": "Single arrow = complete reaction (strong). Double arrow = equilibrium (weak).",
           "errorSignals": [
             "ERR_WEAK_ACID_EQUILIBRIUM"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A weak acid is only partially ionised (HA and ions coexist ⇌); a strong acid is fully ionised (→).",
+            "Weak acids are fully ionised; strong acids are partially ionised.",
+            "There is no real difference; both arrows mean the same."
+          ]
         },
         {
           "id": "L14.T1.A3.q13",
@@ -7737,14 +7922,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does the pH of a 0.1 mol·dm⁻³ weak acid compare to a 0.1 mol·dm⁻³ strong acid of the same monoprotic kind?",
-          "answerMode": "text",
-          "expectedAnswer": "The weak acid has a HIGHER pH (less acidic) than the strong acid at the same concentration. This is because the weak acid only partially ionises, producing fewer H⁺ ions than the fully-ionised strong acid.",
+          "answerMode": "choice",
+          "expectedAnswer": "The weak acid has a higher pH — it ionises only partially, giving fewer H⁺.",
           "marks": 2,
           "explanation": "Same concentration, weak acid → less H⁺ → higher pH.",
           "errorSignals": [
             "ERR_STRONG_VS_WEAK_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The weak acid has a lower pH.",
+            "The weak acid has a higher pH — it ionises only partially, giving fewer H⁺.",
+            "They have the same pH at equal concentration."
+          ]
         },
         {
           "id": "L14.T1.A3.q15",
@@ -7770,14 +7960,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is H₂SO₄ a strong acid only for its FIRST ionisation?",
-          "answerMode": "text",
-          "expectedAnswer": "The first ionisation of H₂SO₄ (H₂SO₄ → H⁺ + HSO₄⁻) goes essentially to completion ⇒ strong. The second ionisation (HSO₄⁻ ⇌ H⁺ + SO₄²⁻) is only partial — HSO₄⁻ is a weak acid (Ka₂ ≈ 1.2 × 10⁻²). So H₂SO₄ behaves as a strong acid for the first H⁺ but a weak acid for the second.",
+          "answerMode": "choice",
+          "expectedAnswer": "The first ionisation goes to completion (strong); the second (HSO₄⁻) is only partial (weak).",
           "marks": 2,
           "explanation": "Diprotic acids often have very different Ka₁ and Ka₂. H₂SO₄: strong then weak.",
           "errorSignals": [
             "ERR_POLYPROTIC_STRENGTH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because both ionisations are equally strong.",
+            "Because the second ionisation is stronger than the first.",
+            "The first ionisation goes to completion (strong); the second (HSO₄⁻) is only partial (weak)."
+          ]
         },
         {
           "id": "L14.T1.A3.q17",
@@ -7785,14 +7980,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define Kb, the base dissociation constant.",
-          "answerMode": "text",
-          "expectedAnswer": "Kb is the equilibrium constant for the ionisation of a weak base in water: B + H₂O ⇌ BH⁺ + OH⁻. Kb = [BH⁺][OH⁻]/[B]. Large Kb ⇒ strong base; small Kb ⇒ weak base. (For NH₃: Kb = 1.8 × 10⁻⁵.)",
+          "answerMode": "choice",
+          "expectedAnswer": "The equilibrium constant for base ionisation: Kb = [BH⁺][OH⁻]/[B].",
           "marks": 3,
           "explanation": "Kb is the base equivalent of Ka. Similar form: products/reactant.",
           "errorSignals": [
             "ERR_KB_EXPRESSION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The equilibrium constant for base ionisation: Kb = [BH⁺][OH⁻]/[B].",
+            "Kb = [B]/([BH⁺][OH⁻]).",
+            "Kb is the concentration of OH⁻ produced."
+          ]
         },
         {
           "id": "L14.T1.A3.q18",
@@ -7800,14 +8000,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does ethanoic acid (CH₃COOH) not fully ionise in water, while HCl does?",
-          "answerMode": "text",
-          "expectedAnswer": "The conjugate base CH₃COO⁻ (acetate) is a relatively stable, weak base — it doesn't easily release H⁺ but is happy to recapture it (reverse reaction). So the equilibrium CH₃COOH ⇌ H⁺ + CH₃COO⁻ doesn't go to completion. For HCl, the conjugate base Cl⁻ is extremely weak (doesn't recapture H⁺), so the forward ionisation is irreversible. Conjugate base stability determines acid strength.",
+          "answerMode": "choice",
+          "expectedAnswer": "Its conjugate base (acetate) is a stable weak base that readily recaptures H⁺, so ionisation is partial.",
           "marks": 3,
           "explanation": "Acid strength tied to conjugate base stability. Strong conjugate base = weak acid; very weak conjugate base = strong acid.",
           "errorSignals": [
             "ERR_CONJUGATE_BASE_STABILITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because ethanoic acid is more concentrated than HCl.",
+            "Its conjugate base (acetate) is a stable weak base that readily recaptures H⁺, so ionisation is partial.",
+            "Because ethanoic acid has no ionisable hydrogen."
+          ]
         },
         {
           "id": "L14.T1.A3.q19",
@@ -7837,14 +8042,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is a concentrated weak acid NOT the same as a dilute strong acid?",
-          "answerMode": "text",
-          "expectedAnswer": "A concentrated weak acid has a HIGH AMOUNT of dissolved acid molecules but only PARTIAL ionisation, so [H⁺] is moderately high but [HA] is much higher. A dilute strong acid has FEW dissolved molecules but COMPLETE ionisation, so [HA] ≈ 0 and [H⁺] equals the (low) total concentration. The two solutions have very different equilibrium compositions and different [H⁺] values.",
+          "answerMode": "choice",
+          "expectedAnswer": "A concentrated weak acid has much acid but only partial ionisation; a dilute strong acid has little acid but full ionisation.",
           "marks": 3,
           "explanation": "Concentration (amount) and strength (extent of ionisation) are independent properties.",
           "errorSignals": [
             "ERR_STRONG_VS_CONCENTRATED"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "They are the same — both have the same [H⁺].",
+            "A concentrated weak acid is always more acidic than any strong acid.",
+            "A concentrated weak acid has much acid but only partial ionisation; a dilute strong acid has little acid but full ionisation."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -7883,14 +8093,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2021 Q7.1",
           "question": "What is the term for a solution of known concentration used in a titration?",
-          "answerMode": "text",
-          "expectedAnswer": "Standard solution.",
+          "answerMode": "choice",
+          "expectedAnswer": "A standard solution.",
           "marks": 1,
           "explanation": "Standard solution: known concentration, prepared from a primary standard. Used as the titrant.",
           "errorSignals": [
             "ERR_STANDARD_SOLUTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A standard solution.",
+            "The analyte.",
+            "The indicator."
+          ]
         },
         {
           "id": "L14.T1.A4.q02",
@@ -7955,15 +8170,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2024 Q7.1.4",
           "question": "Which INDICATOR would be BEST for a titration of Na₂CO₃ (weak base) with HCl (strong acid)? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Methyl orange (colour change pH 3.1–4.4). For a strong acid + weak base titration, the equivalence point pH is LESS than 7 (the salt formed is acidic). Methyl orange's colour change occurs in this acidic pH range, matching the equivalence point.",
+          "answerMode": "choice",
+          "expectedAnswer": "Methyl orange — the equivalence point of a strong acid + weak base is below pH 7.",
           "marks": 2,
           "explanation": "Strong acid + weak base titration: equiv pH < 7 ⇒ methyl orange (3.1–4.4) is suitable. Phenolphthalein (8.3–10) would not work.",
           "errorSignals": [
             "ERR_INDICATOR_SELECTION",
             "ERR_EQUIV_POINT_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Phenolphthalein, because the equivalence point is above 7.",
+            "Methyl orange — the equivalence point of a strong acid + weak base is below pH 7.",
+            "Litmus, because it works for all titrations."
+          ]
         },
         {
           "id": "L14.T1.A4.q06",
@@ -7971,14 +8191,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Which INDICATOR is suitable for a STRONG ACID + STRONG BASE titration (equivalence pH ≈ 7)?",
-          "answerMode": "text",
-          "expectedAnswer": "Either methyl orange (pH 3.1–4.4) OR phenolphthalein (pH 8.3–10) works because the pH transition near the equivalence point is sharp (jumps from ~3 to ~11 with one drop). However, for clearest visual change, BROMOTHYMOL BLUE (pH 6.0–7.6) is the most apt match.",
+          "answerMode": "choice",
+          "expectedAnswer": "Either methyl orange or phenolphthalein — the pH jump near the equivalence point is sharp.",
           "marks": 3,
           "explanation": "Strong-strong titration: vertical pH jump straddles 7 widely; many indicators work. Best: bromothymol blue at 6-7.6.",
           "errorSignals": [
             "ERR_INDICATOR_SELECTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Only methyl orange works.",
+            "Neither works; no indicator can be used at pH 7.",
+            "Either methyl orange or phenolphthalein — the pH jump near the equivalence point is sharp."
+          ]
         },
         {
           "id": "L14.T1.A4.q07",
@@ -7986,15 +8211,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Which INDICATOR is suitable for a WEAK ACID + STRONG BASE titration?",
-          "answerMode": "text",
-          "expectedAnswer": "Phenolphthalein (colour change pH 8.3–10). For weak acid + strong base, the salt formed has a slightly basic conjugate base ⇒ equivalence point pH > 7. Phenolphthalein matches this. Methyl orange would not work (changes too early, in the acidic region).",
+          "answerMode": "choice",
+          "expectedAnswer": "Phenolphthalein — the equivalence point of a weak acid + strong base is above pH 7.",
           "marks": 2,
           "explanation": "Weak acid + strong base: equivalence pH > 7 (basic salt) ⇒ phenolphthalein matches.",
           "errorSignals": [
             "ERR_INDICATOR_SELECTION",
             "ERR_EQUIV_POINT_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Phenolphthalein — the equivalence point of a weak acid + strong base is above pH 7.",
+            "Methyl orange, because the equivalence point is below 7.",
+            "Any indicator works equally well."
+          ]
         },
         {
           "id": "L14.T1.A4.q08",
@@ -8021,14 +8251,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2024 Q7.1.2",
           "question": "Is the pH of an Na₂CO₃ solution GREATER THAN or LESS THAN 7? Explain briefly.",
-          "answerMode": "text",
-          "expectedAnswer": "GREATER THAN 7. Na₂CO₃ is the salt of a strong base (NaOH) and a weak acid (H₂CO₃). In water, CO₃²⁻ undergoes hydrolysis: CO₃²⁻ + H₂O ⇌ HCO₃⁻ + OH⁻, producing OH⁻ ⇒ alkaline solution (pH > 7).",
+          "answerMode": "choice",
+          "expectedAnswer": "Greater than 7 — CO₃²⁻ (salt of a weak acid) hydrolyses to give OH⁻.",
           "marks": 1,
           "explanation": "Salt hydrolysis. Strong-base + weak-acid salt ⇒ basic solution.",
           "errorSignals": [
             "ERR_SALT_HYDROLYSIS_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Less than 7 — Na₂CO₃ is acidic.",
+            "Greater than 7 — CO₃²⁻ (salt of a weak acid) hydrolyses to give OH⁻.",
+            "Exactly 7 — all salts are neutral."
+          ]
         },
         {
           "id": "L14.T1.A4.q10",
@@ -8075,15 +8310,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q7.2.4",
           "question": "Continuing: what is the pH at the END POINT of an NH₃ + HCl titration? Justify.",
-          "answerMode": "text",
-          "expectedAnswer": "pH < 7 (acidic). NH₃ is a weak base, HCl is a strong acid; their salt NH₄Cl is acidic because NH₄⁺ is the conjugate acid of a weak base and undergoes hydrolysis: NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺, producing H⁺.",
+          "answerMode": "choice",
+          "expectedAnswer": "Less than 7 — NH₄Cl is acidic (NH₄⁺ is the conjugate acid of a weak base).",
           "marks": 3,
           "explanation": "Strong acid + weak base equiv ⇒ acidic salt ⇒ pH < 7.",
           "errorSignals": [
             "ERR_EQUIV_POINT_PH",
             "ERR_SALT_HYDROLYSIS_PH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Greater than 7 — the salt is basic.",
+            "Exactly 7 — acid and base neutralise completely.",
+            "Less than 7 — NH₄Cl is acidic (NH₄⁺ is the conjugate acid of a weak base)."
+          ]
         },
         {
           "id": "L14.T1.A4.q13",
@@ -8109,14 +8349,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What is the difference between the END POINT and the EQUIVALENCE POINT in a titration?",
-          "answerMode": "text",
-          "expectedAnswer": "EQUIVALENCE point: the point where exactly stoichiometrically equivalent amounts of acid and base have been mixed (n_acid × n_a = n_base × n_b). END point: where the indicator changes colour (visually observed). With a well-chosen indicator, the two should coincide (within experimental error).",
+          "answerMode": "choice",
+          "expectedAnswer": "Equivalence point = stoichiometrically equal amounts mixed; end point = where the indicator changes colour.",
           "marks": 3,
           "explanation": "Equivalence = stoichiometric. End point = observed (indicator). Choose indicator so they match.",
           "errorSignals": [
             "ERR_ENDPOINT_VS_EQUIV"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Equivalence point = stoichiometrically equal amounts mixed; end point = where the indicator changes colour.",
+            "They are the same thing.",
+            "End point = stoichiometric equality; equivalence = the colour change."
+          ]
         },
         {
           "id": "L14.T1.A4.q15",
@@ -8143,15 +8388,20 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 May/Jun 2023 Q7.2.2",
           "question": "If water is accidentally added to the BURETTE before the HCl titrant, what effect does this have on the calculated concentration of HCl?",
-          "answerMode": "text",
-          "expectedAnswer": "The calculated [HCl] would be LOWER than the actual value. Water dilutes the HCl in the burette, so MORE volume of (diluted) titrant is needed to reach the end point. The student calculates c = n/V using the larger V, giving a smaller c.",
+          "answerMode": "choice",
+          "expectedAnswer": "The calculated [HCl] would be too low — diluted titrant means more volume is needed.",
           "marks": 2,
           "explanation": "Wet burette: dilutes titrant ⇒ more volume needed ⇒ apparent [HCl] is lower than actual.",
           "errorSignals": [
             "ERR_BURETTE_WATER_EFFECT",
             "ERR_TITRATION_ERROR"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The calculated [HCl] would be too high.",
+            "The calculated [HCl] would be too low — diluted titrant means more volume is needed.",
+            "No effect — the burette is meant to hold water."
+          ]
         },
         {
           "id": "L14.T1.A4.q17",
@@ -8178,15 +8428,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner uses a wet conical flask (rinsed with water but not dried) for the analyte in a titration. Does this affect the titration result?",
-          "answerMode": "text",
-          "expectedAnswer": "NO. The water in the wet conical flask does NOT change the moles of analyte already in the flask — it just dilutes the analyte slightly. Since we calculate moles based on the analyte (c × V_pipette), and the dilution doesn't change those moles, the volume of titrant needed is unchanged. Result is unaffected.",
+          "answerMode": "choice",
+          "expectedAnswer": "No — the moles of analyte are unchanged; rinsing the flask with water doesn't affect the result.",
           "marks": 3,
           "explanation": "Wet conical flask: dilutes analyte but moles unchanged. End point determined by moles of analyte, not its volume in the flask.",
           "errorSignals": [
             "ERR_FLASK_WATER_EFFECT",
             "ERR_TITRATION_ERROR"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Yes — it dilutes the analyte and lowers the result.",
+            "Yes — the water reacts with the analyte.",
+            "No — the moles of analyte are unchanged; rinsing the flask with water doesn't affect the result."
+          ]
         },
         {
           "id": "L14.T1.A4.q19",
@@ -8212,14 +8467,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What does each piece of laboratory glassware do in a titration: (a) pipette; (b) burette; (c) conical (Erlenmeyer) flask?",
-          "answerMode": "text",
-          "expectedAnswer": "(a) Pipette: delivers a precise, fixed volume of the ANALYTE (the solution being titrated) into the conical flask. (b) Burette: holds and delivers the TITRANT (the standard solution) in measured, variable volumes. The volume used (titre) is read from the burette. (c) Conical flask: holds the analyte during the titration; its shape allows swirling without spilling.",
+          "answerMode": "choice",
+          "expectedAnswer": "Pipette: delivers a fixed volume of analyte; burette: delivers the titrant; conical flask: holds the analyte + indicator.",
           "marks": 3,
           "explanation": "Pipette → analyte (fixed). Burette → titrant (variable). Conical flask → mixing site.",
           "errorSignals": [
             "ERR_GLASSWARE_FUNCTION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Pipette: delivers a fixed volume of analyte; burette: delivers the titrant; conical flask: holds the analyte + indicator.",
+            "Pipette holds the titrant; burette delivers the analyte; flask measures pH.",
+            "All three measure the same fixed volume."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -8258,14 +8518,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define REACTION RATE.",
-          "answerMode": "text",
-          "expectedAnswer": "Reaction rate is the change in concentration of a reactant (decrease) or product (increase) per unit time, e.g. rate = −Δ[reactant]/Δt = +Δ[product]/Δt. SI unit: mol·dm⁻³·s⁻¹.",
+          "answerMode": "choice",
+          "expectedAnswer": "The change in concentration of a reactant or product per unit time.",
           "marks": 2,
           "explanation": "Rate = Δ[species]/Δt. Reactants: negative sign (consumed). Products: positive (formed). Always reported as positive.",
           "errorSignals": [
             "ERR_RATE_DEFINITION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The total amount of product formed in a reaction.",
+            "The change in concentration of a reactant or product per unit time.",
+            "The time taken to reach equilibrium."
+          ]
         },
         {
           "id": "L15.T1.A1.q02",
@@ -8273,14 +8538,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "State COLLISION THEORY of reaction rates.",
-          "answerMode": "text",
-          "expectedAnswer": "For a reaction to occur, particles must COLLIDE with: (1) sufficient kinetic energy (≥ activation energy, Ea), AND (2) the correct ORIENTATION. Only such 'effective' collisions lead to products. The rate of reaction depends on the FREQUENCY of effective collisions.",
+          "answerMode": "choice",
+          "expectedAnswer": "Particles must collide with sufficient energy (≥ Ea) AND the correct orientation.",
           "marks": 3,
           "explanation": "Three requirements: collision (frequency) + sufficient energy (≥ Ea) + correct orientation. Effective collisions ⇒ reaction.",
           "errorSignals": [
             "ERR_COLLISION_THEORY_INCOMPLETE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Particles react whenever they collide, regardless of energy or orientation.",
+            "Reactions occur when particles are heated, without any collisions.",
+            "Particles must collide with sufficient energy (≥ Ea) AND the correct orientation."
+          ]
         },
         {
           "id": "L15.T1.A1.q03",
@@ -8288,15 +8558,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does INCREASING THE CONCENTRATION of reactants affect the reaction rate? Explain using collision theory.",
-          "answerMode": "text",
-          "expectedAnswer": "Increasing concentration INCREASES the rate. More particles per unit volume ⇒ more frequent collisions per unit time ⇒ more effective collisions per second ⇒ faster rate.",
+          "answerMode": "choice",
+          "expectedAnswer": "Increases the rate — more particles per volume means more frequent collisions.",
           "marks": 3,
           "explanation": "More particles → more collisions → more effective collisions per second → higher rate.",
           "errorSignals": [
             "ERR_RATE_CONCENTRATION",
             "ERR_COLLISION_FREQUENCY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Increases the rate — more particles per volume means more frequent collisions.",
+            "Decreases the rate — crowded particles collide less.",
+            "No effect — concentration doesn't influence the rate."
+          ]
         },
         {
           "id": "L15.T1.A1.q04",
@@ -8304,14 +8579,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does INCREASING the SURFACE AREA of a solid reactant affect the reaction rate?",
-          "answerMode": "text",
-          "expectedAnswer": "Increasing surface area INCREASES the rate. More surface ⇒ more reactant particles exposed to the other reactant ⇒ more frequent collisions ⇒ faster rate. E.g. powdered solid reacts faster than the same mass as a single lump.",
+          "answerMode": "choice",
+          "expectedAnswer": "Increases the rate — more exposed particles means more frequent collisions.",
           "marks": 2,
           "explanation": "Powder > granules > lump. More surface area means more collision sites.",
           "errorSignals": [
             "ERR_RATE_SURFACE_AREA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Decreases the rate — more surface slows contact.",
+            "Increases the rate — more exposed particles means more frequent collisions.",
+            "No effect — surface area is irrelevant to rate."
+          ]
         },
         {
           "id": "L15.T1.A1.q05",
@@ -8319,15 +8599,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does INCREASING the TEMPERATURE affect the reaction rate? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Increasing T greatly INCREASES the rate. At higher T: (1) particles have more KE ⇒ collide more frequently AND (2) a LARGER FRACTION of particles have KE ≥ Ea ⇒ more effective collisions. The Ea-related effect dominates: typically rate doubles for every ~10°C increase.",
+          "answerMode": "choice",
+          "expectedAnswer": "Increases the rate — particles have more energy and a larger fraction exceed Ea.",
           "marks": 3,
           "explanation": "T ↑ → both frequency ↑ AND fraction with KE ≥ Ea ↑. Rate goes up sharply.",
           "errorSignals": [
             "ERR_RATE_TEMPERATURE",
             "ERR_T_VS_EA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Decreases the rate — heat disperses the particles.",
+            "Increases the rate only by raising the activation energy.",
+            "Increases the rate — particles have more energy and a larger fraction exceed Ea."
+          ]
         },
         {
           "id": "L15.T1.A1.q06",
@@ -8335,15 +8620,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "What is the role of a CATALYST in a reaction? How does it affect the rate?",
-          "answerMode": "text",
-          "expectedAnswer": "A catalyst provides an ALTERNATIVE REACTION PATHWAY with a LOWER activation energy (Ea). More particles can exceed the lower Ea ⇒ more effective collisions per second ⇒ faster rate. The catalyst is not consumed (regenerated at the end). It does NOT change ΔH or the equilibrium position, only the rate.",
+          "answerMode": "choice",
+          "expectedAnswer": "It provides an alternative pathway with lower activation energy, increasing the rate.",
           "marks": 3,
           "explanation": "Catalyst: alternative pathway, lower Ea, faster rate. Doesn't change equilibrium or ΔH.",
           "errorSignals": [
             "ERR_CATALYST_ROLE",
             "ERR_CATALYST_EA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "It provides an alternative pathway with lower activation energy, increasing the rate.",
+            "It increases the activation energy, slowing the reaction.",
+            "It increases the kinetic energy of the particles."
+          ]
         },
         {
           "id": "L15.T1.A1.q07",
@@ -8351,14 +8641,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does INCREASING the PRESSURE of a GASEOUS reaction affect the rate?",
-          "answerMode": "text",
-          "expectedAnswer": "Increasing pressure (at constant T) compresses the gas, INCREASING the concentration (more particles per unit volume) ⇒ more frequent collisions ⇒ faster rate. For solids and liquids, pressure has negligible effect.",
+          "answerMode": "choice",
+          "expectedAnswer": "Increases the rate — compressing the gas raises the concentration, so more collisions.",
           "marks": 2,
           "explanation": "Pressure ↑ ⇒ effective [gas] ↑ ⇒ more collisions ⇒ faster.",
           "errorSignals": [
             "ERR_RATE_PRESSURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Decreases the rate — higher pressure separates gas particles.",
+            "Increases the rate — compressing the gas raises the concentration, so more collisions.",
+            "No effect on gaseous reaction rates."
+          ]
         },
         {
           "id": "L15.T1.A1.q08",
@@ -8366,14 +8661,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What is ACTIVATION ENERGY (Ea)?",
-          "answerMode": "text",
-          "expectedAnswer": "Activation energy is the MINIMUM kinetic energy that colliding particles must have for a successful (effective) reaction to occur. It's the energy barrier between reactants and products. Below Ea, collisions bounce off without reacting.",
+          "answerMode": "choice",
+          "expectedAnswer": "The minimum kinetic energy colliding particles need for an effective (successful) collision.",
           "marks": 2,
           "explanation": "Ea: minimum energy for reaction. Sets the 'threshold' for effective collisions.",
           "errorSignals": [
             "ERR_ACTIVATION_ENERGY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The energy released when products form.",
+            "The average kinetic energy of all the particles.",
+            "The minimum kinetic energy colliding particles need for an effective (successful) collision."
+          ]
         },
         {
           "id": "L15.T1.A1.q09",
@@ -8381,15 +8681,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'A catalyst increases the kinetic energy of the reactant particles.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. A catalyst does NOT change the kinetic energy of the particles (KE depends on temperature). A catalyst provides a LOWER-Ea pathway, so more particles can exceed Ea with their existing KE. The Maxwell-Boltzmann distribution is unchanged.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — a catalyst lowers Ea; it doesn't change the particles' kinetic energy.",
           "marks": 3,
           "explanation": "Catalyst lowers Ea, doesn't raise KE. Common misconception.",
           "errorSignals": [
             "ERR_CATALYST_EA",
             "ERR_CATALYST_KE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — a catalyst lowers Ea; it doesn't change the particles' kinetic energy.",
+            "Correct — a catalyst raises the particles' kinetic energy.",
+            "Correct — a catalyst increases the system's temperature."
+          ]
         },
         {
           "id": "L15.T1.A1.q10",
@@ -8397,14 +8702,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does breaking a solid into smaller pieces speed up its reaction with a liquid?",
-          "answerMode": "text",
-          "expectedAnswer": "Breaking the solid into smaller pieces INCREASES its SURFACE AREA exposed to the liquid. More surface area ⇒ more contact between reactant particles ⇒ more frequent effective collisions per second ⇒ faster rate.",
+          "answerMode": "choice",
+          "expectedAnswer": "It increases the surface area exposed, so there are more collisions per second.",
           "marks": 3,
           "explanation": "Powder = much more surface area than lump. More reactive surface = faster reaction.",
           "errorSignals": [
             "ERR_RATE_SURFACE_AREA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because smaller pieces have a higher activation energy.",
+            "It increases the surface area exposed, so there are more collisions per second.",
+            "Because smaller pieces are at a higher temperature."
+          ]
         },
         {
           "id": "L15.T1.A1.q11",
@@ -8412,15 +8722,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A reaction takes 200 s at 25°C. At 35°C the same reaction (same amounts) takes about 100 s. Explain why.",
-          "answerMode": "text",
-          "expectedAnswer": "At higher temperature, particles have MORE KE, so MORE particles exceed the activation energy. The fraction of effective collisions increases ⇒ the reaction proceeds faster ⇒ shorter time. The rule of thumb is that rate roughly doubles per 10°C increase, which fits this data.",
+          "answerMode": "choice",
+          "expectedAnswer": "At higher T more particles exceed Ea, so a greater fraction of collisions are effective.",
           "marks": 3,
           "explanation": "T ↑ ⇒ exponentially more particles cross Ea ⇒ rate ↑. ~10°C ≈ ×2 rule.",
           "errorSignals": [
             "ERR_RATE_TEMPERATURE",
             "ERR_T_VS_EA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Higher temperature lowers the activation energy.",
+            "Higher temperature increases the amount of reactant.",
+            "At higher T more particles exceed Ea, so a greater fraction of collisions are effective."
+          ]
         },
         {
           "id": "L15.T1.A1.q12",
@@ -8428,14 +8743,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What does the term EFFECTIVE COLLISION mean?",
-          "answerMode": "text",
-          "expectedAnswer": "An effective collision is one that LEADS to a chemical reaction (i.e. forms products). The colliding particles must have KE ≥ Ea AND the correct orientation. Most collisions are NOT effective — they just bounce off.",
+          "answerMode": "choice",
+          "expectedAnswer": "A collision that leads to a reaction (KE ≥ Ea and correct orientation).",
           "marks": 2,
           "explanation": "Effective collision = enough energy AND correct orientation. Most collisions are ineffective.",
           "errorSignals": [
             "ERR_EFFECTIVE_COLLISION"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A collision that leads to a reaction (KE ≥ Ea and correct orientation).",
+            "Any collision between two particles.",
+            "A collision that bounces particles apart without reacting."
+          ]
         },
         {
           "id": "L15.T1.A1.q13",
@@ -8443,8 +8763,8 @@
           "gate": "A",
           "source": "fresh",
           "question": "A reaction: 2HCl(aq) + Mg(s) → MgCl₂(aq) + H₂(g). Predict the EFFECT on the rate of (a) doubling [HCl]; (b) using Mg powder instead of a strip; (c) heating the system.",
-          "answerMode": "text",
-          "expectedAnswer": "(a) Doubles (or roughly doubles) the rate — more frequent collisions between HCl and Mg. (b) Increases the rate substantially — much greater surface area on Mg. (c) Increases the rate — higher KE, more particles above Ea.",
+          "answerMode": "choice",
+          "expectedAnswer": "(a) doubling [HCl] → faster; (b) Mg powder → much faster; (c) heating → faster.",
           "marks": 3,
           "explanation": "Three factors: concentration, surface area, temperature. All increase rate when increased.",
           "errorSignals": [
@@ -8452,7 +8772,12 @@
             "ERR_RATE_SURFACE_AREA",
             "ERR_RATE_TEMPERATURE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "(a) faster; (b) slower (powder reacts less); (c) faster.",
+            "(a) doubling [HCl] → faster; (b) Mg powder → much faster; (c) heating → faster.",
+            "(a) no change; (b) faster; (c) slower."
+          ]
         },
         {
           "id": "L15.T1.A1.q14",
@@ -8460,15 +8785,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'Doubling the concentration of a reactant always doubles the rate.' Is this strictly correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Not strictly — it depends on the reaction order. If the reaction is FIRST ORDER in that reactant, doubling concentration doubles the rate. If SECOND order, doubling quadruples it. If ZERO order, no change. The qualitative direction (more concentration → faster) is right, but the exact factor depends on order. In CAPS, first-order behaviour is the usual assumption.",
+          "answerMode": "choice",
+          "expectedAnswer": "Not strictly — it depends on the reaction order with respect to that reactant.",
           "marks": 3,
           "explanation": "Rate ∝ [reactant]ⁿ. n = 1: doubles. n = 2: quadruples. n = 0: unchanged.",
           "errorSignals": [
             "ERR_RATE_CONCENTRATION",
             "ERR_REACTION_ORDER"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — rate is always directly proportional to concentration.",
+            "Incorrect — concentration never affects the rate.",
+            "Not strictly — it depends on the reaction order with respect to that reactant."
+          ]
         },
         {
           "id": "L15.T1.A1.q15",
@@ -8477,14 +8807,19 @@
           "source": "lifted-from-paper",
           "source_ref": "P2 reaction rate paper-style (representative)",
           "question": "Two reactions with the same Ea proceed at different temperatures: 25°C and 45°C. At which temperature do MORE particles have KE ≥ Ea? Why?",
-          "answerMode": "text",
-          "expectedAnswer": "At 45°C. Higher temperature ⇒ the Maxwell-Boltzmann distribution of KE shifts to higher energies AND broadens, so a larger fraction of particles have KE ≥ Ea. This is the main reason rate increases sharply with temperature.",
+          "answerMode": "choice",
+          "expectedAnswer": "At 45 °C — higher temperature shifts the energy distribution so more particles exceed Ea.",
           "marks": 3,
           "explanation": "T ↑: distribution shifts right, more particles past Ea ⇒ more effective collisions.",
           "errorSignals": [
             "ERR_T_VS_EA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "At 45 °C — higher temperature shifts the energy distribution so more particles exceed Ea.",
+            "At 25 °C — lower temperature concentrates the energy.",
+            "Equal — temperature doesn't affect the energy distribution."
+          ]
         },
         {
           "id": "L15.T1.A1.q16",
@@ -8492,15 +8827,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Sketch (or describe) the Maxwell-Boltzmann distribution at two temperatures (T₁ < T₂) and indicate the activation energy Ea.",
-          "answerMode": "text",
-          "expectedAnswer": "Description: Both curves are bell-shaped, peaking and tailing off at high KE. At higher T₂: the curve is BROADER (shifted to the right and flatter). Mark Ea on the x-axis. The AREA UNDER the curve to the right of Ea represents the fraction of particles with KE ≥ Ea — larger area at T₂ than T₁.",
+          "answerMode": "choice",
+          "expectedAnswer": "At higher T₂ the curve is broader and shifted right, so more particles lie beyond Ea.",
           "marks": 3,
           "explanation": "Maxwell-Boltzmann: shifts right and broadens at higher T. Fraction past Ea increases.",
           "errorSignals": [
             "ERR_MAXWELL_BOLTZMANN",
             "ERR_T_VS_EA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "At higher T₂ the curve shifts left, with fewer particles above Ea.",
+            "At higher T₂ the curve is broader and shifted right, so more particles lie beyond Ea.",
+            "Both curves are identical; only Ea moves."
+          ]
         },
         {
           "id": "L15.T1.A1.q17",
@@ -8508,14 +8848,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Explain WHY a CATALYST does NOT change the EQUILIBRIUM position.",
-          "answerMode": "text",
-          "expectedAnswer": "A catalyst lowers the activation energy of BOTH the forward AND the reverse reactions by the SAME amount. So it increases both rates equally, leaving the equilibrium constant Kc and the equilibrium concentrations unchanged. It only accelerates the approach TO equilibrium.",
+          "answerMode": "choice",
+          "expectedAnswer": "It lowers Ea of the forward AND reverse reactions equally, so both rates rise the same.",
           "marks": 3,
           "explanation": "Catalyst lowers Ea equally on both sides. Same Kc, same equilibrium position, just faster to get there.",
           "errorSignals": [
             "ERR_CATALYST_EQUILIBRIUM"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because it only speeds up the forward reaction.",
+            "Because it increases the yield of products.",
+            "It lowers Ea of the forward AND reverse reactions equally, so both rates rise the same."
+          ]
         },
         {
           "id": "L15.T1.A1.q18",
@@ -8544,14 +8889,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does combustion of paper burn faster when the paper is shredded vs. as a single sheet?",
-          "answerMode": "text",
-          "expectedAnswer": "Shredded paper has much greater surface area exposed to oxygen. More surface area ⇒ more contact between paper (fuel) and O₂ (reactant) ⇒ more collisions per second ⇒ faster combustion. (Same reason flour dust can explode but a flour bag won't.)",
+          "answerMode": "choice",
+          "expectedAnswer": "Shredding greatly increases the surface area exposed to oxygen, so it burns faster.",
           "marks": 2,
           "explanation": "Surface area effect again. Powders/finely divided solids react MUCH faster than bulk.",
           "errorSignals": [
             "ERR_RATE_SURFACE_AREA"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Shredding greatly increases the surface area exposed to oxygen, so it burns faster.",
+            "Because shredded paper has a lower activation energy.",
+            "Because shredded paper contains more fuel."
+          ]
         },
         {
           "id": "L15.T1.A1.q20",
@@ -8559,14 +8909,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "List THREE factors that can be changed to INCREASE the rate of a reaction.",
-          "answerMode": "text",
-          "expectedAnswer": "Any three of: (1) Increase concentration of reactants (or pressure for gases); (2) Increase temperature; (3) Increase surface area of solids (e.g. powder vs lump); (4) Add a catalyst; (5) Increase intensity of light (for photochemical reactions).",
+          "answerMode": "choice",
+          "expectedAnswer": "Increase concentration (or pressure), increase temperature, increase surface area.",
           "marks": 3,
           "explanation": "Five typical factors. CAPS expects four main ones (concentration, T, surface area, catalyst).",
           "errorSignals": [
             "ERR_RATE_FACTORS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Decrease temperature, decrease concentration, decrease surface area.",
+            "Increase concentration (or pressure), increase temperature, increase surface area.",
+            "Add more product, increase the volume, cool the system."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -8606,14 +8961,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Define AVERAGE RATE and INSTANTANEOUS RATE of a reaction.",
-          "answerMode": "text",
-          "expectedAnswer": "Average rate: change in concentration of a species over a TIME INTERVAL: Δ[species]/Δt. Calculated from the slope of a SECANT line between two points on a concentration-time graph. Instantaneous rate: rate at a SPECIFIC INSTANT, calculated from the slope of the TANGENT line at that point on the curve.",
+          "answerMode": "choice",
+          "expectedAnswer": "Average rate is over a time interval (secant); instantaneous rate is at a point (tangent).",
           "marks": 3,
           "explanation": "Average = secant (over an interval). Instantaneous = tangent (at a point).",
           "errorSignals": [
             "ERR_AVERAGE_VS_INSTANTANEOUS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Average rate is at a single instant; instantaneous rate is over an interval.",
+            "They are the same thing measured in different units.",
+            "Average rate is over a time interval (secant); instantaneous rate is at a point (tangent)."
+          ]
         },
         {
           "id": "L15.T1.A2.q02",
@@ -8672,14 +9032,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "In a reaction producing a gas, the volume of gas collected over time is tracked. How would you calculate the average rate of gas production?",
-          "answerMode": "text",
-          "expectedAnswer": "Average rate = ΔV/Δt (volume change per time interval) — typically in cm³·s⁻¹ or dm³·min⁻¹. Alternatively, convert to moles using PV = nRT (or at STP, 1 mol of gas = 24 dm³ at 25°C) and report in mol·dm⁻³·s⁻¹.",
+          "answerMode": "choice",
+          "expectedAnswer": "Average rate = ΔV/Δt (gas volume change per time interval).",
           "marks": 2,
           "explanation": "Volume-vs-time data: rate = ΔV/Δt. Convert to moles if needed.",
           "errorSignals": [
             "ERR_RATE_VOLUME"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Average rate = ΔV/Δt (gas volume change per time interval).",
+            "Total gas volume ÷ total reactant mass.",
+            "The final gas volume only."
+          ]
         },
         {
           "id": "L15.T1.A2.q06",
@@ -8705,14 +9070,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "On a concentration-time graph, why does the slope (rate) get LESS STEEP as the reaction progresses?",
-          "answerMode": "text",
-          "expectedAnswer": "As the reaction proceeds, the reactant concentration decreases. Lower [reactant] ⇒ fewer collisions per unit time ⇒ lower rate. The slope of [reactant]-vs-time flattens out as [reactant] approaches zero (or its equilibrium value). For [product] vs time, the slope also decreases as the reaction slows down.",
+          "answerMode": "choice",
+          "expectedAnswer": "Reactant concentration falls as the reaction proceeds, so fewer collisions and a lower rate.",
           "marks": 3,
           "explanation": "Rate ∝ [reactant] (for first-order at least). [reactant] ↓ as reaction proceeds ⇒ rate ↓.",
           "errorSignals": [
             "ERR_RATE_SLOPE_CHANGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because the temperature drops as the reaction proceeds.",
+            "Reactant concentration falls as the reaction proceeds, so fewer collisions and a lower rate.",
+            "Because the activation energy increases over time."
+          ]
         },
         {
           "id": "L15.T1.A2.q08",
@@ -8720,14 +9090,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "On a concentration-time graph, what does a HORIZONTAL portion represent?",
-          "answerMode": "text",
-          "expectedAnswer": "A horizontal portion (zero slope) means the concentration is not changing — either the reaction has reached EQUILIBRIUM (for a reversible reaction) or has COMPLETED (irreversible, all reactant consumed). The rate of net change is zero.",
+          "answerMode": "choice",
+          "expectedAnswer": "The concentration is constant — the reaction is complete (or at equilibrium).",
           "marks": 2,
           "explanation": "Flat line = rate = 0. Either equilibrium reached or reaction complete.",
           "errorSignals": [
             "ERR_HORIZONTAL_GRAPH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The reaction is at its fastest rate.",
+            "The reactant concentration is increasing.",
+            "The concentration is constant — the reaction is complete (or at equilibrium)."
+          ]
         },
         {
           "id": "L15.T1.A2.q09",
@@ -8752,15 +9127,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is the rate of a reaction usually GREATEST at the START?",
-          "answerMode": "text",
-          "expectedAnswer": "At the start, reactant concentrations are at their HIGHEST. High concentration ⇒ many particles per unit volume ⇒ many collisions per second ⇒ many effective collisions per second ⇒ fast rate. As reaction proceeds, concentration decreases and so does the rate.",
+          "answerMode": "choice",
+          "expectedAnswer": "Reactant concentrations are highest at the start, giving the most collisions per second.",
           "marks": 2,
           "explanation": "Initial rate is fastest because reactant concentrations are highest.",
           "errorSignals": [
             "ERR_RATE_CONCENTRATION",
             "ERR_INITIAL_RATE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Reactant concentrations are highest at the start, giving the most collisions per second.",
+            "Because the temperature is highest at the start.",
+            "Because products catalyse the early reaction."
+          ]
         },
         {
           "id": "L15.T1.A2.q11",
@@ -8785,14 +9165,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner reports the rate of a reactant's CONSUMPTION as −0.05 mol·dm⁻³·s⁻¹. What's wrong with this answer?",
-          "answerMode": "text",
-          "expectedAnswer": "The rate is conventionally reported as a POSITIVE value, regardless of whether it's the rate of consumption (reactant) or formation (product). The negative sign comes from −Δ[reactant]/Δt = positive. The learner should report 0.05 mol·dm⁻³·s⁻¹ (positive).",
+          "answerMode": "choice",
+          "expectedAnswer": "Rate is reported as a positive value — the negative sign should be dropped.",
           "marks": 2,
           "explanation": "Rate convention: always positive. The negative-sign is absorbed when defining rate of consumption.",
           "errorSignals": [
             "ERR_AVG_RATE_SIGN"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Nothing — consumption rates are always negative.",
+            "Rate is reported as a positive value — the negative sign should be dropped.",
+            "The units are wrong; rate has no units."
+          ]
         },
         {
           "id": "L15.T1.A2.q13",
@@ -8818,14 +9203,19 @@
           "gate": "B",
           "source": "fresh",
           "question": "For 2A + B → 3C in a 1 dm³ container: if 0.30 mol of C forms in 60 s, what are the rates of (a) A consumption, (b) B consumption, (c) C formation?",
-          "answerMode": "text",
-          "expectedAnswer": "[C] formed = 0.30 mol·dm⁻³. Rate of C formation = 0.30/60 = 5.0 × 10⁻³ mol·dm⁻³·s⁻¹. (a) Rate(A) = (2/3) × Rate(C) = (2/3)(5.0×10⁻³) ≈ 3.3 × 10⁻³ mol·dm⁻³·s⁻¹. (b) Rate(B) = (1/3) × Rate(C) ≈ 1.7 × 10⁻³ mol·dm⁻³·s⁻¹.",
+          "answerMode": "choice",
+          "expectedAnswer": "Rate(C) = 5.0×10⁻³; Rate(A) = 3.3×10⁻³; Rate(B) = 1.7×10⁻³ mol·dm⁻³·s⁻¹.",
           "marks": 4,
           "explanation": "Apply stoichiometric ratios. Rate ratios = coefficient ratios.",
           "errorSignals": [
             "ERR_STOICH_RATE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "All three rates equal 5.0×10⁻³ mol·dm⁻³·s⁻¹.",
+            "Rate(A) = 1.7×10⁻³; Rate(B) = 3.3×10⁻³ (coefficients swapped).",
+            "Rate(C) = 5.0×10⁻³; Rate(A) = 3.3×10⁻³; Rate(B) = 1.7×10⁻³ mol·dm⁻³·s⁻¹."
+          ]
         },
         {
           "id": "L15.T1.A2.q15",
@@ -8833,15 +9223,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "On a graph of [product] vs time, the curve starts at zero, rises sharply, and levels off horizontally. What does each phase tell you about the rate?",
-          "answerMode": "text",
-          "expectedAnswer": "Rising sharply (steep slope) at t = 0: HIGH rate (high reactant concentration). Curve flattening: rate is DECREASING (reactant being consumed). Horizontal final part: rate ≈ 0 (reaction complete or at equilibrium).",
+          "answerMode": "choice",
+          "expectedAnswer": "Steep rise = high rate; flattening = decreasing rate; horizontal = reaction complete (zero rate).",
           "marks": 3,
           "explanation": "Slope = rate. Steeper = faster. Flat = stopped/equilibrium.",
           "errorSignals": [
             "ERR_HORIZONTAL_GRAPH",
             "ERR_RATE_SLOPE_CHANGE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Steep rise = high rate; flattening = decreasing rate; horizontal = reaction complete (zero rate).",
+            "Steep = slow rate; flattening = increasing rate; horizontal = fastest.",
+            "The whole curve shows a constant rate."
+          ]
         },
         {
           "id": "L15.T1.A2.q16",
@@ -8867,14 +9262,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why are rates often reported using INITIAL RATES in experiments?",
-          "answerMode": "text",
-          "expectedAnswer": "At t = 0, only the forward reaction occurs (no products yet, so reverse rate = 0). The initial rate is straightforward to measure and depends only on the initial concentrations and conditions. Initial rates allow comparison between experiments and reveal the rate law (e.g. how rate depends on [reactant]).",
+          "answerMode": "choice",
+          "expectedAnswer": "At t = 0 only the forward reaction occurs, and the rate depends on the known initial concentrations.",
           "marks": 3,
           "explanation": "Initial rate: only forward direction active. Clean dependence on initial conditions.",
           "errorSignals": [
             "ERR_INITIAL_RATE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because the reaction is slowest at the start.",
+            "At t = 0 only the forward reaction occurs, and the rate depends on the known initial concentrations.",
+            "Because products are at their highest at t = 0."
+          ]
         },
         {
           "id": "L15.T1.A2.q18",
@@ -8900,14 +9300,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Sketch (or describe) the shape of a concentration-vs-time graph for a REACTANT in an irreversible reaction.",
-          "answerMode": "text",
-          "expectedAnswer": "Starts at the initial reactant concentration on the y-axis. Decreases over time; initially STEEP (fast rate due to high [reactant]) and gradually LESS STEEP (slowing as concentration drops). Approaches zero asymptotically (or goes to zero at completion). Curve is concave-up (decreasing curvature).",
+          "answerMode": "choice",
+          "expectedAnswer": "Starts high, decreases — steep at first then less steep — and levels off near zero.",
           "marks": 3,
           "explanation": "Typical exponential-decay-like shape for reactants. Initially steep, gradually flattens.",
           "errorSignals": [
             "ERR_REACTANT_GRAPH_SHAPE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Starts at zero and rises steadily over time.",
+            "A horizontal line — the reactant concentration doesn't change.",
+            "Starts high, decreases — steep at first then less steep — and levels off near zero."
+          ]
         },
         {
           "id": "L15.T1.A2.q20",
@@ -8958,14 +9363,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Name the THREE types of intermolecular forces (IMFs) covered in CAPS Physical Sciences.",
-          "answerMode": "text",
-          "expectedAnswer": "(1) LONDON forces (also called dispersion forces or instantaneous dipole-induced dipole forces); (2) DIPOLE-DIPOLE forces (between permanent dipoles in polar molecules); (3) HYDROGEN BONDING (a special, strong dipole-dipole between an H attached to N, O or F and another N/O/F).",
+          "answerMode": "choice",
+          "expectedAnswer": "London (dispersion), dipole-dipole, and hydrogen bonding.",
           "marks": 3,
           "explanation": "London (in all molecules), dipole-dipole (polar molecules), hydrogen bonding (H attached to N/O/F).",
           "errorSignals": [
             "ERR_IMF_TYPES"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "London (dispersion), dipole-dipole, and hydrogen bonding.",
+            "Ionic, covalent, and metallic bonds.",
+            "London, dipole-dipole, and ionic bonding."
+          ]
         },
         {
           "id": "L16.T1.A1.q02",
@@ -8994,15 +9404,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "What intermolecular forces are present in liquid CH₄ (methane)?",
-          "answerMode": "text",
-          "expectedAnswer": "Only LONDON (dispersion) forces. CH₄ is a non-polar molecule (symmetric tetrahedral C-H bonds, no net dipole) — so no dipole-dipole forces. H is bonded to C (not N/O/F) — so no hydrogen bonding. Just London forces between methane molecules.",
+          "answerMode": "choice",
+          "expectedAnswer": "London (dispersion) forces only — CH₄ is non-polar.",
           "marks": 2,
           "explanation": "Non-polar tetrahedral methane: London only.",
           "errorSignals": [
             "ERR_NONPOLAR_IMF",
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "London + dipole-dipole (CH₄ is polar).",
+            "London (dispersion) forces only — CH₄ is non-polar.",
+            "Hydrogen bonding (H bonded to C)."
+          ]
         },
         {
           "id": "L16.T1.A1.q04",
@@ -9010,15 +9425,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "What intermolecular forces are present in liquid HCl?",
-          "answerMode": "text",
-          "expectedAnswer": "London forces AND dipole-dipole forces. HCl is a POLAR molecule (Cl is more electronegative than H, so the molecule has a permanent dipole). However, H is bonded to Cl (not N/O/F), so NO hydrogen bonding.",
+          "answerMode": "choice",
+          "expectedAnswer": "London + dipole-dipole (HCl is polar, but Cl doesn't allow H-bonding).",
           "marks": 3,
           "explanation": "Polar molecules have London + dipole-dipole. H-bonding requires H on N/O/F — Cl doesn't qualify in CAPS.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS",
             "ERR_POLAR_IMF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "London + dipole-dipole + hydrogen bonding.",
+            "London only (HCl is non-polar).",
+            "London + dipole-dipole (HCl is polar, but Cl doesn't allow H-bonding)."
+          ]
         },
         {
           "id": "L16.T1.A1.q05",
@@ -9026,14 +9446,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "What intermolecular forces are present in liquid NH₃ (ammonia)?",
-          "answerMode": "text",
-          "expectedAnswer": "London + dipole-dipole + HYDROGEN BONDING. NH₃ is polar (N pulls electron density), and H is bonded to N — so hydrogen bonding occurs (N-H...N type).",
+          "answerMode": "choice",
+          "expectedAnswer": "London + dipole-dipole + hydrogen bonding (N-H allows H-bonding).",
           "marks": 3,
           "explanation": "Polar + H bonded to N ⇒ all three IMFs. H-bonding is the strongest.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "London + dipole-dipole + hydrogen bonding (N-H allows H-bonding).",
+            "London + dipole-dipole only (no H-bonding).",
+            "London forces only."
+          ]
         },
         {
           "id": "L16.T1.A1.q06",
@@ -9041,14 +9466,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A student says: 'All POLAR molecules have hydrogen bonding.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. Polar molecules have dipole-dipole forces. Hydrogen bonding additionally requires an H atom bonded DIRECTLY to N, O, or F. For example, HCl is polar but does not have H-bonding (H is on Cl, not N/O/F). H₂S is polar but does not H-bond (H is on S).",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — H-bonding also needs an H bonded directly to N, O, or F.",
           "marks": 3,
           "explanation": "Polar ⇒ dipole-dipole. H-bonding requires the H-on-N/O/F structural feature in addition.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — every polar molecule hydrogen-bonds.",
+            "Incorrect — H-bonding also needs an H bonded directly to N, O, or F.",
+            "Correct — polarity and hydrogen bonding are the same thing."
+          ]
         },
         {
           "id": "L16.T1.A1.q07",
@@ -9056,15 +9486,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "A student says: 'Non-polar molecules don't have any intermolecular forces.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. ALL molecules (polar or non-polar) have LONDON (dispersion) forces. These arise from temporary fluctuations in electron distribution. Polar molecules ADDITIONALLY have dipole-dipole; H-bonders have H-bonding too. But London is universal.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — all molecules have London (dispersion) forces.",
           "marks": 3,
           "explanation": "London is in EVERY molecule. Non-polar molecules have only London (no dipole-dipole or H-bonding).",
           "errorSignals": [
             "ERR_NONPOLAR_IMF",
             "ERR_LONDON_UNIVERSAL"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Correct — non-polar molecules have no intermolecular forces.",
+            "Correct — only polar molecules experience London forces.",
+            "Incorrect — all molecules have London (dispersion) forces."
+          ]
         },
         {
           "id": "L16.T1.A1.q08",
@@ -9072,8 +9507,8 @@
           "gate": "A",
           "source": "fresh",
           "question": "Identify the IMFs present in each: (a) Cl₂; (b) H₂O; (c) CH₃OH; (d) CO₂.",
-          "answerMode": "text",
-          "expectedAnswer": "(a) Cl₂: London only (non-polar, symmetric); (b) H₂O: London + dipole-dipole + hydrogen bonding (H on O); (c) CH₃OH (methanol): London + dipole-dipole + hydrogen bonding (H on O of -OH); (d) CO₂: London only (linear, non-polar — although C=O bonds are polar, the symmetric linear shape cancels the net dipole).",
+          "answerMode": "choice",
+          "expectedAnswer": "Cl₂: London; H₂O: London+dipole+H-bond; CH₃OH: London+dipole+H-bond; CO₂: London only.",
           "marks": 4,
           "explanation": "Check polarity (shape matters!) + check H on N/O/F. CO₂ is a classic non-polar despite polar bonds.",
           "errorSignals": [
@@ -9081,7 +9516,12 @@
             "ERR_HBONDING_REQUIREMENTS",
             "ERR_SHAPE_POLARITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Cl₂: London; H₂O: London+dipole+H-bond; CH₃OH: London+dipole+H-bond; CO₂: London only.",
+            "Cl₂: dipole-dipole; H₂O: London only; CH₃OH: London only; CO₂: H-bonding.",
+            "All four have hydrogen bonding."
+          ]
         },
         {
           "id": "L16.T1.A1.q09",
@@ -9089,14 +9529,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Which of the following CAN form hydrogen bonds with itself: CH₃OH, CH₃Br, CH₃F, CH₃NH₂, CH₃COOH?",
-          "answerMode": "text",
-          "expectedAnswer": "CH₃OH (alcohol; H on O), CH₃NH₂ (amine; H on N), and CH₃COOH (carboxylic acid; H on O of -COOH) can form H-bonds. CH₃Br: H bonded to C, not N/O/F. CH₃F: H bonded to C (the F is not bonded to H); doesn't H-bond with itself, although CH₃F can ACCEPT H-bonds from H-bond donors via F.",
+          "answerMode": "choice",
+          "expectedAnswer": "CH₃OH, CH₃NH₂, and CH₃COOH (each has H bonded to O or N).",
           "marks": 4,
           "explanation": "H-bond donor needs H bonded to N/O/F. Check each structure for such an H.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "CH₃OH, CH₃F, and CH₃Br.",
+            "CH₃OH, CH₃NH₂, and CH₃COOH (each has H bonded to O or N).",
+            "All five can hydrogen bond with themselves."
+          ]
         },
         {
           "id": "L16.T1.A1.q10",
@@ -9125,14 +9570,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why do LONDON forces increase in strength as the molecule grows larger?",
-          "answerMode": "text",
-          "expectedAnswer": "London forces arise from temporary, instantaneous dipoles created by electron movement. Larger molecules have MORE electrons (more polarisable) AND more SURFACE AREA for contact between molecules ⇒ stronger and more numerous temporary dipoles ⇒ stronger London forces overall.",
+          "answerMode": "choice",
+          "expectedAnswer": "Larger molecules have more electrons (more polarisable) and more surface contact.",
           "marks": 3,
           "explanation": "More electrons + more surface contact ⇒ stronger London. Long alkanes can have very strong total London despite being non-polar.",
           "errorSignals": [
             "ERR_LONDON_SIZE_DEPENDENCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because larger molecules are more polar.",
+            "Because larger molecules have more hydrogen bonds.",
+            "Larger molecules have more electrons (more polarisable) and more surface contact."
+          ]
         },
         {
           "id": "L16.T1.A1.q12",
@@ -9140,15 +9590,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Determine the IMFs in liquid CH₃CHO (ethanal/acetaldehyde).",
-          "answerMode": "text",
-          "expectedAnswer": "London + dipole-dipole. The C=O bond is polar (O more electronegative than C), and the asymmetric shape gives a net dipole, so the molecule is polar. However, the H atoms are bonded to C, NOT to N/O/F, so NO hydrogen bonding (in the classical sense).",
+          "answerMode": "choice",
+          "expectedAnswer": "London + dipole-dipole (polar C=O, but no H on O ⇒ no H-bonding).",
           "marks": 3,
           "explanation": "Aldehyde: polar (C=O dipole), but no H-on-O so no H-bonding.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS",
             "ERR_POLAR_IMF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "London + dipole-dipole (polar C=O, but no H on O ⇒ no H-bonding).",
+            "London + dipole-dipole + hydrogen bonding.",
+            "London only (ethanal is non-polar)."
+          ]
         },
         {
           "id": "L16.T1.A1.q13",
@@ -9156,14 +9611,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does HF form unusually strong hydrogen bonds?",
-          "answerMode": "text",
-          "expectedAnswer": "F is the most electronegative atom; the H-F bond is very polar (H carries a large δ+ and F a large δ−). This creates very strong attraction between F (with its lone pairs) on one molecule and the H on another. So H-bonding in HF is exceptionally strong, leading to HF's anomalously high boiling point (~20°C) for a small molecule.",
+          "answerMode": "choice",
+          "expectedAnswer": "F is the most electronegative atom, so the H-F bond is very polar.",
           "marks": 2,
           "explanation": "Strongest electronegativity difference + small atomic size of F ⇒ very strong H-bonds.",
           "errorSignals": [
             "ERR_HBONDING_STRENGTH"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because HF is a very large, heavy molecule.",
+            "F is the most electronegative atom, so the H-F bond is very polar.",
+            "Because fluorine has many lone pairs to share."
+          ]
         },
         {
           "id": "L16.T1.A1.q14",
@@ -9171,15 +9631,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Identify the IMFs present between two molecules of CH₃OCH₃ (dimethyl ether).",
-          "answerMode": "text",
-          "expectedAnswer": "London + dipole-dipole. The C-O-C structure has a net dipole (O carries δ−, the alkyl C's have δ+), so the molecule is polar ⇒ dipole-dipole. The H atoms are bonded to C, not to O directly — so NO hydrogen bonding within ether molecules. (Note: ethers can act as H-bond ACCEPTORS for water etc., but pure ether doesn't self-H-bond.)",
+          "answerMode": "choice",
+          "expectedAnswer": "London + dipole-dipole (polar C-O-C, but no O-H ⇒ no H-bonding).",
           "marks": 3,
           "explanation": "Ether: polar molecule, but no H-on-O ⇒ no self-H-bonding. London + dipole-dipole.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS",
             "ERR_POLAR_IMF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "London + dipole-dipole + hydrogen bonding.",
+            "London only (the ether is non-polar).",
+            "London + dipole-dipole (polar C-O-C, but no O-H ⇒ no H-bonding)."
+          ]
         },
         {
           "id": "L16.T1.A1.q15",
@@ -9187,14 +9652,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner draws a hydrogen bond between two CH₃Cl molecules. Is this correct? Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect. CH₃Cl is a polar molecule, but the H atoms are bonded to C (not to N/O/F). Hydrogen bonding requires an H directly bonded to N, O, or F. So CH₃Cl does NOT form hydrogen bonds; only London + dipole-dipole interactions are present.",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — the H atoms are bonded to C, not to N/O/F, so no H-bonding.",
           "marks": 2,
           "explanation": "H-on-Cl or H-on-C doesn't qualify for H-bonding in CAPS.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — the H atoms are bonded to C, not to N/O/F, so no H-bonding.",
+            "Correct — CH₃Cl is polar, so it hydrogen bonds.",
+            "Correct — chlorine allows hydrogen bonding like F."
+          ]
         },
         {
           "id": "L16.T1.A1.q16",
@@ -9202,14 +9672,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "List the IMFs in propan-1-ol (CH₃CH₂CH₂OH).",
-          "answerMode": "text",
-          "expectedAnswer": "London + dipole-dipole + HYDROGEN BONDING. The -OH group provides H bonded to O ⇒ H-bonding. The molecule is also polar ⇒ dipole-dipole. London forces present in all molecules.",
+          "answerMode": "choice",
+          "expectedAnswer": "London + dipole-dipole + hydrogen bonding (the -OH provides H on O).",
           "marks": 3,
           "explanation": "Alcohol: -OH ⇒ H-bonding capable. All three IMFs present.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "London + dipole-dipole only (no H-bonding).",
+            "London + dipole-dipole + hydrogen bonding (the -OH provides H on O).",
+            "London forces only."
+          ]
         },
         {
           "id": "L16.T1.A1.q17",
@@ -9217,15 +9692,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does CO₂ (linear) have NO net dipole moment despite having polar C=O bonds?",
-          "answerMode": "text",
-          "expectedAnswer": "CO₂ has TWO C=O bond dipoles pointing in OPPOSITE directions (O=C=O linear structure). The two dipoles CANCEL each other vectorially, giving zero net dipole moment. So CO₂ is a NON-POLAR molecule despite having polar bonds.",
+          "answerMode": "choice",
+          "expectedAnswer": "CO₂ is linear, so its two C=O bond dipoles point opposite and cancel.",
           "marks": 3,
           "explanation": "Symmetry can cancel bond dipoles. Linear CO₂: O=C=O bonds opposite ⇒ cancel.",
           "errorSignals": [
             "ERR_SHAPE_POLARITY",
             "ERR_BOND_VS_MOLECULAR_DIPOLE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because the C=O bonds are actually non-polar.",
+            "Because CO₂ is a bent molecule.",
+            "CO₂ is linear, so its two C=O bond dipoles point opposite and cancel."
+          ]
         },
         {
           "id": "L16.T1.A1.q18",
@@ -9233,15 +9713,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Which has STRONGER intermolecular forces: CH₃CH₂CH₃ (propane) or CH₃CH₂OH (ethanol)?",
-          "answerMode": "text",
-          "expectedAnswer": "Ethanol (CH₃CH₂OH) has stronger IMFs. Both molecules are similar in size (London forces are comparable). Propane has only London. Ethanol additionally has dipole-dipole AND hydrogen bonding (from -OH). H-bonding is much stronger than London, so ethanol has overall stronger IMFs ⇒ much higher boiling point (~78°C vs −42°C).",
+          "answerMode": "choice",
+          "expectedAnswer": "Ethanol — it has hydrogen bonding (the -OH), which propane lacks.",
           "marks": 3,
           "explanation": "H-bonding dominates between molecules of similar size. Ethanol > propane in IMF strength.",
           "errorSignals": [
             "ERR_IMF_RANKING",
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Ethanol — it has hydrogen bonding (the -OH), which propane lacks.",
+            "Propane — it is a larger, heavier molecule.",
+            "Equal — both are similar-sized organic molecules."
+          ]
         },
         {
           "id": "L16.T1.A1.q19",
@@ -9249,15 +9734,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "True or False: 'A small polar molecule (like HCl) has stronger IMFs than a long non-polar molecule (like decane, C₁₀H₂₂).' Explain.",
-          "answerMode": "text",
-          "expectedAnswer": "FALSE. While HCl has dipole-dipole forces in addition to London, decane is a much LARGER molecule with many more electrons and much more surface area for London contact. Long-chain non-polar molecules can have very strong CUMULATIVE London forces — often stronger than the IMFs of small polar molecules. This is why decane (BP ≈ 174°C) has a much higher BP than HCl (BP ≈ −85°C).",
+          "answerMode": "choice",
+          "expectedAnswer": "False — decane is much larger, so its many London forces exceed HCl's forces.",
           "marks": 3,
           "explanation": "Size of London matters: cumulative London on a long chain can outweigh dipole-dipole on a small polar molecule.",
           "errorSignals": [
             "ERR_LONDON_SIZE_DEPENDENCE",
             "ERR_IMF_RANKING"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "True — polar molecules always have stronger IMFs than non-polar ones.",
+            "False — decane is much larger, so its many London forces exceed HCl's forces.",
+            "True — small molecules always have stronger forces."
+          ]
         },
         {
           "id": "L16.T1.A1.q20",
@@ -9265,15 +9755,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does HF have a higher boiling point than HCl, despite Cl being heavier than F?",
-          "answerMode": "text",
-          "expectedAnswer": "HF can form HYDROGEN BONDS (H bonded to F, a small electronegative atom). HCl has only London + dipole-dipole (Cl doesn't qualify for H-bonding under CAPS). H-bonding in HF is much stronger than the IMFs in HCl, so more energy is needed to vaporise HF ⇒ higher BP. (HF BP ≈ 20°C; HCl BP ≈ −85°C.)",
+          "answerMode": "choice",
+          "expectedAnswer": "HF can hydrogen bond (H on F); HCl cannot, so HF boils higher despite Cl being heavier.",
           "marks": 3,
           "explanation": "H-bonding in HF >> London + dipole-dipole in HCl. H-bonding wins despite HF being smaller.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS",
             "ERR_IMF_RANKING"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Cl is heavier, so HCl should boil higher — the statement is wrong.",
+            "Because HCl is non-polar and HF is polar.",
+            "HF can hydrogen bond (H on F); HCl cannot, so HF boils higher despite Cl being heavier."
+          ]
         }
       ],
       "_error_signal_vocabulary": {
@@ -9306,14 +9801,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does INCREASING the strength of IMFs affect the BOILING POINT of a liquid?",
-          "answerMode": "text",
-          "expectedAnswer": "Stronger IMFs ⇒ HIGHER boiling point. More energy (heat) is needed to overcome the intermolecular attractions and vaporise the liquid into a gas.",
+          "answerMode": "choice",
+          "expectedAnswer": "Stronger IMFs ⇒ higher boiling point (more energy to separate molecules).",
           "marks": 2,
           "explanation": "Stronger IMF = more energy to separate molecules = higher BP.",
           "errorSignals": [
             "ERR_IMF_VS_BP"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Stronger IMFs ⇒ higher boiling point (more energy to separate molecules).",
+            "Stronger IMFs ⇒ lower boiling point.",
+            "IMF strength has no effect on boiling point."
+          ]
         },
         {
           "id": "L16.T1.A2.q02",
@@ -9321,14 +9821,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does INCREASING the strength of IMFs affect the VAPOUR PRESSURE of a liquid?",
-          "answerMode": "text",
-          "expectedAnswer": "Stronger IMFs ⇒ LOWER vapour pressure (at a given T). Molecules are held more tightly together ⇒ fewer escape into the gas phase ⇒ lower equilibrium vapour pressure.",
+          "answerMode": "choice",
+          "expectedAnswer": "Stronger IMFs ⇒ lower vapour pressure (fewer molecules escape).",
           "marks": 2,
           "explanation": "Vapour pressure measures escaping tendency. Stronger IMF = less escape = lower VP.",
           "errorSignals": [
             "ERR_VAPOUR_PRESSURE_IMF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Stronger IMFs ⇒ higher vapour pressure.",
+            "Stronger IMFs ⇒ lower vapour pressure (fewer molecules escape).",
+            "IMF strength has no effect on vapour pressure."
+          ]
         },
         {
           "id": "L16.T1.A2.q03",
@@ -9336,15 +9841,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Compare the boiling points of CH₄, NH₃, and H₂O. Which has the highest BP and why?",
-          "answerMode": "text",
-          "expectedAnswer": "H₂O has the highest BP, followed by NH₃, then CH₄. CH₄ (non-polar): only London. NH₃ (polar, has H-bonding): London + dipole-dipole + H-bonding. H₂O (polar, has H-bonding to 2 lone pairs on O): even more extensive H-bonding (each H₂O can form up to 4 H-bonds). The H-bonding network in H₂O is stronger and more extensive than in NH₃.",
+          "answerMode": "choice",
+          "expectedAnswer": "H₂O — its extensive hydrogen bonding gives it the highest boiling point.",
           "marks": 4,
           "explanation": "H₂O > NH₃ > CH₄. BP: 100°C > −33°C > −162°C. H₂O's tetrahedral H-bonding network is exceptional.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS",
             "ERR_IMF_VS_BP"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "CH₄ — it is the smallest and lightest.",
+            "All three boil at the same temperature.",
+            "H₂O — its extensive hydrogen bonding gives it the highest boiling point."
+          ]
         },
         {
           "id": "L16.T1.A2.q04",
@@ -9352,15 +9862,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is the BOILING POINT of butane HIGHER than that of methane?",
-          "answerMode": "text",
-          "expectedAnswer": "Butane and methane are both alkanes with only London forces (non-polar). Butane is a LARGER molecule with more electrons and more surface area for contact ⇒ STRONGER cumulative London forces ⇒ higher boiling point. (CH₄: −162°C; butane: ~−1°C.)",
+          "answerMode": "choice",
+          "expectedAnswer": "Butane is larger (more electrons, more surface contact), so it has stronger London forces.",
           "marks": 3,
           "explanation": "Larger molecule ⇒ stronger London. Within alkane series, BP rises with chain length.",
           "errorSignals": [
             "ERR_LONDON_SIZE_DEPENDENCE",
             "ERR_CHAIN_LENGTH_BP"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Butane is larger (more electrons, more surface contact), so it has stronger London forces.",
+            "Because butane is polar and methane is not.",
+            "Because butane has hydrogen bonding."
+          ]
         },
         {
           "id": "L16.T1.A2.q05",
@@ -9368,14 +9883,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does INCREASING the strength of IMFs affect the SURFACE TENSION of a liquid?",
-          "answerMode": "text",
-          "expectedAnswer": "Stronger IMFs ⇒ HIGHER surface tension. Molecules at the surface are pulled inward (no neighbours above) by IMFs from neighbouring molecules; this contraction creates a surface 'skin'. Stronger IMFs = stronger inward pull = higher surface tension. Water has unusually high surface tension because of H-bonding.",
+          "answerMode": "choice",
+          "expectedAnswer": "Stronger IMFs ⇒ higher surface tension.",
           "marks": 2,
           "explanation": "Surface tension ∝ IMF strength. Water 'beads up' more than oil because H-bonding > London.",
           "errorSignals": [
             "ERR_SURFACE_TENSION_IMF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Stronger IMFs ⇒ lower surface tension.",
+            "Stronger IMFs ⇒ higher surface tension.",
+            "IMF strength has no effect on surface tension."
+          ]
         },
         {
           "id": "L16.T1.A2.q06",
@@ -9383,14 +9903,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "How does a SOLUTE'S IMF compatibility with the SOLVENT affect SOLUBILITY?",
-          "answerMode": "text",
-          "expectedAnswer": "'Like dissolves like.' A solute dissolves best in a solvent with SIMILAR types of IMFs. Polar solutes (e.g. salt, sugar) dissolve well in polar solvents (e.g. water — H-bonding). Non-polar solutes (e.g. fats, oils) dissolve in non-polar solvents (e.g. hexane — London only). Mismatched IMFs cause poor solubility (e.g. oil and water don't mix).",
+          "answerMode": "choice",
+          "expectedAnswer": "'Like dissolves like' — a solute dissolves best in a solvent with similar IMFs.",
           "marks": 3,
           "explanation": "Solubility rule: like dissolves like. Same IMF type means good mixing.",
           "errorSignals": [
             "ERR_LIKE_DISSOLVES_LIKE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Opposite IMF types dissolve best in each other.",
+            "IMF compatibility has no effect on solubility.",
+            "'Like dissolves like' — a solute dissolves best in a solvent with similar IMFs."
+          ]
         },
         {
           "id": "L16.T1.A2.q07",
@@ -9398,15 +9923,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is the boiling point of ETHANOL much higher than that of DIETHYL ETHER, even though they have similar molecular masses?",
-          "answerMode": "text",
-          "expectedAnswer": "Ethanol (CH₃CH₂OH) has hydrogen bonding (H bonded to O of -OH). Diethyl ether (CH₃CH₂-O-CH₂CH₃) has no -OH so NO hydrogen bonding — only London + dipole-dipole. H-bonding is much stronger, so ethanol has a much higher BP (~78°C vs ether ~35°C) despite comparable molecular size.",
+          "answerMode": "choice",
+          "expectedAnswer": "Ethanol has hydrogen bonding (-OH); diethyl ether has no -OH, so only London + dipole-dipole.",
           "marks": 3,
           "explanation": "H-bonding vs no H-bonding at similar size: H-bonding wins. Standard alcohol vs ether comparison.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS",
             "ERR_IMF_VS_BP"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Ethanol has hydrogen bonding (-OH); diethyl ether has no -OH, so only London + dipole-dipole.",
+            "Because diethyl ether is much larger than ethanol.",
+            "Because diethyl ether hydrogen bonds and ethanol doesn't."
+          ]
         },
         {
           "id": "L16.T1.A2.q08",
@@ -9414,14 +9944,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does ICE have a LOWER DENSITY than liquid water?",
-          "answerMode": "text",
-          "expectedAnswer": "In ice, water molecules arrange in an OPEN, HEXAGONAL LATTICE held by hydrogen bonds. This rigid 3D network spaces molecules further apart than in liquid water, where molecules can move around and pack more closely (despite still having H-bonding). So ice has LOWER density than liquid water — that's why ice floats. This anomaly is due to the directional nature of H-bonding in water.",
+          "answerMode": "choice",
+          "expectedAnswer": "Ice has an open hexagonal hydrogen-bonded lattice that spaces molecules farther apart.",
           "marks": 3,
           "explanation": "Hydrogen-bonded crystal structure of ice has open hexagonal arrangement ⇒ less dense than liquid water.",
           "errorSignals": [
             "ERR_ICE_DENSITY"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because ice molecules move faster than liquid water.",
+            "Ice has an open hexagonal hydrogen-bonded lattice that spaces molecules farther apart.",
+            "Because ice contains trapped air bubbles."
+          ]
         },
         {
           "id": "L16.T1.A2.q09",
@@ -9429,15 +9964,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Rank the following in order of INCREASING boiling point: methane, ammonia, water.",
-          "answerMode": "text",
-          "expectedAnswer": "Methane < ammonia < water. CH₄ (London only): BP = −162°C. NH₃ (H-bonding to N): BP = −33°C. H₂O (H-bonding to O, more extensive): BP = 100°C. Water's extensive H-bonding network gives it the highest BP despite being a small molecule.",
+          "answerMode": "choice",
+          "expectedAnswer": "Methane < ammonia < water.",
           "marks": 3,
           "explanation": "IMF strength: London (CH₄) < H-bonding (NH₃) < extensive H-bonding (H₂O).",
           "errorSignals": [
             "ERR_IMF_VS_BP",
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Water < ammonia < methane.",
+            "Methane < water < ammonia.",
+            "Methane < ammonia < water."
+          ]
         },
         {
           "id": "L16.T1.A2.q10",
@@ -9445,14 +9985,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "A learner says: 'Stronger IMFs always lead to higher vapour pressure.' Is this correct?",
-          "answerMode": "text",
-          "expectedAnswer": "Incorrect — the reverse is true. Stronger IMFs hold molecules tightly in the liquid, making it HARDER for them to escape into the gas phase. So stronger IMFs lead to LOWER vapour pressure (at a given temperature).",
+          "answerMode": "choice",
+          "expectedAnswer": "Incorrect — stronger IMFs hold molecules in the liquid, giving LOWER vapour pressure.",
           "marks": 2,
           "explanation": "Common misconception. Vapour pressure ∝ ease of escape (inverse of IMF strength).",
           "errorSignals": [
             "ERR_VAPOUR_PRESSURE_IMF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Incorrect — stronger IMFs hold molecules in the liquid, giving LOWER vapour pressure.",
+            "Correct — stronger forces push more molecules into the vapour.",
+            "Correct — vapour pressure and IMF strength are unrelated."
+          ]
         },
         {
           "id": "L16.T1.A2.q11",
@@ -9460,14 +10005,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is sugar (C₁₂H₂₂O₁₁) HIGHLY soluble in water but NOT in hexane (C₆H₁₄)?",
-          "answerMode": "text",
-          "expectedAnswer": "Sugar has many -OH groups (hydroxyl), so it forms extensive HYDROGEN BONDS with water (also full of -OH). 'Like dissolves like' applies. Hexane is a non-polar alkane with only London forces — incompatible with the polar/H-bonding character of sugar, so sugar barely dissolves in hexane.",
+          "answerMode": "choice",
+          "expectedAnswer": "Sugar has many -OH groups and hydrogen bonds with water ('like dissolves like'); hexane is non-polar.",
           "marks": 3,
           "explanation": "Sugar has many H-bonding sites ⇒ readily H-bonds with water. Hexane: no H-bonding, no polarity, can't accommodate sugar.",
           "errorSignals": [
             "ERR_LIKE_DISSOLVES_LIKE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because sugar is non-polar like hexane.",
+            "Sugar has many -OH groups and hydrogen bonds with water ('like dissolves like'); hexane is non-polar.",
+            "Because hexane has stronger hydrogen bonding than water."
+          ]
         },
         {
           "id": "L16.T1.A2.q12",
@@ -9475,14 +10025,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why is oil insoluble in water?",
-          "answerMode": "text",
-          "expectedAnswer": "Oil is non-polar (London forces only). Water is polar with H-bonding. Mixing them would require breaking up water's H-bonding network without providing equivalent attractions to oil. Energetically unfavourable. So oil and water do not mix — they separate into two phases.",
+          "answerMode": "choice",
+          "expectedAnswer": "Oil is non-polar (London only) while water is polar/H-bonded — unlike forces don't mix.",
           "marks": 2,
           "explanation": "'Like dissolves like.' Non-polar + polar = incompatible.",
           "errorSignals": [
             "ERR_LIKE_DISSOLVES_LIKE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because oil is denser than water.",
+            "Because oil hydrogen bonds too strongly with itself.",
+            "Oil is non-polar (London only) while water is polar/H-bonded — unlike forces don't mix."
+          ]
         },
         {
           "id": "L16.T1.A2.q13",
@@ -9490,8 +10045,8 @@
           "gate": "A",
           "source": "fresh",
           "question": "Compare boiling points of CH₃F (methyl fluoride) and CH₃CH₃ (ethane). Which is higher and why?",
-          "answerMode": "text",
-          "expectedAnswer": "CH₃F has the higher BP. Both molecules are similar in size and electrons (similar London). CH₃F is POLAR (C-F bond is polar, molecule has net dipole), so it has dipole-dipole in addition to London. CH₃CH₃ (ethane) is non-polar (London only). The added dipole-dipole gives CH₃F stronger IMFs ⇒ higher BP.",
+          "answerMode": "choice",
+          "expectedAnswer": "CH₃F — it is polar (dipole-dipole), whereas ethane has only London forces.",
           "marks": 3,
           "explanation": "Polar molecule beats non-polar of similar size. CH₃F adds dipole-dipole on top of London.",
           "errorSignals": [
@@ -9499,7 +10054,12 @@
             "ERR_IMF_VS_BP"
           ],
           "propertyDeniedAt": "",
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "CH₃F — it is polar (dipole-dipole), whereas ethane has only London forces.",
+            "Ethane — it has hydrogen bonding.",
+            "Equal — both have only London forces."
+          ]
         },
         {
           "id": "L16.T1.A2.q14",
@@ -9528,14 +10088,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does water have an UNUSUALLY HIGH boiling point compared to other small hydrides like H₂S, H₂Se, H₂Te (which have lower BPs despite being heavier)?",
-          "answerMode": "text",
-          "expectedAnswer": "H₂O can form HYDROGEN BONDS (H on O), which are much stronger than the dipole-dipole and London forces in H₂S, H₂Se, H₂Te. So although H₂O is smaller (and would normally have weaker IMFs based on size alone), its H-bonding gives it stronger IMFs overall ⇒ much higher BP. (Anomalous BP point on the group-6 hydride trend.)",
+          "answerMode": "choice",
+          "expectedAnswer": "H₂O can hydrogen bond (H on O), which is far stronger than the forces in H₂S, H₂Se, H₂Te.",
           "marks": 3,
           "explanation": "H-bonding overrides the size trend. Famous BP anomaly: H₂O sticks above the line.",
           "errorSignals": [
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because water is the heaviest of the group.",
+            "H₂O can hydrogen bond (H on O), which is far stronger than the forces in H₂S, H₂Se, H₂Te.",
+            "Because water is non-polar."
+          ]
         },
         {
           "id": "L16.T1.A2.q16",
@@ -9543,14 +10108,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Two compounds have the same molecular formula but different shapes: one is more compact (branched), the other is more elongated (straight chain). Which has the higher boiling point?",
-          "answerMode": "text",
-          "expectedAnswer": "The ELONGATED (straight-chain) molecule has the higher BP. Straight chains can pack alongside each other with more surface contact between molecules ⇒ stronger cumulative London forces. Branched, compact (more spherical) molecules have less surface contact ⇒ weaker London ⇒ lower BP. (E.g. n-pentane (~36°C) vs 2,2-dimethylpropane (~10°C).)",
+          "answerMode": "choice",
+          "expectedAnswer": "The elongated (straight-chain) molecule — more surface contact gives stronger London forces.",
           "marks": 3,
           "explanation": "Surface area ↑ ⇒ London ↑ ⇒ BP ↑. Straight chains > branched.",
           "errorSignals": [
             "ERR_BRANCHING_BP"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "The compact (branched) one — it packs more tightly.",
+            "Equal — the same formula means the same boiling point.",
+            "The elongated (straight-chain) molecule — more surface contact gives stronger London forces."
+          ]
         },
         {
           "id": "L16.T1.A2.q17",
@@ -9558,14 +10128,19 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why are LONDON forces alone sufficient to make large non-polar molecules SOLIDS at room temperature (like wax, polythene)?",
-          "answerMode": "text",
-          "expectedAnswer": "London forces are individually weak, but with many electrons and large surface contact area, the CUMULATIVE London forces in long-chain or large molecules can be very strong. In a long polyethylene chain, many London 'contact points' add up, making the substance solid at room temperature despite being entirely non-polar. Strength comes from the SUM of many weak interactions.",
+          "answerMode": "choice",
+          "expectedAnswer": "With many electrons and large surface area, the cumulative London forces become large.",
           "marks": 3,
           "explanation": "Many small forces add up. Long alkane chains = strong total London = solids.",
           "errorSignals": [
             "ERR_LONDON_SIZE_DEPENDENCE"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "With many electrons and large surface area, the cumulative London forces become large.",
+            "Because large non-polar molecules develop hydrogen bonding.",
+            "Because London forces are individually very strong."
+          ]
         },
         {
           "id": "L16.T1.A2.q18",
@@ -9573,15 +10148,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Why does isopropanol ((CH₃)₂CHOH) evaporate more quickly than water at room temperature?",
-          "answerMode": "text",
-          "expectedAnswer": "Both have H-bonding (-OH group), but isopropanol has only ONE -OH per molecule and is a LARGER molecule (more steric hindrance to extensive H-bonding networks). Water can form up to 4 H-bonds per molecule in an extended network. Water's stronger total IMF makes it less volatile (higher BP, lower vapour pressure). Isopropanol's weaker H-bonding ⇒ evaporates faster.",
+          "answerMode": "choice",
+          "expectedAnswer": "Isopropanol has only one -OH and is bulkier, so less extensive H-bonding ⇒ higher vapour pressure.",
           "marks": 3,
           "explanation": "Per-molecule H-bonding: water > isopropanol (water can be both donor and acceptor more times).",
           "errorSignals": [
             "ERR_HBONDING_EXTENT",
             "ERR_VAPOUR_PRESSURE_IMF"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "Because isopropanol has no hydrogen bonding at all.",
+            "Isopropanol has only one -OH and is bulkier, so less extensive H-bonding ⇒ higher vapour pressure.",
+            "Because isopropanol has stronger IMFs than water."
+          ]
         },
         {
           "id": "L16.T1.A2.q19",
@@ -9589,15 +10169,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Predict and explain the order of MELTING POINT: NaCl (ionic), H₂O (H-bonding), CH₄ (London only).",
-          "answerMode": "text",
-          "expectedAnswer": "Highest to lowest MP: NaCl > H₂O > CH₄. NaCl has IONIC bonds (much stronger than any IMF) ⇒ very high MP (~801°C). H₂O has hydrogen bonding ⇒ moderate MP (0°C). CH₄ has only London ⇒ very low MP (~−182°C). Ionic bonds >> H-bonds >> London.",
+          "answerMode": "choice",
+          "expectedAnswer": "NaCl > H₂O > CH₄ (ionic bonding > hydrogen bonding > London only).",
           "marks": 4,
           "explanation": "Ionic >> H-bonding > London. Reflects bond energies: ~hundreds of kJ/mol (ionic) vs ~tens (H-bonding) vs ~few (London).",
           "errorSignals": [
             "ERR_IONIC_VS_IMF",
             "ERR_IMF_STRENGTH_ORDER"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "CH₄ > H₂O > NaCl.",
+            "H₂O > NaCl > CH₄.",
+            "NaCl > H₂O > CH₄ (ionic bonding > hydrogen bonding > London only)."
+          ]
         },
         {
           "id": "L16.T1.A2.q20",
@@ -9605,15 +10190,20 @@
           "gate": "A",
           "source": "fresh",
           "question": "Two compounds A and B have molecular masses 58 g/mol and 60 g/mol respectively. A boils at −0.5°C; B boils at 97°C. Suggest what IMFs are at work in each.",
-          "answerMode": "text",
-          "expectedAnswer": "A (BP ≈ 0°C) likely has only London + maybe weak dipole-dipole. Possibly butane (C₄H₁₀, non-polar alkane). B (BP ≈ 97°C, much higher despite similar MM) almost certainly has HYDROGEN BONDING. Likely propan-1-ol (C₃H₈O, has -OH). The huge BP difference at comparable molecular mass is the signature of hydrogen bonding being added.",
+          "answerMode": "choice",
+          "expectedAnswer": "A has only London (e.g. butane); B has hydrogen bonding (e.g. propan-1-ol), giving its much higher BP.",
           "marks": 3,
           "explanation": "Diagnostic: similar MM but big BP difference ⇒ one has H-bonding. Classic alkane vs alcohol comparison.",
           "errorSignals": [
             "ERR_IMF_VS_BP",
             "ERR_HBONDING_REQUIREMENTS"
           ],
-          "passThreshold": 0.7
+          "passThreshold": 0.7,
+          "options": [
+            "A has only London (e.g. butane); B has hydrogen bonding (e.g. propan-1-ol), giving its much higher BP.",
+            "A has hydrogen bonding; B has only London forces.",
+            "Both have identical IMFs since their masses are similar."
+          ]
         }
       ],
       "_error_signal_vocabulary": {

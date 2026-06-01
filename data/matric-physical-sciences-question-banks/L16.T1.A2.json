@@ -1,7 +1,9 @@
 {
   "skill": "L16.T1.A2",
   "skill_title": "Relate intermolecular forces to physical properties",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 2 lifted-style, 18 fresh. Predict and explain trends in BP, MP, vapour pressure, surface tension, and solubility based on IMF strength.",
@@ -12,12 +14,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "How does INCREASING the strength of IMFs affect the BOILING POINT of a liquid?",
-      "answerMode": "text",
-      "expectedAnswer": "Stronger IMFs ⇒ HIGHER boiling point. More energy (heat) is needed to overcome the intermolecular attractions and vaporise the liquid into a gas.",
+      "answerMode": "choice",
+      "expectedAnswer": "Stronger IMFs ⇒ higher boiling point (more energy to separate molecules).",
       "marks": 2,
       "explanation": "Stronger IMF = more energy to separate molecules = higher BP.",
-      "errorSignals": ["ERR_IMF_VS_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMF_VS_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Stronger IMFs ⇒ higher boiling point (more energy to separate molecules).",
+        "Stronger IMFs ⇒ lower boiling point.",
+        "IMF strength has no effect on boiling point."
+      ]
     },
     {
       "id": "L16.T1.A2.q02",
@@ -25,12 +34,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "How does INCREASING the strength of IMFs affect the VAPOUR PRESSURE of a liquid?",
-      "answerMode": "text",
-      "expectedAnswer": "Stronger IMFs ⇒ LOWER vapour pressure (at a given T). Molecules are held more tightly together ⇒ fewer escape into the gas phase ⇒ lower equilibrium vapour pressure.",
+      "answerMode": "choice",
+      "expectedAnswer": "Stronger IMFs ⇒ lower vapour pressure (fewer molecules escape).",
       "marks": 2,
       "explanation": "Vapour pressure measures escaping tendency. Stronger IMF = less escape = lower VP.",
-      "errorSignals": ["ERR_VAPOUR_PRESSURE_IMF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_VAPOUR_PRESSURE_IMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Stronger IMFs ⇒ higher vapour pressure.",
+        "Stronger IMFs ⇒ lower vapour pressure (fewer molecules escape).",
+        "IMF strength has no effect on vapour pressure."
+      ]
     },
     {
       "id": "L16.T1.A2.q03",
@@ -38,12 +54,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Compare the boiling points of CH₄, NH₃, and H₂O. Which has the highest BP and why?",
-      "answerMode": "text",
-      "expectedAnswer": "H₂O has the highest BP, followed by NH₃, then CH₄. CH₄ (non-polar): only London. NH₃ (polar, has H-bonding): London + dipole-dipole + H-bonding. H₂O (polar, has H-bonding to 2 lone pairs on O): even more extensive H-bonding (each H₂O can form up to 4 H-bonds). The H-bonding network in H₂O is stronger and more extensive than in NH₃.",
+      "answerMode": "choice",
+      "expectedAnswer": "H₂O — its extensive hydrogen bonding gives it the highest boiling point.",
       "marks": 4,
       "explanation": "H₂O > NH₃ > CH₄. BP: 100°C > −33°C > −162°C. H₂O's tetrahedral H-bonding network is exceptional.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS", "ERR_IMF_VS_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS",
+        "ERR_IMF_VS_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CH₄ — it is the smallest and lightest.",
+        "All three boil at the same temperature.",
+        "H₂O — its extensive hydrogen bonding gives it the highest boiling point."
+      ]
     },
     {
       "id": "L16.T1.A2.q04",
@@ -51,12 +75,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is the BOILING POINT of butane HIGHER than that of methane?",
-      "answerMode": "text",
-      "expectedAnswer": "Butane and methane are both alkanes with only London forces (non-polar). Butane is a LARGER molecule with more electrons and more surface area for contact ⇒ STRONGER cumulative London forces ⇒ higher boiling point. (CH₄: −162°C; butane: ~−1°C.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Butane is larger (more electrons, more surface contact), so it has stronger London forces.",
       "marks": 3,
       "explanation": "Larger molecule ⇒ stronger London. Within alkane series, BP rises with chain length.",
-      "errorSignals": ["ERR_LONDON_SIZE_DEPENDENCE", "ERR_CHAIN_LENGTH_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LONDON_SIZE_DEPENDENCE",
+        "ERR_CHAIN_LENGTH_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Butane is larger (more electrons, more surface contact), so it has stronger London forces.",
+        "Because butane is polar and methane is not.",
+        "Because butane has hydrogen bonding."
+      ]
     },
     {
       "id": "L16.T1.A2.q05",
@@ -64,12 +96,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "How does INCREASING the strength of IMFs affect the SURFACE TENSION of a liquid?",
-      "answerMode": "text",
-      "expectedAnswer": "Stronger IMFs ⇒ HIGHER surface tension. Molecules at the surface are pulled inward (no neighbours above) by IMFs from neighbouring molecules; this contraction creates a surface 'skin'. Stronger IMFs = stronger inward pull = higher surface tension. Water has unusually high surface tension because of H-bonding.",
+      "answerMode": "choice",
+      "expectedAnswer": "Stronger IMFs ⇒ higher surface tension.",
       "marks": 2,
       "explanation": "Surface tension ∝ IMF strength. Water 'beads up' more than oil because H-bonding > London.",
-      "errorSignals": ["ERR_SURFACE_TENSION_IMF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_SURFACE_TENSION_IMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Stronger IMFs ⇒ lower surface tension.",
+        "Stronger IMFs ⇒ higher surface tension.",
+        "IMF strength has no effect on surface tension."
+      ]
     },
     {
       "id": "L16.T1.A2.q06",
@@ -77,12 +116,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "How does a SOLUTE'S IMF compatibility with the SOLVENT affect SOLUBILITY?",
-      "answerMode": "text",
-      "expectedAnswer": "'Like dissolves like.' A solute dissolves best in a solvent with SIMILAR types of IMFs. Polar solutes (e.g. salt, sugar) dissolve well in polar solvents (e.g. water — H-bonding). Non-polar solutes (e.g. fats, oils) dissolve in non-polar solvents (e.g. hexane — London only). Mismatched IMFs cause poor solubility (e.g. oil and water don't mix).",
+      "answerMode": "choice",
+      "expectedAnswer": "'Like dissolves like' — a solute dissolves best in a solvent with similar IMFs.",
       "marks": 3,
       "explanation": "Solubility rule: like dissolves like. Same IMF type means good mixing.",
-      "errorSignals": ["ERR_LIKE_DISSOLVES_LIKE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LIKE_DISSOLVES_LIKE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Opposite IMF types dissolve best in each other.",
+        "IMF compatibility has no effect on solubility.",
+        "'Like dissolves like' — a solute dissolves best in a solvent with similar IMFs."
+      ]
     },
     {
       "id": "L16.T1.A2.q07",
@@ -90,12 +136,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is the boiling point of ETHANOL much higher than that of DIETHYL ETHER, even though they have similar molecular masses?",
-      "answerMode": "text",
-      "expectedAnswer": "Ethanol (CH₃CH₂OH) has hydrogen bonding (H bonded to O of -OH). Diethyl ether (CH₃CH₂-O-CH₂CH₃) has no -OH so NO hydrogen bonding — only London + dipole-dipole. H-bonding is much stronger, so ethanol has a much higher BP (~78°C vs ether ~35°C) despite comparable molecular size.",
+      "answerMode": "choice",
+      "expectedAnswer": "Ethanol has hydrogen bonding (-OH); diethyl ether has no -OH, so only London + dipole-dipole.",
       "marks": 3,
       "explanation": "H-bonding vs no H-bonding at similar size: H-bonding wins. Standard alcohol vs ether comparison.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS", "ERR_IMF_VS_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS",
+        "ERR_IMF_VS_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ethanol has hydrogen bonding (-OH); diethyl ether has no -OH, so only London + dipole-dipole.",
+        "Because diethyl ether is much larger than ethanol.",
+        "Because diethyl ether hydrogen bonds and ethanol doesn't."
+      ]
     },
     {
       "id": "L16.T1.A2.q08",
@@ -103,12 +157,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does ICE have a LOWER DENSITY than liquid water?",
-      "answerMode": "text",
-      "expectedAnswer": "In ice, water molecules arrange in an OPEN, HEXAGONAL LATTICE held by hydrogen bonds. This rigid 3D network spaces molecules further apart than in liquid water, where molecules can move around and pack more closely (despite still having H-bonding). So ice has LOWER density than liquid water — that's why ice floats. This anomaly is due to the directional nature of H-bonding in water.",
+      "answerMode": "choice",
+      "expectedAnswer": "Ice has an open hexagonal hydrogen-bonded lattice that spaces molecules farther apart.",
       "marks": 3,
       "explanation": "Hydrogen-bonded crystal structure of ice has open hexagonal arrangement ⇒ less dense than liquid water.",
-      "errorSignals": ["ERR_ICE_DENSITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ICE_DENSITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because ice molecules move faster than liquid water.",
+        "Ice has an open hexagonal hydrogen-bonded lattice that spaces molecules farther apart.",
+        "Because ice contains trapped air bubbles."
+      ]
     },
     {
       "id": "L16.T1.A2.q09",
@@ -116,12 +177,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Rank the following in order of INCREASING boiling point: methane, ammonia, water.",
-      "answerMode": "text",
-      "expectedAnswer": "Methane < ammonia < water. CH₄ (London only): BP = −162°C. NH₃ (H-bonding to N): BP = −33°C. H₂O (H-bonding to O, more extensive): BP = 100°C. Water's extensive H-bonding network gives it the highest BP despite being a small molecule.",
+      "answerMode": "choice",
+      "expectedAnswer": "Methane < ammonia < water.",
       "marks": 3,
       "explanation": "IMF strength: London (CH₄) < H-bonding (NH₃) < extensive H-bonding (H₂O).",
-      "errorSignals": ["ERR_IMF_VS_BP", "ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMF_VS_BP",
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Water < ammonia < methane.",
+        "Methane < water < ammonia.",
+        "Methane < ammonia < water."
+      ]
     },
     {
       "id": "L16.T1.A2.q10",
@@ -129,12 +198,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'Stronger IMFs always lead to higher vapour pressure.' Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect — the reverse is true. Stronger IMFs hold molecules tightly in the liquid, making it HARDER for them to escape into the gas phase. So stronger IMFs lead to LOWER vapour pressure (at a given temperature).",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — stronger IMFs hold molecules in the liquid, giving LOWER vapour pressure.",
       "marks": 2,
       "explanation": "Common misconception. Vapour pressure ∝ ease of escape (inverse of IMF strength).",
-      "errorSignals": ["ERR_VAPOUR_PRESSURE_IMF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_VAPOUR_PRESSURE_IMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Incorrect — stronger IMFs hold molecules in the liquid, giving LOWER vapour pressure.",
+        "Correct — stronger forces push more molecules into the vapour.",
+        "Correct — vapour pressure and IMF strength are unrelated."
+      ]
     },
     {
       "id": "L16.T1.A2.q11",
@@ -142,12 +218,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is sugar (C₁₂H₂₂O₁₁) HIGHLY soluble in water but NOT in hexane (C₆H₁₄)?",
-      "answerMode": "text",
-      "expectedAnswer": "Sugar has many -OH groups (hydroxyl), so it forms extensive HYDROGEN BONDS with water (also full of -OH). 'Like dissolves like' applies. Hexane is a non-polar alkane with only London forces — incompatible with the polar/H-bonding character of sugar, so sugar barely dissolves in hexane.",
+      "answerMode": "choice",
+      "expectedAnswer": "Sugar has many -OH groups and hydrogen bonds with water ('like dissolves like'); hexane is non-polar.",
       "marks": 3,
       "explanation": "Sugar has many H-bonding sites ⇒ readily H-bonds with water. Hexane: no H-bonding, no polarity, can't accommodate sugar.",
-      "errorSignals": ["ERR_LIKE_DISSOLVES_LIKE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LIKE_DISSOLVES_LIKE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because sugar is non-polar like hexane.",
+        "Sugar has many -OH groups and hydrogen bonds with water ('like dissolves like'); hexane is non-polar.",
+        "Because hexane has stronger hydrogen bonding than water."
+      ]
     },
     {
       "id": "L16.T1.A2.q12",
@@ -155,12 +238,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is oil insoluble in water?",
-      "answerMode": "text",
-      "expectedAnswer": "Oil is non-polar (London forces only). Water is polar with H-bonding. Mixing them would require breaking up water's H-bonding network without providing equivalent attractions to oil. Energetically unfavourable. So oil and water do not mix — they separate into two phases.",
+      "answerMode": "choice",
+      "expectedAnswer": "Oil is non-polar (London only) while water is polar/H-bonded — unlike forces don't mix.",
       "marks": 2,
       "explanation": "'Like dissolves like.' Non-polar + polar = incompatible.",
-      "errorSignals": ["ERR_LIKE_DISSOLVES_LIKE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LIKE_DISSOLVES_LIKE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because oil is denser than water.",
+        "Because oil hydrogen bonds too strongly with itself.",
+        "Oil is non-polar (London only) while water is polar/H-bonded — unlike forces don't mix."
+      ]
     },
     {
       "id": "L16.T1.A2.q13",
@@ -168,13 +258,21 @@
       "gate": "A",
       "source": "fresh",
       "question": "Compare boiling points of CH₃F (methyl fluoride) and CH₃CH₃ (ethane). Which is higher and why?",
-      "answerMode": "text",
-      "expectedAnswer": "CH₃F has the higher BP. Both molecules are similar in size and electrons (similar London). CH₃F is POLAR (C-F bond is polar, molecule has net dipole), so it has dipole-dipole in addition to London. CH₃CH₃ (ethane) is non-polar (London only). The added dipole-dipole gives CH₃F stronger IMFs ⇒ higher BP.",
+      "answerMode": "choice",
+      "expectedAnswer": "CH₃F — it is polar (dipole-dipole), whereas ethane has only London forces.",
       "marks": 3,
       "explanation": "Polar molecule beats non-polar of similar size. CH₃F adds dipole-dipole on top of London.",
-      "errorSignals": ["ERR_POLAR_IMF", "ERR_IMF_VS_BP"],
+      "errorSignals": [
+        "ERR_POLAR_IMF",
+        "ERR_IMF_VS_BP"
+      ],
       "propertyDeniedAt": "",
-      "passThreshold": 0.7
+      "passThreshold": 0.7,
+      "options": [
+        "CH₃F — it is polar (dipole-dipole), whereas ethane has only London forces.",
+        "Ethane — it has hydrogen bonding.",
+        "Equal — both have only London forces."
+      ]
     },
     {
       "id": "L16.T1.A2.q14",
@@ -183,11 +281,18 @@
       "source": "fresh",
       "question": "Which substance is expected to have the highest melting point: I₂, F₂, Br₂, Cl₂?",
       "answerMode": "choice",
-      "options": ["I₂", "Br₂", "Cl₂", "F₂"],
+      "options": [
+        "I₂",
+        "Br₂",
+        "Cl₂",
+        "F₂"
+      ],
       "expectedAnswer": "I₂",
       "marks": 2,
       "explanation": "All are non-polar diatomic halogens (London only). I₂ is the largest (most electrons) ⇒ strongest London ⇒ highest MP. (F₂: −220°C, Cl₂: −101°C, Br₂: −7°C, I₂: 114°C — solid at room T.)",
-      "errorSignals": ["ERR_LONDON_SIZE_DEPENDENCE"],
+      "errorSignals": [
+        "ERR_LONDON_SIZE_DEPENDENCE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -196,12 +301,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does water have an UNUSUALLY HIGH boiling point compared to other small hydrides like H₂S, H₂Se, H₂Te (which have lower BPs despite being heavier)?",
-      "answerMode": "text",
-      "expectedAnswer": "H₂O can form HYDROGEN BONDS (H on O), which are much stronger than the dipole-dipole and London forces in H₂S, H₂Se, H₂Te. So although H₂O is smaller (and would normally have weaker IMFs based on size alone), its H-bonding gives it stronger IMFs overall ⇒ much higher BP. (Anomalous BP point on the group-6 hydride trend.)",
+      "answerMode": "choice",
+      "expectedAnswer": "H₂O can hydrogen bond (H on O), which is far stronger than the forces in H₂S, H₂Se, H₂Te.",
       "marks": 3,
       "explanation": "H-bonding overrides the size trend. Famous BP anomaly: H₂O sticks above the line.",
-      "errorSignals": ["ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because water is the heaviest of the group.",
+        "H₂O can hydrogen bond (H on O), which is far stronger than the forces in H₂S, H₂Se, H₂Te.",
+        "Because water is non-polar."
+      ]
     },
     {
       "id": "L16.T1.A2.q16",
@@ -209,12 +321,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Two compounds have the same molecular formula but different shapes: one is more compact (branched), the other is more elongated (straight chain). Which has the higher boiling point?",
-      "answerMode": "text",
-      "expectedAnswer": "The ELONGATED (straight-chain) molecule has the higher BP. Straight chains can pack alongside each other with more surface contact between molecules ⇒ stronger cumulative London forces. Branched, compact (more spherical) molecules have less surface contact ⇒ weaker London ⇒ lower BP. (E.g. n-pentane (~36°C) vs 2,2-dimethylpropane (~10°C).)",
+      "answerMode": "choice",
+      "expectedAnswer": "The elongated (straight-chain) molecule — more surface contact gives stronger London forces.",
       "marks": 3,
       "explanation": "Surface area ↑ ⇒ London ↑ ⇒ BP ↑. Straight chains > branched.",
-      "errorSignals": ["ERR_BRANCHING_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BRANCHING_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The compact (branched) one — it packs more tightly.",
+        "Equal — the same formula means the same boiling point.",
+        "The elongated (straight-chain) molecule — more surface contact gives stronger London forces."
+      ]
     },
     {
       "id": "L16.T1.A2.q17",
@@ -222,12 +341,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why are LONDON forces alone sufficient to make large non-polar molecules SOLIDS at room temperature (like wax, polythene)?",
-      "answerMode": "text",
-      "expectedAnswer": "London forces are individually weak, but with many electrons and large surface contact area, the CUMULATIVE London forces in long-chain or large molecules can be very strong. In a long polyethylene chain, many London 'contact points' add up, making the substance solid at room temperature despite being entirely non-polar. Strength comes from the SUM of many weak interactions.",
+      "answerMode": "choice",
+      "expectedAnswer": "With many electrons and large surface area, the cumulative London forces become large.",
       "marks": 3,
       "explanation": "Many small forces add up. Long alkane chains = strong total London = solids.",
-      "errorSignals": ["ERR_LONDON_SIZE_DEPENDENCE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_LONDON_SIZE_DEPENDENCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "With many electrons and large surface area, the cumulative London forces become large.",
+        "Because large non-polar molecules develop hydrogen bonding.",
+        "Because London forces are individually very strong."
+      ]
     },
     {
       "id": "L16.T1.A2.q18",
@@ -235,12 +361,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does isopropanol ((CH₃)₂CHOH) evaporate more quickly than water at room temperature?",
-      "answerMode": "text",
-      "expectedAnswer": "Both have H-bonding (-OH group), but isopropanol has only ONE -OH per molecule and is a LARGER molecule (more steric hindrance to extensive H-bonding networks). Water can form up to 4 H-bonds per molecule in an extended network. Water's stronger total IMF makes it less volatile (higher BP, lower vapour pressure). Isopropanol's weaker H-bonding ⇒ evaporates faster.",
+      "answerMode": "choice",
+      "expectedAnswer": "Isopropanol has only one -OH and is bulkier, so less extensive H-bonding ⇒ higher vapour pressure.",
       "marks": 3,
       "explanation": "Per-molecule H-bonding: water > isopropanol (water can be both donor and acceptor more times).",
-      "errorSignals": ["ERR_HBONDING_EXTENT", "ERR_VAPOUR_PRESSURE_IMF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_EXTENT",
+        "ERR_VAPOUR_PRESSURE_IMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because isopropanol has no hydrogen bonding at all.",
+        "Isopropanol has only one -OH and is bulkier, so less extensive H-bonding ⇒ higher vapour pressure.",
+        "Because isopropanol has stronger IMFs than water."
+      ]
     },
     {
       "id": "L16.T1.A2.q19",
@@ -248,12 +382,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Predict and explain the order of MELTING POINT: NaCl (ionic), H₂O (H-bonding), CH₄ (London only).",
-      "answerMode": "text",
-      "expectedAnswer": "Highest to lowest MP: NaCl > H₂O > CH₄. NaCl has IONIC bonds (much stronger than any IMF) ⇒ very high MP (~801°C). H₂O has hydrogen bonding ⇒ moderate MP (0°C). CH₄ has only London ⇒ very low MP (~−182°C). Ionic bonds >> H-bonds >> London.",
+      "answerMode": "choice",
+      "expectedAnswer": "NaCl > H₂O > CH₄ (ionic bonding > hydrogen bonding > London only).",
       "marks": 4,
       "explanation": "Ionic >> H-bonding > London. Reflects bond energies: ~hundreds of kJ/mol (ionic) vs ~tens (H-bonding) vs ~few (London).",
-      "errorSignals": ["ERR_IONIC_VS_IMF", "ERR_IMF_STRENGTH_ORDER"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IONIC_VS_IMF",
+        "ERR_IMF_STRENGTH_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CH₄ > H₂O > NaCl.",
+        "H₂O > NaCl > CH₄.",
+        "NaCl > H₂O > CH₄ (ionic bonding > hydrogen bonding > London only)."
+      ]
     },
     {
       "id": "L16.T1.A2.q20",
@@ -261,12 +403,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Two compounds A and B have molecular masses 58 g/mol and 60 g/mol respectively. A boils at −0.5°C; B boils at 97°C. Suggest what IMFs are at work in each.",
-      "answerMode": "text",
-      "expectedAnswer": "A (BP ≈ 0°C) likely has only London + maybe weak dipole-dipole. Possibly butane (C₄H₁₀, non-polar alkane). B (BP ≈ 97°C, much higher despite similar MM) almost certainly has HYDROGEN BONDING. Likely propan-1-ol (C₃H₈O, has -OH). The huge BP difference at comparable molecular mass is the signature of hydrogen bonding being added.",
+      "answerMode": "choice",
+      "expectedAnswer": "A has only London (e.g. butane); B has hydrogen bonding (e.g. propan-1-ol), giving its much higher BP.",
       "marks": 3,
       "explanation": "Diagnostic: similar MM but big BP difference ⇒ one has H-bonding. Classic alkane vs alcohol comparison.",
-      "errorSignals": ["ERR_IMF_VS_BP", "ERR_HBONDING_REQUIREMENTS"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMF_VS_BP",
+        "ERR_HBONDING_REQUIREMENTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A has only London (e.g. butane); B has hydrogen bonding (e.g. propan-1-ol), giving its much higher BP.",
+        "A has hydrogen bonding; B has only London forces.",
+        "Both have identical IMFs since their masses are similar."
+      ]
     }
   ],
   "_error_signal_vocabulary": {
