@@ -1,7 +1,9 @@
 {
   "skill": "L11.T1.A2",
   "skill_title": "Draw structural formulae, identify functional groups, homologous series and isomers",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 5 lifted-style, 15 fresh. Drawing and identifying structures; recognising functional groups; identifying isomers (chain, positional, functional).",
@@ -14,11 +16,18 @@
       "source_ref": "P2 May/Jun 2021 Q2.1.2 (representative)",
       "question": "Two compounds have the molecular formula C₃H₆O: propanal (CH₃-CH₂-CHO) and propanone (CH₃-CO-CH₃). What type of isomers are these?",
       "answerMode": "choice",
-      "options": ["Chain isomers", "Positional isomers", "Functional isomers", "Same compound"],
+      "options": [
+        "Chain isomers",
+        "Positional isomers",
+        "Functional isomers",
+        "Same compound"
+      ],
       "expectedAnswer": "Functional isomers",
       "marks": 2,
       "explanation": "Same molecular formula, DIFFERENT functional group (aldehyde vs ketone) ⇒ functional isomers.",
-      "errorSignals": ["ERR_ISOMER_TYPE"],
+      "errorSignals": [
+        "ERR_ISOMER_TYPE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -38,7 +47,9 @@
       "expectedAnswer": "CH₃-CH=CH-CH₃",
       "marks": 1,
       "explanation": "Hydrocarbon = contains only C and H. The other three have O or Cl as well.",
-      "errorSignals": ["ERR_HYDROCARBON_DEF"],
+      "errorSignals": [
+        "ERR_HYDROCARBON_DEF"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -47,12 +58,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Identify the functional group present in the compound CH₃-CH₂-COOH.",
-      "answerMode": "text",
-      "expectedAnswer": "Carboxyl group (-COOH). This identifies the compound as a carboxylic acid.",
+      "answerMode": "choice",
+      "expectedAnswer": "Carboxyl group (-COOH) — a carboxylic acid",
       "marks": 2,
       "explanation": "-COOH = carboxyl. Combination of carbonyl (C=O) and hydroxyl (-OH) on the same carbon.",
-      "errorSignals": ["ERR_FUNCTIONAL_GROUP_ID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FUNCTIONAL_GROUP_ID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Carboxyl group (-COOH) — a carboxylic acid",
+        "Hydroxyl group (-OH) — an alcohol",
+        "Carbonyl group (C=O) — a ketone"
+      ]
     },
     {
       "id": "L11.T1.A2.q04",
@@ -60,12 +78,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Identify the functional group present in CH₃-CH₂-O-CH₃ (methoxyethane).",
-      "answerMode": "text",
-      "expectedAnswer": "Ether (-O- linkage between two carbon groups). Note: ethers are not always emphasised in CAPS, but the -O- bridge is the diagnostic feature.",
+      "answerMode": "choice",
+      "expectedAnswer": "Ether — an -O- linkage between two carbon groups",
       "marks": 2,
       "explanation": "Ether: R-O-R'. Distinct from alcohol (-OH).",
-      "errorSignals": ["ERR_FUNCTIONAL_GROUP_ID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FUNCTIONAL_GROUP_ID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ester — a -COO- linkage",
+        "Ether — an -O- linkage between two carbon groups",
+        "Alcohol — an -OH group"
+      ]
     },
     {
       "id": "L11.T1.A2.q05",
@@ -73,12 +98,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Draw or describe a structural isomer of butane (C₄H₁₀) with a BRANCHED chain.",
-      "answerMode": "text",
-      "expectedAnswer": "2-methylpropane (isobutane): (CH₃)₃CH or CH(CH₃)₃ — a central carbon bonded to three methyl groups and one hydrogen.",
+      "answerMode": "choice",
+      "expectedAnswer": "2-methylpropane (isobutane) — same C₄H₁₀, branched",
       "marks": 3,
       "explanation": "C₄H₁₀ has two isomers: n-butane (straight) and 2-methylpropane (branched).",
-      "errorSignals": ["ERR_ISOMER_DRAWING", "ERR_CHAIN_ISOMER"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ISOMER_DRAWING",
+        "ERR_CHAIN_ISOMER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Pentane — that is C₅H₁₂, a different compound",
+        "But-1-ene — that is C₄H₈, not an isomer of butane",
+        "2-methylpropane (isobutane) — same C₄H₁₀, branched"
+      ]
     },
     {
       "id": "L11.T1.A2.q06",
@@ -87,11 +120,18 @@
       "source": "fresh",
       "question": "Propan-1-ol (CH₃-CH₂-CH₂-OH) and propan-2-ol (CH₃-CHOH-CH₃) are examples of what type of isomers?",
       "answerMode": "choice",
-      "options": ["Chain isomers", "Positional isomers", "Functional isomers", "None"],
+      "options": [
+        "Chain isomers",
+        "Positional isomers",
+        "Functional isomers",
+        "None"
+      ],
       "expectedAnswer": "Positional isomers",
       "marks": 2,
       "explanation": "Same molecular formula and same functional group (alcohol), but the -OH is on a DIFFERENT carbon position. ⇒ positional isomers.",
-      "errorSignals": ["ERR_ISOMER_TYPE"],
+      "errorSignals": [
+        "ERR_ISOMER_TYPE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -101,11 +141,19 @@
       "source": "fresh",
       "question": "Identify the homologous series of a compound with the general formula CnH(2n)O (where the O is part of a carbonyl group at a chain end).",
       "answerMode": "choice",
-      "options": ["Alcohols", "Aldehydes", "Ketones", "Carboxylic acids"],
+      "options": [
+        "Alcohols",
+        "Aldehydes",
+        "Ketones",
+        "Carboxylic acids"
+      ],
       "expectedAnswer": "Aldehydes",
       "marks": 2,
       "explanation": "Carbonyl at the END of the chain (R-CHO) is an aldehyde. Ketones have C=O in the middle.",
-      "errorSignals": ["ERR_HOMOLOGOUS_FROM_FORMULA", "ERR_KETONE_VS_ALDEHYDE"],
+      "errorSignals": [
+        "ERR_HOMOLOGOUS_FROM_FORMULA",
+        "ERR_KETONE_VS_ALDEHYDE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -114,12 +162,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "Draw or describe a functional isomer of propan-1-ol (CH₃-CH₂-CH₂-OH).",
-      "answerMode": "text",
-      "expectedAnswer": "Methoxyethane (CH₃-O-CH₂-CH₃) — same formula C₃H₈O but with an ether functional group instead of alcohol. (Note: ethers are less commonly drilled in CAPS than alcohol position changes.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Methoxyethane (CH₃-O-CH₂-CH₃) — same C₃H₈O but an ether",
       "marks": 3,
       "explanation": "Functional isomer: same molecular formula, different functional group. C₃H₈O could be an alcohol or an ether.",
-      "errorSignals": ["ERR_ISOMER_TYPE", "ERR_FUNCTIONAL_ISOMER"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ISOMER_TYPE",
+        "ERR_FUNCTIONAL_ISOMER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Methoxyethane (CH₃-O-CH₂-CH₃) — same C₃H₈O but an ether",
+        "Propan-2-ol — same formula but still an alcohol (positional, not functional)",
+        "Propanal — a different molecular formula (C₃H₆O)"
+      ]
     },
     {
       "id": "L11.T1.A2.q09",
@@ -127,12 +183,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "List the functional groups for the following series: (a) alcohol, (b) aldehyde, (c) ketone, (d) carboxylic acid, (e) ester.",
-      "answerMode": "text",
-      "expectedAnswer": "(a) alcohol: -OH (hydroxyl) attached to a carbon; (b) aldehyde: -CHO at the end of a chain; (c) ketone: -C(=O)- between two carbons (in the middle); (d) carboxylic acid: -COOH; (e) ester: -COO- between two carbon groups (R-COO-R').",
+      "answerMode": "choice",
+      "expectedAnswer": "alcohol -OH; aldehyde -CHO (chain end); ketone -C(=O)- (mid-chain); carboxylic acid -COOH; ester -COO-",
       "marks": 5,
       "explanation": "Each homologous series has a distinctive functional group. Memorise the diagnostic symbol.",
-      "errorSignals": ["ERR_FUNCTIONAL_GROUP_ID"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FUNCTIONAL_GROUP_ID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the same, but aldehyde -C(=O)- mid-chain and ketone -CHO at the end",
+        "alcohol -OH; aldehyde -CHO (chain end); ketone -C(=O)- (mid-chain); carboxylic acid -COOH; ester -COO-",
+        "the same, but carboxylic acid -OH and alcohol -COOH"
+      ]
     },
     {
       "id": "L11.T1.A2.q10",
@@ -140,12 +203,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Draw or describe ALL structural isomers of C₅H₁₂.",
-      "answerMode": "text",
-      "expectedAnswer": "Three isomers: (1) n-pentane CH₃-CH₂-CH₂-CH₂-CH₃ (straight chain); (2) 2-methylbutane CH₃-CH(CH₃)-CH₂-CH₃ (one branch); (3) 2,2-dimethylpropane C(CH₃)₄ (compact, central C bonded to four methyls).",
+      "answerMode": "choice",
+      "expectedAnswer": "Three: pentane, 2-methylbutane, and 2,2-dimethylpropane",
       "marks": 5,
       "explanation": "C₅H₁₂: three constitutional isomers — straight, single-branched, and compact.",
-      "errorSignals": ["ERR_CHAIN_ISOMER", "ERR_ISOMER_DRAWING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CHAIN_ISOMER",
+        "ERR_ISOMER_DRAWING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Two: pentane and 2-methylbutane",
+        "Four: pentane, 2-methylbutane, 2,2-dimethylpropane, and 3-methylbutane",
+        "Three: pentane, 2-methylbutane, and 2,2-dimethylpropane"
+      ]
     },
     {
       "id": "L11.T1.A2.q11",
@@ -153,12 +224,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Convert the molecular formula CH₃-CH₂-CH(CH₃)-CH₃ to a condensed formula and identify its homologous series.",
-      "answerMode": "text",
-      "expectedAnswer": "Condensed: (CH₃)₂CH-CH₂-CH₃ or C₅H₁₂ molecular. Homologous series: alkane (general formula CnH(2n+2), so 5 C ⇒ C₅H₁₂ ✓).",
+      "answerMode": "choice",
+      "expectedAnswer": "C₅H₁₂ — an alkane (CₙH₂ₙ₊₂)",
       "marks": 3,
       "explanation": "All-single-bond C-C compound with only C and H ⇒ alkane.",
-      "errorSignals": ["ERR_FORMULA_CONVERSION", "ERR_HOMOLOGOUS_FROM_FORMULA"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FORMULA_CONVERSION",
+        "ERR_HOMOLOGOUS_FROM_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "C₅H₁₂ — an alkane (CₙH₂ₙ₊₂)",
+        "C₄H₁₀ — an alkane (missed the branch carbon)",
+        "C₅H₁₂ — an alkene"
+      ]
     },
     {
       "id": "L11.T1.A2.q12",
@@ -166,12 +245,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "Identify the functional group(s) present in the compound HO-CH₂-CH₂-CHO.",
-      "answerMode": "text",
-      "expectedAnswer": "Two functional groups: (1) -OH (hydroxyl / alcohol) and (2) -CHO (aldehyde). This compound contains BOTH an alcohol and an aldehyde group on the same molecule.",
+      "answerMode": "choice",
+      "expectedAnswer": "Both an -OH (alcohol) and a -CHO (aldehyde)",
       "marks": 3,
       "explanation": "Bifunctional compound. The IUPAC name combines: 3-hydroxypropanal.",
-      "errorSignals": ["ERR_FUNCTIONAL_GROUP_ID", "ERR_BIFUNCTIONAL"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FUNCTIONAL_GROUP_ID",
+        "ERR_BIFUNCTIONAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Only an -OH (alcohol) group",
+        "Both an -OH (alcohol) and a -CHO (aldehyde)",
+        "A single carboxylic acid (-COOH) group"
+      ]
     },
     {
       "id": "L11.T1.A2.q13",
@@ -180,11 +267,18 @@
       "source": "fresh",
       "question": "Which type of isomerism is shown by but-1-ene (CH₂=CH-CH₂-CH₃) and but-2-ene (CH₃-CH=CH-CH₃)?",
       "answerMode": "choice",
-      "options": ["Chain isomers", "Positional isomers", "Functional isomers", "Identical molecules"],
+      "options": [
+        "Chain isomers",
+        "Positional isomers",
+        "Functional isomers",
+        "Identical molecules"
+      ],
       "expectedAnswer": "Positional isomers",
       "marks": 2,
       "explanation": "Same molecular formula (C₄H₈), same functional group (C=C), but at DIFFERENT positions ⇒ positional isomers.",
-      "errorSignals": ["ERR_ISOMER_TYPE"],
+      "errorSignals": [
+        "ERR_ISOMER_TYPE"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -194,11 +288,18 @@
       "source": "fresh",
       "question": "What is the general molecular formula for alkanes?",
       "answerMode": "choice",
-      "options": ["CnHn", "CnH(2n)", "CnH(2n+2)", "CnH(2n−2)"],
+      "options": [
+        "CnHn",
+        "CnH(2n)",
+        "CnH(2n+2)",
+        "CnH(2n−2)"
+      ],
       "expectedAnswer": "CnH(2n+2)",
       "marks": 2,
       "explanation": "Alkanes (saturated): CnH(2n+2). Alkenes (one C=C): CnH(2n). Alkynes (one C≡C): CnH(2n−2).",
-      "errorSignals": ["ERR_HOMOLOGOUS_GENERAL_FORMULA"],
+      "errorSignals": [
+        "ERR_HOMOLOGOUS_GENERAL_FORMULA"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -208,11 +309,19 @@
       "source": "fresh",
       "question": "Identify the homologous series of CH₃-CH₂-Cl.",
       "answerMode": "choice",
-      "options": ["Alkene", "Alcohol", "Haloalkane", "Carboxylic acid"],
+      "options": [
+        "Alkene",
+        "Alcohol",
+        "Haloalkane",
+        "Carboxylic acid"
+      ],
       "expectedAnswer": "Haloalkane",
       "marks": 2,
       "explanation": "Alkane skeleton with a halogen (Cl) replacing a H ⇒ haloalkane (specifically, chloroethane).",
-      "errorSignals": ["ERR_HOMOLOGOUS_FROM_FORMULA", "ERR_HALOALKANE_PREFIX"],
+      "errorSignals": [
+        "ERR_HOMOLOGOUS_FROM_FORMULA",
+        "ERR_HALOALKANE_PREFIX"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -221,12 +330,20 @@
       "gate": "B",
       "source": "fresh",
       "question": "Are CH₃-CH₂-CH₂-CH₃ (n-butane) and (CH₃)₂CH-CH₃ (2-methylpropane) isomers? If yes, what type?",
-      "answerMode": "text",
-      "expectedAnswer": "Yes, they are CHAIN ISOMERS. Both have the molecular formula C₄H₁₀, the same functional group (alkane), but different arrangement of the carbon chain (straight vs branched).",
+      "answerMode": "choice",
+      "expectedAnswer": "Yes — chain isomers (same C₄H₁₀, different carbon-chain arrangement)",
       "marks": 3,
       "explanation": "Same formula + same functional group + different chain arrangement = chain isomers.",
-      "errorSignals": ["ERR_ISOMER_TYPE", "ERR_CHAIN_ISOMER"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_ISOMER_TYPE",
+        "ERR_CHAIN_ISOMER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "No — they are the same compound written differently",
+        "Yes — functional isomers (different functional groups)",
+        "Yes — chain isomers (same C₄H₁₀, different carbon-chain arrangement)"
+      ]
     },
     {
       "id": "L11.T1.A2.q17",
@@ -234,12 +351,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Convert the structural formula CH₃-CH(CH₃)-CH₂-CH₃ into its molecular formula.",
-      "answerMode": "text",
-      "expectedAnswer": "Molecular formula: C₅H₁₂ (5 carbons + 12 hydrogens, total).",
+      "answerMode": "choice",
+      "expectedAnswer": "C₅H₁₂",
       "marks": 2,
       "explanation": "Count atoms: 5 C + (3 + 1 + 2 + 3 + 3) = 12 H. So C₅H₁₂.",
-      "errorSignals": ["ERR_FORMULA_CONVERSION", "ERR_HYDROGEN_COUNT"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FORMULA_CONVERSION",
+        "ERR_HYDROGEN_COUNT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "C₅H₁₂",
+        "C₅H₁₀",
+        "C₄H₁₀"
+      ]
     },
     {
       "id": "L11.T1.A2.q18",
@@ -247,12 +372,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is the functional group -CHO drawn at the END of the carbon chain in an aldehyde?",
-      "answerMode": "text",
-      "expectedAnswer": "Because the aldehyde functional group has the carbonyl carbon (C=O) bonded to AT LEAST ONE hydrogen. This means the carbonyl carbon is at the end of the chain (one bond to H, one to another C). If the carbonyl C were in the middle, with two C bonds, it would be a ketone instead.",
+      "answerMode": "choice",
+      "expectedAnswer": "Because the carbonyl carbon (C=O) is bonded to at least one hydrogen, so it must be at the chain end",
       "marks": 2,
       "explanation": "Aldehyde: -CHO at terminal C. Ketone: -C(=O)- middle C with two carbon groups.",
-      "errorSignals": ["ERR_KETONE_VS_ALDEHYDE"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_KETONE_VS_ALDEHYDE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because the carbonyl carbon must be bonded to two other carbons (that describes a ketone)",
+        "Because the carbonyl carbon (C=O) is bonded to at least one hydrogen, so it must be at the chain end",
+        "Because aldehydes can only have one carbon atom"
+      ]
     },
     {
       "id": "L11.T1.A2.q19",
@@ -271,7 +403,10 @@
       "expectedAnswer": "Pentanoic acid (CH₃-(CH₂)₃-COOH)",
       "marks": 2,
       "explanation": "Carboxylic acids have -OH (and =O), capable of strong hydrogen bonding (O-H...O between molecules). The others have only weaker IMFs (London/dipole-dipole).",
-      "errorSignals": ["ERR_HBONDING_RECOGNITION", "ERR_IMF_RANKING"],
+      "errorSignals": [
+        "ERR_HBONDING_RECOGNITION",
+        "ERR_IMF_RANKING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -280,12 +415,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Convert CH₃-COO-CH₂-CH₃ (an ester) into its molecular formula.",
-      "answerMode": "text",
-      "expectedAnswer": "Molecular formula: C₄H₈O₂. (Count: 4 carbons, 8 hydrogens, 2 oxygens.)",
+      "answerMode": "choice",
+      "expectedAnswer": "C₄H₈O₂",
       "marks": 3,
       "explanation": "Ethyl ethanoate (or ethyl acetate). Carbon count: 2 from CH₃-CO- + 2 from -CH₂-CH₃ = 4. H count: 3+0+2+3 = 8.",
-      "errorSignals": ["ERR_FORMULA_CONVERSION", "ERR_ESTER_FORMULA"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_FORMULA_CONVERSION",
+        "ERR_ESTER_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "C₄H₁₀O₂",
+        "C₃H₆O₂",
+        "C₄H₈O₂"
+      ]
     }
   ],
   "_error_signal_vocabulary": {

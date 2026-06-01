@@ -1,7 +1,9 @@
 {
   "skill": "L11.T1.A3",
   "skill_title": "Relate physical properties to molecular structure and intermolecular forces",
-  "grades": [12],
+  "grades": [
+    12
+  ],
   "paper": "P2",
   "version": "1.0",
   "notes": "20 items: 4 lifted-style, 16 fresh. Trends in BP/MP/vapour pressure/viscosity based on chain length, branching, and functional groups (IMF strength).",
@@ -14,11 +16,19 @@
       "source_ref": "P2 May/Jun 2021 Q1.1 (representative)",
       "question": "Of pentane, pent-1-ene, pentanoic acid, and bromopentane, which has the HIGHEST boiling point?",
       "answerMode": "choice",
-      "options": ["Pentane", "Pent-1-ene", "Pentanoic acid", "Bromopentane"],
+      "options": [
+        "Pentane",
+        "Pent-1-ene",
+        "Pentanoic acid",
+        "Bromopentane"
+      ],
       "expectedAnswer": "Pentanoic acid",
       "marks": 2,
       "explanation": "Pentanoic acid has hydrogen bonding (strongest IMF). The others have London + (weak) dipole-dipole, but no H-bonding. Strongest IMF ⇒ highest BP.",
-      "errorSignals": ["ERR_IMF_VS_BP", "ERR_HBONDING_RECOGNITION"],
+      "errorSignals": [
+        "ERR_IMF_VS_BP",
+        "ERR_HBONDING_RECOGNITION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -27,12 +37,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Compare the boiling points of methane (CH₄) and pentane (C₅H₁₂). Which is higher and why?",
-      "answerMode": "text",
-      "expectedAnswer": "Pentane has the HIGHER boiling point. Both are non-polar alkanes, so the only IMF is London (dispersion) forces. Pentane is a much larger molecule with more electrons and more surface contact, so its London forces are stronger ⇒ harder to vaporise ⇒ higher BP.",
+      "answerMode": "choice",
+      "expectedAnswer": "Pentane — larger, with more electrons and surface contact, so stronger London forces",
       "marks": 3,
       "explanation": "Longer chain ⇒ more electrons ⇒ stronger London ⇒ higher BP. Methane BP ≈ −162°C; pentane BP ≈ 36°C.",
-      "errorSignals": ["ERR_CHAIN_LENGTH_BP", "ERR_IMF_VS_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CHAIN_LENGTH_BP",
+        "ERR_IMF_VS_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Pentane — larger, with more electrons and surface contact, so stronger London forces",
+        "Methane — smaller molecules have higher boiling points",
+        "Equal — both are alkanes with the same intermolecular forces"
+      ]
     },
     {
       "id": "L11.T1.A3.q03",
@@ -40,12 +58,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Compare the boiling points of n-pentane (straight chain) and 2,2-dimethylpropane (branched, same molecular formula C₅H₁₂). Which is higher and why?",
-      "answerMode": "text",
-      "expectedAnswer": "n-Pentane has the HIGHER boiling point. Both have the same molecular formula and same type of IMF (London). However, n-pentane is a long, straight molecule with more SURFACE CONTACT between adjacent molecules ⇒ stronger London forces. 2,2-dimethylpropane is more spherical/compact ⇒ less surface contact ⇒ weaker London ⇒ lower BP.",
+      "answerMode": "choice",
+      "expectedAnswer": "n-Pentane — its straight chain has more surface contact, so stronger London forces",
       "marks": 3,
       "explanation": "Branching reduces surface area available for London interactions. n-pentane (~36°C) vs 2,2-dimethylpropane (~9.5°C).",
-      "errorSignals": ["ERR_BRANCHING_BP", "ERR_IMF_VS_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BRANCHING_BP",
+        "ERR_IMF_VS_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "2,2-dimethylpropane — branching gives stronger London forces",
+        "n-Pentane — its straight chain has more surface contact, so stronger London forces",
+        "Equal — the same molecular formula means the same boiling point"
+      ]
     },
     {
       "id": "L11.T1.A3.q04",
@@ -53,12 +79,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Compare the boiling points of butane (C₄H₁₀) and propan-1-ol (C₃H₇-OH). Which has the higher BP? Explain.",
-      "answerMode": "text",
-      "expectedAnswer": "Propan-1-ol has the higher BP, despite being smaller. Butane has only London forces. Propan-1-ol has -OH, allowing HYDROGEN BONDING (very strong IMF compared to London or dipole-dipole). The H-bonding far outweighs the slightly smaller size of propan-1-ol. (BP butane ≈ −0.5°C; BP propan-1-ol ≈ 97°C.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Propan-1-ol — its -OH allows hydrogen bonding, a much stronger IMF than London",
       "marks": 3,
       "explanation": "Hydrogen bonding dominates BP comparison when chain lengths are comparable.",
-      "errorSignals": ["ERR_HBONDING_RECOGNITION", "ERR_IMF_RANKING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_RECOGNITION",
+        "ERR_IMF_RANKING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Butane — it has more carbon atoms, so a higher boiling point",
+        "Equal — both molecules have similar London forces",
+        "Propan-1-ol — its -OH allows hydrogen bonding, a much stronger IMF than London"
+      ]
     },
     {
       "id": "L11.T1.A3.q05",
@@ -66,12 +100,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Arrange the following in order of INCREASING boiling point: ethane (CH₃CH₃), ethanol (CH₃CH₂OH), ethanoic acid (CH₃COOH).",
-      "answerMode": "text",
-      "expectedAnswer": "Ethane < ethanol < ethanoic acid. Ethane: London only (weak). Ethanol: London + dipole-dipole + H-bonding (one -OH). Ethanoic acid: London + dipole + STRONGER H-bonding (carboxylic acids can form dimers via two H-bonds). More H-bonding ⇒ higher BP.",
+      "answerMode": "choice",
+      "expectedAnswer": "Ethane < ethanol < ethanoic acid",
       "marks": 4,
       "explanation": "Order of IMF strength: London (alkane) < H-bonding (alcohol) < H-bonding (carboxylic acid, double-bonded).",
-      "errorSignals": ["ERR_IMF_RANKING", "ERR_IMF_VS_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMF_RANKING",
+        "ERR_IMF_VS_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ethane < ethanol < ethanoic acid",
+        "Ethanoic acid < ethanol < ethane",
+        "Ethanol < ethanoic acid < ethane"
+      ]
     },
     {
       "id": "L11.T1.A3.q06",
@@ -80,11 +122,18 @@
       "source": "fresh",
       "question": "Which compound has the LOWEST vapour pressure at room temperature: ethanol, ethanoic acid, or pentane?",
       "answerMode": "choice",
-      "options": ["Ethanol", "Ethanoic acid", "Pentane", "All the same"],
+      "options": [
+        "Ethanol",
+        "Ethanoic acid",
+        "Pentane",
+        "All the same"
+      ],
       "expectedAnswer": "Ethanoic acid",
       "marks": 2,
       "explanation": "Strongest IMF (carboxylic acid H-bonding/dimers) ⇒ hardest to vaporise ⇒ lowest vapour pressure at a given T.",
-      "errorSignals": ["ERR_VAPOUR_PRESSURE_IMF"],
+      "errorSignals": [
+        "ERR_VAPOUR_PRESSURE_IMF"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -93,12 +142,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does pentan-1-ol have a higher boiling point than pentan-3-ol (both C₅H₁₂O)?",
-      "answerMode": "text",
-      "expectedAnswer": "Both have the same functional group (-OH) and the same molecular formula. However, in pentan-1-ol the -OH is at the END of the chain, so the H-bonding network can form more easily (less steric hindrance). In pentan-3-ol the -OH is in the middle, partially blocked by surrounding alkyl groups, reducing the effectiveness of H-bonding. (The difference is typically small but consistent.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Pentan-1-ol — its terminal -OH lets H-bonding form more easily (less steric hindrance)",
       "marks": 3,
       "explanation": "Steric accessibility of -OH affects H-bonding strength. Terminal -OH usually H-bonds more effectively.",
-      "errorSignals": ["ERR_POSITIONAL_BP", "ERR_HBONDING_RECOGNITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_POSITIONAL_BP",
+        "ERR_HBONDING_RECOGNITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Pentan-3-ol — a central -OH bonds more strongly",
+        "Pentan-1-ol — its terminal -OH lets H-bonding form more easily (less steric hindrance)",
+        "Equal — same formula and functional group means the same boiling point"
+      ]
     },
     {
       "id": "L11.T1.A3.q08",
@@ -106,12 +163,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "How does INCREASING CHAIN LENGTH affect the viscosity of liquid alkanes?",
-      "answerMode": "text",
-      "expectedAnswer": "Viscosity INCREASES with chain length. Longer alkane molecules have more surface contact and stronger London forces between molecules ⇒ molecules slide past each other less easily ⇒ thicker liquid. (Compare hexane (thin) to motor oil (long-chain, thick).)",
+      "answerMode": "choice",
+      "expectedAnswer": "Viscosity increases — longer chains have stronger London forces, so molecules slide past each other less easily",
       "marks": 2,
       "explanation": "Stronger IMF ⇒ higher viscosity. Long alkanes = thicker fluids.",
-      "errorSignals": ["ERR_CHAIN_LENGTH_VISCOSITY", "ERR_IMF_VS_VISCOSITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CHAIN_LENGTH_VISCOSITY",
+        "ERR_IMF_VS_VISCOSITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Viscosity decreases — longer molecules flow more easily",
+        "Chain length has no effect on viscosity",
+        "Viscosity increases — longer chains have stronger London forces, so molecules slide past each other less easily"
+      ]
     },
     {
       "id": "L11.T1.A3.q09",
@@ -120,11 +185,19 @@
       "source": "fresh",
       "question": "Which of the following has the WEAKEST intermolecular forces?",
       "answerMode": "choice",
-      "options": ["Methanol (CH₃OH)", "Ethanal (CH₃CHO)", "Hexane (C₆H₁₄)", "Ethanoic acid (CH₃COOH)"],
+      "options": [
+        "Methanol (CH₃OH)",
+        "Ethanal (CH₃CHO)",
+        "Hexane (C₆H₁₄)",
+        "Ethanoic acid (CH₃COOH)"
+      ],
       "expectedAnswer": "Hexane (C₆H₁₄)",
       "marks": 2,
       "explanation": "Hexane: only London forces (non-polar). The others have additional dipole-dipole or H-bonding interactions. Despite hexane's larger size, it lacks polar groups, so its IMF is solely (weak) London.",
-      "errorSignals": ["ERR_IMF_RANKING", "ERR_NONPOLAR_IMF"],
+      "errorSignals": [
+        "ERR_IMF_RANKING",
+        "ERR_NONPOLAR_IMF"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -134,11 +207,19 @@
       "source": "fresh",
       "question": "Ethanol and methanol are both alcohols. Which has the HIGHER vapour pressure at the same temperature?",
       "answerMode": "choice",
-      "options": ["Ethanol", "Methanol", "Both the same", "Cannot determine"],
+      "options": [
+        "Ethanol",
+        "Methanol",
+        "Both the same",
+        "Cannot determine"
+      ],
       "expectedAnswer": "Methanol",
       "marks": 2,
       "explanation": "Both have H-bonding via -OH. Methanol (smaller, shorter chain) has weaker London ⇒ overall weaker IMF ⇒ easier to vaporise ⇒ higher vapour pressure.",
-      "errorSignals": ["ERR_VAPOUR_PRESSURE_IMF", "ERR_CHAIN_LENGTH_BP"],
+      "errorSignals": [
+        "ERR_VAPOUR_PRESSURE_IMF",
+        "ERR_CHAIN_LENGTH_BP"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -147,12 +228,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "A learner says: 'Branched alkanes have stronger London forces than straight-chain ones with the same formula.' Is this correct?",
-      "answerMode": "text",
-      "expectedAnswer": "Incorrect. Branched alkanes have LESS surface contact between molecules than straight-chain isomers (more compact, more spherical). Less contact ⇒ WEAKER London forces ⇒ lower BP. The reverse claim is the truth.",
+      "answerMode": "choice",
+      "expectedAnswer": "Incorrect — branched molecules have less surface contact, so weaker London forces",
       "marks": 2,
       "explanation": "Common slip. Branching shrinks surface area ⇒ weaker London ⇒ lower BP.",
-      "errorSignals": ["ERR_BRANCHING_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_BRANCHING_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Incorrect — branched molecules have less surface contact, so weaker London forces",
+        "Correct — branching increases London forces",
+        "Correct — branched molecules are heavier, so stronger forces"
+      ]
     },
     {
       "id": "L11.T1.A3.q12",
@@ -161,11 +249,19 @@
       "source": "fresh",
       "question": "Identify the strongest intermolecular force present in liquid propan-1-ol (CH₃-CH₂-CH₂-OH).",
       "answerMode": "choice",
-      "options": ["London (dispersion)", "Dipole-dipole", "Hydrogen bonding", "Ionic"],
+      "options": [
+        "London (dispersion)",
+        "Dipole-dipole",
+        "Hydrogen bonding",
+        "Ionic"
+      ],
       "expectedAnswer": "Hydrogen bonding",
       "marks": 2,
       "explanation": "-OH means H is bonded to O; H-bonding is possible. H-bonding is the STRONGEST IMF present (London and dipole-dipole are also present but weaker).",
-      "errorSignals": ["ERR_IMF_RANKING", "ERR_HBONDING_RECOGNITION"],
+      "errorSignals": [
+        "ERR_IMF_RANKING",
+        "ERR_HBONDING_RECOGNITION"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -174,12 +270,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is the boiling point of butan-1-ol (~118°C) so much higher than butane (~−0.5°C), despite both having 4 carbons?",
-      "answerMode": "text",
-      "expectedAnswer": "Butan-1-ol has the -OH group, enabling HYDROGEN BONDING — a much stronger IMF than the London-only forces in butane. Hydrogen bonding requires more thermal energy to break, raising the BP substantially.",
+      "answerMode": "choice",
+      "expectedAnswer": "Butan-1-ol — its -OH enables hydrogen bonding, far stronger than butane's London forces",
       "marks": 3,
       "explanation": "Adding -OH adds H-bonding ⇒ dramatic BP increase.",
-      "errorSignals": ["ERR_HBONDING_RECOGNITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_RECOGNITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Butane — they have the same number of carbons, so the same boiling point",
+        "Butan-1-ol — its -OH enables hydrogen bonding, far stronger than butane's London forces",
+        "Butane — being a gas, it has stronger forces than the liquid alcohol"
+      ]
     },
     {
       "id": "L11.T1.A3.q14",
@@ -187,12 +290,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Two alcohols A (chain length 4) and B (chain length 8) are compared. Which has higher boiling point and viscosity?",
-      "answerMode": "text",
-      "expectedAnswer": "Alcohol B (chain length 8) has BOTH higher boiling point AND higher viscosity. Longer chains have more electrons and more London contact between molecules; the H-bonding component is similar (one -OH each), so the increased London contribution dominates. More IMF energy needed to vaporise (higher BP) and more friction between molecules (higher viscosity).",
+      "answerMode": "choice",
+      "expectedAnswer": "B (8 carbons) — longer chains have stronger London forces, raising both boiling point and viscosity",
       "marks": 3,
       "explanation": "Longer chain ⇒ stronger London (added to existing H-bonding) ⇒ higher BP and higher viscosity.",
-      "errorSignals": ["ERR_CHAIN_LENGTH_BP", "ERR_CHAIN_LENGTH_VISCOSITY"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CHAIN_LENGTH_BP",
+        "ERR_CHAIN_LENGTH_VISCOSITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A (4 carbons) — shorter chains boil higher and are more viscous",
+        "Same boiling point, but B is more viscous",
+        "B (8 carbons) — longer chains have stronger London forces, raising both boiling point and viscosity"
+      ]
     },
     {
       "id": "L11.T1.A3.q15",
@@ -201,11 +312,18 @@
       "source": "fresh",
       "question": "Which compound has the highest melting point: ethane, ethanol, ethanoic acid, or methane?",
       "answerMode": "choice",
-      "options": ["Ethane", "Ethanol", "Ethanoic acid", "Methane"],
+      "options": [
+        "Ethane",
+        "Ethanol",
+        "Ethanoic acid",
+        "Methane"
+      ],
       "expectedAnswer": "Ethanoic acid",
       "marks": 2,
       "explanation": "Ethanoic acid has H-bonding dimers + larger molecule. Strongest IMF ⇒ highest MP. (Ethanoic acid MP ≈ 17°C; ethanol MP ≈ −114°C; ethane MP ≈ −183°C.)",
-      "errorSignals": ["ERR_IMF_RANKING"],
+      "errorSignals": [
+        "ERR_IMF_RANKING"
+      ],
       "passThreshold": 0.7
     },
     {
@@ -214,12 +332,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why is petrol (a mixture of short-chain alkanes) more volatile than diesel (longer-chain alkanes)?",
-      "answerMode": "text",
-      "expectedAnswer": "Petrol molecules are shorter (~5-12 carbons), so they have fewer electrons and less surface contact between molecules ⇒ WEAKER London forces ⇒ easier to vaporise. Diesel (~12-20 carbons) has stronger London forces ⇒ less volatile (higher BP).",
+      "answerMode": "choice",
+      "expectedAnswer": "Petrol — shorter chains have weaker London forces, so it vaporises more easily",
       "marks": 3,
       "explanation": "Volatility scales inversely with IMF strength. Short alkane = volatile; long alkane = non-volatile.",
-      "errorSignals": ["ERR_CHAIN_LENGTH_BP", "ERR_VAPOUR_PRESSURE_IMF"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_CHAIN_LENGTH_BP",
+        "ERR_VAPOUR_PRESSURE_IMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Petrol — shorter chains have weaker London forces, so it vaporises more easily",
+        "Diesel — longer chains evaporate more easily",
+        "Equal — both are mixtures of alkanes"
+      ]
     },
     {
       "id": "L11.T1.A3.q17",
@@ -227,12 +353,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "List the THREE types of intermolecular forces present in a typical organic liquid, in order from STRONGEST to WEAKEST.",
-      "answerMode": "text",
-      "expectedAnswer": "(1) Hydrogen bonding (strongest — requires H bonded to N, O, or F); (2) Dipole-dipole (present in polar molecules); (3) London / dispersion forces (weakest, present in ALL molecules).",
+      "answerMode": "choice",
+      "expectedAnswer": "Hydrogen bonding > dipole-dipole > London (dispersion) forces",
       "marks": 3,
       "explanation": "IMF hierarchy: H-bonding >> dipole-dipole > London. Note that London forces grow with molecular size — large non-polar molecules can have stronger IMFs than smaller polar ones.",
-      "errorSignals": ["ERR_IMF_RANKING"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMF_RANKING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "London > dipole-dipole > hydrogen bonding",
+        "Hydrogen bonding > dipole-dipole > London (dispersion) forces",
+        "Dipole-dipole > hydrogen bonding > London"
+      ]
     },
     {
       "id": "L11.T1.A3.q18",
@@ -240,12 +373,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Two compounds: P (propan-2-ol) and Q (propanone, CH₃-CO-CH₃). They are functional isomers (same C₃H₆O for Q but different functional groups). Which has the higher boiling point and why?",
-      "answerMode": "text",
-      "expectedAnswer": "Propan-2-ol (alcohol) has the higher boiling point. Propan-2-ol has H-bonding (strong IMF via -OH). Propanone (ketone) has only dipole-dipole and London (the C=O is polar but lacks O-H for hydrogen bonding). Stronger IMF in propan-2-ol ⇒ higher BP. (P: 82°C, Q: 56°C.)",
+      "answerMode": "choice",
+      "expectedAnswer": "Propan-2-ol — its -OH allows hydrogen bonding; propanone has only dipole-dipole and London",
       "marks": 3,
       "explanation": "Alcohol H-bonding beats ketone dipole-dipole — even at similar molecular size.",
-      "errorSignals": ["ERR_IMF_RANKING", "ERR_HBONDING_RECOGNITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMF_RANKING",
+        "ERR_HBONDING_RECOGNITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Propanone — its polar C=O gives it the stronger forces",
+        "Equal — they have the same molecular formula",
+        "Propan-2-ol — its -OH allows hydrogen bonding; propanone has only dipole-dipole and London"
+      ]
     },
     {
       "id": "L11.T1.A3.q19",
@@ -253,12 +394,19 @@
       "gate": "A",
       "source": "fresh",
       "question": "Why does water have an unusually high boiling point compared to other small molecules (like CH₄ or H₂S)?",
-      "answerMode": "text",
-      "expectedAnswer": "Water has extensive HYDROGEN BONDING due to its -O-H structure. Each water molecule can form up to 4 H-bonds with neighbours (two as donor, two as acceptor). This network of H-bonds is hard to break, requiring much more energy to vaporise than for CH₄ (London only) or H₂S (dipole only). Hence BP_water = 100°C, BP_CH₄ = −162°C, BP_H₂S = −60°C.",
+      "answerMode": "choice",
+      "expectedAnswer": "Water forms an extensive network of hydrogen bonds (up to four per molecule)",
       "marks": 3,
       "explanation": "Water's tetrahedral H-bonding network is exceptionally strong relative to molecular size.",
-      "errorSignals": ["ERR_HBONDING_RECOGNITION"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_HBONDING_RECOGNITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Water forms an extensive network of hydrogen bonds (up to four per molecule)",
+        "Water molecules are unusually heavy",
+        "Water has exceptionally strong London (dispersion) forces"
+      ]
     },
     {
       "id": "L11.T1.A3.q20",
@@ -266,12 +414,20 @@
       "gate": "A",
       "source": "fresh",
       "question": "Predict the order of boiling points (lowest to highest) for: butan-1-ol, butanoic acid, pent-1-ene, butane.",
-      "answerMode": "text",
-      "expectedAnswer": "Butane < pent-1-ene < butan-1-ol < butanoic acid. Butane (4 C, alkane, London only) lowest. Pent-1-ene (5 C, alkene, slightly larger and slightly more polarisable from the C=C, still London-dominant) next. Butan-1-ol (4 C, alcohol, H-bonding) much higher. Butanoic acid (4 C, carboxylic acid, strong H-bonding via dimers) highest.",
+      "answerMode": "choice",
+      "expectedAnswer": "Butane < pent-1-ene < butan-1-ol < butanoic acid",
       "marks": 4,
       "explanation": "Order by IMF strength: London-only (small) < London-only (slightly larger) < H-bonding (alcohol) < H-bonding (carboxylic acid).",
-      "errorSignals": ["ERR_IMF_RANKING", "ERR_IMF_VS_BP"],
-      "passThreshold": 0.7
+      "errorSignals": [
+        "ERR_IMF_RANKING",
+        "ERR_IMF_VS_BP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Butanoic acid < butan-1-ol < pent-1-ene < butane",
+        "Butane < pent-1-ene < butan-1-ol < butanoic acid",
+        "Butane < butan-1-ol < pent-1-ene < butanoic acid"
+      ]
     }
   ],
   "_error_signal_vocabulary": {
